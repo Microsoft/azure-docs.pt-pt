@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 2ea68b8a6cf26db2e4ba440140cfa900cebbb4aa
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 396d0f6a2ef9a8c24fc92b641c889ef9e1a7df49
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335660"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578302"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch através da API .NET
 
@@ -35,7 +35,7 @@ Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o for
 
 * Uma conta do Batch e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch com o [portal do Azure](quick-create-portal.md) ou com a [CLI do Azure](quick-create-cli.md).
 
-* [Versão do Windows 64-bit de ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z) (.zip). Transfira o ficheiro zip para o seu computador local. Para este tutorial, só precisa do ficheiro zip. Não tem de deszipar o ficheiro ou instalá-lo localmente.
+* [Versão do Windows 64-bit de ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08) (.zip). Transfira o ficheiro zip para o seu computador local. Para este tutorial, só precisa do ficheiro zip. Não tem de deszipar o ficheiro ou instalá-lo localmente.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

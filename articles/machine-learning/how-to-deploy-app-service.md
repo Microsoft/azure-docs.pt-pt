@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: bea3270821888334ed876bb827dab56b4c206b6a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 491fa39bed9e73a41f5a29a9040df052b6945552
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325236"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578030"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implementar um modelo de machine learning para o Azure App Service (pré-visualização)
 
@@ -75,7 +75,7 @@ Antes de implementar, deve definir o que é necessário para executar o modelo c
 Estas entidades são encapsuladas numa __configuração de inferência.__ A configuração de inferência referencia o script de entrada e outras dependências.
 
 > [!IMPORTANT]
-> Ao criar uma configuração de inferência para utilização com o Serviço de Aplicações Azure, deve utilizar um objeto [Ambiente.](//python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) Por favor, note que se estiver a definir um ambiente personalizado, deve adicionar azureml-padrão com >versão = 1.0.45 como dependência de pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web. O exemplo a seguir demonstra a criação de um objeto ambiental e a sua utilização com uma configuração de inferência:
+> Ao criar uma configuração de inferência para utilização com o Serviço de Aplicações Azure, deve utilizar um objeto [Ambiente.](/python/api/azureml-core/azureml.core.environment(class)?preserve-view=true&view=azure-ml-py) Por favor, note que se estiver a definir um ambiente personalizado, deve adicionar azureml-padrão com >versão = 1.0.45 como dependência de pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web. O exemplo a seguir demonstra a criação de um objeto ambiental e a sua utilização com uma configuração de inferência:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -101,7 +101,7 @@ Para obter mais informações sobre a configuração de inferência, consulte [i
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Para criar a imagem Docker que é implantada no Azure App Service, utilize [o Model.package](//python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). O seguinte corte de código demonstra como construir uma nova imagem a partir do modelo e configuração de inferência:
+Para criar a imagem Docker que é implantada no Azure App Service, utilize [o Model.package](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py). O seguinte corte de código demonstra como construir uma nova imagem a partir do modelo e configuração de inferência:
 
 > [!NOTE]
 > O código de corte assume que `model` contém um modelo registado, e que contém `inference_config` a configuração para o ambiente de inferência. Para obter mais informações, consulte [implementar modelos com Azure Machine Learning](how-to-deploy-and-where.md).

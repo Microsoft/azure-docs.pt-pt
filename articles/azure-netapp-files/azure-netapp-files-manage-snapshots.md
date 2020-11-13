@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491652"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591752"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
@@ -144,6 +144,17 @@ Pode apagar uma política de instantâneo que já não pretende manter.
 
     ![Política instantânea eliminar confirmação](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## <a name="edit-the-hide-snapshot-path-option"></a>Edite a opção Hide Snapshot Path
+A opção Hide Snapshot Path controla se o caminho instantâneo de um volume é visível. Durante a criação de um volume [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) ou [SMB,](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) tem a opção de especificar se o caminho do instantâneo deve ser escondido. Pode posteriormente editar a opção Hide Snapshot Path, conforme necessário.  
+
+> [!NOTE]
+> Para um volume de [destino](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) na replicação transversal, a opção Hide Snapshot Path é ativada por padrão e a definição não pode ser modificada. 
+
+1. Para visualizar a definição da opção Hide Snapshot Path de um volume, selecione o volume. O campo **de caminho do instantâneo Oculta** mostra se a opção está ativada.   
+    ![Screenshot que descreve o campo Hide Snapshot Path.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. Para editar a opção Ocultar O caminho, clique em **Editar** na página de volume e modificar a opção **de caminho de ocultação** conforme necessário.   
+    ![Screenshot que descreve a opção de instantâneo de volume editar.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Restaurar um instantâneo para um novo volume
 
 Atualmente, pode restaurar uma imagem apenas para um novo volume. 
@@ -173,11 +184,7 @@ Se não quiser [restaurar a totalidade do instantâneo num volume,](#restore-a-s
 
 O volume montado contém um diretório instantâneo denominado  `.snapshot` (em clientes NFS) ou `~snapshot` (em clientes SMB) que é acessível ao cliente. O diretório instantâneo contém subdireções correspondentes às imagens do volume. Cada subdiretório contém os ficheiros do instantâneo. Se eliminar acidentalmente ou substituir um ficheiro, pode restaurar o ficheiro no diretório de leitura-escrita dos pais copiando o ficheiro de uma subdiretório instantânea para o diretório de leitura. 
 
-Se selecionou a caixa de verificação Hide Snapshot Path quando criou o volume, o diretório instantâneo está escondido. Pode ver o estado do Caminho do Instantâneo de Ocultação do volume selecionando o volume. Pode editar a opção Ocultar O caminho do instantâneo clicando em **Editar** na página do volume.  
-
-Para um volume de destino na replicação transversal, o Caminho do Snapshot é ativado por padrão e a definição não pode ser modificada.
-
-![Editar opções de instantâneo de volume](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+Se não vir o diretório instantâneo, pode ser escondido porque a opção Hide Snapshot Path está ativada. Pode [editar a opção Hide Snapshot Path](#edit-the-hide-snapshot-path-option) para desativá-la.  
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restaurar um ficheiro utilizando um cliente Linux NFS 
 

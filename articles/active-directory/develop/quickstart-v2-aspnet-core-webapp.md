@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 80b0c357bbad79a31d8b7153248b73c1231629c8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 98d2b4ed4b0d3cef2cde156dc05ebb314edff365
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145047"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592265"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET
 
-Neste quickstart, você usa uma amostra de código para saber como uma aplicação web core ASP.NET pode assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD). (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
+Neste quickstart, você descarrega e execute uma amostra de código que demonstra como uma aplicação web core ASP.NET pode assinar em utilizadores de qualquer organização do Azure Ative Directory (Azure AD).  
+
+Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Pré-requisitos
@@ -48,14 +50,14 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 > 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 > 1. Procure e selecione **Azure Active Directory**.
-> 1. Em **Gestão**, selecione **registos de Aplicações,** em seguida, **Novo registo**.
+> 1. Em **Gestão** , selecione **registos de Aplicações,** em seguida, **Novo registo**.
 > 1. Introduza um **Nome** para a sua aplicação, por `AspNetCore-Quickstart` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
 > 1. Insira um **URI redirecionado** de `https://localhost:44321/`
 > 1. Selecione **Registar**.
-> 1. Em **Gestão**, **selecione Autenticação**.
-> 1. Em **Redirecionar URIs**, selecione **Add URI**, e, em seguida, insira `https://localhost:44321/signin-oidc`
+> 1. Em **Gestão** , **selecione Autenticação**.
+> 1. Em **Redirecionar URIs** , selecione **Add URI** , e, em seguida, insira `https://localhost:44321/signin-oidc`
 > 1. Insira um **URL logout** de `https://localhost:44321/signout-oidc`
-> 1. Em **Concessão implícita**, selecione **Tokens de ID**.
+> 1. Em **Concessão implícita** , selecione **Tokens de ID**.
 > 1. Selecione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -98,14 +100,14 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 >    - Substitua `Enter_the_Application_Id_here` pelo ID de **Aplicação (cliente)** da aplicação que registou no portal Azure. Pode encontrar **iD de aplicação (cliente)** na **página** geral da aplicação.
 >    - Substitua `common` por uma das seguintes:
 >       - Se a sua candidatura apoiar **apenas neste diretório organizacional,** substitua este valor pelo **ID do Diretório (inquilino)** (um **GUIADO)** ou nome de inquilino (por exemplo, `contoso.onmicrosoft.com` ). Pode encontrar o ID do **Diretório (inquilino)** na **página** geral da aplicação.
->       - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
+>       - Se a sua aplicação suportar **Contas em qualquer diretório organizacional** , substitua este valor por `organizations`
 >       - Se a sua aplicação suportar **todos os utilizadores da conta microsoft,** deixe este valor como `common`
 >
 > Para este arranque rápido, não altere quaisquer outros valores no *appsettings.jsno* ficheiro.
 >
 > #### <a name="step-4-build-and-run-the-application"></a>Passo 4: compilar e executar a aplicação
 >
-> Construa e execute a aplicação no Visual Studio selecionando o menu **Debug** > **Start Debugging**, ou premindo a `F5` chave.
+> Construa e execute a aplicação no Visual Studio selecionando o menu **Debug** > **Start Debugging** , ou premindo a `F5` chave.
 >
 > É solicitado para as suas credenciais, e depois solicitado para consentir com as permissões que a sua aplicação requer. **Selecione Aceite** na solicitação de consentimento.
 >
@@ -113,7 +115,7 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 >
 > Depois de consentir com as permissões solicitadas, a aplicação apresenta que fez login com sucesso usando as suas credenciais de Diretório Azure Ative.
 >
-> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Diálogo de consentimento mostrando as permissões que a aplicação está solicitando do utilizador >":::
+> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Web browser exibindo a aplicação web em execução e o utilizador assinou em":::
 
 ## <a name="more-information"></a>Mais informações
 
@@ -146,7 +148,7 @@ O middleware *Microsoft.AspNetCore.Authentication* utiliza uma `Startup` classe 
 
 O `AddAuthentication()` método configura o serviço para adicionar autenticação baseada em cookies, que é usada em cenários de navegador e para definir o desafio para OpenID Connect.
 
-A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. Em seguida, é configurado para iniciar sação usando o ponto final da plataforma de identidade da Microsoft com base nas informações `AzureAD` na secção doappsettings.js* no* ficheiro de configuração:
+A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. Em seguida, é configurado para iniciar sação usando o ponto final da plataforma de identidade da Microsoft com base nas informações `AzureAD` na secção doappsettings.js *no* ficheiro de configuração:
 
 | *appsettings.jsna* chave | Descrição                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

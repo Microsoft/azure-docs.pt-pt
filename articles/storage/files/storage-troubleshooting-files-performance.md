@@ -1,20 +1,20 @@
 ---
-title: Guia de resolução de problemas de desempenho de compartilhamento de ficheiros Azure
-description: Resolução de problemas conhecidos problemas de desempenho com ficheiros Azure. Descubra potenciais causas e soluções alternativas associadas quando estes problemas são encontrados.
+title: Azure file partilha guia de resolução de problemas de desempenho
+description: Resolução de problemas conhecidos problemas de desempenho com ações de ficheiros Azure. Descubra potenciais causas e soluções alternativas associadas quando estes problemas são encontrados.
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 52376cabfd837ad7435c8e9c992fe000e0521247
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 4d89fb4bcedb58aa156e75aaefc87479797dcd37
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561119"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577977"
 ---
-# <a name="troubleshoot-azure-file-share-performance-issues"></a>Problemas com a ação de azure
+# <a name="troubleshoot-azure-file-shares-performance-issues"></a>Resolução de problemas Azure partilha problemas de desempenho
 
 Este artigo enumera alguns problemas comuns relacionados com as ações de ficheiros Azure. Fornece potenciais causas e soluções alternativas para quando se depara com estes problemas.
 

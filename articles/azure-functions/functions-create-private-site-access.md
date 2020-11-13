@@ -6,16 +6,16 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 38bc0ec546526cd0c6631b7cd5b70753c3235d18
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e367e4f2a704d8c718551fb031164520b3ff5bb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563992"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579135"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer acesso ao site privado Azure Functions
 
-Este tutorial mostra-lhe como ativar o acesso ao [site privado](./functions-networking-options.md#private-site-access) com funções Azure. Ao utilizar o acesso ao site privado, pode exigir que o seu código de função seja apenas acionado a partir de uma rede virtual específica.
+Este tutorial mostra-lhe como ativar o acesso ao [site privado](./functions-networking-options.md#private-endpoint-connections) com funções Azure. Ao utilizar o acesso ao site privado, pode exigir que o seu código de função seja apenas acionado a partir de uma rede virtual específica.
 
 O acesso ao site privado é útil em cenários em que o acesso à aplicação de função precisa de ser limitado a uma rede virtual específica. Por exemplo, a aplicação de função pode ser aplicável apenas aos colaboradores de uma organização específica, ou serviços que estejam dentro da rede virtual especificada (como outra Função Azure, Máquina Virtual Azure ou um cluster AKS).
 
@@ -159,7 +159,7 @@ O próximo passo é criar uma aplicação de função em Azure utilizando o [pla
 
 O próximo passo é configurar restrições de acesso para garantir que [apenas](../app-service/app-service-ip-restrictions.md) os recursos na rede virtual podem invocar a função.
 
-[O](functions-networking-options.md#private-site-access) acesso ao site privado é ativado através da criação de um [ponto de terminação](../virtual-network/virtual-network-service-endpoints-overview.md) de serviço da Rede Virtual Azure entre a aplicação de função e a rede virtual especificada. As restrições de acesso são implementadas através de pontos finais de serviço. Os pontos finais de serviço garantem que apenas o tráfego originário da rede virtual especificada pode aceder ao recurso designado. Neste caso, o recurso designado é a Função Azure.
+[O](functions-networking-options.md#private-endpoint-connections) acesso ao site privado é ativado através da criação de um [ponto de terminação](../virtual-network/virtual-network-service-endpoints-overview.md) de serviço da Rede Virtual Azure entre a aplicação de função e a rede virtual especificada. As restrições de acesso são implementadas através de pontos finais de serviço. Os pontos finais de serviço garantem que apenas o tráfego originário da rede virtual especificada pode aceder ao recurso designado. Neste caso, o recurso designado é a Função Azure.
 
 1. Dentro da aplicação de função, selecione o link **de rede** sob o cabeçalho da secção _Definições._
 1. A página _de Networking_ é o ponto de partida para configurar a Porta frontal Azure, o Azure CDN, e também restrições de acesso.

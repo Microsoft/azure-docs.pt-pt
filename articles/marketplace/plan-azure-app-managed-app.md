@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: fbb78148418206a9a6e17b29ce17de0a23491839
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 2f32fc9ffb8be5b71bfe84a4f0e946e68e8fcd03
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370212"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577826"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planeie um pedido gerido pela Azure para uma oferta de candidatura da Azure
 
@@ -32,7 +32,7 @@ Utilize uma Aplicação Azure: Plano de candidatura gerido quando forem necessá
 | ------------ | ------------- |
 | Uma subscrição do Azure | As aplicações geridas devem ser implementadas na subscrição de um cliente, mas podem ser geridas por terceiros. |
 | Faturação e medição | Os recursos são fornecidos na subscrição Azure de um cliente. Os VMs que utilizam o modelo de pagamento pay-as-you-go são transacionados com o cliente através da Microsoft e faturados através da subscrição Azure do cliente. <br><br> Para os VMs de sua própria licença, a Microsoft fatura quaisquer custos de infraestrutura que sejam incorridos na subscrição do cliente, mas você transaciona diretamente as taxas de licenciamento de software com o cliente. |
-| Disco rígido virtual compatível com Azure (VHD) | Os VMs devem ser construídos em Windows ou Linux. Para obter mais informações, consulte:<br> • [Criar um ativo técnico Azure VM](/azure/marketplace/partner-center-portal/vm-certification-issues-solutions#how-to-address-a-vulnerability-or-exploit-in-a-vm-offer.md) (para VHDs windows).<br> •  [Distribuição linux endossada no Azure](/azure/virtual-machines/linux/endorsed-distros.md) (para Os VHDs Linux). |
+| Disco rígido virtual compatível com Azure (VHD) | Os VMs devem ser construídos em Windows ou Linux. Para obter mais informações, veja:<br> • [Criar um ativo técnico Azure VM](/azure/marketplace/partner-center-portal/vm-certification-issues-solutions#how-to-address-a-vulnerability-or-exploit-in-a-vm-offer.md) (para VHDs windows).<br> •  [Distribuição linux endossada no Azure](/azure/virtual-machines/linux/endorsed-distros) (para Os VHDs Linux). |
 | Atribuição de utilização dos clientes | Todas as novas ofertas de aplicações da Azure também devem incluir uma [atribuição de utilização do cliente parceiro Azure](azure-partner-customer-usage-attribution.md) GUID. Para obter mais informações sobre a atribuição de utilização do cliente e como a capacitar, consulte a [atribuição de utilização do cliente do parceiro Azure](azure-partner-customer-usage-attribution.md). |
 | Pacote de implantação | Vai precisar de um pacote de implementação que permitirá aos clientes implementarem o seu plano. Se criar vários planos que exijam a mesma configuração técnica, pode utilizar o mesmo pacote. Para mais detalhes, consulte a secção seguinte: Pacote de implementação. |
 |||
@@ -47,7 +47,7 @@ O pacote de implementação contém todos os ficheiros de modelo necessários pa
 Todas as aplicações Azure devem incluir estes dois ficheiros na pasta raiz de um arquivo .zip:
 
 - Um ficheiro de modelo do Gestor de Recursos nomeado [mainTemplate.jsem](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md). Este modelo define os recursos para implantar na subscrição Azure do cliente. Para exemplos de modelos de Gestor de Recursos, consulte [a galeria de modelos Azure Quickstart](https://azure.microsoft.com/documentation/templates/) ou o [gitHub correspondente: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
-- Uma definição de interface de utilizador para a experiência de criação de aplicações Azure chamada [createUiDefinition.jsem](/azure/azure-resource-manager/managed-application-createuidefinition-overview.md). Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
+- Uma definição de interface de utilizador para a experiência de criação de aplicações Azure chamada [createUiDefinition.jsem](/azure/azure-resource-manager/managed-application-createuidefinition-overview). Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
 
 Os tamanhos máximos de ficheiro suportados são:
 
@@ -58,7 +58,7 @@ Todas as novas ofertas de aplicações da Azure também devem incluir uma [atrib
 
 ## <a name="azure-regions"></a>Regiões do Azure
 
-Pode publicar o seu plano na região pública de Azure, região do Governo de Azure, ou em ambos. Antes de publicar para o [Governo Azure,](/azure/azure-government/documentation-government-manage-marketplace-partners.md)teste e valide o seu plano no ambiente, uma vez que certos pontos finais podem diferir. Para configurar e testar o seu plano, solicite uma conta de teste do julgamento do [Governo Microsoft Azure](https://azure.microsoft.com/global-infrastructure/government/request/).
+Pode publicar o seu plano na região pública de Azure, região do Governo de Azure, ou em ambos. Antes de publicar para o [Governo Azure,](/azure/azure-government/documentation-government-manage-marketplace-partners)teste e valide o seu plano no ambiente, uma vez que certos pontos finais podem diferir. Para configurar e testar o seu plano, solicite uma conta de teste do julgamento do [Governo Microsoft Azure](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 Você, como editora, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas. O Governo Azure utiliza centros e redes de dados fisicamente isolados (localizados apenas nos EUA).
 
@@ -87,14 +87,14 @@ Os preços são definidos em USD (USD = Dólar dos Estados Unidos) são converti
 
 ## <a name="just-in-time-jit-access"></a>Mesmo a tempo (JIT) acesso
 
-O acesso ao JIT permite-lhe solicitar um acesso elevado aos recursos de uma aplicação gerida para resolução de problemas ou manutenção. Sempre tem acesso apenas de leitura aos recursos, mas por um período específico pode ter um maior acesso. Para obter mais informações, consulte [Ativar e solicitar acesso just-in-time para aplicações geridas azure](/azure/managed-applications/request-just-in-time-access.md).
+O acesso ao JIT permite-lhe solicitar um acesso elevado aos recursos de uma aplicação gerida para resolução de problemas ou manutenção. Sempre tem acesso apenas de leitura aos recursos, mas por um período específico pode ter um maior acesso. Para obter mais informações, consulte [Ativar e solicitar acesso just-in-time para aplicações geridas azure](/azure/managed-applications/request-just-in-time-access).
 
 > [!NOTE]
 > Informações que o utilizador deve notar mesmo que desacerte a sua atualização do seu `createUiDefinition.json` ficheiro de forma a suportar esta funcionalidade.
 
 ## <a name="deployment-mode"></a>Modo de implantação
 
-Pode configurar um plano de aplicação gerido para utilizar o modo de implementação **Completo** ou **Incremental.** Em modo completo, uma redistribuição da aplicação pelo cliente resulta na remoção de recursos no grupo de recursos geridos se os recursos não forem definidos no [mainTemplate.jsem](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md). Em modo incremental, uma redistribuição da aplicação deixa os recursos existentes inalterados. Para saber mais, consulte [os modos de implementação do Gestor de Recursos Azure](/azure/azure-resource-manager/templates/deployment-modes.md?WT.mc_id=pc_52).
+Pode configurar um plano de aplicação gerido para utilizar o modo de implementação **Completo** ou **Incremental.** Em modo completo, uma redistribuição da aplicação pelo cliente resulta na remoção de recursos no grupo de recursos geridos se os recursos não forem definidos no [mainTemplate.jsem](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md). Em modo incremental, uma redistribuição da aplicação deixa os recursos existentes inalterados. Para saber mais, consulte [os modos de implementação do Gestor de Recursos Azure](/azure/azure-resource-manager/templates/deployment-modes).
 
 ## <a name="notification-endpoint-url"></a>URL de ponto final de notificação
 
@@ -104,7 +104,7 @@ Pode opcionalmente fornecer um ponto final HTTPS Webhook para receber notificaç
 
 Pode especificar opcionalmente quais as ações que os clientes podem realizar sobre os recursos geridos, além das `*/read` ações que estão disponíveis por padrão.
 
-Se escolher esta opção, tem de fornecer as ações de controlo ou as ações de dados permitidas, ou ambas. Para obter mais informações, consulte [Understanding negar atribuições para recursos Azure](/azure/role-based-access-control/deny-assignments.md). Para as ações disponíveis, consulte [as operações do fornecedor de recursos do Azure Resource Manager](/azure/role-based-access-control/resource-provider-operations.md). Por exemplo, permitir que os consumidores reiniciem as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` às ações permitidas.
+Se escolher esta opção, tem de fornecer as ações de controlo ou as ações de dados permitidas, ou ambas. Para obter mais informações, consulte [Understanding negar atribuições para recursos Azure](/azure/role-based-access-control/deny-assignments). Para as ações disponíveis, consulte [as operações do fornecedor de recursos do Azure Resource Manager](/azure/role-based-access-control/resource-provider-operations). Por exemplo, permitir que os consumidores reiniciem as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` às ações permitidas.
 
 ## <a name="choose-who-can-manage-the-application"></a>Escolha quem pode gerir a aplicação
 
@@ -113,24 +113,24 @@ Deve indicar quem pode gerir uma aplicação gerida em cada uma das nuvens selec
 - **Azure Ative Directory Tenanty ID** – The Azure AD Tenant ID (também conhecido como ID de diretório) contendo as identidades dos utilizadores, grupos ou aplicações a que pretende conceder permissões. Você pode encontrar o seu ID de Inquilino Azure no portal Azure, em [Propriedades para Diretório Ativo Azure.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
 - **Autorizações** – Adicione o ID do objeto Azure Ative De cada utilizador, grupo ou aplicação que pretende ser autorizado ao grupo de recursos geridos. Identifique o utilizador pelo seu ID principal, que pode ser encontrado na lâmina de utilizadores do [Azure Ative Directory no portal Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Para cada ID principal, irá associar uma das funções incorporadas AD AD (Proprietário ou Contribuinte). A função selecionada descreve as permissões que o principal terá sobre os recursos na subscrição do cliente. Para obter mais informações, veja [Funções incorporadas do Azure](/azure/role-based-access-control/built-in-roles.md). Para obter mais informações sobre o controlo de acesso baseado em funções (RBAC), consulte [Começar com o RBAC no portal Azure](/azure/role-based-access-control/overview.md).
+Para cada ID principal, irá associar uma das funções incorporadas AD AD (Proprietário ou Contribuinte). A função selecionada descreve as permissões que o principal terá sobre os recursos na subscrição do cliente. Para obter mais informações, veja [Funções incorporadas do Azure](/azure/role-based-access-control/built-in-roles). Para obter mais informações sobre o controlo de acesso baseado em funções (RBAC), consulte [Começar com o RBAC no portal Azure](/azure/role-based-access-control/overview).
 
 > [!NOTE]
 > Embora possa adicionar até 100 autorizações por região de Azure, é geralmente mais fácil criar um grupo de utilizadores do Ative Directory e especificar o seu ID no "ID principal". Isto permite adicionar mais utilizadores ao grupo de gestão após a implementação do plano e reduzir a necessidade de atualizar o plano apenas para adicionar mais autorizações.
 
 ## <a name="policy-settings"></a>Definições de política
 
-Pode aplicar [as Políticas Azure](/azure/governance/policy.md) à sua aplicação gerida para especificar os requisitos de conformidade para a solução implementada. Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](/azure/governance/policy/samples.md).
+Pode aplicar [as Políticas Azure](/azure/governance/policy) à sua aplicação gerida para especificar os requisitos de conformidade para a solução implementada. Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](/azure/governance/policy/samples).
 
 Pode configurar um máximo de cinco políticas, e apenas um caso de cada tipo de Política. Alguns tipos de política requerem parâmetros adicionais.
 
 | Tipo de política | Parâmetros de política necessários |
 | ------------ | ------------- |
-| Encriptação da base de dados Azure SQL | No |
+| Encriptação da base de dados Azure SQL | Não |
 | Definições de auditoria do servidor Azure SQL | Yes |
-| Encriptação da Loja Azure Data Lake | No |
+| Encriptação da Loja Azure Data Lake | Não |
 | Definição de diagnóstico de auditoria | Yes |
-| Conformidade da Localização de Recursos de Auditoria | No |
+| Conformidade da Localização de Recursos de Auditoria | Não |
 |||
 
 Para cada tipo de apólice que adicionar, deve associar a Standard ou Free Policy SKU. O SKU Standard é necessário para as políticas de auditoria. Os nomes das apólices estão limitados a 50 caracteres.

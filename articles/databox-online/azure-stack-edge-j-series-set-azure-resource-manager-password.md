@@ -1,6 +1,6 @@
 ---
 title: Desconfiem da palavra-passe do Gestor de Recursos Azure no seu dispositivo GPU Azure Stack Edge Pro
-description: Descreve como ligar-se ao Gestor de Recursos Azure em execução no seu GPU Azure Stack Edge Pro utilizando o Azure PowerShell.
+description: Descreve definir a palavra-passe do Gestor de Recursos Azure no seu GPU Azure Stack Edge Pro usando a Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 915146cd17b90272daea4ce57f5243baf1d49cb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904489"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578795"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Definir palavra-passe do Gestor de Recursos Azure no dispositivo GPU Azure Stack Edge Pro
 
@@ -21,14 +21,14 @@ ms.locfileid: "90904489"
 
 Este artigo descreve como definir a sua senha do Gestor de Recursos Azure. Tem de definir esta palavra-passe quando estiver a ligar-se às APIs locais do dispositivo através do Gestor de Recursos Azure.
 
-O procedimento para definir a palavra-passe pode ser diferente dependendo se utiliza o portal Azure ou os cmdlets PowerShell. Cada um destes procedimentos é descrito nas seguintes secções.
+O procedimento para definir a palavra-passe pode ser diferente consoante utiliza o portal do Azure ou os cmdlets do PowerShell. Cada um destes procedimentos é descrito nas seguintes secções.
 
 
 ## <a name="reset-password-via-the-azure-portal"></a>Redefinir a palavra-passe através do portal Azure
 
 1. No portal Azure, aceda ao recurso Azure Stack Edge que criou para gerir o seu dispositivo. Vá ao **Edge compute > Começar**.
 
-2. No painel direito, a partir da barra de comando, selecione **reset Edge ARM password**. 
+2. No painel direito, na barra de comandos, selecione **Repor palavra-passe do ARM Edge**. 
 
     ![Redefinir a palavra-passe do utilizador EdgeARM 1](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-1.png)
 

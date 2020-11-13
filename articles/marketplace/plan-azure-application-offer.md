@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 61c8127941c54270b938babefaf4eb17627a15f3
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4cb707896aa7874aa2bf287723e8a53d7d6d974c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370179"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577792"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planeie uma oferta de aplicação Azure para o mercado comercial
 
@@ -33,7 +33,7 @@ Projetar, construir e testar as ofertas de aplicações Azure requer conheciment
 
 Reveja os seguintes recursos enquanto planeia a sua oferta de candidatura a Azure para o mercado comercial.
 
-- [Compreenda os modelos do gestor de recursos do Azure](/azure/azure-resource-manager/templates/template-syntax.md)
+- [Compreenda os modelos do gestor de recursos do Azure](/azure/azure-resource-manager/templates/template-syntax)
 - Guias de Início Rápido:
     - [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/)
     - [Guia de boas práticas de modelos de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
@@ -121,7 +121,7 @@ Quando criar uma nova oferta de aplicação Azure no Partner Center, introduzir�
 5. Endereço de política de privacidade (link)
 6. Nome da oferta
 7. Resumo
-8. Description
+8. Descrição
 9. Screenshots/vídeos
 
 A imagem que se segue mostra como as informações da oferta aparecem no portal Azure:
@@ -145,7 +145,7 @@ Para ajudar a criar a sua oferta mais facilmente, prepare alguns destes itens co
 - **Descrição curta** : Forneça até 256 caracteres de texto simples. Este resumo aparecerá na página de detalhes da sua oferta.
 - **Descrição** : Esta descrição será exibida na lista(s) lista geminada do Azure Marketplace. Considere incluir uma proposta de valor, benefícios-chave, base de utilizadores pretendida, qualquer categoria ou associação do setor, oportunidades de compra na aplicação, necessidade ou dor que a oferta endereço, quaisquer divulgações necessárias, e um link para aprender mais.
 
-    Esta caixa de texto tem controlos de editores de texto ricos que pode usar para tornar a sua descrição mais envolvente. Também pode utilizar tags HTML para formatar a sua descrição. Pode introduzir até 3.000 caracteres de texto nesta caixa, que inclui marcação HTML e espaços. Para obter dicas adicionais, consulte [Escrever uma excelente descrição da aplicação](/windows/uwp/publish/write-a-great-app-description.md) e [as tags HTML suportadas no mercado comercial oferecem descrições.](supported-html-tags.md)
+    Esta caixa de texto tem controlos de editores de texto ricos que pode usar para tornar a sua descrição mais envolvente. Também pode utilizar tags HTML para formatar a sua descrição. Pode introduzir até 3.000 caracteres de texto nesta caixa, que inclui marcação HTML e espaços. Para obter dicas adicionais, consulte [Escrever uma excelente descrição da aplicação](/windows/uwp/publish/write-a-great-app-description) e [as tags HTML suportadas no mercado comercial oferecem descrições.](supported-html-tags.md)
 
 - **Procurar palavras-chave** (opcional): Forneça até três palavras-chave de pesquisa que os clientes podem usar para encontrar a sua oferta na loja online. Para obter melhores resultados, utilize também estas palavras-chave na sua descrição. Não precisa de incluir a oferta **Nome** e **Descrição.** Este texto é automaticamente incluído na pesquisa.
 - **Ligação de política de privacidade** : O URL para a política de privacidade da sua empresa. Você deve fornecer uma política de privacidade válida e é responsável por garantir que a sua aplicação está em conformidade com as leis e regulamentos de privacidade.
@@ -174,12 +174,12 @@ Para ajudar a criar a sua oferta mais facilmente, prepare alguns destes itens co
 
 - **Meios de comunicação - Screenshots** (opcional): Recomendamos que adicione imagens que mostrem como a sua oferta funciona. Pode adicionar até cinco imagens com os seguintes requisitos, que mostram como a sua oferta funciona:
   - 1280 x 720 pixels
-  - ficheiro .png
+  - .png ficheiro
   - Deve incluir uma legenda
 - **Meios – Vídeos** (opcional): Pode adicionar até cinco vídeos com os seguintes requisitos, que demonstram a sua oferta:
   - Name
   - URL: Deve ser hospedado apenas no YouTube ou Vimeo.
-  - Miniatura: 1280 x 720 .png file
+  - Miniatura: ficheiro de .png 1280 x 720
 
 > [!NOTE]
 > A sua oferta deve atender às [políticas gerais de certificação do mercado comercial](/legal/marketplace/certification-policies#100-general.md) a publicar no mercado comercial.
@@ -197,9 +197,9 @@ Você define o público de pré-visualização usando IDs de subscrição Azure,
 
 Para aplicações geridas que emitem eventos de medição utilizando o [serviço de medição do Marketplace APIs,](partner-center-portal/marketplace-metering-service-apis.md)deve fornecer a identidade que o seu serviço utilizará ao emitir eventos de medição.
 
-Esta configuração é necessária se pretender utilizar o [evento de utilização do Lote](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). Caso pretenda submeter [o evento de utilização,](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event)também pode utilizar o serviço de [metadados de exemplo](/azure/active-directory/managed-identities-azure-resources/overview.md) para obter o [token web JSON (JWT).](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)
+Esta configuração é necessária se pretender utilizar o [evento de utilização do Lote](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). Caso pretenda submeter [o evento de utilização,](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event)também pode utilizar o serviço de [metadados de exemplo](/azure/active-directory/managed-identities-azure-resources/overview) para obter o [token web JSON (JWT).](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)
 
-- **ID do inquilino do Azure Ative Directory** (obrigatório): Dentro do portal Azure, você deve [criar uma app Azure Ative Directory (AD)](/azure/active-directory/develop/howto-create-service-principal-portal.md) para que possamos validar a ligação entre os nossos dois serviços está por trás de uma comunicação autenticada. Para encontrar o [ID](/azure/active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) do inquilino para a sua aplicação Azure Ative Directory (Azure AD), para a lâmina [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no seu Diretório Ativo Azure. Na coluna **'Mostrar' o nome,** selecione a aplicação. Em seguida, procure **propriedades** , e depois para o **Diretório (inquilino) ID** (por `50c464d3-4930-494c-963c-1e951d15360e` exemplo).
+- **ID do inquilino do Azure Ative Directory** (obrigatório): Dentro do portal Azure, você deve [criar uma app Azure Ative Directory (AD)](/azure/active-directory/develop/howto-create-service-principal-portal) para que possamos validar a ligação entre os nossos dois serviços está por trás de uma comunicação autenticada. Para encontrar o [ID](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in) do inquilino para a sua aplicação Azure Ative Directory (Azure AD), para a lâmina [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no seu Diretório Ativo Azure. Na coluna **'Mostrar' o nome,** selecione a aplicação. Em seguida, procure **propriedades** , e depois para o **Diretório (inquilino) ID** (por `50c464d3-4930-494c-963c-1e951d15360e` exemplo).
 - ID de aplicação do **Azure Ative (obrigatório):** Também precisa do seu [ID de aplicação](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in.md) e de uma chave de autenticação. Para encontrar o seu ID de aplicação, vá à lâmina de [registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App em que é o seu Diretório Ativo Azure. Na coluna **'Nome do Visor',** selecione a aplicação e, em seguida, procure o **ID da Aplicação (cliente)** (por `50c464d3-4930-494c-963c-1e951d15360e` exemplo). Para encontrar a chave de autenticação, vá a **Definições** e selecione **Teclas**. Terá de fornecer uma descrição e duração e, em seguida, será fornecido um valor numer numer.
 
 > [!NOTE]
@@ -209,7 +209,7 @@ Esta configuração é necessária se pretender utilizar o [evento de utilizaç�
 
 Pode optar por optar por canais de marketing e vendas suportados pela Microsoft. Ao criar a sua oferta no Partner Center, verá dois separadores no final do processo:
 
-- **Revender através de CSPs** : Utilize esta opção para permitir que os parceiros da Microsoft Cloud Solution Providers (CSP) revendam a sua solução como parte de uma oferta agregada. Consulte [o programa Cloud Solution Provider](/azure/marketplace/cloud-solution-providers.md) para obter mais informações.
+- **Revender através de CSPs** : Utilize esta opção para permitir que os parceiros da Microsoft Cloud Solution Providers (CSP) revendam a sua solução como parte de uma oferta agregada. Consulte [o programa Cloud Solution Provider](/azure/marketplace/cloud-solution-providers) para obter mais informações.
 - **Co-vender com** a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Consulte [a opção de Co-venda no Partner Center](partner-center-portal/commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar a sua oferta para avaliação. Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [os Fornecedores de Soluções Cloud.](cloud-solution-providers.md)
 
 Para saber mais, veja [o Crescimento do seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
@@ -224,12 +224,12 @@ Para orientações gerais sobre planos, incluindo modelos de preços e planos [p
 
 Existem dois tipos de planos de aplicação Azure: _modelo de solução_ e _aplicação gerida._ Ambos os tipos de planos suportam automatizar a implementação e configuração de uma solução para além de uma única máquina virtual (VM). Pode automatizar o processo de disponibilização de múltiplos recursos, incluindo VMs, networking e recursos de armazenamento para fornecer soluções complexas, como soluções IaAS. Ambos os tipos de planos podem empregar muitos tipos diferentes de recursos Azure, incluindo, mas não se limitando a VMs.
 
-- **Os** planos de modelo de solução são uma das principais formas de publicar uma solução no mercado comercial. Os planos de modelo de solução não são transacionáveis no mercado comercial, mas podem ser usados para implementar ofertas de VM pagas que são faturadas através do mercado comercial. Utilize o tipo de plano de modelo de solução quando o cliente irá gerir a solução e as transações são faturadas através de outro plano. Para obter mais informações sobre modelos de solução de construção, consulte [O que é O Gestor de Recursos Azure?](/azure/azure-resource-manager/resource-group-overview.md)
+- **Os** planos de modelo de solução são uma das principais formas de publicar uma solução no mercado comercial. Os planos de modelo de solução não são transacionáveis no mercado comercial, mas podem ser usados para implementar ofertas de VM pagas que são faturadas através do mercado comercial. Utilize o tipo de plano de modelo de solução quando o cliente irá gerir a solução e as transações são faturadas através de outro plano. Para obter mais informações sobre modelos de solução de construção, consulte [O que é O Gestor de Recursos Azure?](/azure/azure-resource-manager/resource-group-overview)
 - Os planos **de aplicação geridos** permitem-lhe construir e entregar aplicações chave na mão e geridas para os seus clientes. Têm as mesmas capacidades que os planos de modelo de solução, com algumas diferenças fundamentais:
     - Os recursos são implantados para um grupo de recursos e são geridos pelo editor da app. O grupo de recursos está presente na subscrição do cliente, mas uma identidade no inquilino do editor tem acesso ao grupo de recursos. 
     - Como editor, especifica o custo para o apoio contínuo da solução e as transações são suportadas através do mercado comercial.
  
-    Utilize o tipo de plano de aplicação gerido quando você ou o seu cliente requer que a solução seja gerida por um parceiro ou que implemente uma solução baseada em subscrição. Para obter mais informações sobre as vantagens e tipos de aplicações geridas, consulte [a visão geral das aplicações geridas pela Azure.](/azure/managed-applications/overview.md)
+    Utilize o tipo de plano de aplicação gerido quando você ou o seu cliente requer que a solução seja gerida por um parceiro ou que implemente uma solução baseada em subscrição. Para obter mais informações sobre as vantagens e tipos de aplicações geridas, consulte [a visão geral das aplicações geridas pela Azure.](/azure/managed-applications/overview)
 
 ## <a name="next-steps"></a>Passos seguintes
 

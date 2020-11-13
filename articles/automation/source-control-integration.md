@@ -3,20 +3,20 @@ title: Utilize a integração de controlo de fonte na Azure Automation
 description: Este artigo diz como sincronizar o controlo de fonte da Azure Automation com outros repositórios.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/10/2019
+ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: eea4de106fe566b55ae30330d4c9d101f7126bbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86229623"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579458"
 ---
 # <a name="use-source-control-integration"></a>Utilizar a integração do controlo de código fonte
 
  A integração de controlo de fonte na Azure Automation suporta a sincronização de uma direção única a partir do seu repositório de controlo de origem. O controlo de origem permite-lhe manter os seus livros na sua conta Automation até à data com scripts no seu repositório de controlo de fontes GitHub ou Azure Repos. Esta funcionalidade facilita a promoção de códigos que foram testados no seu ambiente de desenvolvimento na sua conta de Automação de produção.
- 
- A integração do controlo de origem permite-lhe colaborar facilmente com a sua equipa, rastrear alterações e voltar para versões anteriores dos seus runbooks. Por exemplo, o controlo de origem permite sincronizar diferentes ramos no controlo de fontes com as suas contas de desenvolvimento, teste e produção De automação. 
+
+ A integração do controlo de origem permite-lhe colaborar facilmente com a sua equipa, rastrear alterações e voltar para versões anteriores dos seus runbooks. Por exemplo, o controlo de origem permite sincronizar diferentes ramos no controlo de fontes com as suas contas de desenvolvimento, teste e produção De automação.
 
 ## <a name="source-control-types"></a>Tipos de controlo de fontes
 
@@ -47,11 +47,11 @@ Utilize este procedimento para configurar o controlo de origem utilizando o port
 
     ![Selecione controlo de origem](./media/source-control-integration/select-source-control.png)
 
-2. Escolha o **tipo de Controlo de Origem**e, em seguida, clique em **Autenticar**. 
+2. Escolha o **tipo de Controlo de Origem** e, em seguida, clique em **Autenticar**.
 
 3. Uma janela do navegador abre-se e pede-lhe para iniciar sinte. Siga as instruções para completar a autenticação.
 
-4. Na página Resumo do Controlo de Origem, utilize os campos para preencher as propriedades de controlo de origem definidas abaixo. Clique **em Guardar** quando terminar. 
+4. Na página Resumo do Controlo de Origem, utilize os campos para preencher as propriedades de controlo de origem definidas abaixo. Clique **em Guardar** quando terminar.
 
     |Propriedade  |Descrição  |
     |---------|---------|
@@ -69,13 +69,13 @@ Utilize este procedimento para configurar o controlo de origem utilizando o port
    ![Resumo do controlo de origem](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> O login do seu repositório de controlo de origem pode ser diferente do seu login para o portal Azure. Certifique-se de que está a iniciar sessão com a conta correta para o seu repositório de controlo de origem ao configurar o controlo de origem. Em caso de dúvida, abra um novo separador no seu browser, faça login a partir de **dev.azure.com**, **visualstudio.com**ou **github.com**, e tente reconectar-se ao controlo de origem.
+> O login do seu repositório de controlo de origem pode ser diferente do seu login para o portal Azure. Certifique-se de que está a iniciar sessão com a conta correta para o seu repositório de controlo de origem ao configurar o controlo de origem. Em caso de dúvida, abra um novo separador no seu browser, faça login a partir de **dev.azure.com** , **visualstudio.com** ou **github.com** , e tente reconectar-se ao controlo de origem.
 
 ### <a name="configure-source-control-in-powershell"></a>Configure o controlo de fontes na PowerShell
 
-Também pode utilizar o PowerShell para configurar o controlo de origem na Azure Automation. Para utilizar os cmdlets PowerShell para esta operação, necessita de um token de acesso pessoal (PAT). Utilize o cmdlet [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0) para criar a ligação de controlo de fonte. Este cmdlet requer uma corda segura para o PAT. Para aprender a criar uma cadeia segura, consulte [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Também pode utilizar o PowerShell para configurar o controlo de origem na Azure Automation. Para utilizar os cmdlets PowerShell para esta operação, necessita de um token de acesso pessoal (PAT). Utilize o cmdlet [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol) para criar a ligação de controlo de fonte. Este cmdlet requer uma corda segura para o PAT. Para aprender a criar uma cadeia segura, consulte [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
-As subsecções seguintes ilustram a criação da PowerShell da ligação de controlo de origem para GitHub, Azure Repos (Git) e Azure Repos (TFVC). 
+As subsecções seguintes ilustram a criação da PowerShell da ligação de controlo de origem para GitHub, Azure Repos (Git) e Azure Repos (TFVC).
 
 #### <a name="create-source-control-connection-for-github"></a>Criar ligação de controlo de fontes para GitHub
 
@@ -86,7 +86,7 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 #### <a name="create-source-control-connection-for-azure-repos-git"></a>Criar ligação de controlo de origem para Azure Repos (Git)
 
 > [!NOTE]
-> Azure Repos (Git) usa um URL que acede **dev.azure.com** em vez de **visualstudio.com**, usado em formatos anteriores. O formato URL mais antigo `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` é precotado, mas ainda suportado. O novo formato é preferido.
+> Azure Repos (Git) usa um URL que acede **dev.azure.com** em vez de **visualstudio.com** , usado em formatos anteriores. O formato URL mais antigo `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` é precotado, mas ainda suportado. O novo formato é preferido.
 
 
 ```powershell-interactive
@@ -96,7 +96,7 @@ New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<a
 #### <a name="create-source-control-connection-for-azure-repos-tfvc"></a>Criar ligação de controlo de fontes para Azure Repos (TFVC)
 
 > [!NOTE]
-> Azure Repos (TFVC) utiliza um URL que acede **dev.azure.com** em vez de **visualstudio.com**, usado em formatos anteriores. O formato URL mais antigo `https://<accountname>.visualstudio.com/<projectname>/_versionControl` é precotado, mas ainda suportado. O novo formato é preferido.
+> Azure Repos (TFVC) utiliza um URL que acede **dev.azure.com** em vez de **visualstudio.com** , usado em formatos anteriores. O formato URL mais antigo `https://<accountname>.visualstudio.com/<projectname>/_versionControl` é precotado, mas ainda suportado. O novo formato é preferido.
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
@@ -116,13 +116,15 @@ A tabela a seguir define as permissões mínimas de PAT necessárias para o GitH
 |`repo:status`     | Acesso estado de compromisso         |
 |`repo_deployment`      | Estado de implantação de acesso         |
 |`public_repo`     | Acesso a repositórios públicos         |
+|`repo:invite` | Acesso a convites de repositório |
+|`security_events` | Leia e escreva eventos de segurança |
 |**`admin:repo_hook`**     |         |
 |`write:repo_hook`     | Escreva ganchos de repositório         |
 |`read:repo_hook`|Leia ganchos de repositório|
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Permissões mínimas de PAT para Azure Repos
 
-A lista a seguir define as permissões mínimas de PAT necessárias para a Azure Repos. Para obter mais informações sobre a criação de um PAT em Azure Repos, consulte [o Acesso Authenticate com fichas de acesso pessoal.](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)
+A lista a seguir define as permissões mínimas de PAT necessárias para a Azure Repos. Para obter mais informações sobre a criação de um PAT em Azure Repos, consulte [o Acesso Authenticate com fichas de acesso pessoal.](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
 
 | Âmbito  |  Tipo de Acesso  |
 |---------| ----------|
@@ -137,13 +139,13 @@ A lista a seguir define as permissões mínimas de PAT necessárias para a Azure
 
 ## <a name="synchronize-with-source-control"></a>Sincronizar com controlo de origem
 
-Siga estes passos para sincronizar com o controlo de origem. 
+Siga estes passos para sincronizar com o controlo de origem.
 
-1. Selecione a fonte da tabela na página de controlo 'Fonte'. 
+1. Selecione a fonte da tabela na página de controlo 'Fonte'.
 
-2. Clique **em Iniciar Sincronização** para iniciar o processo de sincronização. 
+2. Clique **em Iniciar Sincronização** para iniciar o processo de sincronização.
 
-3. Ver o estado do trabalho de sincronização atual ou dos anteriores clicando no **separador sync jobs.** 
+3. Ver o estado do trabalho de sincronização atual ou dos anteriores clicando no **separador sync jobs.**
 
 4. No menu de entrega **do Controlo de Origem,** selecione um mecanismo de controlo de origem.
 
@@ -189,13 +191,13 @@ Para desligar de um repositório de controlo de origem:
 
 1. Controlo Open **Source** em **Definições de Conta** na sua conta Demôm automação.
 
-2. Selecione o mecanismo de controlo de origem para remover. 
+2. Selecione o mecanismo de controlo de origem para remover.
 
 3. Na página 'Resumo do Controlo de Origem', clique em **Eliminar**.
 
 ## <a name="handle-encoding-issues"></a>Lidar com problemas de codificação
 
-Se várias pessoas estiverem a editar livros no seu repositório de controlo de origem usando diferentes editores, podem ocorrer problemas de codificação. Para saber mais sobre esta situação, consulte [as causas comuns das questões de codificação.](/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues)
+Se várias pessoas estiverem a editar livros no seu repositório de controlo de origem usando diferentes editores, podem ocorrer problemas de codificação. Para saber mais sobre esta situação, consulte [as causas comuns das questões de codificação.](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="update-the-pat"></a>Atualizar o PAT
 

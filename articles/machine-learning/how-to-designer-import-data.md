@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554721"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591993"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importar dados para o designer de aprendizagem automática Azure
 
@@ -53,6 +53,8 @@ Se os dados de saída do módulo estiverem num formato tabular, deve optar por r
 ### <a name="use-a-dataset"></a>Utilize um conjunto de dados
 
 Os seus conjuntos de dados registados podem ser encontrados na paleta de **módulos, em Conjuntos de Dados**. Para utilizar um conjunto de dados, arraste-o e jogue-o sobre a tela do gasoduto. Em seguida, ligue a porta de saída do conjunto de dados a outros módulos na tela. 
+
+Se registar um conjunto de dados de ficheiros, o tipo de porta de saída do conjunto de dados é **AnyDirectory**. Se registar um conjunto de dados Tabular, o tipo de porta de saída do conjunto de dados se **dataFrameDirectory**. Note que se ligar a porta de saída do conjunto de dados a outros módulos do designer, o tipo de porta de conjuntos de dados e módulos deve estar alinhado.
 
 ![Screenshot mostrando a localização de conjuntos de dados guardados na paleta de designers](media/how-to-designer-import-data/use-datasets-designer.png)
 

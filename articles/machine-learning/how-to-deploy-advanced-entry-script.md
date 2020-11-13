@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 2225ef42d8862935e5cd682a3c11a7ce687babab
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5b05891500ae5fd66e5ec2381066ccd1d26aa7ec
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325572"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578064"
 ---
 # <a name="advanced-entry-script-authoring"></a>Criação de um script de entrada avançado
 
@@ -28,7 +28,10 @@ Este artigo pressupõe que já tem um modelo de machine learning treinado que pr
 
 ## <a name="automatically-generate-a-swagger-schema"></a>Gerar um esquema do Swagger automaticamente
 
-Para gerar automaticamente um esquema para o seu serviço web, forneça uma amostra da entrada e/ou saída no construtor para um dos objetos do tipo definido. O tipo e a amostra são utilizados para criar automaticamente o esquema. A Azure Machine Learning cria então uma especificação [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) para o serviço web durante a implementação.
+Para gerar automaticamente um esquema para o seu serviço web, forneça uma amostra da entrada e/ou saída no construtor para um dos objetos do tipo definido. O tipo e a amostra são utilizados para criar automaticamente o esquema. A Azure Machine Learning cria então uma especificação [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) para o serviço web durante a implementação. 
+
+> [!WARNING]
+> Não deve utilizar dados sensíveis ou privados para a entrada ou saída da amostra. A página Swagger para inferencing aml-hosted expõe os dados da amostra. 
 
 Estes tipos são atualmente suportados:
 

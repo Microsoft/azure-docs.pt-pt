@@ -1,23 +1,23 @@
 ---
-title: Descrição geral do Azure Stream Analytics
-description: Saiba mais sobre o Stream Analytics, um serviço gerido que o ajuda a analisar dados de streaming a partir da Internet das Coisas (IoT) em tempo real.
+title: Introdução ao Azure Stream Analytics
+description: Saiba mais sobre o Azure Stream Analytics, um serviço gerido que o ajuda a analisar dados de streaming a partir da Internet das Coisas (IoT) em tempo real.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc, contperfq2
-ms.date: 11/03/2020
-ms.openlocfilehash: d81858db3f4d09b834a9199804a6f2631828496b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 11/12/2020
+ms.openlocfilehash: 0022e19e23b7808cd78da988fd3fdef2d537acf5
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342237"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579441"
 ---
-# <a name="what-is-azure-stream-analytics"></a>O que é Azure Stream Analytics?
+# <a name="welcome-to-azure-stream-analytics"></a>Bem-vindo ao Azure Stream Analytics
 
-Azure Stream Analytics é um motor de análise em tempo real e complexo de processamento de eventos que é projetado para analisar e processar grandes volumes de dados de streaming rápido de várias fontes simultaneamente. Padrões e relacionamentos podem ser identificados em informações extraídas de várias fontes de entrada, incluindo dispositivos, sensores, clickstreams, feeds de redes sociais e aplicações. Estes padrões podem ser usados para desencadear ações e iniciar fluxos de trabalho, tais como criar alertas, fornecer informações a uma ferramenta de reporte ou armazenar dados transformados para posterior utilização. Além disso, o Stream Analytics está disponível no tempo de execução do Azure IoT Edge, permitindo processar dados em dispositivos IoT. 
+Azure Stream Analytics é um motor de análise em tempo real e complexo de processamento de eventos que é projetado para analisar e processar grandes volumes de dados de streaming rápido de várias fontes simultaneamente. Padrões e relacionamentos podem ser identificados em informações extraídas de várias fontes de entrada, incluindo dispositivos, sensores, clickstreams, feeds de redes sociais e aplicações. Estes padrões podem ser usados para desencadear ações e iniciar fluxos de trabalho, tais como criar alertas, fornecer informações a uma ferramenta de reporte ou armazenar dados transformados para posterior utilização. Além disso, o Stream Analytics está disponível no tempo de execução do Azure IoT Edge, permitindo processar dados em dispositivos IoT.
 
 Os seguintes cenários são exemplos de quando pode utilizar o Azure Stream Analytics:
 
@@ -26,6 +26,11 @@ Os seguintes cenários são exemplos de quando pode utilizar o Azure Stream Anal
 * Análise geoespacial para gestão de frotas e veículos autónomos
 * Monitorização remota e manutenção preditiva de ativos de alto valor
 * Análise em tempo real de dados de Pontos de Vendas para controlo de inventário e deteção de anomalias
+
+Pode experimentar a Azure Stream Analytics com uma subscrição gratuita do Azure.
+
+> [!div class="nextstepaction"]
+> [Experimente a Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
 ## <a name="how-does-stream-analytics-work"></a>Como funciona o Stream Analytics?
 
@@ -102,7 +107,7 @@ Stream Analytics pode processar milhões de eventos a cada segundo e pode entreg
 
 Viu agora uma descrição geral do Azure Stream Analytics. Em seguida, pode criar o seu primeiro trabalho do Stream Analytics e experimentá-lo na prática:
 
-* [Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md) (Criar um trabalho do Stream Analytics com o portal do Azure).
-* [Crie um trabalho stream analytics utilizando a Azure PowerShell](stream-analytics-quick-create-powershell.md).
-* [Crie um trabalho stream analytics utilizando o Visual Studio](stream-analytics-quick-create-vs.md).
-* [Crie um trabalho stream analytics utilizando o Código de Estúdio Visual](quick-create-visual-studio-code.md).
+* [Crie um trabalho stream analytics utilizando o portal Azure](stream-analytics-quick-create-portal.md)
+* [Criar um trabalho do Stream Analytics com o Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Crie um trabalho stream analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
+* [Crie um trabalho stream analytics usando o Código do Estúdio Visual](quick-create-visual-studio-code.md)

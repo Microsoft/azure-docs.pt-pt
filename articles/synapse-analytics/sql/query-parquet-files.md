@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cc2c40dd0b61f917da86d67188f4b503ca9b9298
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306849"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579356"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Ficheiros De Consulta Parquet utilizando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
 
@@ -36,6 +36,11 @@ from openrowset(
 ```
 
 Certifique-se de que acede a este ficheiro. Se o seu ficheiro estiver protegido com a chave SAS ou identidade Azure personalizada, terá de configurar a [credencial de nível do servidor para iniciar sessão de sessão](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> Certifique-se de que está a utilizar algumas colagem de base de dados UTF-8 (por `Latin1_General_100_CI_AS_SC_UTF8` exemplo) porque os valores de cadeia nos ficheiros PARQUET estão codificados através da codificação UTF-8.
+> O desfasamento entre codificação de texto no ficheiro PARQUET e a colagem pode causar erros de conversão inesperados.
+> Pode alterar facilmente a colagem predefinida da base de dados atual utilizando a seguinte declaração T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Utilização de fontes de dados
 
@@ -67,6 +72,12 @@ from openrowset(
         format = 'parquet'
     ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
 ```
+
+> [!IMPORTANT]
+> Certifique-se de que está a explicilidade especificando alguma colagem UTF-8 (por `Latin1_General_100_CI_AS_SC_UTF8` exemplo) para todas as colunas de cordas na `WITH` cláusula ou definir alguma colagem UTF-8 ao nível da base de dados.
+> O desfasamento entre a codificação de texto no ficheiro e a colagem da coluna de cordas pode causar erros de conversão inesperados.
+> Pode alterar facilmente a colagem predefinida da base de dados atual utilizando a seguinte declaração T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> Pode configurar facilmente a colisão nos tipos de colum utilizando a seguinte definição: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Nas secções seguintes pode ver como consultar vários tipos de ficheiros PARQUET.
 

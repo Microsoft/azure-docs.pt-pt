@@ -12,19 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: fe4b2925a34ae7c06bb0b597f0bcdcc3f4d80896
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e5219e1c87221ade8da68c21209f41b4d6139be2
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363226"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579084"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Alterar o nível de serviço de um volume de forma dinâmica
 
 > [!IMPORTANT] 
-> O registo de pré-visualização pública desta funcionalidade está em espera até novo aviso. 
+> * O registo de pré-visualização pública desta funcionalidade está em espera até novo aviso. 
+> * Atualmente, não é suportado o nível de serviço de um volume de destino de replicação.
 
 Pode alterar o nível de serviço de um volume existente movendo o volume para outro pool de capacidade que utiliza o [nível](azure-netapp-files-service-levels.md) de serviço que deseja para o volume. Esta alteração ao nível de serviço no local para o volume não requer que se emigre os dados. Também não afeta o acesso ao volume.  
 

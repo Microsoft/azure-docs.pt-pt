@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: aed96bab233a815091009278349627343cc5efd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aeda148f52669d947d2e4fae0e664313ee747487
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099951"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592095"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>Quickstart: Procure imagens com a API de Pesquisa de Imagem Bing e Java 
 
@@ -32,7 +32,7 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [Kit de Desenvolvimento de Java (JDK)](https://aka.ms/azure-jdks)
+* O [Kit de Desenvolvimento de Java (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * A [Biblioteca de Gson](https://github.com/google/gson)
 
@@ -166,8 +166,8 @@ As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Es
 
 ## <a name="see-also"></a>Ver também
 
-* [O que é a API de Pesquisa de Imagens do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [O que é a API de Pesquisa de Imagens do Bing?](../overview.md)  
 * [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Detalhes dos preços das APIs de pesquisa de Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
-* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)
+* [Documentação dos Serviços Cognitivos da Azure](../../index.yml)
+* [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4651d15fb765182c788733c0542480805387871
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f1730507c022d57495efa56c98215ff72d07e180
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376748"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578183"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Criar gestão de grupos de self-service no Azure Ative Directory 
 
@@ -44,7 +44,7 @@ Grupos criados em | Comportamento padrão do grupo de segurança | Microsoft 365
 ## <a name="make-a-group-available-for-user-self-service"></a>Disponibilizar um grupo para personalização pelo utilizador
 
 1. Inicie sessão no [Centro de administradores do Azure AD](https://aad.portal.azure.com) com uma conta que seja administrador global do diretório.
-1. Selecione **Grupos**e, em seguida, selecione **definições gerais.**
+1. Selecione **Grupos** e, em seguida, selecione **definições gerais.**
 1. Os **Proprietários de Conjuntos podem gerir os pedidos de membros do grupo no Painel de Acesso** a **Sim**.
 1. Definir **Restringir o acesso a grupos no Painel de Acesso** ao **Nº**.
 1. Se definir **os Utilizadores podem criar grupos de segurança em portais Azure** ou **os utilizadores podem criar grupos Microsoft 365 em portais Azure** para
@@ -52,7 +52,7 @@ Grupos criados em | Comportamento padrão do grupo de segurança | Microsoft 365
     - **Sim:** Todos os utilizadores da sua organização Azure AD estão autorizados a criar novos grupos de segurança e adicionar membros a estes grupos. Estes novos grupos apareceriam também no Painel de Acesso para todos os outros utilizadores. Se a definição de política no grupo permitir, outros utilizadores podem criar pedidos para se juntarem a estes grupos
     - **Não:** Os utilizadores não podem criar grupos e não podem alterar os grupos existentes para os quais são proprietários. No entanto, podem continuar gerir os membros desses grupos e aprovar pedidos de outros utilizadores para pertencer aos respetivos grupos.
 
-Também pode utilizar **os Proprietários que podem atribuir membros como proprietários de grupos em portais Azure** e Proprietários que podem atribuir **membros como proprietários de grupos em portais Azure** para obter um maior controlo de acesso granular sobre a gestão do grupo de self-service para os seus utilizadores.
+Também pode utilizar **os Proprietários que podem atribuir membros como proprietários do grupo no portal Azure** para obter um maior controlo de acesso granular sobre a gestão do grupo de self-service para os seus utilizadores.
 
 Quando os utilizadores podem criar grupos, todos os utilizadores da sua organização podem criar novos grupos e, em seguida, como proprietário padrão, adicionar membros a estes grupos. Não se pode especificar indivíduos que podem criar os seus próprios grupos. Pode especificar indivíduos apenas para tornar outro membro do grupo um proprietário do grupo.
 

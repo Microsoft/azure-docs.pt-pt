@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b3505f8bf31c2e700ce1cc57e106c33a13e0aa9b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fc44dd6cf91d687f47afadf1c3378956d838bc9d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737173"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579509"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma aplicação Azure Spring Cloud
 
@@ -77,9 +77,11 @@ Use `az keyvault set-policy` para conceder acesso adequado no Key Vault para a s
 ```azurecli
 az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY} --secret-permissions set get list
 ```
+> [!NOTE]
+> Utilize `az keyvault delete-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY}` para remover o acesso à sua aplicação depois de a identidade gerida atribuída pelo sistema ser desativada.
 
 ## <a name="build-a-sample-spring-boot-app-with-spring-boot-starter"></a>Construa uma aplicação de boot de mola de amostra com arranque de Bota de primavera
-Esta aplicação terá acesso para obter segredos do Azure Key Vault. Utilize a aplicação inicial: Arranque de [arranque Azure Key Vault Secrets Spring](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets).  O Cofre da Chave Azure é adicionado como um exemplo de Spring **PropertySource** .  Os segredos armazenados no Cofre da Chave Azure podem ser convenientemente acedidos e utilizados como qualquer propriedade de configuração externa, como propriedades em ficheiros. 
+Esta aplicação terá acesso para obter segredos do Azure Key Vault. Utilize a aplicação inicial: Arranque de [arranque Azure Key Vault Secrets Spring](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets).  O Cofre da Chave Azure é adicionado como um exemplo de Spring **PropertySource**.  Os segredos armazenados no Cofre da Chave Azure podem ser convenientemente acedidos e utilizados como qualquer propriedade de configuração externa, como propriedades em ficheiros. 
 
 1. Gere um projeto de amostra a partir de start.spring.io com o Azure Key Vault Spring Starter. 
     ```azurecli
@@ -184,7 +186,7 @@ A biblioteca de clientes Azure Key Vault Secret permite-lhe armazenar e controla
     vim src/main/resources/application.properties
     ```
 
-    Para utilizar a identidade gerida para aplicações Azure Spring Cloud, adicione propriedades com os seguintes conteúdos para *src/main/resources/application.properties* .
+    Para utilizar a identidade gerida para aplicações Azure Spring Cloud, adicione propriedades com os seguintes conteúdos para *src/main/resources/application.properties*.
 
     ```
     azure.keyvault.enabled=true

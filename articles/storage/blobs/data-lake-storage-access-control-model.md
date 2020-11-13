@@ -5,14 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: 099d79e63795a88a66ef1ec65aa1bfd97037191e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a5cdeba654440e666bc79df361b3f90db8a73b0a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92134231"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578653"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modelo de controlo de acesso em Azure Data Lake Storage Gen2
 
@@ -71,7 +71,7 @@ O diagrama a seguir mostra o fluxo de permissão para três operações comuns: 
 
 ## <a name="permissions-table-combining-azure-rbac-and-acl"></a>Tabela de permissões: Combinação de Azure RBAC e ACL
 
-A tabela que se segue mostra-lhe como combinar as funções do Azure RBAC e as entradas ACL para que um diretor de segurança possa executar as operações listadas na coluna **Operação.** Esta tabela mostra uma coluna que representa cada nível de uma hierarquia fictícia do diretório. Há uma coluna para o diretório de raiz do contentor , `/` um subdiretório chamado **Oregon**, um subdiretório do diretório do Oregon chamado **Portland,** e um ficheiro de texto no diretório de Portland chamado **Data.txt**. Aparecendo nessas colunas são representações de [forma curta](data-lake-storage-access-control.md#short-forms-for-permissions) da entrada ACL necessárias para conceder permissões. **N/A** (_Não aplicável_) aparece na coluna se não for necessária uma entrada ACL para realizar a operação.
+A tabela que se segue mostra-lhe como combinar as funções do Azure RBAC e as entradas ACL para que um diretor de segurança possa executar as operações listadas na coluna **Operação.** Esta tabela mostra uma coluna que representa cada nível de uma hierarquia fictícia do diretório. Há uma coluna para o diretório de raiz do contentor , `/` um subdiretório chamado **Oregon** , um subdiretório do diretório do Oregon chamado **Portland,** e um ficheiro de texto no diretório de Portland chamado **Data.txt**. Aparecendo nessas colunas são representações de [forma curta](data-lake-storage-access-control.md#short-forms-for-permissions) da entrada ACL necessárias para conceder permissões. **N/A** ( _Não aplicável_ ) aparece na coluna se não for necessária uma entrada ACL para realizar a operação.
 
 |    Operação             | Papel RBAC atribuído               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
@@ -114,7 +114,7 @@ A tabela que se segue mostra-lhe como combinar as funções do Azure RBAC e as e
 
 ## <a name="limits-on-azure-rbac-role-assignments-and-acl-entries"></a>Limites para atribuições de funções Azure RBAC e entradas ACL
 
-Ao utilizar grupos, é menos provável que exceda o número máximo de atribuições de funções por subscrição e o número máximo de entradas de ACl por ficheiro ou diretório. A tabela a seguir descreve estes limites.
+Ao utilizar grupos, é menos provável que exceda o número máximo de atribuições de funções por subscrição e o número máximo de entradas ACL por ficheiro ou diretório. A tabela a seguir descreve estes limites.
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
 

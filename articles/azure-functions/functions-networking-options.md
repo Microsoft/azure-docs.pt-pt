@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413093"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578843"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -30,18 +30,36 @@ Pode hospedar aplicações de função de várias maneiras:
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## <a name="inbound-ip-restrictions"></a>Restrições ip de entrada
+## <a name="inbound-access-restrictions"></a>Restrições de acesso à entrada
 
-Pode utilizar restrições IP para definir uma lista de endereços IP encomendados por prioridade que sejam permitidos ou impedidos de aceder à sua aplicação. A lista pode incluir endereços IPv4 e IPv6. Quando há uma ou mais entradas, existe um "negar tudo" implícito no final da lista. As restrições ip funcionam com todas as opções de hospedagem de funções.
+Pode utilizar as restrições de acesso para definir uma lista de endereços IP encomendados por prioridade que sejam permitidos ou impedidos de aceder à sua aplicação. A lista pode incluir endereços IPv4 e IPv6, ou sub-redes de rede virtuais específicas utilizando [pontos finais de serviço](#use-service-endpoints). Quando há uma ou mais entradas, existe um "negar tudo" implícito no final da lista. As restrições ip funcionam com todas as opções de hospedagem de funções.
+
+As restrições de acesso estão disponíveis no Serviço [premium,](functions-premium-plan.md) [consumo](functions-scale.md#consumption-plan)e [aplicação.](functions-scale.md#app-service-plan)
 
 > [!NOTE]
-> Com as restrições de rede em vigor, pode utilizar o editor do portal apenas a partir da sua rede virtual, ou quando tiver colocado o endereço IP da máquina que está a utilizar para aceder ao portal Azure na lista "Recetores Seguros". No entanto, ainda é possível aceder a quaisquer funcionalidades no separador **de funcionalidades** da Plataforma a partir de qualquer máquina.
+> Com as restrições de rede em vigor, só pode ser implantado a partir da sua rede virtual, ou quando tiver colocado o endereço IP da máquina que está a utilizar para aceder ao portal Azure na lista de Destinatários Seguros. No entanto, ainda é possível gerir a função utilizando o portal.
 
 Para saber mais, consulte [as restrições de acesso estático do Azure App Service](../app-service/app-service-ip-restrictions.md).
 
-## <a name="private-site-access"></a>O acesso a sites privados
+### <a name="use-service-endpoints"></a>Utilizar pontos finais de serviço
+
+Ao utilizar pontos finais de serviço, pode restringir o acesso a sub-redes de rede virtuais Azure selecionadas. Para restringir o acesso a uma sub-rede específica, crie uma regra de restrição com um tipo **de Rede Virtual.** Pode então selecionar a subscrição, a rede virtual e a sub-rede a que pretende permitir ou negar o acesso. 
+
+Se os pontos finais de serviço ainda não estiverem ativados com o Microsoft.Web para a sub-rede que selecionou, serão automaticamente ativados, a menos que selecione a caixa de verificação **de pontos finais do serviço Microsoft.Web em falta.** O cenário em que poderá querer ativar os pontos finais do serviço na app, mas não a sub-rede, depende principalmente de ter as permissões para os ativar na sub-rede. 
+
+Se precisar de outra pessoa para ativar os pontos finais do serviço na sub-rede, selecione a caixa de **verificação de pontos finais do serviço Microsoft.Web em** falta. A sua aplicação será configurada para os pontos finais de serviço, antecipando-se a sua ativação posterior na sub-rede. 
+
+![Screenshot do painel "Adicionar restrição IP" com o tipo de Rede Virtual selecionado.](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+Não é possível utilizar pontos finais de serviço para restringir o acesso a aplicações que funcionam num Ambiente de Serviço de Aplicações. Quando a sua aplicação está num Ambiente de Serviço de Aplicações, pode controlar o acesso à ela aplicando regras de acesso IP. 
+
+Para aprender a configurar pontos finais de serviço, consulte [o Site privado Do Azure Functions](functions-create-private-site-access.md).
+
+## <a name="private-endpoint-connections"></a>Conexões de ponto final privado
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+Para ligar para outros serviços que tenham uma ligação privada de ponto final, como armazenamento ou autocarro de serviço, certifique-se de configurar a sua app para fazer [chamadas de saída para pontos finais privados.](#private-endpoints)
 
 ## <a name="virtual-network-integration"></a>Integração da rede virtual
 
@@ -69,7 +87,7 @@ Para saber mais, consulte [os pontos finais do serviço de rede Virtual.](../vir
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Restringir a sua conta de armazenamento a uma rede virtual (pré-visualização)
 
-Quando criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table.  Pode substituir esta conta de armazenamento por uma que esteja segura com pontos finais de serviço ou ponto final privado.  Atualmente, esta funcionalidade de pré-visualização apenas funciona com planos Do Windows Premium na Europa Ocidental.  Para configurar uma função com uma conta de armazenamento restrita a uma rede privada:
+Quando criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table.  Pode substituir esta conta de armazenamento por uma que esteja segura com pontos finais de serviço ou ponto final privado.  Atualmente, esta funcionalidade de pré-visualização apenas funciona com planos Do Windows Premium na Europa Ocidental.  Para criar uma função com uma conta de armazenamento restrita a uma rede privada:
 
 > [!NOTE]
 > Restringir a conta de armazenamento só funciona atualmente para funções Premium usando Windows na Europa Ocidental
@@ -80,7 +98,7 @@ Quando criar uma aplicação de função, deve criar ou ligar para uma conta de 
 1. [Crie uma partilha de ficheiros](../storage/files/storage-how-to-create-file-share.md#create-file-share) na conta de armazenamento segura.
 1. Ativar os pontos finais do serviço ou o ponto final privado para a conta de armazenamento.  
     * Certifique-se de que ativa a sub-rede dedicada às suas aplicações de função se utilizar um ponto final de serviço.
-    * Certifique-se de criar um registo DNS e configurar a sua app para [trabalhar com pontos finais privados](#azure-dns-private-zones) se utilizar o ponto final privado.  A conta de armazenamento necessitará de um ponto final privado para os `file` `blob` sub-recursos e sub-recursos.  Se utilizar certas capacidades como Funções Duráveis, também necessitará `queue` e `table` será acessível através de uma ligação de ponto final privado.
+    * Certifique-se de criar um registo DNS e configurar a sua app para [trabalhar com pontos finais privados](#azure-dns-private-zones) se utilizar o ponto final privado.  A conta de armazenamento necessitará de um ponto final privado para os `file` `blob` subreufontes e subreufontes.  Se utilizar certas capacidades como Funções Duradouras, também necessitará e será acessível através de `queue` uma `table` ligação de ponto final privado.
 1. (Opcional) Copie o conteúdo do ficheiro e do blob da conta de armazenamento de aplicações de função para a conta de armazenamento e partilha de ficheiros seguras.
 1. Copie o fio de ligação para esta conta de armazenamento.
 1. Atualizar as Definições de **Aplicação** em **Configuração** para a aplicação de função para o seguinte:
@@ -159,7 +177,7 @@ Quando integra uma aplicação de função num plano Premium ou num plano de Ser
 ## <a name="automation"></a>Automatização
 As seguintes APIs permitem gerir programáticamente integrações de redes virtuais regionais:
 
-+ **Azure CLI** : Utilize os [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) comandos para adicionar, listar ou remover uma integração regional de rede virtual.  
++ **Azure CLI** : Utilize os [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) comandos para adicionar, listar ou remover uma integração de rede virtual regional.  
 + **Modelos ARM** : A integração regional da rede virtual pode ser ativada utilizando um modelo de Gestor de Recursos Azure. Para um exemplo completo, consulte [este modelo de arranque rápido de funções](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Resolução de problemas

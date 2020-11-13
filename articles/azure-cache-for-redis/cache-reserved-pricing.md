@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 76da267ae14a1f58ee2cadbf48f4b2ec419312b4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 99aa4d9ed6552075b0da4d451201f48ba6adfb1b
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543530"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578710"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pré-pagamento por Azure Cache para redis computa recursos com capacidade reservada
 
@@ -37,8 +37,10 @@ Por exemplo, suponhamos que esteja a executar dois caches - um a 13 GB e o outro
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Compre Azure Cache para a capacidade reservada da Redis
 
+Pode comprar uma instância VM reservada no [portal Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md).
+
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione **Todos os serviços** > **Reservas** .
+2. Selecione **Todos os serviços** > **Reservas**.
 3. **Selecione Adicionar** e, em seguida, no painel de reservas de compra, selecione **Azure Cache para Redis** para comprar uma nova reserva para os seus caches.
 4. Preencha os campos necessários. Bases de dados existentes ou novas que correspondam aos atributos que seleciona qualificam-se para obter o desconto de capacidade reservado. O número real da sua Cache Azure para instâncias Redis que obtêm o desconto dependem do âmbito e quantidade selecionados.
 

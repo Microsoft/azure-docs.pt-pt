@@ -4,12 +4,12 @@ description: Este artigo fornece uma passagem para criar uma aplicação .NET Co
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4949d68750e95e5b62b8387f03c77c082fbaf7f4
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 1c0f5a5fb45ee45cb9b7e399dc39ad29406b15dc
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329326"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578999"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Enviar eventos para e receber eventos dos Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando a biblioteca **Azure.Messaging.EventHubs** .NET. 
@@ -33,9 +33,9 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
 
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
-1. Inicie o Visual Studio 2019. 
+1. Inicie o Visual Studio 2019. 
 1. **Selecione Criar um novo projeto.** 
-1. Na caixa de diálogo do **projeto,** faça os seguintes passos: Se não vir esta caixa de diálogo, selecione **Ficheiro** no menu, selecione **Novo**, e, em seguida, selecione **Project**. 
+1. Na caixa de diálogo do **projeto,** faça os seguintes passos: Se não vir esta caixa de diálogo, selecione **Ficheiro** no menu, selecione **Novo** , e, em seguida, selecione **Project**. 
     1. Selecione **C#** para a linguagem de programação.
     1. Selecione **Consola** para o tipo de aplicação. 
     1. Selecione **App de Consola (.NET Core)** da lista de resultados. 
@@ -48,7 +48,7 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Adicionar o pacote NuGet dos Hubs de Eventos
 
-1. Selecione **ferramentas**  >  **NuGet Package Manager**Package Manager  >  **Consola** do menu. 
+1. Selecione **ferramentas**  >  **NuGet Package Manager** Package Manager  >  **Consola** do menu. 
 1. Executar o seguinte comando para instalar o pacote **Azure.Messaging.EventHubs** NuGet:
 
     ```cmd
@@ -104,7 +104,7 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
     [![Verifique se o centro de eventos recebeu as mensagens](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
     > [!NOTE]
-    > Para obter o código fonte completo com mais comentários informativos, consulte [este ficheiro no GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample03_PublishAnEventBatch.cs)
+    > Para obter o código fonte completo com mais comentários informativos, consulte [este ficheiro no GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample04_PublishingEvents.md)
 
 ## <a name="receive-events"></a>Receber eventos
 Esta secção mostra como escrever uma aplicação de consola .NET Core que recebe mensagens de um centro de eventos utilizando um processador de eventos. O processador do evento simplifica a receção de eventos a partir de centros de eventos, gerindo pontos de verificação persistentes e receções paralelas desses centros de eventos. Um processador de eventos está associado a um hub de evento específico e a um grupo de consumidores. Recebe eventos de múltiplas divisórias no centro do evento, passando-as a um delegado de manipulador para processamento usando o código que fornece. 
@@ -130,11 +130,11 @@ Neste arranque rápido, utiliza-se o Azure Storage como loja de pontos de verifi
 
 1. Na janela Solution Explorer, clique à direita na solução **EventHubQuickStart,** aponte para **Adicionar,** e selecione **Novo Projeto**. 
 1. Selecione **App de Consola (.NET Core)** e selecione **Seguinte**. 
-1. **Insira o EventHubsReceiver** para o **nome do projeto**e selecione **Create**. 
+1. **Insira o EventHubsReceiver** para o **nome do projeto** e selecione **Create**. 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Adicionar o pacote NuGet dos Hubs de Eventos
 
-1. Selecione **ferramentas**  >  **NuGet Package Manager**Package Manager  >  **Consola** do menu. 
+1. Selecione **ferramentas**  >  **NuGet Package Manager** Package Manager  >  **Consola** do menu. 
 1. Executar o seguinte comando para instalar o pacote **Azure.Messaging.EventHubs** NuGet:
 
     ```cmd

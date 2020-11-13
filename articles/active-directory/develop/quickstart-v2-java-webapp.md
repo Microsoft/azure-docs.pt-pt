@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 620039ec43009693d09f732913264eff94d662c9
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e93c0c6bb689980cab1b41e529c491cdf3920260
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533247"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591721"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java
 
-Neste arranque rápido, aprenderás a integrar uma aplicação web java com a plataforma de identidade da Microsoft. A sua aplicação irá iniciar seduca num utilizador, obter um token de acesso para ligar para a API do Gráfico da Microsoft e fazer um pedido para a API do Microsoft Graph.
+Neste quickstart, você descarrega e execute uma amostra de código que demonstra como uma aplicação web Java pode iniciar sôm nos utilizadores e ligar para a Microsoft Graph API. Os utilizadores de qualquer organização do Azure Ative Directory (Azure AD) podem iniciar sação na aplicação.
 
-Quando tiver concluído este quickstart, a sua aplicação aceitará inscrições de contas pessoais da Microsoft (incluindo outlook.com, live.com e outras) e contas de trabalho ou escola de qualquer empresa ou organização que utilize o Azure Ative Directory. (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
+ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -120,7 +120,7 @@ Para executar esta amostra, você precisará:
 >    aad.redirectUriGraph=https://localhost:8443/msal4jsample/graph/me
 >    aad.msGraphEndpointHost="https://graph.microsoft.com/"
 >    ```
-> Em que:
+> Onde:
 >
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Client_Secret_Here` - é o Segredo de **Cliente** que criou em **Certificados & Segredos** para a aplicação que registou.

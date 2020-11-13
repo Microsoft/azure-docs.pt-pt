@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 07/30/2020
-ms.openlocfilehash: e80ea37409f7b5beb48ba7b8e96aeeda9a5836e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/30/2020
+ms.openlocfilehash: b9fb5d6537d2c8dffef397c56128dd4891c939b7
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89433437"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578132"
 ---
 # <a name="what-is-azure-data-share"></a>O que é o Azure Data Share?
 
@@ -45,7 +45,7 @@ Os fornecedores de dados podem oferecer aos seus consumidores de dados atualiza�
 
 ![fluxo de partilha de dados](media/data-share-flow.png)
 
-Quando um consumidor de dados aceita uma partilha de dados, pode receber os dados numa loja de dados à sua escolha. Por exemplo, se o fornecedor de dados partilhar dados usando o Azure Blob Storage, o consumidor de dados pode receber estes dados na Azure Data Lake Store. Da mesma forma, se o fornecedor de dados partilhar dados de um Azure Synapse Analytics (anteriormente SQL Data Warehouse), o consumidor de dados pode escolher se quer receber os dados numa Loja de Lagos de Dados Azure, numa Base de Dados Azure SQL ou numa Azure Synapse Analytics. No caso de partilha de fontes baseadas em SQL, o consumidor de dados também pode escolher se recebe dados em parquet ou csv. 
+Quando um consumidor de dados aceita uma partilha de dados, pode receber os dados numa loja de dados à sua escolha. Por exemplo, se o fornecedor de dados partilhar dados usando o Azure Blob Storage, o consumidor de dados pode receber estes dados na Azure Data Lake Store. Da mesma forma, se o fornecedor de dados partilhar dados de um Azure Synapse Analytics, o consumidor de dados pode escolher se quer receber os dados numa Loja de Data Lake Azure, numa Base de Dados Azure SQL ou numa Azure Synapse Analytics. No caso de partilha de fontes baseadas em SQL, o consumidor de dados também pode escolher se recebe dados em parquet ou csv. 
 
 Com a partilha no local, os fornecedores de dados podem partilhar dados onde residem sem copiar os dados. Após a partilha da relação é estabelecida através do fluxo de convites, é criada uma ligação simbólica entre a loja de dados de origem do fornecedor de dados e a loja de dados-alvo do consumidor de dados. O consumidor de dados pode ler e consultar os dados em tempo real utilizando a sua própria loja de dados. As alterações na loja de dados de origem estão imediatamente disponíveis para o consumidor de dados. A partilha no local está atualmente em pré-visualização para o Azure Data Explorer.
 
@@ -73,9 +73,7 @@ A Azure Data Share permite que os consumidores de dados:
 
 * Aceite os dados partilhados consigo numa [loja de dados suportada.](supported-data-stores.md)
 
-* Desencadeie uma imagem completa ou incremental de uma Partilha de Dados que uma organização partilhou consigo
-
-* Subscreva uma partilha de dados para receber a cópia mais recente dos dados através de instantâneo incremental
+* Aceder aos dados no local ou desencadear uma imagem completa ou incremental dos dados partilhados
 
 Todas as capacidades-chave listadas acima são suportadas através do portal Azure ou através de REST APIs. Para mais detalhes sobre a utilização do Azure Data Share através de REST APIs, consulte a nossa documentação de referência. 
 

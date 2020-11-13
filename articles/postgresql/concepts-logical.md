@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: 0e9773e5c08f9d07f76a70bc4f899acf5004d3c2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: cda305ac705b728e0d2e129d7d42d53ea0251d86
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421814"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591534"
 ---
 # <a name="logical-decoding"></a>Descodificação lógica
  
@@ -37,7 +37,6 @@ Para configurar o nível certo de registo, utilize o parâmetro de suporte de re
 * **Réplica** - Mais verboso do que **desligado**. Este é o nível mínimo de exploração madeireira necessário para [que as réplicas de leitura](concepts-read-replicas.md) funcionem. Esta definição é o padrão na maioria dos servidores.
 * **Lógico** - Mais verboso do que **réplica.** Este é o nível mínimo de exploração madeireira para a descodão lógica para funcionar. As réplicas de leitura também funcionam neste cenário.
 
-O servidor precisa de ser reiniciado após uma alteração deste parâmetro. Internamente, este parâmetro define os parâmetros postgres, `wal_level` `max_replication_slots` e `max_wal_senders` .
 
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
 
@@ -54,7 +53,7 @@ O servidor precisa de ser reiniciado após uma alteração deste parâmetro. Int
 
 ### <a name="using-azure-portal"></a>Com o Portal do Azure
 
-1. Desa parte do suporte de replicação do Azure para **ser lógico**. Selecione **Save** (Guardar).
+1. Desa parte do suporte de replicação do Azure para **ser lógico**. Selecione **Guardar**.
 
    :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Base de Dados Azure para PostgreSQL - Replicação - Suporte de replicação Azure":::
 

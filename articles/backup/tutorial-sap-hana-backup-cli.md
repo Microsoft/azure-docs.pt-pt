@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA que est
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b2cc34ae33ad283c30bbc5ce05a31b5e35a192de
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 41869ac4dfc0d3964fb48463e5f142b8391e2d94
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566661"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579258"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Ressarça as bases de dados SAP HANA num Azure VM utilizando O Azure CLI
 
@@ -28,7 +28,7 @@ Confira os [cenários que apoiamos atualmente](./sap-hana-backup-support-matrix.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Este tutorial requer versão xx.xx.xxx ou posteriormente do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
+ - Este tutorial requer a versão 2.0.30 ou posterior do CLI Azure. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 

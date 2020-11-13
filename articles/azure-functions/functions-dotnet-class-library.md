@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções Azure usando C#.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380968"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578778"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do programador Azure Functions C#
 
@@ -17,12 +17,13 @@ ms.locfileid: "94380968"
 
 Este artigo é uma introdução ao desenvolvimento de Funções Azure utilizando C# em bibliotecas de classe .NET.
 
+Como desenvolvedor C#, também poderá estar interessado num dos seguintes artigos:
+
+| Introdução | Conceitos| Aprendizagem/amostras guiadas |
+| -- | -- | -- | 
+| <ul><li>[Com o Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Utilizar o Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Usando ferramentas de linha de comando](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opções de alojamento](functions-scale.md)</li><li>[&nbsp;Considerações de desempenho](functions-best-practices.md)</li><li>[Desenvolvimento do Visual Studio](functions-develop-vs.md)</li><li>[Injeção de dependência](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Criar aplicações sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Amostras em C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+
 A Azure Functions suporta linguagens de programação de scripts C# e C#. Se estiver à procura de orientação sobre [a utilização de C# no portal Azure,](functions-create-function-app-portal.md)consulte a [referência do programador do script C# (.csx).](functions-reference-csharp.md)
-
-Este artigo assume que já leu os seguintes artigos:
-
-* [Guia de desenvolvedores de funções Azure](functions-reference.md)
-* [Ferramentas Azure Functions Visual Studio 2019](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>Versões suportadas
 
@@ -644,7 +645,7 @@ public static class IBinderExampleMultipleAttributes
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre gatilhos e encadernações](functions-triggers-bindings.md)

@@ -1,6 +1,6 @@
 ---
 title: Autenticação da OAUTH 2.0 com Diretório Ativo Azure
-description: Orientação arquitetónica para alcançar este padrão de autenticação
+description: Orientação arquitetónica para a autenticação da AAUTH 2.0 com o Azure Ative Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea22c4e5b363eaa3ecc2a736dfef714666310062
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: daf40a2ced3f753619e9c4723dbe78cd7e51ff21
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114372"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577911"
 ---
 # <a name="oauth-20-authentication-with-azure-active-directory"></a>Autenticação OAuth 2.0 com Diretório Ativo Azure
 
@@ -34,13 +34,13 @@ Para clientes ricos & cenários modernos de aplicações e acesso RESTful Web AP
 
 ## <a name="components-of-system"></a>Componentes do sistema
 
-* **Utilizador**: Solicita um serviço a partir da aplicação web (app). O utilizador é tipicamente o proprietário de recursos que detém os dados e tem o poder de permitir que os clientes acedam aos dados ou recursos. 
+* **Utilizador** : Solicita um serviço a partir da aplicação web (app). O utilizador é tipicamente o proprietário de recursos que detém os dados e tem o poder de permitir que os clientes acedam aos dados ou recursos. 
 
-* **Web browser**: O navegador web com o qual o utilizador interage é o cliente OAuth. 
+* **Web browser** : O navegador web com o qual o utilizador interage é o cliente OAuth. 
 
-* **Aplicação Web**: A aplicação web, ou servidor de recursos, é onde reside o recurso ou dados. Confia no servidor de autorização para autenticar e autorizar o cliente OAuth. 
+* **Aplicação Web** : A aplicação web, ou servidor de recursos, é onde reside o recurso ou dados. Confia no servidor de autorização para autenticar e autorizar o cliente OAuth. 
 
-* **Azure AD**: Azure AD é o servidor de autorização, também conhecido como Fornecedor de Identidade (IdP). Lida com segurança com a informação do utilizador, o seu acesso e a relação de confiança. É responsável pela emissão dos tokens que concedem e revogam o acesso aos recursos.
+* **Azure AD** : Azure AD é o servidor de autorização, também conhecido como Fornecedor de Identidade (IdP). Lida com segurança com a informação do utilizador, o seu acesso e a relação de confiança. É responsável pela emissão dos tokens que concedem e revogam o acesso aos recursos.
 
 ## <a name="implement-oauth-20-with-azure-ad"></a>Implementar OAuth 2.0 com Azure AD
 

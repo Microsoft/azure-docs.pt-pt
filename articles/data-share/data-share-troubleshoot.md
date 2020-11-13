@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220463"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579152"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Resolver problemas comuns no Azure Data Share 
 
@@ -52,11 +52,11 @@ Este erro pode ocorrer devido aos seguintes motivos:
 
 "Não conseguimos adicionar permissões de escrita para a conta Azure Data Share a um ou mais dos seus recursos selecionados"
 
-Se receber algum dos erros acima referidos ao criar uma nova partilha ou mapeamento de conjuntos de dados, pode ser devido a permissões insuficientes para a loja de dados Azure. Consulte [as funções e os requisitos](concepts-roles-permissions.md) para as permissões necessárias. 
+Se receber algum dos erros acima referidos ao criar uma nova ação, adicionando conjuntos de dados ou conjuntos de dados de mapeamento, poderá ser devido a permissões insuficientes na loja de dados Azure. Consulte [as funções e os requisitos](concepts-roles-permissions.md) para as permissões necessárias. 
 
-Precisa de escrever permissão para partilhar ou receber dados de uma loja de dados Azure, que normalmente existe na função Contribuinte. 
+Precisa de escrever permissão para partilhar ou receber dados de uma loja de dados Azure, que normalmente existe na função **Contribuinte.** 
 
-Se esta for a primeira vez que partilha ou recebe dados da loja de dados Azure, também precisa da *Microsoft.Authorization/role assignments/write* permission, que normalmente existe na função Proprietário. Mesmo que tenha criado o recurso Azure data store, não o torna automaticamente o proprietário do recurso. Com a devida permissão, o serviço Azure Data Share concede automaticamente o acesso de identidade gerido do recurso à loja de dados. Este processo pode levar alguns minutos a fazer efeito. Se sentir falhas devido a este atraso, tente novamente em alguns minutos.
+Se esta for a primeira vez que partilha ou recebe dados da loja de dados Azure, também precisa da *Microsoft.Authorization/role assignments/write* permission, que normalmente existe na função **Proprietário.** Mesmo que tenha criado o recurso Azure data store, não o torna automaticamente o proprietário do recurso. Com a devida permissão, o serviço Azure Data Share concede automaticamente o acesso de identidade gerido do recurso à loja de dados. Este processo pode levar alguns minutos a fazer efeito. Se sentir falhas devido a este atraso, tente novamente em alguns minutos.
 
 A partilha baseada em SQL requer permissões adicionais. Consulte [a partilha de fontes SQL](how-to-share-from-sql.md) para obter uma lista detalhada de pré-requisitos.
 
@@ -69,7 +69,7 @@ O instantâneo pode falhar devido a uma variedade de razões. Pode encontrar uma
 
 Para as fontes SQL, as seguintes são causas adicionais de falhas de instantâneo. 
 
-* O script SQL de origem ou alvo para conceder a permissão de Partilha de Dados não é executado, ou é executado usando a autenticação SQL em vez da autenticação do Azure Ative Directory.  
+* O script SQL de origem ou alvo para conceder permissão de Partilha de Dados não é executado. Ou para a Azure SQL Database ou Azure Synapse Analytics (anteriormente Azure SQL DW), é executado usando a autenticação SQL em vez da autenticação do Azure Ative Directory.  
 * A loja de dados SQL de origem ou alvo é pausada.
 * Os tipos de dados SQL não são suportados pelo processo instantâneo ou pela loja de dados-alvo. Consulte [a partilhar a partir de fontes SQL](how-to-share-from-sql.md#supported-data-types) para obter mais detalhes.
 * A loja de dados SQL de origem ou alvo é bloqueada por outros processos. A Azure Data Share não aplica fechaduras à loja de dados de origem e alvo SQL. No entanto, as fechaduras existentes na loja de dados SQL de origem e alvo causarão falhas instantâneas.

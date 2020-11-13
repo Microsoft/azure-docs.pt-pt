@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: a1d233273ced4891c9987ff8ba50e5491ae6071c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0e8a3ec38a79edb52031d6c18596038ab4c6a8af
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084464"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592146"
 ---
 # <a name="bing-image-search-api-v7-upgrade-guide"></a>Guia de upgrade de API v7 de pesquisa de imagem Bing Image
 
@@ -44,7 +44,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 - Substituiu os códigos de erro v5 pelos seguintes `code` valores e `subCode` valores possíveis.
 
-|Código|SubCódes|Description
+|Código|SubCódes|Descrição
 |-|-|-
 |ServerError|InesperadoError<br/>Recurso<br/>Não ÉDopliizado|Bing devolve ServerError sempre que ocorrer qualquer uma das condições do sub-código. A resposta inclui estes erros se o código de estado HTTP for 500.
 |InáduloRequest|ParâmetroSMissing<br/>ParâmetroInvalvalue<br/>HttpNotAllowed<br/>Bloqueado|Bing devolve InvalidRequest sempre que qualquer parte do pedido não seja válida. Por exemplo, falta um parâmetro necessário ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se o erro for httpNotAllowed, o código de estado HTTP 410.
@@ -79,83 +79,83 @@ Bloqueado|InvalidRequest.Bloqueado
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-- Renomeou o `modulesRequested` parâmetro de consulta para [módulos.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)  
+- Renomeou o `modulesRequested` parâmetro de consulta para [módulos.](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)  
 
-- Rebatizou as Anotações para Tags. Consulte o parâmetro de consulta de [módulos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) para Tags.  
+- Rebatizou as Anotações para Tags. Consulte o parâmetro de consulta de [módulos](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) para Tags.  
 
-- Alterou a lista de mercados suportados do valor do filtro ShoppingSources apenas para en-US. Ver [imagemType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype).  
+- Alterou a lista de mercados suportados do valor do filtro ShoppingSources apenas para en-US. Ver [imagemType](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype).  
 
 
 ### <a name="image-insights-changes"></a>Alterações de insights de imagem
 
-- Renomeado o `annotations` campo de [ImagesInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) para `imageTags` .  
+- Renomeado o `annotations` campo de [ImagesInsights](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) para `imageTags` .  
 
-- Renomeado o `AnnotationModule` objeto para [ImageTagsModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetagsmodule).  
+- Renomeado o `AnnotationModule` objeto para [ImageTagsModule](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetagsmodule).  
 
-- Rebatizou o `Annotation` objeto para [Tag,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#tag)e removeu o `confidence` campo.  
+- Rebatizou o `Annotation` objeto para [Tag,](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#tag)e removeu o `confidence` campo.  
 
-- Renomeado o `insightsSourcesSummary` campo do objeto [Image](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) para `insightsMetadata` .  
+- Renomeado o `insightsSourcesSummary` campo do objeto [Image](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) para `insightsMetadata` .  
 
-- Renomeado o `InsightsSourcesSummary` objeto para [InsightsMetadata.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightsmetadata)  
+- Renomeado o `InsightsSourcesSummary` objeto para [InsightsMetadata.](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightsmetadata)  
 
 - Acrescentou o `https://api.cognitive.microsoft.com/bing/v7.0/images/details` ponto final. Utilize este ponto final para solicitar insights de imagem em vez do ponto final /imagens/pesquisa. Ver [Insights de Imagem](./image-insights.md).
 
 - Os seguintes parâmetros de consulta são agora válidos apenas com o `/images/details` ponto final.  
 
-    -   [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken)  
-    -   [módulos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)  
-    -   [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl)  
-    -   [táxi](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
-    -   [cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
-    -   [car](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
-    -   [gato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
-    -   [ct](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#ct)  
+    -   [insightsToken](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken)  
+    -   [módulos](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)  
+    -   [imgUrl](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl)  
+    -   [táxi](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
+    -   [cal](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
+    -   [car](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
+    -   [gato](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
+    -   [ct](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#ct)  
 
-- Renomeado o `ImageInsightsResponse` objeto para [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights).  
+- Renomeado o `ImageInsightsResponse` objeto para [ImageInsights](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights).  
 
-- Alterou os tipos de dados dos seguintes campos no objeto [ImageInsights.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights)  
+- Alterou os tipos de dados dos seguintes campos no objeto [ImageInsights.](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights)  
 
-    -   Alterou o tipo de `relatedCollections` campo de `ImageGallery[]` para [RelatedCollectionsModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#relatedcollectionsmodule).  
+    -   Alterou o tipo de `relatedCollections` campo de `ImageGallery[]` para [RelatedCollectionsModule](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#relatedcollectionsmodule).  
 
-    -   Alterou o tipo de `pagesIncluding` campo de `Image[]` para [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule).  
+    -   Alterou o tipo de `pagesIncluding` campo de `Image[]` para [ImagesModule](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule).  
 
-    -   Alterou o tipo de `relatedSearches` campo de `Query[]` para [RelatedSearchesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#relatedsearchesmodule).  
+    -   Alterou o tipo de `relatedSearches` campo de `Query[]` para [RelatedSearchesModule](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#relatedsearchesmodule).  
 
-    -   Alterou o tipo de `recipes` campo de `Recipe[]` [receitasModule.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#recipesmodule)  
+    -   Alterou o tipo de `recipes` campo de `Recipe[]` [receitasModule.](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#recipesmodule)  
 
-    -   Alterou o tipo de `visuallySimilarImages` campo de `Image[]` para [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule).  
+    -   Alterou o tipo de `visuallySimilarImages` campo de `Image[]` para [ImagesModule](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule).  
 
-    -   Alterou o tipo de `visuallySimilarProducts` campo de `ProductSummaryImage[]` para [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule).  
+    -   Alterou o tipo de `visuallySimilarProducts` campo de `ProductSummaryImage[]` para [ImagesModule](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule).  
 
-    -   Removiu o `ProductSummaryImage` objeto e moveu os campos relacionados com o produto para o objeto [Image.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) O `Image` objeto inclui os campos relacionados com o produto apenas quando a imagem é incluída como parte de produtos visualmente similares numa resposta de visão.  
+    -   Removiu o `ProductSummaryImage` objeto e moveu os campos relacionados com o produto para o objeto [Image.](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) O `Image` objeto inclui os campos relacionados com o produto apenas quando a imagem é incluída como parte de produtos visualmente similares numa resposta de visão.  
 
-    -   Alterou o tipo de `recognizedEntityGroups` campo de `RecognizedEntityGroup[]` para [ReconhecidoInsModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#recognizedentitiesmodule).  
+    -   Alterou o tipo de `recognizedEntityGroups` campo de `RecognizedEntityGroup[]` para [ReconhecidoInsModule](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#recognizedentitiesmodule).  
 
--   Renomeou o `categoryClassification` campo de [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) para `annotations` , e mudou o seu tipo para `AnnotationsModule` .  
+-   Renomeou o `categoryClassification` campo de [ImageInsights](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) para `annotations` , e mudou o seu tipo para `AnnotationsModule` .  
 
 ### <a name="images-answer"></a>Resposta de imagens
 
--   Removido o displayShoppingSourcesBadges e displayRecipeSourcesBadges campos de [Imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images).  
+-   Removido o displayShoppingSourcesBadges e displayRecipeSourcesBadges campos de [Imagens](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images).  
 
--   Renomeado o `nextOffsetAddCount` campo de [Imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) para `nextOffset` . A forma como usas o offset também mudou. Anteriormente, define o parâmetro de consulta [de compensação](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset) para o `nextOffsetAddCount` valor mais o valor de compensação anterior mais o número de imagens no resultado. Agora, define o `offset` `nextOffset` valor.  
+-   Renomeado o `nextOffsetAddCount` campo de [Imagens](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) para `nextOffset` . A forma como usas o offset também mudou. Anteriormente, define o parâmetro de consulta [de compensação](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset) para o `nextOffsetAddCount` valor mais o valor de compensação anterior mais o número de imagens no resultado. Agora, define o `offset` `nextOffset` valor.  
 
 
 ## <a name="non-breaking-changes"></a>Alterações não-quebrando
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-- Adicionado Transparente como um possível valor do filtro [de imagemType.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype) O filtro Transparente devolve apenas imagens com um fundo transparente.
+- Adicionado Transparente como um possível valor do filtro [de imagemType.](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype) O filtro Transparente devolve apenas imagens com um fundo transparente.
 
-- Adicionou o Any como um possível valor de filtro [de licença.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#license) O filtro Any devolve apenas imagens que estão licenciadas.
+- Adicionou o Any como um possível valor de filtro [de licença.](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#license) O filtro Any devolve apenas imagens que estão licenciadas.
 
-- Adicione os parâmetros de consulta [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxfilesize) e [minFileSize.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minfilesize) Utilize estes filtros para devolver imagens dentro de uma gama de tamanhos de ficheiro.  
+- Adicione os parâmetros de consulta [maxFileSize](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxfilesize) e [minFileSize.](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minfilesize) Utilize estes filtros para devolver imagens dentro de uma gama de tamanhos de ficheiro.  
 
-- Adicionou os parâmetros de consulta [maxHeight](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxheight), [minHeight,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minheight) [maxWidth,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxwidth) [minWidth.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minwidth) Utilize estes filtros para devolver imagens dentro de uma gama de alturas e larguras.  
+- Adicionou os parâmetros de consulta [maxHeight](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxheight), [minHeight,](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minheight) [maxWidth,](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxwidth) [minWidth.](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minwidth) Utilize estes filtros para devolver imagens dentro de uma gama de alturas e larguras.  
 
 ### <a name="object-changes"></a>Alterações de objetos
 
-- Adicionei o `description` e campos ao objeto `lastUpdated` [Oferta.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offer)  
+- Adicionei o `description` e campos ao objeto `lastUpdated` [Oferta.](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offer)  
 
-- Adicionei o `name` campo ao objeto [ImageGallery.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagegallery)  
+- Adicionei o `name` campo ao objeto [ImageGallery.](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagegallery)  
 
-- Adicionado `similarTerms` ao objeto [Imagens.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) Este campo contém uma lista de termos que são semelhantes em significado à cadeia de consulta do utilizador.  
+- Adicionado `similarTerms` ao objeto [Imagens.](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) Este campo contém uma lista de termos que são semelhantes em significado à cadeia de consulta do utilizador.

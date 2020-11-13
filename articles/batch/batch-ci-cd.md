@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 4d758d4613f68450be9c444063d3a6188d1aa689
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: e87be0db65cf12a265566e0c05815722ce3cc609
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337581"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578880"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilize gasodutos Azure para construir e implementar soluções HPC
 
@@ -43,7 +43,7 @@ A estrutura da base de código utilizada nesta amostra assemelha-se ao seguinte;
 
 * Uma pasta **de modelos de braço,** contendo uma série de modelos do Gestor de Recursos Azure. Os modelos são explicados neste artigo.
 * Uma pasta **de aplicação ao cliente,** que é uma cópia do Processamento de [Ficheiros Azure Batch .NET com amostra de ffmpeg.](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) Isto não é necessário para este artigo.
-* Uma pasta **de aplicação hpc,** que é a versão do Windows 64-bit de [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z).
+* Uma pasta **de aplicação hpc,** que é a versão do Windows 64-bit de [ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08).
 * Uma pasta **de oleodutos.** Isto contém um ficheiro YAML que descreve o nosso processo de construção. Isto é discutido no artigo.
 
 Esta secção pressupõe que está familiarizado com o controlo de versão e projetando modelos de Gestor de Recursos. Se não está familiarizado com estes conceitos, consulte as seguintes páginas para obter mais informações.

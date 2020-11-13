@@ -3,12 +3,12 @@ title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço da Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar limites, juntamente com valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: b95c056a8885998c3ca5b5c62cb13049c3a8c66d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 54eb25e302d49be9e3ab1febeb5c636d267d7e4f
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412936"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577843"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limites de subscrição e serviços da Azure, quotas e constrangimentos
 
@@ -155,6 +155,10 @@ Os valores mais recentes para as quotas de cálculo de aprendizagem automática 
 ### <a name="action-groups"></a>Grupos de ação
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
+
+### <a name="autoscale"></a>Dimensionamento Automático
+
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
 
 ### <a name="log-queries-and-language"></a>Consultas de registo e linguagem
 

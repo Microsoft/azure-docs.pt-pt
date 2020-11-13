@@ -2,18 +2,17 @@
 title: Economize custos com a Azure VMware Solution reservado instância
 description: Saiba como comprar uma instância reservada para a Azure VMware Solution.
 ms.topic: how-to
-ms.date: 10/02/2020
-ms.openlocfilehash: bac2497c637a301c7ce8cbc44fc6945c3ef43b06
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 11/12/2020
+ms.openlocfilehash: b57e985068adabccecbbdb43dd11bcf6596bf422
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370683"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578970"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Economize custos com a Azure VMware Solution
 
-Quando se compromete com uma instância reservada da [Azure VMware Solution,](introduction.md)economiza dinheiro. O desconto de reserva é aplicado automaticamente aos anfitriões Azure VMware Solution que correspondem ao âmbito e atributos da reserva. Você não precisa atribuir uma reserva a um anfitrião dedicado para obter os descontos. Uma compra de instância reservada cobre apenas a parte computacional do seu uso e inclui custos de licenciamento de software. 
-
+Quando se compromete com uma instância reservada da [Azure VMware Solution,](introduction.md)economiza dinheiro.  O desconto de reserva é aplicado automaticamente aos anfitriões Azure VMware Solution que correspondem ao âmbito e atributos da reserva. Uma compra de instância reservada cobre apenas a parte computacional do seu uso e inclui custos de licenciamento de software. 
 
 ## <a name="purchase-restriction-considerations"></a>Considerações de restrição de compra
 
@@ -23,7 +22,7 @@ Casos reservados estão disponíveis com algumas exceções.
 
 -   **Contingente insuficiente** - Uma reserva a uma subscrição única/partilhada deve ter quota de anfitriões disponível na subscrição para o novo caso reservado. Pode [criar um pedido de aumento de quota](enable-azure-vmware-solution.md) para resolver esta questão.
 
--   **Oferecer elegibilidade**- Vai precisar de um [Acordo de Empresa Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
+-   **Oferecer elegibilidade** - Vai precisar de um [Acordo de Empresa Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
 
 -   **Restrições de capacidade** - Em circunstâncias raras, o Azure limita a compra de novas reservas para a Azure VMware Solution host SKUs devido à baixa capacidade numa região.
 
@@ -31,34 +30,67 @@ Casos reservados estão disponíveis com algumas exceções.
 
 Pode comprar uma instância reservada de um anfitrião Azure VMware Solution no [portal Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
 
-Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/prepare-buy-reservation.md).
+Pode pagar a reserva [adiantadamente ou com pagamentos mensais.](../cost-management-billing/reservations/prepare-buy-reservation.md)
 
 Estes requisitos aplicam-se à compra de um caso de anfitrião dedicado reservado:
 
--   Você deve estar numa função proprietário para pelo menos uma subscrição EA ou uma subscrição com uma taxa de pagamento como você-go.
+-   Você deve estar numa função *proprietário* para pelo menos uma subscrição EA ou uma subscrição com uma taxa de pagamento como você-go.
 
--   Para as assinaturas EA, a opção **Add Reserved Instances** deve ser ativada no [portal EA](https://ea.azure.com/). Em alternativa, se essa definição estiver desativada, terá de ser o Administrador EA da subscrição.
+-   Para as subscrições EA, deve ativar a opção **Add Reserved Instances** no [portal EA](https://ea.azure.com/). Se estiver desativado, deve ser um Administrador EA para a subscrição para o habilitar.
 
-Para comprar uma instância:
+-   Para a subscrição no âmbito de um Plano Azure do Cloud Solution Provider (CSP), o parceiro deve adquirir as instâncias reservadas no portal Azure para o cliente. 
+
+### <a name="buy-reserved-instances-for-an-ea-subscription"></a>Comprar instâncias reservadas para uma subscrição da EA
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione **Todos os serviços** > **Reservas**.
 
-3. **Selecione Adicionar** para comprar uma nova reserva e, em seguida, selecione **Azure VMware Solution**.
+3. Selecione **Comprar De vez** em quando selecione **Azure VMware Solution**.
 
-4. Insira os campos necessários. Running Azure VMware Solution acolhe anfitriões que correspondem aos atributos, você seleciona qualita-se para obter o desconto de reserva. O número real dos anfitriões da Solução Azure VMware que obtêm o desconto dependendo do âmbito e quantidade selecionados.
+4. Insira os campos necessários. Os atributos selecionados que correspondem a correr Azure VMware Solution os anfitriões qualificam-se para o desconto de reserva.  Os atributos incluem o SKU, regiões (quando aplicável) e âmbito. O âmbito de reserva permite selecionar onde as poupanças na reserva serão aplicadas.
 
-   Se tiver um acordo EA, pode utilizar a **opção Adicionar mais** rapidamente para adicionar instâncias adicionais. A opção não está disponível para outros tipos de subscrição.
+   Se tiver um acordo EA, pode utilizar a **opção Adicionar mais** instâncias rapidamente. A opção não está disponível para outros tipos de subscrição.
 
    | Campo        |  Descrição |
    | ------------ | ------------ |
-   | Subscrição | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Microsoft Customer Agreement ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os custos são deduzidos do saldo de fidelização monetária, se disponível, ou cobrados como utilização excedida. Para uma subscrição com taxas pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição. |
-   | Âmbito        | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar:<br><ul><li><b>Âmbito de grupo de recursos único — Aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li><b>Âmbito de subscrição único — Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li><b>Âmbito compartilhado — Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>       |
+   | Subscrição | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P), Microsoft Customer Agreement, ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os custos são deduzidos do saldo de fidelização monetária, se disponível, ou cobrados como utilização excedida. Para uma subscrição com taxas de pagamento, os encargos são cobrados no cartão de crédito da subscrição ou num método de pagamento de fatura. |
+   | Âmbito        | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar:<br><ul><li><b>Âmbito de grupo de recursos únicos</b> - Aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li><b>Âmbito de subscrição único</b> - Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li><b>Âmbito partilhado</b> - Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>       |
    | Região       | A região de Azure que está coberta pela reserva.   |
    | Tamanho do anfitrião    | AV36    |
    | Termo         | Um ano ou três anos.  |
-   | Quantidade     | O número de casos a serem comprados dentro da reserva. A quantidade é o número de anfitriões da Azure VMware Solution que podem obter o desconto de faturação.    |
+   | Quantidade     | O número de casos para comprar dentro da reserva. A quantidade é o número de anfitriões da Azure VMware Solution que podem obter o desconto de faturação.    |
+
+### <a name="buy-reserved-instances-for-a-csp-subscription"></a>Comprar instâncias reservadas para uma subscrição de CSP
+
+Os CSPs que pretendam adquirir instâncias reservadas para os seus clientes devem utilizar o procedimento **Admin Em nome da** [documentação](https://docs.microsoft.com/partner-center/azure-plan-manage)do Centro parceiro . Para mais informações, consulte o Administrador em nome do vídeo [(AOBO).](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO)
+
+1. Inscreva-se no [Partner Center](https://partner.microsoft.com).
+
+2. Selecione **CSP** para aceder à área **clientes.**
+
+3. Expandir os detalhes do cliente e selecionar **o Microsoft Azure Management Portal**. 
+
+   :::image type="content" source="media/reserved-instances/csp-partner-center-aobo.png" alt-text="Área de clientes do Microsoft Partner Center" lightbox="media/reserved-instances/csp-partner-center-aobo.png":::
+
+4. No portal Azure, selecione **Todas as** Reservas de  >  **Serviços**.
+
+5. Selecione **Comprar De vez** em quando selecione **Azure VMware Solution**.
+
+   :::image type="content" source="media/reserved-instances/csp-buy-ri-azure-portal.png" alt-text="Reservas do portal Microsoft Azure" lightbox="media/reserved-instances/csp-buy-ri-azure-portal.png":::
+
+6. Insira os campos necessários. Os atributos selecionados que correspondem a correr Azure VMware Solution os anfitriões qualificam-se para o desconto de reserva.  Os atributos incluem o SKU, regiões (quando aplicável) e âmbito. O âmbito de reserva permite selecionar onde as poupanças na reserva serão aplicadas.
+
+   | Campo        |  Descrição |
+   | ------------ | ------------ |
+   | Subscrição | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de assinatura deve ser elegível, que neste caso é uma subscrição CSP|
+   | Âmbito        | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar:<br><ul><li><b>Âmbito de grupo de recursos únicos</b> - Aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li><b>Âmbito de subscrição único</b> - Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li><b>Âmbito partilhado</b> - Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>       |
+   | Região       | A região de Azure que está coberta pela reserva.   |
+   | Tamanho do anfitrião    | AV36    |
+   | Termo         | Um ano ou três anos.  |
+   | Quantidade     | O número de casos para comprar dentro da reserva. A quantidade é o número de anfitriões da Azure VMware Solution que podem obter o desconto de faturação.     |
+
+Para saber mais sobre como ver as reservas adquiridas para o seu cliente, consulte [as reservas do Azure como um artigo do Cloud Solution Provider (CSP).](../cost-management-billing/reservations/how-to-view-csp-reservations.md)
 
 ## <a name="usage-data-and-reservation-usage"></a>Dados de utilização e utilização da reserva
 
@@ -71,7 +103,7 @@ Para mais informações sobre como os descontos de reserva aparecem nos dados de
 
 ## <a name="change-a-reservation-after-purchase"></a>Alterar uma reserva após a compra
 
-Pode fazer os seguintes tipos de alterações numa reserva após a compra:
+Pode efetuar estas alterações a uma reserva após a compra:
 
 -   Atualizar âmbito da reserva
 
@@ -81,8 +113,12 @@ Pode fazer os seguintes tipos de alterações numa reserva após a compra:
 
 Você também pode dividir uma reserva em pedaços menores ou fundir reservas. Nenhuma das alterações causa uma nova transação comercial ou altera a data de fim da reserva.
 
+Para mais informações sobre reservas geridas pela CSP, consulte [as reservas do Microsoft Azure para clientes que utilizem o Partner Center, o portal Azure ou APIs](https://docs.microsoft.com/partner-center/azure-reservations).
+
+
+
 >[!NOTE]
->Uma vez adquirida a sua reserva, não poderá efetuar diretamente os seguintes tipos de alterações:
+>Uma vez adquirida a sua reserva, não poderá efetuar este tipo de alterações diretamente:
 >
 > - Uma região de reserva existente
 > - SKU
@@ -94,3 +130,5 @@ Você também pode dividir uma reserva em pedaços menores ou fundir reservas. N
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
 Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+
+Os CSPs podem cancelar, trocar ou reembolsar reservas, com determinadas limitações, adquiridas para o seu cliente. Para mais informações, consulte [Gerir, cancelar, trocar ou reembolsar reservas do Microsoft Azure para os clientes.](https://docs.microsoft.com/partner-center/azure-reservations-manage)

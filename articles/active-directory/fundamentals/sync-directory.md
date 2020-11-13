@@ -1,6 +1,6 @@
 ---
 title: Sincronização do diretório com diretório Azure Ative Directory
-description: Orientação arquitetónica para alcançar este padrão de sincronização
+description: Orientação arquitetónica para a sincronização do diretório com o Azure Ative Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 862d17948cb09c18f9372f8b8b981e5efa6be71b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c340f973193f9c46735423c86112816003fecfcd
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114319"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578914"
 ---
 # <a name="directory-synchronization"></a>Sincronização de diretórios
 
@@ -42,15 +42,15 @@ Precisa de sincronizar os dados de identidade dos ambientes do Ative Directory p
 
 * **Utilizador:** Acede a uma aplicação utilizando a Azure AD.
 
-* **Web browser**: O componente com o que o utilizador interage para aceder ao URL externo da aplicação.
+* **Web browser** : O componente com o que o utilizador interage para aceder ao URL externo da aplicação.
 
-* **Aplicação**: Aplicação Web que se baseia na utilização do Azure AD para efeitos de autenticação e autorização.
+* **Aplicação** : Aplicação Web que se baseia na utilização do Azure AD para efeitos de autenticação e autorização.
 
-* **Azure AD**: Sincroniza a informação de identidade do diretório da organização através do Azure AD Connect. 
+* **Azure AD** : Sincroniza a informação de identidade do diretório da organização através do Azure AD Connect. 
 
-* **Azure AD Connect**: Uma ferramenta para ligar em infraestruturas de identidade do Microsoft Azure. O assistente e as experiências guiadas ajudam-no a implementar e a configurar os pré-requisitos e componentes necessários para a ligação, incluindo sincronização e inscrição de Ative Directies para Azure AD. 
+* **Azure AD Connect** : Uma ferramenta para ligar em infraestruturas de identidade do Microsoft Azure. O assistente e as experiências guiadas ajudam-no a implementar e a configurar os pré-requisitos e componentes necessários para a ligação, incluindo sincronização e inscrição de Ative Directies para Azure AD. 
 
-* **Ative Directory**: Ative Directory é um serviço de diretório incluído na maioria dos sistemas operativos Windows Server. Os servidores que executam serviços de domínio de diretório ativo (DS AD) são chamados controladores de domínio. Autenticam e autorizam todos os utilizadores e computadores do domínio.
+* **Ative Directory** : Ative Directory é um serviço de diretório incluído na maioria dos sistemas operativos Windows Server. Os servidores que executam serviços de domínio de diretório ativo (DS AD) são chamados controladores de domínio. Autenticam e autorizam todos os utilizadores e computadores do domínio.
 
 ## <a name="implement-directory-synchronization-with-azure-ad"></a>Implementar sincronização de diretórios com Azure AD
 

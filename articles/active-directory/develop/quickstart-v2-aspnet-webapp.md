@@ -12,15 +12,18 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: 41ef13351e6a87369f3fe1e2181ca2113bf79bca
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d356674819304897aef353d161ddf236e19db1f5
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533264"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592248"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Quickstart: Adicione o início da plataforma de identidade da Microsoft a uma aplicação web ASP.NET
-Neste quickstart, você usa uma amostra de código para saber como uma ASP.NET web para assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD).  (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
+
+Neste quickstart, você descarrega e execute uma amostra de código que demonstra como uma aplicação web ASP.NET pode assinar em utilizadores de qualquer organização do Azure Ative Directory (Azure AD). 
+
+Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Pré-requisitos
 >
@@ -92,7 +95,7 @@ Neste quickstart, você usa uma amostra de código para saber como uma ASP.NET w
 >    <add key="ClientId" value="Enter_the_Application_Id_here" />
 >    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
 >    ```
->    Em que:
+>    Onde:
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Tenant_Info_Here` - é uma das opções abaixo:
 >   - Se a sua candidatura apoiar **apenas a Minha organização,** substitua este valor pelo nome **de Inquilino** ou **Inquilino** (por exemplo, contoso.onmicrosoft.com)
@@ -163,7 +166,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-> |Onde  | Description |
+> |Onde  | Descrição |
 > |---------|---------|
 > | `ClientId`     | O ID de Aplicação da aplicação registada no portal do Azure |
 > | `Authority`    | O ponto final STS para o utilizador autenticar. Normalmente `https://login.microsoftonline.com/{tenant}/v2.0` para a cloud pública, em que {tenant} é o nome do seu inquilino, o Id do seu inquilino, ou *common* para uma referência ao ponto final comum (utilizado para aplicações multi-inquilino) |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 8ab001636cc6fac921f552070b9b064d9c53a8d7
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 8f73f2a86e97dad1d6a0b0f05c54f3f896b4b49d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042067"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579220"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
 
@@ -45,7 +45,7 @@ A tabela seguinte mostra como cada recurso de armazenamento Blob é suportado co
 |Armazenamento imutável|Pré-visualizar|Pré-visualizar|[Armazenar dados de blob críticos de negócio com armazenamento imutável](storage-blob-immutable-storage.md)|
 |Eliminação macia do recipiente|Pré-visualizar|Pré-visualizar|[Excluir suave para recipientes (pré-visualização)](soft-delete-container-overview.md)|
 |Blob soft delete|Ainda não suportado|Ainda não suportado|[Eliminação recuperável para blobs](storage-blob-soft-delete.md)|
-|Rio Blobfuse|Pré-visualizar|Pré-visualizar|[Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse](storage-how-to-mount-container-linux.md)|
+|Rio Blobfuse|Disponível em Geral|Disponível em Geral|[Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse](storage-how-to-mount-container-linux.md)|
 |Falha na conta|Ainda não suportado|Ainda não suportado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Recipiente blob ACL|Não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Consulte a nota relacionada abaixo desta tabela.|
 |Chaves fornecidas pelo cliente|Ainda não suportado|Ainda não suportado|[Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob](encryption-customer-provided-keys.md)|

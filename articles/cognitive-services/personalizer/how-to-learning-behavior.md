@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: 10e98cd2f0ad4793aa43f9bb3316c522b44f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303544"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579296"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Configure o comportamento de aprendizagem do Personaler
 
@@ -43,7 +43,7 @@ Para adicionar Personalizer à sua aplicação, precisa de ligar para as APIs de
 
 1. Use a sua lógica de negócio existente para calcular a **recompensa** da ação exibida. O valor tem de estar no intervalo de 0 a 1. Envie esta recompensa ao Personaler utilizando a [API Reward.](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) O valor da recompensa não é esperado imediatamente e pode ser adiado durante um período de tempo - dependendo da lógica do seu negócio.
 
-1. Se não devolver a recompensa dentro do **tempo**de espera do Reward configurado, a recompensa por defeito será utilizada.
+1. Se não devolver a recompensa dentro do **tempo** de espera do Reward configurado, a recompensa por defeito será utilizada.
 
 ## <a name="evaluate-apprentice-mode"></a>Avaliar o modo aprendiz
 
@@ -53,13 +53,9 @@ No portal Azure, na página **avaliações** para o seu recurso Personalizer, re
 > ![Screenshot de revisão da avaliação do comportamento de aprendizagem do modo de aprendiz no portal Azure](media/settings/evaluate-apprentice-mode.png)
 
 O modo aprendiz fornece as seguintes **métricas de avaliação:**
-* **Linha de base – recompensa média**: Recompensas médias do padrão da aplicação (linha de base).
-* **Personalização – recompensa média**: Média de recompensas totais O Personalizador teria potencialmente atingido.
-* **Rácio de realização de recompensas ao longo dos mais recentes 1000 eventos**- Rácio de Base e Recompensa Personalizada - normalizado ao longo dos mais recentes 1000 eventos.
-
-## <a name="evaluate-apprentice-mode-features"></a>Avaliar funcionalidades do modo Aprendiz
-
-Avalie as funcionalidades utilizando uma [avaliação offline.](how-to-offline-evaluation.md)
+* **Linha de base – recompensa média** : Recompensas médias do padrão da aplicação (linha de base).
+* **Personalização – recompensa média** : Média de recompensas totais O Personalizador teria potencialmente atingido.
+* **Rácio de realização de recompensas ao longo dos mais recentes 1000 eventos** - Rácio de Base e Recompensa Personalizada - normalizado ao longo dos mais recentes 1000 eventos.
 
 ## <a name="switch-behavior-to-online-mode"></a>Mude o comportamento para o modo Online
 

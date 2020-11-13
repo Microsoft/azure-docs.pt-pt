@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d4e66511ce3017749076615f081a8fb56d8b8452
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089320"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591551"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -150,7 +150,7 @@ Sim, tem de criar uma ligação Ative Directory antes de implantar um volume SMB
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Quantas ligações ative directy são suportadas?
 
-O Azure NetApp Files não suporta várias ligações ative directory (AD) numa única *região*, mesmo que as ligações AD estejam em diferentes contas NetApp. No entanto, pode ter várias ligações AD numa única *subscrição,* desde que as ligações AD se encontrem em diferentes regiões. Se precisar de várias ligações AD numa única região, pode utilizar subscrições separadas para o fazer. 
+O Azure NetApp Files não suporta várias ligações ative directory (AD) numa única *região* , mesmo que as ligações AD estejam em diferentes contas NetApp. No entanto, pode ter várias ligações AD numa única *subscrição,* desde que as ligações AD se encontrem em diferentes regiões. Se precisar de várias ligações AD numa única região, pode utilizar subscrições separadas para o fazer. 
 
 Uma ligação AD é configurada por conta NetApp; a ligação AD só é visível através da conta NetApp em que é criada.
 
@@ -173,16 +173,6 @@ O tamanho do volume reportado pelo cliente SMB é o tamanho máximo que o volume
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
-
-## <a name="dual-protocol-faqs"></a>Perguntas frequentes de dois protocolos
-
-### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Tentei utilizar a raiz e os utilizadores locais para aceder a um volume de duplo protocolo com o estilo de segurança NTFS num sistema UNIX. Por que encontrei um erro de "Permissão negada"?   
-
-Consulte [os volumes de dois protocolos de resolução de resoluções.](troubleshoot-dual-protocol-volumes.md)
-
-### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Quando tento criar um volume de duplo protocolo, porque é que o processo de criação falha com o erro "Falhou na validação da configuração LDAP, tente novamente depois de corrigir a configuração do LDAP"?  
-
-Consulte [os volumes de dois protocolos de resolução de resoluções.](troubleshoot-dual-protocol-volumes.md)
 
 ## <a name="capacity-management-faqs"></a>Perguntas frequentes de gestão da capacidade
 

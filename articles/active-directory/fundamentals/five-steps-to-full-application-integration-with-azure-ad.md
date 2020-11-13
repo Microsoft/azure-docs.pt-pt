@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 54a1135931c2be9c6b7941c9ff740fd29f855eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26dd255e6edff7c339ab9766bb71889cf4e2deaa
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601253"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577648"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinco passos para integrar todas as suas apps com Azure AD
 
@@ -46,7 +46,7 @@ Finalmente, também pode integrar as aplicações que desenvolve internamente. I
 
 Em seguida, descubra as aplicações que os colaboradores estão a usar frequentemente, e priorize o seu trabalho para integrá-las com Azure AD.
 
-Pode começar por utilizar o Microsoft Cloud App Security&#39;[ferramentas](/cloud-app-security/tutorial-shadow-it) de descoberta em nuvem para descobrir e gerir &quot; it sombra na sua rede &quot; (isto é, aplicações não geridas pelo departamento de TI). Pode [utilizar o Microsoft Defender Advanced Threat Protection (ATP)](/cloud-app-security/wdatp-integration) para simplificar e alargar o processo de descoberta.
+Pode começar por utilizar o Microsoft Cloud App Security&#39;[ferramentas](/cloud-app-security/tutorial-shadow-it) de descoberta em nuvem para descobrir e gerir &quot; it sombra na sua rede &quot; (isto é, aplicações não geridas pelo departamento de TI). Pode [utilizar o Microsoft Defender Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) para simplificar e alargar o processo de descoberta.
 
 Além disso, pode utilizar o [relatório de atividade da aplicação AD FS](../manage-apps/migrate-adfs-application-activity.md) no portal Azure para descobrir todas as aplicações AD FS na sua organização, o número de utilizadores únicos que se inscreveram neles, e compatibilidade para integrá-las com Azure AD.
 

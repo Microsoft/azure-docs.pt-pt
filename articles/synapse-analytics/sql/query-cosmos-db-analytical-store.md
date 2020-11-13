@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310308"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579390"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consulta dados DB da Azure Cosmos com piscina SQL sem servidor em Azure Synapse Link (pré-visualização)
 
@@ -42,7 +42,9 @@ OPENROWSET(
 A cadeia de conexão DB Azure Cosmos especifica o nome da conta DB Azure Cosmos, nome da base de dados, chave principal de conta de base de dados e um nome de região opcional para `OPENROWSET` funcionar. 
 
 > [!IMPORTANT]
-> Certifique-se de que usa pseudónimo depois `OPENROWSET` . Existe um [problema conhecido](#known-issues) que causa problema de ligação ao ponto final SQL sem servidor Synapse se não especificar o pseudónimo após a `OPENROWSET` função.
+> Certifique-se de que está a utilizar alguma colagem de base de dados UTF-8 (por `Latin1_General_100_CI_AS_SC_UTF8` exemplo) porque os valores de cadeia na loja analítica Cosmos DB estão codificados como texto UTF-8.
+> O desfasamento entre codificação de texto no ficheiro e a colagem pode causar erros inesperados de conversão de texto.
+> Pode alterar facilmente a colagem predefinida da base de dados atual utilizando a seguinte declaração T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 A cadeia de ligação tem o seguinte formato:
 ```sql
@@ -338,8 +340,8 @@ Neste exemplo, o número de casos é armazenado quer como `int32` `int64` , ou `
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-- O pseudónimo **DEVE** ser especificado após `OPENROWSET` a função (por exemplo, `OPENROWSET (...) AS function_alias` ). Omitir um pseudónimo pode causar problemas de ligação e o ponto final SQL sem servidor Synapse pode estar temporariamente indisponível. Esta questão será resolvida em novembro de 2020.
 - A experiência de consulta que a piscina SQL sem servidor proporciona para [o esquema de fidelidade completa Azure Cosmos DB](#full-fidelity-schema) é um comportamento temporário que será alterado com base no feedback de pré-visualização. Não confie no esquema que `OPENROWSET` funciona sem cláusula durante a `WITH` pré-visualização pública porque a experiência de consulta pode estar alinhada com esquema bem definido com base no feedback do cliente. Contacte [a equipa de produtos da Synapse link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer feedback.
+- A piscina SQL sem servidor não retornará o erro de tempo de compilação se a colagem da `OPENROSET` coluna não tiver codificação UTF-8. Pode alterar facilmente a colagem predefinida para todas as `OPENROWSET` funções em execução na base de dados atual utilizando a seguinte declaração T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Os eventuais erros e ações de resolução de problemas estão listados no quadro seguinte:
 
@@ -354,7 +356,7 @@ Os eventuais erros e ações de resolução de problemas estão listados no quad
 
 Pode relatar sugestões e problemas na [página de feedback do Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, veja os seguintes artigos:
 

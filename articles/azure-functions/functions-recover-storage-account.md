@@ -3,12 +3,12 @@ title: 'Erro de resolução de problemas: O tempo de execução das funções Az
 description: Saiba como resolver problemas com uma conta de armazenamento inválida.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 094f4f45be0ae4173af434be178f2eae2b21b6be
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0b6778a08bf04367f2a0ef10f7cd4fe29a52dd61
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054734"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579016"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Erro de resolução de problemas: "O tempo de execução das funções Azure é inacessível"
 
@@ -76,7 +76,7 @@ O tempo de funcionamento da sua função pode ser inacessível por uma das segui
 
 * A sua aplicação de função está hospedada num [Ambiente de Serviço de Aplicações equilibrado internamente](../app-service/environment/create-ilb-ase.md) e está configurada para bloquear o tráfego de internet de entrada.
 
-* A sua aplicação de função tem [restrições IP de entrada](functions-networking-options.md#inbound-ip-restrictions) que estão configuradas para bloquear o acesso à Internet. 
+* A sua aplicação de função tem [restrições IP de entrada](functions-networking-options.md#inbound-access-restrictions) que estão configuradas para bloquear o acesso à Internet. 
 
 O portal Azure faz chamadas diretamente para a aplicação de execução para recolher a lista de funções, e faz chamadas HTTP para o ponto final de Kudu. As definições ao nível da plataforma no separador **Funcionalidades** da Plataforma ainda estão disponíveis.
 

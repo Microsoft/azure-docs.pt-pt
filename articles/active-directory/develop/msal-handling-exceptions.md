@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 60c61ff4753413d2241820400dcbc899e925eecc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02a08cc0400b4d65577c13282ca4c23cac1d21dc
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120954"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578931"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Lidar com exceções e erros da MSAL
 
@@ -576,18 +576,18 @@ Quando o Serviço Token Server (STS) está sobrecarregado com muitos pedidos, re
 Aqui está um exemplo para uma aplicação daemon usando o fluxo de credenciais do cliente. Você pode adaptá-lo a qualquer um dos métodos para adquirir um símbolo.
 
 ```csharp
+
+bool retry = false;
 do
 {
-    retry = false;
     TimeSpan? delay;
     try
     {
-         result = await publicClientApplication.AcquireTokenForClient(scopes, account)
-                                           .ExecuteAsync();
+         result = await publicClientApplication.AcquireTokenForClient(scopes, account).ExecuteAsync();
     }
     catch (MsalServiceException serviceException)
     {
-         if (ex.ErrorCode == "temporarily_unavailable")
+         if (serviceException.ErrorCode == "temporarily_unavailable")
          {
              RetryConditionHeaderValue retryAfter = serviceException.Headers.RetryAfter;
              if (retryAfter.Delta.HasValue)

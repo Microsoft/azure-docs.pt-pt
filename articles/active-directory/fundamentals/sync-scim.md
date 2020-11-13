@@ -1,6 +1,6 @@
 ---
 title: Sincronização SCIM com Diretório Ativo Azure
-description: Orientação arquitetónica para alcançar este padrão de sincronização
+description: Orientação arquitetónica para alcançar a sincronização do SCIM com o Azure Ative Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dda465dd675e0f5f519f86289df2621be0b9bb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f957070ec94fc4c61089f31fe91261a2f52c4ee4
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367861"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578863"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>Sincronização SCIM com Diretório Ativo Azure
 
@@ -35,13 +35,13 @@ Pretende-se que forneça automaticamente informações do utilizador de um siste
 
 ## <a name="components-of-system"></a>Componentes do sistema 
 
-* **Sistema HCM**: Aplicações e tecnologias que permitem o processo e práticas de Gestão de Capital Humano que suportam e automatizam processos de RH ao longo do ciclo de vida dos colaboradores. 
+* **Sistema HCM** : Aplicações e tecnologias que permitem o processo e práticas de Gestão de Capital Humano que suportam e automatizam processos de RH ao longo do ciclo de vida dos colaboradores. 
 
-* **Serviço de Provisionamento Azure AD**: Utiliza o protocolo SCIM 2.0 para provisionamento automático. O serviço liga-se ao ponto final do SCIM para a aplicação, e utiliza o esquema de objetos de utilizador SCIM e as APIs REST para automatizar o fornecimento e desavisionamento de utilizadores e grupos.  
+* **Serviço de Provisionamento Azure AD** : Utiliza o protocolo SCIM 2.0 para provisionamento automático. O serviço liga-se ao ponto final do SCIM para a aplicação, e utiliza o esquema de objetos de utilizador SCIM e as APIs REST para automatizar o fornecimento e desavisionamento de utilizadores e grupos.  
 
-* **Azure AD**: Repositório de utilizadores utilizado para gerir o ciclo de vida das identidades e dos seus direitos. 
+* **Azure AD** : Repositório de utilizadores utilizado para gerir o ciclo de vida das identidades e dos seus direitos. 
 
-* **Sistema-alvo**: Aplicação ou sistema que tenha ponto final SCIM e trabalhe com o provisionamento Azure AD para permitir o fornecimento automático de utilizadores e grupos.  
+* **Sistema-alvo** : Aplicação ou sistema que tenha ponto final SCIM e trabalhe com o provisionamento Azure AD para permitir o fornecimento automático de utilizadores e grupos.  
 
 ## <a name="implement-scim-with-azure-ad"></a>Implementar SCIM com Azure AD 
 

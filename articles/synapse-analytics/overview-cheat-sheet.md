@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: b3ae2c958b479f5f131de871b64663c2754713b6
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: fbd113194aa904096425ee09b741cf693f89bba2
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330433"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591925"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Folha de batota Azure Synapse Analytics
 
@@ -36,37 +36,31 @@ Um espaço de trabalho permite-lhe realizar análises com faísca SQL e Apache. 
 
 Para utilizar a análise spark, crie e use **piscinas Apache Spark sem servidor** no seu espaço de trabalho Synapse.
 
-## <a name="sql-terminology"></a>Terminologia SQL
-| Termo                         | Definição      |
-|:---                                 |:---                 |
-| **Pedido SQL**  |   Funcionamento como uma consulta executada através de piscina SQL dedicada ou piscina SQL sem servidor. |
-|**Script de SQL**| Conjunto de comandos SQL guardados num ficheiro. Um script SQL pode conter uma ou mais declarações SQL. Pode ser usado para executar pedidos SQL através de piscina SQL dedicada ou piscina SQL sem servidor.|
+* **PEDIDO SQL** - Funcionamento como uma consulta executada através de piscina SQL dedicada ou piscina SQL sem servidor.
+* **Script SQL** - Conjunto de comandos SQL guardados num ficheiro. Um script SQL pode conter uma ou mais declarações SQL. Pode ser usado para executar pedidos SQL através de piscina SQL dedicada ou piscina SQL sem servidor.
+
 
 ## <a name="spark-terminology"></a>Terminologia de faíscas
-| Termo                         | Definição      |
-|:---                                 |:---                 |
-|**Faísca apache para sinapse** | Spark run-time usado em uma piscina de faísca sem servidor. A versão atual suportada é Spark 2.4 com Python 3.6.1, Scala 2.11.12, suporte .NET para Apache Spark 0.5 e Delta Lake 0.3.  | 
-| **Piscina de faíscas Apache**  | Os recursos ateados 0-a-N Spark com as respetivas bases de dados podem ser implantados num espaço de trabalho. Uma piscina spark pode ser auto-pausada, retomada e escalada.  |
-| **Aplicação de faísca**  |   Consiste num processo de condutor e num conjunto de processos de executor. Uma aplicação Spark funciona numa piscina de faíscas sem servidor.            |
-| **Sessão de faísca**  |   Ponto de entrada unificado de uma aplicação de faísca. Fornece uma forma de interagir com as várias funcionalidades de Spark e com um menor número de construções. Para executar um caderno, é preciso criar uma sessão. Uma sessão pode ser configurada para executar um número específico de executores de tamanho específico. A configuração predefinida para uma sessão de portátil é executada em 2 executores de tamanho médio. |
-|**Bloco de Notas**| Interface interativa e reativa de Data Science and Engineering suportando Scala, PySpark, C#e SparkSQL. |
-|**Definição de trabalho de faísca**|Interface para submeter um trabalho Spark com frasco de montagem contendo o código e suas dependências.|
+
+* **Apache Spark for Synapse** - Spark run-time usado em uma piscina de faísca sem servidor. A versão atual suportada é Spark 2.4 com Python 3.6.1, Scala 2.11.12, suporte .NET para Apache Spark 0.5 e Delta Lake 0.3.  
+* **O conjunto Apache Spark** - 0-to-N Spark recursos ateados com as respetivas bases de dados podem ser implantados num espaço de trabalho. Uma piscina spark pode ser auto-pausada, retomada e escalada.  
+* **Pedido de faísca** - Consiste num processo de condutor e num conjunto de processos de executor. Uma aplicação Spark funciona numa piscina de faíscas sem servidor.            
+* **Sessão de faíscas** - Ponto de entrada unificado de uma aplicação de faísca. Fornece uma forma de interagir com as várias funcionalidades de Spark e com um menor número de construções. Para executar um caderno, é preciso criar uma sessão. Uma sessão pode ser configurada para executar um número específico de executores de tamanho específico. A configuração predefinida para uma sessão de portátil é executada em 2 executores de tamanho médio.
+* **Notebook** - Interface interativa e reativa de Data Science and Engineering de apoio a Scala, PySpark, C#e SparkSQL.
+* **Definição de trabalho de faísca** - Interface para submeter um trabalho de Faísca com frasco de montagem contendo o código e suas dependências.
 
 ## <a name="pipelines-terminology"></a>Terminologia dos Oleodutos
-| Termo                         | Definição      |
-|:---                                 |:---                 |
-|**Integração de Dados**| Dá a capacidade de ingerir dados entre várias fontes e orquestrar atividades que funcionam dentro de um espaço de trabalho ou fora de um espaço de trabalho.| 
-|**Fluxo de Dados**|  Proporciona uma experiência totalmente visual sem codificação necessária para fazer a transformação de big data. Toda a otimização e execução são tratadas de forma sem servidor. |
-|**Pipeline**| Agrupamento lógico de atividades que realizam uma tarefa em conjunto.|
-|**Atividade**| Define ações para executar em dados como copiar dados, executar um Caderno ou um script SQL.|
-|**Acionador**| Executa um oleoduto. Pode ser executado manualmente ou automaticamente (agendar, caindo na janela ou no evento).|
-|**Conjunto de dados de integração**|  Vista nomeada de dados que simplesmente apontam ou referenciam os dados a serem utilizados numa atividade como entrada e saída. Pertence a um Serviço Linked.|
+* **Integração de Dados** - Dá a capacidade de ingerir dados entre várias fontes e orquestrar atividades que funcionam dentro de um espaço de trabalho ou fora de um espaço de trabalho.
+* **Data Flow** - Proporciona uma experiência totalmente visual sem codificação necessária para fazer a transformação de big data. Toda a otimização e execução são tratadas de forma sem servidor.
+* **Pipeline** - Agrupamento lógico de atividades que realizam uma tarefa em conjunto.
+* **Atividade** - Define ações para executar em dados como copiar dados, executar um Caderno ou um script SQL.
+* **Trigger** - Executa um oleoduto. Pode ser executado manualmente ou automaticamente (agendar, tropeçar na janela ou no evento)
+* **Conjunto de dados** de integração - Visão nomeada de dados que simplesmente apontam ou referenciam os dados a serem utilizados numa atividade como entrada e saída. Pertence a um Serviço Linked.
 
 ## <a name="general-terminology"></a>Terminologia Geral
-| Termo                         | Definição      |
-|:---                                 |:---                 |
-|**Artefactos**| Conceito que encapsula todos os objetos necessários para que um utilizador gere fontes de dados, desenvolva, orquestite e visualize.|
-|**Serviço ligado**| Cadeias de ligação que definem as informações de ligação necessárias para que o espaço de trabalho se conecte a recursos externos.|
+
+* **Artefactos** - Conceito que encapsula todos os objetos necessários para que um utilizador gere fontes de dados, desenvolva, orquestite e visualize.
+* **Serviço ligado** - Cadeias de ligação que definem as informações de ligação necessárias para que o espaço de trabalho se conecte a recursos externos.
 
 ## <a name="next-steps"></a>Próximos passos
 

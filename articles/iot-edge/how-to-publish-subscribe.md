@@ -9,12 +9,13 @@ ms.reviewer: ebertra
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: bf7e841586250142c23d6672491af30a011043ca
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+monikerRange: '>=iotedge-2020-11'
+ms.openlocfilehash: 941435e90f91a4c3a4e41c2869e35157da41d8b0
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447949"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592180"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e subscrever com a Azure IoT Edge
 
