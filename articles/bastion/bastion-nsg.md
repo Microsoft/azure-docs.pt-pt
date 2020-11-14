@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5bff5b341dcbdaa7ccae2b02e62e3e6bd4d115f9
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 822a90aa2bd3a19cf3459924e6b577cc416aa3a5
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594271"
+ms.locfileid: "94616829"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhar com acesso NSG e Azure Bastion
 
@@ -40,7 +40,7 @@ _ **Tráfego ingresso:**
 
    * **Tráfego ingresso da internet pública:** O Bastião Azure criará um IP público que necessita do porto 443 habilitado no IP público para o tráfego de entrada. A porta 3389/22 NÃO é obrigada a ser aberta na AzureBastionSubnet.
    * **Tráfego ingresso do avião de controlo Azure Bastion:** Para a conectividade do plano de controlo, ative a porta 443 de entrada a partir da etiqueta de serviço **GatewayManager.** Isto permite que o avião de controlo, isto é, o Gateway Manager possa falar com Azure Bastion.
-   * **Tráfego ingresso do Azure Loadbalancer:** Para as sondas de saúde, ative a porta 443 de entrada a partir da etiqueta de serviço **AzureLoadBalancer.** Isto permite que o balançador de carga azul, detete problemas de conectividade com o backend.
+   * **Tráfego ingresso do Equilibrador de Carga Azure:** Para as sondas de saúde, ative a porta 443 a partir da etiqueta de serviço **AzureLoadBalancer.** Isto permite ao Azure Load Balancer detetar conectividade 
 
 
    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="A screenshot mostra regras de segurança de entrada para a conectividade Azure Bastion.":::
