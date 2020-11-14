@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d7208b068bee4b0a4cc30adfd98d2422718bbcc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278586"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628905"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
 
@@ -45,7 +45,7 @@ Para uma visão geral da funcionalidade, veja este "Azure Ative Directory: What 
 
 -   Configurar todas as políticas adequadas de marca de inquilino e acesso condicional que necessita para os utilizadores que estão a ser migrados para a autenticação em nuvem.
 
--   Se pretender utilizar a Autenticação Multi-Factor Azure, recomendamos que utilize [o registo combinado para reiniciar a palavra-passe de autosserviço (SSPR) e a Autenticação Multi-Factor](../authentication/concept-registration-mfa-sspr-combined.md) para que os seus utilizadores registem os seus métodos de autenticação uma vez.
+-   Se pretender utilizar a Autenticação Multi-Factor Azure, recomendamos que utilize [o registo combinado para reiniciar a palavra-passe de autosserviço (SSPR) e a Autenticação Multi-Factor](../authentication/concept-registration-mfa-sspr-combined.md) para que os seus utilizadores registem os seus métodos de autenticação uma vez. Nota: ao utilizar o SSPR para redefinir a palavra-passe ou alterar a palavra-passe utilizando a página MyProfile durante o lançamento encenado, o Azure AD Connect precisa de sincronizar o novo hash de palavra-passe que pode demorar até 2 minutos após o reset.
 
 -   Para utilizar a funcionalidade de lançamento encenada, tem de ser um administrador global no seu inquilino.
 
@@ -73,7 +73,7 @@ Os seguintes cenários não são suportados para o lançamento encenado:
 
 - Os administradores podem lançar a autenticação em nuvem utilizando grupos de segurança. Para evitar a latência sincronizada quando estiver a utilizar grupos de segurança do Ative Directory no local, recomendamos que utilize grupos de segurança na nuvem. Aplicam-se as seguintes condições:
 
-    - Pode utilizar um máximo de 10 grupos por recurso. Ou seja, pode utilizar 10 grupos cada para *sincronização de haxixe de palavra-passe,* *autenticação de passagem*e *SSO sem costura.*
+    - Pode utilizar um máximo de 10 grupos por recurso. Ou seja, pode utilizar 10 grupos cada para *sincronização de haxixe de palavra-passe,* *autenticação de passagem* e *SSO sem costura.*
     - Os grupos aninhados não são *apoiados.* Este âmbito aplica-se também à visualização pública.
     - Os grupos dinâmicos não são *apoiados* para o lançamento encenado.
     - Os objetos de contacto no interior do grupo impedirão a adição do grupo.
@@ -95,7 +95,7 @@ Para obter informações sobre quais os cmdlets PowerShell a utilizar, consulte 
 
 ## <a name="pre-work-for-password-hash-sync"></a>Pré-trabalhar para sincronização de haxixe de palavra-passe
 
-1. Ativar a sincronização de hash de *palavra-passe*   a partir da página de [funcionalidades opcionais](how-to-connect-install-custom.md#optional-features)   no Azure AD Connect. 
+1. Ativar a sincronização de hash de *palavra-passe* a partir da página [de funcionalidades opcionais](how-to-connect-install-custom.md#optional-features) no Azure AD Connect. 
 
    ![Screenshot da página "Funcionalidades Opcionais" no Azure Ative Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
@@ -109,37 +109,37 @@ Se pretender testar a entrada *de autenticação* transitada através da utiliza
 
 1. Identifique um servidor que esteja a executar o Windows Server 2012 R2 ou mais tarde onde pretende que o agente *de autenticação pass-through* seja executado. 
 
-   *Não* escolha o servidor Azure AD Connect.Certifique-se de que o servidor está ligado ao domínio, pode autenticar utilizadores selecionados com Ative Directory e comunicar com a Azure AD em portas e URLs de saída. Para obter mais informações, consulte a secção "Passo 1: Verifique os pré-requisitos" do [Quickstart: Azure AD sem costura única.](how-to-connect-sso-quick-start.md)
+   *Não* escolha o servidor Azure AD Connect. Certifique-se de que o servidor está ligado ao domínio, pode autenticar utilizadores selecionados com Ative Directory e comunicar com a Azure AD em portas e URLs de saída. Para obter mais informações, consulte a secção "Passo 1: Verifique os pré-requisitos" do [Quickstart: Azure AD sem costura única.](how-to-connect-sso-quick-start.md)
 
-1. [Descarregue o agente de autenticação AZure AD Connect](https://aka.ms/getauthagent)e instale-o no servidor. 
+1. [Descarregue o agente de autenticação AZure AD Connect](https://aka.ms/getauthagent)e instale-o no servidor. 
 
-1. Para permitir [uma elevada disponibilidade,](how-to-connect-sso-quick-start.md)instale agentes de autenticação adicionais noutros servidores.
+1. Para permitir [uma elevada disponibilidade,](how-to-connect-sso-quick-start.md)instale agentes de autenticação adicionais noutros servidores.
 
 1. Certifique-se de que configura as [definições de Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md) adequadamente. Ao fazê-lo, ajuda a garantir que as contas de Ative Directory dos seus utilizadores não são bloqueadas por maus atores.
 
-Recomendamos que se permita um *SSO sem emenda,* independentemente do método de entrada de*dados (sincronização de haxixe* *de palavra-passe ou autenticação pass-through)* que selecione para o lançamento encenado. Para *ativar sSO sem costura,* siga as instruções de pré-trabalho na secção seguinte.
+Recomendamos que se permita um *SSO sem emenda,* independentemente do método de entrada de *dados (sincronização de haxixe* *de palavra-passe ou autenticação pass-through)* que selecione para o lançamento encenado. Para *ativar sSO sem costura,* siga as instruções de pré-trabalho na secção seguinte.
 
 ## <a name="pre-work-for-seamless-sso"></a>Pré-trabalho para SSO sem costura
 
-Ativar *sSO sem costura*   nas florestas do Ative Directory utilizando o PowerShell. Se tiver mais do que uma floresta de Diretório Ativo, ative-a para cada floresta individualmente.  *O SSO sem emenda* é acionado apenas para utilizadores selecionados para o lançamento encenado. Não afeta a configuração da federação.
+Ativar *sSO sem costura* nas florestas do Ative Directory utilizando o PowerShell. Se tiver mais do que uma floresta de Diretório Ativo, ative-a para cada floresta individualmente. *O SSO sem emenda* é acionado apenas para utilizadores selecionados para o lançamento encenado. Não afeta a configuração da federação.
 
 Permitir *um SSO sem costura* fazendo o seguinte:
 
 1. Inscreva-se no Azure AD Connect Server.
 
-2. Vá para a pasta *%programfiles% \\ Microsoft Azure Ative Directory Connect.*  
+2. Vá para a pasta *%programfiles% \\ Microsoft Azure Ative Directory Connect.*
 
-3. Importar o módulo *SSO* PowerShell sem costura executando o seguinte comando: 
+3. Importar o módulo *SSO* PowerShell sem costura executando o seguinte comando: 
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Execute o PowerShell como um administrador. Em PowerShell,  `New-AzureADSSOAuthenticationContext` ligue. Este comando abre um painel onde pode introduzir as credenciais globais de administrador do seu inquilino.
+4. Execute o PowerShell como um administrador. Em PowerShell, `New-AzureADSSOAuthenticationContext` ligue. Este comando abre um painel onde pode introduzir as credenciais globais de administrador do seu inquilino.
 
-5.  `Get-AzureADSSOStatus | ConvertFrom-Json`Ligue. Este comando apresenta uma lista de florestas de Diretório Ativo (ver a lista de "Domínios") nas quais esta funcionalidade foi ativada. Por defeito, é definido como falso ao nível do inquilino.
+5. `Get-AzureADSSOStatus | ConvertFrom-Json`Ligue. Este comando apresenta uma lista de florestas de Diretório Ativo (ver a lista de "Domínios") nas quais esta funcionalidade foi ativada. Por defeito, é definido como falso ao nível do inquilino.
 
    ![Exemplo da saída Do Windows PowerShell](./media/how-to-connect-staged-rollout/sr3.png)
 
-6.  `$creds = Get-Credential`Ligue. A pedido, insira as credenciais de administrador de domínio para a floresta de Diretório Ativo pretendida.
+6. `$creds = Get-Credential`Ligue. A pedido, insira as credenciais de administrador de domínio para a floresta de Diretório Ativo pretendida.
 
 7. `Enable-AzureADSSOForest -OnPremCredentials $creds`Ligue. Este comando cria a conta de computador AZUREADSSOACC a partir do controlador de domínio no local para a floresta de Diretório Ativo que é necessária para *sSO sem costura*.
 
@@ -149,7 +149,7 @@ Permitir *um SSO sem costura* fazendo o seguinte:
 
 ## <a name="enable-staged-rollout"></a>Ativar o lançamento encenado
 
-Para lançar uma função específica (*autenticação pass-through*, *sincronização de haxixe de palavras-passe*, ou *SSO sem costura*) para um conjunto selecionado de utilizadores em grupo, siga as instruções nas secções seguintes.
+Para lançar uma função específica ( *autenticação pass-through* , *sincronização de haxixe de palavras-passe* , ou *SSO sem costura* ) para um conjunto selecionado de utilizadores em grupo, siga as instruções nas secções seguintes.
 
 ### <a name="enable-a-staged-rollout-of-a-specific-feature-on-your-tenant"></a>Ativar um lançamento encenado de uma característica específica no seu inquilino
 
@@ -165,7 +165,7 @@ Faça o seguinte:
 
 2. Selecione o lançamento encenado de Enable para o link **de entrada de utilizador gerido (Pré-visualização).**
 
-   Por exemplo, se pretender ativar a *Opção A*, deslize o **Sync de Hash De palavra-passe** e os controlos **de entrada única sem emenda** para **On**, como mostram as seguintes imagens.
+   Por exemplo, se pretender ativar a *Opção A* , deslize o **Sync de Hash De palavra-passe** e os controlos **de entrada única sem emenda** para **On** , como mostram as seguintes imagens.
 
    ![A página Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
 
@@ -183,7 +183,7 @@ Faça o seguinte:
 
 Permitimos eventos de auditoria para as várias ações que executamos para lançamento encenado:
 
-- Evento de auditoria quando ativar um lançamento encenado para *sincronização de hash de palavra-passe,* *autenticação de passagem*ou *SSO sem costura*.
+- Evento de auditoria quando ativar um lançamento encenado para *sincronização de hash de palavra-passe,* *autenticação de passagem* ou *SSO sem costura*.
 
   >[!NOTE]
   >Um evento de auditoria é registado quando *o SSO sem costura* é ligado através do lançamento encenado.

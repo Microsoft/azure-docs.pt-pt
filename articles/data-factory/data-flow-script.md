@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
 ms.openlocfilehash: 69cc835b37d2405e15638d85309dc89d51c6d043
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "93360280"
 ---
 # <a name="data-flow-script-dfs"></a>Script de fluxo de dados (DFS)
@@ -231,6 +231,6 @@ select(mapColumn(
     skipDuplicateMapOutputs: true) ~> automap
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore os Fluxos de Dados começando com o artigo de visão geral dos [fluxos de dados](concepts-data-flow-overview.md)

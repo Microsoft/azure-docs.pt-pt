@@ -1,6 +1,6 @@
 ---
 title: Tipos de aplicações para plataforma de identidade microsoft / Rio Azure
-description: Os tipos de aplicações e cenários suportados pela plataforma de identidade da Microsoft (v2.0) ponto final.
+description: Os tipos de apps e cenários suportados pelo ponto final da plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: aaddev, fasttrack-edit, contperfq2
+ms.openlocfilehash: 4c72d1b4b78c0b7ca9e7fa1f6468beb6fdd4b247
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103157"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628089"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicações para plataforma de identidade microsoft
 
-A plataforma de identidade da Microsoft (v2.0) suporta a autenticação para uma variedade de arquiteturas modernas de aplicações, todas elas baseadas em protocolos padrão da indústria [OAuth 2.0 ou OpenID Connect](active-directory-v2-protocols.md). Este artigo descreve os tipos de aplicações que pode construir utilizando a plataforma de identidade da Microsoft, independentemente do seu idioma ou plataforma preferido. A informação foi concebida para o ajudar a compreender cenários de alto nível antes de [começar a trabalhar com o código.](v2-overview.md#getting-started)
+O ponto final da plataforma de identidade da Microsoft suporta a autenticação para uma variedade de arquiteturas modernas de aplicações, todas elas baseadas nos protocolos padrão da indústria [OAuth 2.0 ou OpenID Connect.](active-directory-v2-protocols.md) Este artigo descreve os tipos de aplicações que pode construir utilizando a plataforma de identidade da Microsoft, independentemente do seu idioma ou plataforma preferido. A informação foi concebida para o ajudar a compreender cenários de alto nível antes de começar a trabalhar com o código nos cenários de [aplicação.](authentication-flows-app-scenarios.md#application-scenarios)
 
 ## <a name="the-basics"></a>Noções básicas
 
@@ -81,10 +81,9 @@ Nas aplicações do servidor web, o fluxo de autenticação de entrada toma este
 
 Pode garantir a identidade do utilizador validando o token de ID com uma chave de assinatura pública que é recebida a partir do ponto final da plataforma de identidade da Microsoft. É definido um cookie de sessão, que pode ser usado para identificar o utilizador em pedidos de página subsequentes.
 
-Para ver este cenário em ação, experimente uma das amostras de código de inscrição da web na plataforma de identidade da [Microsoft a iniciar a](v2-overview.md#getting-started) secção.
+Para ver este cenário em ação, experimente as amostras de código na [aplicação Web que assina no cenário dos utilizadores.](scenario-web-app-sign-user-overview.md)
 
 Além de um simples s-in, uma aplicação de servidor web pode precisar de aceder a outro serviço web, como uma API REST. Neste caso, a aplicação do servidor web envolve um fluxo combinado OpenID Connect e OAuth 2.0, utilizando o fluxo de [código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md). Para mais informações sobre este cenário, leia sobre [começar com aplicações web e APIs web.](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet)
-
 
 ## <a name="web-apis"></a>APIs da Web
 
@@ -106,7 +105,7 @@ Uma API web pode receber tokens de acesso de todos os tipos de aplicações, inc
 
 ![Mostra o fluxo de autenticação da API web](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-Para aprender a proteger uma API web utilizando fichas de acesso OAuth2, consulte as amostras de código da API web na plataforma de identidade da [Microsoft a iniciar a](v2-overview.md#getting-started) secção.
+Para aprender a proteger uma API web utilizando fichas de acesso OAuth2, consulte as amostras de código API web no [cenário de API web protegido.](scenario-protected-web-api-overview.md)
 
 Em muitos casos, as APIs da web também precisam de fazer pedidos de saída para outras APIs da web a jusante protegidas pela plataforma de identidade da Microsoft. Para tal, as APIs web podem aproveitar o fluxo **On-Behalf-Of,** que permite à API web trocar um token de acesso de entrada para outro token de acesso a ser usado em pedidos de saída. Para obter mais informações, consulte [a plataforma de identidade da Microsoft e o fluxo OAuth 2.0 On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md).
 

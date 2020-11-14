@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92208248"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configure o modo de transporte IPsec para o espremiamento privado ExpressRoute
@@ -43,7 +43,7 @@ Este diagrama mostra os túneis IPsec em trânsito em ExpressRoute private peeri
 ### <a name="working-with-ipsec-policy"></a>Trabalhar com a política do IPsec
 
 No Windows, a encriptação está associada à política do IPsec. A política do IPsec determina qual o tráfego IP que é seguro e o mecanismo de segurança aplicado aos pacotes IP.
-**As políticas IPSec** são compostas pelos seguintes itens: **Listas de Filtros,** **Ações de Filtragem** e **Regras de Segurança** .
+**As políticas IPSec** são compostas pelos seguintes itens: **Listas de Filtros,** **Ações de Filtragem** e **Regras de Segurança**.
 
 Ao configurar a política do IPsec, é importante compreender a seguinte terminologia da política do IPsec:
 
@@ -101,7 +101,7 @@ Certifique-se de que cumpre os seguintes requisitos:
 
 ## <a name="1-create-a-gpo"></a><a name="creategpo"></a>1. Criar um GPO
 
-1. Para criar um novo GPO ligado a um OU, abra o snap-in de Gestão de Políticas de Grupo e localize o UO ao qual o GPO estará ligado. No exemplo, a Uo chama-se **IPSecou** . 
+1. Para criar um novo GPO ligado a um OU, abra o snap-in de Gestão de Políticas de Grupo e localize o UO ao qual o GPO estará ligado. No exemplo, a Uo chama-se **IPSecou**. 
 
    [![9]][9]
 2. No snap-in de Gestão de Políticas de Grupo, selecione o OU e clique à direita. No dropdown, clique " **Criar um GPO neste domínio, e link-lo aqui...** ".
@@ -116,38 +116,38 @@ Certifique-se de que cumpre os seguintes requisitos:
 Para aplicar o GPO à U, o GPO não só deve estar ligado à UO, como também deve ser ativado.
 
 1. Localize o GPO que criou, clique à direita e **selecione Editar** a partir do dropdown.
-2. Para aplicar o GPO no OU, selecione **Link Enabled** .
+2. Para aplicar o GPO no OU, selecione **Link Enabled**.
 
    [![12]][12]
 
 ## <a name="3-define-the-ip-filter-action"></a><a name="filteraction"></a>3. Definir a ação do filtro IP
 
-1. A partir da política de segurança IP drop-down, clique à direita **no Diretório Ativo,** e, em seguida, clique em **Gerir listas de filtros IP e ações de filtragem...** .
+1. A partir da política de segurança IP drop-down, clique à direita **no Diretório Ativo,** e, em seguida, clique em **Gerir listas de filtros IP e ações de filtragem...**.
 
    [![15]][15]
-2. No separador " **Gerir ações de filtro",** clique em **Adicionar** .
+2. No separador " **Gerir ações de filtro",** clique em **Adicionar**.
 
    [![16]][16]
 
-3. No **assistente de ação do filtro de segurança IP** , clique em **Seguinte** .
+3. No **assistente de ação do filtro de segurança IP** , clique em **Seguinte**.
 
    [![17]][17]
-4. Nomeie a ação do filtro como nome intuitivo para que possa encontrá-lo mais tarde. Neste exemplo, a ação do filtro chama-se **myEncrypation** . Também pode adicionar uma descrição. Em seguida, clique **em Seguinte** .
+4. Nomeie a ação do filtro como nome intuitivo para que possa encontrá-lo mais tarde. Neste exemplo, a ação do filtro chama-se **myEncrypation**. Também pode adicionar uma descrição. Em seguida, clique **em Seguinte**.
 
    [![18]][18]
-5. **Negociar a segurança** permite-lhe definir o comportamento se o IPsec não puder ser estabelecido com outro computador. **Selecione Negociar a segurança** e clicar em **Seguinte** .
+5. **Negociar a segurança** permite-lhe definir o comportamento se o IPsec não puder ser estabelecido com outro computador. **Selecione Negociar a segurança** e clicar em **Seguinte**.
 
    [![19]][19]
-6. Na **Comunicação com computadores que não suportam** a página IPsec, selecione **Não permita comunicação não garantida,** em seguida, clique em **Seguinte** .
+6. Na **Comunicação com computadores que não suportam** a página IPsec, selecione **Não permita comunicação não garantida,** em seguida, clique em **Seguinte**.
 
    [![20]][20]
-7. Na página **IP Tráfego e Segurança,** selecione **'Personal'** e, em seguida, clique em **Definições...** .
+7. Na página **IP Tráfego e Segurança,** selecione **'Personal'** e, em seguida, clique em **Definições...**.
 
    [![21]][21]
-8. Na página De Definições do **Método de Segurança Personalizada,** selecione a **integridade e encriptação dos dados (ESP): SHA1, 3DES** . Em seguida, clique **OK** .
+8. Na página De Definições do **Método de Segurança Personalizada,** selecione a **integridade e encriptação dos dados (ESP): SHA1, 3DES**. Em seguida, clique **OK**.
 
    [![22]][22]
-9. Na página **'Manage Filter Actions',** pode ver que o filtro **myEncrypation** foi adicionado com sucesso. Clique em **Fechar** .
+9. Na página **'Manage Filter Actions',** pode ver que o filtro **myEncrypation** foi adicionado com sucesso. Clique em **Fechar**.
 
    [![23]][23]
 
@@ -155,28 +155,28 @@ Para aplicar o GPO à U, o GPO não só deve estar ligado à UO, como também de
 
 Crie uma lista de filtros que especifique o tráfego HTTP encriptado com a porta de destino 8080.
 
-1. Para qualificar quais os tipos de tráfego que devem ser encriptados, utilize uma **lista de filtros IP** . No **separador 'Gestão de Listas de Filtros IP',** clique em **Adicionar** para adicionar uma nova lista de filtros IP.
+1. Para qualificar quais os tipos de tráfego que devem ser encriptados, utilize uma **lista de filtros IP**. No **separador 'Gestão de Listas de Filtros IP',** clique em **Adicionar** para adicionar uma nova lista de filtros IP.
 
    [![24]][24]
-2. No **campo Nome:** campo, digite um nome para a sua lista de filtros IP. Por exemplo, **azure-onpremises-HTTP8080** . Em seguida, clique em **Adicionar** .
+2. No **campo Nome:** campo, digite um nome para a sua lista de filtros IP. Por exemplo, **azure-onpremises-HTTP8080**. Em seguida, clique em **Adicionar**.
 
    [![25]][25]
-3. Na **página de descrição do filtro IP e página de propriedade espelhada,** selecione **Mirrored** . A definição espelhada corresponde a pacotes que vão em ambas as direções, o que permite uma comunicação bidirecional. Em seguida, clique em **Seguinte** .
+3. Na **página de descrição do filtro IP e página de propriedade espelhada,** selecione **Mirrored**. A definição espelhada corresponde a pacotes que vão em ambas as direções, o que permite uma comunicação bidirecional. Em seguida, clique em **Seguinte**.
 
    [![26]][26]
-4. Na página **IP Traffic Source,** a partir do **endereço 'Fonte:** dropdown,' escolha **Um endereço IP específico ou sub-rede** . 
+4. Na página **IP Traffic Source,** a partir do **endereço 'Fonte:** dropdown,' escolha **Um endereço IP específico ou sub-rede**. 
 
    [![27]][27]
-5. Especifique o endereço de origem **endereço IP Endereço ou Sub-rede:** do tráfego IP e, em seguida, clique em **Seguinte** .
+5. Especifique o endereço de origem **endereço IP Endereço ou Sub-rede:** do tráfego IP e, em seguida, clique em **Seguinte**.
 
    [![28]][28]
-6. Especifique o **endereço destino:** Endereço IP ou Sub-rede. Em seguida, clique **em Seguinte** .
+6. Especifique o **endereço destino:** Endereço IP ou Sub-rede. Em seguida, clique **em Seguinte**.
 
    [![29]][29]
-7. Na página **ip Protocol Type,** selecione **TCP** . Em seguida, clique **em Seguinte** .
+7. Na página **ip Protocol Type,** selecione **TCP**. Em seguida, clique **em Seguinte**.
 
    [![30]][30]
-8. Na página **porta do protocolo IP,** selecione **De qualquer porta** e para **esta porta:** . Tipo **8080** na caixa de texto. Estas definições especificam apenas o tráfego HTTP na porta de destino 8080 será encriptado. Em seguida, clique **em Seguinte** .
+8. Na página **porta do protocolo IP,** selecione **De qualquer porta** e para **esta porta:**. Tipo **8080** na caixa de texto. Estas definições especificam apenas o tráfego HTTP na porta de destino 8080 será encriptado. Em seguida, clique **em Seguinte**.
 
    [![31]][31]
 9. Veja a lista de filtros IP.  A configuração da Lista de Filtros IP **azure-onpremises-HTTP8080** desencadeia encriptação para todo o tráfego que corresponda aos seguintes critérios:
@@ -192,10 +192,10 @@ Crie uma lista de filtros que especifique o tráfego HTTP encriptado com a porta
 
 Para encriptar o mesmo tipo de tráfego na direção oposta (desde o anfitrião no local até ao Azure VM) precisa de um segundo filtro IP. O processo de configuração do novo filtro é o mesmo que usou para configurar o primeiro filtro IP. As únicas diferenças são a sub-rede de origem e a sub-rede de destino.
 
-1. Para adicionar um novo filtro IP à Lista de Filtros IP, **selecione Editar** .
+1. Para adicionar um novo filtro IP à Lista de Filtros IP, **selecione Editar**.
 
    [![33]][33]
-2. Na página **lista de filtros IP,** clique em **Adicionar** .
+2. Na página **lista de filtros IP,** clique em **Adicionar**.
 
    [![34]][34]
 3. Criar um segundo filtro IP utilizando as definições no seguinte exemplo:
@@ -211,16 +211,16 @@ Se for necessária encriptação entre uma localização no local e uma sub-rede
 
 Criar uma política do IPsec com regras de segurança.
 
-1. Selecione as **Políticas de Segurança IP no diretório ativo** que está associada à U. Clique com o botão direito e selecione **Criar Política de Segurança IP** .
+1. Selecione as **Políticas de Segurança IP no diretório ativo** que está associada à U. Clique com o botão direito e selecione **Criar Política de Segurança IP**.
 
    [![37]][37]
-2. Diga o nome da política de segurança. Por exemplo, **as políticas-azure-onpremises** . Em seguida, clique **em Seguinte** .
+2. Diga o nome da política de segurança. Por exemplo, **as políticas-azure-onpremises**. Em seguida, clique **em Seguinte**.
 
    [![38]][38]
 3. Clique **em seguida** sem selecionar a caixa de verificação.
 
    [![39]][39]
-4. Verifique se a caixa de verificação **de propriedades editar** está selecionada e, em seguida, clique em **Terminar** .
+4. Verifique se a caixa de verificação **de propriedades editar** está selecionada e, em seguida, clique em **Terminar**.
 
    [![40]][40]
 
@@ -228,10 +228,10 @@ Criar uma política do IPsec com regras de segurança.
 
 Adicione à política IPsec a **Lista de Filtros IP** e a Ação de **Filtragem** que configuraste anteriormente.
 
-1. No separador HTTP Policy Properties **Rules,** clique em **Adicionar** .
+1. No separador HTTP Policy Properties **Rules,** clique em **Adicionar**.
 
    [![41]][41]
-2. Na página Bem-vindo, clique em **Seguinte** .
+2. Na página Bem-vindo, clique em **Seguinte**.
 
    [![42]][42]
 3. Uma regra oferece a opção de definir o modo IPsec: modo de túnel ou modo de transporte.
@@ -240,22 +240,22 @@ Adicione à política IPsec a **Lista de Filtros IP** e a Ação de **Filtragem*
 
    * O modo de transporte encripta apenas a carga útil e o reboque ESP; o cabeçalho IP do pacote original não está encriptado. No modo de transporte, a fonte IP e o destino IP dos pacotes são inalterados.
 
-   Selecione **Esta regra não especifica um túnel** e, em seguida, clique em **Seguinte** .
+   Selecione **Esta regra não especifica um túnel** e, em seguida, clique em **Seguinte**.
 
    [![43]][43]
-4. **O Tipo de Rede** define qual a ligação de rede associada à política de segurança. Selecione **Todas as ligações de rede** e, em seguida, clique em **Seguinte** .
+4. **O Tipo de Rede** define qual a ligação de rede associada à política de segurança. Selecione **Todas as ligações de rede** e, em seguida, clique em **Seguinte**.
 
    [![44]][44]
-5. Selecione a lista de filtros IP que criou anteriormente,  **azure-onpremises-HTTP8080** , e, em seguida, clique em **Seguinte** .
+5. Selecione a lista de filtros IP que criou anteriormente,  **azure-onpremises-HTTP8080** , e, em seguida, clique em **Seguinte**.
 
    [![45]][45]
 6. Selecione a **myEncryption** de Ação filtrante existente que criou anteriormente.
 
    [![46]][46]
-7. O Windows suporta quatro tipos distintos de autenticações: Kerberos, certificados, NTLMv2 e chave pré-partilhada. Como estamos a trabalhar com anfitriões ligados ao domínio, selecione **Ative Directory padrão (protocolo Kerberos V5)** e, em seguida, clique em **Seguinte** .
+7. O Windows suporta quatro tipos distintos de autenticações: Kerberos, certificados, NTLMv2 e chave pré-partilhada. Como estamos a trabalhar com anfitriões ligados ao domínio, selecione **Ative Directory padrão (protocolo Kerberos V5)** e, em seguida, clique em **Seguinte**.
 
    [![47]][47]
-8. A nova política cria a regra de segurança: **azure-onpremises-HTTP8080** . Clique em **OK** .
+8. A nova política cria a regra de segurança: **azure-onpremises-HTTP8080**. Clique em **OK**.
 
    [![48]][48]
 
@@ -266,7 +266,7 @@ A política do IPsec requer que todas as ligações HTTP na porta de destino 808
 1. Veja a política. A política do grupo de segurança está definida, mas ainda não foi atribuída.
 
    [![49]][49]
-2. Para atribuir a política do grupo de segurança ao **OU IPSecOU,** clique à direita na política de segurança e escolha **Atribuir** .
+2. Para atribuir a política do grupo de segurança ao **OU IPSecOU,** clique à direita na política de segurança e escolha **Atribuir**.
    Todos os computadores pertencem à UO terão a política do grupo de segurança atribuída.
 
    [![50]][50]

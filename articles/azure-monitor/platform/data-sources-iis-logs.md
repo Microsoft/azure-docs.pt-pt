@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: ca3cf93329ea84183ef11eec8f8fac52cd84d445
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/13/2020
+ms.openlocfilehash: a089631ab199b0fe997bba001561c6b027034e2c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461197"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628752"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Recolher registos IIS com agente Log Analytics no Azure Monitor
 O Serviço de Informação da Internet (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo agente Log Analytics e armazenados em [Registos do Monitor Azure](data-platform.md).
@@ -32,6 +32,8 @@ Configurar registos IIS no Monitor Azure a partir do [menu Definições Avançad
 ## <a name="data-collection"></a>Recolha de dados
 O Azure Monitor recolhe entradas de registo IIS de cada agente sempre que o selo de tempo de registo muda. O registo é lido a cada **5 minutos.** Se, por qualquer razão, o IIS não atualizar o relógio antes da hora de transição quando um novo ficheiro for criado, as entradas serão recolhidas após a criação do novo ficheiro. A frequência da nova criação de ficheiros é controlada pela definição de **Agenda de Rollover de Ficheiros de Registo** para o site IIS, que é uma vez por padrão por padrão. Se a regulação for **de hora em hora,** o Azure Monitor recolhe o registo a cada hora. Se a definição for **diária,** o Azure Monitor recolhe o registo a cada 24 horas.
 
+> [!IMPORTANT]
+> Recomenda-se definir o **calendário de capotamento** do ficheiro de registo para **hora a hora**. Se estiver definido para **o Daily,** poderá experimentar picos nos seus dados, uma vez que estes serão recolhidos apenas uma vez por dia.
 
 ## <a name="iis-log-record-properties"></a>Propriedades de registo de registo de registo de registo do IIS
 Os registos do IIS têm um tipo de **W3CIISLog** e têm as propriedades na tabela seguinte:
@@ -63,7 +65,7 @@ Os registos do IIS têm um tipo de **W3CIISLog** e têm as propriedades na tabel
 ## <a name="log-queries-with-iis-logs"></a>Registar consultas com registos IIS
 A tabela seguinte fornece diferentes exemplos de consultas de registo que recuperam registos de registos IIS.
 
-| Consulta | Descrição |
+| Consulta | Description |
 |:--- |:--- |
 | W3CIISLog |Todos os registos do IIS. |
 | W3CIISLog &#124; onde scStatus==500 |Todos os registos do IIS com um estado de devolução de 500. |

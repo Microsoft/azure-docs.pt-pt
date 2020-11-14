@@ -7,15 +7,15 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2b5fa5211ad8d4de01f2b63e8267e297e13c4485
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9ce2044f3ee0bff3335f46d8cf712e64394af2d3
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91570013"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628871"
 ---
 # <a name="what-is-azure-files"></a>O que são os Ficheiros do Azure?
-O Azure Files oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo padrão do [Bloco de Mensagens do Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) da indústria ou [do protocolo do Sistema de Ficheiros de Rede (NFS).](https://en.wikipedia.org/wiki/Network_File_System) As ações de ficheiros Azure podem ser montadas simultaneamente por implementações em nuvem ou no local. As ações de ficheiros SMB da Azure Files estão acessíveis a partir de clientes Windows, Linux e macOS. As ações de ficheiros Azure Files NFS estão acessíveis a clientes Linux ou macOS. Além disso, as ações de ficheiroS SMB do Azure Files podem ser colocadas em cache nos Servidores do Windows com o Azure File Sync para um acesso rápido perto do local onde os dados estão a ser utilizados.
+O Azure Files oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo padrão do [Bloco de Mensagens do Servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) da indústria ou [do protocolo do Sistema de Ficheiros de Rede (NFS).](https://en.wikipedia.org/wiki/Network_File_System) As ações de ficheiros Azure podem ser montadas simultaneamente por implementações em nuvem ou no local. As ações de ficheiros SMB da Azure Files estão acessíveis a partir de clientes Windows, Linux e macOS. As ações de ficheiros Azure Files NFS estão acessíveis a clientes Linux ou macOS. Além disso, as ações de ficheiroS SMB do Azure Files podem ser colocadas em cache nos Servidores do Windows com o Azure File Sync para um acesso rápido perto do local onde os dados estão a ser utilizados.
 
 ## <a name="videos"></a>Vídeos
 | Apresentando a Azure File Sync | Ficheiros Azure com Sincronização (Ignite 2019)  |
@@ -29,7 +29,7 @@ Aqui estão alguns vídeos sobre os casos de uso comum de Ficheiros Azure:
 ## <a name="why-azure-files-is-useful"></a>Por que é que os Ficheiros do Azure são úteis
 As partilhas de ficheiros do Azure podem ser utilizadas para:
 
-* **Substituir ou complementar os servidores de ficheiros no local**:  
+* **Substituir ou complementar os servidores de ficheiros no local** :  
     Os Ficheiros do Azure podem ser utilizados para substituir completamente ou complementar os servidores de ficheiros no local ou em dispositivos NAS tradicionais. Os sistemas operativos populares, como o Windows, macOS e Linux, podem montar diretamente partilhas de ficheiros do Azure a partir de qualquer ponto do mundo. As ações de ficheiros Azure File SMB também podem ser replicadas com O Azure File Sync para Servidores windows, tanto no local como na nuvem, para desempenho e caching distribuído dos dados onde está a ser utilizado. Com o recente lançamento da [Azure Files AD Authentication](storage-files-active-directory-overview.md), as ações de ficheiros Azure File SMB podem continuar a funcionar com AD hospedados no local para controlo de acesso. 
 
 * **Aplicações de "elevador e mudança":**  
@@ -53,7 +53,7 @@ As partilhas de ficheiros do Azure podem ser utilizadas para:
 * **Totalmente gerido.** As partilhas de ficheiros do Azure podem ser criadas sem que seja necessário gerir hardware ou SO. Isto significa que não tem de lidar com a aplicação de patches ao SO do servidor com atualizações de segurança críticas ou substituir os discos rígidos com falhas.
 * **Scripting e ferramentas**. Os cmdlets do PowerShell e a CLI do Azure podem ser utilizados para criar, montar e gerir partilhas de ficheiros do Azure como parte da administração das aplicações do Azure. Pode utilizar o portal do Azure e o Explorador de Armazenamento do Azure para criar e gerir partilhas de ficheiros do Azure. 
 * **Resiliência.** Os Ficheiros do Azure foram criados de raiz para estarem sempre disponíveis. Substituir as partilhas de ficheiros no local pelos Ficheiros do Azure significa que já não tem de se preocupar com falhas de energia ou problemas de rede. 
-* **Programabilidade familiar.** As aplicações que são executadas no Azure podem aceder a dados na partilha através das [APIs de E/S de sistema de ficheiros](https://msdn.microsoft.com/library/system.io.file.aspx). Os programadores, por conseguinte, podem tirar partido do respetivo código existente e competências para migrar as aplicações existentes. Para além das APIs de E/S de Sistema, pode utilizar as [Bibliotecas de Cliente do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn261237.aspx) ou da [API REST do Armazenamento do Azure](/rest/api/storageservices/file-service-rest-api).
+* **Programabilidade familiar.** As aplicações que são executadas no Azure podem aceder a dados na partilha através das [APIs de E/S de sistema de ficheiros](/dotnet/api/system.io.file). Os programadores, por conseguinte, podem tirar partido do respetivo código existente e competências para migrar as aplicações existentes. Para além das APIs de E/S de Sistema, pode utilizar as [Bibliotecas de Cliente do Armazenamento do Azure](/previous-versions/azure/dn261237(v=azure.100)) ou da [API REST do Armazenamento do Azure](/rest/api/storageservices/file-service-rest-api).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Conheça os protocolos de partilha de ficheiros disponíveis](storage-files-compare-protocols.md)

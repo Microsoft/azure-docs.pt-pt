@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 75ba8e1e2037ba8ef249b548dfb38e5fd1618cb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ec8e4a945f8b8277d05c11bf3673d2e4ab15f9a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564190"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626797"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Como criar uma partilha de ficheiros premium Azure
 
@@ -24,8 +24,8 @@ Este artigo mostra-lhe como criar este novo tipo de conta utilizando o [portal A
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- Se pretender utilizar o Azure CLI, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Se pretender utilizar o módulo Azure PowerShell, [instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
+- Se pretender utilizar o Azure CLI, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se pretender utilizar o módulo Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## <a name="create-a-filestorage-storage-account"></a>Criar uma conta de armazenamento de fileStorage
 
@@ -45,7 +45,7 @@ Agora está pronto para criar a sua conta de armazenamento.
 
 1. Na janela **Contas de Armazenamento** que é apresentada, escolha **Adicionar**.
 1. Selecione a subscrição na qua pretende criar a conta de armazenamento.
-1. No campo **Grupo de recursos**, selecione **Criar novo**. Introduza um nome para o novo grupo de recursos, conforme exemplificado na imagem seguinte.
+1. No campo **Grupo de recursos** , selecione **Criar novo**. Introduza um nome para o novo grupo de recursos, conforme exemplificado na imagem seguinte.
 
 1. A seguir, introduza um nome para a sua conta de armazenamento. O nome que escolher tem de ser exclusivo em todo o Azure. O nome também tem de ter entre 3 e 24 carateres de comprimento e apenas pode incluir números e letras minúsculas.
 1. Selecione uma localização para a sua conta de armazenamento ou utilize a localização predefinida.

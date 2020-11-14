@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: 4b7e0f91dcdf26688cab07ac83142c33de8bbdb1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1f07cda0afa7213ca9c803754950c86a3f246469
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90604871"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625353"
 ---
 Este guia fornece instruções e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Custom Vision para Go para construir um modelo de deteção de objetos. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
 
@@ -45,7 +45,7 @@ Crie um novo ficheiro chamado *sample.go* no seu diretório de projeto preferido
 
 Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha o url do Ponto Final na página de Definições do website Da Visão Personalizada.
 
-Consulte o método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções quando criar o seu projeto (explicado no guia do portal web [do detetor).](../../get-started-build-detector.md)
+Consulte o método [CreateProject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar outras opções quando criar o seu projeto (explicado no guia do portal web [do detetor).](../../get-started-build-detector.md)
 
 ```go
 import(
@@ -93,7 +93,7 @@ func main() {
 
 ## <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
-Para criar etiquetas de classificação ao seu projeto, adicione o seguinte código ao fim da *amostra.go*:
+Para criar etiquetas de classificação ao seu projeto, adicione o seguinte código ao fim da *amostra.go* :
 
 ```Go
 # Make two tags in the new project
@@ -273,7 +273,7 @@ Executar *amostra.go*.
 go run sample.go
 ```
 
-A saída da aplicação deverá aparecer na consola. Pode, em seguida, certificar-se de que a imagem de teste (encontrada em **amostras/visão/imagens/Teste**) está identificada de forma adequada e que a região de deteção está correta.
+A saída da aplicação deverá aparecer na consola. Pode, em seguida, certificar-se de que a imagem de teste (encontrada em **amostras/visão/imagens/Teste** ) está identificada de forma adequada e que a região de deteção está correta.
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 

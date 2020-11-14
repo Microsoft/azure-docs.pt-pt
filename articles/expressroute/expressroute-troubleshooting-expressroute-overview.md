@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92204644"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
@@ -34,7 +34,7 @@ O objetivo deste documento é ajudar o utilizador a identificar se e onde existe
 >
 >
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O diagrama seguinte mostra a conectividade lógica de uma rede de clientes com a rede Microsoft utilizando o ExpressRoute.
 [![1]][1]
 
@@ -85,7 +85,7 @@ No portal Azure, abra a lâmina do circuito ExpressRoute. Na secção ![3][3] da
 
 No ExpressRoute Essentials, o *estado do circuito* indica o estado do circuito no lado da Microsoft. *O estado do fornecedor* indica se o circuito foi *provisionado/não a provisionado* do lado do prestador de serviços. 
 
-Para que um circuito ExpressRoute esteja operacional, o estado do *circuito* deve ser *ativado* e o *estado do Fornecedor* deve ser *previsto* .
+Para que um circuito ExpressRoute esteja operacional, o estado do *circuito* deve ser *ativado* e o *estado do Fornecedor* deve ser *previsto*.
 
 > [!NOTE]
 > Depois de configurar um circuito ExpressRoute, se o estado do *Circuito* for atingido em estado não ativado, contacte o [Microsoft Support][Support]. Por outro lado, se o *estado do Fornecedor* for atingido em estado não previsto, contacte o seu prestador de serviços.

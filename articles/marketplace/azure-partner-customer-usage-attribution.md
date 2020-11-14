@@ -3,17 +3,17 @@ title: Parceiro de mercado comercial e atribuição de uso do cliente
 description: Obtenha uma visão geral do rastreio do uso do cliente para soluções Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 95ac1abc1f286330bc5e7036f01faa6cf1b22d70
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 2c2b7de65e7ac22ebe648ce98633d5ae88818324
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337904"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628395"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro de mercado comercial e atribuição de uso do cliente
 
@@ -74,15 +74,15 @@ Depois de adicionar um GUID ao seu modelo ou ao agente do utilizador, e registar
    * Os parceiros podem registar vários GUIDs.
    * Os parceiros podem registar GUIDs para modelos e ofertas de soluções não-marketplace.
 
-1. No canto superior direito, selecione o ícone de engrenagem de definições e, em seguida, selecione **as definições do Desenvolvedor**.
+1. Selecione **Definições** (ícone de engrenagem) nas **definições** de conta > canto superior direito .
 
-1. Na **página de definições** de conta, selecione **Add Tracking GUID.**
+1. Nos identificadores **de perfis**  >  **da** Organização , **selecione Add Tracking GUID**.
 
 1. Na caixa **GUID,** insira o seu tracking GUID. Introduza apenas o GUID sem o `pid-` prefixo. Na caixa **Descrição,** insira o nome ou descrição da sua oferta.
 
 1. Para registar mais do que um GUID, **selecione Add Tracking GUID** novamente. Caixas adicionais aparecem na página.
 
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 ## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Resource Manager
 Muitas soluções parceiras são implementadas usando modelos de Gestor de Recursos Azure. Se tiver um modelo de Gestor de Recursos disponível no Azure Marketplace, no GitHub ou como um Quickstart, o processo para modificar o seu modelo para permitir a atribuição de utilização do cliente é diretamente para a frente.
@@ -183,9 +183,10 @@ Se utilizar recursos através da Azure PowerShell, apedte o seu GUID utilizando 
 
 Quando utilizar o CLI Azure para anexar o seu GUID, desaprote o **AZURE_HTTP_USER_AGENT** variável ambiente. Pode definir esta variável no âmbito de um script. Também pode definir a variável globalmente para o âmbito da concha:
 
-```
+```powershell
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
 Para mais informações, consulte [Azure SDK for Go](/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Utilizar Terraform
@@ -206,7 +207,6 @@ Os parceiros que pretendam obter a sua implementação via Terraform rastreados 
 
 * Criar um GUID (o GUID deve ser adicionado para cada Oferta ou SKU)
 * Atualizar o seu Fornecedor Azure para definir o valor de *partner_id* ao GUID (NÃO pré-fixe o GUID com "pid-", basta defini-lo para o verdadeiro GUID)
-
 
 ## <a name="verify-the-guid-deployment"></a>Verifique a implementação DO GUID
 
@@ -263,11 +263,11 @@ Os parceiros devem informar os seus clientes sobre as implementações que utili
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notificação para implementações de modelos do Gestor de Recursos
 
-Ao implementar este modelo, a Microsoft é capaz de identificar a instalação de \<PARTNER> software com os recursos Azure que são implantados. A Microsoft é capaz de correlacionar os recursos Azure que são usados para suportar o software. A Microsoft recolhe estas informações para fornecer as melhores experiências com os seus produtos e operar os seus negócios. Os dados são recolhidos e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter .
+Ao implementar este modelo, a Microsoft é capaz de identificar a instalação de \<PARTNER> software com os recursos Azure que são implantados. A Microsoft é capaz de correlacionar os recursos Azure que são usados para suportar o software. A Microsoft recolhe estas informações para fornecer as melhores experiências com os seus produtos e operar os seus negócios. Os dados são recolhidos e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter) .
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Notificação para implementações de SDK ou API
 
-Quando implementa \<PARTNER> software, a Microsoft é capaz de identificar a instalação de \<PARTNER> software com os recursos Azure que são implantados. A Microsoft é capaz de correlacionar os recursos Azure que são usados para suportar o software. A Microsoft recolhe estas informações para fornecer as melhores experiências com os seus produtos e operar os seus negócios. Os dados são recolhidos e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter .
+Quando implementa \<PARTNER> software, a Microsoft é capaz de identificar a instalação de \<PARTNER> software com os recursos Azure que são implantados. A Microsoft é capaz de correlacionar os recursos Azure que são usados para suportar o software. A Microsoft recolhe estas informações para fornecer as melhores experiências com os seus produtos e operar os seus negócios. Os dados são recolhidos e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em [https://www.microsoft.com/trustcenter](https://www.microsoft.com/trustcenter) .
 
 ## <a name="get-support"></a>Obter suporte
 
@@ -282,6 +282,7 @@ Conheça as opções de suporte no mercado comercial [no Support for the commerc
     * Complete/reveja as informações de contacto.
     * Os detalhes da consulta podem ser pré-povoados ou selecionar a partir das desistências.
     * Introduza um título e a descrição do problema (forneça o máximo de detalhes possível).
+
 1. Clique em Submeter
 
 Consulte instruções passo a passo com imagens na [Utilização de Pré-Venda Técnica e Serviços de Implantação](https://aka.ms/TechConsultInstructions).

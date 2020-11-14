@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64b7efdd430287a7a3a969c5bf62b0c0e2aec9c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329351"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626899"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -24,15 +24,15 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 
 | Versão do Windows        | Versão do SMB | Montável em VM do Azure | Montado no local |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.0 | Sim | Sim |
-| Windows 10<sup>1</sup> | SMB 3.0 | Sim | Sim |
-| Windows Server semi-anual canal<sup>2</sup> | SMB 3.0 | Sim | Sim |
-| Windows Server 2016 | SMB 3.0 | Sim | Sim |
-| Windows 8.1 | SMB 3.0 | Sim | Sim |
-| Windows Server 2012 R2 | SMB 3.0 | Sim | Sim |
-| Windows Server 2012 | SMB 3.0 | Sim | Sim |
-| Windows 7<sup>3</sup> | SMB 2.1 | Sim | Não |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sim | Não |
+| Windows Server 2019 | SMB 3.0 | Yes | Yes |
+| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server semi-anual canal<sup>2</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server 2016 | SMB 3.0 | Yes | Yes |
+| Windows 8.1 | SMB 3.0 | Yes | Yes |
+| Windows Server 2012 R2 | SMB 3.0 | Yes | Yes |
+| Windows Server 2012 | SMB 3.0 | Yes | Yes |
+| Windows 7<sup>3</sup> | SMB 2.1 | Yes | No |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | No |
 
 <sup>1</sup> Windows 10, versões 1507, 1607, 1803, 1809, 1903, 1909 e 2004.  
 <sup>2</sup> Windows Server, versões 1809, 1903, 1909, 2004.  
@@ -46,7 +46,7 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 Confirmar que a porta 445 está aberta: o protocolo SMB requer que a porta TCP 445 esteja aberta; se estive bloqueada, as ligações falham. Pode verificar se a sua firewall está a bloquear a porta 445 com o `Test-NetConnection` cmdlet. Para saber como trabalhar em torno de uma porta 445 bloqueada, consulte a [Causa 1: O Porto 445 está bloqueado](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) na secção do nosso guia de resolução de problemas do Windows.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
-Para utilizar uma partilha de ficheiros do Azure com o Windows, tem de montá-la, o que significa atribuir uma letra de unidade ou um caminho de ponto de montagem, ou aceder-lhe através do respetivo [caminho UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
+Para utilizar uma partilha de ficheiros do Azure com o Windows, tem de montá-la, o que significa atribuir uma letra de unidade ou um caminho de ponto de montagem, ou aceder-lhe através do respetivo [caminho UNC](/windows/win32/fileio/naming-a-file). 
 
 Este artigo utiliza a chave da conta de armazenamento para aceder à partilha de ficheiros. Uma chave de conta de armazenamento é uma chave de administrador para uma conta de armazenamento, incluindo permissões de administrador para todos os ficheiros e pastas dentro da partilha de ficheiros a que está a aceder, e para todas as ações de ficheiros e outros recursos de armazenamento (bolhas, filas, tabelas, etc.) contidas na sua conta de armazenamento. Se isto não for suficiente para a sua carga de trabalho, o [Azure File Sync](storage-sync-files-planning.md) pode ser utilizado, ou poderá utilizar [a autenticação baseada na identidade em SMB](storage-files-active-directory-overview.md).
 
@@ -65,14 +65,14 @@ Para obter este roteiro:
 
     :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="exemplo":::
 
-1. Selecione **Ligar**.
+1. Selecione **Connect** (Ligar).
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="exemplo":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Screenshot do ícone de ligação para a sua partilha de ficheiros.":::
 
 1. Selecione a letra de unidade para montar a partilha para.
 1. Copie o guião fornecido.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="exemplo":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Texto de exemplo":::
 
 1. Cole o guião numa concha no anfitrião para onde gostaria de montar a partilha de ficheiros e executá-lo.
 
@@ -196,11 +196,11 @@ Depois de criar a chave de registo, tem de reiniciar o servidor para desativar o
 ### <a name="smb-resources"></a>Recursos do SMB
 - [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/) (Deixar de utilizar o SMB 1)
 - [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/) (Centro de Informações de Produtos que Utilizam o SMB 1)
-- [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/) (Descobrir o SMB 1 no seu ambiente com DSCEA)
-- [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/) (Desativar o SMB 1 através da Política de Grupo)
+- [Discover SMB 1 in your environment with DSCEA](/archive/blogs/ralphkyttle/discover-smb1-in-your-environment-with-dscea) (Descobrir o SMB 1 no seu ambiente com DSCEA)
+- [Disabling SMB 1 through Group Policy](/archive/blogs/secguide/disabling-smbv1-through-group-policy) (Desativar o SMB 1 através da Política de Grupo)
 
 ## <a name="next-steps"></a>Passos seguintes
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure:
 - [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
-- [FAQ](../storage-files-faq.md)
-- [Resolução de Problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [FAQ](./storage-files-faq.md)
+- [Resolução de Problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)

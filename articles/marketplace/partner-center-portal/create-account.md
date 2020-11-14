@@ -1,19 +1,19 @@
 ---
-title: Criar uma conta de mercado comercial no Partner Center
+title: Criar uma conta de mercado comercial no Partner Center for Azure Marketplace
 description: Saiba como criar uma conta de mercado comercial da Microsoft no Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: deb64d1c8268268061a8121151c00ccb55902274
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e15937797077e3fa46a12e726a3ce690c3979cbd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130464"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628786"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de mercado comercial no Partner Center
 
@@ -60,14 +60,14 @@ O seu perfil de editor inclui o nome da empresa e o ID MPN. Se ainda não o fez,
 
 1. Criar uma identificação de editor. O seu ID editor identifica exclusivamente a sua empresa e as suas ofertas no Azure Marketplace e appSource.
 
-1. Depois de confirmar as informações do seu perfil de editor, concorde com os termos e condições e, em seguida, crie a sua conta Partner Center selecionando **Aceitar e continuar** .
+1. Depois de confirmar as informações do seu perfil de editor, concorde com os termos e condições e, em seguida, crie a sua conta Partner Center selecionando **Aceitar e continuar**.
 
     > [!IMPORTANT]
     > Para aceitar estes termos, tem de estar autorizado a agir em nome da sua empresa.
 
-    Depois de se matricular, é levado para a página de visão geral do mercado comercial. A conta de mercado comercial é apresentada no painel esquerdo. 
-    
-1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas**  >  **de Definições de Parceiros** de  >  **Definições** de Definições .
+    Depois de se matricular, é levado para a página de visão geral do mercado comercial. A conta de mercado comercial é apresentada no painel esquerdo.
+
+1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Definições** (ícone de engrenagem) no canto superior direito > Programa **de Definições de Desenvolvimento**  >  **Programs**.
 
 Criou agora uma conta comercial no Partner Center. Continue a [adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
@@ -91,19 +91,19 @@ Quando utiliza a sua conta Microsoft Partner Network, liga o domínio da conta d
 > Tem de ter **um administrador de conta** ou um papel de **administração global** para iniciar scontabilidade na Microsoft Partner Network.
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/) com a sua conta Microsoft Partner Network.
-1. Selecione **Definições**  >  **de**  >  **Definições De Definições Os programas**  >  **começaram** .
+1. Selecione **Definições**  >  **de**  >  **programação Programas**  >  **Começar**.
 
    A Microsoft Partner Network deteta a sua subscrição e exibe o painel de perfil do **Publisher.**
-   
+
 1. Insira o nome da sua empresa e iD MPN.
 1. Leia os termos e condições no [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560)e, em seguida, selecione Aceite e continue **a** completar a sua inscrição.
 
     > [!IMPORTANT]
     > Para aceitar estes termos, tem de estar autorizado a agir em nome da sua empresa.
 
-    Depois de se matricular, é levado para a página de visão geral do mercado comercial. A conta de mercado comercial é apresentada no painel esquerdo. 
-    
-1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas**  >  **de Definições de Parceiros** de  >  **Definições** de Definições .
+    Depois de se matricular, é levado para a página de visão geral do mercado comercial. A conta de mercado comercial é apresentada no painel esquerdo.
+
+1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas**  >  **de Definições de Programadores** de  >  **Definições** de Definições .
 
 Criou agora uma conta comercial no Partner Center. Continue a [adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
@@ -112,9 +112,9 @@ Criou agora uma conta comercial no Partner Center. Continue a [adicionar novas e
 >[!NOTE]
 >Para se registar no mercado comercial na mesma conta com a qual se inscreveu, precisa de se registar no Partner Center com uma conta da empresa. Se se registar numa conta individual, a sua inscrição no mercado comercial aparecerá sob uma nova conta.
 >
->As contas individuais são para os desenvolvedores que trabalham por conta própria. As contas da empresa são para organizações e empresas. As contas da empresa dão-lhe acesso a submeter apps com funcionalidade adicional. 
+>As contas individuais são para os desenvolvedores que trabalham por conta própria. As contas da empresa são para organizações e empresas. As contas da empresa dão-lhe acesso a submeter apps com funcionalidade adicional.
 >
-> Para verificar se está autorizado a configurar a conta para a sua empresa, exigimos uma verificação adicional das contas da empresa depois de se registar. Esta verificação pode demorar de alguns dias a algumas semanas, e muitas vezes inclui um telefonema para a sua empresa. Ambos os tipos de contas permitem submeter apps, add-ins e serviços. Para mais informações, consulte [tipos de conta, locais e taxas.](/windows/uwp/publish/account-types-locations-and-fees)
+> Para verificar se está autorizado a configurar a conta para a sua empresa, exigimos uma verificação adicional das contas da empresa depois de se registar. Esta verificação pode demorar de alguns dias a algumas semanas, e muitas vezes inclui um telefonema para a sua empresa. Ambos os tipos de contas permitem submeter apps, add-ins e serviços. Para mais informações, consulte [tipos de conta, locais e taxas.](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees)
 
 Quando se regista no programa de marketplace comercial com a mesma conta que o seu programa de desenvolvimento, pode ver todas as suas inscrições existentes no painel de programa no painel esquerdo do Partner Center.
 
@@ -126,9 +126,9 @@ Quando se regista no programa de marketplace comercial com a mesma conta que o s
     >[!Important]
     > Para aceitar estes termos, tem de estar autorizado a agir em nome da sua empresa.
 
-    Depois de se matricular, é levado para a página de visão geral do mercado comercial. A conta de mercado comercial é apresentada no painel esquerdo. 
-    
-1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas**  >  **de Definições de Parceiros** de  >  **Definições** de Definições .
+    Depois de se matricular, é levado para a página de visão geral do mercado comercial. A conta de mercado comercial é apresentada no painel esquerdo.
+
+1. Para verificar se a conta de mercado comercial está listada como registada, selecione **Programas**  >  **de Definições de Programadores** de  >  **Definições** de Definições .
 
 Criou agora uma conta comercial no Partner Center. Para ajudar na adição de editores, continue a [adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
@@ -142,7 +142,7 @@ O contrato de publicação e a transição de informação de perfil da empresa 
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Adicione novas editoras ao programa de marketplace comercial
 
-Uma organização pode ter vários editores associados a uma conta de mercado comercial. Um utilizador existente pode adicionar mais editores depois de iniciar sessão no Partner Center selecionando **As Definições de Conta**  >  **Editores**  >  **Add Publishers** .
+Uma organização pode ter vários editores associados a uma conta de mercado comercial. Um utilizador existente pode adicionar mais editores depois de **Settings** iniciar sessão no Partner Center selecionando  >  **Definições de**  >  **Desenvolvedores**  >  **EditorEs Editores**.
 
 >[!NOTE]
 >Antes de adicionar uma nova editora, reveja a sua lista de editores existentes, insinando-se no Partner Center e selecionando **editores de Definições de**  >  **Publishers** Contas.

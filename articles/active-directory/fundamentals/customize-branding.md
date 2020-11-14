@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "89565859"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicione marca à página de inscrição do Azure Ative Directory da sua organização
@@ -37,7 +37,7 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
 ### <a name="to-customize-your-branding"></a>Para personalizar a sua marca
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory** , e, em seguida, selecione **a marca da Empresa** , e, em seguida, selecione **Configure** .
+2. Selecione **Azure Ative Directory** , e, em seguida, selecione **a marca da Empresa** , e, em seguida, selecione **Configure**.
 
     ![Contoso - Página de marca da empresa, opção de configuração em destaque](media/customize-branding/company-branding-configure-button.png)
 
@@ -52,7 +52,7 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
 
         - **Idioma.** O idioma é automaticamente definido como o seu padrão e não pode ser alterado.
         
-        - **Imagem de fundo de página de iniciar s-in.** Selecione um ficheiro de imagem .png ou .jpg para aparecer como fundo para as suas páginas de inscrição. A imagem será ancorada ao centro do navegador, e escalará para o tamanho do espaço visível. Não é possível selecionar uma imagem maior do que 1920x1080 pixels de tamanho ou que tenha um tamanho de ficheiro superior a 300 KB.
+        - **Imagem de fundo de página de iniciar s-in.** Selecione um ficheiro de imagem .png ou .jpg para aparecer como pano de fundo para as suas páginas de inscrição. A imagem será ancorada ao centro do navegador, e escalará para o tamanho do espaço visível. Não é possível selecionar uma imagem maior do que 1920x1080 pixels de tamanho ou que tenha um tamanho de ficheiro superior a 300 KB.
         
             Recomenda-se a utilização de imagens sem um forte foco de assunto, por exemplo, uma caixa branca opaca aparece no centro do ecrã, e pode cobrir qualquer parte da imagem dependendo das dimensões do espaço visível.
 
@@ -80,7 +80,7 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
 
         - **Cor de fundo da página de iniciar s-in.** Especifique a cor hexadecimal (por exemplo, o branco é #FFFFFF) que aparecerá no lugar da sua imagem de fundo em situações de ligação de baixa largura de banda. Recomendamos a utilização da cor primária do seu logotipo do banner ou da cor da sua organização.
 
-        - **Imagem de logotipo quadrado.** Selecione uma imagem .png (preferencial) ou .jpg do logótipo da sua organização para aparecer aos utilizadores durante o processo de configuração de novos dispositivos do Windows 10 Enterprise. Esta imagem é utilizada apenas para autenticação do Windows e aparece apenas em inquilinos que estão a utilizar [o Windows Autopilot]( /windows/deployment/windows-autopilot/windows-10-autopilot) para implementação ou para páginas de entrada de palavra-passe noutras experiências do Windows 10. Em alguns casos, pode também aparecer no diálogo de consentimento.
+        - **Imagem de logotipo quadrado.** Selecione uma imagem .png (preferencial) ou .jpg do logótipo da sua organização para aparecer aos utilizadores durante o processo de configuração de novos dispositivos Do Windows 10 Enterprise. Esta imagem é utilizada apenas para autenticação do Windows e aparece apenas em inquilinos que estão a utilizar [o Windows Autopilot]( /windows/deployment/windows-autopilot/windows-10-autopilot) para implementação ou para páginas de entrada de palavra-passe noutras experiências do Windows 10. Em alguns casos, pode também aparecer no diálogo de consentimento.
         
             A imagem não pode ser maior do que 240x240 pixels de tamanho e deve ter um tamanho de arquivo inferior a 10 KB. Recomendamos a utilização de uma imagem transparente, uma vez que o fundo pode não corresponder ao fundo do seu logotipo. Também recomendamos que não adicione estofos em torno da imagem ou pode fazer o seu logotipo parecer pequeno.
     
@@ -94,7 +94,7 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
             >Algumas funcionalidades do SharePoint Online e do Office 2010 dependem da capacidade de os utilizadores poderem escolher manter a sessão iniciada. Se tiver definido esta opção como **Não** , os utilizadores poderão ver avisos adicionais e inesperados para iniciar sessão.
    
 
-3. Depois de terminar de adicionar a sua marca, **selecione Save** .
+3. Depois de terminar de adicionar a sua marca, **selecione Save**.
 
     Se este processo criar a sua primeira configuração de marca personalizada, torna-se o padrão para o seu inquilino. Se tiver configurações adicionais, poderá escolher a sua configuração padrão.
     
@@ -107,13 +107,13 @@ Depois de criar a sua marca personalizada, pode voltar e mudar o que quiser.
 ### <a name="to-edit-your-custom-branding"></a>Para editar a sua marca personalizada
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory** , e, em seguida, selecione **a marca da Empresa** , e, em seguida, selecione **Configure** .
+2. Selecione **Azure Ative Directory** , e, em seguida, selecione **a marca da Empresa** , e, em seguida, selecione **Configure**.
 
     ![Contoso - Página de marca da empresa, com configuração padrão mostrada](media/customize-branding/company-branding-default-config.png)
 
 3. Na página **de marca Configure da empresa,** adicione, remova ou altere qualquer informação, com base nas descrições na secção de [inscrição AD do Azure](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Selecione **Guardar** .
+4. Selecione **Guardar**.
 
    Pode demorar até uma hora para que sejam apresentadas quaisquer alterações que tiver efetuado na imagem corporativa da página de início de sessão.
 
@@ -124,13 +124,13 @@ Não é possível alterar o idioma da sua configuração original a partir do se
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory** , e, em seguida, selecione **a marca da Empresa** , e, em seguida, selecione Novo **idioma** .
+2. Selecione **Azure Ative Directory** , e, em seguida, selecione **a marca da Empresa** , e, em seguida, selecione Novo **idioma**.
 
     ![Contoso - Página de marca da empresa, com nova opção linguística em destaque](media/customize-branding/company-branding-new-language.png)
 
 3. Na página de **marca Configure,** selecione o seu idioma (por exemplo, francês) e adicione as suas informações traduzidas, com base nas descrições na secção de [inscrição AD do Azure](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Selecione **Guardar** .
+4. Selecione **Guardar**.
 
     As atualizações da página **de marca Contoso – Empresa** para mostrar a sua nova configuração francesa.
 

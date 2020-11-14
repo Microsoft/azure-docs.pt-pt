@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/13/2020
 ms.author: jlian
-ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9dd66fe9d71f0a857e4b0821190bceb5d6d4680
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006045"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628803"
 ---
 # <a name="tls-support-in-iot-hub"></a>Suporte TLS no IoT Hub
 
@@ -92,7 +92,7 @@ Um cliente pode sugerir uma lista de suítes de cifra mais altas para usar duran
 
 Utilize os links abaixo para configurar o TLS 1.2 e permitiu cifras em SDKs cliente IoT Hub.
 
-| Idioma | Versões que suportam TLS 1.2 | Documentação |
+| Linguagem | Versões que suportam TLS 1.2 | Documentação |
 |----------|------------------------------------|---------------|
 | C        | Tag 2019-12-11 ou mais recente            | [Ligação](https://aka.ms/Tls_C_SDK_IoT) |
 | Python   | Versão 2.0.0 ou mais recente             | [Ligação](https://aka.ms/Tls_Python_SDK_IoT) |
@@ -107,4 +107,4 @@ Os dispositivos IoT Edge podem ser configurados para utilizar o TLS 1.2 quando c
 
 ## <a name="device-authentication"></a>Autenticação do dispositivo
 
-Após um aperto de mão TLS bem sucedido, o IoT Hub pode autenticar um dispositivo utilizando uma chave simétrica ou um certificado X.509. Para a autenticação baseada em certificados, este pode ser qualquer certificado X.509, incluindo ECC. O IoT Hub valida o certificado com a impressão digital ou a autoridade de certificados (CA) que fornece. O IoT Hub ainda não suporta a autenticação mútua baseada em X.509 (mTLS). Para saber mais, consulte [os certificados X.509 suportados.](iot-hub-devguide-security.md#supported-x509-certificates)
+Após um aperto de mão TLS bem sucedido, o IoT Hub pode autenticar um dispositivo utilizando uma chave simétrica ou um certificado X.509. Para a autenticação baseada em certificados, este pode ser qualquer certificado X.509, incluindo ECC. O IoT Hub valida o certificado com a impressão digital ou a autoridade de certificados (CA) que fornece. Para saber mais, consulte [os certificados X.509 suportados.](iot-hub-devguide-security.md#supported-x509-certificates)

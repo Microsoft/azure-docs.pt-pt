@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
-ms.custom: identityplatformtop40
-ms.openlocfilehash: e63d2cac97a16674c4e2e880f94373b0af1510de
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.custom: identityplatformtop40, contperfq2
+ms.openlocfilehash: 3f18913bb0d05c45ae57152d438b229b8bcc1d48
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056417"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94627919"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>O que é a plataforma de identidades da Microsoft?
 
@@ -30,10 +30,10 @@ Existem vários componentes que compõem a plataforma de identidade da Microsoft
   - Contas de trabalho ou escola, a provisionadas através da Azure AD
   - Conta pessoal da Microsoft, como Skype, Xbox e Outlook.com
   - Contas sociais ou locais, utilizando o Azure AD B2C
-- **Bibliotecas de código aberto**: Bibliotecas de autenticação da Microsoft (MSAL) e suporte para outras bibliotecas compatíveis com padrões
-- **Portal de gestão de aplicações**: Uma experiência de registo e configuração no portal Azure, juntamente com as outras capacidades de gestão do Azure.
-- **Configuração de aplicação API e PowerShell**: Configuração programática das suas aplicações através da Microsoft Graph API e PowerShell para que possa automatizar as suas tarefas DevOps.
-- **Conteúdo do programador**: Documentação técnica incluindo quickstarts, tutoriais, guias e amostras de código.
+- **Bibliotecas de código aberto** : Bibliotecas de autenticação da Microsoft (MSAL) e suporte para outras bibliotecas compatíveis com padrões
+- **Portal de gestão de aplicações** : Uma experiência de registo e configuração no portal Azure, juntamente com as outras capacidades de gestão do Azure.
+- **Configuração de aplicação API e PowerShell** : Configuração programática das suas aplicações através da Microsoft Graph API e PowerShell para que possa automatizar as suas tarefas DevOps.
+- **Conteúdo do programador** : Documentação técnica incluindo quickstarts, tutoriais, guias e amostras de código.
 
 Para os desenvolvedores, a plataforma de identidade da Microsoft oferece a integração de inovações modernas no espaço de identidade e segurança, como autenticação sem palavras-passe, autenticação intensificada e Acesso Condicional. Não precisa de implementar essa funcionalidade por si mesmo: as aplicações integradas na plataforma de identidade da Microsoft aproveitam-se de forma nativa dessas inovações.
 
@@ -50,7 +50,7 @@ Escolha o cenário de [candidatura](authentication-flows-app-scenarios.md) que g
 - [API Web que chama APIs Web](scenario-web-api-call-api-overview.md)
 - [Aplicação de ambiente de trabalho](scenario-desktop-overview.md)
 - [Aplicações daemon](scenario-daemon-overview.md)
-- [Aplicativo móvel](scenario-mobile-overview.md)
+- [Aplicação móvel](scenario-mobile-overview.md)
 
 À medida que trabalha com a plataforma de identidade da Microsoft para integrar a autenticação e autorização nas suas apps, pode consultar esta imagem que descreve os cenários de aplicações mais comuns e os seus componentes de identidade. Selecione a imagem para vê-la em tamanho real.
 

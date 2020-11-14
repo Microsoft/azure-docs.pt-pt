@@ -4,12 +4,12 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
-ms.openlocfilehash: 83ff3d53ec44d4bafc1e677f0c496e6beb3dd41f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f0dbe64d6a44d7712d83c018c4db72fac871a838
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548253"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625407"
 ---
 Começa a usar a biblioteca de clientes Da Visão Personalizada para a Java para construir um modelo de deteção de objetos. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
 
@@ -25,8 +25,8 @@ Utilize a biblioteca de clientes Custom Vision para:
 * Publique a iteração atual
 * Teste o ponto final de previsão
 
-[Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable) / Código fonte da [biblioteca (formação)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-training) [(previsão)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-prediction)/ Amostras de [artefactos](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-training/1.1.0-preview.2/jar) (Maven) [(treino) (previsão)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-prediction/1.1.0-preview.2/jar)  | 
- [Samples](https://docs.microsoft.com/samples/browse/?products=azure&terms=custom%20vision)
+[Documentação de referência](/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable) / Código fonte da [biblioteca (formação)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-training) [(previsão)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-prediction)/ Amostras de [artefactos](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-training/1.1.0-preview.2/jar) (Maven) [(treino) (previsão)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-prediction/1.1.0-preview.2/jar)  | 
+ [Samples](/samples/browse/?products=azure&terms=custom%20vision)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -54,11 +54,11 @@ Executar o comando do seu diretório de `gradle init` trabalho. Este comando cri
 gradle init --type basic
 ```
 
-Quando solicitado para escolher um **DSL,** selecione **Kotlin** .
+Quando solicitado para escolher um **DSL,** selecione **Kotlin**.
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente
 
-Localize *build.gradle.kts* e abra-o com o seu IDE ou editor de texto preferido. Em seguida, copie na seguinte configuração de construção. Esta configuração define o projeto como uma aplicação Java cujo ponto de entrada é a classe **CustomVisionQuickstart** . Importa as bibliotecas da Visão Personalizada.
+Localize *build.gradle.kts* e abra-o com o seu IDE ou editor de texto preferido. Em seguida, copie na seguinte configuração de construção. Esta configuração define o projeto como uma aplicação Java cujo ponto de entrada é a classe **CustomVisionQuickstart**. Importa as bibliotecas da Visão Personalizada.
 
 ```kotlin
 plugins {
@@ -86,7 +86,7 @@ A partir do seu diretório de trabalho, executar o seguinte comando para criar u
 mkdir -p src/main/java
 ```
 
-Navegue para a nova pasta e crie um ficheiro chamado *CustomVisionQuickstart.java* . Abra-o no seu editor preferido ou IDE e adicione as `import` seguintes declarações:
+Navegue para a nova pasta e crie um ficheiro chamado *CustomVisionQuickstart.java*. Abra-o no seu editor preferido ou IDE e adicione as `import` seguintes declarações:
 
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_imports)]
 
@@ -100,9 +100,9 @@ Na classe **CustomVisionQuickstart** da aplicação, crie variáveis para as cha
 
 
 > [!IMPORTANT]
-> Aceda ao portal do Azure. Se o recurso [nome do produto] que criou na secção **Pré-Requisitos** implementado com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes** . Pode encontrar a sua chave e ponto final na **página chave e ponto final** do recurso, sob **gestão de recursos.** 
+> Aceda ao portal do Azure. Se o recurso [nome do produto] que criou na secção **Pré-Requisitos** implementado com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes**. Pode encontrar a sua chave e ponto final na **página chave e ponto final** do recurso, sob **gestão de recursos.** 
 >
-> Lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Consulte o artigo [de segurança](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) dos Serviços Cognitivos para obter mais informações.
+> Lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Consulte o artigo [de segurança](../../../cognitive-services-security.md) dos Serviços Cognitivos para obter mais informações.
 
 No método **principal** da aplicação, adicione chamadas para os métodos utilizados neste arranque rápido. Vai definir isto mais tarde.
 
@@ -114,9 +114,9 @@ As seguintes aulas e interfaces lidam com algumas das principais característica
 
 |Nome|Descrição|
 |---|---|
-|[Restrição personalizada DeTraining](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-java-stable) | Esta aula trata da criação, formação e publicação dos seus modelos. |
-|[CustomVisionPredictionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-java-stable)| Esta classe lida com a consulta dos seus modelos para previsões de deteção de objetos.|
-|[ImagemPredicação](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-java-stable)| Esta classe define uma única previsão de objeto numa única imagem. Inclui propriedades para o ID e nome do objeto, a localização da caixa de delimitação do objeto, e uma pontuação de confiança.|
+|[Restrição personalizada DeTraining](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-java-stable) | Esta aula trata da criação, formação e publicação dos seus modelos. |
+|[CustomVisionPredictionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-java-stable)| Esta classe lida com a consulta dos seus modelos para previsões de deteção de objetos.|
+|[ImagemPredicação](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-java-stable)| Esta classe define uma única previsão de objeto numa única imagem. Inclui propriedades para o ID e nome do objeto, a localização da caixa de delimitação do objeto, e uma pontuação de confiança.|
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -138,7 +138,7 @@ No seu método **principal,** os clientes de treino instantâneo e previsão usa
 
 ## <a name="create-a-new-custom-vision-project"></a>Criar um novo projeto de Visão Personalizada
 
-Este próximo método cria um projeto de deteção de objetos. O projeto criado aparece no [site da Visão Personalizada](https://customvision.ai/) ao qual acedeu anteriormente. Consulte as sobrecargas do método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) para especificar outras opções quando criar o seu projeto (explicado no guia do portal web [do detetor).](../../get-started-build-detector.md)
+Este próximo método cria um projeto de deteção de objetos. O projeto criado aparece no [site da Visão Personalizada](https://customvision.ai/) ao qual acedeu anteriormente. Consulte as sobrecargas do método [CreateProject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) para especificar outras opções quando criar o seu projeto (explicado no guia do portal web [do detetor).](../../get-started-build-detector.md)
 
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_create_od)]
 
@@ -176,7 +176,7 @@ Este método cria a primeira iteração de formação no projeto. Consulta o ser
 
 ## <a name="publish-the-current-iteration"></a>Publique a iteração atual
 
-Este método disponibiliza a iteração atual do modelo para consulta. Pode utilizar o nome do modelo como referência para enviar pedidos de previsão. Tens de introduzir o teu próprio valor `predictionResourceId` para. Pode encontrar o ID do recurso de previsão no **separador Visão Geral** do recurso no portal Azure, listado como **ID de subscrição** .
+Este método disponibiliza a iteração atual do modelo para consulta. Pode utilizar o nome do modelo como referência para enviar pedidos de previsão. Tens de introduzir o teu próprio valor `predictionResourceId` para. Pode encontrar o ID do recurso de previsão no **separador Visão Geral** do recurso no portal Azure, listado como **ID de subscrição**.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_publishOD)]
 

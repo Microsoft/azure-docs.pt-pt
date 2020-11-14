@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 15f9387aac909c0245d25b3a208ed24444b2b343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4df4c3d91c30dfd63de9073d8435f6f96c6ecd95
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329411"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626831"
 ---
 # <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 Para criar uma partilha de ficheiros Azure, precisa responder a três perguntas sobre como irá usá-lo:
@@ -34,17 +34,17 @@ Para obter mais informações sobre estas três opções, consulte [Planeamento 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Este artigo pressupõe que já criou uma subscrição do Azure. Se ainda não tem uma subscrição, então crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Se pretender utilizar o Azure PowerShell, [instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Se pretender utilizar o Azure CLI, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Se pretender utilizar o Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps).
+- Se pretender utilizar o Azure CLI, [instale a versão mais recente](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-As ações de ficheiros Azure são implantadas em contas de armazenamento, que são *objetos*de alto nível que representam um conjunto partilhado de armazenamento. Este conjunto de armazenamento pode ser usado para implantar várias partilhas de ficheiros. 
+As ações de ficheiros Azure são implantadas em contas de armazenamento, que são *objetos* de alto nível que representam um conjunto partilhado de armazenamento. Este conjunto de armazenamento pode ser usado para implantar várias partilhas de ficheiros. 
 
 O Azure suporta vários tipos de contas de armazenamento para diferentes cenários de armazenamento que os clientes podem ter, mas existem dois tipos principais de contas de armazenamento para ficheiros Azure. Que tipo de conta de armazenamento precisa de criar depende se pretende criar uma parte de ficheiro padrão ou uma partilha de ficheiros premium: 
 
-- **Contas de armazenamento versão geral 2 (GPv2): As**contas de armazenamento GPv2 permitem-lhe implantar ações de ficheiros Azure em hardware standard/hard disk (baseado em HDD). Além de armazenar ações de ficheiros Azure, as contas de armazenamento GPv2 podem armazenar outros recursos de armazenamento, tais como recipientes blob, filas ou mesas. As ações de ficheiro podem ser implantadas nos níveis otimizados (predefinidos), quentes ou frescos.
+- **Contas de armazenamento versão geral 2 (GPv2): As** contas de armazenamento GPv2 permitem-lhe implantar ações de ficheiros Azure em hardware standard/hard disk (baseado em HDD). Além de armazenar ações de ficheiros Azure, as contas de armazenamento GPv2 podem armazenar outros recursos de armazenamento, tais como recipientes blob, filas ou mesas. As ações de ficheiro podem ser implantadas nos níveis otimizados (predefinidos), quentes ou frescos.
 
-- **Contas de armazenamento de filestorage**: As contas de armazenamento de filestorage permitem-lhe implantar ações de ficheiros Azure em hardware baseado em discos de estado premium/sólido (baseado em SSD). As contas de arquiteação de ficheiros só podem ser utilizadas para armazenar ações de ficheiros Azure; nenhum outros recursos de armazenamento (recipientes blob, filas, mesas, etc.) podem ser implantados numa conta de arquiteta.
+- **Contas de armazenamento de filestorage** : As contas de armazenamento de filestorage permitem-lhe implantar ações de ficheiros Azure em hardware baseado em discos de estado premium/sólido (baseado em SSD). As contas de arquiteação de ficheiros só podem ser utilizadas para armazenar ações de ficheiros Azure; nenhum outros recursos de armazenamento (recipientes blob, filas, mesas, etc.) podem ser implantados numa conta de arquiteta.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para criar uma conta de armazenamento através do portal Azure, selecione **+ Crie um recurso** a partir do painel de instrumentos. Na janela de pesquisa Azure Marketplace resultante, procure a **conta de armazenamento** e selecione o resultado da pesquisa resultante. Isto levará a uma página geral para contas de armazenamento; **selecione Criar** para prosseguir com o assistente de criação de conta de armazenamento.
@@ -61,12 +61,12 @@ Para criar uma conta de armazenamento de fileStorage, certifique-se de que o bot
 ![Uma imagem do botão de rádio Performance com premium selecionado e tipo de Conta com FileStorage selecionado](media/storage-how-to-create-file-share/create-storage-account-2.png)
 
 Os outros campos básicos são independentes da escolha da conta de armazenamento:
-- **Assinatura**: A subscrição da conta de armazenamento a ser implantada. 
-- **Grupo de recursos**: O grupo de recursos para a conta de armazenamento a ser implantado. Pode criar um novo grupo de recursos ou utilizar um grupo de recursos existente. Um grupo de recursos é um contentor lógico para agrupar os seus serviços do Azure. Quando cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou utilizar um grupo de recursos existente.
-- **Nome da conta de**armazenamento : O nome do recurso da conta de armazenamento a criar. Este nome deve ser globalmente único, mas de outra forma pode qualquer nome que deseje. O nome da conta de armazenamento será usado como o nome do servidor quando montar uma partilha de ficheiroS Azure via SMB.
-- **Localização**: A região para a conta de armazenamento a ser implantada. Esta pode ser a região associada ao grupo de recursos, ou qualquer outra região disponível.
-- **Replicação**: Embora esta seja a replicação rotulada, este campo significa, na verdade, **redundância;** este é o nível de redundância desejado: redundância local (LRS), redundância de zona (ZRS), geo-redundância (GRS) e geo-redundância. Esta lista de abandonos contém também a geo-redundância de acesso à leitura (RA-GRS) e a redundância de geo-zona de acesso à leitura (RA-GZRS), que não se aplicam às ações de ficheiros Azure; qualquer ação de ficheiro criada numa conta de armazenamento com estes selecionados será, na verdade, geo-redundante ou geo-zona redundante, respectivamente. Dependendo da sua região ou do tipo de conta de armazenamento selecionado, algumas opções de redundância podem não ser permitidas.
-- **Nível de acesso blob**: Este campo não se aplica aos Ficheiros Azure, para que possa escolher um dos botões de rádio. 
+- **Assinatura** : A subscrição da conta de armazenamento a ser implantada. 
+- **Grupo de recursos** : O grupo de recursos para a conta de armazenamento a ser implantado. Pode criar um novo grupo de recursos ou utilizar um grupo de recursos existente. Um grupo de recursos é um contentor lógico para agrupar os seus serviços do Azure. Quando cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou utilizar um grupo de recursos existente.
+- **Nome da conta de** armazenamento : O nome do recurso da conta de armazenamento a criar. Este nome deve ser globalmente único, mas de outra forma pode qualquer nome que deseje. O nome da conta de armazenamento será usado como o nome do servidor quando montar uma partilha de ficheiroS Azure via SMB.
+- **Localização** : A região para a conta de armazenamento a ser implantada. Esta pode ser a região associada ao grupo de recursos, ou qualquer outra região disponível.
+- **Replicação** : Embora esta seja a replicação rotulada, este campo significa, na verdade, **redundância;** este é o nível de redundância desejado: redundância local (LRS), redundância de zona (ZRS), geo-redundância (GRS) e geo-redundância. Esta lista de abandonos contém também a geo-redundância de acesso à leitura (RA-GRS) e a redundância de geo-zona de acesso à leitura (RA-GZRS), que não se aplicam às ações de ficheiros Azure; qualquer ação de ficheiro criada numa conta de armazenamento com estes selecionados será, na verdade, geo-redundante ou geo-zona redundante, respectivamente. Dependendo da sua região ou do tipo de conta de armazenamento selecionado, algumas opções de redundância podem não ser permitidas.
+- **Nível de acesso blob** : Este campo não se aplica aos Ficheiros Azure, para que possa escolher um dos botões de rádio. 
 
 > [!Important]  
 > A seleção do nível de acesso blob não afeta o nível da partilha de ficheiros.
@@ -77,8 +77,8 @@ A secção de networking permite-lhe configurar opções de networking. Estas co
 #### <a name="the-advanced-blade"></a>A lâmina avançada
 A secção avançada contém várias definições importantes para as ações de ficheiros Azure:
 
-- **Transferência segura necessária**: Este campo indica se a conta de armazenamento requer encriptação em trânsito para comunicação à conta de armazenamento. Recomendamos que isto fique ativado, no entanto, se necessitar de suporte SMB 2.1, deve desativá-lo. Recomendamos que, se desativar a encriptação, conclua o acesso da sua conta de armazenamento a uma rede virtual com pontos finais de serviço e/ou pontos finais privados.
-- **Grandes ações de ficheiros**: Este campo permite a conta de armazenamento de ações de ficheiros que podem ir até 100 TiB. Ativar esta funcionalidade limitará a sua conta de armazenamento apenas a opções de armazenamento redundantes localmente e zonas redundantes. Uma vez que uma conta de armazenamento GPv2 tenha sido ativada para grandes ações de ficheiros, não é possível desativar a grande capacidade de partilha de ficheiros. As contas de armazenamento de filestorage (contas de armazenamento de ações de ficheiros premium) não têm esta opção, uma vez que todas as ações de ficheiros premium podem escalar até 100 TiB. 
+- **Transferência segura necessária** : Este campo indica se a conta de armazenamento requer encriptação em trânsito para comunicação à conta de armazenamento. Recomendamos que isto fique ativado, no entanto, se necessitar de suporte SMB 2.1, deve desativá-lo. Recomendamos que, se desativar a encriptação, conclua o acesso da sua conta de armazenamento a uma rede virtual com pontos finais de serviço e/ou pontos finais privados.
+- **Grandes ações de ficheiros** : Este campo permite a conta de armazenamento de ações de ficheiros que podem ir até 100 TiB. Ativar esta funcionalidade limitará a sua conta de armazenamento apenas a opções de armazenamento redundantes localmente e zonas redundantes. Uma vez que uma conta de armazenamento GPv2 tenha sido ativada para grandes ações de ficheiros, não é possível desativar a grande capacidade de partilha de ficheiros. As contas de armazenamento de filestorage (contas de armazenamento de ações de ficheiros premium) não têm esta opção, uma vez que todas as ações de ficheiros premium podem escalar até 100 TiB. 
 
 ![Uma imagem das definições avançadas importantes que se aplicam aos Ficheiros Azure](media/storage-how-to-create-file-share/create-storage-account-3.png)
 
@@ -184,8 +184,8 @@ Na listagem de ações de ficheiros, deverá ver quaisquer ações de ficheiro q
 A nova lâmina de partilha de ficheiros deve aparecer no ecrã. Complete os campos na nova lâmina de partilha de ficheiros para criar uma partilha de ficheiros:
 
 - **Nome:** o nome da partilha de ficheiros a criar.
-- **Quota**: quota da ação de ficheiros para ações de ficheiros padrão; a dimensão prevista da parte do ficheiro para ações de ficheiros premium.
-- **Níveis**: o nível selecionado para uma partilha de ficheiros. Este campo só está disponível numa **conta de armazenamento para fins gerais (GPv2).** Pode escolher transações otimizadas, quentes ou legais. O nível da ação pode ser alterado a qualquer momento. Recomendamos escolher o nível mais alto possível durante uma migração, minimizar as despesas de transação e, em seguida, mudar para um nível mais baixo, se desejar que a migração esteja completa.
+- **Quota** : quota da ação de ficheiros para ações de ficheiros padrão; a dimensão prevista da parte do ficheiro para ações de ficheiros premium.
+- **Níveis** : o nível selecionado para uma partilha de ficheiros. Este campo só está disponível numa **conta de armazenamento para fins gerais (GPv2).** Pode escolher transações otimizadas, quentes ou legais. O nível da ação pode ser alterado a qualquer momento. Recomendamos escolher o nível mais alto possível durante uma migração, minimizar as despesas de transação e, em seguida, mudar para um nível mais baixo, se desejar que a migração esteja completa.
 
 Selecione **Criar** para terminar criando a nova partilha. Note que se a sua conta de armazenamento estiver numa rede virtual, não será capaz de criar com sucesso uma partilha de ficheiros Azure, a menos que o seu cliente também esteja na rede virtual. Também pode trabalhar em torno desta limitação pontual utilizando o cmdlet Azure `New-AzRmStorageShare` PowerShell.
 
@@ -226,9 +226,9 @@ New-AzRmStorageShare `
 > A capacidade de definir e alterar níveis através do PowerShell é fornecida no módulo Az.Storage PowerShell de pré-visualização. Estes cmdlets ou a sua saída podem mudar antes de serem lançados no módulo Az.Storage PowerShell geralmente disponível, por isso crie scripts com isto em mente.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-Pode criar uma partilha de ficheiros Azure com o [`az storage share-rm create`](https://docs.microsoft.com/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=true#az_storage_share_rm_create) comando. Os seguintes comandos Azure CLI assumem que definiu as variáveis `$resourceGroupName` e como definido acima na `$storageAccountName` criação de uma conta de armazenamento com a secção Azure CLI.
+Pode criar uma partilha de ficheiros Azure com o [`az storage share-rm create`](/cli/azure/storage/share-rm?preserve-view=true&view=azure-cli-latest#az_storage_share_rm_create) comando. Os seguintes comandos Azure CLI assumem que definiu as variáveis `$resourceGroupName` e como definido acima na `$storageAccountName` criação de uma conta de armazenamento com a secção Azure CLI.
 
-A funcionalidade para criar ou mover uma partilha de ficheiros para um nível específico está disponível na mais recente atualização do Azure CLI. A atualização do Azure CLI é específica para a distribuição do sistema operativo/Linux que está a utilizar. Para obter instruções sobre como atualizar o Azure CLI no seu sistema, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+A funcionalidade para criar ou mover uma partilha de ficheiros para um nível específico está disponível na mais recente atualização do Azure CLI. A atualização do Azure CLI é específica para a distribuição do sistema operativo/Linux que está a utilizar. Para obter instruções sobre como atualizar o Azure CLI no seu sistema, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 > [!Important]  
 > Para ações de ficheiros premium, o `--quota` parâmetro refere-se ao tamanho previsto da parte do ficheiro. O tamanho previsto da parte do ficheiro é o valor pelo qual será cobrado, independentemente da sua utilização. As ações de ficheiros padrão são faturadas com base no uso e não no tamanho previsto.
@@ -251,7 +251,7 @@ az storage share-rm create \
 ---
 
 > [!Note]  
-> O nome da partilha de ficheiros tem de ser todo em minúsculas. Para obter detalhes completos sobre ações e ficheiros de ficheiros de [nomeação, consulte naming e referências de ações, diretórios, ficheiros e metadados](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+> O nome da partilha de ficheiros tem de ser todo em minúsculas. Para obter detalhes completos sobre ações e ficheiros de ficheiros de [nomeação, consulte naming e referências de ações, diretórios, ficheiros e metadados](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ### <a name="changing-the-tier-of-an-azure-file-share"></a>Alterar o nível de uma partilha de ficheiros Azure
 As ações de ficheiros implantadas na **conta de armazenamento v2 (GPv2)** podem estar nos níveis otimizados, quentes ou frescos da transação. Pode alterar o nível da ação de ficheiro Azure a qualquer momento, sujeito a custos de transação como descrito acima.

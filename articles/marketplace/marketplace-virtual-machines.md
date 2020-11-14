@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129597"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628293"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Como planear uma oferta de máquina virtual
 
@@ -25,7 +25,7 @@ Antes de iniciar, [Crie uma conta de marketplace comercial no Partner Center](./
 
 O processo de conceção, construção e testes oferece tempo e requer experiência tanto na plataforma Azure como nas tecnologias usadas para construir a sua oferta. A sua equipa de engenharia deverá ter um conhecimento de trabalho das [Máquinas Virtuais Azure,](https://azure.microsoft.com/services/virtual-machines/) [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)e [Azure Networking,](https://azure.microsoft.com/services/?filter=networking#networking)bem como proficiência com o [design e arquitetura das aplicações Azure.](https://azure.microsoft.com/solutions/architecture/) Consulte estes recursos técnicos adicionais: 
 
-- Tutoriais
+- Tutorials (Tutoriais)
   - [VMs do Linux](../virtual-machines/linux/tutorial-manage-vm.md)
   - [VMs do Windows](../virtual-machines/windows/tutorial-manage-vm.md)
 
@@ -100,7 +100,7 @@ O exemplo a seguir mostra uma oferta de VM no Azure Marketplace que tem preços 
 
 Pode restringir a descoberta e implantação do seu VM a um conjunto específico de clientes, publicando a imagem e os preços como um plano privado. Os planos privados desbloqueiam a capacidade de criar ofertas exclusivas para os seus clientes mais próximos e oferecer software e termos personalizados. Os termos personalizados permitem-lhe destacar uma variedade de cenários, incluindo acordos liderados por campo com preços e termos especializados, bem como acesso precoce a software de lançamento limitado. Os planos privados permitem-lhe dar preços ou produtos específicos a um conjunto limitado de clientes.
 
-Para mais informações, consulte [Planos e preços para ofertas de marketplace comercial](plans-pricing.md) e [ofertas privadas no Azure Marketplace.](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace)
+Para mais informações, consulte [Planos e preços para ofertas de marketplace comercial](plans-pricing.md) e [ofertas privadas no mercado comercial da Microsoft.](private-offers.md)
 
 ## <a name="test-drives"></a>Versões de teste
 

@@ -3,14 +3,14 @@ title: Referência do desenvolvedor JavaScript para Funções Azure
 description: Entenda como desenvolver funções usando o JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422557"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628837"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 
@@ -284,7 +284,7 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 //  -> text: 'hello there, world', noNumber: true
 ```
 
-### <a name="contextlog-method"></a>método context.log  
+### <a name="contextlog-method"></a>método .log contexto  
 
 ```js
 context.log(message)
@@ -508,12 +508,20 @@ A tabela a seguir mostra as versões Node.js suportadas atuais para cada versão
 | Versão de funções | Versão nó (Windows) | Versão nó (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2 (travado pelo tempo de funcionação) | n/a |
-| 2.x  | ~8<br/>~10 (recomendado)<br/>~12<sup>*</sup> | ~8 (recomendado)<br/>~10  |
-| 3.x | ~10<br/>~12 (recomendado)  | ~10<br/>~12 (recomendado) |
+| 2.x  | `~8`<br/>`~10` (recomendado)<br/>`~12` | `node|8`<br/>`node|10` (recomendado)  |
+| 3.x | `~10`<br/>`~12` (recomendado)<br/>`~14` (pré-visualização)  | `node|10`<br/>`node|12` (recomendado)<br/>`node|14` (pré-visualização) |
 
-<sup>*</sup>O nó ~12 é atualmente permitido na versão 2.x do tempo de execução das Funções. No entanto, para melhor desempenho, recomendamos a utilização da versão 3.x do tempo de execução das funções com o Nó ~12. 
+Pode ver a versão atual que o tempo de execução está a utilizar, registando-se `process.version` a partir de qualquer função.
 
-Pode ver a versão atual que o tempo de execução está a utilizar, verificando a definição da aplicação acima ou imprimindo `process.version` a partir de qualquer função. Direcione a versão em Azure definindo a definição de [WEBSITE_NODE_DEFAULT_VERSION aplicação](functions-how-to-use-azure-function-app-settings.md#settings) para uma versão LTS suportada, como `~10` .
+### <a name="setting-the-node-version"></a>Definição da versão nó
+
+Para aplicações de função Windows, direcione a versão em Azure definindo a definição da `WEBSITE_NODE_DEFAULT_VERSION` [aplicação](functions-how-to-use-azure-function-app-settings.md#settings) para uma versão LTS suportada, como `~12` .
+
+Para aplicações de função Linux, executar o seguinte comando Azure CLI para atualizar a versão Nó.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>Gestão de dependências
 Para utilizar bibliotecas comunitárias no seu código JavaScript, como é mostrado no exemplo abaixo, é necessário garantir que todas as dependências estão instaladas na sua App de Função em Azure.
@@ -730,7 +738,7 @@ Quando utilizar um cliente específico de serviço numa aplicação Azure Functi
 
 Ao escrever Funções Azure em JavaScript, deve escrever código utilizando as `async` `await` palavras-chave e as palavras-chave. Escrever códigos usando `async` e em vez de `await` callbacks ou `.then` com `.catch` Promessas ajuda a evitar dois problemas comuns:
  - Lançar exceções sem escoadas que [colidam com o processo Node.js,](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly)podendo afetar a execução de outras funções.
- - Comportamento inesperado, como registos em falta do context.log, causado por chamadas assíncronos que não são devidamente aguardados.
+ - Comportamento inesperado, como registos em falta do contexto.log, causado por chamadas assíncronos que não são devidamente aguardadas.
 
 No exemplo abaixo, o método assíncronos `fs.readFile` é invocado com uma função de retorno de erro primeiro como segundo parâmetro. Este código causa ambas as questões acima mencionadas. Uma exceção que não é explicitamente apanhada no âmbito correto que interrompeu todo o processo (questão #1). Chamar `context.done()` para fora do âmbito da função de retorno significa que a invocação da função pode terminar antes da leitura do ficheiro (emissão #2). Neste exemplo, chamar `context.done()` muito cedo resulta em entradas de registo em falta a partir de `Data from file:` .
 

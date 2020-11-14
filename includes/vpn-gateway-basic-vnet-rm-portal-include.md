@@ -9,10 +9,10 @@ ms.date: 10/20/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: a66596ecb926c1bf3c6b61cc99e1eb1b56e99158
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92328449"
 ---
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
@@ -22,7 +22,7 @@ ms.locfileid: "92328449"
 1. Selecione **Rede Virtual** a partir dos resultados do **Marketplace.**
 
    ![Selecione rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/marketplace-results.png "Localizar página de recursos de rede virtual")
-1. Na página **'Rede Virtual',** selecione **Criar** .
+1. Na página **'Rede Virtual',** selecione **Criar**.
 
    ![página de rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet-click-create.png "Selecione Criar")
 1. Assim que selecionar **Criar,** abre-se a página **de rede virtual Create.**
@@ -48,4 +48,4 @@ ms.locfileid: "92328449"
    - **Proteção DDos** : Básico
    - **Firewall** : Desativado
 1. Selecione **Review + criar** para validar as definições de rede virtual.
-1. Depois de validadas as definições, **selecione Criar** .
+1. Depois de validadas as definições, **selecione Criar**.
