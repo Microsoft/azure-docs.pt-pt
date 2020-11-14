@@ -1,22 +1,22 @@
 ---
 title: Chamar aplicações lógicas com Funções do Azure
-description: Criar funções Azure que chamem ou desencadeiem aplicações lógicas ouvindo o Azure Service Bus
+description: Ligue ou desencadeie aplicativos lógicos utilizando Azure Functions e Azure Service Bus
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcf7f1a27633c978c10f541d0a341225fbcb126d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013780"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629738"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Ligue ou desencadeie aplicativos lógicos utilizando Azure Functions e Azure Service Bus
 
-Pode utilizar [as Funções Azure](../azure-functions/functions-overview.md) para desencadear uma aplicação lógica quando necessitar de implementar um ouvinte ou tarefa de longa duração. Por exemplo, pode criar uma função Azure que escuta numa fila [do Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) e dispara imediatamente uma aplicação lógica como um gatilho de impulso.
+Pode utilizar [as Funções Azure](../azure-functions/functions-overview.md) para desencadear uma aplicação lógica quando necessitar de implementar um ouvinte ou tarefa de longa duração. Por exemplo, pode criar uma função que escuta numa fila [de autocarros da Azure Service](../service-bus-messaging/service-bus-messaging-overview.md) Bus e dispara imediatamente uma aplicação lógica como um gatilho de impulso.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -24,7 +24,7 @@ Pode utilizar [as Funções Azure](../azure-functions/functions-overview.md) par
 
 * Um espaço de nomes para autocarros da Azure Service. Se não tiver um espaço de nome, [crie primeiro o seu espaço de nome.](../service-bus-messaging/service-bus-create-namespace-portal.md)
 
-* Uma aplicação de função Azure, que é um recipiente para funções Azure. Se não tiver uma aplicação de função, [crie primeiro a sua aplicação de função](../azure-functions/functions-create-first-azure-function.md)e certifique-se de que seleciona .NET como a pilha de tempo de execução.
+* Uma aplicação de função, que é um recipiente para as suas funções. Se não tiver uma aplicação de função, [crie primeiro a sua aplicação de função](../azure-functions/functions-create-first-azure-function.md)e certifique-se de que seleciona .NET como a pilha de tempo de execução.
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -94,7 +94,7 @@ Para este cenário, tem uma função a executar cada aplicação lógica que pre
 
    ![URL de retorno gerado para o gatilho](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## <a name="create-azure-function"></a>Criar função Azure
+## <a name="create-a-function"></a>Criar uma função
 
 Em seguida, crie a função que funciona como o gatilho e ouve a fila.
 

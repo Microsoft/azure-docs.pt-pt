@@ -1,7 +1,7 @@
 ---
 title: Debug & os oleodutos ML de resolução de problemas
 titleSuffix: Azure Machine Learning
-description: Depurar os seus oleodutos Azure Machine Learning em Python. Aprenda armadilhas comuns para desenvolver oleodutos e dicas para ajudá-lo a depurar os seus scripts antes e durante a execução remota.
+description: Depurar os seus oleodutos Azure Machine Learning em Python. Aprenda armadilhas e dicas comuns para ajudar a depurar os seus scripts antes e durante a execução remota.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python, contperfq2
-ms.openlocfilehash: 80bc5034e6e192c1b493a65e61b94ae1b785a430
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 13897f9881a8f505f0053443a218cf744d8edf8b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325596"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630112"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e resolver problemas de pipelines de machine learning
 

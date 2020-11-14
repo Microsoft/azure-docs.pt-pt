@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 124c3b3667e847a5ee1bb8034ef01088c629d503
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 403b6656a47f56508682dcda2438a85d513fbfb1
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540948"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630503"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Conector Azure IoT para guia de resolução de problemas FHIR (pré-visualização)
 
-Este artigo fornece passos para a resolução de problemas do conector comum Azure IoT para mensagens e condições de erro FHIR*.  
+Este artigo fornece passos para a resolução de problemas comum do Conector Azure IoT para Recursos de Interoperabilidade de Cuidados rápidos de Saúde (FHIR&#174;)* mensagens e condições de erro.  
 
 Também aprenderá a criar cópias do Conector Azure IoT para mapeamentos de conversão de FHIR JSON (por exemplo: Dispositivo e FHIR).  
 
@@ -191,6 +191,4 @@ Confira frequentemente perguntas sobre o Conector Azure IoT para FHIR.
 >[!div class="nextstepaction"]
 >[Conector Azure IoT para FAQs FHIR](fhir-faq.md)
 
-*No portal Azure, o Conector Azure IoT para FHIR é referido como Conector IoT (pré-visualização).
-
-FHIR é a marca registada do HL7 e é utilizada com a permissão do HL7.
+*No portal Azure, o Conector Azure IoT para FHIR é referido como Conector IoT (pré-visualização). FHIR é uma marca registada do HL7 e é usada com a permissão do HL7.

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85c9111b0b16667e847aaf70d746e87fe524ef87
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 014c9759756a1da922a5141f064991827d593208
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592928"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630265"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -66,7 +66,7 @@ Utilize a API [de vídeo upload](https://api-portal.videoindexer.ai/docs/service
 
 ### <a name="configurations-and-params"></a>Configurações e parâmetros
 
-Esta secção descreve alguns dos parâmetros opcionais e quando deve defini-los.
+Esta secção descreve alguns dos parâmetros opcionais e quando deve defini-los. Para obter informações mais atualizadas sobre params, consulte a API [de vídeo upload.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)
 
 #### <a name="externalid"></a>externalID 
 
@@ -337,7 +337,7 @@ public class AccountContractSlim
 
 Os códigos de estado indicados na tabela seguinte podem ser devolvidos pela operação de Carregamento.
 
-|Código de estado|ErrorType (no corpo da resposta)|Descrição|
+|Código de estado|ErrorType (no corpo da resposta)|Description|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|O mesmo vídeo já está a ser processado na conta específica.|
 |400|VIDEO_ALREADY_FAILED|Falha ao processar o mesmo vídeo na conta específica há menos de 2 horas. Os clientes da API devem aguardar pelo menos 2 horas antes de voltarem a carregar um vídeo.|

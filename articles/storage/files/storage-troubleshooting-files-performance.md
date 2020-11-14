@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 4d89fb4bcedb58aa156e75aaefc87479797dcd37
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 3e6490babb5a4e68c1ecd931251ea4eb99d6c3f5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577977"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630146"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Resolução de problemas Azure partilha problemas de desempenho
 
@@ -22,7 +22,7 @@ Este artigo enumera alguns problemas comuns relacionados com as ações de fiche
 
 ### <a name="cause-1-share-was-throttled"></a>Causa 1: A partilha foi acelerada
 
-Os pedidos são acelerados quando as operações de E/S por segundo (IOPS), ingresss ou limites de saída para uma partilha de ficheiros são atingidos. Para compreender os limites das ações de ficheiros standard e premium, consulte [os alvos de ações de ficheiros e de escala de ficheiros.](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets)
+Os pedidos são acelerados quando as operações de E/S por segundo (IOPS), ingresss ou limites de saída para uma partilha de ficheiros são atingidos. Para compreender os limites das ações de ficheiros standard e premium, consulte [os alvos de ações de ficheiros e de escala de ficheiros.](./storage-files-scale-targets.md#file-share-and-file-scale-targets)
 
 Para confirmar se a sua parte está a ser acelerada, pode aceder e utilizar métricas Azure no portal.
 
@@ -45,8 +45,8 @@ Para confirmar se a sua parte está a ser acelerada, pode aceder e utilizar mét
 
 ### <a name="solution"></a>Solução
 
-- Se estiver a utilizar uma parte de ficheiro padrão, ative [grandes ações de ficheiros](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) na sua conta de armazenamento. As grandes ações suportam até 10.000 IOPS por ação.
-- Se estiver a utilizar uma parte de ficheiro premium, aumente o tamanho da ação de ficheiros for provisionada para aumentar o limite do IOPS. Para saber mais, consulte a secção "Compreensão de provisões para ações de ficheiros premium" no guia de planeamento dos [Ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares).
+- Se estiver a utilizar uma parte de ficheiro padrão, ative [grandes ações de ficheiros](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) na sua conta de armazenamento. As grandes ações suportam até 10.000 IOPS por ação.
+- Se estiver a utilizar uma parte de ficheiro premium, aumente o tamanho da ação de ficheiros for provisionada para aumentar o limite do IOPS. Para saber mais, consulte a secção "Compreensão de provisões para ações de ficheiros premium" no guia de planeamento dos [Ficheiros Azure](./storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Causa 2: Metadados ou carga de trabalho pesada do espaço de nome
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d8d19256dfca21cc805c2689557099a6785f76b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510310"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629211"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrar do Armazenamento Ligado à Rede (NAS) para uma implementação em nuvem híbrida com Azure File Sync
 
@@ -151,7 +151,7 @@ Antecedentes:
       /MIR
    :::column-end:::
    :::column span="1":::
-      Permite executar este comando RoboCopy várias vezes, sequencialmente no mesmo alvo/destino. Identifica o que já foi copiado antes e omite-o. Apenas alterações, adições e " eliminações " serão*processadas,* que ocorreram desde a última execução. Se o comando não foi dirigido antes, nada é omitido. A bandeira */MIR* é uma excelente opção para locais de origem que ainda são ativamente utilizados e alterados.
+      Permite executar este comando RoboCopy várias vezes, sequencialmente no mesmo alvo/destino. Identifica o que já foi copiado antes e omite-o. Apenas alterações, adições e " eliminações " serão *processadas,* que ocorreram desde a última execução. Se o comando não foi dirigido antes, nada é omitido. A bandeira */MIR* é uma excelente opção para locais de origem que ainda são ativamente utilizados e alterados.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -208,13 +208,13 @@ Terminou de migrar uma parte/grupo de ações numa raiz ou volume comum. (Depend
 Podes tentar executar algumas destas cópias em paralelo. Recomendamos o processamento do âmbito de uma partilha de ficheiros Azure de cada vez.
 
 > [!WARNING]
-> Depois de ter transferido todos os dados do SEU NAS para o Windows Server, e a sua migração está completa: Volte a ***todos os***  grupos de sincronização no portal Azure e ajuste o valor de espaço livre de nível de cloud para algo mais adequado para a utilização da cache, digamos 20%. 
+> Depois de ter transferido todos os dados do SEU NAS para o Windows Server, e a sua migração está completa: Volte a * **todos os** grupos de sincronização no portal Azure e ajuste o valor de espaço livre de nível de cloud tiering para algo mais adequado para a utilização da cache, digamos 20%. 
 
 A política de espaço livre de nível de nivelamento da nuvem atua a nível de volume com pontos finais potencialmente múltiplos do servidor sincronizados a partir dele. Se se esquecer de ajustar o espaço livre num ponto final de um servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, fazendo com que a cache local não esteja a funcionar como seria de esperar. A menos que seja seu objetivo ter apenas o espaço de nome para um volume que apenas contém dados de arquivo raramente acedidos e você está reservando o resto do espaço de armazenamento para outro cenário.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-O problema mais provável é que o comando RoboCopy falhe com *o "Volume cheio"* no lado do Windows Server. O nível da nuvem atua uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado. O seu objetivo é alcançar o seu espaço livre de 99% no volume.
+O problema mais provável é que o comando RoboCopy falhe com _"Volume cheio"* no lado do Windows Server. O nível da nuvem atua uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado. O seu objetivo é alcançar o seu espaço livre de 99% no volume.
 
 Deixe sincronizar o progresso e o tiering da nuvem libertar o espaço do disco. Pode observar isso no Explorador de Ficheiros no seu Servidor windows.
 
@@ -226,6 +226,6 @@ Verifique o link na secção seguinte para verificar problemas de resolução de
 
 Há mais a descobrir sobre as ações de ficheiros Azure e a Azure File Sync. Os seguintes artigos ajudam a compreender opções avançadas, boas práticas e também contêm ajuda para resolver problemas. Estes artigos ligam-se à [documentação de partilha de ficheiros Azure](storage-files-introduction.md) conforme apropriado.
 
-* [Visão geral da AFS](https://aka.ms/AFS)
+* [Visão geral da AFS](./storage-sync-files-planning.md)
 * [Guia de implantação da AFS](storage-files-deployment-guide.md)
 * [Resolução de problemas da AFS](storage-sync-files-troubleshoot.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d97e3312c1df51193d8a881f3ee07fcd155d75
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267793"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629364"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Considerações de networking de arquivo azure
 Pode ligar-se a uma partilha de ficheiros Azure de duas formas:
@@ -55,7 +55,7 @@ O Azure File Sync requer os intervalos de endereços IP para os seguintes servi�
 | Azure Resource Manager | O Azure Resource Manager é a interface de gestão do Azure. Todas as chamadas de gestão, incluindo o registo do servidor Azure File Sync e as tarefas do servidor de sincronização em curso, são es feitas através do Gestor de Recursos Azure. | `AzureResourceManager` |
 | Azure Active Directory | O Azure Ative Directory, ou Azure AD, contém os principais utilizadores necessários para autorizar o registo do servidor contra um Serviço de Sincronização de Armazenamento, e os principais serviços necessários para que o Azure File Sync seja autorizado a aceder aos seus recursos na nuvem. | `AzureActiveDirectory` |
 
-Se estiver a utilizar o Azure File Sync dentro do Azure, mesmo que seja uma região diferente, pode utilizar o nome da etiqueta de serviço diretamente no seu grupo de segurança de rede para permitir o tráfego para esse serviço. Para saber mais sobre como fazê-lo, consulte [os grupos de segurança da Rede.](../../virtual-network/security-overview.md) 
+Se estiver a utilizar o Azure File Sync dentro do Azure, mesmo que seja uma região diferente, pode utilizar o nome da etiqueta de serviço diretamente no seu grupo de segurança de rede para permitir o tráfego para esse serviço. Para saber mais sobre como fazê-lo, consulte [os grupos de segurança da Rede.](../../virtual-network/network-security-groups-overview.md) 
 
 Se estiver a utilizar o Azure File Sync no local, pode utilizar a marca de serviço API para obter intervalos de endereços IP específicos para a lista de autorizações da sua firewall. Existem dois métodos para obter esta informação:
 
@@ -65,9 +65,9 @@ Se estiver a utilizar o Azure File Sync no local, pode utilizar a marca de servi
     - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Alemanha](https://www.microsoft.com/download/details.aspx?id=57064)
 - A advimento da marca de serviço API (pré-visualização) permite a recuperação programática da lista atual de tags de serviço. Na pré-visualização, a a API de descoberta da marca de serviço pode devolver informações menos atuais do que as informações devolvidas dos documentos JSON publicados no Microsoft Download Center. Pode utilizar a superfície API com base na sua preferência de automatização:
-    - [API REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [CLI do Azure](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [API REST](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [CLI do Azure](/cli/azure/network#az-network-list-service-tags)
 
 Para saber mais sobre como utilizar a marca de serviço API para recuperar os endereços dos seus serviços, consulte [a lista de permitir endereços IP do Azure File Sync](storage-sync-files-firewall-and-proxy.md#allow-list-for-azure-file-sync-ip-addresses).
 
@@ -170,6 +170,6 @@ As ligações efetuadas do agente Azure File Sync à sua partilha de ficheiros A
 
 Para obter mais informações sobre encriptação em trânsito, consulte [a necessidade de transferência segura no armazenamento Azure](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)

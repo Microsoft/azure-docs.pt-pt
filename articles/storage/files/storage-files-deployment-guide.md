@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 08bcb41dd8d9f4643b03d855960d8632b778ff84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53111ccd634c516d0db10c0e2dd41768aba43f41
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034503"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629245"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implementar os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo SMB padrão da indústria. Este artigo irá mostrar-lhe como implementar praticamente ficheiros Azure dentro da sua organização.
@@ -22,7 +22,7 @@ Recomendamos vivamente a leitura [de Planeamento para uma implementação de Fic
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que já completou os seguintes passos:
 
-- Criei uma Conta de Armazenamento Azure com as opções de resiliência e encriptação desejadas, na região que deseja. Consulte [criar uma conta](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) de armazenamento para obter instruções passo a passo sobre como criar uma Conta de Armazenamento.
+- Criei uma Conta de Armazenamento Azure com as opções de resiliência e encriptação desejadas, na região que deseja. Consulte [criar uma conta](../common/storage-account-create.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) de armazenamento para obter instruções passo a passo sobre como criar uma Conta de Armazenamento.
 - Criei uma partilha de ficheiros Azure com a quota desejada na sua Conta de Armazenamento. Consulte Criar uma partilha de [ficheiros](storage-how-to-create-file-share.md) para obter instruções passo a passo sobre como criar uma partilha de ficheiros.
 
 ## <a name="transfer-data-into-azure-files"></a>Transferir dados para ficheiros Azure
@@ -63,7 +63,7 @@ Os seguintes passos importarão dados de um local no local para a sua parte de f
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Podem ser especificadas várias ações com uma Conta de Armazenamento. Consulte [preparar o ficheiro CSV do conjunto de dados](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter mais informações.
+    Podem ser especificadas várias ações com uma Conta de Armazenamento. Consulte [preparar o ficheiro CSV do conjunto de dados](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) para obter mais informações.
 
 5. Crie o ficheiro CSV do driveset. O ficheiro CSV driveset lista os discos disponíveis para o agente de exportação no local. Por exemplo, as seguintes listas de ficheiros de driveset CSV, `X:` `Y:` e `Z:` unidades a utilizar no local de exportação:
 
@@ -74,7 +74,7 @@ Os seguintes passos importarão dados de um local no local para a sua parte de f
     Z,Format,SilentMode,Encrypt,
     ```
     
-    Consulte [preparar o ficheiro CSV do conjunto de acionamento](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter mais informações.
+    Consulte [preparar o ficheiro CSV do conjunto de acionamento](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) para obter mais informações.
 
 6. Utilize a [Ferramenta WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) para copiar os seus dados para um ou mais discos rígidos.
 
@@ -88,7 +88,7 @@ Os seguintes passos importarão dados de um local no local para a sua parte de f
 7. [Criar um trabalho de importação.](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job)
     
 ### <a name="robocopy"></a>Robocopy
-Robocopy é uma ferramenta de cópia bem conhecida que envia com Windows e Windows Server. A Robocopia pode ser usada para transferir dados para ficheiros Azure, montando a partilha de ficheiros localmente e, em seguida, utilizando a localização montada como destino no comando Robocopy. Usar robocopia é muito simples:
+O Robocopy é uma ferramenta de cópia bem conhecida disponibilizada com o Windows e o Windows Server. A Robocopia pode ser usada para transferir dados para ficheiros Azure, montando a partilha de ficheiros localmente e, em seguida, utilizando a localização montada como destino no comando Robocopy. Usar robocopia é muito simples:
 
 1. [Monte a sua partilha de ficheiros Azure.](storage-how-to-use-files-windows.md) Para um melhor desempenho, recomendamos a montagem da partilha de ficheiros Azure localmente no servidor que contém os dados. Em alguns casos, como quando o servidor de ficheiros que serve os dados é um dispositivo NAS, isso pode não ser possível. Nesse caso, é perfeitamente aceitável montar a partilha de ficheiros Azure num PC. Neste exemplo, `net use` é usado na linha de comando para montar a partilha de ficheiros:
 
@@ -102,12 +102,12 @@ Robocopy é uma ferramenta de cópia bem conhecida que envia com Windows e Windo
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32
     ```
     
-    Robocopia tem um número significativo de opções para modificar o comportamento da cópia conforme desejado. Para mais informações, consulte a página manual da [Robocopia.](https://technet.microsoft.com/library/cc733145.aspx)
+    Robocopia tem um número significativo de opções para modificar o comportamento da cópia conforme desejado. Para mais informações, consulte a página manual da [Robocopia.](/windows-server/administration/windows-commands/robocopy)
 
 ### <a name="azcopy"></a>AzCopy
 AzCopy é um utilitário de linha de comando projetado para copiar dados de e para Azure Files, bem como armazenamento Azure Blob, usando comandos simples com o melhor desempenho. Usar a AzCopy é fácil:
 
-1. Descarregue a [versão mais recente do AzCopy no Windows](https://aka.ms/downloadazcopy) ou [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
+1. Descarregue a [versão mais recente do AzCopy no Windows](https://aka.ms/downloadazcopy) ou [Linux](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json#download-azcopy).
 2. Utilize `azcopy` na linha de comando para mover dados para a partilha de ficheiros Azure. A sintaxe no Windows é a seguinte: 
 
     ```
@@ -120,7 +120,7 @@ AzCopy é um utilitário de linha de comando projetado para copiar dados de e pa
     azcopy --source <path-to-local-share> --destination https://<storage-account>.file.core.windows.net/<file-share>/ --dest-key <storage-account-key> --recursive
     ```
 
-    A AzCopy tem um número significativo de opções para modificar o comportamento da cópia conforme desejado. Para mais informações, consulte [a AzCopy no Windows](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) e [AzCopy no Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    A AzCopy tem um número significativo de opções para modificar o comportamento da cópia conforme desejado. Para mais informações, consulte [Começar com a AzCopy.](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)
 
 ## <a name="automatically-mount-on-needed-pcsservers"></a>Monte automaticamente em PCs/Servidores necessários
 Para substituir uma partilha de ficheiros no local, é útil pré-montar as ações nas máquinas em que serão utilizadas. Isto pode ser feito automaticamente numa lista de máquinas.

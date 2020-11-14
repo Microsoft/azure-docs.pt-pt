@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 685373203da14a6aa83c608d90d6416ab2b30ae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74422318718e318a00d7bd7ebaf8e4093ef75aa6
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515297"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629279"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configure uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure
 Pode utilizar uma ligação VPN Ponto-a-Local (P2S) para montar as suas ações de ficheiroS Azure sobre SMB de fora de Azure, sem abrir a porta 445. Uma ligação VPN ponto-a-local é uma ligação VPN entre Azure e um cliente individual. Para utilizar uma ligação P2S VPN com ficheiros Azure, uma ligação P2S VPN terá de ser configurada para cada cliente que queira ligar. Se tiver muitos clientes que precisam de se ligar às suas ações de ficheiroS Azure a partir da sua rede no local, pode utilizar uma ligação VPN Site-to-Site (S2S) em vez de uma ligação Ponto-a-Local para cada cliente. Para saber mais, consulte [configurar uma VPN site-to-site para utilização com ficheiros Azure](storage-files-configure-s2s-vpn.md).
@@ -22,7 +22,7 @@ Recomendamos vivamente que leia [a visão geral do Azure Files](storage-files-ne
 O artigo detalha os passos para configurar uma VPN point-to-site no Linux para montar ações de ficheiros Azure diretamente no local. Se procura encaminhar o tráfego de Azure File Sync por uma VPN, consulte [as configurações de configuração do proxy e firewall do Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- A versão mais recente do Azure CLI. Para obter mais informações sobre como instalar o Azure CLI, consulte [instalar o Azure PowerShell CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) e selecione o seu sistema operativo. Se preferir utilizar o módulo Azure PowerShell no Linux, pode, no entanto, as instruções abaixo são apresentadas para Azure CLI.
+- A versão mais recente do Azure CLI. Para obter mais informações sobre como instalar o Azure CLI, consulte [instalar o Azure PowerShell CLI](/cli/azure/install-azure-cli) e selecione o seu sistema operativo. Se preferir utilizar o módulo Azure PowerShell no Linux, pode, no entanto, as instruções abaixo são apresentadas para Azure CLI.
 
 - Uma partilha de ficheiros Azure que gostaria de montar no local. As ações de ficheiros Azure são implantadas dentro de contas de armazenamento, que são construções de gestão que representam um conjunto partilhado de armazenamento no qual você pode implementar várias ações de arquivo, bem como outros recursos de armazenamento, tais como recipientes blob ou filas. Pode saber mais sobre como implementar ações de ficheiros Azure e contas de armazenamento na [Create a azure file share](storage-how-to-create-file-share.md).
 
@@ -210,7 +210,7 @@ smbPath="//$storageAccountPrivateIP/$fileShareName"
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 - [Visão geral da rede de ficheiros Azure](storage-files-networking-overview.md)
 - [Configure uma VPN ponto-a-local (P2S) no Windows para utilização com ficheiros Azure](storage-files-configure-p2s-vpn-windows.md)
 - [Configure uma VPN site-to-site (S2S) para utilização com ficheiros Azure](storage-files-configure-s2s-vpn.md)

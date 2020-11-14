@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4b5ce48cf15c890fbdb3dfd90d9d0ab922a2f4b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9abe306668a4b20e42e45c498bf85b540dfaaee5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320273"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630197"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Configurar o reencaminhamento de DNS para Ficheiros do Azure
 O Azure Files permite-lhe criar pontos finais privados para as contas de armazenamento que contêm as suas ações de ficheiro. Embora úteis para muitas aplicações diferentes, os pontos finais privados são especialmente úteis para ligar às suas ações de ficheiros Azure da sua rede de acesso ao local utilizando uma ligação VPN ou ExpressRoute utilizando o peering privado. 
@@ -21,7 +21,7 @@ Para que as ligações à sua conta de armazenamento se debruçassem sobre o seu
 
 Recomendamos vivamente que leia Planeamento para uma implementação de [Ficheiros Azure](storage-files-planning.md) e [considerações de networking de Ficheiros Azure](storage-files-networking-overview.md) antes de completar os passos descritos neste artigo.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A Azure Files fornece dois tipos principais de pontos finais para aceder a ações de ficheiros Azure: 
 - Pontos finais públicos, que têm um endereço IP público e podem ser acedidos a partir de qualquer parte do mundo.
 - Pontos finais privados, que existem dentro de uma rede virtual e têm um endereço IP privado a partir do espaço de endereço dessa rede virtual.
@@ -43,7 +43,7 @@ Antes de configurar o encaminhamento de DNS para os Ficheiros Azure, tem de ter 
 
 - Uma conta de armazenamento contendo uma partilha de ficheiroS Azure que gostaria de montar. Para aprender a criar uma conta de armazenamento e uma partilha de ficheiros Azure, consulte [Criar uma partilha de ficheiros Azure](storage-how-to-create-file-share.md).
 - Um ponto final privado para a conta de armazenamento. Para aprender a criar um ponto final privado para ficheiros Azure, consulte [Criar um ponto final privado](storage-files-networking-endpoints.md#create-a-private-endpoint).
-- A [versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps) do módulo Azure PowerShell.
+- A [versão mais recente](/powershell/azure/install-az-ps) do módulo Azure PowerShell.
 
 > [!Important]  
 > Este guia pressupõe que está a utilizar o servidor DNS dentro do Windows Server no seu ambiente no local. Todos os passos descritos neste guia são possíveis com qualquer servidor DNS, e não apenas com o Servidor DNS do Windows.
@@ -110,7 +110,7 @@ New-AzDnsForwarder `
 
 Pode ainda achar útil/necessário fornecer vários parâmetros adicionais:
 
-| Nome do parâmetro | Tipo | Descrição |
+| Nome do parâmetro | Tipo | Description |
 |----------------|------|-------------|
 | `DnsServerResourceGroupName` | `string` | Por predefinição, os servidores DNS serão implantados no mesmo grupo de recursos que a rede virtual. Se isso não for desejado, este parâmetro permite-lhe escolher um grupo de recursos alternativos para que sejam implantados. |
 | `DnsForwarderRootName` | `string` | Por predefinição, os servidores DNS que são implantados no Azure têm os nomes `DnsFwder-*` , onde o asterisco é povoado por um iterador. Este parâmetro altera a raiz desse nome (isto é, `DnsFwder` ). |
@@ -151,7 +151,7 @@ Se já criou uma ligação VPN ou ExpressRoute, também pode usar `Test-NetConne
 Test-NetConnection -ComputerName storageaccount.file.core.windows.net -CommonTCPPort SMB
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 - [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
 - [Considerações de networking de ficheiros Azure](storage-files-networking-overview.md)
 - [Configurar pontos finais da rede Azure Files](storage-files-networking-endpoints.md)

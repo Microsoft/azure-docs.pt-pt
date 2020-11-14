@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: 0c14e5537385b7518fd08d9d3599993bc6d82f88
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 11/12/2020
+ms.openlocfilehash: 1ae4e2a1e0d67a0a09c19b517245ffc6d92d17df
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535506"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629925"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de lançamento do Azure HDInsight
 
@@ -23,20 +23,28 @@ Este artigo fornece informações sobre as **mais recentes** atualizações de l
 
 O Azure HDInsight é um dos serviços mais populares entre os clientes empresariais para análises de código aberto em Azure.
 
-## <a name="release-date-10082020"></a>Data de lançamento: 10/08/2020
+Se quiser subscrever as notas de lançamento, assista a lançamentos [neste repositório GitHub](https://github.com/hdinsight/release-notes/releases).
+
+## <a name="release-date-11092020"></a>Data de lançamento: 11/09/2020
 
 Esta versão aplica-se tanto para HDInsight 3.6 como HDInsight 4.0. O lançamento hdInsight é disponibilizado a todas as regiões ao longo de vários dias. A data de lançamento aqui indica a primeira data de lançamento da região. Se não vir alterações abaixo, aguarde que o lançamento seja transmitido ao vivo na sua região dentro de vários dias.
 
 ## <a name="new-features"></a>Novas funcionalidades
-### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>Clusters privados HDInsight sem ligação pública IP e Private (Preview)
-O HDInsight suporta agora a criação de clusters sem acesso público de IP e ligação privada aos clusters em pré-visualização. Os clientes podem usar as novas definições avançadas de rede para criar um cluster totalmente isolado sem IP público e usar os seus próprios pontos finais privados para aceder ao cluster. 
+### <a name="hdinsight-identity-broker-hib-is-now-ga"></a>HDInsight Identity Broker (HIB) é agora GA
+O HDInsight Identity Broker (HIB) que permite a autenticação OAuth para clusters ESP está agora geralmente disponível com esta versão. Os Clusters HIB criados após esta versão terão as mais recentes funcionalidades HIB:
+- Alta Disponibilidade (HA)
+- Suporte para autenticação multi-factor (MFA)
+- Os utilizadores federados insinuam-se sem sincronização de hash de palavra-passe para a AAD-DS Para obter mais informações, consulte [a documentação do HIB](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker).
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Movendo-se para conjuntos de escala de máquina virtual Azure
-O HDInsight agora utiliza máquinas virtuais Azure para abastecer o cluster. A partir desta versão, o serviço migrará gradualmente para [conjuntos de escala de máquina virtual Azure](../virtual-machine-scale-sets/overview.md). Todo o processo pode levar meses. Após a migração das suas regiões e subscrições, os clusters HDInsight recém-criados serão executados em conjuntos de escala de máquinas virtuais sem ações do cliente. Não se espera mudanças de rutura.
+O HDInsight agora utiliza máquinas virtuais Azure para abastecer o cluster. A partir desta versão, o serviço migrará gradualmente para [conjuntos de escala de máquina virtual Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Todo o processo pode levar meses. Após a migração das suas regiões e subscrições, os clusters HDInsight recém-criados serão executados em conjuntos de escala de máquinas virtuais sem ações do cliente. Não se espera mudanças de rutura.
 
 ## <a name="deprecation"></a>Preterição
-#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Depreciação do cluster hdInsight 3.6 ML Services
-O tipo de cluster de serviços HDInsight 3.6 ML Services será o fim do suporte até 31 de dezembro de 2020. Os clientes não vão criar novos clusters de 3,6 ML Services depois disso. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Consulte [aqui](./hdinsight-component-versioning.md#available-versions)a expiração do suporte para versões HDInsight e tipos de cluster .
+### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Depreciação do cluster hdInsight 3.6 ML Services
+O tipo de cluster de serviços HDInsight 3.6 ML Services estará terminando o suporte até 31 de dezembro de 2020. Os clientes não vão criar novos clusters de 3,6 ML Services depois de 31 de dezembro de 2020. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Consulte [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions)a expiração do suporte para versões HDInsight e tipos de cluster .
+
+### <a name="disabled-vm-sizes"></a>Tamanhos VM desativados
+A partir de 16 de novembro de 2020, o HDInsight vai bloquear novos clientes que criam clusters utilizando standand_A8, standand_A9, standand_A10 e standand_A11 tamanhos VM. Os clientes existentes que utilizaram estes tamanhos VM nos últimos três meses não serão afetados. A partir de 9 de janeiro de 2021, o HDInsight bloqueará todos os clientes que criam clusters utilizando standand_A8, standand_A9, standand_A10 e standand_A11 tamanhos VM. Os aglomerados existentes funcionarão como estão. Considere mudar-se para HDInsight 4.0 para evitar uma possível interrupção do sistema/suporte.
 
 ## <a name="behavior-changes"></a>Mudanças de comportamento
 Nenhuma mudança de comportamento para esta libertação.
@@ -47,8 +55,16 @@ As seguintes alterações irão ocorrer nos próximos lançamentos.
 ### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Capacidade de selecionar diferentes tamanhos de máquina virtual Zookeeper para serviços spark, Hadoop e ML
 O HDInsight hoje em dia não suporta personalizar o tamanho do nó do Zookeeper para tipos de cluster Spark, Hadoop e ML Services. É predefinido para A2_v2/A2 tamanhos de máquina virtual, que são fornecidos gratuitamente. No próximo lançamento, pode selecionar um tamanho de máquina virtual Zookeeper que seja mais apropriado para o seu cenário. Serão carregados os nós zookeeper com o tamanho da máquina virtual que não A2_v2/A2. A2_v2 e as máquinas virtuais A2 ainda são fornecidas gratuitamente.
 
+### <a name="default-cluster-version-will-be-changed-to-40"></a>A versão padrão do cluster será alterada para 4.0
+A partir de fevereiro de 2021, a versão padrão do cluster HDInsight será alterada de 3.6 para 4.0. Para obter mais informações sobre as versões disponíveis, consulte as [versões disponíveis.](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions) Saiba mais sobre as novidades em [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hdinsight-version-release)
+
+### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>HDInsight 3.6 fim de suporte em 30 de junho de 2021
+HDInsight 3.6 será o fim do suporte. A partir de 30 de junho de 2021, os clientes não podem criar novos clusters HDInsight 3.6. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere mudar-se para HDInsight 4.0 para evitar uma possível interrupção do sistema/suporte.
+
 ## <a name="bug-fixes"></a>Correções de erros
 O HDInsight continua a fazer melhorias na fiabilidade do cluster e no desempenho. 
+### <a name="fix-issue-for-restarting-vms-in-cluster"></a>Corrigir problema para reiniciar VMs em cluster
+O problema para reiniciar VMs no cluster foi corrigido, pode utilizar [a PowerShell ou a REST API para reiniciar os nós no cluster](https://docs.microsoft.com/azure/hdinsight/cluster-reboot-vm) novamente.
 
 ## <a name="component-version-change"></a>Alteração da versão do componente
 Nenhuma alteração da versão componente para esta versão. Pode encontrar as versões componentes atuais para HDInsight 4.0 e HDInsight 3.6 [neste doc](./hdinsight-component-versioning.md).

@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 21b407002adce01155b37321c068fb10d2c003f6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0196330df01f98e216c39bcc689eac2bde2f4cd9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319787"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629347"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Programar para os Ficheiros do Azure com .NET
 
@@ -41,7 +41,7 @@ O serviço Ficheiros do Azure fornece duas abordagens abrangentes no que se refe
 
 API | Quando utilizar | Notas
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | A sua aplicação: <ul><li>Precisa de ler/escrever ficheiros utilizando sMB</li><li>Está em execução num dispositivo que tem acesso à sua conta do serviço Ficheiros do Azure através da porta 445</li><li>Não precisa de gerir qualquer definição administrativa da partilha de ficheiros</li></ul> | O Ficheiro I/O implementado com ficheiros Azure sobre SMB é geralmente o mesmo que I/O com qualquer partilha de ficheiros de rede ou dispositivo de armazenamento local. Para uma introdução a uma série de funcionalidades em .NET, incluindo o ficheiro I/O, consulte o tutorial da [Aplicação da Consola.](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)
+[System.IO](/dotnet/api/system.io) | A sua aplicação: <ul><li>Precisa de ler/escrever ficheiros utilizando sMB</li><li>Está em execução num dispositivo que tem acesso à sua conta do serviço Ficheiros do Azure através da porta 445</li><li>Não precisa de gerir qualquer definição administrativa da partilha de ficheiros</li></ul> | O Ficheiro I/O implementado com ficheiros Azure sobre SMB é geralmente o mesmo que I/O com qualquer partilha de ficheiros de rede ou dispositivo de armazenamento local. Para uma introdução a uma série de funcionalidades em .NET, incluindo o ficheiro I/O, consulte o tutorial da [Aplicação da Consola.](/dotnet/csharp/tutorials/console-teleprompter)
 [Azure.storage.files.shares](/dotnet/api/azure.storage.files.shares) | A sua aplicação: <ul><li>Não é possível aceder aos Ficheiros Azure utilizando sMB na porta 445 devido a restrições de firewall ou ISP</li><li>Precisa de funcionalidade administrativa, como a capacidade de definir a quota de uma partilha de ficheiros ou criar uma assinatura de acesso partilhado</li></ul> | Este artigo demonstra a utilização de `Azure.Storage.Files.Shares` ficheiros I/O utilizando REST em vez de SMB e gestão da partilha de ficheiros.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Criar a aplicação de consola e obter a assemblagem
@@ -51,7 +51,7 @@ Pode utilizar a biblioteca cliente Azure Files em qualquer tipo de aplicação .
 No Visual Studio, crie uma nova aplicação de consola do Windows. Os passos seguintes mostram-lhe como criar uma aplicação de consola no Visual Studio 2019. Os passos são semelhantes aos de outras versões do Visual Studio.
 
 1. Inicie o Visual Studio e selecione **Criar um novo projeto.**
-1. In **Create a new project**, escolha a App consola **(.NET Framework)** para C#e, em seguida, selecione **Next**.
+1. In **Create a new project** , escolha a App consola **(.NET Framework)** para C#e, em seguida, selecione **Next**.
 1. Em **Configurar o seu novo projeto,** insira um nome para a aplicação e selecione **Create**.
 
 Adicione todos os exemplos de código deste artigo à `Program` classe no ficheiro *Program.cs.*
@@ -70,7 +70,7 @@ Consulte estes pacotes no seu projeto:
 Pode utilizar o NuGet para obter as embalagens. Siga estes passos:
 
 1. No **Solution Explorer,** clique com o botão direito do seu projeto e escolha **Gerir pacotes NuGet**.
-1. In **NuGet Package Manager**, selecione **Procurar**. Em seguida, procure e escolha **Azure.Core**e, em seguida, **selecione Instalar**.
+1. In **NuGet Package Manager** , selecione **Procurar**. Em seguida, procure e escolha **Azure.Core** e, em seguida, **selecione Instalar**.
 
    Este passo instala o pacote e as suas dependências.
 
@@ -90,7 +90,7 @@ Pode utilizar o NuGet para obter as embalagens. Siga estes passos:
 Pode utilizar o NuGet para obter as embalagens. Siga estes passos:
 
 1. No **Solution Explorer,** clique com o botão direito do seu projeto e escolha **Gerir pacotes NuGet**.
-1. In **NuGet Package Manager**, selecione **Procurar**. Em seguida, procure e escolha **Microsoft.Azure.Storage.Blob**e, em seguida, **selecione Instalar**.
+1. In **NuGet Package Manager** , selecione **Procurar**. Em seguida, procure e escolha **Microsoft.Azure.Storage.Blob** e, em seguida, **selecione Instalar**.
 
    Este passo instala o pacote e as suas dependências.
 1. Procure e instale estes pacotes:
@@ -316,7 +316,7 @@ Para obter mais informações sobre a criação e utilização de assinaturas de
 
 Começando pela versão 5.x da biblioteca de clientes Azure Files, pode copiar um ficheiro para outro ficheiro, um ficheiro para uma bolha ou uma bolha para um ficheiro.
 
-Também pode utilizar o AzCopy para copiar um ficheiro para outro ou para copiar uma bolha para um ficheiro ou o contrário. Ver [Começar com a AzCopy.](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+Também pode utilizar o AzCopy para copiar um ficheiro para outro ou para copiar uma bolha para um ficheiro ou o contrário. Ver [Começar com a AzCopy.](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)
 
 > [!NOTE]
 > Se estiver a copiar um blob para um ficheiro ou um ficheiro para um blob, tem de utilizar uma assinatura de acesso partilhado (SAS) para autorizar o acesso ao objeto de origem, mesmo se estiver a copiar dentro da mesma conta de armazenamento.
@@ -624,8 +624,8 @@ Para obter mais informações sobre os Ficheiros Azure, consulte os seguintes re
 
 ### <a name="tooling-support-for-file-storage"></a>Suporte de ferramentas para o Armazenamento de ficheiros
 
-- [Introdução ao AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-- [Resolver problemas de Ficheiros do Azure no Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+- [Introdução ao AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)
+- [Resolver problemas de Ficheiros do Azure no Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### <a name="reference"></a>Referência
 

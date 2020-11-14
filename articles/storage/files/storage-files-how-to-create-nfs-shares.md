@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: bf75537c0baf029bc3fc63e320f6290a1f41a524
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7680e251d8411ce154e1f7dfb8af1d66514dd579
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738844"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629466"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Como criar uma quota NFS
 
@@ -38,7 +38,7 @@ As ações de ficheiros Azure são totalmente geridas por ações de ficheiros q
     - [Configure uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure](storage-files-configure-p2s-vpn-linux.md).
     - [Configure uma VPN site-to-site para utilização com ficheiros Azure](storage-files-configure-s2s-vpn.md).
     - Configurar [ExpressRoute](../../expressroute/expressroute-introduction.md).
-- Se pretender utilizar o Azure CLI, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se pretender utilizar o Azure CLI, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="register-the-nfs-41-protocol"></a>Registar o protocolo NFS 4.1
 
@@ -89,14 +89,14 @@ Agora que criou uma conta FileStorage e configurar a rede, pode criar uma partil
 1. Navegue para a sua conta de armazenamento e selecione **ações de ficheiros.**
 1. Selecione **+ Partilha de ficheiros** para criar uma nova partilha de ficheiros.
 1. Nomeie a sua parte do ficheiro, selecione uma capacidade a provisionada.
-1. Para **o protocolo** selecione **NFS (pré-visualização)** .
+1. Para **o protocolo** selecione **NFS (pré-visualização)**.
 1. Para **Root Squash** fazer uma seleção.
 
     - Squash raiz (padrão) - O acesso ao superuser remoto (raiz) é mapeado para UID (65534) e GID (65534).
     - Sem abóbora de raiz - O superuser remoto (raiz) recebe acesso como raiz.
     - Todas as abóboras - Todo o acesso ao utilizador está mapeado para UID (65534) e GID (65534).
     
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Screenshot da lâmina de criação de partilha de ficheiros":::
 
@@ -110,7 +110,7 @@ Agora que criou uma conta FileStorage e configurar a rede, pode criar uma partil
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Para atualizar a sua versão do PowerShell, consulte [a atualização do Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   Para atualizar a sua versão do PowerShell, consulte [a atualização do Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
     
 1. Instale a versão mais recente do módulo PowershellGet.
 
@@ -120,13 +120,13 @@ Agora que criou uma conta FileStorage e configurar a rede, pode criar uma partil
 
 1. Feche e, em seguida, reabra a consola PowerShell.
 
-1. Instale a versão do módulo de pré-visualização **Az.Storage** **2.5.2-preview** .
+1. Instale a versão do módulo de pré-visualização **Az.Storage** **2.5.2-preview**.
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Para obter mais informações sobre como instalar módulos PowerShell, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   Para obter mais informações sobre como instalar módulos PowerShell, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0)
    
 1. Para criar uma partilha de ficheiros premium com o módulo Azure PowerShell, utilize o cmdlet [New-AzRmStorageShare.](/powershell/module/az.storage/new-azrmstorageshare)
 

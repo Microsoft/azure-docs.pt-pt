@@ -7,19 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ac210adbc29075f27739b08dcf83eeedbeea3ed5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628988"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630367"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Encriptação IPSec em trânsito para Azure HDInsight
 
 Este artigo discute a implementação da encriptação em trânsito para a comunicação entre os nós do cluster Azure HDInsight.
-
-> [!Note]
-> A encriptação em trânsito está atualmente ativada para as seguintes regiões: Leste dos EUA, Centro Sul dos EUA, EUA Ocidentais.
 
 ## <a name="background"></a>Fundo
 
@@ -42,7 +39,7 @@ Para criar um novo cluster com encriptação em trânsito ativada através do po
 
 1. No **separador Segurança + Rede,** selecione a encriptação Ativa na caixa de **verificação de trânsito.**
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Criar cluster - separador de segurança e rede.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Create cluster - ative a encriptação em trânsito.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Criar um cluster com encriptação em trânsito ativado através do CLI Azure
 
@@ -50,7 +47,7 @@ A encriptação em trânsito é ativada usando a `isEncryptionInTransitEnabled` 
 
 Pode [descarregar um modelo de amostra e um ficheiro de parâmetros.](https://github.com/Azure-Samples/hdinsight-enterprise-security) Antes de utilizar o modelo e o corte de código Azure CLI abaixo, substitua os seguintes espaços reservados pelos seus valores corretos:
 
-| Marcador de posição | Descrição |
+| Marcador de posição | Description |
 |---|---|
 | `<SUBSCRIPTION_ID>` | O ID da sua assinatura Azure |
 | `<RESOURCE_GROUP>` | O grupo de recursos onde pretende a criação da nova conta de cluster e armazenamento. |

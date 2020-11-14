@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2019
+ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a50554c73958400f1f16348d3b8fb2bac88ac61b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e9811710971b411aaaed64ec0072dcf7b6b116d3
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340282"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630061"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Resolução de problemas Synapse SQL em Azure Synapse Analytics
 
@@ -29,16 +29,22 @@ Este artigo lista problemas comuns de resolução de problemas no SQL da Sinapse
 | falha no início de sessão do utilizador "NT AUTHORITY\ANONYMOUS LOGON". (Microsoft SQL Server, Error: 18456) | Este erro ocorre quando um utilizador AZure AD tenta ligar-se à base de dados principal, mas não tem um utilizador em mestre.  Para corrigir este problema, especifique o pool SQL dedicado a que pretende ligar na hora da ligação ou adicione o utilizador à base de dados principal.  Consulte o artigo [visão geral da segurança](sql-data-warehouse-overview-manage-security.md) para mais detalhes. |
 | o principal do servidor "MyUserName" não consegue aceder à base de dados "mestra" no contexto de segurança atual. Não é possível abrir a base de dados predefinida do utilizador. O início de sessão falhou. O início de sessão falhou para o utilizador"MyUserName". (Microsoft SQL Server, Error: 916) | Este erro ocorre quando um utilizador AZure AD tenta ligar-se à base de dados principal, mas não tem um utilizador em mestre.  Para corrigir este problema, especifique o pool SQL dedicado a que pretende ligar na hora da ligação ou adicione o utilizador à base de dados principal.  Consulte o artigo [visão geral da segurança](sql-data-warehouse-overview-manage-security.md) para mais detalhes. |
 | Erro do CTAIP                                                  | Este erro pode ocorrer quando um login foi criado na base de dados principal sql Database, mas não na base de dados SQL específica.  Se encontrar este erro, veja o artigo [Visão geral](sql-data-warehouse-overview-manage-security.md) de Segurança.  Este artigo explica como criar um login e um utilizador na base de dados principal e, em seguida, como criar um utilizador numa base de dados SQL. |
-| Bloqueado por Firewall                                          | as piscinas SQL dedicadas estão protegidas por firewalls para garantir que apenas endereços IP conhecidos tenham acesso a uma base de dados. As firewalls são seguras por padrão, o que significa que deve ativar explicitamente e endereço IP ou intervalo de endereços antes de poder ligar.  Para configurar a sua firewall para acesso, siga os passos no acesso à firewall do [servidor Configure para](create-data-warehouse-portal.md) o seu cliente IP nas [instruções de Provisionamento](create-data-warehouse-portal.md). |
+| Bloqueado pela Firewall                                          | as piscinas SQL dedicadas estão protegidas por firewalls para garantir que apenas endereços IP conhecidos tenham acesso a uma base de dados. As firewalls são seguras por padrão, o que significa que deve ativar explicitamente e endereço IP ou intervalo de endereços antes de poder ligar.  Para configurar a sua firewall para acesso, siga os passos no acesso à firewall do [servidor Configure para](create-data-warehouse-portal.md) o seu cliente IP nas [instruções de Provisionamento](create-data-warehouse-portal.md). |
 | Não é possível ligar-se com a ferramenta ou o condutor                           | O pool dedicado sql recomenda a utilização [de SSMS,](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [SSDT para Visual Studio,](sql-data-warehouse-install-visual-studio.md)ou [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) para consultar os seus dados. Para obter mais informações sobre os condutores e ligar-se à Azure Synapse, consulte [os artigos drivers for Azure Synapse](sql-data-warehouse-connection-strings.md) e [Connect to Azure Synapse.](sql-data-warehouse-connect-overview.md) |
 
 ## <a name="tools"></a>Ferramentas
 
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Explorador de objetos do Estúdio Visual está desaparecido utilizadores de Azure AD           | Trata-se de um problema conhecido.  Como solução alternativa, veja os utilizadores em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Consulte [a Autenticação para Azure Synapse](sql-data-warehouse-authentication.md) para saber mais sobre a utilização do Azure Ative Directory com piscina SQL dedicada. |
+| Explorador de objetos do Estúdio Visual está desaparecido utilizadores de Azure AD           | Este é um problema conhecido.  Como solução alternativa, veja os utilizadores em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Consulte [a Autenticação para Azure Synapse](sql-data-warehouse-authentication.md) para saber mais sobre a utilização do Azure Ative Directory com piscina SQL dedicada. |
 | A scriptagem manual, utilizando o assistente de script, ou ligando via SSMS é lenta, não responde ou produz erros | Certifique-se de que os utilizadores foram criados na base de dados principal. Nas opções de script, certifique-se também de que a edição do motor está definida como "Microsoft Azure Synapse Analytics Edition" e o tipo de motor é "Microsoft Azure SQL Database". |
 | Gerar scripts falha em SSMS                               | Gerar um script para piscina SQL dedicada falha se a opção "Gerar script para objetos dependentes" for definida como "Verdadeiro". Como uma solução alternativa, os utilizadores devem ir manualmente para **Ferramentas -> Opções ->SQL Server Object Explorer -> Gerar script para opções dependentes e definido para falso** |
+
+## <a name="data-ingestion-and-preparation"></a>Ingestão e preparação de dados
+
+| Problema                                                        | Resolução                                                   |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| A exportação de cordas vazias utilizando o CETAS resultará em valores NULOS nos ficheiros Parquet e ORC. Note que se estiver a exportar cordas vazias de colunas com restrições NÃO NULAS, o CETAS resultará em registos rejeitados e a exportação pode potencialmente falhar. | Remova as cordas vazias ou a coluna ofensiva na declaração SELECT do seu CETAS. |
 
 ## <a name="performance"></a>Desempenho
 

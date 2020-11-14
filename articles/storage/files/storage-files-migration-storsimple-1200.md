@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78c7953ef6432d37542a7a8b06f226a07f2b701f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510344"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630486"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple migração 1200 para Azure File Sync
 
@@ -23,7 +23,7 @@ A série StorSimple 1200 chegará ao seu [fim de vida](https://support.microsoft
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 > [!IMPORTANT]
-> A Microsoft está empenhada em ajudar os clientes na sua migração. Envie um e-mail AzureFilesMigration@microsoft para um plano de migração personalizado, bem como assistência durante a migração.
+> A Microsoft está empenhada em ajudar os clientes na sua migração. O AzureFilesMigration@microsoft e-mail .com para um plano de migração personalizado, bem como assistência durante a migração.
 
 Azure File Sync é um serviço de nuvem da Microsoft, baseado em dois componentes principais:
 
@@ -32,7 +32,7 @@ Azure File Sync é um serviço de nuvem da Microsoft, baseado em dois componente
 
 Este artigo centra-se nos passos de migração. Se antes de migrar gostaria de saber mais sobre o Azure File Sync, recomendamos os seguintes artigos:
 
-* [Azure File Sync - visão geral](https://aka.ms/AFS "Descrição geral")
+* [Azure File Sync - visão geral](./storage-sync-files-planning.md "Descrição Geral")
 * [Azure File Sync - guia de implementação](storage-sync-files-deployment-guide.md)
 
 ## <a name="migration-goals"></a>Objetivos de migração
@@ -155,7 +155,7 @@ Antecedentes:
       /MIR
    :::column-end:::
    :::column span="1":::
-      Permite executar este comando RoboCopy várias vezes, sequencialmente no mesmo alvo/destino. Identifica o que já foi copiado antes e omite-o. Apenas alterações, adições e " eliminações " serão*processadas,* que ocorreram desde a última execução. Se o comando não foi dirigido antes, nada é omitido. Esta é uma excelente opção para locais de origem que ainda são usados e alterados ativamente.
+      Permite executar este comando RoboCopy várias vezes, sequencialmente no mesmo alvo/destino. Identifica o que já foi copiado antes e omite-o. Apenas alterações, adições e " eliminações " serão *processadas,* que ocorreram desde a última execução. Se o comando não foi dirigido antes, nada é omitido. Esta é uma excelente opção para locais de origem que ainda são usados e alterados ativamente.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -210,13 +210,13 @@ Terminou de migrar uma parte/grupo de ações numa raiz ou volume comum. (Depend
 Podes tentar executar algumas destas cópias em paralelo. Recomendamos o processamento do âmbito de uma partilha de ficheiros Azure de cada vez.
 
 > [!WARNING]
-> Depois de ter transferido todos os dados do seu StorSimple para o Windows Server, e a sua migração estiver completa: Volte a ***todos os***  grupos de sincronização no portal Azure e ajuste o valor de espaço livre de nível de cloud para algo mais adequado para a utilização da cache, digamos 20%. 
+> Depois de ter movido todos os dados do seu StorSimple para o Windows Server, e a sua migração está completa: Volte a * **todos os** grupos de sincronização no portal Azure e ajuste o valor de espaço livre de volume de nível de nuvem para algo mais adequado para a utilização da cache, digamos 20%. 
 
 A política de espaço livre de nível de nivelamento da nuvem atua a nível de volume com pontos finais potencialmente múltiplos do servidor sincronizados a partir dele. Se se esquecer de ajustar o espaço livre num ponto final de um servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, fazendo com que a cache local não esteja a funcionar como seria de esperar. A menos que o seu objetivo seja ter apenas o espaço de nome para um volume que apenas contém dados de arquivo raramente acedidos.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-O problema mais provável é que o comando RoboCopy falhe com *o "Volume cheio"* no lado do Windows Server. Se for esse o caso, a sua velocidade de descarregamento é provavelmente melhor do que a velocidade de carregamento. O nível da nuvem atua uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado.
+O problema mais provável é que o comando RoboCopy falhe com _"Volume cheio"* no lado do Windows Server. Se for esse o caso, a sua velocidade de descarregamento é provavelmente melhor do que a velocidade de carregamento. O nível da nuvem atua uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado.
 
 Deixe sincronizar o progresso e o tiering da nuvem libertar o espaço do disco. Pode observar isso no Explorador de Ficheiros no seu Servidor windows.
 
@@ -233,6 +233,6 @@ Conteúdo de migração:
 
 Conteúdo de Azure File Sync:
 
-* [Visão geral da AFS](https://aka.ms/AFS)
+* [Visão geral da AFS](./storage-sync-files-planning.md)
 * [Guia de implantação da AFS](storage-files-deployment-guide.md)
 * [Resolução de problemas da AFS](storage-sync-files-troubleshoot.md)

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 11/13/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visão computacional, aplicações de visão computacional, serviço de visão computacional
-ms.openlocfilehash: 851470971335f144ebe0f9b602a8adc7d5ee06cf
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536222"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629755"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -27,19 +27,19 @@ ms.locfileid: "94536222"
 
 O serviço de Visão Computacional da Azure dá-lhe acesso a algoritmos avançados que processam imagens e devolvem informações com base nas funcionalidades visuais que lhe interessam. Por exemplo, a Visão Computacional pode determinar se uma imagem contém conteúdo adulto, encontrar marcas ou objetos específicos ou encontrar rostos humanos.
 
-Pode criar aplicações de Visão de Computador através de uma biblioteca de clientes SDK ou ligando diretamente para a API REST. Esta página cobre amplamente o que pode fazer com a Visão de Computador.
+Pode criar aplicações de Visão de Computador através de uma [biblioteca de clientes SDK](./quickstarts-sdk/client-library.md) ou ligando diretamente para a [API REST.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) Esta página cobre amplamente o que pode fazer com a Visão de Computador.
+
+## <a name="optical-character-recognition-ocr"></a>Reconhecimento ótico de carateres (OCR)
+
+A Visão Computacional inclui capacidades [de reconhecimento de caracteres óticos (OCR).](concept-recognizing-text.md) Pode utilizar a nova API de leitura para extrair texto impresso e manuscrito a partir de imagens e documentos. Utiliza os modelos mais recentes e trabalha com texto em várias superfícies e fundos. Estes incluem recibos, cartazes, cartões de visita, cartas e quadros. As duas APIs OCR suportam a extração de texto impresso em [várias línguas.](./language-support.md) Siga um [arranque rápido](./quickstarts-sdk/client-library.md) para começar.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Visão de Computador para gestão de ativos digitais
 
 A Visão Computacional pode alimentar muitos cenários de gestão de ativos digitais (DAM). A DAM é o processo de negócio de organização, armazenamento e recuperação de ativos de media ricos e gestão de direitos e permissões digitais. Por exemplo, uma empresa pode querer agrupar e identificar imagens com base em logótipos visíveis, rostos, objetos, cores, e assim por diante. Ou, pode querer gerar automaticamente [legendas para imagens](./Tutorials/storage-lab-tutorial.md) e anexar palavras-chave para que sejam pescandizáveis. Para obter uma solução DAM tudo-em-um utilizando serviços cognitivos, pesquisa cognitiva Azure e relatórios inteligentes, consulte o [Guia de Acelerador de Soluções de Mineração de Conhecimento](https://github.com/Azure-Samples/azure-search-knowledge-mining) no GitHub. Para outros exemplos da DAM, consulte o [repositório de modelos de solução de visão](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) computacional.
 
-## <a name="optical-character-recognition-ocr"></a>Reconhecimento Ótico de Carateres (OCR)
-
-A Visão Computacional inclui capacidades [de reconhecimento de caracteres óticos (OCR).](concept-recognizing-text.md) Pode utilizar a nova API de leitura para extrair texto impresso e manuscrito a partir de imagens e documentos. Utiliza os modelos mais recentes e trabalha com texto em várias superfícies e fundos. Estes incluem recibos, cartazes, cartões de visita, cartas e quadros. As duas APIs OCR suportam a extração de texto impresso em [várias línguas.](./language-support.md) Siga um [arranque rápido](#next-steps) para começar.
-
 ## <a name="analyze-images-for-insight"></a>Analisar imagens para obter informações
 
-Pode analisar imagens para fornecer insights sobre as suas características e características visuais. Todas as funcionalidades da tabela abaixo são fornecidas pela [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) Siga um [arranque rápido](#next-steps) para começar.
+Pode analisar imagens para fornecer insights sobre as suas características e características visuais. Todas as funcionalidades da tabela abaixo são fornecidas pela [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) Siga um [arranque rápido](./quickstarts-sdk/client-library.md) para começar.
 
 
 ### <a name="tag-visual-features"></a>Etiquetar elementos visuais
@@ -113,8 +113,6 @@ Tal como acontece com todos os Serviços Cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Começa com a Visão de Computador seguindo um guia de arranque rápido:
+Começa com a Visão De Computador seguindo o guia de arranque rápido na tua linguagem de desenvolvimento preferida:
 
-- [Quickstart: Computer Vision .NET client library](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-- [Quickstart: Biblioteca de clientes Computer Vision Python](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
-- [Quickstart: Biblioteca de clientes Computer Vision Java](./quickstarts-sdk/client-library.md?pivots=programming-language-java)
+- [Quickstart: Biblioteca de clientes da Visão De Computador](./quickstarts-sdk/client-library.md)

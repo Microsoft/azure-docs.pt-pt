@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785617"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628922"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para partilhas de ficheiros do Azure
 
@@ -78,7 +78,7 @@ Como usar a mesa:
 
 Um cenário sem ligação ainda não tem um guia de migração publicado. Verifique ocasionalmente esta tabela para obter atualizações. Novos guias serão publicados quando estiverem disponíveis.
 
-| Fonte | Destino: </br>Implantação híbrida | Destino: </br>Implantação apenas em nuvem |
+| Origem | Destino: </br>Implantação híbrida | Destino: </br>Implantação apenas em nuvem |
 |:---|:--|:--|
 | | Combinação de ferramentas:| Combinação de ferramentas: |
 | Windows Server 2012 R2 e mais tarde | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync e Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Azure File Sync e ficheiros pré-semeados na nuvem](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Serviço de Sincronização e Migração de Arquivos Azure</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync e Caixa de Dados</li><li>Serviço de Sincronização e Migração de Arquivos Azure</li><li>RoboCopy</li></ul> |
@@ -134,7 +134,7 @@ Esta secção descreve ferramentas que o ajudam a planear e executar migrações
 
 #### <a name="robocopy-from-microsoft-corporation"></a>RoboCopy da Microsoft Corporation
 
-O RoboCopy é uma das ferramentas mais aplicáveis às migrações de ficheiros. Vem como parte do Windows. A [documentação principal do RoboCopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) é um recurso útil para as muitas opções desta ferramenta.
+O RoboCopy é uma das ferramentas mais aplicáveis às migrações de ficheiros. Vem como parte do Windows. A [documentação principal do RoboCopy](/windows-server/administration/windows-commands/robocopy) é um recurso útil para as muitas opções desta ferramenta.
 
 #### <a name="treesize-from-jam-software-gmbh"></a>TreeSize da JAM Software GmbH
 

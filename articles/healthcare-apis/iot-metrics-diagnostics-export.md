@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 5a57b13cdb8c7c1144815543e03b970de32b4369
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 14fd5378f37ebfc20b2d7084c08f15ea8f7a00b2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394259"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630537"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportar Métricas do Conector IoT do Azure para FHIR (pré-visualização) através das definições Diagnóstico
 
-Neste artigo, você vai aprender a exportar Azure IoT Connector para registos de métricas FHIR*. A funcionalidade que permite o registo de métricas são as [**definições de Diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) no portal Azure. 
+Neste artigo, você aprenderá a exportar O Conector Azure IoT para Recursos de Interoperabilidade de Cuidados rápidos de saúde (FHIR&#174;)* Registos de métricas. A funcionalidade que permite o registo de métricas são as [**definições de Diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) no portal Azure. 
 
 > [!TIP]
 > Siga as orientações em [Enable Diagnostic Logging in Azure API for FHIR and Azure IoT Connector for FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) to set audit logging.
@@ -60,6 +60,4 @@ Confira frequentemente perguntas sobre o Conector Azure IoT para FHIR.
 >[!div class="nextstepaction"]
 >[Conector Azure IoT para FAQs FHIR](fhir-faq.md)
 
-*No portal Azure, o Conector Azure IoT para FHIR é referido como Conector IoT (pré-visualização).
-
-FHIR é a marca registada do HL7 e é utilizada com a permissão do HL7.
+*No portal Azure, o Conector Azure IoT para FHIR é referido como Conector IoT (pré-visualização). FHIR é uma marca registada do HL7 e é usada com a permissão do HL7.

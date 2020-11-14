@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Gasodutos ML para pontuação de lotes'
 titleSuffix: Azure Machine Learning
-description: Neste tutorial, você constrói um pipeline de machine learning para executar pontuação de lotes num modelo de classificação de imagem. A Azure Machine Learning permite-lhe focar-se na aprendizagem automática em vez de infraestrutura e automação.
+description: Neste tutorial, você constrói um pipeline de machine learning para realizar pontuação de lotes. Concentre-se na aprendizagem automática em vez de infraestrutura e automação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: f7d1cffb44914535fe218980c750270ebba14445
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8748d6e155eb84cf948966d768dda1a992207f7e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309457"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629636"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Construir um pipeline de aprendizagem automática Azure para pontuação de lotes
 

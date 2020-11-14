@@ -1,7 +1,7 @@
 ---
 title: Criar e executar gasodutos ML
 titleSuffix: Azure Machine Learning
-description: Crie e executar um oleoduto de aprendizagem automática com o Azure Machine Learning SDK para Python. Utilize gasodutos ML para criar e gerir os fluxos de trabalho que cosem fases de aprendizagem automática (ML). Estas fases incluem preparação de dados, formação de modelos, implantação de modelos e inferência/pontuação.
+description: Crie e execute gasodutos de aprendizagem automática para criar e gerir os fluxos de trabalho que cosem fases de aprendizagem automática (ML).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 76369d3bc3ed152bf9e0b13f7bf4b4386a974c33
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 452904e18a0910c2dd4781ca978042e0cdd4996d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322082"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630129"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 

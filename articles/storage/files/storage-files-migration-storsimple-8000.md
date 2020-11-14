@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322202"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630282"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração StorSimple 8100 e 8600 para Azure File Sync
 
@@ -45,7 +45,7 @@ As ações de ficheiros Azure de volumes StorSimple através de trabalhos de ser
 
 As ações de ficheiros Azure abrem um novo mundo de oportunidades para estruturar a implementação dos seus serviços de ficheiros. Uma partilha de ficheiros Azure é apenas uma partilha de SMB na nuvem que pode configurar para que os utilizadores tenham acesso diretamente ao protocolo SMB com a autenticação conhecida de Kerberos e permissões NTFS existentes (ACLs de ficheiros e pastas) que funcionam de forma nativa. Saiba mais sobre [o acesso à identidade das ações de ficheiros Azure](storage-files-active-directory-overview.md).
 
-Uma alternativa ao acesso direto é [o Azure File Sync](https://aka.ms/AFS). O Azure File Sync é um analógico direto para a capacidade da StorSimple de cache ficheiros frequentemente utilizados no local.
+Uma alternativa ao acesso direto é [o Azure File Sync](./storage-sync-files-planning.md). O Azure File Sync é um analógico direto para a capacidade da StorSimple de cache ficheiros frequentemente utilizados no local.
 
 Azure File Sync é um serviço de nuvem da Microsoft, baseado em dois componentes principais:
 
@@ -56,7 +56,7 @@ As ações de ficheiros Azure retêm importantes aspetos de fidelidade de fichei
 
 Este artigo centra-se nos passos de migração. Se quiser saber mais sobre o Azure File Sync antes de migrar, consulte os seguintes artigos:
 
-* [Visão geral do Azure File Sync](https://aka.ms/AFS "Descrição geral")
+* [Visão geral do Azure File Sync](./storage-sync-files-planning.md "Descrição Geral")
 * [Guia de implementação de Sincronização de Ficheiros Azure](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>Chave de encriptação de dados de serviço StorSimple
@@ -209,7 +209,7 @@ Após a criação das suas contas de armazenamento, vá à secção de partilha 
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="Uma imagem do portal Azure mostrando a nova UI partilhada por ficheiros.":::
     :::column-end:::
     :::column:::
-        </br>**Name**</br>Letras minúsculas, números e hífenes são suportados.</br></br>**Quota**</br>A quota aqui é comparável a uma quota rígida SMB numa instância do Windows Server. A melhor prática é não definir uma quota aqui porque a sua migração e outros serviços falharão quando a quota for atingida.</br></br>**Escalões**</br>Selecione **Transação otimizada** para a sua nova partilha de ficheiros. Durante a migração, muitas transações ocorrerão. É mais rentável mudar o seu nível mais tarde para o nível mais adequado à sua carga de trabalho.
+        </br>**Nome**</br>Letras minúsculas, números e hífenes são suportados.</br></br>**Quota**</br>A quota aqui é comparável a uma quota rígida SMB numa instância do Windows Server. A melhor prática é não definir uma quota aqui porque a sua migração e outros serviços falharão quando a quota for atingida.</br></br>**Escalões**</br>Selecione **Transação otimizada** para a sua nova partilha de ficheiros. Durante a migração, muitas transações ocorrerão. É mais rentável mudar o seu nível mais tarde para o nível mais adequado à sua carga de trabalho.
     :::column-end:::
 :::row-end:::
 
@@ -385,7 +385,7 @@ A sua instância registada no Windows Server deve estar pronta e ligada à inter
 * [Como configurar uma VPN Windows P2S](storage-files-configure-p2s-vpn-windows.md)
 * [Como configurar um Linux P2S VPN](storage-files-configure-p2s-vpn-linux.md)
 * [Como configurar o encaminhamento do DNS](storage-files-networking-dns.md)
-* [Configurar DFS-N](https://aka.ms/AzureFiles/Namespaces)
+* [Configurar DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
    :::column-end:::
 :::row-end:::
 
@@ -535,7 +535,7 @@ Se utilizar o Azure File Sync, é provável que tenha de criar as ações SMB na
 
 Se tiver uma implementação DFS-N, pode apontar o DFN-Namespaces para as novas localizações da pasta do servidor. Se não tiver uma implementação DFS-N e tiver frontal o seu aparelho 8100 ou 8600 localmente com uma instância do Windows Server, pode retirar esse servidor do domínio. Em seguida, o domínio junta-se à sua nova instância do Servidor do Windows ativada por Ficheiros Azure. Durante esse processo, dê ao servidor o mesmo nome do servidor e partilhe nomes como o servidor antigo, de modo a que o cut-over se mantenha transparente para os seus utilizadores, política de grupo e scripts.
 
-Saiba mais sobre [o DFS-N.](https://aka.ms/AzureFiles/Namespaces)
+Saiba mais sobre [o DFS-N.](/windows-server/storage/dfs-namespaces/dfs-overview)
 
 ## <a name="deprovision"></a>Deprovisionamento
 
@@ -561,7 +561,7 @@ A sua migração está completa.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Conheça melhor [o Azure File Sync: aka.ms/AFS](https://aka.ms/AFS).
+* Conheça melhor [o Azure File Sync: aka.ms/AFS](./storage-sync-files-planning.md).
 * Compreender a flexibilidade das políticas de [nivelamento em nuvem.](storage-sync-cloud-tiering.md)
 * [Ative o Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) nas suas ações de ficheiros Azure para agendar instantâneos e definir horários de retenção de backup.
 * Se vir no portal Azure que alguns ficheiros não estão a sincronizar permanentemente, consulte o [guia de resolução de problemas](storage-sync-files-troubleshoot.md) para obter medidas para resolver estes problemas.

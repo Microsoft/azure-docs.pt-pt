@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 747d03b228d41066cfc834b4a9c044b16c767622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 026f4f36986fa5fcfad4dac5186e9dc0b0997d72
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329368"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629415"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurar pontos finais de rede do Azure File Sync
 A Azure Files e Azure File Sync fornecem dois tipos principais de pontos finais para aceder a ações de ficheiros Azure: 
@@ -33,15 +33,15 @@ Este artigo assume que:
 - Já criou um Serviço de Sincronização de Armazenamento e registou o seu servidor de ficheiros Windows com ele. Para aprender a implementar o Azure File Sync, consulte [o Implementing Azure File Sync](storage-sync-files-deployment-guide.md).
 
 Além disso,
-- Se pretender utilizar o Azure PowerShell, [instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Se pretender utilizar o Azure CLI, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se pretender utilizar o Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps).
+- Se pretender utilizar o Azure CLI, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-the-private-endpoints"></a>Criar os pontos finais privados
 Ao criar um ponto final privado para um recurso Azure, são utilizados os seguintes recursos:
 
-- **Um ponto final privado**: Um recurso Azure que representa o ponto final privado para a conta de armazenamento ou o Serviço de Sincronização de Armazenamento. Pode pensar nisto como um recurso que liga o seu recurso Azure e uma interface de rede.
-- **Uma interface de rede (NIC)**: A interface de rede que mantém um endereço IP privado dentro da rede/sub-rede virtual especificada. Este é exatamente o mesmo recurso que é implantado quando se implanta uma máquina virtual, no entanto, em vez de ser atribuído a um VM, é propriedade do ponto final privado.
-- **Uma zona privada de DNS**: Se nunca implementou um ponto final privado para esta rede virtual antes, uma nova zona privada de DNS será implantada para a sua rede virtual. Será também criado um registo de DNS Para o recurso Azure nesta zona de DNS. Se já implementou um ponto final privado nesta rede virtual, será adicionado um novo recorde A para o recurso Azure à zona de DNS existente. A implantação de uma zona de DNS é opcional, no entanto altamente recomendada para simplificar a gestão de DNS necessária.
+- **Um ponto final privado** : Um recurso Azure que representa o ponto final privado para a conta de armazenamento ou o Serviço de Sincronização de Armazenamento. Pode pensar nisto como um recurso que liga o seu recurso Azure e uma interface de rede.
+- **Uma interface de rede (NIC)** : A interface de rede que mantém um endereço IP privado dentro da rede/sub-rede virtual especificada. Este é exatamente o mesmo recurso que é implantado quando se implanta uma máquina virtual, no entanto, em vez de ser atribuído a um VM, é propriedade do ponto final privado.
+- **Uma zona privada de DNS** : Se nunca implementou um ponto final privado para esta rede virtual antes, uma nova zona privada de DNS será implantada para a sua rede virtual. Será também criado um registo de DNS Para o recurso Azure nesta zona de DNS. Se já implementou um ponto final privado nesta rede virtual, será adicionado um novo recorde A para o recurso Azure à zona de DNS existente. A implantação de uma zona de DNS é opcional, no entanto altamente recomendada para simplificar a gestão de DNS necessária.
 
 > [!Note]  
 > Este artigo utiliza os sufixos DNS para as regiões Públicas do Azure, `core.windows.net` para contas de armazenamento e para `afs.azure.net` Serviços de Sincronização de Armazenamento. Este comentário também se aplica às nuvens soberanas de Azure, como a nuvem do Governo dos EUA Azure - basta substituir os sufixos apropriados para o seu ambiente.
@@ -130,7 +130,7 @@ Address: 192.168.0.5
 > Para utilizar pontos finais privados no recurso Storage Sync Service, tem de utilizar a versão 10.1 ou superior do agente Azure File Sync. As versões do agente antes do 10.1 não suportam pontos finais privados no Serviço de Sincronização de Armazenamento. Todas as versões anteriores do agente suportam pontos finais privados no recurso da conta de armazenamento.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Navegue para o **Private Link** digitando Private *Link* na barra de pesquisa no topo do portal Azure. Na tabela de conteúdos para o Private Link Center, selecione **Privatepoints**, e depois **+ Adicionar** para criar um novo ponto final privado.
+Navegue para o **Private Link** digitando Private *Link* na barra de pesquisa no topo do portal Azure. Na tabela de conteúdos para o Private Link Center, selecione **Privatepoints** , e depois **+ Adicionar** para criar um novo ponto final privado.
 
 [![Uma imagem do centro de ligação privada](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-0.png)](media/storage-sync-files-networking-endpoints/create-storage-sync-private-endpoint-0.png#lightbox)
 
@@ -622,6 +622,6 @@ az resource update \
 ```
 ---
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)

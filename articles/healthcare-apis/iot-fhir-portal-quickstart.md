@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 1e3101c8abcaef52c0ae9aaafef36b23aa45b586
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: f36d842e14c91850bfeba47e9fef61d4747c33a9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394514"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630571"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Quickstart: Implementar o Conector Azure IoT para FHIR (pré-visualização) utilizando o portal Azure
 
-Azure IoT Connector for FHIR* é uma característica opcional da Azure API para fHIR que fornece a capacidade de ingerir dados a partir de dispositivos Internet of Medical Things (IoMT). Durante a fase de pré-visualização, o Conector Azure IoT para a funcionalidade FHIR está disponível gratuitamente. Neste início rápido, vai aprender a:
+O Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* é uma característica opcional da API Azure para fHIR que fornece a capacidade de ingerir dados a partir de dispositivos Internet of Medical Things (IoMT). Durante a fase de pré-visualização, o Conector Azure IoT para a funcionalidade FHIR está disponível gratuitamente. Neste início rápido, vai aprender a:
 - Implementar e configurar o Conector Azure IoT para FHIR utilizando o portal Azure
 - Utilize um dispositivo simulado para enviar dados para O Conector IoT Azure para FHIR
 - Ver recursos criados pela Azure IoT Connector para FHIR na Azure API para FHIR
@@ -207,6 +207,4 @@ Aprenda a configurar o Conector IoT utilizando modelos de mapeamento de disposit
 >[!div class="nextstepaction"]
 >[Conector Azure IoT para modelos de mapeamento FHIR](iot-mapping-templates.md)
 
-*No portal Azure, o Conector Azure IoT para FHIR é referido como Conector IoT (pré-visualização).
-
-FHIR é a marca registada do HL7 e é utilizada com a permissão do HL7.
+*No portal Azure, o Conector Azure IoT para FHIR é referido como Conector IoT (pré-visualização). FHIR é uma marca registada do HL7 e é usada com a permissão do HL7.

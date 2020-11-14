@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 93dd73b5a9149474be771537f47b448c5c4d7d8f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486394"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629330"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral das opções de autenticação baseadas na identidade do Azure Files para acesso AMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -26,11 +26,11 @@ Para saber como ativar a autenticação Azure AD DS para ações de ficheiros Az
 
 -   **Autenticação kerberos**
 
-    O Kerberos é um protocolo de autenticação utilizado para confirmar a identidade de um utilizador ou o anfitrião. Para obter mais informações sobre Kerberos, consulte [a Visão Geral de Autenticação de Kerberos](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
+    O Kerberos é um protocolo de autenticação utilizado para confirmar a identidade de um utilizador ou o anfitrião. Para obter mais informações sobre Kerberos, consulte [a Visão Geral de Autenticação de Kerberos](/windows-server/security/kerberos/kerberos-authentication-overview).
 
 -  **Protocolo do Bloco de Mensagens do Servidor (SMB)**
 
-    SMB é um protocolo de partilha de ficheiros padrão da indústria. SMB também é conhecido como Common Internet File System ou CIFS. Para obter mais informações sobre o SMB, consulte [o Protocolo microsoft SMB e a visão geral do protocolo CIFS](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
+    SMB é um protocolo de partilha de ficheiros padrão da indústria. SMB também é conhecido como Common Internet File System ou CIFS. Para obter mais informações sobre o SMB, consulte [o Protocolo microsoft SMB e a visão geral do protocolo CIFS](/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
 
 -   **Azure Active Directory (Azure AD)**
 
@@ -42,7 +42,7 @@ Para saber como ativar a autenticação Azure AD DS para ações de ficheiros Az
 
 - **Serviços de Domínio de Diretório Ativo no local (DS AD)**
 
-    No local, a integração dos Serviços de Domínio do Diretório Ativo (DS AD) com a Azure Files fornece os métodos para armazenar dados de diretórios, disponibilizando-os aos utilizadores e administradores da rede. A segurança é integrada com DS AD através da autenticação de logon e controlo de acesso a objetos no diretório. Com uma única rede, os administradores podem gerir dados de diretório e organização em toda a sua rede, e os utilizadores de rede autorizados podem aceder a recursos em qualquer parte da rede. A DS AD é comumente adotada por empresas em ambientes no local e as credenciais de DS AD são usadas como identidade para controlo de acesso. Para obter mais informações, consulte a [visão geral dos serviços de domínio do diretório ativo.](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)
+    No local, a integração dos Serviços de Domínio do Diretório Ativo (DS AD) com a Azure Files fornece os métodos para armazenar dados de diretórios, disponibilizando-os aos utilizadores e administradores da rede. A segurança é integrada com DS AD através da autenticação de logon e controlo de acesso a objetos no diretório. Com uma única rede, os administradores podem gerir dados de diretório e organização em toda a sua rede, e os utilizadores de rede autorizados podem aceder a recursos em qualquer parte da rede. A DS AD é comumente adotada por empresas em ambientes no local e as credenciais de DS AD são usadas como identidade para controlo de acesso. Para obter mais informações, consulte a [visão geral dos serviços de domínio do diretório ativo.](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)
 
 -   **Controlo de acesso baseado em funções do Azure (RBAC do Azure)**
 
@@ -116,7 +116,7 @@ O diagrama seguinte representa o fluxo de trabalho para a autenticação Azure A
 
 - Em segundo lugar, todos os utilizadores que existam em Azure AD podem ser autenticados e autorizados. O utilizador pode ser apenas em nuvem ou híbrido. A sincronização de Azure AD a Azure AD DS é gerida pela plataforma sem necessitar de qualquer configuração do utilizador. No entanto, o cliente deve ser domínio associado à Azure AD DS, não pode ser a Azure AD aderido ou registado. 
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagrama que retrata a autenticação AD DS no local para ações de ficheiros Azure sobre SMB.":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagrama":::
 
 ### <a name="enable-identity-based-authentication"></a>Ativar a autenticação baseada na identidade
 
@@ -128,7 +128,7 @@ Uma vez ativada a autenticação AZure AD DS ou no local, a autenticação AD DS
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Configure o diretório ou as permissões de nível de ficheiros para ficheiros Azure
 
-As ações de ficheiros Azure impõem permissões padrão de ficheiros Windows tanto ao nível do diretório como ao nível dos ficheiros, incluindo o diretório de raiz. A configuração de permissões de diretório ou de nível de ficheiro é suportada tanto em SMB como EM REST. Monte a partilha de ficheiros-alvo a partir do seu VM e configuure permissões utilizando o Windows File Explorer, Windows [ICACLs](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)ou o comando [Set-ACL.](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6)
+As ações de ficheiros Azure impõem permissões padrão de ficheiros Windows tanto ao nível do diretório como ao nível dos ficheiros, incluindo o diretório de raiz. A configuração de permissões de diretório ou de nível de ficheiro é suportada tanto em SMB como EM REST. Monte a partilha de ficheiros-alvo a partir do seu VM e configuure permissões utilizando o Windows File Explorer, Windows [ICACLs](/windows-server/administration/windows-commands/icacls)ou o comando [Set-ACL.](/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6)
 
 ### <a name="use-the-storage-account-key-for-superuser-permissions"></a>Use a chave de conta de armazenamento para permissões de super-mento
 
@@ -139,7 +139,7 @@ Um utilizador com a chave da conta de armazenamento pode aceder a partilhas de f
 
 ### <a name="preserve-directory-and-file-acls-when-importing-data-to-azure-file-shares"></a>Preservar diretório e arquivar ACLs ao importar dados para ações de ficheiros Azure
 
-A Azure Files suporta a preservação de diretórios ou ACLs de nível de ficheiro ao copiar dados para ações de ficheiros Azure. Pode copiar ACLs num diretório ou arquivar ações de ficheiros Azure utilizando o Azure File Sync ou os blocos de ferramentas comuns de movimento de ficheiros. Por exemplo, pode utilizar [robocopia](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) com a `/copy:s` bandeira para copiar dados, bem como ACLs para uma partilha de ficheiros Azure. Os ACLs são preservados por padrão, não é necessário ativar a autenticação baseada na identidade na sua conta de armazenamento para preservar ACLs.
+A Azure Files suporta a preservação de diretórios ou ACLs de nível de ficheiro ao copiar dados para ações de ficheiros Azure. Pode copiar ACLs num diretório ou arquivar ações de ficheiros Azure utilizando o Azure File Sync ou os blocos de ferramentas comuns de movimento de ficheiros. Por exemplo, pode utilizar [robocopia](/windows-server/administration/windows-commands/robocopy) com a `/copy:s` bandeira para copiar dados, bem como ACLs para uma partilha de ficheiros Azure. Os ACLs são preservados por padrão, não é necessário ativar a autenticação baseada na identidade na sua conta de armazenamento para preservar ACLs.
 
 ## <a name="pricing"></a>Preços
 Não existe qualquer taxa adicional de serviço para permitir a autenticação baseada na identidade sobre a SMB na sua conta de armazenamento. Para obter mais informações sobre preços, consulte [os preços dos Ficheiros Azure](https://azure.microsoft.com/pricing/details/storage/files/) e [os preços dos Serviços de Domínio AZure AD](https://azure.microsoft.com/pricing/details/active-directory-ds/).

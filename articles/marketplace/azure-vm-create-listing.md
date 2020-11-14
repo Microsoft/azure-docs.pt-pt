@@ -7,39 +7,39 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 2af96c0c2e850d8e1be67c23e71aa677773c1e03
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7030ffeb49c0a3919894f6dcf81e7252777267c5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284857"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629602"
 ---
 # <a name="how-to-configure-virtual-machine-offer-listing-details"></a>Como configurar a oferta de máquinas virtuais
 
-Na página de **listagem da Oferta,** define os detalhes da oferta, tais como nome de oferta, descrição, links e contactos.
+Na página **de listagem 'Oferta'** (selecione a partir do menu de navegação à esquerda no Centro parceiro), define os detalhes da oferta, tais como nome de oferta, descrição, links e contactos.
 
 > [!NOTE]
-> A sua oferta de listagem de conteúdos, como a descrição, documentos, imagens e termos de uso, não tem de estar em inglês, desde que a descrição da oferta comece com a frase: "Esta aplicação está disponível apenas \<non-English language> em." Também pode fornecer um URL para ligar a um site que oferece conteúdo num idioma diferente daquele que é usado no conteúdo da listagem de ofertas.
+> A sua oferta de listagem de conteúdos, como a descrição, documentos, imagens e termos de uso, não tem de estar em inglês, desde que a descrição da oferta comece com a frase: "Esta aplicação está disponível apenas \<non-English language> em." Também pode fornecer um endereço web para ligar a um site que oferece conteúdo num idioma diferente daquele que é usado no conteúdo da listagem de ofertas.
 
 ## <a name="marketplace-details"></a>Detalhes do mercado
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
-O nome que aqui entra é mostrado aos clientes como o título da sua listagem de oferta. Este campo é preenchido automaticamente com o nome que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente. O nome:
+O nome que aqui entra é mostrado aos clientes como o título da sua listagem de oferta. Este campo está preenchido automaticamente com o nome que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. O nome:
 
-- Pode ser marcado. Pode incluir símbolos de marca registada e direitos autorais.
-- Não pode conter mais de 50 caracteres.
+- Pode incluir símbolos de marca registada e direitos de autor.
+- Deve ter 50 caracteres ou menos.
 - Não pode incluir emojis.
 
 ### <a name="search-results-summary"></a>Resumo dos resultados da pesquisa
 
-Forneça uma breve descrição da sua oferta, a ser exibida nos resultados da pesquisa do Azure Marketplace. Pode conter até 100 caracteres.
+Forneça uma breve descrição da sua oferta para exibir nos resultados da pesquisa do Azure Marketplace. Pode conter até 100 caracteres.
 
-### <a name="long-summary"></a>Resumo longo
+### <a name="short-description"></a>Breve descrição
 
-Forneça uma descrição mais longa da sua oferta, a ser exibida nos resultados da pesquisa do Azure Marketplace. Pode conter até 256 caracteres.
+Forneça uma descrição mais longa da sua oferta para exibir nos resultados da pesquisa do Azure Marketplace. Pode conter até 256 caracteres.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](includes/long-description-1.md)]
 
@@ -53,10 +53,10 @@ Insira o endereço web (URL) da política de privacidade da sua organização. C
 
 ## <a name="useful-links"></a>Ligações úteis
 
-Forneça documentos online suplementares sobre a sua oferta. Para adicionar um link, **selecione Adicionar um link**e, em seguida, completar os seguintes campos:
+Forneça documentos online suplementares sobre a sua oferta. Para adicionar um link, **selecione Adicionar um link** e completar os seguintes campos:
 
-- **Nome**: Os clientes verão o nome na página de detalhes.
-- **Link (URL)**: Introduza um link que permite aos clientes visualizar o seu documento online.
+- **Nome** : Os clientes verão o nome na página de detalhes.
+- **Link** : Introduza um endereço web que permite aos clientes visualizar o seu documento online.
 
 ## <a name="customer-support-links"></a>Links de apoio ao cliente
 
@@ -67,21 +67,17 @@ Forneça o site de suporte onde os clientes podem chegar à sua equipa de apoio.
 
 ## <a name="partner-support-contact"></a>Contacto de apoio ao parceiro
 
-Forneça informações de contacto para os parceiros da Microsoft utilizarem quando os seus clientes abrirem um bilhete de suporte. Esta informação não está listada no Azure Marketplace.
-
-- Nome
-- E-mail
-- Telefone
+Forneça o **Nome,** **E-mail** e **Telefone** para os parceiros da Microsoft utilizarem quando os seus clientes abrirem um bilhete de suporte. Esta informação não está listada no Azure Marketplace.
 
 ## <a name="engineering-contact"></a>Contacto de engenharia
 
-Forneça informações de contacto para que a Microsoft possa utilizar quando houver problemas com a sua oferta, incluindo problemas com a certificação. Esta informação não está listada no Azure Marketplace.
+Forneça o **Nome** , **E-mail** e **Telefone** para a Microsoft para usar quando houver problemas com a sua oferta, incluindo problemas com certificação. Esta informação não está listada no Azure Marketplace.
 
-- Nome
-- E-mail
-- Telefone
+## <a name="cloud-solution-provider-program-contact"></a>Contacto do Programa fornecedor de soluções de nuvem
 
-## <a name="azure-marketplace-media"></a>Meios de comunicação Azure Marketplace
+Forneça o **Nome,** **E-mail** e **Telefone** da pessoa que trata do seu programa CSP (se aplicável). Esta informação não está listada no Azure Marketplace. Para **materiais de marketing do programa CSP,** insira o endereço web onde os parceiros deste programa podem ver os seus materiais de marketing.
+
+## <a name="marketplace-media"></a>Meios de comunicação do mercado
 
 Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens devem estar em formato PNG. Imagens desfocadas farão com que a sua submissão seja rejeitada.
 
@@ -90,7 +86,7 @@ Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens de
 >[!NOTE]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a sua rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
-### <a name="azure-marketplace-logos"></a>Logotipos do Azure Marketplace
+### <a name="logos"></a>Logotipos
 
 Forneça um ficheiro PNG para o logotipo de tamanho **grande.** O Partner Center utilizará isto para criar um logótipo **Pequeno** e **Médio.** Pode substituir opcionalmente estas imagens por diferentes imagens mais tarde.
 
@@ -114,8 +110,8 @@ Adicione até cinco vídeos que demonstram a sua oferta. Os vídeos devem ser ho
 
 Para obter recursos adicionais de listagem de mercado, consulte [as melhores práticas para anúncios de oferta de mercado.](gtm-offer-listing-best-practices.md)
 
-**Selecione Guardar o projeto** antes de continuar.
+**Selecione Guardar o rascunho** antes de continuar para o separador seguinte no menu de navegação à esquerda, **visualizar o público**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar planos](azure-vm-create-plans.md)
+- [Criar um público de pré-visualização](azure-vm-create-preview.md)

@@ -8,12 +8,12 @@ ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b494e7f7f99394c7337d663ea9a9c7e1f74dacf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 880eeb87d8727d65b2aaecdad8b0ed9ccaacea7a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612834"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629857"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos finais da rede Azure Files
 
@@ -31,7 +31,7 @@ Recomendamos a leitura [de considerações de networking de ficheiros Azure](sto
 
 - Este artigo pressupõe que já criou uma subscrição do Azure. Se ainda não tem uma subscrição, então crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Este artigo pressupõe que já criou uma partilha de ficheiros Azure numa conta de armazenamento à que gostaria de ligar a partir do local. Para aprender a criar uma partilha de ficheiros Azure, consulte [Criar uma partilha de ficheiros Azure](storage-how-to-create-file-share.md).
-- Se pretender utilizar o Azure PowerShell, [instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Se pretender utilizar o Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps).
 - Se pretender utilizar o Azure CLI, [instale a versão mais recente](/cli/azure/install-azure-cli).
 
 ## <a name="endpoint-configurations"></a>Configurações de ponto final
@@ -45,9 +45,9 @@ Pode configurar os seus pontos finais para restringir o acesso à rede à sua co
 
 A criação de um ponto final privado para a sua conta de armazenamento resultará na implementação dos seguintes recursos Azure:
 
-- **Um ponto final privado**: Um recurso Azure que representa o ponto final privado da conta de armazenamento. Pode pensar nisto como um recurso que liga uma conta de armazenamento e uma interface de rede.
-- **Uma interface de rede (NIC)**: A interface de rede que mantém um endereço IP privado dentro da rede/sub-rede virtual especificada. Este é exatamente o mesmo recurso que é implantado quando se implanta uma máquina virtual, no entanto, em vez de ser atribuído a um VM, é propriedade do ponto final privado.
-- **Uma zona privada de DNS**: Se nunca implementou um ponto final privado para esta rede virtual antes, uma nova zona privada de DNS será implantada para a sua rede virtual. Será também criado um registo de DNS para a conta de armazenamento nesta zona de DNS. Se já implementou um ponto final privado nesta rede virtual, será adicionado um novo recorde A para a conta de armazenamento na zona de DNS existente. A implantação de uma zona DE DNS é opcional, por muito recomendada que seja, e necessária se estiver a montar as suas partilhas de ficheiros Azure com um responsável de serviço AD ou a utilizar a API filerest.
+- **Um ponto final privado** : Um recurso Azure que representa o ponto final privado da conta de armazenamento. Pode pensar nisto como um recurso que liga uma conta de armazenamento e uma interface de rede.
+- **Uma interface de rede (NIC)** : A interface de rede que mantém um endereço IP privado dentro da rede/sub-rede virtual especificada. Este é exatamente o mesmo recurso que é implantado quando se implanta uma máquina virtual, no entanto, em vez de ser atribuído a um VM, é propriedade do ponto final privado.
+- **Uma zona privada de DNS** : Se nunca implementou um ponto final privado para esta rede virtual antes, uma nova zona privada de DNS será implantada para a sua rede virtual. Será também criado um registo de DNS para a conta de armazenamento nesta zona de DNS. Se já implementou um ponto final privado nesta rede virtual, será adicionado um novo recorde A para a conta de armazenamento na zona de DNS existente. A implantação de uma zona DE DNS é opcional, por muito recomendada que seja, e necessária se estiver a montar as suas partilhas de ficheiros Azure com um responsável de serviço AD ou a utilizar a API filerest.
 
 > [!Note]  
 > Este artigo utiliza o sufixo DNS da conta de armazenamento para as regiões públicas do Azure, `core.windows.net` . Este comentário também se aplica às nuvens soberanas de Azure, como a nuvem do Governo dos EUA Azure e a nuvem Azure China - basta substituir os sufixos apropriados para o seu ambiente. 
@@ -164,7 +164,7 @@ Quando restringe a conta de armazenamento a redes virtuais específicas, está a
 
 ---
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Considerações de networking de ficheiros Azure](storage-files-networking-overview.md)
 - [Configurar o reencaminhamento de DNS para Ficheiros do Azure](storage-files-networking-dns.md)

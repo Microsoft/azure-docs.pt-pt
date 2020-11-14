@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6b201565ae2bcadccf55cee78ade0e011e603a15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb74ab16e51fbb3a157757353d5743e889f993dd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515385"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629704"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desenvolver para Ficheiros Azure com C++
 
@@ -32,7 +32,7 @@ Neste tutorial, você vai aprender a executar operações básicas em Arquivos A
 * Criar uma assinatura de acesso partilhado (chave SAS) para um ficheiro que utiliza uma política de acesso partilhado definida na partilha.
 
 > [!Note]  
-> Como os Ficheiros Azure podem ser acedidos através de SMB, é possível escrever aplicações simples que acedam à partilha de ficheiros Azure utilizando as classes e funções padrão C++ I/O. Este artigo descreverá como escrever aplicações que utilizem o Azure Storage C++ SDK, que utiliza a [API de REST de Ficheiros](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) para falar com ficheiros Azure.
+> Como os Ficheiros Azure podem ser acedidos através de SMB, é possível escrever aplicações simples que acedam à partilha de ficheiros Azure utilizando as classes e funções padrão C++ I/O. Este artigo descreverá como escrever aplicações que utilizem o Azure Storage C++ SDK, que utiliza a [API de REST de Ficheiros](/rest/api/storageservices/file-service-rest-api) para falar com ficheiros Azure.
 
 ## <a name="create-a-c-application"></a>Criar uma aplicação C++
 
@@ -160,7 +160,7 @@ directory.delete_directory_if_exists();
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar ficheiros e diretórios numa partilha de ficheiros Azure
 
-A obtenção de uma lista de ficheiros e diretórios dentro de uma ação é facilmente feita ligando **list_files_and_directories** numa referência **cloud_file_directory.** Para aceder ao rico conjunto de propriedades e métodos para um **list_file_and_directory_item**devolvido, deve ligar para o método **list_file_and_directory_item.as_file** para obter um objeto **cloud_file** ou o método **list_file_and_directory_item.as_directy** para obter um objeto **cloud_file_directory.**
+A obtenção de uma lista de ficheiros e diretórios dentro de uma ação é facilmente feita ligando **list_files_and_directories** numa referência **cloud_file_directory.** Para aceder ao rico conjunto de propriedades e métodos para um **list_file_and_directory_item** devolvido, deve ligar para o método **list_file_and_directory_item.as_file** para obter um objeto **cloud_file** ou o método **list_file_and_directory_item.as_directy** para obter um objeto **cloud_file_directory.**
 
 O código que se segue demonstra como recuperar e desaudam o URI de cada item no diretório de raiz da ação.
 

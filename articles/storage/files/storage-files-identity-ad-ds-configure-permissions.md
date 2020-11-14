@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 03b569422b6ce9e74f77637a514c1c0b28011bed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02b8d72ab88f9eca2e1fac4858c14826dae57dbe
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761146"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629177"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte três: configurar o diretório e as permissões de nível de ficheiro sobre o SMB 
 
@@ -44,7 +44,7 @@ A tabela a seguir contém as permissões Azure RBAC relacionadas com esta config
 
 ## <a name="supported-permissions"></a>Permissões apoiadas
 
-O Azure Files suporta todo o conjunto de ACLs básicos e avançados do Windows. Pode visualizar e configurar OS ACLs do Windows em diretórios e ficheiros numa partilha de ficheiros Azure, montando a partilha e, em seguida, utilizando o Windows File Explorer, executando o comando Windows [ICACLs](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) ou o comando [Set-ACL.](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) 
+O Azure Files suporta todo o conjunto de ACLs básicos e avançados do Windows. Pode visualizar e configurar OS ACLs do Windows em diretórios e ficheiros numa partilha de ficheiros Azure, montando a partilha e, em seguida, utilizando o Windows File Explorer, executando o comando Windows [ICACLs](/windows-server/administration/windows-commands/icacls) ou o comando [Set-ACL.](/powershell/module/microsoft.powershell.security/set-acl) 
 
 Para configurar ACLs com permissões de super-er, tem de montar a parte utilizando a chave da sua conta de armazenamento a partir do seu VM ligado ao domínio. Siga as instruções na secção seguinte para montar uma partilha de ficheiroS Azure a partir da solicitação de comando e para configurar ACLs do Windows.
 
@@ -85,7 +85,7 @@ else
 
 ```
 
-Se tiver problemas na ligação aos Ficheiros Azure, consulte a [ferramenta de resolução de problemas que publicámos para erros de montagem de Ficheiros Azure no Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Também fornecemos [orientações](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para trabalhar em torno de cenários quando a porta 445 está bloqueada. 
+Se tiver problemas na ligação aos Ficheiros Azure, consulte a [ferramenta de resolução de problemas que publicámos para erros de montagem de Ficheiros Azure no Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Também fornecemos [orientações](./storage-files-faq.md#on-premises-access) para trabalhar em torno de cenários quando a porta 445 está bloqueada. 
 
 ## <a name="configure-windows-acls"></a>Configurar ACLs windows
 
@@ -114,7 +114,7 @@ Utilize o seguinte comando do Windows para conceder permissões completas a todo
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-Para obter mais informações sobre como utilizar os ICACLs para definir ACLs do Windows e sobre os diferentes tipos de permissões suportadas, consulte [a referência da linha de comando para icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+Para obter mais informações sobre como utilizar os ICACLs para definir ACLs do Windows e sobre os diferentes tipos de permissões suportadas, consulte [a referência da linha de comando para icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="next-steps"></a>Passos seguintes
 

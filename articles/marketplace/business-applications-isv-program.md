@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 7/14/2020
-ms.openlocfilehash: 345b9447daa9fcb5f97ec5d8d00bcf5ea76d958c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 653e6aad7f57b4d683f2f71ed22e402ed5d1fca8
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126741"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630299"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guia de inclusão do Programa Microsoft Business Applications Independent Software Vendor (ISV) Connect
 
@@ -38,10 +38,10 @@ A participação neste programa requer que reveja e aceite a [Adenda aplicaçõe
 > Este passo requer uma função *de Proprietário* ou *Gestor* no Partner Center para que a sua conta assine acordos legais.
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard).
-1. Selecione **Definições** (ícone de engrenagem) e selecione **Definições de programação** .
-1. Selecione **Acordos** .
+1. Selecione **Definições** (ícone de engrenagem) e, em seguida, **Definições de programação**.
+1. Selecione **Acordos**.
 1. Selecione o link de versão e veja o acordo.
-1. Para concordar e aceitar o acordo, **selecione Aceitar Acordo** .
+1. Para concordar e aceitar o acordo, **selecione Aceitar Acordo**.
 
 ## <a name="set-up-your-billing-information"></a>Configurar as suas informações de faturação
 
@@ -51,11 +51,12 @@ Configurar informações de faturação para o Programa de Ligação de Aplicaç
 > Este passo requer uma função *de Proprietário* ou *Gestor* no Partner Center para a sua conta atualizar as informações de faturação.
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard).
-1. Selecione **Definições** (ícone de engrenagem) e selecione **Definições de programação** .
-1. In **Conta** , selecione **perfil de Faturação** .
-1. Reveja as informações de contacto e faturação primárias que são povoadas da sua entidade legal e faça as atualizações necessárias.
+1. Selecione **Definições** (ícone de engrenagem) e, em seguida, **Definições de programação**.
+1. Nas **definições de Conta** , selecione perfil de **Faturação**.
+1. Reveja as informações de contacto e faturação primárias que são povoadas da sua entidade legal.
+1. Para escoar as alterações, selecione **Update**.
 1. Se aplicável, forneça configurações de ID/ID de imposto.
-1. Para guardar as alterações, clique em **Guardar** .
+1. Para guardar as suas alterações, selecione **Update**.
 
 > [!NOTE]
 > Pode atualizar o seu perfil de faturação a qualquer momento. No entanto, *o Nome da Empresa* e o endereço de faturação *País* não pode ser alterado mais tarde.

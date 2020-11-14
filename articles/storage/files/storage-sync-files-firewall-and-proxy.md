@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 69fdfea6768a895db1f85df4c2936936a2ffd3f5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 95139c862b82a85dbf7f50aef021ad71c5c8210f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675782"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629449"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga os seus servidores no local aos Ficheiros Azure, permitindo a sincronização de vários locais e funcionalidades de tiering em nuvem. Como tal, um servidor no local deve ser ligado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor chegar aos serviços de cloud Azure.
@@ -21,10 +21,10 @@ Este artigo fornecerá informações sobre requisitos e opções específicos di
 
 Recomendamos que se leia [considerações de networking do Azure File Sync](storage-sync-files-networking-overview.md) antes de ler este como orientar.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Azure File Sync funciona como um serviço de orquestração entre o seu Windows Server, a sua partilha de ficheiros Azure e vários outros serviços Azure para sincronizar dados como descrito no seu grupo de sincronização. Para que o Azure File Sync funcione corretamente, terá de configurar os seus servidores para comunicar com os seguintes serviços Azure:
 
-- Storage do Azure
+- Armazenamento do Azure
 - Azure File Sync
 - Azure Resource Manager
 - Serviços de autenticação
@@ -154,7 +154,7 @@ Por razões de continuidade de negócios e recuperação de desastres (BCDR), po
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Permitir lista de endereços IP sincronizados de ficheiros Azure
 O Azure File Sync suporta a utilização de tags de [serviço,](../../virtual-network/service-tags-overview.md)que representam um grupo de prefixos de endereço IP para um determinado serviço Azure. Pode utilizar tags de serviço para criar regras de firewall que permitem a comunicação com o serviço Azure File Sync. A etiqueta de serviço para Azure File Sync é `StorageSyncService` .
 
-Se estiver a utilizar o Azure File Sync dentro do Azure, pode utilizar o nome da etiqueta de serviço diretamente no seu grupo de segurança de rede para permitir o tráfego. Para saber mais sobre como fazê-lo, consulte [os grupos de segurança da Rede.](../../virtual-network/security-overview.md)
+Se estiver a utilizar o Azure File Sync dentro do Azure, pode utilizar o nome da etiqueta de serviço diretamente no seu grupo de segurança de rede para permitir o tráfego. Para saber mais sobre como fazê-lo, consulte [os grupos de segurança da Rede.](../../virtual-network/network-security-groups-overview.md)
 
 Se estiver a utilizar o Azure File Sync no local, pode utilizar a marca de serviço API para obter intervalos de endereços IP específicos para a lista de autorizações da sua firewall. Existem dois métodos para obter esta informação:
 
@@ -164,9 +164,9 @@ Se estiver a utilizar o Azure File Sync no local, pode utilizar a marca de servi
     - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Alemanha](https://www.microsoft.com/download/details.aspx?id=57064)
 - A advimento da marca de serviço API (pré-visualização) permite a recuperação programática da lista atual de tags de serviço. Na pré-visualização, a a API de descoberta da marca de serviço pode devolver informações menos atuais do que as informações devolvidas dos documentos JSON publicados no Microsoft Download Center. Pode utilizar a superfície API com base na sua preferência de automatização:
-    - [API REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [CLI do Azure](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [API REST](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [CLI do Azure](/cli/azure/network#az-network-list-service-tags)
 
 Como a descoberta da marca de serviço API não é atualizada com tanta frequência como os documentos JSON publicados no Microsoft Download Center, recomendamos a utilização do documento JSON para atualizar a lista de autorizações da sua firewall no local. Isto pode ser feito da seguinte forma:
 

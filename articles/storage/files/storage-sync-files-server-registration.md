@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c457dacd947c7af8a6be94205ed135ce04a49a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 194b0f2ff94197fe11c189e97dbc65c9d0367932
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85509511"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630588"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gerir servidores registados com Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Fá-lo transformando os seus Servidores Windows numa cache rápida da sua partilha de ficheiros Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
@@ -32,7 +32,7 @@ Para registar um servidor com um Serviço de Sincronização de Armazenamento, t
     
     ![UI do gestor do servidor com a configuração de segurança melhorada do IE em destaque](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* Certifique-se de que o módulo Azure PowerShell está instalado no seu servidor. Se o seu servidor for membro de um Cluster failover, cada nó no cluster necessitará do módulo Az. Mais detalhes sobre como instalar o módulo Az podem ser encontrados na [Instalação e configurar a Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Certifique-se de que o módulo Azure PowerShell está instalado no seu servidor. Se o seu servidor for membro de um Cluster failover, cada nó no cluster necessitará do módulo Az. Mais detalhes sobre como instalar o módulo Az podem ser encontrados na [Instalação e configurar a Azure PowerShell](/powershell/azure/install-Az-ps).
 
     > [!Note]  
     > Recomendamos a utilização da versão mais recente do módulo Az PowerShell para registar/não registar um servidor. Se o pacote Az tiver sido previamente instalado neste servidor (e a versão PowerShell neste servidor for 5.* ou superior), pode utilizar o `Update-Module` cmdlet para atualizar este pacote. 
@@ -58,7 +58,7 @@ Para registar um servidor com um Serviço de Sincronização de Armazenamento, t
 ```    
 
 ### <a name="register-a-server-with-storage-sync-service"></a>Registar um servidor com serviço de sincronização de armazenamento
-Antes de um servidor poder ser utilizado como *ponto final de servidor* num grupo de sincronização de *ficheiros*Azure, este deve ser registado num *Serviço de Sincronização de Armazenamento*. Um servidor só pode ser registado com um Serviço de Sincronização de Armazenamento de cada vez.
+Antes de um servidor poder ser utilizado como *ponto final de servidor* num grupo de sincronização de *ficheiros* Azure, este deve ser registado num *Serviço de Sincronização de Armazenamento*. Um servidor só pode ser registado com um Serviço de Sincronização de Armazenamento de cada vez.
 
 #### <a name="install-the-azure-file-sync-agent"></a>Instalar o agente do Azure File Sync
 1. [Descarregue o agente Azure File Sync](https://go.microsoft.com/fwlink/?linkid=858257).
@@ -180,9 +180,9 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ```
 
 ### <a name="use-windows-server-storage-qos"></a>Use o armazenamento do Windows Server QoS 
-Quando o Azure File Sync estiver hospedado numa máquina virtual em execução num anfitrião de virtualização do Windows Server, pode utilizar o Storage QoS (qualidade de serviço de armazenamento) para regular o consumo de IO de armazenamento. A política de Armazenamento QoS pode ser definida como um limite máximo (ou limite, como o limite de ArmazenamentoSyncNetwork é aplicado acima) ou como um mínimo (ou reserva). Definir um mínimo em vez de um máximo permite que o Azure File Sync rebente para utilizar a largura de banda de armazenamento disponível se outras cargas de trabalho não estiverem a usá-lo. Para mais informações, consulte [a Qualidade de Serviço de Armazenamento.](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview)
+Quando o Azure File Sync estiver hospedado numa máquina virtual em execução num anfitrião de virtualização do Windows Server, pode utilizar o Storage QoS (qualidade de serviço de armazenamento) para regular o consumo de IO de armazenamento. A política de Armazenamento QoS pode ser definida como um limite máximo (ou limite, como o limite de ArmazenamentoSyncNetwork é aplicado acima) ou como um mínimo (ou reserva). Definir um mínimo em vez de um máximo permite que o Azure File Sync rebente para utilizar a largura de banda de armazenamento disponível se outras cargas de trabalho não estiverem a usá-lo. Para mais informações, consulte [a Qualidade de Serviço de Armazenamento.](/windows-server/storage/storage-qos/storage-qos-overview)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

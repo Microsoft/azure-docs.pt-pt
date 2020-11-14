@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 128a974c41b1c09196ecab2070136d9568b08f5d
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: d39f26d86792214c1ef0300bc39404bf6581826f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331792"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629483"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -48,7 +48,7 @@ Recomendamos vivamente que leia Planeamento para uma implementação e Planeamen
     > [!Important]  
     > Se planeia utilizar a UI de Registo do Servidor, em vez de se registar diretamente a partir do PowerShell, tem de utilizar o PowerShell 5.1.
 
-1. Se tiver optado por utilizar o PowerShell 5.1, certifique-se de que está instalado pelo menos .NET 4.7.2. Saiba mais sobre [as versões e dependências do quadro .NET](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) no seu sistema.
+1. Se tiver optado por utilizar o PowerShell 5.1, certifique-se de que está instalado pelo menos .NET 4.7.2. Saiba mais sobre [as versões e dependências do quadro .NET](/dotnet/framework/migration-guide/versions-and-dependencies) no seu sistema.
 
     > [!Important]  
     > Se estiver a instalar .NET 4.7.2+ no Windows Server Core, tem de ser instalado com as `quiet` bandeiras e `norestart` a instalação falhará. Por exemplo, se instalar .NET 4.8, o comando será semelhante ao seguinte:
@@ -56,7 +56,7 @@ Recomendamos vivamente que leia Planeamento para uma implementação e Planeamen
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-1. O módulo Az PowerShell, que pode ser instalado seguindo as instruções aqui: [Instale e configuure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+1. O módulo Az PowerShell, que pode ser instalado seguindo as instruções aqui: [Instale e configuure Azure PowerShell](/powershell/azure/install-Az-ps).
      
     > [!Note]  
     > O módulo Az.StorageSync é agora instalado automaticamente quando instalar o módulo Az PowerShell.
@@ -573,7 +573,7 @@ No entanto, se alterar o horário de uma forma que resultará num instantâneo d
 
 O número máximo predefinido de instantâneos VSS por volume (64) bem como o horário predefinido para os tomar, resultam num máximo de 45 dias de versões anteriores que um trabalhador da informação pode restaurar, dependendo do número de instantâneos VSS que pode armazenar no seu volume.
 
-Se as imagens de 64 VSS por volume não forem a definição correta, pode [alterar esse valor através de uma chave de registo](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+Se as imagens de 64 VSS por volume não forem a definição correta, pode [alterar esse valor através de uma chave de registo](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Para que o novo limite produza efeitos, é necessário reencaminhar o cmdlet para permitir a compatibilidade da versão anterior em todos os volumes previamente ativados, com a bandeira da Força a ter em conta o novo número máximo de instantâneos VSS por volume. Isto resultará num número recém-calculado de dias compatíveis. Por favor, note que esta alteração só produzirá efeito em ficheiros recém-hierarquizados e substituirá quaisquer personalizações no calendário VSS que possa ter feito.
 
 <a id="proactive-recall"></a>
@@ -599,7 +599,7 @@ Uma empresa globalmente distribuída tem sucursais nos EUA e na Índia. De manh�
 
 # <a name="powershell"></a>[PowerShell](#tab/proactive-powershell)
 
-Pode modificar as propriedades do ponto final do servidor em PowerShell através do [cmdlet Set-AzStorageSyncServerEndpoint.](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint)
+Pode modificar as propriedades do ponto final do servidor em PowerShell através do [cmdlet Set-AzStorageSyncServerEndpoint.](/powershell/module/az.storagesync/set-azstoragesyncserverendpoint)
 
 ```powershell
 # Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"

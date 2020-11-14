@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: da60d6a2146385e1dfd0717afb1172b378e52533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19fe6be0487772524516172bd32e0562512c4e3c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715998"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630180"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Problemas de resolução de ficheiros Azure em Linux (SMB)
 
@@ -61,14 +61,14 @@ Para resolver o problema, utilize a [ferramenta de resolução de problemas para
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: Canal de comunicação não encriptado
 
-Por motivos de segurança, as ligações para as partilhas de ficheiros do Azure serão bloqueadas se o canal de comunicação não estiver encriptado e se a tentativa de ligação não for feita a partir do mesmo datacenter onde residem as partilhas de ficheiros do Azure. As ligações não encriptadas dentro do mesmo datacenter poderão também ser bloqueadas se a definição [Transferência segura necessária](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) estiver ativada na conta de armazenamento. Será fornecido um canal de comunicação encriptado apenas se o SO do cliente do utilizador suportar a encriptação SMB.
+Por motivos de segurança, as ligações para as partilhas de ficheiros do Azure serão bloqueadas se o canal de comunicação não estiver encriptado e se a tentativa de ligação não for feita a partir do mesmo datacenter onde residem as partilhas de ficheiros do Azure. As ligações não encriptadas dentro do mesmo datacenter poderão também ser bloqueadas se a definição [Transferência segura necessária](../common/storage-require-secure-transfer.md) estiver ativada na conta de armazenamento. Será fornecido um canal de comunicação encriptado apenas se o SO do cliente do utilizador suportar a encriptação SMB.
 
 Para obter mais informações, veja [Pré-requisitos para montar uma partilha de ficheiros do Azure com o Linux e o pacote cifs-utils](storage-how-to-use-files-linux.md#prerequisites). 
 
 ### <a name="solution-for-cause-1"></a>Solução para o motivo 1
 
 1. Conecte-se a partir de um cliente que suporte encriptação SMB ou conecte-se a partir de uma máquina virtual no mesmo centro de dados que a conta de armazenamento Azure que é usada para a partilha de ficheiros Azure.
-2. Verifique se a [definição de transferência necessária](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) para a transferência segura está desativada na conta de armazenamento se o cliente não suportar encriptação SMB.
+2. Verifique se a [definição de transferência necessária](../common/storage-require-secure-transfer.md) para a transferência segura está desativada na conta de armazenamento se o cliente não suportar encriptação SMB.
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: As regras de rede virtual ou firewall estão ativadas na conta de armazenamento 
 
@@ -76,7 +76,7 @@ Caso estejam configuradas regras de firewall ou de rede virtual (VNET) na conta 
 
 ### <a name="solution-for-cause-2"></a>Solução para o motivo 2
 
-Verifique se as regras de firewall ou de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtual estão a causar o problema, altere temporariamente a definição da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verifique se as regras de firewall ou de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtual estão a causar o problema, altere temporariamente a definição da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](../common/storage-network-security.md).
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>"[Permissão negada] Quota de disco excedida" quando tenta abrir um ficheiro
@@ -95,19 +95,19 @@ Há uma quota de 2.000 pegas abertas num único ficheiro ou diretório. Quando s
 
 Reduza o número de pegas abertas simultâneas fechando algumas pegas e, em seguida, recandiduça a operação.
 
-Para visualizar as pegas abertas para uma partilha de ficheiros, diretório ou ficheiro, utilize o cmdlet [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell.  
+Para visualizar as pegas abertas para uma partilha de ficheiros, diretório ou ficheiro, utilize o cmdlet [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) PowerShell.  
 
-Para fechar as pegas abertas para uma partilha de ficheiros, diretório ou ficheiro, utilize o cmdlet [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell.
+Para fechar as pegas abertas para uma partilha de ficheiros, diretório ou ficheiro, utilize o cmdlet [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell.
 
 > [!Note]  
-> Os Get-AzStorageFileHandle e Close-AzStorageFileHandle cmdlets estão incluídos na versão 2.4 ou posterior do módulo Az PowerShell. Para instalar o mais recente módulo Az PowerShell, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Os Get-AzStorageFileHandle e Close-AzStorageFileHandle cmdlets estão incluídos na versão 2.4 ou posterior do módulo Az PowerShell. Para instalar o mais recente módulo Az PowerShell, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Cópia lenta de ficheiros de e para ficheiros Azure em Linux
 
 - Se não tiver um requisito específico de tamanho mínimo de E/S, recomendamos que utilize 1 MiB como o tamanho de E/S para um desempenho ótimo.
 - Utilize o método de cópia certo:
-    - Utilize [a AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para qualquer transferência entre duas ações de ficheiro.
+    - Utilize [a AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) para qualquer transferência entre duas ações de ficheiro.
     - A utilização de cp ou dd com paralelo poderia melhorar a velocidade da cópia, o número de fios depende da sua caixa de utilização e da sua carga de trabalho. Os seguintes exemplos utilizam seis: 
     - cp exemplo (cp usará o tamanho do bloco predefinido do sistema de ficheiros como o tamanho do pedaço): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
     - dd exemplo (este comando define explicitamente o tamanho do pedaço para 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
@@ -144,13 +144,13 @@ Código de erro: 403
 
 ### <a name="solution-for-cause-1"></a>Solução para o motivo 1
 
-Verifique se as regras de firewall ou de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtual estão a causar o problema, altere temporariamente a definição da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verifique se as regras de firewall ou de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtual estão a causar o problema, altere temporariamente a definição da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](../common/storage-network-security.md).
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Causa 2: A sua conta de utilizador não tem acesso à conta de armazenamento
 
 ### <a name="solution-for-cause-2"></a>Solução para o motivo 2
 
-Navegue na conta de armazenamento onde está localizada a partilha de ficheiros Azure, clique no **controlo de acesso (IAM)** e verifique se a sua conta de utilizador tem acesso à conta de armazenamento. Para saber mais, consulte [Como garantir a sua conta de armazenamento com o controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Navegue na conta de armazenamento onde está localizada a partilha de ficheiros Azure, clique no **controlo de acesso (IAM)** e verifique se a sua conta de utilizador tem acesso à conta de armazenamento. Para saber mais, consulte [Como garantir a sua conta de armazenamento com o controlo de acesso baseado em funções Azure (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Não consigo eliminar um ficheiro ou um diretório numa partilha de ficheiros do Azure
@@ -162,12 +162,12 @@ Este problema ocorre normalmente se o ficheiro ou o diretório tão abertos ment
 
 Se os clientes SMB encerrarem todas as pegas abertas e o problema continuar a ocorrer, execute o seguinte:
 
-- Utilize o [cmdlet Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell para visualizar as pegas abertas.
+- Utilize o [cmdlet Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) PowerShell para visualizar as pegas abertas.
 
-- Utilize o [cmdlet Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell para fechar as pegas abertas. 
+- Utilize o [cmdlet Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) PowerShell para fechar as pegas abertas. 
 
 > [!Note]  
-> Os Get-AzStorageFileHandle e Close-AzStorageFileHandle cmdlets estão incluídos na versão 2.4 ou posterior do módulo Az PowerShell. Para instalar o mais recente módulo Az PowerShell, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Os Get-AzStorageFileHandle e Close-AzStorageFileHandle cmdlets estão incluídos na versão 2.4 ou posterior do módulo Az PowerShell. Para instalar o mais recente módulo Az PowerShell, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Desempenho lento numa partilha de ficheiros do Azure montada numa VM do Linux
@@ -192,11 +192,11 @@ Também pode verificar se as opções corretas estão a ser utilizadas executand
 //azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)
 ```
 
-Se a opção **cache=estrita** ou **serverino** não estiver presente, desmonte e monte novamente ficheiros Azure, executando o comando de montagem a partir da [documentação](../storage-how-to-use-files-linux.md). Em seguida, remarque se a entrada **/etc/fstab** tem as opções corretas.
+Se a opção **cache=estrita** ou **serverino** não estiver presente, desmonte e monte novamente ficheiros Azure, executando o comando de montagem a partir da [documentação](./storage-how-to-use-files-linux.md). Em seguida, remarque se a entrada **/etc/fstab** tem as opções corretas.
 
 ### <a name="cause-2-throttling"></a>Causa 2: Estrangulamento
 
-É possível que esteja a sofrer estrangulamentos e os seus pedidos estão a ser enviados para uma fila. Pode verificar isto aproveitando as [métricas de armazenamento Azure no Azure Monitor](../common/storage-metrics-in-azure-monitor.md).
+É possível que esteja a sofrer estrangulamentos e os seus pedidos estão a ser enviados para uma fila. Pode verificar isto aproveitando as [métricas de armazenamento Azure no Azure Monitor](../blobs/monitor-blob-storage.md).
 
 ### <a name="solution-for-cause-2"></a>Solução para o motivo 2
 
@@ -294,7 +294,7 @@ Se não for possível atualizar para as versões kernel mais recentes, poderá c
 ## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-30"></a>"CIFS VFS: erro -22 no ioctl para obter a lista de interfaces" quando monta uma partilha de ficheiros Azure utilizando sMB 3.0
 
 ### <a name="cause"></a>Causa
-Este erro é registado porque o Azure Files [não suporta atualmente o multicanal SMB](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+Este erro é registado porque o Azure Files [não suporta atualmente o multicanal SMB](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 ### <a name="solution"></a>Solução
 Este erro pode ser ignorado.

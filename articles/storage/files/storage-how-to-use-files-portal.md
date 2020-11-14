@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7e703137b7954dd152f976069770a0c8c4a0f34c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6a88124397812f7599ce54b46b23d22e626cf520
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90564173"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629823"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Início Rápido: Criar e gerir partilhas de ficheiros do Azure com o portal do Azure 
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser montadas no Windows, Linux e macOS. Este guia orienta-o pelas noções básicas de utilizar partilhas de ficheiros do Azure com o [Portal do Azure](https://portal.azure.com/).
@@ -26,17 +26,17 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para criar uma partilha de ficheiros do Azure:
 
 1. Selecione a conta de armazenamento a partir do dashboard.
-2. Na página da conta de armazenamento, na secção **Serviços**, selecione **Ficheiros**.
+2. Na página da conta de armazenamento, na secção **Serviços** , selecione **Ficheiros**.
     ![Uma captura de ecrã da secção Serviços da conta de armazenamento; selecione o Serviço de Ficheiros](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
 3. No menu no topo da página de **serviço do Ficheiro,** clique em **Partilhar Ficheiros**. É apresentada a página **Nova partilha de ficheiros**.
-4. Em **Nome**, escreva *myshare*.
+4. Em **Nome** , escreva *myshare*.
 5. Clique em **OK** para criar a partilha de ficheiros do Azure.
 
-Os nomes de partilha só podem ter letras minúsculas, números e hífenes, mas não podem começar com um hífen. Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and Referencing Shares, Directories, Files, and Metadata (Nomenclatura e Referência de Partilhas, Diretórios, Ficheiros e Metadados)](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Os nomes de partilha só podem ter letras minúsculas, números e hífenes, mas não podem começar com um hífen. Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and Referencing Shares, Directories, Files, and Metadata (Nomenclatura e Referência de Partilhas, Diretórios, Ficheiros e Metadados)](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ## <a name="use-your-azure-file-share"></a>Utilizar a partilha de ficheiros do Azure
-A Azure Files fornece três métodos de trabalho com ficheiros e pastas dentro da sua partilha de ficheiros Azure: o protocolo padrão [do Bloco de Mensagens do Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)da indústria, o protocolo sistema de ficheiros de rede (NFS) (pré-visualização) e o [protocolo Rest](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)do Ficheiro . 
+A Azure Files fornece três métodos de trabalho com ficheiros e pastas dentro da sua partilha de ficheiros Azure: o protocolo padrão [do Bloco de Mensagens do Servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview)da indústria, o protocolo sistema de ficheiros de rede (NFS) (pré-visualização) e o [protocolo Rest](/rest/api/storageservices/file-service-rest-api)do Ficheiro . 
 
 Para montar uma partilha de ficheiros com SMB, veja o documento seguinte com base no seu SO:
 - [Windows](storage-how-to-use-files-windows.md)
@@ -59,7 +59,7 @@ Agora que criou uma partilha de ficheiros do Azure, pode montá-la com SMB no [W
 #### <a name="create-a-directory"></a>Criar um diretório
 Para criar um novo diretório com o nome *myDirectory* na raiz da partilha de ficheiros do Azure:
 
-1. Na página **Serviço de Ficheiros**, selecione a partilha de ficheiros **myshare**. É aberta a página da partilha de ficheiros.
+1. Na página **Serviço de Ficheiros** , selecione a partilha de ficheiros **myshare**. É aberta a página da partilha de ficheiros.
 2. No menu na parte superior da página, selecione **+ Adicionar diretório**. É apresentada a página **Novo diretório**.
 3. Escreva *myDirectory* e, em seguida, clique em **OK**.
 
@@ -72,13 +72,13 @@ Para demonstrar o carregamento de um ficheiro, primeiro tem de criar ou selecion
 
 3. Clique no ícone de pasta para abrir uma janela para procurar os ficheiros locais. 
 4. Selecione um ficheiro e, em seguida, clique em **Abrir**. 
-5. Na página **Carregar ficheiros**, verifique o nome de ficheiro e, em seguida, clique em **Carregar**.
+5. Na página **Carregar ficheiros** , verifique o nome de ficheiro e, em seguida, clique em **Carregar**.
 6. Quando terminar, o ficheiro deve aparecer na lista na página **myDirectory**.
 
 #### <a name="download-a-file"></a>Transferir um ficheiro
 Pode transferir uma cópia do ficheiro que carregou ao clicar com o botão direito do rato no ficheiro. Depois de clicar no botão de transferência, a experiência exata dependerá do sistema operativo e do browser que estiver a utilizar.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## <a name="next-steps"></a>Passos seguintes

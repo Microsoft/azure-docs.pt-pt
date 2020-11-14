@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 6251894018ceeb2a99ebb62939b6e446fea825a2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 948b30cbf37ae5f4f357860569579d8591412414
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220725"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630401"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte um: ativar a autenticação AD DS para as suas ações de ficheiroS Azure 
 
@@ -28,20 +28,20 @@ Os cmdlets do módulo PowerShell AzFilesHybrid fazem as modificações necessár
 
 ### <a name="download-azfileshybrid-module"></a>Baixar módulo AzFilesHybrid
 
-- [Descarregue e desaperte o módulo AzFilesHybrid (módulo GA: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Note que a encriptação kerberos AES 256 é suportada em v0.2.2 ou superior. Se ativou a funcionalidade com uma versão AzFilesHybrid abaixo de v0.2.2 e pretender atualizar para suportar a encriptação AES 256 Kerberos, consulte [este artigo](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). 
+- [Descarregue e desaperte o módulo AzFilesHybrid (módulo GA: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Note que a encriptação kerberos AES 256 é suportada em v0.2.2 ou superior. Se ativou a funcionalidade com uma versão AzFilesHybrid abaixo de v0.2.2 e pretender atualizar para suportar a encriptação AES 256 Kerberos, consulte [este artigo](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). 
 - Instale e execute o módulo num dispositivo que seja de domínio associado a AD DS no local com credenciais AD DS que tenham permissões para criar uma conta de início de serviço ou uma conta de computador no AD alvo.
 -  Execute o script utilizando uma credencial AD DS no local que está sincronizada com o seu AD Azure. A credencial AD DS no local deve ter permissões de papel do proprietário da conta de armazenamento ou do contribuinte Azure.
 
 ### <a name="run-join-azstorageaccountforauth"></a>Executar Join-AzStorageAccountForAuth
 
-O `Join-AzStorageAccountForAuth` cmdlet executa o equivalente a um domínio offline, juntando-se em nome da conta de armazenamento especificada. O script utiliza o cmdlet para criar uma [conta de computador](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) no seu domínio AD. Se, por qualquer razão, não puder utilizar uma conta de computador, pode alterar o script para criar uma [conta de início de sessão](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) de serviço. Se optar por executar o comando manualmente, deverá selecionar a conta mais adequada para o seu ambiente.
+O `Join-AzStorageAccountForAuth` cmdlet executa o equivalente a um domínio offline, juntando-se em nome da conta de armazenamento especificada. O script utiliza o cmdlet para criar uma [conta de computador](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) no seu domínio AD. Se, por qualquer razão, não puder utilizar uma conta de computador, pode alterar o script para criar uma [conta de início de sessão](/windows/win32/ad/about-service-logon-accounts) de serviço. Se optar por executar o comando manualmente, deverá selecionar a conta mais adequada para o seu ambiente.
 
 A conta DS AD criada pelo cmdlet representa a conta de armazenamento. Se a conta DS AD for criada sob uma unidade organizacional (OU) que aplica a expiração da palavra-passe, deve atualizar a palavra-passe antes da idade máxima da palavra-passe. Não atualizar a palavra-passe da conta antes dessa data resulta em falhas de autenticação ao aceder às ações de ficheiros Azure. Para saber como atualizar a palavra-passe, consulte a [palavra-passe da conta AD DS](storage-files-identity-ad-ds-update-password.md)de atualização .
 
 Substitua os valores do espaço reservado pelos seus nos parâmetros abaixo antes de o executar no PowerShell.
 > [!IMPORTANT]
-> O domínio que une o cmdlet criará uma conta AD para representar a conta de armazenamento (partilha de ficheiros) em AD. Pode optar por se registar como uma conta de computador ou conta de início de sé, consulte [as FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) para obter mais detalhes. Para contas de computador, existe uma idade de validade de senha padrão definida em AD em 30 dias. Da mesma forma, a conta de início de saúde do serviço pode ter uma idade de validade de senha padrão definida no domínio AD ou Unidade Organizacional (OU).
-> Para ambos os tipos de conta, recomendamos que verifique a idade de validade da palavra-passe configurada no seu ambiente de AD e planeie [atualizar a palavra-passe da identidade da sua conta](storage-files-identity-ad-ds-update-password.md) de armazenamento da conta AD antes da idade máxima da senha. Pode considerar [a criação de uma nova Unidade Organizacional AD (OU) em AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) e desativar a política de expiração de [senhas](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) em contas de computador ou contas de início de serviço em conformidade. 
+> O domínio que une o cmdlet criará uma conta AD para representar a conta de armazenamento (partilha de ficheiros) em AD. Pode optar por se registar como uma conta de computador ou conta de início de sé, consulte [as FAQ](./storage-files-faq.md#security-authentication-and-access-control) para obter mais detalhes. Para contas de computador, existe uma idade de validade de senha padrão definida em AD em 30 dias. Da mesma forma, a conta de início de saúde do serviço pode ter uma idade de validade de senha padrão definida no domínio AD ou Unidade Organizacional (OU).
+> Para ambos os tipos de conta, recomendamos que verifique a idade de validade da palavra-passe configurada no seu ambiente de AD e planeie [atualizar a palavra-passe da identidade da sua conta](storage-files-identity-ad-ds-update-password.md) de armazenamento da conta AD antes da idade máxima da senha. Pode considerar [a criação de uma nova Unidade Organizacional AD (OU) em AD](/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) e desativar a política de expiração de [senhas](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) em contas de computador ou contas de início de serviço em conformidade. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -89,7 +89,7 @@ Se já executou o `Join-AzStorageAccountForAuth` script acima com sucesso, vá a
 
 ### <a name="checking-environment"></a>Ambiente de verificação
 
-Primeiro, tem de verificar o estado do seu ambiente. Especificamente, deve verificar se o [Ative Directory PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) está instalado e se a concha está a ser executada com privilégios de administrador. Em seguida, verifique se o [módulo Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) está instalado. Caso contrário, instale-o. Depois de completar essas verificações, verifique o seu DS AD para ver se existe uma [conta de computador](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (padrão) ou uma conta de início de [serviço](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) que já foi criada com a SPN/UPN como "cifs/your-your-storage-account-name-here.file.core.windows.net". Se a conta não existir, crie uma como descrito na secção seguinte.
+Primeiro, tem de verificar o estado do seu ambiente. Especificamente, deve verificar se o [Ative Directory PowerShell](/powershell/module/addsadministration/?view=win10-ps) está instalado e se a concha está a ser executada com privilégios de administrador. Em seguida, verifique se o [módulo Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) está instalado. Caso contrário, instale-o. Depois de completar essas verificações, verifique o seu DS AD para ver se existe uma [conta de computador](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (padrão) ou uma conta de início de [serviço](/windows/win32/ad/about-service-logon-accounts) que já foi criada com a SPN/UPN como "cifs/your-your-storage-account-name-here.file.core.windows.net". Se a conta não existir, crie uma como descrito na secção seguinte.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Criar uma identidade que represente a conta de armazenamento na sua AD manualmente
 

@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: cbbd4960a498516182323748e6609b834b1d4884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fe6befbfc3c6f12cf804841052795647cd1f76a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014689"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629840"
 ---
 # <a name="azure-files-reference"></a>Referência dos Ficheiros do Azure
 
@@ -25,7 +25,7 @@ O quadro que se segue lista a referência e a documentação da amostra para Azu
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Biblioteca cliente Azure Files v12 para .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
-| 11.x | [Microsoft.Azure.Storage.File Namespace](/dotnet/api/microsoft.azure.storage.file) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [Programar para os Ficheiros do Azure com .NET](/azure/storage/files/storage-dotnet-how-to-use-files) |
+| 11.x | [Microsoft.Azure.Storage.File Namespace](/dotnet/api/microsoft.azure.storage.file) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [Programar para os Ficheiros do Azure com .NET](./storage-dotnet-how-to-use-files.md) |
 
 ### <a name="storage-management"></a>Gestão de armazenamento
 
@@ -50,7 +50,7 @@ A tabela que se segue lista a referência e a documentação da amostra para as 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Biblioteca de clientes Azure Files para Java](/java/api/overview/azure/storage-file-share-readme) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-file-share) | &nbsp; |
-| 8.x | [com.microsoft.azure.storage.file](/java/api/com.microsoft.azure.storage.file) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Programar para os Ficheiros do Azure com Java](/azure/storage/files/storage-java-how-to-use-file-storage) |
+| 8.x | [com.microsoft.azure.storage.file](/java/api/com.microsoft.azure.storage.file) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Programar para os Ficheiros do Azure com Java](./storage-java-how-to-use-file-storage.md) |
 
 ### <a name="storage-management"></a>Gestão de armazenamento
 
@@ -67,7 +67,7 @@ A tabela que se segue lista a referência e a documentação da amostra para api
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Bibliotecas de clientes Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Exemplos](/python/api/overview/azure/storage-file-share-readme#examples) |
-| 2.x | [Bibliotecas de clientes Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Programar para os Ficheiros do Azure com Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
+| 2.x | [Bibliotecas de clientes Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Pacote (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Programar para os Ficheiros do Azure com Python](./storage-python-how-to-use-file-storage.md) |
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas de clientes JavaScript
 
@@ -82,7 +82,7 @@ A tabela que se segue lista a referência e a documentação da amostra para api
 
 A tabela que se segue lista a referência e a documentação da amostra para as APIs do Azure Files REST.
 
-| Documentação de referência | Descrição geral |
+| Documentação de referência | Descrição Geral |
 | ----------------------- | -------- |
 | [Serviço de arquivo REST API](/rest/api/storageservices/file-service-rest-api) | [Conceitos de serviço de ficheiros](/rest/api/storageservices/file-service-concepts) |
 
