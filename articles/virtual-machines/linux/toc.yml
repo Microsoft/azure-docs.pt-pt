@@ -45,7 +45,7 @@
     - name: 13 - Monitorizar VMs
       href: tutorial-monitor.md
     - name: 14 - Gerir a segurança das VMs
-      href: tutorial-azure-security.md
+      href: ../tutorial-azure-security.md
     - name: 15a - Compilar com o Jenkins
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
     - name: 15b - Integrar o Jenkins com o Azure DevOps
@@ -687,7 +687,15 @@
         - name: Sincronização da hora
           href: time-sync.md
         - name: Etiquetar uma VM
-          href: tag.md
+          items:
+            - name: CLI
+              href: ../tag-cli.md
+            - name: Portal
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: Modelo
+              href: ../tag-template.md
         - name: Executar scripts numa VM
           href: run-scripts-in-vm.md
           items:

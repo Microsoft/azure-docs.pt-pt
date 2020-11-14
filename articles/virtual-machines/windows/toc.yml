@@ -46,7 +46,7 @@
     - name: 13 - Monitorizar VMs
       href: tutorial-monitor.md
     - name: 14 - Gerir a segurança das VMs
-      href: tutorial-azure-security.md
+      href: ../tutorial-azure-security.md
     - name: 15 - Instalar uma pilha SQL\IIS\.NET
       href: tutorial-iis-sql.md
     - name: 16 - Proteger o servidor web com SSL
@@ -648,8 +648,16 @@
         - name: Trocar o disco de SO
           href: os-disk-swap.md
         - name: Etiquetar uma VM
-          href: tag.md
-        - name: Sincronização da hora
+          items:
+            - name: Portal
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: CLI
+              href: ../tag-cli.md
+            - name: Modelo
+              href: ../tag-template.md
+            - name: Sincronização da hora
           href: time-sync.md
         - name: Executar scripts numa VM
           href: run-scripts-in-vm.md

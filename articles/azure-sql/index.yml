@@ -10,16 +10,16 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: landing-page
-  author: MashaMSFT
-  ms.author: mathoma
-  ms.reviewer: sstein
+  author: stevestein
+  ms.author: sstein
+  ms.reviewer: 
   ms.date: 10/30/2019
-  ms.openlocfilehash: c6d4a6afa1e85a4b159673a11081bc694e3b9cf4
-  ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+  ms.openlocfilehash: 91221735001f55974f6aba4b6fcae39a92834da8
+  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/11/2020
-  ms.locfileid: "94490870"
+  ms.lasthandoff: 11/13/2020
+  ms.locfileid: "94593897"
 landingContent:
 - title: Base de Dados SQL do Azure
   linkLists:

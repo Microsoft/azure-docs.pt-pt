@@ -36,6 +36,10 @@
       href: front-door-quickstart-template-samples.md
 - name: Conceitos
   items:
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Back-ends e conjuntos de back-end
       href: front-door-backend-pool.md
     - name: Colocação em cache com o Front Door
