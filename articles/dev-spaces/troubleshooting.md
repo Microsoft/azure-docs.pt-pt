@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a resolver problemas e resolva problemas comuns ao ativar e utilizar espaços Azure Dev
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 42551443fb5af1bd3f783c33f708b231eea68907
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a30ae2d78d682427cf53c8f98b0ca70b441d72e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364172"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636814"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces resolução de problemas
 
@@ -138,7 +138,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-O comando acima mostra que a cápsula do serviço foi atribuída a *virtual-nó-aci-linux*, que é um nó virtual.
+O comando acima mostra que a cápsula do serviço foi atribuída a *virtual-nó-aci-linux* , que é um nó virtual.
 
 Para corrigir este problema, atualize o gráfico Helm para o serviço para remover quaisquer valores *de nodeSelector* ou *tolerações* que permitam que o serviço seja executado num nó virtual. Estes valores são tipicamente definidos no ficheiro do `values.yaml` gráfico.
 
@@ -261,7 +261,7 @@ Este erro ocorre porque a Azure Dev Spaces não suporta atualmente construções
 
 Ao utilizar [o Azure Dev Spaces para ligar o seu cluster AKS à sua máquina de desenvolvimento,](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes)poderá encontrar um problema em que o tráfego de rede não seja reencaminhado entre a sua máquina de desenvolvimento e o seu cluster AKS.
 
-Ao ligar a sua máquina de desenvolvimento ao seu cluster AKS, a Azure Dev Spaces encaminha o tráfego de rede entre o seu cluster AKS e a sua máquina de desenvolvimento modificando o ficheiro da sua máquina de `hosts` desenvolvimento. A Azure Dev Spaces cria uma entrada no `hosts` endereço do serviço Kubernetes que está a substituir como nome de anfitrião. Esta entrada é utilizada com o encaminhamento da porta para o tráfego direto da rede entre a sua máquina de desenvolvimento e o cluster AKS. Se um serviço na sua máquina de desenvolvimento entrar em conflito com a porta do serviço Kubernetes que está a substituir, a Azure Dev Spaces não pode encaminhar o tráfego de rede para o serviço Kubernetes. Por exemplo, o serviço *Windows BranchCache* está normalmente ligado a *0.0.0.0.0:80*, que os conflitos causarão um conflito para o porto 80 em todos os IPs locais.
+Ao ligar a sua máquina de desenvolvimento ao seu cluster AKS, a Azure Dev Spaces encaminha o tráfego de rede entre o seu cluster AKS e a sua máquina de desenvolvimento modificando o ficheiro da sua máquina de `hosts` desenvolvimento. A Azure Dev Spaces cria uma entrada no `hosts` endereço do serviço Kubernetes que está a substituir como nome de anfitrião. Esta entrada é utilizada com o encaminhamento da porta para o tráfego direto da rede entre a sua máquina de desenvolvimento e o cluster AKS. Se um serviço na sua máquina de desenvolvimento entrar em conflito com a porta do serviço Kubernetes que está a substituir, a Azure Dev Spaces não pode encaminhar o tráfego de rede para o serviço Kubernetes. Por exemplo, o serviço *Windows BranchCache* está normalmente ligado a *0.0.0.0.0:80* , que os conflitos causarão um conflito para o porto 80 em todos os IPs locais.
 
 Para corrigir este problema, tem de parar quaisquer serviços ou processos que contraíssem o porto do serviço Kubernetes que está a tentar substituir. Pode utilizar ferramentas, como *o netstat,* para inspecionar que serviços ou processos na sua máquina de desenvolvimento estão em conflito.
 
@@ -420,13 +420,13 @@ Para corrigir este problema, atualize o `launch.json` ficheiro sob a `.vscode` s
 
 Pode ver este erro ao executar o depurar código de estúdio visual.
 
-Para corrigir este problema, feche e reabra o Código do Estúdio Visual. Reinicie o depurar.
+Para corrigir este problema, feche e reabra o Código do Estúdio Visual. Reinicie o depurador.
 
 ### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Erro "Relógio interno falhou: assista ENOSPC" ao anexar a depuragem a uma aplicação Node.js
 
-Este erro ocorre quando o nó que executa o pod com a aplicação Node.js a que está a tentar anexar com um depurado excedeu o valor *fs.inotify.max_user_watches.* Em alguns casos, [o valor predefinido de *fs.inotify.max_user_watches* pode ser demasiado pequeno para manusear a fixação de um depurante diretamente a uma cápsula](https://github.com/Azure/AKS/issues/772).
+Este erro ocorre quando o nó que executa o pod com a aplicação Node.js a que está a tentar anexar com um depurador excedeu o valor *fs.inotify.max_user_watches.* Em alguns casos, [o valor predefinido de *fs.inotify.max_user_watches* pode ser demasiado pequeno para manusear a fixação de um depurador diretamente a uma cápsula](https://github.com/Azure/AKS/issues/772).
 
-Uma solução temporária para esta questão consiste em aumentar o valor de *fs.inotify.max_user_watches* em cada nó do cluster e reiniciar esse nó para que as alterações entrem em vigor.
+Uma solução temporária para esta emissão é aumentar o valor de *fs.inotify.max_user_watches* em cada nó no cluster e reiniciar esse nó para que as alterações produzam efeitos.
 
 ## <a name="other-common-issues"></a>Outros problemas comuns
 
@@ -459,7 +459,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ### <a name="new-pods-arent-starting"></a>Novas cápsulas não estão a começar
 
-O inicializador Kubernetes não pode aplicar o PodSpec para novas cápsulas devido a alterações na permissão do RBAC no *cluster-administrador* no cluster. O novo pod também pode ter um PodSpec inválido, por exemplo, a conta de serviço associada à cápsula já não existe. Para ver as cápsulas que estão em estado *pendente* devido à questão do inicializador, utilize o `kubectl get pods` comando:
+O inicializador Kubernetes não pode aplicar o PodSpec para novas cápsulas devido às alterações da permissão do RBAC de Kubernetes no *cluster-admin.* O novo pod também pode ter um PodSpec inválido, por exemplo, a conta de serviço associada à cápsula já não existe. Para ver as cápsulas que estão em estado *pendente* devido à questão do inicializador, utilize o `kubectl get pods` comando:
 
 ```bash
 kubectl get pods --all-namespaces --include-uninitialized
@@ -488,7 +488,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 
 Depois de o seu controlador ser reinstalado, recolocar as suas cápsulas.
 
-### <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Permissões incorretas do RBAC para chamar controlador de Dev Spaces e APIs
+### <a name="incorrect-azure-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Permissões incorretas do Azure RBAC para chamar controlador de Dev Spaces e APIs
 
 O utilizador que acede ao controlador Azure Dev Spaces deve ter acesso para ler o *conjunto de administradores kubeconfig* no cluster AKS. Por exemplo, esta permissão está disponível no [Azure Kubernetes Service Cluster Admin Role](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). O utilizador que acede ao controlador Azure Dev Spaces também deve ter a função *de Contribuinte* ou *Proprietário* Azure para o controlador. Mais detalhes sobre a atualização das permissões de um utilizador para um cluster AKS estão disponíveis [aqui.](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)
 
@@ -501,8 +501,8 @@ Para atualizar a função Azure do utilizador para o controlador:
 1. Abra o painel *de controlo de acesso (IAM).*
 1. Clique no *separador Atribuições de Funções.*
 1. Clique *em Adicionar* e adicione a atribuição de *função*.
-    * Para *Função*, selecione *Contribuinte* ou *Proprietário*.
-    * Para *atribuir acesso a*, selecione *utilizador, grupo ou principal de serviço Azure.*
+    * Para *Função* , selecione *Contribuinte* ou *Proprietário*.
+    * Para *atribuir acesso a* , selecione *utilizador, grupo ou principal de serviço Azure.*
     * Para *obter o seguinte,* procure no utilizador que pretenda obter permissões.
 1. Clique em *Guardar*.
 
@@ -536,7 +536,7 @@ Para resolver este problema:
 
 1. Se o recipiente estiver em fase de construção/implantação, pode esperar 2-3 segundos e tentar aceder novamente ao serviço. 
 1. Verifique a configuração da porta nos seguintes ativos:
-    * ** [Gráfico de leme](https://docs.helm.sh):** Especificado pelo `service.port` e `deployment.containerPort` em valores.yaml andaimes por `azds prep` comando.
+    * **[Gráfico de leme](https://docs.helm.sh):** Especificado pelo `service.port` e `deployment.containerPort` em valores.yaml andaimes por `azds prep` comando.
     * Quaisquer portas abertas no código de aplicação, por exemplo em Node.js: `var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>O nome ou nome "MyLibrary" não foi encontrado

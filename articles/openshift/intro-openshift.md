@@ -5,14 +5,14 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: overview
-ms.date: 04/24/2020
+ms.date: 11/13/2020
 ms.custom: mvc
-ms.openlocfilehash: a3bdc3673474b778aa7c1003e48e215bac6d05bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dbc0f34e57297b9879a865511f6e7b4ed7ca2a3c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82628525"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636899"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -33,6 +33,10 @@ Para uma melhor segurança e gestão, o Azure Red Hat OpenShift permite-lhe inte
 ## <a name="cluster-and-node"></a>Cluster e nó
 
 Os nós Azure Red Hat OpenShift funcionam em máquinas virtuais Azure. Pode ligar o armazenamento a nós e cápsulas e atualizar componentes de cluster.
+
+## <a name="service-level-agreement"></a>Acordo de Nível de Serviço
+
+A Azure Red Hat OpenShift oferece um Acordo de Nível de Serviço para garantir que o serviço estará disponível 99,95% das vezes. Para mais detalhes sobre o SLA, consulte [Azure Red Hat OpenShift SLA](https://azure.microsoft.com/en-au/support/legal/sla/openshift/v1_0/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

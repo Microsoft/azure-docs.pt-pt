@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 17edd0a402fc6db2b3690074bdc0c652b107c7d0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b4c14417a31f28ea5d6475b3f84ee079d990dd6b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541390"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637069"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função Python em Azure a partir da linha de comando
 
@@ -139,7 +139,7 @@ Em Funções Azure, um projeto de função é um recipiente para uma ou mais fun
 
 Se desejar, pode saltar para [Executar a função localmente](#run-the-function-locally) e examinar o conteúdo do ficheiro mais tarde.
 
-#### <a name="__init__py"></a>\_\_init \_ \_ .py
+#### <a name="__init__py"></a>\_\_.py \_ init \_
 
 *\_ \_ init \_ \_ .py* contém uma `main()` função Python que é desencadeada de acordo com a configuração em *function.jsem*.
 
@@ -250,7 +250,8 @@ Utilize os seguintes comandos para criar estes itens. Tanto o Azure CLI como o P
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -FunctionsVersion 3 -RuntimeVersion 3.8 -Runtime python -Location 'West Europe'
     ```
     
-    <a name="the-new-azfunctionapp-cmdlet-creates-the-function-app-in-azure-if-youre-using-python-37-or-36-change--runtimeversion-to-37-or-36-respectively"></a>O [cmdlet New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cria a aplicação de função em Azure. Se estiver a utilizar python 3.7 ou 3.6, mude `-RuntimeVersion` para `3.7` `3.6` ou, respectivamente.
+    O [cmdlet New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cria a aplicação de função em Azure. Se estiver a utilizar python 3.7 ou 3.6, mude `-RuntimeVersion` para `3.7` `3.6` ou, respectivamente.
+
     ---
     
     No exemplo anterior, `<STORAGE_NAME>` substitua-o pelo nome da conta que usou no passo anterior e substitua-o `<APP_NAME>` por um nome globalmente único, adequado a si.  O `<APP_NAME>` também é o domínio DNS predefinido para a aplicação de funções. 

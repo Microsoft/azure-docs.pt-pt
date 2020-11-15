@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 375dff1dacc949dd4373bbf26908feb504750224
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: c0333f9faeae99ee83beda381f77f4f95b0a9192
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372346"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636125"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -37,7 +37,8 @@ As atualizações em novembro incluem:
 
 - [29 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [NIST SP 800 171 R2 adicionado ao painel de conformidade regulamentar do Centro de Segurança](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
-
+- [Lista de recomendações agora inclui filtros](#recommendations-list-now-includes-filters)
+- [Experiência de provisionamento automático melhorada e expandida](#auto-provisioning-experience-improved-and-expanded)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
 
@@ -78,6 +79,30 @@ Para aplicar a norma às suas subscrições e monitorizar continuamente o seu es
 Para obter mais informações sobre esta norma de conformidade, consulte [nIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
 
 
+### <a name="recommendations-list-now-includes-filters"></a>Lista de recomendações agora inclui filtros
+
+Pode agora filtrar a lista de recomendações de segurança de acordo com uma série de critérios. No exemplo seguinte, a lista de recomendações foi filtrada para mostrar recomendações que:
+
+- estão **geralmente disponíveis** (ou seja, não pré-visualização)
+- são para **contas de armazenamento**
+- apoiar a **reparação rápida da correção**
+
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="Filtros para a lista de recomendações":::
+
+
+### <a name="auto-provisioning-experience-improved-and-expanded"></a>Experiência de provisionamento automático melhorada e expandida
+
+A funcionalidade de provisionamento automático ajuda a reduzir a sobrecarga de gestão instalando as extensões necessárias em novos VMs - e existentes - para que possam beneficiar das proteções do Centro de Segurança. 
+
+À medida que o Azure Security Center cresce, mais extensões foram desenvolvidas e o Centro de Segurança pode monitorizar uma lista maior de tipos de recursos. As ferramentas de fornecimento automático foram agora expandidas para apoiar extensões adicionais e tipos de recursos, aproveitando as capacidades da Política Azure.
+
+Pode agora configurar o provisionamento automático de:
+
+- Agente do Log Analytics
+- (Novo) Azure Policy Add-on para Kubernetes
+- (Novo) Agente de dependência da Microsoft
+
+Saiba mais em [agentes de provisionamento automático e extensões do Azure Security Center](security-center-enable-data-collection.md).
 
 ## <a name="october-2020"></a>Outubro de 2020
 

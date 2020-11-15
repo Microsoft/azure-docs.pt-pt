@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2020
-ms.openlocfilehash: eb2212d618d45187779b328c7ba164bbacc980a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 012df825f38d292d0b0549701ad90334e3e30bb0
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088697"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637018"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -55,7 +55,7 @@ Garantia de continuidade do negócio, 99,999% de disponibilidade e segurança ao
 - A Azure Cosmos DB oferece um conjunto abrangente de [SLAs,](https://azure.microsoft.com/support/legal/sla/cosmos-db) incluindo disponibilidade líder na indústria em todo o mundo.
 - Distribua facilmente os dados para qualquer região do Azure com replicação automática de dados. Desfrute de um tempo de inatividade zero com gravações multi-regiões ou RPO 0 ao utilizar uma consistência forte.
 - Desfrute de encriptação de nível empresarial em repouso com chaves auto-geridas.
-- O controlo de acesso baseado em funções mantém os seus dados seguros e oferece um controlo afinado.
+- O controlo de acesso baseado em funções Azure mantém os seus dados seguros e oferece um controlo afinado.
 
 ### <a name="fully-managed-and-cost-effective"></a>Totalmente gerido e rentável
 

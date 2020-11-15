@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 51cb79e942b9d92876bd4d0e2cc27bb5ee0337bf
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070508"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634876"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um balanceador de carga padrão público no serviço Azure Kubernetes (AKS)
 
-O Azure Load Balancer é um L4 do modelo Open Systems Interconnection (OSI) que suporta cenários de entrada e saída. Distribui fluxos de entrada que chegam à extremidade dianteira do balançador de carga para as instâncias da piscina de backend.
+O Azure Load Balancer encontra-se no L4 do modelo Open Systems Interconnection (OSI) que suporta cenários de entrada e saída. Distribui fluxos de entrada que chegam à extremidade dianteira do balançador de carga para as instâncias da piscina de backend.
 
 Um Balanceador de Carga **público** quando integrado com aKS serve dois propósitos:
 
@@ -93,13 +93,13 @@ O Azure Load Balancer fornece conectividade de saída a partir de uma rede virtu
 
 Como todas as regras do Balanceador de Carga, as regras de saída seguem a mesma sintaxe familiar que o equilíbrio de carga e as regras NAT de entrada:
 
-***IPs frontend + parâmetros + piscina de backend***
+***IPs frontend + parâmetros + backend pool** _
 
 Uma regra de saída configura o NAT de saída para todas as máquinas virtuais identificadas pela piscina de backend para serem traduzidas para o frontend. E os parâmetros fornecem um controlo adicional de grãos finos sobre o algoritmo NAT de saída.
 
 Embora uma regra de saída possa ser usada apenas com um único endereço IP público, as regras de saída facilitam o fardo de configuração para a escala de NAT de saída. Você pode usar vários endereços IP para planear cenários de grande escala e você pode usar regras de saída para mitigar padrões propensos à exaustão SNAT. Cada endereço IP adicional fornecido por um frontend fornece portas efémeras de 64k para o Balancer de Carga usar como portas SNAT. 
 
-Ao utilizar um balanceador de carga *Standard* SKU com IPs públicos de saída geridos, que são criados por padrão, pode escalar o número de IPs públicos geridos de saída usando o **`load-balancer-managed-ip-count`** parâmetro.
+Ao utilizar um equilibrador de carga SKU _Standard* com IPs públicos de saída geridos, que são criados por padrão, pode escalar o número de IPs públicos geridos de saída utilizando o **`load-balancer-managed-ip-count`** parâmetro.
 
 Para atualizar um cluster existente, executar o seguinte comando. Este parâmetro também pode ser definido no intervalo para ter múltiplos IPs públicos geridos.
 
@@ -266,7 +266,7 @@ Se você espera ter numerosas ligações de curta duração, e nenhuma conexão 
  
 *saídaIPs* \* 64.000 \> *nodeVMs* \* *desejados Portos De Saída.*
  
-Por exemplo, se tiver 3 *nodeVMs*, e 50.000 *Portos De Saída De Saída desejados,* precisa de ter pelo menos 3 *Blocos de Saída*. Recomenda-se que incorpore capacidade ip adicional de saída para além do que precisa. Além disso, você deve ter em conta o autoescalador do cluster e a possibilidade de atualizações de piscina de nó ao calcular a capacidade ip de saída. Para o autoescalador do cluster, reveja a contagem de nós corrente e a contagem máxima do nó e utilize o valor mais elevado. Para a atualização, contabiliza um VM adicional de nó para cada piscina de nó que permite a atualização.
+Por exemplo, se tiver 3 *nodeVMs* , e 50.000 *Portos De Saída De Saída desejados,* precisa de ter pelo menos 3 *Blocos de Saída*. Recomenda-se que incorpore capacidade ip adicional de saída para além do que precisa. Além disso, você deve ter em conta o autoescalador do cluster e a possibilidade de atualizações de piscina de nó ao calcular a capacidade ip de saída. Para o autoescalador do cluster, reveja a contagem de nós corrente e a contagem máxima do nó e utilize o valor mais elevado. Para a atualização, contabiliza um VM adicional de nó para cada piscina de nó que permite a atualização.
 
 - Ao configurar *o IdleTimeoutInMinutes* para um valor diferente do padrão de 30 minutos, considere quanto tempo as suas cargas de trabalho precisarão de uma ligação de saída. Considere também o valor de tempo limite padrão para um balanceador de carga *Standard* SKU usado fora de AKS é de 4 minutos. Um valor *IdleTimeoutInMinutes* que reflita com mais precisão a sua carga de trabalho específica da AKS pode ajudar a diminuir a exaustão do SNAT causada pela ligação que já não é utilizada.
 

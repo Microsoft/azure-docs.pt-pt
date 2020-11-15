@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 089476980ff3e8b2d3b72cb2d229934cf7850c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f67a36ac4ccb27d7b955158b7e4a9cf4f5185d0
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899249"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636923"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -57,7 +57,7 @@ Para suportar cargas de trabalho de aplicação, pode montar volumes de armazena
 
 Para obter mais informações, consulte opções de fornecimento de armazenamento para aplicações no [armazenamento de Kubernetes para o seu dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-storage.md).
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 A rede Kubernetes permite-lhe configurar a comunicação dentro da sua rede Kubernetes, incluindo a rede contentor-a-contentor, a rede pod-to-pod, a rede pod-to-service e a rede Internet-to-service. Para obter mais informações, consulte o modelo de networking em [rede Kubernetes para o seu dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-networking.md).
 
@@ -67,7 +67,7 @@ A rede Kubernetes permite-lhe configurar a comunicação dentro da sua rede Kube
 
 ## <a name="access-monitoring"></a>Acesso, monitorização
 
-O cluster Kubernetes no seu dispositivo Azure Stack Edge Pro permite o controlo de acesso baseado em funções (RBAC). Para obter mais informações, consulte [o controlo de acesso baseado em funções para o cluster Kubernetes no seu dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-rbac.md).
+O cluster Kubernetes no seu dispositivo Azure Stack Edge Pro permite o controlo de acesso baseado em funções de Kubernetes (Kubernetes RBAC). Para obter mais informações, consulte o [controlo de acesso baseado em funções da Kubernetes no seu dispositivo GPU Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-rbac.md).
 
 Também pode monitorizar a saúde do seu cluster e recursos através do dashboard Kubernetes. Os registos dos contentores também estão disponíveis. Para obter mais informações, consulte [o painel kubernetes para monitorizar a saúde do cluster Kubernetes no seu dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
 

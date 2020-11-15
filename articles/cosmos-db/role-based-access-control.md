@@ -1,22 +1,22 @@
 ---
-title: Controlo de acesso baseado em funções no Azure Cosmos DB
-description: Saiba como a Azure Cosmos DB fornece proteção de base de dados com integração de diretório ativo (RBAC).
+title: Controlo de acesso baseado em funções Azure em Azure Cosmos DB
+description: Saiba como a Azure Cosmos DB fornece proteção de base de dados com integração de diretório ativo (Azure RBAC).
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9f0d42e2e3dfb7e11d3c74ad1280bb867a85e2f8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 950a3c03d5c2c76ad417634833c473ee65adb9b9
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085471"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636644"
 ---
-# <a name="role-based-access-control-in-azure-cosmos-db"></a>Controlo de acesso baseado em funções no Azure Cosmos DB
+# <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Controlo de acesso baseado em funções Azure em Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-A Azure Cosmos DB fornece um controlo de acesso baseado em funções incorporada (RBAC) para cenários comuns de gestão em Azure Cosmos DB. Um indivíduo que tenha um perfil no Azure Ative Directory pode atribuir estas funções Azure a utilizadores, grupos, diretores de serviços ou identidades geridas para conceder ou negar o acesso a recursos e operações em recursos DB da Azure Cosmos. As atribuições de funções são apenas para acesso de avião de controlo, o que inclui o acesso às contas da Azure Cosmos, bases de dados, contentores e ofertas (produção).
+A Azure Cosmos DB fornece um controlo de acesso baseado em funções (Azure RBAC) para cenários comuns de gestão em Azure Cosmos DB. Um indivíduo que tenha um perfil no Azure Ative Directory pode atribuir estas funções Azure a utilizadores, grupos, diretores de serviços ou identidades geridas para conceder ou negar o acesso a recursos e operações em recursos DB da Azure Cosmos. As atribuições de funções são apenas para acesso de avião de controlo, o que inclui o acesso às contas da Azure Cosmos, bases de dados, contentores e ofertas (produção).
 
 ## <a name="built-in-roles"></a>Funções incorporadas
 
@@ -30,11 +30,11 @@ Seguem-se os papéis integrados apoiados pela Azure Cosmos DB:
 |[Operador de DB cosmos](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Pode providenciar contas, bases de dados e contentores da Azure Cosmos. Não é possível aceder a nenhum dado ou utilizar o Data Explorer.|
 
 > [!IMPORTANT]
-> O suporte da RBAC em Azure Cosmos DB aplica-se apenas às operações de controlo do avião. As operações de planos de dados são protegidas usando chaves primárias ou fichas de recursos. Para saber mais, consulte [acesso seguro aos dados em Azure Cosmos DB](secure-access-to-data.md)
+> O suporte do Azure RBAC em Azure Cosmos DB aplica-se apenas às operações de controlo do avião. As operações de planos de dados são protegidas usando chaves primárias ou fichas de recursos. Para saber mais, consulte [acesso seguro aos dados em Azure Cosmos DB](secure-access-to-data.md)
 
 ## <a name="identity-and-access-management-iam"></a>Gestão de identidade e acesso (IAM)
 
-O painel **de controlo de acesso (IAM)** no portal Azure é utilizado para configurar o controlo de acesso baseado em funções nos recursos da Azure Cosmos. As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory. Você pode usar papéis incorporados ou papéis personalizados para indivíduos e grupos. A imagem que se segue mostra a integração do Ative Directory (RBAC) utilizando o controlo de acesso (IAM) no portal Azure:
+O painel **de controlo de acesso (IAM)** no portal Azure é utilizado para configurar o controlo de acesso baseado em funções da Azure Cosmos. As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory. Você pode usar papéis incorporados ou papéis personalizados para indivíduos e grupos. A imagem que se segue mostra a integração do Ative Directory (Azure RBAC) utilizando o controlo de acesso (IAM) no portal Azure:
 
 :::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Controlo de acesso (IAM) no portal Azure - demonstrando segurança na base de dados":::
 

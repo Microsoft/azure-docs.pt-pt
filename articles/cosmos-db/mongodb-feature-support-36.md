@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7fd52376e6b2d435e3ac6a60243f85ab34e59381
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bb9efa3fde0ed840589b66db7b28392de67ee8dd
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412957"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635624"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.6): sintaxe e funcionalidades suportadas
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -42,10 +42,10 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 |findAndModify | Yes  |
 |getLastError|   Yes |
 |getMore  |  Yes  |
-|obterPrevError | No  |
+|obterPrevError | Não  |
 |insert  |   Yes  |
 |paraleloCollectionScan  | Yes   |
-|resetEror |    No  |
+|resetEror |    Não  |
 |update  |   Yes  |
 |[Alterar fluxos](mongodb-change-streams.md)  |  Yes  |
 |GridFS |   Yes  |
@@ -63,12 +63,12 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 
 |Comando  |Suportado |
 |---------|---------|
-|Coleções Cobertas   |   No      |
-|cloneCollectionAsCapped     |   No      |
-|collMod     |   No      |
-|collMod: expiraafterSeconds   |   No      |
-|converteToCapped   |  No       |
-|copydb     |  No       |
+|Coleções Cobertas   |   Não      |
+|cloneCollectionAsCapped     |   Não      |
+|collMod     |   Não      |
+|collMod: expiraafterSeconds   |   Não      |
+|converteToCapped   |  Não       |
+|copydb     |  Não       |
 |criar   |    Yes     |
 |createIndexes     |  Yes       |
 |atualOp     |  Yes       |
@@ -77,13 +77,13 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 |dropIndexes     |   Yes      |
 |filemd5    |   Yes      |
 |killCursors    |  Yes       |
-|killOp     |   No      |
+|killOp     |   Não      |
 |listCollections     |  Yes       |
 |listDatabases     |  Yes       |
 |listIndexes     |  Yes       |
 |reIndex     |    Yes     |
-|renomeCollecto     |    No     |
-|connectionStatus    |     No    |
+|renomeCollecto     |    Não     |
+|connectionStatus    |     Não    |
 
 ### <a name="diagnostics-commands"></a>Comandos de diagnóstico
 
@@ -91,20 +91,20 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 |---------|---------|
 |buildInfo         |   Yes      |
 |collStats    |  Yes       |
-|ConnPoolStats     |  No       |
-|connectionStatus     |  No       |
-|dataSize     |   No      |
-|dbHash    |    No     |
+|ConnPoolStats     |  Não       |
+|connectionStatus     |  Não       |
+|dataSize     |   Não      |
+|dbHash    |    Não     |
 |dbStats     |   Yes      |
 |explicar     |   Yes      |
 |explicar: execuçõesStats     |   Yes      |
-|funcionalidades     |    No     |
-|hostInfo     |   No      |
+|funcionalidades     |    Não     |
+|hostInfo     |   Não      |
 |listDatabases         |   Yes      |
-|listCommands     |  No       |
-|perfis     |  No       |
-|serverStatus     |  No       |
-|top     |    No     |
+|listCommands     |  Não       |
+|perfis     |  Não       |
+|serverStatus     |  Não       |
+|top     |    Não     |
 |whatsmyuri     |   Yes      |
 
 <a name="aggregation-pipeline"></a>
@@ -118,13 +118,13 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 |aggregate |   Yes  |
 |count     |   Yes  |
 |distinct  | Yes |
-|mapReduce | No |
+|mapReduce | Não |
 
 ### <a name="aggregation-stages"></a>Fases de agregação
 
 |Comando  |Suportado |
 |---------|---------|
-|$collStats    |No|
+|$collStats    |Não|
 |$project    |Yes|
 |$match    |Yes|
 |$redact|    Yes|
@@ -134,20 +134,20 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 |$group    |    Yes|
 |$sample|        Yes|
 |$sort    |Yes|
-|$geoNear|    No|
+|$geoNear|    Não|
 |$lookup    |    Yes|
 |$out        |Yes|
-|$indexStats|        No|
+|$indexStats|        Não|
 |$facet    |Yes|
-|$bucket|    No|
-|$bucketAuto|    No|
+|$bucket|    Não|
+|$bucketAuto|    Não|
 |$sortByCount|    Yes|
 |$addFields    |Yes|
 |$replaceRoot|    Yes|
 |$count    |Yes|
-|$currentOp|    No|
-|$listLocalSessions    |No|
-|$listSessions    |No|
+|$currentOp|    Não|
+|$listLocalSessions    |Não|
+|$listSessions    |Não|
 |$graphLookup    |Yes|
 
 ### <a name="boolean-expressions"></a>Expressões booleanas
@@ -225,7 +225,7 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 
 |Comando  |Suportado |
 |---------|---------|
-| $meta | No|
+| $meta | Não|
 
 ### <a name="array-expressions"></a>Expressões de matriz
 
@@ -250,7 +250,7 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 
 |Comando  |Suportado |
 |---------|---------|
-|$map    |No|
+|$map    |Não|
 |$let    |Yes|
 
 ### <a name="system-variables"></a>Variáveis do sistema
@@ -287,9 +287,9 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 |$dateToString    |Yes    |
 |$isoDayOfWeek    |Yes    |
 |$isoWeek    |Yes    |
-|$dateFromParts|    No|    
-|$dateToParts    |No    |
-|$dateFromString|    No|
+|$dateFromParts|    Não|    
+|$dateToParts    |Não    |
+|$dateFromString|    Não|
 |$isoWeekYear    |Yes    |
 
 ### <a name="conditional-expressions"></a>Expressões condicionais
@@ -318,8 +318,8 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 |$min    |Yes    |
 |$push|    Yes|
 |$addToSet|    Yes|
-|$stdDevPop|    No    |
-|$stdDevSamp|    No|
+|$stdDevPop|    Não    |
+|$stdDevSamp|    Não|
 
 ### <a name="merge-operator"></a>Operador de fusão
 
@@ -360,9 +360,9 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 |Índice de Campo Único    |Yes    |
 |Índice Composto    |Yes    |
 |Índice Multikey    |Yes    |
-|Índice de Texto    |No|
+|Índice de Texto    |Não|
 |2desfera    |Yes    |
-|Índice 2d    |No    |
+|Índice 2d    |Não    |
 |Índice de Haxixe    | Yes|
 
 ### <a name="index-properties"></a>Propriedades de índice
@@ -371,9 +371,9 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 |---------|---------|
 |TTL|    Yes    |
 |Exclusivo    |Yes|
-|Parcial|    No|
-|Caso Insensível    |No|
-|Disperso    |No |
+|Parcial|    Não|
+|Caso Insensível    |Não|
+|Disperso    |Não |
 |Fundo|    Yes |
 
 ## <a name="operators"></a>Operadores
@@ -398,12 +398,12 @@ A API da Azure Cosmos DB para a MongoDB suporta os seguintes comandos de base de
 
 |Comando  |Suportado |
 |---------|---------|
-|$expr    |    No|
-|$jsonSchema    |    No|
+|$expr    |    Não|
+|$jsonSchema    |    Não|
 |$mod    |    Yes|
 |$regex |    Yes|
 |$text    | Não (Não suportado. Use $regex em vez disso.)| 
-|$where    |No| 
+|$where    |Não| 
 
 Nas consultas $regex, expressões ancoradas à esquerda permitem a procura de índices. No entanto, utilizar o modificador "i" (não sensível a maiúsculas e minúsculas) e o modificador "m" (multinha) faz a análise de coleção em todas as expressões.
 
@@ -432,7 +432,7 @@ $comment |Yes|
 |Comando  |Suportado |
 |---------|---------|
 |$elemMatch    |Yes|
-|$meta|    No|
+|$meta|    Não|
 |$slice    | Yes|
 
 ### <a name="update-operators"></a>Operadores de atualização
@@ -480,10 +480,10 @@ $comment |Yes|
 |Comando  |Suportado |
 |---------|---------|
 | $bit    |    Yes|    
-|$bitsAllSet    |    No|
-|$bitsAnySet    |    No|
-|$bitsAllClear    |No|
-|$bitsAnyClear    |No|
+|$bitsAllSet    |    Não|
+|$bitsAnySet    |    Não|
+|$bitsAllClear    |Não|
+|$bitsAnyClear    |Não|
 
 ### <a name="geospatial-operators"></a>Operadores geoespaciais
 
@@ -496,10 +496,10 @@ $nearSphere |  Yes |
 $geometry |  Yes |
 $minDistance | Yes |
 $maxDistance | Yes |
-$center | No |
-$centerSphere | No |
-$box | No |
-$polygon |  No |
+$center | Não |
+$centerSphere | Não |
+$box | Não |
+$polygon |  Não |
 
 ## <a name="cursor-methods"></a>Métodos de cursor
 
@@ -508,10 +508,10 @@ $polygon |  No |
 |cursor.batchSize()    |    Yes|
 |cursor.close()    |Yes|
 |cursor.isClosed()|        Yes|
-|cursor.collation()|    No|
+|cursor.collation()|    Não|
 |cursor.comment()    |Yes|
 |cursor.count()    |Yes|
-|cursor.explain()|    No|
+|cursor.explain()|    Não|
 |cursor.forEach()    |Yes|
 |cursor.hasNext()    |Yes|
 |cursor.hint()    |Yes|
@@ -524,17 +524,17 @@ $polygon |  No |
 |cursor.max()    |Yes|
 |cursor.min()    |Yes|
 |cursor.next()|    Yes|
-|cursor.noCursorTimeout()    |No|
+|cursor.noCursorTimeout()    |Não|
 |cursor.objsLeftInBatch()    |Yes|
 |cursor.pretty()|    Yes|
 |cursor.readConcern()|    Yes|
 |cursor.readPref()        |Yes|
-|cursor.returnKey()    |No|
-|cursor.showRecordId()|    No|
+|cursor.returnKey()    |Não|
+|cursor.showRecordId()|    Não|
 |cursor.size()    |Yes|
 |cursor.skip()    |Yes|
 |cursor.sort()    |    Yes|
-|cursor.tailable()|    No|
+|cursor.tailable()|    Não|
 |cursor.toArray()    |Yes|
 
 ## <a name="sort-operations"></a>Ordenar operações
@@ -576,7 +576,7 @@ Cosmos DB suporta um time-to-live (TTL) baseado no tempotamp do documento. A TTL
 
 ## <a name="user-and-role-management"></a>Gestão de funções e utilizadores
 
-A Cosmos DB ainda não suporta utilizadores e funções. No entanto, a Cosmos DB suporta o controlo de acesso baseado em funções (RBAC) e as palavras-passe/teclas de leitura e leitura que podem ser obtidas através do [portal Azure](https://portal.azure.com) (página de cadeia de ligação).
+A Cosmos DB ainda não suporta utilizadores e funções. No entanto, a Cosmos DB suporta o controlo de acesso baseado em funções (Azure RBAC) e palavras-passe/chaves só de leitura e leitura que podem ser obtidas através do [portal Azure](https://portal.azure.com) (página de cadeia de ligação).
 
 ## <a name="replication"></a>Replicação
 

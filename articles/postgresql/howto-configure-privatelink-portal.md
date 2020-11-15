@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 98d3beef72d314f93f6a2bc580b1dd5de5735f23
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242471"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636270"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerir o Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único usando o Portal
 
@@ -60,7 +60,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
     | Nome da máquina virtual | *Insira o myVm*. |
-    | Region | Selecione **Europa Ocidental**. |
+    | Região | Selecione **Europa Ocidental**. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows** Server . |
     | Tamanho | Deixe o **padrão DS1 v2**. |
@@ -144,7 +144,7 @@ Nesta secção, irá criar um servidor PostgreSQL e adicionar-lhe um ponto final
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | **Detalhes da instância** |  |
     | Name | Introduza *myPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
-    |Region|Selecione **Europa Ocidental**.|
+    |Região|Selecione **Europa Ocidental**.|
     |||
 5. Selecione **Seguinte: Recurso**.
 6. Em **Criar um ponto final privado - Recurso,** insira ou selecione estas informações:
@@ -166,8 +166,8 @@ Nesta secção, irá criar um servidor PostgreSQL e adicionar-lhe um ponto final
     | Rede virtual| Selecione *MyVirtualNetwork*. |
     | Sub-rede | Selecione *mySubnet*. |
     |**INTEGRAÇÃO DE DNS PRIVADO**||
-    |Integrar com zona DNS privada |Selecione **Sim**. |
-    |Zona DNS Privada |Selecione *(Novo)privatelink.postgres.database.azure.com* |
+    |Integrar com zona DNS privada |Selecione **Yes** (Sim). |
+    |Zona DNS Privada |Selecione *(New)privatelink.postgres.database.azure.com* |
     |||
 
     > [!Note] 
@@ -222,7 +222,7 @@ Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma:
     Address:  10.1.3.4
     ```
 
-3. Teste a ligação de ligação privada para o servidor PostgreSQL utilizando qualquer cliente disponível. No exemplo abaixo, usei o [estúdio Azure Data](/sql/azure-data-studio/download?view=sql-server-ver15) para fazer a operação.
+3. Teste a ligação de ligação privada para o servidor PostgreSQL utilizando qualquer cliente disponível. No exemplo abaixo, usei o [estúdio Azure Data](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) para fazer a operação.
 
 4. Em **Nova ligação,** insira ou selecione estas informações:
 
@@ -243,7 +243,7 @@ Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma:
 
 8. Feche a ligação remota do ambiente de trabalho ao myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando terminar de usar o ponto final privado, o servidor PostgreSQL e o VM, elimine o grupo de recursos e todos os recursos que contém:
 
 1. Introduza o *myResourceGroup* na caixa **de Pesquisa** no topo do portal e selecione o  *myResourceGroup*   a partir dos resultados da pesquisa.

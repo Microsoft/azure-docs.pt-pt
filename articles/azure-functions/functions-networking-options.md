@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578843"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636474"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -97,8 +97,8 @@ Quando criar uma aplicação de função, deve criar ou ligar para uma conta de 
 1. Criar ou configurar uma conta de armazenamento diferente.  Esta será a conta de armazenamento que asseguramos com os pontos finais de serviço e conectamos a nossa função.
 1. [Crie uma partilha de ficheiros](../storage/files/storage-how-to-create-file-share.md#create-file-share) na conta de armazenamento segura.
 1. Ativar os pontos finais do serviço ou o ponto final privado para a conta de armazenamento.  
-    * Certifique-se de que ativa a sub-rede dedicada às suas aplicações de função se utilizar um ponto final de serviço.
-    * Certifique-se de criar um registo DNS e configurar a sua app para [trabalhar com pontos finais privados](#azure-dns-private-zones) se utilizar o ponto final privado.  A conta de armazenamento necessitará de um ponto final privado para os `file` `blob` subreufontes e subreufontes.  Se utilizar certas capacidades como Funções Duradouras, também necessitará e será acessível através de `queue` uma `table` ligação de ponto final privado.
+    * Se utilizar ligações privadas de ponto final, a conta de armazenamento necessitará de um ponto final privado para as `file` `blob` subreufontes e subreufontes.  Se utilizar certas capacidades como Funções Duradouras, também necessitará e será acessível através de `queue` uma `table` ligação de ponto final privado.
+    * Se utilizar pontos finais de serviço, ative a sub-rede dedicada às suas aplicações de função para contas de armazenamento.
 1. (Opcional) Copie o conteúdo do ficheiro e do blob da conta de armazenamento de aplicações de função para a conta de armazenamento e partilha de ficheiros seguras.
 1. Copie o fio de ligação para esta conta de armazenamento.
 1. Atualizar as Definições de **Aplicação** em **Configuração** para a aplicação de função para o seguinte:
@@ -106,6 +106,9 @@ Quando criar uma aplicação de função, deve criar ou ligar para uma conta de 
     - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` ao fio de ligação para a conta de armazenamento segura.
     - `WEBSITE_CONTENTSHARE` para o nome da partilha de ficheiros criada na conta de armazenamento segura.
     - Crie uma nova definição com o nome `WEBSITE_CONTENTOVERVNET` e o valor de `1` .
+    - Se a conta de armazenamento estiver a utilizar ligações privadas de ponto final, verifique ou adicione as seguintes definições
+        - `WEBSITE_VNET_ROUTE_ALL` com um valor de `1` .
+        - `WEBSITE_DNS_SERVER` com um valor de `168.63.129.16` 
 1. Guarde as definições de aplicação.  
 
 A aplicação de função será reiniciada e será agora ligada a uma conta de armazenamento segura.

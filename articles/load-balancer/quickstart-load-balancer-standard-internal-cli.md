@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 852589e7ba1896ad493c5b8c300240490a516b64
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 51f02d9f059ef87f7c1627102508b8b2aa7f537a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518248"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636304"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio usando Azure CLI
 
@@ -122,6 +122,14 @@ Criar uma regra de grupo de segurança de rede utilizando [a regra az network ns
     --priority 200
 ```
 
+## <a name="create-backend-servers"></a>Criar servidores de back-end
+
+Nesta secção, cria-se:
+
+* Interfaces de rede para os servidores backend.
+* Um ficheiro de configuração em nuvem nomeado **cloud-init.txt** para a configuração do servidor.
+* Duas máquinas virtuais a serem utilizadas como servidores de backend para o equilibrador de carga.
+
 ### <a name="create-network-interfaces-for-the-virtual-machines"></a>Criar interfaces de rede para as máquinas virtuais
 
 Criar duas interfaces de rede com [a az network nic criar:](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create)
@@ -158,13 +166,6 @@ Criar duas interfaces de rede com [a az network nic criar:](https://docs.microso
     --subnet myBackEndSubnet \
     --network-security-group myNSG
 ```
-
-## <a name="create-backend-servers"></a>Criar servidores de back-end
-
-Nesta secção, cria-se:
-
-* Um ficheiro de configuração em nuvem nomeado **cloud-init.txt** para a configuração do servidor.
-* Duas máquinas virtuais a serem utilizadas como servidores de backend para o equilibrador de carga.
 
 ### <a name="create-cloud-init-configuration-file"></a>Criar ficheiro de configuração de inimento de nuvem
 
@@ -849,7 +850,7 @@ Pode levar alguns minutos para a máquina virtual ser implantada.
    
 Para ver o balanceador de carga distribuir tráfego através dos três VMs, pode personalizar a página padrão de cada servidor Web IIS de cada VM e, em seguida, refrescar o seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, utilize o comando de eliminação do [grupo AZ](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) para remover o grupo de recursos, o equilibrador de carga e todos os recursos relacionados.
 

@@ -4,12 +4,12 @@ description: Conheça os parceiros do Azure Monitor e como pode aceder à docume
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: dc33e9d8d613b9d0575da069d884e454d9930eac
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d603e130d4e65667edb34121a4c89b7b0e02b819
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555644"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636746"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -46,6 +46,16 @@ A AppDynamics Application Performance Management (APM) permite aos proprietário
 Você pode criar bilhetes JIRA em alertas do Azure Monitor.
 
 [Documentação atlassiana para monitor Azure](https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/)
+
+## <a name="bmc-helix"></a>Hélice BMC
+
+![Logotipo da Hélix BMC](./media/partners/BMCHelix.png)
+
+A BMC Helix é uma plataforma autónoma de serviços e operações SaaS. Integrado com inteligência de 360 graus, capacita as empresas a descobrir, monitorizar, prestar serviço, remediar, otimizar e oferecer experiências omnicanais para TI e linhas de negócio.
+Além disso, ao integrar perfeitamente a ITSM e a ITM Operations Management (ITOM), a BMC Helix permite que os utilizadores de TI e de negócios eliminem silos de TI, façam decisões de negócio orientadas por dados e proporcionem experiências de clientes líderes no setor.
+Os clientes podem implantar a plataforma BMC Helix com a implementação em nuvem da sua escolha – pública, privada ou híbrida. Além disso, os clientes têm uma escolha de soluções AI/ML para alavancar os principais fornecedores do setor.
+
+[Saiba mais sobre a BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="botmetric"></a>Botmétrico
 
@@ -151,7 +161,7 @@ A Microfocus **ArcSight** tem um conector inteligente para os centros de eventos
 
 A Microfocus **Operations Bridge** monitoriza automaticamente todos os recursos de TI híbridos – qualquer dispositivo, sistema operativo, base de dados, aplicação ou serviço, independentemente do local onde funciona e aplica AIOps a todos os tipos de dados – eventos, métricas, registos e dependências. Fornece uma combinação única de monitorização de qualidade de serviço, juntamente com análises profundas de saúde de aplicações, e inclui uma monitorização abrangente de desempenho e disponibilidade dos serviços microsoft Azure. Operations Bridge permite que os clientes forneçam um único painel de vidro, disponível em qualquer dispositivo com um browser, de forma a que tanto as partes interessadas de negócios como de TI possam compreender.
 
-Saber mais
+Saiba mais
 - [Visão geral da Suite OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Transferência](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope é um componente na Suite da Ponte de Operações.
@@ -301,15 +311,6 @@ A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas,
 
 [Introdução turbonómica](https://turbonomic.com/)
 
-## <a name="bmc-helix"></a>Hélice BMC
-
-![Logotipo da Hélix BMC](./media/partners/BMCHelix.png)
-
-A BMC Helix é uma plataforma autónoma de serviços e operações SaaS. Integrado com inteligência de 360 graus, capacita as empresas a descobrir, monitorizar, prestar serviço, remediar, otimizar e oferecer experiências omnicanais para TI e linhas de negócio.
-Além disso, ao integrar perfeitamente a ITSM e a ITM Operations Management (ITOM), a BMC Helix permite que os utilizadores de TI e de negócios eliminem silos de TI, façam decisões de negócio orientadas por dados e proporcionem experiências de clientes líderes no setor.
-Os clientes podem implantar a plataforma BMC Helix com a implementação em nuvem da sua escolha – pública, privada ou híbrida. Além disso, os clientes têm uma escolha de soluções AI/ML para alavancar os principais fornecedores do setor.
-
-[Saiba mais sobre a BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="next-steps"></a>Passos seguintes
 

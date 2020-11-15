@@ -1,6 +1,6 @@
 ---
 title: Compreenda o controlo de acesso baseado em funções da Kubernetes no dispositivo Azure Stack Edge Pro Microsoft Docs
-description: Descreve como o Controlo de Acesso baseado em funções kubernetes ocorre num dispositivo Azure Stack Edge Pro.
+description: Descreve como o controlo de acesso baseado em funções da Kubernetes ocorre num dispositivo Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 0880ae64520997fc6b41ba4a7e8508d927235a8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a9625dcf40ae7d11e1154fc89b7f04652c8ca16
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320817"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635845"
 ---
-# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes Controlo de Acesso baseado em funções no seu dispositivo GPU Azure Stack Edge Pro
+# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes controlo de acesso baseado em funções no seu dispositivo GPU Azure Stack Edge Pro
 
 
-No seu dispositivo Azure Stack Edge Pro, quando configurar o papel de computação, é criado um cluster Kubernetes. Pode utilizar o controlo de acesso baseado em funções da Kubernetes (RBAC) para limitar o acesso aos recursos de cluster no seu dispositivo.
+No seu dispositivo Azure Stack Edge Pro, quando configurar o papel de computação, é criado um cluster Kubernetes. Pode utilizar o controlo de acesso baseado em funções da Kubernetes (Kubernetes RBAC) para limitar o acesso aos recursos de cluster no seu dispositivo.
 
-Estes artigos fornecem uma visão geral para o sistema RBAC fornecido pela Kubernetes, e como é que o RBAC de Kubernetes é implementado no seu dispositivo Azure Stack Edge Pro. 
+Estes artigos fornecem uma visão geral para o sistema RBAC de Kubernetes fornecido pela Kubernetes, e como é implementado o RBAC da Kubernetes no seu dispositivo Azure Stack Edge Pro. 
 
-## <a name="rbac-for-kubernetes"></a>RBAC para Kubernetes
+## <a name="kubernetes-rbac"></a>RBAC do Kubernetes
 
 O AMCC da Kubernetes permite atribuir aos utilizadores, ou grupos de utilizadores, permissão para fazer coisas como criar ou modificar recursos, ou ver registos de cargas de trabalho de aplicações. Estas permissões podem ser miradas para um único espaço de nome, ou concedidas em todo o cluster. 
 
@@ -61,21 +61,21 @@ O seu dispositivo Azure Stack Edge Pro tem os seguintes espaços de nome:
 
 No mundo real, é importante dividir o cluster em múltiplos espaços de nome. 
 
-- **Vários utilizadores**: Se tiver vários utilizadores, vários espaços de nome permitirão que esses utilizadores implementem as suas aplicações e serviços nos seus espaços específicos de nomes, isoladamente. 
-- **Utilizador único**: Mesmo que exista um único utilizador, vários espaços de nome permitiriam que o utilizador executasse várias versões das aplicações no mesmo cluster Kubernetes.
+- **Vários utilizadores** : Se tiver vários utilizadores, vários espaços de nome permitirão que esses utilizadores implementem as suas aplicações e serviços nos seus espaços específicos de nomes, isoladamente. 
+- **Utilizador único** : Mesmo que exista um único utilizador, vários espaços de nome permitiriam que o utilizador executasse várias versões das aplicações no mesmo cluster Kubernetes.
 
 ### <a name="roles-and-rolebindings"></a>Papéis e RoleBindings
 
 Kubernetes tem o conceito de função e de encadernação de papéis que permite dar permissões ao utilizador ou recursos a nível de espaço de nome e a um nível de cluster. 
 
-- **Funções**: Pode definir permissões para os utilizadores como uma **Função** e, em seguida, usar **Roles** para conceder permissões dentro de um espaço de nome. 
-- **RoleBindings**: Uma vez definidos os papéis, pode utilizar **RoleBindings** para atribuir funções para um determinado espaço de nome. 
+- **Funções** : Pode definir permissões para os utilizadores como uma **Função** e, em seguida, usar **Roles** para conceder permissões dentro de um espaço de nome. 
+- **RoleBindings** : Uma vez definidos os papéis, pode utilizar **RoleBindings** para atribuir funções para um determinado espaço de nome. 
 
 Esta abordagem permite-lhe, logicamente, segregar um único cluster Kubernetes, com os utilizadores apenas capazes de aceder aos recursos da aplicação no seu espaço de nome atribuído. 
 
-## <a name="rbac-on-azure-stack-edge-pro"></a>RBAC no Azure Stack Edge Pro
+## <a name="kubernetes-rbac-on-azure-stack-edge-pro"></a>Kubernetes RBAC no Azure Stack Edge Pro
 
-Na implementação atual do RBAC, o Azure Stack Edge Pro permite-lhe tomar as seguintes ações a partir de um espaço de execução restrito do PowerShell:
+Na implementação atual do Kubernetes RBAC, o Azure Stack Edge Pro permite-lhe tomar as seguintes ações a partir de um espaço de execução restrito do PowerShell:
 
 - Criar espaços para nomes.  
 - Criar utilizadores adicionais.
@@ -85,9 +85,9 @@ Na implementação atual do RBAC, o Azure Stack Edge Pro permite-lhe tomar as se
 
 O dispositivo Azure Stack Edge Pro tem vários espaços de nome do sistema e pode criar espaços de nome de utilizador com `kubeconfig` ficheiros para aceder a esses espaços de nome. Os utilizadores têm controlo total sobre estes espaços de nome e podem criar ou modificar utilizadores, ou conceder acesso aos utilizadores. Apenas o administrador do cluster tem acesso total a espaços de nomes do sistema e recursos em todo o cluster. Um `aseuser` tem acesso apenas de leitura a espaços de nomes do sistema.
 
-Aqui está um diagrama que retrata a implementação do RBAC no dispositivo Azure Stack Edge Pro.
+Aqui está um diagrama que retrata a implementação do RBAC de Kubernetes no dispositivo Azure Stack Edge Pro.
 
-![RBAC no dispositivo Azure Stack Edge Pro](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
+![Kubernetes RBAC no dispositivo Azure Stack Edge Pro](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
 
 Neste diagrama, Alice, Bob e Chuck têm acesso apenas a espaços de nome de utilizador atribuídos, que neste caso são `ns1` `ns2` , e `ns3` respectivamente. Dentro destes espaços de nome, eles têm acesso administrativo. O administrador de cluster, por outro lado, tem acesso administrativo a espaços de nome do sistema e recursos de cluster.
 

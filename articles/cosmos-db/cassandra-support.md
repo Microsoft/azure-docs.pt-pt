@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: ae4281350efc96fab6c4e2898cbcddf83bf29cd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ecf4229c95ff9103cd27fd161fdd19c9e7a0f76b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073119"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636967"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -50,7 +50,7 @@ A API para Cassandra do Azure Cosmos DB suporta os seguintes tipos de dados de C
 | blob  | Yes |
 | boolean  | Yes |
 | counter  | Yes |
-| date  | Yes |
+| data  | Yes |
 | decimal  | Yes |
 | double  | Yes |
 | float  | Yes |
@@ -84,19 +84,26 @@ A API para Cassandra do Azure Cosmos DB suporta as seguintes funções de CQL:
 | Token * | Yes |
 | ttl | Yes |
 | tempo de escrita | Yes |
-| elenco | No |
+| elenco | Não |
 
-\* A API cassandra suporta o token como uma projeção/seletor, e só permite token(pk) no lado esquerdo de uma cláusula onde. Por exemplo, `WHERE token(pk) > 1024` é apoiado, mas `WHERE token(pk) > token(100)` não é apoiado.
+> [!NOTE]
+> \* A API cassandra suporta o token como uma projeção/seletor, e só permite token(pk) no lado esquerdo de uma cláusula onde. Por exemplo, `WHERE token(pk) > 1024` é apoiado, mas `WHERE token(pk) > token(100)` **não** é apoiado.
+
 
 
 Funções agregadas:
 
 |Comando  |Suportado |
 |---------|---------|
-| min | Yes |
-| max | Yes |
 | avg | Yes |
 | count | Yes |
+| min | Yes |
+| max | Yes |
+| soma | Yes |
+
+> [!NOTE]
+> As funções agregadas funcionam em colunas regulares, mas os agregados em colunas de agrupamento **não** são suportados.
+
 
 Funções de conversão blob:
  
@@ -132,49 +139,49 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 |---------|---------|
 | PERMITIR A FILTRAGEM | Yes |
 | ALTERAR O ESPAÇO DE CHAVES | N/A (serviço PaaS, replicação gerida internamente)|
-| ALTERAR VISTA MATERIALIZADA | No |
-| ALTERAR PAPEL | No |
+| ALTERAR VISTA MATERIALIZADA | Não |
+| ALTERAR PAPEL | Não |
 | ALTER TABLE | Yes |
-| TIPO ALTER | No |
-| UTILIZADOR ALTER | No |
+| TIPO ALTER | Não |
+| UTILIZADOR ALTER | Não |
 | LOTE | Sim (apenas lote não enólogo)|
 | ARMAZENAMENTO COMPACTO | N/A (serviço PaaS) |
-| CRIAR AGREGADO | No | 
-| CRIAR ÍNDICE PERSONALIZADO (SASI) | No |
+| CRIAR AGREGADO | Não | 
+| CRIAR ÍNDICE PERSONALIZADO (SASI) | Não |
 | CREATE INDEX | Sim (sem [especificar o nome do índice](cassandra-secondary-index.md), e índices em chaves de agrupamento ou recolha completa de FROZEN não suportada) |
-| CREATE FUNCTION | No |
+| CREATE FUNCTION | Não |
 | CRIAR KEYSPACE (definições de replicação ignoradas) | Yes |
-| CRIAR VISTA MATERIALIZADA | No |
+| CRIAR VISTA MATERIALIZADA | Não |
 | CREATE TABLE | Yes |
-| CRIAR GATILHO | No |
+| CRIAR GATILHO | Não |
 | CRIAR TIPO | Yes |
-| CRIAR PAPEL | No |
-| CREATE USER (Deprecado em Apache Cassandra nativo) | No |
+| CRIAR PAPEL | Não |
+| CREATE USER (Deprecado em Apache Cassandra nativo) | Não |
 | DELETE | Yes |
 | EXCLUIR (transações leves com IF CONDITION)| Yes |
-| DISTINCT | No |
-| AGREGADO DE DROP | No |
-| DROP FUNCTION | No |
+| DISTINCT | Não |
+| AGREGADO DE DROP | Não |
+| DROP FUNCTION | Não |
 | DROP INDEX | Yes |
 | DROP KEYSPACE | Yes |
-| VISTA MATERIALIZADA GOTA | No |
-| PAPEL DE DROP | No |
+| VISTA MATERIALIZADA GOTA | Não |
+| PAPEL DE DROP | Não |
 | DROP TABLE | Yes |
-| DETONADOR DE QUEDA | No | 
+| DETONADOR DE QUEDA | Não | 
 | TIPO DE GOTA | Yes |
-| UTILIZADOR DROP (Deprecado em Apache Cassandra nativo) | No |
-| GRANT | No |
+| UTILIZADOR DROP (Deprecado em Apache Cassandra nativo) | Não |
+| GRANT | Não |
 | INSERT | Yes |
 | INSIRA (transações leves com IF CONDITION)| Yes |
-| PERMISSÕES DE LISTA | No |
-| FUNÇÕES DE LISTA | No |
-| UTILIZADORES LISTA (Deprecado em Apache Cassandra nativo) | No |
-| REVOKE | No |
+| PERMISSÕES DE LISTA | Não |
+| FUNÇÕES DE LISTA | Não |
+| UTILIZADORES LISTA (Deprecado em Apache Cassandra nativo) | Não |
+| REVOKE | Não |
 | SELECIONAR | Yes |
-| SELECT (transações leves com IF CONDITION)| No |
+| SELECT (transações leves com IF CONDITION)| Não |
 | UPDATE | Yes |
-| ATUALIZAÇÃO (transações leves com IF CONDITION)| No |
-| TRUNCATO | No |
+| ATUALIZAÇÃO (transações leves com IF CONDITION)| Não |
+| TRUNCATO | Não |
 | USE | Yes |
 
 ## <a name="json-support"></a>Suporte JSON
@@ -182,8 +189,8 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 |---------|---------|
 | SELECIONE JSON | Yes |
 | INSERIR JSON | Yes |
-| fromJson() | No |
-| toJson() | No |
+| fromJson() | Não |
+| toJson() | Não |
 
 
 ## <a name="cassandra-api-limits"></a>Limites da API para Cassandra
@@ -200,7 +207,7 @@ A API para Cassandra do Azure Cosmos DB é uma plataforma de serviço gerida. N�
 
 Pode abrir uma concha nativa hospedada de Cassandra (CQLSH v5.0.1) diretamente do Data Explorer no [portal Azure](data-explorer.md) ou do [explorador Azure Cosmos.](https://cosmos.azure.com/) Antes de ativar a concha CQL, tem de ativar a função [Desatado](enable-notebooks.md) na sua conta (se ainda não estiver ativada, será solicitada ao clicar em `Open Cassandra Shell` ). Consulte a nota realçada em [Enable notebooks for Azure Cosmos DB accounts](enable-notebooks.md) for supported Azure Regions.
 
-:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH&quot;:::
+:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH":::
 
 Também pode ligar-se à API Cassandra em Azure Cosmos DB utilizando o CQLSH instalado numa máquina local. Vem com Apache Cassandra 3.1.1 e funciona fora da caixa definindo as variáveis ambientais. As seguintes secções incluem as instruções para instalar, configurar e ligar à Cassandra API em Azure Cosmos DB, no Windows ou Linux utilizando o CQLSH.
 
@@ -224,7 +231,7 @@ curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
 keytool -importcert -alias bc2025ca -file bc2025.crt
 
 # Install the Cassandra libraries in order to get CQLSH:
-echo &quot;deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra
@@ -260,7 +267,7 @@ A API para Cassandra do Azure Cosmos DB permite que haja consistência em opera�
 
 ## <a name="permission-and-role-management"></a>Gestão de permissões e funções
 
-O Azure Cosmos DB suporta o controlo de acesso baseado em funções (RBAC) para provisões, chaves rotativas, métricas de visualização e palavras-passe/chaves só de leitura que podem ser obtidas através do [portal Azure](https://portal.azure.com). A Azure Cosmos DB não apoia papéis para atividades da CRUD.
+A Azure Cosmos DB suporta o controlo de acesso baseado em funções (Azure RBAC) para provisões, chaves rotativas, métricas de visualização e palavras-passe/chaves só de leitura que podem ser obtidas através do [portal Azure.](https://portal.azure.com) A Azure Cosmos DB não apoia papéis para atividades da CRUD.
 
 ## <a name="keyspace-and-table-options"></a>Opções de keyspace e tabela
 

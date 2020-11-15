@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 4bad3227e08c0fbe0d280967e45bbef9d477e1b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4b968d0d5e091d72cf718d58b11ade68ddf8c6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569140"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637093"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendações de remediação no Centro de Segurança do Azure
 
@@ -38,9 +38,16 @@ Depois de rever todas as recomendações, decida qual delas deve remediar primei
 
 ## <a name="quick-fix-remediation"></a>Reparação rápida<a name="one-click"></a>
 
-O Quick Fix permite-lhe remediar rapidamente uma recomendação sobre múltiplos recursos. Só está disponível para recomendações específicas. O Quick Fix simplifica a remediação e permite-lhe aumentar rapidamente a sua Pontuação Segura, melhorando a segurança do seu ambiente.
+A correção rápida simplifica a remediação e permite-lhe aumentar rapidamente a sua pontuação segura, melhorando a segurança do seu ambiente.
 
-Para implementar a reparação da Quick Fix:
+A correção rápida permite-lhe remediar rapidamente uma recomendação sobre múltiplos recursos. 
+
+> [!TIP]
+> A correção rápida só está disponível para recomendações específicas. Para encontrar as recomendações que têm a opção de correção rápida, utilize o filtro dedicado no topo da lista de recomendações:
+> 
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Use os filtros acima da lista de recomendações para encontrar recomendações que tenham a opção de correção rápida":::
+
+Para implementar uma correção rápida:
 
 1. Da lista de recomendações que têm a **Quick Fix!** etiqueta, clique na recomendação.
 
@@ -53,10 +60,10 @@ Para implementar a reparação da Quick Fix:
 
 1. Na caixa de confirmação, leia os detalhes e implicações da reparação.
 
-    ![Correção Rápida](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
+    ![Correção rápida](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
     > [!NOTE]
-    > As implicações estão listadas na caixa cinzenta na janela **de recursos Remediate** que se abre após clicar em **Remediate**. Eles listam as mudanças que acontecem quando prosseguem com a reparação da Quick Fix.
+    > As implicações estão listadas na caixa cinzenta na janela **de recursos Remediate** que se abre após clicar em **Remediate**. Eles listam o que acontece quando prosseguem com a rápida correção.
 
 1. Insira os parâmetros relevantes se necessário e aprove a reparação.
 
@@ -65,7 +72,7 @@ Para implementar a reparação da Quick Fix:
 
 1. Uma vez concluída, aparece uma notificação informando-o se a reparação foi bem sucedida.
 
-## <a name="quick-fix-remediation-logging-in-the-activity-log"></a>Reparação rápida registação no registo de atividade <a name="activity-log"></a>
+## <a name="quick-fix-remediation-logging-in-the-activity-log"></a>Correção rápida de remediação no registo de atividade <a name="activity-log"></a>
 
 A operação de remediação utiliza uma implementação de modelo ou chamada API REST PATCH para aplicar a configuração no recurso. Estas operações estão registadas no [registo de atividades do Azure](../azure-resource-manager/management/view-activity-logs.md).
 

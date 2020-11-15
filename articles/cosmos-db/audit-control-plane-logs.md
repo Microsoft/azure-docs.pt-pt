@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 683fc553e7712e2a760a0af1b601207cb20f2f55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0feaf4a984f40ddee7a30291fe0a8f671b6512a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092811"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636848"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar as operações do avião de controlo da Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -28,7 +28,7 @@ Seguem-se alguns cenários de exemplo em que a auditoria das operações dos avi
 
 ## <a name="disable-key-based-metadata-write-access"></a>Desativar metadados baseados em metadados
 
-Antes de auditar as operações do avião de controlo em Azure Cosmos DB, desative os metadados baseados em chaves para escrever o acesso na sua conta. Quando os metadados-chave escrevem o acesso é desativado, os clientes que se conectam à conta Azure Cosmos através de chaves de conta são impedidos de aceder à conta. Pode desativar o acesso de escrita definindo a `disableKeyBasedMetadataWriteAccess` propriedade como verdadeira. Depois de definir esta propriedade, as alterações a qualquer recurso podem ocorrer a partir de um utilizador com o papel e credenciais adequados de controlo de acesso baseado em funções (RBAC). Para saber mais sobre como definir esta propriedade, consulte as [alterações de Prevenção a partir do artigo dos SDKs.](role-based-access-control.md#prevent-sdk-changes) 
+Antes de auditar as operações do avião de controlo em Azure Cosmos DB, desative os metadados baseados em chaves para escrever o acesso na sua conta. Quando os metadados-chave escrevem o acesso é desativado, os clientes que se conectam à conta Azure Cosmos através de chaves de conta são impedidos de aceder à conta. Pode desativar o acesso de escrita definindo a `disableKeyBasedMetadataWriteAccess` propriedade como verdadeira. Depois de definir esta propriedade, as alterações a qualquer recurso podem acontecer a partir de um utilizador com o papel e credenciais Azure adequados. Para saber mais sobre como definir esta propriedade, consulte as [alterações de Prevenção a partir do artigo dos SDKs.](role-based-access-control.md#prevent-sdk-changes) 
 
 Depois de `disableKeyBasedMetadataWriteAccess` ligado, se os clientes baseados em SDK executarem operações de criação ou atualização, um erro *"Operação 'POST' no recurso 'ContainerNameorDatabaseName' não é permitido através do ponto final do Azure Cosmos DB.* Tem de acessar o acesso a tais operações para a sua conta, ou realizar as operações de criação/atualização através do Azure Resource Manager, Azure CLI ou Azure PowerShell. Para voltar a mudar, desative o Desativado MetadataWriteAccess para **falso** utilizando o Azure CLI, conforme descrito no artigo De prevenção do artigo [da Cosmos SDK.](role-based-access-control.md#prevent-sdk-changes) Certifique-se de mudar o valor de `disableKeyBasedMetadataWriteAccess` falso em vez de verdadeiro.
 
@@ -70,17 +70,17 @@ Depois de ligar o registo, utilize os seguintes passos para localizar as operaç
 
 As imagens que se seguem captam registos quando um nível de consistência é alterado para uma conta Azure Cosmos:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Permitir a exploração de pedidos de plano de controlo":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Controle os registos do avião quando um VNet é adicionado":::
 
 As imagens seguintes captam registos quando o espaço-chave ou uma tabela de uma conta Cassandra são criados e quando o resultado é atualizado. Os registos do plano de controlo para criar e atualizar operações na base de dados e o contentor são registados separadamente, como mostrado na imagem seguinte:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Permitir a exploração de pedidos de plano de controlo":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Controle os registos do avião quando a produção é atualizada":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identificar a identidade associada a uma operação específica
 
 Se pretender depurar ainda mais, pode identificar uma operação específica no **registo de Atividades** utilizando o ID de Atividade ou através do calendário da operação. O timetamp é utilizado para alguns clientes do Gestor de Recursos onde o ID de atividade não é explicitamente passado. O registo de Atividades dá detalhes sobre a identidade com que a operação foi iniciada. A imagem que se segue mostra como utilizar o ID da atividade e encontrar as operações associadas a ele no registo de atividade:
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Permitir a exploração de pedidos de plano de controlo":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Use o ID da atividade e encontre as operações":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Controle as operações do avião para a conta da Azure Cosmos
 

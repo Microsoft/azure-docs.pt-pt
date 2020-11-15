@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 45f5a7e66c80dff5e78e575463becd95bcc7fca1
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b8aaebdd37f835201ef549e3f97e0c0b657e4fe9
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242182"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636219"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Criar e gerir o Link Privado para Azure Database para PostgreSQL - Servidor único usando CLI
 
@@ -67,6 +67,7 @@ az vm create \
   --name myVm \
   --image Win2019Datacenter
 ```
+
  Note o endereço IP público do VM. Utilizará este endereço para ligar ao VM a partir da internet no passo seguinte.
 
 ## <a name="create-an-azure-database-for-postgresql---single-server"></a>Criar uma base de dados Azure para PostgreSQL - Servidor Único 
@@ -99,6 +100,7 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Configure a Zona Privada de DNS 
 Crie uma Zona PRIVADA de DNS para o domínio do servidor PostgreSQL e crie uma ligação de associação com a Rede Virtual. 
+
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.postgres.database.azure.com" 
@@ -126,30 +128,30 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 > [!NOTE]
 > Em alguns casos, a Base de Dados Azure para PostgreSQL e a sub-rede VNet estão em diferentes subscrições. Nestes casos, deve assegurar as seguintes configurações:
-> - Certifique-se de que ambas as subscrições têm o fornecedor de recursos **Microsoft.DBforPostgreSQL** registado. Para mais informações, consulte [o gestor de recursos-registo][resource-manager-portal]
+> - Certifique-se de que ambas as subscrições têm o fornecedor de recursos **Microsoft.DBforPostgreSQL** registado. Para obter mais informações, consulte os [fornecedores de recursos.](../azure-resource-manager/management/resource-providers-and-types.md)
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
 Ligue-se ao *myVm VM* da internet da seguinte forma:
 
-1. Na barra de pesquisa do portal, introduza *myVm* .
+1. Na barra de pesquisa do portal, introduza *myVm*.
 
-1. Selecione o botão **Ligar** . Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
+1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
 
-1. Selecione **Transferir Ficheiro RDP** . O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
+1. Selecione **Transferir Ficheiro RDP**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
 
 1. Abra o *ficheiro.rdp descarregado.*
 
-    1. Se lhe for pedido, selecione **Ligar** .
+    1. Se lhe for pedido, selecione **Ligar**.
 
     1. Introduza o nome de utilizador e a palavra-passe que especificou ao criar o VM.
 
         > [!NOTE]
         > Poderá ter de selecionar **Mais escolhas**  >  **Utilize uma conta diferente** , para especificar as credenciais que introduziu quando criou o VM.
 
-1. Selecione **OK** .
+1. Selecione **OK**.
 
-1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar** .
+1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Assim que o ambiente de trabalho em VM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.  
 
@@ -159,27 +161,28 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
 
 2. Introduza  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
-    Irá receber uma mensagem semelhante a esta:
-    ```azurepowershell
-    Server:  UnKnown
-    Address:  168.63.129.16
-    Non-authoritative answer:
-    Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
-    Address:  10.1.3.4
-    ```
+   Irá receber uma mensagem semelhante a esta:
 
-3. Teste a ligação de ligação privada para o servidor PostgreSQL utilizando qualquer cliente disponível. No exemplo abaixo, usei o [estúdio Azure Data](/sql/azure-data-studio/download?view=sql-server-ver15) para fazer a operação.
+   ```azurepowershell
+   Server:  UnKnown
+   Address:  168.63.129.16
+   Non-authoritative answer:
+   Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
+   Address:  10.1.3.4
+   ```
+
+3. Teste a ligação de ligação privada para o servidor PostgreSQL utilizando qualquer cliente disponível. O exemplo a seguir utiliza [o estúdio Azure Data](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) para fazer a operação.
 
 4. Em **Nova ligação,** insira ou selecione estas informações:
 
-    | Definição | Valor |
-    | ------- | ----- |
-    | Tipo de servidor| Selecione **PostgresQL** .|
-    | Nome do servidor| Selecione *mydemopostgresserver.privatelink.postgres.database.azure.com* |
-    | Nome de utilizador | Introduza o nome de utilizador como username@servername o fornecido durante a criação do servidor PostgreSQL. |
-    |Palavra-passe |Introduza uma palavra-passe fornecida durante a criação do servidor PostgreSQL. |
-    |SSL|**Selecione Necessário** .|
-    ||
+   | Definição | Valor |
+   | ------- | ----- |
+   | Tipo de servidor| Selecione **PostgresQL**.|
+   | Nome do servidor| Selecione *mydemopostgresserver.privatelink.postgres.database.azure.com* |
+   | Nome de utilizador | Introduza o nome de utilizador como username@servername o fornecido durante a criação do servidor PostgreSQL. |
+   |Palavra-passe |Introduza uma palavra-passe fornecida durante a criação do servidor PostgreSQL. |
+   |SSL|**Selecione Necessário**.|
+   ||
 
 5. Selecione Ligar.
 
@@ -189,7 +192,7 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
 
 8. Feche a ligação remota do ambiente de trabalho ao myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando já não for necessário, pode utilizar o grupo AZ para remover o grupo de recursos e todos os recursos que tem: 
 
 ```azurecli-interactive
@@ -198,6 +201,3 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [o que é o ponto final privado do Azure](../private-link/private-endpoint-overview.md)
-
-<!-- Link references, to text, Within this same GitHub repo. -->
-[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Encontre respostas para algumas das perguntas comuns sobre Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 9870ba52424f6f59cc908e4d70bf1560f7d69165
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a25ebd88d022ff278b3e3d9cc9cbf4d8b9b670cd
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970304"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636100"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Perguntas frequentes sobre Azure Dev Spaces
 
@@ -72,9 +72,9 @@ Sim, pode utilizar espaços Azure Dev em clusters AKS com [intervalos de endere�
 
 Sim, você pode usar Azure Dev Spaces em clusters AKS com [tráfego de saída restrito para nós de cluster][aks-restrict-egress-traffic] ativados uma vez que os FQDNs corretos foram permitidos. Mais informações sobre a utilização de um cluster AKS com tráfego de saída restrito para nós de cluster habilitados com Azure Dev Spaces estão disponíveis [aqui.](configure-networking.md#ingress-and-egress-network-traffic-requirements)
 
-## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>Posso usar espaços Azure Dev em clusters AKS ativados pela RBAC?
+## <a name="can-i-use-azure-dev-spaces-on-kubernetes-rbac-enabled-aks-clusters"></a>Posso utilizar espaços Azure Dev em clusters AKS ativados pela SIDA em Kubernetes?
 
-Sim, você pode usar Azure Dev Spaces em clusters AKS com ou sem RBAC ativado.
+Sim, você pode usar Azure Dev Spaces em clusters AKS com ou sem o controlo de acesso baseado em funções de Kubernetes (Kubernetes RBAC) ativado.
 
 ## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>O que acontece quando eu habilita a entrada para o projeto no Estúdio Visual?
 

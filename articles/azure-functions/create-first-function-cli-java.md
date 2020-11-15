@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 449f0a59cc8428ce8e19535d5cf0417bf4cf7ad0
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5c8993bdf892ceb7d9886d0d2b97063dedec720c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425227"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635556"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função Java em Azure a partir da linha de comando
 
@@ -103,7 +103,7 @@ Em Funções Azure, um projeto de função é um recipiente para uma ou mais fun
 Se desejar, pode saltar para [Executar a função localmente](#run-the-function-locally) e examinar o conteúdo do ficheiro mais tarde.
 
 #### <a name="functionjava"></a>Função.java
-*Fun.java* contém um `run` método que recebe dados de pedido na `request` variável é um [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage) que está decorado com a anotação [HttpTrigger,](/java/api/com.microsoft.azure.functions.annotation.httptrigger) que define o comportamento do gatilho. 
+*Função.java* contém um `run` método que recebe dados de pedido na `request` variável é um [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage) que está decorado com a anotação [HttpTrigger,](/java/api/com.microsoft.azure.functions.annotation.httptrigger) que define o comportamento do gatilho. 
 
 :::code language="java" source="~/azure-functions-samples-java/src/main/java/com/functions/Function.java":::
 
@@ -163,11 +163,23 @@ Uma aplicação de função e recursos relacionados são criados em Azure quando
 > [!TIP]
 > Para criar uma aplicação de função em execução no Linux em vez do Windows, altere `runtime.os` o elemento no ficheiro pom.xml de `windows` `linux` . A execução do Linux num plano de consumo é apoiada [nestas regiões.](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions) Não é possível ter aplicações que são executadas no Linux e aplicações que funcionam no Windows no mesmo grupo de recursos.
 
-1. Antes de poder implementar, utilize o comando [Azure](/cli/azure/authenticate-azure-cli) CLI do login para iniciar sessão na sua subscrição Azure. 
+1. Antes de iniciar a sua súm, inscreva-se na sua subscrição Azure usando a Azure CLI ou a Azure PowerShell. 
 
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
     ```azurecli
     az login
     ```
+
+    O comando [de login az](/cli/azure/reference-index#az-login) assina-o na sua conta Azure.
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+    O [cmdlet Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) indica-o na sua conta Azure.
+
+    ---
 
 1. Utilize o seguinte comando para implantar o seu projeto numa nova aplicação de função.
 

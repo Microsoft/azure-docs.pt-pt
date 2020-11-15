@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999110"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635710"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Start start-up de SISTEMA de Resolução de Problemas – Capacidade de instalação do Windows Update
 
@@ -62,8 +62,6 @@ Para resolver o problema:
 
 1. Verifique se o disco está cheio. Se o tamanho do disco for inferior a 1 TB, expanda-o até um máximo de 1 TB [utilizando o PowerShell](../windows/expand-os-disk.md).
 1. Se o disco já estiver em 1 TB, terá de efetuar uma limpeza de disco.
-   1. Retire o disco de dados [do VM quebrado](../windows/detach-disk.md).
-   1. Anexar o disco de dados [a um VM funcional](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Utilize a [ferramenta De Limpeza de Discos](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) para libertar espaço.
 1. Uma vez terminada a redimensionamento e a limpeza, desa fragmentar a unidade utilizando o seguinte comando:
 
@@ -89,7 +87,7 @@ Dependendo do nível de fragmentação, a deses fragmentação pode demorar vár
 
 1. Verifique se o espaço livre no disco de so é maior do que o tamanho da memória (RAM) no VM.
 
-   Se não houver espaço suficiente no disco de so, altere o local onde o ficheiro de despejo de memória será criado e encaminhe essa localização para qualquer disco de dados anexado ao VM que tenha espaço livre suficiente. Para alterar a localização, substitua **%SystemRoot%** pela letra de acionamento do disco de dados, como **F:**, nos seguintes comandos.
+   Se não houver espaço suficiente no disco de so, altere o local onde o ficheiro de despejo de memória será criado e encaminhe essa localização para qualquer disco de dados anexado ao VM que tenha espaço livre suficiente. Para alterar a localização, substitua **%SystemRoot%** pela letra de acionamento do disco de dados, como **F:** , nos seguintes comandos.
 
    Configuração sugerida para permitir o despejo de OS:
 
@@ -99,7 +97,7 @@ Dependendo do nível de fragmentação, a deses fragmentação pode demorar vár
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM 
    ```
    
-   **Ativar no ControlSet001**:
+   **Ativar no ControlSet001** :
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 

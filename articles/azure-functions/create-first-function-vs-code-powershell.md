@@ -3,12 +3,12 @@ title: Criar uma função PowerShell utilizando código de estúdio visual - Fun
 description: Aprenda a criar uma função PowerShell e, em seguida, publique o projeto local para hospedagem sem servidor em Funções Azure utilizando a extensão de Funções Azure no Código do Estúdio Visual.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 73c2de36d3696356289c72d08c29c3870dc91601
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 5d85c0362daa9dc3b42ed0cc1329329ffa598bee
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427399"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637052"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função PowerShell em Azure utilizando o Código do Estúdio Visual
 
@@ -31,7 +31,7 @@ Antes de começar, certifique-se de que tem os seguintes requisitos em vigor:
 
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ Ambos [.NET Core 3.1](https://www.microsoft.com/net/download) e [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
++ Ambos [.NET Core 3.1 runtime](https://www.microsoft.com/net/download) e [.NET Core 2.1 runtime](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
 
 + [Código visual do estúdio](https://code.visualstudio.com/) numa das [plataformas suportadas.](https://code.visualstudio.com/docs/supporting/requirements#_platforms)    
 

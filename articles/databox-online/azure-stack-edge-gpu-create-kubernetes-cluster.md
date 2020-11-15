@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cb783e5da7364f38944ce31ce49a6a6529658fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f6d2b126cd9a0acbbbdb8d17ce7345bbf17b556
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903208"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635913"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Ligue e gere um cluster Kubernetes através de kubectl no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -44,7 +44,7 @@ Após a criação do cluster Kubernetes, pode aceder a este cluster para criar e
 [!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 
-## <a name="configure-cluster-access-via-rbac"></a>Configure o acesso ao cluster via RBAC
+## <a name="configure-cluster-access-via-kubernetes-rbac"></a>Configure o acesso ao cluster via Kubernetes RBAC
 
 Após a criação do cluster Kubernetes, pode utilizar o *kubectl* através de cmdline para aceder ao cluster. 
 
@@ -99,7 +99,7 @@ Nesta abordagem, cria-se um espaço de nome e um utilizador. Em seguida, associe
 3. Um ficheiro config é apresentado em texto simples. Copie este ficheiro e guarde-o como um ficheiro *config.* 
 
     > [!IMPORTANT]
-    > Não guarde o ficheiro config como ficheiro *.txt,* guarde o ficheiro sem qualquer extensão de ficheiro.
+    > Não guarde o ficheiro config como *.txt* ficheiro, guarde o ficheiro sem qualquer extensão de ficheiro.
 
 4. O ficheiro config deve viver na `.kube` pasta do seu perfil de utilizador na máquina local. Copie o ficheiro para essa pasta no seu perfil de utilizador.
 
@@ -125,7 +125,7 @@ Nesta abordagem, cria-se um espaço de nome e um utilizador. Em seguida, associe
     Por exemplo, se o nó mestre Kubernetes estava a funcionar v1.15.2, instale v1.15.2 no cliente.
 
     > [!IMPORTANT]
-    > Descarregue um cliente que não é mais do que uma versão menor do mestre. A versão do cliente, mas pode liderar o mestre até uma versão menor. Por exemplo, um mestre v1.3 deve trabalhar com v1.1, v1.2 e v1.3 nós, e deve trabalhar com clientes v1.2, v1.3 e v1.4. Para obter mais informações sobre a versão do cliente Kubernetes, consulte [a versão e a versão de Kubernetes.](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew) Para obter mais informações sobre a versão do servidor Kubernetes no Azure Stack Edge Pro, vá para obter a versão do servidor De Kubernetes.<!-- insert link-->
+    > Transfira um cliente com um desvio de, no máximo, uma versão secundária em relação ao mestre. A versão do cliente, mas pode liderar o mestre até uma versão menor. Por exemplo, um mestre v1.3 deve trabalhar com v1.1, v1.2 e v1.3 nós, e deve trabalhar com clientes v1.2, v1.3 e v1.4. Para obter mais informações sobre a versão do cliente Kubernetes, consulte [a versão e a versão de Kubernetes.](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew) Para obter mais informações sobre a versão do servidor Kubernetes no Azure Stack Edge Pro, vá para obter a versão do servidor De Kubernetes.<!-- insert link-->
     > Por `kubectl` vezes, está pré-instalado no seu sistema se estiver a executar o Docker para windows ou outras ferramentas. É importante descarregar a versão específica de `kubectl` como indicado nesta secção para trabalhar com este cluster kubernetes. 
 
     A instalação demora vários minutos.
@@ -160,7 +160,7 @@ Nesta abordagem, cria-se um espaço de nome e um utilizador. Em seguida, associe
 Agora pode implementar as suas aplicações no espaço de nomes e, em seguida, ver essas aplicações e os seus registos.
 
 > [!IMPORTANT]   
-> Há muitos comandos que não poderá executar, por exemplo, os comandos que exigem que tenha acesso administrativo. Só é possível realizar operações que sejam permitidas no espaço de nomes.
+> Há muitos comandos que não poderá executar, por exemplo, os comandos que exigem que tenha acesso administrativo. Só pode executar operações permitidas no espaço de nomes.
 
 
 ## <a name="remove-kubernetes-cluster"></a>Remover o cluster Kubernetes

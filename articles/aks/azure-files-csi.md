@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745789"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636985"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utilize controladores da Interface de Armazenamento de Contentores de Ficheiros Azure (CSI) no Serviço Azure Kubernetes (AKS) (pré-visualização)
 
@@ -229,7 +229,7 @@ az provider register --namespace Microsoft.Storage
 [Criar uma `Premium_LRS` Conta de armazenamento Azure](../storage/files/storage-how-to-create-premium-fileshare.md) com as seguintes configurações para suportar ações NFS:
 - tipo de conta: FileStorage
 - transferência segura necessária (permitir apenas o tráfego HTTPS): falso
-- selecione a rede virtual dos seus nós de agente em Firewalls e redes virtuais
+- selecione a rede virtual dos seus nós de agente em Firewalls e redes virtuais - por isso, pode preferir criar a Conta de Armazenamento no grupo de recursos MC_.
 
 ### <a name="create-nfs-file-share-storage-class"></a>Criar classe de armazenamento de partilha de ficheiros NFS
 
@@ -239,7 +239,7 @@ Guarde um `nfs-sc.yaml` ficheiro com o manifesto abaixo editando os respetivos e
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azurefile-csi
+  name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
 parameters:
   resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
@@ -275,6 +275,10 @@ Filesystem      Size  Used Avail Use% Mounted on
 accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
 ...
 ```
+
+>[!NOTE]
+> Note que uma vez que a quota de ficheiro NFS está na conta Premium, o tamanho mínimo da partilha de ficheiros é de 100GB. Se criar um PVC com um pequeno tamanho de armazenamento, poderá encontrar um erro "não ter criado a partilha de ficheiros ... tamanho (5)...".
+
 
 ## <a name="windows-containers"></a>Contentores do Windows
 
