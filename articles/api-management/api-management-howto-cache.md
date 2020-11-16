@@ -11,18 +11,21 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 0a3aa0c26ddb515b8096cce909ca074f6f24a333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 732abed830afdb759ed52fd933673edd8e5cade6
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86250486"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638738"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Adicionar a colocação em cache para melhorar o desempenho na API Management do Azure
 
-É possível configurar as operações da API Management para colocar as respostas em cache. A colocação de respostas em cache pode reduzir significativamente a latência da API, o consumo de largura de banda e a carga do serviço Web para os dados que não são alterados com frequência.
+As APIs e as operações na Gestão da API podem ser configuradas com o caching de resposta. O caching de resposta pode reduzir significativamente a latência para os chamadores de API e a carga de backend para os fornecedores de API.
+
+> [!IMPORTANT]
+> A cache incorporada é volátil e é partilhada por todas as unidades da mesma região no mesmo serviço de Gestão API.
 
 Para obter informações mais detalhadas sobre a colocação em cache, veja [Colocação em cache das políticas de Gestão de API](api-management-caching-policies.md) e [Colocação em cache personalizada na Gestão de API do Azure](api-management-sample-cache-by-key.md).
 
@@ -56,11 +59,11 @@ Com as políticas de colocação em cache deste exemplo, o primeiro pedido efetu
 4. Clique em **API da Conferência de Demonstração** na lista de API.
 5. Selecione **GetSpeakers**.
 6. Na parte superior do ecrã, selecione o separador **Design**.
-7. Na secção **Processamento de entrada**, clique no ícone **</>**.
+7. Na secção **Processamento de entrada** , clique no ícone **</>**.
 
     ![editor de código](media/api-management-howto-cache/code-editor.png)
 
-8. No elemento **entrada**, adicione a seguinte política:
+8. No elemento **entrada** , adicione a seguinte política:
 
    ```
    <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
@@ -70,7 +73,7 @@ Com as políticas de colocação em cache deste exemplo, o primeiro pedido efetu
    </cache-lookup>
    ```
 
-9. No elemento **saída**, adicione a seguinte política:
+9. No elemento **saída** , adicione a seguinte política:
 
    ```
    <cache-store duration="20" />

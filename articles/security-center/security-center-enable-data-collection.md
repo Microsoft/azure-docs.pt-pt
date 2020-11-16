@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 11/12/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: e25b8af3dd56078a3febe436b74af8f94cdcc485
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 7d96b03598f90b45b7ecf88027be7408d8f161ea
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636007"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638772"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Agentes de fornecimento automático e extensões do Azure Security Center
 
@@ -24,7 +24,7 @@ A recolha de dados é necessária para fornecer visibilidade em atualizações e
 Os dados são recolhidos utilizando:
 
 - O **agente Log Analytics,** que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos desses dados são: tipo e versão do sistema operativo, registos do sistema operativo (registos de eventos windows), processos de execução, nome da máquina, endereços IP e registados no utilizador.
-- **Extensões de máquinas virtuais** , como o [Azure Policy Add-on para Kubernetes,](../governance/policy/concepts/policy-for-kubernetes.md)que também podem fornecer dados ao Security Center sobre tipos de recursos especializados.
+- **Extensões de** segurança , como o [Azure Policy Add-on for Kubernetes,](../governance/policy/concepts/policy-for-kubernetes.md)que também pode fornecer dados ao Security Center sobre tipos de recursos especializados.
 
 > [!TIP]
 > À medida que o Centro de Segurança cresceu, os tipos de recursos que podem ser monitorizados também cresceram. O número de prorrogações também aumentou. O fornecimento automático expandiu-se para suportar tipos adicionais de recursos, aproveitando as capacidades da Azure Policy.

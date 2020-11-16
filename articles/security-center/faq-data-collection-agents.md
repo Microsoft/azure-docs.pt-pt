@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341843"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638819"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - Perguntas sobre recolha de dados, agentes e espaços de trabalho
 
@@ -109,14 +109,19 @@ Pode selecionar um espaço de trabalho do Log Analytics existente para armazenar
 
 Para selecionar um espaço de trabalho existente do Log Analytics:
 
-1. No âmbito **da política de segurança – Recolha de Dados,** selecione Utilize outro espaço de **trabalho.**
+1. A partir do menu do Centro de Segurança, **selecione definições de preços &**.
+1. Selecione a subscrição relevante.
+1. Abra a página **de provisionamento automático,** s
+1. Para o agente 'Registar Analytics', **selecione a configuração de Editar**. 
 
-    ![Use outro espaço de trabalho][4]
+    :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="A configuração do agente Log Analytics para utilizar ao utilizar a implantação automática" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
 
-1. A partir do menu pull-down, selecione um espaço de trabalho para armazenar dados recolhidos.
+1. Selecione **Connect Azure VMs para um espaço de trabalho diferente** e escolha o seu espaço de trabalho existente.
 
-    > [!NOTE]
-    > No menu pull down, apenas são mostrados espaços de trabalho a que tem acesso e estão na sua subscrição Azure.
+    :::image type="content" source="./media/security-center-enable-data-collection/choose-workspace.png" alt-text="Selecionando um espaço de trabalho não padrão para o seu agente Log Analytics reportar a" lightbox="./media/security-center-enable-data-collection/choose-workspace.png":::
+
+    > [!TIP]
+    > A lista inclui apenas espaços de trabalho aos quais tem acesso e que estão na sua subscrição do Azure.
 
 1. Selecione **Guardar**. Perguntar-lhe-á se pretende reconfigurar os VMs monitorizados.
 
@@ -126,7 +131,6 @@ Para selecionar um espaço de trabalho existente do Log Analytics:
     > [!NOTE]
     > Se selecionar **Sim,** não elimine quaisquer espaços de trabalho criados pelo Security Center até que todos os VMs tenham sido reconectados ao novo espaço de trabalho alvo. Esta operação falha se um espaço de trabalho for apagado demasiado cedo.
 
-    - Para cancelar a operação, **selecione Cancelar**.
 
 ## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>E se o agente Log Analytics já tivesse sido instalado como uma extensão no VM?<a name="mmaextensioninstalled"></a>
 
@@ -162,14 +166,19 @@ Se remover a extensão de monitorização da Microsoft, o Security Center não p
 
 ## <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Como posso impedir a instalação do agente automático e a criação de espaço de trabalho?
 
-Pode desativar o fornecimento automático para as suas subscrições na política de segurança, mas isso não é recomendado. Desligar os limites automáticos de provisionamento limita as recomendações e alertas do Centro de Segurança. Para desativar o provisionamento automático:
+Pode desativar o fornecimento automático para as suas subscrições na política de segurança, mas isso não é recomendado. Desligar o fornecimento automático limita as recomendações e alertas do Centro de Segurança. Para desativar o provisionamento automático:
 
-1. Se a sua subscrição tiver o Azure Defender ativado, abra a política de segurança para essa subscrição e selecione **o Azure Defender fora**.
+1. A partir do menu do Centro de Segurança, **selecione definições de preços &**.
+1. Selecione a subscrição relevante.
+1. Se a sua subscrição tiver o Azure Defender ativado, abra **os planos do Azure Defender** e selecione **o Azure Defender fora**.
 
     :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Ativar ou desativar o Azure Defender":::
 
-1. Em seguida, desligue o provisionamento automático selecionando **off** na política de Segurança – página **de recolha de dados.**
-   ![Recolha de dados][2]
+1. A partir da página **de provisionamento automático,** selecione caneta e desativar o provisionamento automático na política de Segurança – página **de recolha de dados.**
+
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Ativar a implantação automática para o agente Log Analytics":::
+
+1. Selecione **Guardar**.
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Devo optar por não sair da instalação do agente automático e da criação do espaço de trabalho?
@@ -232,18 +241,16 @@ O fornecimento automático é altamente recomendado para obter alertas de segura
 
 Se o ativou, mas agora quer desativá-lo:
 
-1. A partir [do portal Azure,](https://portal.azure.com)abra o **Centro de Segurança** e selecione a política de **Segurança**.
+1. A partir [do portal Azure,](https://portal.azure.com)abra o **Centro de Segurança** e selecione Preços e **configurações**.
 
 1. Selecione a subscrição na qual pretende desativar o provisionamento automático.
 
-    Política de segurança - A **recolha de dados** abre.
-
-1. Sob **provisão automática**, selecione **Off**.
+1. No **fornecimento automático,** desligue o toggle para o agente Log Analytics.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Como posso permitir a recolha de dados?
 
-Pode ativar a recolha de dados para a sua subscrição Azure na política de Segurança. Para ativar a recolha de dados. [Inscreva-se no portal Azure](https://portal.azure.com), **selecione Browse,** selecione **Security Center**e selecione a política **de Segurança**. Selecione a subscrição que deseja para permitir o provisionamento automático. Quando seleciona uma política de segurança de subscrição - a **recolha de dados** abre. Sob **provisão automática**, selecione **On**.
+Pode ativar a recolha de dados para a sua subscrição Azure na política de Segurança. Para ativar a recolha de dados. [Inscreva-se no portal Azure](https://portal.azure.com), **selecione Browse,** selecione **Security Center** e selecione a política **de Segurança**. Selecione a subscrição que deseja para permitir o provisionamento automático. Quando seleciona uma política de segurança de subscrição - a **recolha de dados** abre. Sob **provisão automática** , selecione **On**.
 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>O que acontece quando a recolha de dados está ativada?
