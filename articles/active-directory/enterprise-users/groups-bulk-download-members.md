@@ -4,21 +4,21 @@ description: Adicione utilizadores a granel no centro de administração Azure.
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/16/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec712d2f58c3028aa11d0b12132669648351bfb1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 59327b33a228dfde2c303b63393a372b12370a05
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376904"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647414"
 ---
 # <a name="bulk-download-members-of-a-group-in-azure-active-directory"></a>Membros de descarregamento em massa de um grupo em Azure Ative Directory
 
@@ -43,7 +43,7 @@ Pode ver o estado de todos os seus pedidos em massa pendentes na página de resu
 
 Cada atividade a granel para descarregar uma lista de membros do grupo pode ser executada por até uma hora. Isto permite-lhe descarregar uma lista de pelo menos 500.000 membros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Membros do grupo de importação a granel](groups-bulk-import-members.md)
 - [A granel remove membros do grupo](groups-bulk-download-members.md)

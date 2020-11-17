@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81ba7f77bb3396f49c3cf41d2266567aa48a8257
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b2a3c2257311f208ae704a54f1369e10b2ff160b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379218"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646853"
 ---
 # <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Opções de inscrição para contas da Microsoft no Azure Ative Directory
 
@@ -34,6 +34,6 @@ Pode dizer se a página de início de s nota que a sua organização utiliza sup
 
 [As opções adicionais de inscrição funcionam apenas para contas pessoais da Microsoft,](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) mas não podem ser usadas para iniciar sessão no trabalho ou recursos de conta escolar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Personalize a sua marca de sinalização](../fundamentals/add-custom-domain.md)

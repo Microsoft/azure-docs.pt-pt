@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: e39884f6d62fc43943f892aed0dac650a01d6c40
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd25c7638bd7e178cdb963ba528cccefde6b9eca
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92463013"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646513"
 ---
 # <a name="reset-a-vpn-gateway"></a>Repor um Gateway de VPN
 
@@ -28,7 +28,7 @@ Se a ligação não for restaurada após o primeiro reinício, execute o mesmo c
 
 Depois de duas reinicializações, se ainda estiver a ter problemas de conectividade nas instalações, abra um pedido de apoio do portal Azure.
 
-## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
+## <a name="before-you-begin"></a><a name="before"></a>Before you begin
 
 Antes de repor o gateway, verifique os itens principais listados abaixo para cada túnel de rede de VPNs (S2S) do IPsec. Qualquer erro de correspondência nos itens desligará os túneis VPN S2S. Verificar e corrigir as configurações para as suas entradas no local e gateways Azure VPN salva-o de reboots e interrupções desnecessárias para as outras ligações de trabalho nos gateways.
 
@@ -52,7 +52,7 @@ Pode redefinir uma porta de entrada VPN do Gestor de Recursos utilizando o porta
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-O cmdlet para repor um gateway é **Reset-AzVirtualNetworkGateway**. Antes de fazer um reset, certifique-se de que tem a versão mais recente dos [cmdlets PowerShell Az](https://docs.microsoft.com/powershell/module/az.network). O exemplo a seguir repõe uma porta de rede virtual chamada VNet1GW no grupo de recursos TestRG1:
+O cmdlet para repor um gateway é **Reset-AzVirtualNetworkGateway**. Antes de fazer um reset, certifique-se de que tem a versão mais recente dos [cmdlets PowerShell Az](/powershell/module/az.network). O exemplo a seguir repõe uma porta de rede virtual chamada VNet1GW no grupo de recursos TestRG1:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
@@ -65,7 +65,7 @@ Quando receber um resultado de retorno, pode presumir que o reset do gateway foi
 
 ### <a name="classic-deployment-model"></a><a name="resetclassic"></a>Modelo de implementação clássica
 
-O cmdlet para repor um gateway é **Reset-AzureVNetGateway**. Os cmdlets Azure PowerShell para gestão de serviços devem ser instalados localmente no seu ambiente de trabalho. Não podes usar a Azure Cloud Shell. Antes de efetuar um reset, certifique-se de que tem a versão mais recente dos [cmdlets PowerShell de Gestão de Serviços (SM).](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets) Ao utilizar este comando, certifique-se de que utiliza o nome completo da rede virtual. Os VNets clássicos que foram criados usando o portal têm um nome longo que é necessário para o PowerShell. Pode ver o nome longo utilizando 'Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml'.
+O cmdlet para repor um gateway é **Reset-AzureVNetGateway**. Os cmdlets Azure PowerShell para gestão de serviços devem ser instalados localmente no seu ambiente de trabalho. Não podes usar a Azure Cloud Shell. Antes de efetuar um reset, certifique-se de que tem a versão mais recente dos [cmdlets PowerShell de Gestão de Serviços (SM).](/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets) Ao utilizar este comando, certifique-se de que utiliza o nome completo da rede virtual. Os VNets clássicos que foram criados usando o portal têm um nome longo que é necessário para o PowerShell. Pode ver o nome longo utilizando 'Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml'.
 
 O exemplo a seguir repõe o portal para uma rede virtual chamada "Group TestRG1 TestVNet1" (que mostra simplesmente "TestVNet1" no portal):
 
@@ -86,7 +86,7 @@ StatusCode     : OK
 
 ## <a name="azure-cli"></a><a name="cli"></a>CLI do Azure
 
-Para reiniciar o gateway, utilize o comando [de reset de gateway de vnet de rede az.](https://docs.microsoft.com/cli/azure/network/vnet-gateway) O exemplo a seguir repõe um gateway de rede virtual chamado VNet5GW no grupo de recursos TestRG5:
+Para reiniciar o gateway, utilize o comando [de reset de gateway de vnet de rede az.](/cli/azure/network/vnet-gateway) O exemplo a seguir repõe um gateway de rede virtual chamado VNet5GW no grupo de recursos TestRG5:
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5

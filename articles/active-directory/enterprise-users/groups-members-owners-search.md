@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79062b8b1072e40fc9997d5ed6c730801aca20d1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e37a450ad99c37a2468e4cb73ce9f88decb628d5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377137"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647244"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Grupos de pesquisa e membros (pré-visualização) no Azure Ative Directory
 
@@ -78,7 +78,7 @@ Melhorámos a página **geral** do grupo para fornecer contagem de membros do gr
 
 ![Maior precisão nas contagens de membros do grupo](./media/groups-members-owners-search/member-numbers.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Estes artigos fornecem informações adicionais sobre o trabalho com grupos em Azure AD.
 

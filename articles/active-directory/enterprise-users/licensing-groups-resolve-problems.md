@@ -7,20 +7,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7529d72c3d94e3c7bef58c6a26af62b97ac92d9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd61a33bdcc0d18dee7dba651f097f7cd49e7149
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376556"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647040"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Ative Directory
 
@@ -42,7 +42,7 @@ Quando está a usar o licenciamento baseado em grupo, os mesmos erros podem ocor
 
    ![lista de utilizadores em estado de erro de licenciamento de grupo](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-1. Para encontrar todos os grupos que contenham pelo menos um erro, na lâmina do **Diretório Ativo Azure** selecione **Licenças**e, em seguida, selecione **Overview**. Uma caixa de informações é exibida quando os grupos requerem a sua atenção.
+1. Para encontrar todos os grupos que contenham pelo menos um erro, na lâmina do **Diretório Ativo Azure** selecione **Licenças** e, em seguida, selecione **Overview**. Uma caixa de informações é exibida quando os grupos requerem a sua atenção.
 
    ![Visão geral e informação sobre grupos em estado de erro](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
@@ -165,15 +165,15 @@ A partir de agora, qualquer utilizadores adicionados a este grupo consomem uma l
 
 Dependendo dos passos que tomou para resolver os erros, pode ser necessário acionar manualmente o processamento de um grupo para atualizar o estado do utilizador.
 
-Por exemplo, se libertar algumas licenças removendo as atribuições de licenças diretas dos utilizadores, precisa de desencadear o processamento de grupos que anteriormente não licenciaram totalmente todos os membros do utilizador. Para reprocessar um grupo, vá ao painel de grupo, abra **licenças**e, em seguida, selecione o botão **reprocessamento** na barra de ferramentas.
+Por exemplo, se libertar algumas licenças removendo as atribuições de licenças diretas dos utilizadores, precisa de desencadear o processamento de grupos que anteriormente não licenciaram totalmente todos os membros do utilizador. Para reprocessar um grupo, vá ao painel de grupo, abra **licenças** e, em seguida, selecione o botão **reprocessamento** na barra de ferramentas.
 
 ## <a name="force-user-license-processing-to-resolve-errors"></a>Force o processamento da licença de utilizador para resolver erros
 
 Dependendo dos passos que tomou para resolver os erros, pode ser necessário acionar manualmente o processamento de um utilizador para atualizar o estado dos utilizadores.
 
-Por exemplo, depois de resolver o problema de endereço de procuração duplicado para um utilizador afetado, tem de ativar o processamento do utilizador. Para reprocessar um utilizador, vá ao painel de utilizador, abra **licenças**e, em seguida, selecione o botão **reprocessamento** na barra de ferramentas.
+Por exemplo, depois de resolver o problema de endereço de procuração duplicado para um utilizador afetado, tem de ativar o processamento do utilizador. Para reprocessar um utilizador, vá ao painel de utilizador, abra **licenças** e, em seguida, selecione o botão **reprocessamento** na barra de ferramentas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre outros cenários para a gestão de licenças através de grupos, consulte o seguinte:
 

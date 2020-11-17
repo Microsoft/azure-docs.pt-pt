@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d7208b068bee4b0a4cc30adfd98d2422718bbcc
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628905"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646581"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
 
@@ -149,7 +149,7 @@ Permitir *um SSO sem costura* fazendo o seguinte:
 
 ## <a name="enable-staged-rollout"></a>Ativar o lançamento encenado
 
-Para lançar uma função específica ( *autenticação pass-through* , *sincronização de haxixe de palavras-passe* , ou *SSO sem costura* ) para um conjunto selecionado de utilizadores em grupo, siga as instruções nas secções seguintes.
+Para lançar uma função específica (*autenticação pass-through*, *sincronização de haxixe de palavras-passe*, ou *SSO sem costura*) para um conjunto selecionado de utilizadores em grupo, siga as instruções nas secções seguintes.
 
 ### <a name="enable-a-staged-rollout-of-a-specific-feature-on-your-tenant"></a>Ativar um lançamento encenado de uma característica específica no seu inquilino
 
@@ -165,7 +165,7 @@ Faça o seguinte:
 
 2. Selecione o lançamento encenado de Enable para o link **de entrada de utilizador gerido (Pré-visualização).**
 
-   Por exemplo, se pretender ativar a *Opção A* , deslize o **Sync de Hash De palavra-passe** e os controlos **de entrada única sem emenda** para **On** , como mostram as seguintes imagens.
+   Por exemplo, se pretender ativar a *Opção A*, deslize o **Sync de Hash De palavra-passe** e os controlos **de entrada única sem emenda** para **On**, como mostram as seguintes imagens.
 
    ![A página Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
 
@@ -178,6 +178,7 @@ Faça o seguinte:
    >[!NOTE]
    >Os membros de um grupo estão automaticamente habilitados para o lançamento encenado. Grupos aninhados e dinâmicos não são apoiados para o lançamento encenado.
    >Ao adicionar um novo grupo, os utilizadores do grupo (até 200 utilizadores para um novo grupo) serão atualizados para utilizar em imidiamente gerido. Editar um grupo (adicionar ou remover utilizadores), pode levar até 24 horas para que as alterações entrem em vigor.
+   >O SSO sem emenda só se aplicará se os utilizadores estiverem no grupo SSO sem emenda e também num grupo de PTA ou PHS.
 
 ## <a name="auditing"></a>Auditoria
 
@@ -239,11 +240,11 @@ R: Sim, você pode usar esta funcionalidade no seu inquilino de produção, mas 
 
 **P: Esta funcionalidade pode ser usada para manter uma "coexistência" permanente, onde alguns utilizadores usam a autenticação federada e outros utilizam a autenticação em nuvem?**
 
-R: Não, esta funcionalidade foi concebida para migrar da autenticação federada para a autenticação em nuvem por etapas e, em seguida, para eventualmente cortar para a autenticação em nuvem. Não recomendamos a utilização de um estado misto permanente, pois esta abordagem pode levar a fluxos de autenticação inesperados.
+R: Não, esta função foi concebida para testar a autenticação em nuvem. Depois de ter sido bem sucedido a testar alguns grupos de utilizadores, deverá cortar para a autenticação na nuvem. Não recomendamos a utilização de um estado misto permanente, pois esta abordagem pode levar a fluxos de autenticação inesperados.
 
 **P: Posso usar o PowerShell para executar o lançamento encenado?**
 
 R: Sim. Para aprender a usar o PowerShell para executar o lançamento encenado, consulte [a pré-visualização AD Azure](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Pré-visualização Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

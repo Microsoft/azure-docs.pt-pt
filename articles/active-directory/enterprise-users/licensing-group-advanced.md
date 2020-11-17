@@ -9,18 +9,18 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 08/13/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56f16dea1f81f7f6a35409d8481550fd000864b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4f298cf7487e00f6ee6a8aa8913fd32f8c6beee
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376700"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647108"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e questões conhecidas usando grupos para gerir o licenciamento no Azure Ative Directory
 
@@ -28,7 +28,7 @@ Utilize as seguintes informações e exemplos para obter uma compreensão mais a
 
 ## <a name="usage-location"></a>Localização de utilização
 
-Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes de uma licença poder ser atribuída a um utilizador, o administrador tem de especificar a propriedade **de localização de Utilização** no utilizador. No [portal Azure,](https://portal.azure.com)pode especificar a localização de utilização nas **User** &gt; **Profile** &gt; **Definições**de Perfil do Utilizador .
+Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes de uma licença poder ser atribuída a um utilizador, o administrador tem de especificar a propriedade **de localização de Utilização** no utilizador. No [portal Azure,](https://portal.azure.com)pode especificar a localização de utilização nas **User** &gt; **Profile** &gt; **Definições** de Perfil do Utilizador .
 
 Para a atribuição de licença de grupo, quaisquer utilizadores sem localização de utilização especificada herdam a localização do diretório. Se tiver utilizadores em vários locais, certifique-se de que reflete isso corretamente nos recursos dos seus utilizadores antes de adicionar utilizadores a grupos com licenças.
 
@@ -219,7 +219,7 @@ Se você usar o licenciamento baseado em grupo, é uma boa ideia familiarizar-se
 
   Como uma solução alternativa a este tipo de limitações, pode ir à lâmina do **Grupo** em Ad AZure e clicar em **Reprocessamento**. Este comando processa todos os utilizadores desse grupo e resolve os estados de erro, se possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre outros cenários para gestão de licenças através do licenciamento baseado no grupo, veja:
 

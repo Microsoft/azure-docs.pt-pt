@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: c300faf33f57518d26f82234bdff94a37235cd66
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275791"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647601"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
 
@@ -239,6 +239,9 @@ Há certos conjuntos de afirmações que definem como e quando são usadas em fi
 
 Para controlar as reclamações emitidas e de onde os dados provêm, utilize as propriedades de uma política de mapeamento de reclamações. Se uma política não for definida, o sistema emite fichas que incluem o conjunto de reclamações fundamentais, o conjunto de alegações básicas, e quaisquer [alegações opcionais](active-directory-optional-claims.md) que a aplicação tenha optado por receber.
 
+> [!NOTE]
+> As reclamações no conjunto de reclamações fundamentais estão presentes em cada token, independentemente do que esta propriedade está definida.
+
 ### <a name="include-basic-claim-set"></a>Incluir conjunto de reclamações básicas
 
 **Corda:** IncluirBasicClaimSet
@@ -250,8 +253,7 @@ Para controlar as reclamações emitidas e de onde os dados provêm, utilize as 
 - Se for definido para True, todas as reclamações no conjunto de alegações básicas são emitidas em fichas afetadas pela apólice.
 - Se definidos como Falsos, as reclamações no conjunto de reclamações básicas não estão nos tokens, a menos que sejam adicionadas individualmente na propriedade do esquema de reclamações da mesma apólice.
 
-> [!NOTE]
-> As reclamações no conjunto de reclamações fundamentais estão presentes em cada token, independentemente do que esta propriedade está definida.
+
 
 ### <a name="claims-schema"></a>Esquema de reclamações
 
@@ -439,8 +441,7 @@ As políticas de mapeamento de sinistros só podem ser atribuídas a objetos pri
 
 No Azure AD, muitos cenários são possíveis quando você pode personalizar reclamações emitidas em fichas para diretores de serviço específicos. Nesta secção, passamos por alguns cenários comuns que podem ajudá-lo a compreender como usar o tipo de política de mapeamento de sinistros.
 
-> [!NOTE]
-> Ao criar uma política de mapeamento de reclamações, também pode emitir uma reclamação a partir de um atributo de extensão de esquema de diretório em fichas. Utilize *extensionID* para o atributo de extensão em vez de *ID* no `ClaimsSchema` elemento.  Para obter mais informações sobre os atributos de extensão, consulte [utilizando atributos de extensão de esquema de diretório](active-directory-schema-extensions.md).
+Ao criar uma política de mapeamento de reclamações, também pode emitir uma reclamação a partir de um atributo de extensão de esquema de diretório em fichas. Utilize *extensionID* para o atributo de extensão em vez de *ID* no `ClaimsSchema` elemento.  Para obter mais informações sobre os atributos de extensão, consulte [utilizando atributos de extensão de esquema de diretório](active-directory-schema-extensions.md).
 
 #### <a name="prerequisites"></a>Pré-requisitos
 
@@ -531,7 +532,7 @@ Neste exemplo, cria-se uma política que emite uma reivindicação personalizada
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - Para saber como personalizar as reclamações emitidas no token SAML através do portal Azure, consulte [Como: Personalizar reclamações emitidas no token SAML para aplicações empresariais](active-directory-saml-claims-customization.md)
 - Para saber mais sobre os atributos de extensão, consulte [utilizando atributos de extensão de esquema de diretório em sinistros](active-directory-schema-extensions.md).

@@ -5,21 +5,21 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.author: duau
-ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55eefe7a7490df050aa7ebc2bb41fbadcc8d8279
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819088"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646343"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Integrar um domínio de raiz ou apex no seu Front Door
 A Azure Front Door utiliza registos CNAME para validar a propriedade do domínio para o embarque de domínios personalizados. A Porta da Frente não expõe o endereço IP frontend associado ao seu perfil da porta da frente. Por isso, não pode mapear o seu domínio de ápice para um endereço IP se a sua intenção for a bordo da Porta frontal Azure.
 
 O protocolo DNS impede a atribuição de registos CNAME no ápice da zona. Por exemplo, se o seu domínio `contoso.com` for; pode criar registos CNAME `somelabel.contoso.com` para; mas não pode criar CNAME por `contoso.com` si só. Esta restrição apresenta um problema para os proprietários de aplicações que têm aplicações equilibradas por trás da Porta Frontal Azure. Uma vez que a utilização de um perfil da Porta Frontal requer a criação de um registo CNAME, não é possível apontar para o perfil da Porta frontal a partir do ápice da zona.
 
-Este problema pode ser resolvido utilizando registos de pseudónimos em Azure DNS. Ao contrário dos registos da CNAME, os registos de pseudónimos são criados no ápice da zona. Os proprietários de aplicações podem usá-lo para apontar o seu registo de zona para um perfil da Porta frontal que tenha pontos finais públicos. Os proprietários de aplicações apontam para o mesmo perfil da Porta Frontal que é usado para qualquer outro domínio dentro da sua zona de DNS. Por exemplo, `contoso.com` e pode apontar para o mesmo perfil da porta da `www.contoso.com` frente. 
+Este problema pode ser resolvido utilizando registos de pseudónimos no Azure DNS. Ao contrário dos registos da CNAME, os registos de pseudónimos são criados no ápice da zona. Os proprietários de aplicações podem usá-lo para apontar o seu registo de zona para um perfil da Porta frontal que tenha pontos finais públicos. Os proprietários de aplicações apontam para o mesmo perfil da Porta Frontal que é usado para qualquer outro domínio dentro da sua zona de DNS. Por exemplo, `contoso.com` e pode apontar para o mesmo perfil da porta da `www.contoso.com` frente. 
 
 Mapear o seu domínio ápice ou raiz para o seu perfil da porta frontal requer basicamente achatamento CNAME ou perseguição de DNS. Um mecanismo em que o fornecedor de DNS resolve novamente a entrada CNAME até que atinja um endereço IP. Esta funcionalidade é suportada pelo Azure DNS para os pontos finais da Porta Frontal. 
 
@@ -54,7 +54,7 @@ Pode utilizar o portal Azure para embarcar num domínio ápice na porta da frent
 
 1. **Selecione Guardar** para submeter as alterações.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Recorde de alias para o ápice da zona":::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Menu de domínio personalizado":::
 
 ## <a name="enable-https-on-your-custom-domain"></a>Ative HTTPS no seu domínio personalizado
 
@@ -62,7 +62,7 @@ Pode utilizar o portal Azure para embarcar num domínio ápice na porta da frent
 
 1. Selecione o **tipo de gestão de certificados** para *"Use o meu próprio certificado".*
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Recorde de alias para o ápice da zona":::    
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Definições HTTPS de domínio personalizado":::    
 
    > [!WARNING]
    > O tipo de gestão de certificado gerido front door não é suportado atualmente para domínios ápice ou raiz. A única opção disponível para permitir HTTPS num domínio ápice ou raiz para porta frontal é usar o seu certificado TLS/SSL personalizado alojado no Cofre da Chave Azure.
@@ -78,7 +78,7 @@ Pode utilizar o portal Azure para embarcar num domínio ápice na porta da frent
 > [!WARNING]
 > Certifique-se de que criou regras de encaminhamento adequadas para o seu domínio ápice ou adicione o domínio às regras de encaminhamento existentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

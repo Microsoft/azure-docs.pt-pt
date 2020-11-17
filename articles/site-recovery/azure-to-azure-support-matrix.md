@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: b73a6b8c024cfa5ed7188bbf3fed2bbb7142a2a0
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: c54c4608f04c8f98e21309ca531452ae0a34fdf2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186642"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646377"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -131,7 +131,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 18.04 LTS | [9.36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-genérico a 4.15.0-112-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-58-genérico </br> 5.3.0-19 genérico a 5.3.0-65-genérico </br> 5.4.0-37-genérico a 5.4.0-42-genérico</br> 4.15.0-1009-azure para 4.15.0-1092-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1036-azure </br> 5.3.0-1007-azure para 5.3.0-1032-azure </br> 5.4.0-1020-azure para 5.4.0-1022-azure </br> 5.0.0-60 genéricos & 5.3.0-1035-azure através de 9.36 patch de correção quente**|
 18.04 LTS | [9.34](https://support.microsoft.com/help/4570609), [9.35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-genérico a 4.15.0-108-genérico </br> 4.18.0-13-genérico a 4.18.0-25-genérico </br> 5.0.0-15-genérico a 5.0.0-52-genérico </br> 5.3.0-19-genérico a 5.3.0-61-genérico </br> 4.15.0-1009-azure para 4.15.0-1089-azure </br> 4.18.0-1006-azure para 4.18.0-1025-azure </br> 5.0.0-1012-azure para 5.0.0-1036-azure </br> 5.3.0-1007-azure para 5.3.0-1031-azure </br> 4.15.0-109-genérico, 5.0.0-53-genérico, 5.3.0-62-genérico, 4.15.0-1091-azure & 5.3.0-1032-azure através de 9.35 patch de fixação quente**|
 |||
-20.04 LTS |[9.38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-genérico a 5.4.0-48 </br> -genérico 5.4.0-1010-azure para 5.4.0-1026-azure </br> 5.4.0-51-genérico, 5.4.0-52-genérico, 5.8.0-23-genérico, 5.4.0-1031-azure através de 9.38 patch de fixação quente**
+20.04 LTS |[9.38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-genérico a 5.4.0-48 </br> -genérico 5.4.0-1010-azure para 5.4.0-1026-azure </br> 5.4.0-51-genérico, 5.4.0-52-genérico, 5.8.0-23-genérico, 5.8.0-25-genérico, 5.4.0-1031-azure através de 9.38 hot fix patch**
 20.04 LTS |[9.37](https://support.microsoft.com/help/4582666/) | 5.4.0-26-genérico a 5.4.0-45 </br> -genérico 5.4.0-1010-azure para 5.4.0-1023-azure </br> 5.4.0-47-genérico, 5.4.0-48-genérico, 5.4.0-1025-azure, 5.4.0-1026-azure através de 9.37 hot fix patch**
 20.04 LTS |[9.36](https://support.microsoft.com/help/4578241/) | 5.4.0-26-genérico a 5.4.0-42 </br> -genérico 5.4.0-1010-azure para 5.4.0-1022-azure
 
@@ -146,7 +146,7 @@ Debian 7 |  [9.34](https://support.microsoft.com/help/4570609), [9.35](https://s
 Debian 8 | [9.35](https://support.microsoft.com/help/4573888/, ), [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/), [9.38](https://support.microsoft.com/help/4590304/) | 3.16.0-4-amd64 a 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
 Debian 8 | [9.34](https://support.microsoft.com/help/4570609) | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 |
 |||
-Debian 9.1 | [9.38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 a 4.9.0-13-amd64 </br> 4.19.0-0.bpo.1-amd64 a 4.19.0-0.bpo.11-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 a 4.19.0-0.bpo.11-cloud-amd64 </br> 
+Debian 9.1 | [9.38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 a 4.9.0-13-amd64 </br> 4.19.0-0.bpo.1-amd64 a 4.19.0-0.bpo.11-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 a 4.19.0-0.bpo.11-cloud-amd64 </br> 4.9.0-14-amd64, 4.19.0-0.bpo.12-amd64, 4.19.0-0.bpo.12-cloud-amd64 através de 9.38 hot fix patch**
 Debian 9.1 | [9.37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd64 a 4.9.0-13-amd64, 4.19.0-0.bpo.6-amd64 a 4.19.0-0.bpo.10-amd64, 4.19.0-0.bpo.6-cloud-amd64 a 4.19.0-0.bpo.10-cloud-amd64
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Suportadas versões de kernel SUSE Linux Enterprise Server 12 para máquinas virtuais Azure
@@ -298,7 +298,7 @@ Acesso de ligação privada ao serviço de Recuperação de Sítios | Suportado 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia [orientação de rede](./azure-to-azure-about-networking.md)  para replicar VMs Azure.
 - Implementar a recuperação de [desastres replicando VMs Azure](./azure-to-azure-quickstart.md).

@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 0534c85548b1d8b6203aaac4911dc851dd49d81a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460359"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646241"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Resolução de problemas com base em único sinal de sessão em Azure AD
 
@@ -36,7 +36,7 @@ Este problema normalmente acontece se o fornecedor de aplicações mudou a sua p
 
 Embora a Microsoft tenha tecnologias para detetar automaticamente quando as integrações quebram, pode não ser possível encontrar os problemas imediatamente, ou os problemas demoram algum tempo a corrigir. No caso de uma destas integrações não funcionar corretamente, abra um processo de apoio para que possa ser corrigido o mais rapidamente possível.
 
-**Se estiver em contacto com o fornecedor desta aplicação,** envie-as à nossa maneira para que a Microsoft possa trabalhar com eles para integrar de forma nativa a sua aplicação com o Azure Ative Directory. Pode enviar o fornecedor para a listagem da [sua aplicação na galeria de aplicações Azure Ative Para](../azuread-dev/howto-app-gallery-listing.md) começar.
+**Se estiver em contacto com o fornecedor desta aplicação,** envie-as à nossa maneira para que a Microsoft possa trabalhar com eles para integrar de forma nativa a sua aplicação com o Azure Ative Directory. Pode enviar o fornecedor para a listagem da [sua aplicação na galeria de aplicações Azure Ative Para](../develop/v2-howto-app-gallery-listing.md) começar.
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>As credenciais são preenchidas e submetidas, mas a página indica que as credenciais estão incorretas
 
@@ -62,7 +62,7 @@ Caso as sugestões anteriores não funcionem, pode acontecer uma alteração no 
 
 Apesar de a Microsoft ter tecnologias para detetar automaticamente quando as integrações da aplicação quebram, pode não ser possível encontrar os problemas de imediato, ou os problemas podem demorar algum tempo a corrigir. Quando uma integração não funciona corretamente, pode abrir um caso de apoio para o corrigir o mais rapidamente possível. 
 
-Além disso, **se estiver em contacto com o fornecedor desta aplicação,** **envie-os à nossa maneira** para que possamos trabalhar com eles para integrar de forma nativa a sua aplicação com o Azure Ative Directory. Pode enviar o fornecedor para a listagem da [sua aplicação na galeria de aplicações Azure Ative Para](../azuread-dev/howto-app-gallery-listing.md) começar.
+Além disso, **se estiver em contacto com o fornecedor desta aplicação,** **envie-os à nossa maneira** para que possamos trabalhar com eles para integrar de forma nativa a sua aplicação com o Azure Ative Directory. Pode enviar o fornecedor para a listagem da [sua aplicação na galeria de aplicações Azure Ative Para](../develop/v2-howto-app-gallery-listing.md) começar.
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Verifique se a página de login da aplicação mudou recentemente ou se requer um campo adicional
 
@@ -70,7 +70,7 @@ Se a página de login da aplicação mudou drasticamente, por vezes isto faz com
 
 Apesar de a Microsoft ter tecnologias para detetar automaticamente quando as integrações da aplicação quebram, pode não ser possível encontrar os problemas de imediato, ou os problemas podem demorar algum tempo a corrigir. Quando uma integração não funciona corretamente, pode abrir um caso de apoio para o corrigir o mais rapidamente possível. 
 
-Além disso, **se estiver em contacto com o fornecedor desta aplicação,** **envie-os à nossa maneira** para que possamos trabalhar com eles para integrar de forma nativa a sua aplicação com o Azure Ative Directory. Pode enviar o fornecedor para a listagem da [sua aplicação na galeria de aplicações Azure Ative Para](../azuread-dev/howto-app-gallery-listing.md) começar.
+Além disso, **se estiver em contacto com o fornecedor desta aplicação,** **envie-os à nossa maneira** para que possamos trabalhar com eles para integrar de forma nativa a sua aplicação com o Azure Ative Directory. Pode enviar o fornecedor para a listagem da [sua aplicação na galeria de aplicações Azure Ative Para](../develop/v2-howto-app-gallery-listing.md) começar.
 
 ## <a name="capture-sign-in-fields-for-an-app"></a>Capture campos de inscrição para uma aplicação
 
@@ -80,7 +80,7 @@ Existem duas formas de capturar campos de inscrição para as suas aplicações 
 
 - **A captura automática de campo de entrada funciona** bem com a maioria das páginas de entrada ativadas por HTML, se *utilizarem iDs DIV bem conhecidos* para o nome de utilizador e os campos de palavra-passe. O HTML na página é raspado para encontrar IDs DIV que correspondam a determinados critérios. Esses metadados são guardados para que possa ser reproduzido na aplicação mais tarde.
 
-- **A captura manual do campo de entrada** é utilizada se o fornecedor de aplicações não *rotular os campos de entrada de entrada de entrada de entrada de entrada*de entrada . A captura manual também é utilizada se o fornecedor *renderizar vários campos que não podem ser detetados automaticamente.* O Azure Ative Directory (Azure AD) pode armazenar dados para o maior número de campos que existem na página de inscrição, se lhe disser onde esses campos estão na página.
+- **A captura manual do campo de entrada** é utilizada se o fornecedor de aplicações não *rotular os campos de entrada de entrada de entrada de entrada de entrada* de entrada . A captura manual também é utilizada se o fornecedor *renderizar vários campos que não podem ser detetados automaticamente.* O Azure Ative Directory (Azure AD) pode armazenar dados para o maior número de campos que existem na página de inscrição, se lhe disser onde esses campos estão na página.
 
 Em geral, se a captura automática de campo de inscrição não funcionar, experimente a opção manual.
 
@@ -97,13 +97,13 @@ Para configurar o SSO baseado em palavra-passe utilizando a captura automática 
 6. Selecione a aplicação que pretende configurar para SSO.
 7. Depois de carregar a aplicação, selecione **Single sign-on no** painel de navegação do lado esquerdo.
 8. Selecione o modo **de acesso baseado em palavras-passe.**
-9. Introduza o **URL de entrada**de inscrição, que é o URL da página onde os utilizadores introduzem o seu nome de utilizador e palavra-passe para iniciar sposição. *Certifique-se de que os campos de inscrição estão visíveis na página para o URL que fornece*.
+9. Introduza o **URL de entrada** de inscrição, que é o URL da página onde os utilizadores introduzem o seu nome de utilizador e palavra-passe para iniciar sposição. *Certifique-se de que os campos de inscrição estão visíveis na página para o URL que fornece*.
 10. Selecione **Guardar**.
     A página é automaticamente raspada para o nome de utilizador e caixas de entrada de palavra-passe. Agora pode utilizar o AZure AD para transmitir de forma segura palavras-passe para essa aplicação utilizando a extensão do navegador My Apps.
 
 ### <a name="manually-capture-sign-in-fields-for-an-app"></a>Capture manualmente campos de inscrição para uma aplicação
 
-Para capturar manualmente os campos de inscrição, tem de ter a extensão do navegador My Apps instalada. Além disso, o seu navegador não pode estar a funcionar *em ModoPrivate,* *incógnito*ou *privado.*
+Para capturar manualmente os campos de inscrição, tem de ter a extensão do navegador My Apps instalada. Além disso, o seu navegador não pode estar a funcionar *em ModoPrivate,* *incógnito* ou *privado.*
 
 Para configurar o SSO baseado em palavra-passe para uma aplicação utilizando a captura manual de campo de entrada, siga estes passos:
 1. Abra o [portal do Azure](https://portal.azure.com/). Inscreva-se como administrador global ou coadministrador.
@@ -117,7 +117,7 @@ Para configurar o SSO baseado em palavra-passe para uma aplicação utilizando a
 7. Depois de carregar a aplicação, selecione **Single sign-on no** painel de navegação do lado esquerdo.
 8. Selecione o modo **de acesso baseado em palavras-passe.**
 9. Introduza o **URL de entrada de inscrição,** que é a página onde os utilizadores introduzem o seu nome de utilizador e palavra-passe para iniciar sposição. *Certifique-se de que os campos de inscrição estão visíveis na página para o URL que fornece*.
-10. Selecione **Configurar configurar * &lt; configurar configurações &gt; * únicas de sinalização de assinatura**.
+10. Selecione **Configurar configurar *&lt; configurar configurações &gt;* únicas de sinalização de assinatura**.
 11. Selecione **os campos de inscrição de deteção manual**.
 14. Selecione **OK**.
 15. Selecione **Guardar**.
@@ -146,10 +146,10 @@ Pode observar os seguintes comportamentos quando a deteção manual não estiver
 
 Se sentir algum destes problemas, faça as seguintes coisas:
 - Certifique-se de que tem a versão mais recente da extensão do navegador My Apps *instalada e ativada.*
-- Certifique-se de que o seu navegador não está *incógnito,* *incógnito, no modo InPrivate*ou *Private* durante o processo de captura. A extensão My Apps não é suportada nestes modos.
-- Certifique-se de que os seus utilizadores não estão a tentar entrar na aplicação a partir das Minhas Apps enquanto estiverem *incógnitos,* *incógnitos, no*modo Privado ou *Privado.*
+- Certifique-se de que o seu navegador não está *incógnito,* *incógnito, no modo InPrivate* ou *Private* durante o processo de captura. A extensão My Apps não é suportada nestes modos.
+- Certifique-se de que os seus utilizadores não estão a tentar entrar na aplicação a partir das Minhas Apps enquanto estiverem *incógnitos,* *incógnitos, no* modo Privado ou *Privado.*
 - Tente novamente o processo de captura manual. Certifique-se de que os marcadores vermelhos estão sobre os campos corretos.
-- Se o processo de captura manual parece parar de responder ou a página de inscrição não responder, tente novamente o processo de captura manual. Mas desta vez, depois de concluir o processo, pressione a tecla F12 para abrir a consola de desenvolvimento do seu navegador. Selecione o separador **de consola.** **Digite a janela.location="* &lt; o &gt; URL de entrada de entrada que especificou ao configurar a aplicação*"** e, em seguida, prima Enter. Isto força um redirecionamento de página que termina o processo de captura e armazena os campos que foram capturados.
+- Se o processo de captura manual parece parar de responder ou a página de inscrição não responder, tente novamente o processo de captura manual. Mas desta vez, depois de concluir o processo, pressione a tecla F12 para abrir a consola de desenvolvimento do seu navegador. Selecione o separador **de consola.** **Digite a janela.location="*&lt; o &gt; URL de entrada de entrada que especificou ao configurar a aplicação*"** e, em seguida, prima Enter. Isto força um redirecionamento de página que termina o processo de captura e armazena os campos que foram capturados.
 
 ## <a name="request-support"></a>Solicitar apoio 
 Se receber uma mensagem de erro quando configurar sSO e atribuir utilizadores, abra um bilhete de apoio. Incluir o máximo possível de informações:
@@ -238,6 +238,6 @@ As seguintes informações explicam o que cada item de notificação significa e
     Exemplo:   ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 * [Planear uma implementação de As Minhas Aplicações](access-panel-deployment-plan.md)

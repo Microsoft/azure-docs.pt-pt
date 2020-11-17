@@ -112,12 +112,22 @@
   items:
     - name: Autenticação
       href: authentication.md
-    - name: Lista de URLs seguros
-      href: safe-url-list.md
     - name: Ambiente do Windows Virtual Desktop
       href: environment-setup.md
-    - name: Determinar a latência da ligação do utilizador
-      href: connection-latency.md
+    - name: Conectividade de rede
+      items:
+        - name: Compreender a conectividade da rede
+          href: network-connectivity.md
+        - name: RDP Shortpath
+          href: shortpath.md
+        - name: Implementar o Quality of Service (QoS)
+          href: rdp-quality-of-service-qos.md
+        - name: Lista de URLs seguros
+          href: safe-url-list.md
+        - name: Considerações de largura de banda
+          href: rdp-bandwidth.md
+        - name: Determinar a latência da ligação do utilizador
+          href: connection-latency.md
     - name: Acesso delegado ao Windows Virtual Desktop
       href: delegated-access-virtual-desktop.md
     - name: Métodos de balanceamento de carga do agrupamento de anfitriões
@@ -168,8 +178,6 @@
       href: linux-overview.md
     - name: Definições de ficheiro RDP suportadas
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
-    - name: Diretrizes para a rede
-      href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
     - name: Diretrizes de dimensionamento de máquinas virtuais
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Interface de linha de comandos (CLI) do Azure

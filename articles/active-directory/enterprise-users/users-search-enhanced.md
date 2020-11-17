@@ -8,19 +8,19 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e2ce094b792d6f3f7e5f8fe1920d87a9cceea2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d0136f7677aa722e578ac54c4f7d34338e47b0f7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517180"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646615"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Melhorias na gestão dos utilizadores (pré-visualização) no Azure Ative Directory
 
@@ -41,7 +41,7 @@ As alterações na pré-visualização incluem:
 
 A pré-visualização é ligada por defeito, para que possa usá-la imediatamente. Pode consultar as mais recentes funcionalidades e melhorias selecionando **funcionalidades de pré-visualização** na página **de todos os utilizadores.** Todas as páginas que tenham sido atualizadas como parte desta pré-visualização apresentarão uma etiqueta de pré-visualização. Se tiver algum problema, pode voltar à experiência do legado:
 
-1. Inscreva-se no [centro de administração AdD Azure](https://aad.portal.azure.com) e selecione **Utilizadores** .
+1. Inscreva-se no [centro de administração AdD Azure](https://aad.portal.azure.com) e selecione **Utilizadores**.
 1. A partir da página **Utilizadores – Todos os utilizadores,** selecione o banner no topo da página.
 1. No painel **de funcionalidades de pré-visualização,** desligue a gestão do **utilizador melhorada.**
 
@@ -142,7 +142,7 @@ O que acontece com as capacidades a granel para utilizadores e hóspedes? | As o
 O que aconteceu com a coluna Source? | A coluna **Fonte** foi substituída por outras colunas que fornecem informações semelhantes, permitindo ao mesmo tempo filtrar esses valores de forma independente. Exemplos incluem **tipo de Criação,** **Diretório sincronizado** e **emitente de identidade.**
 O que aconteceu com a coluna User Name? | A coluna **Nome do Utilizador** ainda está lá, mas foi renomeada para Nome Principal do **Utilizador.** Isto reflete melhor a informação contida naquela coluna. Também notará que o nome principal do utilizador completo está agora apresentado para os hóspedes B2B. Isto coincide com o que se obtém no Ms Graph.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Operações de utilizador
 
