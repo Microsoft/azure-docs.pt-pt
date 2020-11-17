@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: enewman
-ms.openlocfilehash: 4bbf4c9d4bc83b48b8ecc62946fa9bffa8af50bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4034f889334bcf1e4eaa3710a32db60b6a9936b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533525"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648026"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Crie um laboratório para ensinar ciência de dados com pítons e cadernos jupyter
 Este artigo descreve como configurar uma máquina virtual modelo (VM) nos Serviços de Laboratório com as ferramentas necessárias para ensinar os alunos a usar [os Cadernos Jupyter,](http://jupyter-notebook.readthedocs.io/)e como os alunos podem ligar-se aos seus cadernos nas suas máquinas virtuais (VMs).
@@ -29,7 +29,7 @@ Ativar as definições descritas na tabela abaixo para a conta de laboratório. 
 
 | Definição de conta de laboratório | Instruções |
 | ------------------- | ------------ |
-| Imagem de mercado | Dentro da sua conta de laboratório, ative uma das imagens do Azure Marketplace com base nas necessidades do seu sistema operativo: <br/><ul><li>Data Science Virtual Machine - Windows Server 2019</li><li>Data Science Virtual Machine – Ubuntu 18.04</li></ul> |
+| Imagem do Marketplace | Dentro da sua conta de laboratório, ative uma das imagens do Azure Marketplace com base nas necessidades do seu sistema operativo: <br/><ul><li>Data Science Virtual Machine - Windows Server 2019</li><li>Data Science Virtual Machine – Ubuntu 18.04</li></ul> |
 
 > [!NOTE]
 > Este artigo utiliza as imagens de máquinas virtuais data science disponíveis no mercado Azure porque estão pré-configuradas com o Jupyter Notebook. Estas imagens, no entanto, também incluem muitas outras ferramentas de desenvolvimento e modelação para a ciência de dados. Se você não quer essas ferramentas extras e quer uma configuração leve apenas com cadernos Jupyter, crie uma imagem VM personalizada. Por exemplo, [instalar o JupyperHub no Azure](http://tljh.jupyter.org/en/latest/install/azure.html). Uma vez criada a imagem personalizada, pode enviá-la para uma galeria de imagens partilhada para utilizar a imagem dentro dos Serviços Azure Lab. Saiba mais sobre [a utilização da Galeria de Imagens Partilhadas nos Serviços Azure Lab](how-to-attach-detach-shared-image-gallery.md). 
@@ -86,7 +86,7 @@ Se forneceu aos alunos VMs Linux, existem várias opções que os alunos podem u
 As secções seguintes fornecem detalhes sobre estas formas de se conectar aos cadernos Jupyter. 
 
 #### <a name="ssh-to-virtual-machine"></a>SSH para máquina virtual
-Os alunos podem ligar-se via SSH aos seus VMs Linux a partir de uma sessão terminal. Para passos detalhados, veja [como aceder a um laboratório de sala de aula.](how-to-use-classroom-lab.md) Se estiverem a utilizar uma máquina cliente Windows, terão de ativar um cliente SSH, descarregando [o PuTTY](https://www.putty.org/) ou permitindo que o [OpenSSH no Windows](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) seja o SSH a partir da ída ponto de comando. 
+Os alunos podem ligar-se via SSH aos seus VMs Linux a partir de uma sessão terminal. Para passos detalhados, veja [como aceder a um laboratório de sala de aula.](how-to-use-classroom-lab.md) Se estiverem a utilizar uma máquina cliente Windows, terão de ativar um cliente SSH, descarregando [o PuTTY](https://www.putty.org/) ou permitindo que o [OpenSSH no Windows](/windows-server/administration/openssh/openssh_install_firstuse) seja o SSH a partir da ída ponto de comando. 
 
 1.  Inicie a VM.
 2.  Uma vez que o VM esteja em execução, clique em **Connect**, que irá aparecer uma caixa de diálogo que fornece a cadeia de comando SSH, que será parecida com a seguinte amostra:
@@ -172,7 +172,7 @@ Mais detalhes sobre os preços, consulte o [Azure Lab Services Pricing](https://
 ## <a name="conclusion"></a>Conclusão
 Neste artigo, percorremos os degraus para criar um laboratório para uma aula de Cadernos Jupyter. Você pode usar uma configuração semelhante para outras aulas de machine learning.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os próximos passos são comuns para montar qualquer laboratório.
 

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.openlocfilehash: 3d95d2551f8e078f4252a19dc850345793c040d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4664bdd515c815dbd742c0d4e05f1e5c03978526
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420460"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649197"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gerir o consentimento dos pedidos e avaliar os pedidos de consentimento
 
-A Microsoft recomenda a [desativação](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#restrict-user-consent-operations) do consentimento do utilizador final para as aplicações. Isto centralizará o processo de tomada de decisão com a equipa de segurança e administrador de identidade da sua organização.
+A Microsoft recomenda a [desativação](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations) do consentimento do utilizador final para as aplicações. Isto centralizará o processo de tomada de decisão com a equipa de segurança e administrador de identidade da sua organização.
 
 Após o consentimento do utilizador final ser desativado ou restringido, existem várias considerações importantes para garantir que a sua organização permanece segura, permitindo ainda a utilização de aplicações críticas empresariais. Estes passos são cruciais para minimizar o impacto na equipa de suporte da sua organização e administradores de TI, ao mesmo tempo que impedem o uso de contas nãogeridas em aplicações de terceiros.
 
@@ -35,13 +35,13 @@ Após o consentimento do utilizador final ser desativado ou restringido, existem
 
 ## <a name="auditing-and-monitoring"></a>Auditoria e monitorização
 
-1. [Aplicações de auditoria e permissões concedidas](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#audit-apps-and-consented-permissions) na sua organização para garantir que nenhuma aplicação injustificada ou suspeita foi previamente autorizada a ter acesso aos dados.
+1. [Aplicações de auditoria e permissões concedidas](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions) na sua organização para garantir que nenhuma aplicação injustificada ou suspeita foi previamente autorizada a ter acesso aos dados.
 
-2. [Reveja detete e remediar as concessões de consentimento ilícitos no Office 365](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) para práticas adicionais e salvaguardas contra aplicações suspeitas que solicitam o consentimento da OAuth.
+2. [Reveja detete e remediar as concessões de consentimento ilícitos no Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) para práticas adicionais e salvaguardas contra aplicações suspeitas que solicitam o consentimento da OAuth.
 
 3. Se a sua organização tiver a licença adequada:
 
-    * Utilize funcionalidades adicionais [de auditoria de aplicações OAuth no Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth).
+    * Utilize funcionalidades adicionais [de auditoria de aplicações OAuth no Microsoft Cloud App Security](/cloud-app-security/investigate-risky-oauth).
     * Utilize [livros de trabalho do Monitor Azure para monitorizar permissões e atividades relacionadas](../reports-monitoring/howto-use-azure-monitor-workbooks.md) com o consentimento. O *manual do Consent Insights* fornece uma visão das aplicações pelo número de pedidos de consentimento falhados. Isto pode ser útil para priorizar os pedidos para os administradores reverem e decidirem se lhes concedem o consentimento administrativo.
 
 ### <a name="additional-considerations-for-reducing-friction"></a>Considerações adicionais para reduzir o atrito
@@ -75,7 +75,7 @@ A lista a seguir fornece algumas recomendações a considerar na avaliação de 
 
 * **Compreenda as permissões que estão a ser pedidas.**
 
-   As permissões solicitadas pelo pedido estão listadas no [pedido de consentimento.](../develop/application-consent-experience.md) Expandir o título de permissão apresentará a descrição da permissão. A descrição das permissões de aplicação geralmente termina em "sem um utilizador inscrito". A descrição das permissões delegadas geralmente termina com "em nome do utilizador inscrito". Permissões para a API do Gráfico microsoft são descritas no [Microsoft Graph Permissions Reference](https://docs.microsoft.com/graph/permissions-reference) - consulte a documentação para outras APIs para entender as permissões que expõem.
+   As permissões solicitadas pelo pedido estão listadas no [pedido de consentimento.](../develop/application-consent-experience.md) Expandir o título de permissão apresentará a descrição da permissão. A descrição das permissões de aplicação geralmente termina em "sem um utilizador inscrito". A descrição das permissões delegadas geralmente termina com "em nome do utilizador inscrito". Permissões para a API do Gráfico microsoft são descritas no [Microsoft Graph Permissions Reference](/graph/permissions-reference) - consulte a documentação para outras APIs para entender as permissões que expõem.
 
    Se não entender a solicitação de uma autorização, *não conceda o consentimento*.
 
@@ -97,15 +97,15 @@ A lista a seguir fornece algumas recomendações a considerar na avaliação de 
 Consulte [o consentimento da administração do grant para um pedido](grant-admin-consent.md) de instruções passo a passo para conceder o consentimento administrativo do porta-administração do inquilino a partir do portal Azure, utilizando a Azure AD PowerShell, ou a partir do consentimento.
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Concessão de consentimento em nome de um utilizador específico
-Em vez de conceder o consentimento para toda a organização, um administrador também pode usar a [API do Gráfico da Microsoft](https://docs.microsoft.com/graph/use-the-api) para conceder consentimento a permissões delegadas em nome de um único utilizador. Para mais informações, consulte [Obter acesso em nome de um utilizador](https://docs.microsoft.com/graph/auth-v2-user).
+Em vez de conceder o consentimento para toda a organização, um administrador também pode usar a [API do Gráfico da Microsoft](/graph/use-the-api) para conceder consentimento a permissões delegadas em nome de um único utilizador. Para mais informações, consulte [Obter acesso em nome de um utilizador](/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Limitação do acesso dos utilizadores às aplicações
-O acesso dos utilizadores às aplicações ainda pode ser limitado mesmo quando o consentimento administrativo do arrendatário foi concedido. Para obter mais informações sobre como exigir a atribuição do utilizador a uma aplicação, consulte [métodos para atribuir utilizadores e grupos.](methods-for-assigning-users-and-groups.md)
+O acesso dos utilizadores às aplicações ainda pode ser limitado mesmo quando o consentimento administrativo do arrendatário foi concedido. Para obter mais informações sobre como exigir a atribuição do utilizador a uma aplicação, consulte [métodos para atribuir utilizadores e grupos.](./assign-user-or-group-access-portal.md)
 
 Para obter uma visão geral mais ampla, incluindo como lidar com cenários complexos adicionais, consulte [a utilização do Azure AD para a gestão do acesso a aplicações.](what-is-access-management.md)
 
 ## <a name="disable-all-future-user-consent-operations-to-any-application"></a>Desativar todas as futuras operações de consentimento do utilizador para qualquer aplicação
-Desativar o consentimento do utilizador para todo o seu diretório impede que os utilizadores finais consintam em qualquer aplicação. Os administradores ainda podem consentir em nome do utilizador. Para saber mais sobre o consentimento da aplicação e por que pode ou não querer consentir, leia [o consentimento do utilizador e da administração](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+Desativar o consentimento do utilizador para todo o seu diretório impede que os utilizadores finais consintam em qualquer aplicação. Os administradores ainda podem consentir em nome do utilizador. Para saber mais sobre o consentimento da aplicação e por que pode ou não querer consentir, leia [o consentimento do utilizador e da administração](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 Para desativar todas as futuras operações de consentimento do utilizador em todo o seu diretório, siga estes passos:
 1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global.**
@@ -115,8 +115,8 @@ Para desativar todas as futuras operações de consentimento do utilizador em to
 5.  Selecione **Definições do utilizador**.
 6.  Desativar todas as futuras operações de consentimento do utilizador, definindo os **Utilizadores, pode permitir que as aplicações acedam aos seus dados** para **alternar** para No e clicar no botão **Guardar.**
 
-## <a name="next-steps"></a>Passos seguintes
-* [Cinco passos para garantir a sua infraestrutura de identidade](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
+## <a name="next-steps"></a>Próximos passos
+* [Cinco passos para garantir a sua infraestrutura de identidade](../../security/fundamentals/steps-secure-identity.md#before-you-begin-protect-privileged-accounts-with-mfa)
 * [Configure o fluxo de trabalho de consentimento administrativo](configure-admin-consent-workflow.md)
 * [Configurar a forma como os utilizadores finais concedem consentimento às aplicações](configure-user-consent.md)
-* [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)
+* [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)

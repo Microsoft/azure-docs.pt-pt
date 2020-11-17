@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e27fe0589498de13f5eb6e17f8869bb9d7352a09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53f31bca59bf316b6664a6c9daec886c84c1b072
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372081"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648349"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>List Azure fun assignments using Azure PowerShell
 
@@ -32,7 +32,7 @@ ms.locfileid: "87372081"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [PowerShell em Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
+- [PowerShell em Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-role-assignments-for-the-current-subscription"></a>Atribuições de funções de lista para a subscrição atual
 
@@ -186,6 +186,6 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
     Get-AzRoleAssignment -ObjectId <objectid>
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilizar o Azure PowerShell para adicionar ou remover atribuições de funções do Azure](role-assignments-powershell.md)

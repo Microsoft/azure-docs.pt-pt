@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: badf10da8af0ed3829deb2498b51b5d5c8ce6a93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56b6638462acaf43b6353787495e5b7993acb413
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604412"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648281"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Passos para adicionar uma atribuição de função
 
@@ -26,7 +26,7 @@ Primeiro tens de determinar quem precisa de acesso. Pode atribuir uma função a
 
 ![Principal de segurança para uma atribuição de função](./media/shared/rbac-security-principal.png)
 
-- Utilizador – Um indivíduo que tem um perfil no Azure Active Directory. Também pode atribuir funções a utilizadores noutros inquilinos. Para obter informações sobre utilizadores noutras organizações, veja [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
+- Utilizador – Um indivíduo que tem um perfil no Azure Active Directory. Também pode atribuir funções a utilizadores noutros inquilinos. Para obter informações sobre utilizadores noutras organizações, veja [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 - Grupo – Um conjunto de utilizadores criado no Azure Active Directory. Quando atribui uma função a um grupo, todos os utilizadores nesse grupo têm essa função. 
 - Principal de serviço – Uma identidade de segurança utilizada por aplicações ou serviços para aceder a recursos específicos do Azure. Pode considerá-lo como uma *identidade de utilizador* (nome de utilizador e palavra-passe ou certificado) para uma aplicação.
 - Identidade gerida - Uma identidade no Azure Ative Directory que é gerida automaticamente pela Azure. Normalmente, utiliza [identidades geridas](../active-directory/managed-identities-azure-resources/overview.md) ao desenvolver aplicações em nuvem para gerir as credenciais para autenticação nos serviços Azure.
@@ -90,6 +90,6 @@ Confira os seguintes artigos para obter etapas detalhadas sobre como adicionar a
 - [Utilizar a CLI do Azure para adicionar ou remover atribuições de funções do Azure](role-assignments-cli.md)
 - [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](role-assignments-rest.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Tutorial: Conceder acesso a um utilizador aos recursos do Azure através do portal Azure](quickstart-assign-role-user-portal.md)

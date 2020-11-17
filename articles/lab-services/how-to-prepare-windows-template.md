@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 216dc843b31eac355e1d818014f3d70b2ef83132
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396693"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647907"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guia para configurar uma máquina de modelos Windows nos serviços do Azure Lab
 
@@ -47,7 +47,7 @@ Write-Host "Installing OneDrive..."
 
 ### <a name="onedrive-customizations"></a>Personalizações OneDrive
 
-Existem [muitas personalizações que podem ser feitas ao OneDrive.](https://docs.microsoft.com/onedrive/use-group-policy) Vamos cobrir algumas das personalizações mais comuns.
+Existem [muitas personalizações que podem ser feitas ao OneDrive.](/onedrive/use-group-policy) Vamos cobrir algumas das personalizações mais comuns.
 
 #### <a name="silently-move-windows-known-folders-to-onedrive"></a>Mover silenciosamente as pastas conhecidas do Windows para o OneDrive
 
@@ -61,7 +61,7 @@ Se estiver numa máquina que não esteja a utilizar o Ative Directory, os utiliz
 
 Se a sua máquina virtual estiver ligada ao Ative Directory, pode configurar a máquina de modelos para solicitar automaticamente aos seus alunos que transcam as pastas conhecidas para o OneDrive.  
 
-Primeiro, tens de recuperar a identificação da tua organização.  Para mais instruções, consulte [o seu ID de organização Microsoft 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  Também pode obter o ID da organização usando o seguinte PowerShell.
+Primeiro, tens de recuperar a identificação da tua organização.  Para mais instruções, consulte [o seu ID de organização Microsoft 365](/onedrive/find-your-office-365-tenant-id).  Também pode obter o ID da organização usando o seguinte PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -137,7 +137,7 @@ Se a máquina de modelo precisar do Office, recomendamos a instalação do Offic
 
 ### <a name="change-the-microsoft-365-update-channel"></a>Alterar o canal de atualização Microsoft 365
 
-Utilizando a Ferramenta de Configuração do Office, pode definir com que frequência o Office recebe atualizações. No entanto, se precisar de modificar a frequência com que o Office recebe atualizações após a instalação, pode alterar o URL do canal de atualização. Os endereços URL do canal de atualização podem ser encontrados no [alterar o canal de atualização de aplicações microsoft 365 para dispositivos na sua organização](https://docs.microsoft.com/deployoffice/change-update-channels). O exemplo abaixo mostra como definir o Microsoft 365 para usar o Canal de Atualização Mensal.
+Utilizando a Ferramenta de Configuração do Office, pode definir com que frequência o Office recebe atualizações. No entanto, se precisar de modificar a frequência com que o Office recebe atualizações após a instalação, pode alterar o URL do canal de atualização. Os endereços URL do canal de atualização podem ser encontrados no [alterar o canal de atualização de aplicações microsoft 365 para dispositivos na sua organização](/deployoffice/change-update-channels). O exemplo abaixo mostra como definir o Microsoft 365 para usar o Canal de Atualização Mensal.
 
 ```powershell
 # Update to the Microsoft 365 Monthly Channel
@@ -188,7 +188,7 @@ Também pode utilizar o PowerShell para atualizar as aplicações da Microsoft S
 
 ### <a name="stop-automatic-windows-updates"></a>Parar atualizações automáticas do Windows
 
-Depois de atualizar o Windows para a versão mais recente, poderá considerar parar as Atualizações do Windows.  As atualizações automáticas podem potencialmente interferir com o tempo de aula programado.  Se o seu curso for mais longo, considere pedir aos alunos que verifiquem manualmente as atualizações ou que estabeleçam atualizações automáticas para um tempo fora do horário de aula programado.  Para obter mais informações sobre as opções de personalização para o Windows Update, consulte as [definições adicionais](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings)de Atualização do Windows .
+Depois de atualizar o Windows para a versão mais recente, poderá considerar parar as Atualizações do Windows.  As atualizações automáticas podem potencialmente interferir com o tempo de aula programado.  Se o seu curso for mais longo, considere pedir aos alunos que verifiquem manualmente as atualizações ou que estabeleçam atualizações automáticas para um tempo fora do horário de aula programado.  Para obter mais informações sobre as opções de personalização para o Windows Update, consulte as [definições adicionais](/windows/deployment/update/waas-wu-settings)de Atualização do Windows .
 
 As atualizações automáticas do Windows podem ser interrompidas utilizando o seguinte script PowerShell.
 
@@ -230,5 +230,5 @@ Instale outras aplicações comumente utilizadas para o ensino através da aplic
 
 Este artigo mostrou-lhe passos opcionais para preparar o seu VM modelo windows para uma classe eficaz.  Os passos incluem instalar o OneDrive e instalar o Microsoft 365, instalar as atualizações para o Windows e instalar atualizações para aplicações da Microsoft Store.  Também discutimos como definir atualizações para um horário que funciona melhor para a sua aula.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte o artigo sobre como controlar o comportamento de paragem do Windows para ajudar na gestão de custos: [Guia para controlar o comportamento de paragem do Windows](how-to-windows-shutdown.md)

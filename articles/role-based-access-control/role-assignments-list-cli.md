@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 027cd8eb9c855afb845b08ce6aada7ddfd44daba
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e44437bb926e8d2d1ffcd3134bbc63538a112ff0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147016"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648315"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>ListE Azure atribui funções usando Azure CLI
 
@@ -30,7 +30,7 @@ ms.locfileid: "93147016"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Bash em Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure CLI](/cli/azure)
+- [Bash em Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure CLI](/cli/azure)
 
 ## <a name="list-role-assignments-for-a-user"></a>Listar atribuições de funções para um utilizador
 
@@ -185,6 +185,6 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
     az role assignment list --assignee {objectId}
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilizar a CLI do Azure para adicionar ou remover atribuições de funções do Azure](role-assignments-cli.md)

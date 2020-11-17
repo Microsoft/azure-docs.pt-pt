@@ -3,22 +3,22 @@ title: Revogar o acesso dos utilizadores a uma emergência no Azure Ative Direct
 description: Como revogar todos os acessos a um utilizador no Azure Ative Directory
 services: active-directory
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 07/15/2020
+ms.date: 11/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16577c3509c9d3d9b02ead5e69832bacc7d083bb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e12d08acdd9fc869ed766a1bbd78f35eb371cc8a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92376400"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649692"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revogar o acesso do utilizador no Azure Ative Directory
 
@@ -117,7 +117,7 @@ Uma vez que os administradores tenham tomado as medidas acima, o utilizador não
 
 - Para **aplicações que utilizem fichas de sessão,** as sessões existentes terminam assim que o token expirar. Se o estado desativado do utilizador for sincronizado com a aplicação, a aplicação pode revogar automaticamente as sessões existentes do utilizador se estiver configurada para o fazer.  O tempo que demora depende da frequência de sincronização entre a aplicação e a Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Práticas de acesso seguros para administradores da AD Azure](../roles/security-planning.md)
 - [Adicionar ou atualizar informações sobre o perfil do utilizador](../fundamentals/active-directory-users-profile-azure-portal.md)

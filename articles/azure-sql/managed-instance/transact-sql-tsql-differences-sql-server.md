@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 873bebc462ce4756d38f966a87edda167bd49501
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 23a620f8031335e5a950df96427b11251f0ec042
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506384"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649318"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,7 +52,7 @@ Problemas temporários conhecidos que são descobertos em SQL Managed Instance e
 - [GRUPO DE DISPONIBILIDADE DE DROP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - A cláusula [SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) da declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Cópia de segurança
 
 SQL Managed Instance tem backups automáticos, para que os utilizadores possam criar `COPY_ONLY` cópias de dados completas. As cópias de segurança diferenciais, de registos e de ficheiros não são suportadas.
 
@@ -114,7 +114,7 @@ A SQL Managed Instance não pode aceder a partilhas de ficheiros e pastas Window
 
 Consulte [o Certificado CREATE](/sql/t-sql/statements/create-certificate-transact-sql) e O Certificado de [Reserva.](/sql/t-sql/statements/backup-certificate-transact-sql) 
  
-**Resumo :** Em vez de criar cópia de segurança do certificado e restaurar a cópia de segurança, [obtenha o conteúdo binário do certificado e a chave privada, guarde-o como ficheiro .sql e crie a partir de binário:](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database)
+**Resumo :** Em vez de criar cópia de segurança do certificado e restaurar a cópia de segurança, [obtenha o conteúdo binário do certificado e a chave privada, guarde-o como .sql ficheiro e crie a partir de binário:](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database)
 
 ```sql
 CREATE CERTIFICATE  
@@ -447,8 +447,8 @@ As seguintes opções de base de dados são definidas ou ultrapassadas e não po
 - `NEW_BROKER` se o corretor não estiver ativado no ficheiro .bak. 
 - `ENABLE_BROKER` se o corretor não estiver ativado no ficheiro .bak. 
 - `AUTO_CLOSE=OFF` se uma base de dados no ficheiro .bak tiver `AUTO_CLOSE=ON` . 
-- `RECOVERY FULL` se uma base de dados no ficheiro .bak tiver `SIMPLE` ou o modo de `BULK_LOGGED` recuperação.
-- Um grupo de ficheiros otimizado pela memória é adicionado e chamado XTP se não estivesse no ficheiro source .bak. 
+- `RECOVERY FULL` se uma base de dados no .bak ficheiro tiver `SIMPLE` ou o modo de `BULK_LOGGED` recuperação.
+- Um grupo de ficheiros otimizado pela memória é adicionado e chamado XTP se não estivesse na fonte .bak ficheiro. 
 - Qualquer grupo de ficheiros otimizado pela memória existente é renomeado para XTP. 
 - `SINGLE_USER` e `RESTRICTED_USER` as opções são convertidas para `MULTI_USER` .
 
@@ -517,12 +517,11 @@ As seguintes variáveis, funções e vistas retornam diferentes resultados:
 ### <a name="failover-groups"></a>Grupos de ativação pós-falha
 As bases de dados do sistema não são replicadas para a instância secundária num grupo de failover. Portanto, os cenários que dependem de objetos das bases de dados do sistema serão impossíveis na instância secundária, a menos que os objetos sejam criados manualmente no secundário.
 
-### <a name="failover-groups"></a>Grupos de ativação pós-falha
-As bases de dados do sistema não são replicadas para a instância secundária num grupo de failover. Portanto, os cenários que dependem de objetos das bases de dados do sistema serão impossíveis na instância secundária, a menos que os objetos sejam criados manualmente no secundário.
-
 ### <a name="tempdb"></a>TEMPDB
-
-O tamanho máximo do ficheiro `tempdb` não pode ser superior a 24 GB por núcleo num nível de Finalidade Geral. O tamanho máximo `tempdb` num nível Business Critical é limitado pelo tamanho de armazenamento SQL Managed Instance. `Tempdb` o tamanho do ficheiro de registo é limitado a 120 GB no nível de Finalidade Geral. Algumas consultas podem devolver um erro se precisarem de mais de 24 GB por núcleo `tempdb` ou se produzirem mais de 120 GB de dados de registo.
+- O tamanho máximo do ficheiro `tempdb` não pode ser superior a 24 GB por núcleo num nível de Finalidade Geral. O tamanho máximo `tempdb` num nível Business Critical é limitado pelo tamanho de armazenamento SQL Managed Instance. `Tempdb` o tamanho do ficheiro de registo é limitado a 120 GB no nível de Finalidade Geral. Algumas consultas podem devolver um erro se precisarem de mais de 24 GB por núcleo `tempdb` ou se produzirem mais de 120 GB de dados de registo.
+- `Tempdb` é sempre dividido em 12 ficheiros de dados: 1 primário, também chamado de mestre, ficheiro de dados e 11 ficheiros de dados não primários. A estrutura do ficheiro não pode ser alterada e os novos ficheiros não podem ser adicionados `tempdb` . 
+- [ `tempdb` Metadados otimizados pela memória](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), uma nova funcionalidade de base de dados de memória SQL Server 2019, não é suportado.
+- Os objetos criados na base de dados do modelo não podem ser criados automaticamente `tempdb` após um reinício ou uma falha porque `tempdb` não obtêm a sua lista inicial de objetos a partir da base de dados de modelos replicada. 
 
 ### <a name="msdb"></a>MSDB
 
@@ -548,7 +547,7 @@ Os seguintes esquemas MSDB em SQL Managed Instance devem ser propriedade das res
 
 SQL Gestd Instance coloca informações verbosas em registos de erro. Existem muitos eventos internos do sistema que são registados no registo de erros. Utilize um procedimento personalizado para ler registos de erros que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [a extensão de exemplo gerida do SQL – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) ou [SQL Para](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) o Azure Data Studio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre a SQL Managed Instance, consulte [o que é a SqL Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para obter uma lista de funcionalidades e comparação, consulte [a comparação de funcionalidades Azure SQL Managed Instance](../database/features-comparison.md).

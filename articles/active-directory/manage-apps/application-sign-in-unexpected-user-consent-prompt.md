@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9559e22a8396de93bbe46f20b76855d9ff00f753
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa74424dddd7577eb942f72f038f5bd56854abac
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763725"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648196"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Pedido de consentimento inesperado ao iniciar sessão de candidatura
 
@@ -39,16 +39,14 @@ Podem ser esperadas solicitações adicionais em vários cenários:
 
 * O utilizador que inicialmente consentiu com o pedido era um administrador, mas não consentiu em nome de toda a organização.
 
-* O pedido está a usar [o consentimento incremental e dinâmico](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) para solicitar permissões adicionais após o consentimento ter sido inicialmente concedido. Isto é frequentemente usado quando as funcionalidades opcionais de uma aplicação adicional requerem permissões para além das necessárias para a funcionalidade de base.
+* O pedido está a usar [o consentimento incremental e dinâmico](../azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) para solicitar permissões adicionais após o consentimento ter sido inicialmente concedido. Isto é frequentemente usado quando as funcionalidades opcionais de uma aplicação adicional requerem permissões para além das necessárias para a funcionalidade de base.
 
 * O consentimento foi revogado depois de ter sido concedido inicialmente.
 
 * O desenvolvedor configura o pedido para exigir um pedido de consentimento sempre que é usado (nota: esta não é a melhor prática).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
--   [Aplicativos, permissões e consentimento no Azure Ative Directory (v1.0 endpoint)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
+-   [Aplicativos, permissões e consentimento no Azure Ative Directory (v1.0 endpoint)](../develop/quickstart-register-app.md)
 
--   [Âmbitos, permissões e consentimento no Diretório Ativo do Azure (v2.0 ponto final)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+-   [Âmbitos, permissões e consentimento no Diretório Ativo do Azure (v2.0 ponto final)](../develop/v2-permissions-and-consent.md)

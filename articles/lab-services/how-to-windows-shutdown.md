@@ -3,19 +3,19 @@ title: Guia para controlar o comportamento de paragem do Windows nos Serviços A
 description: Passos para desligar automaticamente uma máquina virtual do Windows e remover o comando de paragem do Windows.
 ms.topic: article
 ms.date: 09/29/2020
-ms.openlocfilehash: c6021131787dde4fe23ec4caad107bda2e20158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248bbeabaf704ba636e2f82c7a93d0ee90a09f22
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541565"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647703"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guia para controlar o comportamento de paragem do Windows
 
 A Azure Lab Services fornece vários controlos de custos para garantir que as máquinas virtuais do Windows (VMs) não estão a funcionar inesperadamente:
- - [Definir um horário](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
- - [Definir quotas para utilizadores](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users)
- - [Ativar encerramento automático ao desligar](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
+ - [Definir um horário](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+ - [Definir quotas para utilizadores](./how-to-configure-student-usage.md#set-quotas-for-users)
+ - [Ativar encerramento automático ao desligar](./how-to-enable-shutdown-disconnect.md)
 
 Mesmo com estes controlos de custos, existem situações em que um VM do Windows pode inesperadamente continuar a funcionar; e, consequentemente, deduzir da quota do aluno:
 
@@ -25,7 +25,7 @@ Mesmo com estes controlos de custos, existem situações em que um VM do Windows
 
 - **O comando de paragem do Windows é utilizado para desligar o VM**
   
-    Um estudante pode utilizar o comando de paragem do Windows, ou outros mecanismos de paragem fornecidos dentro do Windows, para desligar o VM em vez de utilizar o botão de [paragem dos Serviços Azure Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-classroom-lab#start-or-stop-the-vm).  Quando isto acontece, do ponto de vista dos Serviços Azure Lab, o VM ainda está a ser usado.
+    Um estudante pode utilizar o comando de paragem do Windows, ou outros mecanismos de paragem fornecidos dentro do Windows, para desligar o VM em vez de utilizar o botão de [paragem dos Serviços Azure Lab](./how-to-use-classroom-lab.md#start-or-stop-the-vm).  Quando isto acontece, do ponto de vista dos Serviços Azure Lab, o VM ainda está a ser usado.
     
 Para o ajudar a evitar que estas situações aconteçam, este guia fornece medidas para desligar automaticamente um VM do Windows e remover o comando de paragem do Windows do menu **Iniciar.**  
 
@@ -44,7 +44,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 Ou, pode optar por seguir estes passos manuais utilizando o modelo VM:
 
-1. Pressione a tecla Windows, **escreva gpedit**e, em seguida, **selecione Editar a política do grupo (Painel de controlo)**.
+1. Pressione a tecla Windows, **escreva gpedit** e, em seguida, **selecione Editar a política do grupo (Painel de controlo)**.
 
 1. Aceda à **configuração do computador > modelos administrativos > menu inicial e barra de tarefas.**  
 
@@ -60,5 +60,5 @@ Ou, pode optar por seguir estes passos manuais utilizando o modelo VM:
 
     ![Comando de encerramento](./media/how-to-windows-shutdown/start-menu.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte o artigo sobre como preparar um VM modelo do Windows: [Guia para configurar uma máquina de modelos Windows nos Serviços de Laboratório Azure](how-to-prepare-windows-template.md)

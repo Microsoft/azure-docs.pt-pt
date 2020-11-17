@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd6ddf58b3a6e8eb8c618ded335c699fc93328c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfa7530617830de99d752edcf4545300525ddbe8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362370"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649216"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicações de autosserviço
 
-Antes que os seus utilizadores possam auto-descobrir aplicações a partir das suas Apps, é necessário permitir o acesso da **aplicação Self-service** a quaisquer aplicações que deseje permitir que os utilizadores se auto-descubram e solicitem acesso. Esta funcionalidade está disponível para aplicações que foram adicionadas a partir da [Galeria AD AZure](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) ou foram adicionadas através do [consentimento do utilizador ou administração.](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience) 
+Antes que os seus utilizadores possam auto-descobrir aplicações a partir das suas Apps, é necessário permitir o acesso da **aplicação Self-service** a quaisquer aplicações que deseje permitir que os utilizadores se auto-descubram e solicitem acesso. Esta funcionalidade está disponível para aplicações que foram adicionadas a partir da [Galeria AD AZure](./add-application-portal.md), [Azure AD Application Proxy](./application-proxy.md) ou foram adicionadas através do [consentimento do utilizador ou administração.](../develop/application-consent-experience.md) 
 
 Esta funcionalidade é uma ótima maneira de economizar tempo e dinheiro como um grupo de TI, e é altamente recomendado como parte de uma implementação de aplicações modernas com o Azure Ative Directory.
 
@@ -61,7 +61,7 @@ Para permitir o acesso de aplicações self-service a uma aplicação, siga os p
 
 5. Para permitir o acesso a aplicações self-service para esta aplicação, **Yes.** rode o **Allow users to request access to this application?**
 
-6. Ao lado de qual grupo deve ser **Select group**adicionado **aos utilizadores designados?** Escolha um grupo e, em seguida, clique em **Selecionar**. Quando o pedido de um utilizador for aprovado, eles serão adicionados a este grupo. Ao visualizar a adesão deste grupo, poderá ver quem teve acesso à aplicação através do acesso ao self-service.
+6. Ao lado de qual grupo deve ser **Select group** adicionado **aos utilizadores designados?** Escolha um grupo e, em seguida, clique em **Selecionar**. Quando o pedido de um utilizador for aprovado, eles serão adicionados a este grupo. Ao visualizar a adesão deste grupo, poderá ver quem teve acesso à aplicação através do acesso ao self-service.
   
     > [!NOTE]
     > Esta definição não suporta grupos sincronizados a partir do local.
@@ -70,16 +70,16 @@ Para permitir o acesso de aplicações self-service a uma aplicação, siga os p
 
 8. **Opcional: Para aplicações que utilizem a palavra-passe de assinatura única apenas,** para permitir que os aprovadores de negócios especifiquem as palavras-passe enviadas para esta aplicação para utilizadores aprovados, detete **os aprovadores de Autorização para definir as palavras-passe do utilizador para esta aplicação?** **Yes**
 
-9. **Opcional:** Para especificar os aprovadores empresariais que estão autorizados a aprovar o acesso a **Select approvers**esta aplicação, ao lado **de Quem está autorizado a aprovar o acesso a esta aplicação?** Em seguida, clique em **Selecionar**.
+9. **Opcional:** Para especificar os aprovadores empresariais que estão autorizados a aprovar o acesso a **Select approvers** esta aplicação, ao lado **de Quem está autorizado a aprovar o acesso a esta aplicação?** Em seguida, clique em **Selecionar**.
 
     >[!NOTE]
     >Os grupos não são apoiados. Pode selecionar até 10 aprovadores de negócios individuais. Se especificar vários aprovadores, qualquer um dos aprovadores pode aprovar um pedido de acesso.
 
-10. **Opcional:** **Para aplicações que expõem funções,** atribuir utilizadores aprovados por autosserviço a uma função, **Select Role**ao lado da **função a que os utilizadores devem ser atribuídos nesta aplicação?** Em seguida, clique em **Selecionar**.
+10. **Opcional:** **Para aplicações que expõem funções,** atribuir utilizadores aprovados por autosserviço a uma função, **Select Role** ao lado da **função a que os utilizadores devem ser atribuídos nesta aplicação?** Em seguida, clique em **Selecionar**.
 
 11. Clique no botão **Guardar** na parte superior do painel para terminar.
 
 Assim que concluir a configuração da aplicação self-service, os utilizadores podem navegar para as suas [Apps My](https://myapps.microsoft.com/) e clicar no botão **Adicionar aplicações de self-service** para encontrar as aplicações que estão habilitados com acesso ao autosserviço. Os aprovadores de negócios também vêem uma notificação nas suas [Aplicações My.](https://myapps.microsoft.com/) Pode ativar um e-mail notificando-os quando um utilizador tiver solicitado acesso a uma aplicação que exija a sua aprovação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Configurar o Azure Active Directory para gestão de grupo personalizada](../enterprise-users/groups-self-service-management.md)

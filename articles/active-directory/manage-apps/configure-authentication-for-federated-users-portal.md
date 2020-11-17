@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 873a87ed2c75d41e0a249bde4b6a29921b7e5ce5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763589"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648060"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o Azure Ative Directory assinar em comportamento para uma aplicação usando uma política de Descoberta do Realm Doméstico
 
@@ -63,7 +63,7 @@ Por exemplo, a aplicação "largeapp.com" pode permitir aos seus clientes aceder
 
 A sintaxe de sugestão de domínio varia dependendo do protocolo que é usado, e é tipicamente configurado na aplicação.
 
-**WS-Federação:** whr=contoso.com na cadeia de consulta.
+**WS-Federação**: whr=contoso.com na cadeia de consulta.
 
 **SAML**: Ou um pedido de autenticação SAML que contenha uma sugestão de domínio ou uma sequência de consulta whr=contoso.com.
 
@@ -207,7 +207,7 @@ Para aplicar a política de HRD depois de a ter criado, pode atribuí-la a vári
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Passo 2: Localizar o principal de serviço a que atribuir a apólice  
 Precisa do **ObjectID** dos principais de serviço aos quais pretende atribuir a apólice. Existem várias formas de encontrar o **ObjectID** dos principais serviços.    
 
-Pode utilizar o portal ou consultar o [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Também pode ir à [Ferramenta Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e iniciar sôm no seu AD Azure para ver todos os principais serviços da sua organização. 
+Pode utilizar o portal ou consultar o [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta). Também pode ir à [Ferramenta Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e iniciar sôm no seu AD Azure para ver todos os principais serviços da sua organização. 
 
 Como está a utilizar o PowerShell, pode utilizar o cmdlet seguinte para listar os principais de serviço e os seus IDs.
 
@@ -266,7 +266,7 @@ Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -P
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
-## <a name="next-steps"></a>Passos seguintes
-- Para obter mais informações sobre como funciona a autenticação em Azure AD, consulte [cenários de autenticação para Azure AD](../develop/authentication-scenarios.md).
+## <a name="next-steps"></a>Próximos passos
+- Para obter mais informações sobre como funciona a autenticação em Azure AD, consulte [cenários de autenticação para Azure AD](../develop/authentication-vs-authorization.md).
 - Para obter mais informações sobre o único súmis do utilizador, consulte [um único sinal de inscrição para aplicações no Azure Ative Directory](what-is-single-sign-on.md).
 - Visite a [plataforma de identidade](../develop/v2-overview.md) da Microsoft para obter uma visão geral de todos os conteúdos relacionados com o programador.

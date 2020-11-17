@@ -3,12 +3,12 @@ title: Ativar o ambiente de trabalho remoto gráfico para o Linux nos Serviços 
 description: Saiba como permitir o ambiente de trabalho remoto para máquinas virtuais Linux em um laboratório em Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251614"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647958"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Ativar o ambiente de trabalho remoto gráfico para máquinas virtuais Linux nos Serviços Azure Lab
 Este artigo mostra-lhe como fazer as seguintes tarefas:
@@ -38,7 +38,7 @@ X2Go usa a mesma porta que já está ativada para SSH.  Como resultado, não é 
 > Em alguns casos, como com ubuntu LTS 18.04, X2Go proporciona um melhor desempenho.  Se utilizar RDP e notar a latência ao interagir com o ambiente de trabalho gráfico, considere experimentar x2Go uma vez que pode melhorar o desempenho.
 
 > [!IMPORTANT]
->  Algumas imagens do mercado já possuem um ambiente de ambiente de trabalho gráfico e um servidor de ambiente de trabalho remoto instalado.  Por exemplo, a [Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) já tem O Servidor [XFCE e X2Go instalado e configurado para aceitar ligações ao cliente.](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go)
+>  Algumas imagens do mercado já possuem um ambiente de ambiente de trabalho gráfico e um servidor de ambiente de trabalho remoto instalado.  Por exemplo, a [Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) já tem O Servidor [XFCE e X2Go instalado e configurado para aceitar ligações ao cliente.](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go)
 
 ## <a name="enable-remote-desktop-connection-for-rdp"></a>Ativar a ligação remota de ambiente de trabalho para RDP
 
@@ -73,7 +73,7 @@ Siga os passos abaixo para configurar o modelo VM:
     ![Cadeia de conexão SSH](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
 4. Instale RDP ou X2Go juntamente com o ambiente de trabalho gráfico à sua escolha.  Consulte as seguintes instruções:
-    - [Instalar e configurar RDP](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
+    - [Instalar e configurar RDP](../virtual-machines/linux/use-remote-desktop.md)
     - [Instalar e configurar x2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>Ligue ao modelo VM através do GUI
@@ -82,7 +82,7 @@ Após a configuração do modelo VM, o instrutor pode ligar-se através do GUI u
 
 ### <a name="microsoft-remote-desktop-rdp-client"></a>Cliente do Microsoft Remote Desktop (RDP)
 
-O cliente do Microsoft Remote Desktop (RDP) é utilizado para ligar a um VM de modelo que tem RDP configurado.  O cliente remote desktop pode ser usado em Windows, Chromebooks, Macs e muito mais.  Consulte o artigo sobre [clientes remote desktop](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) para mais detalhes.
+O cliente do Microsoft Remote Desktop (RDP) é utilizado para ligar a um VM de modelo que tem RDP configurado.  O cliente remote desktop pode ser usado em Windows, Chromebooks, Macs e muito mais.  Consulte o artigo sobre [clientes remote desktop](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) para mais detalhes.
 
 Siga os passos abaixo com base no tipo de computador utilizado para ligar ao modelo VM:
 
@@ -103,8 +103,8 @@ Siga os passos abaixo com base no tipo de computador utilizado para ligar ao mod
 
 O cliente X2Go é utilizado para ligar a um modelo VM que tem X2Go configurado.  Utilizando as informações de ligação SSH do modelo VM, siga os passos no artigo de como [ligar a um VM utilizando X2Go](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-x2go).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Depois de um instrutor configurar RDP ou X2Go no seu modelo VM e publicar, os alunos podem ligar-se aos seus VMs através do ambiente de trabalho remoto gui ou SSH.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
  - [Ligar a uma VM do Linux](how-to-use-remote-desktop-linux-student.md)

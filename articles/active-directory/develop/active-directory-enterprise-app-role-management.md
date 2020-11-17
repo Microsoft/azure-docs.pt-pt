@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 376086d0fc84e04645215b26ba896cf22f3f9c57
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704553"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647890"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Configurar a alegação de papel emitida no token SAML para aplicações empresariais
 
@@ -62,12 +62,12 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
       ![O botão "modificar permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
+    >[!NOTE]
+    >A função de Administrador de Aplicações cloud e administrador de aplicativos não funcionará neste cenário, pois precisamos das permissões de Administração Global para leitura e escrita de diretório.
+
     c. Selecione as seguintes permissões da lista (se ainda não as tiver) e selecione **Modificar Permissões**.
 
       ![Lista de permissões e botão "Modificar permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
-
-    > [!Note]
-    > A função de Administrador de Aplicações cloud e administrador de aplicativos não funcionará neste cenário, pois precisamos das permissões de Administração Global para leitura e escrita de diretório.
 
     d. Aceite o consentimento. Está ligado ao sistema de novo.
 
@@ -79,9 +79,7 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
       ![Caixa de diálogo do Graph Explorer, com a consulta para buscar os principais do serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-      > [!Note]
-      > Já estamos em fase de atualização das APIs para que os clientes possam ver alguma perturbação no serviço.
-
+      
     f. Da lista de diretores de serviço recolhidos, obtenha o que precisa modificar. Também pode utilizar ctrl+F para pesquisar a aplicação de todos os principais do serviço listados. Procure o ID do objeto que copiou na página **Propriedades** e use a seguinte consulta para chegar ao principal do serviço:
 
       `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
@@ -92,8 +90,8 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
       ![Detalhes da propriedade appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-      > [!Note]
-      > Se estiver a utilizar a aplicação personalizada (não a aplicação Azure Marketplace), vê duas funções predefinidas: utilizador e msiam_access. Para a aplicação Marketplace, msiam_access é o único papel padrão. Não precisa de fazer alterações nas funções predefinidas.
+      
+      Se estiver a utilizar a aplicação personalizada (não a aplicação Azure Marketplace), vê duas funções predefinidas: utilizador e msiam_access. Para a aplicação Marketplace, msiam_access é o único papel padrão. Não precisa de fazer alterações nas funções predefinidas.
 
     h. Gere novas funções para a sua aplicação.
 
@@ -128,8 +126,8 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
       }
       ```
 
-      > [!Note]
-      > Só é possível adicionar novas funções após msiam_access para a operação do patch. Além disso, pode adicionar o máximo de papéis que a sua organização precisar. A Azure AD enviará o valor destas funções como valor de reclamação na resposta SAML. Para gerar os valores GUID para o ID de novas funções use as ferramentas web como [esta](https://www.guidgenerator.com/)
+      
+      Só é possível adicionar novas funções após msiam_access para a operação do patch. Além disso, pode adicionar o máximo de papéis que a sua organização precisar. A Azure AD enviará o valor destas funções como valor de reclamação na resposta SAML. Para gerar os valores GUID para o ID de novas funções use as ferramentas web como [esta](https://www.guidgenerator.com/)
 
     i. Volte para o Graph Explorer e altere o método de **GET** para **PATCH**. Remeje o objeto principal de serviço para ter as funções desejadas atualizando a propriedade **appRoles** como a mostrada no exemplo anterior. Selecione **'Fazer's Questionry** para executar a operação de correção. Uma mensagem de sucesso confirma a criação do papel.
 
@@ -143,8 +141,8 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
 
     ![Painel de "Atribuição de Edição" e painel "Select Role"](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
-    > [!Note]
-    > Precisa de refrescar a sua sessão no portal Azure para ver novos papéis.
+    
+    Precisa de refrescar a sua sessão no portal Azure para ver novos papéis.
 
 8. Atualize a tabela **Atributos** para definir um mapeamento personalizado da reivindicação de funções.
 
@@ -154,8 +152,8 @@ Se a sua aplicação espera que as funções personalizadas sejam passadas numa 
     | -------------- | ----------------|
     | Nome da função  | user.assignedroles |
 
-    >[!NOTE]
-    >Se o valor de reclamação de funções for nulo, então a Azure AD não enviará este valor no token e este é o padrão conforme o design.
+    
+    Se o valor de reclamação de funções for nulo, então a Azure AD não enviará este valor no token e este é o padrão conforme o design.
 
     a. clique em **Editar** o ícone para abrir **o diálogo & Desemabros de Atributos do Utilizador.**
 
@@ -253,17 +251,17 @@ Para eliminar uma função existente, execute os seguintes passos:
 
     d. Selecione **Executar Consulta**.
 
-    > [!NOTE]
-    > Certifique-se de que tem o papel msiam_access, e o ID está correspondente no papel gerado.
+    
+    Certifique-se de que tem o papel msiam_access, e o ID está correspondente no papel gerado.
 
 7. Depois de desativar a função, elimine o bloco de funções da secção **appRoles.** Mantenha o método como **PATCH**, e selecione **'Consulta de Execução'.**
 
 8. Depois de executar a consulta, o papel é apagado.
 
-    > [!NOTE]
-    > A função tem de ser desativada antes de poder ser removida.
+    
+    A função tem de ser desativada antes de poder ser removida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais etapas, consulte a documentação da [aplicação.](../saas-apps/tutorial-list.md)
 

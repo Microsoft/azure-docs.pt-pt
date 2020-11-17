@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c6fc9a4716f1427257b3bbf18e5fa653567e141
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c208da657d30d4a0f5b6f171693c5c6abc2b358b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763385"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649188"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Desativar as insuposições do utilizador para uma aplicação da empresa no Azure Ative Directory
 
@@ -31,15 +31,15 @@ ms.locfileid: "84763385"
 
 1. Iniciar sessão no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 1. Selecione **Todos os serviços**, insira o **Diretório Ativo Azure** na caixa de texto e, em seguida, selecione **Enter**.
-1. No painel de diretoria do **Azure Ative**  -   ***Directory*** (isto é, o painel AD AD Azure para o diretório que está a gerir), selecione **aplicações da Enterprise**.
+1. No diretor **do Azure Ative Directory**  -   **_directoryname_*_ pane (isto é, o painel AD AD Azure para o diretório que está a gerir), selecione _* Aplicações da Empresa**.
 1. Nas **aplicações Da Enterprise - Todas as aplicações** painel, você vê uma lista das aplicações que você pode gerir. Selecione uma aplicação.
-1. No painel de ***nomes*** (isto é, o painel com o nome da aplicação selecionada no título), selecione **Properties**.
-1. No painel de propriedades do nome de ***aplicação,***  -  **Properties** selecione **No** for **Enabled para os utilizadores iniciarem sação?**
+1. No **_nome de appname_*_ painel (isto é, o painel com o nome da aplicação selecionada no título), selecione _* Properties**.
+1. No nome do **_appname_*_ - _* Painel de propriedades,** selecione **No** for **Enabled for users to sign-in?**
 1. Selecione o comando **Guardar.**
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Use a Azure AD PowerShell para desativar uma aplicação não cotada
 
-Se conhece o AppId de uma aplicação que não aparece na lista de aplicações da Enterprise (por exemplo, porque apagou a aplicação ou o principal de serviço ainda não foi criado devido à pré-autorização da app pela Microsoft), pode criar manualmente o principal do serviço para a aplicação e depois desativá-la utilizando o [cmdlet AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
+Se conhece o AppId de uma aplicação que não aparece na lista de aplicações da Enterprise (por exemplo, porque apagou a aplicação ou o principal de serviço ainda não foi criado devido à pré-autorização da app pela Microsoft), pode criar manualmente o principal do serviço para a aplicação e depois desativá-la utilizando o [cmdlet AzureAD PowerShell](/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
 
 ```PowerShell
 # The AppId of the app to be disabled
@@ -56,9 +56,9 @@ if ($servicePrincipal) {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](assign-user-or-group-access-portal.md)
-* [Remova uma atribuição de utilizador ou grupo de uma aplicação da empresa](remove-user-or-group-access-portal.md)
-* [Alterar o nome ou logotipo de uma aplicação da empresa](change-name-or-logo-portal.md)
+* [Remova uma atribuição de utilizador ou grupo de uma aplicação da empresa](./assign-user-or-group-access-portal.md)
+* [Alterar o nome ou logotipo de uma aplicação da empresa](./add-application-portal-configure.md)

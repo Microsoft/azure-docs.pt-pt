@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
-ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75f2eb90e2418b57e5e0a358fbd6282b20ddc9e7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597653"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648366"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Utilizar a CLI do Azure para adicionar ou remover atribuições de funções do Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "91597653"
 Para adicionar ou remover atribuições de funções, você deve ter:
 
 - `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
-- [Bash em Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure CLI](/cli/azure)
+- [Bash em Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure CLI](/cli/azure)
 
 ## <a name="steps-to-add-a-role-assignment"></a>Passos para adicionar uma atribuição de função
 
@@ -52,7 +52,7 @@ Para um grupo AD Azure, você precisa da identificação do objeto de grupo. Par
 az ad group show --group "{groupName}" --query "objectId" --output tsv
 ```
 
-**Diretor de serviços**
+**Service principal (Principal de serviço)**
 
 Para um principal de serviço Azure AD (identidade utilizada por uma aplicação), precisa do iD principal do objeto de serviço. Para obter o ID do objeto, você pode usar [a lista az ad sp](/cli/azure/ad/sp#az_ad_sp_list). Para um principiante de serviço, utilize o ID do objeto e **não** o ID da aplicação.
 
@@ -215,7 +215,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 
 ### <a name="add-role-assignment-for-a-user-at-a-resource-group-scope"></a>Adicionar atribuição de funções para um utilizador num âmbito de grupo de recursos
 
-Atribui o papel [de Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao utilizador * \@ patlong contoso.com* no âmbito do grupo de recursos de vendas de *pharma.*
+Atribui o papel [de Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao utilizador *\@ patlong contoso.com* no âmbito do grupo de recursos de vendas de *pharma.*
 
 ```azurecli
 az role assignment create --assignee "patlong@contoso.com" \
@@ -232,7 +232,7 @@ Há um par de vezes em que um nome pode mudar, por exemplo:
 
 Mesmo que um papel seja renomeado, o iD do papel não muda. Se estiver a usar scripts ou automação para criar as suas atribuições de papéis, é uma boa prática usar o ID de função único em vez do nome de função. Portanto, se um papel for renomeado, os seus scripts são mais propensos a funcionar.
 
-O exemplo a seguir atribui o papel [de Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao utilizador * \@ patlong contoso.com* no âmbito do grupo de recursos de vendas de *pharma.*
+O exemplo a seguir atribui o papel [de Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao utilizador *\@ patlong contoso.com* no âmbito do grupo de recursos de vendas de *pharma.*
 
 ```azurecli
 az role assignment create --assignee "patlong@contoso.com" \
@@ -313,7 +313,7 @@ az role assignment create --assignee "22222222-2222-2222-2222-222222222222" \
 
 ### <a name="add-role-assignment-for-all-blob-containers-at-a-subscription-scope"></a>Adicionar atribuição de funções para todos os recipientes blob num âmbito de subscrição
 
-Atribui a função [de Leitor de Dados blob de armazenamento](built-in-roles.md#storage-blob-data-reader) ao utilizador * \@ alain example.com* num âmbito de subscrição.
+Atribui a função [de Leitor de Dados blob de armazenamento](built-in-roles.md#storage-blob-data-reader) ao utilizador *\@ alain example.com* num âmbito de subscrição.
 
 ```azurecli
 az role assignment create --assignee "alain@example.com" \
@@ -335,7 +335,7 @@ az role assignment create --assignee "alain@example.com" \
 
 No Azure RBAC, para remover o acesso, remove-se uma atribuição de funções utilizando a designação de [função az](/cli/azure/role/assignment#az_role_assignment_delete).
 
-O exemplo a seguir remove a atribuição de função [de contribuinte de máquina virtual](built-in-roles.md#virtual-machine-contributor) do utilizador * \@ patlong contoso.com* no grupo de recursos de vendas de *pharma:*
+O exemplo a seguir remove a atribuição de função [de contribuinte de máquina virtual](built-in-roles.md#virtual-machine-contributor) do utilizador *\@ patlong contoso.com* no grupo de recursos de vendas de *pharma:*
 
 ```azurecli
 az role assignment delete --assignee "patlong@contoso.com" \
@@ -359,7 +359,7 @@ az role assignment delete --assignee "alain@example.com" \
 --scope "/providers/Microsoft.Management/managementGroups/marketing-group"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [ListE Azure atribui funções usando Azure CLI](role-assignments-list-cli.md)
-- [Utilize o CLI Azure para gerir recursos e grupos de recursos da Azure](../azure-resource-manager/cli-azure-resource-manager.md)
+- [Utilize o CLI Azure para gerir recursos e grupos de recursos da Azure](../azure-resource-manager/management/manage-resources-cli.md)

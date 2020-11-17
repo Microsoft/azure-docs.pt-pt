@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 0d72ea23b74137e7e57f892b831b0be1b4a89de5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b1a2f87498d7869b21e6a8ab44fc1f9660456ad
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82735526"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648322"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-azure-powershell"></a>Tutorial: Conceder a um grupo acesso aos recursos da Azure utilizando a Azure PowerShell
 
 [O controlo de acesso baseado em funções Azure (Azure RBAC)](overview.md) é a forma como gere o acesso aos recursos do Azure. Neste tutorial irá conceder acesso a um grupo para ver tudo numa subscrição e gerir tudo num grupo de recursos com o Azure PowerShell.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Conceder acesso a um grupo de âmbitos diferentes
@@ -40,7 +40,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para concluir este tutorial, irá precisar de:
 
 - Permissões para criar grupos no Azure Active Directory (ou ter um grupo existente)
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
+- [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
 
 ## <a name="role-assignments"></a>Atribuições de funções
 
@@ -48,8 +48,8 @@ No Azure RBAC, para dar acesso, cria-se uma tarefa de papel. Uma atribuição de
 
 | Principal de segurança | Definição de função | Âmbito |
 | --- | --- | --- |
-| Group<br>(Grupo do Tutorial do RBAC) | [Leitor](built-in-roles.md#reader) | Subscrição |
-| Group<br>(Grupo do Tutorial do RBAC)| [Contribuinte](built-in-roles.md#contributor) | Grupo de recursos<br>(rbac-tutorial-resource-group) |
+| Grupo<br>(Grupo do Tutorial do RBAC) | [Leitor](built-in-roles.md#reader) | Subscrição |
+| Grupo<br>(Grupo do Tutorial do RBAC)| [Contribuinte](built-in-roles.md#contributor) | Grupo de recursos<br>(rbac-tutorial-resource-group) |
 
    ![Atribuições de funções para um grupo](./media/tutorial-role-assignments-group-powershell/rbac-role-assignments.png)
 
@@ -291,7 +291,7 @@ Para limpar os recursos criados por este tutorial, elimine o grupo de recursos e
     
     Se receber um erro ao tentar eliminar o grupo, também pode eliminar o grupo no portal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Utilizar o Azure PowerShell para adicionar ou remover atribuições de funções do Azure](role-assignments-powershell.md)

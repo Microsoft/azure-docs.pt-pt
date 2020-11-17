@@ -3,12 +3,12 @@ title: Alterar configurações de cluster de tecido de serviço Azure
 description: Este artigo descreve as definições de tecido e as políticas de upgrade de tecido que pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: fbd6c9503e409473a87c58202eb88d77716441f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055125"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648230"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do Service Fabric
 Este artigo descreve as várias definições de tecido para o seu cluster de Tecido de Serviço que pode personalizar. Para os clusters alojados no Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure. Para obter mais informações, consulte [atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personaliza as definições atualizando o *ClusterConfig.jsno* ficheiro e executando uma atualização de configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -122,8 +122,8 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |ApplicationLogsFormatVersion |Int, o padrão é 0 | Dinâmica |Versão para formato de registos de aplicações. Os valores suportados são 0 e 1. A versão 1 inclui mais campos do registo do evento ETW do que a versão 0. |
 |AuditHttpRequests |Bool, o padrão é falso. | Dinâmica | Ligue a auditoria HTTP ou desligada. O objetivo da auditoria é ver as atividades que foram realizadas contra o cluster; incluindo quem iniciou o pedido. Note que esta é a melhor tentativa de registo; e pode ocorrer perda de vestígios. Os pedidos HTTP com autenticação "Utilizador" não são registados. |
 |CaptureHttpTelemetry|Bool, o padrão é verdadeiro | Dinâmica | Ligue ou desligue a telemetria HTTP. O objetivo da telemetria é que o Service Fabric seja capaz de capturar dados de telemetria para ajudar a planear o trabalho futuro e identificar áreas problemáticas. A telemetria não regista quaisquer dados pessoais ou o organismo de pedido. A telemetria captura todos os pedidos HTTP, salvo configuração em contrário. |
-|ClusterId |Cadeia | Dinâmica |A identificação única do aglomerado. Isto é gerado quando o cluster é criado. |
-|Instâncias do Consumidor |Cadeia | Dinâmica |A lista de casos de consumidores da DCA. |
+|ClusterId |String | Dinâmica |A identificação única do aglomerado. Isto é gerado quando o cluster é criado. |
+|Instâncias do Consumidor |String | Dinâmica |A lista de casos de consumidores da DCA. |
 |DiskFullSafetySpaceInMB |Int, o padrão é 1024 | Dinâmica |Espaço restante em disco em MB para proteger da utilização por DCA. |
 |EnableCircularTraceSsion |Bool, o padrão é falso. | Estático |A bandeira indica se devem ser utilizadas sessões circulares de rastreio. |
 |EnablePlatformEventsFileSink |Bool, o padrão é falso. | Estático |Ativar/Desativar eventos de plataforma que estão a ser escritos em disco |
@@ -131,7 +131,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |FalhasOnlyHttpTelemetry | Bool, o padrão é falso. | Dinâmica | Se a captura de telemetria HTTP estiver ativada; capturar apenas pedidos falhados. Isto é para ajudar a reduzir o número de eventos gerados para a telemetria. |
 |HttpTelemetryCapturePercentage | int, o padrão é 50 | Dinâmica | Se a captura de telemetria HTTP estiver ativada; capturar apenas uma percentagem aleatória de pedidos. Isto é para ajudar a reduzir o número de eventos gerados para a telemetria. |
 |MaxDiskQuotaInMB |Int, o padrão é 65536 | Dinâmica |Quota de disco em MB para ficheiros de registo de tecido do Windows. |
-|ProdutoresInstances |Cadeia | Dinâmica |A lista de casos de produtores da DCA. |
+|ProdutoresInstances |String | Dinâmica |A lista de casos de produtores da DCA. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Parâmetro** | **Valores Permitidos** |**Política de Upgrade**| **Orientação ou Breve Descrição** |
@@ -243,7 +243,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |QurumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |Estático|Especifique a timepan em segundos. O QuorumLossWaitDuration for FaultAnalysisService. |
 |ReplicaDropWaitDurationInSeconds|int, o padrão é 600|Estático|Este parâmetro é usado quando a api de perda de dados é chamada. Controla quanto tempo o sistema espera que uma réplica seja largada depois de a réplica remover ser invocada internamente. |
 |ReplicaRestartWaitDuration |Tempo em segundos, o padrão é de 60 minutos|Estático|Especifique a timepan em segundos. The ReplicaRestartWaitDuration for FaultAnalysisService. |
-|StandByReplicaKeepDuration| Tempo em segundos, o padrão é (60*24*7) minutos |Estático|Especifique a timepan em segundos. O StandByReplicaKeepDuration for FaultAnalysisService. |
+|StandByReplicaKeepDuration| Tempo em segundos, o padrão é (60 *24* 7) minutos |Estático|Especifique a timepan em segundos. O StandByReplicaKeepDuration for FaultAnalysisService. |
 |StoredActionCleanupIntervalInSeconds | Int, o padrão é 3600 |Estático|Esta é a frequência com que a loja será limpa. Apenas ações num estado terminal; e que concluído pelo menos CompletedActionKeepDurationInSegundos ago será removido. |
 |StoredChaosEventCleanupIntervalInSeconds | Int, o padrão é 3600 |Estático|Esta é a frequência com que a loja será auditada para limpeza; se o número de eventos for superior a 30000; a limpeza vai fazer efeito. |
 |TargetReplicaSetsize |Int, o padrão é 0 |Estático|NOT_PLATFORM_UNIX_START o TargetReplicaSetSize para FaultAnalysisService. |
@@ -423,14 +423,14 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |AzureStorageMaxConnections | Int, o padrão é 5000 |Dinâmica|O número máximo de ligações simultâneas ao armazenamento azul. |
 |AzureStorageMaxWorkerThreads | Int, o padrão é 25 |Dinâmica|O número máximo de fios de trabalhador em paralelo. |
 |AzureStorageOperationTimeout | Tempo em segundos, o padrão é 6000 |Dinâmica|Especifique a timepan em segundos. Tempo para a operação xstore completar. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, o padrão é FALSO |Dinâmica|Permite ou desativa a limpeza automática do pacote de aplicações com uma oferta bem sucedida.
-
-*A melhor prática é `true` usar.* | | CleanupUnusedApplicationTypes Bool, o padrão é FALSO / Dinâmico Esta configuração, se ativada, permite automaticamente versões de tipo de aplicação nãoregudas, ignorando as três versões mais recentes não reutilizadas, aparando assim o espaço do disco ocupado pela loja de imagens. A limpeza automática será desencadeada no final da provisão bem sucedida para esse tipo de aplicação específica e também é executado periodicamente uma vez por dia para todos os tipos de aplicações. O número de versões não utilizados a saltar é configurável utilizando o parâmetro "MaxUnusedAppTypeVersionsToKeep". 
-
-*A melhor prática é `true` usar.*
-| | DisableChecksumValidation / Bool, o padrão é falso. Estática Esta configuração permite-nos ativar ou desativar a validação do checksum durante o provisionamento da aplicação. | | DisableServerSideCopy Bool, o padrão é falso. Estática Esta configuração permite ou desativa a cópia do pacote de aplicações na ImageStore durante o provisionamento da aplicação. | | ImageCachingEnabled [ ImageCachingEnabled ] Bool, o padrão é verdadeiro. Estática Esta configuração permite-nos ativar ou desativar o caching. | | ImageStoreConnectionString / SecureString Estática Cadeia de ligação à Raiz para a ImageStore. | | ImageStoreMinimumTransferBPS Int, o padrão é 1024 / Dinâmico A taxa mínima de transferência entre o cluster e a ImageStore. Este valor é utilizado para determinar o tempo limite de acesso à ImageStore externa. Altere este valor apenas se a latência entre o cluster e a ImageStore for elevada para permitir que o cluster descarregue a partir da ImageStore externa. | | MaxUnusedAppTypeVersionsTo Manutenção Int, o padrão é 3 / Dinâmico Esta configuração define o número de versões do tipo de aplicação não reutilizadas a serem ignoradas para limpeza. Este parâmetro só é aplicável se o parâmetro CleanupUnusedApplicationTypes estiver ativado.
-
-*As melhores práticas gerais são utilizar o padrão `3` ().*|
+|CleanupApplicationPackageOnProvisionSuccess|bool, o padrão é FALSO |Dinâmica|Permite ou desativa a limpeza automática do pacote de aplicações com uma oferta bem sucedida.<br/> *A melhor prática é `true` usar.*
+|CleanupUnusedApplicationTypes|Bool, o padrão é FALSO |Dinâmica|Esta configuração, se ativada, permite automaticamente versões de tipo de aplicação nãoregudas, ignorando as três versões mais recentes não reutilizadas, aparando assim o espaço do disco ocupado pela loja de imagens. A limpeza automática será desencadeada no final da provisão bem sucedida para esse tipo de aplicação específica e também é executado periodicamente uma vez por dia para todos os tipos de aplicações. O número de versões não utilizados a saltar é configurável utilizando o parâmetro "MaxUnusedAppTypeVersionsToKeep". <br/> *A melhor prática é `true` usar.*
+|DesativaçãoChecksumValidation | Bool, o padrão é falso. |Estático| Esta configuração permite-nos ativar ou desativar a validação do checksum durante o provisionamento da aplicação. |
+|DisableServerSideCopy | Bool, o padrão é falso. |Estático|Esta configuração permite ou desativa a cópia do pacote de aplicações na ImageStore durante o provisionamento da aplicação. |
+|ImageCachingEnabled | Bool, o padrão é verdadeiro |Estático|Esta configuração permite-nos ativar ou desativar o caching. |
+|ImageStoreConnectionString |SecureString |Estático|Cadeia de ligação à Raiz para a ImageStore. |
+|ImageStoreMinimumTransferBPS | Int, o padrão é 1024 |Dinâmica|A taxa mínima de transferência entre o cluster e a ImageStore. Este valor é utilizado para determinar o tempo limite de acesso à ImageStore externa. Altere este valor apenas se a latência entre o cluster e a ImageStore for elevada para permitir que o cluster descarregue a partir da ImageStore externa. |
+|MaxUnusedAppTypeVersionsTo Manutenção | Int, o padrão é 3 |Dinâmica|Esta configuração define o número de versões do tipo de aplicação não reutilizadas a serem ignoradas para limpeza. Este parâmetro só é aplicável se o parâmetro CleanupUnusedApplicationTypes estiver ativado. <br/>*As melhores práticas gerais são utilizar o padrão `3` (). Valores inferiores a 1 não são válidos.*|
 
 
 ## <a name="metricactivitythresholds"></a>MétricaActivityThresholds
@@ -505,7 +505,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
-|Contador |Cadeia | Dinâmica |Lista separada por vírgula de contadores de desempenho para recolher. |
+|Contador |String | Dinâmica |Lista separada por vírgula de contadores de desempenho para recolher. |
 |IsEnabled |Bool, o padrão é verdadeiro | Dinâmica |A bandeira indica se a recolha do contador de desempenho no nó local está ativada. |
 |MaxCounterBinaryFileSizeInMB |Int, o padrão é 1 | Dinâmica |Tamanho máximo (em MB) para cada ficheiro binário do contador de desempenho. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, o padrão é 10 | Dinâmica |Intervalo máximo (em segundos) após o qual é criado um novo ficheiro binário de contador de desempenho. |
@@ -838,10 +838,10 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 | --- | --- | --- | --- |
 |Nome da Rede de Contentores|cadeia, padrão é ""| Estático |O nome da rede a utilizar ao configurar uma rede de contentores.|
 |ContainerNetworkSetup|bool, o padrão é FALSO (Linux) e o padrão é TRUE (Windows)| Estático |Se criar uma rede de contentores.|
-|FabricDataRoot |Cadeia | Não é permitido |Diretório de raiz de dados de tecido de serviço. O padrão para Azure é d:\svcfab |
-|FabricLogRoot |Cadeia | Não é permitido |Diretório de raiz de tronco de tecido de serviço. É aqui que são colocados registos e vestígios de SF. |
+|FabricDataRoot |String | Não é permitido |Diretório de raiz de dados de tecido de serviço. O padrão para Azure é d:\svcfab |
+|FabricLogRoot |String | Não é permitido |Diretório de raiz de tronco de tecido de serviço. É aqui que são colocados registos e vestígios de SF. |
 |NódesToBeRemoved|cadeia, padrão é ""| Dinâmica |Os nós que devem ser removidos como parte da atualização da configuração. (Apenas para implantações autónomas)|
-|ServiceRunAsAccountName |Cadeia | Não é permitido |O nome da conta sob o qual executar o serviço de hospeda de tecido. |
+|ServiceRunAsAccountName |String | Não é permitido |O nome da conta sob o qual executar o serviço de hospeda de tecido. |
 |SkipContainerNetworkResetOnReboot|bool, o padrão é FALSO|Não-alealtado|Se saltar a rede de recipientes de reposição no reboot.|
 |SkipFirewallConfiguration |Bool, o padrão é falso. | Não é permitido |Especifica se as definições de firewall precisam ou não ser definidas pelo sistema. Isto só se aplica se estiver a utilizar firewall do Windows. Se estiver a utilizar firewalls de terceiros, então tem de abrir as portas para o sistema e aplicações utilizarem |
 
@@ -890,7 +890,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |ColocaçãoConstratas | cadeia, padrão é "" |Estático| Os Estados-Maiores de Colocação para UpgradeOrchestrationService. |
 |QurumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |Estático| Especifique a timepan em segundos. O QuorumLossWaitDuration for UpgradeOrchestrationService. |
 |ReplicaRestartWaitDuration | Tempo em segundos, o padrão é de 60 minutos|Estático| Especifique a timepan em segundos. O ReplicaRestartWaitDuration for UpgradeOrchestrationService. |
-|StandByReplicaKeepDuration | Tempo em segundos, o padrão é 60*24*7 minutos |Estático| Especifique a timepan em segundos. O StandByReplicaKeepDuration for UpgradeOrchestrationService. |
+|StandByReplicaKeepDuration | Tempo em segundos, o padrão é 60 *24* 7 minutos |Estático| Especifique a timepan em segundos. O StandByReplicaKeepDuration for UpgradeOrchestrationService. |
 |TargetReplicaSetsize |Int, o padrão é 0 |Estático |O TargetReplicaSetSize para UpgradeOrchestrationService. |
 |UpgradeApprovalRequired | Bool, o padrão é falso. | Estático|A definição para fazer a atualização de código requer a aprovação do administrador antes de prosseguir. |
 
@@ -918,5 +918,5 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 | --- | --- | --- | --- |
 |Grupo de Propriedades| UserServiceMetricCapacitiesMap, predefinição é nenhum | Estático | Uma recolha de limites de governação de recursos de serviços de utilizador precisa de ser estática, uma vez que afeta a lógica de AutoDetecção |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações, consulte [atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md) e [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).

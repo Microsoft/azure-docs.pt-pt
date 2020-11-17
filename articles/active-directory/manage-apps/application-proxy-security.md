@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8051621cf05b0f8c387c41cf0b95bb32e15e667
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 794c4e1a0859fc8a36b0abf4fcc9d5243c8bd308
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825902"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649573"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para aceder remotamente a apps com Proxy de aplicações AD AZure
 
@@ -49,7 +49,7 @@ Aplique controlos de política mais ricos antes de estabelecer ligações à sua
 
 Com [o Acesso Condicional,](../conditional-access/concept-conditional-access-cloud-apps.md)pode definir restrições sobre como os utilizadores podem aceder às suas aplicações. Pode criar políticas que restringem os ins-ins com base na localização, força da autenticação e perfil de risco do utilizador.
 
-Também pode utilizar o Acesso Condicional para configurar políticas de autenticação multi-factor, adicionando outra camada de segurança às autenticações do seu utilizador. Além disso, as suas aplicações também podem ser encaminhadas para o Microsoft Cloud App Security via Azure AD Conditional Access para fornecer monitorização e controlos em tempo real, através de políticas de [acesso](https://docs.microsoft.com/cloud-app-security/access-policy-aad) e [sessão](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
+Também pode utilizar o Acesso Condicional para configurar políticas de autenticação multi-factor, adicionando outra camada de segurança às autenticações do seu utilizador. Além disso, as suas aplicações também podem ser encaminhadas para o Microsoft Cloud App Security via Azure AD Conditional Access para fornecer monitorização e controlos em tempo real, através de políticas de [acesso](/cloud-app-security/access-policy-aad) e [sessão](/cloud-app-security/session-policy-aad)
 
 ### <a name="traffic-termination"></a>Interrupção do tráfego
 
@@ -69,7 +69,7 @@ Para obter mais informações sobre conectores, consulte [os conectores Proxy da
 
 Obter proteção de segurança de ponta.
 
-Por fazer parte do Azure Ative Directory, o Application Proxy pode alavancar [a Azure AD Identity Protection](../active-directory-identityprotection.md), com dados do Microsoft Security Response Center e da Unidade de Crimes Digitais. Juntos identificamos proactivamente contas comprometidas e oferecemos proteção contra entradas de alto risco. Temos em conta numerosos fatores para determinar quais as tentativas de entrada em vigor de alto risco. Estes fatores incluem a sinalização de dispositivos infetados, redes anonimizantes e locais atípicos ou improváveis.
+Por fazer parte do Azure Ative Directory, o Application Proxy pode alavancar [a Azure AD Identity Protection](../identity-protection/overview-identity-protection.md), com dados do Microsoft Security Response Center e da Unidade de Crimes Digitais. Juntos identificamos proactivamente contas comprometidas e oferecemos proteção contra entradas de alto risco. Temos em conta numerosos fatores para determinar quais as tentativas de entrada em vigor de alto risco. Estes fatores incluem a sinalização de dispositivos infetados, redes anonimizantes e locais atípicos ou improváveis.
 
 Muitos destes relatórios e eventos já estão disponíveis através de uma API para integração com os seus sistemas de informação de segurança e gestão de eventos (SIEM).
 
@@ -107,8 +107,8 @@ O conector utiliza um certificado de cliente para autenticar o serviço de Procu
 
 Quando o conector é configurado pela primeira vez, ocorrem os seguintes eventos de fluxo:
 
-1. O registo do conector ao serviço ocorre como parte da instalação do conector. Os utilizadores são solicitados a introduzir as suas credenciais de administração Azure AD.O símbolo adquirido a partir desta autenticação é então apresentado ao serviço de Procuração de Aplicações AD Azure.
-2. O serviço Application Proxy avalia o símbolo. Verifica se o utilizador é administrador da empresa no arrendatário.Se o utilizador não for administrador, o processo será encerrado.
+1. O registo do conector ao serviço ocorre como parte da instalação do conector. Os utilizadores são solicitados a introduzir as suas credenciais de administração Azure AD. O símbolo adquirido a partir desta autenticação é então apresentado ao serviço de Procuração de Aplicações AD Azure.
+2. O serviço Application Proxy avalia o símbolo. Verifica se o utilizador é administrador da empresa no arrendatário. Se o utilizador não for administrador, o processo será encerrado.
 3. O conector gera um pedido de certificado de cliente e passa-o, juntamente com o token, para o serviço Application Proxy. O serviço, por sua vez, verifica o token e assina o pedido de certificado do cliente.
 4. O conector utiliza o certificado de cliente para futura comunicação com o serviço Application Proxy.
 5. O conector realiza uma retirada inicial dos dados de configuração do sistema a partir do serviço utilizando o seu certificado de cliente, estando agora pronto para receber pedidos.
@@ -173,12 +173,12 @@ Após o pedido e transmissão de todo o conteúdo para a parte de trás, o conec
 
 Depois de receber uma resposta, o conector faz uma ligação de saída ao serviço Application Proxy, para devolver os detalhes do cabeçalho e começar a transmitir os dados de devolução.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. O serviço transmite dados ao utilizador. 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. O serviço transmite dados ao utilizador. 
 
 Pode ocorrer aqui algum processamento da aplicação. Se configurar o Application Proxy para traduzir cabeçalhos ou URLs na sua aplicação, esse processamento acontece conforme necessário durante este passo.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Considerações de topologia de rede ao utilizar o Proxy de Aplicação AD AZure](application-proxy-network-topology.md)
 

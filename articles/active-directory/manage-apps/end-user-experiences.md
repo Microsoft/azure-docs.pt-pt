@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: 8968fd54968f3115641d2315a534ba61a247a06d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bcf45cdfbadbf16f48f8f2ac3bd0c6320a2803f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605129"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649233"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências de utilizador final para aplicações no Azure Ative Directory
 
@@ -37,13 +37,13 @@ Por predefinição, todas as aplicações estão listadas numa única página. M
 
 As minhas Apps estão separadas do portal Azure e não requer que os utilizadores tenham uma subscrição Azure ou uma subscrição do Microsoft 365.
 
-Para mais informações sobre Azure AD My Apps, consulte a [introdução às minhas apps.](../user-help/active-directory-saas-access-panel-introduction.md)
+Para mais informações sobre Azure AD My Apps, consulte a [introdução às minhas apps.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="microsoft-365-application-launcher"></a>Lançador de aplicações Microsoft 365
 
 Para as organizações que implementaram o Microsoft 365, as aplicações atribuídas aos utilizadores através do Azure AD também aparecerão no portal do Office 365 em [https://portal.office.com/myapps](https://portal.office.com/myapps) . Isto torna fácil e conveniente para os utilizadores de uma organização lançar as suas apps sem ter de usar um segundo portal, e é a solução de lançamento de apps recomendada para organizações que usam o Microsoft 365.
 
-Para obter mais informações sobre o lançador de aplicações do Office 365, consulte [se a sua aplicação aparecer no lançador de aplicações office 365.](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)
+Para obter mais informações sobre o lançador de aplicações do Office 365, consulte [se a sua aplicação aparecer no lançador de aplicações office 365.](/previous-versions/office/office-365-api/)
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Início de sessão direto em aplicações federadas
 
@@ -69,7 +69,7 @@ Quando um utilizador autorizado clica num destes links específicos da aplicaç�
 
 Estas ligações utilizam os mesmos mecanismos de controlo de acesso que as Minhas Apps e a Microsoft 365, sendo que apenas os utilizadores ou grupos que tenham sido designados para a aplicação no portal Azure poderão autenticar com sucesso. No entanto, qualquer utilizador que não seja autorizado verá uma mensagem explicando que não lhes foi concedido acesso, e é-lhes dado um link para carregar as Minhas Apps para visualizar as aplicações disponíveis para as quais têm acesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 * [O que é o início de sessão único?](what-is-single-sign-on.md)

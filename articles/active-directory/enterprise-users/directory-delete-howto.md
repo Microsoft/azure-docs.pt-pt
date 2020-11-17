@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 189eaf3a08ce0e8411ce67170fdf1a895cbc56d2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377283"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647720"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminar um inquilino no Azure Ative Directory
 
@@ -56,7 +56,7 @@ Quando configurar a sua organização Azure AD, poderá também ter ativado subs
 
 Para o que esperar quando um teste a subscrição da Microsoft 365 expirar (sem incluir o Parceiro/CSP pago, o Enterprise Agreement ou o Volume De licenciamento), consulte a tabela seguinte. Para obter mais informações sobre a retenção de dados do Microsoft 365 e o ciclo de vida da subscrição, consulte [o que acontece aos meus dados e acesso quando o meu Microsoft 365 para subscrição de negócios termina?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3) 
 
-Estado de subscrição | Dados | Acesso aos dados
+Estado de subscrição | Dados | Acesso a dados
 ----- | ----- | -----
 Ativo (30 dias para julgamento) | Dados acessíveis a todos | Os utilizadores têm acesso normal aos ficheiros microsoft 365 ou apps<br>Os administradores têm acesso normal ao Centro de Administração microsoft 365 e recursos 
 Expirado (30 dias) | Dados acessíveis a todos| Os utilizadores têm acesso normal aos ficheiros microsoft 365 ou apps<br>Os administradores têm acesso normal ao Centro de Administração microsoft 365 e recursos
@@ -110,7 +110,7 @@ Para obter mais informações sobre produtos e serviços de autosserviço dispon
 
 Para o que esperar quando um teste a subscrição da Microsoft 365 expirar (sem incluir o Parceiro/CSP pago, o Enterprise Agreement ou o Volume De licenciamento), consulte a tabela seguinte. Para obter mais informações sobre a retenção de dados do Microsoft 365 e o ciclo de vida da subscrição, consulte [o que acontece aos meus dados e acesso quando o meu Microsoft 365 para subscrição de negócios termina?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide)
 
-Estado do produto | Dados | Acesso aos dados
+Estado do produto | Dados | Acesso a dados
 ------------- | ---- | --------------
 Ativo (30 dias para julgamento) | Dados acessíveis a todos | Os utilizadores têm acesso normal a produtos, ficheiros ou apps de inscrição de autosserviço<br>Os administradores têm acesso normal ao Centro de Administração microsoft 365 e recursos
 Eliminado | Dados eliminados | Os utilizadores não podem aceder a produtos, ficheiros ou apps de inscrição autosserviço<br>Os administradores podem aceder ao centro de administração microsoft 365 para comprar e gerir outras subscrições
@@ -121,7 +121,7 @@ Pode colocar um produto de inscrição de autosserviço como o Microsoft Power B
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta que é um administrador global na organização. Se estiver a tentar eliminar a organização "Contoso" que tem o domínio padrão inicial contoso.onmicrosoft.com, inscreva-se com uma UPN como admin@contoso.onmicrosoft.com .
 
-2. Selecione **Licenças**e, em seguida, selecione **produtos de inscrição de self-service**. Pode ver todos os produtos de inscrição de self-service separadamente das subscrições baseadas em assentos. Escolha o produto que pretende eliminar permanentemente. Aqui está um exemplo no Microsoft Power BI:
+2. Selecione **Licenças** e, em seguida, selecione **produtos de inscrição de self-service**. Pode ver todos os produtos de inscrição de self-service separadamente das subscrições baseadas em assentos. Escolha o produto que pretende eliminar permanentemente. Aqui está um exemplo no Microsoft Power BI:
 
     ![Screenshot que mostra a página "Licenças - Produtos de inscrição de autosserviço".](./media/directory-delete-howto/licenses-page.png)
 
@@ -141,6 +141,6 @@ Pode colocar um produto de inscrição de autosserviço como o Microsoft Power B
 
     ![o nome de utilizador é mal assinalado ou não encontrado](./media/directory-delete-howto/delete-organization.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Documentação do Azure Active Directory](../index.yml)

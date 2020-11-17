@@ -4,12 +4,12 @@ description: Este artigo descreve como configurar a visão em tempo real dos tro
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4966ab0d64745c36ee53f27ba4063714f18e35da
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116701"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648111"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar a funcionalidade Dados Ao Vivo (pré-visualização)
 
@@ -19,7 +19,7 @@ Esta funcionalidade suporta os seguintes métodos para controlar o acesso aos re
 
 - AKS sem autorização DECC RBAC de Kubernetes habilitada
 - AKS habilitado com autorização do RBAC da Kubernetes
-    - AKS configurado com o cluster de ligação de funções de ** [clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+    - AKS configurado com o cluster de ligação de funções de **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)**
 - AKS ativado com Azure Ative Directory (AD) com base em saml
 
 Estas instruções requerem tanto acesso administrativo ao seu cluster Kubernetes, como se configurar a utilização do Azure Ative Directory (AD) para autenticação do utilizador, acesso administrativo ao Azure AD.
@@ -50,7 +50,7 @@ Para eliminar a necessidade de aplicar alterações de configuração adicionais
 
 Para utilizar a funcionalidade Dados Ao Vivo (pré-visualização) com este novo utilizador, é necessário ser membro da função [Contribuinte](../../role-based-access-control/built-in-roles.md#contributor) no recurso cluster AKS. O Monitor Azure para recipientes, quando ativado, é configurado para autenticar utilizando este utilizador por predefinição. Se a ligação de funções clusterMonitoringUser não existir num cluster, **o clusterUser** é utilizado para a autenticação.
 
-A AKS divulgou esta nova função vinculativa em janeiro de 2020, pelo que os clusters criados antes de janeiro de 2020 não o têm. Se tiver um cluster que foi criado antes de janeiro de 2020, o novo **clusterMonitoringUser** pode ser adicionado a um cluster existente através da realização de uma operação PUT no cluster, ou realizando qualquer outra operação no cluster tha executa uma operação PUT no cluster, como atualizar a versão cluster.
+A AKS divulgou esta nova função vinculativa em janeiro de 2020, pelo que os clusters criados antes de janeiro de 2020 não o têm. Se tiver um cluster que foi criado antes de janeiro de 2020, o novo **clusterMonitoringUser** pode ser adicionado a um cluster existente através da realização de uma operação PUT no cluster, ou realizando qualquer outra operação no cluster que execute uma operação PUT no cluster, como atualizar a versão do cluster.
 
 ## <a name="kubernetes-cluster-without-rbac-enabled"></a>Cluster Kubernetes sem RBAC ativado
 
@@ -138,6 +138,6 @@ Cada conta AZure AD deve ser autorizada às APIs apropriadas em Kubernetes para 
 
 Para obter ajuda adicional para configurar o cluster AKS **ClusterRoleBinding**, consulte [criar a ligação RBAC](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem a autenticação de configuração, pode ver [métricas,](container-insights-livedata-metrics.md) [Implementações](container-insights-livedata-deployments.md)e [eventos e registos](container-insights-livedata-overview.md) em tempo real a partir do seu cluster.

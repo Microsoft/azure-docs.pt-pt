@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bd47e5e39684bd4b684cd1e12dd9a3d420640ee2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f39bd874c1f5a1be42ca1c88e6ea2fe8df22f87
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005825"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648213"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Escalar um cluster de tecido de serviço programáticamente 
 
@@ -116,10 +116,10 @@ Tal como com a escala, os cmdlets PowerShell para modificar a capacidade de conj
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a implementar a sua própria lógica de auto-escala, familiarize-se com os seguintes conceitos e APIs úteis:
 
 - [Dimensionamento manual ou com regras de escala automática](./service-fabric-cluster-scale-in-out.md)
-- [Fluent Azure Management Libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (útil para interagir com os conjuntos de escala de máquinas virtuais subjacentes de um cluster de tecido de serviço)
+- [Bibliotecas de Gestão Azure para .NET](https://github.com/Azure/azure-libraries-for-net) (útil para interagir com os conjuntos de escala de máquinas virtuais subjacentes de um cluster de tecido de serviço)
 - [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient) (útil para interagir com um cluster de tecido de serviço e seus nós)
