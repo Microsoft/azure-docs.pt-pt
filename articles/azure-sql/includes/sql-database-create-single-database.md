@@ -33,13 +33,13 @@ Para criar um grupo de recursos, servidor e base de dados única no portal Azure
    ![Criar base de dados individual](./media/sql-database-create-single-database/create-single-database.png)
 
 1. No separador **Basics** do formulário de base de **dados Create SQL,** nos **detalhes do Projeto,** selecione a **Assinatura** Azure correta se ainda não estiver selecionada.
-1. No **grupo de Recursos** , selecione Criar **novo,** insira *no myResourceGroup* e selecione **OK**.
+1. No **grupo de Recursos**, selecione Criar **novo,** insira *no myResourceGroup* e selecione **OK**.
 1. Em **informações sobre bases de dados,** para **o nome da base de dados** insira *mySampleDatabase*.
-1. Para **o Servidor** , selecione Criar **novo** e preencha o novo formulário do **servidor** da seguinte forma:
-   - **Nome do servidor** : *Insira o mysqlserver,* e alguns caracteres para singularidade.
-   - **Início de administração do servidor** : Insira *o azureuser*.
-   - **Senha** : Introduza uma palavra-passe que satisfaça os requisitos e introduza-a novamente no campo **de palavra-passe Confirmar.**
-   - **Localização** : Desça e escolha um local, como **(EUA) Leste DOS EUA**.
+1. Para **o Servidor**, selecione Criar **novo** e preencha o novo formulário do **servidor** da seguinte forma:
+   - **Nome do servidor**: *Insira o mysqlserver,* e alguns caracteres para singularidade.
+   - **Início de administração do servidor**: Insira *o azureuser*.
+   - **Senha**: Introduza uma palavra-passe que satisfaça os requisitos e introduza-a novamente no campo **de palavra-passe Confirmar.**
+   - **Localização**: Desça e escolha um local, como **(EUA) Leste DOS EUA**.
 
    Selecione **OK**.
 
@@ -47,7 +47,7 @@ Para criar um grupo de recursos, servidor e base de dados única no portal Azure
 
    Grave o login e a palavra-passe do servidor para que possa iniciar sessão no servidor e nas suas bases de dados. Se esquecer o seu login ou palavra-passe, pode obter o nome de login ou redefinir a palavra-passe na página do **servidor SQL** após a criação da base de dados. Para abrir a página do **servidor SQL,** selecione o nome do servidor na página **'Vista Geral'** da base de dados.
 
-1. Em **Compute + armazenamento** , se pretender reconfigurar as predefinições, selecione a base de **dados Configure**.
+1. Em **Compute + armazenamento**, se pretender reconfigurar as predefinições, selecione a base de **dados Configure**.
 
    Na página **Configure,** pode opcionalmente:
    - Alterar o **nível de Computação** de **Provisionado** para **Serverless**.
@@ -61,14 +61,14 @@ Para criar um grupo de recursos, servidor e base de dados única no portal Azure
    ![Nova base de dados SQL - Separador básico](./media/sql-database-create-single-database/new-sql-database-basics.png)
 
 1. No **separador Rede,** segundo o **método conectividade,** selecione **Public endpoint**.
-1. De acordo com **as regras de Firewall** , desa um endereço IP do cliente **atual** para **Sim**.
+1. De acordo com **as regras de Firewall**, desa um endereço IP do cliente **atual** para **Sim**.
 1. Selecione **Seguinte: Definições adicionais** na parte inferior da página.
 
    ![Separador de rede](./media/sql-database-create-single-database/networking.png)
   
    Para obter mais informações sobre as definições de firewall, consulte [permitir que os serviços e recursos do Azure acedam a este servidor](../database/network-access-controls-overview.md) e adicione um ponto final [privado](../database/private-endpoint-overview.md).
 
-1. No **separador Definições Adicionais,** na secção Fonte de **Dados,** para **utilizar os dados existentes** , selecione **Sample**.
+1. No **separador Definições Adicionais,** na secção Fonte de **Dados,** para **utilizar os dados existentes**, selecione **Sample**.
 1. Selecione **'Rever + criar'** na parte inferior da página.
 
    ![Separador de configurações adicionais](./media/sql-database-create-single-database/additional-settings.png)

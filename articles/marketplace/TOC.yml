@@ -143,10 +143,12 @@
               href: azure-vm-create-properties.md
             - name: Configurar uma lista de ofertas de VM
               href: azure-vm-create-listing.md
-            - name: Criar planos de VM
-              href: azure-vm-create-plans.md
             - name: Adicionar uma audiência de pré-visualização
               href: azure-vm-create-preview.md
+            - name: Criar planos de VM
+              href: azure-vm-create-plans.md
+            - name: Revenda através de CSP
+              href: azure-vm-create-resell-csp.md
             - name: Criar recursos técnicos de VM
               items:
                 - name: Criar uma VM a partir de uma base aprovada

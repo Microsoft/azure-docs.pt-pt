@@ -47,8 +47,6 @@
           href: customize-person-model-overview.md
 - name: Guias de procedimentos
   items:
-    - name: Ligar ao Azure
-      href: connect-to-azure.md
     - name: Gerir conta ligada ao Azure
       href: manage-account-connected-to-azure.md
     - name: Carregar e indexar vídeos

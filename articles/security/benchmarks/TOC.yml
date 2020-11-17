@@ -93,6 +93,8 @@
       href: ../../devtest-labs/security-baseline.md
     - name: Linha de base de segurança do Azure Firewall
       href: ../../firewall/security-baseline.md
+    - name: Linha de base de segurança do Azure Front Door
+      href: ../../frontdoor/security-baseline.md
     - name: Linha de base de segurança das Funções do Azure
       href: ../../azure-functions/security-baseline.md
     - name: Linha de base de segurança do Hub IoT do Azure
@@ -139,6 +141,8 @@
       href: ../../container-registry/security-baseline.md
     - name: Linha de base de segurança do Cosmos DB
       href: ../../cosmos-db/security-baseline.md
+    - name: Linha de base de segurança do Cost Management
+      href: ../../cost-management-billing/security-baseline.md
     - name: Linha de base de segurança do Sistema de Proteção de Dados do Cliente
       href: ../fundamentals/customer-lockbox-security-baseline.md
     - name: Linha de base de segurança do Data Lake Analytics
