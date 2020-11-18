@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: yukarppa
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbe37938249ee02c7deb4081a96aa1be2d8b7cb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1ccd17dc4112bd286257a6ed95ecc55dd13af428
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377233"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650755"
 ---
 # <a name="validate-a-dynamic-group-membership-rule-preview-in-azure-active-directory"></a>Validar uma regra de adesão dinâmica do grupo (pré-visualização) no Azure Ative Directory
 
@@ -45,6 +45,6 @@ Os resultados dizem se um utilizador é ou não membro do grupo. Se a regra não
 
 Pode modificar a regra e a validação dos membros será desencadeada. Para ver por que o utilizador não é membro do grupo, clique em "Ver detalhes" e os detalhes de verificação mostrarão o resultado de cada expressão que compõe a regra. Clique **OK** para sair.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Regras dinâmicas de adesão para grupos](groups-dynamic-membership.md)

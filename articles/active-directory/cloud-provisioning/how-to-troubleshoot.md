@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94cf1f34db590abeb084c5e95367781e50c85efc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226952"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650102"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Resolução de problemas de provisão de nuvens
 
@@ -43,15 +43,15 @@ Estes itens podem ser verificados no portal Azure e no servidor local que está 
 
 Para verificar se o agente é visto pela Azure e está saudável, siga estes passos.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. À esquerda, selecione **Azure Ative Directory**  >  **Azure AD Connect**. No centro, **selecione Gerir o provisionamento (pré-visualização)**.
 1. No ecrã **Azure AD Provisioning (pré-visualização),** selecione **Reveja todos os agentes**.
 
-   ![Rever todos os agentes](media/how-to-install/install7.png)</br>
+   ![Rever todos os agentes](media/how-to-install/install-7.png)</br>
  
 1. No **ecrã dos agentes de provisionamento no local, vê-se** os agentes que instalou. Verifique se o agente em questão está lá e está marcado *como Saudável*.
 
-   ![Tela de agentes de provisionamento no local](media/how-to-install/install8.png)</br>
+   ![Tela de agentes de provisionamento no local](media/how-to-install/install-8.png)</br>
 
 ### <a name="verify-the-port"></a>Verifique a porta
 
@@ -59,7 +59,7 @@ Verifique se o Azure está a ouvir na porta 443 e que o seu agente pode comunica
 
 Este teste verifica se os seus agentes podem comunicar com a Azure sobre a porta 443. Abra um browser e vá para o URL anterior a partir do servidor onde o agente está instalado.
 
-![Verificação da capacidade de porta](media/how-to-install/verify2.png)
+![Verificação da capacidade de porta](media/how-to-install/verify-2.png)
 
 ### <a name="on-the-local-server"></a>No servidor local
 
@@ -204,7 +204,7 @@ Ao selecionar o estado, pode ver informações adicionais sobre a quarentena. Ta
  
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 - [O que é o aprovisionamento?](what-is-provisioning.md)
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)

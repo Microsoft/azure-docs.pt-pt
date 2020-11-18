@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a94d1a4fa717bbee9974f7218e704ba06dad530d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f9fcdd2ce17e967be432f8edc910dcf2fcdbed3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377264"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650908"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Ative Directory
 
@@ -48,7 +48,7 @@ Por exemplo, sintaxe, propriedades suportadas, operadores e valores para uma reg
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com uma conta que está no administrador global, administrador intune ou administrador do utilizador na organização Azure AD.
 1. Procure e selecione **Grupos.**
-1. Selecione **Todos os grupos**e selecione **Novo grupo**.
+1. Selecione **Todos os grupos** e selecione **Novo grupo**.
 
    ![Selecione o comando para adicionar novo grupo](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 

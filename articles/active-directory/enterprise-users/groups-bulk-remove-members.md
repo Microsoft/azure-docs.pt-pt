@@ -4,21 +4,21 @@ description: Remova os membros do grupo em operações a granel no centro de adm
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/27/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da3da152fa8d0f568ee0f4075dafb8da8c3bf8a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 83b905faa892cc338b5bdf4f998ad95f7b8a484e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376825"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650859"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>A granel remove membros do grupo no Azure Ative Directory
 
@@ -76,7 +76,7 @@ Para mais detalhes sobre cada item de linha dentro da operação a granel, selec
 
 Cada atividade a granel para remover uma lista de membros do grupo pode funcionar até uma hora. Isto permite a remoção de uma lista de pelo menos 40.000 membros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Membros do grupo de importação a granel](groups-bulk-import-members.md)
 - [Descarregue membros de um grupo](groups-bulk-download-members.md)

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55934e8c33b74740b7398be1ae18a3ef899aee74
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604330"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651282"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gerir a atribuição do utilizador para uma aplicação no Azure Ative Directory
 
@@ -58,7 +58,7 @@ Para exigir a atribuição do utilizador para uma aplicação:
 Para aprender a atribuir, ou não assinar, um utilizador ou grupo utilizando o portal Azure, consulte a [Série Quickstart em Gestão de Aplicações](add-application-portal-assign-users.md).
 
 ## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-graph-api"></a>Atribuir ou não assinar utilizadores e grupos para uma aplicação que utilize a API do gráfico
-Pode utilizar a API do Gráfico para atribuir ou não designar utilizadores, e grupos, para uma aplicação. Para saber mais, consulte [atribuições de funções da App.](https://docs.microsoft.com/graph/api/resources/approleassignment)
+Pode utilizar a API do Gráfico para atribuir ou não designar utilizadores, e grupos, para uma aplicação. Para saber mais, consulte [atribuições de funções da App.](/graph/api/resources/approleassignment)
 
 ## <a name="assign-users-and-groups-to-an-app-using-powershell"></a>Atribua utilizadores e grupos a uma aplicação que utilize o PowerShell
 1. Abra uma solicitação elevada de comando Do Windows PowerShell.
@@ -81,11 +81,11 @@ Pode utilizar a API do Gráfico para atribuir ou não designar utilizadores, e g
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-Para obter mais informações sobre como atribuir um utilizador a uma função de aplicação, consulte a documentação para [new-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
+Para obter mais informações sobre como atribuir um utilizador a uma função de aplicação, consulte a documentação para [new-AzureADUserAppRoleAssignment](/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
 Para atribuir um grupo a uma aplicação de empresa, deve substituir `Get-AzureADUser` `Get-AzureADGroup` e substituir por `New-AzureADUserAppRoleAssignment` `New-AzureADGroupAppRoleAssignment` .
 
-Para obter mais informações sobre como atribuir um grupo a uma função de candidatura, consulte a documentação para [new-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
+Para obter mais informações sobre como atribuir um grupo a uma função de candidatura, consulte a documentação para [new-AzureADGroupAppRoleAssignment](/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### <a name="example"></a>Exemplo
 
@@ -151,9 +151,9 @@ Este exemplo atribui o utilizador Britta Simon à aplicação [Microsoft Workpla
 - [Planeie uma implementação de Azure AD My Apps](access-panel-deployment-plan.md)
 - [Gerir o acesso a apps](what-is-access-management.md)
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Remova uma atribuição de utilizador ou grupo de uma aplicação da empresa](remove-user-or-group-access-portal.md)
+- [Remova uma atribuição de utilizador ou grupo de uma aplicação da empresa]()
 - [Desativar as ins ins ins do utilizador para uma aplicação da empresa](disable-user-sign-in-portal.md)
-- [Alterar o nome ou logotipo de uma aplicação da empresa](change-name-or-logo-portal.md)
+- [Alterar o nome ou logotipo de uma aplicação da empresa](./add-application-portal-configure.md)

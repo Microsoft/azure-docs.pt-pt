@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87290731"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651809"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Criar um laboratório para aulas de engenharia utilizando a SOLIDWORKS
 
@@ -24,22 +24,22 @@ Neste artigo, vamos mostrar como configurar uma classe que usa SOLIDWORKS 2019 e
 
 O licenciamento da rede SOLIDWORKS requer que tenha o Gestor de Licenças SolidNetWork instalado e ativado no seu servidor de licença.  Este servidor de licença está tipicamente localizado na sua rede no local ou numa rede privada dentro do Azure.  Para obter mais informações sobre como configurar o Gestor de Licenças SolidNetWork no seu servidor, consulte [instalar e ativar um Gestor de Licenças](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) no guia de instalação SOLIDWORKS.  Ao configurar isto, lembre-se do **número da porta** e do número de [**série**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) que são utilizados, uma vez que serão necessários em etapas posteriores.
 
-Após a configuração do servidor de licença, terá de espreitar a [rede virtual (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) para a sua [conta de laboratório.](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account)  O espreitamento da rede deve ser feito antes de criar o laboratório para que as máquinas virtuais de laboratório possam aceder ao servidor de licenças e ao contrário.
+Após a configuração do servidor de licença, terá de espreitar a [rede virtual (VNet)](./how-to-connect-peer-virtual-network.md) para a sua [conta de laboratório.](./tutorial-setup-lab-account.md)  O espreitamento da rede deve ser feito antes de criar o laboratório para que as máquinas virtuais de laboratório possam aceder ao servidor de licenças e ao contrário.
 
 > [!NOTE]
-> Deve verificar se as portas apropriadas são abertas nas suas firewalls para permitir a comunicação entre as máquinas virtuais do laboratório e o servidor de licença.  Por exemplo, consulte as instruções sobre modificar as [portas de computador do Gestor de Licenças para o Windows Firewall](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) que mostram como adicionar regras de entrada e saída à firewall do servidor de licença.  Também pode ter de abrir portas às máquinas virtuais do laboratório.  Siga os passos no artigo sobre [as definições de firewall para laboratórios](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) para obter mais informações sobre isso, incluindo como obter o endereço IP público do laboratório.
+> Deve verificar se as portas apropriadas são abertas nas suas firewalls para permitir a comunicação entre as máquinas virtuais do laboratório e o servidor de licença.  Por exemplo, consulte as instruções sobre modificar as [portas de computador do Gestor de Licenças para o Windows Firewall](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) que mostram como adicionar regras de entrada e saída à firewall do servidor de licença.  Também pode ter de abrir portas às máquinas virtuais do laboratório.  Siga os passos no artigo sobre [as definições de firewall para laboratórios](./how-to-configure-firewall-settings.md) para obter mais informações sobre isso, incluindo como obter o endereço IP público do laboratório.
 
 ## <a name="lab-configuration"></a>Configuração de laboratório
 
-Para montar este laboratório, precisa de uma assinatura Azure e uma conta de laboratório para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Assim que tiver uma assinatura Azure, pode criar uma nova conta de laboratório nos Serviços Azure Lab. Para obter mais informações sobre a criação de uma nova conta de laboratório, consulte o tutorial sobre [como configurar uma conta de laboratório.](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account) Também pode usar uma conta de laboratório existente.
+Para montar este laboratório, precisa de uma assinatura Azure e uma conta de laboratório para começar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Assim que tiver uma assinatura Azure, pode criar uma nova conta de laboratório nos Serviços Azure Lab. Para obter mais informações sobre a criação de uma nova conta de laboratório, consulte o tutorial sobre [como configurar uma conta de laboratório.](./tutorial-setup-lab-account.md) Também pode usar uma conta de laboratório existente.
 
 ### <a name="lab-account-settings"></a>Definições de conta de laboratório
 
-Ativar as definições descritas na tabela abaixo para a conta de laboratório. Para obter mais informações sobre como permitir imagens de marketplace, consulte o artigo sobre [como especificar as imagens do Marketplace disponíveis para os criadores de laboratório.](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images)
+Ativar as definições descritas na tabela abaixo para a conta de laboratório. Para obter mais informações sobre como permitir imagens de marketplace, consulte o artigo sobre [como especificar as imagens do Marketplace disponíveis para os criadores de laboratório.](./specify-marketplace-images.md)
 
 | Definição de conta de laboratório | Instruções |
 | ------------------- | ------------ |
-|Imagem de mercado| Ative a imagem do Windows 10 Pro para utilização na sua conta de laboratório.|
+|Imagem do Marketplace| Ative a imagem do Windows 10 Pro para utilização na sua conta de laboratório.|
 
 > [!NOTE]
 > Além do Windows 10, o SOLIDWORKS suporta outras versões do Windows.  Consulte [os requisitos do sistema SOLIDWORKS](https://www.solidworks.com/sw/support/SystemRequirements.html) para obter mais detalhes.
@@ -76,7 +76,7 @@ Os passos desta secção mostram como configurar a sua máquina virtual de model
     > [!NOTE]
     > Na caixa de diálogo **Do Servidor de Adicionar,** será solicitado o número de **porta** utilizado para o seu servidor de licença e o nome ou endereço IP do servidor de licença.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Custo
 
 Vamos cobrir uma possível estimativa de custos para esta aula. Esta estimativa não inclui o custo de executar o servidor de licença. Usaremos uma turma de 25 alunos. Há 20 horas de horário de aula. Além disso, cada aluno recebe uma quota de 10 horas para trabalhos de casa ou tarefas fora do horário de aulas programado. O tamanho da máquina virtual que escolhemos foi **a Small GPU (Visualization),** que é de 160 unidades de laboratório.
 
@@ -85,7 +85,7 @@ Vamos cobrir uma possível estimativa de custos para esta aula. Esta estimativa 
 >[!IMPORTANT]
 > A estimativa de custos é apenas para fins.  Para obter detalhes atuais sobre os preços, consulte [o Preço dos Serviços do Laboratório Azure.](https://azure.microsoft.com/pricing/details/lab-services/)  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os próximos passos são comuns para montar qualquer laboratório.
 

@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 224ccaeace91288171db42d2b8b8cf8c21a352e0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91741198"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652523"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas da Autenticação Pass-through do Azure Active Directory
 
@@ -157,9 +157,11 @@ Para erros relacionados com o Agente de Autenticação, abra a aplicação do Ob
 
 Para análises detalhadas, ative o registo "Session" (clique à direita dentro da aplicação 'Espectador de Eventos' para encontrar esta opção). Não execute o Agente de Autenticação com este registo ativado durante as operações normais; utilizar apenas para resolução de problemas. O conteúdo do registo só é visível depois de o registo ser novamente desativado.
 
+O manifesto do evento do agente PTA pode ser encontrado [aqui.](https://msazure.visualstudio.com/One/_git/AD-AppProxy?path=%2Fsrc%2FProduct%2FMUC%2FPTADiagnosticsResource%2FPTADiagnosticsResource%2FPTAConnectorDiagnosticsResource%2FPTAConnectorEventManifest.man&_a=contents&version=GBmaster)
+
 ### <a name="detailed-trace-logs"></a>Registos de vestígios detalhados
 
-Para resolver problemas de falhas de registo do utilizador, procure registos de vestígios em **%ProgramData%\Microsoft\Microsoft\Azure AD Connect Authentication Agent\Trace \\ **. Estes registos incluem razões pelas quais um registo específico do utilizador falhou na utilização da função De autenticação Pass-through. Estes erros são também mapeados para as razões de falha de inscrição apresentadas na tabela de razões de insucesso de inscrição anterior. Segue-se uma entrada de registo de exemplo:
+Para resolver problemas de falhas de registo do utilizador, procure registos de vestígios em **%ProgramData%\Microsoft\Microsoft\Azure AD Connect Authentication Agent\Trace \\**. Estes registos incluem razões pelas quais um registo específico do utilizador falhou na utilização da função De autenticação Pass-through. Estes erros são também mapeados para as razões de falha de inscrição apresentadas na tabela de razões de insucesso de inscrição anterior. Segue-se uma entrada de registo de exemplo:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

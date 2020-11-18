@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63b754886d88e97134b30e4a2bee7bdf5ac5a9d3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c30dea57310fb040d8fa5f52e1d8576c2dd08504
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376916"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650840"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Atribuir etiquetas de sensibilidade a grupos Microsoft 365 no Azure Ative Directory
 
@@ -73,8 +73,8 @@ Também terá de sincronizar as suas etiquetas de sensibilidade com o Azure AD. 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Atribua um rótulo a um novo grupo no portal Azure
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com).
-1. Selecione **Grupos**e, em seguida, selecione **Novo grupo**.
-1. Na página New **Group,** selecione **Office 365**e, em seguida, preencha as informações necessárias para o novo grupo e selecione uma etiqueta de sensibilidade da lista.
+1. Selecione **Grupos** e, em seguida, selecione **Novo grupo**.
+1. Na página New **Group,** selecione **Office 365** e, em seguida, preencha as informações necessárias para o novo grupo e selecione uma etiqueta de sensibilidade da lista.
 
    ![Atribua um rótulo de sensibilidade na página de novos grupos](./media/groups-assign-sensitivity-labels/new-group-page.png)
 
@@ -144,7 +144,7 @@ Como uma boa prática, não recomendamos que altere as definições de grupo par
 
 Se tiver de fazer uma alteração, utilize um [script Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1) para aplicar manualmente atualizações aos grupos impactados. Este método assegura que todos os grupos existentes impõem a nova definição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilize etiquetas de sensibilidade com as equipas da Microsoft, grupos Microsoft 365 e sites SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 - [Atualizar grupos após a alteração da política do rótulo manualmente com o script Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c8222cdcd21e10864c256007aff45fb83ed6afd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f820d04e9cee1d39037a730fb62119364d9ebf85
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379207"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650296"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Descoberta do reino doméstico para páginas de inscrição do Azure Ative Directory
 
@@ -55,6 +55,6 @@ Um benefício adicional deste trabalho é a melhoria das mensagens de erro. Aqui
   
 Se tiver preocupações com o novo comportamento, deixe as suas observações na secção **de Feedback** deste artigo.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Personalize a sua marca de sinalização](../fundamentals/add-custom-domain.md)

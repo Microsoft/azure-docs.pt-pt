@@ -10,18 +10,18 @@ editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 179ad1e552899f8fa92b8191fe78223458f87104
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f202bebd2c9ab6147d8a37fc6109b915065068aa
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376585"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650347"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Como migrar utilizadores com licenças individuais para grupos para licenciamento
 
@@ -57,13 +57,13 @@ Eis como pode ser o processo de migração:
 
 1. Utilizando o portal Azure, atribua a licença Office 365 E3 ao grupo **de todos os utilizadores** em Azure AD.
 
-1. Confirme que a atribuição da licença foi concluída para todos os utilizadores. Vá à página geral do grupo, selecione **Licenças**e verifique o estado de processamento na parte superior da lâmina **licenças.**
+1. Confirme que a atribuição da licença foi concluída para todos os utilizadores. Vá à página geral do grupo, selecione **Licenças** e verifique o estado de processamento na parte superior da lâmina **licenças.**
 
    - Procure "As últimas alterações de licença foram aplicadas a todos os utilizadores" para confirmar que o processamento foi concluído.
 
    - Procure uma notificação em cima sobre quaisquer utilizadores para os quais as licenças podem não ter sido atribuídas com sucesso. Ficamos sem licença para alguns utilizadores? Alguns utilizadores têm planos de licença contraditórios que os impedem de herdar licenças de grupo?
 
-1. Verifique o local em alguns utilizadores para verificar se têm as licenças diretas e de grupo aplicadas. Vá à página de perfil de um utilizador, selecione **Licenças**e examine o estado das licenças.
+1. Verifique o local em alguns utilizadores para verificar se têm as licenças diretas e de grupo aplicadas. Vá à página de perfil de um utilizador, selecione **Licenças** e examine o estado das licenças.
 
    - Este é o estado de utilizador esperado durante a migração:
 
@@ -77,7 +77,7 @@ Eis como pode ser o processo de migração:
 
    ![confirmar que as licenças diretas são removidas](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre outros cenários para a gestão de licenças de grupo:
 

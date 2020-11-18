@@ -9,18 +9,18 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/29/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1b61ca00b83d4c6b43fb5ade68dfb1228f0e0d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 732a92aea321bac0bc9cea4d3eee5a3979a469b1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376597"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650585"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças aos utilizadores por membro do grupo no Azure Ative Directory
 
@@ -71,7 +71,7 @@ Ao atribuir licenças a um grupo, a Azure AD processa todos os membros existente
 
    ![erros de licenciamento e estatuto de licença](./media/licensing-groups-assign/assignment-errors.png)
 
-1. Consulte informações mais detalhadas sobre o processamento de licenças ao abrigo do **Azure Ative Directory**  >  **Users e grupos de**nome de  >  *grupo*  >  **Registos de auditoria**. Consulte as seguintes atividades:
+1. Consulte informações mais detalhadas sobre o processamento de licenças ao abrigo do **Azure Ative Directory**  >  **Users e grupos de** nome de  >  *grupo*  >  **Registos de auditoria**. Consulte as seguintes atividades:
 
    - Atividade: `Start applying group based license to users` . Isto é registado quando o sistema recolhe a alteração da atribuição de licença no grupo e começa a aplicá-la a todos os membros do utilizador. Contém informações sobre a mudança que foi feita.
 
@@ -81,7 +81,7 @@ Ao atribuir licenças a um grupo, a Azure AD processa todos os membros existente
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passo 3: Verifique se há problemas de licença e resolva-os
 
-1. Vá ao **Azure Ative Directory**  >  **Groups**e encontre o grupo a que foram atribuídas licenças.
+1. Vá ao **Azure Ative Directory**  >  **Groups** e encontre o grupo a que foram atribuídas licenças.
 1. Na página de grupo, selecione **Licenças**. A notificação no topo da página mostra que há 10 utilizadores a quem as licenças não podiam ser atribuídas. Abra-a para ver uma lista de todos os utilizadores em estado de erro de licenciamento para este grupo.
 1. A coluna **de atribuições falhadas** diz-nos que ambas as licenças de produtos não podiam ser atribuídas aos utilizadores. A **coluna principal** contém a causa da falha. Neste caso, são **planos de serviço contraditórios.**
 
@@ -93,7 +93,7 @@ Ao atribuir licenças a um grupo, a Azure AD processa todos os membros existente
 
 1. Para resolver este conflito, remova o utilizador do grupo de utilizadores do **Quiosque.** Após o Azure AD processar a mudança, as licenças **do Departamento de RH** são corretamente atribuídas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o conjunto de funcionalidades para atribuição de licenças utilizando grupos, consulte os seguintes artigos:
 

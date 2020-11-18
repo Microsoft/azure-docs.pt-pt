@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 5c02733167db5071b1f2a9c5e04dc05a069fda3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7ec8a913634322be5a1eb854972cfa2a0217381
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604211"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651928"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opções únicas de inscrição em Azure AD
 
@@ -41,7 +41,7 @@ Este fluxograma ajuda-o a decidir qual o método de inscrição único melhor pa
 
 A tabela a seguir resume os métodos de inscrição única e liga-se a mais detalhes.
 
-| Método de inscrição único | Tipos de aplicação | Quando utilizar |
+| Método de inscrição único | Tipos de aplicações | Quando utilizar |
 | :------ | :------- | :----- |
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | nuvem e no local | Utilize o OpenID Connect e o OAuth ao desenvolver uma nova aplicação. Este protocolo simplifica a configuração da aplicação, tem SDKs fáceis de usar e permite que a sua aplicação utilize o Ms Graph.
 | [SAML](#saml-sso) | nuvem e no local | Escolha SAML sempre que possível para aplicações existentes que não utilizem OpenID Connect ou OAuth. A SAML trabalha para aplicações que autenticam usando um dos protocolos SAML.|
@@ -49,17 +49,17 @@ A tabela a seguir resume os métodos de inscrição única e liga-se a mais deta
 | [Ligado](#linked-sign-on) | nuvem e no local | Escolha o sinal de inscrição ligado quando a aplicação estiver configurada para um único s-ins insitado noutro serviço de fornecedor de identidade. Esta opção não adiciona um único sinal de inscrição à aplicação. No entanto, a aplicação pode já ter um único sign-on implementado usando outro serviço, como os Serviços da Federação de Diretórios Ativos.|
 | [Desativado](#disabled-sso) | nuvem e no local | Escolha um único sinal de desativado quando a aplicação não estiver pronta para ser configurada para um único s-on. Este modo é o padrão quando cria a aplicação.|
 | [Autenticação integrada do Windows (IWA)](#integrated-windows-authentication-iwa-sso) | apenas no local | Escolha o único sign-on da IWA para aplicações que utilizem [a Autenticação Integrada do Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication)ou aplicações com conhecimento de sinistros. Para a IWA, os conectores Proxy de aplicação utilizam a Delegação Restrita Kerberos (KCD) para autenticar os utilizadores na aplicação. |
-| [Baseado em cabeçalho](#header-based-sso) | apenas no local | Utilize um único sinal de sinalização baseado no cabeçalho quando a aplicação utilizar cabeçalhos para autenticação. O sign-on único baseado no cabeçalho requer PingAccess para Azure AD. O Application Proxy utiliza o Azure AD para autenticar o utilizador e, em seguida, passa o tráfego através do serviço de conector.  |
+| [Baseado em cabeçalho](#header-based-sso) | apenas no local | Utilize um único sinal de sinalização baseado no cabeçalho quando a aplicação utilizar cabeçalhos para autenticação. O Application Proxy utiliza o Azure AD para autenticar o utilizador e, em seguida, passa o tráfego através do serviço de conector.  |
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect e OAuth
 
 Ao desenvolver novas aplicações, utilize protocolos modernos como OpenID Connect e OAuth para obter a melhor experiência de súp livre para a sua aplicação em várias plataformas de dispositivos. A OAuth permite que utilizadores ou administradores [concedam consentimento](configure-user-consent.md) para recursos protegidos como [o Microsoft Graph](/graph/overview). Fornecemos [SDKs](../develop/reference-v2-libraries.md) fáceis de adotar para a sua aplicação e, além disso, a sua aplicação estará pronta para usar [o Microsoft Graph.](/graph/overview)
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
-- [Guia do desenvolvedor de plataformas de identidade da Microsoft.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+- [Guia do desenvolvedor de plataformas de identidade da Microsoft.](../develop/index.yml)
 
 ## <a name="saml-sso"></a>SAML SSO
 
@@ -137,7 +137,7 @@ O sign-on ligado permite que a Azure AD forneça um único sinal de acesso a uma
 
 ### <a name="linked-sign-on-for-application-migration"></a>Inscrição ligada para migração de aplicações
 
-O s-on ligado pode proporcionar uma experiência consistente do utilizador enquanto migra aplicações durante um período de tempo. Se estiver a migrar aplicações para o Azure Ative Directory, pode utilizar o sign-on ligado para publicar rapidamente links para todas as aplicações que pretende migrar.  Os utilizadores podem encontrar todos os links no [portal MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ou no lançador de [aplicações Microsoft 365.](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) Os utilizadores não saberão que estão a aceder a uma aplicação ligada ou a uma aplicação migratória.  
+O s-on ligado pode proporcionar uma experiência consistente do utilizador enquanto migra aplicações durante um período de tempo. Se estiver a migrar aplicações para o Azure Ative Directory, pode utilizar o sign-on ligado para publicar rapidamente links para todas as aplicações que pretende migrar.  Os utilizadores podem encontrar todos os links no [portal MyApps](../user-help/my-apps-portal-end-user-access.md) ou no lançador de [aplicações Microsoft 365.](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) Os utilizadores não saberão que estão a aceder a uma aplicação ligada ou a uma aplicação migratória.  
 
 Uma vez que um utilizador tenha autenticado com uma aplicação ligada, é necessário criar um registo de conta antes de o utilizador final ter acesso único de s.a.. O provisionamento deste registo de conta pode ocorrer automaticamente ou pode ocorrer manualmente por um administrador.
 
@@ -180,24 +180,14 @@ Este diagrama explica o fluxo quando um utilizador acede a uma aplicação no lo
 
 ## <a name="header-based-sso"></a>SSO baseado em cabeçalho
 
-Os trabalhos de sinalização único baseados em cabeçalhos para aplicações que utilizam cabeçalhos HTTP para autenticação. Este método de inscrição utiliza um serviço de autenticação de terceiros chamado PingAccess. Um utilizador só precisa de autenticar a Azure AD.
+Os trabalhos de sinalização único baseados em cabeçalhos para aplicações que utilizam cabeçalhos HTTP para autenticação.
 
-Escolha um único sinal de inscrição baseado no cabeçalho quando o Application Proxy e o PingAccess estiverem configurados para a aplicação.
+Escolha um único sinal de inscrição baseado no cabeçalho quando o Application Proxy estiver configurado para a aplicação no local.
 
-Para configurar a autenticação baseada em cabeçalho, consulte [a autenticação baseada no cabeçalho para uma única sação com Proxy de aplicação](application-proxy-configure-single-sign-on-with-ping-access.md).
+Para saber mais sobre a autenticação baseada em cabeçalho, consulte [o SSO baseado em Cabeçalho](application-proxy-configure-single-sign-on-with-headers.md).
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>O que é PingAccess para Azure AD?
 
-Utilizando o PingAccess para Azure AD, os utilizadores podem aceder e iniciar súm em aplicações que utilizam cabeçalhos para autenticação. A Application Proxy trata estas aplicações como qualquer outra, utilizando o Azure AD para autenticar o acesso e, em seguida, passar o tráfego através do serviço de conector. Após a autenticação, o serviço PingAccess traduz o token de acesso AZure AD para um formato de cabeçalho que é enviado para a aplicação.
-
-Os seus utilizadores não notarão nada de diferente quando iniciarem saturação para utilizarem as suas aplicações corporativas. Ainda podem trabalhar em qualquer lugar em qualquer dispositivo. Os conectores Application Proxy direcionam o tráfego remoto para todas as aplicações e continuarão a carregar o equilíbrio automaticamente.
-
-### <a name="how-do-i-get-a-license-for-pingaccess"></a>Como consigo uma licença para o PingAccess?
-
-Uma vez que este cenário é oferecido através de uma parceria entre a Azure AD e o PingAccess, você precisa de licenças para ambos os serviços. No entanto, as subscrições AZURE AD Premium incluem uma licença básica de PingAccess que cobre até 20 aplicações. Se precisar de publicar mais de 20 aplicações baseadas em cabeçalhos, pode adquirir uma licença adicional da PingAccess.
-
-Para mais informações, consulte [as edições do Azure Ative Directory.](../fundamentals/active-directory-whatis.md)
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 * [Planear uma implementação de início de sessão único](plan-sso-deployment.md)
+* [Único sinal com aplicativos no local](application-proxy-config-sso-how-to.md)

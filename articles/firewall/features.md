@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 7429be4430b2b520fb2a66b6b2c0dd138af8e501
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c71d9325ff7c1c5d2e7eff03a587a28335efd72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850596"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652149"
 ---
 # <a name="azure-firewall-features"></a>Funcionalidades do Azure Firewall
 
@@ -103,7 +103,7 @@ Isto permite os seguintes cenários:
 
 Todos os eventos são integrados com o Azure Monitor, permitindo-lhe arquivar registos numa conta de armazenamento, transmitir eventos para o seu Centro de Eventos ou enviá-los para registos do Azure Monitor. Para amostras de registo do Monitor Azure, consulte [os registos do Monitor Azure para Azure Firewall](log-analytics-samples.md).
 
-Para obter mais informações, consulte [Tutorial: Monitor Azure Firewall registos e métricas](tutorial-diagnostics.md). 
+Para obter mais informações, consulte [Tutorial: Monitor Azure Firewall registos e métricas](./firewall-diagnostics.md). 
 
 O Azure Firewall Workbook fornece uma tela flexível para a análise de dados do Azure Firewall. Pode usá-lo para criar relatórios visuais ricos dentro do portal Azure. Para obter mais informações, consulte [os registos do Monitor utilizando o Livro de Trabalho da Firewall Azure](firewall-workbook.md).
 
@@ -115,6 +115,6 @@ Você pode configurar a Azure Firewall para encaminhar todo o tráfego ligado à
 
 Azure Firewall é a Indústria de Cartões de Pagamento (PCI), Os Controlos da Organização de Serviços (SOC), a Organização Internacional de Normalização (ISO) e a ICSA Labs em conformidade. Para obter mais informações, consulte [as certificações de conformidade da Azure Firewall.](compliance-certifications.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Lógica de processamento de regras do Azure Firewall](rule-processing.md)

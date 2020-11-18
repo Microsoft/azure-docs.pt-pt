@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "89565859"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650228"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicione marca à página de inscrição do Azure Ative Directory da sua organização
 Use o logótipo da sua organização e esquemas de cores personalizados para fornecer um look-and-feel consistente nas suas páginas de inscrição do Azure Ative(Azure AD). As suas páginas de insusição aparecem quando os utilizadores acedem às aplicações web da sua organização, como o Microsoft 365, que utiliza o Azure AD como fornecedor de identidade.
 
 >[!NOTE]
->A adição de marca personalizada requer que utilize edições Azure Ative Directory Premium 1, Premium 2 ou Basic ou para ter uma licença Microsoft 365. Para obter mais informações sobre licenciamento e edições, consulte [Inscreva-se no Azure AD Premium.](active-directory-get-started-premium.md)<br><br>As edições Premium e Básica do Azure AD estão disponíveis para clientes na China que utilizem a instância mundial do Azure Active Directory. As edições do Azure AD Premium e Básico não são atualmente suportadas pelo serviço do Azure operado pela 21Vianet na China. Para obter mais informações, contacte-nos através do [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>A adição de marca personalizada requer que tenha licenças Azure Ative Directory Premium 1 ou Premium 2. Para obter mais informações sobre licenciamento e edições, consulte [Inscreva-se no Azure AD Premium.](active-directory-get-started-premium.md)<br><br>As edições Azure AD Premium estão disponíveis para clientes na China usando o exemplo mundial do Azure Ative Directory. As edições Azure AD Premium não são atualmente suportadas no serviço Azure operado pela 21Vianet na China. Para obter mais informações, contacte-nos através do [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalize a sua página de ad AD Azure
 Pode personalizar as suas páginas de inscrição AD AZure, que aparecem quando os utilizadores insinam-se nas aplicações específicas para o inquilino da sua organização, tais `https://outlook.com/contoso.com` como, ou ao passar uma variável de domínio, como `https://passwordreset.microsoftonline.com/?whr=contoso.com` .
@@ -37,7 +37,7 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
 ### <a name="to-customize-your-branding"></a>Para personalizar a sua marca
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory** , e, em seguida, selecione **a marca da Empresa** , e, em seguida, selecione **Configure**.
+2. Selecione **Azure Ative Directory**, e, em seguida, selecione **a marca da Empresa**, e, em seguida, selecione **Configure**.
 
     ![Contoso - Página de marca da empresa, opção de configuração em destaque](media/customize-branding/company-branding-configure-button.png)
 
@@ -74,7 +74,7 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
           
           > Sublinhar: ``` ++text++ ``` 
 
-    - **Definições avançadas**
+    - **Configurações avançadas**
             
         ![Configurar a página de marca da empresa, com configurações avançadas concluídas](media/customize-branding/configure-company-branding-advanced-settings.png)   
 
@@ -91,7 +91,7 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
             Esta capacidade só está disponível no objeto de marca padrão e não em qualquer objeto específico da linguagem. Para saber mais sobre configurar e resolver problemas a opção de permanecer inscrito, consulte [o pedido de 'Permanência assinada?' para as contas AD do Azure](keep-me-signed-in.md)
         
             >[!NOTE]
-            >Algumas funcionalidades do SharePoint Online e do Office 2010 dependem da capacidade de os utilizadores poderem escolher manter a sessão iniciada. Se tiver definido esta opção como **Não** , os utilizadores poderão ver avisos adicionais e inesperados para iniciar sessão.
+            >Algumas funcionalidades do SharePoint Online e do Office 2010 dependem da capacidade de os utilizadores poderem escolher manter a sessão iniciada. Se tiver definido esta opção como **Não**, os utilizadores poderão ver avisos adicionais e inesperados para iniciar sessão.
    
 
 3. Depois de terminar de adicionar a sua marca, **selecione Save**.
@@ -107,7 +107,7 @@ Depois de criar a sua marca personalizada, pode voltar e mudar o que quiser.
 ### <a name="to-edit-your-custom-branding"></a>Para editar a sua marca personalizada
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory** , e, em seguida, selecione **a marca da Empresa** , e, em seguida, selecione **Configure**.
+2. Selecione **Azure Ative Directory**, e, em seguida, selecione **a marca da Empresa**, e, em seguida, selecione **Configure**.
 
     ![Contoso - Página de marca da empresa, com configuração padrão mostrada](media/customize-branding/company-branding-default-config.png)
 
@@ -124,7 +124,7 @@ Não é possível alterar o idioma da sua configuração original a partir do se
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory** , e, em seguida, selecione **a marca da Empresa** , e, em seguida, selecione Novo **idioma**.
+2. Selecione **Azure Ative Directory**, e, em seguida, selecione **a marca da Empresa**, e, em seguida, selecione Novo **idioma**.
 
     ![Contoso - Página de marca da empresa, com nova opção linguística em destaque](media/customize-branding/company-branding-new-language.png)
 

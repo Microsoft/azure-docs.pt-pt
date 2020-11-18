@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 08/13/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e404b3eeadd8eef45e413eea2bd753d08cc505ca
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489459"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650636"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Impor uma política de nomeação em grupos Microsoft 365 no Azure Ative Directory
 
@@ -258,7 +258,7 @@ Cmdlets powershell do diretório ativo Azure | Os cmdlets powershell do Diretór
 Centro de Administração de Intercâmbio | O centro de administração de intercâmbio está em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a convenção de nomeação no nome de grupo e pseudónimos de grupo.
 Microsoft 365 admin center (Centro de administração do Microsoft 365) | O Centro de Administração Microsoft 365 está em conformidade com a política de nomeação. Quando um utilizador cria ou edita nomes de grupo, a política de nomeação é aplicada automaticamente e os utilizadores recebem erros adequados quando introduzem palavras bloqueadas personalizadas. O centro de administração microsoft 365 ainda não mostra uma pré-visualização da política de nomeação e não devolve erros de palavras bloqueados personalizados quando o utilizador introduz o nome de grupo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Estes artigos fornecem informações adicionais sobre os grupos AZURE AD.
 

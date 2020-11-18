@@ -12,12 +12,12 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 072407ae64a8dc6083ffdca23ba9c758b2b35868
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebe36c6f4b8b010d2b53bf4153f1476183eb8a4a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257817"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651265"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotecas de autenticação de plataformas de identidade da Microsoft
 
@@ -52,7 +52,8 @@ Utilize bibliotecas de autenticação de clientes para adquirir um símbolo para
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Referência](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/) | [Docs conceptuais](msal-overview.md)| [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | [Angular SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) | [Referência](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-angular/) | [Docs conceptuais](msal-overview.md) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
-| ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Aplicação de ambiente de trabalho](/windows/apps/desktop/) | [MSAL.NET](/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[Docs conceptuais](msal-overview.md) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Aplicação de ambiente de trabalho](/windows/apps/desktop/) | [MSAL.NET](/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview&preserve-view=true) |[Docs conceptuais](msal-overview.md) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![Ícone do núcleo .NET](media/sample-v2-code/logo_NETCore.png) | Microsoft Identity Web  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Web) |[GitHub](https://github.com/AzureAD/microsoft-identity-web) | [Amostras](https://aka.ms/ms-id-web/samples) | [Microsoft.Identity.Web](/dotnet/api/microsoft.identity.web?view=azure-dotnet-preview&preserve-view=true) |[Docs conceptuais](https://aka.ms/ms-id-web/conceptual-doc) | [Mapa](https://github.com/AzureAD/microsoft-identity-web/wiki#roadmap)
 | ![Python](media/sample-v2-code/logo_python.png) | Pitão MSAL | [PyPI](https://pypi.org/project/msal) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [Amostras](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [LerTheDocs](https://msal-python.rtfd.io/) | [Rio Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
 | ![Java](media/sample-v2-code/logo_java.png) | MSAL Java | [Maven](https://search.maven.org/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [Amostras](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | [Referência](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html) | [Rio Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 | iOS e macOS | MSAL iOS e macOS | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [aplicativo iOS](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc), [app macOS](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) | [Referência](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html)  | [Docs conceptuais](msal-overview.md) | |
@@ -64,9 +65,9 @@ Utilize bibliotecas de middleware para ajudar a proteger aplicações web e APIs
 
 | Plataforma | Biblioteca | Download | Código fonte | Sample | Referência
 | --- | --- | --- | --- | --- | --- |
-| ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | Segurança ASP.NET |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[referência ASP.NET API](/dotnet/api/?view=aspnetcore-2.0) |
-| ![.NET](media/sample-v2-code/logo_NET.png)| Extensões do Modelo de Identidade para .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[Referência](/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |
-| ![Node.js](media/sample-v2-code/logo_nodejs.png) | Passaporte Azure AD |[NPM](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Aplicação Web](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
+| ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | Segurança ASP.NET |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[referência ASP.NET API](/dotnet/api/?view=aspnetcore-2.0&preserve-view=true) |
+| ![.NET](media/sample-v2-code/logo_NET.png)| Extensões do Modelo de Identidade para .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [Aplicativo MVC](quickstart-v2-aspnet-webapp.md) |[Referência](/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet&preserve-view=true) |
+| ![Node.js](media/sample-v2-code/logo_nodejs.png) | Passaporte Azure AD |[NPM](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Aplicativo web](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
 
 ## <a name="microsoft-supported-libraries-by-os--language"></a>Bibliotecas suportadas pela Microsoft por SISTEMA / idioma
 

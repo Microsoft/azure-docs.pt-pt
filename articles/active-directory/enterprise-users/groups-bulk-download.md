@@ -4,21 +4,21 @@ description: Descarregue propriedades de grupo a granel no centro de administra�
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/16/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db800f3827d1b818115c886412ff7d4ffea3e768
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5bf7d0a650d73127a87475d4fcda9cff266040eb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376861"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650874"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Descarregue em massa uma lista de grupos no Azure Ative Directory
 
@@ -42,7 +42,7 @@ Pode ver o estado de todos os seus pedidos em massa pendentes na página de resu
 
 Cada atividade a granel para descarregar uma lista de grupo pode ser executada por até uma hora. Isto permite-lhe descarregar uma lista de pelo menos 300.000 grupos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [A granel remove membros do grupo](groups-bulk-remove-members.md)
 - [Descarregue membros de um grupo](groups-bulk-download-members.md)

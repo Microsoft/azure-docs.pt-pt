@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: 0e7d790fa9c5d4052ddb1e20defed1d1cc457a2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6fd26b4965b92f5f06a008d67e2d585fd1b41b7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840205"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652081"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutorial: Configurar respostas automáticas de ameaças em Azure Sentinel
 
@@ -39,7 +39,7 @@ Este tutorial ajuda-o a usar livros de segurança no Azure Sentinel para definir
 
 ## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>O que é um livro de segurança em Azure Sentinel?
 
-Um livro de segurança é uma coleção de procedimentos que podem ser executados a partir de Azure Sentinel em resposta a um alerta. Um livro de segurança pode ajudar a automatizar e orquestrar a sua resposta, e pode ser executado manualmente ou definido para ser executado automaticamente quando os alertas específicos são desencadeados. Os playbooks de segurança em Azure Sentinel são baseados em [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), o que significa que você obtém toda a potência, personalização e modelos incorporados de Apps Lógicas. Cada livro de jogadas é criado para a subscrição específica que escolher, mas quando olhar para a página Playbooks, verá todos os playbooks em todas as subscrições selecionadas.
+Um livro de segurança é uma coleção de procedimentos que podem ser executados a partir de Azure Sentinel em resposta a um alerta. Um livro de segurança pode ajudar a automatizar e orquestrar a sua resposta, e pode ser executado manualmente ou definido para ser executado automaticamente quando os alertas específicos são desencadeados. Os playbooks de segurança em Azure Sentinel são baseados em [Azure Logic Apps](../logic-apps/logic-apps-overview.md), o que significa que você obtém toda a potência, personalização e modelos incorporados de Apps Lógicas. Cada livro de jogadas é criado para a subscrição específica que escolher, mas quando olhar para a página Playbooks, verá todos os playbooks em todas as subscrições selecionadas.
 
 > [!NOTE]
 > Os playbooks aproveitam as Apps Azure Logic, pelo que os encargos são aplicados. Visite a página de preços do [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) para obter mais detalhes.
@@ -115,8 +115,6 @@ Para automatizar respostas:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a publicar um livro de jogadas em Azure Sentinel. Continue a [procurar proactivamente ameaças](hunting.md) usando Azure Sentinel.
-
-

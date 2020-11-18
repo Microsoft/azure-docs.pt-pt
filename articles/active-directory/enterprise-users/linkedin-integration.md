@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d70676e117a71fbd194e921b4755ba5d196871c7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377465"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650313"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrar ligações de conta LinkedIn no Azure Ative Directory
 
@@ -91,7 +91,7 @@ Para utilizar o grupo a partir do segundo passo como grupo selecionado nas liga�
 1. Descarregue os [ficheiros de modelo administrativo do Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 1. Extraia os ficheiros **ADMX** e copie-os para a sua loja central.
 1. Abra a Gestão de Políticas de Grupo.
-1. Criar um objeto de política de grupo com a seguinte definição: Modelos administrativos **de configuração**do utilizador  >  **Administrative Templates**  >  **Microsoft Office 2016**  >  **Funcionalidades do**  >  **LinkedIn em aplicações do Office**.
+1. Criar um objeto de política de grupo com a seguinte definição: Modelos administrativos **de configuração** do utilizador  >  **Administrative Templates**  >  **Microsoft Office 2016**  >  **Funcionalidades do**  >  **LinkedIn em aplicações do Office**.
 1. Selecione **Ativado** ou **Desativado**.
   
    Estado | Efeito
@@ -101,7 +101,7 @@ Para utilizar o grupo a partir do segundo passo como grupo selecionado nas liga�
 
 Esta política de grupo afeta apenas as aplicações do Office 2016 para um computador local. Se os utilizadores desativarem o LinkedIn nas suas aplicações office 2016, ainda podem ver as funcionalidades do LinkedIn no Microsoft 365.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Consentimento do utilizador e partilha de dados para o LinkedIn](linkedin-user-consent.md)
 

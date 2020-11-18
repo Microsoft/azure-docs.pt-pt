@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b2563b238bae310d662220d2c244e863249c9c4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367738"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651945"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações Wildcard no proxy de aplicação do Azure Ative Directory
 
@@ -72,7 +72,7 @@ Ao utilizar domínios personalizados, é necessário criar uma entrada de DNS co
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Para confirmar que configura o seu CNAME corretamente, pode utilizar [o nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) num dos pontos finais do alvo, por exemplo, `expenses.adventure-works.com` .  A sua resposta deve incluir o pseudónimo já mencionado `<yourAADTenantId>.tenant.runtime.msappproxy.net` .
+Para confirmar que configura o seu CNAME corretamente, pode utilizar [o nslookup](/windows-server/administration/windows-commands/nslookup) num dos pontos finais do alvo, por exemplo, `expenses.adventure-works.com` .  A sua resposta deve incluir o pseudónimo já mencionado `<yourAADTenantId>.tenant.runtime.msappproxy.net` .
 
 ## <a name="considerations"></a>Considerações
 
@@ -156,7 +156,7 @@ A configuração implementa a seguinte estrutura:
 
 ![Mostra a estrutura implementada pela configuração do exemplo](./media/application-proxy-wildcard/05.png)
 
-| Color | Descrição |
+| Cor | Descrição |
 | ---   | ---         |
 | Blue  | Aplicações explicitamente publicadas e visíveis no portal Azure. |
 | Cinzento  | Aplicações que pode ser acessível através da aplicação dos pais. |
@@ -189,7 +189,7 @@ Porque `finance.adventure-works.com` é uma URL mais específica do `*.adventure
 
 Se tiver várias aplicações publicadas para financiamento e tiver `finance.adventure-works.com` como domínio verificado, poderá publicar outra aplicação wildcard `*.finance.adventure-works.com` . Uma vez que isto é mais específico do que o `*.adventure-works.com` genérico, tem precedência se um utilizador acede a uma aplicação no domínio financeiro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre **domínios personalizados,** consulte [Trabalhar com domínios personalizados no Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 - Para saber mais sobre **as aplicações de publicação,** consulte [publicar aplicações usando a Azure AD Application Proxy](application-proxy-add-on-premises-application.md)

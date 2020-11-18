@@ -3,22 +3,22 @@ title: Feche uma conta de trabalho ou escola numa organização não gerida da A
 description: Como fechar o seu trabalho ou conta escolar num Diretório Ativo Azure não gerido.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/20/2019
+ms.date: 11/20/2020
 ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87e03214e2a00a16064763f35f38bdd3ea0e6123
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 142143f96314539051ea44c00c6ff95cb2650566
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376412"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650211"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Feche o seu trabalho ou conta escolar numa organização não gerida da AD AZure
 
@@ -28,7 +28,7 @@ Os utilizadores de uma organização nãogerida são muitas vezes criados durant
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Antes de poder fechar a sua conta, deverá confirmar os seguintes itens:
 
@@ -53,7 +53,7 @@ Para fechar uma conta de trabalho ou escola não gerido, siga estes passos:
 
     ![Meus pedidos de dados - Confirme o encerramento](./media/users-close-account/confirm-close.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [O que é inscrição de self-service para o Azure Ative Directory?](directory-self-service-signup.md)
 - [Eliminar o utilizador de um Inquilino Não Gerido](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)

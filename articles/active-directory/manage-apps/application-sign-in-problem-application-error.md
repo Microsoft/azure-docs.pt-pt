@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 779286a43f8b20ce9a9a528e14eaa930763d82b4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759543"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651588"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Uma página de aplicação mostra uma mensagem de erro após o utilizador assinar em
 
@@ -29,7 +29,7 @@ Neste cenário, o Azure Ative Directory (Azure AD) assina o utilizador. Mas a ap
 
 Existem várias razões possíveis para a aplicação não aceitar a resposta do Azure AD. Se a mensagem de erro não identificar claramente o que falta na resposta, tente o seguinte:
 
--   Se a aplicação for a galeria AD AZure, verifique se seguiu os passos em [Como depurar o único sign-on baseado em SAML para aplicações em Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+-   Se a aplicação for a galeria AD AZure, verifique se seguiu os passos em [Como depurar o único sign-on baseado em SAML para aplicações em Azure AD](./debug-saml-sso-issues.md).
 
 -   Use uma ferramenta como [o Fiddler](https://www.telerik.com/fiddler) para capturar o pedido, resposta e ficha SAML.
 
@@ -60,7 +60,7 @@ Para adicionar um atributo na configuração AD AZure que será enviado na respo
 
    Para adicionar um atributo:
 
-   1. **Selecione Adicionar atributo**. Introduza o **Nome**e selecione o **Valor** da lista de drop-down.
+   1. **Selecione Adicionar atributo**. Introduza o **Nome** e selecione o **Valor** da lista de drop-down.
 
    1.  Selecione **Guardar**. Verá o novo atributo na mesa.
 
@@ -72,7 +72,7 @@ Para adicionar um atributo na configuração AD AZure que será enviado na respo
 
 A inscrição na aplicação falha porque falta uma resposta SAML como um papel. Ou falha porque a aplicação espera um formato ou valor diferente para o atributo **NameID** (User Identifier).
 
-Se estiver a utilizar o fornecimento automatizado de [utilizadores Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para criar, manter e remover os utilizadores na aplicação, verifique se o utilizador foi aprovisionado na aplicação SaaS. Para mais informações, consulte [Nenhum utilizadores está a ser atetado a uma aplicação da Galeria AD Azure.](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
+Se estiver a utilizar o fornecimento automatizado de [utilizadores Azure AD](../app-provisioning/user-provisioning.md) para criar, manter e remover os utilizadores na aplicação, verifique se o utilizador foi aprovisionado na aplicação SaaS. Para mais informações, consulte [Nenhum utilizadores está a ser atetado a uma aplicação da Galeria AD Azure.](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
 ## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Adicione um atributo à configuração da aplicação AD Azure
 
@@ -99,9 +99,9 @@ Para alterar o valor do Identificador de Utilizador, siga estes passos:
 
 ## <a name="change-the-nameid-format"></a>Alterar o formato NameID
 
-Se a aplicação espera outro formato para o atributo **NameID** (User Identifier), consulte o [nome de EdiçãoID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) para alterar o formato NameID.
+Se a aplicação espera outro formato para o atributo **NameID** (User Identifier), consulte o [nome de EdiçãoID](../develop/active-directory-saml-claims-customization.md#editing-nameid) para alterar o formato NameID.
 
-A Azure AD seleciona o formato para o atributo **NameID** (User Identifier) com base no valor selecionado ou no formato que é solicitado pela aplicação no AuthRequest SAML. Para mais informações, consulte a secção "NameIDPolicy" do [protocolo SAML de assinatura única.](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy)
+A Azure AD seleciona o formato para o atributo **NameID** (User Identifier) com base no valor selecionado ou no formato que é solicitado pela aplicação no AuthRequest SAML. Para mais informações, consulte a secção "NameIDPolicy" do [protocolo SAML de assinatura única.](../develop/single-sign-on-saml-protocol.md#nameidpolicy)
 
 ## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>A aplicação espera um método de assinatura diferente para a resposta SAML
 
@@ -163,5 +163,5 @@ Para alterar o algoritmo de assinatura, siga estes passos:
 
    Da próxima vez que o utilizador entrar na aplicação, o Azure AD assinará o token SAML utilizando o algoritmo SHA-1.
 
-## <a name="next-steps"></a>Passos seguintes
-[Como depurar o único sign-on baseado em SAML para aplicações em Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+## <a name="next-steps"></a>Próximos passos
+[Como depurar o único sign-on baseado em SAML para aplicações em Azure AD](./debug-saml-sso-issues.md).

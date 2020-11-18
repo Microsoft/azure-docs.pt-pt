@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: e03598ab53a9061a59e18041b2f3f4dc04e1b110
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8cbc683f06b809ec4d9c63a61d73a0c731a92cd7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424541"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651623"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Problemas de resolução de problemas inscrevem-se numa aplicação da Azure AD My Apps
 
@@ -100,8 +100,8 @@ Para redefinir a palavra-passe de um utilizador, siga estes passos:
 
 ### <a name="enable-self-service-password-reset"></a>Ativar a reposição de palavras-passe self-service
 Para permitir o reset da palavra-passe de autosserviço, siga estes passos de implementação:
--   [Permitir que os utilizadores repusem as suas palavras-passe do Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
--   [Permitir que os utilizadores reiniciem ou alterem as suas palavras-passe no Ative Directory no local](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Permitir que os utilizadores repusem as suas palavras-passe do Azure Ative Directory](../authentication/tutorial-enable-sspr.md)
+-   [Permitir que os utilizadores reiniciem ou alterem as suas palavras-passe no Ative Directory no local](../authentication/tutorial-enable-sspr.md)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Verifique o estado de autenticação de vários fatores do utilizador
 Para verificar o estado de autenticação de vários fatores do utilizador, siga estes passos:
@@ -113,7 +113,7 @@ Para verificar o estado de autenticação de vários fatores do utilizador, siga
 6. Selecione o botão **de autenticação multi-factor** na parte superior do painel.
 7. Assim que o Portal de **Administração de Autenticação Multi-Factor** estiver carregado, certifique-se de que está no separador **Utilizadores.**
 8. Encontre o utilizador na lista de utilizadores pesquisando, filtrando ou classificando.
-9. Selecione o utilizador da lista de utilizadores e **Ative,** **desativar**ou **impor a** autenticação de vários fatores conforme desejado.
+9. Selecione o utilizador da lista de utilizadores e **Ative,** **desativar** ou **impor a** autenticação de vários fatores conforme desejado.
    >[!NOTE]
    >Se um utilizador estiver num estado **forçado,** pode desativá-los **temporariamente** para os deixar voltar à sua conta. Uma vez que estejam de volta, pode então alterar o seu estado para **Ativado** novamente para exigir que voltem a registar os seus dados de contacto durante a sua próxima entrada. Em alternativa, pode seguir os passos na [informação de contacto de autenticação de um utilizador](#check-a-users-authentication-contact-info) para verificar ou definir estes dados para os mesmos.
 
@@ -182,7 +182,7 @@ Para verificar se tem o elo de fundo correto, siga estes passos:
 10. Selecione **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
     * Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** a **todas as aplicações.**
 11. Selecione a aplicação para a seguinte a verificação do link profundo.
-12. Encontre o **URL de Acesso ao Utilizador da**etiqueta . A sua ligação profunda deve coincidir com esta URL.
+12. Encontre o **URL de Acesso ao Utilizador da** etiqueta . A sua ligação profunda deve coincidir com esta URL.
 
 ## <a name="contact-support"></a>Contactar o suporte
 Abra um bilhete de apoio com as seguintes informações, se disponível:
@@ -193,5 +193,5 @@ Abra um bilhete de apoio com as seguintes informações, se disponível:
 -   Fuso horário e tempo/prazo durante o erro ocorre
 -   Traços de violino
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
