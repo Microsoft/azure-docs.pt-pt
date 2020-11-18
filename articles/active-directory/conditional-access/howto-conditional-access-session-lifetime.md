@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d33721a70f0a9d4cfb26516d2f252424cc924f8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6deb0c005b5ed7daf5b30bea8a65ee70d8b460c5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503815"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837469"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessões de autenticação com o Acesso Condicional
 
@@ -90,7 +90,7 @@ O Acesso Condicional é uma capacidade AZure AD Premium e requer uma licença pr
 > [!WARNING]
 > Se estiver a utilizar a funcionalidade [de vida útil de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, por favor, note que não suportamos a criação de duas políticas diferentes para a mesma combinação de utilizador ou app: uma com esta funcionalidade e outra com uma funcionalidade de vida simbólica. A Microsoft planeia retirar a funcionalidade de vida útil de token configurável para a atualização e a sessão de token lifes a 30 de janeiro de 2021 e substituí-la pela funcionalidade de gestão da sessão de autenticação de acesso condicional.  
 >
-> Antes de ativar a frequência de inscrição, certifique-se de que outras definições de reauthenciacation estão desativadas no seu inquilino. Se estiver ativado "Remember MFA em dispositivos fidedignos", certifique-se de desativá-lo antes de utilizar a frequência de início de sposição, uma vez que utilizar estas duas definições em conjunto pode levar a que os utilizadores sejam inesperadamente informados. Para saber mais sobre as solicitações de reauestatura e a vida útil da sessão, consulte o artigo, [otimize as solicitações de reauestação e compreenda a vida útil da sessão para autenticação multi-factor Azure](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+> Antes de ativar a frequência de inscrição, certifique-se de que outras definições de reauthenciacation estão desativadas no seu inquilino. Se estiver ativado "Remember MFA em dispositivos fidedignos", certifique-se de desativá-lo antes de utilizar a frequência de início de sposição, uma vez que utilizar estas duas definições em conjunto pode levar a que os utilizadores sejam inesperadamente informados. Para saber mais sobre as solicitações de reauestatura e a vida útil da sessão, consulte o artigo, [otimize as solicitações de reauestação e compreenda a vida útil da sessão para autenticação multi-factor Azure AD](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Política 1: Controlo de frequência de inscrição
 
@@ -100,7 +100,7 @@ O Acesso Condicional é uma capacidade AZure AD Premium e requer uma licença pr
    > [!NOTE]
    > Recomenda-se definir a frequência de pedido de autenticação igual para as principais aplicações do Microsoft Office, como o Exchange Online e o SharePoint Online, para melhor experiência do utilizador.
 
-1. Aceda à sessão **de controlos**de  >  **acesso** e clique na frequência de **inscrição**
+1. Aceda à sessão **de controlos** de  >  **acesso** e clique na frequência de **inscrição**
 1. Insira o valor exigido de dias e horas na primeira caixa de texto
 1. Selecione um valor de **Horas** ou **Dias** a partir do dropdown
 1. Salve a sua política

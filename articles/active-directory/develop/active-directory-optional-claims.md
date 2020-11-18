@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 9090c778771436a4fcf60139f3ee59812051057a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 340f451080f43fab213a3afc69f2adfae83514d7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145621"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837333"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -89,11 +89,11 @@ Estas reclamações estão sempre incluídas em fichas AD v1.0 Azure, mas não i
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de créditos opcionais
 
-Algumas reclamações opcionais podem ser configuradas para alterar a forma como a reclamação é devolvida. Estas propriedades adicionais são usadas principalmente para ajudar a migração de aplicações no local com diferentes expectativas de dados (por exemplo, `include_externally_authenticated_upn_without_hash` ajuda com clientes que não conseguem lidar com marcas de haxixe `#` () na UPN)
+Algumas reclamações opcionais podem ser configuradas para alterar a forma como a reclamação é devolvida. Estas propriedades adicionais são usadas principalmente para ajudar a migração de aplicações no local com diferentes expectativas de dados. Por exemplo, `include_externally_authenticated_upn_without_hash` ajuda com clientes que não conseguem lidar com marcas de hash `#` () na UPN.
 
 **Quadro 4: Valores para configurar reclamações opcionais**
 
-| Nome da propriedade  | Nome de propriedade adicional | Description |
+| Nome da propriedade  | Nome de propriedade adicional | Descrição |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Pode ser usado tanto para respostas SAML como JWT, e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o hóspede UPN como armazenado no inquilino de recursos. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |
@@ -115,7 +115,7 @@ Algumas reclamações opcionais podem ser configuradas para alterar a forma como
 }
 ```
 
-Este objeto OpcionalClaims faz com que o símbolo de identificação devolvido ao cliente para incluir uma reclamação de upn com o inquilino adicional e informações de inquilino de recursos. A `upn` reclamação só é alterada no token se o utilizador for um hóspede no arrendatário (que utiliza um IDP diferente para autenticação).
+Este objeto OpcionalClaims faz com que o sinal de identificação devolvido ao cliente para incluir uma `upn` reclamação com o inquilino adicional e informações de inquilino de recursos. A `upn` reclamação só é alterada no token se o utilizador for um hóspede no arrendatário (que utiliza um IDP diferente para autenticação).
 
 ## <a name="configuring-optional-claims"></a>Configurar pedidos opcionais
 
@@ -124,7 +124,7 @@ Este objeto OpcionalClaims faz com que o símbolo de identificação devolvido a
 
 Pode configurar reclamações opcionais para a sua aplicação através do UI ou manifesto de aplicação.
 
-1. Aceda ao [portal do Azure](https://portal.azure.com). Procure e selecione **Azure Active Directory** .
+1. Aceda ao [portal do Azure](https://portal.azure.com). Procure e selecione **Azure Active Directory**.
 1. A partir da secção **Gerir,** selecione **registos de Aplicações.**
 1. Selecione a aplicação para a inscrição que pretende configurar pedidos opcionais na lista.
 
@@ -132,17 +132,17 @@ Pode configurar reclamações opcionais para a sua aplicação através do UI ou
 
 [![Configure créditos opcionais na UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. A partir da secção **Gerir,** selecione **a configuração Token** .
-1. **Selecione Adicionar reclamação opcional** .
+1. A partir da secção **Gerir,** selecione **a configuração Token**.
+1. **Selecione Adicionar reclamação opcional**.
 1. Selecione o tipo de símbolo que deseja configurar.
 1. Selecione as reclamações opcionais a adicionar.
-1. Selecione **Adicionar** .
+1. Selecione **Adicionar**.
 
 **Configurar reclamações opcionais através do manifesto de aplicação:**
 
 [![Mostra como configurar reclamações opcionais usando o manifesto da aplicação](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. Na secção **Gerir,** selecione **Manifesto** . Um editor manifesto baseado na web abre, permitindo-lhe editar o manifesto. Opcionalmente, pode selecionar **Transferir** , editar o manifesto localmente e, em seguida, utilizar **Carregar** para o reaplicar à aplicação. Para obter mais informações sobre o manifesto de aplicação, consulte o [artigo manifesto de aplicação AZure AD](reference-app-manifest.md).
+1. Na secção **Gerir,** selecione **Manifesto**. Um editor manifesto baseado na web abre, permitindo-lhe editar o manifesto. Opcionalmente, pode selecionar **Transferir**, editar o manifesto localmente e, em seguida, utilizar **Carregar** para o reaplicar à aplicação. Para obter mais informações sobre o manifesto de aplicação, consulte o [artigo manifesto de aplicação AZure AD](reference-app-manifest.md).
 
     A seguinte aplicação manifesto de entrada adiciona o auth_time, ipaddr e upn pedidos opcionais para iD, acesso e fichas SAML.
 
@@ -174,7 +174,7 @@ Pode configurar reclamações opcionais para a sua aplicação através do UI ou
     }
     ```
 
-2. Quando terminar, **selecione Save** . Agora, as reclamações opcionais especificadas serão incluídas nos tokens para a sua aplicação.
+2. Quando terminar, **selecione Save**. Agora, as reclamações opcionais especificadas serão incluídas nos tokens para a sua aplicação.
 
 ### <a name="optionalclaims-type"></a>Opcional Tipo Desempresa
 
@@ -182,7 +182,7 @@ Declara os pedidos facultativos solicitados por um pedido. Uma aplicação pode 
 
 **Quadro 5: OpcionaisClaims tipo propriedades**
 
-| Nome          | Tipo                       | Description                                           |
+| Nome          | Tipo                       | Descrição                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OpcionalClaim) | As reclamações opcionais devolvidas no token JWT ID.     |
 | `accessToken` | Coleção (OpcionalClaim) | As reclamações opcionais devolvidas no token de acesso JWT. |
@@ -190,12 +190,12 @@ Declara os pedidos facultativos solicitados por um pedido. Uma aplicação pode 
 
 ### <a name="optionalclaim-type"></a>Opcional TipoClaim
 
-Contém uma reclamação opcional associada a uma aplicação ou a um principal de serviço. As propriedades idToken, accessToken e saml2Token do tipo [OpcionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) é uma coleção de OpcionalClaim.
+Contém uma reclamação opcional associada a uma aplicação ou a um principal de serviço. As propriedades idToken, accessToken e saml2Token do tipo [OpcionalClaims](/graph/api/resources/optionalclaims) é uma coleção de OpcionalClaim.
 Se suportado por uma reclamação específica, também pode modificar o comportamento do OpcionalClaim utilizando o campo Deproperties Adicionais.
 
 **Quadro 6: Propriedades do tipo OpcionalClaim**
 
-| Nome                   | Tipo                    | Description                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da reclamação opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | A fonte (objeto de diretório) da reclamação. Existem reclamações predefinidas e reclamações definidas pelo utilizador a partir de propriedades de extensão. Se o valor de origem for nulo, o pedido é uma reclamação opcional predefinida. Se o valor de origem for o utilizador, o valor na propriedade do nome é a propriedade de extensão do objeto do utilizador. |
@@ -204,7 +204,7 @@ Se suportado por uma reclamação específica, também pode modificar o comporta
 
 ## <a name="configuring-directory-extension-optional-claims"></a>Configurar pedidos opcionais de extensão de diretório
 
-Além do conjunto de reclamações opcionais padrão, também pode configurar fichas para incluir extensões. Para obter mais informações, consulte [a extensão do Microsoft GraphProperty documentação](/graph/api/resources/extensionproperty?view=graph-rest-1.0).
+Além do conjunto de reclamações opcionais padrão, também pode configurar fichas para incluir extensões. Para obter mais informações, consulte [a extensão do Microsoft GraphProperty documentação](/graph/api/resources/extensionproperty).
 
 O esquema e as extensões abertas não são suportados por reclamações opcionais, apenas as extensões de diretório de estilo AAD-Graph. Esta funcionalidade é útil para anexar informações adicionais do utilizador que a sua aplicação pode utilizar – por exemplo, um identificador adicional ou uma opção de configuração importante que o utilizador definiu. Consulte a parte inferior desta página para dar um exemplo.
 
@@ -231,24 +231,24 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 
 **Configurar reivindicações opcionais de grupos através da UI:**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o a partir do canto superior direito da página
-1. Selecione **Azure Ative Directory** a partir do menu à esquerda
-1. Na secção **Gerir,** selecione **registos de Aplicações**
-1. Selecione a aplicação para a inscrição que pretende configurar pedidos opcionais na lista
-1. Na secção **Gerir,** selecione **a configuração token**
-1. Selecione **adicionar grupos reivindicação**
-1. Selecione os tipos de grupo para devolver **(Grupos de segurança,** ou **funções de diretório** , **Todos os grupos** e/ou **grupos designados para a aplicação).** Os **Grupos atribuídos à opção de candidatura** incluem apenas grupos atribuídos à aplicação. A opção **All Groups** inclui **SecurityGroup,** **DirectyRole** e **DistributionList,** mas não **grupos atribuídos à aplicação.** 
-1. Opcional: selecione as propriedades específicas do tipo símbolo para modificar o valor de reivindicação dos grupos para conter nos atributos do grupo de instalações ou para alterar o tipo de reclamação para uma função
-1. Selecione **Guardar**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
+1. Selecione **Azure Ative Directory** a partir do menu da mão esquerda.
+1. Na secção **Gerir,** selecione **registos de Aplicações.**
+1. Selecione a aplicação para a inscrição que pretende configurar pedidos opcionais na lista.
+1. Na secção **Gerir,** selecione **a configuração Token**.
+1. Selecione **Adicionar grupos reivindicação**.
+1. Selecione os tipos de grupo para devolver **(Grupos de segurança,** ou **funções de diretório**, **Todos os grupos** e/ou **grupos designados para a aplicação).** Os **Grupos atribuídos à opção de candidatura** incluem apenas grupos atribuídos à aplicação. A opção **All Groups** inclui **SecurityGroup,** **DirectyRole** e **DistributionList,** mas não **grupos atribuídos à aplicação.** 
+1. Opcional: selecione as propriedades específicas do tipo token para modificar o valor de reivindicação dos grupos para conter nos atributos do grupo de instalações ou para alterar o tipo de reclamação para uma função.
+1. Selecione **Guardar**.
 
 **Configurar pedidos opcionais de grupos através do manifesto de aplicação:**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o a partir do canto superior direito da página
-1. Selecione **Azure Ative Directory** a partir do menu à esquerda
-1. Selecione a aplicação para a inscrição que pretende configurar pedidos opcionais na lista
-1. Na secção **Gerir,** selecione **Manifesto**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
+1. Selecione **Azure Ative Directory** a partir do menu da mão esquerda.
+1. Selecione a aplicação para a inscrição que pretende configurar pedidos opcionais na lista.
+1. Na secção **Gerir,** selecione **Manifesto**.
 1. Adicione a seguinte entrada utilizando o editor manifesto:
 
    Os valores válidos são:
@@ -275,7 +275,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
    - Saml2Token para fichas SAML.
 
    > [!NOTE]
-   > O tipo Saml2Token aplica-se tanto a fichas de formato SAML1.1 como SAML2.0
+   > O tipo Saml2Token aplica-se tanto a fichas de formato SAML1.1 como SAML2.0.
 
    Para cada tipo de token relevante, modifique os grupos que pretendem utilizar a secção OpcionalClaims no manifesto. O esquema OpcionalClaims é o seguinte:
 
@@ -297,10 +297,10 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 
    Em outros Bens, é necessário apenas um dos "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Se mais de um está presente, o primeiro é usado e quaisquer outros ignorados.
 
-   Algumas aplicações requerem informações de grupo sobre o utilizador na reivindicação de funções.  Para alterar o tipo de reclamação para de uma reivindicação de grupo para uma reivindicação de papel, adicione "emit_as_roles" a propriedades adicionais.  Os valores do grupo serão emitidos na reivindicação do papel.
+   Algumas aplicações requerem informações de grupo sobre o utilizador na reivindicação de funções.  Para alterar o tipo de reclamação de uma reivindicação de grupo para uma reivindicação de papel, adicione "emit_as_roles" a propriedades adicionais.  Os valores do grupo serão emitidos na reivindicação do papel.
 
    > [!NOTE]
-   > Se for utilizada "emit_as_roles" quaisquer Funções de Aplicação configuradas que o utilizador seja atribuído não aparecerão na alegação de função
+   > Se for utilizada "emit_as_roles", quaisquer funções de aplicação configuradas que o utilizador seja atribuído não aparecerão na alegação de função.
 
 **Exemplos:**
 
@@ -363,20 +363,19 @@ Existem várias opções disponíveis para atualizar as propriedades na configur
 
 - Pode utilizar a **UI de configuração token** (ver exemplo abaixo)
 - Pode utilizar o **Manifesto** (ver exemplo abaixo). Leia o [Documento manifesto de aplicação Azure AD](./reference-app-manifest.md) primeiro para uma introdução ao manifesto.
-- Também é possível escrever uma aplicação que utilize a API do [Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2f1.0&view=graph-rest-1.0) para atualizar a sua aplicação. O tipo [OpcionalClaims](/graph/api/resources/optionalclaims?view=graph-rest-1.0) no guia de referência da Microsoft Graph API pode ajudá-lo a configurar as reclamações opcionais.
+- Também é possível escrever uma aplicação que utilize a API do [Microsoft Graph](/graph/use-the-api) para atualizar a sua aplicação. O tipo [OpcionalClaims](/graph/api/resources/optionalclaims) no guia de referência da Microsoft Graph API pode ajudá-lo a configurar as reclamações opcionais.
 
 **Exemplo:**
 
 No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para adicionar pedidos opcionais aos tokens de acesso, ID e SAML destinados à sua aplicação. Serão adicionadas diferentes reclamações opcionais a cada tipo de símbolo que a aplicação pode receber:
 
 - Os tokens de ID passarão a conter a UPN para utilizadores federados na forma completa ( `<upn>_<homedomain>#EXT#@<resourcedomain>` ).
-- Os tokens de acesso que outros clientes solicitam para esta aplicação passarão a incluir a reclamação auth_time
+- Os tokens de acesso que outros clientes solicitam para esta aplicação passarão a incluir a reclamação auth_time.
 - Os tokens SAML passarão a conter a extensão do esquema do diretório skypeId (neste exemplo, o ID da aplicação para esta aplicação é ab603c56068041afb2f6832e2a17e237). Os tokens SAML vão expor o ID skype como `extension_skypeId` .
 
 **Configuração de UI:**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
 
 1. Selecione **Azure Ative Directory** a partir do menu da mão esquerda.
@@ -385,15 +384,15 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 1. Encontre a aplicação que pretende configurar reclamações opcionais para a lista e selecione-a.
 
-1. Na secção **Gerir,** selecione **a configuração Token** .
+1. Na secção **Gerir,** selecione **a configuração Token**.
 
-1. **Selecione Adicionar reclamação opcional** , selecione o tipo de símbolo de **ID,** selecione **upn** da lista de reclamações e, em seguida, selecione **Adicionar** .
+1. **Selecione Adicionar reclamação opcional**, selecione o tipo de símbolo de **ID,** selecione **upn** da lista de reclamações e, em seguida, selecione **Adicionar**.
 
-1. **Selecione Adicionar reclamação opcional** , selecione o tipo de token de **acesso,** selecione **auth_time** da lista de reclamações e, em seguida, selecione **Adicionar** .
+1. **Selecione Adicionar reclamação opcional**, selecione o tipo de token de **acesso,** selecione **auth_time** da lista de reclamações e, em seguida, selecione **Adicionar**.
 
-1. A partir do ecrã geral da configuração token, selecione o ícone do lápis ao lado **do upn** , selecione o toggle **autenticado externamente** e, em seguida, selecione **Guardar** .
+1. A partir do ecrã geral da configuração token, selecione o ícone do lápis ao lado **do upn**, selecione o toggle **autenticado externamente** e, em seguida, selecione **Guardar**.
 
-1. **Selecione Adicionar a reclamação opcional** , selecione o tipo de token **SAML,** selecione **extn.skypeID** da lista de reclamações (apenas aplicável se tiver criado um objeto de utilizador Azure AD chamado skypeID) e, em seguida, selecione **Add** .
+1. **Selecione Adicionar a reclamação opcional**, selecione o tipo de token **SAML,** selecione **extn.skypeID** da lista de reclamações (apenas aplicável se tiver criado um objeto de utilizador Azure AD chamado skypeID) e, em seguida, selecione **Add**.
 
     [![Créditos opcionais para ficha SAML](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 

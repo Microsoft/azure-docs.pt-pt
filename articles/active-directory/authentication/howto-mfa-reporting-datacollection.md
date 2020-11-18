@@ -1,6 +1,6 @@
 ---
-title: Recolha de dados de utilizadores da Azure MFA - Azure Ative Directory
-description: Que informação é utilizada para ajudar a autenticar os utilizadores pela Autenticação Multi-Factor Azure?
+title: Recolha de dados de utilizadores Azure AD MFA - Azure Ative Directory
+description: Que informações são utilizadas para ajudar a autenticar os utilizadores pela Autenticação Multi-Factor AZURE AD?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03ec8eddf55c6b3e90b56501a2e3b657bef6fc8c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed0d4b754911dda49776379fb318390eae411000
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964201"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839017"
 ---
-# <a name="azure-multi-factor-authentication-user-data-collection"></a>Recolha de dados de dados de autenticação multi-factor Azure
+# <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Recolha de dados de autenticação multi-factor Azure AD
 
-Este documento explica como encontrar informações do utilizador recolhidas pelo Azure Multi-Factor Authentication Server (MFA Server) e Azure MFA (cloud-based) no caso de pretender removê-la.
+Este documento explica como encontrar informações do utilizador recolhidas pelo Azure Multi-Factor Authentication Server (MFA Server) e Azure AD MFA (cloud-based) no caso de pretender removê-la.
 
 [!INCLUDE [gdpr-hybrid-note](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="information-collected"></a>Informação recolhida
 
-O MFA Server, a Extensão NPS e o Adaptador AD FS AZure MFA AD Azure MFA 2016 recolhem e armazenam as seguintes informações durante 90 dias.
+O MFA Server, a Extensão NPS e o Adaptador AD AD FS AD AD AD AD Azure Ad FS recolhem e armazenam as seguintes informações durante 90 dias.
 
 Tentativas de autenticação (utilizadas para reportar e resolver problemas):
 
@@ -56,7 +56,7 @@ Tentativas de autenticação (utilizadas para reportar e resolver problemas):
 - Resultado da chamada de backup
 - Autenticado geral
 - Resultado Global
-- Results
+- Resultados
 - Autenticado
 - Resultado
 - Endereço IP iniciador
@@ -141,7 +141,7 @@ Para a versão 8.0 ou superior do MFA Server, o seguinte processo permite aos ad
 - Procure `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` e quaisquer backups para \<username> " " (inclua as citações na pesquisa) para encontrar todas as instâncias do registo do utilizador sendo adicionadas ou alteradas.
    - Estes registos podem ser limitados (mas não eliminados) desmarcando **"Registar alterações do utilizador"** no MFA Server UX, secção de registo, separador Ficheiros de Registo.
    - Se o syslog estiver configurado e **"Registar alterações do utilizador"** é verificado no MFA Server UX, secção de registo, separador Syslog, então as entradas de registo podem ser recolhidas a partir de syslog.
-- Outras ocorrências do nome de utilizador em MultiFactorAuthSvc.log e outros ficheiros de registo do MFA Server relativos a tentativas de autenticação são consideradas operacionais e duplicadas às informações fornecidas através MultiFactorAuthGdpr.exe exportação ou Serviço Web SDK GetUserGdpr.
+- Outras ocorrências do nome de utilizador no MultiFactorAuthSvc.log e outros ficheiros de registo do MFA Server relativos a tentativas de autenticação são considerados operacionais e duplicados às informações fornecidas através MultiFactorAuthGdpr.exe exportação ou serviço web SDK GetUserGdpr.
 
 ## <a name="delete-data-from-mfa-server"></a>Eliminar dados do MFA Server
 
@@ -163,26 +163,26 @@ Utilize o [Portal de Privacidade](https://portal.azure.com/#blade/Microsoft_Azur
 
 - Pode levar até 30 dias para que os dados sejam totalmente removidos.
 
-## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Recolha dados do Adaptador AZURE AD FS do Windows Server 2016
+## <a name="gather-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter"></a>Recolha dados do Adaptador AD FS do Windows Server 2016 Azure AD MFA
 
 Utilize o [Portal de Privacidade](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) da Microsoft para fazer um pedido de exportação. 
 
 - As informações sobre o MFA estão incluídas na exportação, que pode demorar horas ou dias a ser concluída.
 - As ocorrências do nome de utilizador nos registos de eventos AD FS Tracing/Debug (se ativados) são consideradas operacionais e duplicadas às informações fornecidas na exportação.
 
-## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Eliminar dados do Adaptador AZURE AD FS do Windows Server 2016
+## <a name="delete-data-from-windows-server-2016-azure-ad-mfa-ad-fs-adapter"></a>Eliminar dados do Adaptador AD FS do Windows Server 2016 Azure AD MFA
 
 Utilize o [Portal de Privacidade](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) da Microsoft para fazer um pedido de Conta Perto para eliminar todas as informações do serviço de cloud MFA recolhidas para este utilizador.
 
 - Pode levar até 30 dias para que os dados sejam totalmente removidos.
 
-## <a name="gather-data-for-azure-mfa"></a>Recolha de dados para Azure MFA
+## <a name="gather-data-for-azure-ad-mfa"></a>Recolha de dados para Azure AD MFA
 
 Utilize o [Portal de Privacidade](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) da Microsoft para fazer um pedido de exportação.
 
 - As informações sobre o MFA estão incluídas na exportação, que pode demorar horas ou dias a ser concluída.
 
-## <a name="delete-data-for-azure-mfa"></a>Eliminar dados para Azure MFA
+## <a name="delete-data-for-azure-ad-mfa"></a>Eliminar dados para Azure AD MFA
 
 Utilize o [Portal de Privacidade](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) da Microsoft para fazer um pedido de Conta Perto para eliminar todas as informações do serviço de cloud MFA recolhidas para este utilizador.
 

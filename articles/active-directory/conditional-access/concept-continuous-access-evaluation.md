@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: daa3f3b1687b01005f32cbd2665c84b933c993b8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992810"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837622"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -126,7 +126,7 @@ No exemplo seguinte, um administrador de acesso condicional configura uma polít
 ## <a name="enable-or-disable-cae-preview"></a>Ativar ou desativar CAE (Pré-visualização)
 
 1. Inscreva-se no **portal Azure** como administrador de acesso condicional, administrador de segurança ou administrador global
-1. Consulte a avaliação contínua de acesso contínuo **do Diretório Azure**  >  **Security**  >  **Continuous access evaluation**Ative.
+1. Consulte a avaliação contínua de acesso contínuo **do Diretório Azure**  >  **Security**  >  **Continuous access evaluation** Ative.
 1. Escolha **Ativar a pré-visualização**.
 
 A partir desta página, pode opcionalmente limitar os utilizadores e grupos que estarão sujeitos à pré-visualização.
@@ -140,7 +140,7 @@ A partir desta página, pode opcionalmente limitar os utilizadores e grupos que 
 Para o CAE, só temos informações sobre locais nomeados com base em IP. Não temos informações sobre outras definições de localização, como [IPs fidedignos de MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) ou localizações baseadas em país. Quando o utilizador vem de um IP fidedigno da MFA ou de localizações fidedignas que incluem IPs fidedignos MFA ou localização do país, o CAE não será aplicado após a mudança do utilizador para um local diferente. Nesses casos, emitiremos um token CAE de 1 hora sem verificação instantânea da aplicação da legislação em matéria de IP.
 
 > [!IMPORTANT]
-> Ao configurar locais para avaliação contínua de acesso, utilize apenas a [condição de localização de acesso condicional baseada em IP](../conditional-access/location-condition.md#preview-features) e configure todos os endereços IP, **incluindo o IPv4 e o IPv6,** que podem ser vistos pelo seu fornecedor de identidade e fornecedor de recursos. Não utilize condições de localização no país ou a funcionalidade ips fidedigna que esteja disponível na página de configurações de serviço do Azure Multi-Factor Authentication.
+> Ao configurar locais para avaliação contínua de acesso, utilize apenas a [condição de localização de acesso condicional baseada em IP](../conditional-access/location-condition.md#preview-features) e configure todos os endereços IP, **incluindo o IPv4 e o IPv6,** que podem ser vistos pelo seu fornecedor de identidade e fornecedor de recursos. Não utilize condições de localização do país ou a funcionalidade ips fidedigna que esteja disponível na página de serviços de autenticação multi-factor Azure AD.
 
 ### <a name="ip-address-configuration"></a>Configuração do endereço IP
 

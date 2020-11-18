@@ -10,27 +10,27 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d0fcd57a71baec54fbed2dd41a936895ad9a462
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a120e015bd8ca38e32bd8cbef1fd48f4caef8e44
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966581"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837809"
 ---
-# <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Tutorial: Utilize deteções de risco para iniciar alterações de autenticação ou palavra-passe do Azure Multi-Factor
+# <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-ad-multi-factor-authentication-or-password-changes"></a>Tutorial: Utilize deteções de risco para iniciar alterações de autenticação ou palavra-passe Azure AD
 
 Para proteger os seus utilizadores, pode configurar políticas baseadas no risco no Azure Ative Directory (Azure AD) que respondem automaticamente a comportamentos de risco. As políticas de Proteção de Identidade Azure AD podem bloquear automaticamente uma tentativa de entrada ou exigir ações adicionais, tais como exigir uma alteração de palavra-passe ou um pedido de autenticação multi-factor Azure. Estas políticas funcionam com as políticas de acesso condicionado Azure AD existentes como uma camada extra de proteção para a sua organização. Os utilizadores podem nunca desencadear um comportamento de risco numa destas políticas, mas a sua organização está protegida se for feita uma tentativa de comprometer a sua segurança.
 
 > [!IMPORTANT]
-> Este tutorial mostra a um administrador como ativar a autenticação multi-factor Azure baseada no risco.
+> Este tutorial mostra a um administrador como ativar a autenticação multi-factor Azure AD baseada no risco.
 >
-> Se a sua equipa de TI não tiver ativado a capacidade de utilizar a Autenticação Multi-Factor Azure ou tiver problemas durante a sação, contacte o seu helpdesk para obter assistência adicional.
+> Se a sua equipa de TI não tiver ativado a capacidade de utilizar a Autenticação Multi-Factor AD Azure ou tiver problemas durante a sação, contacte o seu helpdesk para obter assistência adicional.
 
 Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Compreender as políticas disponíveis para a Azure AD Identity Protection
-> * Ativar o registo de autenticação multi-factor Azure
+> * Ativar o registo de autenticação multi-factor Azure AD
 > * Permitir alterações de palavra-passe baseadas em risco
 > * Ativar a Multi-Factor Authentication baseada em risco
 > * Testar políticas baseadas no risco para tentativas de inscrição do utilizador
@@ -42,9 +42,9 @@ Para completar este tutorial, precisa dos seguintes recursos e privilégios:
 * Um inquilino Azure AD em funcionamento com pelo menos um Azure AD Premium P2 ou uma licença de julgamento habilitada.
     * Se necessário, [crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Uma conta com privilégios *de Administrador Global.*
-* Azure AD configurado para reset de senha de autosserviço e autenticação multi-factor Azure
+* Azure AD configurado para reset de senha de autosserviço e autenticação multi-factor AD Azure
     * Se necessário, [complete o tutorial para ativar a Azure AD SSPR](tutorial-enable-sspr.md).
-    * Se necessário, [complete o tutorial para ativar a autenticação multi-factor Azure](tutorial-enable-azure-mfa.md).
+    * Se necessário, [complete o tutorial para ativar a autenticação multi-factor Azure AD](tutorial-enable-azure-mfa.md).
 
 ## <a name="overview-of-azure-ad-identity-protection"></a>Visão geral da Proteção de Identidade AD AZure
 
@@ -64,9 +64,9 @@ As três políticas seguintes estão disponíveis na Azure AD Identity Protectio
 * Política de risco do utilizador
     * Identifica e responde a contas de utilizador que podem ter credenciais comprometidas. Pode solicitar ao utilizador que crie uma nova palavra-passe.
 * Assine na política de risco
-    * Identifica e responde a tentativas suspeitas de inscrição. Pode solicitar ao utilizador que forneça formas adicionais de verificação utilizando a autenticação multi-factor Azure.
+    * Identifica e responde a tentativas suspeitas de inscrição. Pode solicitar ao utilizador que forneça formas adicionais de verificação utilizando a autenticação multi-factor Azure AD.
 * Política de registo na MFA
-    * Certifique-se de que os utilizadores estão registados para autenticação multi-factor Azure. Se uma política de risco de inscrição for solicitada para MFA, o utilizador já deve estar registado para autenticação multi-factor Azure.
+    * Certifique-se de que os utilizadores estão registados para autenticação multi-factor Azure AD. Se uma política de risco de inscrição for solicitada para MFA, o utilizador já deve estar registado para autenticação multi-factor Azure AD.
 
 Quando ativar um utilizador de política ou assinar na política de risco, também pode escolher o limiar para o nível de risco - *baixo e superior*, médio e *superior*, ou *alto*. Esta flexibilidade permite-lhe decidir o quão agressivo quer ser na aplicação de quaisquer controlos para eventos suspeitos de inscrição.
 
@@ -74,7 +74,7 @@ Para obter mais informações sobre a Proteção de Identidade AZure AD, veja [o
 
 ## <a name="enable-mfa-registration-policy"></a>Ativar a política de registo do MFA
 
-A Azure AD Identity Protection inclui uma política predefinida que pode ajudar a registar os utilizadores para a Autenticação Multi-Factor Azure. Se utilizar políticas adicionais para proteger eventos de inscrição, precisaria que os utilizadores já se tivessem registado para MFA. Quando ativa esta política, não requer que os utilizadores realizem MFA em cada evento de inscrição. A apólice apenas verifica o estado de registo de um utilizador e pede-lhes que se registem se necessário.
+A Azure AD Identity Protection inclui uma política predefinida que pode ajudar a obter os utilizadores registados para a autenticação multi-factor AD Azure. Se utilizar políticas adicionais para proteger eventos de inscrição, precisaria que os utilizadores já se tivessem registado para MFA. Quando ativa esta política, não requer que os utilizadores realizem MFA em cada evento de inscrição. A apólice apenas verifica o estado de registo de um utilizador e pede-lhes que se registem se necessário.
 
 Recomenda-se que a política de registo do MFA seja ativada para políticas adicionais de Proteção de Identidade Azure AD. Para ativar esta política, complete os seguintes passos:
 
@@ -82,8 +82,8 @@ Recomenda-se que a política de registo do MFA seja ativada para políticas adic
 1. Procure e selecione **Azure Ative Directory**, selecione **Segurança**, em seguida, no título do menu *Protect* escolha **Proteção de Identidade**.
 1. Selecione a política de **registo de MFA** a partir do menu do lado esquerdo.
 1. Por predefinição, a política aplica-se a *Todos os utilizadores*. Se desejar, selecione **Atribuições,** em seguida, escolha os utilizadores ou grupos para aplicar a política.
-1. Em *Controlos*, selecione **Access**. Certifique-se de que a opção para *o registo de Azure MFA* é verificada e, em seguida, escolha **Selecione**.
-1. **Descoda a política de execução** para on e, *em*seguida, selecione **Guardar**.
+1. Em *Controlos*, selecione **Access**. Certifique-se de que a opção para *o registo de MFA AD AD do Azure* É verificada e, em seguida, escolha **Select**.
+1. **Descoda a política de execução** para on e, *em* seguida, selecione **Guardar**.
 
     ![Screenshot de como exigir que os utilizadores se registem para MFA no portal Azure](./media/tutorial-risk-based-sspr-mfa/enable-mfa-registration.png)
 
@@ -96,9 +96,9 @@ Para ativar esta política, complete os seguintes passos:
 1. Selecione a política de risco do **Utilizador** a partir do menu do lado esquerdo.
 1. Por predefinição, a política aplica-se a *Todos os utilizadores*. Se desejar, selecione **Atribuições,** em seguida, escolha os utilizadores ou grupos para aplicar a política.
 1. *Em Condições*, escolha **Selecionar as condições > Selecionar um nível de risco,** em seguida, escolher *Médio e superior*.
-1. Escolha **Selecione**e, em **seguida, Feito**.
+1. Escolha **Selecione** e, em **seguida, Feito**.
 1. No *Acesso*, selecione **Access**. Certifique-se de que a opção para **Permitir o acesso** e exigir a alteração da *palavra-passe* é verificada e, em seguida, escolha **Selecione**.
-1. **Descoda a política de execução** para on e, *em*seguida, selecione **Guardar**.
+1. **Descoda a política de execução** para on e, *em* seguida, selecione **Guardar**.
 
     ![Screenshot de como ativar a política de risco do utilizador no portal Azure](./media/tutorial-risk-based-sspr-mfa/enable-user-risk-policy.png)
 
@@ -111,9 +111,9 @@ Para ativar esta política, complete os seguintes passos:
 1. Selecione a **política de risco de inscrição** a partir do menu do lado esquerdo.
 1. Por predefinição, a política aplica-se a *Todos os utilizadores*. Se desejar, selecione **Atribuições,** em seguida, escolha os utilizadores ou grupos para aplicar a política.
 1. *Em Condições*, escolha **Selecionar as condições > Selecionar um nível de risco,** em seguida, escolher *Médio e superior*.
-1. Escolha **Selecione**e, em **seguida, Feito**.
+1. Escolha **Selecione** e, em **seguida, Feito**.
 1. No *Acesso*, escolha **Selecionar um controlo**. Certifique-se de que a opção para **Permitir o acesso** e exigir a *autenticação de vários fatores* é verificada e, em seguida, escolha **Selecione**.
-1. **Descoda a política de execução** para on e, *em*seguida, selecione **Guardar**.
+1. **Descoda a política de execução** para on e, *em* seguida, selecione **Guardar**.
 
     ![Screenshot de como ativar a política de risco de inscrição no portal Azure](./media/tutorial-risk-based-sspr-mfa/enable-sign-in-risk-policy.png)
 
@@ -123,7 +123,7 @@ A maioria dos eventos de inscrição do utilizador não desencadeará as políti
 
 Para testar as políticas de Proteção de Identidade Azure AD criadas nos passos anteriores, precisa de uma forma de simular comportamentos de risco ou potenciais ataques. Os passos para fazer estes testes variam em função da política de Proteção de Identidade Azure AD que pretende validar. Para obter mais informações sobre cenários e etapas, consulte [Simular deteções de riscos na Proteção de Identidade AZure AD](../identity-protection/howto-identity-protection-simulate-risk.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se tiver concluído os testes e deixar de querer ter as políticas baseadas no risco ativadas, volte a cada política que pretende desativar e desative a Política de **Execução** para *desligar*.
 
@@ -133,7 +133,7 @@ Neste tutorial, permitiu políticas de utilizador baseadas em riscos para a Prot
 
 > [!div class="checklist"]
 > * Compreender as políticas disponíveis para a Azure AD Identity Protection
-> * Ativar o registo de autenticação multi-factor Azure
+> * Ativar o registo de autenticação multi-factor Azure AD
 > * Permitir alterações de palavra-passe baseadas em risco
 > * Ativar a Multi-Factor Authentication baseada em risco
 > * Testar políticas baseadas no risco para tentativas de inscrição do utilizador

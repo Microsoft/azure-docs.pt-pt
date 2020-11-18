@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cb1a0819902d2dfa27718ccfe39b175959a16c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 03a5f355263b80ef2e5e1c829877dc96ca55787a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963844"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837894"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutorial: Configurar senhas personalizadas proibidas para proteção de senha do Azure Ative Directory
 
@@ -66,7 +66,7 @@ Para ativar a lista de senhas proibidas personalizadas e adicionar entradas à s
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta com permissões *de administrador global.*
 1. Procure e selecione **Azure Ative Directory,** em seguida, escolha **Segurança** no menu do lado esquerdo.
-1. No **cabeçalho** do menu Gerir, selecione **métodos de autenticação**e, em seguida, **proteção por palavra-passe**.
+1. No **cabeçalho** do menu Gerir, selecione **métodos de autenticação** e, em seguida, **proteção por palavra-passe**.
 1. Desa esta medida a opção para impor a **lista personalizada** para *Sim*.
 1. Adicione cordas à **lista de palavras-passe proibidas por costume,** uma cadeia por linha. As seguintes considerações e limitações aplicam-se à lista de senhas proibidas por medida:
 
@@ -104,13 +104,13 @@ Para ver a lista de senhas proibidas personalizadas em ação, tente alterar a p
 
     ![Mensagem de erro exibida quando tenta usar uma palavra-passe que faz parte da lista de senhas proibidas personalizadas](media/tutorial-configure-custom-password-protection/password-change-error.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não pretender utilizar a lista de palavras-passe proibidas personalizadas que configura como parte deste tutorial, complete os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure e selecione **Azure Ative Directory,** em seguida, escolha **Segurança** no menu do lado esquerdo.
-1. No **cabeçalho** do menu Gerir, selecione **métodos de autenticação**e, em seguida, **proteção por palavra-passe**.
+1. No **cabeçalho** do menu Gerir, selecione **métodos de autenticação** e, em seguida, **proteção por palavra-passe**.
 1. Desa esta medida a opção para impor a **lista personalizada** para *o Nº*.
 1. Para atualizar a configuração de palavra-passe proibida personalizada, **selecione Guardar**.
 
@@ -124,4 +124,4 @@ Neste tutorial, ativou e configurar listas de proteção de senhas personalizada
 > * Teste alterações de senha com senha proibida
 
 > [!div class="nextstepaction"]
-> [Ativar o Multi-Factor Authentication baseado no risco](./tutorial-enable-azure-mfa.md)
+> [Ativar a autenticação multi-factor Azure AD baseada no risco](./tutorial-enable-azure-mfa.md)

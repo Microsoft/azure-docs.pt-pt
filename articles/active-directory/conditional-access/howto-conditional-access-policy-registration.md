@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da68e21aa279ea2503a21ce35eee52f8e49d1434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049099"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837543"
 ---
-# <a name="conditional-access-securing-security-info-registration"></a>Acesso Condicional: Garantir o registo de informações de segurança
+# <a name="conditional-access-securing-security-info-registration"></a>Acesso Condicional: Proteger o registo de informações de segurança
 
-Garantir quando e como os utilizadores se registam para autenticação multi-factor Azure e redefinição de senha de autosserviço é agora possível com as ações do utilizador na política de Acesso Condicional. Esta funcionalidade de pré-visualização está disponível para organizações que tenham ativado a [pré-visualização do registo combinado](../authentication/concept-registration-mfa-sspr-combined.md). Esta funcionalidade pode ser ativada em organizações onde pretendem utilizar condições como a localização de rede fidedigna para restringir o acesso ao registo de autenticação multi-factor Azure e redefinição de senha de autosserviço (SSPR). Para mais informações sobre condições utilizáveis, consulte o artigo [Acesso Condicionado: Condições.](concept-conditional-access-conditions.md)
+Garantir quando e como os utilizadores se registam para autenticação multi-factor AD Azure e redefinição de senha de autosserviço é agora possível com as ações do utilizador na política de Acesso Condicional. Esta funcionalidade de pré-visualização está disponível para organizações que tenham ativado a [pré-visualização do registo combinado](../authentication/concept-registration-mfa-sspr-combined.md). Esta funcionalidade pode ser ativada em organizações onde pretendem utilizar condições como a localização de rede fidedigna para restringir o acesso ao registo de autenticação multi-factor AD Azure e redefinição de senha de autosserviço (SSPR). Para mais informações sobre condições utilizáveis, consulte o artigo [Acesso Condicionado: Condições.](concept-conditional-access-conditions.md)
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Criar uma política para exigir o registo a partir de um local de confiança
 

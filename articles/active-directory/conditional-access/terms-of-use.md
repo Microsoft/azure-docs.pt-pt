@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9c1b07534c702e509b2b664fbee585aa2cff69f6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366501"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837605"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
 
@@ -41,7 +41,7 @@ Os termos de utilização da AD AZure têm as seguintes capacidades:
 - Exija que os funcionários ou hóspedes aceitem os seus termos de uso antes de ter acesso.
 - Exija que os funcionários ou hóspedes aceitem os seus termos de uso em todos os dispositivos antes de ter acesso.
 - Exija que os colaboradores ou hóspedes aceitem os seus termos de uso num horário recorrente.
-- Exija que os colaboradores ou hóspedes aceitem os seus termos de utilização antes de registar informações de segurança na Autenticação Multi-Factor (MFA) do Azure.
+- Exija que os colaboradores ou hóspedes aceitem os seus termos de utilização antes de registar informações de segurança na Autenticação Multi-Factor AD (MFA).
 - Exija que os colaboradores aceitem os seus termos de utilização antes de registarem informações de segurança no reset da palavra-passe de autosserviço Azure AD (SSPR).
 - Atuais termos gerais de utilização para todos os utilizadores da sua organização.
 - Apresentar termos de utilização específicos com base em atributos do utilizador (ex. médicos por oposição a enfermeiros ou colaboradores nacionais por oposição a colaboradores internacionais, uma distinção feita através da utilização de [grupos dinâmicos](../enterprise-users/groups-dynamic-membership.md)).
@@ -86,7 +86,7 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 1. Selecione o idioma para os seus termos de utilização. A opção de idioma permite-lhe carregar vários termos de utilização, cada um com um idioma diferente. A versão dos termos de utilização que um utilizador final verá serão baseados nas respetivas preferências do browser.
 1. Para exigir que os utilizadores finais vejam os termos de utilização antes de os aceitarem, desemboe **os utilizadores que expandam os termos de utilização** para **On**.
 1. Para exigir que os utilizadores finais aceitem os seus termos de utilização em todos os dispositivos a partir dos quais estão a aceder, desemboar **os utilizadores para consentir em todos os dispositivos** para **o On**. Os utilizadores poderão ser obrigados a instalar aplicações adicionais se esta opção estiver ativada. Para obter mais informações, consulte [os termos de utilização por dispositivo.](#per-device-terms-of-use)
-1. Se pretender expirar os termos de consentimento de utilização num horário, desa esta **hora de definir os consentimentos** de **Expiração**para On . Quando programado para On, são apresentadas duas definições de agenda adicionais.
+1. Se pretender expirar os termos de consentimento de utilização num horário, desa esta **hora de definir os consentimentos** de **Expiração** para On . Quando programado para On, são apresentadas duas definições de agenda adicionais.
 
    ![Expire conseqüentes definições para definir data de início, frequência e duração](./media/terms-of-use/expire-consents.png)
 
@@ -94,8 +94,8 @@ Uma vez finalizado o documento de utilização, utilize o seguinte procedimento 
 
    | Expire a partir de | Frequência | Resultado |
    | --- | --- | --- |
-   | Data de hoje  | Mensalmente | A partir de hoje, os utilizadores devem aceitar os termos de uso e depois readceptirem todos os meses. |
-   | Data no futuro  | Mensalmente | A partir de hoje, os utilizadores devem aceitar os termos de utilização. Quando a data futura ocorrer, os consentimentos expirarão e, em seguida, os utilizadores devem reacetitar todos os meses.  |
+   | Data de hoje  | Mensal | A partir de hoje, os utilizadores devem aceitar os termos de uso e depois readceptirem todos os meses. |
+   | Data no futuro  | Mensal | A partir de hoje, os utilizadores devem aceitar os termos de utilização. Quando a data futura ocorrer, os consentimentos expirarão e, em seguida, os utilizadores devem reacetitar todos os meses.  |
 
    Por exemplo, se definir o prazo de início de validade para **1 de janeiro** e a frequência para **Mensal,** eis como podem ocorrer expirações para dois utilizadores:
 

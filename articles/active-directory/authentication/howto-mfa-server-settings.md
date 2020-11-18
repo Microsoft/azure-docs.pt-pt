@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70777c80cdee99f13050d7cd342f22d59da13d73
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3da7c3afa6b414e3d7df3bb58766d1ab7657dbc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964115"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838966"
 ---
 # <a name="configure-mfa-server-settings"></a>Configurar as definições do Servidor MFA
 
 Este artigo ajuda-o a gerir as definições do Servidor Azure MFA no portal Azure.
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que gostariam de exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que tenham ativado o MFA Server antes de 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que gostariam de exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure AD baseada na nuvem. Os clientes existentes que tenham ativado o MFA Server antes de 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 Estão disponíveis as seguintes definições do MFA Server:
 
@@ -60,9 +60,9 @@ O caching é usado principalmente quando sistemas no local, como VPN, enviam mú
 
 Para configurar o caching, complete os seguintes passos:
 
-1. Consulte as regras **de**  >  **Security**  >  **MFA**  >  **Caching**MFA de Segurança do Diretório Ativo Azure .
+1. Consulte as regras **de**  >  **Security**  >  **MFA**  >  **Caching** MFA de Segurança do Diretório Ativo Azure .
 1. Selecione **Adicionar**.
-1. Selecione o **tipo de cache** da lista de drop-down. Introduza o número máximo de **segundos**de cache .
+1. Selecione o **tipo de cache** da lista de drop-down. Introduza o número máximo de **segundos** de cache .
 1. Se necessário, selecione um tipo de autenticação e especifique uma aplicação.
 1. Selecione **Adicionar**.
 

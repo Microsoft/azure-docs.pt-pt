@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae5995340640e9cda16634cf76b9953d7d663c2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b7ac03ff017f8beefe7cc487cdc32741ac1c5a35
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966666"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838183"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Resolução de problemas combinado de registo de informações de segurança
 
@@ -34,7 +34,7 @@ O quadro que se segue lista todos os eventos de auditoria gerados pelo registo c
 | --- | --- | --- | --- |
 | Utilizador registou todas as informações de segurança necessárias | Success | O utilizador registou todas as informações de segurança necessárias. | Este evento ocorre quando um utilizador completou o registo com sucesso.|
 | Utilizador registou todas as informações de segurança necessárias | Falha | O utilizador cancelou o registo de informações de segurança. | Este evento ocorre quando um utilizador cancela o registo do modo de interrupção.|
-| Informação de segurança registada pelo utilizador | Success | Método *registado*pelo utilizador . | Este evento ocorre quando um utilizador regista um método individual. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.| 
+| Informação de segurança registada pelo utilizador | Success | Método *registado* pelo utilizador . | Este evento ocorre quando um utilizador regista um método individual. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.| 
 | Informação de segurança revista pelo utilizador | Success | O utilizador reviu com sucesso as informações de segurança. | Este evento ocorre quando um utilizador seleciona **Fica bem** na página de revisão de informações de segurança.|
 | Informação de segurança revista pelo utilizador | Falha | O utilizador não reviu as informações de segurança. | Este evento ocorre quando um utilizador seleciona **Fica bem** na página de revisão de informações de segurança, mas algo falha no backend.|
 | Informação de segurança eliminada pelo utilizador | Success | Método eliminado pelo *utilizador.* | Este evento ocorre quando um utilizador elimina um método individual. *O método* pode ser app Autenticador, Telefone, E-mail, Questões de Segurança, Senha de aplicação, telefone alternativo, e assim por diante.|
@@ -150,11 +150,11 @@ Numa janela PowerShell, execute o seguinte comando, fornecendo as localizações
 Para desativar a experiência atualizada para os seus utilizadores, complete estes passos:
 
 1. Inscreva-se no portal Azure como administrador de utilizador.
-2. Vá às definições do Utilizador **do Diretor Ativo Azure**  >  **User settings**  >  **Gerir as definições para funcionalidades de pré-visualização do painel**de acesso .
+2. Vá às definições do Utilizador **do Diretor Ativo Azure**  >  **User settings**  >  **Gerir as definições para funcionalidades de pré-visualização do painel** de acesso .
 3. Em **Utilizadores podem utilizar funcionalidades de pré-visualização para registar e gerir informações de segurança**, definir o seletor para **Nenhum**, e, em seguida, selecionar **Guardar**.
 
 Os utilizadores deixarão de ser solicitados a registarem-se utilizando a experiência atualizada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre o registo combinado para reset de senha de autosserviço e autenticação multi-factor Azure](concept-registration-mfa-sspr-combined.md)
+* [Saiba mais sobre o registo combinado para reset de senha de autosserviço e autenticação multi-factor AZure AD](concept-registration-mfa-sspr-combined.md)

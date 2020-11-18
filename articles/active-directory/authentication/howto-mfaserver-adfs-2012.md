@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85e8cb63cd06027754628dcf61aad0ac72b8233b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6fa06133c7793cd5f7d14ba587f9f50b523b0299
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967023"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838762"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o AD FS no Windows Server
 
@@ -25,11 +25,11 @@ Se utilizar os Serviços de Federação do Active Directory (AD FS) e pretender
 Neste artigo, discutimos a utilização do Servidor Multi-Factor Authentication do Azure com o AD FS no Windows Server 2012 R2 ou no Windows Server 2016. Para obter mais informações, leia sobre como [proteger recursos na nuvem e no local através do Servidor Multi-Factor Authentication do Azure com o AD FS 2.0](howto-mfaserver-adfs-2.md).
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, a Microsoft já não oferece O MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores (MFA) durante os eventos de entrada devem utilizar a autenticação multi-factor Azure baseada na nuvem.
+> A partir de 1 de julho de 2019, a Microsoft já não oferece O MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores (MFA) durante os eventos de entrada devem utilizar a autenticação multi-factor Azure AD baseada na nuvem.
 >
 > Para começar com mFA baseado na nuvem, consulte [Tutorial: Secure user in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
-> Se utilizar MFA baseado na nuvem, consulte [a garantia de recursos em nuvem com autenticação multi-factor Azure e FS AD](howto-mfa-adfs.md).
+> Se utilizar MFA baseado na nuvem, consulte [a Garantia de recursos em nuvem com autenticação multi-factor AD Azure e FS AD](howto-mfa-adfs.md).
 >
 > Os clientes existentes que ativaram o MFA Server antes de 1 de julho de 2019 podem descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
@@ -91,7 +91,7 @@ Siga estes passos para editar o ficheiro MultiFactorAuthenticationAdfsAdapter.co
 
 1. Defina o nó **UseWebServiceSdk** como **true**.  
 2. Defina o valor de **WebServiceSdkUrl** para o URL do SDK do Serviço Web do Multi-Factor Authentication. Por exemplo: *https: \/ \/ contoso.com/ \<certificatename> /MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, Onde *\<certificatename>* está o nome do seu certificado.  
-3. Editar o Register-MultiFactorAuthenticationAdfsAdapter.ps1 script adicionando `-ConfigurationFilePath &lt;path&gt;` ao fim do `Register-AdfsAuthenticationProvider` comando, onde o * &lt; caminho &gt; * é o caminho completo para o arquivo MultiFactorAuthenticationAdfsAdapter.config.
+3. Editar o Register-MultiFactorAuthenticationAdfsAdapter.ps1 script adicionando `-ConfigurationFilePath &lt;path&gt;` ao fim do `Register-AdfsAuthenticationProvider` comando, onde o *&lt; caminho &gt;* é o caminho completo para o arquivo MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Configurar o SDK do Serviço Web com um nome de utilizador e uma palavra-passe
 

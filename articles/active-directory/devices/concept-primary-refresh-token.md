@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f2b059bb6ae63d7f427ce970b2538da922e2dec
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965918"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837268"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token de Atualização Primário?
 
@@ -85,7 +85,7 @@ Um PRT é renovado em dois métodos diferentes:
 * **Ficha Azure AD CloudAP a cada 4 horas**: O plugin CloudAP renova o PRT a cada 4 horas durante o iniciar sação no Windows. Se o utilizador não tiver ligação à Internet durante esse tempo, o plugin CloudAP renovará o PRT depois de o dispositivo estar ligado à internet.
 * **Plugin Azure AD WAM durante os pedidos de ficha de aplicação**: O plugin WAM permite sSO em dispositivos Windows 10, permitindo pedidos de token silenciosos para aplicações. O plugin WAM pode renovar o PRT durante estes pedidos simbólicos de duas maneiras diferentes:
    * Uma aplicação solicita ao WAM um token de acesso silenciosamente, mas não há nenhum token de atualização disponível para essa aplicação. Neste caso, a WAM usa o PRT para solicitar um token para a app e recebe de volta um novo PRT na resposta.
-   * Uma aplicação solicita ao WAM um token de acesso, mas o PRT é inválido ou a AZure AD requer autorização adicional (por exemplo, Autenticação Multi-Factor Azure). Neste cenário, a WAM inicia uma logon interativa que exige ao utilizador a reauthenticação ou a prestação de verificação adicional e é emitido um novo PRT sobre a autenticação bem sucedida.
+   * Uma aplicação solicita ao WAM um token de acesso, mas o PRT é inválido ou a AZure AD requer autorização adicional (por exemplo, Autenticação Multi-Factor AD Azure). Neste cenário, a WAM inicia uma logon interativa que exige ao utilizador a reauthenticação ou a prestação de verificação adicional e é emitido um novo PRT sobre a autenticação bem sucedida.
 
 Num ambiente ADFS, a linha de visão direta para o controlador de domínio não é necessária para renovar o PRT. A renovação do PRT requer apenas /adfs/serviços/trust/2005/usernamemixed e /adfs/services/trust/13/usernamemixed endpoints habilitados no proxy através da utilização do protocolo WS-Trust.
 
@@ -152,7 +152,7 @@ Os seguintes diagramas ilustram os detalhes subjacentes na emissão, renovação
 | Passo | Descrição |
 | :---: | --- |
 | A | O utilizador introduz a sua palavra-passe no sinal na UI. LogonUI passa as credenciais num tampão de auth para LSA, que por sua vez passa internamente para cloudAP. O CloudAP remete este pedido para o plugin CloudAP. |
-| N | O plugin CloudAP inicia um pedido de descoberta de reinos para identificar o fornecedor de identidade para o utilizador. Se o inquilino do utilizador tiver uma configuração de fornecedor de federação, a Azure AD devolve o ponto final de câmbio do fornecedor de metadados (MEX). Caso contrário, o Azure AD devolve que o utilizador é gerido indicando que o utilizador pode autenticar com Azure AD. |
+| B | O plugin CloudAP inicia um pedido de descoberta de reinos para identificar o fornecedor de identidade para o utilizador. Se o inquilino do utilizador tiver uma configuração de fornecedor de federação, a Azure AD devolve o ponto final de câmbio do fornecedor de metadados (MEX). Caso contrário, o Azure AD devolve que o utilizador é gerido indicando que o utilizador pode autenticar com Azure AD. |
 | C | Se o utilizador for gerido, o CloudAP receberá o nonce do Azure AD. Se o utilizador for federado, o plugin CloudAP solicita um token SAML ao provedor da federação com as credenciais do utilizador. Uma vez que recebe, o token SAML, solicita um nó da Azure AD. |
 | D | O plugin CloudAP constrói o pedido de autenticação com as credenciais do utilizador, nonce, e um âmbito de corretagem, assina o pedido com a tecla Dispositivo (dkpriv) e envia-o para Azure AD. Num ambiente federado, o plugin CloudAP utiliza o token SAML devolvido pelo provedor da federação em vez das credenciais do utilizador. |
 | E | A Azure AD valida as credenciais do utilizador, o nonce e a assinatura do dispositivo, verifica que o dispositivo é válido no arrendatário e emite o PRT encriptado. Juntamente com o PRT, a Azure AD também emite uma chave simétrica, chamada tecla session encriptada pela Azure AD usando a chave de transporte (tkpub). Além disso, a tecla Session também está incorporada no PRT. Esta sessão funciona como a chave de prova de posse (PoP) para pedidos subsequentes com o PRT. |
@@ -165,7 +165,7 @@ Os seguintes diagramas ilustram os detalhes subjacentes na emissão, renovação
 | Passo | Descrição |
 | :---: | --- |
 | A | O utilizador introduz a sua palavra-passe no sinal na UI. LogonUI passa as credenciais num tampão de auth para LSA, que por sua vez passa internamente para cloudAP. O CloudAP remete este pedido para o plugin CloudAP. |
-| N | Se o utilizador tiver iniciado o login anteriormente no utilizador, o Windows inicia o login em cache e valida as credenciais para iniciar sessão no utilizador. A cada 4 horas, o plugin CloudAP inicia a renovação prt assíncrona. |
+| B | Se o utilizador tiver iniciado o login anteriormente no utilizador, o Windows inicia o login em cache e valida as credenciais para iniciar sessão no utilizador. A cada 4 horas, o plugin CloudAP inicia a renovação prt assíncrona. |
 | C | O plugin CloudAP inicia um pedido de descoberta de reinos para identificar o fornecedor de identidade para o utilizador. Se o inquilino do utilizador tiver uma configuração de fornecedor de federação, a Azure AD devolve o ponto final de câmbio do fornecedor de metadados (MEX). Caso contrário, o Azure AD devolve que o utilizador é gerido indicando que o utilizador pode autenticar com Azure AD. |
 | D | Se o utilizador for federado, o plugin CloudAP solicita um token SAML ao provedor da federação com as credenciais do utilizador. Uma vez que recebe, o token SAML, solicita um nó da Azure AD. Se o utilizador for gerido, o CloudAP obterá diretamente o nonce do Azure AD. |
 | E | O plugin CloudAP constrói o pedido de autenticação com as credenciais do utilizador, nonce, e o PRT existente, assina o pedido com a tecla Session e envia-o para Azure AD. Num ambiente federado, o plugin CloudAP utiliza o token SAML devolvido pelo provedor da federação em vez das credenciais do utilizador. |
@@ -182,7 +182,7 @@ Os seguintes diagramas ilustram os detalhes subjacentes na emissão, renovação
 | Passo | Descrição |
 | :---: | --- |
 | A | Uma aplicação (por exemplo, Outlook, OneNote, etc.) inicia um pedido simbólico à WAM. A WAM, por sua vez, pede ao plugin Azure AD WAM para servir o pedido simbólico. |
-| N | Se já estiver disponível um token Refresh para a aplicação, o plugin Azure AD WAM utiliza-o para solicitar um token de acesso. Para fornecer provas de ligação do dispositivo, o plugin WAM assina o pedido com a tecla Session. O Azure AD valida a tecla Session e emite um token de acesso e um novo token de atualização para a aplicação, encriptado pela tecla Session. O plugin WAM solicita plugin Cloud AP para desencriptar os tokens, que, por sua vez, solicita ao TPM para desencriptar usando a tecla Session, resultando em plugin WAM recebendo ambos os tokens. Em seguida, o plugin WAM fornece apenas o token de acesso à aplicação, enquanto reencripta o token de atualização com DPAPI e armazena-o na sua própria cache  |
+| B | Se já estiver disponível um token Refresh para a aplicação, o plugin Azure AD WAM utiliza-o para solicitar um token de acesso. Para fornecer provas de ligação do dispositivo, o plugin WAM assina o pedido com a tecla Session. O Azure AD valida a tecla Session e emite um token de acesso e um novo token de atualização para a aplicação, encriptado pela tecla Session. O plugin WAM solicita plugin Cloud AP para desencriptar os tokens, que, por sua vez, solicita ao TPM para desencriptar usando a tecla Session, resultando em plugin WAM recebendo ambos os tokens. Em seguida, o plugin WAM fornece apenas o token de acesso à aplicação, enquanto reencripta o token de atualização com DPAPI e armazena-o na sua própria cache  |
 | C |  Se não estiver disponível um token Refresh para a aplicação, o plugin Azure AD WAM utiliza o PRT para solicitar um token de acesso. Para fornecer provas de posse, o plugin WAM assina o pedido que contém o PRT com a tecla Session. O Azure AD valida a assinatura da chave Sessão comparando-a com a chave Sessão incorporada no PRT, verifica que o dispositivo é válido e emite um token de acesso e um token de atualização para a aplicação. além disso, o Azure AD pode emitir um novo PRT (baseado no ciclo de atualização), todos eles encriptados pela tecla Session. |
 | D | O plugin WAM solicita plugin Cloud AP para desencriptar os tokens, que, por sua vez, solicita ao TPM para desencriptar usando a tecla Session, resultando em plugin WAM recebendo ambos os tokens. Em seguida, o plugin WAM fornece apenas o token de acesso à aplicação, enquanto ele reencriptou o token de atualização com DPAPI e armazena-o na sua própria cache. O plugin WAM utilizará o token de atualização que vai para a frente para esta aplicação. O plugin WAM também devolve o novo plugin PRT à Cloud AP, que valida o PRT com Azure AD antes de atualizá-lo na sua própria cache. O plugin Cloud AP utilizará o novo PRT para a frente. |
 | E | A WAM fornece o token de acesso recém-emitido à WAM, que por sua vez, fornece-o de volta ao pedido de chamada|
@@ -194,7 +194,7 @@ Os seguintes diagramas ilustram os detalhes subjacentes na emissão, renovação
 | Passo | Descrição |
 | :---: | --- |
 | A | O utilizador entra no Windows com as suas credenciais para obter um PRT. Assim que o utilizador abrir o navegador, o navegador (ou extensão) carrega os URLs a partir do registo. |
-| N | Quando um utilizador abre um URL de login Azure AD, o navegador ou extensão valida o URL com os obtidos a partir do registo. Se corresponderem, o navegador invoca o anfitrião do cliente nativo para obter um token. |
+| B | Quando um utilizador abre um URL de login Azure AD, o navegador ou extensão valida o URL com os obtidos a partir do registo. Se corresponderem, o navegador invoca o anfitrião do cliente nativo para obter um token. |
 | C | O anfitrião do cliente nativo valida que os URLs pertencem aos fornecedores de identidade da Microsoft (conta Microsoft ou AD AZure), extrai um nonce enviado do URL e faz uma chamada para o plugin CloudAP para obter um cookie PRT. |
 | D | O plugin CloudAP criará o cookie PRT, iniciará sessão com a tecla de sessão ligada ao TPM e enviará-o de volta para o anfitrião do cliente nativo. Como o cookie é assinado pela chave da sessão, não pode ser adulterado. |
 | E | O anfitrião do cliente nativo devolverá este cookie PRT ao navegador, que o incluirá como parte do cabeçalho de pedido chamado x-ms-RefreshTokenCredential e solicitará fichas da Azure AD. |

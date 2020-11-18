@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 74e4ca34a69b121ce5b92ad52125dc317e3aea43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145359"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837673"
 ---
 # <a name="building-a-conditional-access-policy"></a>Construção de uma política de acesso condicional
 
@@ -101,7 +101,7 @@ O acesso ao bloco faz isso mesmo, bloqueará o acesso sob as atribuições espec
 
 O controlo da concessão pode desencadear a aplicação de um ou mais controlos. 
 
-- Requerem autenticação multi-factor (Autenticação multi-factor Azure)
+- Requerem autenticação multi-factor (autenticação multi-factor Azure AD)
 - Exigir que o dispositivo seja marcado como conforme (Intune)
 - Requera o dispositivo de ad AD híbrido Azure
 - Requera uma aplicação de cliente aprovada
@@ -150,7 +150,7 @@ O artigo [Políticas comuns de acesso condicional](concept-conditional-access-po
 
 [Simular sinal no comportamento usando o acesso condicional E se a ferramenta](troubleshoot-conditional-access-what-if.md)
 
-[Planear a implementação da Multi-Factor Authentication do Azure baseada na cloud](../authentication/howto-mfa-getstarted.md)
+[Planejando uma implementação de autenticação multi-factor Azure AD baseada na nuvem](../authentication/howto-mfa-getstarted.md)
 
 [Gestão da conformidade do dispositivo com a Intune](/intune/device-compliance-get-started)
 

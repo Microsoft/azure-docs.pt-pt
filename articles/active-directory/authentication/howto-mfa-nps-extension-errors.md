@@ -1,6 +1,6 @@
 ---
-title: Extensão NPS Azure MFA de resolução de problemas - Diretório Ativo Azure
-description: Obtenha ajuda para resolver problemas com a extensão NPS para autenticação multi-factor Azure
+title: Resolução de problemas Extensão Azure AD MFA NPS - Diretório Ativo Azure
+description: Obtenha ajuda para resolver problemas com a extensão NPS para autenticação multi-factor Azure AD
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 406b53f833edabafe620b05ccb6acfadffabf5ae
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 03736f468148ee633aff22718dc000220ab7efe4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964371"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839034"
 ---
-# <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão NPS para Multi-Factor Authentication do Azure
+# <a name="resolve-error-messages-from-the-nps-extension-for-azure-ad-multi-factor-authentication"></a>Resolver mensagens de erro a partir da extensão NPS para autenticação multi-factor Azure AD
 
-Se encontrar erros com a extensão NPS para autenticação multi-factor Azure, utilize este artigo para chegar a uma resolução mais rapidamente. Os registos de extensão NPS são encontrados no Espectador de Eventos sob a política de política de funções do servidor de **visualizações**  >  **Server Roles**  >  **personalizadas e serviços** de acesso no servidor onde a extensão NPS está instalada.
+Se encontrar erros com a extensão NPS para autenticação multi-factor Azure AD, utilize este artigo para chegar a uma resolução mais rapidamente. Os registos de extensão NPS são encontrados no Espectador de Eventos sob a política de política de funções do servidor de **visualizações**  >  **Server Roles**  >  **personalizadas e serviços** de acesso no servidor onde a extensão NPS está instalada.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Etapas de resolução de problemas para erros comuns
 
@@ -30,12 +30,12 @@ Se encontrar erros com a extensão NPS para autenticação multi-factor Azure, u
 | **CONTACT_SUPPORT** | [Suporte de contato](#contact-microsoft-support), e mencione a lista de passos para a recolha de registos. Forneça o máximo de informação possível sobre o que aconteceu antes do erro, incluindo o ID do inquilino, e o nome principal do utilizador (UPN). |
 | **CLIENT_CERT_INSTALL_ERROR** | Pode haver um problema com a forma como o certificado de cliente foi instalado ou associado ao seu inquilino. Siga as instruções na [resolução de problemas da extensão MFA NPS](howto-mfa-nps-extension.md#troubleshooting) para investigar os problemas do certificado do cliente. |
 | **ESTS_TOKEN_ERROR** | Siga as instruções em [Resolução de Problemas da extensão MFA NPS](howto-mfa-nps-extension.md#troubleshooting) para investigar problemas de ficha de cliente e sinal de ADAL. |
-| **HTTPS_COMMUNICATION_ERROR** | O servidor NPS não consegue receber respostas do Azure MFA. Verifique se as suas firewalls estão abertas bidireccionalmente para o tráfego de e para https://adnotifications.windowsazure.com |
+| **HTTPS_COMMUNICATION_ERROR** | O servidor NPS não consegue receber respostas do Azure AD MFA. Verifique se as suas firewalls estão abertas bidireccionalmente para o tráfego de e para https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | No servidor que executa a extensão NPS, verifique se pode alcançar  `https://adnotifications.windowsazure.com` e `https://login.microsoftonline.com/` . Se esses sites não carregarem, resolvam a conectividade no servidor. |
-| **Extensão NPS para Azure MFA:** <br> A extensão NPS para Azure MFA apenas executa Auth Secundário para pedidos de Raio no Estado AccessAccept. Pedido recebido para nome de utilizador do utilizador com resposta estado AccessReject, ignorando o pedido. | Este erro normalmente reflete uma falha de autenticação em AD ou que o servidor NPS não consegue receber respostas do Azure AD. Verifique se as suas firewalls estão abertas bidireccionalmente para o tráfego de e para `https://adnotifications.windowsazure.com` e para as portas `https://login.microsoftonline.com` 80 e 443. É igualmente importante verificar se no separador DIAL-IN das Permissões de Acesso à Rede, a definição está definida para "controlar o acesso através da Política de Rede NPS". Este erro também pode desencadear se o utilizador não tiver uma licença. |
+| **Extensão NPS para Azure AD MFA:** <br> A extensão NPS para Azure AD MFA apenas executa Auth Secundário para pedidos de Raio no Estado AccessAccept. Pedido recebido para nome de utilizador do utilizador com resposta estado AccessReject, ignorando o pedido. | Este erro normalmente reflete uma falha de autenticação em AD ou que o servidor NPS não consegue receber respostas do Azure AD. Verifique se as suas firewalls estão abertas bidireccionalmente para o tráfego de e para `https://adnotifications.windowsazure.com` e para as portas `https://login.microsoftonline.com` 80 e 443. É igualmente importante verificar se no separador DIAL-IN das Permissões de Acesso à Rede, a definição está definida para "controlar o acesso através da Política de Rede NPS". Este erro também pode desencadear se o utilizador não tiver uma licença. |
 | **REGISTRY_CONFIG_ERROR** | Falta uma chave no registo da aplicação, o que pode ser porque o [script PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) não foi executado após a instalação. A mensagem de erro deve incluir a chave em falta. Certifique-se de ter a chave debaixo de HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Pedido de raio Falta o atributo obrigatório do utilizador RadiusName\Identifier. Verifique se o NPS está a receber pedidos RADIUS | Este erro normalmente reflete um problema de instalação. A extensão NPS deve ser instalada em servidores NPS que possam receber pedidos RADIUS. Os servidores NPS que são instalados como dependências de serviços como RDG e RRAS não recebem pedidos de raio. A extensão NPS não funciona quando instalada sobre tais instalações e erros, uma vez que não consegue ler os detalhes do pedido de autenticação. |
-| **REQUEST_MISSING_CODE** | Certifique-se de que o protocolo de encriptação de palavra-passe entre os servidores NPS e NAS suporta o método de autenticação secundária que está a utilizar. **O PAP** suporta todos os métodos de autenticação do Azure MFA na nuvem: chamada telefónica, mensagem de texto unidirecionais, notificação de aplicações móveis e código de verificação de aplicações móveis. **CHAPV2** e **EAP** suportam chamada telefónica e notificação de aplicativos móveis. |
+| **REQUEST_MISSING_CODE** | Certifique-se de que o protocolo de encriptação de palavra-passe entre os servidores NPS e NAS suporta o método de autenticação secundária que está a utilizar. **O PAP** suporta todos os métodos de autenticação do Azure AD MFA na nuvem: chamada telefónica, mensagem de texto unidirecionais, notificação de aplicações móveis e código de verificação de aplicações móveis. **CHAPV2** e **EAP** suportam chamada telefónica e notificação de aplicativos móveis. |
 | **USERNAME_CANONICALIZATION_ERROR** | Verifique se o utilizador está presente no seu local de acesso ative, e que o Serviço NPS tem permissões para aceder ao diretório. Se estiver a utilizar fundos florestais, [contacte o suporte](#contact-microsoft-support) para mais ajuda. |
 
 ### <a name="alternate-login-id-errors"></a>Erros de ID de login alternativos
@@ -55,7 +55,7 @@ Se encontrar erros com a extensão NPS para autenticação multi-factor Azure, u
 | **AutenticaçãoMethodNotSupiada** | O método de autenticação especificado não é suportado. | Recolha todos os seus registos que incluam este erro e [suporte de contato](#contact-microsoft-support). Quando contactar o suporte, forneça o nome de utilizador e o método de verificação secundário que desencadeou o erro. |
 | **BecAccessDenied** | MSODS Bec call acesso devolvido negado, provavelmente o nome de utilizador não é definido no inquilino | O utilizador está presente no Ative Directory no local, mas não está sincronizado no AZure AD por AD Connect. Ou o utilizador está desaparecido para o inquilino. Adicione o utilizador ao Azure AD e faça-o adicionar os seus métodos de verificação de acordo com as instruções na [Gestão das suas definições para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
 | **InvalidFormat** ou **StrongAuthenticationServiceInvalidParameter** | O número de telefone está num formato irreconhecível | Que o utilizador corrija os seus números de telefone de verificação. |
-| **Inválida Sesessão** | A sessão especificada é inválida ou pode ter expirado | A sessão demorou mais de três minutos a ser concluída. Verifique se o utilizador está a introduzir o código de verificação, ou a responder à notificação da aplicação, no prazo de três minutos após o início do pedido de autenticação. Se isso não resolver o problema, verifique se não existem latências de rede entre o cliente, o SERVIDOR NAS, o Servidor NPS e o ponto final do Azure MFA.  |
+| **Inválida Sesessão** | A sessão especificada é inválida ou pode ter expirado | A sessão demorou mais de três minutos a ser concluída. Verifique se o utilizador está a introduzir o código de verificação, ou a responder à notificação da aplicação, no prazo de três minutos após o início do pedido de autenticação. Se isso não resolver o problema, verifique se não existem latências de rede entre o cliente, o SERVIDOR NAS, o Servidor NPS e o ponto final do Azure AD MFA.  |
 | **NoDefaultAuthenticationMethodIs Configurado** | Nenhum método de autenticação predefinido foi configurado para o utilizador | Mande o utilizador adicionar ou verificar os seus métodos de verificação de acordo com as instruções na [Gestão das suas definições para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md). Verifique se o utilizador escolheu um método de autenticação predefinido e configura este método para a sua conta. |
 | **OathCodePinIncorrect** | Código errado e pin introduzido. | Este erro não é esperado na extensão de NPS. Se o seu utilizador encontrar isto, [contacte o suporte](#contact-microsoft-support) para a resolução de problemas. |
 | **ProofDataNotFound** | Os dados de prova não foram configurados para o método de autenticação especificado. | Faça com que o utilizador experimente um método de verificação diferente ou adicione um novo método de verificação de acordo com as instruções na [Gestão das suas definições para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md). Se o utilizador continuar a ver este erro depois de ter confirmado que o seu método de verificação está corretamente configurado, [contacte o suporte](#contact-microsoft-support). |
@@ -99,7 +99,7 @@ Se os seus utilizadores [estiverem com problemas de verificação em duas etapas
 
 ### <a name="health-check-script"></a>Roteiro de verificação de saúde
 
-O [script de verificação de saúde de extensão Azure MFA NPS](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) realiza uma verificação de saúde básica ao resolver problemas na extensão de NPS. Executar o script e escolher a opção 3.
+O [script de verificação de saúde de extensão AZure AD MFA NPS](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) realiza uma verificação de saúde básica ao resolver problemas na extensão de NPS. Executar o script e escolher a opção 3.
 
 ### <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
 

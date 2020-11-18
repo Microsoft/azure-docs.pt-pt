@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a779fee89d52442207358cf90c8cf87e7ef221c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042798"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837656"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Concessão
 
@@ -34,7 +34,7 @@ O bloco é um controlo poderoso que deve ser exercido com conhecimentos apropria
 
 Os administradores podem optar por impor um ou mais controlos ao conceder o acesso. Estes controlos incluem as seguintes opções: 
 
-- [Requerem autenticação multi-factor (Autenticação multi-factor Azure)](../authentication/concept-mfa-howitworks.md)
+- [Requerem autenticação multi-factor (autenticação multi-factor Azure AD)](../authentication/concept-mfa-howitworks.md)
 - [Exigir que o dispositivo seja marcado como conforme (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Requerem o dispositivo híbrido Azure AD](../devices/concept-azure-ad-join-hybrid.md)
 - [Requera uma aplicação de cliente aprovada](app-based-conditional-access.md)
@@ -50,7 +50,7 @@ Por predefinição, o Acesso Condicional requer todos os controlos selecionados.
 
 ### <a name="require-multi-factor-authentication"></a>Requerem autenticação de vários fatores
 
-A seleção desta caixa de verificação exigirá que os utilizadores realizem a autenticação multi-factor Azure. Mais informações sobre a implementação da autenticação multi-factor Azure podem ser encontradas no artigo [Planejando uma implementação de autenticação multi-factor Azure baseada na nuvem](../authentication/howto-mfa-getstarted.md).
+A seleção desta caixa de verificação exigirá que os utilizadores realizem a autenticação multi-factor Azure AD. Mais informações sobre a implementação da autenticação multi-factor Azure AD podem ser encontradas no artigo [Planejando uma implementação de autenticação multi-factor Azure AD baseada](../authentication/howto-mfa-getstarted.md)na nuvem .
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Exigir que o dispositivo seja marcado como conforme
 

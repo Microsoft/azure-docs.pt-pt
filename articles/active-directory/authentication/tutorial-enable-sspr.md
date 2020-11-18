@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbf1a6aebf54c7928fe0636262055f37d7f93bd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 59de3123dc991d0314cd9046d83712d17da53d9f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966547"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837826"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os utilizadores desbloqueiem a sua conta ou repôs palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -48,7 +48,7 @@ Para completar este tutorial, precisa dos seguintes recursos e privilégios:
 
 ## <a name="enable-self-service-password-reset"></a>Ativar a reposição de palavras-passe self-service
 
-O Azure AD permite ativar SSPR para *Nenhum,* *Selecionado*ou *Todos os* utilizadores. Esta capacidade granular permite-lhe escolher um subconjunto de utilizadores para testar o processo de registo EsPR e o fluxo de trabalho. Quando estiver confortável com o processo e puder comunicar os requisitos com um conjunto mais alargado de utilizadores, pode selecionar um grupo de utilizadores para ativar o SSPR. Ou, você pode ativar SSPR para todos no inquilino AZure AD.
+O Azure AD permite ativar SSPR para *Nenhum,* *Selecionado* ou *Todos os* utilizadores. Esta capacidade granular permite-lhe escolher um subconjunto de utilizadores para testar o processo de registo EsPR e o fluxo de trabalho. Quando estiver confortável com o processo e puder comunicar os requisitos com um conjunto mais alargado de utilizadores, pode selecionar um grupo de utilizadores para ativar o SSPR. Ou, você pode ativar SSPR para todos no inquilino AZure AD.
 
 > [!NOTE]
 >
@@ -57,7 +57,7 @@ O Azure AD permite ativar SSPR para *Nenhum,* *Selecionado*ou *Todos os* utiliza
 Neste tutorial, configuure a SSPR para um conjunto de utilizadores num grupo de teste. No exemplo seguinte, é utilizado o grupo *SSPR-Test-Group.* Forneça o seu próprio grupo AZure AD conforme necessário:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta com permissões *de administrador global.*
-1. Procure e selecione **Azure Ative Directory**e, em seguida, escolha o reset de **Palavra-passe** do menu do lado esquerdo.
+1. Procure e selecione **Azure Ative Directory** e, em seguida, escolha o reset de **Palavra-passe** do menu do lado esquerdo.
 1. A partir da página **Propriedades,** sob a opção *Redefiniu a palavra-passe de serviço de auto-ar,* escolha **grupo Select**
 1. Navegue e selecione o seu grupo AD Azure, como *o SSPR-Test-Group,* em seguida, escolha *Select*.
 
@@ -128,14 +128,14 @@ Com sSPR ativado e configurado, teste o processo SSPR com um utilizador que faz 
 
 1. Siga os passos de verificação para redefinir a sua palavra-passe. Quando estiver concluído, deverá receber uma notificação por e-mail de que a sua palavra-passe foi reposta.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Num tutorial seguinte nesta série, configurar a gravação da palavra-passe. Esta funcionalidade escreve alterações de palavra-passe de Azure AD SSPR de volta para um ambiente AD no local. Se quiser continuar com esta série tutorial para configurar a gravação de passwords, não desative agora a SSPR.
 
 Se já não pretender utilizar a funcionalidade SSPR que configuraste como parte deste tutorial, desafie o estado SSPR a **Nenhum** utilizando os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Procure e selecione **Azure Ative Directory**e, em seguida, escolha o reset de **Palavra-passe** do menu do lado esquerdo.
+1. Procure e selecione **Azure Ative Directory** e, em seguida, escolha o reset de **Palavra-passe** do menu do lado esquerdo.
 1. A partir da página **Propriedades,** sob a opção *Redefiniu a palavra-passe de serviço de auto-ar,* escolha **Nenhum**.
 1. Para aplicar a alteração SSPR, **selecione Guardar**.
 
@@ -149,4 +149,4 @@ Neste tutorial, ativou o autosserviço do Azure AD para um grupo selecionado de 
 > * Teste o processo SSPR como utilizador
 
 > [!div class="nextstepaction"]
-> [Ativar a Multi-Factor Authentication do Azure](./tutorial-enable-azure-mfa.md)
+> [Ativar a autenticação de vários fatores Azure Ad](./tutorial-enable-azure-mfa.md)

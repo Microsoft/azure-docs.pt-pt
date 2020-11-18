@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4, azuread-video-2020
-ms.openlocfilehash: d46dfba9d9dedea57b6be872a6853bc522a0bc8c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f0a91a4d3b479d1243907951481e5a10f7085bbc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145252"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837435"
 ---
 # <a name="what-is-conditional-access"></a>O que é o Acesso Condicional?
 
@@ -80,7 +80,7 @@ Muitas organizações têm [preocupações de acesso comuns que as políticas de
 - Exigir a autenticação de vários fatores para utilizadores com funções administrativas
 - Exigir autenticação multi-factor para tarefas de gestão Azure
 - Bloqueio de inscrições para utilizadores que tentam utilizar protocolos de autenticação de legados
-- Exigir localizações fidedignas para o registo de autenticação multi-factor Azure
+- Exigir localizações fidedignas para o registo de autenticação multi-factor Azure AD
 - Bloquear ou conceder acesso a partir de locais específicos
 - Bloquear comportamentos de sinalização de risco
 - Exigir dispositivos geridos pela organização para aplicações específicas

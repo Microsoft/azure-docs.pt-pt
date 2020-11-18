@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d28ecfeb9312a6bf5a0b37e07919f9d781de50ea
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1ba0d359079a8999b3c4f2a41f4beadb835ccacc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968587"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838234"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Cenários avançados com O Azure MFA Server e soluções VPN de terceiros
 
 O Azure Multi-Factor Authentication Server (Azure MFA Server) pode ser utilizado para se conectar perfeitamente com várias soluções VPN de terceiros. Este artigo centra-se no aparelho Cisco &reg; ASA VPN, no aparelho Citrix NetScaler SSL VPN e no aparelho VPN Secure Access/Pulse Secure Connect Secure SSL. Criámos guias de configuração para abordar estes três aparelhos comuns. O Azure MFA Server também pode integrar-se com a maioria dos outros sistemas que utilizam RADIUS, LDAP, IIS ou autenticação baseada em sinistros para AD FS. Pode encontrar mais detalhes nas [configurações do Azure MFA Server](howto-mfaserver-deploy.md#next-steps).
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2019, a Microsoft já não oferece O MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores (MFA) durante os eventos de entrada devem utilizar a autenticação multi-factor Azure baseada na nuvem.
+> A partir de 1 de julho de 2019, a Microsoft já não oferece O MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores (MFA) durante os eventos de entrada devem utilizar a autenticação multi-factor Azure AD baseada na nuvem.
 >
-> Para começar com mFA baseado na nuvem, consulte [Tutorial: Secure user in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> Para começar com mFA baseado na nuvem, consulte [Tutorial: Secure user in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
 > Se utilizar MFA baseado na nuvem, consulte [Integrar a sua infraestrutura VPN com Azure MFA](howto-mfa-nps-extension-vpn.md).
 >

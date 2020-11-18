@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01751caba2b14f899588deba083a8c59c41d13ba
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 92ac495381f63e01d64c9a3d02777dca37ebb343
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964014"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837996"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>O que é a autenticação do Azure Ative Directory?
 
 Uma das principais características de uma plataforma de identidade é verificar, ou *autenticar,* credenciais quando um utilizador assina um dispositivo, aplicação ou serviço. No Azure Ative Directory (Azure AD), a autenticação envolve mais do que apenas a verificação de um nome de utilizador e palavra-passe. Para melhorar a segurança e reduzir a necessidade de assistência ao balcão de ajuda, a autenticação AZure AD inclui os seguintes componentes:
 
 * Reposição personalizada de palavra-passe
-* Multi-Factor Authentication do Azure
+* Autenticação de vários fatores Azure Ad
 * Integração híbrida para escrever alterações de palavra-passe de volta ao ambiente no local
 * Integração híbrida para impor políticas de proteção de senhas para um ambiente no local
 * Autenticação sem palavra-passe
@@ -32,7 +32,7 @@ Uma das principais características de uma plataforma de identidade é verificar
 
 O Azure AD ajuda a proteger a identidade de um utilizador e a simplificar a sua experiência de inscrição. Funcionalidades como o reset da palavra-passe de autosserviço permitem que os utilizadores atualizem ou alterem as suas palavras-passe utilizando um navegador web a partir de qualquer dispositivo. Esta funcionalidade é especialmente útil quando o utilizador se esqueceu da sua palavra-passe ou se a sua conta está bloqueada. Sem esperar que um helpdesk ou administrador forneça suporte, um utilizador pode desbloquear-se e continuar a trabalhar.
 
-A autenticação multi-factor Azure permite que os utilizadores escolham uma forma adicional de autenticação durante a entrada, como uma chamada telefónica ou notificação de aplicações móveis. Esta capacidade reduz a exigência de uma única forma fixa de autenticação secundária como um token de hardware. Se o utilizador não tiver atualmente uma forma de autenticação adicional, pode escolher um método diferente e continuar a trabalhar.
+A autenticação multi-factor Azure AD permite que os utilizadores escolham uma forma adicional de autenticação durante a sação, como uma chamada telefónica ou notificação de aplicações móveis. Esta capacidade reduz a exigência de uma única forma fixa de autenticação secundária como um token de hardware. Se o utilizador não tiver atualmente uma forma de autenticação adicional, pode escolher um método diferente e continuar a trabalhar.
 
 ![Métodos de autenticação em uso no ecrã de inscrição](media/concept-authentication-methods/overview-login.png)
 
@@ -50,7 +50,7 @@ A redefinição da palavra-passe de autosserviço funciona nos seguintes cenári
 
 Quando um utilizador atualiza ou reinicia a sua palavra-passe utilizando a palavra-passe de autosserviço, essa palavra-passe também pode ser escrita de volta para um ambiente de Ative Directory no local. O writeback da palavra-passe garante que um utilizador pode usar imediatamente as suas credenciais atualizadas com dispositivos e aplicações no local.
 
-## <a name="azure-multi-factor-authentication"></a>Multi-Factor Authentication do Azure
+## <a name="azure-ad-multi-factor-authentication"></a>Autenticação de vários fatores Azure Ad
 
 A autenticação multifator é um processo no qual é pedido a um utilizador uma forma adicional de identificação durante o início de sessão, tal como a introdução de um código no respetivo telemóvel ou a análise de impressões digitais.
 
@@ -58,13 +58,13 @@ Se utilizar apenas uma palavra-passe para autenticar um utilizador, deixa um vet
 
 ![Imagem conceptual das diferentes formas de autenticação multi-factor](./media/concept-mfa-howitworks/methods.png)
 
-Azure Multi-Factor Authentication funciona exigindo dois ou mais dos seguintes métodos de autenticação:
+Azure AD Multi-Factor Authentication funciona exigindo dois ou mais dos seguintes métodos de autenticação:
 
 * Algo que sabe, tipicamente uma senha.
 * Algo que você tem, como um dispositivo de confiança que não é facilmente duplicado, como um telefone ou chave de hardware.
 * Algo que tu és, biometria como uma impressão digital ou uma tomografia facial.
 
-Os utilizadores podem registar-se tanto para o reset da palavra-passe de autosserviço como para a autenticação multi-factor Azure num passo para simplificar a experiência de embarque. Os administradores podem definir que formas de autenticação secundária podem ser utilizadas. A autenticação multi-factor Azure também pode ser necessária quando os utilizadores efetuam uma redefinição de senha de autosserviço para garantir ainda mais esse processo.
+Os utilizadores podem registar-se tanto para o reset da palavra-passe de autosserviço como para a autenticação multi-factor Ad Azure, num passo para simplificar a experiência de embarque. Os administradores podem definir que formas de autenticação secundária podem ser utilizadas. A autenticação multi-factor Azure AD também pode ser necessária quando os utilizadores efetuam uma redefinição de senha de autosserviço para garantir ainda mais esse processo.
 
 ## <a name="password-protection"></a>Proteção por palavra-passe
 
@@ -76,7 +76,7 @@ Para a segurança híbrida, pode integrar a proteção de senha AZure AD com um 
 
 ## <a name="passwordless-authentication"></a>Autenticação sem palavra-passe
 
-O objetivo final para muitos ambientes é remover o uso de senhas como parte de eventos de entrada. Funcionalidades como a proteção de passwords Azure ou Azure Multi-Factor Authentication ajudam a melhorar a segurança, mas um nome de utilizador e palavra-passe continua a ser uma forma fraca de autenticação que pode ser exposta ou atacada pela força bruta.
+O objetivo final para muitos ambientes é remover o uso de senhas como parte de eventos de entrada. Funcionalidades como a proteção de passwords Azure ou Azure AD Multi-Factor Authentication ajudam a melhorar a segurança, mas um nome de utilizador e palavra-passe continua a ser uma forma fraca de autenticação que pode ser exposta ou atacada pela força bruta.
 
 ![Segurança versus conveniência com o processo de autenticação que leva a sem palavras-passe](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
@@ -86,11 +86,11 @@ O Azure AD fornece formas de autenticar de forma nativa utilizando métodos sem 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar, consulte o [tutorial para reset de senha de autosserviço (SSPR)][tutorial-sspr] e [autenticação multi-factor Azure][tutorial-azure-mfa].
+Para começar, consulte o [tutorial para reset de senha de autosserviço (SSPR)][tutorial-sspr] e [autenticação multi-factor AD Azure][tutorial-azure-mfa].
 
 Para saber mais sobre conceitos de redefinição de senha de autosserviço, consulte [como funciona o reset da palavra-passe de autosserviço AD Azure][concept-sspr].
 
-Para saber mais sobre conceitos de autenticação de vários fatores, consulte [como funciona a autenticação multi-factor Azure.][concept-mfa]
+Para saber mais sobre conceitos de autenticação de vários fatores, consulte [como funciona a autenticação multi-factor Ad Azure.][concept-mfa]
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md
