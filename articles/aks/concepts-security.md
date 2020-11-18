@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: b81b592cf35d0ca13d1c7bd2281ce35cce827a3c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 1adf8370f55a0f6131eb4140c58fa4618e08127b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057863"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686026"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Em AKS, os componentes principais de Kubernetes fazem parte do serviço gerido f
 
 Por predefinição, o servidor API de Kubernetes utiliza um endereço IP público e um nome de domínio totalmente qualificado (FQDN). Pode limitar o acesso ao ponto final do servidor API utilizando [intervalos IP autorizados][authorized-ip-ranges]. Também pode criar um cluster totalmente [privado][private-clusters] para limitar o acesso do servidor API à sua rede virtual.
 
-Pode controlar o acesso ao servidor API utilizando o controlo de acesso baseado em funções de Kubernetes (RBAC) e Azure Ative Directory. Para mais informações, consulte [a integração da AD Azure com a AKS][aks-aad].
+Pode controlar o acesso ao servidor API utilizando o controlo de acesso baseado em funções de Kubernetes (Kubernetes RBAC) e Azure RBAC. Para mais informações, consulte [a integração da AD Azure com a AKS][aks-aad].
 
 ## <a name="node-security"></a>Segurança do nó
 
@@ -50,7 +50,7 @@ Os nós são implantados numa sub-rede de rede virtual privada, sem endereços I
 
 Para fornecer armazenamento, os nós usam Discos Geridos Azure. Para a maioria dos tamanhos dos nós VM, estes são discos Premium apoiados por SSDs de alto desempenho. Os dados armazenados em discos geridos são automaticamente encriptados em repouso dentro da plataforma Azure. Para melhorar a redundância, estes discos também são replicados de forma segura dentro do datacenter Azure.
 
-Os ambientes de Kubernetes, em AKS ou em qualquer outro lugar, atualmente não são completamente seguros para uso hostil de multi-inquilinos. Funcionalidades de segurança adicionais como As Políticas de *Segurança do Pod,* ou mais controlo de acesso baseado em papéis finos (RBAC) para nós, dificultam as explorações. No entanto, para uma verdadeira segurança ao executar cargas de trabalho hostis de vários inquilinos, um hipervisor é o único nível de segurança em que deve confiar. O domínio de segurança de Kubernetes torna-se todo o cluster, não um nó individual. Para este tipo de cargas de trabalho hostis multi-inquilinos, você deve usar aglomerados fisicamente isolados. Para obter mais informações sobre formas de isolar cargas de trabalho, consulte [as melhores práticas para o isolamento do cluster em AKS][cluster-isolation].
+Os ambientes de Kubernetes, em AKS ou em qualquer outro lugar, atualmente não são completamente seguros para uso hostil de multi-inquilinos. Funcionalidades de segurança adicionais como *Pod Security Policies*, ou mais controlo de acesso baseado em papéis kubernetes (Kubernetes RBAC) para nós, dificultam as explorações. No entanto, para uma verdadeira segurança ao executar cargas de trabalho hostis de vários inquilinos, um hipervisor é o único nível de segurança em que deve confiar. O domínio de segurança de Kubernetes torna-se todo o cluster, não um nó individual. Para este tipo de cargas de trabalho hostis multi-inquilinos, você deve usar aglomerados fisicamente isolados. Para obter mais informações sobre formas de isolar cargas de trabalho, consulte [as melhores práticas para o isolamento do cluster em AKS][cluster-isolation].
 
 ### <a name="compute-isolation"></a>Isolamento computacional
 
@@ -96,7 +96,7 @@ O uso de Segredos reduz a informação sensível que é definida no manifesto YA
 
 Os segredos de Kubernetes estão armazenados em etcd, uma loja de valor-chave distribuída. A loja Etcd é totalmente gerida pela AKS e [os dados são encriptados em repouso dentro da plataforma Azure][encryption-atrest]. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a assegurar os seus clusters AKS, consulte [upgrade de um cluster AKS][aks-upgrade-cluster].
 

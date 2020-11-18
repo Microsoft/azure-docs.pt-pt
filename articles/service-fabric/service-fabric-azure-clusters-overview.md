@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 25e6854491f35dd0aa46b5de218d312f57854760
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320514"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685822"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters de tecido de serviço em Azure
 Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um cluster é chamada de nó de cluster. Os aglomerados podem escalar para milhares de nós. Se adicionar novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e as instâncias através do aumento do número de nós. O desempenho geral da aplicação melhora e a contenção para o acesso à memória diminui. Se os nós do cluster não estiverem a ser utilizados de forma eficiente, pode diminuir o número de nós no cluster. O Tecido de Serviço reequilibra novamente as réplicas de partição e instâncias através do número reduzido de nós para melhor utilizar o hardware em cada nó.
@@ -29,7 +29,7 @@ Um cluster de tecido de serviço em Azure é um recurso Azure que utiliza e inte
 ![Cluster de Tecido de Serviço][Image]
 
 ### <a name="virtual-machine"></a>Máquina virtual
-Uma [máquina virtual](../virtual-machines/index.yml) que faz parte de um cluster é chamada de nó, no entanto, tecnicamente, um nó de cluster é um processo de tempo de execução do Tecido de Serviço. É atribuído um nome de nó (uma cadeia) a cada nó. Os nós têm características, tais como [propriedades de colocação.](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) Cada máquina ou VM tem um serviço de arranque automático, *FabricHost.exe, *que começa a funcionar na hora do arranque e depois inicia dois executáveis, *Fabric.exe* e *FabricGateway.exe*, que compõem o nó. Uma implantação de produção é um nó por máquina física ou virtual. Para os cenários de teste, pode hospedar vários nós numa única máquina ou VM executando várias instâncias de *Fabric.exe* e *FabricGateway.exe*.
+Uma [máquina virtual](../virtual-machines/index.yml) que faz parte de um cluster é chamada de nó, no entanto, tecnicamente, um nó de cluster é um processo de tempo de execução do Tecido de Serviço. É atribuído um nome de nó (uma cadeia) a cada nó. Os nós têm características, tais como [propriedades de colocação.](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) Cada máquina ou VM tem um serviço de arranque automático, *FabricHost.exe,* que começa a funcionar na hora do arranque e depois inicia dois executáveis, *Fabric.exe* e *FabricGateway.exe*, que compõem o nó. Uma implantação de produção é um nó por máquina física ou virtual. Para os cenários de teste, pode hospedar vários nós numa única máquina ou VM executando várias instâncias de *Fabric.exe* e *FabricGateway.exe*.
 
 Cada VM está associado a um cartão de interface de rede virtual (NIC) e cada NIC é atribuído um endereço IP privado.  Um VM é atribuído a uma rede virtual e equilibrador local através do NIC.
 
@@ -45,10 +45,10 @@ Pode utilizar conjuntos de escala para implantar e gerir uma coleção de máqui
 
 Para obter mais informações, leia [os tipos de nó de nó de tecido de serviço e conjuntos de balança de máquinas virtuais](service-fabric-cluster-nodetypes.md).
 
-### <a name="azure-load-balancer"></a>Azure Load Balancer
-As instâncias VM são unidas por trás de um [equilibrador de carga Azure](../load-balancer/load-balancer-overview.md), que está associado a um [endereço IP público](../virtual-network/public-ip-addresses.md) e etiqueta DNS.  Quando fornece um cluster com * &lt; nome &gt; de cluster,* o nome DNS, * &lt; nome de &gt; cluster. &lt; localização &gt; .cloudapp.azure.com* é a etiqueta DNS associada ao equilibrador de carga em frente ao conjunto de escala.
+### <a name="azure-load-balancer"></a>Balanceador de Carga do Azure
+As instâncias VM são unidas por trás de um [equilibrador de carga Azure](../load-balancer/load-balancer-overview.md), que está associado a um [endereço IP público](../virtual-network/public-ip-addresses.md) e etiqueta DNS.  Quando fornece um cluster com *&lt; nome &gt; de cluster,* o nome DNS, *&lt; nome de &gt; cluster. &lt; localização &gt; .cloudapp.azure.com* é a etiqueta DNS associada ao equilibrador de carga em frente ao conjunto de escala.
 
-Os VMs num cluster têm [apenas endereços IP privados](../virtual-network/private-ip-addresses.md).  O tráfego de tráfego de gestão e o tráfego de serviços são encaminhados através do público virado para o balancer de carga.  O tráfego de rede é encaminhado para estas máquinas através das regras NAT (os clientes ligam-se a nós/instâncias específicos) ou regras de equilíbrio de carga (o tráfego vai para o robin redondo dos VMs).  Um equilibrador de carga tem um IP público associado com um nome DNS no formato: * &lt; clustername &gt; . &lt; localização &gt; .cloudapp.azure.com*.  Um IP público é outro recurso Azure no grupo de recursos.  Se definir vários tipos de nós num cluster, é criado um equilibrador de carga para cada conjunto de tipo/escala de nó. Ou, pode configurar um único balançador de carga para vários tipos de nós.  O nó primário tem o nome de cluster de etiqueta DNS * &lt; &gt; . &lt; localização &gt; .cloudapp.azure.com*, outros tipos de nós têm o nó de conjunto de rótulo DNS * &lt; &gt; - &lt; &gt; . &lt; localização &gt; .cloudapp.azure.com*.
+Os VMs num cluster têm [apenas endereços IP privados](../virtual-network/private-ip-addresses.md).  O tráfego de tráfego de gestão e o tráfego de serviços são encaminhados através do público virado para o balancer de carga.  O tráfego de rede é encaminhado para estas máquinas através das regras NAT (os clientes ligam-se a nós/instâncias específicos) ou regras de equilíbrio de carga (o tráfego vai para o robin redondo dos VMs).  Um equilibrador de carga tem um IP público associado com um nome DNS no formato: *&lt; clustername &gt; . &lt; localização &gt; .cloudapp.azure.com*.  Um IP público é outro recurso Azure no grupo de recursos.  Se definir vários tipos de nós num cluster, é criado um equilibrador de carga para cada conjunto de tipo/escala de nó. Ou, pode configurar um único balançador de carga para vários tipos de nós.  O nó primário tem o nome de cluster de etiqueta DNS *&lt; &gt; . &lt; localização &gt; .cloudapp.azure.com*, outros tipos de nós têm o nó de conjunto de rótulo DNS *&lt; &gt; - &lt; &gt; . &lt; localização &gt; .cloudapp.azure.com*.
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 Cada tipo de nó de cluster é suportado por uma [conta de armazenamento Azure](../storage/common/storage-introduction.md) e discos geridos.
@@ -68,12 +68,12 @@ Além dos certificados de cliente, o Azure Ative Directory também pode ser conf
 
 Para mais informações, leia [a segurança do Cliente-a-nó](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control"></a>Controlo de Acesso Baseado em Funções
-Role-Based Access Control (RBAC) permite-lhe atribuir controlos de acesso finos nos recursos Azure.  Pode atribuir diferentes regras de acesso a subscrições, grupos de recursos e recursos.  As regras da RBAC são herdadas ao longo da hierarquia de recursos, a menos que sejam ultrapassadas num nível mais baixo.  Pode atribuir qualquer utilizador ou grupo de utilizadores no seu AAD com as regras do RBAC para que os utilizadores e grupos designados possam modificar o seu cluster.  Para mais informações, leia a visão geral do [Azure RBAC.](../role-based-access-control/overview.md)
+### <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
+O controlo de acesso baseado em funções Azure (Azure RBAC) permite-lhe atribuir controlos de acesso finos nos recursos Azure.  Pode atribuir diferentes regras de acesso a subscrições, grupos de recursos e recursos.  As regras do RBAC são herdadas ao longo da hierarquia de recursos, a menos que sejam ultrapassadas a um nível mais baixo.  Pode atribuir qualquer utilizador ou grupo de utilizadores no seu AAD com as regras do Azure RBAC para que os utilizadores e grupos designados possam modificar o seu cluster.  Para mais informações, leia a visão geral do [Azure RBAC.](../role-based-access-control/overview.md)
 
 O Service Fabric também suporta o controlo de acesso para limitar o acesso a certas operações de cluster para diferentes grupos de utilizadores. Isto ajuda a tornar o cluster mais seguro. Dois tipos de controlo de acesso são suportados para clientes que se conectam a um cluster: função de administrador e papel do Utilizador.  
 
-Para mais informações, leia [o Controle de Acesso Role-Based de Tecidos de Serviço (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Para obter mais informações, leia [o controlo de acesso baseado em funções do Service Fabric.](service-fabric-cluster-security.md#service-fabric-role-based-access-control)
 
 ### <a name="network-security-groups"></a>Grupos de segurança de rede 
 Os grupos de segurança da rede (NSGs) controlam o tráfego de entrada e saída de uma sub-rede, VM ou NIC específico.  Por predefinição, quando vários VMs são colocados na mesma rede virtual, podem comunicar entre si através de qualquer porta.  Se quiser limitar as comunicações entre as máquinas, pode definir NSGs para segmentar a rede ou isolar VMs uns dos outros.  Se tiver vários tipos de nós num cluster, pode aplicar NSGs em sub-redes para evitar que máquinas pertencentes a diferentes tipos de nós se comuniquem entre si.  
@@ -112,7 +112,7 @@ Para mais informações consulte [ver versões de cluster suportadas em Azure](.
 >
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Leia mais sobre [a fixação,](service-fabric-cluster-security.md) [dimensionamento](service-fabric-cluster-scaling.md)e [modernização dos](service-fabric-cluster-upgrade.md) agrupamentos Azure.
 
 Saiba mais sobre [as opções de suporte do Tecido de Serviço.](service-fabric-support.md)

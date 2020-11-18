@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 402fc1b0b436e7e2061cb2e1a922a75c82ac5235
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 082408f357e97a2ed2153d43dbea459ff09ba704
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408061"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693192"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para garantir aplicações web e móveis PaaS usando O Azure Storage
 Neste artigo, discutimos uma coleção de boas práticas de segurança do Azure Storage para garantir as suas aplicações web e móveis de plataforma como serviço (PaaS). Estas boas práticas derivam da nossa experiência com o Azure e das experiências de clientes como você.
@@ -34,7 +34,7 @@ O [guia de segurança do Azure Storage](../../storage/blobs/security-recommendat
 Este artigo aborda as seguintes boas práticas:
 
 - Assinaturas de acesso partilhado (SAS)
-- Controlo de acesso baseado em funções (RBAC)
+- Controlo de acesso baseado em funções do Azure (RBAC do Azure)
 - Encriptação do lado do cliente para dados de alto valor
 - Encriptação do Serviço de Armazenamento
 
@@ -55,16 +55,16 @@ O SAS permite-lhe partilhar o conteúdo da forma como pretende partilhá-lo sem 
 
 Para saber mais sobre a assinatura de acesso partilhado, consulte [Usando assinaturas de acesso partilhado.](../../storage/common/storage-sas-overview.md) 
 
-## <a name="use-role-based-access-control"></a>Utilizar o controlo de acesso baseado em funções
-Outra forma de gerir o acesso é utilizar o [controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md). Com o RBAC, concentra-se em dar aos colaboradores as permissões exatas de que necessitam, com base na necessidade de conhecer e menos privilégios de princípios de segurança. Demasiadas permissões podem expor uma conta aos agressores. Poucas permissões significam que os empregados não conseguem fazer o seu trabalho de forma eficiente. O RBAC ajuda a resolver este problema oferecendo uma gestão de acessos finos para o Azure. Isto é imperativo para as organizações que querem impor políticas de segurança para o acesso aos dados.
+## <a name="use-azure-role-based-access-control"></a>Use o controlo de acesso baseado em funções Azure
+Outra forma de gerir o acesso é utilizar o [controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md). Com o Azure RBAC, concentra-se em dar aos colaboradores as permissões exatas de que necessitam, com base na necessidade de conhecer e menos privilégios de princípios de segurança. Demasiadas permissões podem expor uma conta aos agressores. Poucas permissões significam que os empregados não conseguem fazer o seu trabalho de forma eficiente. O Azure RBAC ajuda a resolver este problema oferecendo uma gestão de acesso fino para a Azure. Isto é imperativo para as organizações que querem impor políticas de segurança para o acesso aos dados.
 
 Você pode usar funções incorporadas Azure em Azure para atribuir privilégios aos utilizadores. Por exemplo, utilize o Storage Account Contributor para os operadores de nuvem que precisam de gerir as contas de armazenamento e a função de contribuinte clássico da conta de armazenamento para gerir contas clássicas de armazenamento. Para os operadores de nuvem que precisam de gerir VMs mas não a rede virtual ou conta de armazenamento a que estão conectados, pode adicioná-los à função De Contribuinte de Máquina Virtual.
 
-As organizações que não impõem o controlo do acesso aos dados utilizando capacidades como o RBAC podem estar a dar mais privilégios do que o necessário para os seus utilizadores. Isto pode levar a um compromisso de dados, permitindo a alguns utilizadores o acesso a dados que não deveriam ter em primeiro lugar.
+As organizações que não impõem o controlo do acesso aos dados utilizando capacidades como o Azure RBAC podem estar a dar mais privilégios do que o necessário para os seus utilizadores. Isto pode levar a um compromisso de dados, permitindo a alguns utilizadores o acesso a dados que não deveriam ter em primeiro lugar.
 
-Para saber mais sobre o RBAC consulte:
+Para saber mais sobre a Azure RBAC consulte:
 
-- [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md)
 - [Guia de segurança de Armazenamento do Azure](../../storage/blobs/security-recommendations.md) 
 

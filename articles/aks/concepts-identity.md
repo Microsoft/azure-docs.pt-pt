@@ -1,25 +1,25 @@
 ---
 title: Conceitos - Acesso e identidade nos Serviços Azure Kubernetes (AKS)
-description: Saiba mais sobre o acesso e identidade no Serviço Azure Kubernetes (AKS), incluindo a integração do Azure Ative Directory, o controlo de acesso baseado em funções da Kubernetes (RBAC), e papéis e encadernações.
+description: Saiba mais sobre o acesso e identidade no Serviço Azure Kubernetes (AKS), incluindo a integração do Azure Ative Directory, o controlo de acesso baseado em funções da Kubernetes (Kubernetes RBAC), e papéis e encadernações.
 services: container-service
 ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 5013f8b7dd88340e397fd3d4d4cd93d4b911fbbb
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: ca167a2ae313c29581d40fe921a8742b9b6b61fe
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378232"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686060"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Access and identity options for Azure Kubernetes Service (AKS) (Opções de acesso e de identidade do Azure Kubernetes Service (AKS))
 
-Existem diferentes formas de autenticar, controlar o acesso/autorizar e proteger os clusters Kubernetes. Utilizando o controlo de acesso baseado em funções da Kubernetes (RBAC), pode conceder aos utilizadores, grupos e contas de serviço o acesso apenas aos recursos de que necessitam. Com o Serviço Azure Kubernetes (AKS), pode melhorar ainda mais a estrutura de segurança e permissões utilizando o Azure Ative Directory e o Azure RBAC. Estas abordagens ajudam-no a garantir o acesso ao cluster e a fornecer apenas as permissões mínimas necessárias aos desenvolvedores e operadores.
+Existem diferentes formas de autenticar, controlar o acesso/autorizar e proteger os clusters Kubernetes. Utilizando o controlo de acesso baseado em funções da Kubernetes (Kubernetes RBAC), pode conceder aos utilizadores, grupos e contas de serviço acesso apenas aos recursos de que necessitam. Com o Serviço Azure Kubernetes (AKS), pode melhorar ainda mais a estrutura de segurança e permissões utilizando o Azure Ative Directory e o Azure RBAC. Estas abordagens ajudam-no a garantir o acesso ao cluster e a fornecer apenas as permissões mínimas necessárias aos desenvolvedores e operadores.
 
 Este artigo introduz os conceitos fundamentais que o ajudam a autenticar e atribuir permissões em AKS:
 
-- [Kubernetes controlo de acesso baseado em funções (RBAC)](#kubernetes-role-based-access-control-rbac)
+- [Kubernetes controlo de acesso baseado em funções (Kubernetes RBAC)](#kubernetes-role-based-access-control-kubernetes-rbac)
   - [Funções e ClusterRoles](#roles-and-clusterroles)
   - [RoleBindings e ClusterRoleBindings](#rolebindings-and-clusterrolebindings) 
   - [Contas de serviço kubernetes](#kubernetes-service-accounts)
@@ -29,11 +29,11 @@ Este artigo introduz os conceitos fundamentais que o ajudam a autenticar e atrib
   - [Azure RBAC para autorização kubernetes (pré-visualização)](#azure-rbac-for-kubernetes-authorization-preview)
 
 
-## <a name="kubernetes-role-based-access-control-rbac"></a>Kubernetes controlo de acesso baseado em funções (RBAC)
+## <a name="kubernetes-role-based-access-control-kubernetes-rbac"></a>Kubernetes controlo de acesso baseado em funções (Kubernetes RBAC)
 
-Para fornecer filtragem granular das ações que os utilizadores podem fazer, a Kubernetes utiliza o controlo de acesso baseado em funções (RBAC). Este mecanismo de controlo permite atribuir aos utilizadores, ou grupos de utilizadores, permissão para fazer coisas como criar ou modificar recursos, ou ver registos de cargas de trabalho de aplicações. Estas permissões podem ser miradas para um único espaço de nome, ou concedidas em todo o cluster AKS. Com o KUBernetes RBAC, *cria-se funções* para definir permissões e, em seguida, atribui-las a utilizadores com *encadernações de papéis*.
+Para fornecer filtragem granular das ações que os utilizadores podem fazer, Kubernetes usa o controlo de acesso baseado em funções kubernetes (Kubernetes RBAC). Este mecanismo de controlo permite atribuir aos utilizadores, ou grupos de utilizadores, permissão para fazer coisas como criar ou modificar recursos, ou ver registos de cargas de trabalho de aplicações. Estas permissões podem ser miradas para um único espaço de nome, ou concedidas em todo o cluster AKS. Com o KUBernetes RBAC, *cria-se funções* para definir permissões e, em seguida, atribui-las a utilizadores com *encadernações de papéis*.
 
-Para obter mais informações, consulte [a autorização do RBAC.][kubernetes-rbac]
+Para obter mais informações, consulte [a autorização do RBAC da Kubernetes.][kubernetes-rbac]
 
 
 ### <a name="roles-and-clusterroles"></a>Funções e ClusterRoles
@@ -46,7 +46,7 @@ Um ClusterRole trabalha da mesma forma para conceder permissões aos recursos, m
 
 ### <a name="rolebindings-and-clusterrolebindings"></a>RoleBindings e ClusterRoleBindings
 
-Uma vez definidas as funções para conceder permissões aos recursos, atribua essas permissões de NCC de Kubernetes com um *RoleBinding*. Se o seu cluster AKS [se integrar com o Azure Ative Directory,](#azure-active-directory-integration)as ligações são como esses utilizadores AZure AD recebem permissões para executar ações dentro do cluster, ver como no Control access aos recursos de cluster [usando o controlo de acesso baseado em funções e identidades do Azure Ative Directory.](azure-ad-rbac.md)
+Uma vez definidas as funções para conceder permissões aos recursos, atribua essas permissões de NCC de Kubernetes com um *RoleBinding*. Se o seu cluster AKS [se integra com o Azure Ative Directory,](#azure-active-directory-integration)as ligações são como esses utilizadores Azure AD recebem permissões para executar ações dentro do cluster, ver como no Control access aos recursos do cluster [usando o controlo de acesso baseado em funções da Kubernetes e identidades do Azure Ative Directory.](azure-ad-rbac.md)
 
 As ligações de funções são usadas para atribuir papéis para um determinado espaço de nome. Esta abordagem permite-lhe, logicamente, segregar um único cluster AKS, com os utilizadores apenas capazes de aceder aos recursos da aplicação no seu espaço de nome atribuído. Se precisar de ligar funções em todo o cluster, ou de agrupar recursos fora de um determinado espaço de nome, pode, em vez disso, utilizar *ClusterRoleBindings*.
 
@@ -101,13 +101,13 @@ O Azure RBAC é um sistema de autorização construído na [Azure Resource Manag
 
  O Azure RBAC foi projetado para trabalhar em recursos dentro da sua subscrição Azure, enquanto kubernetes RBAC é projetado para trabalhar em recursos Kubernetes dentro do seu cluster AKS. 
 
-Com o Azure RBAC, cria-se uma *definição de papel* que descreve as permissões a aplicar. Um utilizador ou grupo é então atribuído esta definição de função através de uma *atribuição de papel* para um determinado *âmbito* , que poderia ser um recurso individual, um grupo de recursos, ou em toda a subscrição.
+Com o Azure RBAC, cria-se uma *definição de papel* que descreve as permissões a aplicar. Um utilizador ou grupo é então atribuído esta definição de função através de uma *atribuição de papel* para um determinado *âmbito*, que poderia ser um recurso individual, um grupo de recursos, ou em toda a subscrição.
 
 Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?][azure-rbac]
 
 Existem dois níveis de acesso necessários para operar plenamente um cluster AKS: 
 1. [Aceda ao recurso AKS na sua subscrição Azure.](#azure-rbac-to-authorize-access-to-the-aks-resource) Este processo permite-lhe controlar as coisas que escalam ou melhoram o seu cluster utilizando as APIs AKS, bem como puxar o seu kubeconfig.
-2. Acesso à API de Kubernetes. Este acesso é controlado quer pela [Kubernetes RBAC](#kubernetes-role-based-access-control-rbac) (tradicionalmente) quer pela [integração do Azure RBAC com a AKS para a autorização kubernetes](#azure-rbac-for-kubernetes-authorization-preview)
+2. Acesso à API de Kubernetes. Este acesso é controlado quer pela [Kubernetes RBAC](#kubernetes-role-based-access-control-kubernetes-rbac) (tradicionalmente) quer pela [integração do Azure RBAC com a AKS para a autorização kubernetes](#azure-rbac-for-kubernetes-authorization-preview)
 
 ### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Azure RBAC para autorizar o acesso ao recurso AKS
 
@@ -145,7 +145,7 @@ A AKS fornece os seguintes quatro papéis incorporados. São semelhantes aos [pa
 
 **Para aprender como ativar a autorização do Azure RBAC para a Kubernetes, [leia aqui.](manage-azure-rbac.md)**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar com Azure AD e Kubernetes RBAC, consulte [Integrate Azure Ative Directory com AKS][aks-aad].
 - Para as melhores práticas associadas, consulte [as melhores práticas de autenticação e autorização em AKS][operator-best-practices-identity].

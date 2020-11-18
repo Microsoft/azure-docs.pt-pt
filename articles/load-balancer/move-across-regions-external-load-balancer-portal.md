@@ -6,18 +6,18 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808715"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693754"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Mover um equilibrador de carga externo para outra região utilizando o portal Azure
 
 Há vários cenários em que se quer mover um equilibrador de carga externo de uma região para outra. Por exemplo, é melhor criar outro equilibrador de carga externo com a mesma configuração para testes. Também é possível que queira mover um equilibrador de carga externo para outra região como parte do planeamento da recuperação de desastres.
 
-Num sentido literal, não se pode mover um equilibrador externo Azure de uma região para outra. Mas pode utilizar um modelo de Gestor de Recursos Azure para exportar a configuração existente e o endereço IP público de um equilibrador de carga externo. Em seguida, pode errá-lo noutra região exportando o equilibrador de carga e o IP público para um modelo, modificando os parâmetros para combinar com a região de destino e, em seguida, implantando o modelo para a nova região. Para obter mais informações sobre o Gestor de Recursos e modelos, consulte [os grupos de recursos de exportação para os modelos](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+Num sentido literal, não se pode mover um equilibrador externo Azure de uma região para outra. Mas pode utilizar um modelo de Gestor de Recursos Azure para exportar a configuração existente e o endereço IP público de um equilibrador de carga externo. Em seguida, pode errá-lo noutra região exportando o equilibrador de carga e o IP público para um modelo, modificando os parâmetros para combinar com a região de destino e, em seguida, implantando o modelo para a nova região. Para obter mais informações sobre o Gestor de Recursos e modelos, consulte [os grupos de recursos de exportação para os modelos](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -32,7 +32,7 @@ Num sentido literal, não se pode mover um equilibrador externo Azure de uma reg
 
 - Verifique se a sua subscrição Azure permite criar equilibradores de carga externos na região alvo. Contacte o suporte para ativar a quota necessária.
 
-- Certifique-se de que a sua subscrição dispõe de recursos suficientes para suportar a adição dos equiliblos de carga. Veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Certifique-se de que a sua subscrição dispõe de recursos suficientes para suportar a adição dos equiliblos de carga. Veja [Subscrição do Azure e limites de serviço, quotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 ## <a name="prepare-and-move"></a>Preparar e mover
 Os seguintes procedimentos mostram como preparar o balançador de carga externo para o movimento utilizando um modelo de Gestor de Recursos e mover a configuração do balançador de carga externo para a região alvo utilizando o portal Azure. Primeiro, deve exportar a configuração IP pública do equilibrador de carga externo.
@@ -43,7 +43,7 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 2. Localize o grupo de recursos que contém o IP público de origem e selecione-o.
-3. Selecione **Settings**  >  **o modelo de exportação de**definições.
+3. Selecione **Settings**  >  **o modelo de exportação de** definições.
 4. Selecione **Implementar** sob **o modelo de Exportação.**
 5. Selecione **TEMPLATE**  >  **modelo Editar parâmetros** para abrir o parameters.jsno ficheiro no editor online.
 8. Para editar o parâmetro do nome IP público, altere a propriedade de **valor** em **parâmetros** do nome IP público de origem para o nome do seu IP público alvo. Incluir o nome em aspas.
@@ -63,7 +63,7 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
 
     **Selecione Save** no editor.
 
-9.  Selecione **modelo de**edição de modelo para abrir o template.jsno ficheiro no editor  >  **Edit template** online.
+9.  Selecione **modelo de** edição de modelo para abrir o template.jsno ficheiro no editor  >  **Edit template** online.
 
 10. Para editar a região-alvo para a qual o IP público será movido, altere o imóvel de **localização** em **recursos**:
 
@@ -110,7 +110,7 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
             },
         ```
 
-        Para obter informações sobre as diferenças entre os IPs públicos SKU básicos e padrão, consulte [Criar, alterar ou eliminar um endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Para obter informações sobre as diferenças entre os IPs públicos SKU básicos e padrão, consulte [Criar, alterar ou eliminar um endereço IP público](../virtual-network/virtual-network-public-ip-address.md).
 
     * **Método de atribuição de IP público** e tempo limite de marcha **lenta**. Pode alterar o método de atribuição de IP público alterando a propriedade **publicIPAllocationMethod** de **Dynamic** para **Static** ou de **Estática** para **Dinâmica.** Pode alterar o tempo limite de marcha lenta, alterando a propriedade **idleTimeoutInMinutes** para o valor pretendido. O padrão é **4**.
 
@@ -136,7 +136,7 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
 
         ```
 
-        Para obter informações sobre os métodos de atribuição e os valores de tempo limite inativo, consulte [Criar, alterar ou eliminar um endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Para obter informações sobre os métodos de atribuição e os valores de tempo limite inativo, consulte [Criar, alterar ou eliminar um endereço IP público](../virtual-network/virtual-network-public-ip-address.md).
 
  
 13. **Selecione Save** no editor online.
@@ -159,7 +159,7 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 2. Localize o grupo de recursos que contém o balanceador de carga externo de origem e selecione-o.
-3. Selecione **Settings**  >  **o modelo de exportação de**definições.
+3. Selecione **Settings**  >  **o modelo de exportação de** definições.
 4. Selecione **Implementar** sob **o modelo de Exportação.**
 5. Selecione **TEMPLATE**  >  **modelo Editar parâmetros** para abrir o parameters.jsno ficheiro no editor online.
 
@@ -223,7 +223,7 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
         },
     ```
 
-8.  Selecione **modelo de**edição de modelo para abrir o template.jsno ficheiro no editor  >  **Edit template** online.
+8.  Selecione **modelo de** edição de modelo para abrir o template.jsno ficheiro no editor  >  **Edit template** online.
 9.  Para editar a região-alvo para a qual será movida a configuração do balançador de carga externo, altere a propriedade de **localização** sob **recursos** na template.jsem arquivo:
 
     ```json
@@ -257,7 +257,7 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
                 "tier": "Regional"
             },
         ```
-      Para obter informações sobre as diferenças entre os balançadores de carga SKU básicos e padrão, consulte [a visão geral do Balanço de Carga Padrão Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+      Para obter informações sobre as diferenças entre os balançadores de carga SKU básicos e padrão, consulte [a visão geral do Balanço de Carga Padrão Azure](./load-balancer-overview.md).
 
     * **Regras de equilíbrio de carga**. Pode adicionar ou remover as regras de equilíbrio de carga na configuração adicionando ou removendo entradas na secção **loadBalancingRules** do template.jsno ficheiro:
 
@@ -385,7 +385,7 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
                 ]
         ```
 
-         Para obter mais informações, consulte [as regras de saída do Balancer de Carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).
+         Para obter mais informações, consulte [as regras de saída do Balancer de Carga](./load-balancer-outbound-connections.md#outboundrules).
 
 12. **Selecione Save** no editor online.
 
@@ -414,5 +414,5 @@ Para comprometer as alterações e completar o movimento do equilibrador de carg
 Neste tutorial, você moveu um equilibrador de carga externa Azure de uma região para outra e limpou os recursos de origem. Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 
 
-- [Mover recursos para um novo grupo de recursos ou subscrição](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Mover VMs do Azure para outra região](../site-recovery/azure-to-azure-tutorial-migrate.md)

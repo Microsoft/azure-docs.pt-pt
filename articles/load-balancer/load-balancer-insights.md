@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 2168ee05ab93655cc0ad87221bff29c1b6b1035d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d57dfd0a496e71c1f0e6ddea839723da35bc5f76
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897596"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686247"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Utilização de Insights para monitorizar e configurar o seu Balanceador de Carga Azure
 
-Através do [Azure Monitor for Networks,](https://docs.microsoft.com/azure/azure-monitor/insights/insights-overview#azure-monitor-for-networks-preview)é-lhe fornecidas visualizações de dependência funcional e painel de métricas pré-configurados para os seus Balanceadores de Carga. Estes visuais ajudam a capacitar-se para tomar decisões de design informadas e rapidamente localizar, diagnosticar e resolver quaisquer falhas.
+Através do Azure Monitor para redes, é-lhe fornecidas visualizações de dependência funcional e painel de métricas pré-configurados para os seus Balanceadores de Carga. Estes visuais ajudam a capacitar-se para tomar decisões de design informadas e rapidamente localizar, diagnosticar e resolver quaisquer falhas.
 
 >[!NOTE] 
 >Por favor, note que esta funcionalidade está na Pré-visualização e a visão de dependência funcional e o painel de instrumentos pré-configurado podem mudar para melhorar esta experiência
@@ -76,7 +76,7 @@ O separador Monitores de Ligação mostrar-lhe-á a latência de ida e volta num
 ### <a name="metric-definitions"></a>Definições de Métricas
 O separador Definições Métricas contém todas as informações mostradas no [artigo métricas multidimensionais](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Reveja o painel de instrumentos e forneça feedback usando o link abaixo se houver algo que possa ser melhorado
 * [Reveja a documentação métrica para garantir que compreende como cada métrica é calculada](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics)
 * [Criar monitores de ligação para o seu balanceador de carga](https://docs.microsoft.com/azure/network-watcher/connection-monitor)

@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3a7d750caed297dfa364e2f1ef176ee19ad35480
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: eed1a3d403a6012e2010a6b9a47a60f815044565
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654211"
+ms.locfileid: "94685907"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Serviço de alto desempenho com Servidor de Inferência de Tritão (Pré-visualização) 
 
@@ -50,6 +50,17 @@ Antes de tentar usar Tritão para o seu próprio modelo, é importante entender 
 * Os pedidos de inferência utilizam o __URI de pontuação__. Por exemplo, `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Normal, não tritão, diagrama de arquitetura de implantação":::
+
+### <a name="setting-the-number-of-workers"></a>Definição do número de trabalhadores
+
+Para definir o número de trabalhadores na sua implantação, desaprote a variável ambiental `WORKER_COUNT` . Dado que tem um objeto [ambiente](https://docs.microsoft.compython/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) `env` chamado, pode fazer o seguinte:
+
+```{py}
+env.environment_variables["WORKER_COUNT"] = "1"
+```
+
+Isto dirá à Azure ML para aumentar o número de trabalhadores que especifica.
+
 
 **Implementação de configuração de inferência com Tritão**
 

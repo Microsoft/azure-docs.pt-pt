@@ -4,12 +4,12 @@ description: Recolha do operador de cluster e das melhores práticas do promotor
 services: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.openlocfilehash: 1278a03d3ffc7ccb11b0e3c4c84f6c213648440b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008785"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686264"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Operador de cluster e desenvolvedor de boas práticas para construir e gerir aplicações no Serviço Azure Kubernetes (AKS)
 
@@ -30,7 +30,7 @@ Como operador de cluster, trabalhe em conjunto com os proprietários de aplicaç
 * [Melhores práticas de funcionalidades avançadas do Scheduler](operator-best-practices-advanced-scheduler.md)
     * Inclui a utilização de manchas e tolerâncias, seletores de nó e afinidade, e afinidade inter-pod e anti-afinidade.
 * [Melhores práticas de autorização e autenticação](operator-best-practices-identity.md)
-    * Inclui integração com o Azure Ative Directory, utilizando o controlo de acesso baseado em funções (RBAC) e identidades de vagem.
+    * Inclui integração com o Azure Ative Directory, utilizando o controlo de acesso baseado em funções de Kubernetes (Kubernetes RBAC), utilizando a Azure RBAC, e identidades de pod.
 
 **Segurança**
 
@@ -73,6 +73,6 @@ Para ajudar a compreender algumas das funcionalidades e componentes destas melho
 * [Opções de armazenamento](concepts-storage.md)
 * [Opções de escala](concepts-scale.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se precisar de começar com a AKS, siga um dos quickstarts para implantar um cluster Azure Kubernetes Service (AKS) utilizando o portal [Azure CLI](kubernetes-walkthrough.md) ou [Azure](kubernetes-walkthrough-portal.md).

@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: e416974d1326415e9a459e39d7bdea8e3fd8a84c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5097c35d97e33ef2d6fa0be12c796bf7e4e06950
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323809"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685737"
 ---
 # <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-preview--in-azure-synapse-analytics"></a>Vistas T-SQL com piscina SQL dedicada e piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
 
@@ -72,7 +72,7 @@ As vistas no Synapse SQL são armazenadas apenas como metadados. Consequentement
 * Não há suporte para as dicas EXPAND / NOEXPAND
 * Não existem pontos de vista indexados no SQL de Sinaapse
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais dicas de desenvolvimento, consulte a visão geral do [desenvolvimento do Synapse SQL.](develop-overview.md)
 

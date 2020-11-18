@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 098256c3174f5a737bec4f6a62cb1d2af99e6f4f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a284e453a621860c0aebf68bef13d30e77971f88
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311075"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686162"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Conecte-se ao SYNapse SQL com o Visual Studio e o SSDT
 
@@ -52,9 +52,9 @@ Para utilizar este tutorial, precisa de ter os seguintes componentes:
    
     ![Ligar ao Servidor](./media/get-started-visual-studio/connection-dialog.png)
    
-   * **Nome do servidor** : Introduza o nome do **servidor** previamente identificado.
-   * **Autenticação** : Selecione A autenticação do **servidor SQL** ou **a autenticação integrada do Diretório Ativo** :
-   * **Nome do utilizador** e **palavra-passe** : Introduza o nome de utilizador e a palavra-passe se a autenticação do servidor SQL tiver sido selecionada acima.
+   * **Nome do servidor**: Introduza o nome do **servidor** previamente identificado.
+   * **Autenticação**: Selecione A autenticação do **servidor SQL** ou **a autenticação integrada do Diretório Ativo**:
+   * **Nome do utilizador** e **palavra-passe**: Introduza o nome de utilizador e a palavra-passe se a autenticação do servidor SQL tiver sido selecionada acima.
    * Clique em **Ligar**.
 5. Para explorar, expanda o servidor SQL do Azure. Pode ver as bases de dados associadas ao servidor. Expanda AdventureWorksDW para ver as tabelas na sua base de dados de exemplo.
    
@@ -79,7 +79,7 @@ Agora que foi estabelecida uma ligação à sua base de dados, irá escrever uma
    
     ![Resultados da consulta](./media/get-started-visual-studio/query-results.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que pode ligar e consultar, tente [visualizar os dados com o Power BI](get-started-power-bi-professional.md).
 Para configurar o seu ambiente para a autenticação do Azure Ative Directory, consulte [Authenticate para piscina SQL dedicada.](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
  

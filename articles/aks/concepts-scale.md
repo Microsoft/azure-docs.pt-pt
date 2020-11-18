@@ -4,12 +4,12 @@ description: Saiba mais sobre o dimensionamento no Serviço Azure Kubernetes (AK
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 1a14615e96d5be4fbc8994073d66677997281131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b72ed7cefc6a16eb484e1337dbd64e5f069a2201
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499890"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686043"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicações no Serviço Kubernetes do Azure (AKS)
 
@@ -50,7 +50,7 @@ Atualmente, não é possível sintonizar estes valores de arrefecimento a partir
 
 ## <a name="cluster-autoscaler"></a>Dimensionador automático de cluster
 
-Para responder às exigências do pod em mudança, a Kubernetes tem um cluster autoscaler, que ajusta o número de nós com base nos recursos de computação solicitados no conjunto de nós. Por predefinição, o autoescalador do cluster verifica o servidor API métricas a cada 10 segundos para quaisquer alterações necessárias na contagem de nós. Se o cluster determinar que é necessária uma alteração, o número de nós no seu cluster AKS é aumentado ou diminuído em conformidade. O autoescalador de cluster funciona com clusters AKS ativados pela RBAC que executam Kubernetes 1.10.x ou superior.
+Para responder às exigências do pod em mudança, a Kubernetes tem um cluster autoscaler, que ajusta o número de nós com base nos recursos de computação solicitados no conjunto de nós. Por predefinição, o autoescalador do cluster verifica o servidor API métricas a cada 10 segundos para quaisquer alterações necessárias na contagem de nós. Se o cluster determinar que é necessária uma alteração, o número de nós no seu cluster AKS é aumentado ou diminuído em conformidade. O autoescalador de cluster funciona com clusters AKS ativados por Kubernetes que executam Kubernetes 1.10.x ou superior.
 
 ![Autoescalador de cluster Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
@@ -86,7 +86,7 @@ A sua aplicação não requer modificação para usar nós virtuais. As implemen
 
 Os nós virtuais são implantados numa sub-rede adicional na mesma rede virtual que o seu cluster AKS. Esta configuração de rede virtual permite que o tráfego entre ACI e AKS seja seguro. Como um cluster AKS, um caso ACI é um recurso de computação segura e lógica que é isolado de outros utilizadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com aplicações de escala, siga primeiro o [quickstart para criar um cluster AKS com o Azure CLI][aks-quickstart]. Em seguida, pode começar a escalar as aplicações manualmente ou automaticamente no seu cluster AKS:
 

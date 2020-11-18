@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d99295fbb355b3efa22a64c9adc04311508e474
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: b2ad38e518fa4b924992355990ea3eb06a338ebe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517568"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693163"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Quadro de Segurança: Autorização / Mitigações 
 | Produto/Serviço | Artigo |
@@ -32,11 +32,11 @@ ms.locfileid: "94517568"
 | **Gateway de nuvem IoT** | <ul><li>[Conecte-se ao Cloud Gateway usando fichas menos privilegiadas](#cloud-least-privileged)</li></ul> |
 | **Hub de Eventos do Azure** | <ul><li>[Utilize uma chave SAS apenas de envio para gerar fichas de dispositivo](#sendonly-sas)</li><li>[Não utilize fichas de acesso que ofereçam acesso direto ao Centro de Eventos](#access-tokens-hub)</li><li>[Ligue ao Centro de Eventos usando chaves SAS que tenham as permissões mínimas necessárias](#sas-minimum-permissions)</li></ul> |
 | **Documento Azure DB** | <ul><li>[Use fichas de recursos para ligar à Azure Cosmos DB sempre que possível](#resource-docdb)</li></ul> |
-| **Fronteira da Confiança Azure** | <ul><li>[Permitir a gestão de acesso de grãos finos à Assinatura Azure utilizando o RBAC](#grained-rbac)</li></ul> |
-| **Limite de confiança do tecido de serviço** | <ul><li>[Restringir o acesso do cliente a operações de cluster usando o RBAC](#cluster-rbac)</li></ul> |
+| **Fronteira da Confiança Azure** | <ul><li>[Permitir a gestão de acessos finos à Assinatura Azure utilizando o Azure RBAC](#grained-rbac)</li></ul> |
+| **Limite de confiança do tecido de serviço** | <ul><li>[Restringir o acesso do cliente a operações de cluster usando o Azure RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Realizar modelação de segurança e utilizar a Segurança do Nível de Campo sempre que necessário](#modeling-field)</li></ul> |
 | **Portal crm dinâmico** | <ul><li>[Realizar modelação de segurança das contas do portal tendo em conta que o modelo de segurança do portal difere do resto do CRM](#portal-security)</li></ul> |
-| **Armazenamento do Azure** | <ul><li>[Conceder permissão de grãos finos a uma série de entidades no Armazenamento de MesaS Azure](#permission-entities)</li><li>[Permitir Role-Based Controlo de Acesso (RBAC) para a conta de armazenamento Azure usando O Gestor de Recursos Azure](#rbac-azure-manager)</li></ul> |
+| **Armazenamento do Azure** | <ul><li>[Conceder permissão de grãos finos a uma série de entidades no Armazenamento de MesaS Azure](#permission-entities)</li><li>[Permitir o controlo de acesso baseado em funções (Azure RBAC) para a conta de armazenamento Azure usando o Gestor de Recursos Azure](#rbac-azure-manager)</li></ul> |
 | **Cliente Móvel** | <ul><li>[Implementar jailbreak implícito ou deteção de enraizamento](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Referência de classe fraca no WCF](#weak-class-wcf)</li><li>[Controlo de autorização de implementação do WCF](#wcf-authz)</li></ul> |
 | **API Web** | <ul><li>[Implementar mecanismo de autorização adequado na ASP.NET Web API](#authz-aspnet)</li></ul> |
@@ -137,7 +137,7 @@ Agora, um possível intruso não pode adulterar e alterar a operação da aplica
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Passos** | <p>Os ficheiros estáticos e de configuração sensíveis não devem ser mantidos na raiz da web. Para que os conteúdos não sejam necessários para serem públicos, devem ser aplicados controlos de acesso adequados ou a remoção do conteúdo em si.</p><p>Além disso, a navegação forçada é geralmente combinada com técnicas brute Force para recolher informações, tentando aceder ao maior número possível de URLs para enumerar diretórios e ficheiros em um servidor. Os atacantes podem verificar todas as variações dos ficheiros comumente existentes. Por exemplo, uma pesquisa de ficheiros de palavra-passe abrangeria ficheiros incluindo psswd.txt, password.htm, password.dat e outras variações.</p><p>Para mitigar isto, devem ser incluídas capacidades de deteção de tentativas de força bruta.</p>|
+| **Passos** | <p>Os ficheiros estáticos e de configuração sensíveis não devem ser mantidos na raiz da web. Para que os conteúdos não sejam necessários para serem públicos, devem ser aplicados controlos de acesso adequados ou a remoção do conteúdo em si.</p><p>Além disso, a navegação forçada é geralmente combinada com técnicas brute Force para recolher informações, tentando aceder ao maior número possível de URLs para enumerar diretórios e ficheiros em um servidor. Os atacantes podem verificar todas as variações dos ficheiros comumente existentes. Por exemplo, uma pesquisa de ficheiros de palavra-passe abrangeria ficheiros incluindo psswd.txt, password.htm, palavra-passe.dat e outras variações.</p><p>Para mitigar isto, devem ser incluídas capacidades de deteção de tentativas de força bruta.</p>|
 
 ## <a name="ensure-that-least-privileged-accounts-are-used-to-connect-to-database-server"></a><a id="privileged-server"></a>Certifique-se de que as contas menos privilegiadas são usadas para se ligar ao servidor Base de Dados
 
@@ -229,7 +229,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | **Referências**              | N/D  |
 | **Passos** | Um token de recurso está associado a um recurso de permissão DB Azure Cosmos e captura a relação entre o utilizador de uma base de dados e a permissão que o utilizador tem para um recurso específico de aplicação Azure Cosmos DB (por exemplo, recolha, documento). Utilize sempre um token de recursos para aceder ao DB Azure Cosmos se o cliente não for confiado a chaves de manejamento ou apenas de leitura - como uma aplicação de utilizador final como um cliente móvel ou de desktop. Utilize teclas Master ou apenas de leitura a partir de aplicações de backend que podem armazenar estas chaves de forma segura.|
 
-## <a name="enable-fine-grained-access-management-to-azure-subscription-using-rbac"></a><a id="grained-rbac"></a>Permitir a gestão de acesso de grãos finos à Assinatura Azure utilizando o RBAC
+## <a name="enable-fine-grained-access-management-to-azure-subscription-using-azure-rbac"></a><a id="grained-rbac"></a>Permitir a gestão de acessos finos à Assinatura Azure utilizando o Azure RBAC
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -237,10 +237,10 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [Utilize atribuições de funções para gerir o acesso aos recursos de subscrição do Azure](../../role-based-access-control/role-assignments-portal.md)  |
-| **Passos** | O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Utilizando o RBAC, pode conceder apenas a quantidade de acesso precisa aos utilizadores para realizar os trabalhos.|
+| **Referências**              | [Adicione ou remova atribuições de funções Azure para gerir o acesso aos seus recursos de subscrição Azure](../../role-based-access-control/role-assignments-portal.md)  |
+| **Passos** | O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Utilizando o Azure RBAC, pode conceder apenas a quantidade de acesso que os utilizadores precisam para realizar os seus trabalhos.|
 
-## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>Restringir o acesso do cliente a operações de cluster usando o RBAC
+## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Restringir o acesso do cliente a operações de cluster usando o Service Fabric RBAC
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -248,7 +248,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | **Fase SDL**               | Implementação |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | Ambiente - Azure |
-| **Referências**              | [Controlo de acesso baseado em funções para clientes de Tecidos de Serviço](../../service-fabric/service-fabric-cluster-security-roles.md) |
+| **Referências**              | [Controlo de acesso baseado em funções de Service Fabric para clientes de Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md) |
 | **Passos** | <p>A Azure Service Fabric suporta dois tipos diferentes de controlo de acesso para clientes que estão ligados a um cluster de Tecido de Serviço: administrador e utilizador. O controlo de acesso permite ao administrador do cluster limitar o acesso a determinadas operações de cluster para diferentes grupos de utilizadores, tornando o cluster mais seguro.</p><p>Os administradores têm acesso total às capacidades de gestão (incluindo capacidades de leitura/escrita). Os utilizadores, por padrão, apenas leram o acesso às capacidades de gestão (por exemplo, capacidades de consulta) e a capacidade de resolver aplicações e serviços.</p><p>Especifica as duas funções de cliente (administrador e cliente) no momento da criação do cluster, fornecendo certificados separados para cada um.</p>|
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>Realizar modelação de segurança e utilizar a Segurança do Nível de Campo sempre que necessário
@@ -284,7 +284,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | **Referências**              | [Como delegar o acesso a objetos na sua conta de armazenamento Azure usando SAS](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Passos** | Em certos cenários comerciais, o Azure Table Storage pode ser necessário para armazenar dados sensíveis que atendam a diferentes partes. Por exemplo, dados sensíveis relativos a diferentes países/regiões. Nesses casos, as assinaturas SAS podem ser construídas especificando as gamas de chaves de partição e linha, de modo a que um utilizador possa aceder a dados específicos de um determinado país/região.| 
 
-## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Permitir Role-Based Controlo de Acesso (RBAC) para a conta de armazenamento Azure usando O Gestor de Recursos Azure
+## <a name="enable-azure-role-based-access-control-azure-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Permitir o controlo de acesso baseado em funções (Azure RBAC) para a conta de armazenamento Azure usando o Gestor de Recursos Azure
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -292,7 +292,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [Como garantir a sua conta de armazenamento com Role-Based Access Control (RBAC)](../../storage/blobs/security-recommendations.md) |
+| **Referências**              | [Como garantir a sua conta de armazenamento com o controlo de acesso baseado em funções Azure (Azure RBAC)](../../storage/blobs/security-recommendations.md) |
 | **Passos** | <p>Quando criar uma nova conta de armazenamento, selecione um modelo de implementação do Classic ou do Azure Resource Manager. O modelo clássico de criação de recursos em Azure só permite o acesso total ou nada à subscrição e, por sua vez, à conta de armazenamento.</p><p>Com o modelo Azure Resource Manager, coloca a conta de armazenamento num grupo de recursos e controla o acesso ao plano de gestão dessa conta de armazenamento específica utilizando o Azure Ative Directory. Por exemplo, pode dar a utilizadores específicos a possibilidade de acederem às chaves da conta de armazenamento, enquanto outros utilizadores podem ver informações sobre a conta de armazenamento, mas não conseguem aceder às chaves da conta de armazenamento.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implementar jailbreak implícito ou deteção de enraizamento
@@ -304,7 +304,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Passos** | <p>A aplicação deve salvaguardar a sua própria configuração e dados do utilizador no caso de o telefone estar enraizado ou a cadeia quebrada. A rutura de raiz/prisão implica acesso não autorizado, o que os utilizadores normais não fazem nos seus próprios telefones. Por isso, a aplicação deve ter lógica implícita de deteção no arranque da aplicação, para detetar se o telefone está enraizado.</p><p>A lógica de deteção pode ser simplesmente aceder a ficheiros que normalmente só o utilizador raiz pode aceder, por exemplo:</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/sistema/bin/su</li><li>/sistema/xbin/su</li><li>/dados/local/xbin/su</li><li>/dados/local/bin/su</li><li>/sistema/sd/xbin/su</li><li>/sistema/bin/failsafe/su</li><li>/dados/local/su</li></ul><p>Se a aplicação puder aceder a qualquer um destes ficheiros, denota que a aplicação está a funcionar como utilizador principal.</p>|
+| **Passos** | <p>A aplicação deve salvaguardar a sua própria configuração e dados do utilizador no caso de o telefone estar enraizado ou a cadeia quebrada. A rutura de raiz/prisão implica acesso não autorizado, o que os utilizadores normais não fazem nos seus próprios telefones. Por isso, a aplicação deve ter lógica implícita de deteção no arranque da aplicação, para detetar se o telefone está enraizado.</p><p>A lógica de deteção pode ser simplesmente aceder a ficheiros que normalmente só o utilizador raiz pode aceder, por exemplo:</p><ul><li>/sistema/app/Superuser.apk</li><li>/sbin/su</li><li>/sistema/bin/su</li><li>/sistema/xbin/su</li><li>/dados/local/xbin/su</li><li>/dados/local/bin/su</li><li>/sistema/sd/xbin/su</li><li>/sistema/bin/failsafe/su</li><li>/dados/local/su</li></ul><p>Se a aplicação puder aceder a qualquer um destes ficheiros, denota que a aplicação está a funcionar como utilizador principal.</p>|
 
 ## <a name="weak-class-reference-in-wcf"></a><a id="weak-class-wcf"></a>Referência de classe fraca no WCF
 

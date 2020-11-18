@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 09/29/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a36e15a56a5a4c8a637120ca730ae1da764d376d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: a543f03cb73d9eae8eaa81eeb3a37fd59e4e6a81
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422908"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685805"
 ---
 # <a name="common-error-codes-for-azure-key-vault"></a>Códigos de erro comuns para Azure Key Vault
 
@@ -30,10 +30,11 @@ Os códigos de erro listados na tabela seguinte podem ser devolvidos por uma ope
 | RegionNotSupporto |  A região azul especificada não é apoiada para este recurso. |
 | SkuNotsupported |  O tipo SKU especificado não é suportado para este recurso. |
 | RecursosNotFound |  O recurso azul especificado não é encontrado. |
+| Grupo de RecursosNotFound | O grupo de recursos azure especificado não é encontrado. |
 | CertificadoSExpired |  Verifique a data de validade e o prazo de validade do certificado. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o guia de desenvolvedores do [Azure Key Vault](developers-guide.md)
 - Ler mais sobre [autenticação no cofre da Chave](authentication.md)

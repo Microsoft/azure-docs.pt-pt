@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3463e4dfc423a3f12ce7a42cb0def36574bcb2d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 426c95638422fa4260508aa81bb47a7c9565e6eb
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312006"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685720"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Tipos de aninhados de consulta em ficheiros Parquet e JSON utilizando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
 
@@ -219,6 +219,6 @@ FROM
     CROSS APPLY OPENJSON (SimpleArray) WITH (Element int '$') as array_values
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O próximo artigo irá mostrar-lhe como [consultar ficheiros JSON](query-json-files.md).

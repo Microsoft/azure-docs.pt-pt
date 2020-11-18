@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536536"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693737"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição Geral
@@ -141,8 +141,8 @@ No Application Diagnostics é possível ver eventos agrupados nas seguintes form
 ## <a name="storage"></a>Armazenamento
 A secção fornece informações adicionais sobre as principais funcionalidades da segurança de armazenamento Azure e informações sumárias sobre estas capacidades.
 
-### <a name="role-based-access-control-rbac"></a>Controlo de Acesso Baseado em Funções (RBAC)
-Pode proteger a sua conta de armazenamento com Role-Based Controlo de Acesso (RBAC). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e menos [privilégios](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é imperativo para as organizações que querem impor políticas de segurança para o acesso aos dados. Estes direitos de acesso são concedidos atribuindo o papel adequado de Azure a grupos e aplicações num determinado âmbito. Pode utilizar [funções incorporadas do Azure,](../../role-based-access-control/built-in-roles.md)como o Storage Account Contributor, para atribuir privilégios aos utilizadores. O acesso às chaves de armazenamento de uma conta de armazenamento utilizando o modelo [Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado através do Role-Based Access Control (RBAC).
+### <a name="azure-role-based-access-control-azure-rbac"></a>Controlo de acesso baseado em funções do Azure (RBAC do Azure)
+Pode proteger a sua conta de armazenamento com o controlo de acesso baseado em funções Azure (Azure RBAC). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e menos [privilégios](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é imperativo para as organizações que querem impor políticas de segurança para o acesso aos dados. Estes direitos de acesso são concedidos atribuindo o papel adequado de Azure a grupos e aplicações num determinado âmbito. Pode utilizar [funções incorporadas do Azure,](../../role-based-access-control/built-in-roles.md)como o Storage Account Contributor, para atribuir privilégios aos utilizadores. O acesso às chaves de armazenamento de uma conta de armazenamento utilizando o modelo [Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado através do Azure RBAC.
 
 ### <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 As [assinaturas de acesso partilhado (SAS)](../../storage/common/storage-sas-overview.md) disponibilizam acesso delegado a recursos na sua conta de armazenamento. O SAS significa que pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto especificado de permissões. Pode conceder estas permissões limitadas sem ter de partilhar as chaves de acesso à sua conta.
@@ -336,7 +336,7 @@ A Microsoft utiliza múltiplas práticas e tecnologias de segurança em todos os
 
 -   [A autenticação baseada em token](../../active-directory/develop/authentication-vs-authorization.md) permite a autenticação através do Azure Ative Directory.
 
--   [O controlo de acesso baseado em funções (Azure RBAC) permite-lhe](../../role-based-access-control/built-in-roles.md) conceder acesso com base na função atribuída ao utilizador, facilitando aos utilizadores apenas a quantidade de acesso de que necessitam para desempenharem as suas funções. Pode personalizar o RBAC de acordo com o modelo de negócio da sua organização e a tolerância ao risco.
+-   [O controlo de acesso baseado em funções (Azure RBAC) permite-lhe](../../role-based-access-control/built-in-roles.md) conceder acesso com base na função atribuída ao utilizador, facilitando aos utilizadores apenas a quantidade de acesso de que necessitam para desempenharem as suas funções. Você pode personalizar Azure RBAC de acordo com o modelo de negócio da sua organização e tolerância ao risco.
 
 -   [A gestão integrada da identidade (identidade híbrida)](../../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) permite manter o controlo do acesso dos utilizadores através de datacenters internos e plataformas cloud, criando uma identidade única de utilizador para a autenticação e autorização de todos os recursos.
 

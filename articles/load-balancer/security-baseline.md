@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2786a45ef779b9c66edda4c765a1cf2140f1bf9f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37db72b2b5dadfba930ca003121140fd99c4736d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425280"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686077"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Linha de base de segurança Azure para O Balançador de Carga Azure
 
@@ -30,7 +30,7 @@ A Azure oferece dois tipos de ofertas de Balancer de Carga, Standard e Basic. Ut
 
 A utilização de um Balancer de Carga Padrão é recomendada para as suas cargas de produção e normalmente o Balanceador de Carga Básica só é utilizado para testes, uma vez que o tipo básico está aberto a ligações a partir da internet por padrão, e não requer grupos de segurança de rede para funcionamento. 
 
-- [Ligações de saída no Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#outboundrule)
+- [Ligações de saída no Azure](load-balancer-outbound-connections.md)
 
 - [Upgrade Azure Public Load Balancer](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard)
 
@@ -664,7 +664,7 @@ Utilize o conector de dados do Centro de Segurança para transmitir os alertas a
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

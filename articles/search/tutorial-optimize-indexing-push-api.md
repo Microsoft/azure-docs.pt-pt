@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13825422358fdddf6742353fbabaac0303b0c82e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d22ff5c863617a3feb2a08d4b1889d0a7c10cd3a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973449"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693404"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Tutorial: Otimizar a indexação com a API push
 
@@ -54,7 +54,7 @@ Ao empurrar dados para um índice, há várias considerações fundamentais que 
 Seis factores-chave a ter em conta são:
 
 + **Nível de serviço e número de divisórias/réplicas** - Adicionar divisórias e aumentar o seu nível aumentará as velocidades de indexação.
-+ **Esquema de Índice** - Adicionar campos e adicionar propriedades adicionais aos campos (como *pescável,* *facetável*ou *filtrado*) reduzem as velocidades de indexação.
++ **Esquema de Índice** - Adicionar campos e adicionar propriedades adicionais aos campos (como *pescável,* *facetável* ou *filtrado*) reduzem as velocidades de indexação.
 + **Tamanho do lote** - O tamanho ideal do lote varia em função do seu esquema de índice e do conjunto de dados.
 + **Número de fios/trabalhadores** - um único fio não tirará o máximo partido das velocidades de indexação
 + **Estratégia de retíria** - Uma estratégia de retrocesso exponencial deve ser usada para otimizar a indexação.
@@ -73,11 +73,11 @@ As chamadas da API requerem o URL de serviço e uma chave de acesso. Um serviço
 
 1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
 
-   ![Obtenha uma chave de acesso http e acesso](media/search-get-started-postman/get-url-key.png "Obtenha uma chave de acesso http e acesso")
+   ![Obtenha uma chave de acesso http e acesso](media/search-get-started-rest/get-url-key.png "Obtenha uma chave de acesso http e acesso")
 
 ## <a name="2---set-up-your-environment"></a>2 - Configurar o seu ambiente
 
-1. Inicie o Visual Studio e abra **OptimizeDataIndexing.sln**.
+1. Inicie o Visual Studio e abra **o OptimizeDataIndexing.sln**.
 1. No Solution Explorer, abra **appsettings.js** para fornecer informações de ligação.
 
 ```json
@@ -90,7 +90,7 @@ As chamadas da API requerem o URL de serviço e uma chave de acesso. Um serviço
 
 ## <a name="3---explore-the-code"></a>3 - Explorar o código
 
-Uma vez atualizado *appsettings.jsligado,* o programa de amostras em **OptimizeDataIndexing.sln** deve estar pronto para construir e executar.
+Uma vez atualizado *appsettings.jsligado,* o programa de amostras no **OptimizeDataIndexing.sln** deve estar pronto para construir e executar.
 
 Este código é derivado do [C# Quickstart](search-get-started-dotnet.md). Pode encontrar informações mais detalhadas sobre os fundamentos de trabalhar com o .NET SDK nesse artigo.
 
@@ -162,7 +162,7 @@ O esquema do seu índice pode ter um impacto significativo nas velocidades de in
 A Azure Cognitive Search suporta as seguintes APIs para carregar documentos únicos ou múltiplos num índice:
 
 + [Adicionar, Atualizar ou Eliminar Documentos (API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Classe IndexDocumentsA](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) ou [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
++ [Classe IndexDocumentsA](/dotnet/api/azure.search.documents.models.indexdocumentsaction) ou [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch)
 
 A indexação de documentos em lotes melhorará significativamente o desempenho da indexação. Estes lotes podem ser até 1000 documentos, ou até cerca de 16 MB por lote.
 
@@ -404,7 +404,7 @@ O código de amostra deste tutorial verifica os índices existentes e elimina-os
 
 Também pode utilizar o portal para eliminar índices.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando se está a trabalhar na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

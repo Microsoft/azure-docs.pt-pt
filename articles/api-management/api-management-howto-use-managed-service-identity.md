@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1a8238cf9ddae57d73438d43daa54294ce6860
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85558035"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686230"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Utilizar identidades geridas na Azure API Management
 
@@ -35,7 +35,7 @@ Para configurar uma identidade gerida no portal Azure, primeiro criará uma inst
 
 1. Crie uma instância de Gestão API no portal como normalmente faria. Procure-o no portal.
 2. Selecione **identidades geridas**.
-3. No separador **System atribuído,** **altere o Estado** para **ligar**. Selecione **Guardar**.
+3. No separador **System atribuído,** **altere o Estado** para **ligar**. Selecione **Save** (Guardar).
 
     :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Seleções para permitir uma identidade gerida atribuída ao sistema" border="true":::
 
@@ -123,9 +123,9 @@ A `tenantId` propriedade identifica a que inquilino da AD AZure a identidade per
 > [!NOTE]
 > Uma instância de Gestão da API pode ter identidades atribuídas ao sistema e atribuídas ao mesmo tempo. Neste caso, a `type` propriedade `SystemAssigned,UserAssigned` seria.
 
-### <a name="supported-scenarios"></a>Cenários suportados
+## <a name="supported-scenarios-using-system-assigned-identity"></a>Cenários suportados usando identidade atribuída ao sistema
 
-#### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obtenha um certificado TLS/SSL personalizado para a instância de Gestão da API a partir do Cofre da Chave Azure
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault"></a>Obtenha um certificado TLS/SSL personalizado para a instância de Gestão da API a partir do Cofre da Chave Azure
 Pode utilizar a identidade atribuída ao sistema de uma instância de Gestão da API para recuperar certificados TLS/SSL personalizados armazenados no Cofre da Chave Azure. Em seguida, pode atribuir estes certificados a domínios personalizados na instância de Gestão da API. Tenha em conta o seguinte:
 
 - O tipo de conteúdo do segredo deve ser *aplicação/x-pkcs12*.
@@ -262,7 +262,7 @@ O exemplo a seguir mostra um modelo do Gestor de Recursos Azure que contém os s
 }
 ```
 
-#### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autenticar até ao fim utilizando uma identidade de Gestão API
+### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autenticar até ao fim utilizando uma identidade de Gestão API
 
 Pode utilizar a identidade atribuída ao sistema para autenticar até ao final através da política [de identidade gerida pela autenticação.](api-management-authentication-policies.md#ManagedIdentity)
 
@@ -281,7 +281,7 @@ Para configurar uma identidade gerida no portal, primeiro criará uma instância
 3. No **separador Utilizador atribuído,** selecione **Adicionar**.
 4. Procure a identidade que criou anteriormente e selecione-a. Selecione **Adicionar**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Seleções para permitir uma identidade gerida atribuída ao sistema" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Seleções para permitir uma identidade gerida atribuída pelo utilizador" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -387,9 +387,32 @@ A `principalId` propriedade é um identificador único para a identidade que é 
 > [!NOTE]
 > Uma instância de Gestão da API pode ter identidades atribuídas ao sistema e atribuídas ao mesmo tempo. Neste caso, a `type` propriedade `SystemAssigned,UserAssigned` seria.
 
-### <a name="supported-scenarios"></a>Cenários suportados
+## <a name="supported-scenarios-using-user-assigned-managed-identity"></a>Cenários suportados utilizando identidade gerida atribuída ao utilizador
 
-#### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autenticar até ao fim utilizando uma identidade atribuída ao utilizador
+### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault-ua"></a>Obtenha um certificado TLS/SSL personalizado para a instância de Gestão da API a partir do Cofre da Chave Azure
+Pode utilizar qualquer identidade atribuída ao utilizador para estabelecer confiança entre uma instância de Gestão da API e KeyVault. Esta confiança pode então ser usada para recuperar certificados TLS/SSL personalizados armazenados no Cofre da Chave Azure. Em seguida, pode atribuir estes certificados a domínios personalizados na instância de Gestão da API. 
+
+Tenha em conta o seguinte:
+
+- O tipo de conteúdo do segredo deve ser *aplicação/x-pkcs12*.
+- Use o ponto final secreto do certificado Key Vault, que contém o segredo.
+
+> [!Important]
+> Se não fornecer a versão do objeto do certificado, a API Management obterá automaticamente a versão mais recente do certificado no prazo de quatro horas após a sua atualização no Key Vault.
+
+Para o modelo completo, consulte [a Gestão da API com O SSL baseado em KeyVault utilizando a identidade atribuída pelo utilizador.](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json)
+
+Neste modelo, irá implementar:
+
+* Gestão de API do Azure
+* Identidade atribuída ao utilizador gerido Azure
+* Azure KeyVault para armazenar o certificado SSL/TLS
+
+Para executar automaticamente a implementação, clique no seguinte botão:
+
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-api-management-key-vault-create%2Fazuredeploy.json)
+
+### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autenticar até ao fim utilizando uma identidade atribuída ao utilizador
 
 Pode utilizar a identidade atribuída ao utilizador para autenticar até ao final através da política [de identidade gerida pela autenticação.](api-management-authentication-policies.md#ManagedIdentity)
 
@@ -413,7 +436,7 @@ Para remover todas as identidades utilizando o modelo Azure Resource Manager, at
 >
 > Pode desbloquear-se mudando de um certificado Azure Key Vault para um certificado codificado inline e, em seguida, desativando a identidade gerida. Para obter mais informações, consulte [configurar um nome de domínio personalizado.](configure-custom-domain.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre identidades geridas para recursos Azure:
 

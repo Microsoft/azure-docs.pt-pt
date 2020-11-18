@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 0c05db39e02a6bc2a7fa5d62b8b891626eb0d241
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 362f46290bbe2008f9fb862a8711577050050192
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675804"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693255"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipos de consulta e composição em Pesquisa Cognitiva Azure
 
@@ -61,7 +61,7 @@ Se você seguiu este [quickstart para criar o índice de demonstração de hoté
 
 O design de índice e o design de consulta estão fortemente acopdos na Pesquisa Cognitiva Azure. Um facto essencial a saber à frente é que o esquema de *índice,* com atributos em cada campo, determina o tipo de consulta que se pode construir. 
 
-Os atributos de índice num campo definem as operações permitidas - se um campo é *pesmável* no índice, *recuperável* em resultados, *ordenado,* *filtrado* , e assim por diante. Na cadeia de consulta de exemplo, `"$orderby": "Rating"` só funciona porque o campo de Classificação é marcado como classificado como *classificado* no esquema de índice. 
+Os atributos de índice num campo definem as operações permitidas - se um campo é *pesmável* no índice, *recuperável* em resultados, *ordenado,* *filtrado*, e assim por diante. Na cadeia de consulta de exemplo, `"$orderby": "Rating"` só funciona porque o campo de Classificação é marcado como classificado como *classificado* no esquema de índice. 
 
 ![Definição de índice para a amostra do hotel](./media/search-query-overview/hotel-sample-index-definition.png "Definição de índice para a amostra do hotel")
 
@@ -78,8 +78,8 @@ Os elementos necessários num pedido de consulta incluem os seguintes componente
 
 + Recolha de documentos de ponto final e índice de serviço, expressa em URL contendo componentes fixos e definidos pelo utilizador: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + **`api-version`** (APENAS REST) é necessário porque mais de uma versão da API está sempre disponível. 
-+ **`api-key`** , seja uma consulta ou uma chave api-administrador, autentica o pedido ao seu serviço.
-+ **`queryType`** , simples ou cheio, que pode ser omitido se estiver a utilizar a sintaxe simples incorporada.
++ **`api-key`**, seja uma consulta ou uma chave api-administrador, autentica o pedido ao seu serviço.
++ **`queryType`**, simples ou cheio, que pode ser omitido se estiver a utilizar a sintaxe simples incorporada.
 + **`search`** ou **`filter`** fornece os critérios de correspondência, que podem não ser especificados se quiser realizar uma pesquisa vazia. Ambos os tipos de consulta são discutidos em termos do simples parser, mas mesmo consultas avançadas requerem o parâmetro de pesquisa para passar expressões de consulta complexas.
 
 Todos os outros parâmetros de pesquisa são opcionais. Para obter a lista completa de atributos, consulte [Criar Índice (REST)](/rest/api/searchservice/create-index). Para ver mais de perto como os parâmetros são usados durante o processamento, consulte [como funciona a pesquisa de texto completo na Pesquisa Cognitiva de Azure](search-lucene-query-architecture.md).
@@ -88,10 +88,10 @@ Todos os outros parâmetros de pesquisa são opcionais. Para obter a lista compl
 
 A tabela que se segue lista as APIs e as abordagens baseadas em ferramentas para a apresentação de consultas.
 
-| Metodologia | Descrição |
+| Metodologia | Description |
 |-------------|-------------|
 | [Explorador de procura (portal)](search-explorer.md) | Fornece uma barra de pesquisa e opções para seleções de versão index e api. Os resultados são devolvidos como documentos JSON. Recomendado para exploração, teste e validação. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
-| [Carteiro ou outras ferramentas REST](search-get-started-postman.md) | As ferramentas de teste web são uma excelente escolha para formular chamadas REST. A API REST suporta todas as operações possíveis na Pesquisa Cognitiva Azure. Neste artigo, aprenda a configurar um cabeçalho e corpo de pedidos HTTP para o envio de pedidos para a Azure Cognitive Search.  |
+| [Carteiro ou outras ferramentas REST](search-get-started-rest.md) | As ferramentas de teste web são uma excelente escolha para formular chamadas REST. A API REST suporta todas as operações possíveis na Pesquisa Cognitiva Azure. Neste artigo, aprenda a configurar um cabeçalho e corpo de pedidos HTTP para o envio de pedidos para a Azure Cognitive Search.  |
 | [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Cliente que pode ser usado para consultar um índice de Pesquisa Cognitiva Azure.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md)  |
 | [Documentos de pesquisa (REST API)](/rest/api/searchservice/search-documents) | Métodos GET ou POST num índice, utilizando parâmetros de consulta para entrada adicional.  |
 

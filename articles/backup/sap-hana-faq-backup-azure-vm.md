@@ -3,12 +3,12 @@ title: FAQ - Fazer a cópia de segurança de bases de dados SAP HANA nas VMs do 
 description: Neste artigo, descubra respostas a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a1d6012ec064b5ec582896ac3484161a6e25f2bf
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 24eb4abaaabe166ceb3e6bdb99f9446d398d03a1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659969"
+ms.locfileid: "94686111"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes - Apoiar bases de dados SAP HANA em VMs Azure
 
@@ -26,7 +26,7 @@ Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são envia
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de reserva agendados no menu Backup Jobs?
 
-O menu Backup Job só mostrará trabalhos de backup ad-hoc. Para trabalhos programados, utilize [o Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+O menu Backup Job só mostrará trabalhos de backup a pedido. Para trabalhos programados, utilize [o Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>As bases de dados futuras são adicionadas automaticamente para cópia de segurança?
 
@@ -39,7 +39,7 @@ A forma correta de parar de proteger esta base de dados é efetuar **o Stop Back
 
 ### <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-the-behavior-be"></a>Se eu mudar o nome da base de dados depois de ter sido protegida, qual será o comportamento?
 
-Uma base de dados renomeada é tratada como uma nova base de dados. Portanto, o serviço tratará esta situação como se a base de dados não tivesse sido encontrada e com falha nas cópias de segurança. A base de dados renomeada será uma nova base de dados e deve ser configurada para proteção.
+Uma base de dados renomeada é tratada como uma nova base de dados. Portanto, o serviço tratará esta situação como se a base de dados não tivesse sido encontrada e falhará nas cópias de segurança. A base de dados renomeada será uma nova base de dados e deve ser configurada para proteção.
 
 ### <a name="what-are-the-prerequisites-to-back-up-sap-hana-databases-on-an-azure-vm"></a>Quais são os pré-requisitos para fazer o back bases de dados SAP HANA num Azure VM?
 
@@ -47,7 +47,7 @@ Consulte os [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e [o
 
 ### <a name="what-permissions-should-be-set-so-azure-can-back-up-sap-hana-databases"></a>Que permissões devem ser definidas para que o Azure possa fazer o back bases de dados SAP HANA?
 
-A execução do script pré-registo define as permissões necessárias para permitir que a Azure faça o back-up das bases de dados SAP HANA. Pode encontrar mais o que o script de pré-registo faz [aqui.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
+A execução do script pré-registo define as permissões necessárias para permitir que a Azure faça o back-up das bases de dados SAP HANA. Pode saber mais sobre o que o script de pré-registo faz [aqui.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>Os backups funcionarão após a migração do SAP HANA da SDC para a MDC?
 
@@ -62,13 +62,13 @@ Atualmente não temos a capacidade de configurar a solução apenas contra um IP
 1. Aguarde que a cópia de segurança atualmente em execução esteja concluída na base de dados desejada (verifique a partir do estúdio para conclusão).
 1. Desative as cópias de segurança de registo e descreva a cópia de segurança do catálogo para o **Ficheiro** para o DB pretendido utilizando os seguintes passos:
 1. Configuração de duplo clique **SYSTEMDB**  ->  **configuration**  ->  **Selecione** filtro de base de dados  ->  **(log)**
-    1. Definir enable_auto_log_backup para **não**
-    1. Definir catalog_backup_using_backint a **falso**
+    1. Desema enable_auto_log_backup para **não.**
+    1. Desateia catalog_backup_using_backint **em falso.**
 1. Pegue uma cópia de segurança a pedido (completa/diferencial/ incremental) na base de dados desejada e aguarde a conclusão da cópia de segurança e do catálogo.
-1. Se também pretender mover as cópias de segurança de registo para o Sistema de Ficheiros, desloque enable_auto_log_backup para **sim**
+1. Se também pretender mover as cópias de segurança de registo para o Sistema de Ficheiros, desloque enable_auto_log_backup para **sim**.
 1. Reverta para as definições anteriores para permitir que as cópias de segurança fluam para o cofre Azure:
-    1. Definir enable_auto_log_backup para **sim**
-    1. Definir catalog_backup_using_backint para **verdade**
+    1. Desateia enable_auto_log_backup para **sim.**
+    1. De catalog_backup_using_backint a **verdade.**
 
 >[!NOTE]
 >Mover cópias de segurança para o sistema de ficheiros locais e voltar a mudar para o cofre Azure pode causar uma rutura da corrente de registo das cópias de segurança do cofre. Isto irá desencadear uma cópia de segurança completa, que uma vez concluída com sucesso, começará a fazer backup dos registos.
@@ -77,7 +77,7 @@ Atualmente não temos a capacidade de configurar a solução apenas contra um IP
 
 Atualmente, o Azure Backup não tem a capacidade de entender uma configuração HSR. Isto significa que os nós primários e secundários do HSR serão tratados como dois VMs individuais e não relacionados. Primeiro terá de configurar o nó primário. Quando uma falha acontece, a cópia de segurança deve ser configurada no nó secundário (que agora se torna o nó primário). Não há falha automática de apoio ao outro nó.
 
-Para fazer o armazenamento de dados do nó ativo (primário) em qualquer ponto do tempo, pode mudar a **proteção**  para o nó secundário, que agora se tornou o principal após o ressalimbamento.
+Para fazer o armazenamento de dados do nó ativo (primário) em qualquer ponto do tempo, pode mudar a **proteção** para o nó secundário, que agora se tornou o principal após o ressalimbamento.
 
 Para efetuar esta **proteção do interruptor,** siga estes passos:
 
@@ -129,38 +129,38 @@ Sim, pode utilizar cópias de segurança de streaming ativadas numa base de dado
 
 ### <a name="different-options-available-during-creation-of-a-new-policy-for-sap-hana-backup"></a>Diferentes opções disponíveis durante a criação de uma nova política para o backup SAP HANA
 
-Antes de se criar uma política, deve ser claro sobre os requisitos da RPO e da RTO e as suas implicações de custos relevantes.
+Antes de criar uma política, deve ser claro sobre os requisitos da RPO e da RTO e as suas implicações de custos relevantes.
 
-O RPO (objetivo de recuperação- ponto de recuperação) indica quanto é que a perda de dados é OK para o utilizador/cliente. Isto é determinado pela frequência de reserva de registo. As cópias de segurança de registo mais frequentes indicam um RPO mais baixo e o valor mínimo suportado pelo serviço Azure Backup é de 15 minutos, ou seja, a frequência de backup de registo pode ser de 15 minutos ou mais.
+O RPO (objetivo de recuperação- ponto de recuperação) indica quanto a perda de dados é aceitável para o utilizador/cliente. Isto é determinado pela frequência de reserva de registo. As cópias de segurança de registo mais frequentes indicam um RPO mais baixo e o valor mínimo suportado pelo serviço Azure Backup é de 15 minutos. Assim, a frequência de backup pode ser de 15 minutos ou mais.
 
-O RTO (objetivo do tempo de recuperação) indica a rapidez com que os dados devem ser restaurados até ao último ponto de tempo disponível após um cenário de perda de dados. Isto depende da estratégia de recuperação utilizada pela HANA, que normalmente depende do número de ficheiros necessários para ser restaurado. Isto também tem implicações de custos e a tabela a seguir deverá ajudar a compreender todos os cenários e as suas implicações.
+O RTO (objetivo do tempo de recuperação) indica a rapidez com que os dados devem ser restaurados até ao último ponto de tempo disponível após um cenário de perda de dados. Isto depende da estratégia de recuperação utilizada pela HANA, que normalmente depende do número de ficheiros necessários para ser restaurado. Isto também tem implicações de custos, e a tabela a seguir deve ajudar a compreender todos os cenários e as suas implicações.
 
-|Política de Backup  |RTO  |Custo  |
+|Política de cópias de segurança  |RTO  |Custo  |
 |---------|---------|---------|
-|Diário Full + registos     |   Mais rápido já que precisamos apenas de uma cópia completa + registos necessários para restauro pontual      |    A opção mais dispendiosa uma vez que uma cópia completa é tomada diariamente e assim cada vez mais dados são acumulados em backend até ao tempo de retenção   |
-|SemanalMente Full + diferencial diário + registos     |   Opção mais lenta do que acima, mas mais rápida do que abaixo, uma vez que exigimos uma cópia completa + uma cópia diferencial + registos para restauro pontual      |    Opção mais barata uma vez que o diferencial diário é geralmente menor do que cheio e uma cópia completa é tomada apenas uma vez por semana      |
+|Diário Full + registos     |   Mais rápido, já que precisamos apenas de uma cópia completa + registos necessários para restauro pontual      |    A opção mais dispendiosa uma vez que uma cópia completa é tomada diariamente e assim cada vez mais dados são acumulados em backend até ao tempo de retenção   |
+|SemanalMente Full + diferencial diário + registos     |   Mais lento do que a opção acima, mas mais rápido do que a opção seguinte, uma vez que exigimos uma cópia completa + uma cópia diferencial + registos para restauro pontual      |    Opção mais barata uma vez que o diferencial diário é geralmente menor do que cheio e uma cópia completa é tomada apenas uma vez por semana      |
 |SemanalMente Full + diário incremental + logs     |  Mais lento já que precisamos de uma cópia completa + 'n' incrementais + registos para recuperação pontual       |     Opção menos dispendiosa uma vez que o incremental diário será menor do que o diferencial e uma cópia completa é tomada apenas semanalmente    |
 
 > [!NOTE]
-> As opções acima são as mais comuns, mas não as únicas opções. Por exemplo, pode-se ter uma cópia de segurança completa semanal + diferenciais duas vezes por semana + registos.
+> As opções acima são as mais comuns, mas não as únicas opções. Por exemplo, pode ter uma cópia de segurança completa semanal + diferenciais duas vezes por semana + registos.
 
-Por conseguinte, pode-se selecionar a variante política com base nos objetivos de RPO e RTO e em considerações de custos.
+Portanto, pode selecionar a variante de política com base em objetivos de RPO e RTO e considerações de custos.
 
 ### <a name="impact-of-modifying-a-policy"></a>Impacto da modificação de uma política
 
-Alguns princípios devem ser mantidos em mente ao mesmo tempo que se determinam o impacto da mudança da política de um item de reserva da Política 1 (P1) para a Política 2 (P2) ou da política de edição 1 (P1).
+Alguns princípios devem ser mentes na determinação do impacto da mudança da política de um item de reserva da Política 1 (P1) para a Política 2 (P2) ou da política de edição 1 (P1).
 
-- Todas as alterações são também aplicadas retroativamente. A última política de backup é aplicada também nos pontos de recuperação tomados anteriormente. Por exemplo, assumam que a retenção diária total é de 30 dias e foram tomados 10 pontos de recuperação de acordo com a política atualmente ativa. Se a retenção diária da totalidade for alterada para 10 dias, então o prazo de validade do ponto anterior também é recalculado como hora de início + 10 dias e eliminado se estiverem expirados.
-- O âmbito de mudança também inclui dia de backup, tipo de backup juntamente com a retenção. Por exemplo: Se uma política for alterada de diariamente para se manter completa aos domingos, todos os ofustados anteriores que não são aos domingos serão marcados para supressão.
-- Um progenitor não é apagado até que a criança esteja ativa/não expirada. Cada tipo de backup tem um tempo de validade de acordo com a política atualmente ativa. Mas um tipo completo de backup é considerado como pai para subsequentes 'diferenciais', 'incrementais' e 'logs'. Um "diferencial" e um "log" não são pais de mais ninguém. Um 'incremental' pode ser um pai para subsequente 'incremental'. Mesmo que um «progenitor» esteja marcado para a supressão, não são efetivamente eliminados se os "diferenciais" ou "registos" da criança não estiverem caducados. Por exemplo, se uma política for alterada de diariamente para se manter completa aos domingos, todos os mais cedo que não são aos domingos serão marcados para supressão. Mas não são efetivamente apagados até que os registos que foram tomados diariamente mais cedo sejam expirados. Por outras palavras, são conservados de acordo com a duração mais recente do registo. Uma vez expiradas as registos, tanto os registos como estes fulls serão eliminados.
+- Todas as alterações são também aplicadas retroativamente. A última política de backup é aplicada também nos pontos de recuperação tomados anteriormente. Por exemplo, assumam que a retenção diária total é de 30 dias e foram tomados 10 pontos de recuperação de acordo com a política atualmente ativa. Se a retenção diária for alterada para 10 dias, então o prazo de validade do ponto anterior também é recalculado como hora de início + 10 dias e apagado se estiverem expirados.
+- O âmbito de mudança também inclui dia de backup, tipo de backup juntamente com a retenção. Por exemplo: Se uma política for alterada de diariamente para dia inteiro aos domingos, todos os ofustados anteriores que não são aos domingos serão marcados para eliminação.
+- Um progenitor não é apagado até que a criança esteja ativa/não expirada. Cada tipo de backup tem um tempo de validade de acordo com a política atualmente ativa. Mas um tipo completo de backup é considerado como pai para subsequentes 'diferenciais', 'incrementais' e 'logs'. Um "diferencial" e um "log" não são pais de mais ninguém. Um 'incremental' pode ser um pai para subsequente 'incremental'. Mesmo que um 'pai' esteja marcado para a eliminação, não é realmente apagado se os "diferenciais" ou 'registos' da criança não estiverem caducados. Por exemplo, se uma política for alterada de diariamente para se manter completa aos domingos, todos os ofustados anteriores que não são aos domingos serão marcados para eliminação. Mas não são apagados até que os registos que foram tomados diariamente mais cedo expirem. Por outras palavras, são retidos de acordo com a última duração do registo. Uma vez expiradas as registos, tanto os registos como estes fulls serão eliminados.
 
 Com estes princípios, pode ler-se a seguinte tabela para compreender as implicações de uma mudança de política.
 
-|Velha política/Nova Política  |Daily Fulls + registos  | Fulls semanais + diferenciais diários + troncos  |Fulls semanais + incrementais diários + troncos  |
+|Política antiga/ Nova política  |Diárias + registos  | Diárias + diferenciais diárias + troncos  |Diárias + incrementais diários + troncos  |
 |---------|---------|---------|---------|
-|Daily Fulls + registos     |   -      |    Os ofícios anteriores que não estão no mesmo dia da semana estão marcados para eliminação, mas mantidos até ao período de retenção de registos     |    Os ofícios anteriores que não estão no mesmo dia da semana estão marcados para eliminação, mas mantidos até ao período de retenção de registos     |
-|Fulls semanais + diferenciais diários + troncos     |   A retenção semanal anterior é recalculada de acordo com a política mais recente. Os diferenciais anteriores são imediatamente eliminados      |    -     |    Os diferenciais anteriores são imediatamente eliminados     |
-|Fulls semanais + incrementais diários + troncos     |     A retenção semanal anterior é recalculada de acordo com a política mais recente. Os incrementos anteriores são imediatamente eliminados    |     Os incrementos anteriores são imediatamente eliminados    |    -     |
+|Diárias + registos     |   -      |    Os ofícios anteriores que não estão no mesmo dia da semana estão marcados para eliminação, mas mantidos até ao período de retenção de registos.     |    Os ofícios anteriores que não estão no mesmo dia da semana estão marcados para eliminação, mas mantidos até ao período de retenção de registos.     |
+|Diárias + diferenciais diárias + troncos     |   A retenção semanal anterior é recalculada de acordo com a política mais recente. Os diferenciais anteriores são imediatamente eliminados      |    -     |    Os diferenciais anteriores são imediatamente eliminados     |
+|Diárias + incrementais diários + troncos     |     A retenção semanal anterior é recalculada de acordo com a política mais recente. Os incrementos anteriores são imediatamente eliminados    |     Os incrementos anteriores são imediatamente eliminados    |    -     |
 
 ## <a name="next-steps"></a>Próximos passos
 

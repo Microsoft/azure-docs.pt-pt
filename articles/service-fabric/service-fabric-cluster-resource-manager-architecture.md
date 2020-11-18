@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8e7d5d4b730ef1669bd9bb7d74e35924061f5580
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0aff55810508fedcf354fba3d9fca9f7a402029b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146216"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685839"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Visão geral da arquitetura do gestor de recursos do cluster
 O Service Fabric Cluster Resource Manager é um serviço central que funciona no cluster. Gere o estado desejado dos serviços no cluster, nomeadamente no que diz respeito ao consumo de recursos e quaisquer regras de colocação. 
@@ -43,7 +43,7 @@ Vejamos o seguinte diagrama:
 
 <center>
 
-![Diagrama que mostra thow o serviço Cluster Resource Manager agrega toda a informação dos agentes locais e reage com base na sua configuração atual.][Image1]
+![Diagrama que mostra o serviço Cluster Resource Manager agrega toda a informação dos agentes locais e reage com base na sua configuração atual.][Image1]
 </center>
 
 Durante o tempo de funcionamento, há muitas mudanças que podem acontecer. Por exemplo, digamos a quantidade de recursos que alguns serviços consomem alterações, alguns serviços falham, e alguns nós juntam-se e saem do cluster. Todas as alterações num nó são agregadas e periodicamente enviadas para o serviço Cluster Resource Manager (1,2) onde são novamente agregadas, analisadas e armazenadas. A cada poucos segundos que o serviço olha para as alterações e determina se são necessárias algumas ações (3). Por exemplo, poderia notar que alguns nós vazios foram adicionados ao cluster. Como resultado, decide mover alguns serviços para esses nós. O Gestor de Recursos do Cluster também poderia notar que um nó particular está sobrecarregado, ou que certos serviços falharam ou foram eliminados, libertando recursos em outros lugares.
@@ -55,7 +55,7 @@ Vamos ver o seguinte diagrama e ver o que acontece a seguir. Digamos que o Gesto
 ![Arquitetura do Equilibrador de Recursos][Image2]
 </center>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre [a descrição de um cluster de Tecido de Serviço](./service-fabric-cluster-resource-manager-cluster-description.md)
 - As funções primárias do Cluster Resource Manager são reequilibrar o cluster e impor as regras de colocação. Para obter mais informações sobre a configuração destes comportamentos, consulte [o equilíbrio do seu cluster de Tecido de Serviço](./service-fabric-cluster-resource-manager-balancing.md)
 

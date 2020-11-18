@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8116f3e00d13c0bd1e5f075a7fbe3264f337079
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: df611e01fefacd22f4dc026a819d4c71ede6e7e3
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970406"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686094"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>SAP ASCS/SCS exemplo multi-SID alta disponibilidade com cluster de failover do servidor Windows e disco compartilhado Azure
 
@@ -35,12 +35,12 @@ Este artigo centra-se em como passar de uma única instalação ASCS/SCS para um
 Atualmente pode utilizar discos SSD Azure Premium como disco partilhado Azure para a instância SAP ASCS/SCS. Estão em vigor as seguintes limitações:
 
 -  [O disco Azure Ultra](../../disks-types.md#ultra-disk) não é suportado como Disco Partilhado Azure para cargas de trabalho SAP. Atualmente não é possível colocar VMs Azure, usando Azure Ultra Disk em Conjunto de Disponibilidade
--  [O disco Azure Shared](../../windows/disks-shared.md) com discos SSD Premium só é suportado com VMs no Conjunto de Disponibilidade. Não é suportado na implantação de Zonas de Disponibilidade. 
+-  [O disco Azure Shared](../../disks-shared.md) com discos SSD Premium só é suportado com VMs no Conjunto de Disponibilidade. Não é suportado na implantação de Zonas de Disponibilidade. 
 -  O [maxShares,](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) valor do disco partilhado Azure, determina quantos nós de cluster podem usar o disco partilhado. Normalmente para a instância SAP ASCS/SCS, irá configurar dois nós no Windows Failover Cluster, pelo que o valor para `maxShares` deve ser definido para dois.
 -  Todos os VMs do cluster SAP ASCS/SCS devem ser implantados no mesmo grupo de colocação de [proximidade Azure](../../windows/proximity-placement-groups.md).   
    Embora possa implementar VMs de cluster Windows em Conjunto de Disponibilidade com disco partilhado Azure sem PPG, o PPG garantirá uma proximidade física próxima dos discos partilhados do Azure e dos VMs do cluster, conseguindo assim uma menor latência entre os VMs e a camada de armazenamento.    
 
-Para mais detalhes sobre as limitações para o disco partilhado Azure, reveja cuidadosamente a secção [limitações](../../linux/disks-shared.md#limitations) da documentação do Disco Partilhado Azure.  
+Para mais detalhes sobre as limitações para o disco partilhado Azure, reveja cuidadosamente a secção [limitações](../../disks-shared.md#limitations) da documentação do Disco Partilhado Azure.  
 
 > [!IMPORTANT]
 > Ao implementar o cluster SAP ASCS/SCS Windows Failover com o disco partilhado Azure, esteja ciente de que a sua implementação estará a funcionar com um único disco partilhado num único cluster de armazenamento. A sua instância SAP ASCS/SCS será impactada, em caso de problemas com o cluster de armazenamento, onde o disco partilhado Azure é implantado.  
@@ -113,7 +113,7 @@ Instalaremos um novo SAP SID **PR2,** para além da instância SAP **PR1** ASCS/
 
 SAP ASCS, SAP SCS e o novo SAP ERS2, utilizem o nome de hospedeiro virtual e endereços IP virtuais. No Azure é necessário um [equilibrador](../../../load-balancer/load-balancer-overview.md) de carga para utilizar um endereço IP virtual. Recomendamos vivamente a utilização [do balanceador de carga Standard](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
-Será necessário adicionar a configuração ao equilibrador de carga existente para a segunda instância **PR2**DO SAP SID ASCS/SCS/ERS . A configuração para o primeiro SAP SID **PR1** já deve estar no lugar.  
+Será necessário adicionar a configuração ao equilibrador de carga existente para a segunda instância **PR2** DO SAP SID ASCS/SCS/ERS . A configuração para o primeiro SAP SID **PR1** já deve estar no lugar.  
 
 **a (A) SCS PR2 [instância número 02]**
 - Configuração frontend
@@ -121,17 +121,17 @@ Será necessário adicionar a configuração ao equilibrador de carga existente 
 - Configuração de backend  
     Já estão no lugar - os VMs já foram adicionados à piscina de backend, enquanto configuram para SAP SID **PR1**
 - Porto de Sonda
-    - Porta 620**nr** [**62002**] Deixe a opção por defeito para Protocolo (TCP), Intervalo (5), limiar pouco saudável (2)
+    - Porta 620 **nr** [**62002**] Deixe a opção por defeito para Protocolo (TCP), Intervalo (5), limiar pouco saudável (2)
 - Regras de equilíbrio de carga
     - Se utilizar o Balanceador de Carga Padrão, selecione portas HA
     - Se utilizar o Balanceador de Carga Básica, crie regras de equilíbrio de carga para as seguintes portas
-        - 32**nr** TCP [**3202**]
-        - 36**nr** TCP [**3602**]
-        - 39**nr** TCP [**3902**]
-        - 81**nr** TCP [**8102**]
-        - 5**nr**13 TCP [**50213**]
-        - 5**nr**14 TCP [**50214**]
-        - 5**nr**16 TCP [**50216**]
+        - 32 **nr** TCP [**3202**]
+        - 36 **nr** TCP [**3602**]
+        - 39 **nr** TCP [**3902**]
+        - 81 **nr** TCP [**8102**]
+        - 5 **nr** 13 TCP [**50213**]
+        - 5 **nr** 14 TCP [**50214**]
+        - 5 **nr** 16 TCP [**50216**]
         - Associe-se ao **PR2** ASCS Frontend IP, à sonda de saúde e à piscina de backend existente.  
 
     - Certifique-se de que o tempo limite de marcha lenta (minutos) está definido para o valor máximo 30 e que o IP flutuante (retorno direto do servidor) está ativado.
@@ -146,16 +146,16 @@ Uma vez que o Enqueue Replication Server 2 (ERS2) também está agrupado, o ende
   Os VMs já foram adicionados à piscina de backend ILB.  
 
 - Novo Porto de Sonda
-    - Porta 621**nr**  [**62112**] Deixe a opção por defeito para Protocolo (TCP), Intervalo (5), limiar pouco saudável (2)
+    - Porta 621 **nr**  [**62112**] Deixe a opção por defeito para Protocolo (TCP), Intervalo (5), limiar pouco saudável (2)
 
 - Novas regras de equilíbrio de carga
     - Se utilizar o Balanceador de Carga Padrão, selecione portas HA
     - Se utilizar o Balanceador de Carga Básica, crie regras de equilíbrio de carga para as seguintes portas
-        - 32**nr** TCP [**3212**]
-        - 33**nr** TCP [**3312**]
-        - 5**nr**13 TCP [**51212**]
-        - 5**nr**14 TCP [**51212**]
-        - 5**nr**16 TCP [**51212**]
+        - 32 **nr** TCP [**3212**]
+        - 33 **nr** TCP [**3312**]
+        - 5 **nr** 13 TCP [**51212**]
+        - 5 **nr** 14 TCP [**51212**]
+        - 5 **nr** 16 TCP [**51212**]
         - Associe-se ao **PR2** ERS2 Frontend IP, à sonda de saúde e à piscina de backend existente.  
 
     - Certifique-se de que o tempo limite de marcha lenta (minutos) está definido para o valor máximo, por exemplo, 30, e que o IP flutuante (retorno direto do servidor) está ativado.
@@ -293,7 +293,7 @@ Utilize a funcionalidade da sonda do balançador interno para fazer com que toda
 No entanto, isto não funcionará em algumas configurações de cluster porque apenas um caso está ativo. A outra instância é passiva e não pode aceitar nenhuma carga de trabalho. Uma funcionalidade da sonda ajuda quando o equilibrador interno de carga Azure deteta qual a instância está ativa, e apenas direciona a instância ativa.  
 
 > [!IMPORTANT]
-> Nesta configuração de exemplo, o **ProbePort** está definido para 620**Nr**. Para a caixa ASCS sap com o número **02** é 620**02**.
+> Nesta configuração de exemplo, o **ProbePort** está definido para 620 **Nr**. Para a caixa ASCS sap com o número **02** é 620 **02**.
 > Terá de ajustar a configuração para corresponder aos números de instância SAP e ao seu SAP SID.
 
 Para adicionar uma porta de sonda, executar este Módulo PowerShell num dos VMs do cluster:
@@ -478,7 +478,7 @@ Para os testes de failover delineados, assumimos que o SAP ASCS está ativo no n
 3. Reinicie o nó de cluster A do portal Azure. Isto inicia uma falha automática do grupo de cluster SAP \<SID\> do nó A ao nó B.  
 4. Reinicie o nó de cluster A utilizando a Azure PowerShell. Isto inicia uma falha automática do grupo de cluster SAP \<SID\> do nó A ao nó B.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Prepare a infraestrutura Azure para o SAP HA utilizando um cluster de failover do Windows e disco partilhado para uma instância SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
 * [Instale o SAP NetWeaver HA num cluster de falha do Windows e disque partilhe o disco para uma instância SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk]

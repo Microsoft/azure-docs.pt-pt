@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: cec16041edd10a57088df4ae9cfe0587906919eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 84fc49df2838a66969b449dee5b416c2a0f86f86
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309288"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685924"
 ---
 # <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutorial: Use a piscina SQL sem servidor para analisar os Conjuntos de Dados Abertos do Azure e visualizar os resultados no Azure Synapse Studio
 
@@ -102,7 +102,7 @@ O seguinte corte mostra o resultado do número anual de passeios de táxi:
 
 ![Número anual de passeios de táxi resulta de snippet](./media/tutorial-data-analyst/4.png)
 
-Os dados podem ser visualizados no Synapse Studio mudando da **tabela** para a vista **gráfico.** Pode escolher entre diferentes tipos de gráficos, tais como **Área,** **Bar,** **Coluna,** **Linha,** **Tarte** e **Dispersão.** Neste caso, defina o gráfico **da Coluna** com a coluna **categoria** definida para **current_year** :
+Os dados podem ser visualizados no Synapse Studio mudando da **tabela** para a vista **gráfico.** Pode escolher entre diferentes tipos de gráficos, tais como **Área,** **Bar,** **Coluna,** **Linha,** **Tarte** e **Dispersão.** Neste caso, defina o gráfico **da Coluna** com a coluna **categoria** definida para **current_year**:
 
 ![Gráfico de coluna mostrando passeios por ano](./media/tutorial-data-analyst/5.png)
 
@@ -215,7 +215,7 @@ Os resultados da consulta indicam que a diminuição do número de passeios de t
 
 Este tutorial mostrou como um analista de dados pode rapidamente realizar análises exploratórias de dados, combinar facilmente diferentes conjuntos de dados utilizando o pool SQL sem servidor, e visualizar os resultados usando o Azure Synapse Studio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a ligar a piscina SQL sem servidor ao Power BI Desktop e criar relatórios, consulte [a piscina SQL sem servidor para o Power BI Desktop e crie relatórios](tutorial-connect-power-bi-desktop.md).
  

@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: b9896b62ab347ec3b4751eb517c00222f00ddb1c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 9faff6589466c7cbe78a11c283139acb72bce4bb
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579407"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685652"
 ---
 # <a name="query-csv-files"></a>Consultar ficheiros CSV
 
@@ -344,7 +344,7 @@ WITH (
 ) AS [r]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os próximos artigos irão mostrar-lhe como:
 
