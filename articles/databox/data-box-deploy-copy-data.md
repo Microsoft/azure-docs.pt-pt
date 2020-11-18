@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 11/11/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 7ecccd64921b2d95155318fe91c897725e340b7e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c68f76e56f49f055466f7332d7751ac468e034d8
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334674"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616744"
 ---
 ::: zone target="docs"
 
@@ -74,11 +74,11 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
 
     ![Obter credenciais para partilhas SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. Na caixa de diálogo Aceder à partilha e copiar os dados, copie o **Nome de utilizador** e a **Palavra-passe** correspondentes à partilha. Se a palavra-passe tiver carateres especiais, adicione aspas duplas antes e depois dela. Em seguida, selecione **OK**.
+2. Na caixa de diálogo Aceder à partilha e copiar os dados, copie o **Nome de utilizador** e a **Palavra-passe** correspondentes à partilha. Em seguida, selecione **OK**.
     
     ![Obter nome de utilizador e palavra-passe para partilhas](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Para aceder às partilhas associadas à conta de armazenamento ( *utsac1* no exemplo a seguir) a partir do computador anfitrião, abra uma janela de comandos. Na linha de comandos, escreva:
+3. Para aceder às partilhas associadas à conta de armazenamento (*utsac1* no exemplo a seguir) a partir do computador anfitrião, abra uma janela de comandos. Na linha de comandos, escreva:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -87,15 +87,15 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
     - Blob de páginas do Azure – `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Ficheiros do Azure – `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. Introduza a palavra-passe da partilha quando lhe for pedido. O exemplo seguinte mostra a ligação a uma partilha através do comando anterior.
+4. Introduza a palavra-passe da partilha quando lhe for pedido. Se a palavra-passe tiver carateres especiais, adicione aspas duplas antes e depois dela. O exemplo seguinte mostra a ligação a uma partilha através do comando anterior.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
-    Enter the password for 'testuser1' to connect to '10.126.76.138':
+    Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```
 
-4. Prima Windows + R. Na janela **Executar** , especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Ficheiros.
+4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Ficheiros.
     
     ![Ligar à partilha através do Explorador de Ficheiros](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 

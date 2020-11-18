@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: 02919cf2e35fdd4d981f3fde53085c2174f11bd1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132572"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844715"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso para criar subscrições Enterprise do Azure (pré-visualização)
 
@@ -23,7 +23,7 @@ Na qualidade de cliente do Azure no [Contrato Enterprise (EA)](https://azure.mic
 
 ## <a name="grant-access"></a>Conceder acesso
 
-Para [criar subscrições numa conta de inscrição](programmatically-create-subscription.md), os utilizadores têm de ter a [função de Proprietário](../../role-based-access-control/built-in-roles.md#owner) do RBAC do Azure nessa conta. Pode conceder a um utilizador ou a um grupo de utilizadores a função de Proprietário de RBAC do Azure numa conta de inscrição ao seguir estes passos:
+Para [criar subscrições numa conta de inscrição](programmatically-create-subscription-enterprise-agreement.md), os utilizadores têm de ter a [função de Proprietário](../../role-based-access-control/built-in-roles.md#owner) do RBAC do Azure nessa conta. Pode conceder a um utilizador ou a um grupo de utilizadores a função de Proprietário de RBAC do Azure numa conta de inscrição ao seguir estes passos:
 
 1. Obter o ID de objeto da conta de inscrição à qual pretende conceder acesso
 
@@ -174,7 +174,7 @@ Para [criar subscrições numa conta de inscrição](programmatically-create-sub
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Quando um utilizador se torna Proprietário de RBAC do Azure da sua conta de inscrição, aquele pode [criar subscrições através de programação](programmatically-create-subscription.md) na mesma. Uma subscrição criada por um utilizador delegado ainda tem o Proprietário da Conta original como Administrador de Serviço, mas também tem o utilizador delegado como Proprietário de RBAC do Azure por predefinição.
+    Quando um utilizador se torna Proprietário de RBAC do Azure da sua conta de inscrição, aquele pode [criar subscrições através de programação](programmatically-create-subscription-enterprise-agreement.md) na mesma. Uma subscrição criada por um utilizador delegado ainda tem o Proprietário da Conta original como Administrador de Serviço, mas também tem o utilizador delegado como Proprietário de RBAC do Azure por predefinição.
 
     ---
 
@@ -193,7 +193,7 @@ Para chamar convenientemente esta API a partir da linha de comandos, experimente
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Agora que a entidade principal de utilizador ou de serviço tem permissão para criar uma subscrição, pode usar essa identidade para [Criar subscrições Enterprise do Azure através de programação](programmatically-create-subscription.md).
+* Agora que a entidade principal de utilizador ou de serviço tem permissão para criar uma subscrição, pode usar essa identidade para [Criar subscrições Enterprise do Azure através de programação](programmatically-create-subscription-enterprise-agreement.md).
 * Para ver um exemplo de como criar subscrições com o .NET, veja [código de exemplo no GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Para saber mais sobre o Azure Resource Manager e as respetivas APIs, veja [Descrição geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 * Para obter mais informações sobre como gerir grandes números de subscrições com grupos de gestão, veja [Organizar recursos com os grupos de gestão do Azure](../../governance/management-groups/overview.md)
