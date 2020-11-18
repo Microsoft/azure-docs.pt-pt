@@ -3,12 +3,12 @@ title: Visão geral dos clusters de tecido de serviço autónomo
 description: Os clusters de tecido de serviço funcionam no Windows Server e linux, o que significa que poderá implementar e hospedar aplicações de Tecido de Serviço em qualquer lugar que possa executar o Windows Server ou o Linux.
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: c57d1ef6db295400ad986adadb804fb942a723e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3162a3d02510ce8efab6c5bcac0f1fdd2b2539b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841072"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684003"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Visão geral dos clusters autónomos de tecido de serviço
 
@@ -43,10 +43,10 @@ Além dos certificados de cliente, o Azure Ative Directory também pode ser conf
 
 Para mais informações, leia [a segurança do Cliente-a-nó](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control-rbac"></a>Controlo de Acesso Baseado em Funções (RBAC)
+### <a name="service-fabric-role-based-access-control"></a>Controlo de acesso baseado em funções do Tecido de Serviço
 O Service Fabric também suporta o controlo de acesso para limitar o acesso a certas operações de cluster para diferentes grupos de utilizadores. Isto ajuda a tornar o cluster mais seguro. Dois tipos de controlo de acesso são suportados para clientes que se conectam a um cluster: função de administrador e papel do Utilizador.  
 
-Para obter mais informações, leia [o Controlo de Acesso Baseado em Fun (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Para obter mais informações, leia [o controlo de acesso baseado em funções do Service Fabric.](service-fabric-cluster-security.md#service-fabric-role-based-access-control)
 
 ## <a name="scaling"></a>Dimensionamento
 
@@ -68,7 +68,7 @@ Para mais informações, leia [a atualização de agrupamentos autónomos.](serv
 * Windows Server 2016 
 * Windows Server 2019
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre [a fixação,](service-fabric-cluster-security.md) [dimensionamento](service-fabric-cluster-scaling-standalone.md)e [modernização de](service-fabric-cluster-upgrade-standalone.md) aglomerados autónomos.
 

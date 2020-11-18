@@ -1,24 +1,24 @@
 ---
-title: Use Azure AD e RBAC para clusters
+title: Use Azure AD e Kubernetes RBAC para clusters
 titleSuffix: Azure Kubernetes Service
-description: Saiba como utilizar a adesão ao grupo Azure Ative Directory para restringir o acesso aos recursos de cluster utilizando o controlo de acesso baseado em funções (RBAC) no Serviço Azure Kubernetes (AKS)
+description: Saiba como utilizar a adesão do grupo Azure Ative Directory para restringir o acesso aos recursos de cluster utilizando o controlo de acesso baseado em funções da Kubernetes (Kubernetes RBAC) no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 2845a091c8a89f22e8892141dd2dad26d6049447
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f49e9f6b4f5aaf58ff055043b52cfe99e3e39f19
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88006847"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684292"
 ---
-# <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controlar o acesso aos recursos de cluster utilizando o controlo de acesso baseado em funções e identidades do Azure Ative Directory no Serviço Azure Kubernetes
+# <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Controlar o acesso aos recursos de cluster utilizando o controlo de acesso baseado em funções da Kubernetes e as identidades do Azure Ative Directory no Serviço Azure Kubernetes
 
-O Serviço Azure Kubernetes (AKS) pode ser configurado para utilizar o Azure Ative Directory (AD) para a autenticação do utilizador. Nesta configuração, você insinua-se num cluster AKS usando um token de autenticação AD Azure. Também pode configurar o controlo de acesso baseado em funções (RBAC) para limitar o acesso a recursos de cluster baseados na identidade ou membro do grupo de um utilizador.
+O Serviço Azure Kubernetes (AKS) pode ser configurado para utilizar o Azure Ative Directory (AD) para a autenticação do utilizador. Nesta configuração, você insinua-se num cluster AKS usando um token de autenticação AD Azure. Também pode configurar o controlo de acesso baseado em funções (Kubernetes RBAC) para limitar o acesso a recursos de cluster baseados na identidade ou membro do grupo de um utilizador.
 
 Este artigo mostra-lhe como usar a filiação do grupo AD Azure para controlar o acesso a espaços de nome e recursos de cluster usando o RBAC de Kubernetes num cluster AKS. Grupos de exemplo e utilizadores são criados em Azure AD, em seguida, Roles e RoleBindings são criados no cluster AKS para conceder as permissões apropriadas para criar e visualizar recursos.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo pressupõe que você tem um cluster AKS existente habilitado com a integração AD AZure. Se precisar de um cluster AKS, consulte [o Diretório Ativo Integrado Azure com AKS][azure-ad-aks-cli].
 
@@ -79,7 +79,7 @@ az role assignment create \
 
 ## <a name="create-demo-users-in-azure-ad"></a>Criar utilizadores de demonstração em Azure AD
 
-Com dois exemplos criados em Azure AD para os nossos desenvolvedores de aplicações e SREs, agora permite criar dois utilizadores exemplo. Para testar a integração do RBAC no final do artigo, inscreva-se no cluster AKS com estas contas.
+Com dois exemplos criados em Azure AD para os nossos desenvolvedores de aplicações e SREs, agora permite criar dois utilizadores exemplo. Para testar a integração do RBAC de Kubernetes no final do artigo, você inicia súm em o cluster AKS com estas contas.
 
 Crie a primeira conta de utilizador em Azure AD utilizando o [comando do utilizador az ad.][az-ad-user-create]
 
@@ -129,7 +129,7 @@ Crie um espaço de nome no cluster AKS usando o comando de espaço de [nome de c
 kubectl create namespace dev
 ```
 
-Em Kubernetes, *as funções* definem as permissões a conceder, e *os RoleBindings* aplicam-nas aos utilizadores ou grupos pretendidos. Estas atribuições podem ser aplicadas a um determinado espaço de nome, ou em todo o cluster. Para obter mais informações, consulte [a autorização do RBAC.][rbac-authorization]
+Em Kubernetes, *as funções* definem as permissões a conceder, e *os RoleBindings* aplicam-nas aos utilizadores ou grupos pretendidos. Estas atribuições podem ser aplicadas a um determinado espaço de nome, ou em todo o cluster. Para obter mais informações, consulte [a autorização do RBAC da Kubernetes.][rbac-authorization]
 
 Primeiro, crie um Papel para o espaço de nome *dev.* Esta função concede permissões completas ao espaço de nomes. Em ambientes de produção, pode especificar mais permissões granulares para diferentes utilizadores ou grupos.
 
@@ -285,7 +285,7 @@ Agora use o [comando de pods de kubectl][kubectl-get] para visualizar cápsulas 
 kubectl get pods --namespace dev
 ```
 
-Como mostrado na saída do exemplo seguinte, o pod NGINX está *a funcionar*com sucesso:
+Como mostrado na saída do exemplo seguinte, o pod NGINX está *a funcionar* com sucesso:
 
 ```console
 $ kubectl get pods --namespace dev
@@ -388,7 +388,7 @@ az ad group delete --group appdev
 az ad group delete --group opssre
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre como proteger os clusters kubernetes, consulte [opções de Acesso e identidade para AKS)][rbac-authorization].
 
@@ -410,5 +410,5 @@ Para obter as melhores práticas em matéria de identidade e controlo de recurso
 [az-ad-user-create]: /cli/azure/ad/user#az-ad-user-create
 [az-ad-group-member-add]: /cli/azure/ad/group/member#az-ad-group-member-add
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md

@@ -1,39 +1,36 @@
 ---
-title: Ligar ao Office 365 Outlook
+title: Integrar-se com o Office 365 Outlook
 description: Automatizar tarefas e fluxos de trabalho que gerem e-mails, contactos e calendários no Office 365 Outlook utilizando apps Azure Logic
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 9b10778e665675e9e033953e2a8b9df16dd636d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9caf69a7f78c7872f0a5f8a2ed07bdc749a29023
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400779"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683000"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gerir e-mails, contactos e calendários no Outlook do Office 365 com o Azure Logic Apps
 
-Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e o [conector Office 365 Outlook,](/connectors/office365connector/)pode criar tarefas e fluxos de trabalho automatizados que gerem o seu trabalho ou conta escolar através da construção de aplicações lógicas. Por exemplo, automatiza estas tarefas:
+Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e o [conector Office 365 Outlook,](/connectors/office365connector/)pode criar tarefas e fluxos de trabalho automatizados que gerem o seu trabalho ou conta escolar através da construção de aplicações lógicas. Por exemplo, pode automatizar as seguintes tarefas:
 
-* Receber, enviar e responder ao e-mail. 
+* Receber, enviar e responder ao e-mail.
 * Marque reuniões no seu calendário.
-* Adicione e edite os contactos. 
+* Adicione e edite os contactos.
 
-Pode utilizar qualquer gatilho para iniciar o seu fluxo de trabalho, por exemplo, quando um novo e-mail chega, quando um item de calendário é atualizado, ou quando um evento acontece num serviço de diferença, como o Salesforce. Pode utilizar ações que respondam ao evento de gatilho, por exemplo, enviar um e-mail ou criar um novo evento de calendário. 
-
-> [!NOTE]
-> Para automatizar tarefas para uma @outlook.com ou @hotmail.com conta, utilize o [conector Outlook.com](../connectors/connectors-create-api-outlook.md).
+Pode utilizar qualquer gatilho para iniciar o seu fluxo de trabalho, por exemplo, quando um novo e-mail chega, quando um item de calendário é atualizado, ou quando um evento acontece num serviço de diferença, como o Salesforce. Pode utilizar ações que respondam ao evento de gatilho, por exemplo, enviar um e-mail ou criar um novo evento de calendário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+* Uma conta Outlook onde se inscreve com uma [conta de trabalho ou escola.](https://www.office.com/) Se tiver uma @outlook.com conta ou @hotmail.com conta, utilize o [conector Outlook.com.](../connectors/connectors-create-api-outlook.md) Para ligar ao Outlook com uma conta de utilizador diferente, como uma conta de serviço, consulte [Connect utilizando outras contas.](#connect-using-other-accounts)
 
-* Uma [conta de trabalho ou escola](https://www.office.com/)
+* Uma conta e subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A aplicação lógica onde pretende aceder ao seu trabalho ou à sua conta escolar. Para iniciar o seu fluxo de trabalho com um gatilho do Office 365 Outlook, precisa de ter uma [aplicação lógica em branco.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Para adicionar uma ação do Office 365 Outlook ao seu fluxo de trabalho, a sua aplicação lógica já precisa de ter um gatilho.
+* A aplicação lógica onde pretende aceder à sua conta Outlook. Para iniciar o seu fluxo de trabalho com um gatilho do Office 365 Outlook, precisa de ter uma [aplicação lógica em branco.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Para adicionar uma ação do Office 365 Outlook ao seu fluxo de trabalho, a sua aplicação lógica já precisa de ter um gatilho.
 
 ## <a name="add-a-trigger"></a>Adicionar um acionador
 
@@ -45,7 +42,7 @@ Um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um even
    
    ![Selecione o gatilho para iniciar a sua aplicação lógica](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. Se for solicitado a iniciar sedutar, forneça as suas credenciais de trabalho ou escola para que a sua aplicação lógica possa ligar-se à sua conta. Caso contrário, se a sua ligação já existir, forneça as informações para as propriedades do gatilho.
+1. Se não tiver uma ligação ativa à sua conta Outlook, é solicitado que faça o seu sessão e crie essa ligação. Para ligar ao Outlook com uma conta de utilizador diferente, como uma conta de serviço, consulte [Connect utilizando outras contas.](#connect-using-other-accounts) Caso contrário, forneça a informação sobre as propriedades do gatilho.
 
    > [!NOTE]
    > A sua ligação não expira até ser revogada, mesmo que altere as suas credenciais de inscrição. Para obter mais informações, consulte [as vidas de símbolos configurantes no Diretório Ativo Azure](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -56,7 +53,7 @@ Um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um even
 
 1. No gatilho, desaccione os valores **de Frequência** e **Intervalo.** Para adicionar outras propriedades disponíveis do gatilho, como **o Fuso Horário,** selecione essas propriedades da nova lista de **parâmetros Add.**
 
-   Por exemplo, se quiser que o gatilho verifique o calendário a cada 15 minutos, desaccione **a frequência** ao **minuto**e desemocione **o intervalo** para `15` . 
+   Por exemplo, se quiser que o gatilho verifique o calendário a cada 15 minutos, desaccione **a frequência** ao **minuto** e desemocione **o intervalo** para `15` . 
 
    ![Definir frequência e intervalo para o gatilho](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 
@@ -78,7 +75,7 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
 
    ![Selecione a ação para executar na sua aplicação lógica](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. Se for solicitado a iniciar sedutar, forneça as suas credenciais de trabalho ou escola para que a sua aplicação lógica possa ligar-se à sua conta. Caso contrário, se a sua ligação já existir, forneça as informações para os imóveis da ação.
+1. Se não tiver uma ligação ativa à sua conta Outlook, é solicitado que faça o seu sessão e crie essa ligação. Para ligar ao Outlook com uma conta de utilizador diferente, como uma conta de serviço, consulte [Connect utilizando outras contas.](#connect-using-other-accounts) Caso contrário, forneça a informação sobre os imóveis da ação.
 
    > [!NOTE]
    > A sua ligação não expira até ser revogada, mesmo que altere as suas credenciais de inscrição. Para obter mais informações, consulte [as vidas de símbolos configurantes no Diretório Ativo Azure](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -91,10 +88,32 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
 
 1. Na barra de ferramentas do designer, **selecione Save**.
 
+<a name="connect-using-other-accounts"></a>
+
+## <a name="connect-using-other-accounts"></a>Conecte-se usando outras contas
+
+Se tentar ligar o Outlook utilizando uma conta diferente da que está atualmente assinada no Azure, poderá obter [erros de sso únicos.sso.](../active-directory/manage-apps/what-is-single-sign-on.md) Este problema acontece quando se inscreve no portal Azure com uma conta, mas utiliza uma conta diferente para criar a ligação. O Logic App Designer espera utilizar a conta que está assinada no Azure. Para resolver este problema, tem estas opções:
+
+* Crie a outra conta como **Contribuinte** para o grupo de recursos da sua aplicação lógica.
+
+  1. No menu do grupo de recursos da sua aplicação lógica, selecione **Access control (IAM)**. Criar a outra conta com a **função Contribuinte.** Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../role-based-access-control/role-assignments-portal.md).
+
+  1. Se você está inscrito no portal Azure com o seu trabalho ou conta escolar, assine e inscreva-se novamente com a sua outra conta. Pode agora criar uma ligação ao Outlook utilizando a outra conta.
+
+* Crie a outra conta para que o seu trabalho ou conta escolar tenha permissões de "enviar as".
+
+   Se tiver permissões de administração, na caixa de correio da conta de serviço, crie-o como trabalho ou conta escolar com **o Envio** ou Envio em **nome das** permissões. Para obter mais informações, consulte [Dar permissões na caixa de correio a outro utilizador - Ajuda de administração](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Em seguida, pode criar a ligação utilizando o seu trabalho ou conta escolar. Agora, em gatilhos ou ações onde pode especificar o remetente, pode utilizar o endereço de e-mail da conta de serviço.
+
+   Por exemplo, a ação **Enviar um email** tem um parâmetro opcional, a partir de **(Enviar como)** que pode adicionar à ação e utilizar o endereço de e-mail da sua conta de serviço como remetente. Para adicionar este parâmetro, siga estes passos:
+
+   1. Na ação **Enviar um e-mail,** abra a lista **de parâmetros Adicionar** e selecione o parâmetro De **(Enviar as)** parâmetro.
+
+   1. Depois de o parâmetro aparecer na ação, insira o endereço de e-mail da conta de serviço.
+
 ## <a name="connector-reference"></a>Referência do conector
 
 Para obter detalhes técnicos sobre este conector, tais como gatilhos, ações e limites, conforme descrito pelo ficheiro Swagger do conector, consulte a [página de referência do conector](/connectors/office365/). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

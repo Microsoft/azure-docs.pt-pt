@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 05/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9753fc491cb5950d679ae3633a18cdd5c1170291
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: aefdb90c3e6c8d3abc3924ecebb2aa46739e99ad
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317296"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682626"
 ---
 # <a name="self-help-for-serverless-sql-pool-preview"></a>Autoajuda para piscina SQL sem servidor (pré-visualização)
 
@@ -71,7 +71,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
 WITH ( FORMAT_TYPE = PARQUET)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Reveja os seguintes artigos para saber mais sobre como usar a piscina SQL sem servidor:
 

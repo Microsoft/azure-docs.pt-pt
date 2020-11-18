@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: dc2b068dd7c5e7fb3f9e3505f93245515d90ae23
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7ee2e1e6a46ce07d95797362cde313dc8e0b0fa5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317198"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683544"
 ---
 # <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Tutorial: Use a piscina SQL sem servidor com o Power BI Desktop & criar um relatório
 
@@ -100,7 +100,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 
 População dos EUA por sexo e raça para cada condado dos EUA, proveniente de 2000 e 2010 Censos Decennial em formato parquet.
 
-| Folder path                                                  | Description                                                  |
+| Folder path                                                  | Descrição                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /libertação/                                                    | Pasta-mãe para dados na conta de armazenamento de demonstração               |
 | /lançamento/us_population_county/                               | Ficheiros de dados populacionais dos EUA no formato Parquet, divididos por ano usando o esquema de partição hive/Hadoop. |
@@ -173,6 +173,6 @@ Uma vez feito o uso deste relatório, elimine os recursos com os seguintes passo
    DROP DATABASE Demo;
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para os [ficheiros de armazenamento de consulta](develop-storage-files-overview.md) para aprender a consultar ficheiros de armazenamento usando o Synapse SQL.

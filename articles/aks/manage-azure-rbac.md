@@ -1,5 +1,5 @@
 ---
-title: Gerir o RBAC em Kubernetes From Azure
+title: Gerir a Azure RBAC em Kubernetes From Azure
 titleSuffix: Azure Kubernetes Service
 description: Saiba como utilizar o Azure RBAC para autorização kubernetes com o Serviço Azure Kubernetes (AKS).
 services: container-service
@@ -7,23 +7,23 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 3f878389f22f3928bc1fc8c89b04353583326da6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a2a385b2be4e1005a7aabd76261b3190ecd2a506
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346048"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684224"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Utilizar o RBAC do Azure para Autorização do Kubernetes (pré-visualização)
 
 Hoje já pode alavancar [a autenticação integrada entre o Azure Ative Directory (Azure AD) e a AKS](managed-aad.md). Quando ativado, esta integração permite que os clientes utilizem utilizadores, grupos ou principais de serviço da Azure como temas em Kubernetes RBAC, consulte mais [aqui.](azure-ad-rbac.md)
-Esta funcionalidade permite-lhe gerir separadamente as identidades e credenciais dos utilizadores para o Kubernetes. No entanto, ainda tem de configurar e gerir o RBAC de Azure e o RBAC de Kubernetes separadamente. Para mais detalhes sobre a autenticação, autorização e RBAC na AKS consulte [aqui.](concepts-identity.md)
+Esta funcionalidade permite-lhe gerir separadamente as identidades e credenciais dos utilizadores para o Kubernetes. No entanto, ainda tem de configurar e gerir o RBAC de Azure e o RBAC de Kubernetes separadamente. Para mais detalhes sobre a autenticação e autorização com o RBAC na AKS, consulte [aqui.](concepts-identity.md)
 
 Este documento abrange uma nova abordagem que permite a gestão unificada e o controlo de acessos através dos recursos Azure Resources, AKS e Kubernetes.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-A capacidade de gerir o RBAC para os recursos de Kubernetes da Azure dá-lhe a opção de gerir o RBAC para os recursos do cluster, quer utilizando mecanismos Azure ou Kubernetes nativos. Quando ativados, os principais AD do Azure serão validados exclusivamente pela Azure RBAC, enquanto os utilizadores regulares de Kubernetes e contas de serviço são validados exclusivamente pela Kubernetes RBAC. Para mais detalhes sobre a autenticação, autorização e RBAC na AKS consulte [aqui.](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)
+A capacidade de gerir o RBAC para os recursos de Kubernetes da Azure dá-lhe a opção de gerir o RBAC para os recursos do cluster, quer utilizando mecanismos Azure ou Kubernetes nativos. Quando ativados, os principais AD do Azure serão validados exclusivamente pela Azure RBAC, enquanto os utilizadores regulares de Kubernetes e contas de serviço são validados exclusivamente pela Kubernetes RBAC. Para mais detalhes sobre a autenticação e autorização com o RBAC na AKS, consulte [aqui.](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -272,7 +272,7 @@ az group delete -n MyResourceGroup
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Leia mais sobre AKS Autenticação, Autorização e RBAC [aqui.](concepts-identity.md)
+- Leia mais sobre AKS Autenticação, Autorização, Kubernetes RBAC e Azure RBAC [aqui.](concepts-identity.md)
 - Leia mais sobre a Azure RBAC [aqui.](../role-based-access-control/overview.md)
 - Leia mais sobre todas as ações que pode usar para definir granularmente papéis Azure personalizados para a autorização de Kubernetes [aqui.](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice)
 

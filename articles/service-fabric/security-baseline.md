@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 77ea96b1bd1b1d661bb835e7bb48d58ce4c3e118
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dc66de09a5918b19c60aaa0d3e9ab662876dc31a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309159"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684326"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Linha de base de segurança Azure para tecido de serviço
 
@@ -144,7 +144,7 @@ Implemente a solução de firewall à sua escolha em cada um dos limites de rede
 
 **Orientação**: Defina e implemente configurações de segurança padrão para recursos de rede relacionados com o seu cluster de tecido de serviço Azure. Utilize pseudónimos da Azure Policy nos espaços de nome "Microsoft.ServiceFabric" e "Microsoft.Network" para criar políticas personalizadas para auditar ou impor a configuração de rede do seu cluster de tecido de serviço Azure.
 
-Também pode utilizar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de gestor de recursos Azure, controlos e políticas de RBAC, numa única definição de planta. Aplique facilmente o projeto em novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
+Também pode usar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlos e políticas do Azure RBAC, e políticas, numa única definição de planta. Aplique facilmente o projeto em novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
 
 * [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -1138,7 +1138,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)

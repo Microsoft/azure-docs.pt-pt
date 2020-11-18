@@ -1,5 +1,5 @@
 ---
-title: Suporte de ciclo de vida prolongado da Red Hat Enterprise Linux
+title: Suporte de Ciclo de Vida Alargado do Red Hat Enterprise Linux
 description: Saiba mais sobre a adição de suporte de ciclo de vida prolongado da Red Hat Enterprise
 author: mathapli
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: e7c9f9b158d01204536712f8024ed098cd7a5037
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 124ff65087887a437e0b82fbd7b1e4c72e4f7b4c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372880"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684360"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Red Hat Enterprise Linux (RHEL) Extended Lifecycle Support
 Este artigo fornece informações sobre suporte de ciclo de vida prolongado para as imagens da Red Hat Enterprise:
@@ -40,9 +40,9 @@ A partir de 30 de novembro de 2020, a Red Hat Enterprise Linux 6 chegará ao fim
 
 #### <a name="what-is-the-process-to-add-extended-life-cycle-support-els-repositories-to-continue-to-receive-software-maintenance-bug-and-security-fixes-and--support-for-red-hat-enterprise-linux-6"></a>Qual é o processo para adicionar repositórios de suporte ao ciclo de vida prolongado (ELS) para continuar a receber manutenção de software (correções de bugs e segurança) e suporte para Red Hat Enterprise Linux 6?
 
-O processo final de inscrição para o ELS estará disponível em breve aqui (o mais tardar até 15 de novembro de 2020).
+O processo final de inscrição para o ELS estará disponível em breve aqui (o mais tardar até 30 de novembro de 2020).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para ver a lista completa de imagens RHEL em Azure, consulte [as imagens red hat enterprise Linux (RHEL) disponíveis em Azure](./redhat-imagelist.md).
 * Para saber mais sobre a Infraestrutura de Atualização do Chapéu Vermelho Azure, consulte [a Infraestrutura red hat update para VMs RHEL a pedido em Azure](./redhat-rhui.md).

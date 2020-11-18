@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 10/13/2020
+ms.date: 11/11/2020
 ms.author: sngun
-ms.openlocfilehash: c1af35b754362a230e77c7a3326de8ddb8a09d62
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a149f0b331a77462aa53b948fedf25dd1331969e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083002"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683629"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Suporte e compatibilidade de gráficos Azure Cosmos DB Gremlin com características do TinkerPop
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -32,6 +32,7 @@ A seguinte tabela mostra controladores Gremlin populares que pode utilizar com o
 | [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Criar Gráficos com Node.js](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Criar Gráficos com Python](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP no GitHub](https://github.com/PommeVerte/gremlin-php) | [Criar Gráficos com PHP](create-graph-php.md) | 3.1.0 |
+| [Go Lang](https://github.com/supplyon/gremcos/) | [Go Lang](https://github.com/supplyon/gremcos/) | | Esta biblioteca é construída por contribuintes externos. A equipa DB da Azure Cosmos não oferece qualquer apoio ou manter a biblioteca. |
 | [Consola do Gremlin](https://tinkerpop.apache.org/downloads.html) | [Documentação do TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Criar Gráficos na Consola do Gremlin](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## <a name="supported-graph-objects"></a>Objetos de gráfico suportados
@@ -120,7 +121,7 @@ Cada propriedade pode armazenar múltiplos valores numa matriz.
 
 Vamos observar os passos do Gremlin suportados pelo Azure Cosmos DB. Para obter referências completas do Gremlin, veja [Referências do TinkerPop](https://tinkerpop.apache.org/docs/3.3.2/reference).
 
-| passo | Description | Documentação do TinkerPop 3.2 |
+| passo | Descrição | Documentação do TinkerPop 3.2 |
 | --- | --- | --- |
 | `addE` | Adiciona um limite entre dois vértices | [passo addE](https://tinkerpop.apache.org/docs/3.3.2/reference/#addedge-step) |
 | `addV` | Adiciona um vértice ao gráfico | [passo addV](https://tinkerpop.apache.org/docs/3.3.2/reference/#addvertex-step) |
@@ -168,21 +169,21 @@ O motor otimizado para escrita fornecido pelo Azure Cosmos DB suporta a indexaç
 
 ## <a name="behavior-differences"></a>Diferenças de comportamento
 
-* O motor Azure Cosmos DB Graph funciona * **primeira largura -** transversal enquanto TinkerPop Gremlin é o primeiro de profundidade. Este comportamento consegue um melhor desempenho em sistema horizontalmente escalável como o Cosmos DB.
+* O motor Azure Cosmos DB Graph funciona ***primeira largura -** transversal enquanto TinkerPop Gremlin é o primeiro de profundidade. Este comportamento consegue um melhor desempenho em sistema horizontalmente escalável como o Cosmos DB.
 
 ## <a name="unsupported-features"></a>Funcionalidades não suportadas
 
-_ * **[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)** _ é uma especificação agnóstica da linguagem de programação para os traversais de gráficos. Cosmos DB Graph ainda não o suporta. Use `GremlinClient.SubmitAsync()` e passe transversalmente como uma cadeia de texto.
+_ ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)** _ é uma especificação agnóstica da linguagem de programação para os traversais de gráficos. Cosmos DB Graph ainda não o suporta. Use `GremlinClient.SubmitAsync()` e passe transversalmente como uma cadeia de texto.
 
 _ **`property(set, 'xyz', 1)`** _ set cardinality is supportd today. Em vez disso, utilize `property(list, 'xyz', 1)`. Para saber mais, consulte [as propriedades da Vertex com o TinkerPop.](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties)
 
-_ O **`match()` passo** * não está disponível atualmente. Este passo fornece capacidades de consulta declarativas.
+_ O **`match()` passo*** não está disponível atualmente. Este passo fornece capacidades de consulta declarativas.
 
-_ * **Os objetos como propriedades** - em vértices ou bordas não são suportados. As propriedades apenas podem ser matrizes ou tipos primitivos.
+_ ***Os objetos como propriedades**- em vértices ou bordas não são suportados. As propriedades apenas podem ser matrizes ou tipos primitivos.
 
-_ * **Ordenar por propriedades de matriz** _ não é `order().by(<array property>)` suportado. A ordenação é suportada apenas por tipos primitivos.
+_ ***Ordenar por propriedades de matriz** _ não é `order().by(<array property>)` suportado. A ordenação é suportada apenas por tipos primitivos.
 
-_ * **Os tipos JSON não primitivos** não são suportados. Utilizar, `string` `number` ou `true` / `false` tipos. `null` os valores não são suportados. 
+_ ***Os tipos JSON não primitivos** não são suportados. Utilizar, `string` `number` ou `true` / `false` tipos. `null` os valores não são suportados. 
 
 _ * O serializer **GraphSONv3** _ não está atualmente suportado. Utilize `GraphSONv2` aulas de Serializer, Reader e Writer na configuração de ligação. Os resultados devolvidos pela API AZURE Cosmos DB Gremlin não têm o mesmo formato que o formato GraphSON. 
 
@@ -192,7 +193,7 @@ _ **As expressões e funções lambda** não são suportadas atualmente. Isto in
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 
-_ **Utilização de índice para consultas gremlin com `.V()` passos intermédios** : Atualmente, apenas a primeira `.V()` chamada de um traversal utilizará o índice para resolver quaisquer filtros ou predicados ligados ao mesmo. As chamadas subsequentes não consultarão o índice, o que poderá aumentar a latência e o custo da consulta.
+_ **Utilização de índice para consultas gremlin com `.V()` passos intermédios**: Atualmente, apenas a primeira `.V()` chamada de um traversal utilizará o índice para resolver quaisquer filtros ou predicados ligados ao mesmo. As chamadas subsequentes não consultarão o índice, o que poderá aumentar a latência e o custo da consulta.
     
     Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
 
@@ -220,7 +221,7 @@ _ **Utilização de índice para consultas gremlin com `.V()` passos intermédio
 
     You can review the performance of the queries by using the [Gremlin `executionProfile()` step](graph-execution-profile.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Comece a criar uma aplicação de gráficos [com os nossos SDKs](create-graph-dotnet.md) 
 * Saiba mais sobre o [suporte de gráficos](graph-introduction.md) no Azure Cosmos DB

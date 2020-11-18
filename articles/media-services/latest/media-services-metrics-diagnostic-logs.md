@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309073"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685193"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorize métricas de Serviços de Mídia e registos de diagnóstico com o Azure Monitor
 
@@ -44,7 +44,7 @@ Os Serviços de Comunicação Social apoiam métricas de monitorização dos seg
 
 Pode monitorizar as seguintes métricas de conta.
 
-|Nome da métrica|Nome a apresentar|Description|
+|Nome da métrica|Nome a apresentar|Descrição|
 |---|---|---|
 |Conta de Ativos|Contagem de ativos|Bens na sua conta.|
 |AssetQuota|Quota de ativos|Quota de ativo na sua conta.|
@@ -62,13 +62,13 @@ Deve também rever [as quotas e limites de conta.](limits-quotas-constraints.md)
 
 São suportadas as [seguintes métricas de serviços](/rest/api/media/streamingendpoints) de streaming de media:
 
-|Nome da métrica|Nome a apresentar|Description|
+|Nome da métrica|Nome a apresentar|Descrição|
 |---|---|---|
 |Pedidos|Pedidos|Fornece o número total de pedidos HTTP servidos pelo Streaming Endpoint.|
 |Saída|Saída|Egress bytes total por minuto por streaming Endpoint.|
 |SucessoE2ELatency|Fim do sucesso para acabar com a latência|Duração do tempo a partir do momento em que o Streaming Endpoint recebeu o pedido para quando foi enviado o último byte da resposta.|
-|Utilização da CPU| Utilização do CPU para pontos finais de streaming premium. Estes dados não estão disponíveis para os pontos finais de streaming padrão. |
-|Largura de banda da Egress | Largura de banda de Egress em pedaços por segundo.|
+|Utilização da CPU| | Utilização do CPU para pontos finais de streaming premium. Estes dados não estão disponíveis para os pontos finais de streaming padrão. |
+|Largura de banda da Egress | | Largura de banda de Egress em pedaços por segundo.|
 
 ### <a name="metrics-are-useful"></a>As métricas são úteis
 
@@ -115,7 +115,7 @@ Algumas coisas que pode examinar com os principais registos de diagnóstico de e
 
 Ver [como monitorizar os registos de diagnóstico do Media Service](media-services-diagnostic-logs-howto.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Como recolher e consumir dados de registo dos seus recursos Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Criar, ver e gerir alertas de métricas com o Azure Monitor](../../azure-monitor/platform/alerts-metric.md)

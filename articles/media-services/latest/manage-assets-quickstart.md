@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0793c8abee27ca415feba313efb029daf092bec9
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91261418"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683034"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Quickstart: Carregar, codificar e transmitir conteúdo com portal
 
@@ -27,7 +27,7 @@ Este quickstart mostra-lhe como usar o portal Azure para carregar, codificar e t
 * Para começar a gerir, encriptar, codificar, analisar e transmitir conteúdos de mídia em Azure, é necessário criar uma conta de Media Services e enviar o seu ficheiro de meios digitais de alta qualidade para um **ativo.** 
     
     > [!NOTE]
-    > Se o seu vídeo foi previamente enviado para a conta dos Media Services utilizando os Serviços de Comunicação v3 API ou se o conteúdo foi gerado com base numa saída ao vivo, não verá os botões **Encode**, **Analyze**ou **Encrypt** no portal Azure. Utilize os Serviços de Mídia v3 APIs para executar estas tarefas.
+    > Se o seu vídeo foi previamente enviado para a conta dos Media Services utilizando os Serviços de Comunicação v3 API ou se o conteúdo foi gerado com base numa saída ao vivo, não verá os botões **Encode**, **Analyze** ou **Encrypt** no portal Azure. Utilize os Serviços de Mídia v3 APIs para executar estas tarefas.
 
     Reveja o seguinte: 
 
@@ -54,7 +54,7 @@ Este quickstart mostra-lhe como usar o portal Azure para carregar, codificar e t
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[Criar uma conta dos Media Services](create-account-howto.md#use-the-azure-portal)
+[Criar uma conta dos Media Services](create-account-howto.md)
 
 ## <a name="upload"></a>Carregar
 
@@ -114,6 +114,6 @@ Ou, copie o URL de streaming e use-o no seu leitor cliente.
 
 Se pretende experimentar os outros quickstarts, deve manter os recursos criados. Caso contrário, vá ao portal Azure, navegue pelos seus grupos de recursos, selecione o grupo de recursos sob o qual executou este arranque rápido e elimine todos os recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Utilizar o portal para encriptar conteúdo](encrypt-content-quickstart.md)

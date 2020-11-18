@@ -7,15 +7,15 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a90b63f39a4c1cff53686e7ea67c3481f1274f85
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e34563a312c5a248e97c4aac72d06030a836727b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322634"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684847"
 ---
 # <a name="connection-strings-for-synapse-sql-preview"></a>Cadeias de ligação para Synapse SQL (pré-visualização)
 
@@ -54,6 +54,6 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 
 Para executar consultas **de piscinas SQL sem servidor,** as ferramentas recomendadas são [Azure Data Studio](get-started-azure-data-studio.md) e Azure Synapse Studio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a consultar a sua análise com o Visual Studio e outras aplicações, consulte [Consulta com o Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

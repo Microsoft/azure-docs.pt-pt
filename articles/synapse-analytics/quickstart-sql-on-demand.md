@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: b2e502a984e71a06eb57b345371d70d659c6a031
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 270942392e028964c7e9b1c110e4d9f118bd4953
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321672"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682983"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Quickstart: Use a piscina SQL sem servidor
 
@@ -153,7 +153,7 @@ Os ficheiros são armazenados em recipiente *json,* *livros* de pastas, e contê
 
 ### <a name="query-json-files"></a>Consultar ficheiros JSON
 
-A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalar (título, editor) de um livro com o título *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Artigos Selecionados* :
+A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalar (título, editor) de um livro com o título *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Artigos Selecionados*:
 
 ```sql
 SELECT
@@ -178,7 +178,7 @@ WHERE
 > [!IMPORTANT]
 > Estamos a ler todo o ficheiro JSON como uma única linha/coluna. Assim, o FIELDTERMINATOR, o FIELDQUOTE e o ROWTERMINATOR estão definidos para 0x0b porque não esperamos encontrá-lo no ficheiro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Está agora pronto para continuar com os seguintes artigos:
 

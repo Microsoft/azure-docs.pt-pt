@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: b42a952b096f533f916879a11fdb6b6583fa8592
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660360"
+ms.locfileid: "94684207"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um balanceador de carga padrão público no serviço Azure Kubernetes (AKS)
 
@@ -225,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-Este exemplo dar-lhe-ia 4000 portas de saída atribuídas para cada nó no meu cluster, e com 7 IPs teria *4000 portas por nó * 100 nós = 400 k de portas totais < = 448k portas totais = 7 IPs * portas de 64k por IP*. Isto permitir-lhe-ia escalar com segurança para 100 nós e ter uma operação de atualização predefinido. É fundamental atribuir portas suficientes para os nós adicionais necessários para a atualização e outras operações. AKS predefine um nó tampão para upgrade, neste exemplo isto requer 4000 portas livres em qualquer momento. Se utilizar [valores maxSurge,](upgrade-cluster.md#customize-node-surge-upgrade-preview)multiplique as portas de saída por nó pelo seu valor máximoSurge.
+Este exemplo dar-lhe-ia 4000 portas de saída atribuídas para cada nó no meu cluster, e com 7 IPs teria *4000 portas por nó * 100 nós = 400 k de portas totais < = 448k portas totais = 7 IPs * portas de 64k por IP*. Isto permitir-lhe-ia escalar com segurança para 100 nós e ter uma operação de atualização predefinido. É fundamental atribuir portas suficientes para os nós adicionais necessários para a atualização e outras operações. AKS predefine um nó tampão para upgrade, neste exemplo isto requer 4000 portas livres em qualquer momento. Se utilizar [valores maxSurge,](upgrade-cluster.md#customize-node-surge-upgrade)multiplique as portas de saída por nó pelo seu valor máximoSurge.
 
 Para ultrapassar com segurança 100 nós, teria de adicionar mais IPs.
 

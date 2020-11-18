@@ -4,12 +4,12 @@ description: Saiba como proteger o seu cluster utilizando uma gama de endereços
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 99c6b173d96bbd54f12a0edc501d49e8c65caf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9828682fa71d023356b174d528c2137ed29f368d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613735"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682507"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Acesso seguro ao servidor API utilizando intervalos de endereços IP autorizados no Serviço Azure Kubernetes (AKS)
 
@@ -17,11 +17,11 @@ Em Kubernetes, o servidor API recebe pedidos para realizar ações no cluster, t
 
 Este artigo mostra como utilizar os intervalos de endereços IP autorizados pelo servidor API para limitar quais endereços IP e CIDRs podem aceder ao plano de controlo.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo mostra-lhe como criar um cluster AKS usando o Azure CLI.
 
-Precisa da versão 2.0.76 do Azure CLI ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
+Precisa da versão 2.0.76 do Azure CLI ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 ### <a name="limitations"></a>Limitações
 
@@ -31,9 +31,9 @@ A funcionalidade de gamas IP autorizadas do servidor API tem as seguintes limita
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Visão geral dos intervalos de IP autorizados pelo servidor API
 
-O servidor API de Kubernetes é como as APIs subjacentes são expostas. Este componente proporciona a interação para ferramentas de gestão, tais como `kubectl` ou o dashboard Kubernetes. A AKS fornece um plano de controlo de cluster de um único inquilino, com um servidor API dedicado. Por predefinição, o servidor API é atribuído a um endereço IP público, e deve controlar o acesso usando o controlo de acesso baseado em funções (RBAC).
+O servidor API de Kubernetes é como as APIs subjacentes são expostas. Este componente proporciona a interação para ferramentas de gestão, tais como `kubectl` ou o dashboard Kubernetes. A AKS fornece um plano de controlo de cluster de um único inquilino, com um servidor API dedicado. Por padrão, o servidor API é atribuído a um endereço IP público, e deve controlar o acesso usando o controlo de acesso baseado em funções de Kubernetes (Kubernetes RBAC) ou Azure RBAC.
 
-Para garantir o acesso ao avião de controlo AKS /servidor API acessível ao público, pode ativar e utilizar gamas IP autorizadas. Estes intervalos de IP autorizados apenas permitem que intervalos de endereços IP definidos se comuniquem com o servidor API. Um pedido feito ao servidor API a partir de um endereço IP que não faz parte destes intervalos de IP autorizados está bloqueado. Continue a utilizar o RBAC para autorizar os utilizadores e as ações que solicitam.
+Para garantir o acesso ao avião de controlo AKS /servidor API acessível ao público, pode ativar e utilizar gamas IP autorizadas. Estes intervalos de IP autorizados apenas permitem que intervalos de endereços IP definidos se comuniquem com o servidor API. Um pedido feito ao servidor API a partir de um endereço IP que não faz parte destes intervalos de IP autorizados está bloqueado. Continue a utilizar o RBAC ou o Azure RBAC da Kubernetes para autorizar os utilizadores e as ações que solicitam.
 
 Para obter mais informações sobre o servidor API e outros componentes do cluster, consulte [os conceitos centrais de Kubernetes para AKS][concepts-clusters-workloads].
 
@@ -106,7 +106,7 @@ az aks create \
 
 ## <a name="update-a-clusters-api-server-authorized-ip-ranges"></a>Atualizar os intervalos ip autorizados do servidor API de um cluster
 
-Para atualizar os intervalos IP autorizados pelo servidor API num cluster existente, utilize o comando [de atualização az aks][az-aks-update] e utilize os *`--api-server-authorized-ip-ranges`* parâmetros ,---balanceador-saldo-prefixos de saída-ip-* *`--load-balancer-outbound-ips`* ou-load-balancer-out-out-ip-prefixes.*
+Para atualizar os intervalos IP autorizados pelo servidor API num cluster existente, utilize o comando [de atualização az aks][az-aks-update] e utilize os *`--api-server-authorized-ip-ranges`* parâmetros ,---balanceador-saldo-prefixos de saída-ip-**`--load-balancer-outbound-ips`* ou-load-balancer-out-out-ip-prefixes.*
 
 O exemplo seguinte atualiza gamas de IP autorizadas no cluster denominado *myAKSCluster* no grupo de recursos denominado *myResourceGroup*. O intervalo de endereços IP a autorizar é *73.140.245.0/24*:
 
@@ -156,7 +156,7 @@ Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
 
 Também pode encontrar este endereço pesquisando "qual é o meu endereço IP" num navegador de Internet.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, ativou gamas IP autorizadas pelo servidor API. Esta abordagem é uma parte de como você pode executar um cluster AKS seguro.
 

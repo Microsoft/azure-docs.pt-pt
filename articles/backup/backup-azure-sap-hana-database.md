@@ -3,12 +3,12 @@ title: Faça o backup de uma base de dados SAP HANA para Azure com Azure Backup
 description: Neste artigo, aprenda a fazer backup de uma base de dados SAP HANA para máquinas virtuais Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 28c9716bfb2dd0a6ac380d9ffd6dcd7fd5eb4978
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649444"
+ms.locfileid: "94682854"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -144,7 +144,7 @@ Especificar as definições de política da seguinte forma:
 1. Em **Nome da política**, introduza um nome para a nova política.
 
    ![Insira o nome da política](./media/backup-azure-sap-hana-database/policy-name.png)
-2. Em **Política de Cópia de segurança completa**, selecione uma **Frequência de Cópia de Segurança**: escolha **Diária** ou **Semanal**.
+1. Em **Política de Cópia de segurança completa**, selecione uma **Frequência de Cópia de Segurança**: escolha **Diária** ou **Semanal**.
    * **Diariamente**: Selecione a hora e o fuso horário em que o trabalho de reserva começa.
        * Tens de fazer uma cópia de segurança completa. Não pode desligar esta opção.
        * Selecione **Cópia de Segurança Completa** para ver a política.
@@ -153,16 +153,16 @@ Especificar as definições de política da seguinte forma:
 
    ![Selecione frequência de backup](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. No **Alcance de Retenção,** configurar as definições de retenção para a cópia de segurança completa.
+1. No **Alcance de Retenção,** configurar as definições de retenção para a cópia de segurança completa.
     * Por predefinição, todas as opções são selecionadas. Limpe os limites de alcance de retenção que não quer usar, e desemote os que o faz.
     * O período mínimo de retenção para qualquer tipo de backup (completo/diferencial/log) é de sete dias.
     * Os pontos de recuperação são marcados para retenção com base no respetivo período de retenção. Por exemplo, se selecionar uma cópia de segurança completa diária, vai ser acionada apenas uma cópia de segurança completa por dia.
     * A cópia de segurança para um dia específico é marcada e mantida com base na gama e configuração semanais de retenção.
     * Os períodos de retenção mensais e anuais comportam-se de forma semelhante.
 
-4. No menu **Política de Cópia de segurança completa**, selecione **OK** para aceitar as definições.
-5. Selecione **Backup diferencial** para adicionar uma política diferencial.
-6. Em **Política de Cópia de segurança diferencial**, selecione **Ativar** para abrir os controlos de frequência e retenção.
+1. No menu **Política de Cópia de segurança completa**, selecione **OK** para aceitar as definições.
+1. Selecione **Backup diferencial** para adicionar uma política diferencial.
+1. Em **Política de Cópia de segurança diferencial**, selecione **Ativar** para abrir os controlos de frequência e retenção.
     * No máximo, pode acionar uma cópia de segurança diferencial por dia.
     * As cópias de segurança diferenciais podem ser retidas durante um máximo de 180 dias. Se precisar de uma maior retenção, deve utilizar cópias de segurança completas.
 
@@ -170,22 +170,22 @@ Especificar as definições de política da seguinte forma:
 
     > [!NOTE]
     > As cópias de segurança incrementais são agora suportadas na pré-visualização pública. Pode escolher um diferencial ou um incremental como uma cópia de segurança diária, mas não ambos.
-7. Na **política de Cópia de Segurança Incremental,** selecione **Ativar** para abrir os controlos de frequência e retenção.
+1. Na **política de Cópia de Segurança Incremental,** selecione **Ativar** para abrir os controlos de frequência e retenção.
     * No máximo, pode desencadear uma cópia de segurança incremental por dia.
     * As cópias de segurança incrementais podem ser mantidas por um máximo de 180 dias. Se precisar de uma maior retenção, deve utilizar cópias de segurança completas.
 
     ![Política incremental de backup](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 
-7. Selecione **OK** para guardar a política e voltar ao menu principal **Política de cópia de segurança**.
-8. Selecione **'Registar'** para adicionar uma política de backup de registo de transações,
+1. Selecione **OK** para guardar a política e voltar ao menu principal **Política de cópia de segurança**.
+1. Selecione **'Registar'** para adicionar uma política de backup de registo de transações,
     * In **Log Backup**, selecione **Enable**.  Isto não pode ser desativado, uma vez que a SAP HANA gere todos os backups de registo.
     * Desacione os controlos de frequência e retenção.
 
     > [!NOTE]
     > As cópias de segurança de registo só começam a fluir depois de concluída uma cópia de segurança completa bem sucedida.
 
-9. Selecione **OK** para guardar a política e voltar ao menu principal **Política de cópia de segurança**.
-10. Depois de terminar de definir a política de backup, selecione **OK**.
+1. Selecione **OK** para guardar a política e voltar ao menu principal **Política de cópia de segurança**.
+1. Depois de terminar de definir a política de backup, selecione **OK**.
 
 > [!NOTE]
 > Cada cópia de segurança de registo está acorrentada à cópia de segurança completa anterior para formar uma cadeia de recuperação. Este backup completo será mantido até que a retenção da última cópia de segurança de registo tenha expirado. Isto pode significar que a cópia de segurança completa é retida por um período extra para garantir que todos os registos podem ser recuperados. Vamos supor que um utilizador tem uma cópia de segurança semanal, diferencial diário e registos de 2 horas. Todos estão retidos por 30 dias. Mas, a totalidade semanal só pode ser limpa/apagada após a próxima cópia de segurança completa disponível, ou seja, após 30 + 7 dias. Por exemplo, um backup semanal completo acontece no dia 16 de novembro. De acordo com a política de retenção, deve ser mantida até 16 de dezembro. O último registo para este registo completo acontece antes do próximo dia 22 de novembro. Até que este registo esteja disponível até 22 de dezembro, o 16 de novembro completo não pode ser apagado. Assim, o 16º de novembro completo é mantido até 22 de dezembro.

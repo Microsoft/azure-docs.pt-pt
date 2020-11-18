@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 260631e36d113b6ccd190f66ce61caa7ba1b187b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 2dba9fbcbddbc7a66763636986f3d98f4f95332c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900885"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683136"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utilize os controladores da Interface de Armazenamento de Contentores de Disco Azure (CSI) no Serviço Azure Kubernetes (AKS) (pré-visualização)
 O controlador Azure Disk Container Storage Interface (CSI) é um controlador de [especificações CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)utilizado pelo Azure Kubernetes Service (AKS) para gerir o ciclo de vida dos discos Azure.
@@ -275,7 +275,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 ## <a name="shared-disk"></a>Disco compartilhado
 
-[Os discos partilhados Azure](../virtual-machines/windows/disks-shared.md) são uma funcionalidade de discos geridos azure que permite anexar um disco Azure aos nós de agente simultaneamente. A anexação de um disco gerido a múltiplos nós de agente permite,por exemplo, implantar novas ou migrar aplicações agrupadas existentes para o Azure.
+[Os discos partilhados Azure](../virtual-machines/disks-shared.md) são uma funcionalidade de discos geridos azure que permite anexar um disco Azure aos nós de agente simultaneamente. A anexação de um disco gerido a múltiplos nós de agente permite,por exemplo, implantar novas ou migrar aplicações agrupadas existentes para o Azure.
 
 > [!IMPORTANT] 
 > Atualmente, apenas o dispositivo de bloco bruto `volumeMode: Block` é suportado pelo controlador CSI do disco Azure. As aplicações devem gerir a coordenação e controlo de escritas, leituras, fechaduras, caches, suportes e esgrima no disco partilhado, que está exposto como um dispositivo de bloco cru.
@@ -390,7 +390,7 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 (...)
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para aprender a utilizar controladores CSI para ficheiros Azure, consulte [Use Azure Files com controladores CSI](azure-files-csi.md).
 - Para obter mais informações sobre as melhores práticas de armazenamento, consulte [as melhores práticas de armazenamento e backups no Serviço Azure Kubernetes.][operator-best-practices-storage]

@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 424a1ef7a73b5abbdba0d89ededb44cb9efdd116
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9d15d681a114b0f364e8e33adc786b4d0ba7df0e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340993"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684564"
 ---
 # <a name="query-folders-and-multiple-files"></a>Consultar pastas e vários ficheiros  
 
@@ -273,6 +273,6 @@ ORDER BY
 
 Uma vez que tem apenas uma pasta que corresponde aos critérios, o resultado da consulta é o mesmo que ler o [subconjunto de ficheiros na pasta](#read-subset-of-files-in-folder) e [ler todos os ficheiros de uma pasta específica](#read-all-files-from-specific-folder). Cenários de utilização wildcard mais complexos são cobertos por [ficheiros Parquet De consulta.](query-parquet-files.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Mais informações podem ser encontradas no artigo [de ficheiros específicos](query-specific-files.md) da Consulta.

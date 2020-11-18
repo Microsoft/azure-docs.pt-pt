@@ -4,12 +4,12 @@ description: Este artigo descreve como configurar a visão em tempo real dos tro
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4966ab0d64745c36ee53f27ba4063714f18e35da
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6fdd2d0a97357a2126ff37c0840b1f7da2859da5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648111"
+ms.locfileid: "94682677"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar a funcionalidade Dados Ao Vivo (pré-visualização)
 
@@ -136,8 +136,8 @@ Cada conta AZure AD deve ser autorizada às APIs apropriadas em Kubernetes para 
 >[!IMPORTANT]
 >Se o utilizador que concede a ligação RBAC estiver no mesmo inquilino AZure AD, atribua permissões com base no nome do utilizadorPrincipalName. Se o utilizador estiver num inquilino AD Azure diferente, consultar e utilizar a propriedade objectId.
 
-Para obter ajuda adicional para configurar o cluster AKS **ClusterRoleBinding**, consulte [criar a ligação RBAC](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
+Para obter ajuda adicional para configurar o cluster AKS **ClusterRoleBinding**, consulte [a ligação do CREATE Kubernetes RBAC](../../aks/azure-ad-integration-cli.md#create-kubernetes-rbac-binding).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem a autenticação de configuração, pode ver [métricas,](container-insights-livedata-metrics.md) [Implementações](container-insights-livedata-deployments.md)e [eventos e registos](container-insights-livedata-overview.md) em tempo real a partir do seu cluster.

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: fdbef15bb7831fedd7c375d565e0cde10f9b9a9e
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: f229075d0bad4f9522e02e30bdabc1d42bb086cf
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380437"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684190"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integração do Azure Ative Directory gerido pela AKS
 
@@ -18,14 +18,14 @@ A integração AZure AD gerida pela AKS foi projetada para simplificar a experi�
 
 ## <a name="azure-ad-authentication-overview"></a>Visão geral da autenticação AD do Azure
 
-Os administradores do cluster podem configurar o controlo de acesso baseado em funções (RBAC) baseado em funções com base na identidade de um utilizador ou na adesão ao grupo de diretórios. A autenticação AZure AD é fornecida aos clusters AKS com OpenID Connect. OpenID Connect é uma camada de identidade construída em cima do protocolo OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação de ligação Open ID][open-id-connect].
+Os administradores do cluster podem configurar o controlo de acesso baseado em funções da Kubernetes (Kubernetes RBAC) com base na identidade ou membro do grupo de diretórios de um utilizador. A autenticação AZure AD é fornecida aos clusters AKS com OpenID Connect. OpenID Connect é uma camada de identidade construída em cima do protocolo OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação de ligação Open ID][open-id-connect].
 
 Saiba mais sobre o fluxo de integração AD do Azure na documentação de [conceitos de integração do Azure Ative Directory.](concepts-identity.md#azure-active-directory-integration)
 
 ## <a name="limitations"></a>Limitações 
 
 * A integração AD gerida pela AKS não pode ser desativada
-* os clusters não ativados não-RBAC não são suportados para a integração Azure AD gerida pela AKS
+* os clusters rbac ativados não-Kubernetes não são suportados para a integração Azure AD gerida pela AKS
 * Mudar o inquilino AZure AD associado à integração Azure AD gerida pela AKS não é suportado
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -48,7 +48,7 @@ kubelogin --version
 Utilize [estas instruções](https://kubernetes.io/docs/tasks/tools/install-kubectl/) para outros sistemas operativos.
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para o seu grupo, precisa de um grupo AD Azure. Este grupo é necessário como grupo de administração para o cluster conceder permissões de administração de cluster. Você pode usar um grupo AD Azure existente, ou criar um novo. Grave a identificação do objeto do seu grupo AD Azure.
 
@@ -136,7 +136,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster 
 
 ## <a name="enable-aks-managed-azure-ad-integration-on-your-existing-cluster"></a>Ativar a integração ad Ad gerida pela AkS no seu cluster existente
 
-Pode ativar a integração AD AD gerida pela AKS no seu cluster ativado pelo RBAC existente. Certifique-se de definir o seu grupo de administração para manter o acesso no seu cluster.
+Pode ativar a integração AD AD gerida pela AKS no seu cluster rbac existente. Certifique-se de definir o seu grupo de administração para manter o acesso no seu cluster.
 
 ```azurecli-interactive
 az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad --aad-admin-group-object-ids <id-1> [--aad-tenant-id <id>]

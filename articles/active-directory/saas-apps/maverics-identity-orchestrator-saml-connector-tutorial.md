@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: a9d5988f25b833480c4809ba116c48022566b7a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f4fe368e9a56e5ac4c9dfa2648ce4af15a1b5ac0
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458188"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684445"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Tutorial: Integre o single sign-on do Azure AD com o Conector SAML, orquestrador de identidade Maverics
 
@@ -158,7 +158,7 @@ Pode configurar um cofre de chaves Azure utilizando o portal Azure ou o Azure CL
 
 **Utilizar o portal do Azure**
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. [Criar um novo cofre de chaves.](../../key-vault/secrets/quick-create-portal.md#create-a-vault)
+1. [Criar um novo cofre de chaves.](../../key-vault/general/quick-create-portal.md)
 1. [Adicione os segredos ao cofre das chaves.](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
 1. [Registe uma candidatura com Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. [Autorizar uma aplicação a usar um segredo.](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
@@ -205,7 +205,7 @@ Pode configurar um cofre de chaves Azure utilizando o portal Azure ou o Azure CL
 
 1. No painel Maverics Identity Orchestrator SAML Connector **Properties,** de **No** definição **de atribuição do utilizador necessária?**
 
-1. No painel de **visão geral** do conector de identidade Maverics, selecione **Configurar um único sinal de inscrição**e, em seguida, selecione **SAML**.
+1. No painel de **visão geral** do conector de identidade Maverics, selecione **Configurar um único sinal de inscrição** e, em seguida, selecione **SAML**.
 
 1. No sinal baseado no painel de cores saml do Maverics Identity Orchestrator **SAML,** edite a **Configuração Básica SAML** selecionando o botão **Edit** (ícone de lápis).
 
@@ -217,9 +217,9 @@ Pode configurar um cofre de chaves Azure utilizando o portal Azure ou o Azure CL
 
 1. Introduza o **Sinal no URL** no seguinte formato: `https://<AZURE-COMPANY.COM>/<MY_APP>/<LOGIN PAGE>` . 
 
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
-1. Na secção **Certificado de Assinatura SAML,** selecione o botão **Copiar** para copiar o URL **de metadados da Federação de Aplicações**e guarde-o para o seu computador.
+1. Na secção **Certificado de Assinatura SAML,** selecione o botão **Copiar** para copiar o URL **de metadados da Federação de Aplicações** e guarde-o para o seu computador.
 
     ![Screenshot do botão de cópia "Certificado de assinatura SAML".](common/copy-metadataurl.png)
 
@@ -281,9 +281,9 @@ Siga esta configuração para migrar gradualmente os utilizadores de um produto 
 
 1. No **Maverics Identity Orchestrator SAML Connector Os certificados & o painel de segredos,** selecione `New client secret` e, em seguida, selecione na opção de expiração. Selecione o botão **Copiar** para copiar o segredo e guarde-o para o seu computador.
 
-1. No **Maverics Identity Orchestrator SAML Connector Permissões API** painel, **selecione Adicionar permissão** e, em seguida, no painel de **permissões API do Pedido,** selecione permissões **de Gráfico** e **Aplicação do**Microsoft . 
+1. No **Maverics Identity Orchestrator SAML Connector Permissões API** painel, **selecione Adicionar permissão** e, em seguida, no painel de **permissões API do Pedido,** selecione permissões **de Gráfico** e **Aplicação do** Microsoft . 
 
-1. No ecrã seguinte, selecione **User.ReadWrite.All**e, em seguida, **selecione Adicionar permissões**. 
+1. No ecrã seguinte, selecione **User.ReadWrite.All** e, em seguida, **selecione Adicionar permissões**. 
 
 1. De volta ao painel de permissões da **API,** selecione **Grant consentimento administrativo**.
 
@@ -418,7 +418,7 @@ Para configurar o fluxo de trabalho da migração, faça o seguinte:
 
 1. Aceda ao URL de login, `http://host.company.com/my_app` .
 1. Forneça as credenciais de utilizador que são usadas para iniciar sessão na aplicação enquanto esta é protegida pelo SiteMinder.
-4. Ir **Home**para  >  **utilizadores domésticos ! Todos os Utilizadores** para verificar se o utilizador é criado no inquilino AZURE AD.  
+4. Ir **Home** para  >  **utilizadores domésticos ! Todos os Utilizadores** para verificar se o utilizador é criado no inquilino AZURE AD.  
 
 ### <a name="configure-the-session-abstraction-workflow"></a>Configure o fluxo de trabalho de abstração da sessão
 

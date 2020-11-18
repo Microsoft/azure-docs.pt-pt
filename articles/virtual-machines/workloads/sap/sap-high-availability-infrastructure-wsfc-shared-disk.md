@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4538654b255aad99ff00477134c9eeb5845e50d6
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167343"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682762"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Prepare a infraestrutura Azure para o SAP HA utilizando um cluster de failover do Windows e disco partilhado para SAP ASCS/SCS
 
@@ -165,7 +165,7 @@ ms.locfileid: "92167343"
 Este artigo descreve os passos que toma para preparar a infraestrutura Azure para instalar e configurar uma instância SAP ASCS/SCS de alta disponibilidade num cluster de failover do Windows, utilizando um *disco partilhado* de cluster como opção para agrupar uma instância SAP ASCS.
 Na documentação são apresentadas duas alternativas para o disco partilhado do *cluster:*
 
-- [Discos partilhados do Azure](../../windows/disks-shared.md)
+- [Discos partilhados do Azure](../../disks-shared.md)
 - Usando [a SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) para criar armazenamento espelhado, que simulará disco compartilhado agrupado 
 
 A configuração apresentada está a contar com [grupos de colocação de proximidade Azure (PPG)](./sap-proximity-placement-scenarios.md) para obter a latência ideal da rede para cargas de trabalho SAP. A documentação não cobre a camada da base de dados.  
@@ -213,17 +213,17 @@ A lista a seguir mostra a configuração do balançador de carga (A)SCS/ERS. A c
 - Configuração de backend  
     Adicione todas as máquinas virtuais que devem fazer parte do cluster (A)SCS/ERS. Neste exemplo, vMs **pr1-ascs-10** e **pr1-ascs-11**.
 - Porto de Sonda
-    - Porta 620**nr** Deixe a opção por defeito para Protocolo (TCP), Intervalo (5), limiar pouco saudável (2)
+    - Porta 620 **nr** Deixe a opção por defeito para Protocolo (TCP), Intervalo (5), limiar pouco saudável (2)
 - Regras de equilíbrio de carga
     - Se utilizar o Balanceador de Carga Padrão, selecione portas HA
     - Se utilizar o Balanceador de Carga Básica, crie regras de equilíbrio de carga para as seguintes portas
-        - 32**nr** TCP
-        - 36**nr** TCP
-        - 39**nr** TCP
-        - 81**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 36 **nr** TCP
+        - 39 **nr** TCP
+        - 81 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - Certifique-se de que o tempo limite de marcha lenta (minutos) está definido para o valor máximo 30 e que o IP flutuante (retorno direto do servidor) está ativado.
 
@@ -237,17 +237,17 @@ Uma vez que o Enqueue Replication Server 2 (ERS2) também está agrupado, o ende
   Os VMs já foram adicionados à piscina de backend ILB.  
 
 - 2ª Porta de Sonda
-    - Porto 621**nr**  
+    - Porto 621 **nr**  
     Deixe a opção por defeito para Protocolo (TCP), Intervalo (5), limiar pouco saudável (2)
 
 - 2ª Regras de equilíbrio de carga
     - Se utilizar o Balanceador de Carga Padrão, selecione portas HA
     - Se utilizar o Balanceador de Carga Básica, crie regras de equilíbrio de carga para as seguintes portas
-        - 32**nr** TCP
-        - 33**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 33 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - Certifique-se de que o tempo limite de marcha lenta (minutos) está definido para o valor máximo 30 e que o IP flutuante (retorno direto do servidor) está ativado.
 
@@ -558,6 +558,6 @@ Depois de instalar o SIOS DataKeeper em ambos os nós, inicie a configuração. 
    _O Gestor de Cluster Failover mostra o disco que o DataKeeper replicado_
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Instale o SAP NetWeaver HA utilizando um cluster de falha do Windows e disco partilhado para uma instância SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk]

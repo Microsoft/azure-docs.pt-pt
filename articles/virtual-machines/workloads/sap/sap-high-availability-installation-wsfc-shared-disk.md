@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5126ae94d8c751952964aaf4df0736a5e546ff36
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c914afb3a72ccac4753a1942b6c4303850654a2e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963640"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682643"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instale o SAP NetWeaver HA num cluster de falha do Windows e disque partilhe o disco para uma instância SAP ASCS/SCS em Azure
 
@@ -149,7 +149,7 @@ ms.locfileid: "91963640"
 
 Este artigo descreve como instalar e configurar um sistema SAP de alta disponibilidade em Azure, utilizando um cluster de failover do Windows Server e um disco partilhado de cluster para agrupar uma instância SAP ASCS/SCS. Como descrito no [guia de arquitetura: Cluster uma instância SAP ASCS/SCS num cluster de failover do Windows utilizando um disco partilhado de cluster,][sap-high-availability-guide-wsfc-shared-disk]existem duas alternativas para *o disco compartilhado do cluster*:
 
-- [Discos partilhados do Azure](../../windows/disks-shared.md)
+- [Discos partilhados do Azure](../../disks-shared.md)
 - Usando [a SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) para criar armazenamento espelhado, que simulará disco compartilhado agrupado 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -250,7 +250,7 @@ Utilize a funcionalidade da sonda do balançador interno para fazer com que toda
 No entanto, isto não funcionará em algumas configurações de cluster porque apenas um caso está ativo. A outra instância é passiva e não pode aceitar nenhuma carga de trabalho. Uma funcionalidade da sonda ajuda quando o equilibrador interno de carga Azure deteta qual a instância está ativa, e apenas direciona a instância ativa.  
 
 > [!IMPORTANT]
-> Nesta configuração de exemplo, o **ProbePort** está definido para 620**Nr**. Para a caixa ASCS SAP com o número **00** é 620**00**. Terá de ajustar a configuração para corresponder aos números de instância SAP e ao seu SAP SID.
+> Nesta configuração de exemplo, o **ProbePort** está definido para 620 **Nr**. Para a caixa ASCS SAP com o número **00** é 620 **00**. Terá de ajustar a configuração para corresponder aos números de instância SAP e ao seu SAP SID.
 
 Para adicionar uma porta de sonda, executar este Módulo PowerShell num dos VMs do cluster:
 

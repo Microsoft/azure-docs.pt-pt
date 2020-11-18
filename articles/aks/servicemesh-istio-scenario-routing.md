@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 69541ec652188bc3826b7829fbc5c182193d6ba9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d66f3099ba225fbdd2bfc3d54db56ffd8ed2c43f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670935"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684037"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Utilize lançamentos inteligentes de encaminhamento e canário com istio no Serviço Azure Kubernetes (AKS)
 
@@ -28,12 +28,12 @@ Neste artigo, vai aprender a:
 > * Lançar uma versão canária da aplicação
 > * Finalizar o lançamento
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 > [!NOTE]
 > Este cenário foi testado contra a versão `1.3.2` Istio.
 
-Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.13` e acima, com RBAC habilitado) e estabeleceu uma `kubectl` ligação com o cluster. Também vai precisar de Istio instalado no seu cluster.
+Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.13` e acima, com o RBAC de Kubernetes habilitado) e estabeleceu uma `kubectl` ligação com o cluster. Também vai precisar de Istio instalado no seu cluster.
 
 Se precisar de ajuda com algum destes itens, consulte o [quickstart AKS][aks-quickstart] e instale o Istio na orientação [AKS.][istio-install]
 
@@ -439,7 +439,7 @@ A saída de exemplo a seguir mostra que todos os componentes da aplicação de v
 namespace "voting" deleted
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Você pode explorar cenários adicionais usando o [exemplo da Aplicação Istio Bookinfo][istio-bookinfo-example].
 

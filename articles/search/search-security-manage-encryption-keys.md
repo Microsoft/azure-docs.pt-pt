@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7f2df005a8d3211ba53aadb16370624c4f530eb3
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 95ac4ed83a4486665ce378972ea7d6423c2482d5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575871"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682915"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configure as chaves geridas pelo cliente para encriptação de dados na Pesquisa Cognitiva Azure
 
@@ -46,7 +46,7 @@ Se estiver a utilizar uma região diferente, ou um serviço criado antes de 1 de
 Neste cenário são utilizadas as seguintes ferramentas e serviços.
 
 + [Pesquisa Cognitiva Azure](search-create-service-portal.md) num [nível de faturação](search-sku-tier.md#tiers) (Básico ou superior, em qualquer região).
-+ [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) na mesma subscrição que a Azure Cognitive Search. O cofre da chave deve ter **proteção de eliminação** e **purga** ativada.
++ [Azure Key Vault](../key-vault/general/overview.md), pode criar um cofre de chaves utilizando [o portal Azure,](../key-vault//general/quick-create-portal.md) [Azure CLI](../key-vault//general/quick-create-cli.md)ou [Azure PowerShell](../key-vault//general/quick-create-powershell.md). na mesma subscrição que a Azure Cognitive Search. O cofre da chave deve ter **proteção de eliminação** e **purga** ativada.
 + [Diretório Ativo Azure](../active-directory/fundamentals/active-directory-whatis.md). Se não tiver um, [crie um novo inquilino.](../active-directory/develop/quickstart-create-new-tenant.md)
 
 Deve ter uma aplicação de pesquisa que possa criar o objeto encriptado. Neste código, você vai fazer referência a uma chave de cofre e informações de registo do Ative Directory. Este código pode ser uma aplicação de funcionamento, ou código protótipo, como a amostra de [código C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
@@ -116,7 +116,7 @@ Salte este passo se já tiver uma chave no Cofre da Chave Azure.
 
 1. Selecione **Criar** para iniciar a implementação.
 
-1. Tome nota do Identificador chave – é composto pelo **valor-chave Uri** , o **nome-chave** e a **versão chave**. Necessitará do identificador para definir um índice encriptado na Pesquisa Cognitiva Azure.
+1. Tome nota do Identificador chave – é composto pelo **valor-chave Uri**, o **nome-chave** e a **versão chave**. Necessitará do identificador para definir um índice encriptado na Pesquisa Cognitiva Azure.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Criar uma nova chave de cofre":::
 
@@ -158,11 +158,11 @@ As permissões de acesso podem ser revogadas a qualquer momento. Uma vez revogad
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="Selecione o principal da política de acesso ao cofre":::
 
-1. Nas **permissões chave** , escolha *Obter,* *Desembrulhar a chave* e a chave de *embrulho*.
+1. Nas **permissões chave**, escolha *Obter,* *Desembrulhar a chave* e a chave de *embrulho*.
 
-1. Em **Permissões Secretas** , selecione *Get*.
+1. Em **Permissões Secretas**, selecione *Get*.
 
-1. Nas **Permissões de Certificados** , selecione *Get*.
+1. Nas **Permissões de Certificados**, selecione *Get*.
 
 1. **Selecione Adicionar** e, em seguida, **Guardar**.
 
@@ -388,7 +388,7 @@ Espera-se que a rotação da chave ocorra ao longo do tempo. Sempre que roda as 
 
 Por razões de desempenho, o serviço de pesquisa caches a chave por até várias horas. Se desativar ou eliminar a chave sem fornecer uma nova, as consultas continuarão a funcionar temporariamente até que a cache expire. No entanto, uma vez que o serviço de pesquisa não consegue desencriptar o conteúdo, receberá esta mensagem: "Acesso proibido. A chave de consulta usada poderia ter sido revogada - por favor, redaçar." 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não está familiarizado com a arquitetura de segurança da Azure, reveja a documentação da [Azure Security,](../security/index.yml)e em particular, este artigo:
 

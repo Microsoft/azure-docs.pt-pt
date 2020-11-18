@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/02/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 285fa34db3886cf405a3682438a27a17c75d81ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c42e9c31397e9313898d7029366bc8de169d368e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666729"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683833"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instale e utilize o Istio no Serviço Azure Kubernetes (AKS)
 
@@ -33,9 +33,9 @@ Neste artigo, vai aprender a:
 > * Aceda aos addons
 > * Desinstalar Istio da AKS
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.16` e acima, com o RBAC habilitado) e estabeleceu uma `kubectl` ligação com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido da [AKS][aks-quickstart].
+Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.16` e acima, com o RBAC de Kubernetes habilitado) e estabeleceu uma `kubectl` ligação com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido da [AKS][aks-quickstart].
 
 Certifique-se de que leu a documentação [Istio Performance e Scalability](https://istio.io/docs/concepts/performance-and-scalability/) para entender os requisitos adicionais de recursos para executar a Istio no seu cluster AKS. Os requisitos de núcleo e memória variarão em função da sua carga de trabalho específica. Escolha um número adequado de nós e tamanho VM para atender à sua configuração.
 
@@ -310,7 +310,7 @@ kubectl delete ns istio-system
 kubectl delete ns istio-operator
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para explorar mais opções de instalação e configuração para Istio, consulte as seguintes orientações oficiais da Istio:
 

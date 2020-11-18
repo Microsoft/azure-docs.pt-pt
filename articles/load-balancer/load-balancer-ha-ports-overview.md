@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f6d5b5ef816127fe5f0c689132326f6157731d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664878"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684415"
 ---
 # <a name="high-availability-ports-overview"></a>Visão geral das portas de alta disponibilidade
 
@@ -97,7 +97,6 @@ Pode configurar *um* recurso público Standard Load Balancer para os recursos de
 - A simetria de fluxo (principalmente para cenários de NVA) é suportada com instância de backend e uma única configuração NIC (e única configuração IP) apenas quando usada como mostrado no diagrama acima e usando regras de equilíbrio de carga das portas HA. Não é fornecido em nenhum outro cenário. Isto significa que dois ou mais recursos do Balancer de Carga e respetivas regras tomam decisões independentes e nunca são coordenados. Consulte a descrição e o diagrama dos [aparelhos virtuais da rede](#nva). Quando estiver a utilizar vários NICs ou a fazer sanduiches no NVA entre um Balanceador de Carga público e interno, a simetria de fluxo não está disponível.  Poderá trabalhar em torno disto através da fonte NAT'ing o fluxo de entrada para o IP do aparelho para permitir que as respostas cheguem no mesmo NVA.  No entanto, recomendamos vivamente a utilização de um único NIC e a utilização da arquitetura de referência mostrada no diagrama acima.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Saiba como configurar as portas HA para o seu ILB via Portal,](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule) [PowerShell,](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer) [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)ou [Modelos](quickstart-load-balancer-standard-internal-template.md).
-- [Saiba mais sobre o Balanceador de Carga Padrão](load-balancer-standard-overview.md)
+- [Saiba mais sobre o Balanceador de Carga Padrão](load-balancer-overview.md)

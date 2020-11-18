@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: eef78ffefe8fe13e6f160e38a05405a80d6e46f8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: aee3f5602d0bd1ff12717d903d662ce4605de61d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660955"
+ms.locfileid: "94683765"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows Virtual Desktop RDP Shortpath (pré-visualização)
 
@@ -99,7 +99,7 @@ Também pode usar a política do Grupo PowerShell para configurar
 # Replace $domainName value with the name of your Active Directory domain
 # Replace $policyName value with the name of existing Group Policy Object
 $domainName = "contoso.com"
-$policyName = "Default Domain Policy"
+$policyName = "RDP Shortpath Policy"
 Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations' -ValueName 'fUseUdpPortRedirector' -Value 1 -Type:DWord  -Action:Create -Context:Computer -Name $policyName -Domain $domainName
 Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations' -ValueName 'UdpPortNumber' -Value 3390 -Type:DWord  -Action:Create -Context:Computer -Name $policyName -Domain $domainName
 ```
@@ -139,7 +139,7 @@ Também pode usar a política do Grupo PowerShell para configurar
 # Replace $domainName value with the name of your Active Directory domain
 # Replace $policyName value with the name of existing Group Policy Object
 $domainName = "contoso.com"
-$policyName = "Default Domain Policy"
+$policyName = "RDP Shortpath Policy"
 $gpoSession = Open-NetGPO -PolicyStore "$domainName\$policyName"
 New-NetFirewallRule -DisplayName 'Remote Desktop - Shortpath (UDP-In)'  -Action Allow -Description 'Inbound rule for the Remote Desktop service to allow RDP traffic. [UDP 3390]' -Group '@FirewallAPI.dll,-28752' -Name 'RemoteDesktop-UserMode-In-Shortpath-UDP'  -PolicyStore PersistentStore -Profile Domain, Private -Service TermService -Protocol udp -LocalPort 3390 -Program '%SystemRoot%\system32\svchost.exe' -Enabled:True
 ```
@@ -247,7 +247,7 @@ Para desativar o Caminho Curto RDP para um anfitrião de sessão específica, po
 2. Navegue para **modelos de administração de > de configuração do computador > componentes do Windows > serviços de ambiente de trabalho remoto > ligações > de ligação ao ambiente de trabalho remoto**.
 3. Defina a definição **"Selecione PROTOCOLOS de Transporte RDP" apenas** para **TCP**
 
-## <a name="feedback"></a>Comentários
+## <a name="public-preview-feedback"></a>Feedback de pré-visualização pública
 
 Gostaríamos de ouvir sobre as suas experiências com esta pré-estreia pública!
 * Para perguntas, pedidos, comentários e outros comentários, [utilize este formulário de feedback](https://aka.ms/RDPShortpathFeedback).

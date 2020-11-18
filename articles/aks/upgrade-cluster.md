@@ -3,13 +3,13 @@ title: Atualizar um cluster do Azure Kubernetes Service (AKS)
 description: Saiba como atualizar um cluster Azure Kubernetes Service (AKS) para obter as mais recentes funcionalidades e atualizações de segurança.
 services: container-service
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/17/2020
+ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461452"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683238"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ Como parte do ciclo de vida de um cluster AKS, você precisa muitas vezes de atu
 
 Para clusters AKS que usam várias piscinas de nós ou nós do Windows Server, consulte [atualizar uma piscina de nós em AKS][nodepool-upgrade].
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo requer que esteja a executar a versão Azure CLI 2.0.65 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
@@ -51,7 +51,7 @@ Se não houver upgrade disponível, receberá:
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-## <a name="customize-node-surge-upgrade-preview"></a>Personalizar a atualização do aumento do nó (Pré-visualização)
+## <a name="customize-node-surge-upgrade"></a>Personalizar atualização de aumento de nó
 
 > [!Important]
 > Os aumentos de node requerem quota de subscrição para a contagem máxima de aumento solicitada para cada operação de upgrade. Por exemplo, um cluster que tem 5 piscinas de nó, cada uma com uma contagem de 4 nós, tem um total de 20 nós. Se cada piscina de nódoa tiver um valor máximo de aumento de 50%, é necessário um cálculo adicional e quota IP de 10 nós (2 nós * 5 piscinas) para completar a atualização.
@@ -66,21 +66,7 @@ A AKS aceita valores inteiros e um valor percentual para o aumento máximo. Um i
 
 Durante uma atualização, o valor máximo de aumento pode ser um mínimo de 1 e um valor máximo igual ao número de nós na piscina do nó. Pode definir valores maiores, mas o número máximo de nós usados para o pico máximo não será superior ao número de nós na piscina no momento da atualização.
 
-### <a name="set-up-the-preview-feature-for-customizing-node-surge-upgrade"></a>Configurar a funcionalidade de pré-visualização para personalizar a atualização do aumento do nó
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
-```
-
-Levará vários minutos para a inscrição. Utilize o comando abaixo para verificar se a funcionalidade está registada:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
-```
-
-Durante a pré-visualização, precisa da extensão CLI *de pré-visualização aks* para utilizar o pico máximo. Utilize o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
+Até à versão CLI 2.16.0+ necessitará da extensão CLI *de pré-visualização aks* para utilizar o pico máximo. Utilize o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -107,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Atualizar um cluster do AKS
 
-Com uma lista de versões disponíveis para o seu cluster AKS, utilize o comando [de upgrade az aks][az-aks-upgrade] para atualizar. Durante o processo de atualização, a AKS adiciona um novo nó tampão (ou tantos nós configurados em [pico máximo)](#customize-node-surge-upgrade-preview)ao cluster que executa a versão especificada de Kubernetes. Em seguida, [irá cordon e drenar][kubernetes-drain] um dos nós antigos para minimizar a perturbação das aplicações de funcionamento (se estiver a usar o máximo de onda, irá isolar e [drenar][kubernetes-drain] tantos nós ao mesmo tempo que o número de nós tampão especificados). Quando o nó antigo estiver totalmente drenado, será reamco para receber a nova versão e tornar-se-á o nó tampão para o nó seguinte ser atualizado. Este processo repete-se até que todos os nós do cluster tenham sido atualizados. No final do processo, o último nó drenado será eliminado, mantendo a contagem de nó de agente existente.
+Com uma lista de versões disponíveis para o seu cluster AKS, utilize o comando [de upgrade az aks][az-aks-upgrade] para atualizar. Durante o processo de atualização, a AKS adiciona um novo nó tampão (ou tantos nós configurados em [pico máximo)](#customize-node-surge-upgrade)ao cluster que executa a versão especificada de Kubernetes. Em seguida, [irá cordon e drenar][kubernetes-drain] um dos nós antigos para minimizar a perturbação das aplicações de funcionamento (se estiver a usar o máximo de onda, irá isolar e [drenar][kubernetes-drain] tantos nós ao mesmo tempo que o número de nós tampão especificados). Quando o nó antigo estiver totalmente drenado, será reamco para receber a nova versão e tornar-se-á o nó tampão para o nó seguinte ser atualizado. Este processo repete-se até que todos os nós do cluster tenham sido atualizados. No final do processo, o último nó drenado será eliminado, mantendo a contagem de nó de agente existente.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -135,7 +121,7 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo mostrou-lhe como atualizar um cluster AKS existente. Para saber mais sobre a implementação e gestão de clusters AKS, consulte o conjunto de tutoriais.
 

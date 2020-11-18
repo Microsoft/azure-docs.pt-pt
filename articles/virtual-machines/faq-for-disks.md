@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8a762cfd1ecb4e290417b5d24b0ae75f6e10baf1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3d199ae202cbe99176f3ca5d0ae82ecdeec84ca4
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973705"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684513"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes sobre discos de VM IaaS do Azure e discos premium geridos e não geridos
 
@@ -30,7 +30,7 @@ Um disco gerido padrão criado a partir de um VHD de 80 GB é tratado como o pr�
 
 **Existem custos de transação para discos geridos padrão?**
 
-Yes. É cobrado por cada transação. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
+Sim. É cobrado por cada transação. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
 
 **Para um disco gerido padrão, serei cobrado pelo tamanho real dos dados no disco ou pela capacidade prevista do disco?**
 
@@ -42,11 +42,11 @@ O preço dos discos geridos premium é o mesmo que discos premium não geridos.
 
 **Posso alterar o tipo de conta de armazenamento (Standard ou Premium) dos meus discos geridos?**
 
-Yes. Pode alterar o tipo de conta de armazenamento dos seus discos geridos utilizando o portal Azure, o PowerShell ou o Azure CLI.
+Sim. Pode alterar o tipo de conta de armazenamento dos seus discos geridos utilizando o portal Azure, o PowerShell ou o Azure CLI.
 
 **Posso usar um ficheiro VHD numa conta de armazenamento Azure para criar um disco gerido com uma subscrição diferente?**
 
-Yes.
+Sim.
 
 **Posso usar um ficheiro VHD numa conta de armazenamento Azure para criar um disco gerido numa região diferente?**
 
@@ -62,11 +62,11 @@ Não. Os VMs num conjunto de disponibilidade devem utilizar todos os discos geri
 
 **Os Discos Geridos são a opção padrão no portal Azure?**
 
-Yes.
+Sim.
 
 **Posso criar um disco gerido vazio?**
 
-Yes. Pode criar um disco vazio. Um disco gerido pode ser criado independentemente de um VM, por exemplo, sem o ligar a um VM.
+Sim. Pode criar um disco vazio. Um disco gerido pode ser criado independentemente de um VM, por exemplo, sem o ligar a um VM.
 
 **Qual é a contagem de domínio de avaria suportada para um conjunto de disponibilidade que utiliza Discos Geridos?**
 
@@ -102,7 +102,7 @@ Não.
 
 **Se eu criar um disco de 128 GB e depois aumentar o tamanho para 130 gibibytes (GiB), serei cobrado para o próximo tamanho do disco (256 GiB)?**
 
-Yes.
+Sim.
 
 **Posso criar armazenamento localmente redundante, armazenamento geo-redundante e discos geridos de armazenamento redundante?**
 
@@ -171,7 +171,7 @@ Não, só é suportado para discos ultra e discos geridos premium SSD.
 
 **Que regiões suportam discos partilhados?**
 
-Para obter informações regionais, consulte o nosso [artigo conceptual.](./linux/disks-shared.md)
+Para obter informações regionais, consulte o nosso [artigo conceptual.](disks-shared.md)
 
 **Os discos partilhados podem ser usados como disco DE?**
 
@@ -179,7 +179,7 @@ Não, os discos partilhados só são suportados para discos de dados.
 
 **Que tamanhos de disco suportam discos partilhados?**
 
-Para tamanhos suportados, consulte o nosso [artigo conceptual.](./linux/disks-shared.md)
+Para tamanhos suportados, consulte o nosso [artigo conceptual.](disks-shared.md)
 
 **Se eu tiver um disco existente, posso permitir discos partilhados nele?**
 
@@ -191,7 +191,7 @@ Desmonte o disco de todos os VMs aos que está ligado. Em seguida, edite a propr
 
 **Pode redimensionar um disco partilhado?**
 
-Yes.
+Sim.
 
 **Posso permitir escrever um acelerador num disco que também tenha discos partilhados ativados?**
 
@@ -310,11 +310,11 @@ Sim
 
 **A encriptação do lado do servidor é ativada por padrão quando crio um disco gerido?**
 
-Yes. Os Discos Geridos são encriptados com encriptação do lado do servidor com teclas geridas pela plataforma. 
+Sim. Os Discos Geridos são encriptados com encriptação do lado do servidor com teclas geridas pela plataforma. 
 
 **O volume de arranque é encriptado por padrão num disco gerido?**
 
-Yes. Por padrão, todos os discos geridos são encriptados, incluindo o disco SO.
+Sim. Por padrão, todos os discos geridos são encriptados, incluindo o disco SO.
 
 **Quem gere as chaves de encriptação?**
 
@@ -330,15 +330,15 @@ Não. A encriptação do lado do servidor com as chaves geridas pela plataforma 
 
 **A Recuperação do Site Azure suporta encriptação do lado do servidor com chave gerida pelo cliente para cenários de recuperação de desastres no local para Azure e Azure para cenários de recuperação de desastres do Azure?**
 
-Yes. 
+Sim. 
 
 **Posso fazer backup de Discos Geridos encriptados com encriptação do lado do servidor com chave gerida pelo cliente utilizando o serviço de backup Azure?**
 
-Yes.
+Sim.
 
 **São encriptadas imagens e imagens geridas?**
 
-Yes. Todas as imagens e imagens geridas são automaticamente encriptadas. 
+Sim. Todas as imagens e imagens geridas são automaticamente encriptadas. 
 
 **Posso converter VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptadas para discos geridos?**
 
@@ -352,7 +352,7 @@ Não. Mas se exportar um VHD para uma conta de armazenamento encriptada a partir
 
 **Se um VM utilizar uma série de tamanhos que suporte discos Premium SSD, como um DSv2, posso anexar discos de dados premium e standard?** 
 
-Yes.
+Sim.
 
 **Posso anexar discos de dados premium e padrão a uma série de tamanho que não suporta discos Premium SSD, tais como séries D, Dv2, G ou F?**
 
@@ -439,7 +439,7 @@ Pode tirar uma fotografia dos seus pequenos discos e, em seguida, criar um disco
 
 **Pode redimensionar os Discos Geridos existentes de tamanhos inferiores a 4 tebibytes (TiB) para novos tamanhos de disco recém-introduzidos até 32 TiB?**
 
-Yes.
+Sim.
 
 **Quais são os maiores tamanhos de disco suportados pelo serviço de backup de backup e Azure Site Recovery?**
 
@@ -489,7 +489,7 @@ Não. Atualmente, pode ligar um objeto de acesso a disco a uma rede virtual na m
 
 **Posso utilizar um SAS URI de um disco/instantâneo para descarregar o VHD subjacente de um VM na mesma sub-rede que a sub-rede do ponto final privado associado ao disco?**
 
-Yes.
+Sim.
 
 **Posso utilizar um SAS URI de um disco/instantâneo para descarregar o VHD subjacente de um VM não na mesma sub-rede que a sub-rede do ponto final privado não associado ao disco?**
 

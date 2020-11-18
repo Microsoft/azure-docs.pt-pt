@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 2f47ded22209a9d53510c7d0a2f8270096161354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5ad53c0040009e9ed1f28072540b46ce7b0b9a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86244140"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683924"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instale e utilize o Cônsul no Serviço Azure Kubernetes (AKS)
 
@@ -31,9 +31,9 @@ Neste artigo, vai aprender a:
 > * Validar a instalação do Cônsul
 > * Cônsul desinstalação da AKS
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.13` e acima, com o RBAC habilitado) e estabeleceu uma `kubectl` ligação com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido da [AKS][aks-quickstart]. Certifique-se de que o seu cluster tem pelo menos 3 nós na piscina de nólinho Linux.
+Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.13` e acima, com o RBAC de Kubernetes habilitado) e estabeleceu uma `kubectl` ligação com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido da [AKS][aks-quickstart]. Certifique-se de que o seu cluster tem pelo menos 3 nós na piscina de nólinho Linux.
 
 Vai precisar do [Helm][helm] para seguir estas instruções e instalar o Cônsul. Recomenda-se que tenha a versão mais recente estável corretamente instalada e configurada no seu cluster. Se precisar de ajuda para instalar o Helm, consulte a orientação de [instalação do AKS Helm][helm-install]. Todas as cápsulas de cônsul também devem ser programadas para correr em nós Linux.
 
@@ -156,7 +156,7 @@ helm delete --purge consul
 kubectl delete namespace consul
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para explorar mais opções de instalação e configuração para cônsul, consulte os seguintes artigos oficiais do Cônsul:
 

@@ -8,22 +8,18 @@ ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1efd4baf80c9ba30b1d1ea35390386bc4e7659d3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 661d4ba575eafa4e261a1c92c1112a259b95eac7
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747780"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683597"
 ---
 # <a name="enable-shared-disk"></a>Ativar disco partilhado
 
 Este artigo abrange como ativar a funcionalidade de discos partilhados para discos geridos Azure. Os discos partilhados Azure são uma nova funcionalidade para discos geridos aZure que lhe permite anexar um disco gerido a várias máquinas virtuais (VMs) simultaneamente. A anexação de um disco gerido a vários VMs permite-lhe implementar novas ou migrar aplicações agrupadas existentes para o Azure. 
 
-Se procura informações conceptuais sobre discos geridos que tenham discos partilhados ativados, consulte:
-
-* Para Linux: [Discos partilhados Azure](linux/disks-shared.md)
-
-* Para windows: [Discos partilhados Azure](windows/disks-shared.md)
+Se procura informações conceptuais sobre discos geridos que tenham discos partilhados ativados, consulte [discos partilhados do Azure.](disks-shared.md)
 
 ## <a name="limitations"></a>Limitações
 
@@ -206,7 +202,7 @@ PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS
 Você também precisa fornecer uma chave de reserva persistente ao usar PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION ou PR_RELEASE-RESERVA.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se preferir utilizar modelos do Gestor de Recursos Azure para implementar o seu disco, estão disponíveis os seguintes modelos de amostra:
 - [SSD Premium](https://aka.ms/SharedPremiumDiskARMtemplate)

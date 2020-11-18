@@ -4,12 +4,12 @@ description: Saiba como resolver problemas e resolver problemas comuns ao utiliz
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aefb33325c1a5bf8e94d47106147d4c7c4f0f1ca
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286778"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684173"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -46,7 +46,7 @@ Os seguintes três (3) casos causam um erro de tamanho da sub-rede insuficiente:
    1. Se utilizar o Kubenet, isto ocorre quando `number of free IPs in the subnet` o é **inferior** ao `number of buffer nodes needed to upgrade` .
    1. Se utilizar o Azure CNI, isto ocorre quando o `number of free IPs in the subnet` é **inferior** ao `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
    
-   Por padrão, os clusters AKS definem um valor de aumento máximo (tampão de upgrade) de um (1), mas este comportamento de upgrade pode ser personalizado definindo o [valor máximo de um conjunto de nós](upgrade-cluster.md#customize-node-surge-upgrade-preview) que irá aumentar o número de IPs disponíveis necessários para completar uma atualização.
+   Por padrão, os clusters AKS definem um valor de aumento máximo (tampão de upgrade) de um (1), mas este comportamento de upgrade pode ser personalizado definindo o [valor máximo de um conjunto de nós](upgrade-cluster.md#customize-node-surge-upgrade) que irá aumentar o número de IPs disponíveis necessários para completar uma atualização.
 
 1. AKS criar ou adicionar AKS Nodepool
    1. Se utilizar o Kubenet, isto ocorre quando `number of free IPs in the subnet` o é **inferior** ao `number of nodes requested for the node pool` .
@@ -86,13 +86,13 @@ A AKS dispõe de aviões de controlo HA que escalam verticalmente de acordo com 
 
 Estes intervalos podem estar relacionados com o tráfego interno entre nós bloqueados. Verifique se este tráfego não está a ser bloqueado, como por exemplo por [grupos de segurança](concepts-security.md#azure-network-security-groups) de rede na sub-rede para os nós do seu cluster.
 
-## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estou a tentar ativar Role-Based Controlo de Acesso (RBAC) num cluster existente. Como posso fazer isto?
+## <a name="im-trying-to-enable-kubernetes-role-based-access-control-kubernetes-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estou a tentar ativar o controlo de acesso baseado em papéis da Kubernetes (Kubernetes RBAC) num cluster existente. Como posso fazer isto?
 
-Permitir o controlo de acesso baseado em funções (RBAC) nos clusters existentes não é suportado neste momento, deve ser definido ao criar novos clusters. O RBAC é ativado por padrão ao utilizar a versão CLI, Portal ou API mais tarde do que `2020-03-01` .
+Permitir que o controlo de acesso baseado em funções da Kubernetes (Kubernetes RBAC) em clusters existentes não seja suportado neste momento, deve ser definido ao criar novos clusters. O RBAC de Kubernetes é ativado por padrão ao utilizar uma versão CLI, Portal ou API mais tarde do que `2020-03-01` .
 
-## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Criei um aglomerado com o RBAC ativado e agora vejo muitos avisos no painel de instrumentos de Kubernetes. O painel funcionava sem avisos. O que devo fazer?
+## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Criei um aglomerado com o RBAC de Kubernetes ativado e agora vejo muitos avisos no painel de kubernetes. O painel funcionava sem avisos. O que devo fazer?
 
-A razão para os avisos é que o cluster tem RBAC habilitado e o acesso ao painel é agora restrito por padrão. Em geral, esta abordagem é uma boa prática porque a exposição padrão do dashboard a todos os utilizadores do cluster pode levar a ameaças à segurança. Se ainda quiser ativar o painel de instrumentos, siga os passos [desta publicação de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+A razão para os avisos é que o cluster tem Kubernetes RBAC ativado e o acesso ao painel é agora restrito por padrão. Em geral, esta abordagem é uma boa prática porque a exposição padrão do dashboard a todos os utilizadores do cluster pode levar a ameaças à segurança. Se ainda quiser ativar o painel de instrumentos, siga os passos [desta publicação de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Não consigo obter registos usando registos de kubectl ou não posso ligar-me ao servidor API. Estou a receber "Erro do servidor: recuo de marcação de erro: marcação tcp...". O que devo fazer?
 
@@ -157,7 +157,7 @@ As restrições de nomeação são implementadas tanto pela plataforma Azure com
 * O nome do grupo *MC_* de recursos AKS Node/MC_ combina nome de grupo de recursos e nome de recurso. A sintaxe autogerada `MC_resourceGroupName_resourceName_AzureRegion` não deve ser superior a 80 chars. Se necessário, reduza o comprimento do nome do grupo de recursos ou o nome do cluster AKS. Também pode [personalizar o nome do grupo de recursos de nó](cluster-configuration.md#custom-resource-group-name)
 * O *dnsPrefix* deve começar e terminar com valores alfanuméricos e deve estar entre 1-54 caracteres. Os caracteres válidos incluem valores alfanuméricos e hífens (-). O *dnsPrefix* não pode incluir caracteres especiais como um período (.).
 * Os nomes do AKS Node Pool devem ser todos minúsculos e ser caracteres de 1-11 para piscinas de nóleiros linux e 1-6 caracteres para piscinas de nó de janelas. O nome deve começar com uma letra e os únicos caracteres permitidos são letras e números.
-* O *nome de administração-utilizador* , que define o nome de utilizador do administrador para os nós Linux, deve começar com uma letra, pode conter apenas letras, números, hífenes e sublinhados, e tem um comprimento máximo de 64 caracteres.
+* O *nome de administração-utilizador*, que define o nome de utilizador do administrador para os nós Linux, deve começar com uma letra, pode conter apenas letras, números, hífenes e sublinhados, e tem um comprimento máximo de 64 caracteres.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou a receber erros ao tentar criar, atualizar, escalar, eliminar ou atualizar o cluster, essa operação não é permitida à medida que outra operação está em andamento.
 

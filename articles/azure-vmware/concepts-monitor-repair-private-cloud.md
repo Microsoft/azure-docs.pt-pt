@@ -2,13 +2,13 @@
 title: Conceitos - Monitorizar e reparar a Azure VMware Solution nuvens privadas
 description: Saiba como a Azure VMware Solution monitoriza e repara servidores VMware ESXi numa nuvem privada Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: bee08304cd14f2aeec6995203638b5a37d9a861c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 11a3c53bff7ce7b67b677977eddb9829f336672d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346234"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684700"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitore e repare Azure VMware Solução nuvens privadas
 
@@ -40,6 +40,12 @@ Quando a Azure VMware Solution deteta uma degradação ou falha num nó Azure VM
 
 O processo de remediação do hospedeiro começa adicionando um novo nó saudável no cluster. Em seguida, quando possível, o hospedeiro defeituoso é colocado no modo de manutenção VMware vSphere. VMware vMotion é usado para mover os VMs do hospedeiro defeituoso para outros servidores disponíveis no cluster, potencialmente permitindo a migração ao vivo zero de cargas de trabalho. Em cenários em que o hospedeiro defeituoso não pode ser colocado em modo de manutenção, o hospedeiro é removido do cluster.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais [sobre a atualizações de nuvem privada Azure VMware Solution](concepts-upgrades.md).  
+Aqui estão alguns tópicos sobre os quais talvez queira saber mais sobre:
+
+- [Atualizações de nuvem privada Azure VMware Solution](concepts-upgrades.md)
+- [Gestão do ciclo de vida da Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Proteja o seu VMS de Solução VMware Azure com integração do Centro de Segurança Azure](azure-security-integration.md)
+- [Backup VMs de Solução VMware Azure com Servidor de Backup Azure](backup-azure-vmware-solution-virtual-machines.md)
+- [Recuperação completa de desastres de máquinas virtuais usando Azure VMware Solution](disaster-recovery-for-virtual-machines.md)

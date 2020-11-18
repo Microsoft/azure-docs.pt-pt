@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b75c85b85674def84d9fcee62549a6458abf9174
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629000"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684850"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Falhas nas ligações de saída de resolução de problemas
 
@@ -63,7 +63,7 @@ Por exemplo, duas máquinas virtuais no pool de backend teriam 1024 portas SNAT 
 Se você escalar para o próximo nível maior do tamanho da piscina de backend, há potencial para algumas das suas ligações de saída para o tempo de saída se as portas atribuídas tiverem que ser realojadas.  Se estiver a utilizar apenas algumas das suas portas SNAT, a escala através do próximo tamanho maior da piscina é inconsequente.  Metade das portas existentes serão realojadas cada vez que se deslocar para o próximo nível da piscina de backend.  Se não quiser que isto ocorra, tem de moldar a sua implantação para o tamanho do nível.  Ou certifique-se de que a sua aplicação pode detetar e tentar novamente se necessário.  Os keepalivos TCP podem ajudar a detetar quando as portas SNAT já não funcionam devido à reafectação.
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Use keepalives para redefinir o tempo limite de saída
-As ligações de saída têm um tempo limite de 4 minutos. Este tempo limite é ajustável através [das regras de saída.](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout) Também pode utilizar o transporte (por exemplo, keepalives TCP) ou os keepalives da camada de aplicação para refrescar um fluxo inativo e repor este tempo de inatividade, se necessário.  
+As ligações de saída têm um tempo limite de 4 minutos. Este tempo limite é ajustável através [das regras de saída.](outbound-rules.md) Também pode utilizar o transporte (por exemplo, keepalives TCP) ou os keepalives da camada de aplicação para refrescar um fluxo inativo e repor este tempo de inatividade, se necessário.  
 
 Ao utilizar as keepalives TCP, é suficiente para os ativar de um lado da ligação. Por exemplo, basta ativar-lhes no lado do servidor apenas para repor o temporizador inativo do fluxo e não é necessário para ambos os lados iniciarem as keepalives TCP iniciadas.  Existem conceitos semelhantes para a camada de aplicação, incluindo configurações de servidor de clientes de base de dados.  Verifique o lado do servidor para saber quais as opções existentes para manter a aplicação específica.
 
