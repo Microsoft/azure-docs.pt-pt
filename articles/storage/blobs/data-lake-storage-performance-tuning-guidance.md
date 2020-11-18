@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8bfe6f07fead700ae71bba1c28ccb13aa700513c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677343"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842775"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Otimizar Azure Data Lake Storage Gen2 para desempenho
 
@@ -57,7 +57,7 @@ Quando os dados são armazenados na Data Lake Storage Gen2, o tamanho do ficheir
 
 Tipicamente, os motores de análise como HDInsight e Azure Data Lake Analytics têm uma sobrecarga por ficheiro. Se armazenar os seus dados como muitos ficheiros pequenos, isso pode afetar negativamente o desempenho. Em geral, organize os seus dados em ficheiros de maior dimensão para um melhor desempenho (256MB a 100GB de tamanho). Alguns motores e aplicações podem ter problemas em processar ficheiros com mais de 100GB de tamanho.
 
-Por vezes, os gasodutos de dados têm um controlo limitado sobre os dados brutos que têm muitos ficheiros pequenos. Recomenda-se ter um processo de "cozinhar" que gere ficheiros maiores para utilizar para aplicações a jusante.
+Por vezes, os gasodutos de dados têm um controlo limitado sobre os dados brutos que têm muitos ficheiros pequenos. Em geral, recomendamos que o seu sistema tenha algum tipo de processo para agregar pequenos ficheiros em maiores para serem usados por aplicações a jusante.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organização de dados de séries de tempo em pastas
 

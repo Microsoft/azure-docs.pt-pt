@@ -3,19 +3,19 @@ title: Dimensionar um cluster do Service Fabric no Azure
 description: Neste tutorial, você aprende a escalar um cluster de Tecido de Serviço em Azure para fora e para dentro, e como limpar os recursos restantes.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: d9699103f5e13301cce408d2e54f0e15780e0a35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 7f92ca28afd9d1894867aaa2c18df3a02ee0bd79
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88716899"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842690"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
 Este tutorial é a terceira parte de uma série, e mostra-lhe como escalar o seu cluster existente para fora e dentro. Quando tiver terminado, saberá como dimensionar o seu cluster e como limpar quaisquer recursos restantes.  Para obter mais informações sobre a escala de um cluster em execução em Azure, leia [os clusters de Tecidos de Serviço de Escala.](service-fabric-cluster-scaling.md)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Adicione e remova os nós (escalone para fora e escalone)
@@ -68,7 +68,7 @@ Depois de criar um [cluster Windows](service-fabric-tutorial-create-vnet-and-win
 
 1. No [portal Azure,](https://portal.azure.com)vá ao grupo de recursos que contém o cluster **(sfclustertutorialgroup,** se estiver a seguir este tutorial). 
 
-2. No painel esquerdo, selecione **Implementações**ou selecione o link em **Implementações**. 
+2. No painel esquerdo, selecione **Implementações** ou selecione o link em **Implementações**. 
 
 3. Selecione a mais recente implementação bem sucedida da lista.
 
@@ -87,7 +87,7 @@ Assim, ao atualizar o valor do *nt1InstanceCount,* altera o número de nós no s
 Se estiver a escalonar, retirando os nós de um nó de [nível][durability] de durabilidade de Bronze, deve [remover manualmente o estado desses nós](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para o nível de durabilidade prata e ouro, estes passos são feitos automaticamente pela plataforma.
 
 ### <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
-Guarde quaisquer alterações * natemplate.js* e *parameters.jsnos* ficheiros.  Para implementar o modelo atualizado, executar o seguinte comando:
+Guarde quaisquer alterações *natemplate.js* e *parameters.jsnos* ficheiros.  Para implementar o modelo atualizado, executar o seguinte comando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
@@ -793,7 +793,7 @@ No *parameters.jsem* arquivo, adicione os seguintes novos parâmetros e valores:
 ```
 
 ### <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
-Guarde quaisquer alterações * natemplate.js* e *parameters.jsnos* ficheiros.  Para implementar o modelo atualizado, executar o seguinte comando:
+Guarde quaisquer alterações *natemplate.js* e *parameters.jsnos* ficheiros.  Para implementar o modelo atualizado, executar o seguinte comando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
@@ -849,7 +849,7 @@ O tamanho dos VMs no segundo tipo de nó é definido no parâmetro *vmNodeType1S
 O VM SKU para todos os três tipos de nós é definido no parâmetro *vmImageSku.*  Mais uma vez, a alteração do VM SKU de um tipo de nó deve ser abordada com cuidado e não é recomendada para o tipo de nó primário.
 
 ### <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
-Guarde quaisquer alterações * natemplate.js* e *parameters.jsnos* ficheiros.  Para implementar o modelo atualizado, executar o seguinte comando:
+Guarde quaisquer alterações *natemplate.js* e *parameters.jsnos* ficheiros.  Para implementar o modelo atualizado, executar o seguinte comando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"

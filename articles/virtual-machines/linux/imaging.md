@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 61c21aed76cfaac5621b234b32c90877ef6faa9f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966326"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842622"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Trazer e criar imagens Linux em Azure
 
@@ -83,7 +83,7 @@ Imagens geridas podem ser usadas para ambientes de desenvolvimento e teste, onde
 - Replicação global de imagens.
 - Versão e agrupamento de imagens para uma gestão mais fácil.
 - Imagens altamente disponíveis com Zone Redundant Storage (ZRS), em regiões que suportam Zonas de Disponibilidade. O ZRS oferece uma melhor resiliência contra falhas zonais.
-- Partilha entre subscrições, e até entre inquilinos do Ative Directory (AD), utilizando o RBAC.
+- Partilha entre subscrições, e até mesmo entre inquilinos do Ative Directory (AD), utilizando o Azure RBAC.
 - Escalar as suas implementações com réplicas de imagem em cada região.
 
 A um nível elevado, cria-se um SIG, e é composto por:

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002284"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842639"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -29,16 +29,16 @@ Aqui estão as necessidades de segurança pelas quais é responsável na sua imp
 
 | Necessidade de segurança | O cliente é responsável por isto? |
 |---------------|:-------------------------:|
-|Identidade|Sim|
-|Dispositivos de utilizador (mobile e PC)|Sim|
-|Segurança de aplicativos|Sim|
-|Sessão anfitrião OS|Sim|
-|Configuração de implementação|Sim|
-|Controlos de rede|Sim|
-|Plano de controlo de virtualização|Não|
-|Anfitriões físicos|Não|
-|Rede física|Não|
-|Datacenter físico|Não|
+|Identidade|Yes|
+|Dispositivos de utilizador (mobile e PC)|Yes|
+|Segurança de aplicativos|Yes|
+|Sessão anfitrião OS|Yes|
+|Configuração de implementação|Yes|
+|Controlos de rede|Yes|
+|Plano de controlo de virtualização|No|
+|Anfitriões físicos|No|
+|Rede física|No|
+|Datacenter físico|No|
 
 As necessidades de segurança que o cliente não é responsável são tratadas pela Microsoft.
 
@@ -70,7 +70,7 @@ O Windows Virtual Desktop tem muitos controlos de segurança incorporados. Nesta
 
 ### <a name="require-multi-factor-authentication"></a>Requerem autenticação de vários fatores
 
-Exigir a autenticação de vários fatores para todos os utilizadores e administradores no Windows Virtual Desktop melhora a segurança de toda a sua implementação. Para saber mais, consulte [Ativar a autenticação multi-factor do Windows para o Windows Virtual Desktop](set-up-mfa.md).
+Exigir a autenticação de vários fatores para todos os utilizadores e administradores no Windows Virtual Desktop melhora a segurança de toda a sua implementação. Para saber mais, consulte [ativar a autenticação multi-factor Azure AD para o Windows Virtual Desktop](set-up-mfa.md).
 
 ### <a name="enable-conditional-access"></a>Ativar o acesso condicional
 
@@ -80,7 +80,7 @@ Ativar [o Acesso Condicional](../active-directory/conditional-access/best-practi
 
 Ativar a recolha de registos de auditoria permite-lhe visualizar a atividade de utilizador e administração relacionada com o Windows Virtual Desktop. Alguns exemplos de registos de auditoria chave são:
 
--   [Registo de atividades Azure](../azure-monitor/platform/activity-log-collect.md)
+-   [Registo de Atividades do Azure](../azure-monitor/platform/activity-log-collect.md)
 -   [Registo de atividade do diretório ativo Azure](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Anfitriões de sessão](../azure-monitor/platform/agent-windows.md)

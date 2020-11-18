@@ -4,12 +4,12 @@ description: Saiba mais sobre encriptação no resto do seu registo de contentor
 ms.topic: article
 ms.date: 09/30/2020
 ms.custom: ''
-ms.openlocfilehash: 6eaae5266277a6a65c7cecaa761b75e3a41ebe87
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: ad81a94910cb1ed09634801f8706182e17947225
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940672"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842571"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Registo encriptado usando uma chave gerida pelo cliente
 
@@ -84,7 +84,7 @@ identityPrincipalID=$(az identity show --resource-group <resource-group-name> --
 
 Crie um cofre chave com [chave-chave criar][az-keyvault-create] para armazenar uma chave gerida pelo cliente para encriptação de registo.
 
-Para evitar a perda de dados causada por eliminações acidentais da chave ou do cofre, ative as seguintes definições: **Proteção de eliminação** e **purga**suave . O exemplo a seguir inclui parâmetros para estas definições:
+Para evitar a perda de dados causada por eliminações acidentais da chave ou do cofre, ative as seguintes definições: **Proteção de eliminação** e **purga** suave . O exemplo a seguir inclui parâmetros para estas definições:
 
 ```azurecli
 az keyvault create --name <key-vault-name> \
@@ -104,7 +104,7 @@ keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key
 
 ### <a name="enable-key-vault-access"></a>Permitir o acesso ao cofre de chaves
 
-Configure uma política para o cofre chave para que a identidade possa acessá-lo. No seguinte comando [de definição de keyvault az,][az-keyvault-set-policy] você passa o ID principal da identidade gerida que criou, armazenado anteriormente numa variável ambiental. Desembrulhe as permissões de chave para **obter,** **desembrulhar oKey**e **embrulhar oKey**.  
+Configure uma política para o cofre chave para que a identidade possa acessá-lo. No seguinte comando [de definição de keyvault az,][az-keyvault-set-policy] você passa o ID principal da identidade gerida que criou, armazenado anteriormente numa variável ambiental. Desembrulhe as permissões de chave para **obter,** **desembrulhar oKey** e **embrulhar oKey**.  
 
 ```azurecli
 az keyvault set-policy \
@@ -210,7 +210,7 @@ Usa o nome da identidade em passos posteriores.
 
 ### <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
-Para obter passos para criar um cofre de chaves, consulte [Quickstart: set and recupere um segredo do Azure Key Vault utilizando o portal Azure](../key-vault/secrets/quick-create-portal.md).
+Para obter passos para criar um cofre de chaves, consulte [Quickstart: Crie um Cofre de Chaves Azure com o portal Azure](../key-vault/general/quick-create-portal.md).
 
 Ao criar um cofre-chave para uma chave gerida pelo cliente, no **separador Básicos,** ative as seguintes definições de proteção: **Proteção de eliminação** suave e **purga**. Estas definições ajudam a prevenir a perda de dados causada por eliminações acidentais da chave ou do cofre.
 
@@ -222,9 +222,9 @@ Configure uma política para o cofre chave para que a identidade possa acessá-l
 
 1. Navegue para o cofre da chave.
 1. Selecione **Definições**  >  **Políticas de acesso > +Adicionar Política de Acesso**.
-1. Selecione **as permissões de chave**, e selecione **Get**, **Desembrulhar a tecla**e **a tecla wrap**.
+1. Selecione **as permissões de chave**, e selecione **Get**, **Desembrulhar a tecla** e **a tecla wrap**.
 1. **Selecione o principal** e selecione o nome de recurso da sua identidade gerida atribuída pelo utilizador.  
-1. **Selecione Adicionar**e, em seguida, selecione **Guardar**.
+1. **Selecione Adicionar** e, em seguida, selecione **Guardar**.
 
 ![Criar política de acesso ao cofre chave](./media/container-registry-customer-managed-keys/add-key-vault-access-policy.png)
 
@@ -247,7 +247,7 @@ Configure uma política para o cofre chave para que a identidade possa acessá-l
 
 ### <a name="create-azure-container-registry"></a>Criar um registo de contentor do Azure
 
-1. **Selecione Criar um**registo  >  **de contentores de**  >  **Container Registry**recursos.
+1. **Selecione Criar um** registo  >  **de contentores de**  >  **Container Registry** recursos.
 1. No **separador Básicos,** selecione ou crie um grupo de recursos e introduza um nome de registo. No **SKU,** selecione **Premium**.
 1. No **separador Encriptação,** na **tecla gerida pelo Cliente,** selecione **Enabled**.
 1. Em **Identidade,** selecione a identidade gerida que criou.
@@ -448,12 +448,12 @@ Utilize as definições de **encriptação** do registo para atualizar a versão
 Por exemplo, para gerar e configurar uma nova versão chave:
 
 1. No portal, navegue para o seu registo.
-1. Em **Definições**, selecione **a**  >  **tecla de alteração de**encriptação .
+1. Em **Definições**, selecione **a**  >  **tecla de alteração de** encriptação .
 1. **Selecione a tecla**
 
     ![Rode a tecla no portal Azure](./media/container-registry-customer-managed-keys/rotate-key.png)
 1. Na **tecla Select a partir da janela Azure Key Vault,** selecione o cofre e a chave que configuraste previamente, e em **Versão**, selecione **Criar novo**.
-1. Na janela Criar uma janela **de chave,** selecione **Gerar**e, em seguida, **Criar**.
+1. Na janela Criar uma janela **de chave,** selecione **Gerar** e, em seguida, **Criar**.
 1. Complete a seleção de chaves e **selecione Guardar**.
 
 ## <a name="revoke-key"></a>Revogar a chave
@@ -492,15 +492,15 @@ Para conceder o acesso à identidade do seu cofre chave:
 
 1. Navegue para o cofre da chave.
 1. Selecione **Definições**  >  **Políticas de acesso > +Adicionar Política de Acesso**.
-1. Selecione **as permissões de chave**, e selecione **Get**, **Desembrulhar a tecla**e **a tecla wrap**.
+1. Selecione **as permissões de chave**, e selecione **Get**, **Desembrulhar a tecla** e **a tecla wrap**.
 1. **Selecione o principal** e procure o ID do objeto da identidade gerida atribuída ao sistema ou o nome do seu registo.  
-1. **Selecione Adicionar**e, em seguida, selecione **Guardar**.
+1. **Selecione Adicionar** e, em seguida, selecione **Guardar**.
 
 Para atualizar as definições de encriptação do registo para utilizar a identidade:
 
 1. No portal, navegue para o seu registo.
-1. Em **Definições**, selecione **a**  >  **tecla de alteração de**encriptação .
-1. Em **Identidade**, selecione **Sistema atribuído**e selecione **Save**.
+1. Em **Definições**, selecione **a**  >  **tecla de alteração de** encriptação .
+1. Em **Identidade**, selecione **Sistema atribuído** e selecione **Save**.
 
 ### <a name="enable-key-vault-bypass"></a>Ativar o bypass do cofre de chaves
 

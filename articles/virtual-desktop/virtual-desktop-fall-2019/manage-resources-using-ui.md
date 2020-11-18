@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96365bcdf64d19dc0b894f2f1230233b3137bc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462586"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842656"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Implemente uma ferramenta de gestão virtual do Windows Desktop (clássico) com um modelo de Gestor de Recursos Azure
 
@@ -36,7 +36,7 @@ Os seguintes navegadores são compatíveis com a ferramenta de gestão:
 
 Antes de implementar a ferramenta de gestão, precisará de um utilizador do Azure Ative Directory (Azure AD) para criar um registo de aplicações e implementar a UI de gestão. Este utilizador deve:
 
-- Desativar a autenticação multi-factor Azure (MFA)
+- Ter autenticação multi-factor Azure AD (MFA) desativada
 - Tenha permissão para criar recursos na sua subscrição Azure
 - Tenha permissão para criar uma aplicação AD Azure. Siga estes passos para verificar se o seu utilizador tem as permissões necessárias seguindo as instruções nas [permissões Requeridas](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
@@ -52,7 +52,7 @@ Siga estas instruções para implementar o modelo de Gestão de Recursos Azure:
 2. Implemente o modelo no Azure.
     - Se estiver a implementar uma subscrição da Enterprise, desloque-se para baixo e selecione **Implementar para Azure**.
     - Se estiver a implementar uma subscrição do Cloud Solution Provider, siga estas instruções para implementar no Azure:
-        1. Desloque-se para baixo e clique no botão direito **Implementar para Azure**e, em seguida, selecione **Copy Link Location**.
+        1. Desloque-se para baixo e clique no botão direito **Implementar para Azure** e, em seguida, selecione **Copy Link Location**.
         2. Abra um editor de texto como o Bloco de Notas e cole o link lá.
         3. Logo a seguir <https://portal.azure.com/> e antes da hashtag (#), insira um sinal (@) seguido pelo nome de domínio do inquilino. Aqui está um exemplo do formato: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/> .
         4. Inscreva-se no portal Azure como utilizador com permissões Admin/Contribuinte para a subscrição do Cloud Solution Provider.

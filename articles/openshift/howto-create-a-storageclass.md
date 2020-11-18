@@ -7,13 +7,13 @@ ms.date: 10/16/2020
 author: grantomation
 ms.author: b-grodel
 keywords: aro, openshift, az aro, chapéu vermelho, cli, arquivo azul
-ms.custom: mvc
-ms.openlocfilehash: a7415a481b133c2f528ba4636c0297ce5cfa23a7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: a3e2a994311334d410aeffd55e7f6febaa85d6e4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747880"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842673"
 ---
 # <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Criar um StorageClass dos Ficheiros do Azure no Azure Red Hat OpenShift 4
 
@@ -25,7 +25,7 @@ Neste artigo, você vai criar uma StorageClass para Azure Red Hat OpenShift 4 qu
 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Implemente um cluster Azure Red Hat OpenShift 4 na sua subscrição, consulte [Criar um cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md)
 
