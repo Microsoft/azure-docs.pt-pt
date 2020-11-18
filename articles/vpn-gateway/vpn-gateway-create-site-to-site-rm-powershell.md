@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: df7bad806fb5af198d0484af93e9fb79cb75e2d5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7de5f125789b0ed3782224024a9ee9c80d359e77
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540908"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659374"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Criar uma VNet com uma ligação de Rede de VPNs com o PowerShell
 
@@ -31,7 +31,7 @@ Uma ligação de gateway de VPN de Site para Site é utilizada para ligar a sua 
 
 ![Diagrama da ligação de Gateway de Rede de VPNs em vários sites](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
+## <a name="before-you-begin"></a><a name="before"></a>Before you begin
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
@@ -160,7 +160,7 @@ Para modificar prefixos de endereços IP do gateway da sua rede local:
 
 Um gateway de VPN deve ter um endereço IP público. Primeira, requeira o recurso de endereço IP e, em seguida, faça referência ao mesmo ao criar o gateway de rede virtual. O endereço IP é dinamicamente atribuído ao recurso quando o gateway de VPN é criado. 
 
-O Gateway de VPN, atualmente, apenas suporta a alocação de endereços IP públicos *dinâmicos* . Não é possível pedir uma atribuição de endereço IP Público Estático. No entanto, isto não significa que o endereço IP será alterado depois de ter sido atribuído ao seu gateway VPN. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
+O Gateway de VPN, atualmente, apenas suporta a alocação de endereços IP públicos *dinâmicos*. Não é possível pedir uma atribuição de endereço IP Público Estático. No entanto, isto não significa que o endereço IP será alterado depois de ter sido atribuído ao seu gateway VPN. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
 
 Peça um endereço IP Público que será atribuído ao gateway de VPN da rede virtual.
 
@@ -184,7 +184,7 @@ Crie o gateway de VPN da rede virtual.
 
 Utilize os seguintes valores:
 
-* O *-GatewayType* para uma configuração site-to-site é *Vpn* . O tipo de gateway é sempre específico da configuração que estiver a implementar. Por exemplo, outras configurações de gateway poderão exigir o ExpressRoute -GatewayType.
+* O *-GatewayType* para uma configuração site-to-site é *Vpn*. O tipo de gateway é sempre específico da configuração que estiver a implementar. Por exemplo, outras configurações de gateway poderão exigir o ExpressRoute -GatewayType.
 * O *-VpnType* pode ser classificado como *RouteBased* (designado como Gateway Dinâmico em alguma documentação), ou *PolicyBased* (referido como Um Gateway Estático em alguma documentação). Para obter mais informações sobre os tipos de gateways de VPN, veja [Acerca dos Gateways de VPN](vpn-gateway-about-vpngateways.md).
 * Selecione o SKU do Gateway que pretende utilizar. Existem limitações de configuração para determinados SKUs. Para obter mais informações, veja [SKUs de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Se obtiver um erro ao criar o gateway de VPN relativamente a -GatewaySku, confirme que instalou a versão mais recente dos cmdlets do PowerShell.
 
@@ -212,7 +212,7 @@ As ligações de Site a Site para uma rede no local requerem um dispositivo VPN.
 
 ## <a name="7-create-the-vpn-connection"></a><a name="CreateConnection"></a>7. Criar a ligação VPN
 
-Em seguida, crie a ligação de Rede de VPNs entre o gateway de rede virtual e o dispositivo VPN. Não se esqueça de substituir os valores pelos seus. A chave partilhada tem de corresponder ao valor utilizado na configuração do dispositivo VPN. Repare que “-ConnectionType” relativo a Site para Site é **IPsec** .
+Em seguida, crie a ligação de Rede de VPNs entre o gateway de rede virtual e o dispositivo VPN. Não se esqueça de substituir os valores pelos seus. A chave partilhada tem de corresponder ao valor utilizado na configuração do dispositivo VPN. Repare que “-ConnectionType” relativo a Site para Site é **IPsec**.
 
 1. Defina as variáveis.
    ```azurepowershell-interactive
@@ -259,9 +259,9 @@ Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
 -ResourceGroupName TestRG1
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-*  Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/).
+*  Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](../index.yml).
 * Para obter informações sobre o BGP, veja a [Descrição Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Para obter informações sobre como criar uma ligação de VPN de site a site com o modelo do Azure Resource Manager, veja [Create a Site-to-Site VPN Connection (Criar uma Ligação de VPN de Site a Site)](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
 * Para obter informações sobre como criar uma ligação de VPN de vnet a vnet com o modelo do Azure Resource Manager, veja [Deploy HBase geo replication (Implementar georreplicação do HBase)](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

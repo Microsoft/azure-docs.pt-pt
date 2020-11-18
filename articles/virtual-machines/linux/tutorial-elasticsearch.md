@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: c3d35940a445b73ecb9285355f36b141c3a151b8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 48fc9f7e021ba5158182344ddfdba3c8eafaf781
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475061"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659221"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Instalar a Pilha Elástica numa VM do Azure
 
@@ -211,7 +211,7 @@ Verá as entradas do syslog no seu terminal ecoadas à medida que são enviadas 
 Edite `/etc/kibana/kibana.yml` e altere o endereço IP do Kibana, para que possa aceder a partir do seu browser.
 
 ```bash
-server.host:"0.0.0.0"
+server.host: "0.0.0.0"
 ```
 
 Inicie o Kibana com o seguinte comando:
@@ -234,7 +234,7 @@ Selecione **Detetar** na consola do Kibana para pesquisar, procurar e filtrar no
 
 ![Procurar eventos do Syslog no Kibana](media/elasticsearch-install/kibana-search-filter.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, implementou a Pilha Elástica numa VM de desenvolvimento no Azure. Aprendeu a:
 

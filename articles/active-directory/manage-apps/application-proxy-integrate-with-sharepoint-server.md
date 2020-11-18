@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c318c539b1c09761ed81e7602808e415fdaf8b80
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764541"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658184"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Ativar o acesso remoto ao SharePoint com o Proxy de Aplicações do Azure AD
 
@@ -167,7 +167,7 @@ Agora pode aceder ao site do SharePoint externamente através do Azure AD Applic
 
 ## <a name="step-3-configure-kerberos-constrained-delegation"></a>Passo 3: Configurar a delegação restrita kerberos
 
-Os utilizadores irão inicialmente autenticar em Azure AD e depois no SharePoint utilizando kerberos através do conector Azure AD Proxy. Para permitir que o conector obtenha um token Kerberos em nome do utilizador AZure AD, deve configurar a Delegação Restrita Kerberos (KCD) com a transição protocolar. Para saber mais sobre o KCD, consulte [a visão geral da delegação restrita de Kerberos.](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11))
+Os utilizadores irão inicialmente autenticar em Azure AD e depois no SharePoint utilizando kerberos através do conector Azure AD Proxy. Para permitir que o conector obtenha um token Kerberos em nome do utilizador AZure AD, deve configurar a Delegação Restrita Kerberos (KCD) com a transição protocolar. Para saber mais sobre o KCD, consulte [a visão geral da delegação restrita de Kerberos.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11))
 
 ### <a name="set-the-spn-for-the-sharepoint-service-account"></a>Definir o SPN para a conta de serviço SharePoint
 
@@ -176,7 +176,7 @@ Para registar a SPN `HTTP/sharepoint` para a conta de pool de aplicações Share
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-O `Setspn` comando procura o SPN antes de o adicionar. Se o SPN já existir, vê um erro **de Valor SPN duplicado.** Nesse caso, considere remover a SPN existente se não estiver definida na conta de conjunto de aplicações correta. Pode verificar se o SPN foi adicionado com sucesso executando o `Setspn` comando com a opção -L. Para saber mais sobre este comando, consulte [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
+O `Setspn` comando procura o SPN antes de o adicionar. Se o SPN já existir, vê um erro **de Valor SPN duplicado.** Nesse caso, considere remover a SPN existente se não estiver definida na conta de conjunto de aplicações correta. Pode verificar se o SPN foi adicionado com sucesso executando o `Setspn` comando com a opção -L. Para saber mais sobre este comando, consulte [Setspn](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
 
 ### <a name="make-sure-the-connector-is-trusted-for-delegation-to-the-spn-that-was-added-to-the-sharepoint-application-pool-account"></a>Certifique-se de que o conector é confiável para a delegação da SPN que foi adicionada à conta do conjunto de aplicações SharePoint
 
@@ -188,7 +188,7 @@ Para configurar o KCD, siga estes passos para cada máquina de conector:
 1. Encontre o computador a executar o conector Azure AD Proxy. Neste exemplo, é o próprio servidor SharePoint.
 1. Faça duplo clique no computador e selecione o separador **Delegação**.
 1. Certifique-se de que as opções de delegação são definidas para **confiar neste computador apenas para a delegação aos serviços especificados**. Em seguida, **selecione Utilize qualquer protocolo de autenticação**.
-1. Selecione o botão **Adicionar,** selecione **Utilizadores ou Computadores**e localize a conta de grupo de aplicações SharePoint. Por exemplo: `Contoso\spapppool`.
+1. Selecione o botão **Adicionar,** selecione **Utilizadores ou Computadores** e localize a conta de grupo de aplicações SharePoint. Por exemplo: `Contoso\spapppool`.
 1. Na lista de SPNs, selecione a que criou anteriormente para a conta de serviço.
 1. Selecione **OK** e, em seguida, selecione **OK** novamente para guardar as suas alterações.
   
@@ -200,7 +200,7 @@ Está agora pronto para iniciar seduca no SharePoint usando o URL externo e aute
 
 Se o login no site não estiver a funcionar, pode obter mais informações sobre o problema nos registos do Conector: A partir da máquina que executa o conector, abra o espectador do evento, vá às **Aplicações e Serviços**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**, e inspecione o registo **de Admin.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Trabalhar com domínios personalizados em Azure AD Application Proxy](application-proxy-configure-custom-domain.md)
 * [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)

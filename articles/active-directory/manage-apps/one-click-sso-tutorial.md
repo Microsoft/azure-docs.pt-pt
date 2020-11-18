@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe4e981782878ce4f86dd7dcb8ae635a60b2405a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763130"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658711"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configuração de aplicação de um clique de um único sign-on
 
@@ -40,7 +40,7 @@ A funcionalidade SSO de um clique foi concebida para configurar um único sinal 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição ativa da aplicação para configurar com SSO. Também precisa de credenciais de administração.
-- A **extensão de inscrição secure My Apps** da Microsoft instalada no navegador. Para mais informações, consulte [o Access e utilize aplicações no portal My Apps.](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
+- A **extensão de inscrição secure My Apps** da Microsoft instalada no navegador. Para mais informações, consulte [o Access e utilize aplicações no portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="one-click-sso-configuration-steps"></a>Passos de configuração SSO de um clique
 
@@ -59,7 +59,7 @@ A funcionalidade SSO de um clique foi concebida para configurar um único sinal 
 
    ![Instale a extensão do navegador Secure Sign-in das minhas apps](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-6. Depois de adicionar a extensão ao navegador, selecione **Configuração \<Application Name\> **. Depois de ser redirecionado para o portal de administração de aplicações, inscreva-se como administrador.
+6. Depois de adicionar a extensão ao navegador, selecione **Configuração \<Application Name\>**. Depois de ser redirecionado para o portal de administração de aplicações, inscreva-se como administrador.
 
    ![Nome da aplicação de configuração](./media/one-click-sso-tutorial/setup-sso.png)
 
@@ -84,6 +84,5 @@ A funcionalidade SSO de um clique foi concebida para configurar um único sinal 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [O que é a extensão do navegador De Inscrição Segura das Minhas Apps?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
- 
+* [Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](../saas-apps/tutorial-list.md)
+* [O que é a extensão do navegador De Inscrição Segura das Minhas Apps?](../user-help/my-apps-portal-end-user-access.md)

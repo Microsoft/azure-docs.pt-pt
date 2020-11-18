@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5c9b47bf5d638f3c15416416a435653eeb68505
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 46ab1df1b776bf8dc9d6d917e5394c3efeec0de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172060"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659391"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Quickstart: Criar um espaço de trabalho sinapse Azure com Azure CLI
 
@@ -22,7 +22,7 @@ A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de
 
 Neste arranque rápido, aprende-se a criar um espaço de trabalho synapse utilizando o CLI Azure.
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de começar](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,28 +32,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de come�
     > [!IMPORTANT]
     > O espaço de trabalho Azure Synapse precisa de ser capaz de ler e escrever para a conta ADLS Gen2 selecionada. Além disso, para qualquer conta de armazenamento que ligue como conta de armazenamento primário, deve ter ativado o **espaço hierárquico** na criação da conta de armazenamento, conforme descrito na página [Criar um Accout de Armazenamento.](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account) 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="install-the-azure-cli-locally"></a>Instale o Azure CLI localmente
-
-Se optar por instalar e utilizar o Azure CLI localmente, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
-
-Se estiver a executar o Azure CLI localmente, tem de fazer login e autenticar. Este passo não é necessário se estiver a utilizar a Azure Cloud Shell. Para iniciar sessão no Azure CLI, corra `az login` e autente na janela do navegador:
-
-```azurecli
-az login
-```
-
-Para obter mais informações sobre a autenticação» com o Azure [CLI, consulte Iniciar súm em Azure CLI](/cli/azure/authenticate-azure-cli).
-
-## <a name="install-azure-synapse-extension-for-azure-cli"></a>Instale a extensão Azure Synapse para O Azure CLI
-
-```azurecli
-az extension add --name synapse
-```
-
-> [!WARNING]
-> A extensão Azure Synapse para Azure CLI está em pré-visualização.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-cli"></a>Criar um espaço de trabalho Azure Synapse utilizando o Azure CLI
 
@@ -133,7 +112,7 @@ az extension add --name synapse
     [![Azure Synapse workspace web ](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png)](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png#lightbox)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Siga os passos abaixo para eliminar o espaço de trabalho Azure Synapse.
 > [!WARNING]
@@ -147,6 +126,6 @@ Se pretender eliminar o espaço de trabalho Azure Synapse, complete o seguinte c
 az synapse workspace delete --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, você pode [criar piscinas SQL](quickstart-create-sql-pool-studio.md) ou [criar piscinas Apache Spark](quickstart-create-apache-spark-pool-studio.md) para começar a analisar e explorar seus dados.

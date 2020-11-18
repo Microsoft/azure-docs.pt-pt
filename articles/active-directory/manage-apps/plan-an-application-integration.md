@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 913b7975de4598bba7240647c1d9e8c81cd1cec9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182331"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659102"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Integrar o Azure Ative Directory com candidaturas a iniciar guia
 
@@ -66,9 +66,9 @@ Como mencionado acima, pode haver aplicações que não foram geridas pela sua o
 ## <a name="integrating-applications-with-azure-ad"></a>Integrara aplicações com o Azure AD
 Os seguintes artigos discutem as diferentes formas de integração das aplicações com a Azure AD, e fornecem alguma orientação.
 
-* [Determinar qual diretório ativo utilizar](../fundamentals/active-directory-administer.md)
+* [Determinar qual diretório ativo utilizar](../fundamentals/active-directory-whatis.md)
 * [Utilização de aplicações na galeria de aplicações Azure](what-is-single-sign-on.md)
-* [Integrar lista de tutoriais de aplicações do SaaS](../active-directory-saas-tutorial-list.md)
+* [Integrar lista de tutoriais de aplicações do SaaS](../saas-apps/tutorial-list.md)
 
 ### <a name="authentication-types"></a>Tipos de autenticação
 Cada uma das suas aplicações pode ter diferentes requisitos de autenticação. Com a Azure AD, os certificados de assinatura podem ser utilizados com aplicações que utilizam protocolos SAML 2.0, WS-Federação ou OpenID Connect Protocols, bem como signo único de palavra-passe. Para obter mais informações sobre os tipos de autenticação de aplicações para utilização com Azure AD consulte [os Certificados de Gestão de Sign-On Federados em Diretório Ativo Azure](manage-certificates-for-federated-single-sign-on.md) e [sinal de palavra-passe com base em](what-is-single-sign-on.md).
@@ -77,7 +77,7 @@ Cada uma das suas aplicações pode ter diferentes requisitos de autenticação.
 Com o Microsoft Azure AD Application Proxy, pode fornecer acesso a aplicações localizadas dentro da sua rede privada de forma segura, a partir de qualquer lugar e em qualquer dispositivo. Depois de ter instalado um conector proxy de aplicação dentro do seu ambiente, pode ser facilmente configurado com Azure AD.
 
 ### <a name="integrating-custom-applications"></a>Integração de aplicações personalizadas
-Se está a escrever uma nova aplicação e quer ajudar os desenvolvedores a alavancar o poder da AZure AD, consulte [os desenvolvedores orientadores.](../active-directory-applications-guiding-developers-for-lob-applications.md)
+Se está a escrever uma nova aplicação e quer ajudar os desenvolvedores a alavancar o poder da AZure AD, consulte [os desenvolvedores orientadores.](./developer-guidance-for-integrating-applications.md)
 
 Se pretender adicionar a sua aplicação personalizada à Galeria de Aplicações Azure, consulte ["Traga a sua própria app" com a Azure AD Self-Service configuração SAML.](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 
@@ -86,16 +86,16 @@ Os seguintes artigos descrevem formas de gerir o acesso às aplicações depois 
 
 * [Gerir o acesso a apps usando Azure AD](what-is-access-management.md)
 * [Automatização com Conectores AD AZURE](../app-provisioning/user-provisioning.md)
-* [Atribuir utilizadores a uma aplicação](../active-directory-applications-guiding-developers-assigning-users.md)
-* [Atribuir grupos a uma aplicação](../active-directory-applications-guiding-developers-assigning-groups.md)
-* [Partilhar contas](../active-directory-sharing-accounts.md)
+* [Atribuir utilizadores a uma aplicação](./assign-user-or-group-access-portal.md)
+* [Atribuir grupos a uma aplicação](./assign-user-or-group-access-portal.md)
+* [Partilhar contas](../enterprise-users/users-sharing-accounts.md)
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter informações aprofundadas, você pode baixar os planos de implementação do Azure Ative Directory a partir do [GitHub](https://aka.ms/deploymentplans). Para aplicações de galeria, pode descarregar planos de implementação para um único sign-on, Acesso Condicional e fornecimento de utilizadores através do [portal Azure.](https://portal.azure.com) 
+## <a name="next-steps"></a>Próximos passos
+Para obter informações aprofundadas, você pode baixar os planos de implementação do Azure Ative Directory a partir do [GitHub](../fundamentals/active-directory-deployment-plans.md). Para aplicações de galeria, pode descarregar planos de implementação para um único sign-on, Acesso Condicional e fornecimento de utilizadores através do [portal Azure.](https://portal.azure.com) 
 
 Para descarregar um plano de implementação a partir do portal Azure:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **aplicações empresariais**  |  Escolha um plano de implementação de**Pick an App**  |  **aplicativos.**
+2. Selecione **aplicações empresariais**  |  Escolha um plano de implementação de **Pick an App**  |  **aplicativos.**
 
 Por favor, forneça feedback sobre os planos de implantação, realizando o inquérito do [plano de implantação](https://aka.ms/DeploymentPlanFeedback).

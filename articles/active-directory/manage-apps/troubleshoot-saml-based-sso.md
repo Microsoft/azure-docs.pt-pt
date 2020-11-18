@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 7f7f999c145903be5db3b20ab60bd0f5a18778ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e8508d4fceb1e7fb580350c726dd70eeaea31c6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463644"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658881"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Resolução de problemas SINL único sinal de insusição no Azure Ative Directory
-Se encontrar um problema ao configurar uma aplicação. Verifique se seguiu todos os passos do tutorial para a aplicação. Na configuração da aplicação, tem documentação em linha sobre como configurar a aplicação. Além disso, pode aceder à [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Ative Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para uma orientação detalhada passo a passo.
+Se encontrar um problema ao configurar uma aplicação. Verifique se seguiu todos os passos do tutorial para a aplicação. Na configuração da aplicação, tem documentação em linha sobre como configurar a aplicação. Além disso, pode aceder à [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Ative Directory](../saas-apps/tutorial-list.md) para uma orientação detalhada passo a passo.
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Não posso adicionar outro exemplo da aplicação
 Para adicionar uma segunda instância de uma aplicação, você precisa ser capaz de:
@@ -53,7 +53,7 @@ Se os valores não corresponderem aos padrões pré-configurados no Azure AD. Po
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Onde é que eu defini o formato EntityID (User Identifier)
 Não poderá selecionar o formato EntityID (User Identifier) que o Azure AD envia para a aplicação na resposta após a autenticação do utilizador.
 
-A Azure AD seleciona o formato para o atributo NameID (User Identifier) com base no valor selecionado ou no formato solicitado pela aplicação no AuthRequest SAML. Para mais informações visite o artigo [Protocolo de Sign-On SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) de solteiro na secção NameIDPolicy,
+A Azure AD seleciona o formato para o atributo NameID (User Identifier) com base no valor selecionado ou no formato solicitado pela aplicação no AuthRequest SAML. Para mais informações visite o artigo [Protocolo de Sign-On SAML](../develop/single-sign-on-saml-protocol.md#authnrequest) de solteiro na secção NameIDPolicy,
 
 ## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Não é possível encontrar os metadados AD Azure para completar a configuração com a aplicação
 Para descarregar os metadados ou certificados da aplicação a partir da Azure AD, siga estes passos:
@@ -70,7 +70,7 @@ Para descarregar os metadados ou certificados da aplicação a partir da Azure A
 A Azure AD não fornece um URL para obter os metadados. Os metadados só podem ser recuperados como um ficheiro XML.
 
 ## <a name="customize-saml-claims-sent-to-an-application"></a>Personalizar reclamações da SAML enviadas para uma aplicação
-Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Azure Ative Diretório](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
+Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Azure Ative Diretório](../develop/active-directory-claims-mapping.md) para obter mais informações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)

@@ -11,19 +11,19 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: c72a2b134fc2c24789ebb75f61d9b64d63d3d48e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: ec020ecd4c2bcf6e9186afb3d2c4a79ef235c371
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339483"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658915"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Compreenda o sign-on único baseado em SAML
 
 Na [série quickstart](view-applications-portal.md) sobre gestão de aplicações, aprendeu a usar a Azure AD como Fornecedor de Identidade (IdP) para uma aplicação. Este artigo entra em mais detalhes sobre a opção baseada em SAML para um único sign-on. 
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 A utilização do Azure AD como seu Fornecedor de Identidade (IdP) e configurar um único sign-on (SSO) pode ser simples ou complexo dependendo da aplicação que está a ser utilizada. Algumas aplicações podem ser configuradas com apenas algumas ações. Outros requerem uma configuração aprofundada. Para aumentar rapidamente o conhecimento, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. Se a aplicação que está a adicionar é simples, então provavelmente não precisa ler este artigo. Se a aplicação que está a adicionar requer uma configuração personalizada para SSO baseado em SAML, então este artigo é para si.
 
@@ -32,7 +32,7 @@ Na [série quickstart,](add-application-portal-setup-sso.md)há um artigo sobre 
 > [!IMPORTANT] 
 > Existem alguns cenários em que a opção **de inscrição única** não estará presente na navegação para uma aplicação em **aplicações da Enterprise**. 
 >
-> Se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única é configurada para utilizar o OIDC OAuth por padrão. Neste caso, a opção **de inscrição única** não será apresentada na navegação ao abrigo das **aplicações da Enterprise.** Quando utiliza **as inscrições da App** para adicionar a sua aplicação personalizada, configura as opções no ficheiro manifesto. Para saber mais sobre o ficheiro manifesto, consulte o [manifesto da aplicação Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Para saber mais sobre os padrões SSO, consulte [autenticação e autorização utilizando a plataforma de identidade da Microsoft.](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform) 
+> Se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única é configurada para utilizar o OIDC OAuth por padrão. Neste caso, a opção **de inscrição única** não será apresentada na navegação ao abrigo das **aplicações da Enterprise.** Quando utiliza **as inscrições da App** para adicionar a sua aplicação personalizada, configura as opções no ficheiro manifesto. Para saber mais sobre o ficheiro manifesto, consulte o [manifesto da aplicação Azure Ative Directory](../develop/reference-app-manifest.md). Para saber mais sobre os padrões SSO, consulte [autenticação e autorização utilizando a plataforma de identidade da Microsoft.](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform) 
 >
 > Outros cenários em que o único sinal de sessão estará ausente da navegação incluem quando uma aplicação é hospedada noutro inquilino ou se a sua conta não tiver as permissões necessárias (Administrador Global, Administrador de Aplicação **cloud,** Administrador de Aplicação ou proprietário do principal de serviço). As permissões também podem causar um cenário em que pode abrir **o single de sposição,** mas não será capaz de economizar. Para saber mais sobre as funções administrativas da Azure AD, consulte https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
@@ -72,7 +72,7 @@ Pode adicionar novas reclamações, para mais detalhes ver [adicionar reclamaç�
 >- Para criar funções personalizadas através do portal Azure, consulte [as reivindicações de funções Configure](../develop/active-directory-enterprise-app-role-management.md).
 >- Para personalizar as reclamações através do PowerShell, consulte [Personalizar as reclamações - PowerShell](../develop/active-directory-claims-mapping.md).
 >- Para modificar o manifesto de aplicação para configurar pedidos opcionais para a sua aplicação, consulte [Configure pedidos opcionais](../develop/active-directory-optional-claims.md).
->- Para definir políticas de vida útil para atualização de tokens, tokens de acesso, fichas de sessão e fichas de identificação, consulte [as vidas simbólicas de Configure](../develop/active-directory-configurable-token-lifetimes.md). Ou, para restringir as sessões de autenticação através do Acesso Condicionado Azure AD, consulte [as capacidades de gestão da sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106).
+>- Para definir políticas de vida útil para atualização de tokens, tokens de acesso, fichas de sessão e fichas de identificação, consulte [as vidas simbólicas de Configure](../develop/active-directory-configurable-token-lifetimes.md). Ou, para restringir as sessões de autenticação através do Acesso Condicionado Azure AD, consulte [as capacidades de gestão da sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 ## <a name="saml-signing-certificate"></a>Certificado de assinatura SAML
 
@@ -128,12 +128,12 @@ Se aparecer uma mensagem de erro, complete os seguintes passos:
 
 4. Execute o teste novamente, até que seja concluído sem erros.
 
-Para obter mais informações, consulte [o único sign-on baseado em Debug SAML para aplicações no Azure Ative Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
+Para obter mais informações, consulte [o único sign-on baseado em Debug SAML para aplicações no Azure Ative Directory](./debug-saml-sso-issues.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
-- [Atribuir utilizadores ou grupos à aplicação](methods-for-assigning-users-and-groups.md)
+- [Atribuir utilizadores ou grupos à aplicação](./assign-user-or-group-access-portal.md)
 - [Configurar o provisionamento automático da conta de utilizador](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 - [Protocolo SAML de Sign-On único](../develop/single-sign-on-saml-protocol.md)

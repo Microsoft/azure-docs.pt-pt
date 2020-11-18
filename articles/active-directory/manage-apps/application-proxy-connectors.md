@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923b83b388b58313e9613f0f8b71f266dcbeb028
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: be5ce5b3eebb2f784469680cf7614df6ca750b55
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282130"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658269"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreenda os conectores Proxy de aplicação AD Azure
 
@@ -104,7 +104,7 @@ Em geral, quanto mais utilizadores tiver, maior será uma máquina. Abaixo está
 > [!NOTE]
 > Não há muita diferença no TPS máximo entre 4, 8 e 16 máquinas nucleares. A principal diferença entre estes é a latência esperada.
 >
-> Esta tabela também se centra no desempenho esperado de um conector baseado no tipo de máquina em que está instalada. Isto é separado dos limites de estrangulamento do serviço Application Proxy, ver [limites de serviço e restrições](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+> Esta tabela também se centra no desempenho esperado de um conector baseado no tipo de máquina em que está instalada. Isto é separado dos limites de estrangulamento do serviço Application Proxy, ver [limites de serviço e restrições](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## <a name="security-and-networking"></a>Segurança e networking
 
@@ -155,7 +155,7 @@ Os certificados utilizados são específicos do serviço Application Proxy. São
 
 Após a primeira renovação bem sucedida do certificado, o serviço de conector de aplicação AZure AD (Serviço de Rede) não tem autorização para remover o certificado antigo da loja de máquinas local. Se o certificado tiver expirado ou não for mais utilizado pelo serviço, pode eliminá-lo com segurança.
 
-Para evitar problemas com a renovação do certificado, certifique-se de que a comunicação da rede do conector para os [destinos documentados](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) está ativada.
+Para evitar problemas com a renovação do certificado, certifique-se de que a comunicação da rede do conector para os [destinos documentados](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) está ativada.
 
 Se um conector não estiver ligado ao serviço durante vários meses, os seus certificados podem estar desatualizados. Neste caso, desinstale e reinstale o conector para acionar o registo. Pode executar os seguintes comandos PowerShell:
 
@@ -180,13 +180,13 @@ e contadores de desempenho do Windows.
 
 Os conectores têm registos **de administração** e **sessão.** O registo **de administração** inclui eventos-chave e os seus erros. O registo **session** inclui todas as transações e os seus dados de processamento.
 
-Para ver os registos, abra o **Espectador de Eventos** e vá a **Aplicações e Serviços Regista**o  >  **Microsoft**  >  **Conector AadApplicationProxy**  >  **Connector**. Para tornar visível o registo **de Sessão** no menu **Ver,** selecione **Mostrar Registos Analíticos e Debug**. O registo **de Sessão** é normalmente utilizado para a resolução de problemas e é desativado por padrão. Capacite-o a começar a recolher eventos e desativá-lo quando já não for necessário.
+Para ver os registos, abra o **Espectador de Eventos** e vá a **Aplicações e Serviços Regista** o  >  **Microsoft**  >  **Conector AadApplicationProxy**  >  **Connector**. Para tornar visível o registo **de Sessão** no menu **Ver,** selecione **Mostrar Registos Analíticos e Debug**. O registo **de Sessão** é normalmente utilizado para a resolução de problemas e é desativado por padrão. Capacite-o a começar a recolher eventos e desativá-lo quando já não for necessário.
 
 Pode examinar o estado do serviço na janela dos Serviços. O conector é composto por dois Serviços Windows: o conector real e o atualizador. Ambos devem correr a toda a hora.
 
  ![Exemplo: Janela de serviços mostrando serviços Azure AD local](./media/application-proxy-connectors/aad-connector-services.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Publicar aplicações em redes e locais separados utilizando grupos de conector](application-proxy-connector-groups.md)
 - [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: d7c6640b6634a017819735b9d0f7b906f8dc91d0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 6993bd10caf2f7e489de8074e311f75710b83d82
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565879"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659442"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implementar e configurar firewall Azure usando Azure CLI
 
@@ -25,7 +25,7 @@ Uma forma de controlar o acesso de rede de saída a partir de uma sub-rede do Az
 
 O tráfego de rede está sujeito às regras de firewall configuradas quando encaminha o tráfego de rede para a firewall como o gateway padrão de sub-rede.
 
-Para este artigo, cria-se um VNet único simplificado com três sub-redes para fácil implementação. Para implantações de produção, recomenda-se um [modelo de hub e spoke.](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) A firewall está no seu próprio VNet. Os servidores de carga de trabalho estão em VNets espreitados na mesma região com uma ou mais sub-redes.
+Para este artigo, cria-se um VNet único simplificado com três sub-redes para fácil implementação. Para implantações de produção, recomenda-se um [modelo de hub e spoke.](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) A firewall está no seu próprio VNet. Os servidores de carga de trabalho estão em VNets espreitados na mesma região com uma ou mais sub-redes.
 
 * **AzureFirewallSubnet** - a firewall está nesta sub-rede.
 * **Workload-SN** - o servidor de carga de trabalho está nesta sub-rede. O tráfego de rede desta sub-rede passa pela firewall.
@@ -279,7 +279,7 @@ Então agora verificaste que as regras da firewall estão a funcionar:
 * Pode resolver nomes DNS com o servidor DNS externo configurado.
 * Pode navegar para o único FQDN permitido, mas não para quaisquer outros.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode manter os seus recursos de firewall para o próximo tutorial, ou se já não for necessário, eliminar o grupo de recursos **Test-FW-RG** para eliminar todos os recursos relacionados com firewall:
 
@@ -288,6 +288,6 @@ az group delete \
   -n Test-FW-RG
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
+* [Tutorial: monitorizar registos do Azure Firewall](./firewall-diagnostics.md)

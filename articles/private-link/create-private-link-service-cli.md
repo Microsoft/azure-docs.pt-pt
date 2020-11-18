@@ -7,19 +7,20 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: a2b97bcc9fe902480364ade19efdae863556ac1e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 87fe02aed19ae7e5858715748a2b4c4da87a07b3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629432"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658575"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Criar um serviço de ligação privada utilizando o Azure CLI
 Este artigo mostra-lhe como criar um serviço de Ligação Privada em Azure usando o Azure CLI.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se decidir instalar e utilizar o Azure CLI localmente, este quickstart requer que utilize a versão mais recente do Azure CLI. Para encontrar a sua versão instalada, corra `az --version` . Consulte [o Azure CLI](/cli/azure/install-azure-cli) para obter informações de instalação ou atualização.
+- Este artigo requer a versão mais recente do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
+
 ## <a name="create-a-private-link-service"></a>Criar um serviço de Ligação Privada
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -29,7 +30,7 @@ Antes de criar uma rede virtual, tem de criar um grupo de recursos para acolher 
 az group create --name myResourceGroup --location westcentralus
 ```
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
-Crie uma rede virtual com [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Este exemplo cria uma rede virtual padrão chamada *myVirtualNetwork* com uma sub-rede chamada *mySubnet* :
+Crie uma rede virtual com [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Este exemplo cria uma rede virtual padrão chamada *myVirtualNetwork* com uma sub-rede chamada *mySubnet*:
 
 ```azurecli-interactive
 az network vnet create --resource-group myResourceGroup --name myVirtualNetwork --address-prefix 10.0.0.0/16  
@@ -111,7 +112,7 @@ Em seguida, vamos demonstrar como mapear este serviço para um ponto final priva
 ## <a name="private-endpoints"></a>Pontos finais privados
 
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual 
-Criar uma rede virtual com [a criação de vnet de rede Az.](/cli/azure/network/vnet#az-network-vnet-create) Este exemplo cria uma rede virtual chamada  *myPEVNet*   em grupo de recursos chamado *myResourcegroup* : 
+Criar uma rede virtual com [a criação de vnet de rede Az.](/cli/azure/network/vnet#az-network-vnet-create) Este exemplo cria uma rede virtual chamada  *myPEVNet*   em grupo de recursos chamado *myResourcegroup*: 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
@@ -119,7 +120,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>Criar a sub-rede 
-Criar uma sub-rede em rede virtual com [a sub-rede de rede Az criar](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Este exemplo cria uma sub-rede chamada  *mySubnet*   em rede virtual chamada *myPEVnet* em grupo de recursos chamado *myResourcegroup* : 
+Criar uma sub-rede em rede virtual com [a sub-rede de rede Az criar](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Este exemplo cria uma sub-rede chamada  *mySubnet*   em rede virtual chamada *myPEVnet* em grupo de recursos chamado *myResourcegroup*: 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -152,7 +153,7 @@ az network private-endpoint create \
 --location westcentralus 
 ```
 Você pode obter o *id de recursos de ligação privada* `az network private-link-service show` no serviço Private Link. A ID vai parecer:   
-/subscrições/subID/resourceGroups/ *resourcegroupname* /providers/Microsoft.Network/privateLinkServices/ **privatelinkservicename** 
+/subscrições/subID/resourceGroups/*resourcegroupname*/providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
  
 ## <a name="show-private-link-service-connections"></a>Mostrar ligações de serviço private link 
  
@@ -160,6 +161,6 @@ Consulte os pedidos de ligação no seu serviço Private Link utilizando [o prog
 ```azurecli-interactive 
 az network private-link-service show --resource-group myResourceGroup --name myPLS 
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [o serviço Azure Private Link](private-link-service-overview.md)
  

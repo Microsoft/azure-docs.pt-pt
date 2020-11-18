@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5fc1b84e624828d7feb64bd53e8fe8ffff2a7ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46071d15db57f64eb60d9267d4081a2b0b74a50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054839"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658439"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação não acompanhado para o conector proxy aplicação AD Azure
 
@@ -39,7 +39,7 @@ Para que o [conector Proxy de aplicação](application-proxy-connectors.md) func
 Há dois passos para uma instalação não acompanhada. Primeiro, instale o conector. Em segundo lugar, registe o conector com a Azure AD.
 
 > [!IMPORTANT]
-> Se estiver a instalar o conector para a nuvem do Governo Azure, reveja os [passos de pré-requisitos](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) e [de instalação](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). Isto requer permitir o acesso a um conjunto diferente de URLs e um parâmetro adicional para executar a instalação.
+> Se estiver a instalar o conector para a nuvem do Governo Azure, reveja os [passos de pré-requisitos](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) e [de instalação](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud). Isto requer permitir o acesso a um conjunto diferente de URLs e um parâmetro adicional para executar a instalação.
 
 ## <a name="install-the-connector"></a>Instale o conector
 Utilize os seguintes passos para instalar o conector sem o registar:
@@ -206,7 +206,7 @@ Existem dois métodos que pode utilizar para registar o conector:
    .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Publicar aplicações com o seu próprio nome de domínio](application-proxy-configure-custom-domain.md)
 * [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)
 * [Resolver problemas com o Proxy da Aplicação](application-proxy-troubleshoot.md)

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39fdde572e269bb4f5648e91bf85539d02236ff6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448342"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658558"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blob críticos de negócio com armazenamento imutável
 
@@ -102,17 +102,21 @@ Aplicam-se os seguintes limites aos detém legais:
 - Para um contentor, um máximo de 10 registos de auditoria de política legal são mantidos durante a duração da apólice.
 
 ## <a name="scenarios"></a>Cenários
+
 A tabela seguinte mostra os tipos de operações de armazenamento Blob que são desativadas para os diferentes cenários imutáveis. Para mais informações, consulte a documentação da [Azure Blob Service REST API.](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 
-|Cenário  |Estado blob  |Operações de blob negadas  |Proteção de contentores e conta
-|---------|---------|---------|---------|
-|O intervalo de retenção efetivo do blob ainda não expirou e/ou a retenção legal está definida     |Imutável: protegido contra eliminação e escrita         | Colocar Blob<sup>1</sup>, Colocar Bloco<sup>1</sup>, Colocar Bloco Lista<sup>1</sup>, Eliminar Recipiente, Eliminar Blob, Definir Metadados Blob, Put Page, Definir Propriedades blob, Bolha instantânea, Bolha de cópia incremental, Bloco de Apêndice<sup>2</sup>         |Supressão de contentores negada; Supressão da conta de armazenamento negada         |
-|O intervalo de retenção eficaz na bolha expirou e não está definido qualquer porão legal    |Protegido apenas contra escrita (as operações de eliminação são permitidas)         |Colocar Blob<sup>1</sup>, Colocar Bloco<sup>1</sup>, Colocar Lista de Bloco<sup>1</sup>, Definir Metadados Blob, Put Page, Definir Propriedades blob, Bolha snapshot, Blob de Cópia Incremental, Bloco de Apêndice<sup>2</sup>         |Supressão do contentor negada se existir pelo menos 1 bolha dentro de recipiente protegido; Supressão da conta de armazenamento negada apenas para políticas baseadas no tempo *bloqueado*         |
-|Nenhuma política worm aplicada (sem retenção baseada no tempo e sem etiqueta de detenção legal)     |Mutável         |Nenhum         |Nenhum         |
+| Cenário | Estado blob | Operações de blob negadas | Proteção de contentores e conta |
+|--|--|--|--|
+| O intervalo de retenção efetivo do blob ainda não expirou e/ou a retenção legal está definida | Imutável: protegido contra eliminação e escrita | Colocar Blob<sup>1</sup>, Colocar Bloco<sup>1</sup>, Colocar Bloco Lista<sup>1</sup>, Eliminar Recipiente, Eliminar Blob, Definir Metadados Blob, Put Page, Definir Propriedades blob, Bolha instantânea, Bolha de cópia incremental, Bloco de Apêndice<sup>2</sup> | Supressão de contentores negada; Supressão da conta de armazenamento negada |
+| O intervalo de retenção eficaz na bolha expirou e não está definido qualquer porão legal | Protegido apenas contra escrita (as operações de eliminação são permitidas) | Colocar Blob<sup>1</sup>, Colocar Bloco<sup>1</sup>, Colocar Lista de Bloco<sup>1</sup>, Definir Metadados Blob, Put Page, Definir Propriedades blob, Bolha snapshot, Blob de Cópia Incremental, Bloco de Apêndice<sup>2</sup> | Supressão do contentor negada se existir pelo menos 1 bolha dentro de recipiente protegido; Supressão da conta de armazenamento negada apenas para políticas baseadas no tempo *bloqueado* |
+| Nenhuma política worm aplicada (sem retenção baseada no tempo e sem etiqueta de detenção legal) | Mutável | Nenhum | Nenhum |
 
 <sup>1</sup> O serviço blob permite que estas operações criem uma nova bolha uma vez. Não são permitidas todas as operações subsequentes de substituição num caminho de bolha existente num recipiente imutável.
 
 <sup>2</sup> O Bloco de Apêndice só é permitido para políticas de retenção baseadas no tempo com a `allowProtectedAppendWrites` propriedade ativada. Para obter mais informações, consulte a secção ['Escrever blobs' de apêndice protegido.](#allow-protected-append-blobs-writes)
+
+> [!IMPORTANT]
+> Algumas cargas de trabalho, como [a SQL Backup para URL,](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)criam uma bolha e depois adicionam-na. Se o contentor tiver uma política de retenção ativa baseada no tempo ou se mantiver em vigor, este padrão não será bem sucedido.
 
 ## <a name="pricing"></a>Preços
 
@@ -168,7 +172,7 @@ Sim. Quando uma política de retenção baseada no tempo é criada pela primeira
 
 Sim, se os seus requisitos de conformidade permitirem a sua eliminação suave. [A eliminação suave para o armazenamento Azure Blob](storage-blob-soft-delete.md) aplica-se a todos os contentores dentro de uma conta de armazenamento, independentemente de uma política de retenção por precaução legal ou baseada no tempo. Recomendamos que se promova a eliminação suave para proteção adicional antes de serem aplicadas e confirmadas quaisquer políticas imutáveis do WORM.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Definir e gerir políticas de imutabilidade para armazenamento blob](storage-blob-immutability-policies-manage.md)
 - [Descreva regras para eliminar automaticamente os dados blob com a gestão do ciclo de vida](storage-lifecycle-management-concepts.md)

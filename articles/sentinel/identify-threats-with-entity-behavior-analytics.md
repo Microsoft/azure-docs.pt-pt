@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c5e57f2eb3c38a7df23052a4b3d33bc5a9675fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425937"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658796"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificar ameaças avançadas com a Análise de Comportamento de Utilizador e Entidade (UEBA) em Azure Sentinel
 
@@ -180,7 +180,7 @@ As páginas da entidade são projetadas para fazer parte de múltiplos cenários
 
 ### <a name="querying-behavior-analytics-data"></a>Consulta de dados de análise de comportamento
 
-Usando [o KQL,](https://docs.microsoft.com/azure/data-explorer/kusto/query/)podemos consultar a Tabela de Análise Comportamental.
+Usando [o KQL,](/azure/data-explorer/kusto/query/)podemos consultar a Tabela de Análise Comportamental.
 
 Por exemplo – se quisermos encontrar todos os casos de um utilizador que não tenha assinado num recurso Azure, onde foi a primeira tentativa do utilizador de se ligar a partir de um determinado país, e as ligações desse país são incomuns mesmo para os pares do utilizador, podemos utilizar a seguinte consulta:
 
@@ -217,7 +217,7 @@ Azure Sentinel fornece fora da caixa um conjunto de consultas de caça, consulta
 
 Saiba mais sobre [a caça e o gráfico de investigação](./hunting.md) em Azure Sentinel.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, você aprendeu sobre as capacidades de análise de comportamento da entidade de Azure Sentinel. Para obter orientações práticas sobre a implementação e para utilizar os insights que obteve, consulte os seguintes artigos:
 
 - [Ativar a análise de comportamento da entidade](./enable-entity-behavior-analytics.md) em Azure Sentinel.

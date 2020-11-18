@@ -12,12 +12,12 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0a103ac9b8e6d29830b5ecd6732cd19547014b0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601144"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659068"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Ocultar aplicações da Empresa de utilizadores finais no Azure Ative Directory
 
@@ -47,7 +47,7 @@ Use os seguintes passos para esconder uma aplicação do painel MyApps e do lan�
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Use a Azure AD PowerShell para esconder uma aplicação
 
-Para ocultar uma aplicação do painel MyApps, pode adicionar manualmente a etiqueta HideApp ao principal do serviço para a aplicação. Executar os seguintes comandos [AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) para definir a **No**propriedade **Visível para Os Utilizadores da aplicação?** 
+Para ocultar uma aplicação do painel MyApps, pode adicionar manualmente a etiqueta HideApp ao principal do serviço para a aplicação. Executar os seguintes comandos [AzureAD PowerShell](/powershell/module/azuread/?view=azureadps-2.0#service_principals) para definir a **No** propriedade **Visível para Os Utilizadores da aplicação?** 
 
 ```PowerShell
 Connect-AzureAD
@@ -71,9 +71,8 @@ Utilize os seguintes passos para esconder todas as aplicações da Microsoft 365
 6.  Para **os utilizadores só podem ver as aplicações do Office 365 no portal Do Office 365**, clique em **Sim**.
 7.  Clique em **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](assign-user-or-group-access-portal.md)
-* [Remova uma atribuição de utilizador ou grupo de uma aplicação da empresa](remove-user-or-group-access-portal.md)
-* [Alterar o nome ou logotipo de uma aplicação da empresa](change-name-or-logo-portal.md)
-
+* [Remova uma atribuição de utilizador ou grupo de uma aplicação da empresa](./assign-user-or-group-access-portal.md)
+* [Alterar o nome ou logotipo de uma aplicação da empresa](./add-application-portal-configure.md)

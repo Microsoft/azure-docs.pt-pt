@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 629c27602df14c0b35e2063d8db2d0b13bbff99a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635903"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658694"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
@@ -60,7 +60,7 @@ A imagem abaixo destaca os diferentes passos deste ciclo de vida.
 
 Segue-se um guia para a criação de um lançamento da Azure Pipelines que automatiza a implantação de uma fábrica de dados em vários ambientes.
 
-### <a name="requirements"></a>Requisitos
+### <a name="requirements"></a>Requirements
 
 -   Uma subscrição Azure ligada ao Servidor da Fundação Visual Studio Team ou ao Azure Repos que utiliza o ponto final do [serviço Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
@@ -72,11 +72,11 @@ Segue-se um guia para a criação de um lançamento da Azure Pipelines que autom
 
 1.  Em [Azure DevOps,](https://dev.azure.com/)abra o projeto que está configurado com a sua fábrica de dados.
 
-1.  No lado esquerdo da página, selecione **Pipelines** e, em seguida, selecione **Versões** .
+1.  No lado esquerdo da página, selecione **Pipelines** e, em seguida, selecione **Versões**.
 
     ![Selecione Pipelines, Lançamentos](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  Selecione **Novo oleoduto** , ou, se tiver os oleodutos existentes, selecione **Novo** e, em seguida, Novo oleoduto **de lançamento** .
+1.  Selecione **Novo oleoduto**, ou, se tiver os oleodutos existentes, selecione **Novo** e, em seguida, Novo oleoduto **de lançamento**.
 
 1.  Selecione o modelo **de trabalho vazio.**
 
@@ -84,38 +84,38 @@ Segue-se um guia para a criação de um lançamento da Azure Pipelines que autom
 
 1.  Na **caixa de nomes** de palco, insira o nome do seu ambiente.
 
-1.  **Selecione Adicionar artefacto** e, em seguida, selecione o repositório de git configurado com a sua fábrica de dados de desenvolvimento. Selecione o ramo de [publicação](source-control.md#configure-publishing-settings) do repositório para o **ramo Predefinido** . Por defeito, esta sucursal de publicação é `adf_publish` . Para a **versão Predefinitiva** , selecione **mais recente do ramo predefinido** .
+1.  **Selecione Adicionar artefacto** e, em seguida, selecione o repositório de git configurado com a sua fábrica de dados de desenvolvimento. Selecione o ramo de [publicação](source-control.md#configure-publishing-settings) do repositório para o **ramo Predefinido**. Por defeito, esta sucursal de publicação é `adf_publish` . Para a **versão Predefinitiva**, selecione **mais recente do ramo predefinido**.
 
     ![Adicionar um artefacto](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 1.  Adicione uma tarefa de implementação do Gestor de Recursos Azure:
 
-    a.  Na vista do palco, **selecione Ver as tarefas do palco** .
+    a.  Na vista do palco, **selecione Ver as tarefas do palco**.
 
     ![Vista de palco](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Criar uma nova tarefa. Procure a **implementação do modelo ARM** e, em seguida, selecione **Adicionar** .
+    b.  Criar uma nova tarefa. Procure a **implementação do modelo ARM** e, em seguida, selecione **Adicionar**.
 
     c.  Na tarefa De implementação, selecione a subscrição, o grupo de recursos e a localização para a fábrica de dados-alvo. Fornecer credenciais, se necessário.
 
-    d.  Na lista **de Ação,** selecione **Criar ou atualizar o grupo de recursos** .
+    d.  Na lista **de Ação,** selecione **Criar ou atualizar o grupo de recursos**.
 
-    e.  Selecione o botão elipse **(...** ) ao lado da caixa **Modelo.** Navegue pelo modelo Azure Resource Manager que é gerado no seu ramo de publicação do repositório de git configurado. Procure o ficheiro `ARMTemplateForFactory.json` na pasta do ramo <FactoryName> adf_publish.
+    e.  Selecione o botão elipse **(...**) ao lado da caixa **Modelo.** Navegue pelo modelo Azure Resource Manager que é gerado no seu ramo de publicação do repositório de git configurado. Procure o ficheiro `ARMTemplateForFactory.json` na pasta do ramo <FactoryName> adf_publish.
 
     f.  Selecione **...** ao lado da caixa **de parâmetros do modelo** para escolher o ficheiro de parâmetros. Procure o ficheiro `ARMTemplateParametersForFactory.json` na pasta do ramo <FactoryName> adf_publish.
 
     exemplo,  Selecione **...** ao lado da caixa de **parâmetros do modelo de substituição** e introduza os valores de parâmetros desejados para a fábrica de dados-alvo. Para credenciais que vêm de Azure Key Vault, insira o nome do segredo entre as aspas duplas. Por exemplo, se o nome do segredo for cred1, insira **"$(cred1)"** por este valor.
 
-    h. Selecione **Incremental** para o **modo de implementação** .
+    h. Selecione **Incremental** para o **modo de implementação**.
 
     > [!WARNING]
-    > No modo de implementação completo, os recursos que existem no grupo de recursos mas que não estão especificados no novo modelo de Gestor de Recursos serão **eliminados** . Para mais informações, consulte os [modos de implementação do Gestor de Recursos Azure](../azure-resource-manager/templates/deployment-modes.md)
+    > No modo de implementação completo, os recursos que existem no grupo de recursos mas que não estão especificados no novo modelo de Gestor de Recursos serão **eliminados**. Para mais informações, consulte os [modos de implementação do Gestor de Recursos Azure](../azure-resource-manager/templates/deployment-modes.md)
 
     ![Implantação de prod de fábrica de dados](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 1.  Guarde o oleoduto de libertação.
 
-1. Para desencadear uma versão, selecione **Criar verção** . Para automatizar a criação de lançamentos, veja [os gatilhos de lançamento do Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops)
+1. Para desencadear uma versão, selecione **Criar verção**. Para automatizar a criação de lançamentos, veja [os gatilhos de lançamento do Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops)
 
    ![Selecione Criar ver lançamento](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -633,19 +633,23 @@ Se colocar uma fábrica para produção e perceber que há um bug que precisa de
 
 10.   Adicione as alterações do hotfix ao ramo de desenvolvimento para que os lançamentos posteriores não incluam o mesmo bug.
 
+Veja o vídeo abaixo de um tutorial de vídeo aprofundado sobre como corrigir quentemente os seus ambientes. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
 ## <a name="best-practices-for-cicd"></a>Melhores práticas para CI/CD
 
 Se estiver a utilizar a integração do Git com a sua fábrica de dados e tiver um pipeline ci/CD que move as suas mudanças de desenvolvimento para teste e depois para a produção, recomendamos estas boas práticas:
 
--   **Integração de Git** . Configure apenas a sua fábrica de dados de desenvolvimento com a integração de Git. As alterações ao teste e à produção são implementadas através de CI/CD e não necessitam de integração do Git.
+-   **Integração de Git**. Configure apenas a sua fábrica de dados de desenvolvimento com a integração de Git. As alterações ao teste e à produção são implementadas através de CI/CD e não necessitam de integração do Git.
 
 -   **Script pré e pós-implantação.** Antes do passo de implementação do Gestor de Recursos em CI/CD, é necessário completar certas tarefas, como parar e reiniciar os gatilhos e realizar a limpeza. Recomendamos que utilize scripts PowerShell antes e depois da tarefa de implantação. Para obter mais informações, consulte [os gatilhos ativos da Atualização](#updating-active-triggers). A equipa de fábrica de dados [forneceu um script](#script) para usar localizado na parte inferior desta página.
 
 -   **Integração tempos de execução e partilha.** Os tempos de integração não mudam frequentemente e são semelhantes em todas as fases do seu CI/CD. Assim, a Data Factory espera que tenha o mesmo nome e tipo de tempo de integração em todas as fases do CI/CD. Se quiser partilhar os tempos de integração em todas as fases, considere usar uma fábrica ternuy apenas para conter os tempos de integração partilhada. Você pode usar esta fábrica partilhada em todos os seus ambientes como um tipo de tempo de execução de integração ligado.
 
--   **Implementação de ponto final privado gerido** . Se um ponto final privado já existir numa fábrica e tentar implantar um modelo ARM que contenha um ponto final privado com o mesmo nome mas com propriedades modificadas, a implementação falhará. Por outras palavras, pode implantar com sucesso um ponto final privado desde que tenha as mesmas propriedades que já existe na fábrica. Se qualquer propriedade for diferente entre ambientes, pode sobrepor-se a essa propriedade, parametrizando essa propriedade e fornecendo o respetivo valor durante a implantação.
+-   **Implementação de ponto final privado gerido**. Se um ponto final privado já existir numa fábrica e tentar implantar um modelo ARM que contenha um ponto final privado com o mesmo nome mas com propriedades modificadas, a implementação falhará. Por outras palavras, pode implantar com sucesso um ponto final privado desde que tenha as mesmas propriedades que já existe na fábrica. Se qualquer propriedade for diferente entre ambientes, pode sobrepor-se a essa propriedade, parametrizando essa propriedade e fornecendo o respetivo valor durante a implantação.
 
--   **Cofre de Chaves** . Quando utiliza serviços ligados cujas informações de ligação são armazenadas no Cofre da Chave Azure, é aconselhável manter cofres-chave separados para diferentes ambientes. Também pode configurar níveis de permissão separados para cada cofre de chaves. Por exemplo, pode não querer que os membros da sua equipa tenham permissões para segredos de produção. Se seguir esta abordagem, recomendamos que mantenha os mesmos nomes secretos em todas as fases. Se mantiver os mesmos nomes secretos, não precisa de parametrizar cada cadeia de ligação em ambientes CI/CD porque a única coisa que muda é o nome do cofre chave, que é um parâmetro separado.
+-   **Cofre de Chaves**. Quando utiliza serviços ligados cujas informações de ligação são armazenadas no Cofre da Chave Azure, é aconselhável manter cofres-chave separados para diferentes ambientes. Também pode configurar níveis de permissão separados para cada cofre de chaves. Por exemplo, pode não querer que os membros da sua equipa tenham permissões para segredos de produção. Se seguir esta abordagem, recomendamos que mantenha os mesmos nomes secretos em todas as fases. Se mantiver os mesmos nomes secretos, não precisa de parametrizar cada cadeia de ligação em ambientes CI/CD porque a única coisa que muda é o nome do cofre chave, que é um parâmetro separado.
 
 -  **Nomeação de recursos** Devido às restrições do modelo ARM, podem surgir problemas de implantação se os seus recursos contiverem espaços no nome. A equipa da Azure Data Factory recomenda a utilização de caracteres '_' ou '-' em vez de espaços para recursos. Por exemplo, "Pipeline_1" seria um nome preferível sobre o "Pipeline 1".
 

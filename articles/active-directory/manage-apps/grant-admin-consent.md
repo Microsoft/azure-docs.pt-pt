@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9680c9bee6d0cf5c9605ce7b6009a500abd81ffb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e56968250c10bb46553e618fd278df7d642683f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369102"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659085"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador ao nível do inquilino a uma aplicação
 
@@ -30,7 +30,7 @@ Para obter mais informações sobre o consentimento dos pedidos, consulte [o qua
 A concessão do consentimento administrativo ao inquilinos requer que se inscreva como [Administrador Global,](../roles/permissions-reference.md#global-administrator--company-administrator) [Administrador de Aplicação](../roles/permissions-reference.md#application-administrator)ou [Administrador de Aplicação em Nuvem.](../roles/permissions-reference.md#cloud-application-administrator)
 
 > [!IMPORTANT]
-> Quando uma aplicação tiver recebido o consentimento administrativo do arrendatário, todos os utilizadores poderão inscrever-se na app a menos que tenha sido configurada para exigir a atribuição do utilizador. Para restringir quais os utilizadores que podem iniciar sessão numa aplicação, exija a atribuição do utilizador e, em seguida, atribua utilizadores ou grupos à aplicação. Para obter mais informações, consulte [Métodos para atribuir utilizadores e grupos.](methods-for-assigning-users-and-groups.md)
+> Quando uma aplicação tiver recebido o consentimento administrativo do arrendatário, todos os utilizadores poderão inscrever-se na app a menos que tenha sido configurada para exigir a atribuição do utilizador. Para restringir quais os utilizadores que podem iniciar sessão numa aplicação, exija a atribuição do utilizador e, em seguida, atribua utilizadores ou grupos à aplicação. Para obter mais informações, consulte [Métodos para atribuir utilizadores e grupos.](./assign-user-or-group-access-portal.md)
 >
 > A função de Administrador Global é necessária para fornecer consentimento administrativo para permissões de aplicação para a API do Gráfico microsoft.
 
@@ -93,12 +93,12 @@ Como sempre, reveja cuidadosamente as permissões que um pedido de pedido antes 
 > [!WARNING]
 > A concessão do consentimento administrativo através desta URL revogará quaisquer permissões que tivessem sido previamente concedidas a todo o inquilino. As permissões que tenham sido previamente concedidas pelos utilizadores em seu próprio nome não serão afetadas. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Configurar a forma como os utilizadores finais concedem consentimento às aplicações](configure-user-consent.md)
 
 [Configure o fluxo de trabalho de consentimento administrativo](configure-admin-consent-workflow.md)
 
-[Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)
+[Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
 [Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ce3819ff1f9b0c61f7738f90ff17c2798fe888b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9699f425b296f1c88162c78b8f86de74303747be
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642117"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658337"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizar a gestão de aplicações com a Azure AD
 
@@ -42,8 +42,8 @@ Chega de gerir a senha. Aceda de forma segura todos os recursos necessários com
 
 |Funcionalidade  | Descrição | Recomendação |
 |---------|---------|---------|
-|SSO|SSO federado baseado em padrões usando padrões de indústria fidedignas.|Utilize sempre [o SAML /OIDC](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-choose-multi-tenant-federation) para ativar o SSO quando a sua aplicação o suporta.|
-|As Minhas Aplicações|Ofereça aos seus utilizadores um simples hub para descobrir e aceder a todas as suas aplicações. Capacitá-los a serem mais produtivos com capacidades de self-service, como solicitar acesso a apps e grupos, ou gerir o acesso a recursos em nome de outros.| Implemente [as Minhas Apps](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) na sua organização assim que tiver integrado as suas aplicações com Azure AD para SSO.|
+|SSO|SSO federado baseado em padrões usando padrões de indústria fidedignas.|Utilize sempre [o SAML /OIDC](../develop/v2-howto-app-gallery-listing.md) para ativar o SSO quando a sua aplicação o suporta.|
+|As Minhas Aplicações|Ofereça aos seus utilizadores um simples hub para descobrir e aceder a todas as suas aplicações. Capacitá-los a serem mais produtivos com capacidades de self-service, como solicitar acesso a apps e grupos, ou gerir o acesso a recursos em nome de outros.| Implemente [as Minhas Apps](./access-panel-deployment-plan.md) na sua organização assim que tiver integrado as suas aplicações com Azure AD para SSO.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Cenário 2: Automatizar o provisionamento e a desprovisionamento 
 
@@ -53,7 +53,7 @@ A maioria das aplicações requer que um utilizador seja a provisionado na aplic
 
 |Funcionalidade  |Descrição|Recomendação |
 |---------|---------|---------|
-|Provisão SCIM|[A SCIM](https://aka.ms/SCIMOverview) é uma das melhores práticas da indústria para automatizar o fornecimento de utilizadores. Qualquer aplicação compatível com SCIM pode ser integrada com Azure AD. Crie, atualize e elimine automaticamente as contas dos utilizadores sem ter de manter ficheiros CSV, scripts personalizados ou soluções on-prem.|Confira a crescente lista de aplicações [pré-integradas](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) na galeria de aplicações AD AZure|
+|Provisão SCIM|[A SCIM](https://aka.ms/SCIMOverview) é uma das melhores práticas da indústria para automatizar o fornecimento de utilizadores. Qualquer aplicação compatível com SCIM pode ser integrada com Azure AD. Crie, atualize e elimine automaticamente as contas dos utilizadores sem ter de manter ficheiros CSV, scripts personalizados ou soluções on-prem.|Confira a crescente lista de aplicações [pré-integradas](../saas-apps/tutorial-list.md) na galeria de aplicações AD AZure|
 |Microsoft Graph|Aproveite a respiração e profundidade de dados que a Azure AD tem para enriquecer a sua aplicação com os dados de que necessita.|Aproveite o gráfico da [Microsoft](https://developer.microsoft.com/graph/) para obter dados de todo o ecossistema da Microsoft. |
 
 
@@ -63,17 +63,17 @@ A identidade é o eixo da segurança. Se uma identidade fica comprometida, é in
 |Funcionalidade  |Descrição| Recomendação |
 |---------|---------| ---------|
 |Azure MFA|A Azure Multi-Factor Authentication (MFA) é uma solução de verificação em dois passos da Microsoft. Utilizando métodos de autenticação aprovados pela administração, o Azure MFA ajuda a salvaguardar o acesso aos seus dados e aplicações, ao mesmo tempo que satisfaz a exigência de um processo de inscrição simples.| [Ativar o MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) para os seus utilizadores.  |
-|Acesso Condicional|Com o Acesso Condicional, pode implementar decisões automatizadas de controlo de acesso para quem pode aceder às suas aplicações na nuvem, com base nas condições.| Reveja os [incumprimentos de segurança](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) e [as políticas comuns que](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common) os clientes estão a usar. | 
-|Identity Protection|A Identity Protection utiliza as aprendizagens que a Microsoft adquiriu da sua posição em organizações com a Azure AD, o espaço de consumo com contas da Microsoft e em jogos com a Xbox para proteger os seus utilizadores. A Microsoft analisa 6,5 biliões de sinais por dia para identificar e proteger os clientes de ameaças.|Ativar as [políticas de proteção de identidade padrão](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies) fornecidas pelo nosso serviço. | 
+|Acesso Condicional|Com o Acesso Condicional, pode implementar decisões automatizadas de controlo de acesso para quem pode aceder às suas aplicações na nuvem, com base nas condições.| Reveja os [incumprimentos de segurança](../fundamentals/concept-fundamentals-security-defaults.md) e [as políticas comuns que](../conditional-access/concept-conditional-access-policy-common.md) os clientes estão a usar. | 
+|Identity Protection|A Identity Protection utiliza as aprendizagens que a Microsoft adquiriu da sua posição em organizações com a Azure AD, o espaço de consumo com contas da Microsoft e em jogos com a Xbox para proteger os seus utilizadores. A Microsoft analisa 6,5 biliões de sinais por dia para identificar e proteger os clientes de ameaças.|Ativar as [políticas de proteção de identidade padrão](../identity-protection/concept-identity-protection-policies.md) fornecidas pelo nosso serviço. | 
 
 ## <a name="scenario-4-govern-access-to-your-applications"></a>Cenário 4: Regule o acesso às suas aplicações
 A Governação da Identidade ajuda as organizações a alcançar um equilíbrio entre produtividade - Quão rapidamente uma pessoa pode ter acesso às aplicações de que precisa, como quando se junta à minha organização? E segurança - Como deve o seu acesso mudar ao longo do tempo, como devido a alterações ao estatuto laboral dessa pessoa? 
 
 |Funcionalidade  |Descrição|Recomendação |
 |---------|---------| ---------|
-|OLMO|A gestão de direitos AD AZure pode ajudar os utilizadores dentro e fora da sua organização a gerir de forma mais eficiente o acesso às suas aplicações.| Permitir que os administradores não administrativos consigam aceder às suas aplicações com [pacotes de acesso.](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-first)|
-|Revisões de Acesso|O acesso dos utilizadores às apps pode ser revisto regularmente para garantir que apenas as pessoas certas tenham acesso continuado.| [Reveja o acesso](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) às suas aplicações mais sensíveis. |
-|Log Analytics|Gere relatos sobre quem está a aceder às aplicações e armazene-as na sua ferramenta siem de eleição para correlacionar dados entre fontes de dados e ao longo do tempo.| Ative [a análise de registos](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) e configurar alertas para eventos críticos relacionados com as suas aplicações. |
+|OLMO|A gestão de direitos AD AZure pode ajudar os utilizadores dentro e fora da sua organização a gerir de forma mais eficiente o acesso às suas aplicações.| Permitir que os administradores não administrativos consigam aceder às suas aplicações com [pacotes de acesso.](../governance/entitlement-management-access-package-first.md)|
+|Revisões de Acesso|O acesso dos utilizadores às apps pode ser revisto regularmente para garantir que apenas as pessoas certas tenham acesso continuado.| [Reveja o acesso](../governance/access-reviews-overview.md) às suas aplicações mais sensíveis. |
+|Log Analytics|Gere relatos sobre quem está a aceder às aplicações e armazene-as na sua ferramenta siem de eleição para correlacionar dados entre fontes de dados e ao longo do tempo.| Ative [a análise de registos](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) e configurar alertas para eventos críticos relacionados com as suas aplicações. |
 
 
 ## <a name="scenario-5-hybrid-secure-access"></a>Cenário 5: Acesso Híbrido Seguro
@@ -81,14 +81,14 @@ A identidade só pode ser o seu plano de controlo se conseguir ligar tudo atrav�
 
 |Funcionalidade  |Descrição|Recomendação |
 |---------|---------|---------|
-|Proxy da aplicação|Os colaboradores dos nossos dias querem ser produtivos em qualquer sítio, em qualquer altura e em qualquer dispositivo. Precisam de aceder a aplicações SaaS na nuvem e aplicações corporativas no local. O proxy da Azure AD Application permite este acesso robusto sem redes privadas virtuais (VPNs) ou zonas desmilitarizadas (DMZs).|Configurar [o acesso remoto](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) para as suas aplicações on-prem. |
-|F5, Akamai, Zscaler|Utilizando o seu controlador de rede e entrega existente, pode proteger facilmente aplicações antigas que ainda são fundamentais para os seus processos de negócio, mas que não conseguiu proteger antes com a Azure AD. É provável que já tenhas tudo o que precisas para começar a proteger estas aplicações.| Usando Akamai, Citrix, F5 ou Zscaler? Confira as [nossas soluções pré-construídas.](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access) | 
+|Proxy da aplicação|Os colaboradores dos nossos dias querem ser produtivos em qualquer sítio, em qualquer altura e em qualquer dispositivo. Precisam de aceder a aplicações SaaS na nuvem e aplicações corporativas no local. O proxy da Azure AD Application permite este acesso robusto sem redes privadas virtuais (VPNs) ou zonas desmilitarizadas (DMZs).|Configurar [o acesso remoto](./application-proxy.md) para as suas aplicações on-prem. |
+|F5, Akamai, Zscaler|Utilizando o seu controlador de rede e entrega existente, pode proteger facilmente aplicações antigas que ainda são fundamentais para os seus processos de negócio, mas que não conseguiu proteger antes com a Azure AD. É provável que já tenhas tudo o que precisas para começar a proteger estas aplicações.| Usando Akamai, Citrix, F5 ou Zscaler? Confira as [nossas soluções pré-construídas.](./secure-hybrid-access.md) | 
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Gestão de aplicações](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
-- [Aprovisionamento de aplicações](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
-- [Acesso híbrido seguro](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
-- [Governação identitária](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
-- [Plataforma de identidades da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
-- [Segurança de identidade](https://docs.microsoft.com/azure/active-directory/conditional-access/index)
+- [Gestão de aplicações](./index.yml)
+- [Aprovisionamento de aplicações](../app-provisioning/user-provisioning.md)
+- [Acesso híbrido seguro](./secure-hybrid-access.md)
+- [Governação de identidade](../governance/identity-governance-overview.md)
+- [Plataforma de identidades da Microsoft](../develop/v2-overview.md)
+- [Segurança de identidade](../conditional-access/index.yml)

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 09056846ee3e531724f597ee35f92d812ce2c335
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86037839"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658354"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Resolução de problemas: Uma ligação VPN local-to-site Azure não pode ligar-se e parar de funcionar
 
@@ -22,7 +22,7 @@ Depois de configurar uma ligação VPN site-to-site entre uma rede no local e um
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 
-Para resolver o problema, tente primeiro [redefinir o gateway Azure VPN](vpn-gateway-resetgw-classic.md) e redefinir o túnel a partir do dispositivo VPN no local. Se o problema persistir, siga estes passos para identificar a causa do problema.
+Para resolver o problema, tente primeiro [redefinir o gateway Azure VPN](./reset-gateway.md) e redefinir o túnel a partir do dispositivo VPN no local. Se o problema persistir, siga estes passos para identificar a causa do problema.
 
 ### <a name="prerequisite-step"></a>Passo pré-requisito
 
@@ -108,7 +108,7 @@ Verifique e remova o encaminhamento definido pelo utilizador (UDR) ou Grupos de 
 
 A funcionalidade de sigilo para a frente perfeita pode causar problemas de desconexão. Se o dispositivo VPN tiver um sigilo avançado perfeito ativado, desative a funcionalidade. Em seguida, atualize a política IPsec de gateway VPN.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 -   [Configure uma ligação site-a-local a uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Configure uma política IPsec/IKE para ligações VPN site-to-site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

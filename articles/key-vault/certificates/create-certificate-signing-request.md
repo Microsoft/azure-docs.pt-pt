@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: a85656909df5538f9f57e05d79ae768623d7eba6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c8f11f17c9e110509dcbcda291194f9b8d928c50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289606"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658966"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Criação e fusão de CSR no Cofre de Chaves
 
@@ -25,7 +25,15 @@ Para obter informações mais gerais sobre certificados, consulte [os certificad
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="adding-certificate-in-key-vault-issued-by-a-non-trusted-ca"></a>Adicionar certificado em Cofre-Chave emitido por um CA não confiável
+## <a name="adding-certificate-in-key-vault-issued-by-partnered-ca"></a>Adicionar certificado no Cofre-Chave emitido pela AC parceira
+Parceiros-chave da Vault com a seguinte a duas autoridades de certificados para simplificar a criação de certificados. 
+
+|Fornecedor|Tipo de certificado|Configuração de configuração  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault oferece certificados OV ou EV SSL com DigiCert| [Guia de Integração](./how-to-integrate-certificate-authority.md)
+|GlobalSign|Key Vault oferece certificados OV ou EV SSL com GlobalSign| [Guia de Integração](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+
+## <a name="adding-certificate-in-key-vault-issued-by-non-partnered-ca"></a>Adicionar certificado no Cofre-Chave emitido por CA não parceiro
 
 Os seguintes passos irão ajudá-lo a criar um certificado das autoridades de certificados que não são parceiros com o Key Vault (por exemplo, o GoDaddy não é um cofre de confiança CA) 
 
@@ -76,7 +84,7 @@ Os seguintes passos irão ajudá-lo a criar um certificado das autoridades de ce
 7. Clique no separador **Operação certificado** e selecione **Download CSR**.
  ![Screenshot que realça o botão Download CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
-8.  Leve o ficheiro .csr à AC para que o pedido seja assinado.
+8.  Leve .csr arquivo para a AC para o pedido de assinatura.
 9.  Uma vez que o pedido seja assinado pela AC, traga de volta o ficheiro de certificado para **fundir o pedido assinado** no mesmo ecrã de Operação certificado.
 
 O pedido de certificado foi agora fundido com sucesso.
@@ -109,7 +117,7 @@ Exemplo
 
 Para obter mais informações, consulte as operações do [Certificado na referência API do Cofre-Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)
 - [Guia do Programador do Key Vault](../general/developers-guide.md)

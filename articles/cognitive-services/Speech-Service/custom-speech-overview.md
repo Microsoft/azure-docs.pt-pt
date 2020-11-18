@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 4f65cc79c972a48f97e794b4c2870c3fb6e68d31
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 6dbe97d615753f0a90c8ba80aa7afa6dafa15eb2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557860"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658473"
 ---
-# <a name="what-is-custom-speech"></a>O que é Discurso Personalizado?
+# <a name="what-is-custom-speech"></a>O que é a Voz Personalizada?
 
 [Custom Speech](https://aka.ms/customspeech) é um conjunto de ferramentas baseadas em UI que lhe permitem avaliar e melhorar a precisão fala-texto da Microsoft para as suas aplicações e produtos. Tudo o que é preciso para começar são um punhado de ficheiros de áudio de teste. Siga os links abaixo para começar a criar uma experiência personalizada de discurso a texto.
 
@@ -63,9 +63,9 @@ Para criar o seu primeiro projeto, selecione o **discurso Discurso-a-Texto/Perso
 
 ## <a name="model-lifecycle"></a>Ciclo de vida modelo
 
-A fala personalizada utiliza **modelos base** e **modelos personalizados.** Cada idioma tem um ou mais **modelos base.** Geralmente, quando um novo modelo de fala é lançado para o serviço regular de fala, também é importado para o serviço de Discurso Personalizado como um novo **modelo base**. São atualizados a cada 3-6 meses, e os modelos mais antigos normalmente tornam-se menos úteis ao longo do tempo, uma vez que o modelo mais recente tipicamente tem uma precisão substancialmente maior.
+A fala personalizada utiliza **modelos base** e **modelos personalizados.** Cada idioma tem um ou mais **modelos base.** Geralmente, quando um novo modelo de fala é lançado para o serviço regular de fala, também é importado para o serviço de Discurso Personalizado como um novo **modelo base**. São normalmente atualizados a cada 3-6 meses, e os modelos mais antigos tornam-se menos úteis ao longo do tempo, uma vez que o modelo mais recente costuma ter maior precisão.
 
-Em contraste, **os modelos personalizados** são criados adaptando um modelo base escolhido para um cenário de cliente particular. Pode continuar a usar um modelo personalizado específico durante muito tempo, uma vez que tenha chegado a um que satisfaça as suas necessidades, ou continue a reforçá-lo ao longo do tempo com dados adicionais. 
+Em contraste, **os modelos personalizados** são criados adaptando um modelo base escolhido para um cenário de cliente particular. Pode continuar a utilizar um determinado modelo personalizado por um longo período de tempo depois de ter chegado a um que satisfaça as suas necessidades, mas recomendamos que atualize periodicamente o modelo base mais recente e retreine com dados adicionais.
 
 Outros termos-chave relacionados com o ciclo de vida do modelo incluem:
 
@@ -75,7 +75,7 @@ Outros termos-chave relacionados com o ciclo de vida do modelo incluem:
 
 ### <a name="expiration-timeline"></a>Prazo de expiração
 
-Alterações nos modelos base para adicionar novas funcionalidades e melhorar o desempenho podem causar problemas com compatibilidade inversa para modelos mais antigos, e também resultar em alterações na precisão observada com um determinado modelo num determinado conjunto de dados de teste. Para gerir o esforço na manutenção de modelos e pontos finais, consulte as seguintes linhas de tempo para os prazos de validade do modelo e ponto final.
+À medida que novos modelos e novas funcionalidades se tornam disponíveis e os modelos mais antigos e menos precisos são retirados, consulte as seguintes linhas de tempo para a expiração do modelo e ponto final:
 
 **Modelos base** 
 
@@ -94,8 +94,12 @@ Quando um modelo base ou um modelo personalizado expirarem, ele irá sempre volt
 * Detalhe de treinamento de modelo
 * Resumo da implementação
 * Detalhe de implantação
- 
-## <a name="next-steps"></a>Passos seguintes
+
+Também pode verificar as datas de validade através das [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) APIs de [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) fala personalizadas sob a `deprecationDates` propriedade na resposta JSON.
+
+Note que pode atualizar o modelo num ponto final de fala personalizado sem tempo de inatividade alterando o modelo utilizado pelo ponto final na secção de implementação do portal de fala personalizado, ou através da API de discurso personalizado.
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Prepare e teste os seus dados](how-to-custom-speech-test-data.md)
 * [Fiscalizar os seus dados](how-to-custom-speech-inspect-data.md)

@@ -12,12 +12,12 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: a79078977d25c55edfb4ad72bbd4602a073231f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 281e408ca79697edbee308e15b70a2cf2055b212
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89277940"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658898"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Quickstart: Veja a lista de aplicações que estão a usar o seu inquilino Azure Ative (Azure AD) para gestão de identidade
 
@@ -41,14 +41,14 @@ Para visualizar as candidaturas registadas no seu inquilino:
 1. Inscreva-se no seu [portal Azure](https://portal.azure.com).
 2. No painel de navegação esquerdo, selecione **Azure Ative Directory**.
 3. No painel de **diretório ativo Azure,** selecione **aplicações Enterprise**.
-4. A partir do menu drop-down do Tipo de **Aplicação,** selecione **Todas as Aplicações**e escolha **Aplicar**. É apresentada uma amostra aleatória das aplicações do seu inquilino.
+4. A partir do menu drop-down do Tipo de **Aplicação,** selecione **Todas as Aplicações** e escolha **Aplicar**. É apresentada uma amostra aleatória das aplicações do seu inquilino.
 5. Para ver mais aplicações, **selecione Carregar mais** na parte inferior da lista. Se houver inúmeras aplicações no seu inquilino, pode ser mais fácil procurar uma determinada aplicação em vez de percorrer a lista. A procura de uma aplicação específica é abordada mais tarde neste arranque rápido.
 
 ## <a name="select-viewing-options"></a>Selecionar as opções de visualização
 
 Selecione opções de acordo com o que procura.
 
-1. Pode ver as aplicações por **Tipo de Aplicação,** **Estado de Aplicação**e **visibilidade da aplicação.**
+1. Pode ver as aplicações por **Tipo de Aplicação,** **Estado de Aplicação** e **visibilidade da aplicação.**
 2. Em **Tipo de Aplicação**, escolha uma das seguintes opções:
     - **Aplicações Empresariais** mostra aplicações não Microsoft.
     - **Aplicações da Microsoft** mostra aplicações da Microsoft.
@@ -61,7 +61,7 @@ Selecione opções de acordo com o que procura.
 
 Para procurar uma determinada aplicação:
 
-1. No menu **'Tipo de Aplicação',** selecione **Todas as aplicações**e escolha **Aplicar**.
+1. No menu **'Tipo de Aplicação',** selecione **Todas as aplicações** e escolha **Aplicar**.
 2. Introduza o nome da aplicação que quer encontrar. Se o pedido foi adicionado ao seu inquilino Azure AD, aparece nos resultados da pesquisa. Este exemplo mostra que o GitHub não foi adicionado aos pedidos de inquilinos.
     ![Exemplo mostra que uma aplicação não foi adicionada ao inquilino](media/view-applications-portal/search-for-tenant-application.png)
 3. Experimente introduzir as primeiras letras do nome de uma aplicação. Este exemplo mostra todas as aplicações que começam com **Sales**.
@@ -69,14 +69,14 @@ Para procurar uma determinada aplicação:
 
 
 > [!TIP]
-> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Não criou novos recursos neste arranque rápido, por isso não há nada para limpar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o próximo artigo para aprender a usar a Azure AD como fornecedor de identidade para uma aplicação.
 > [!div class="nextstepaction"]

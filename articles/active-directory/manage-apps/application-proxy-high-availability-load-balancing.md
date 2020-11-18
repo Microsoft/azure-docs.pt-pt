@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab3b340654fd6d824edef0a33d1ea363a913654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 403fa4cab94ad6149e388b10acccd9d5e7a2b7a8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764592"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658167"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidade e equilíbrio de carga dos conectores e aplicações Proxy da aplicação
 
@@ -39,7 +39,7 @@ Os conectores estabelecem as suas ligações com base em princípios de elevada 
 
 1. Um utilizador num dispositivo cliente tenta aceder a uma aplicação no local publicada através do Application Proxy.
 2. O pedido passa por um Balançador de Carga Azure para determinar qual a instância de serviço de procuração de aplicação que deve aceitar o pedido. Por região, existem dezenas de casos disponíveis para aceitar o pedido. Este método ajuda a distribuir uniformemente o tráfego através das instâncias de serviço.
-3. O pedido é enviado para a [Service Bus.](https://docs.microsoft.com/azure/service-bus-messaging/)
+3. O pedido é enviado para a [Service Bus.](../../service-bus-messaging/index.yml)
 4. Serviço de ônibus sinaliza para um conector disponível. Em seguida, o conector recolhe o pedido da Service Bus.
    - No passo 2, os pedidos vão para diferentes instâncias de serviço de Procuração de Aplicação, pelo que as ligações são mais propensas a serem feitas com diferentes conectores. Como resultado, os conectores são quase uniformemente utilizados dentro do grupo.
 5. O conector transmite o pedido para o servidor back-end da aplicação. Em seguida, a aplicação envia a resposta de volta para o conector.
@@ -92,10 +92,10 @@ Aqui estão algumas opções para o cenário 2:
 
 Consulte a documentação do seu fornecedor de software para entender os requisitos de equilíbrio de carga da aplicação back-end.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ativar procuração de aplicação](application-proxy-add-on-premises-application.md)
 - [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Ativar o acesso condicional](application-proxy-integrate-with-sharepoint-server.md)
 - [Resolver problemas com o Proxy da Aplicação](application-proxy-troubleshoot.md)
-- [Saiba como a arquitetura AD AD AZure suporta alta disponibilidade](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+- [Saiba como a arquitetura AD AD AZure suporta alta disponibilidade](../fundamentals/active-directory-architecture.md)

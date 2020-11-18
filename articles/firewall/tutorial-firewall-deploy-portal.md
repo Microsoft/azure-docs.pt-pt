@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e73f11ec178c067941ee33e02f37c96605460ee0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069328"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658592"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -28,14 +28,14 @@ O tráfego de rede está sujeito às regras de firewall configuradas quando enca
 
 Para este tutorial, cria-se um VNet único simplificado com duas sub-redes para fácil implementação.
 
-Para implantações de produção, [recomenda-se](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) um modelo de hub e spoke, onde a firewall está no seu próprio VNet. Os servidores de carga de trabalho estão em VNets espreitados na mesma região com uma ou mais sub-redes.
+Para implantações de produção, [recomenda-se](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) um modelo de hub e spoke, onde a firewall está no seu próprio VNet. Os servidores de carga de trabalho estão em VNets espreitados na mesma região com uma ou mais sub-redes.
 
 * **AzureFirewallSubnet** - a firewall está nesta sub-rede.
 * **Workload-SN** - o servidor de carga de trabalho está nesta sub-rede. O tráfego de rede desta sub-rede passa pela firewall.
 
 ![Tutorial de infraestrutura de rede](media/tutorial-firewall-deploy-portal/tutorial-network.png)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar um ambiente de rede de teste
@@ -74,7 +74,7 @@ Esta VNet irá conter três sub-redes.
 > [!NOTE]
 > O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, consulte [a Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 1. Selecione rede virtual **de rede**  >  **Virtual network**.
 2. Em **Subscrição**, selecione a sua subscrição.
 3. Para **o grupo de recursos**, selecione **Test-FW-RG**.
@@ -100,7 +100,7 @@ Esta VNet irá conter três sub-redes.
 
 Agora crie a máquina virtual de carga de trabalho e coloque-a na sub-rede **Workload-SN.**
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 2. Selecione **Compute** e, em seguida, selecione **máquina Virtual**.
 3. **Centro de dados do Windows Server 2016** na lista em destaque.
 4. Introduza estes valores para a máquina virtual:
@@ -127,7 +127,7 @@ Agora crie a máquina virtual de carga de trabalho e coloque-a na sub-rede **Wor
 
 Implemente a firewall na VNet.
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 2. Digite **firewall** na caixa de pesquisa e prima **Enter**.
 3. Selecione **Firewall** e, em seguida, selecione **Criar**.
 4. Na página **Criar uma firewall**, utilize a seguinte tabela para configurar a firewall:
@@ -136,7 +136,7 @@ Implemente a firewall na VNet.
    |---------|---------|
    |Subscrição     |\<your subscription\>|
    |Grupo de recursos     |**Teste-FW-RG** |
-   |Nome     |**Test-FW01**|
+   |Name     |**Test-FW01**|
    |Localização     |Selecionar a mesma localização que utilizou anteriormente|
    |Escolher uma rede virtual     |**Utilização existente**: **Test-FW-VN**|
    |Endereço IP público     |**Adicionar novo**<br>**Nome**:  **fw-pip**|
@@ -160,7 +160,7 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída predefinida para pa
 6. Para **o grupo de recursos**, selecione **Test-FW-RG**.
 7. Em **Localização**, selecione a mesma localização que utilizou anteriormente.
 8. Selecione **Criar**.
-9. Selecione **Refresh**e, em seguida, selecione a tabela **de rota de rota firewall.**
+9. Selecione **Refresh** e, em seguida, selecione a tabela **de rota de rota firewall.**
 10. Selecione **Sub-redes** e, em seguida, **selecione Associate**.
 11. Selecione **Rede Virtual**  >  **Test-FW-VN**.
 12. Para **a sub-rede**, selecione **Workload-SN**. Certifique-se de que seleciona apenas a **sub-rede Workload-SN** para esta rota, caso contrário a sua firewall não funcionará corretamente.
@@ -179,7 +179,7 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída predefinida para pa
 
 Esta é a regra da aplicação que permite o acesso de saída a `www.google.com` .
 
-1. Abra o **Test-FW-RG**e selecione a firewall **Test-FW01.**
+1. Abra o **Test-FW-RG** e selecione a firewall **Test-FW01.**
 2. Na página **Teste-FW01,** em **Definições,** selecione **Regras**.
 3. Selecione o separador **de recolha de regras de aplicação.**
 4. **Selecione Adicionar a recolha de regras de aplicação**.
@@ -226,8 +226,8 @@ Esta regra permite-lhe ligar um ambiente de trabalho remoto à Srv-Work máquina
 5. De **acordo com as regras**, para **nome**, tipo **rdp-nat**.
 6. Em **Protocolo**, selecione **TCP**.
 7. Para **o tipo de fonte**, selecione endereço **IP**.
-8. Para **fonte**, tipo **\*** .
-9. Para **o endereço Destino,** escreva o endereço IP público de firewall.
+8. Para **fonte,** escreva * *\** _.
+9. Para _*Endereço destino**, digite o endereço IP público de firewall.
 10. Para **portos de destino**, tipo **3389**.
 11. Para **endereço traduzido,** digite o endereço IP privado **Srv-work.**
 12. Em **Porta traduzida**, escreva **3389**.
@@ -269,7 +269,7 @@ Então agora verificaste que as regras da firewall estão a funcionar:
 
 Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos elimine o grupo de recursos **Test-FW-RG** para eliminar todos os recursos relacionados com a firewall.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
+> [Tutorial: monitorizar registos do Azure Firewall](./firewall-diagnostics.md)

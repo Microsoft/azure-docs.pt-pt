@@ -12,12 +12,12 @@ ms.date: 7/10/2020
 ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95e13cedc0cdbaedc8c00b9d855057da7e631c19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ff97d0a69efbe624e959f92f5320f921476a306
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510883"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658983"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Tomar medidas sobre aplicações sobreprivilevasas ou suspeitas no Azure Ative Directory
 
@@ -29,7 +29,7 @@ Para obter mais informações sobre o consentimento dos pedidos, consulte [o qua
 
 Para fazer as seguintes ações, tem de se inscrever como administrador global, administrador de aplicação ou administrador de aplicações na nuvem.
 
-Para restringir o acesso às aplicações, é necessário exigir a atribuição do utilizador e, em seguida, atribuir utilizadores ou grupos à aplicação.  Para obter mais informações, consulte [Métodos para atribuir utilizadores e grupos.](methods-for-assigning-users-and-groups.md)
+Para restringir o acesso às aplicações, é necessário exigir a atribuição do utilizador e, em seguida, atribuir utilizadores ou grupos à aplicação.  Para obter mais informações, consulte [Métodos para atribuir utilizadores e grupos.](./assign-user-or-group-access-portal.md)
 
 Pode aceder ao portal AD AZure para obter scripts contextuais do PowerShell para executar as ações.
  
@@ -48,7 +48,7 @@ Recomendamos que restringa o acesso à aplicação ligando a definição de **at
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global, administrador de aplicação ou administrador de aplicações na nuvem.
 2. Selecione as aplicações **da Azure Ative Directory**  >  **Enterprise**.
 3. Selecione a aplicação a que pretende restringir o acesso.
-4. Selecione **Propriedades**e, em seguida, desemocione **o requisito do Utilizador exigido** para **Sim**.
+4. Selecione **Propriedades** e, em seguida, desemocione **o requisito do Utilizador exigido** para **Sim**.
 5. Selecione **Utilizador e Grupos**, e, em seguida, remova os utilizadores indesejados que estão atribuídos à aplicação.
 6. Atribua utilizadores ou grupos à aplicação.
 
@@ -66,7 +66,7 @@ Opcionalmente, pode desativar a aplicação para impedir que os utilizadores ace
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global, administrador de aplicação ou administrador de aplicações na nuvem.
 2. Selecione as aplicações **da Azure Ative Directory**  >  **Enterprise**.
 3. Selecione a aplicação a que pretende restringir o acesso.
-4. Selecione **Propriedades**, e, em seguida, definir **Habilitado para os utilizadores iniciarem** **a**sação?
+4. Selecione **Propriedades**, e, em seguida, definir **Habilitado para os utilizadores iniciarem** **a** sação?
 
 ## <a name="investigate-a-suspicious-application"></a>Investigue um pedido suspeito
 
@@ -75,7 +75,7 @@ Recomendamos que restringa o acesso à aplicação ligando a definição de **at
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global, administrador de aplicação ou administrador de aplicações na nuvem.
 3. Selecione as aplicações **da Azure Ative Directory**  >  **Enterprise**.
 5. Selecione a aplicação a que pretende restringir o acesso.
-6. Selecione **Propriedades**e, em seguida, desemocione **o requisito do Utilizador exigido** para **Sim**.
+6. Selecione **Propriedades** e, em seguida, desemocione **o requisito do Utilizador exigido** para **Sim**.
 7. Selecione **Permissões**, e reveja as permissões de administração e de consentimento do utilizador.
 
 Opcionalmente, utilizando o PowerShell, pode:
@@ -94,7 +94,7 @@ Recomendamos que desativar a aplicação para bloquear o acesso dos utilizadores
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global, administrador de aplicação ou administrador de aplicações na nuvem.
 2. Selecione as aplicações **da Azure Ative Directory**  >  **Enterprise**.
 3. Selecione a aplicação a que pretende restringir o acesso.
-4. Selecione **Propriedades**e, em seguida, copie o ID do objeto.
+4. Selecione **Propriedades** e, em seguida, copie o ID do objeto.
 
 ### <a name="powershell-commands"></a>Comandos do PowerShell
 
@@ -104,7 +104,7 @@ Recupere a identificação principal do objeto de serviço.
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global, administrador de aplicação ou administrador de aplicações na nuvem.
 2. Selecione as aplicações **da Azure Ative Directory**  >  **Enterprise**.
 3. Selecione a aplicação a que pretende restringir o acesso.
-4. Selecione **Propriedades**e, em seguida, copie o ID do objeto.
+4. Selecione **Propriedades** e, em seguida, copie o ID do objeto.
 
 ```powershell
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
@@ -169,7 +169,7 @@ Invalidar as fichas de atualização.
             Revoke-AzureADUserAllRefreshToken -ObjectId $_.PrincipalId
         }
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Gerir o consentimento para os pedidos e avaliar o pedido de consentimento](manage-consent-requests.md)
 - [Configurar o consentimento do utilizador](configure-user-consent.md)
 - [Configure fluxo de trabalho de consentimento administrativo](configure-admin-consent-workflow.md)

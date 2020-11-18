@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a157396318075522d5b3263c9cf0f749eafc2476
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90604126"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658813"
 ---
 # <a name="what-is-application-management"></a>O que é a gestão de aplicações?
 
@@ -57,7 +57,7 @@ O Azure AD simplifica a forma como gere as suas aplicações, fornecendo um sist
 
 Existem quatro tipos principais de aplicações que pode adicionar às suas **aplicações Enterprise** e gerir com a Azure AD:
 
-- **Azure AD Gallery aplicações** – Azure AD tem uma galeria que contém milhares de aplicações que foram pré-integradas para um único sign-on com Azure AD. É provável que algumas das aplicações que a sua organização utiliza estão na galeria. [Saiba como planejar a integração da sua aplicação,](plan-an-application-integration.md)ou obtenha passos de integração detalhados para aplicações individuais nos [tutoriais de aplicações saaS.](https://docs.microsoft.com/azure/active-directory/saas-apps/)
+- **Azure AD Gallery aplicações** – Azure AD tem uma galeria que contém milhares de aplicações que foram pré-integradas para um único sign-on com Azure AD. É provável que algumas das aplicações que a sua organização utiliza estão na galeria. [Saiba como planejar a integração da sua aplicação,](plan-an-application-integration.md)ou obtenha passos de integração detalhados para aplicações individuais nos [tutoriais de aplicações saaS.](/azure/active-directory/saas-apps/)
 
 - **Aplicações no local com Aplicação Proxy** – Com Proxy aplicação AD AZure, pode integrar as suas aplicações web no local com Azure AD para suportar um único s-on. Em seguida, os utilizadores finais podem aceder às suas aplicações web no local da mesma forma que acedem ao Microsoft 365 e a outras aplicações SaaS, ver [fornecer acesso remoto a aplicações no local através do Proxy de aplicação da Azure AD.](application-proxy.md)
 
@@ -91,7 +91,7 @@ Ao migrar para o Microsoft Azure AD, pode reduzir os custos e remover a complic
 
 Para aplicações focadas em Recursos Humanos, ou outras aplicações com um grande conjunto de utilizadores, pode aproveitar o fornecimento de App para automatizar o processo de provisionamento e desprovisionamento de utilizadores, ver O que é o provisionamento de [aplicações?](../app-provisioning/user-provisioning.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 - [Começar com a integração de aplicações](plan-an-application-integration.md)

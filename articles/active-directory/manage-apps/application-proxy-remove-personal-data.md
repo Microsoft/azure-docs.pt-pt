@@ -15,12 +15,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e78efd71943332e8a40e5b44b6b78f88e516649a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99fb466debd5a2ee4bb659aea3494469a8bbe8e1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759968"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658422"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Remover dados pessoais para Proxy de Aplicação de Diretório Ativo Azure
 
@@ -35,7 +35,7 @@ O Azure Ative Directory Application Proxy requer que instale conectores nos seus
 
 ## <a name="remove-personal-data-from-windows-event-logs"></a>Remover dados pessoais dos registos de eventos do Windows
 
-Para obter informações sobre como configurar a retenção de dados para os registos de eventos do Windows, consulte [Definições para registos de eventos](https://technet.microsoft.com/library/cc952132.aspx). Para saber mais sobre os registos de eventos do Windows, consulte [o Windows Event Log](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
+Para obter informações sobre como configurar a retenção de dados para os registos de eventos do Windows, consulte [Definições para registos de eventos](https://technet.microsoft.com/library/cc952132.aspx). Para saber mais sobre os registos de eventos do Windows, consulte [o Windows Event Log](/windows/win32/wes/using-windows-event-log).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -54,7 +54,7 @@ Utilize as seguintes secções para remover dados pessoais dos registos de event
 
 Para visualizar ou exportar dados específicos, procure entradas relacionadas em cada um dos registos de eventos do conector. Os registos estão localizados em `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace` .
 
-Uma vez que os registos são ficheiros de texto, pode utilizar [o findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) para procurar entradas de texto relacionadas com um utilizador.  
+Uma vez que os registos são ficheiros de texto, pode utilizar [o findstr](/windows-server/administration/windows-commands/findstr) para procurar entradas de texto relacionadas com um utilizador.  
 
 Para encontrar dados pessoais, procure ficheiros de registo para UserID.
 
@@ -79,6 +79,6 @@ Uma opção para garantir que os registos do conector não contêm dados pessoai
 
 ![Mostra um corte de código com o código realçado para remover](./media/application-proxy-remove-personal-data/01.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma visão geral do Application Proxy, consulte [como fornecer acesso remoto seguro a aplicações no local.](application-proxy.md)

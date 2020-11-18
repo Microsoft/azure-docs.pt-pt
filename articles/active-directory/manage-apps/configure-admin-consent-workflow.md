@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cde5afe01c90b68567f411bcf26063f02ca5a34a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 7fc688ca0981024e5e08c9fb20ecb6704efbd7f2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027249"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658779"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configure o fluxo de trabalho de consentimento administrativo (pré-visualização)
 
@@ -35,10 +35,10 @@ Para ativar o fluxo de trabalho de consentimento administrativo e escolher revis
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) como administrador global.
 2. Clique em **todos os serviços** no topo do menu de navegação à esquerda. Abre **a Extensão do Diretório Ativo Azure.**
-3. Na caixa de pesquisa de filtros, escreva " **Azure Ative Directory** " e selecione o item **Azure Ative Directory.**
+3. Na caixa de pesquisa de filtros, escreva "**Azure Ative Directory**" e selecione o item **Azure Ative Directory.**
 4. A partir do menu de navegação, clique nas **aplicações Da Enterprise.** 
-5. Em **Gestão** , selecione **as definições do Utilizador** .
-6. Nos termos dos pedidos de **consentimento da Administração (Preview)** , **os utilizadores podem solicitar o consentimento administrativo para aplicações que não podem consentir com** **Sim** .
+5. Em **Gestão**, selecione **as definições do Utilizador**.
+6. Nos termos dos pedidos de **consentimento da Administração (Preview)**, **os utilizadores podem solicitar o consentimento administrativo para aplicações que não podem consentir com** **Sim**.
 
    ![Configurar definições de fluxo de trabalho de consentimento administrativo](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
@@ -47,9 +47,9 @@ Para ativar o fluxo de trabalho de consentimento administrativo e escolher revis
    * **Selecione os utilizadores para rever os pedidos de consentimento administrativo.** Selecione os revisores para este fluxo de trabalho de um conjunto de utilizadores que têm o administrador global, administrador de aplicação na nuvem e funções de administrador de aplicações.
    * **Os utilizadores selecionados receberão notificações por e-mail para pedidos.** Ativar ou desativar notificações de e-mail para os revisores quando um pedido é feito.  
    * **Os utilizadores selecionados receberão lembretes de expiração do pedido.** Ative ou desative notificações de e-mail de lembrete para os revisores quando um pedido está prestes a expirar.  
-   * **O pedido de consentimento expira após (dias)** . Especifique quanto tempo os pedidos permanecem válidos.
+   * **O pedido de consentimento expira após (dias)**. Especifique quanto tempo os pedidos permanecem válidos.
 
-7. Selecione **Guardar** . Pode levar até uma hora para que a funcionalidade fique ativada.
+7. Selecione **Guardar**. Pode levar até uma hora para que a funcionalidade fique ativada.
 
 > [!NOTE]
 > Pode adicionar ou remover revisores para este fluxo de trabalho modificando a lista **de revisores de pedidos de consentimento de administração Select.** Note que uma limitação atual desta funcionalidade é que os revisores podem manter a capacidade de rever os pedidos que foram feitos enquanto foram designados como revisores.
@@ -76,9 +76,9 @@ Para rever os pedidos de consentimento administrativo e tomar medidas:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como um dos revisores registados do fluxo de trabalho de consentimento administrativo.
 2. Selecione **Todos os serviços** no topo do menu de navegação à esquerda. Abre **a Extensão do Diretório Ativo Azure.**
-3. Na caixa de pesquisa de filtros, escreva " **Azure Ative Directory** " e selecione o item **Azure Ative Directory.**
+3. Na caixa de pesquisa de filtros, escreva "**Azure Ative Directory**" e selecione o item **Azure Ative Directory.**
 4. A partir do menu de navegação, clique nas **aplicações Da Enterprise.**
-5. No âmbito **da Atividade** , selecione **pedidos de consentimento de administração (Pré-visualização)** .
+5. No âmbito **da Atividade**, selecione **pedidos de consentimento de administração (Pré-visualização)**.
 
    > [!NOTE]
    > Os revisores só verão pedidos de administração que foram criados depois de terem sido designados como revisores.
@@ -147,9 +147,9 @@ Não, por enquanto os solicitadores só podem obter atualizações através de n
 
 **Como revisor, é possível aprovar o pedido, mas não para todos?**
  
-Se está preocupado em conceder o consentimento administrativo e permitir que todos os utilizadores do arrendatário utilizem a aplicação, recomendamos que negue o pedido. Em seguida, conceda manualmente o consentimento da administração, restringindo o acesso à aplicação, exigindo a atribuição do utilizador e atribuindo utilizadores ou grupos à aplicação. Para obter mais informações, consulte [Métodos para atribuir utilizadores e grupos.](methods-for-assigning-users-and-groups.md)
+Se está preocupado em conceder o consentimento administrativo e permitir que todos os utilizadores do arrendatário utilizem a aplicação, recomendamos que negue o pedido. Em seguida, conceda manualmente o consentimento da administração, restringindo o acesso à aplicação, exigindo a atribuição do utilizador e atribuindo utilizadores ou grupos à aplicação. Para obter mais informações, consulte [Métodos para atribuir utilizadores e grupos.](./assign-user-or-group-access-portal.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o consentimento dos pedidos, consulte [o quadro de consentimento do Diretório Ativo Azure](../develop/consent-framework.md).
 
@@ -157,6 +157,6 @@ Para obter mais informações sobre o consentimento dos pedidos, consulte [o qua
 
 [Conceder consentimento de administrador ao nível do inquilino a uma aplicação](grant-admin-consent.md)
 
-[Permissões e consentimento na plataforma de identidade da Microsoft](../develop/active-directory-v2-scopes.md)
+[Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
 [Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79bc43bb2fa99f95a462dcc4c68d27840199b45c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763691"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658541"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opções avançadas de assinatura de certificado no token SAML para apps de galeria em Azure Ative Directory
 
@@ -73,7 +73,7 @@ Em seguida, altere as opções de assinatura do certificado no token SAML para e
 1. Na lista de drop-down do Algoritmo de **Assinatura,** escolha **SHA-1** ou **SHA-256**. Descrições destas opções aparecem mais cedo neste artigo na secção [de algoritmos de assinatura de certificado.](#certificate-signing-algorithms)
 1. Se estiver satisfeito com as suas escolhas, **selecione Guardar** para aplicar as novas definições de certificado de assinatura SAML. Caso contrário, selecione o **X** para descartar as alterações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Configure um único sign-on para aplicações que não estão na Galeria de Aplicações do Diretório Ativo Azure](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Resolver problemas de início de sessão único baseado em SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Configure um único sign-on para aplicações que não estão na Galeria de Aplicações do Diretório Ativo Azure](./configure-saml-single-sign-on.md)
+* [Resolver problemas de início de sessão único baseado em SAML](./debug-saml-sso-issues.md)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e60c829831bde3b454ab180d1a39ec46cb346963
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069413"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658660"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
 
@@ -48,7 +48,7 @@ Se pretender utilizar o portal Azure para completar este tutorial, consulte [Tut
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo requer que você execute PowerShell localmente. Deve ter o módulo Azure PowerShell instalado. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/install-Az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma ligação ao Azure.
+Este artigo requer que você execute PowerShell localmente. Deve ter o módulo Azure PowerShell instalado. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma ligação ao Azure.
 
 Existem três requisitos chave para este cenário funcionar corretamente:
 
@@ -68,7 +68,7 @@ Consulte a secção [Rotas da Criação](#create-the-routes) neste artigo para v
 >[!NOTE]
 >O tráfego entre VNets diretamente espreitados é encaminhado diretamente mesmo que um UDR aponte para Azure Firewall como o gateway padrão. Para enviar o tráfego de sub-rede para a firewall neste cenário, um UDR deve conter explicitamente o prefixo da rede de sub-redes alvo em ambas as sub-redes.
 
-Para rever a documentação de referência Azure PowerShell, consulte [a referência Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
+Para rever a documentação de referência Azure PowerShell, consulte [a referência Azure PowerShell](/powershell/module/az.network/new-azfirewall).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -492,8 +492,8 @@ Agora execute os testes novamente. Desta vez, devem falhar todos. Feche quaisque
 
 Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos, elimine o grupo de recursos **FW-Hybrid-Test** para eliminar todos os recursos relacionados com a firewall.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, pode monitorizar os registos do Azure Firewall.
 
-[Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
+[Tutorial: monitorizar registos do Azure Firewall](./firewall-diagnostics.md)

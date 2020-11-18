@@ -16,16 +16,16 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874548"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658490"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao efetuar o consentimento de uma aplicação
 
-Este artigo discute erros que podem ocorrer durante o processo de consentimento para uma aplicação. Se estiver a resolver pedidos de consentimento inesperados que não contenham mensagens de erro, consulte [Cenários de Autenticação para Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+Este artigo discute erros que podem ocorrer durante o processo de consentimento para uma aplicação. Se estiver a resolver pedidos de consentimento inesperados que não contenham mensagens de erro, consulte [Cenários de Autenticação para Azure AD](../develop/authentication-vs-authorization.md).
 
 Muitas aplicações que se integram com o Azure Ative Directory requerem permissões para aceder a outros recursos para funcionar. Quando estes recursos também são integrados com o Azure Ative Directory, as permissões de acesso aos mesmos são frequentemente solicitadas usando o quadro comum de consentimento. É apresentado um pedido de consentimento, que geralmente ocorre na primeira vez que uma aplicação é usada, mas também pode ocorrer numa utilização subsequente da aplicação.
 
@@ -88,10 +88,8 @@ Ambas as mensagens serão exibidas quando a Microsoft determinar que o pedido de
 
 Os utilizadores finais não poderão conceder o consentimento a apps que tenham sido detetadas como arriscadas. Os administradores são capazes de o fazer, mas devem avaliar a app com muito cuidado e proceder com cautela. Se a aplicação parecer suspeita após nova revisão, pode ser reportada à Microsoft a partir do ecrã de consentimento. 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
-[Aplicativos, permissões e consentimento no Azure Ative Directory (v1 endpoint)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
+[Aplicativos, permissões e consentimento no Azure Ative Directory (v1 endpoint)](../develop/quickstart-register-app.md)<br>
 
-[Âmbitos, permissões e consentimento no Diretório Ativo do Azure (v2.0 ponto final)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+[Âmbitos, permissões e consentimento no Diretório Ativo do Azure (v2.0 ponto final)](../develop/v2-permissions-and-consent.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/19/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 523bde67d3c2afef8837cb70e9a41462617a34a2
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 89a6239a28c66ab24f423c19baf0d329f87b38d5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171400"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658609"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementar e configurar a Firewall Azure numa rede híbrida utilizando o portal Azure
 
@@ -144,7 +144,7 @@ Agora crie uma segunda sub-rede para o portal.
 Agora, insi(implantado a firewall na rede virtual do hub de firewall.
 
 1. A partir da página inicial do portal Azure, **selecione Criar um recurso**.
-2. Na coluna esquerda, selecione **Networking**e procure e, em seguida, selecione **Firewall**.
+2. Na coluna esquerda, selecione **Networking** e procure e, em seguida, selecione **Firewall**.
 4. Na página **Criar uma firewall**, utilize a seguinte tabela para configurar a firewall:
 
    |Definição  |Valor  |
@@ -204,7 +204,7 @@ Agora crie a porta de entrada VPN para a rede virtual do hub. As configurações
 
 1. A partir da página inicial do portal Azure, **selecione Criar um recurso**.
 2. Na caixa de texto de pesquisa, escreva **gateway de rede virtual.**
-3. Selecione **o gateway de rede virtual**e selecione **Criar**.
+3. Selecione **o gateway de rede virtual** e selecione **Criar**.
 4. Para **nome,** tipo **GW-hub**.
 5. Para **a Região**, selecione a mesma região que usou anteriormente.
 6. Para **o tipo Gateway**, selecione **VPN**.
@@ -221,7 +221,7 @@ Agora crie a porta de entrada VPN para a rede virtual no local. As configuraçõ
 
 1. A partir da página inicial do portal Azure, **selecione Criar um recurso**.
 2. Na caixa de texto de pesquisa, digite **gateway de rede virtual** e prima **Enter**.
-3. Selecione **o gateway de rede virtual**e selecione **Criar**.
+3. Selecione **o gateway de rede virtual** e selecione **Criar**.
 4. Para **nome**, tipo **GW-Onprem**.
 5. Para **a Região**, selecione a mesma região que usou anteriormente.
 6. Para **o tipo Gateway**, selecione **VPN**.
@@ -366,7 +366,7 @@ Crie uma máquina virtual na rede virtual falada, executando o IIS, sem endereç
     - **Região** - Mesma região que já foi usado anteriormente.
     - **Nome do utilizador**: \<type a user name\> .
     - **Senha:**\<type a password\>
-4. Para **portas de entrada pública**, selecione Deixe as portas **selecionadas**e, em seguida, selecione HTTP **(80)** e **RDP (3389)**
+4. Para **portas de entrada pública**, selecione Deixe as portas **selecionadas** e, em seguida, selecione HTTP **(80)** e **RDP (3389)**
 4. Selecione **Seguinte:Discos**.
 5. Aceite as predefinições e selecione **Seguinte: Networking**.
 6. Selecione **VNet-Spoke** para a rede virtual e a sub-rede é **SN-Workload**.
@@ -404,7 +404,7 @@ Esta é uma máquina virtual que utiliza para ligar utilizando o Ambiente de Tra
     - **Região** - Mesma região que já foi usado anteriormente.
     - **Nome do utilizador**: \<type a user name\> .
     - **Senha**: \<type a user password\> .
-7. Para **portas de entrada pública**, selecione Deixe as portas **selecionadas**e, em seguida, selecione **RDP (3389)**
+7. Para **portas de entrada pública**, selecione Deixe as portas **selecionadas** e, em seguida, selecione **RDP (3389)**
 4. Selecione **Seguinte:Discos**.
 5. Aceite as predefinições e selecione **Seguinte:Networking**.
 6. Selecione **VNet-Onprem** para rede virtual e a sub-rede é **SN-Corp**.
@@ -444,13 +444,13 @@ Em seguida, altere a ação das coleções de regras de rede da firewall para **
 
 Feche quaisquer ambientes de trabalho remotos existentes antes de testar as regras alteradas. Agora execute os testes novamente. Desta vez, devem falhar todos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos, elimine o grupo de recursos **FW-Hybrid-Test** para eliminar todos os recursos relacionados com a firewall.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, pode monitorizar os registos do Azure Firewall.
 
 > [!div class="nextstepaction"]
-> [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
+> [Tutorial: monitorizar registos do Azure Firewall](./firewall-diagnostics.md)

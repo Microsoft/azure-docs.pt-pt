@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/16/2020
 ms.author: b-juche
-ms.openlocfilehash: d4e66511ce3017749076615f081a8fb56d8b8452
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 5409f9177116add1fd794ec1e72f276daf34e029
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591551"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659153"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -150,7 +150,7 @@ Sim, tem de criar uma ligação Ative Directory antes de implantar um volume SMB
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Quantas ligações ative directy são suportadas?
 
-O Azure NetApp Files não suporta várias ligações ative directory (AD) numa única *região* , mesmo que as ligações AD estejam em diferentes contas NetApp. No entanto, pode ter várias ligações AD numa única *subscrição,* desde que as ligações AD se encontrem em diferentes regiões. Se precisar de várias ligações AD numa única região, pode utilizar subscrições separadas para o fazer. 
+O Azure NetApp Files não suporta várias ligações ative directory (AD) numa única *região*, mesmo que as ligações AD estejam em diferentes contas NetApp. No entanto, pode ter várias ligações AD numa única *subscrição,* desde que as ligações AD se encontrem em diferentes regiões. Se precisar de várias ligações AD numa única região, pode utilizar subscrições separadas para o fazer. 
 
 Uma ligação AD é configurada por conta NetApp; a ligação AD só é visível através da conta NetApp em que é criada.
 
@@ -167,6 +167,10 @@ O Azure NetApp Files suporta versões windows Server 2008r2SP1-2019 de Serviços
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Porque é que o espaço disponível no meu cliente SMB não mostra o tamanho a provisionado?
 
 O tamanho do volume reportado pelo cliente SMB é o tamanho máximo que o volume de Ficheiros Azure NetApp pode crescer. O tamanho do volume dos Ficheiros Azure NetApp, tal como mostrado no cliente SMB, não reflete a quota ou o tamanho do volume. Pode obter o tamanho ou quota de volume dos Ficheiros Azure NetApp através do portal Azure ou da API.
+
+### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>Estou a ter problemas em ligar-me à minha parte da SMB. O que devo fazer?
+
+Como melhor prática, desloque a tolerância máxima para a sincronização do relógio do computador para cinco minutos. Para obter mais informações, consulte [a tolerância máxima para a sincronização do relógio do computador](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
 
 <!--
 ### Does Azure NetApp Files support LDAP signing? 
@@ -245,7 +249,7 @@ Não. A Azure Data Box não suporta ficheiros Azure NetApp atualmente.
 
 Não. O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetApp.
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 - [Microsoft Azure ExpressRoute FAQs](../expressroute/expressroute-faqs.md)
 - [Microsoft Azure Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)
