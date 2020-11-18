@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 714cbb06506cc3e0dffe74007712d9cbad072284
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068035"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655073"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Resolução de problemas problemas comuns adicionando ou removendo uma aplicação ao Azure Ative Directory
 Este artigo ajuda-o a compreender os problemas comuns que as pessoas enfrentam ao adicionar ou remover uma aplicação ao Azure Ative Directory.
@@ -31,9 +31,9 @@ Por vezes, devido a problemas transitórios, problemas de networking ou um bug, 
 Se encontrar um erro ao clicar no botão **Adicionar,** verá uma **Notificação** num estado **de Erro.** Se quiser mais detalhes sobre o erro para saber mais ou partilhar com um engenheiro de suporte, pode ver mais informações sobre o erro seguindo os passos no Como ver os detalhes de uma secção [de notificação do portal.](#how-to-see-the-details-of-a-portal-notification)
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Não sei como configurar a minha candidatura depois de a ter adicionado.
-Se precisa de ajuda para aprender sobre aplicações, a [Lista de Tutoriais sobre Como Integrar aplicações saas com](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) o artigo do Azure Ative Directory é um bom ponto de partida.
+Se precisa de ajuda para aprender sobre aplicações, a [Lista de Tutoriais sobre Como Integrar aplicações saas com](../saas-apps/tutorial-list.md) o artigo do Azure Ative Directory é um bom ponto de partida.
 
-Além disso, a [Azure AD Applications Document Library](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda-o a aprender mais sobre o sign-on único com a AD Azure e como funciona.
+Além disso, a [Azure AD Applications Document Library](./what-is-application-management.md) ajuda-o a aprender mais sobre o sign-on único com a AD Azure e como funciona.
 
 ## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Quero apagar uma aplicação, mas o botão de eliminar está desativado
 
@@ -43,7 +43,7 @@ O botão de eliminação será desativado nos seguintes cenários:
 
 - Para a aplicação da Microsoft, não poderá eliminá-las da UI independentemente do seu papel.
 
-- Para serviçosPrincipals que correspondem a uma identidade gerida. Os principais do serviço de identidades geridas não podem ser eliminados na lâmina de aplicações da Enterprise. Tens de ir ao recurso Azure para o gerires. Lear mais sobre [Identidade Gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+- Para serviçosPrincipals que correspondem a uma identidade gerida. Os principais do serviço de identidades geridas não podem ser eliminados na lâmina de aplicações da Enterprise. Tens de ir ao recurso Azure para o gerires. Lear mais sobre [Identidade Gerida](../managed-identities-azure-resources/overview.md)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação do portal
 Pode ver os detalhes de qualquer notificação do portal seguindo os passos abaixo:

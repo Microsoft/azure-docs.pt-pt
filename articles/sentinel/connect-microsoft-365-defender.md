@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: e9e892ae08c65ee5c5008bbdc1b419d8dec30183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 756c245fe06ae81545a125dd98f30fb27fdff2dd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938480"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655584"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Ligue os dados do Microsoft 365 Defender ao Azure Sentinel
 
@@ -33,9 +33,9 @@ ms.locfileid: "90938480"
 
 ## <a name="background"></a>Fundo
 
-O novo conector [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-threat-protection) permite-lhe transmitir registos **de caça avançados** - um tipo de dados de eventos brutos - do Microsoft 365 Defender para o Azure Sentinel. 
+O novo conector [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) permite-lhe transmitir registos **de caça avançados** - um tipo de dados de eventos brutos - do Microsoft 365 Defender para o Azure Sentinel. 
 
-Com a integração do [Microsoft Defender for Endpoint (MDATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) no guarda-chuva de segurança Microsoft 365 Defender, pode agora recolher o seu Microsoft Defender para eventos [de caça avançados](https://aka.ms/mdatpAH) do Endpoint utilizando o conector Microsoft 365 Defender e transmiti-los diretamente para novas tabelas construídas de propósito no seu espaço de trabalho Azure Sentinel. Estas tabelas são construídas sobre o mesmo esquema que é usado no portal Microsoft 365 Defender, dando-lhe acesso completo ao conjunto completo de registos de caça avançados, e permitindo-lhe fazer o seguinte:
+Com a integração do [Microsoft Defender for Endpoint (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) no guarda-chuva de segurança Microsoft 365 Defender, pode agora recolher o seu Microsoft Defender para eventos [de caça avançados](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) do Endpoint utilizando o conector Microsoft 365 Defender e transmiti-los diretamente para novas tabelas construídas de propósito no seu espaço de trabalho Azure Sentinel. Estas tabelas são construídas sobre o mesmo esquema que é usado no portal Microsoft 365 Defender, dando-lhe acesso completo ao conjunto completo de registos de caça avançados, e permitindo-lhe fazer o seguinte:
 
 - Copie facilmente as consultas de caça avançadas do Microsoft Defender EM Azure Sentinel.
 
@@ -45,11 +45,11 @@ Com a integração do [Microsoft Defender for Endpoint (MDATP)](https://docs.mic
 
 > [!IMPORTANT]
 >
-> O conector Microsoft 365 Defender encontra-se atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O conector Microsoft 365 Defender encontra-se atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ter uma licença válida para o Microsoft Defender para o Endpoint, conforme descrito no [Microsoft Defender para a implementação de Endpoint](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- Tem de ter uma licença válida para o Microsoft Defender para o Endpoint, conforme descrito no [Microsoft Defender para a implementação de Endpoint](/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 
 - O seu utilizador deve ser atribuído à função de Administrador Global no arrendatário (no Diretório Ativo Azure).
 
@@ -98,7 +98,7 @@ let Now = now();
 
 No separador **Etapas Seguintes,** encontrará algumas consultas de amostra que foram incluídas. Pode executá-los no local, ou modificá-los e salvá-los.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a obter dados de eventos brutos do Microsoft Defender para Endpoint em Azure Sentinel, utilizando o conector Microsoft 365 Defender. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
-- Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
+- Começa [a detetar ameaças com o Azure Sentinel.](./tutorial-detect-threats-built-in.md)

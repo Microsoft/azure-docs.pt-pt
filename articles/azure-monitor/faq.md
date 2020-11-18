@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 180490dc79554efa072311e9a2b7f5df348b432b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0812716ab9d952969ccfc14fc0a1e833fae1c9e1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014244"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653798"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -399,7 +399,7 @@ Cada item que é transmitido transporta uma `itemCount` propriedade que mostra q
 
 ### <a name="how-do-i-move-an-application-insights-resource-to-a-new-region"></a>Como posso mover um recurso Application Insights para uma nova região?
 
-**Atualmente, não**é suportado o movimento dos recursos de Insights de Aplicação existentes de uma região para outra. Os dados históricos que recolheu **não podem ser migrados** para uma nova região. A única solução parcial é:
+**Atualmente, não** é suportado o movimento dos recursos de Insights de Aplicação existentes de uma região para outra. Os dados históricos que recolheu **não podem ser migrados** para uma nova região. A única solução parcial é:
 
 1. Crie um novo recurso Application Insights[(clássico](app/create-new-resource.md) ou [baseado no espaço de trabalho)](/azure/azure-monitor/app/create-workspace-resource)na nova região.
 2. Recrie todas as personalizações únicas específicas ao recurso original no novo recurso.
@@ -674,7 +674,7 @@ O Monitor Azure para contentores suporta a monitorização das cargas de trabalh
 
 ### <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>Por que não vejo dados no meu espaço de trabalho log Analytics?
 
-Se não conseguir ver quaisquer dados no espaço de trabalho do Log Analytics a uma determinada hora do dia-a-dia, poderá ter atingido o limite padrão de 500 MB ou a tampa diária especificada para controlar a quantidade de dados a recolher diariamente. Quando o limite é cumprido para o dia, a recolha de dados para e só retoma no dia seguinte. Para rever a utilização dos seus dados e atualizar para um nível de preços diferente com base nos seus padrões de utilização previstos, consulte [a utilização dos dados do Registo e o custo](platform/manage-cost-storage.md). 
+Se não conseguir ver quaisquer dados na área de trabalho do Log Analytics num determinado horário todos os dias, pode ter atingido o limite predefinido de 500 MB ou o limite diário especificado para controlar a quantidade de dados recolhidos diariamente. Quando o limite for atingido para o dia, a recolha de dados para e é retomada apenas no dia seguinte. Para rever a utilização dos seus dados e atualizar para um nível de preços diferente com base nos seus padrões de utilização previstos, consulte [a utilização dos dados do Registo e o custo](platform/manage-cost-storage.md). 
 
 ### <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>Quais são os estados do contentor especificados na tabela ContentorInventory?
 
@@ -690,7 +690,7 @@ A solução de monitorização do contentor não suporta o RBAC, mas é suportad
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Como posso permitir a recolha de registos para contentores no espaço de nomes do sistema kube através do Helm?
 
-A recolha de registos a partir de contentores no espaço de nomes do sistema kube é desativada por padrão. A recolha de registos pode ser ativada através da definição de uma variável ambiental no omsagent. Para mais informações, consulte o [Monitor Azure para obter a](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) página gitHub dos contentores. 
+A recolha de registos a partir de contentores no espaço de nomes do sistema kube é desativada por padrão. A recolha de registos pode ser ativada através da definição de uma variável ambiental no omsagent. Para mais informações, consulte o [Monitor Azure para obter a](https://aka.ms/azuremonitor-containers-helm-chart) página gitHub dos contentores. 
 
 ### <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>Como atualizei o omsagent para a versão mais recente lançada?
 
@@ -722,7 +722,7 @@ Para uma análise detalhada do problema, reveja o seguinte [link GitHub](https:/
 
 ### <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Como resolvo erros de Ad Azure quando posso ativar registos ao vivo? 
 
-Pode ver o seguinte erro: **O url de resposta especificado no pedido não corresponde aos urls de resposta configurados para o pedido: '<ID de aplicação' \> **. A solução para resolvê-lo pode ser encontrada no artigo [Como visualizar os dados dos recipientes em tempo real com o Azure Monitor para recipientes](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
+Pode ver o seguinte erro: **O url de resposta especificado no pedido não corresponde aos urls de resposta configurados para o pedido: '<ID de aplicação' \>**. A solução para resolvê-lo pode ser encontrada no artigo [Como visualizar os dados dos recipientes em tempo real com o Azure Monitor para recipientes](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
 
 ### <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Por que não posso atualizar o cluster depois de embarcar?
 
@@ -813,7 +813,7 @@ Se tiver configurado o Azure Monitor com um espaço de trabalho Log Analytics ut
 Nesta condição, será solicitado com a opção **Try Now** quando abrir o VM e selecionar **Insights** a partir do painel esquerdo, mesmo depois de já ter sido instalado no VM.  No entanto, não é solicitado com opções como normalmente ocorreria se este VM não fosse a bordo do Azure Monitor para VMs. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Se a sua pergunta não for respondida aqui, pode consultar os seguintes fóruns para perguntas e respostas adicionais.
 
 - [Log Analytics](/answers/topics/azure-monitor.html)

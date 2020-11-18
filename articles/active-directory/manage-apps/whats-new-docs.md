@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 7c011c55728db53f0c64ac063c3372a610ef8f2f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542461"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654014"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
@@ -70,7 +70,7 @@ Bem-vindos às novidades da documentação de gestão de aplicações do Azure A
 - [O que é o Início de Sessão Único (SSO)?](what-is-single-sign-on.md)
 - [Tomar medidas sobre aplicações sobreprivilevasas ou suspeitas no Azure Ative Directory](manage-application-permissions.md)
 - [Quickstart: Configure propriedades para uma aplicação no seu inquilino Azure Ative (Azure AD)](add-application-portal-configure.md)
-- [Automatizar a configuração da aplicação SSO baseada em SAML com a Microsoft Graph API](application-saml-sso-configure-api.md)
+- [Automatizar a configuração da aplicação SSO baseada em SAML com a Microsoft Graph API](/graph/application-saml-sso-configure-api)
 
 
 ## <a name="july-2020"></a>Julho de 2020

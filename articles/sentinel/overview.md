@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 68ccd21af585d853592ab8cce24f251d810a4160
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 773cf5cc6755a4f094eb676992364eea07a795ea
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889206"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654665"
 ---
 # <a name="what-is-azure-sentinel"></a>O que é o Azure Sentinel?
 
@@ -29,11 +29,11 @@ O Microsoft Azure Sentinel é uma solução de gestão de eventos de informaçã
 
 Azure Sentinel é a sua visão de olho de pássaros em toda a empresa aliviando o stress de ataques cada vez mais sofisticados, aumentando volumes de alertas e longos períodos de tempo de resolução.
 
-- **Recolha dados à escala de nuvem** em todos os utilizadores, dispositivos, aplicações e infraestruturas, tanto no local como em várias nuvens. 
+- **Recolha dados à escala de nuvem** em todos os utilizadores, dispositivos, aplicações e infraestruturas, tanto no local como em várias nuvens. 
 
-- **Detete ameaças anteriormente não detetadas**e minimize falsos positivos usando a análise da Microsoft e a inteligência de ameaças incomparáveis. 
+- **Detete ameaças anteriormente não detetadas** e minimize falsos positivos usando a análise da Microsoft e a inteligência de ameaças incomparáveis. 
 
-- **Investigue ameaças com inteligência artificial**e procure atividades suspeitas em escala, aproveitando anos de trabalho de cibersegurança na Microsoft. 
+- **Investigue ameaças com inteligência artificial** e procure atividades suspeitas em escala, aproveitando anos de trabalho de cibersegurança na Microsoft. 
 
 - **Responda rapidamente a incidentes** com orquestração incorporada e automatização de tarefas comuns.
 
@@ -51,7 +51,7 @@ Para embarcar a Azure Sentinel, primeiro tem de [se ligar às suas fontes de seg
 
 ## <a name="workbooks"></a>Livros
 
-Depois de [ligar as suas fontes de dados](quickstart-onboard.md)   ao Azure Sentinel, pode monitorizar os dados utilizando a integração do Azure Sentinel com os Livros de Trabalho do Azure Monitor, que proporciona versatilidade na criação de livros de trabalho personalizados. Embora os livros de trabalho sejam apresentados de forma diferente no Azure Sentinel, pode ser útil para você ver como [criar relatórios interativos com os livros de trabalho do Monitor Azure](../azure-monitor/platform/workbooks-overview.md). O Azure Sentinel permite-lhe criar livros de trabalho personalizados através dos seus dados, e também vem com modelos de livros incorporados para lhe permitir obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
+Depois de [ligar as suas fontes de dados](quickstart-onboard.md) ao Azure Sentinel, pode monitorizar os dados utilizando a integração do Azure Sentinel com os Livros de Trabalho do Azure Monitor, que proporciona versatilidade na criação de livros de trabalho personalizados. Embora os livros de trabalho sejam apresentados de forma diferente no Azure Sentinel, pode ser útil para você ver como [criar relatórios interativos com os livros de trabalho do Monitor Azure](../azure-monitor/platform/workbooks-overview.md). O Azure Sentinel permite-lhe criar livros de trabalho personalizados através dos seus dados, e também vem com modelos de livros incorporados para lhe permitir obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
 
 ![Dashboards](./media/tutorial-monitor-data/access-workbooks.png)
 
@@ -64,7 +64,7 @@ Para ajudá-lo a reduzir o ruído e minimizar o número de alertas que tem de re
 
 ## <a name="security-automation--orchestration"></a>Automação de segurança & orquestração
 
-Automatize as suas tarefas comuns e [simplifique a orquestração de segurança com playbooks](tutorial-respond-threats-playbook.md) que se integram com os serviços Azure, bem como com as suas ferramentas existentes. Baseada na base da Azure Logic Apps, a solução de automação e orquestração do Azure Sentinel proporciona uma arquitetura altamente extensível que permite automatização escalável à medida que novas tecnologias e ameaças emergem. Para construir playbooks com Azure Logic Apps, pode escolher entre uma galeria em crescimento de playbooks embutidos. Estes incluem [mais de 200 conectores](https://docs.microsoft.com/azure/connectors/apis-list) para serviços como funções Azure. Os conectores permitem aplicar qualquer lógica personalizada em código, ServiceNow, Jira, Zendesk, pedidos HTTP, Microsoft Teams, Slack, Windows Defender ATP e Cloud App Security.
+Automatize as suas tarefas comuns e [simplifique a orquestração de segurança com playbooks](tutorial-respond-threats-playbook.md) que se integram com os serviços Azure, bem como com as suas ferramentas existentes. Baseada na base da Azure Logic Apps, a solução de automação e orquestração do Azure Sentinel proporciona uma arquitetura altamente extensível que permite automatização escalável à medida que novas tecnologias e ameaças emergem. Para construir playbooks com Azure Logic Apps, pode escolher entre uma galeria em crescimento de playbooks embutidos. Estes incluem [mais de 200 conectores](../connectors/apis-list.md) para serviços como funções Azure. Os conectores permitem aplicar qualquer lógica personalizada em código, ServiceNow, Jira, Zendesk, pedidos HTTP, Microsoft Teams, Slack, Windows Defender ATP e Cloud App Security.
 
 Por exemplo, se utilizar o sistema de bilhética ServiceNow, pode utilizar as ferramentas fornecidas para utilizar as Aplicações Lógicas Azure para automatizar os seus fluxos de trabalho e abrir um bilhete no ServiceNow sempre que for detetado um determinado evento.
 
@@ -90,7 +90,7 @@ A comunidade Azure Sentinel é um poderoso recurso para deteção e automação 
 
 ![Explore a comunidade de utilizadores](./media/overview/community.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar com o Azure Sentinel, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - Aprenda a [embarcar os seus dados ao Azure Sentinel](quickstart-onboard.md)e obtenha [visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

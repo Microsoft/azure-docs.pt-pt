@@ -1,5 +1,5 @@
 ---
-title: Atualizar um comando a partir da aplicação do cliente
+title: Atualizar um comando a partir da aplicação cliente
 titleSuffix: Azure Cognitive Services
 description: atualizar um comando a partir da aplicação do cliente
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: 290f9ee9c23071ac56b1ff0c65ddc03decbc7344
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1bffb09d0f49bbd0059e8a528d67bfe215f0650d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94571218"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654352"
 ---
 # <a name="update-a-command-from-the-client"></a>Atualizar um comando do cliente
 
@@ -121,19 +121,32 @@ Por exemplo, pense no cenário em que pretende enviar o ID e o nome do dispositi
 Para testar este cenário, vamos criar um novo comando na nossa aplicação atual.
 1. Criar um novo comando chamado GetDeviceInfo.
 1. Adicione uma frase de exemplo com "obter informações do dispositivo".
-1. Na regra de conclusão "Feito", adicione uma Ação de Resposta à Fala de Envio.
+1. Na regra de conclusão "Feito", adicione uma Ação de Resposta à Fala de Envio que contenha os atributos do clienteContexto.
     > ![Enviar resposta de fala com contexto](media/custom-commands/send-speech-response-context.png)
-1. Salve e Treine a sua aplicação.
-1. Teste a sua aplicação.
+1. Salve, Treine e teste a sua aplicação.
+1. Uma vez na janela de testes, envie uma atividade para atualizar o contexto do cliente.
+    > ```json
+    >{
+    >   "type": "event",
+    >   "name": "RemoteUpdate",
+    >   "value": {
+    >     "clientContext": {
+    >       "deviceId": "12345",
+    >       "deviceName": "My device"
+    >     },
+    >     "processTurn": false
+    >   }
+    >}
+    > ```
+1. Envie o sms "obter informações do dispositivo".
     > ![Enviar atividade de contexto de cliente](media/custom-commands/send-client-context-activity.png)
 
 Reparem em algumas coisas.
 1. Só precisa enviar esta atividade uma vez (idealmente logo após iniciar uma ligação).
-1. Pode utilizar objetos complexos para o ClientContext.
-1. Pode utilizar o ClientContext em respostas de fala, para enviar atividades e quando chama pontos finais da web.
+1. Pode utilizar objetos complexos para o clientContext.
+1. Pode utilizar o clientContext em respostas de fala, para enviar atividades e quando chama pontos finais da web.
 
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Atualizar um comando a partir de um ponto final web](./how-to-custom-commands-update-command-from-web-endpoint.md)
+> [Atualizar um comando a partir de um ponto final Web](./how-to-custom-commands-update-command-from-web-endpoint.md)

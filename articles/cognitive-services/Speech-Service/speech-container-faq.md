@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e4a6d9180d2a9949cebc40cf30edffac73ef9d0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918473"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653543"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Recipientes de serviço de fala frequentemente perguntas (FAQ)
 
@@ -43,7 +43,7 @@ Além disso, pré-embalamos executáveis para máquinas com o conjunto de instru
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
-Finalmente, pode definir o número de descodificações que deseja dentro de um *único* recipiente utilizando `DECODER MAX_COUNT` variável. Então, basicamente, devemos começar com o seu SKU (CPU/memória), e podemos sugerir como tirar o melhor dele. Um ótimo ponto de partida refere-se às especificações recomendadas de recursos da máquina hospedeira.
+Pode definir o número de descodificações que pretende dentro de um *único* recipiente utilizando `DECODER MAX_COUNT` variável. Então, basicamente, devemos começar com o seu SKU (CPU/memória), e podemos sugerir como tirar o melhor dele. Um ótimo ponto de partida refere-se às especificações recomendadas de recursos da máquina hospedeira.
 
 <br>
 </details>
@@ -254,7 +254,7 @@ Uma nuvem é diferente de um recipiente. Uma nuvem pode ser composta por vários
 <b>Porque estamos a ter erros com o macOS, o contentor da fala e o Python SDK?</b>
 </summary>
 
-Quando enviamos um ficheiro *.wav* para ser transcrito, o resultado volta com:
+Quando enviamos um ficheiro *.wav* a ser transcrito, o resultado volta com:
 
 ```cmd
 recognition is running....
@@ -419,7 +419,7 @@ Quantos pedidos simultâneos terá um cabo RAM de 4 núcleos e 4 GB? Se tivermos
 |-----------------------|---------------------|---------------------|
 | Texto-a-discurso personalizado | 1 núcleo, memória de 2 GB | 2 núcleo, memória de 3-GB |
 
-***
+**_
 
 - Cada núcleo deve ser pelo menos 2,6 GHz ou mais rápido.
 - Para os ficheiros, o estrangulamento estará no SDK do Discurso, a 2x (os primeiros 5 segundos de áudio não são acelerados).
@@ -438,7 +438,7 @@ Como exemplo, para lidar 1000 horas/24 horas, tentámos configurar 3-4 VMs, com 
 <b>O recipiente de discurso suporta a pontuação?</b>
 </summary>
 
-**Resposta:** Temos capitalização (ITN) disponível no recipiente on-prem. A pontuação é dependente da linguagem, e não é apoiada para algumas línguas, incluindo chinês e japonês.
+_ *Resposta:** Temos capitalização (ITN) disponível no recipiente on-prem. A pontuação é dependente da linguagem, e não é apoiada para algumas línguas, incluindo chinês e japonês.
 
 Temos, *de facto,* um suporte de pontuação implícito e básico para os contentores existentes, mas é `off` por defeito. O que isso significa é que podes ter o `.` personagem no teu exemplo, mas não no `。` personagem. Para permitir esta lógica implícita, aqui está um exemplo de como fazê-lo em Python usando o nosso Speech SDK (seria semelhante em outras línguas):
 
@@ -480,6 +480,16 @@ Content-Length: 0
 
 **Resposta:** Não apoiamos a API REST em nenhum dos recipientes de discurso para texto, apenas apoiamos WebSockets através do SDK de discurso. Consulte sempre a documentação oficial, consulte [os pontos finais de previsão de consulta](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
+<br>
+</details>
+
+
+<details>
+<summary>
+<b> Porque é que o contentor funciona como utilizador não-raiz? Que problemas podem ocorrer por causa disto?</b>
+</summary>
+
+**Resposta:** Note que o utilizador predefinido dentro do recipiente é um utilizador não-raiz. Isto fornece proteção contra os processos que escapam ao contentor e obtém permissões agravadas no nó de hospedeiro. Por padrão, algumas plataformas como a Plataforma de Contentores OpenShift já o fazem executando contentores utilizando um ID de utilizador arbitrariamente atribuído. Para estas plataformas, o utilizador sem raízes terá de ter permissões para escrever a qualquer volume mapeado externamente que necessite de escrita. Por exemplo, uma pasta de registo ou uma pasta de descarregamento de modelos personalizados.
 <br>
 </details>
 
@@ -561,7 +571,7 @@ Amostras [de python:](https://github.com/Azure-Samples/cognitive-services-speech
 Em C# para permitir o ditado, invoque a `SpeechConfig.EnableDictation()` função.
 
 ### <a name="fromendpoint-apis"></a>`FromEndpoint` APIs
-| Idioma | Detalhes da API |
+| Linguagem | Detalhes da API |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -582,7 +592,7 @@ Em C# para permitir o ditado, invoque a `SpeechConfig.EnableDictation()` funçã
 
 ### <a name="fromhost-apis"></a>`FromHost` APIs
 
-| Idioma | Detalhes da API |
+| Linguagem | Detalhes da API |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -610,7 +620,7 @@ speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")
 <br>
 </details>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Contentores de Serviços Cognitivos](speech-container-howto.md)

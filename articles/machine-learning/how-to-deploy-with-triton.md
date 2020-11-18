@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: afa1d958e054a769ea0f19b82afdf55a94c3d0cf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3a7d750caed297dfa364e2f1ef176ee19ad35480
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309707"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654211"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Serviço de alto desempenho com Servidor de Inferência de Tritão (Pré-visualização) 
 
@@ -66,7 +66,11 @@ O fluxo de trabalho para usar Tritão para a sua implementação de modelo é:
 1. Verifique se pode enviar pedidos para o seu modelo tritão.
 1. Incorpore o seu código específico de Tritão na sua implementação AML.
 
-## <a name="optional-define-a-model-config-file"></a>(Opcional) Definir um ficheiro config modelo
+## <a name="verify-that-triton-can-serve-your-model"></a>Verifique se Tritão pode servir o seu modelo
+
+Primeiro, siga os passos abaixo para verificar se o Servidor de Inferência de Tritão pode servir o seu modelo.
+
+### <a name="optional-define-a-model-config-file"></a>(Opcional) Definir um ficheiro config modelo
 
 O ficheiro de configuração do modelo diz a Tritão quantas entradas esperam e de que dimensões serão essas entradas. Para obter mais informações sobre a criação do ficheiro de configuração, consulte a [configuração](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html) do Modelo na documentação NVIDIA.
 
@@ -75,7 +79,7 @@ O ficheiro de configuração do modelo diz a Tritão quantas entradas esperam e 
 > 
 > Para obter mais informações sobre esta opção, consulte [a configuração do modelo Gerado](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html#generated-model-configuration) na documentação NVIDIA.
 
-## <a name="directory-structure"></a>Estrutura do diretório
+### <a name="use-the-correct-directory-structure"></a>Use a estrutura correta do diretório
 
 Ao registar um modelo com Azure Machine Learning, pode registar ficheiros individuais ou uma estrutura de diretório. Para utilizar Tritão, o registo do modelo deve ser para uma estrutura de diretório que contenha um diretório denominado `triton` . A estrutura geral deste diretório é:
 
@@ -93,7 +97,7 @@ models
 > [!IMPORTANT]
 > Esta estrutura de diretório é um Repositório de Modelos de Tritão e é necessária para que os seus modelos trabalhem com Tritão. Para mais informações, consulte [os Repositórios de Modelos de Tritão](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) na documentação da NVIDIA.
 
-## <a name="test-with-triton-and-docker"></a>Teste com Tritão e Docker
+### <a name="test-with-triton-and-docker"></a>Teste com Tritão e Docker
 
 Para testar o seu modelo para ter a certeza de que funciona com o Tritão, podes usar o Docker. Os seguintes comandos puxam o recipiente Tritão para o computador local e, em seguida, iniciam o Servidor Tritão:
 
@@ -146,7 +150,7 @@ Além de um exame básico de saúde, pode criar um cliente para enviar dados par
 
 Para obter mais informações sobre a execução de Tritão usando Docker, consulte [Running Triton num sistema com uma GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-with-a-gpu) e [Running Triton num sistema sem GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-without-a-gpu).
 
-## <a name="register-your-model"></a>Registe o seu modelo
+### <a name="register-your-model"></a>Registe o seu modelo
 
 Agora que verificou que o seu modelo trabalha com Tritão, registe-o com a Azure Machine Learning. O registo de modelos armazena os seus ficheiros de modelos no espaço de trabalho Azure Machine Learning e é utilizado ao ser implantado com o Python SDK e o Azure CLI.
 
@@ -176,9 +180,9 @@ az ml model register --model-path='triton' \
 
 <a id="processing"></a>
 
-## <a name="add-pre-and-post-processing"></a>Adicionar pré e pós-processamento
+## <a name="verify-you-can-call-into-your-model"></a>Verifique se pode ligar para o seu modelo
 
-Depois de verificar se o serviço web está a funcionar, pode adicionar código pré e pós-processamento definindo um script de _entrada_. Este ficheiro tem o `score.py` nome. Para obter mais informações sobre scripts de entrada, consulte [definir um script de entrada](how-to-deploy-and-where.md#define-an-entry-script).
+Depois de verificar se o Tritão é capaz de servir o seu modelo, pode adicionar código pré e pós-processamento definindo um script de _entrada_. Este ficheiro tem o `score.py` nome. Para obter mais informações sobre scripts de entrada, consulte [definir um script de entrada](how-to-deploy-and-where.md#define-an-entry-script).
 
 Os dois principais passos são inicializar um cliente Tritão HTTP no seu `init()` método, e chamar esse cliente na sua `run()` função.
 
@@ -305,7 +309,7 @@ az ml service delete -n triton-densenet-onnx
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Ver amostras de ponta a ponta de Tritão em Azure Machine Learning](https://aka.ms/aml-triton-sample)
 * Confira os [exemplos do cliente tritão](https://github.com/triton-inference-server/server/tree/master/src/clients/python/examples)

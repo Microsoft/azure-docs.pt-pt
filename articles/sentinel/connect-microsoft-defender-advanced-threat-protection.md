@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: d1de9270534a3550d8db043fdd6bcfe56ec31bda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72b2ba0ea444fb14ef9fc1bc3ea6aea3654677df
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90895597"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655532"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Ligue os alertas do Microsoft Defender para Endpoint (anteriormente Microsoft Defender ATP)
 
@@ -31,17 +31,17 @@ ms.locfileid: "90895597"
 >
 > - A ingestão de alertas microsoft Defender para endpoint está atualmente em visualização pública.
 > Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-O [conector Microsoft Defender for Endpoint](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) permite-lhe transmitir alertas do Microsoft Defender para Endpoint para o Azure Sentinel. Isto irá permitir-lhe analisar de forma mais abrangente eventos de segurança em toda a sua organização e construir playbooks para uma resposta eficaz e imediata.
+O [conector Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) permite-lhe transmitir alertas do Microsoft Defender para Endpoint para o Azure Sentinel. Isto irá permitir-lhe analisar de forma mais abrangente eventos de segurança em toda a sua organização e construir playbooks para uma resposta eficaz e imediata.
 
 > [!NOTE]
 >
-> Para ingerir os novos registos de dados brutos do Microsoft Defender para [a caça avançada](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview)do Endpoint, utilize o novo conector para o Microsoft 365 Defender (anteriormente Microsoft Threat Protection, consulte [documentação).](./connect-microsoft-365-defender.md)
+> Para ingerir os novos registos de dados brutos do Microsoft Defender para [a caça avançada](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview)do Endpoint, utilize o novo conector para o Microsoft 365 Defender (anteriormente Microsoft Threat Protection, consulte [documentação).](./connect-microsoft-365-defender.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ter uma licença válida para o Microsoft Defender para o Endpoint, conforme descrito no [Microsoft Defender para a implementação de Endpoint](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- Tem de ter uma licença válida para o Microsoft Defender para o Endpoint, conforme descrito no [Microsoft Defender para a implementação de Endpoint](/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 
 - Você deve ser um administrador global ou um administrador de segurança no inquilino Azure Sentinel.
 
@@ -55,7 +55,7 @@ Se o Microsoft Defender for Endpoint estiver implantado e ingerir os seus dados,
 
 1. Para consultar o Microsoft Defender para alertas de ponto final em **Logs,** insira o **SecurityAlert** na janela de consulta e adicione um filtro onde o **nome do Fornecedor** é **MDATP**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a ligar o Microsoft Defender para Endpoint ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
-- Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
+- Começa [a detetar ameaças com o Azure Sentinel.](./tutorial-detect-threats-built-in.md)

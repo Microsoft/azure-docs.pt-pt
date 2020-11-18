@@ -3,12 +3,12 @@ title: Azure Lab Services - faça upload de uma imagem personalizada para a Shar
 description: Descreve como fazer o upload de uma imagem personalizada para a Galeria de Imagens Partilhadas. Os departamentos de TI universitários acharão as imagens importadoras especialmente benéficas.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: cd701215eb375b7f9b867ba05082afc7ed348ff7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b4141636b629168e9bb7a73e71a9fe4bfc39f5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91712414"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654648"
 ---
 # <a name="upload-a-custom-image-to-shared-image-gallery"></a>Carregar uma imagem personalizada para a Shared Image Gallery
 
@@ -35,31 +35,36 @@ Existem muitas opções para criar um VHD a partir de um ambiente de laboratóri
        
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Conecte o disco rígido virtual":::   
     1. Imagem do VM como normalmente faria.
-1. [Ligue-se ao VM e prepare-o para o Azure.](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
-    1. [Set Windows configurations for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#set-windows-configurations-for-azure) (Definir configurações do Windows para o Azure)
-    1. [Verifique os Serviços Windows que são o mínimo necessário para garantir a conectividade VM](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#check-the-windows-services)
-    1. [Atualizar as definições de registo remoto de ambiente de trabalho](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#update-remote-desktop-registry-settings)
-    1. [Configurar as regras do Windows Firewall](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#configure-windows-firewall-rules)
+1. [Ligue-se ao VM e prepare-o para o Azure.](../virtual-machines/windows/prepare-for-upload-vhd-image.md)
+    1. [Set Windows configurations for Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) (Definir configurações do Windows para o Azure)
+    1. [Verifique os Serviços Windows que são o mínimo necessário para garantir a conectividade VM](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services)
+    1. [Atualizar as definições de registo remoto de ambiente de trabalho](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings)
+    1. [Configurar as regras do Windows Firewall](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules)
     1. Instalar atualizações do Windows
-    1. [Instale o Agente VM Azure e a configuração adicional como mostrado aqui](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#complete-the-recommended-configurations) 
+    1. [Instale o Agente VM Azure e a configuração adicional como mostrado aqui](../virtual-machines/windows/prepare-for-upload-vhd-image.md#complete-the-recommended-configurations) 
     
-    Acima de etapas vai criar uma imagem especializada. Se criar uma imagem generalizada, também terá de executar o [SysPrep](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#determine-when-to-use-sysprep). <br/>
+    Acima de etapas vai criar uma imagem especializada. Se criar uma imagem generalizada, também terá de executar o [SysPrep](../virtual-machines/windows/prepare-for-upload-vhd-image.md#determine-when-to-use-sysprep). <br/>
         Deverá criar uma imagem especializada se pretender manter o diretório do Utilizador (que pode conter ficheiros, informações de contas de utilizador, etc.) que é necessário pelo software incluído na imagem.
 1. Uma **vez que o Hyper-V** cria um ficheiro **VHDX** por predefinição, é necessário convertê-lo num ficheiro VHD.
     1. Navegue para o disco de edição de ação **do gestor hiper-V.**  ->  **Action**  ->  **Edit Disk**
     1. Aqui, terá a opção de **converter** o disco de um VHDX para um VHD
     1. Ao tentar expandir o tamanho do disco, certifique-se de que não excede 128 GB.        
-        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Conecte o disco rígido virtual" do portal Azure para escolher o tamanho do disco. Como mencionado anteriormente, o tamanho não deve ser > 128 GB.
+        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Escolha ação":::   
+1. Faça upload de VHD para Azure para criar um disco gerido.
+    1. Pode utilizar o Storage Explorer ou o AzCopy a partir da linha de comando, conforme descrito no [Upload a VHD para Azure ou copiar um disco gerido para outra região](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).        
+    Se a sua máquina adormecer ou se trancar, o processo de upload pode ser interrompido e falhar.
+    1. O resultado deste passo é que agora tem um disco gerido que pode ver no portal Azure. 
+        Pode utilizar o separador "Size\Performance" do portal Azure para escolher o tamanho do disco. Como mencionado anteriormente, o tamanho não deve ser > 128 GB.
 1. Tira uma foto do disco gerido.
-    Isto pode ser feito a partir de PowerShell, utilizando o portal Azure, ou de dentro do Storage Explorer, como descrito em [Criar uma imagem instantânea utilizando o portal ou PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+    Isto pode ser feito a partir de PowerShell, utilizando o portal Azure, ou de dentro do Storage Explorer, como descrito em [Criar uma imagem instantânea utilizando o portal ou PowerShell](../virtual-machines/windows/snapshot-copy-managed-disk.md).
 1. Na Galeria de Imagens Partilhadas, crie uma definição de imagem e versão:
-    1. [Criar uma definição de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-images-portal#create-an-image-definition).
+    1. [Criar uma definição de imagem](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition).
     1. Também precisa de especificar aqui se está a criar uma imagem especializada/generalizada.
 1. Crie o laboratório nos Serviços de Laboratório Azure e selecione a imagem personalizada da Galeria de Imagens Partilhadas.
 
-    Se expandiu o disco após a instalação do SISTEMA no VM Original, também terá de estender a unidade C no Windows para utilizar o espaço de disco não atribuído. Para isso, inicie sessão no modelo VM após a criação do laboratório e, em seguida, siga passos semelhantes ao mostrado em [Estender um volume básico](https://docs.microsoft.com/windows-server/storage/disk-management/extend-a-basic-volume). Existem opções para o fazer através da UI, bem como para utilizar o PowerShell.
+    Se expandiu o disco após a instalação do SISTEMA no VM Original, também terá de estender a unidade C no Windows para utilizar o espaço de disco não atribuído. Para isso, inicie sessão no modelo VM após a criação do laboratório e, em seguida, siga passos semelhantes ao mostrado em [Estender um volume básico](/windows-server/storage/disk-management/extend-a-basic-volume). Existem opções para o fazer através da UI, bem como para utilizar o PowerShell.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Visão geral da Galeria de Imagens Partilhada](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
+* [Visão geral da Galeria de Imagens Partilhada](../virtual-machines/windows/shared-image-galleries.md)
 * [Como usar galeria de imagens partilhada](how-to-use-shared-image-gallery.md)

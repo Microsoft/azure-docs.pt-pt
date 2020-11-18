@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8f528c6be68258400cb3e29582943f1d657c557d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71eda40abd38b4885b8e88085e338667b608902f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069277"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655141"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego de internet de entrada com ADN da Azure Firewall usando o portal Azure
 
 Pode configurar a Tradução de Endereços de Rede de Destino (DNAT) do Azure Firewall para traduzir e filtrar o tráfego de Internet de entrada para as sub-redes. Ao configurar o DNAT, a ação de recolha de regras NAT está definida para **Dnat**. Cada regra na coleção de regras NAT pode então ser utilizada para traduzir o endereço IP e a porta de firewall públicos para um IP e porta privados. As regras DNAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](rule-processing.md).
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar um ambiente de rede de teste
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. Na página inicial do portal Azure, selecione **grupos de recursos**e, em seguida, selecione **Adicionar**.
+2. Na página inicial do portal Azure, selecione **grupos de recursos** e, em seguida, selecione **Adicionar**.
 3. Em **Nome do grupo de recursos**, escreva **RG-DNAT-Test**.
 4. Em **Subscrição**, selecione a sua subscrição.
 5. Em **Localização do grupo de recursos**, selecione uma localização. Todos os recursos subsequentes que criar têm de estar na mesma localização.
@@ -107,7 +107,7 @@ Crie uma máquina virtual de carga de trabalho e coloque-a na sub-rede **SN-Work
 1. No menu do portal do Azure, selecione **Criar um recurso**.
 2. Em **Popular**, selecione **Windows Server 2016 Datacenter**.
 
-**Noções básicas**
+**Informações básicas**
 
 1. Em **Subscrição**, selecione a sua subscrição.
 1. Em **Grupo de recursos**, selecione **Utilizar existente** e, em seguida, selecione **RG-DNAT-Test**.
@@ -119,7 +119,7 @@ Crie uma máquina virtual de carga de trabalho e coloque-a na sub-rede **SN-Work
 **Discos**
 1. Selecione **Seguinte: Rede**.
 
-**Redes**
+**Rede**
 
 1. Para **rede virtual**, selecione **VN-Spoke**.
 2. Em **Sub-rede**, selecione **SN-Workload**.
@@ -142,7 +142,7 @@ Após a conclusão da implementação, tome nota do endereço IP privado para a 
 
 1. A partir da página inicial do portal, **selecione Criar um recurso**.
 2. Selecione **Networking**, e depois **de em destaque**, selecione Ver **tudo**.
-3. Selecione **Firewall**e, em seguida, selecione **Criar**. 
+3. Selecione **Firewall** e, em seguida, selecione **Criar**. 
 4. Na página **Criar uma firewall**, utilize a seguinte tabela para configurar a firewall:
 
    |Definição  |Valor  |
@@ -173,12 +173,12 @@ Na sub-rede **SN-Workload**, vai configurar a rota de saída predefinida para pa
 6. Em **Grupo de recursos**, selecione **Utilizar existente** e selecione **RG-DNAT-Test**.
 7. Em **Localização**, selecione a mesma localização que utilizou anteriormente.
 8. Selecione **Criar**.
-9. Selecione **Refresh**e, em seguida, selecione a tabela de rotas **RT-FWroute.**
-10. Selecione **sub-redes**e, em seguida, **selecione Associate**.
-11. Selecione **a rede Virtual**e, em seguida, selecione **VN-Spoke**.
+9. Selecione **Refresh** e, em seguida, selecione a tabela de rotas **RT-FWroute.**
+10. Selecione **sub-redes** e, em seguida, **selecione Associate**.
+11. Selecione **a rede Virtual** e, em seguida, selecione **VN-Spoke**.
 12. Em **Sub-rede**, selecione **SN-Workload**.
 13. Selecione **OK**.
-14. Selecione **Rotas**e, em seguida, selecione **Adicionar**.
+14. Selecione **Rotas** e, em seguida, selecione **Adicionar**.
 15. Em **Nome da rota**, escreva **FW-DG**.
 16. Em **Prefixo de endereço**, escreva **0.0.0.0/0**.
 17. Em **Tipo de salto seguinte**, selecione **Aplicação virtual**.
@@ -189,7 +189,7 @@ Na sub-rede **SN-Workload**, vai configurar a rota de saída predefinida para pa
 
 ## <a name="configure-a-nat-rule"></a>Configure uma regra NAT
 
-1. Abra o **teste RG-DNAT**e selecione a firewall **de teste FW-DNAT.** 
+1. Abra o **teste RG-DNAT** e selecione a firewall **de teste FW-DNAT.** 
 2. Na página **de teste FW-DNAT,** em **Definições,** selecione **Regras**. 
 3. Selecione **Adicionar a coleção de regras NAT**. 
 4. Em **Nome**, escreva **RC-DNAT-01**. 
@@ -226,4 +226,4 @@ Neste tutorial, ficou a saber como:
 Em seguida, pode monitorizar os registos do Azure Firewall.
 
 > [!div class="nextstepaction"]
-> [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
+> [Tutorial: monitorizar registos do Azure Firewall](./firewall-diagnostics.md)

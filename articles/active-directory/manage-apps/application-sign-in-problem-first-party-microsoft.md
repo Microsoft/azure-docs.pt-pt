@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57deed9d7fb178ba1cdc8d6e954d751752532de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707956"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654410"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de sessão numa aplicação da Microsoft
 
@@ -63,7 +63,7 @@ Seguem-se alguns problemas comuns que as pessoas encontram quando os seus utiliz
 
   * Certifique-se de que a conta do utilizador está **ativada** para iniciar sposições. [Verifique o estado da conta de um utilizador](#problems-with-the-users-account)
 
-  * Certifique-se de que a palavra-passe do utilizador **não está caducada ou esquecida.** [Redefinir a palavra-passe de um utilizador](#reset-a-users-password) ou ativar o reset da [palavra-passe de autosserviço](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Certifique-se de que a palavra-passe do utilizador **não está caducada ou esquecida.** [Redefinir a palavra-passe de um utilizador](#reset-a-users-password) ou ativar o reset da [palavra-passe de autosserviço](../authentication/tutorial-enable-sspr.md)
 
   * Certifique-se de que **a autenticação multi-factor** não bloqueia o acesso do utilizador. [Verifique o estado de autenticação de vários fatores do utilizador](#check-a-users-multi-factor-authentication-status) ou [verifique a informação de contacto de autenticação de um utilizador](#check-a-users-authentication-contact-info)
 
@@ -179,9 +179,9 @@ Para redefinir a palavra-passe de um utilizador, siga estes passos:
 
 Para ativar o reset da palavra-passe de autosserviço, siga os passos de implantação abaixo:
 
--   [Permitir que os utilizadores repusem as suas palavras-passe do Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Permitir que os utilizadores repusem as suas palavras-passe do Azure Ative Directory](../authentication/tutorial-enable-sspr.md)
 
--   [Permitir que os utilizadores reiniciem ou alterem as suas palavras-passe no Ative Directory no local](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Permitir que os utilizadores reiniciem ou alterem as suas palavras-passe no Ative Directory no local](../authentication/tutorial-enable-sspr.md)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Verifique o estado de autenticação de vários fatores do utilizador
 
@@ -203,7 +203,7 @@ Para verificar o estado de autenticação de vários fatores do utilizador, siga
 
 8. Encontre o utilizador na lista de utilizadores pesquisando, filtrando ou classificando.
 
-9. Selecione o utilizador da lista de utilizadores e **Ative,** **desativar**ou **impor a** autenticação de vários fatores conforme desejado.
+9. Selecione o utilizador da lista de utilizadores e **Ative,** **desativar** ou **impor a** autenticação de vários fatores conforme desejado.
 
    * **Nota:** Se um utilizador estiver num estado **forçado,** pode alterá-lo temporariamente para **desativar** para os deixar voltar à sua conta. Uma vez que estejam de volta, pode então alterar o seu estado para **Enabled** novamente para exigir que eles re-registrem os seus dados de contato durante o seu próximo sinal. Em alternativa, pode seguir os passos na [informação de contacto de autenticação de um utilizador](#check-a-users-authentication-contact-info) para verificar ou definir estes dados para os mesmos.
 
@@ -508,26 +508,25 @@ O acesso à aplicação pode ser bloqueado porque a operação de consentimento 
 
 -   Para qualquer aplicação ativada por ID Connect aberta que solicite permissões, navegar no sinal da aplicação no ecrã executa um consentimento de nível de utilizador para a aplicação para o utilizador inscrito.
 
--   Se desejar fazê-lo programáticamente, consulte [solicitação de consentimento individual do utilizador.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent)
+-   Se desejar fazê-lo programáticamente, consulte [solicitação de consentimento individual do utilizador.](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent)
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Executar operação de consentimento ao nível do administrador para qualquer aplicação
 
 -   Para **apenas aplicações desenvolvidas utilizando o modelo de aplicação V1,** pode forçar este consentimento de nível de administrador a ocorrer adicionando "**?prompt=admin \_ consent**" ao final do sinal de uma aplicação em URL.
 
--   Para **qualquer aplicação desenvolvida utilizando o modelo de aplicação V2,** pode aplicar este consentimento ao nível do administrador para ocorrer seguindo as instruções ao abrigo do Pedido as permissões de uma secção de administração de **diretórios** de [Utilização do ponto final de consentimento administrativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Para **qualquer aplicação desenvolvida utilizando o modelo de aplicação V2,** pode aplicar este consentimento ao nível do administrador para ocorrer seguindo as instruções ao abrigo do Pedido as permissões de uma secção de administração de **diretórios** de [Utilização do ponto final de consentimento administrativo](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Executar consentimento ao nível do administrador para um pedido de um único inquilino
 
 -   Para **aplicações de inquilino único** que solicitem permissões (como as que está a desenvolver ou possui na sua organização), pode realizar uma operação de consentimento de nível administrativo em nome de todos os utilizadores, inscrevendo-se como Administrador Global e clicando no botão de **permissões grant** no topo do Registo de **Aplicações &gt; - Todas as Aplicações - &gt; Selecione uma app - &gt; Permissões Necessárias.** **administrative-level consent**
 
--   Para **qualquer aplicação desenvolvida utilizando o modelo de aplicação V1 ou V2,** pode aplicar este consentimento ao nível do administrador para ocorrer seguindo as instruções ao abrigo **do Pedido as permissões de uma** secção de administração de diretório de [Utilização do ponto de final de consentimento administrativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Para **qualquer aplicação desenvolvida utilizando o modelo de aplicação V1 ou V2,** pode aplicar este consentimento ao nível do administrador para ocorrer seguindo as instruções ao abrigo **do Pedido as permissões de uma** secção de administração de diretório de [Utilização do ponto de final de consentimento administrativo](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Executar consentimento ao nível do administrador para uma aplicação multi-inquilino
 
 -   Para **aplicações multi-inquilinos** que solicitam permissões (como uma aplicação de terceiros, ou Microsoft, desenvolve), você pode executar uma operação **de consentimento de nível administrativo.** Inscreva-se como Administrador Global e clique no botão **de permissões grant** sob as **Aplicações da Empresa - Todas as &gt; Aplicações - &gt; Selecione uma App - &gt; Permissões** (disponível em breve).
 
--   Pode também aplicar este consentimento ao nível do administrador, seguindo as instruções ao abrigo do **Pedido, as permissões de uma** secção de administração de diretórios de [Utilização do ponto final](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)de consentimento de administração .
+-   Pode também aplicar este consentimento ao nível do administrador, seguindo as instruções ao abrigo do **Pedido, as permissões de uma** secção de administração de diretórios de [Utilização do ponto final](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)de consentimento de administração .
 
-## <a name="next-steps"></a>Passos seguintes
-[Usando o ponto final de consentimento administrativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
-
+## <a name="next-steps"></a>Próximos passos
+[Usando o ponto final de consentimento administrativo](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)

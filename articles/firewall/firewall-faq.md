@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3e6ea6692a81a06bbf3180904dfb465a88b105d1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413008"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653424"
 ---
 # <a name="azure-firewall-faq"></a>FAQ do Azure Firewall
 
@@ -40,9 +40,9 @@ A Azure Firewall suporta regras e coleções de regras. Uma coleção de regras 
 
 Existem três tipos de coleções de regras:
 
-* *Regras de aplicação* : Configurar nomes de domínio totalmente qualificados (FQDNs) que podem ser acedidos a partir de uma sub-rede.
-* *Regras de rede* : Configurar regras que contenham endereços de origem, protocolos, portas de destino e endereços de destino.
-* *Regras NAT* : Configurar as regras do DNAT para permitir a entrada de ligações à Internet.
+* *Regras de aplicação*: Configurar nomes de domínio totalmente qualificados (FQDNs) que podem ser acedidos a partir de uma sub-rede.
+* *Regras de rede*: Configurar regras que contenham endereços de origem, protocolos, portas de destino e endereços de destino.
+* *Regras NAT*: Configurar as regras do DNAT para permitir a entrada de ligações à Internet.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>O Azure Firewall suporta a filtragem de tráfego de entrada?
 
@@ -50,7 +50,7 @@ O Azure Firewall suporta a filtragem de entrada e saída. A proteção de entrad
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Que serviços de registo e análise são suportados pelo Azure Firewall?
 
-O Azure Firewall está integrado com o Azure Monitor para visualização e análise de registos de firewall. Os registos podem ser enviados para Log Analytics, Azure Storage ou Event Hubs. Podem ser analisados no Log Analytics ou por diferentes ferramentas como o Excel e o Power BI. Para obter mais informações, consulte [Tutorial: Monitor Azure Firewall registos](tutorial-diagnostics.md).
+O Azure Firewall está integrado com o Azure Monitor para visualização e análise de registos de firewall. Os registos podem ser enviados para Log Analytics, Azure Storage ou Event Hubs. Podem ser analisados no Log Analytics ou por diferentes ferramentas como o Excel e o Power BI. Para obter mais informações, consulte [Tutorial: Monitor Azure Firewall registos](./firewall-diagnostics.md).
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Como funciona o Azure Firewall de forma diferente dos serviços existentes, como os NVAs no mercado?
 
@@ -115,7 +115,7 @@ Sim, pode utilizar o Azure Firewall numa rede virtual do hub para encaminhar e f
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>O Azure Firewall pode avançar e filtrar o tráfego de rede entre sub-redes na mesma rede virtual ou redes virtuais?
 
-Yes. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes no mesmo VNET requer uma atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também liga todo o tráfego de uma máquina para outra máquina na mesma sub-rede através da instância Azure Firewall. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para a segmentação interna da rede é utilizar grupos de segurança de rede, que não requerem RAM.
+Sim. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes no mesmo VNET requer uma atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também liga todo o tráfego de uma máquina para outra máquina na mesma sub-rede através da instância Azure Firewall. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para a segmentação interna da rede é utilizar grupos de segurança de rede, que não requerem RAM.
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>A Azure Firewall sai do SNAT entre redes privadas?
 
@@ -131,7 +131,7 @@ Se a sua configuração necessitar de um túnel forçado para uma rede no local 
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Existem restrições ao grupo de recursos de firewall?
 
-Yes. A firewall, o VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
+Sim. A firewall, o VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
 
 ## <a name="when-configuring-dnat-for-inbound-internet-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar o DNAT para o tráfego de rede de Internet de entrada, também preciso de configurar uma regra de rede correspondente para permitir esse tráfego?
 
@@ -139,9 +139,9 @@ Não. As regras da NAT adicionam implicitamente uma regra de rede correspondente
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Como funcionam os wildcards numa regra de aplicação alvo FQDN?
 
-Wildcards atualmente só podem ser usados no lado esquerdo do FQDN. Por exemplo, * *_.contoso.com_* e * *_contoso.com_*.
+Wildcards atualmente só podem ser usados no lado esquerdo do FQDN. Por exemplo, **_.contoso.com_* e **_contoso.com_*.
 
-Se configurar * *_.contoso.com,_* permite *qualquer valor*.contoso.com, mas não contoso.com (o ápice do domínio). Se quiser permitir o ápice de domínio, deve configurá-lo explicitamente como um FQDN alvo.
+Se configurar **_.contoso.com,_* permite *qualquer valor*.contoso.com, mas não contoso.com (o ápice do domínio). Se quiser permitir o ápice de domínio, deve configurá-lo explicitamente como um FQDN alvo.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>O que *significa Provisioning: Falhado?*
 
@@ -156,7 +156,7 @@ Para qualquer manutenção planeada, a lógica de drenagem de ligação atualiza
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Existe um limite de caracteres para um nome de firewall?
 
-Yes. Há um limite de 50 caracteres para um nome de firewall.
+Sim. Há um limite de 50 caracteres para um nome de firewall.
 
 ## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Porque é que o Azure Firewall precisa de uma sub-rede /26?
 
@@ -209,7 +209,7 @@ Um ping TCP não está realmente ligado ao FQDN alvo. Isto acontece porque o rep
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Existem limites para o número de endereços IP suportados por grupos IP?
 
-Yes. Para mais informações, consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+Sim. Para mais informações, consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
 
 ## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>Posso mover um Grupo IP para outro grupo de recursos?
 
@@ -217,7 +217,7 @@ Não, a transferência de um Grupo IP para outro grupo de recursos não é supor
 
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>O que é o TCP Idle Timeout para Azure Firewall?
 
-Um comportamento padrão de uma firewall de rede é garantir que as ligações TCP são mantidas vivas e fechá-las rapidamente se não houver atividade. O tempo limite de funcionamento da Azure Firewall TCP é de quatro minutos. Esta definição não é configurável. Se um período de inatividade for maior do que o valor de tempo limite, não há garantia de que a sessão TCP ou HTTP seja mantida. Uma prática comum é usar um TCP de vida. Esta prática mantém a ligação ativa por um período mais longo. Para obter mais informações, consulte os [exemplos .NET](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+Um comportamento padrão de uma firewall de rede é garantir que as ligações TCP são mantidas vivas e fechá-las rapidamente se não houver atividade. O tempo limite de funcionamento da Azure Firewall TCP é de quatro minutos. Esta definição não é configurável. Se um período de inatividade for maior do que o valor de tempo limite, não há garantia de que a sessão TCP ou HTTP seja mantida. Uma prática comum é usar um TCP de vida. Esta prática mantém a ligação ativa por um período mais longo. Para obter mais informações, consulte os [exemplos .NET](/dotnet/api/system.net.servicepoint.settcpkeepalive?view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
 
 ## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Posso implantar o Azure Firewall sem um endereço IP público?
 

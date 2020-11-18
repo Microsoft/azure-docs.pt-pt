@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: 5518da7d22d14de105c07e88b14e94d4b184269b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf7e389fc4a8a8dfa88691dc034611cae3471731
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883809"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655345"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Ligue firewall do Windows Defender com Segurança Avançada a Azure Sentinel
 
-O [Windows Defender Firewall com](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) conector de segurança avançada permite que o Azure Sentinel ingere facilmente firewall do Windows Defender com registos de Segurança Avançada de quaisquer máquinas windows no seu espaço de trabalho. Esta ligação permite-lhe visualizar e analisar eventos do Windows Firewall nos seus livros de trabalho, usá-los na criação de alertas personalizados e incorporá-los nas suas investigações de segurança, dando-lhe mais informações sobre a rede da sua organização e melhorando as suas capacidades de operações de segurança. 
+O [Windows Defender Firewall com](/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) conector de segurança avançada permite que o Azure Sentinel ingere facilmente firewall do Windows Defender com registos de Segurança Avançada de quaisquer máquinas windows no seu espaço de trabalho. Esta ligação permite-lhe visualizar e analisar eventos do Windows Firewall nos seus livros de trabalho, usá-los na criação de alertas personalizados e incorporá-los nas suas investigações de segurança, dando-lhe mais informações sobre a rede da sua organização e melhorando as suas capacidades de operações de segurança. 
 
 A solução recolhe eventos de firewall do Windows a partir das máquinas do Windows nas quais está instalado um agente Log Analytics. 
 
@@ -67,7 +67,7 @@ A solução recolhe eventos de firewall do Windows a partir das máquinas do Win
 
     1. No painel **de gestão** de agentes, selecione **download Windows Agent (64 bit)** ou **Download Windows Agent (32 bit)**, conforme necessário.
 
-    1. Copie o ID do **espaço de trabalho,** **a tecla primária**e as cordas de **teclas secundárias** num ficheiro de texto. Copie esse ficheiro e o ficheiro de instalação descarregado para a sua máquina Windows. Executar o ficheiro de instalação e, quando solicitado, introduza o ID e as cordas das chaves no ficheiro de texto durante a instalação.
+    1. Copie o ID do **espaço de trabalho,** **a tecla primária** e as cordas de **teclas secundárias** num ficheiro de texto. Copie esse ficheiro e o ficheiro de instalação descarregado para a sua máquina Windows. Executar o ficheiro de instalação e, quando solicitado, introduza o ID e as cordas das chaves no ficheiro de texto durante a instalação.
 
     1. Volte ao painel de firewall do **Windows.**
 
@@ -81,10 +81,9 @@ A solução recolhe eventos de firewall do Windows a partir das máquinas do Win
 
 ## <a name="validate-connectivity"></a>Validar conectividade
  
-Uma vez que os registos do Windows Firewall são enviados para o Azure Sentinel apenas quando o ficheiro de registo local atingir a capacidade, deixando o registo no seu tamanho padrão de 4096 KB provavelmente resultará em alta latência de recolha. Pode baixar a latência baixando o tamanho do ficheiro de registo. Consulte as instruções para [configurar o registo do Windows Firewall](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Note que ao definir o tamanho mínimo possível de log (1 KB) irá praticamente eliminar a latência da recolha, podendo também afetar negativamente o desempenho da máquina local. 
+Uma vez que os registos do Windows Firewall são enviados para o Azure Sentinel apenas quando o ficheiro de registo local atingir a capacidade, deixando o registo no seu tamanho padrão de 4096 KB provavelmente resultará em alta latência de recolha. Pode baixar a latência baixando o tamanho do ficheiro de registo. Consulte as instruções para [configurar o registo do Windows Firewall](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Note que ao definir o tamanho mínimo possível de log (1 KB) irá praticamente eliminar a latência da recolha, podendo também afetar negativamente o desempenho da máquina local. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a ligar firewall do Windows ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
-

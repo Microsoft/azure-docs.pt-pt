@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: kenwith
-ms.openlocfilehash: 8544c35d77dfc32ece9b21a602f301ab15c22439
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 28b31d98f283dc957927ab2a35f0ab95bf066473
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288316"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654121"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um utilizador a uma aplicação
 
@@ -23,11 +23,11 @@ Este artigo ajuda-o a entender como remover o acesso de um utilizador a uma apli
 
 ## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Quero remover a atribuição de um utilizador ou grupo específico a uma aplicação
 
-Para remover uma atribuição de utilizador ou grupo a uma aplicação, siga os passos listados na [atribuição de um utilizador ou grupo de uma aplicação da empresa no artigo do Azure Ative Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal)
+Para remover uma atribuição de utilizador ou grupo a uma aplicação, siga os passos listados na [atribuição de um utilizador ou grupo de uma aplicação da empresa no artigo do Azure Ative Directory.](./assign-user-or-group-access-portal.md)
 
 ## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Quero desativar todo o acesso a uma aplicação para cada utilizador
 
-Para desativar todas as insuposições do utilizador para uma aplicação, siga os [passos listados nas insusagens do utilizador de Disable para uma aplicação empresarial no artigo do Azure Ative Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal)
+Para desativar todas as insuposições do utilizador para uma aplicação, siga os [passos listados nas insusagens do utilizador de Disable para uma aplicação empresarial no artigo do Azure Ative Directory.](./disable-user-sign-in-portal.md)
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>Quero apagar uma aplicação inteiramente
 
@@ -50,6 +50,6 @@ Para **desativar todas as futuras operações de consentimento do utilizador em 
 6.  Definir os **Utilizadores pode permitir que as aplicações acedam aos dados da empresa em seu nome** para alternar para **No** e clicar no botão Guardar.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Gerir o acesso a apps](what-is-access-management.md)
