@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74cb1e021049b7c36c4c23f2e9a6a7512fba1110
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 71726724e7c018f34b1175f323d0c8e55b604931
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146144"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836483"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -457,7 +457,7 @@ Com este novo papel, você beneficia dos privilégios menos necessários para de
 **Categoria de serviço:** Gestão de Identidade Privilegiada  
 **Capacidade do produto:** Gestão de Identidade Privilegiada
  
-Anteriormente, o embarque para a Gestão de Identidade Privilegiada (PIM) exigia o consentimento do utilizador e um fluxo de embarque na lâmina da PIM que incluía a inscrição no Azure MFA. Com a recente integração da experiência PIM nas funções AZure AD e lâmina de administradores, estamos removendo esta experiência. Qualquer inquilino com licença P2 válida será automaticamente a bordo da PIM.
+Anteriormente, o embarque para a Gestão de Identidade Privilegiada (PIM) exigia o consentimento do utilizador e um fluxo de embarque na lâmina da PIM que incluía a inscrição no Azure AD MFA. Com a recente integração da experiência PIM nas funções AZure AD e lâmina de administradores, estamos removendo esta experiência. Qualquer inquilino com licença P2 válida será automaticamente a bordo da PIM.
 
 O embarque na PIM não tem qualquer efeito adverso direto no seu inquilino. Pode esperar as seguintes alterações:
 - Opções adicionais de atribuição, tais como ativa vs. elegível com tempo de início e fim quando então faz uma atribuição em funções PIM ou Azure AD e lâmina de administradores. 

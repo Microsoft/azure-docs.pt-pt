@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df70891ef090d44769aadbc235273e3193bc780e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705729"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837214"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas das configurações do roaming do estado da empresa no Diretório Ativo do Azure
 
@@ -76,7 +76,7 @@ O Roaming do Estado da Empresa exige que o dispositivo seja registado no Azure A
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Roaming do Estado da Empresa e Autenticação multi-factor 
 
-Sob certas condições, o Roaming do Estado da Empresa pode não sincronizar dados se a autenticação multi-factor Azure estiver configurada. Para obter mais informações sobre estes sintomas, consulte o documento de suporte [KB3193683](https://support.microsoft.com/kb/3193683). 
+Sob certas condições, o Roaming do Estado da Empresa pode não sincronizar dados se a autenticação multi-factor AD Azure estiver configurada. Para obter mais informações sobre estes sintomas, consulte o documento de suporte [KB3193683](https://support.microsoft.com/kb/3193683). 
 
 **Problema potencial**: Se o seu dispositivo estiver configurado para necessitar de autenticação multi-factor no portal Azure Ative Directory, poderá falhar em sincronizar as definições enquanto iniciar a sessão num dispositivo Windows 10 utilizando uma palavra-passe. Este tipo de configuração de autenticação multi-factor destina-se a proteger uma conta de administrador Azure. Os utilizadores de administração podem ainda ser capazes de sincronizar ao iniciar sessão nos seus dispositivos Windows 10 com o microsoft Passport for Work PIN ou completando a autenticação multi-factor enquanto acedem a outros serviços Azure como o Microsoft 365.
 
@@ -159,7 +159,7 @@ Se o utilizador tiver uma UPN de caixa mista (por exemplo, Nome do Utilizador em
 O utilizador terá de se juntar e voltar a juntar o dispositivo à nuvem. Para isso, inicie sessão como utilizador do Administrador Local e desacose o dispositivo indo para o Sistema **de Definições**  >  **System**  >  **Sobre** e selecione "Gerir ou desligar do trabalho ou da escola". Limpe os ficheiros abaixo e, em seguida, Azure AD Junte o dispositivo novamente no Sistema **de Definições**  >  **System**  >  **Sobre** e selecione "Connect to Work or School". Continue a juntar o dispositivo ao Azure Ative Directory e complete o fluxo.
 
 Na etapa de limpeza, limpe os seguintes ficheiros:
-- Configurações.dat in `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Configurações.dat em `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
 - Todos os ficheiros sob a pasta `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---

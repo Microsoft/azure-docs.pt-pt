@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5c4301a61a79ab2351c18af0c76cccc3d07dd202
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370207"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836687"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Responder rapidamente para proteger identidades com o Azure AD
 
@@ -75,7 +75,7 @@ O quadro a seguir destina-se a destacar as ações-chave para as seguintes subsc
 
 | Ação recomendada | Detalhes |
 | --- | --- |
-| [Permitir experiência de registo combinado para Azure MFA e SSPR para simplificar a experiência de registo do utilizador](../authentication/howto-registration-mfa-sspr-combined.md) | Deixe que os seus utilizadores se registem a partir de uma experiência comum para a autenticação multi-factor Azure e para o reset da palavra-passe de autosserviço. |
+| [Permitir experiência de registo combinado para Azure AD MFA e SSPR para simplificar a experiência de registo do utilizador](../authentication/howto-registration-mfa-sspr-combined.md) | Deixe que os seus utilizadores se registem a partir de uma experiência comum para a autenticação multi-factor Azure AD e para o reset da palavra-passe de autosserviço. |
 | [Configurar configurações de MFA para a sua organização](../authentication/howto-mfa-getstarted.md) | Garantir que as contas estão protegidas contra serem comprometidas com a autenticação de vários fatores |
 | [Ativar a reposição de palavras-passe self-service](../authentication/tutorial-enable-sspr.md) | Esta capacidade reduz as chamadas de secretária de ajuda e a perda de produtividade quando um utilizador não pode assinar no seu dispositivo ou numa aplicação |
 | [Implementar o Writeback de Palavra-Passe](../authentication/tutorial-enable-sspr-writeback.md) (se utilizar identidades híbridas) | Permitir que as alterações de palavra-passe na nuvem sejam escritas de volta para um ambiente de Diretório Ativo do Windows Server no local. |
@@ -105,11 +105,11 @@ O quadro a seguir destina-se a destacar as ações-chave para as seguintes subsc
 
 | Ação recomendada | Detalhes |
 | --- | --- |
-| [Permitir experiência de registo combinado para Azure MFA e SSPR para simplificar a experiência de registo do utilizador](../authentication/howto-registration-mfa-sspr-combined.md) | Deixe que os seus utilizadores se registem a partir de uma experiência comum para a autenticação multi-factor Azure e para o reset da palavra-passe de autosserviço. |
+| [Permitir experiência de registo combinado para Azure AD MFA e SSPR para simplificar a experiência de registo do utilizador](../authentication/howto-registration-mfa-sspr-combined.md) | Deixe que os seus utilizadores se registem a partir de uma experiência comum para a autenticação multi-factor Azure AD e para o reset da palavra-passe de autosserviço. |
 | [Configurar configurações de MFA para a sua organização](../authentication/howto-mfa-getstarted.md) | Garantir que as contas estão protegidas contra serem comprometidas com a autenticação de vários fatores |
 | [Ativar a reposição de palavras-passe self-service](../authentication/tutorial-enable-sspr.md) | Esta capacidade reduz as chamadas de secretária de ajuda e a perda de produtividade quando um utilizador não pode assinar no seu dispositivo ou numa aplicação |
 | [Implementar o Writeback de Palavra-Passe](../authentication/tutorial-enable-sspr-writeback.md) (se utilizar identidades híbridas) | Permitir que as alterações de palavra-passe na nuvem sejam escritas de volta para um ambiente de Diretório Ativo do Windows Server no local. |
-| [Permitir políticas de proteção de identidade para impor o registo de MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Gerir o roll-out da Autenticação Multi-Factor Azure (MFA). |
+| [Permitir políticas de proteção de identidade para impor o registo de MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Gerir o roll-out da Autenticação Multi-Factor Ad Azure (MFA). |
 | [Ativar as políticas de risco de proteção de identidade e de inscrição](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Ativar as políticas de Utilização de Identidade e Desinsusitada. A política de inscrição recomendada destina-se a inscrições de risco médio e requer MFA. Para as políticas do Utilizador, deve direcionar os utilizadores de alto risco que necessitem da ação de alteração da palavra-passe. |
 | Criar e ativar políticas de acesso condicional | [MFA para administradores para proteger contas que são atribuídos direitos administrativos.](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [Bloqueie os protocolos de autenticação de legados devido ao risco acrescido associado aos protocolos de autenticação de legados.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Exija que a MFA for Azure Management proteja os seus recursos privilegiados, exigindo autenticação multi-factor para qualquer utilizador que aceda aos recursos do Azure.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [Ativar o Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) (se utilizar identidades híbridas) | Fornecer redundância para a autenticação e melhorar a segurança (incluindo Smart Lockout, IP Lockout, e a capacidade de descobrir credenciais vazadas.) |

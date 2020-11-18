@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 69a9b9401f25893ec94b282f52730d92d372268d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b12a595c9b59b40ee6982f123baddaa818dd87ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355707"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836296"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cofense Recipient Sync para o fornecimento automático de utilizadores
 
@@ -97,7 +97,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Token URL do inquilino](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
@@ -107,10 +107,10 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 9. Reveja os atributos do utilizador que são sincronizados de Azure AD a Cofense Recipient Sync na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas de utilizador no Cofense Recipient Sync para operações de atualização.  Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-   |Atributo|Tipo|
-   |---|---|
+   |Atributo|Tipo|Suportado para filtragem|
+   |---|---|---|
+   |externalId|String|&check;|
    |userName|String|
-   |externalId|String|
    |active|Booleano|
    |displayName|String|
    |nome.formatado|String|

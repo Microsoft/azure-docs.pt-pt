@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646581"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836398"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
 
-O lançamento encenado permite testar seletivamente grupos de utilizadores com capacidades de autenticação em nuvem como Azure Multi-Factor Authentication (MFA), Acesso Condicional, Proteção de Identidade para credenciais vazadas, Governação de Identidade, entre outros, antes de cortar os seus domínios.  Este artigo discute como fazer a troca. Antes de iniciar o lançamento encenado, no entanto, deve considerar as implicações se uma ou mais das seguintes condições forem verdadeiras:
+O lançamento encenado permite testar seletivamente grupos de utilizadores com capacidades de autenticação em nuvem como Azure AD Multi-Factor Authentication (MFA), Acesso Condicional, Proteção de Identidade para credenciais vazadas, Governação de Identidade, entre outros, antes de cortar os seus domínios.  Este artigo discute como fazer a troca. Antes de iniciar o lançamento encenado, no entanto, deve considerar as implicações se uma ou mais das seguintes condições forem verdadeiras:
     
 -  Está atualmente a utilizar um servidor de autenticação multi-factor no local. 
 -  Estás a usar cartões inteligentes para autenticação. 
@@ -45,7 +45,7 @@ Para uma visão geral da funcionalidade, veja este "Azure Ative Directory: What 
 
 -   Configurar todas as políticas adequadas de marca de inquilino e acesso condicional que necessita para os utilizadores que estão a ser migrados para a autenticação em nuvem.
 
--   Se pretender utilizar a Autenticação Multi-Factor Azure, recomendamos que utilize [o registo combinado para reiniciar a palavra-passe de autosserviço (SSPR) e a Autenticação Multi-Factor](../authentication/concept-registration-mfa-sspr-combined.md) para que os seus utilizadores registem os seus métodos de autenticação uma vez. Nota: ao utilizar o SSPR para redefinir a palavra-passe ou alterar a palavra-passe utilizando a página MyProfile durante o lançamento encenado, o Azure AD Connect precisa de sincronizar o novo hash de palavra-passe que pode demorar até 2 minutos após o reset.
+-   Se pretender utilizar a autenticação multi-factor Azure AD, recomendamos que utilize [o registo combinado para reiniciar a palavra-passe de autosserviço (SSPR) e a Autenticação Multi-Factor](../authentication/concept-registration-mfa-sspr-combined.md) para que os seus utilizadores registem os seus métodos de autenticação uma vez. Nota: ao utilizar o SSPR para redefinir a palavra-passe ou alterar a palavra-passe utilizando a página MyProfile durante o lançamento encenado, o Azure AD Connect precisa de sincronizar o novo hash de palavra-passe que pode demorar até 2 minutos após o reset.
 
 -   Para utilizar a funcionalidade de lançamento encenada, tem de ser um administrador global no seu inquilino.
 
@@ -246,5 +246,5 @@ R: Não, esta função foi concebida para testar a autenticação em nuvem. Depo
 
 R: Sim. Para aprender a usar o PowerShell para executar o lançamento encenado, consulte [a pré-visualização AD Azure](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Pré-visualização Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

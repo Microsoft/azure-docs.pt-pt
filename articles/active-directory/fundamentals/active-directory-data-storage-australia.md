@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7ed1d4c49c46673f1a1c2b5cb08b2467490acae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 498b75a6541da97e57e23465ae6eb23a6c854727
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565127"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836959"
 ---
 # <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para clientes australianos e neozelandeses em Azure Ative Directory
 
@@ -32,9 +32,9 @@ Para clientes que forneceram uma morada na Austrália ou na Nova Zelândia, a Az
 
 Todos os outros serviços AZure AD armazenam dados de clientes em datacenters globais. Para localizar o datacenter para um serviço, consulte [o Diretório Ativo Azure – Onde estão os seus dados localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Autenticação multi-factor microsoft Azure (MFA)
+## <a name="microsoft-azure-ad-multi-factor-authentication-mfa"></a>Autenticação multi-factor microsoft Azure Ad (MFA)
 
-MFA armazena Dados de Clientes de Identidade em datacenters globais. Para saber mais sobre as informações do utilizador recolhidas e armazenadas pelo Azure MFA e pelo Azure MFA Server, consulte [a recolha de dados do utilizador Azure Multi-Factor Authentication](../authentication/concept-mfa-data-residency.md).
+MFA armazena Dados de Clientes de Identidade em datacenters globais. Para saber mais sobre as informações do utilizador recolhidas e armazenadas pelo Azure AD MFA e pelo Azure MFA Server, consulte [a recolha de dados de dados do utilizador Azure Multi-Factor Authentication](../authentication/concept-mfa-data-residency.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre qualquer uma das funcionalidades e funcionalidades acima descritas, consulte estes artigos:

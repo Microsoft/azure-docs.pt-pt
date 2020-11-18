@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5a22c904d72f09656480be6009e3832fde72b89
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 4c058f74bb4e390fe7a5003d6ab5d963c56ef2d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408639"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836381"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar da federação para a sincronização de haxixe de palavra-passe para o Azure Ative Directory
 
@@ -120,7 +120,7 @@ Para obter mais informações, veja estes artigos:
 > [!NOTE]
 > Se **o SupportsMfa** estiver definido para **True,** está a utilizar uma solução de autenticação multi-factor no local para injetar um desafio de segundo fator no fluxo de autenticação do utilizador. Esta configuração deixou de funcionar para cenários de autenticação AD Azure depois de converter este domínio de federado para autenticação gerida. Depois de desativar a federação, corta a relação com a sua federação no local e isso inclui adaptadores de MFA no local. 
 >
-> Em vez disso, utilize o serviço baseado em nuvem de autenticação multi-factor Azure para executar a mesma função. Avalie cuidadosamente os seus requisitos de autenticação de vários fatores antes de continuar. Antes de converter os seus domínios, certifique-se de que compreende como utilizar a Autenticação Multi-Factor Azure, as implicações de licenciamento e o processo de registo do utilizador.
+> Em vez disso, utilize o serviço baseado na nuvem de autenticação multi-factor Azure AD para executar a mesma função. Avalie cuidadosamente os seus requisitos de autenticação de vários fatores antes de continuar. Antes de converter os seus domínios, certifique-se de que compreende como utilizar a Autenticação Multi-Factor AD Azure, as implicações de licenciamento e o processo de registo do utilizador.
 
 #### <a name="back-up-federation-settings"></a>Configurações de federação de apoio
 
@@ -145,7 +145,7 @@ Antes de converter de identidade federada para identidade gerida, olhe de perto 
 | Planeia continuar a utilizar O FS AD com outras aplicações (além do Azure AD e do Microsoft 365). | Depois de converter os seus domínios, utilizará tanto o AD FS como o Azure AD. Considere a experiência do utilizador. Em alguns cenários, os utilizadores podem ser obrigados a autenticar duas vezes: uma para Azure AD (onde um utilizador obtém acesso SSO a outras aplicações, como o Microsoft 365), e novamente para quaisquer aplicações que ainda estejam vinculadas a AD FS como uma confiança do partido. |
 | A sua instância AD FS é fortemente personalizada e baseia-se em configurações específicas de personalização no ficheiro onload.js (por exemplo, se alterou a experiência de entrada para que os utilizadores utilizem apenas um formato **SamAccountName** para o seu nome de utilizador em vez de um Nome Principal de Utilizador (UPN), ou a sua organização marcou fortemente a experiência de entrada). O ficheiro onload.js não pode ser duplicado em Azure AD. | Antes de continuar, deve verificar se o Azure AD pode cumprir os seus requisitos de personalização atuais. Para obter mais informações e orientação, consulte as secções sobre a marca AD FS e a personalização da AD FS.|
 | Utiliza O FS AD para bloquear versões anteriores de clientes de autenticação.| Considere substituir os controlos AD FS que bloqueiam versões anteriores de clientes de autenticação utilizando uma combinação de [controlos](../conditional-access/concept-conditional-access-conditions.md) de acesso condicional e regras de [acesso ao cliente online de troca.](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) |
-| É necessário que os utilizadores realizem a autenticação de vários fatores contra uma solução de servidor de autenticação multi-factor no local quando os utilizadores autenticarem para AD FS.| Num domínio de identidade gerido, não é possível injetar um desafio de autenticação de vários fatores através da solução de autenticação multi-factor no local para o fluxo de autenticação. No entanto, pode utilizar o serviço de autenticação multi-factor Azure para autenticação multi-factor após a conversão do domínio.<br /><br /> Se os seus utilizadores não utilizarem atualmente a autenticação multi-factor Azure, é necessário um passo único de registo do utilizador. Deve preparar-se e comunicar o registo planeado aos seus utilizadores. |
+| É necessário que os utilizadores realizem a autenticação de vários fatores contra uma solução de servidor de autenticação multi-factor no local quando os utilizadores autenticarem para AD FS.| Num domínio de identidade gerido, não é possível injetar um desafio de autenticação de vários fatores através da solução de autenticação multi-factor no local para o fluxo de autenticação. No entanto, pode utilizar o serviço de autenticação multi-factor Azure AD para autenticação multi-factor após a conversão do domínio.<br /><br /> Se os seus utilizadores não utilizarem atualmente a autenticação multi-factor Azure AD, é necessário um passo único de registo do utilizador. Deve preparar-se e comunicar o registo planeado aos seus utilizadores. |
 | Atualmente utiliza políticas de controlo de acesso (regras AuthZ) em FS AD para controlar o acesso ao Microsoft 365.| Considere substituir as políticas pelas políticas equivalentes de acesso condicionado Azure AD e trocar [regras](../conditional-access/overview.md) [de acesso ao cliente online.](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules)|
 
 ### <a name="common-ad-fs-customizations"></a>Personalizações comuns do AD FS
@@ -168,7 +168,7 @@ Quando se junta a um dispositivo ao Azure AD, pode criar regras de Acesso Condic
 
 Para garantir que a união híbrida continua a funcionar para quaisquer dispositivos que estejam ligados ao domínio depois de os seus domínios serem convertidos para sincronização de hash de palavra-passe, para clientes do Windows 10, tem de utilizar as opções do dispositivo Azure AD Connect para sincronizar contas de computador ative Directy para Azure AD. 
 
-Para as contas de computador do Windows 8 e Windows 7, a união híbrida utiliza SSO sem costura para registar o computador em Azure AD. Não é necessário sincronizar contas de computador do Windows 8 e Windows 7, como faz para dispositivos Windows 10. No entanto, deve implementar um ficheiro workplacejoin.exe atualizado (através de um ficheiro .msi) para os clientes do Windows 8 e Windows 7 para que possam registar-se utilizando SSO sem costura. [Descarregue o ficheiro .msi](https://www.microsoft.com/download/details.aspx?id=53554).
+Para as contas de computador do Windows 8 e Windows 7, a união híbrida utiliza SSO sem costura para registar o computador em Azure AD. Não é necessário sincronizar contas de computador do Windows 8 e Windows 7, como faz para dispositivos Windows 10. No entanto, deve implementar um ficheiro workplacejoin.exe atualizado (através de um ficheiro .msi) para os clientes do Windows 8 e Windows 7 para que possam registar-se utilizando SSO sem costura. [Descarregue o ficheiro .msi.](https://www.microsoft.com/download/details.aspx?id=53554)
 
 Para obter mais informações, consulte [dispositivos híbridos Azure AD da Configure.](../devices/hybrid-azuread-join-plan.md)
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85bbdff2f7e67434a3e21aaf51af96c1e851eb0d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 134148fa3ea73212d85393cc433d60f7ddeecd17
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740179"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837129"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -84,9 +84,9 @@ Para criar um VM do Datacenter 2019 do Windows Server em Azure com o logon AD do
 1. Inscreva-se no [portal Azure,](https://portal.azure.com)com uma conta que tenha acesso à criação de VMs, e selecione **+ Criar um recurso.**
 1. Digite **o Servidor do Windows** na barra de pesquisa do Marketplace.
    1. Clique no **Windows Server** e escolha o Centro **de Dados do Windows Server 2019** a partir de Selecionar um plano de software desacolhido.
-   1. Clique em **Criar** .
-1. No separador "Gestão", ative a opção de **Iniciar sessão com credenciais AAD (Pré-visualização)** na secção Azure Ative Directory de Off to **On** .
-1. Certifique-se de que a **identidade gerida atribuída** pelo Sistema na secção Identidade está definida para **On** . Esta ação deve acontecer automaticamente assim que ativar o Login com credenciais AD AZure.
+   1. Clique em **Criar**.
+1. No separador "Gestão", ative a opção de **Iniciar sessão com credenciais AAD (Pré-visualização)** na secção Azure Ative Directory de Off to **On**.
+1. Certifique-se de que a **identidade gerida atribuída** pelo Sistema na secção Identidade está definida para **On**. Esta ação deve acontecer automaticamente assim que ativar o Login com credenciais AD AZure.
 1. Veja o resto da experiência de criar uma máquina virtual. Durante esta pré-visualização, terá de criar um nome de utilizador e senha de administrador para o VM.
 
 ![Login com credenciais AD AZure criam um VM](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
@@ -146,8 +146,8 @@ O `provisioningState` de `Succeeded` é mostrado, uma vez que a extensão é ins
 
 Agora que criou o VM, precisa configurar a política do RBAC para determinar quem pode iniciar sessão no VM. Duas funções Azure são usadas para autorizar o login em VM:
 
-- **Início de entrada do Administrador de Máquina Virtual** : Os utilizadores com esta função atribuída podem iniciar sessão numa máquina virtual Azure com privilégios de administrador.
-- **Início de Sessão do Utilizador de Máquinas Virtuais** : Os utilizadores com esta função atribuída podem iniciar sessão numa máquina virtual Azure com privilégios regulares do utilizador.
+- **Início de entrada do Administrador de Máquina Virtual**: Os utilizadores com esta função atribuída podem iniciar sessão numa máquina virtual Azure com privilégios de administrador.
+- **Início de Sessão do Utilizador de Máquinas Virtuais**: Os utilizadores com esta função atribuída podem iniciar sessão numa máquina virtual Azure com privilégios regulares do utilizador.
 
 > [!NOTE]
 > Para permitir que um utilizador faça login no VM em rdp, tem de atribuir o Login do Administrador de Máquina Virtual ou a função de Login do Utilizador de Máquina Virtual. Um utilizador Azure com as funções Proprietário ou Contribuinte atribuídos a um VM não tem automaticamente privilégios de iniciar sessão no VM em vez de RDP. Isto é para proporcionar uma separação auditada entre o conjunto de pessoas que controlam máquinas virtuais contra o conjunto de pessoas que podem aceder a máquinas virtuais.
@@ -163,8 +163,8 @@ Para configurar atribuições de funções para o seu Azure AD ativado o Windows
 
 1. Navegue para a página geral específica da máquina virtual
 1. Selecione o controlo de **acesso (IAM)** a partir das opções do menu
-1. **Selecione Adicionar** , Adicione a **atribuição de funções** para abrir o painel de atribuição de funções Add.
-1. Na lista de drop-down **role,** selecione uma função como **O Login do Administrador de Máquina Virtual** ou Login do Utilizador de Máquina **Virtual** .
+1. **Selecione Adicionar**, Adicione a **atribuição de funções** para abrir o painel de atribuição de funções Add.
+1. Na lista de drop-down **role,** selecione uma função como **O Login do Administrador de Máquina Virtual** ou Login do Utilizador de Máquina **Virtual**.
 1. No campo **Selecione,** selecione um utilizador, grupo, principal de serviço ou identidade gerida. Se não vir o principal de segurança na lista, pode escrever na caixa **Selecionar** para procurar no diretório os nomes a apresentar, endereços de e-mail e identificadores de objetos.
 1. **Selecione Guardar,** para atribuir o papel.
 
@@ -203,7 +203,7 @@ Pode impor políticas de Acesso Condicional, tais como autenticação de vários
 > Se utilizar a "Requer autenticação multi-factor" como um controlo de acesso a subvenções para solicitar acesso à aplicação "Azure Windows VM Sign-In", então deve fornecer a reclamação de autenticação multi-factor como parte do cliente que inicia a sessão DE PDR para o windows VM alvo em Azure. A única forma de o conseguir num cliente do Windows 10 é utilizar o Windows Hello para Business PIN ou a autenticação biométrica com o cliente RDP. O suporte à autenticação biométrica foi adicionado ao cliente RDP na versão 1809 do Windows 10. O ambiente de trabalho remoto que utiliza a autenticação do Windows Hello for Business apenas está disponível para implementações que utilizam o modelo cert trust e que atualmente não estão disponíveis para o modelo de confiança chave.
 
 > [!WARNING]
-> Por utilizador A autenticação multi-factor ativada/forçada não é suportada para o sent-in VM.
+> Por utilizador Ativado/Aplicado Azure AD Multi-Factor Authentication não é suportado para o sismo VM.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Faça login usando credenciais AZure AD para um Windows VM
 
@@ -214,7 +214,7 @@ Para iniciar sessão na sua máquina virtual Windows Server 2019 utilizando Azur
 
 1. Navegue para a página geral da máquina virtual que foi ativada com o logon AD Azure.
 1. Selecione **Connect** para abrir a lâmina da máquina virtual Connect.
-1. Selecione **Transferir Ficheiro RDP** .
+1. Selecione **Transferir Ficheiro RDP**.
 1. Selecione **Open** para lançar o cliente Remote Desktop Connection.
 1. Selecione **Connect** para lançar o diálogo de início de s logon do Windows.
 1. Logor usando as suas credenciais AZure AD.
@@ -230,7 +230,7 @@ Está agora a fazer sessão no Windows Server 2019 Azure virtual machine com as 
 
 A extensão AADLoginForWindows deve ser instalada com sucesso para que o VM complete o processo de ad AD Azure. Execute os seguintes passos se a extensão VM não for instalada corretamente.
 
-1. RDP para o VM usando a conta de administrador local e examinar o CommandExecuti'n.log em  
+1. RDP para o VM usando a conta de administrador local e examinar o CommandExecuti'n.log  
    
    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0. 
 

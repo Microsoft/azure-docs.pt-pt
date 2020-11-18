@@ -16,12 +16,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e794b66341d4e7c478fd526107cc35c7c745fa7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe92f761ac0b16da7c3cc3c69c1fa4b00f4e7579
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85358332"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836364"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticação pass-through do Diretório Ativo Azure: Mergulho profundo técnico
 Este artigo é uma visão geral de como funciona o diretório Azure Ative (Azure AD) De autenticação pass-through. Para obter informações técnicas e de segurança profundas, consulte o artigo [de mergulho profundo da Segurança.](how-to-connect-pta-security-deep-dive.md)
@@ -43,7 +43,7 @@ Quando um utilizador tenta iniciar sação numa aplicação protegida pela Azure
 8. O agente valida o nome de utilizador e a palavra-passe contra o Ative Directory utilizando apis padrão do Windows, que é um mecanismo semelhante ao que os Serviços da Federação de Diretório Ativo (AD FS) utilizam. O nome de utilizador pode ser o nome de utilizador padrão no local, `userPrincipalName` normalmente, ou outro atributo configurado no Azure AD Connect (conhecido como `Alternate ID` ).
 9. O controlador de domínio Ative Directory (DC) no local avalia o pedido e devolve ao agente a resposta adequada (sucesso, falha, senha expirada ou utilizador bloqueado) ao agente.
 10. O Agente de Autenticação, por sua vez, devolve esta resposta à Azure AD.
-11. A Azure AD avalia a resposta e responde ao utilizador conforme apropriado. Por exemplo, a Azure AD assina imediatamente o utilizador ou solicita a autenticação multi-factor Azure.
+11. A Azure AD avalia a resposta e responde ao utilizador conforme apropriado. Por exemplo, a Azure AD ou assina imediatamente o utilizador ou solicita a autenticação multi-factor AD Azure.
 12. Se o pedido de sedu máximo for bem sucedido, o utilizador poderá aceder à aplicação.
 
 O diagrama a seguir ilustra todos os componentes e os passos envolvidos:

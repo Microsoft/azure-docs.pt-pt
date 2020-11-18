@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb9d9e7c60344a2a4c538c6d3bf59e337e4569c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461279"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836330"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação pass-through do Azure Ative Directory: Perguntas frequentes
 
@@ -37,14 +37,14 @@ A autenticação pass-through é uma funcionalidade gratuita. Não precisa de ed
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>O [Acesso Condicional](../conditional-access/overview.md) funciona com autenticação pass-through?
 
-Sim. Todas as capacidades de Acesso Condicional, incluindo a autenticação multi-factor Azure, funcionam com a autenticação pass-through.
+Sim. Todas as capacidades de Acesso Condicional, incluindo a autenticação multi-factor Azure AD, funcionam com a autenticação pass-through.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>O Substituto autenticação suporta "ID alternativo" como nome de utilizador, em vez de "userPrincipalName"?
 Sim, o sing-in utilizando um valor não UPN, como um e-mail alternativo, é suportado tanto para a autenticação pass-through (PTA) como para a sincronização de haxixe de palavra-passe (PHS). Para mais informações sobre [o ID de Login Alternativo.](../authentication/howto-authentication-use-email-signin.md)
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>A sincronização de hash de palavra-passe funciona como um recuo para a autenticação pass-through?
 
-N.º A autenticação pass-through _não_ falha automaticamente na sincronização de hash de palavra-passe. Para evitar falhas de inscrição no utilizador, deve configurar a autenticação pass-through para [uma elevada disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+Não. A autenticação pass-through _não_ falha automaticamente na sincronização de hash de palavra-passe. Para evitar falhas de inscrição no utilizador, deve configurar a autenticação pass-through para [uma elevada disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>O que acontece quando mudo de sincronização de hash de palavra-passe para autenticação pass-through?
 

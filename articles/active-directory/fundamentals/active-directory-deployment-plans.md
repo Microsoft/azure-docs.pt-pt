@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371890"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836823"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implementação do Azure Active Directory
 Procura orientação de ponta a ponta sobre a implementação de capacidades do Azure Ative Directory (Azure AD) ? Os planos de implementação da AD AZure percorrem o valor do negócio, as considerações de planeamento e os procedimentos operacionais necessários para implementar com sucesso as capacidades comuns da AD Azure.
@@ -40,13 +40,13 @@ As funções podem incluir os seguintes
 
 **Os níveis de envolvimento podem incluir:**
 
-- **R**eponsível para implementação do plano de projeto e do resultado 
+- **R** eponsível para implementação do plano de projeto e do resultado 
 
-- **Um**pproval do plano de projeto e do resultado 
+- **Um** pproval do plano de projeto e do resultado 
 
-- **C**ontributor para projetar plano e resultado 
+- **C** ontributor para projetar plano e resultado 
 
-- **Eu**nformou do plano de projeto e do resultado
+- **Eu** nformou do plano de projeto e do resultado
 
 
 ## <a name="best-practices-for-a-pilot"></a>Melhores práticas para um piloto
@@ -61,7 +61,7 @@ O alargamento do lançamento a grupos maiores de utilizadores deve ser efetuado 
 
 | Funcionalidade | Description|
 | -| -|
-| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| A Azure Multi-Factor Authentication (MFA) é uma solução de verificação em dois passos da Microsoft. Utilizando métodos de autenticação aprovados pela administração, o Azure MFA ajuda a salvaguardar o acesso aos seus dados e aplicações, ao mesmo tempo que satisfaz a exigência de um processo de inscrição simples. |
+| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| A Azure AD Multi-Factor Authentication (MFA) é a solução de verificação em duas etapas da Microsoft. Utilizando métodos de autenticação aprovados pela administração, o Azure AD MFA ajuda a salvaguardar o acesso aos seus dados e aplicações, satisfazendo a procura de um processo simples de inscrição. |
 | [Conditional Access](../conditional-access/plan-conditional-access.md)| Com o Acesso Condicional, pode implementar decisões automatizadas de controlo de acesso para quem pode aceder às suas aplicações na nuvem, com base nas condições. |
 | [Reposição personalizada de palavra-passe](../authentication/howto-sspr-deployment.md)| O reset da palavra-passe de autosserviço ajuda os seus utilizadores a redefinir as suas palavras-passe sem intervenção do administrador, quando e onde precisam. |
 | [Sem palavra-passe](../authentication/howto-authentication-passwordless-deployment.md) | Implementar autenticação sem palavras-passe utilizando a app Microsoft Authenticator ou as teclas de segurança FIDO2 na sua organização |

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb51e8590e2859a9fe8692f79c5b1238ed5a2098
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0112ab53c501d639d3f8e0d09d82ef3a12cb93a8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948186"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837251"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Resolução de problemas Acesso Condicional usando a ferramenta E Se
 
 A [ferramenta What If](what-if-tool.md) in Conditional Access é poderosa quando tenta entender por que uma política foi ou não aplicada a um utilizador em uma circunstância específica ou se uma política seria aplicada em um estado conhecido.
 
-A ferramenta What If está localizada no **portal Azure**  >  **Ative Directy**  >  **Acesso Condicionado**E  >  **Se**.
+A ferramenta What If está localizada no **portal Azure**  >  **Ative Directy**  >  **Acesso Condicionado** E  >  **Se**.
 
 ![Acesso condicional O que se a ferramenta estiver em estado predefinido](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
 
@@ -78,4 +78,4 @@ Este teste poderia ser expandido para incorporar outros pontos de dados para red
 * [O que é o Acesso Condicional?](overview.md)
 * [O que é o Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
 * [O que é um ID do dispositivo?](../devices/overview.md)
-* [Como funciona: Multi-Factor Authentication do Azure](../authentication/concept-mfa-howitworks.md)
+* [Como funciona: Autenticação multi-factor Azure AD](../authentication/concept-mfa-howitworks.md)

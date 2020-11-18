@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 2c056bd4d5fa9037ce00588269c0da2937ff57ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c26cbf55c1e3883605d4c65659511af20cf02c7f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705338"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836772"
 ---
 # <a name="what-are-security-defaults"></a>O que são falhas de segurança?
 
 Gerir a segurança pode ser difícil com ataques comuns relacionados com a identidade, como spray de palavras-passe, repetição e phishing tornando-se cada vez mais popular. As falhas de segurança facilitam a proteção da sua organização contra estes ataques com definições de segurança pré-configuradas:
 
-- Exigindo que todos os utilizadores se registem para autenticação multi-factor Azure.
+- Exigindo que todos os utilizadores se registem para autenticação multi-factor Azure AD.
 - Exigindo que os administradores realizem a autenticação de vários fatores.
 - Bloqueando protocolos de autenticação de legados.
 - Exigir que os utilizadores realizem a autenticação de vários fatores quando necessário.
@@ -52,13 +52,13 @@ A Microsoft está a disponibilizar falhas de segurança a todos. O objetivo é g
 
 ### <a name="unified-multi-factor-authentication-registration"></a>Registo unificado de autenticação multi-factor
 
-Todos os utilizadores do seu inquilino devem inscrever-se para autenticação multi-factor (MFA) sob a forma da Autenticação Multi-Factor Azure. Os utilizadores têm 14 dias para se registarem para autenticação multi-factor Azure utilizando a aplicação Microsoft Authenticator. Após os 14 dias que passaram, o utilizador não poderá fazer o seu registo até que o registo esteja concluído. O período de 14 dias de um utilizador começa após o seu primeiro início de sposição interativo bem-sucedido após permitir falhas de segurança.
+Todos os utilizadores do seu inquilino devem inscrever-se para autenticação multi-factor (MFA) sob a forma da Autenticação Multi-Factor Azure AD. Os utilizadores têm 14 dias para se inscreverem na Autenticação Multi-Factor AZure AD utilizando a aplicação Microsoft Authenticator. Após os 14 dias que passaram, o utilizador não poderá fazer o seu registo até que o registo esteja concluído. O período de 14 dias de um utilizador começa após o seu primeiro início de sposição interativo bem-sucedido após permitir falhas de segurança.
 
 ### <a name="protecting-administrators"></a>Proteger administradores
 
 Os utilizadores com acesso privilegiado têm acesso acrescido ao seu ambiente. Devido ao poder que estas contas têm, deve tratá-las com especial cuidado. Um método comum para melhorar a proteção das contas privilegiadas consiste em exigir uma verificação mais forte da conta para a inscrição. No Azure AD, você pode obter uma verificação de conta mais forte, exigindo a autenticação de vários fatores.
 
-Após o registo com a autenticação multi-factor Azure, serão necessárias as seguintes nove funções de administrador AD Azure para a realização de autenticação adicional sempre que assinarem:
+Após o registo com a autenticação multi-factor Azure AD, serão necessárias as seguintes nove funções de administrador da AD Azure para a realização de autenticação adicional sempre que assinarem:
 
 - Administrador global
 - Administrador do SharePoint
@@ -120,7 +120,7 @@ As seguintes considerações adicionais estão relacionadas com a implementaçã
 
 ### <a name="authentication-methods"></a>Métodos de autenticação
 
-Estes predefinidos de segurança gratuitos permitem o registo e utilização da Autenticação Multi-Factor Azure **utilizando apenas a aplicação Microsoft Authenticator utilizando notificações.** O Acesso Condicional permite a utilização de qualquer método de autenticação que o administrador opte por ativar.
+Estes predefinidos de segurança gratuitos permitem o registo e utilização da Autenticação Multi-Factor AZure AD **utilizando apenas a aplicação Microsoft Authenticator utilizando notificações.** O Acesso Condicional permite a utilização de qualquer método de autenticação que o administrador opte por ativar.
 
 | Método | Predefinições de segurança | Acesso Condicional |
 | --- | --- | --- |
@@ -128,14 +128,14 @@ Estes predefinidos de segurança gratuitos permitem o registo e utilização da 
 | Código de verificação a partir de aplicativo móvel ou token de hardware | X** | X |
 | Mensagem de texto para telefone |   | X |
 | Chamada para telefone |   | X |
-| Palavras-passe da aplicação |   | X*** |
+| Palavras-passe da aplicação |   | X**_ |
 
-- ** Os utilizadores podem utilizar códigos de verificação a partir da aplicação Microsoft Authenticator, mas só podem registar-se através da opção de notificação.
-- As palavras-passe da aplicação só estão disponíveis em MFA por utilizador com cenários de autenticação legado apenas se forem ativadas por administradores.
+- _* Os utilizadores podem utilizar códigos de verificação a partir da aplicação Microsoft Authenticator, mas só podem registar-se através da opção de notificação.
+- **_ As palavras-passe da aplicação só estão disponíveis em MFA por utilizador com cenários de autenticação legado apenas se forem ativadas por administradores.
 
 ### <a name="disabled-mfa-status"></a>Estado de MFA desativado
 
-Se a sua organização for um utilizador anterior da Autenticação Multi-Factor Azure por utilizador, não fique alarmado por não ver os utilizadores num estado **ativado** ou **forçado** se olhar para a página do estado de Multi-Factor Auth. **Desativado** é o estado adequado para os utilizadores que estão a utilizar falhas de segurança ou autenticação multi-factor de acesso condicional.
+Se a sua organização for um utilizador anterior da autenticação multi-factor Azure AD baseada no utilizador, não fique alarmado por não ver os utilizadores num estado _ *Ativado** ou **forçado** se olhar para a página de estado multi-factor Auth. **Desativado** é o estado adequado para os utilizadores que estão a utilizar falhas de segurança ou autenticação multi-factor Azure AD baseada em acesso condicional.
 
 ### <a name="conditional-access"></a>Acesso Condicional
 
@@ -149,7 +149,7 @@ Aqui estão guias passo a passo sobre como pode utilizar o Acesso Condicional a 
 - [Exigir MFA para a gestão do Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [Bloquear a autenticação legada](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Pedir MFA para todos os utilizadores](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Requer registo Azure MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requer proteção de identidade Azure AD parte do Azure AD Premium P2.
+- [Requer registo MFA Azure AD](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requer a azure AD Identity Protection parte do Azure AD Premium P2.
 
 ## <a name="enabling-security-defaults"></a>Permitir incumprimentos de segurança
 

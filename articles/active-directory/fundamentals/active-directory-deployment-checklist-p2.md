@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 92d1e5b8ac6492b0b1d819431e4616d32a092cc8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077970"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836925"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implementação de funcionalidades do Azure Active Directory
 
@@ -57,7 +57,7 @@ Nesta fase, os administradores permitem funcionalidades de segurança de base pa
 | [Implementar autenticação multi-factor Azure AD utilizando políticas de acesso condicional](../authentication/howto-mfa-getstarted.md) | Exija que os utilizadores realizem uma verificação em duas etapas ao aceder a aplicações sensíveis utilizando políticas de Acesso Condicional. | Azure AD Premium P1 |
 | [Ativar a proteção de identidade do diretório ativo Azure](../identity-protection/overview-identity-protection.md) | Ativar o rastreio de insusões de risco e credenciais comprometidas para os utilizadores da sua organização. | Azure AD Premium P2 |
 | [Utilize deteções de risco para desencadear alterações na autenticação de vários fatores e nas alterações da palavra-passe](../authentication/tutorial-risk-based-sspr-mfa.md) | Ativar a automatização que pode desencadear eventos como autenticação de vários fatores, reset de palavra-passe e bloqueio de ins-ins com base no risco. | Azure AD Premium P2 |
-| [Ativar o registo combinado para reset de senha de autosserviço e autenticação multi-factor Azure AD](../authentication/concept-registration-mfa-sspr-combined.md) | Deixe que os seus utilizadores se registem a partir de uma experiência comum para a autenticação multi-factor Azure e para o reset da palavra-passe de autosserviço. | Azure AD Premium P1 |
+| [Ativar o registo combinado para reset de senha de autosserviço e autenticação multi-factor Azure AD](../authentication/concept-registration-mfa-sspr-combined.md) | Deixe que os seus utilizadores se registem a partir de uma experiência comum para a autenticação multi-factor Azure AD e para o reset da palavra-passe de autosserviço. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: Importar utilizadores, permitir sincronização e gerir dispositivos
 

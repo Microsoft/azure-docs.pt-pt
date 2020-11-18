@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ecc23e2969ce4ce26eef7b9a3a485389d08ce0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266787"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837112"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Ative Directory gestão de dispositivos FAQ
 
@@ -198,7 +198,7 @@ As alterações da UPN são suportadas com a atualização do Windows 10 2004. O
 
 ---
 
-### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>P: Porque é que alguns dos meus utilizadores não recebem indicações de autenticação multi-factor Azure nos dispositivos ligados ao Azure AD?
+### <a name="q-why-dont-some-of-my-users-get-azure-ad-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>P: Porque é que alguns dos meus utilizadores não recebem pedidos de autenticação multi-factor Azure AD em dispositivos ligados ao Azure AD?
 
 **A:** Um utilizador pode juntar-se ou registar um dispositivo com Azure AD utilizando a Autenticação Multi-Factor. Em seguida, o próprio dispositivo torna-se um segundo fator de confiança para esse utilizador. Sempre que o mesmo utilizador entra no dispositivo e acede a uma aplicação, a Azure AD considera o dispositivo como um segundo fator. Permite ao utilizador aceder perfeitamente a aplicações sem solicitações adicionais de autenticação multi-factor. 
 
@@ -291,7 +291,7 @@ As alterações da UPN são suportadas com a atualização do Windows 10 2004. O
 
 **A:** 
 - Para dispositivos registados no Windows 10 AZure AD, vá a **Definições**  >  **Contas**  >  **Access Work ou School**. Selecione a sua conta e **selecione Desligar**. O registo do dispositivo é por perfil do utilizador no Windows 10.
-- Para iOS e Android, pode utilizar o registo de **dispositivos de definição de configurações**da aplicação Microsoft Authenticator  >  **Device Registration** e selecionar o **dispositivo Unregister**.
+- Para iOS e Android, pode utilizar o registo de **dispositivos de definição de configurações** da aplicação Microsoft Authenticator  >  **Device Registration** e selecionar o **dispositivo Unregister**.
 - Para o macOS, pode utilizar a aplicação Microsoft Intune Company Portal para desativar o dispositivo da gestão e remover qualquer registo. 
 
 ---

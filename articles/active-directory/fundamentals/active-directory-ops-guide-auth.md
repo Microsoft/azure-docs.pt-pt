@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371057"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836993"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gestão de autenticação ativa do Azure Ative Directory
 
@@ -95,7 +95,7 @@ As palavras-passe por si só não são seguras o suficiente para impedir que os 
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Resiliência da autenticação em local
 
-Além dos benefícios da simplicidade e permitindo a deteção de credenciais vazadas, a Azure AD Password Hash Sync (PHS) e a Azure MFA permitem aos utilizadores aceder às aplicações saaS e à Microsoft 365, apesar de falhas no local devido a ciberataques como [o NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Também é possível permitir phs enquanto em conjunto com a federação. Ativar phs permite uma redução da autenticação quando os serviços da federação não estão disponíveis.
+Além dos benefícios da simplicidade e permitindo a deteção de credenciais vazadas, a Azure AD Password Hash Sync (PHS) e a Azure AD MFA permitem aos utilizadores aceder às aplicações saaS e à Microsoft 365, apesar de falhas no local devido a ciberataques como [o NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Também é possível permitir phs enquanto em conjunto com a federação. Ativar phs permite uma redução da autenticação quando os serviços da federação não estão disponíveis.
 
 Se a sua organização no local não tiver uma estratégia de resiliência de paralisação ou tiver uma que não esteja integrada com a Azure AD, deve implementar phS AD Ad Azure e definir um plano de recuperação de desastres que inclua PHS. Permitir que o Azure AD PHS permita que os utilizadores autentem a autenticação contra a AD Azure caso o seu Ative Directory esteja indisponível.
 
