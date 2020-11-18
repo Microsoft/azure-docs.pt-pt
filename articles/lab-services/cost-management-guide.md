@@ -5,12 +5,12 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 98e04ba6bb1310935c4893a3616dfd68c2e99a55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29f6be5319c5a142ad3ea0d73deb2f95d8cb0d7a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797637"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659731"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Gestão de custos para serviços do Azure Lab
 
@@ -31,7 +31,7 @@ Esta estimativa pode não mostrar todos os custos possíveis. Alguns recursos n�
 
 ## <a name="analyze-the-previous-months-usage"></a>Analise o uso do mês anterior
 
-A análise de custos é para rever o uso do mês anterior para ajudá-lo a determinar quaisquer ajustes para o laboratório. Pode encontrar a repartição dos custos anteriores na análise de custos de [subscrição.](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis) No portal Azure, pode introduzir **Subscrições** na caixa de pesquisa e, em seguida, selecionar a opção **Subscrições.** 
+A análise de custos é para rever o uso do mês anterior para ajudá-lo a determinar quaisquer ajustes para o laboratório. Pode encontrar a repartição dos custos anteriores na análise de custos de [subscrição.](../cost-management-billing/costs/quick-acm-cost-analysis.md) No portal Azure, pode introduzir **Subscrições** na caixa de pesquisa e, em seguida, selecionar a opção **Subscrições.** 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot que mostra a caixa de pesquisa e a opção Subscrições.](./media/cost-management-guide/subscription-search.png)
@@ -46,7 +46,7 @@ Selecione **Análise de Custos** no painel esquerdo sob **Gestão de Custos**.
 > [!div class="mx-imgBorder"]
 > ![Screenshot que mostra uma análise de custo de subscrição em um gráfico.](./media/cost-management-guide/subscription-cost-analysis.png)
 
-Este dashboard permite uma análise aprofundada dos custos, incluindo a capacidade de exportar para diferentes tipos de ficheiros num horário. Para mais informações, consulte [a visão geral da Gestão de Custos + Faturação.](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)
+Este dashboard permite uma análise aprofundada dos custos, incluindo a capacidade de exportar para diferentes tipos de ficheiros num horário. Para mais informações, consulte [a visão geral da Gestão de Custos + Faturação.](../cost-management-billing/cost-management-billing-overview.md)
 
 Pode filtrar por tipo de recurso. A utilização `microsoft.labservices/labaccounts` mostrará apenas o custo associado aos Serviços de Laboratório.
 
@@ -57,7 +57,7 @@ A imagem a seguir é um exemplo de uma análise de custos.
 > [!div class="mx-imgBorder"]
 > ![Screenshot que mostra uma análise de custos de exemplo para uma subscrição.](./media/cost-management-guide/cost-analysis.png)
 
-Por predefinição, existem seis colunas: **Recurso**, **Tipo de Recurso,** **Localização,** **Nome do grupo de recursos,** **Tags**e **Custo**. A coluna **de recursos** contém a informação sobre a conta do laboratório, nome do laboratório e VM. As filas que mostram a conta do laboratório, o nome do laboratório e o padrão (segunda e terceira filas) são o custo para o laboratório. Os VMs usados têm um custo que você pode ver para as linhas que mostram a conta de laboratório, nome de laboratório, padrão, e nome VM. 
+Por predefinição, existem seis colunas: **Recurso**, **Tipo de Recurso,** **Localização,** **Nome do grupo de recursos,** **Tags** e **Custo**. A coluna **de recursos** contém a informação sobre a conta do laboratório, nome do laboratório e VM. As filas que mostram a conta do laboratório, o nome do laboratório e o padrão (segunda e terceira filas) são o custo para o laboratório. Os VMs usados têm um custo que você pode ver para as linhas que mostram a conta de laboratório, nome de laboratório, padrão, e nome VM. 
 
 Neste exemplo, adicionar a primeira e segunda linhas (ambas começam com **aaalab/dockerlab)** vai dar-lhe o custo total para o laboratório "dockerlab" na conta de laboratório "aaalab".
 
@@ -70,7 +70,7 @@ Para obter o custo global da galeria de imagens, altere o tipo de recurso para `
 
 Algumas universidades usaram a conta de laboratório e o grupo de recursos como formas de separar as aulas. Cada turma tem a sua própria conta de laboratório e grupo de recursos. 
 
-No painel de análise de custos, adicione um filtro baseado no nome do grupo de recursos com o nome de grupo de recursos apropriado para a classe. Então, só os custos para esta classe serão visíveis. Isto permite uma delimitação mais clara entre as classes quando você está vendo os custos. Pode utilizar a funcionalidade [de exportação programada](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) da análise de custos para baixar os custos de cada classe em ficheiros separados.
+No painel de análise de custos, adicione um filtro baseado no nome do grupo de recursos com o nome de grupo de recursos apropriado para a classe. Então, só os custos para esta classe serão visíveis. Isto permite uma delimitação mais clara entre as classes quando você está vendo os custos. Pode utilizar a funcionalidade [de exportação programada](../cost-management-billing/costs/tutorial-export-acm-data.md) da análise de custos para baixar os custos de cada classe em ficheiros separados.
 
 ## <a name="manage-costs"></a>Gerir os custos
 
@@ -90,7 +90,7 @@ Pode configurar estas definições tanto ao nível da conta do laboratório como
 > [!NOTE]
 > Esta definição está disponível apenas para máquinas virtuais do Windows.
 
-Quando os **utilizadores desligarem quando as máquinas virtuais estão inativas,** o utilizador é desligado de quaisquer máquinas do laboratório quando o Windows OS considera que a sessão está inativa (incluindo as máquinas virtuais do modelo). A [definição de ocioso do Windows OS](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) utiliza dois critérios: 
+Quando os **utilizadores desligarem quando as máquinas virtuais estão inativas,** o utilizador é desligado de quaisquer máquinas do laboratório quando o Windows OS considera que a sessão está inativa (incluindo as máquinas virtuais do modelo). A [definição de ocioso do Windows OS](/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) utiliza dois critérios: 
 
 * Ausência do utilizador: sem entrada de teclado ou rato.
 * Falta de consumo de recursos: Todos os processadores e todos os discos ficaram inativos durante uma certa percentagem de tempo.
@@ -122,7 +122,7 @@ As **máquinas virtuais desligadas quando os utilizadores desligam** a definiç�
 * Para o Linux, uma ligação SSH está desligada.
  
 > [!NOTE]
-> Apenas são suportadas [distribuições e versões específicas do Linux.](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions)
+> Apenas são suportadas [distribuições e versões específicas do Linux.](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions)
  
 Pode especificar quanto tempo as máquinas virtuais devem esperar que o utilizador se reconecte antes de desligar automaticamente. 
 

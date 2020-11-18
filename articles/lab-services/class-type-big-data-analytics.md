@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 6ae4e658985a3974b311171e83e6243dfc4a1ae9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5eb9cd00350c41645d4427e30a6f25a6c163358c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444034"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659901"
 ---
 # <a name="set-up-a-lab-for-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Crie um laboratório para análise de big data usando a implementação do Docker da Plataforma de Dados HortonWorks
 
@@ -28,11 +28,11 @@ Para montar este laboratório, precisa de uma assinatura Azure e uma conta de la
 
 ### <a name="lab-account-settings"></a>Definições de conta de laboratório
 
-Ativar as definições descritas na tabela abaixo para a conta de laboratório. Para obter mais informações sobre como ativar imagens de marketplace, consulte [as imagens do Mercado Dese especificar disponíveis para os criadores de laboratório.](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images)
+Ativar as definições descritas na tabela abaixo para a conta de laboratório. Para obter mais informações sobre como ativar imagens de marketplace, consulte [as imagens do Mercado Dese especificar disponíveis para os criadores de laboratório.](./specify-marketplace-images.md)
 
 | Definição de conta de laboratório | Instruções |
 | ------------------- | ------------ |
-|Imagem de mercado| Ative a imagem do Windows 10 Pro para utilização na sua conta de laboratório.|
+|Imagem do Marketplace| Ative a imagem do Windows 10 Pro para utilização na sua conta de laboratório.|
 
 ### <a name="lab-settings"></a>Configurações de laboratório
 
@@ -86,7 +86,7 @@ Nesta secção, irá implementar a Sandbox HDP e, em seguida, também aceder à 
    -    Verifique a caixa de areia DO HDP
 
     > [!WARNING] 
-    > Quando descarregar o ficheiro .zip mais recente para HDP, certifique-se de que *não* guarda o ficheiro .zip num caminho de diretório que inclui espaço em branco.
+    > Quando descarregar o ficheiro de .zip mais recente para o HDP, certifique-se de que *não* guarda o ficheiro .zip num caminho de diretório que inclua o whitespace.
 
     > [!NOTE] 
     > Se receber uma exceção durante a implementação afirmando que **a Drive não foi partilhada,** tem de partilhar a sua unidade C com o Docker para que os contentores Linux da HDP possam aceder aos ficheiros locais do Windows.  Para corrigir isto, [clique no ícone Docker no tabuleiro do Sistema Windows](https://docs.docker.com/docker-for-windows/#docker-settings-dialog) para abrir o menu Docker Desktop e selecionar **Definições**.  Quando o diálogo **de Definições do Docker** abrir, selecione Recursos > Partilha de **Ficheiros** e verifique a unidade **C.**  Em seguida, pode repetir os passos para implantar a Caixa de Areia HDP.
@@ -117,7 +117,7 @@ Mais detalhes sobre os preços, consulte o [Azure Lab Services Pricing](https://
 
 Este artigo acompanhou-o através dos passos necessários para criar um laboratório para uma grande classe de análise de dados que usa a Plataforma de Dados Hortonworks implementada com o Docker.  A configuração para este tipo de classe pode ser usada para classes de análise de dados semelhantes.  Esta configuração também pode ser aplicável a outros tipos de classes que usam Docker para implantação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os próximos passos são comuns para montar qualquer laboratório.
 

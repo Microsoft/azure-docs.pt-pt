@@ -4,15 +4,15 @@ description: Resolução de problemas conhecidos problemas de desempenho com aç
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/15/2020
+ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 3e6490babb5a4e68c1ecd931251ea4eb99d6c3f5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630146"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660292"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Resolução de problemas Azure partilha problemas de desempenho
 
@@ -35,8 +35,8 @@ Para confirmar se a sua parte está a ser acelerada, pode aceder e utilizar mét
 1. Selecione **Transações** como métrica.
 
 1. Adicione um filtro para **o tipo de resposta** e, em seguida, verifique se quaisquer pedidos têm um dos seguintes códigos de resposta:
-   * **SucessoWithThrottling** : Para bloco de mensagens de servidor (SMB)
-   * **ClientThrottlingError** : Para REST
+   * **SucessoWithThrottling**: Para bloco de mensagens de servidor (SMB)
+   * **ClientThrottlingError**: Para REST
 
    ![Screenshot das opções de métricas para ações de ficheiros premium, mostrando um filtro de propriedade "Tipo resposta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -83,10 +83,11 @@ A máquina virtual do cliente (VM) poderia estar localizada numa região diferen
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Cliente incapaz de atingir a produção máxima suportada pela rede
 
 ### <a name="cause"></a>Causa
-Uma das causas potenciais é a falta de suporte smb multicanal. Atualmente, o Azure Files suporta apenas um único canal, pelo que existe apenas uma ligação do VM do cliente ao servidor. Esta ligação única é marcada para um único núcleo no VM do cliente, de modo que a produção máxima alcançável a partir de um VM é ligada por um único núcleo.
+Uma das causas potenciais é a falta de suporte smb multicanal para ações de ficheiros padrão. Atualmente, o Azure Files suporta apenas um único canal, pelo que existe apenas uma ligação do VM do cliente ao servidor. Esta ligação única é marcada para um único núcleo no VM do cliente, de modo que a produção máxima alcançável a partir de um VM é ligada por um único núcleo.
 
 ### <a name="workaround"></a>Solução
 
+- Para ações de ficheiros premium, [Ative o SMB Multichannel numa conta FileStorage](storage-files-enable-smb-multichannel.md).
 - Obter um VM com um núcleo maior pode ajudar a melhorar a produção.
 - Executar a aplicação do cliente a partir de vários VMs aumentará a produção.
 - Utilize APIs DE REPOUSO sempre que possível.
@@ -170,6 +171,53 @@ Maior do que o esperado, a latência acede às ações de ficheiros Azure para c
 
 - Instale o [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1)disponível.
 
+## <a name="smb-multichannel-option-not-visible-under-file-share-settings"></a>Opção SMB Multicanal não é visível nas definições de partilha de ficheiros. 
+
+### <a name="cause"></a>Causa
+
+Ou a subscrição não está registada para a funcionalidade, ou a região e o tipo de conta não são suportados.
+
+### <a name="solution"></a>Solução
+
+Certifique-se de que a sua subscrição está registada para a funcionalidade SMB Multichannel. Ver [Começar](storage-files-enable-smb-multichannel.md#getting-started) Certifique-se de que o tipo de conta é FileStorage (conta de ficheiro premium) na página geral da conta. 
+
+## <a name="smb-multichannel-is-not-being-triggered"></a>O SMB Multicanal não está a ser acionado.
+
+### <a name="cause"></a>Causa
+
+Alterações recentes nas definições de configuração de config multicanais SMB sem remontagem.
+
+### <a name="solution"></a>Solução
+ 
+-   Depois de quaisquer alterações nas definições de configuração multicanal do Cliente do Windows SMB ou conta SMB, tem de desmontar a partilha, esperar 60 segundos e voltar a montar a ação para ativar o multicanal.
+-   Para o cliente do Windows OS, gere a carga IO com alta profundidade de fila, por exemplo QD=8, por exemplo, copiando um ficheiro para ativar o SMB Multichannel.  Para o servidor OS, o SMB Multichannel é ativado com QD=1, o que significa que assim que iniciar qualquer IO na partilha.
+
+## <a name="high-latency-on-web-sites-hosted-on-file-shares"></a>Alta latência em sites hospedados em ações de ficheiros 
+
+### <a name="cause"></a>Causa  
+
+A notificação de alteração de ficheiros de um número elevado nas ações de ficheiros pode resultar em elevadas latências significativas. Isto ocorre tipicamente com sites hospedados em partilhas de ficheiros com estrutura de diretório aninhado profundo. Um cenário típico é a aplicação web hospedada do IIS onde a notificação de alteração de ficheiros é configurada para cada diretório na configuração predefinida. Cada alteração (ReadDirectoryChangesW) sobre a ação que o cliente SMB está registado para empurrar uma notificação de alteração do serviço de ficheiros para o cliente, que requer recursos do sistema, e emite piora com o número de alterações. Isto pode causar estrangulamento de partilha e, assim, resultar em maior latência do lado do cliente. 
+
+Para confirmar, pode utilizar a Azure Metrics no portal - 
+
+1. No portal Azure, vá à sua conta de armazenamento. 
+1. No menu esquerdo, em Monitorização, selecione Métricas. 
+1. Selecione File como o espaço de nome métrico para o seu âmbito de conta de armazenamento. 
+1. Selecione Transações como métrica. 
+1. Adicione um filtro para o ResponseType e verifique se algum pedido tem um código de resposta de SuccessWithThrottling (para SMB) ou ClientThrottlingError (para REST).
+
+### <a name="solution"></a>Solução 
+
+- Se a notificação de alteração de ficheiro não for utilizada, desative a notificação de alteração de ficheiros (preferida).
+    - [Desativar a notificação](https://support.microsoft.com/help/911272/fix-asp-net-2-0-connected-applications-on-a-web-site-may-appear-to-sto) de alteração de ficheiros atualizando a FCNMode. 
+    - Atualize o intervalo de votação do IIS Worker Process (W3WP) para 0, definindo `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` o seu registo e reinicie o processo W3WP. Para saber mais sobre esta definição, consulte [as teclas de registo comuns que são utilizadas por muitas partes do IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
+- Aumente a frequência do intervalo de votação da notificação de alteração de ficheiros para reduzir o volume.
+    - Atualize o intervalo de votação do processo do trabalhador W3WP para um valor mais elevado (por exemplo, 10 mins ou 30mins) com base na sua exigência. Desace no `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [seu registo](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) e reinicie o processo W3WP.
+- Se o diretório físico mapeado do seu site tiver uma estrutura de diretório aninhada, pode tentar limitar o âmbito da notificação de alteração de ficheiros para reduzir o volume de notificação.
+    - Por padrão, o IIS utiliza a configuração a partir de ficheiros Web.config no diretório físico para o qual o diretório virtual está mapeado, bem como em quaisquer diretórios infantis nesse diretório físico. Se não pretender utilizar ficheiros Web.config em diretórios infantis, especifique falso para o atributo allowSubDirConfig no diretório virtual. Mais detalhes podem ser encontrados [aqui.](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories) 
+
+Definir o diretório virtual do IIS "allowSubDirConfig" definindo Web.Config para falso para excluir do âmbito de aplicação os diretórios físicos de crianças mapeados.  
+
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Como criar um alerta se uma partilha de ficheiros for acelerada
 
 1. No portal Azure, vá à sua conta de armazenamento.
@@ -181,7 +229,7 @@ Maior do que o esperado, a latência acede às ações de ficheiros Azure para c
 1. Na lista de valores de **dimensão,** selecione **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST).
 
    > [!NOTE]
-   > Se não estiver listado nem o valor da dimensão **SuccessWithThrottlingError,** isto significa que o recurso não foi estrangulado. **ClientThrottlingError** Para adicionar o valor de dimensão, junto à lista de valores de **Dimensão,** selecione **Adicionar valor personalizado,** insira **SuccessWithThrottling** ou **ClientThrottlingError** , selecione **OK** e, em seguida, repita o passo 7.
+   > Se não estiver listado nem o valor da dimensão **SuccessWithThrottlingError,** isto significa que o recurso não foi estrangulado. **ClientThrottlingError** Para adicionar o valor de dimensão, junto à lista de valores de **Dimensão,** selecione **Adicionar valor personalizado,** insira **SuccessWithThrottling** ou **ClientThrottlingError**, selecione **OK** e, em seguida, repita o passo 7.
 
 1. Na lista de drop-down de **nome Dimension,** selecione **'Partilhar ficheiros'.**
 1. Na lista de valores de **Dimensão,** selecione a partilha de ficheiros ou as ações que pretende alertar.
@@ -194,7 +242,7 @@ Maior do que o esperado, a latência acede às ações de ficheiros Azure para c
     > [!TIP]
     > Se estiver a utilizar um limiar estático, o gráfico métrico pode ajudá-lo a determinar um valor limiar razoável se a parte do ficheiro estiver atualmente a ser estrangulada. Se estiver a utilizar um limiar dinâmico, o gráfico métrico apresenta os limiares calculados com base em dados recentes.
 
-1. **Selecione Select action group** , e, em seguida, adicione um grupo de ação (por exemplo, e-mail ou SMS) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+1. **Selecione Select action group**, e, em seguida, adicione um grupo de ação (por exemplo, e-mail ou SMS) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 1. Introduza os detalhes do alerta, tais como **o nome da regra de alerta,** **descrição** e **severidade**.
 1. Selecione **Criar a regra de alerta** para criar o alerta.
 
@@ -213,7 +261,7 @@ Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a 
 
 1. Rola para baixo. Na lista de drop-down de **nome Dimension,** selecione **'Partilhar ficheiros'.**
 1. Na lista de valores de **Dimensão,** selecione a partilha de ficheiros ou as ações que pretende alertar.
-1. Defina os parâmetros de alerta selecionando valores no **Operador** , **Valor limiar,** **granularidade agregação** e frequência das listas **de redução de avaliação** e, em seguida, selecione **Fazer**.
+1. Defina os parâmetros de alerta selecionando valores no **Operador**, **Valor limiar,** **granularidade agregação** e frequência das listas **de redução de avaliação** e, em seguida, selecione **Fazer**.
 
    As métricas de egress, entradas e transações são expressas por minuto, embora sejam agrestes, entradas e I/O por segundo. Portanto, por exemplo, se a sua saída a provisionada forisso de 90 &nbsp; mebibytes por segundo (MiB/s) e pretender que o seu limiar seja de 80% &nbsp; das saídas a provisionadas, selecione os seguintes parâmetros de alerta: 
    - Por **valor limiar:** *75497472* 
@@ -221,7 +269,7 @@ Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a 
    - Para **o tipo de agregação:** *média*
    
    Dependendo do quão barulhento quer que o seu alerta seja, também pode selecionar valores para **granularidade agregação** e **frequência de avaliação.** Por exemplo, se quiser que o seu alerta olhe para a entrada média durante o período de 1 hora, e deseja que a sua regra de alerta seja executada a cada hora, selecione o seguinte:
-   - Para **granularidade agregação** : *1 hora*
+   - Para **granularidade agregação**: *1 hora*
    - Para **frequência de avaliação:** *1 hora*
 
 1. **Selecione Selecione o grupo de ação** e, em seguida, adicione um grupo de ação (por exemplo, e-mail ou SMS) ao alerta, selecionando um grupo de ação existente ou criando um novo.
@@ -238,7 +286,7 @@ Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a 
 
 Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 - [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)  
 - [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)  
 - [FAQ sobre Ficheiros do Azure](storage-files-faq.md)

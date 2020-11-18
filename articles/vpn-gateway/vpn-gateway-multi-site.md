@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: 93916bb1eb92447da45ebae7ccb2e61c5af1dd9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 168bb9e06c73ec27ec1304813023889c9549b8e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441583"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660700"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Adicione uma ligação Site-a-Local a um VNet com uma ligação de gateway VPN existente (clássico)
 
@@ -49,7 +49,7 @@ Se já tiver um gateway estático ligado à sua rede virtual, pode alterar o tip
 
 Deve sentir-se confortável usando o ficheiro de configuração da rede quando tiver concluído o procedimento multi-site. No entanto, se tiver várias pessoas a trabalhar na sua configuração de rede, terá de se certificar de que todos sabem desta limitação. Isto não significa que não possas usar o portal. Pode usá-lo para tudo o resto, exceto fazer alterações de configuração nesta rede virtual em particular.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Antes de iniciar a configuração, verifique se tem o seguinte:
 
@@ -71,8 +71,8 @@ Se já tem uma VPN site-to-site com uma porta de encaminhamento dinâmica, ótim
 2. Configure o seu novo portal e crie o seu túnel VPN. Para obter instruções, consulte [o tipo SKU e VPN](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Certifique-se de que especifica o Tipo de Encaminhamento como 'Dinâmico'.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Se não tiver uma rede virtual site-to-site:
-1. Crie a sua rede virtual Site-to-Site utilizando estas instruções: [Criar uma Rede Virtual com uma Ligação VPN Site-to-Site](vpn-gateway-site-to-site-create.md).  
-2. Configure um gateway de encaminhamento dinâmico utilizando estas instruções: [Configure um Gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md). Certifique-se de que seleciona **o encaminhamento dinâmico** para o tipo gateway.
+1. Crie a sua rede virtual Site-to-Site utilizando estas instruções: [Criar uma Rede Virtual com uma Ligação VPN Site-to-Site](./vpn-gateway-howto-site-to-site-classic-portal.md).  
+2. Configure um gateway de encaminhamento dinâmico utilizando estas instruções: [Configure um Gateway VPN](./vpn-gateway-howto-site-to-site-classic-portal.md). Certifique-se de que seleciona **o encaminhamento dinâmico** para o tipo gateway.
 
 ## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. Exportar o ficheiro de configuração da rede
 
@@ -218,6 +218,6 @@ Devolução de exemplo:
     OperationStatus           : Succeeded
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre gateways VPN, consulte [Sobre gateways VPN.](vpn-gateway-about-vpngateways.md)

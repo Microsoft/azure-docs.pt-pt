@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.date: 05/06/2020
+ms.date: 11/16/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2a4740699d70601591645aa0d3183531a6687be6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3b32e7a1df0dbbf4d43a73f1e3e409a904ab88a3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324937"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660088"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Quickstart: Carregamento a granel com Sinapse SQL
 
@@ -39,7 +39,8 @@ Agora pode carregar facilmente dados de carga em massa usando piscinas SQL dedic
 
 ### <a name="steps"></a>Passos
 
-1. Selecione a conta de armazenamento e o ficheiro ou pasta que está a carregar no painel de localização de armazenamento Source: ![ Selecionando a localização da origem](./sql/media/bulk-load/bulk-load-source-location.png)
+1. Selecione a conta de armazenamento e o ficheiro ou pasta que está a carregar no painel de localização de armazenamento Source. O assistente tentará automaticamente detetar ficheiros Parquet. Se o tipo de ficheiro Parquet não puder ser confirmado, o texto delimitado (CSV) será utilizado por predefinição. 
+   ![Selecionando a localização da fonte](./sql/media/bulk-load/bulk-load-source-location.png)
 
 2. Selecione as definições do formato de ficheiro, incluindo a conta de armazenamento onde pretende escrever linhas rejeitadas (ficheiro de erro). Atualmente apenas os ficheiros CSV e Parquet são suportados.
 
@@ -47,13 +48,18 @@ Agora pode carregar facilmente dados de carga em massa usando piscinas SQL dedic
 
 3. Pode selecionar "Pré-visualizar dados" para ver como a declaração COPY irá analisar o ficheiro para o ajudar a configurar as definições do formato de ficheiro. Selecione "Preview data" sempre que alterar uma definição de formato de ficheiro para ver como a declaração COPY analisará o ficheiro com a definição atualizada: ![ Visualizar dados](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
+> [!NOTE]  
+>
+> - A pré-visualização dos dados com terminadores de campo de vários caracteres não é suporte no assistente de carga a granel. O assistente de carga em massa irá visualizar os dados numa única coluna quando for especificado um exterminador de campo de vários caracteres. 
+> - Especificar terminadores de linha de vários caracteres é suportado na declaração COPY; no entanto, isto não é suportado no assistente de carga a granel onde um erro será lançado.
+
 4. Selecione a piscina SQL dedicada que está a usar para carregar, incluindo se a carga será para uma mesa ou nova tabela existente: ![ Selecionando a localização do alvo](./sql/media/bulk-load/bulk-load-target-location.png)
 
-5. Selecione "Configure column mapping" para se certificar de que tem o mapeamento de coluna apropriado. Para novas tabelas, configurar o mapeamento da coluna é fundamental para atualizar os tipos de dados da coluna-alvo: ![ Configurar o mapeamento de colunas](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+5. Selecione "Configure column mapping" para se certificar de que tem o mapeamento de coluna apropriado. Os nomes das colunas de notas serão automaticamente detetados se "Infer column names" estiverem ativados. Para novas tabelas, configurar o mapeamento da coluna é fundamental para atualizar os tipos de dados da coluna-alvo: ![ Configurar o mapeamento de colunas](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
 
 6. Selecione "Open script" e um script T-SQL será gerado com a declaração COPY para carregar a partir do seu lago de dados: ![ Abrir o script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte o artigo [de declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax) para obter mais informações sobre as capacidades COPY
 - Consulte o artigo [da visão geral de carregamento de dados](./sql-data-warehouse/design-elt-data-loading.md#what-is-elt)

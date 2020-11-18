@@ -8,27 +8,25 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c7e8f0fc3a90a0811d38840004f7ae12a9a225ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef397eb67c1f60c14fb36bf455236d84b730f611
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708514"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659578"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Como fazer o back up e restaurar um servidor na Base de Dados Azure para PostgreSQL - Servidor Único usando o CLI Azure
 
 A base de dados Azure para servidores PostgreSQL é monitorizada periodicamente para permitir funcionalidades de Restauro. Utilizando esta funcionalidade, poderá restaurar o servidor e todas as suas bases de dados num ponto-a-tempo anterior, num novo servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para completar este guia, precisa:
-- Uma [base de dados Azure para servidor e base de dados PostgreSQL](quickstart-create-server-database-azure-cli.md)
+Para completar este guia:
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Precisa de uma [base de dados Azure para servidor e base de dados PostgreSQL](quickstart-create-server-database-azure-cli.md).
 
- 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Este guia de como fazer requer que utilize a versão 2.0 do Azure CLI ou posterior. Para confirmar a versão, no pedido de comando do Azure CLI, insira `az --version` . Para instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+ - Este artigo requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="set-backup-configuration"></a>Configuração de backup de definição
 
@@ -69,9 +67,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 O `az postgres server restore` comando requer os seguintes parâmetros:
 
-| Definição | Valor sugerido | Descrição  |
+| Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  O grupo de recursos onde existe o servidor de origem.  |
+| resource-group |  myResourceGroup |  O grupo de recursos onde existe o servidor de origem.  |
 | name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu próprio fuso horário local, como `2018-03-13T05:59:00-08:00` . Também pode utilizar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z` . |
 | source-server | mydemoserver | O nome ou ID do servidor de origem do qual pretende restaurar. |
@@ -109,7 +107,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 
 O `az postgres server georestore` comando requer os seguintes parâmetros:
 
-| Definição | Valor sugerido | Descrição  |
+| Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |resource-group| myResourceGroup | O nome do grupo de recursos a que o novo servidor pertencerá.|
 |name | mydemoserver-georestored | O nome do novo servidor. |
@@ -123,7 +121,7 @@ Após o fim do processo de restauro, localize o novo servidor e verifique se os 
 
 O novo servidor criado durante o restauro não tem as regras de firewall ou os pontos finais de serviço VNet que existiam no servidor original. Estas regras têm de ser configuradas separadamente para este novo servidor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre as [cópias](concepts-backup.md) de segurança do serviço
 - Saiba mais [sobre réplicas](concepts-read-replicas.md)
 - Saiba mais sobre opções [de continuidade de negócios](concepts-business-continuity.md)

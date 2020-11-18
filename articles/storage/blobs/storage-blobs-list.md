@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ebf383c1a904027d3ff5a1864ea9f50e87a5fa8
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0bd2b295e5e4d4d5ea6e25869c8c109ff8bbbf38
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093298"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660768"
 ---
 # <a name="list-blobs-with-net"></a>Lista de bolhas com .NET
 
@@ -51,11 +51,7 @@ As sobrecargas para estes métodos fornecem opções adicionais para gerir a for
 
 ### <a name="manage-how-many-results-are-returned"></a>Gerir quantos resultados são devolvidos
 
-Por predefinição, uma operação de listagem retorna até 5000 resultados de cada vez, mas pode especificar o número de resultados que deseja que cada operação de listagem devolva. Os exemplos apresentados neste artigo mostram-lhe como fazê-lo.
-
-Se uma operação de listagem devolver mais de 5000 blobs, ou se o número de bolhas disponíveis exceder o número especificado, então o Azure Storage devolve um sinal de *continuação* com a lista de bolhas. Um token de continuação é um valor opaco que pode usar para recuperar o próximo conjunto de resultados do Azure Storage.
-
-No seu código, verifique o valor da ficha de continuação para determinar se é nulo. Quando o token de continuação é nulo, então o conjunto de resultados está completo. Se o token de continuação não for nulo, então ligue novamente para a operação de listagem, passando na ficha de continuação para recuperar o próximo conjunto de resultados, até que o token de continuação seja nulo.
+Por predefinição, uma operação de listagem retorna até 5000 resultados de cada vez, mas pode especificar o número de resultados que deseja que cada operação de listagem devolva. Os exemplos apresentados neste artigo mostram-lhe como devolver os resultados em páginas.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrar os resultados com um prefixo
 
@@ -63,7 +59,7 @@ Para filtrar a lista de bolhas, especifique uma corda para o `prefix` parâmetro
 
 ### <a name="return-metadata"></a>Metadados de devolução
 
-Pode devolver metadados blob com os resultados. 
+Pode devolver metadados blob com os resultados.
 
 - Se estiver a utilizar o .NET v12 SDK, especifique o valor **dos metadados** para a enumeração [blobTraits.](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits)
 
@@ -90,6 +86,10 @@ Se ativou a funcionalidade de espaço hierárquico na sua conta, os diretórios 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+Se uma operação de listagem devolver mais de 5000 blobs, ou se o número de bolhas disponíveis exceder o número especificado, então o Azure Storage devolve um sinal de *continuação* com a lista de bolhas. Um token de continuação é um valor opaco que pode usar para recuperar o próximo conjunto de resultados do Azure Storage.
+
+No seu código, verifique o valor da ficha de continuação para determinar se é nulo. Quando o token de continuação é nulo, então o conjunto de resultados está completo. Se o token de continuação não for nulo, então ligue novamente para a operação de listagem, passando na ficha de continuação para recuperar o próximo conjunto de resultados, até que o token de continuação seja nulo.
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
@@ -244,7 +244,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Blobs de lista](/rest/api/storageservices/list-blobs)
 - [Enumerando recursos blob](/rest/api/storageservices/enumerating-blob-resources)

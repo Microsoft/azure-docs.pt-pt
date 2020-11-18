@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 478f3454a728871040cdbbf9f817394cffe6b82f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89071725"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660258"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Quickstart: Implementar firewall Azure com Zonas de Disponibilidade - modelo ARM
 
@@ -21,7 +21,7 @@ Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-O modelo cria um ambiente de rede de teste com uma firewall. A rede tem uma rede virtual (VNet) com três sub-redes: *AzureFirewallSubnet,* *ServersSubnet*e *JumpboxSubnet*. A *sub-rede ServersSubnet* e *JumpboxSubnet* tem uma única máquina virtual do Windows Server de dois núcleos.
+O modelo cria um ambiente de rede de teste com uma firewall. A rede tem uma rede virtual (VNet) com três sub-redes: *AzureFirewallSubnet,* *ServersSubnet* e *JumpboxSubnet*. A *sub-rede ServersSubnet* e *JumpboxSubnet* tem uma única máquina virtual do Windows Server de dois núcleos.
 
 A firewall está na sub-rede *AzureFirewallSubnet,* e tem uma coleção de regras de aplicação com uma única regra que permite o acesso a `www.microsoft.com` .
 
@@ -78,7 +78,7 @@ Explore os recursos que foram criados com a firewall.
 
 Para saber mais sobre a sintaxe JSON e propriedades para uma firewall num modelo, consulte [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar, pode remover o grupo de recursos, firewall e todos os recursos relacionados executando o `Remove-AzResourceGroup` comando PowerShell. Para remover um grupo de recursos chamado *MyResourceGroup,* corra:
 
@@ -88,9 +88,9 @@ Remove-AzResourceGroup -Name MyResourceGroup
 
 Não remova o grupo de recursos e firewall se pretender continuar para o tutorial de monitorização da firewall. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, pode monitorizar os registos do Azure Firewall.
 
 > [!div class="nextstepaction"]
-> [Tutorial: monitorizar registos do Azure Firewall](tutorial-diagnostics.md)
+> [Tutorial: monitorizar registos do Azure Firewall](./firewall-diagnostics.md)

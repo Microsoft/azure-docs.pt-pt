@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: guybo
-ms.openlocfilehash: 80272896bd314a1f5f05094afa83568e077ab480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d4d055c0cd20d1b9598c408753334458d709276
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87368205"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660632"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Prepare um VHD Debian para Azure
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -58,7 +58,7 @@ Existem ferramentas disponíveis para gerar VHDs Debian para Azure, como os scri
     # sudo update-grub
     ```
 
-6. Adicione os repositórios Azure de Debian a /etc/apt/sources.list para debian 8 ou 9:
+6. Adicione os repositórios Azure de Debian a /etc/apt/sources.list para debian 8, 9 ou 10:
 
     **Debian 8.x "Jessie"**
 
@@ -85,7 +85,18 @@ Existem ferramentas disponíveis para gerar VHDs Debian para Azure, como os scri
     deb http://debian-archive.trafficmanager.net/debian stretch-backports main
     deb-src http://debian-archive.trafficmanager.net/debian stretch-backports main
     ```
-
+    
+    **Debian 10.x "Buster"**
+    ```config-grub
+    deb http://debian-archive.trafficmanager.net/debian buster main
+    deb-src http://debian-archive.trafficmanager.net/debian buster main
+    deb http://debian-archive.trafficmanager.net/debian-security buster/updates main
+    deb-src http://debian-archive.trafficmanager.net/debian-security buster/updates main
+    deb http://debian-archive.trafficmanager.net/debian buster-updates main
+    deb-src http://debian-archive.trafficmanager.net/debian buster-updates main
+    deb http://debian-archive.trafficmanager.net/debian buster-backports main
+    deb-src http://debian-archive.trafficmanager.net/debian buster-backports main
+    ```
 
 7. Instale o agente Azure Linux:
 
@@ -114,5 +125,5 @@ Existem ferramentas disponíveis para gerar VHDs Debian para Azure, como os scri
 
 10. Clique em **Ação** -> Desligar em Hyper-V Manager. O seu VHD Linux está agora pronto para ser enviado para Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Está agora pronto para usar o seu disco rígido virtual Debian para criar novas máquinas virtuais em Azure. Se esta for a primeira vez que está a enviar o ficheiro .vhd para a Azure, consulte [Create a Linux VM a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: victorh
-ms.openlocfilehash: a0333f9afa69b533ac28dc302987e6d057bfeeb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69890e2d846a63a70c1b7459b1df13ce5e891289
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090164"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659476"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Registos e métricas do Azure Firewall
 
@@ -171,8 +171,8 @@ As seguintes métricas estão disponíveis para Azure Firewall:
    Quando adiciona mais IPs públicos à firewall, estão disponíveis mais portas SNAT, o que reduz a utilização das portas SNAT. Além do mais, quando a firewall aumenta horizontalmente por diferentes motivos (por exemplo, devido à CPU ou ao débito), também ficam disponíveis portas SNAT adicionais. Assim, efetivamente, uma dada percentagem de utilização das portas SNAT pode diminuir sem que você adicione quaisquer endereços IP públicos, apenas porque o serviço escalou para fora. Pode controlar diretamente o número de endereços IP públicos disponíveis para aumentar as portas disponíveis na sua firewall. Mas não se pode controlar diretamente a escala de firewall.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Para aprender a monitorizar registos e métricas do Azure Firewall, consulte [Tutorial: Monitor Azure Firewall .](tutorial-diagnostics.md)
+- Para aprender a monitorizar registos e métricas do Azure Firewall, consulte [Tutorial: Monitor Azure Firewall .](./firewall-diagnostics.md)
 
 - Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).

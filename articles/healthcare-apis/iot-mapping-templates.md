@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 63484361a6d5a331fd9dc646c53627918ce8b246
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: f348a8d8755402d6426f19eabc432f54e3fb8e42
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630554"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659663"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelos de mapeamento do Conector IoT do Azure para o FHIR (pré-visualização)
 Este artigo detalha como configurar o Conector Azure IoT para Recursos de Interoperabilidade de Cuidados rápidos de Saúde (FHIR&#174;)* utilizando modelos de mapeamento.
@@ -60,7 +60,7 @@ A carga útil do conteúdo em si é uma mensagem Azure Event Hub, que é compost
 ```
 
 ### <a name="mapping-with-json-path"></a>Mapeamento com percurso JSON
-Os dois tipos de modelo de conteúdo de dispositivo suportados hoje em dia dependem do Caminho JSON para ambos corresponderem ao modelo necessário e aos valores extraídos. Mais informações sobre o Caminho JSON podem ser [encontradas aqui.](https://goessner.net/articles/JsonPath/) Ambos os tipos de modelo utilizam a [implementação JSON .NET](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) para resolver expressões do Caminho JSON.
+Os três tipos de modelo de conteúdo de dispositivo suportados hoje em dia dependem do Caminho JSON para ambos corresponderem ao modelo necessário e aos valores extraídos. Mais informações sobre o Caminho JSON podem ser [encontradas aqui.](https://goessner.net/articles/JsonPath/) Todos os três tipos de modelo utilizam a [implementação JSON .NET](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) para resolver expressões do Caminho JSON.
 
 #### <a name="jsonpathcontenttemplate"></a>JsonPathContentTemplate
 O JsonPathContentTemplate permite a correspondência e extração de valores a partir de uma mensagem do Event Hub utilizando o Caminho JSON.
@@ -71,8 +71,8 @@ O JsonPathContentTemplate permite a correspondência e extração de valores a p
 |**TipoMatchExpression**|A expressão JSON Path que é avaliada contra a carga útil do Event Hub. Se for encontrado um JToken correspondente, o modelo é considerado um fósforo. Todas as expressões subsequentes são avaliadas contra o JToken extraído aqui.|`$..[?(@heartRate)]`
 |**TempotampExpressão**|A expressão JSON Path para extrair o valor da estada de tempo para o OccurenceTimeUtc da medição.|`$.endDate`
 |**DeviceIdExpression**|A expressão JSON Path para extrair o identificador do dispositivo.|`$.deviceId`
-|**PatientIdExpression**|*Opcional* : A expressão do Caminho JSON para extrair o identificador do paciente.|`$.patientId`
-|**EncounterIdExpression**|*Opcional* : A expressão do Caminho JSON para extrair o identificador de encontro.|`$.encounterId`
+|**PatientIdExpression**|*Opcional*: A expressão do Caminho JSON para extrair o identificador do paciente.|`$.patientId`
+|**EncounterIdExpression**|*Opcional*: A expressão do Caminho JSON para extrair o identificador de encontro.|`$.encounterId`
 |**Valores[]. ValorName**|O nome para associar ao valor extraído pela expressão subsequente. Utilizado para ligar o valor/componente necessário no modelo de mapeamento FHIR. |`hr`
 |**Valores[]. ValueExpression**|A expressão JSON Path para extrair o valor exigido.|`$.heartRate`
 |**Valores[]. Necessário**|Exigirá que o valor esteja presente na carga útil.  Se não for encontrada, não será gerada uma medição e será lançada uma InvalidOperationException.|`true`
@@ -251,10 +251,12 @@ O JsonPathContentTemplate permite a correspondência e extração de valores a p
     }
 }
 ```
+
 #### <a name="iotjsonpathcontenttemplate"></a>IotJsonPathContentTemplate
+
 O IotJsonPathContentTemplate é semelhante ao JsonPathContentTemplate, exceto que a DeviceIdExpression e a TimetampExpression não são necessárias.
 
-A suposição ao utilizar este modelo é que as mensagens que estão a ser avaliadas foram enviadas utilizando os [SDKs do Dispositivo hub Azure IoT](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks). Ao utilizar estes SDKs, a identidade do dispositivo (assumindo que o identificador do dispositivo do Azure Iot Hub/Central está registado como um identificador para um recurso do dispositivo no servidor FHIR de destino) e o tempotadeiro da mensagem são conhecidos. Se estiver a utilizar SDKs de dispositivos Azure IoT Hub, mas estiver a utilizar propriedades personalizadas no corpo da mensagem para a identidade do dispositivo ou o tempo de medição, ainda pode utilizar o JsonPathContentTemplate.
+O pressuposto de que ao utilizar este modelo as mensagens que estão a ser avaliadas foram enviadas utilizando a funcionalidade [Azure IoT Hub Device SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) ou  [export data (legado)](../iot-central/core/howto-export-data-legacy.md) da [Azure IoT Central](../iot-central/core/overview-iot-central.md). Ao utilizar estes SDKs, a identidade do dispositivo (assumindo que o identificador do dispositivo do Azure Iot Hub/Central está registado como um identificador para um recurso do dispositivo no servidor FHIR de destino) e o tempotadeiro da mensagem são conhecidos. Se estiver a utilizar SDKs de dispositivos Azure IoT Hub, mas estiver a utilizar propriedades personalizadas no corpo da mensagem para a identidade do dispositivo ou o tempo de medição, ainda pode utilizar o JsonPathContentTemplate.
 
 *Nota: Ao utilizar o IotJsonPathContentTemplate, a EspécieMatchExpression deve resolver-se com toda a mensagem como JToken. Veja os exemplos abaixo.* 
 ##### <a name="examples"></a>Exemplos
@@ -329,6 +331,101 @@ A suposição ao utilizar este modelo é que as mensagens que estão a ser avali
             "valueName": "diastolic"
         }
     ]
+}
+```
+
+#### <a name="iotcentraljsonpathcontenttemplate"></a>IotCentralJsonPathContentTemplate
+
+O IotCentralJsonPathContentTemplate também não requer DeviceIdExpression e TimestampExpression, e utilizado quando as mensagens que estão a ser avaliadas são enviadas através da funcionalidade [de Dados](../iot-central/core/howto-export-data.md) de Exportação da [Azure IoT Central.](../iot-central/core/overview-iot-central.md) Ao utilizar esta funcionalidade, a identidade do dispositivo (assumindo que o identificador do dispositivo da Azure Iot Central está registado como um identificador para um recurso do dispositivo no servidor FHIR de destino) e o tempo de marcação da mensagem são conhecidos. Se estiver a utilizar a funcionalidade de Exportação de Dados da Azure IoT Central, mas estiver a utilizar propriedades personalizadas no corpo da mensagem para a identidade do dispositivo ou o tempo de medição, ainda pode utilizar o JsonPathContentTemplate.
+
+*Nota: Ao utilizar o IotCentralJsonPathContentTemplate, a EspécieMatchExpression deve resolver-se com toda a mensagem como JToken. Veja os exemplos abaixo.* 
+##### <a name="examples"></a>Exemplos
+---
+**Frequência cardíaca**
+
+*Mensagem*
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "HeartRate": "88",
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*Modelo*
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@telemetry.HeartRate)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.HeartRate",
+                "valueName": "hr"
+            }
+        ]
+    }
+}
+```
+---
+**Tensão arterial**
+
+*Mensagem*
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "BloodPressure": {
+            "Diastolic": "87",
+            "Systolic": "123"
+        }
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*Modelo*
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "bloodPressure",
+        "typeMatchExpression": "$..[?(@telemetry.BloodPressure.Diastolic && @telemetry.BloodPressure.Systolic)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Diastolic",
+                "valueName": "bp_diastolic"
+            },
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Systolic",
+                "valueName": "bp_systolic"
+            }
+        ]
+    }
 }
 ```
 
@@ -560,7 +657,7 @@ Representa o tipo de dados [CodeableConcept](http://hl7.org/fhir/datatypes.html#
 ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Confira perguntas frequentes sobre O Conector Azure IoT para FHIR (pré-visualização).
 

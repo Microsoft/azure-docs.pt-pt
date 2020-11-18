@@ -3,18 +3,18 @@ title: FAQ - Fazer a cópia de segurança de bases de dados SAP HANA nas VMs do 
 description: Neste artigo, descubra respostas a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d6012ec064b5ec582896ac3484161a6e25f2bf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86513511"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659969"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes - Apoiar bases de dados SAP HANA em VMs Azure
 
 Este artigo responde a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
 ### <a name="how-many-full-backups-are-supported-per-day"></a>Quantos reforços completos são suportados por dia?
 
@@ -22,7 +22,7 @@ Apoiamos apenas um reforço completo por dia. Não podes ter apoio diferencial e
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>As tarefas de cópia de segurança bem-sucedida criam alertas?
 
-N.º Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](./backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [o Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](./backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [o Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de reserva agendados no menu Backup Jobs?
 
@@ -61,7 +61,7 @@ Atualmente não temos a capacidade de configurar a solução apenas contra um IP
 
 1. Aguarde que a cópia de segurança atualmente em execução esteja concluída na base de dados desejada (verifique a partir do estúdio para conclusão).
 1. Desative as cópias de segurança de registo e descreva a cópia de segurança do catálogo para o **Ficheiro** para o DB pretendido utilizando os seguintes passos:
-1. Configuração de duplo clique **SYSTEMDB**  ->  **configuration**  ->  **Selecione**filtro de base de dados  ->  **(log)**
+1. Configuração de duplo clique **SYSTEMDB**  ->  **configuration**  ->  **Selecione** filtro de base de dados  ->  **(log)**
     1. Definir enable_auto_log_backup para **não**
     1. Definir catalog_backup_using_backint a **falso**
 1. Pegue uma cópia de segurança a pedido (completa/diferencial/ incremental) na base de dados desejada e aguarde a conclusão da cópia de segurança e do catálogo.
@@ -125,6 +125,43 @@ Consulte a Nota [HANA 1642148](https://launchpad.support.sap.com/#/notes/1642148
 
 Sim, pode utilizar cópias de segurança de streaming ativadas numa base de dados HANA em funcionamento no SLES para restaurar para um sistema RHEL HANA e vice-versa. Ou seja, a restauração do sistema operativo transversal é possível utilizando cópias de segurança de streaming. No entanto, terá de garantir que o sistema HANA a que pretende restaurar, e o sistema HANA utilizado para restauro, são ambos compatíveis para restauro de acordo com o SAP. Consulte a Nota [HANA 1642148](https://launchpad.support.sap.com/#/notes/1642148) para ver quais os tipos de restauro compatíveis.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="policy"></a>Política
+
+### <a name="different-options-available-during-creation-of-a-new-policy-for-sap-hana-backup"></a>Diferentes opções disponíveis durante a criação de uma nova política para o backup SAP HANA
+
+Antes de se criar uma política, deve ser claro sobre os requisitos da RPO e da RTO e as suas implicações de custos relevantes.
+
+O RPO (objetivo de recuperação- ponto de recuperação) indica quanto é que a perda de dados é OK para o utilizador/cliente. Isto é determinado pela frequência de reserva de registo. As cópias de segurança de registo mais frequentes indicam um RPO mais baixo e o valor mínimo suportado pelo serviço Azure Backup é de 15 minutos, ou seja, a frequência de backup de registo pode ser de 15 minutos ou mais.
+
+O RTO (objetivo do tempo de recuperação) indica a rapidez com que os dados devem ser restaurados até ao último ponto de tempo disponível após um cenário de perda de dados. Isto depende da estratégia de recuperação utilizada pela HANA, que normalmente depende do número de ficheiros necessários para ser restaurado. Isto também tem implicações de custos e a tabela a seguir deverá ajudar a compreender todos os cenários e as suas implicações.
+
+|Política de Backup  |RTO  |Custo  |
+|---------|---------|---------|
+|Diário Full + registos     |   Mais rápido já que precisamos apenas de uma cópia completa + registos necessários para restauro pontual      |    A opção mais dispendiosa uma vez que uma cópia completa é tomada diariamente e assim cada vez mais dados são acumulados em backend até ao tempo de retenção   |
+|SemanalMente Full + diferencial diário + registos     |   Opção mais lenta do que acima, mas mais rápida do que abaixo, uma vez que exigimos uma cópia completa + uma cópia diferencial + registos para restauro pontual      |    Opção mais barata uma vez que o diferencial diário é geralmente menor do que cheio e uma cópia completa é tomada apenas uma vez por semana      |
+|SemanalMente Full + diário incremental + logs     |  Mais lento já que precisamos de uma cópia completa + 'n' incrementais + registos para recuperação pontual       |     Opção menos dispendiosa uma vez que o incremental diário será menor do que o diferencial e uma cópia completa é tomada apenas semanalmente    |
+
+> [!NOTE]
+> As opções acima são as mais comuns, mas não as únicas opções. Por exemplo, pode-se ter uma cópia de segurança completa semanal + diferenciais duas vezes por semana + registos.
+
+Por conseguinte, pode-se selecionar a variante política com base nos objetivos de RPO e RTO e em considerações de custos.
+
+### <a name="impact-of-modifying-a-policy"></a>Impacto da modificação de uma política
+
+Alguns princípios devem ser mantidos em mente ao mesmo tempo que se determinam o impacto da mudança da política de um item de reserva da Política 1 (P1) para a Política 2 (P2) ou da política de edição 1 (P1).
+
+- Todas as alterações são também aplicadas retroativamente. A última política de backup é aplicada também nos pontos de recuperação tomados anteriormente. Por exemplo, assumam que a retenção diária total é de 30 dias e foram tomados 10 pontos de recuperação de acordo com a política atualmente ativa. Se a retenção diária da totalidade for alterada para 10 dias, então o prazo de validade do ponto anterior também é recalculado como hora de início + 10 dias e eliminado se estiverem expirados.
+- O âmbito de mudança também inclui dia de backup, tipo de backup juntamente com a retenção. Por exemplo: Se uma política for alterada de diariamente para se manter completa aos domingos, todos os ofustados anteriores que não são aos domingos serão marcados para supressão.
+- Um progenitor não é apagado até que a criança esteja ativa/não expirada. Cada tipo de backup tem um tempo de validade de acordo com a política atualmente ativa. Mas um tipo completo de backup é considerado como pai para subsequentes 'diferenciais', 'incrementais' e 'logs'. Um "diferencial" e um "log" não são pais de mais ninguém. Um 'incremental' pode ser um pai para subsequente 'incremental'. Mesmo que um «progenitor» esteja marcado para a supressão, não são efetivamente eliminados se os "diferenciais" ou "registos" da criança não estiverem caducados. Por exemplo, se uma política for alterada de diariamente para se manter completa aos domingos, todos os mais cedo que não são aos domingos serão marcados para supressão. Mas não são efetivamente apagados até que os registos que foram tomados diariamente mais cedo sejam expirados. Por outras palavras, são conservados de acordo com a duração mais recente do registo. Uma vez expiradas as registos, tanto os registos como estes fulls serão eliminados.
+
+Com estes princípios, pode ler-se a seguinte tabela para compreender as implicações de uma mudança de política.
+
+|Velha política/Nova Política  |Daily Fulls + registos  | Fulls semanais + diferenciais diários + troncos  |Fulls semanais + incrementais diários + troncos  |
+|---------|---------|---------|---------|
+|Daily Fulls + registos     |   -      |    Os ofícios anteriores que não estão no mesmo dia da semana estão marcados para eliminação, mas mantidos até ao período de retenção de registos     |    Os ofícios anteriores que não estão no mesmo dia da semana estão marcados para eliminação, mas mantidos até ao período de retenção de registos     |
+|Fulls semanais + diferenciais diários + troncos     |   A retenção semanal anterior é recalculada de acordo com a política mais recente. Os diferenciais anteriores são imediatamente eliminados      |    -     |    Os diferenciais anteriores são imediatamente eliminados     |
+|Fulls semanais + incrementais diários + troncos     |     A retenção semanal anterior é recalculada de acordo com a política mais recente. Os incrementos anteriores são imediatamente eliminados    |     Os incrementos anteriores são imediatamente eliminados    |    -     |
+
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [fazer o back bases de dados SAP HANA](./backup-azure-sap-hana-database.md) em funcionamento em VMs Azure.

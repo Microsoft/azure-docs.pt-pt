@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: 6daed4f5f1871d76da707edec00010cd27dfa8db
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e9757b94330f889869080a0e961ab2728cee86f6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142328"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659935"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Criar um hub IoT utilizando o Azure CLI
 
@@ -20,23 +20,9 @@ ms.locfileid: "92142328"
 
 Este artigo mostra-lhe como criar um hub IoT usando Azure CLI.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Para completar este como fazer, precisa de uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="sign-in-and-set-your-azure-account"></a>Inscreva-se e descreva a sua conta Azure
-
-Se estiver a executar o Azure CLI localmente em vez de utilizar a Cloud Shell, tem de iniciar scontabilidade na sua conta Azure.
-
-Na linha de comandos, execute o [comando login](/cli/azure/get-started-with-azure-cli):
-
-   ```azurecli
-   az login
-   ```
-
-Siga as instruções para se autenticar com o código e inicie sessão na sua conta do Azure através de um browser.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="create-an-iot-hub"></a>Criar um Hub IoT
 
@@ -85,7 +71,7 @@ Para [eliminar um grupo de recursos](/cli/azure/group#az-group-delete) e todos o
 az group delete --name {your resource group name}
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a utilização de um hub IoT, consulte os seguintes artigos:
 

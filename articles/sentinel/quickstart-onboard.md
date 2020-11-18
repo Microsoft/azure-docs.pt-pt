@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: b33f3e58f82d52e77437c29f7e5219926b2578c3
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 21e0cfd56a37304d1ec333f8713894504282541f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106982"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660666"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Início Rápido: Integração do Azure Sentinel
 
@@ -32,7 +32,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros cri
 
 - Subscrição Ative Azure, se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-- Log Analytics espaço de trabalho. Saiba como [criar um espaço de trabalho Log Analytics.](../log-analytics/log-analytics-quick-create-workspace.md) Para obter mais informações sobre os espaços de trabalho do Log Analytics, consulte a conceção da sua implementação de [Registos de Monitores Azure.](../azure-monitor/platform/design-logs-deployment.md)
+- Log Analytics espaço de trabalho. Saiba como [criar um espaço de trabalho Log Analytics.](../azure-monitor/learn/quick-create-workspace.md) Para obter mais informações sobre os espaços de trabalho do Log Analytics, consulte a conceção da sua implementação de [Registos de Monitores Azure.](../azure-monitor/platform/design-logs-deployment.md)
 
 - Para ativar o Azure Sentinel, precisa de permissões de colaboradores para a subscrição em que reside o espaço de trabalho Azure Sentinel. 
 - Para utilizar o Azure Sentinel, precisa de permissões de colaborador ou leitor no grupo de recursos a que pertence o espaço de trabalho.
@@ -47,7 +47,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros cri
 
     | Geografia do espaço de trabalho | Geografia de dados gerada por Azure Sentinel |
     | --- | --- |
-    | Estados Unidos<br>Índia<br>Brasil<br>África<br>Coreia | Estados Unidos |
+    | Estados Unidos da América<br>Índia<br>Brasil<br>África<br>Coreia | Estados Unidos da América |
     | Europa<br>França<br>Suíça | Europa |
     | Austrália | Austrália |
     | Reino Unido | Reino Unido |
@@ -57,7 +57,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros cri
 
 ## <a name="enable-azure-sentinel"></a>Ativar sentinela Azure <a name="enable"></a>
 
-1. Inicie sessão no Portal do Azure. Certifique-se de que a subscrição na qual o Azure Sentinel é criado está selecionada.
+1. Inicie sessão no portal do Azure. Certifique-se de que a subscrição na qual o Azure Sentinel é criado está selecionada.
 
 1. Procure e selecione **Azure Sentinel.**
 
@@ -96,7 +96,7 @@ Por exemplo, se selecionar a fonte de dados do **Azure Ative Directory,** que pe
 
 Depois de as suas fontes de dados estarem ligadas, os seus dados começam a fluir para o Azure Sentinel e estão prontos para começar a trabalhar. Pode ver os registos nos [livros incorporados](quickstart-get-visibility.md) e começar a criar consultas no Log Analytics para [investigar os dados.](tutorial-investigate-cases.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu sobre o embarque e a ligação de fontes de dados ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

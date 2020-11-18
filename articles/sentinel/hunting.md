@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: cceeb1fc9715dfd7b1ac714c424421c51d292757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca483d993290e4d66ba257d4cb5de7fc3c952405
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85552289"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660836"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Caça às ameaças com Azure Sentinel
 
@@ -66,7 +66,7 @@ Com a caça do Azure Sentinel, pode aproveitar as seguintes capacidades:
 
 ## <a name="query-language"></a>Linguagem da consulta 
 
-A caça em Azure Sentinel é baseada na linguagem de consulta kusto. Para obter mais informações sobre a língua de consulta e os operadores apoiados, consulte [Referência linguística de consulta.](/azure/azure-monitor/log-query/get-started-queries)
+A caça em Azure Sentinel é baseada na linguagem de consulta kusto. Para obter mais informações sobre a língua de consulta e os operadores apoiados, consulte [Referência linguística de consulta.](../azure-monitor/log-query/get-started-queries.md)
 
 ## <a name="public-hunting-query-github-repository"></a>Consulta pública de caça GitHub repositório
 
@@ -138,7 +138,7 @@ Clone e modifique uma consulta de caça existente:
 
    ![consulta personalizada](./media/tutorial-hunting/custom-query.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, aprendeu a dirigir uma investigação de caça com Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 
 

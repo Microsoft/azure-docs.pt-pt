@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fc2f9e5408dd760b48fc63c4021230446fe40de9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3a96a7116c83bf9ea2c3798c335c6cefcbdbc36d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542323"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659493"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Boas práticas de gestão de clusters HDInsight
 
@@ -49,7 +49,7 @@ Aprenda as melhores práticas para gerir clusters HDInsight.
 
 | Erro | Mais informações |
 |---|---|
-| Sem quota | Existem quotas para o número de quotas que pode criar na sua subscrição em cada região. Para mais informações, consulte [o planeamento da capacidade: quotas.](./hdinsight-capacity-planning.md) |
+| Sem quota | Existem quotas para o número de núcleos que pode criar na sua subscrição em cada região. Para mais informações, consulte [o planeamento da capacidade: quotas.](./hdinsight-capacity-planning.md) |
 | Não há mais endereços IP disponíveis | Cada VNet tem um número limitado de endereços IP. Quando cria um cluster HDInsight, cada nó (incluindo zookeeper e nó de gateway) utiliza alguns destes endereços IP atribuídos. Quando todos os endereços IP estiverem a ser utilizados, irá encontrar este erro.  |
 | As regras do grupo de segurança de rede (NSG) não permitem a comunicação com fornecedores de recursos HDInsight | Se utilizar NSGs ou rotas definidas pelo utilizador (UDRs) para controlar o tráfego de entrada no seu cluster HDInsight, deve certificar-se de que o seu cluster pode comunicar com serviços críticos de saúde e gestão da Azure. Para obter mais informações, consulte as etiquetas de [serviço do Grupo de Segurança da Rede (NSG) para Azure HDInsight](./hdinsight-service-tags.md) |
 | Reutilização do nome do cluster | Quando utilizar um nome de cluster que já utilizou antes, tem de esperar x número de minutos antes de recriar o cluster. Caso contrário, verá uma mensagem de que o recurso já existe. |
@@ -76,7 +76,7 @@ AzureActivity
 | where ResourceProvider == "Microsoft.HDInsight" and (OperationName == "Create or Update Cluster" or OperationName == "Delete Cluster") and ActivityStatus == "Succeeded"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Planeamento da capacidade para clusters do HDInsight](./hdinsight-capacity-planning.md)
 * [Quais são as configurações de nó padrão e recomendadas para Azure HDInsight?](./hdinsight-supported-node-configuration.md)

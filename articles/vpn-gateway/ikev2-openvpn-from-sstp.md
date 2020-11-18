@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: c7f71d24ab516044a0ce48ad40f78bc659268866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59aa6f5560917651d8f60c667145b0953bf72ef5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442179"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660870"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transição para protocolo OpenVPN ou IKEv2 da SSTP
 
@@ -58,9 +58,9 @@ Pode ativar o OpenVPN juntamente com o IKEv2, se desejar. OpenVPN é baseado em 
 
 ![ponto a local](./media/ikev2-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
 
-Uma vez configurado o gateway, os clientes existentes não poderão ligar-se até [que implemente e configure os Clientes OpenVPN.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients)
+Uma vez configurado o gateway, os clientes existentes não poderão ligar-se até [que implemente e configure os Clientes OpenVPN.](./vpn-gateway-howto-openvpn-clients.md)
 
-Se estiver a utilizar o Windows 10, também pode utilizar o [Cliente Azure VPN para windows](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
+Se estiver a utilizar o Windows 10, também pode utilizar o [Cliente Azure VPN para windows](./openvpn-azure-ad-client.md#to-download-the-azure-vpn-client)
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
@@ -160,7 +160,7 @@ Uma configuração P2S requer alguns passos específicos. Os seguintes artigos c
 
 * [Configurar o OpenVPN](vpn-gateway-howto-openvpn.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configure uma ligação P2S - autenticação RADIUS](point-to-site-how-to-radius-ps.md)
 

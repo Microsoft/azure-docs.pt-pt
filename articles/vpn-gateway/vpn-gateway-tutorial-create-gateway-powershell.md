@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 91004b9cb545275746f75dbd6ad46981fe4b04d5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b70a3fe4884ef209e57fbb954c27aa83486b5c98
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461163"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661006"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Criar e gerir uma porta de entrada VPN usando o PowerShell
 
@@ -133,7 +133,7 @@ Depois de concluída a criação do gateway, pode criar uma ligação entre a re
 
 ## <a name="view-the-gateway-public-ip-address"></a>Ver o endereço IP público gateway
 
-Se souber o nome do endereço IP público, utilize o [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) para mostrar o endereço IP público atribuído ao gateway.
+Se souber o nome do endereço IP público, utilize o [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para mostrar o endereço IP público atribuído ao gateway.
 
 Se a sua sessão tiver esgotado, copie os parâmetros comuns da rede desde o início deste tutorial para a sua nova sessão e prossiga, em seguida, proceda.
 
@@ -162,11 +162,11 @@ $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 ```
 
-Para obter mais informações, veja [Repor um gateway de VPN](vpn-gateway-resetgw-classic.md).
+Para obter mais informações, veja [Repor um gateway de VPN](./reset-gateway.md).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se está a avançar para o [próximo tutorial,](vpn-gateway-tutorial-vpnconnection-powershell.md)vai querer manter estes recursos porque são os pré-requisitos.
+Se está a avançar para o [próximo tutorial,](./vpn-gateway-create-site-to-site-rm-powershell.md)vai querer manter estes recursos porque são os pré-requisitos.
 
 No entanto, se o gateway fizer parte de um protótipo, teste ou implementação de prova de conceito, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o gateway VPN e todos os recursos relacionados.
 
@@ -174,7 +174,7 @@ No entanto, se o gateway fizer parte de um protótipo, teste ou implementação 
 Remove-AzResourceGroup -Name $RG1
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu sobre a criação e gestão básicas do gateway de VPN, como, por exemplo:
 

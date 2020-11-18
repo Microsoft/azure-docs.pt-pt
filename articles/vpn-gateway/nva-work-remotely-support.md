@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: 4783016e472907392f2d379efa0fed2d90ed21bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb59674d678ed9c61c9ee0b425da7032794ca64
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595364"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660615"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Funcionando remotamente: Considerações de Aparelho Virtual de Rede (NVA) para trabalhos remotos
 
@@ -30,7 +30,7 @@ Todos os principais fornecedores de NVA no Azure Marketplace devem ter recomenda
 
 - **Capacidade e número de utilizadores simultâneos** - Este número é particularmente importante para os utilizadores de VPN ponto-a-local, uma vez que cada utilizador conectado criará um túnel encriptado (IPSec ou SSL VPN).  
 - **Produção agregada** - Qual é a largura de banda agregada que precisa para acomodar o número de utilizadores a que precisa para fornecer acesso remoto.
-- **O tamanho VM que vai precisar** - Deve utilizar sempre os tamanhos VM recomendados pelo fornecedor NVA.  Para a VPN ponto-a-local, se tiver muitas ligações de utilizador simultâneas, deve utilizar tamanhos VM maiores, como [Dv2 e Série VMs da série DSv2.](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series "Série Dv2 e Dsv2") Estes VMs tendem a ter mais vCPUs e podem lidar com sessões VPN mais simultâneas.  Além de ter mais núcleos virtuais, os tamanhos de VM maiores em Azure têm uma capacidade de largura de banda mais agregada do que os tamanhos de VM menores.
+- **O tamanho VM que vai precisar** - Deve utilizar sempre os tamanhos VM recomendados pelo fornecedor NVA.  Para a VPN ponto-a-local, se tiver muitas ligações de utilizador simultâneas, deve utilizar tamanhos VM maiores, como [Dv2 e Série VMs da série DSv2.](../virtual-machines/dv2-dsv2-series.md "Série Dv2 e Dsv2") Estes VMs tendem a ter mais vCPUs e podem lidar com sessões VPN mais simultâneas.  Além de ter mais núcleos virtuais, os tamanhos de VM maiores em Azure têm uma capacidade de largura de banda mais agregada do que os tamanhos de VM menores.
     > **Importante:** Cada fornecedor utiliza os recursos de forma diferente.  Se não estiver claro quais os tamanhos de instância que deve utilizar para acomodar a sua carga estimada do utilizador, deve contactar diretamente o fornecedor de software e pedir-lhes uma recomendação.
 - **Número de casos** - Se espera ter um grande número de utilizadores e ligações, existem limites para o que o escalonamento dos tamanhos de instância do NVA pode alcançar.  Considere implementar várias instâncias de VM.
 - **IPSec VPN vs SSL VPN** - Em geral, as implementações ipSec VPN têm um desempenho melhor do que as implementações de VPN SSL.  

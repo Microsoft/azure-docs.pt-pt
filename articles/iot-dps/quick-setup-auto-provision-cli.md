@@ -8,24 +8,24 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 157bd0a0a40ce6a935d13bb10a84c814ba1018bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 611068fa020321be88be6e1d6da663266029c658
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91330252"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660190"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Quickstart: Crie o serviço de provisionamento de dispositivos IoT Hub com Azure CLI
 
 A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este quickstart detalha usando o CLI Azure para criar um hub IoT e um serviço de fornecimento de dispositivos IoT Hub, e para ligar os dois serviços juntos. 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
 > Tanto o hub IoT como o serviço de fornecimento que criar neste quickstart serão publicamente detetáveis como pontos finais dns. Se optar por alterar os nomes utilizadores para os recursos, evite informações confidenciais.
 >
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -43,7 +43,7 @@ az group create --name my-sample-resource-group --location westus
 >
 >
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 Crie um hub IoT com o comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create).
 
@@ -116,7 +116,7 @@ O hub IoT associado é apresentado na coleção *properties.iotHubs*.
 
 ![Verificar serviço de provisionamento](./media/quick-setup-auto-provision-cli/verify-provisioning-service.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros guias de introdução desta coleção têm por base este guia de introdução. Se pretender continuar a trabalhar com guias de introdução subsequentes ou com os tutoriais, não limpe os recursos criados neste guia de introdução. Se não quiser continuar, pode utilizar os comandos seguintes para eliminar o serviço de aprovisionamento, o hub do IoT ou o grupo de recursos e todos os recursos do mesmo. Substitua os nomes dos recursos abaixo escritos pelos nomes dos seus próprios recursos.
 
@@ -137,7 +137,7 @@ Para eliminar um grupo de recursos e todos os respetivos recursos, execute o com
 az group delete --name my-sample-resource-group
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você implantou um hub IoT e uma instância de Serviço de Provisionamento de Dispositivos, e ligou os dois recursos. Para aprender a usar esta configuração para forrá um dispositivo simulado, continue até ao início rápido para criar um dispositivo simulado.
 

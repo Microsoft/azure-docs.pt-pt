@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4d1488d6dd2e5d08ae774ca88b7ab41b2020efe5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2726c8d416bee209f864f7e299403f589a767840
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91000993"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659595"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Quickstart: Criar um Cofre chave gerido HSM usando um modelo de Gestor de Recursos Azure
 
@@ -79,7 +79,6 @@ Você também pode precisar da identificação do seu inquilino. Para encontrá-
     - **Grupo de recursos**: Selecione **Criar novo,** insira um nome único para o grupo de recursos e, em seguida, clique em **OK**.
     - **Localização**: Selecione uma localização. Por exemplo, **South Central US**.
     - **nome geridoHSM :** Introduza um nome para o seu HSM gerido.
-    - **SKU**: Insira o Nome e a Família do HSM gerido que pretende criar.  Para este arranque rápido, insira "Standard_B1" para o Nome e "B" para a Família.
     - **ID do inquilino**: A função do modelo recupera automaticamente o ID do seu inquilino; não altere o valor padrão.  Se não houver valor, insira o ID do Inquilino que recuperou em [Pré-requisitos.](#prerequisites)
     * **InicialmenteAdminObjectIds**: Introduza o ID do objeto que recuperou em [Pré-requisitos](#prerequisites).
 
@@ -87,7 +86,7 @@ Você também pode precisar da identificação do seu inquilino. Para encontrá-
 
 O portal do Azure é utilizado para implementar o modelo. Além do portal Azure, também pode utilizar o Azure PowerShell, Azure CLI e REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criou um HSM gerido. Este HSM gerido não estará totalmente funcional até que seja ativado. Consulte [Ativar o seu HSM gerido](quick-create-cli.md#activate-your-managed-hsm) para aprender a ativar o seu HSM.
 

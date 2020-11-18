@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: b6df7aa919721576aad10d6a476be976ef81df7d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: ed0a60c88c33af70b7d780d6c4735c5f8e65b35b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145876"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660411"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configure uma ligação VPN ponto-a-local a um VNet utilizando a autenticação de certificado azure nativo: PowerShell
 
@@ -69,7 +69,7 @@ $DNS = "10.2.1.4"
    New-AzResourceGroup -Name $RG -Location $Location
    ```
 
-1. Crie as configurações da sub-rede para a rede virtual, nomeando-as *FrontEnd* e *GatewaySubnet* . Estes prefixos têm de fazer parte do espaço de endereços da VNet que declarou.
+1. Crie as configurações da sub-rede para a rede virtual, nomeando-as *FrontEnd* e *GatewaySubnet*. Estes prefixos têm de fazer parte do espaço de endereços da VNet que declarou.
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
@@ -97,7 +97,7 @@ $DNS = "10.2.1.4"
    $subnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
    ```
 
-1. Um gateway de VPN deve ter um endereço IP público. Primeira, requeira o recurso de endereço IP e, em seguida, faça referência ao mesmo ao criar o gateway de rede virtual. O endereço IP é dinamicamente atribuído ao recurso quando o gateway de VPN é criado. O Gateway de VPN, atualmente, apenas suporta a alocação de endereços IP públicos *dinâmicos* . Não é possível pedir uma atribuição de endereço IP Público Estático. No entanto, isto não significa que o endereço IP é alterado depois de ser atribuído ao gateway de VPN. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
+1. Um gateway de VPN deve ter um endereço IP público. Primeira, requeira o recurso de endereço IP e, em seguida, faça referência ao mesmo ao criar o gateway de rede virtual. O endereço IP é dinamicamente atribuído ao recurso quando o gateway de VPN é criado. O Gateway de VPN, atualmente, apenas suporta a alocação de endereços IP públicos *dinâmicos*. Não é possível pedir uma atribuição de endereço IP Público Estático. No entanto, isto não significa que o endereço IP é alterado depois de ser atribuído ao gateway de VPN. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
 
    Solicite um endereço IP público atribuído de forma dinâmica.
 
@@ -110,7 +110,7 @@ $DNS = "10.2.1.4"
 
 Neste passo, configura e cria o portal de rede virtual para o seu VNet.
 
-* O -GatewayType tem de ser **Vpn** e o -VpnType tem de ser **RouteBased** .
+* O -GatewayType tem de ser **Vpn** e o -VpnType tem de ser **RouteBased**.
 * O -VpnClientProtocol é utilizado para especificar os tipos de túnel que quer ativar. As opções do túnel são **OpenVPN, SSTP** e **IKEv2.** Pode optar por ativar um deles ou qualquer combinação suportada. Se pretender ativar vários tipos, especifique os nomes separados por uma vírgula. A OpenVPN e a SSTP não podem ser ativadas em conjunto. O cliente strongSwan no Android e Linux e o cliente VPN IKEv2 nativo em dispositivos iOS e OSX utilizarão apenas o túnel IKEv2 para estabelecer a ligação. Os clientes Windows, primeiro, experimentam o IKEv2 e, se não conseguirem estabelecer a ligação, voltam ao SSTP. Pode utilizar o cliente OpenVPN para ligar ao tipo de túnel OpenVPN.
 * O gateway de rede virtual 'Basic' SKU não suporta a autenticação IKEv2, OpenVPN ou RADIUS. Se está a planear que os clientes Mac se conectem à sua rede virtual, não utilize o SKU Básico.
 * Um gateway de VPN pode demorar até 45 minutos a concluir, consoante a [sku do gateway](vpn-gateway-about-vpn-gateway-settings.md) que selecionar. Este exemplo utiliza IKEv2.
@@ -154,7 +154,7 @@ Se utilizar certificados autoassinados, eles têm de ser criados com parâmetros
 
 1. [!INCLUDE [Root certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-1. Depois de criar o certificado raiz, [exporte](vpn-gateway-certificates-point-to-site.md#cer) os dados do certificado público (não a chave privada) como um ficheiro X.509 codificado por Base64.cer.
+1. Depois de criar o certificado raiz, [exporte](vpn-gateway-certificates-point-to-site.md#cer) os dados do certificado público (não a chave privada) como um ficheiro de .cer X.509 codificado base64.
 
 ### <a name="client-certificate"></a><a name="generate"></a>Certificado de cliente
 
@@ -228,8 +228,8 @@ $profile.VPNProfileSASUrl
 
 ### <a name="mac-vpn-client"></a>Cliente Mac VPN
 
-Na caixa de diálogo Rede, localize o perfil de cliente que quer utilizar e, em seguida, clique em **Ligar** .
-Consulte [a Instalação - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) para obter instruções detalhadas. Se tiver problemas em ligar, verifique se o gateway de rede virtual não está a utilizar um SKU Básico. A SKU básica não é suportada para clientes Mac.
+Na caixa de diálogo Rede, localize o perfil de cliente que quer utilizar e, em seguida, clique em **Ligar**.
+Consulte [a Instalação - Mac (OS X)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac) para obter instruções detalhadas. Se tiver problemas em ligar, verifique se o gateway de rede virtual não está a utilizar um SKU Básico. A SKU básica não é suportada para clientes Mac.
 
   ![Ligação do Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
@@ -237,7 +237,7 @@ Consulte [a Instalação - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gate
 
 Estas instruções aplicam-se aos clientes Windows.
 
-1. Para verificar se a ligação VPN está ativa, abra uma linha de comandos elevada e execute *ipconfig/all* .
+1. Para verificar se a ligação VPN está ativa, abra uma linha de comandos elevada e execute *ipconfig/all*.
 2. Veja os resultados. Note que o endereço IP que recebeu é um dos endereços dentro do Pool de Endereços de Cliente VPN ponto a local que especificou na sua configuração. Os resultados são semelhantes a este exemplo:
 
    ```
@@ -324,7 +324,7 @@ A prática comum é utilizar o certificado de raiz para gerir o acesso nos níve
 
 **Para revogar:**
 
-1. Obtenha o thumbprint do certificado de cliente. Para obter mais informações, veja [Como obter o Thumbprint de um Certificado](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Obtenha o thumbprint do certificado de cliente. Para obter mais informações, veja [Como obter o Thumbprint de um Certificado](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 
 1. Copie as informações para um editor de texto e remova todos os espaços, para que seja uma cadeia contínua. Esta cadeia está declarada como uma variável no próximo passo.
 
@@ -383,8 +383,8 @@ Pode restabelecer um certificado de cliente, removendo o thumbprint da lista de 
 
 Para obter informações adicionais ponto a local, consulte as [FAQ ponto a local do Gateway VPN](vpn-gateway-vpn-faq.md#P2S)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](../index.yml). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/network-overview.md).
 
 Para obter informações de resolução de problemas P2S, consulte [Resolução de problemas de ligações ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

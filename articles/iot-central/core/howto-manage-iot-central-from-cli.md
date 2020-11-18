@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: philmea
-ms.openlocfilehash: bd87f15ff63edf1da447faf986cad2f9591610dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 201318a5a5680f248b831bb480888f106286fbe1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502975"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660037"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gerir a IoT Central a partir de Azure CLI
 
@@ -22,24 +22,11 @@ ms.locfileid: "87502975"
 
 Em vez de criar e gerir aplicações IoT Central no site do [gestor de aplicações Azure IoT Central,](https://aka.ms/iotcentral) pode utilizar [o Azure CLI](/cli/azure/) para gerir as suas aplicações.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Se preferir executar o Azure CLI na sua máquina local, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli). Quando executar o Azure CLI localmente, utilize o comando **de login az** para iniciar sessão no Azure antes de experimentar os comandos deste artigo.
-
-> [!TIP]
-> Se precisar de executar os seus comandos CLI numa subscrição Azure diferente, consulte [alterar a subscrição ativa](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
-
-## <a name="install-the-extension"></a>Instalar a extensão
-
-Os comandos deste artigo fazem parte da extensão do CLI **azure-iot.** Executar o seguinte comando para instalar a extensão:
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+ - Se precisar de executar os seus comandos CLI numa subscrição Azure diferente, consulte [alterar a subscrição ativa](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
 
 ## <a name="create-an-application"></a>Criar uma aplicação
 
@@ -65,7 +52,7 @@ Estes comandos criam primeiro um grupo de recursos na região leste dos EUA para
 | Parâmetro         | Descrição |
 | ----------------- | ----------- |
 | resource-group    | O grupo de recursos que contém a aplicação. Este grupo de recursos já deve existir na sua subscrição. |
-| localização          | Por predefinição, este comando utiliza a localização do grupo de recursos. Atualmente, você pode criar uma aplicação IoT Central nas geografias da **Austrália**, **Ásia Pacífico,** **Europa,** **Estados Unidos,** **Reino Unido**e **Japão.** |
+| localização          | Por predefinição, este comando utiliza a localização do grupo de recursos. Atualmente, você pode criar uma aplicação IoT Central nas geografias da **Austrália**, **Ásia Pacífico,** **Europa,** **Estados Unidos,** **Reino Unido** e **Japão.** |
 | name              | O nome da aplicação no portal Azure. |
 | subdomínio         | O subdomínio na URL da aplicação. No exemplo, o URL de aplicação é `https://mysubdomain.azureiotcentral.com` . |
 | sku               | Atualmente, pode utilizar **ST1** ou **ST2**. Consulte [os preços da Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
@@ -97,7 +84,7 @@ az iot central app delete --name myiotcentralapp \
   --resource-group MyIoTCentralResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu a gerir as aplicações da Azure IoT Central da Azure CLI, eis o próximo passo sugerido:
 

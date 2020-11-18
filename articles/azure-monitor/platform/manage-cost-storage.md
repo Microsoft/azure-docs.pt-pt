@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 11/16/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 04c532ceb5f40e9a5b7fa5fd5b75f60182f54580
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 71a4fba177f5bbbaf9f8d991222b071d0da66d4d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427790"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660394"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
 
@@ -52,9 +52,9 @@ O nível de reserva de capacidade do cluster é configurado programáticamente c
 
 Existem dois modos de faturação para uso num cluster. Estes podem ser especificados pelo `billingType` parâmetro ao [configurar o seu cluster](customer-managed-keys.md#customer-managed-key-operations). Os dois modos são: 
 
-1. **Cluster** : neste caso (que é o padrão), a faturação dos dados ingeridos é feita ao nível do cluster. As quantidades de dados ingeridas de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. Note que as dotações por nódoa do [Azure Security Center](../../security-center/index.yml) são aplicadas ao nível do espaço de trabalho antes desta agregação de dados agregados em todos os espaços de trabalho do cluster. 
+1. **Cluster**: neste caso (que é o padrão), a faturação dos dados ingeridos é feita ao nível do cluster. As quantidades de dados ingeridas de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. Note que as dotações por nódoa do [Azure Security Center](../../security-center/index.yml) são aplicadas ao nível do espaço de trabalho antes desta agregação de dados agregados em todos os espaços de trabalho do cluster. 
 
-2. **Espaços de trabalho** : os custos de reserva de capacidade para o seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster (após contabilização das dotações por nó do Centro de [Segurança Azure](../../security-center/index.yml) para cada espaço de trabalho.) Se o volume total de dados ingerido num espaço de trabalho por um dia for inferior à Reserva de Capacidade, então cada espaço de trabalho é faturado para os seus dados ingeridos à taxa efetiva de reserva de capacidade por GB, cobrando-lhes uma fração da Reserva de Capacidade, e a parte não utilizada da Reserva de Capacidade é faturada para o recurso do cluster. Se o volume total de dados ingerido num espaço de trabalho por um dia for superior à Reserva de Capacidade, então cada espaço de trabalho é faturado por uma fração da Reserva de Capacidade com base na sua fração dos dados ingeridos nesse dia, e cada espaço de trabalho para uma fração dos dados ingeridos acima da Reserva de Capacidade. Não há nada faturado para o recurso do cluster se o volume total de dados ingerido num espaço de trabalho por um dia for sobre a Reserva de Capacidade.
+2. **Espaços de trabalho**: os custos de reserva de capacidade para o seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster (após contabilização das dotações por nó do Centro de [Segurança Azure](../../security-center/index.yml) para cada espaço de trabalho.) Se o volume total de dados ingerido num espaço de trabalho por um dia for inferior à Reserva de Capacidade, então cada espaço de trabalho é faturado para os seus dados ingeridos à taxa efetiva de reserva de capacidade por GB, cobrando-lhes uma fração da Reserva de Capacidade, e a parte não utilizada da Reserva de Capacidade é faturada para o recurso do cluster. Se o volume total de dados ingerido num espaço de trabalho por um dia for superior à Reserva de Capacidade, então cada espaço de trabalho é faturado por uma fração da Reserva de Capacidade com base na sua fração dos dados ingeridos nesse dia, e cada espaço de trabalho para uma fração dos dados ingeridos acima da Reserva de Capacidade. Não há nada faturado para o recurso do cluster se o volume total de dados ingerido num espaço de trabalho por um dia for sobre a Reserva de Capacidade.
 
 Nas opções de faturação de cluster, a retenção de dados é faturada no espaço de trabalho. Note que a faturação do cluster começa quando o cluster é criado, independentemente de os espaços de trabalho terem sido associados ao cluster. Além disso, note que os espaços de trabalho associados a um cluster já não têm um nível de preços.
 
@@ -139,7 +139,7 @@ Os seguintes passos descrevem como configurar quanto tempo os dados de registo s
 Para definir a retenção padrão para o seu espaço de trabalho, 
  
 1. No portal Azure, a partir do seu espaço de trabalho, selecione **Utilização e custos estimados** a partir do painel esquerdo.
-2. Na página **Utilização e custos estimados** , clique em **Retenção de Dados** , na parte superior.
+2. Na página **Utilização e custos estimados**, clique em **Retenção de Dados**, na parte superior.
 3. No painel, mova o controlo de deslize para aumentar ou diminuir o número de dias e clique em **OK**.  Se estiver no nível *livre,* não poderá modificar o período de retenção de dados e terá de atualizar para o nível pago para controlar esta definição.
 
     ![Alterar a definição de retenção de dados do espaço de trabalho](media/manage-cost-storage/manage-cost-change-retention-01.png)
@@ -210,10 +210,10 @@ Pode configurar uma tampa diária e limitar a ingestão diária para o seu espa�
 
 Cada espaço de trabalho tem a sua tampa diária aplicada numa hora diferente do dia. A hora de reset é mostrada na página **Daily Cap** (ver abaixo). Esta hora de reset não pode ser configurada. 
 
-Logo após o limite diário, a recolha de tipos de dados faturados para para o resto do dia. A latência inerente à aplicação da tampa diária significa que a tampa não é aplicada precisamente ao nível da tampa diária especificada. Um banner de aviso aparece em toda a página para o espaço de trabalho de Log Analytics selecionado e um evento de operação é enviado para a tabela *de operação* na categoria **LogManagement.** A recolha de dados retoma após o tempo de reset definido no *limite diário ser fixado em*. Recomendamos a definição de uma regra de alerta baseada neste evento de operação, configurada para notificar quando o limite de dados diário tiver sido atingido. 
+Logo após o limite diário, a recolha de tipos de dados faturados para para o resto do dia. A latência inerente à aplicação da tampa diária significa que a tampa não é aplicada precisamente ao nível da tampa diária especificada. Um banner de aviso aparece em toda a página para o espaço de trabalho de Log Analytics selecionado e um evento de operação é enviado para a tabela *de operação* na categoria **LogManagement.** A recolha de dados retoma após o tempo de reset definido no *limite diário ser fixado em*. Recomendamos a definição de uma regra de alerta com base neste evento de operação, configurada para notificar quando o limite de dados diário tiver sido atingido (ver [abaixo).](#alert-when-daily-cap-reached) 
 
 > [!NOTE]
-> A tampa diária não pode parar a recolha de dados como precisamente o nível de tampa especificado e esperam-se alguns dados em excesso, especialmente se o espaço de trabalho estiver a receber elevados volumes de dados.  
+> A tampa diária não pode parar a recolha de dados como precisamente o nível de tampa especificado e esperam-se alguns dados em excesso, especialmente se o espaço de trabalho estiver a receber elevados volumes de dados. Veja [abaixo](#view-the-effect-of-the-daily-cap) uma consulta que seja útil no estudo do comportamento da tampa diária. 
 
 > [!WARNING]
 > A tampa diária não impede a recolha de dados do Azure Sentinal ou do Azure Security Center, com exceção dos espaços de trabalho em que o Azure Security Center foi instalado antes de 19 de junho de 2017. 
@@ -226,13 +226,27 @@ Logo após o limite diário, a recolha de tipos de dados faturados para para o r
 
 Os passos seguintes descrevem como configurar um limite para gerir o volume de dados que o espaço de trabalho Log Analytics irá ingerir por dia.  
 
-1. Na área de trabalho, selecione **Utilização e custos estimados** , no painel do lado esquerdo.
+1. Na área de trabalho, selecione **Utilização e custos estimados**, no painel do lado esquerdo.
 2. Na página **de Utilização e custos estimados** para o espaço de trabalho selecionado, clique em **Data Cap** a partir do topo da página. 
 3. A tampa diária é **OFF** por padrão? clique **em ON** para o ativar e, em seguida, desa estale o limite de volume de dados em GB/dia.
 
     ![Log Analytics configurar limite de dados](media/manage-cost-storage/set-daily-volume-cap-01.png)
     
 A tampa diária pode ser configurada via ARM definindo o parâmetro sob o `dailyQuotaGb` descrito nos Espaços de Trabalho - Criar ou `WorkspaceCapping` [Atualizar](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
+
+### <a name="view-the-effect-of-the-daily-cap"></a>Ver o efeito do Daily Cap
+
+Para ver o efeito da tampa diária, é importante ter em conta os tipos de dados de segurança não incluídos na tampa diária e a hora de reset para o seu espaço de trabalho. A hora diária de reset da tampa é visível na página **Daily Cap.**  A seguinte consulta pode ser usada para rastrear os volumes de dados sujeitos à Tampa Diária entre resets diários da tampa. Neste exemplo, a hora de reset do espaço de trabalho é às 14:00.  Terá de atualizar isto para o seu espaço de trabalho.
+
+```kusto
+let DailyCapResetHour=14;
+Usage
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend TimeGenerated=datetime_add("hour",-1*DailyCapResetHour,TimeGenerated)
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable
+| summarize IngestedGbBetweenDailyCapResets=sum(_BilledSize)/1000. by day=bin(TimeGenerated, 1d) | render areachart  
+```
 
 ### <a name="alert-when-daily-cap-reached"></a>Alerta quando a Daily Cap chegou
 
@@ -432,7 +446,7 @@ Também pode analisar o `_ResourceId` mais completo, se necessário, usando
 > Utilize estas `find` consultas com moderação, uma vez que as verificações em todos os tipos de dados são [intensivas](../log-query/query-optimization.md#query-performance-pane) em recursos para executar. Se não necessitar de resultados por subscrição, grupo de resouce ou nome de recurso, então consultar o tipo de dados de utilização.
 
 > [!WARNING]
-> Alguns dos campos do tipo de dados de utilização, ainda no esquema, foram depreciados e os seus valores deixarão de ser povoados. Estes são **Computador,** bem como campos relacionados com a ingestão ( **TotalBatches** , **BatchesWithinSla** , **BatchesOutsideSla,** **BatchesCapped** e **AverageProcessingTimeMs**.
+> Alguns dos campos do tipo de dados de utilização, ainda no esquema, foram depreciados e os seus valores deixarão de ser povoados. Estes são **Computador,** bem como campos relacionados com a ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla,** **BatchesCapped** e **AverageProcessingTimeMs**.
 
 
 ### <a name="querying-for-common-data-types"></a>Consulta para tipos comuns de dados
@@ -640,7 +654,7 @@ Para ser notificado quando a recolha de dados parar, utilize os passos descritos
 Existem alguns limites adicionais de Log Analytics, alguns dos quais dependem do nível de preços do Log Analytics. Estes estão documentados nos [limites de subscrição e serviço da Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [as pesquisas de Registo em Registos monitores Azure](../log-query/log-query-overview.md) para aprender a usar o idioma de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
 - Utilize os passos descritos em [create a new log alert](alerts-metric.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.

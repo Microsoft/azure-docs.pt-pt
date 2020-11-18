@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: dbf0d096827ec1af16e6d38d405709e48175ae89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 908602dff3be2f392bc595f0074db7f95b8936a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035956"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660989"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Resolução de problemas: Problemas de ligação ponto-a-local azure
 
@@ -35,7 +35,7 @@ Este problema ocorre se o certificado do cliente faltar **aos Certificados - Uti
 
 Para resolver este problema, siga estes passos:
 
-1. Abra o Gestor de Certificados: Clique **em Iniciar,** **escreva para gerir certificados de computador**e, em seguida, clique em gerir **certificados de computador** no resultado da pesquisa.
+1. Abra o Gestor de Certificados: Clique **em Iniciar,** **escreva para gerir certificados de computador** e, em seguida, clique em gerir **certificados de computador** no resultado da pesquisa.
 
 2. Certifique-se de que os seguintes certificados estão no local correto:
 
@@ -44,7 +44,7 @@ Para resolver este problema, siga estes passos:
     | AzureClient.pfx  | Utilizador atual\Personal\Certificados |
     | AzureRoot.cer    | Autoridades locais de certificação de raiz de computador\fidedignos|
 
-3. Ir para C:\Utilizadores \<UserName> \AppData\Roaming\Microsoft\Network\Connections\Cm \<GUID> , instalar manualmente o certificado (ficheiro*.cer) na loja do utilizador e do computador.
+3. Ir para C:\Utilizadores \<UserName> \AppData\Roaming\Microsoft\Network\Connections\Cm \<GUID> , instalar manualmente o certificado (*.cer ficheiro) na loja do utilizador e do computador.
 
 Para obter mais informações sobre como instalar o certificado do cliente, consulte [Certificados de Geração e exportação para ligações ponto-a-local](vpn-gateway-certificates-point-to-site.md).
 
@@ -71,7 +71,7 @@ Para preparar o Windows 10 ou o Windows Server 2016 para o IKEv2:
 
 1. Instale a atualização.
 
-   | Versão do SO | Date | Número/Ligação |
+   | Versão do SO | Data | Número/Ligação |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10, Versão 1607 | 17 de janeiro de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, Versão 1703 | 17 de janeiro de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
@@ -168,7 +168,7 @@ Extraia o pacote de configuração do cliente VPN e encontre o ficheiro .cer. Pa
 1. Abra mmc.exe.
 2. Adicione o encaixe dos **certificados.**
 3. Selecione a conta **de Computador** para o computador local.
-4. Clique com o direito no nó **de Autoridades de Certificação de Raiz Fidedigna.** Clique **em All-Task**  >  **Import**e navegue no ficheiro .cer extraído do pacote de configuração do cliente VPN.
+4. Clique com o direito no nó **de Autoridades de Certificação de Raiz Fidedigna.** Clique **em All-Task**  >  **Import** e navegue no ficheiro .cer extraído do pacote de configuração do cliente VPN.
 5. Reinicie o computador. 
 6. Tente instalar o cliente VPN.
 
@@ -274,7 +274,7 @@ Remove a ligação VPN ponto-a-local e, em seguida, reinstala o cliente VPN. Nes
 
 ### <a name="solution"></a>Solução
 
-Para resolver o problema, elimine os antigos ficheiros de configuração do cliente VPN de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> **e, em seguida, executar novamente o instalador de clientes VPN.
+Para resolver o problema, elimine os antigos ficheiros de configuração do cliente VPN de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId>** e, em seguida, executar novamente o instalador de clientes VPN.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Cliente VPN ponto a local não pode resolver o FQDN dos recursos no domínio local
 
@@ -298,7 +298,7 @@ Este problema pode ocorrer se o cliente VPN não conseguir as rotas a partir do 
 
 ### <a name="solution"></a>Solução
 
-Para resolver este problema, [reinicie o gateway Azure VPN](vpn-gateway-resetgw-classic.md). Para garantir que as novas rotas estão a ser utilizadas, os clientes VPN Ponto-a-Local devem ser novamente descarregados após o espreitamento da rede virtual ter sido configurado com sucesso.
+Para resolver este problema, [reinicie o gateway Azure VPN](./reset-gateway.md). Para garantir que as novas rotas estão a ser utilizadas, os clientes VPN Ponto-a-Local devem ser novamente descarregados após o espreitamento da rede virtual ter sido configurado com sucesso.
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Erro: "A função de revogação não foi capaz de verificar a revogação porque o servidor de revogação estava offline. (Erro 0x80092013)"
 
@@ -335,7 +335,7 @@ O condutor da NIC está ultrapassado.
 
 Atualize o controlador NIC:
 
-1. Clique **em Iniciar,** digite **o Gestor de Dispositivos**e selecione-o na lista de resultados. Se for solicitado uma senha ou confirmação do administrador, digite a palavra-passe ou forneça a confirmação.
+1. Clique **em Iniciar,** digite **o Gestor de Dispositivos** e selecione-o na lista de resultados. Se for solicitado uma senha ou confirmação do administrador, digite a palavra-passe ou forneça a confirmação.
 2. Nas categorias **de adaptadores de rede,** encontre o NIC que pretende atualizar.  
 3. Clique duas vezes no nome do dispositivo, selecione **'Actualizar' ('Actualizar' (Update driver),** selecione **Search automaticamente para obter software do controlador atualizado**.
 4.  Se o Windows não localizar um novo controlador, pode experimentar procurar um no site do fabricante do dispositivo e seguir as suas instruções.
@@ -372,7 +372,7 @@ Este problema pode ser causado pelas instalações anteriores do cliente VPN.
 
 ### <a name="solution"></a>Solução
 
-Elimine os antigos ficheiros de configuração do cliente VPN de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> ** e executar novamente o instalador de clientes VPN. 
+Elimine os antigos ficheiros de configuração do cliente VPN de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId>** e executar novamente o instalador de clientes VPN. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>O cliente VPN hiberna ou dorme depois de algum tempo
 

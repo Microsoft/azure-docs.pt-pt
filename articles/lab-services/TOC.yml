@@ -167,7 +167,7 @@
 - name: Referência
   items:
     - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/labservices/'
+      href: /rest/api/labservices/
     - name: Módulo do PowerShell Az.LabServices (pré-visualização)
       href: reference-powershell-module.md
 - name: Recursos

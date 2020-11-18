@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 548393353d38082c175cde20eef1e93017cdd31a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: eef78ffefe8fe13e6f160e38a05405a80d6e46f8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639281"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660955"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows Virtual Desktop RDP Shortpath (pré-visualização)
 
@@ -53,7 +53,7 @@ O diagrama abaixo dá uma visão geral de alto nível da ligação da rede RDP S
 
 :::image type="content" source="media/rdp-shortpath-connections.svg" alt-text="Diagrama de Ligações de Rede DE Shortpath RDP" lightbox="media/rdp-shortpath-connections.svg":::
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 Para suportar o Caminho Curto RDP, o cliente virtual do Windows desktop precisa de uma linha de visão direta para o anfitrião da sessão. Pode obter uma linha de visão direta utilizando uma das seguintes tecnologias:
 
@@ -151,6 +151,7 @@ Siga a [documentação](../virtual-machines/windows/nsg-quickstart-portal.md) do
 
 * **Fonte**  -  **Qualquer** ou a gama de IP onde os clientes estão a residir
 * **Gamas portuárias de origem** - * *\** _ _ **Destino**  -  **Qualquer**
+* **Gamas portuárias de**  -  destino **3390**
 * **Protocolo**  -  **UDP**
 * **Ação**  -  **Permitir**
 * Alterar opcionalmente a **Prioridade**. A prioridade afeta a ordem em que as regras são aplicadas: quanto menor o valor numérico, mais cedo a regra é aplicada.
@@ -246,7 +247,12 @@ Para desativar o Caminho Curto RDP para um anfitrião de sessão específica, po
 2. Navegue para **modelos de administração de > de configuração do computador > componentes do Windows > serviços de ambiente de trabalho remoto > ligações > de ligação ao ambiente de trabalho remoto**.
 3. Defina a definição **"Selecione PROTOCOLOS de Transporte RDP" apenas** para **TCP**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="feedback"></a>Comentários
+
+Gostaríamos de ouvir sobre as suas experiências com esta pré-estreia pública!
+* Para perguntas, pedidos, comentários e outros comentários, [utilize este formulário de feedback](https://aka.ms/RDPShortpathFeedback).
+
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a conectividade da rede virtual do Windows Desktop, consulte [a conectividade da rede virtual de desktop do Windows.](network-connectivity.md)
 * Para começar com a Qualidade de Serviço (QoS) para o Windows Virtual Desktop, consulte [implementar qualidade de serviço (QoS) para Windows Virtual Desktop](rdp-quality-of-service-qos.md).

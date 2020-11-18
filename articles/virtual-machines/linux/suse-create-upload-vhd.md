@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: 73e07c612486d5f48b1ad3eca8044a561549092b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f35adcc797e903bb44852e9ba52e1a023f51a0d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292131"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659527"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Prepare a SLES or openSUSE virtual machine for Azure (Preparar uma máquina virtual SLES ou openSUSE para o Azure)
 
@@ -32,7 +32,7 @@ Este artigo pressupõe que já instalou um sistema operativo SUSE ou openSUSE Li
 
 Como alternativa à construção do seu próprio VHD, a SUSE também publica imagens BYOS (Bring Your Own Subscription) para SLES na [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
-## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Preparar SUSE Linux Enterprise Server 11 SP4
+## <a name="prepare-suse-linux-enterprise-server-for-azure"></a>Prepare o servidor de empresa SUSE Linux para o Azure
 1. No painel central do Hyper-V Manager, selecione a máquina virtual.
 2. Clique **em Ligar** para abrir a janela para a máquina virtual.
 3. Registe o seu sistema SUSE Linux Enterprise para permitir que descarregue atualizações e instale pacotes.
@@ -41,57 +41,53 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
     ```console
     # sudo zypper update
     ```
-
-1. Instale o Agente Azure Linux a partir do repositório SLES (Módulo SLE11-Public-Cloud):
+    
+5. Instale o agente Azure Linux e o cloud-init
 
     ```console
+    # SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
     # sudo zypper install python-azure-agent
+    # sudo zypper install cloud-init
     ```
 
-1. Verifique se o waagent está definido para "on" em chkconfig, e se não, ative-o para arranque automático:
+6. Permitir que o waagent & cloud-init comece no arranque
 
     ```console
     # sudo chkconfig waagent on
+    # systemctl enable cloud-init-local.service
+    # systemctl enable cloud-init.service
+    # systemctl enable cloud-config.service
+    # systemctl enable cloud-final.service
+    # systemctl daemon-reload
+    # cloud-init clean
     ```
 
-7. Verifique se o serviço waagent está em funcionamento, e se não, inicie-o: 
+7. Atualizar a configuração waagent e cloud-init
 
     ```console
-    # sudo service waagent start
+    # sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    # sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+
+    # sudo sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
+    # sudo sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
     ```
 
-8. Modifique a linha de arranque do núcleo na sua configuração de larva para incluir parâmetros adicionais de kernel para Azure. Para fazer isto abra "/boot/grub/menu.lst" num editor de texto e certifique-se de que o núcleo padrão inclui os seguintes parâmetros:
+8. Editar /etc/predefinição/ficheiro grub para garantir que os registos das consolas são enviados para a porta de série e, em seguida, atualizar o ficheiro de configuração principal com grub2-mkconfig -o /boot/grub2/grub.cfg
 
     ```config-grub
     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     ```
-
     Isto irá garantir que todas as mensagens de consola são enviadas para a primeira porta em série, que pode ajudar o suporte do Azure com problemas de depuração.
-9. Confirme que /boot/grub/menu.lst e /etc/fstab ambos referenciam o disco usando o seu UUID (by-uuid) em vez do ID do disco (by-id). 
-   
-    Obter disco UUID
-
-    ```console
-    # ls /dev/disk/by-uuid/
-    ```
-
-    Se /dev/disk/by-id/ for usado, atualize tanto /boot/grub/menu.lst e /etc/fstab com o valor by-uuid adequado
-   
-    Antes da mudança
-   
-    `root=/dev/disk/by-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1`
-   
-    Depois da mudança
-   
-    `root=/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-
+    
+9. Certifique-se de que o disco com o seu UUID (by-uuid)
+         
 10. Modifique as regras udev para evitar gerar regras estáticas para a interface Ethernet. Estas regras podem causar problemas ao clonar uma máquina virtual no Microsoft Azure ou Hiper-V:
 
     ```console
     # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
-
+   
 11. Recomenda-se a edição do ficheiro "/etc/sysconfig/network/dhcp" e alterar o `DHCLIENT_SET_HOSTNAME` parâmetro para o seguinte:
 
     ```config
@@ -105,7 +101,8 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
     ```
 
-13. Certifique-se de que o servidor SSH está instalado e configurado para começar na hora de arranque.  Este é geralmente o padrão.
+13. Certifique-se de que o servidor SSH está instalado e configurado para começar na hora de arranque. Este é geralmente o padrão.
+
 14. Não crie espaço de troca no disco SO.
     
     O Agente Azure Linux pode configurar automaticamente o espaço de troca utilizando o disco de recursos local que é ligado ao VM após o provisionamento no Azure. Note que o disco de recursos local é um disco *temporário* e pode ser esvaziado quando o VM é desprovisionado. Depois de instalar o Agente Azure Linux (ver passo anterior), modificar os seguintes parâmetros em /etc/waagent.conf adequadamente:
@@ -133,7 +130,7 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 2. Clique **em Ligar** para abrir a janela para a máquina virtual.
 3. Na concha, executar o `zypper lr` comando' Se este comando devolver a saída semelhante à seguinte, então os repositórios são configurados como esperado-- não são necessários ajustamentos (note que os números da versão podem variar):
 
-   | # | Alias                 | Nome                  | Ativado | Atualizar
+   | # | Alias                 | Name                  | Ativado | Atualizar
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | Nuvem:Tools_13.1      | Nuvem:Tools_13.1      | Sim     | Sim
    | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Sim     | Sim
@@ -225,5 +222,5 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 
 13. Clique em **Ação -> Desligar** em Hyper-V Manager. O seu VHD Linux está agora pronto para ser enviado para Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Está agora pronto a usar o seu disco rígido virtual SUSE Linux para criar novas máquinas virtuais em Azure. Se esta for a primeira vez que está a enviar o ficheiro .vhd para a Azure, consulte [Create a Linux VM a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).

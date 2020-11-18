@@ -4,12 +4,12 @@ description: Neste artigo, conheça os cenários e limitações suportados quand
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 641bba6b947731e0f55bc79828101f84d5b780fd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 181d006d0d1f0e5c2f099507be493ced2ce9280b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515785"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659748"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de suporte da cópia de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -30,7 +30,7 @@ A Azure Backup suporta a cópia de segurança das bases de dados SAP HANA para a
 | **Instâncias HANA**         | Um único caso SAP HANA em um único Azure VM - escala apenas | Múltiplas instâncias SAP HANA em um único VM                  |
 | **Tipos de base de dados HANA**    | Único Recipiente de Base de Dados (SDC) ON 1.x, Recipiente Multi-Base de Dados (MDC) em 2.x | MDC em HANA 1.x                                              |
 | **Tamanho da base de dados HANA**     | Bases de dados HANA de tamanho <= 2 TB (este não é o tamanho da memória do sistema HANA)               |                                                              |
-| **Tipos de cópia de segurança**           | Backups completos, diferenciais e de registo                          | Incrementais, Instantâneos                                       |
+| **Tipos de cópia de segurança**           | Cópias de segurança completas, diferenciais, incrementais (pré-visualização) e backups de registo                          |  Instantâneos                                       |
 | **Tipos de restauro**          | Consulte a Nota [HANA HANA 1642148](https://launchpad.support.sap.com/#/notes/1642148) para saber mais sobre os tipos de restauro suportados |                                                              |
 | **Limites de backup**          | Até 2 TB de tamanho de backup completo por instância SAP HANA (limite suave)         |                                                              |
 | **Configurações especiais** |                                                              | SAP HANA + Tiering Dinâmico <br>  Clonagem através de LaMa        |
@@ -45,7 +45,7 @@ A Azure Backup suporta a cópia de segurança das bases de dados SAP HANA para a
 > [!NOTE]
 > Agora pode [monitorizar a cópia de segurança e restaurar os](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) trabalhos (para a mesma máquina) acionados a partir de clientes nativos da HANA (SAP HANA Studio/ Cockpit/ DBA Cockpit) no portal Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [fazer backup nas bases de dados SAP HANA em execução em VMs Azure](./backup-azure-sap-hana-database.md)
 * Saiba como restaurar as [bases de dados SAP HANA em execução em VMs Azure](./sap-hana-db-restore.md)

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
 ms.date: 08/07/2019
-ms.openlocfilehash: a848e14f854385ed1603918ab7e7a274667f2324
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 6bbf5f3a0a7d32425f80687de10444ee0819b9df
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427555"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660462"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitorizar e dimensionar um único servidor PostgreSQL com a CLI do Azure
 Esta amostra de script CLI escala o cálculo e armazenamento para uma única base de dados Azure para servidor PostgreSQL após consulta das métricas. O cálculo pode escalar para cima ou para baixo. O armazenamento só pode aumentar. 
@@ -21,9 +21,9 @@ Esta amostra de script CLI escala o cálculo e armazenamento para uma única bas
 > [!IMPORTANT] 
 > O armazenamento só pode ser aumentado, não para baixo.
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por executar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Verifique a versão ao executar `az --version`. Veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli) para instalar ou atualizar a sua versão da CLI do Azure.
+- Este artigo requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="sample-script"></a>Script de exemplo
 Atualize o script com o seu ID de subscrição.
@@ -44,7 +44,7 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | [az monitor metrics list](/cli/azure/monitor/metrics) | Liste o valor métrico dos recursos. |
 | [az group delete](/cli/azure/group) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [a Azure Database para computação e armazenamento pósgresQL](../concepts-pricing-tiers.md)
 - Experimente scripts adicionais: [Amostras da CLI do Azure para a Base de Dados do Azure para PostgreSQL](../sample-scripts-azure-cli.md)
 - Saiba mais sobre o [Azure CLI](/cli/azure)

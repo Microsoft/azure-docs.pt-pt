@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: cf0817ad1e9fae901bfe2b4a174d95a4f673e4c0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 33ee8944aec043bf2b103ac3958a923b9876b749
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319014"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660139"
 ---
 # <a name="track-experiment-runs-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Track experiment executa e implanta modelos ML com MLflow e Azure Machine Learning (pré-visualização)
 
@@ -206,7 +206,6 @@ As métricas e artefactos da exploração madeireira MLflow são mantidos no seu
 
 ```python
 run.get_metrics()
-ws.get_details()
 ```
 
 ## <a name="manage-models"></a>Gerir modelos 
@@ -364,7 +363,7 @@ O [fluxo ML com os cadernos Azure ML](https://github.com/Azure/MachineLearningNo
 > [!NOTE]
 > Um repositório de exemplos orientado pela comunidade pode ser encontrado em https://github.com/Azure/azureml-examples .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerencie os seus modelos.](concept-model-management-and-deployment.md)
 * Monitorize os seus modelos de produção para [a deriva de dados.](./how-to-enable-data-collection.md)

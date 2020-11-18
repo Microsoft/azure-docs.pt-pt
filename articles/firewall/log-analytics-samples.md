@@ -7,16 +7,16 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: 2d4ed76e849385c4edecb7bd97d58087c8e5b4b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 86538f6d0467eb15e549179166ca957902a2d0c3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132793"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659561"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Registos do Monitor Azure para Azure Firewall
 
-As seguintes amostras de registos do Azure Monitor podem ser usadas para analisar os seus registos Azure Firewall. O ficheiro de amostra é construído no View Designer in Azure Monitor, o artigo [do View Designer em Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) tem mais informações sobre o conceito de View Design.
+As seguintes amostras de registos do Azure Monitor podem ser usadas para analisar os seus registos Azure Firewall. O ficheiro de amostra é construído no View Designer in Azure Monitor, o artigo [do View Designer em Azure Monitor](../azure-monitor/platform/view-designer.md) tem mais informações sobre o conceito de View Design.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -40,7 +40,7 @@ E para os dados de registo de regras de rede:
 
 ![Dados de registo de regras de rede]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure Firewall regista dados abaixo da AzureDiagnostics com categoria como **AzureFirewallApplicationRule** ou **AzureFirewallNetworkRule**. Os dados que contêm os dados são armazenados no campo msg_s. Utilizando o operador [de parse podemos](https://docs.microsoft.com/azure/kusto/query/parseoperator) extrair as várias propriedades interessantes do campo msg_s. As consultas abaixo extraem a informação para ambas as categorias.
+Azure Firewall regista dados abaixo da AzureDiagnostics com categoria como **AzureFirewallApplicationRule** ou **AzureFirewallNetworkRule**. Os dados que contêm os dados são armazenados no campo msg_s. Utilizando o operador [de parse podemos](/azure/kusto/query/parseoperator) extrair as várias propriedades interessantes do campo msg_s. As consultas abaixo extraem a informação para ambas as categorias.
 
 ## <a name="application-rules-log-data-query"></a>As regras de aplicação registam consulta de dados
 
@@ -48,10 +48,10 @@ A consulta abaixo analisa os dados de registo de regras de aplicação. Nas vár
 
 ```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallApplicationRule"
+| where Category == "AzureFirewallApplicationRule"
 //using :int makes it easier to pars but later we'll convert to string as we're not interested to do mathematical functions on these fields
 //this first parse statement is valid for all entries as they all start with this format
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
 //case 1: for records that end with: "was denied. Reason: SNI TLS extension was missing."
 | parse TempDetails with "was " Action1 ". Reason: " Rule1
 //case 2: for records that end with
@@ -84,8 +84,8 @@ A mesma consulta num formato mais condensado:
 
 ```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallApplicationRule"
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
+| where Category == "AzureFirewallApplicationRule"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
 | parse TempDetails with "was " Action1 ". Reason: " Rule1
 | parse TempDetails with "to " FQDN ":" TargetPortInt:int ". Action: " Action2 "." *
 | parse TempDetails with * ". Rule Collection: " RuleCollection2a ". Rule:" Rule2a
@@ -104,13 +104,13 @@ A consulta seguinte analisa os dados de registo de regras de rede. Nas várias l
 
 ```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallNetworkRule"
+| where Category == "AzureFirewallNetworkRule"
 //using :int makes it easier to pars but later we'll convert to string as we're not interested to do mathematical functions on these fields
 //case 1: for records that look like this:
 //TCP request from 10.0.2.4:51990 to 13.69.65.17:443. Action: Deny//Allow
 //UDP request from 10.0.3.4:123 to 51.141.32.51:123. Action: Deny/Allow
 //TCP request from 193.238.46.72:50522 to 40.119.154.83:3389 was DNAT'ed to 10.0.2.4:3389
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
 //case 1a: for regular network rules
 //TCP request from 10.0.2.4:51990 to 13.69.65.17:443. Action: Deny//Allow
 //UDP request from 10.0.3.4:123 to 51.141.32.51:123. Action: Deny/Allow
@@ -120,7 +120,7 @@ AzureDiagnostics
 | parse msg_s with * " was " Action1b " to " NatDestination
 //case 2: for ICMP records
 //ICMP request from 10.0.2.4 to 10.0.3.4. Action: Allow
-| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
 | extend
 SourcePort = tostring(SourcePortInt),
 TargetPort = tostring(TargetPortInt)
@@ -141,11 +141,11 @@ A mesma consulta num formato mais condensado:
 
 ```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallNetworkRule"
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| where Category == "AzureFirewallNetworkRule"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
 | parse msg_s with * ". Action: " Action1a
 | parse msg_s with * " was " Action1b " to " NatDestination
-| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
 | extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
 | extend Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort),NatDestination = case(NatDestination == "", "N/A", NatDestination)
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
@@ -172,9 +172,9 @@ As seguintes amostras de registo mostram os dados incluídos numa entrada de reg
 
 :::image type="content" source="media/log-analytics-samples/log1.png" alt-text="Screenshot de uma entrada de registo. São visíveis vários valores, tais como um carimbo temporal, um protocolo, um número de porta, uma ação, uma coleção de regras e uma regra." border="false":::
 
-:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="Screenshot de uma entrada de registo. São visíveis vários valores, tais como um carimbo temporal, um protocolo, um número de porta, uma ação, uma coleção de regras e uma regra." border="false":::
+:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="Screenshot de uma entrada de registo. São visíveis vários valores, como um carimbo temporal, um protocolo, uma fonte e endereços I P alvo, e uma ação." border="false":::
 
-:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="Screenshot de uma entrada de registo. São visíveis vários valores, tais como um carimbo temporal, um protocolo, um número de porta, uma ação, uma coleção de regras e uma regra." border="false":::
-## <a name="next-steps"></a>Passos seguintes
+:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="Screenshot de uma entrada de registo. São visíveis vários valores, tais como um carimbo de tempo, um protocolo, endereços e portas I P de origem e alvo, e uma mensagem." border="false":::
+## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre a monitorização e diagnósticos do Azure Firewall, consulte [Tutorial: Monitor Azure Firewall registos e métricas](tutorial-diagnostics.md).
+Para saber mais sobre a monitorização e diagnósticos do Azure Firewall, consulte [Tutorial: Monitor Azure Firewall registos e métricas](./firewall-diagnostics.md).

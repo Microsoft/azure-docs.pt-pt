@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 55cbf0a304bbf13d47fefad0981c0143c101bbb0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c9797024315a8fdc744d08863a42fba0b0b16420
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88520775"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660343"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Quickstart: Criar, transferir e listar bolhas com Azure CLI
 
@@ -27,19 +27,9 @@ A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-## <a name="install-the-azure-cli-locally"></a>Instale o Azure CLI localmente
-
-Se optar por instalar e utilizar o Azure CLI localmente, este arranque rápido requer que esteja a executar a versão Azure CLI 2.0.46 ou mais tarde. Execute `az --version` para determinar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
-Se estiver a executar o Azure CLI localmente, tem de fazer login e autenticar. Este passo não é necessário se estiver a utilizar a Azure Cloud Shell. Para iniciar sessão no Azure CLI, corra `az login` e autente na janela do navegador:
-
-```azurecli
-az login
-```
-
-Para obter mais informações sobre a autenticação» com o Azure [CLI, consulte Iniciar súm em Azure CLI](/cli/azure/authenticate-azure-cli).
+- Este artigo requer a versão 2.0.46 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="authorize-access-to-blob-storage"></a>Autorizar o acesso ao armazenamento blob
 
@@ -164,7 +154,7 @@ azcopy login
 azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender eliminar os recursos que criou como parte deste arranque rápido, incluindo a conta de armazenamento, elimine o grupo de recursos utilizando o comando de eliminação do [grupo az.](/cli/azure/group) Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
 
@@ -174,7 +164,7 @@ az group delete \
     --no-wait
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a transferir ficheiros entre um sistema de ficheiros local e um contentor no armazenamento Azure Blob. Para saber mais sobre como trabalhar com o armazenamento blob utilizando o Azure CLI, explore as amostras do Azure CLI para armazenamento blob.
 

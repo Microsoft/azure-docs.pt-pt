@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5b51e8cfbfcb5f771e9da524231f8ddfc40a9e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398512"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660938"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>How to validate VPN throughput to a virtual network (Como validar o débito da VPN para uma rede virtual)
 
@@ -119,7 +119,7 @@ Baixar [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para 
 1. Após completar os passos anteriores, execute os mesmos passos com as funções invertidas, de modo que o nó do servidor será agora o nó do cliente, e vice-versa.
 
 > [!Note]
-> A Iperf não é a única ferramenta. [O NTTTCP é uma solução alternativa para testes.](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing)
+> A Iperf não é a única ferramenta. [O NTTTCP é uma solução alternativa para testes.](../virtual-network/virtual-network-bandwidth-testing.md)
 
 ## <a name="test-vms-running-windows"></a>VMs de teste executando janelas
 
@@ -225,7 +225,7 @@ Em particular, a análise dos vestígios de captura de pacotes (Wireshark/Networ
 
 Mesmo que a produção global avaliada com os passos anteriores (iPERF/NTTTCP/etc.) fosse boa, pode experimentar uma resolução lenta de ficheiros quando utilizar o Windows Explorer, ou arrastar e cair através de uma sessão de PDR. Este problema deve-se normalmente a um ou ambos os seguintes fatores:
 
-* As aplicações de cópia de ficheiros, tais como o Windows Explorer e o RDP, não utilizam vários fios ao copiar ficheiros. Para um melhor desempenho, utilize uma aplicação de cópia de ficheiros com vários fios, como [a Richcopy,](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) para copiar ficheiros utilizando 16 ou 32 fios. Para alterar o número de fio para cópia de ficheiro em Richcopy, clique em opções **de Cópia de Ação**Cópia de  >  **Copy options**  >  **ficheiros**.
+* As aplicações de cópia de ficheiros, tais como o Windows Explorer e o RDP, não utilizam vários fios ao copiar ficheiros. Para um melhor desempenho, utilize uma aplicação de cópia de ficheiros com vários fios, como [a Richcopy,](/previous-versions/technet-magazine/dd547088(v=msdn.10)) para copiar ficheiros utilizando 16 ou 32 fios. Para alterar o número de fio para cópia de ficheiro em Richcopy, clique em opções **de Cópia de Ação** Cópia de  >  **Copy options**  >  **ficheiros**.
 
    ![Problemas de cópia de ficheiros lentos](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -233,7 +233,7 @@ Mesmo que a produção global avaliada com os passos anteriores (iPERF/NTTTCP/et
    > Nem todas as aplicações funcionam da mesma forma, e nem todas as aplicações/processos utilizam todos os fios. Se fizer o teste, poderá ver alguns fios vazios e não fornecerá resultados precisos de produção.
    > Para verificar o desempenho da transferência de ficheiros de aplicação, utilize vários fios aumentando o # do fio em sucessão ou diminuindo de forma a encontrar o rendimento ideal da aplicação ou transferência de ficheiros.
 
-* Velocidade de leitura/escrita de disco VM insuficiente. Para obter mais informações, consulte [a resolução de problemas do armazenamento Azure.](../storage/common/storage-e2e-troubleshooting.md)
+* Velocidade de leitura/escrita de disco VM insuficiente. Para obter mais informações, consulte [a resolução de problemas do armazenamento Azure.](/previous-versions/azure/storage/common/storage-e2e-troubleshooting)
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interface externa do dispositivo no local
 
@@ -261,7 +261,7 @@ Se notar um pico elevado de latência em qualquer um dos saltos antes de entrar 
 
 Se um grande pico de latência incomum for notado a partir de lúpulo dentro de "msn.net", contacte o apoio dos Estados-Membros para mais investigações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações ou ajuda, confira o seguinte link:
 

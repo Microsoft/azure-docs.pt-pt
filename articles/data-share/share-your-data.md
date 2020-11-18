@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 11/12/2020
-ms.openlocfilehash: 27d48ef8961aa0b7fde4a92195ea92a1ec20c3f0
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 89c2a725b853b5a2a7578dccc1fd503917e12962
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594203"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659629"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Partilhar dados com o Azure Data Share  
 
@@ -98,6 +98,8 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-share-account"></a>Criar uma conta de partilha de dados
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 1. Selecione o botão de menu no canto superior esquerdo do portal e, em seguida, selecione **Criar um recurso** (+).
@@ -111,7 +113,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Subscrição | A sua subscrição | Selecione a subscrição Azure que pretende utilizar para a sua conta de partilha de dados.|
-    | Grupo de recursos | *grupo de recursos de teste* | Utilize um grupo de recursos existente ou crie um novo grupo de recursos. |
+    | Grupo de recursos | *grupo testresource* | Utilize um grupo de recursos existente ou crie um novo grupo de recursos. |
     | Localização | *E.U.A. Leste 2* | Selecione uma região para a sua conta de partilha de dados.
     | Name | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
     | | |
@@ -120,7 +122,51 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 1. Quando a implementação estiver concluída, selecione **Ir para o recurso**.
 
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Crie um recurso Azure Data Share num grupo de recursos Azure.
+
+Comece por preparar o seu ambiente para o Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Utilize estes comandos para criar o recurso:
+
+1. Utilize o comando [conjunto de conta az](/cli/azure/account#az_account_set) para definir a subscrição como a subscrição padrão atual:
+
+   ```azurecli
+   az account set --subscription 00000000-0000-0000-0000-000000000000
+   ```
+
+1. Executar o comando [de registo do fornecedor az](/cli/azure/provider#az_provider_register) para registar o fornecedor de recursos:
+
+   ```azurecli
+   az provider register --name "Microsoft.DataShare"
+   ```
+
+1. Execute o comando [az group create](/cli/azure/group#az_group_create) para criar um grupo de recursos ou utilize um grupo de recursos existente:
+
+   ```azurecli
+   az group create --name testresourcegroup --location "East US 2"
+   ```
+
+1. Executar a [conta az datashare criar](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_create) comando para criar uma conta De partilha de dados:
+
+   ```azurecli
+   az datashare account create --resource-group testresourcegroup --name datashareaccount --location "East US 2" 
+   ```
+
+   Executar o comando da [lista de contas de datashare az](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_list) para ver as suas contas De partilha de dados:
+
+   ```azurecli
+   az datashare account list --resource-group testresourcegroup
+   ```
+
+---
+
 ## <a name="create-a-share"></a>Criar uma parte
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navegue para a sua página de visão geral da partilha de dados.
 
@@ -164,13 +210,45 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 1. No separador 'Rever + Criar', rever os conteúdos, definições, destinatários e definições de sincronização do pacote. Selecione **Criar**.
 
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+1. Executar a [conta de armazenamento az criar](/cli/azure/storage/account#az_storage_account_create) comando para criar uma Partilha de Dados:
+
+   ```azurecli
+   az storage account create --resource-group testresourcegroup --name ContosoMarketplaceAccount
+   ```
+
+1. Utilize o [recipiente de armazenamento az criar](/cli/azure/storage/container#az_storage_container_create) comando para criar um recipiente para a partilha no comando anterior:
+
+   ```azurecli
+   az storage container create --name ContosoMarketplaceContainer --account-name ContosoMarketplaceAccount
+   ```
+
+1. Executar o [datashare az criar](/cli/azure/ext/datashare/datashare#ext_datashare_az_datashare_create) comando para criar a sua Partilha de Dados:
+
+   ```azurecli
+   az datashare create --resource-group testresourcegroup \
+     --name ContosoMarketplaceDataShare --account-name ContosoMarketplaceAccount \
+     --description "Data Share" --share-kind "CopyBased" --terms "Confidential"
+   ```
+
+1. Utilize o [convite az datashare criar](/cli/azure/ext/datashare/datashare/invitation#ext_datashare_az_datashare_invitation_create) comando para criar o convite para o endereço especificado:
+
+   ```azurecli
+   az datashare invitation create --resource-group testresourcegroup \
+     --name DataShareInvite --share-name ContosoMarketplaceDataShare \
+     --account-name ContosoMarketplaceAccount --target-email "jacob@fabrikam"
+   ```
+
+---
+
 A sua Azure Data Share foi agora criada e o destinatário da sua Partilha de Dados está agora pronto para aceitar o seu convite.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o recurso já não for necessário, vá à página de Visão Geral do **Conjunto de Partilha de Dados** e selecione **Eliminar** para o remover.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a criar uma Partilha de Dados Azure e a convidar os destinatários. Para saber como um Consumidor de Dados pode aceitar e receber uma partilha de dados, continue a aceitar e receber o tutorial de dados.
 

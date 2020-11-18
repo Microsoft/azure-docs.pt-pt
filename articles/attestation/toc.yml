@@ -11,6 +11,8 @@
       href: quickstart-template.md
     - name: PowerShell
       href: quickstart-powershell.md
+    - name: CLI do Azure
+      href: quickstart-azure-cli.md
 - name: Tutoriais
   items:
     - name: Criar uma política de atestado

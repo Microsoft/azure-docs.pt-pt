@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Utilize GitOps para uma configuração de cluster ativada pelo Arco Azure (Pré-visualização)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, contentores
-ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce6c754c308d2979db9b1b8eb36e7858e8a91c3c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371261"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659799"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implementar configurações usando GitOps em Arc ativado cluster Kubernetes (Preview)
 
@@ -29,7 +29,7 @@ O mesmo padrão pode ser usado para gerir uma maior coleção de aglomerados, qu
 
 Este guia de arranque irá acompanhá-lo através da aplicação de um conjunto de configurações com âmbito de administração de cluster.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo pressupõe que você tem um Azure Arc existente habilitado cluster ligado Kubernetes. Se precisar de um cluster ligado, consulte o [arranque rápido](./connect-cluster.md)do cluster .
 
@@ -99,7 +99,7 @@ Aqui estão os cenários suportados para o valor do parâmetro --repositório-ur
 | Cenário | Formato | Descrição |
 | ------------- | ------------- | ------------- |
 | Repo de Git público | http[s]://server/repo.git ou git://server/repo.git   | Repo de Git público  |
-| Repo Git privado – SSH – Teclas criadas pelo fluxo | ssh://[user@]servidor/repo.git ou [user@]servidor:repo.git | A chave pública gerada pelo Flux precisa de ser adicionada à conta de utilizador ou repo no seu prestador de serviços Git. Estão disponíveis mais detalhes [aqui](#apply-configuration-from-a-private-git-repository) |
+| Repo Git privado – SSH – Teclas criadas pelo fluxo | ssh://[user@]servidor/repo.git ou [user@]servidor:repo.git | A chave pública gerada pelo Flux precisa de ser adicionada à conta de utilizador no seu prestador de serviços Git. Se a chave de implantação for adicionada para repo em vez de conta de utilizador, `git@` utilize-a no lugar de `user@` . Estão disponíveis mais detalhes [aqui](#apply-configuration-from-a-private-git-repository) |
 
 Estes cenários são apoiados pelo Flux, mas ainda não pela fonteControlConfiguration.
 
@@ -222,16 +222,26 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 3. Selecione a configuração que utiliza o repositório privado de Git.
 4. Na janela de contexto que se abre, na parte inferior da janela, copie a **chave pública do Repositório.**
 
-**Adicione a chave pública como chave de implantação para o repo git**
+Se estiver a utilizar o GitHub, utilize uma das seguintes 2 opções:
+
+**Opção 1: Adicione a chave pública à sua conta de utilizador**
+
+1. Abra o GitHub, clique no ícone de perfil no canto superior direito da página.
+2. Clique em **Definições**
+3. Clique nas **teclas SSH e GPG**
+4. Clique na **chave SSH nova**
+5. Fornecer um título
+6. Cole a chave pública (menos as aspas circundantes)
+7. Clique na **tecla Add SSH**
+
+**Opção 2: Adicione a chave pública como chave de implantação para o repo git**
 
 1. Abra o GitHub, navegue para o seu repo, para **Definições,** em seguida, para **implementar teclas**
-2. Clique  **na tecla de implementação de adicionar**
+2. Clique na **tecla de implementação de adicionar**
 3. Fornecer um título
 4. Verificar **Permitir o acesso de escrita**
 5. Cole a chave pública (menos as aspas circundantes)
-6. Clique **na tecla Adicionar**
-
-Consulte os docs do GitHub para obter mais informações sobre como gerir estas chaves.
+6. Clique na **tecla Adicionar**
 
 **Se estiver a utilizar um repositório Azure DevOps, adicione a chave às suas teclas SSH**
 
@@ -307,7 +317,7 @@ az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Use o leme com configuração de controlo de origem](./use-gitops-with-helm.md)
 - [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)

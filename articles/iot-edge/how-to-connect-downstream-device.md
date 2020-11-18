@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 979ed3d21986ad43d805446a520a59333a6798ed
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 78600b7b57a7c30fc609434a700f13fa21e079ce
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149330"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659646"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo a jusante a um gateway do Azure IoT Edge
 
@@ -63,7 +63,7 @@ Para ligar um dispositivo a jusante a um gateway IoT Edge, precisa de duas coisa
 
 O desafio de ligar seguramente os dispositivos a jusante ao IoT Edge é como qualquer outra comunicação segura de cliente/servidor que ocorre através da internet. Um cliente e um servidor comunicam-se de forma segura através da internet utilizando a [segurança da camada de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). O TLS é construído utilizando as construções padrão [de infraestruturas de chaves públicas (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure) chamadas certificados. O TLS é uma especificação bastante envolvida e aborda uma vasta gama de tópicos relacionados com a garantia de dois pontos finais. Esta secção resume os conceitos relevantes para ligar os dispositivos de forma segura a um gateway IoT Edge.
 
-Quando um cliente se conecta a um servidor, o servidor apresenta uma cadeia de certificados, chamada cadeia de *certificados*do servidor . Uma cadeia de certificados compreende normalmente um certificado de autoridade de certificados de raiz (CA), um ou mais certificados de CA intermédios e, finalmente, o próprio certificado do servidor. Um cliente estabelece a confiança com um servidor verificando criptograficamente toda a cadeia de certificados do servidor. Esta validação do cliente da cadeia de certificados do servidor chama-se *validação da cadeia de servidores*. O cliente desafia o servidor a provar a posse da chave privada associada ao certificado do servidor num processo chamado *prova de posse*. A combinação de validação da cadeia de servidor e prova de posse chama-se *autenticação do servidor*. Para validar uma cadeia de certificados de servidor, um cliente precisa de uma cópia do certificado de CA raiz que foi usado para criar (ou emitir) o certificado do servidor. Normalmente, ao ligar-se a websites, um navegador vem pré-configurado com certificados de CA comumente usados para que o cliente tenha um processo sem emenda.
+Quando um cliente se conecta a um servidor, o servidor apresenta uma cadeia de certificados, chamada cadeia de *certificados* do servidor . Uma cadeia de certificados compreende normalmente um certificado de autoridade de certificados de raiz (CA), um ou mais certificados de CA intermédios e, finalmente, o próprio certificado do servidor. Um cliente estabelece a confiança com um servidor verificando criptograficamente toda a cadeia de certificados do servidor. Esta validação do cliente da cadeia de certificados do servidor chama-se *validação da cadeia de servidores*. O cliente desafia o servidor a provar a posse da chave privada associada ao certificado do servidor num processo chamado *prova de posse*. A combinação de validação da cadeia de servidor e prova de posse chama-se *autenticação do servidor*. Para validar uma cadeia de certificados de servidor, um cliente precisa de uma cópia do certificado de CA raiz que foi usado para criar (ou emitir) o certificado do servidor. Normalmente, ao ligar-se a websites, um navegador vem pré-configurado com certificados de CA comumente usados para que o cliente tenha um processo sem emenda.
 
 Quando um dispositivo se conecta ao Azure IoT Hub, o dispositivo é o cliente e o serviço de nuvem IoT Hub é o servidor. O serviço de nuvem IoT Hub é apoiado por um certificado de CA raiz chamado **Baltimore CyberTrust Root**, que está disponível ao público e amplamente utilizado. Uma vez que o certificado IoT Hub CA já está instalado na maioria dos dispositivos, muitas implementações TLS (OpenSSL, Schannel, LibreSSL) usam-no automaticamente durante a validação do certificado do servidor. No entanto, um dispositivo que se conecta com sucesso ao IoT Hub pode ter problemas ao tentar ligar-se a um gateway IoT Edge.
 
@@ -109,7 +109,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 Também pode instalar certificados utilizando o utilitário **certlm:**
 
 1. No menu Iniciar, procure e **selecione Obter certificados de computador**. Um utilitário chamado **certlm** abre.
-2. Navegar para **certificados - Autoridades locais**  >  **de certificação de raiz fidedignas de**computador.
+2. Navegar para **certificados - Autoridades locais**  >  **de certificação de raiz fidedignas de** computador.
 3. Clique com o botão **direito Certificados** e selecione **Todas as**  >  **Tarefas Importadas**. O assistente de importação de certificados deve ser lançado.
 4. Siga as etapas conforme o ficheiro de certificados direcionado e de `<path>/azure-iot-test-only.root.ca.cert.pem` importação. Quando concluído, deverá ver uma mensagem "importada com sucesso".
 
@@ -168,11 +168,15 @@ Esta secção introduz uma aplicação de amostra para ligar um cliente de dispo
 3. No ficheiro iotedge_downstream_device_sample.c, atualize as variáveis **connectionString** e **edge_ca_cert_path.**
 4. Consulte a documentação SDK para obter instruções sobre como executar a amostra no seu dispositivo.
 
+
 O dispositivo Azure IoT SDK para C oferece uma opção de registar um certificado de CA ao configurar o cliente. Esta operação não instala o certificado em lado nenhum, mas utiliza um formato de cadeia do certificado na memória. O certificado guardado é fornecido à pilha TLS subjacente ao estabelecer uma ligação.
 
 ```C
 (void)IoTHubDeviceClient_SetOption(device_handle, OPTION_TRUSTED_CERT, cert_string);
 ```
+
+>[!NOTE]
+> O método para registar um certificado de CA ao configurar o cliente pode ser alterado se utilizar um pacote ou biblioteca [gerido.](https://github.com/Azure/azure-iot-sdk-c#packages-and-libraries) Por exemplo, a [biblioteca baseada em Arduino IDE](https://github.com/azure/azure-iot-arduino) exigirá a adição do certificado de CA a um conjunto de certificados definido num ficheiro global [.c,](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) em vez de utilizar a `IoTHubDeviceClient_LL_SetOption` operação.  
 
 Nos anfitriões windows, se não estiver a utilizar o OpenSSL ou outra biblioteca TLS, o SDK não pode utilizar o Schannel. Para o Schannel funcionar, o certificado CA raiz IoT Edge deve ser instalado na loja de certificados Windows, não definido utilizando a `IoTHubDeviceClient_SetOption` operação.
 
@@ -214,6 +218,6 @@ Se o seu dispositivo de folha tiver ligação intermitente ao seu dispositivo ga
 2. O nome de anfitrião do portal é resolúvel para um endereço IP? Pode resolver ligações intermitentes utilizando DNS ou adicionando uma entrada de ficheiro de anfitrião no dispositivo de folha.
 3. As portas de comunicação estão abertas na sua firewall? A comunicação com base no protocolo utilizado (MQTTS:8883/AMQPS:5671/HTTPS:433) deve ser possível entre o dispositivo a jusante e o IoT Edge transparente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como o IoT Edge pode estender [as capacidades offline](offline-capabilities.md) a dispositivos a jusante.

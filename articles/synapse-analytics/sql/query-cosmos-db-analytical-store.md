@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2ffc524c14b9ba281d7e386f7f8c726093f11dbf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579390"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661023"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consulta dados DB da Azure Cosmos com piscina SQL sem servidor em Azure Synapse Link (pré-visualização)
 
@@ -25,7 +25,7 @@ Para consulta do Azure Cosmos DB, toda a área [de](/sql/t-sql/queries/select-tr
 Neste artigo, você aprenderá a escrever uma consulta com a piscina SQL sem servidor que irá consultar dados de recipientes DB Azure Cosmos que estão ativados no Synapse Link. Você pode então aprender mais sobre construir vistas de piscina SQL sem servidor sobre os recipientes DB Azure Cosmos e ligá-los aos modelos Power BI [neste](./tutorial-data-analyst.md) tutorial. 
 
 > [!IMPORTANT]
-> Este tutorial usa um recipiente com [esquema bem definido da Azure Cosmos DB.](../../cosmos-db/analytical-store-introduction.md#schema-representation) A experiência de consulta que o pool SQL sem servidor proporciona para [o esquema de fidelidade completa Azure Cosmos DB](#full-fidelity-schema) é um comportamento temporário que será alterado com base no feedback de pré-visualização. Não confie no esquema de definição de resultados de `OPENROWSET` função sem `WITH` cláusula que leia dados de um recipiente com esquema de fidelidade completo porque a experiência de consulta pode ser alterada e alinhada com esquema bem definido. Publique o seu feedback no [fórum de feedback da Azure synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics) ou contacte a equipa de produtos da [Synapse link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer feedback.
+> Este tutorial usa um recipiente com um [esquema bem definido da Azure Cosmos.](../../cosmos-db/analytical-store-introduction.md#schema-representation) A experiência de consulta que a piscina SQL sem servidor proporciona um [esquema de fidelidade completa Azure Cosmos DB](#full-fidelity-schema) é um comportamento temporário que mudará com base no feedback de pré-visualização. Não confie no esquema de definição de resultados da `OPENROWSET` função sem a `WITH` cláusula que lê dados de um recipiente com um esquema de fidelidade completo porque a experiência de consulta pode estar alinhada e mudar com base no esquema bem definido. Publique o seu feedback no fórum de feedback do [Azure Synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics) ou contacte a equipa de [produtos de ligação Synapse](mailto:cosmosdbsynapselink@microsoft.com) para fornecer feedback.
 
 ## <a name="overview"></a>Descrição geral
 

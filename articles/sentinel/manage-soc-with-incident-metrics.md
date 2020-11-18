@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 408913fed864ee5f966b96c81afbfee4b2dc8678
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88761730"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660734"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Gerir melhor o SOC com métricas de incidentes
 
 > [!IMPORTANT]
 > As características das métricas do incidente estão atualmente em visualização pública.
 > Estas características são fornecidas sem um contrato de nível de serviço, e não são recomendadas para cargas de trabalho de produção.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Como gestor do Centro de Operações de Segurança (SOC), é necessário ter métricas e medidas de eficiência global na ponta dos dedos para avaliar o desempenho da sua equipa. Você vai querer ver operações de incidentes ao longo do tempo por muitos critérios diferentes, como gravidade, táticas MITRE, tempo médio para triagem, tempo médio para resolver, e muito mais. O Azure Sentinel disponibiliza-lhe agora estes dados com a nova tabela e esquema **securityIncident** no Log Analytics e o livro de **operações de segurança** que o acompanha. Poderá visualizar o desempenho da sua equipa ao longo do tempo e utilizar esta perspicácia para melhorar a eficiência. Também pode escrever e usar as suas próprias consultas de KQL contra a tabela de incidentes para criar livros personalizados que se adaptem às suas necessidades específicas de auditoria e KPI's.
 
@@ -39,7 +39,7 @@ A tabela **SecurityIncident** é incorporada em Azure Sentinel. Você vai encont
 
 Sempre que criar ou atualizar um incidente, será adicionada uma nova entrada de registo à tabela. Isto permite-lhe rastrear as alterações feitas aos incidentes, e permite métricas SOC ainda mais potentes, mas você precisa estar atento a isso ao construir consultas para esta tabela, pois você pode precisar remover entradas duplicadas para um incidente (dependendo da consulta exata que você está executando). 
 
-Por exemplo, se quiser devolver uma lista de todos os incidentes classificados pelo seu número de incidentes, mas apenas quiser devolver o registo mais recente por incidente, pode fazê-lo utilizando o [operador de resumo](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator) KQL com a `arg_max()` [função de agregação:](https://docs.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggfunction)
+Por exemplo, se quiser devolver uma lista de todos os incidentes classificados pelo seu número de incidentes, mas apenas quiser devolver o registo mais recente por incidente, pode fazê-lo utilizando o [operador de resumo](/azure/data-explorer/kusto/query/summarizeoperator) KQL com a `arg_max()` [função de agregação:](/azure/data-explorer/kusto/query/arg-max-aggfunction)
 
 
 ```Kusto
@@ -82,9 +82,9 @@ Para complementar a tabela **SecurityIncidents,** fornecemos-lhe um modelo de li
 
 Pode encontrar este novo modelo de livro, escolhendo livros de **trabalho** do menu de navegação Azure Sentinel e selecionando o **separador Modelos.** Escolha a eficiência das **operações** de segurança na galeria e clique num dos botões **de livro guardados view** e ver o **modelo.**
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Tabela de incidentes de segurança":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Galeria de livros de incidentes de segurança":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Tabela de incidentes de segurança":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Livro de incidentes de segurança completo":::
 
 Pode utilizar o modelo para criar os seus próprios livros personalizados adaptados às suas necessidades específicas.
 
@@ -92,7 +92,7 @@ Pode utilizar o modelo para criar os seus próprios livros personalizados adapta
 
 [!INCLUDE [SecurityIncidents schema](../../includes/sentinel-schema-security-incident.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar com o Azure Sentinel, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - Aprenda a [embarcar os seus dados ao Azure Sentinel](quickstart-onboard.md)e obtenha [visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

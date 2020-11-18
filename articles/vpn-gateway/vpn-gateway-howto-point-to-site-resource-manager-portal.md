@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: c9a77fc8d6e832165a78b9d83cc0a22b31b65362
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: fc4ed7b295ce8a109d2f7c5614440637b2ab855a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555997"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660802"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure uma ligação VPN ponto-a-local a um VNet utilizando a autenticação de certificado azure nativo: portal Azure
 
@@ -86,7 +86,7 @@ Os certificados são utilizados pelo Azure para autenticar clientes que se ligam
 
 O conjunto de endereços de cliente é um conjunto de endereços IP privados que especificar. Os clientes que se ligam através da VPN Ponto a Site recebem dinamicamente um endereço IP deste intervalo. Utilize um intervalo de endereços IP privados que não se sobreponha à localização no local a partir da qual se ligou ou à VNet à qual se quer ligar. Se configurar vários protocolos e o SSTP for um dos protocolos, então o conjunto de endereços configurado é dividido entre os protocolos configurados de forma igual.
 
-1. Assim que o gateway da rede virtual for criado, navegue até à secção **Definições** da página do gateway de rede virtual. Em **Definições** , selecione **configuração ponto-a-local**. Selecione **Configurar agora** para abrir a página de configuração.
+1. Assim que o gateway da rede virtual for criado, navegue até à secção **Definições** da página do gateway de rede virtual. Em **Definições**, selecione **configuração ponto-a-local**. Selecione **Configurar agora** para abrir a página de configuração.
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png" alt-text="Página de configuração ponto-a-local" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png":::
 1. Na página **de configuração ponto-a-local,** pode configurar uma variedade de configurações. Se não vir o tipo de túnel ou tipo de autenticação nesta página, o seu portal está a utilizar o SKU Básico. A SKU Básica não suporta a autenticação IKEv2 ou RADIUS. Se pretender utilizar estas definições, tem de eliminar e recriar o gateway utilizando um gateway diferente SKU.
@@ -107,7 +107,7 @@ Selecione o tipo de túnel. As opções do túnel são OpenVPN, SSTP e IKEv2.
 
 ## <a name="6-configure-authentication-type"></a><a name="authenticationtype"></a>6. Tipo de autenticação configurada
 
-Para **tipo de autenticação** , selecione **certificado Azure**.
+Para **tipo de autenticação**, selecione **certificado Azure**.
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/azure-certificate.png" alt-text="Tipo de autenticação":::
 
@@ -151,7 +151,7 @@ Os ficheiros de configuração de cliente VPN contêm as definições para confi
 
 A partir da caixa de diálogo 'Rede', localiza o perfil do cliente que pretende utilizar, especifica as definições do [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac)e, em seguida, selecione **Connect**.
 
-Consulte [a Instalação - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) para obter instruções detalhadas. Se tiver problemas em ligar, verifique se o gateway de rede virtual não está a utilizar um SKU Básico. A SKU básica não é suportada para clientes Mac.
+Consulte [a Instalação - Mac (OS X)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac) para obter instruções detalhadas. Se tiver problemas em ligar, verifique se o gateway de rede virtual não está a utilizar um SKU Básico. A SKU básica não é suportada para clientes Mac.
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png" alt-text="Ligação ao cliente Mac VPN" border="false":::
 
@@ -209,10 +209,10 @@ A prática comum é utilizar o certificado de raiz para gerir o acesso nos níve
 
 Pode revogar um certificado de cliente, ao adicionar o thumbprint à lista de revogação.
 
-1. Obtenha o thumbprint do certificado de cliente. Para obter mais informações, veja [Como obter o Thumbprint de um Certificado](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Obtenha o thumbprint do certificado de cliente. Para obter mais informações, veja [Como obter o Thumbprint de um Certificado](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 1. Copie as informações para um editor de texto e remova todos os espaços, para que seja uma cadeia contínua.
 1. Navegue até à página **Configuração ponto a site** do gateway de rede virtual. Esta é a mesma página que utilizou para [carregar um certificado de raiz fidedigna](#uploadfile).
-1. Na secção **Certificados revogados** , introduza um nome amigável para o certificado (não tem de ser o CN do certificado).
+1. Na secção **Certificados revogados**, introduza um nome amigável para o certificado (não tem de ser o CN do certificado).
 1. Copie e cole a cadeia de thumbprint para o campo **Thumbprint**.
 1. O thumbprint valida e é adicionado automaticamente à lista de revogação. Verá uma mensagem no ecrã a indicar que a lista está a atualizar. 
 1. Depois de concluída a atualização, o certificado já não pode ser utilizado para ligar. Os clientes que se tentarem ligar com este certificado irão receber uma mensagem a indicar que o certificado já não é válido.
@@ -221,7 +221,7 @@ Pode revogar um certificado de cliente, ao adicionar o thumbprint à lista de re
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
-Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+## <a name="next-steps"></a>Próximos passos
+Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](../index.yml). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/network-overview.md).
 
 Para obter informações de resolução de problemas P2S, consulte [Resolução de problemas de ligações ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

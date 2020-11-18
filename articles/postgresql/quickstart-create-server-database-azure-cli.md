@@ -8,38 +8,33 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1ddc8c2b9531dd78c1c6746e28b8ff5864af563e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d174e410aaef876dfe97af62750322641de95fd3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331969"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659459"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Quickstart: Criar uma Base de Dados Azure para servidor PostgreSQL utilizando o Azure CLI
 
 Este quickstart mostra como usar comandos [Azure CLI](/cli/azure/get-started-with-azure-cli) em [Azure Cloud Shell](https://shell.azure.com) para criar uma única Base de Dados Azure para servidor PostgreSQL em cinco minutos. Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-> [!TIP]
-> Considere usar os [postgres az](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) mais simples até o comando Azure CLI que está atualmente em pré-visualização. Experimente o [arranque rápido.](./quickstart-create-server-up-azure-cli.md)
+- Este artigo requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
-## <a name="prerequisites"></a>Pré-requisitos
-Este artigo requer que você execute a versão 2.0 do Azure CLI ou mais tarde localmente. Para ver a versão instalada, execute o comando `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+    > [!TIP]
+    >  Considere usar os [postgres az](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) mais simples até o comando Azure CLI que está atualmente em pré-visualização. Experimente o [arranque rápido.](./quickstart-create-server-up-azure-cli.md)
 
-Tem de iniciar sessão na sua conta utilizando o comando [de login az.](/cli/azure/reference-index#az-login) Note a propriedade **id,** que se refere ao **ID de subscrição** para a sua conta Azure. 
+- Selecione o ID de subscrição específico na sua conta utilizando o comando [conjunto de conta az.](/cli/azure/account)
 
-```azurecli-interactive
-az login
-```
+    - Tome nota do valor de **id** da saída de **login az** para usar como o valor para o argumento de **subscrição** no comando. 
 
-Selecione o ID de subscrição específico na sua conta utilizando o comando [conjunto de conta az.](/cli/azure/account) Tome nota do valor de **id** da saída de **login az** para usar como o valor para o argumento de **subscrição** no comando. 
+        ```azurecli
+        az account set --subscription <subscription id>
+        ```
 
-```azurecli
-az account set --subscription <subscription id>
-```
-
-Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Para obter todas as suas subscrições, utilize [a lista de conta az](/cli/azure/account#az-account-list).
+    - Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Para obter todas as suas subscrições, utilize [a lista de conta az](/cli/azure/account#az-account-list).
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Criar um servidor da Base de Dados do Azure para PostgreSQL
 
@@ -63,7 +58,7 @@ resource-group | myResourceGroup | Nome do grupo de recursos Azure.
 localização | westus | Localização azul para o servidor.
 admin-user | myadmin | Nome de utilizador para o login do administrador. Não pode ser **azure_superuser,** **administrador,** **raiz,** **hóspede,** ou **público.** **root**
 admin-password | *palavra-passe segura* | Palavra-passe do utilizador administrador. Deve conter 8 a 128 caracteres de três das seguintes categorias: letras maiúsculas inglesas, letras minúsculas, números e caracteres não alfanuméricos.
-sku-name|GP_Gen5_2| Nome da configuração do nível de preços e do cálculo. Siga a convenção {nível de preços} _{compute generation}_ {vCores} em abreviatura. Para obter mais informações, consulte [a Base de Dados Azure para obter preços pós-SQL.](https://azure.microsoft.com/pricing/details/postgresql/server/)
+sku-name|GP_Gen5_2| Nome da configuração do nível de preços e do cálculo. Siga a convenção {nível de preços}_{compute generation}_{vCores} em abreviatura. Para obter mais informações, consulte [a Base de Dados Azure para obter preços pós-SQL.](https://azure.microsoft.com/pricing/details/postgresql/server/)
 
 >[!IMPORTANT] 
 >- A versão PostgreSQL predefinida no seu servidor é 9.6. Para ver todas as versões suportadas, consulte [as principais versões postgresQL suportadas.](./concepts-supported-versions.md)
@@ -150,6 +145,6 @@ Se apenas pretender eliminar o servidor recém-criado, pode executar o [comando 
 az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Migrar a sua base de dados utilizando exportação e importação](./howto-migrate-using-export-and-import.md)

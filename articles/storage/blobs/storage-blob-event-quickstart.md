@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 19a9abe3a03a384a69950a8ed9b63353e6e36588
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 37dc6d234d243c79fe9bac206caaaa28bb29aa2d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676263"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659952"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Quickstart: Route storage events to web endpoint with Azure CLI
 
@@ -28,11 +28,9 @@ Quando concluir os passos descritos neste artigo, pode ver que os dados do event
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão mais recente do Azure CLI (2.0.70 ou mais tarde). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
-
-Se não estiver a utilizar o Cloud Shell, primeiro tem de iniciar sessão com `az login`.
+- Este artigo requer a versão 2.0.70 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -40,7 +38,7 @@ Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num gru
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group). 
 
-O exemplo seguinte cria um grupo de recursos com o nome `<resource_group_name>` na localização *westcentralus* .  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
+O exemplo seguinte cria um grupo de recursos com o nome `<resource_group_name>` na localização *westcentralus*.  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westcentralus
@@ -156,7 +154,7 @@ Substitua `<resource_group_name>` pelo grupo de recursos que criou acima.
 az group delete --name <resource_group_name>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre os Eventos de armazenamento de Blobs o que o Event Grid pode ajudá-lo a fazer:
 

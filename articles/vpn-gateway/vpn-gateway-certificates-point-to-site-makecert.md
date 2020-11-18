@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 926de9f3fd357cd9d9ca067e4f7beff7d03eec95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55e22ebec5853d6b4f10b53be8e24f4dbebe4e1f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394196"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659782"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Gerar e exportar certificados para ligações ponto-a-local utilizando o MakeCert
 
@@ -26,13 +26,13 @@ Embora recomendemos a utilização dos [passos PowerShell do Windows 10](vpn-gat
 
 Os passos seguintes mostram-lhe como criar um certificado auto-assinado utilizando o MakeCert. Estes passos não são específicos do modelo de implantação. São válidos tanto para o Gestor de Recursos como para o Clássico.
 
-1. Faça o download e instale [o MakeCert.](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx)
+1. Faça o download e instale [o MakeCert.](/windows/win32/seccrypto/makecert)
 2. Após a instalação, é normal que se encontre o utilitário makecert.exe neste caminho: 'C:\Program Files (x86)\Windows Kits\10\bin \<arch> '. Embora seja possível que tenha sido instalado noutro local. Abra um pedido de comando como administrador e navegue até à localização do utilitário MakeCert. Pode utilizar o seguinte exemplo, ajustando-se para a localização adequada:
 
    ```cmd
    cd C:\Program Files (x86)\Windows Kits\10\bin\x64
    ```
-3. Crie e instale um certificado na loja de certificados Pessoal no seu computador. O exemplo a seguir cria um ficheiro *.cer* correspondente que envia para Azure ao configurar o P2S. Substitua 'P2SRootCert' e 'P2SRootCert.cer' com o nome que pretende utilizar para o certificado. O certificado está localizado nos seus 'Certificados - Utilizador Atual\Personal\Certificates'.
+3. Crie e instale um certificado na loja de certificados Pessoal no seu computador. O exemplo a seguir cria um ficheiro *.cer* correspondente que envia para o Azure ao configurar o P2S. Substitua 'P2SRootCert' e 'P2SRootCert.cer' pelo nome que pretende utilizar para o certificado. O certificado está localizado nos seus 'Certificados - Utilizador Atual\Personal\Certificates'.
 
    ```cmd
    makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
@@ -42,7 +42,7 @@ Os passos seguintes mostram-lhe como criar um certificado auto-assinado utilizan
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-O ficheiro exportado.cer deve ser enviado para Azure. Para obter instruções, consulte [configurar uma ligação ponto-a-local](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). Para adicionar um certificado de raiz de confiança adicional, consulte [esta secção](vpn-gateway-howto-point-to-site-resource-manager-portal.md#add) do artigo.
+O ficheiro .cer exportado deve ser enviado para Azure. Para obter instruções, consulte [configurar uma ligação ponto-a-local](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). Para adicionar um certificado de raiz de confiança adicional, consulte [esta secção](vpn-gateway-howto-point-to-site-resource-manager-portal.md#add) do artigo.
 
 ### <a name="export-the-self-signed-certificate-and-private-key-to-store-it-optional"></a>Exportar o certificado auto-assinado e a chave privada para armazená-lo (opcional)
 
@@ -77,7 +77,7 @@ Os passos seguintes acompanham-no através da geração de um certificado de cli
 
 Para instalar um certificado de cliente, consulte [instalar um certificado de cliente.](point-to-site-how-to-vpn-client-install-azure-cert.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Continue com a sua configuração Ponto-a-Local. 
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 428c24236aad9a57a9d52eb0a6ff3a7aeb9fe541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9502f3fbd50aad756e15daa4db1badda2abf9ab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442153"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660071"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com a CLI do Azure
 
@@ -79,7 +79,7 @@ Neste exercício, pode combinar configurações ou escolher apenas aquela com qu
 
 ## <a name="connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Ligar VNets que estão na mesma subscrição
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 
 Antes de começar, instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para obter informações sobre como instalar os comandos da CLI, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -134,7 +134,7 @@ Utilizamos os seguintes valores nos exemplos:
    ```azurecli
    az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
    ```
-3. Crie um espaço de endereços adicional para a sub-rede do back-end. Tenha em conta que, neste passo, especificamos o espaço de endereços criado anteriormente e o espaço novo que queremos adicionar. Isto deve-se ao facto de o comando [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet) substituir as definições anteriores. Confirme que especifica todos os prefixos de endereços quando utilizar este comando.
+3. Crie um espaço de endereços adicional para a sub-rede do back-end. Tenha em conta que, neste passo, especificamos o espaço de endereços criado anteriormente e o espaço novo que queremos adicionar. Isto deve-se ao facto de o comando [az network vnet update](/cli/azure/network/vnet) substituir as definições anteriores. Confirme que especifica todos os prefixos de endereços quando utilizar este comando.
 
    ```azurecli
    az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -214,10 +214,10 @@ Agora, tem duas VNets com gateways de VPN. O passo seguinte é criar ligações 
    ```
    "activeActive": false, 
    "bgpSettings": { 
-    "asn": 65515, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-   }, 
+    "asn": 65515, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+   }, 
    "enableBgp": false, 
    "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
    "gatewayDefaultSite": null, 
@@ -356,7 +356,7 @@ Este passo foi dividido em duas sessões da CLI marcadas como **[Subscription 1]
 
    Copie a saída de “id:”. Envie o ID e o nome do gateway de VNet (VNet1GW) ao administrador da Subscrição 5 por e-mail ou outro método.
 
-3. **[Subscrição 1]** Neste passo, vai criar a ligação de TestVNet1 a TestVNet5. Pode utilizar os seus próprios valores na chave partilhada. Contudo, esta tem de corresponder em ambas as ligações. A criação de uma ligação pode demorar algum tempo.Verifique se estabelece ligação à Subscrição 1.
+3. **[Subscrição 1]** Neste passo, vai criar a ligação de TestVNet1 a TestVNet5. Pode utilizar os seus próprios valores na chave partilhada. Contudo, esta tem de corresponder em ambas as ligações. A criação de uma ligação pode demorar algum tempo. Verifique se estabelece ligação à Subscrição 1.
 
    ```azurecli
    az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
@@ -376,7 +376,7 @@ Este passo foi dividido em duas sessões da CLI marcadas como **[Subscription 1]
 ## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>FAQ da ligação VNet a VNet
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja a [documentação das Máquinas Virtuais](https://docs.microsoft.com/azure/).
+* Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja a [documentação das Máquinas Virtuais](../index.yml).
 * Para obter informações sobre o BGP, veja a [Descrição Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).

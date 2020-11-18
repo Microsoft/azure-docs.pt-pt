@@ -10,12 +10,12 @@ metadata:
   author: cherylmc
   ms.author: cherylmc
   ms.date: 08/28/2019
-  ms.openlocfilehash: 93c655eccd49c411064c442799f0c7c5e70e5936
-  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+  ms.openlocfilehash: 4e01ee4a4dc065e88bf69bc8347867cdea9108cf
+  ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/26/2020
-  ms.locfileid: "92543547"
+  ms.lasthandoff: 11/17/2020
+  ms.locfileid: "94660564"
 landingContent:
 - title: Acerca do VPN Gateway
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Controlos de segurança
-      url: vpn-gateway-security-controls.md
+      url: ./security-baseline.md
   - linkListType: how-to-guide
     links:
     - text: Monitorização e alertas

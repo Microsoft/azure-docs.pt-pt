@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: 19ad45eec78d53261bf1781808339152c69a0136
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: bde11c8e06891025be96810acf6d87952a3d8d2f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638840"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660785"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importar informações sobre ameaças para o Azure Sentinel
 
@@ -44,7 +44,7 @@ Tal como todos os outros dados do evento no Azure Sentinel, os indicadores de am
 
 ### <a name="adding-threat-indicators-to-azure-sentinel-with-the-threat-intelligence-platforms-data-connector"></a>Adicionar indicadores de ameaça ao Azure Sentinel com o conector de dados das Plataformas de Inteligência de Ameaça
 
-Muitas organizações utilizam soluções da plataforma de inteligência de ameaças (TIP) para agregar os feeds de indicadores de ameaça de várias fontes, para curar os dados dentro da plataforma e, em seguida, escolher quais indicadores de ameaça aplicar a várias soluções de segurança, como dispositivos de rede, soluções avançadas de proteção de ameaças ou SIEMs como o Azure Sentinel. Se a sua organização utilizar uma solução TIP integrada, como MISP, Anomali ThreatStream, ThreatConnect, EclecticIQ Platform, ThreatQ Threat Intelligence Platform, ou MineMeld da Palo Alto Networks, o conector de **dados das Plataformas de Inteligência de Ameaças** permite-lhe utilizar o seu TIP para importar indicadores de ameaça para o Azure Sentinel. Uma vez que o conector trabalha com a [API de Segurança de Gráficos](https://docs.microsoft.com/graph/api/resources/tiindicator) da Microsoft para o conseguir, o conector também pode ser utilizado por qualquer plataforma de inteligência de ameaça personalizada para aproveitar a API dos tiIndicators para enviar indicadores para O Azure Sentinel (e para outras soluções de segurança da Microsoft como o Defender ATP).
+Muitas organizações utilizam soluções da plataforma de inteligência de ameaças (TIP) para agregar os feeds de indicadores de ameaça de várias fontes, para curar os dados dentro da plataforma e, em seguida, escolher quais indicadores de ameaça aplicar a várias soluções de segurança, como dispositivos de rede, soluções avançadas de proteção de ameaças ou SIEMs como o Azure Sentinel. Se a sua organização utilizar uma solução TIP integrada, como MISP, Anomali ThreatStream, ThreatConnect, EclecticIQ Platform, ThreatQ Threat Intelligence Platform, ou MineMeld da Palo Alto Networks, o conector de **dados das Plataformas de Inteligência de Ameaças** permite-lhe utilizar o seu TIP para importar indicadores de ameaça para o Azure Sentinel. Uma vez que o conector trabalha com a [API de Segurança de Gráficos](/graph/api/resources/tiindicator) da Microsoft para o conseguir, o conector também pode ser utilizado por qualquer plataforma de inteligência de ameaça personalizada para aproveitar a API dos tiIndicators para enviar indicadores para O Azure Sentinel (e para outras soluções de segurança da Microsoft como o Defender ATP).
 
 :::image type="content" source="media/import-threat-intelligence/threat-intel-import-path.png" alt-text="Caminho de importação de inteligência de ameaça":::
 
@@ -336,7 +336,7 @@ A marcação de indicadores de ameaça é uma forma fácil de os agrupar para fa
 
 Tens os teus indicadores de ameaça alimentados com o Azure Sentinel; você viu como vê-los e geri-los; Agora vê o que podem fazer por ti. O caso de utilização mais importante para indicadores de ameaças em soluções SIEM como o Azure Sentinel é o poder das regras de análise.  Estas regras baseadas em indicadores comparam eventos brutos das suas fontes de dados com os seus indicadores de ameaça para detetar ameaças de segurança na sua organização. No Azure Sentinel **Analytics,** cria regras de análise que funcionam de forma programada e geram alertas de segurança. As regras são impulsionadas por consultas, juntamente com configurações que determinam com que frequência a regra deve ser executada, que tipo de resultados de consulta devem gerar alertas de segurança, e quaisquer respostas automatizadas para desencadear quando os alertas são gerados.
 
-Embora possa sempre criar novas regras de análise a partir do zero, o Azure Sentinel fornece um conjunto de modelos de regras incorporados, criados por engenheiros de segurança da Microsoft, que pode usar como-é ou modificar para satisfazer as suas necessidades. Pode identificar facilmente os modelos de regra que utilizam indicadores de ameaça, uma vez que todos eles são intitulados a partir de " **mapa ti...".** Todos estes modelos de regra funcionam da mesma forma, sendo a única diferença que tipo de indicadores de ameaça são usados (domínio, e-mail, hash de ficheiro, endereço IP ou URL) e qual o tipo de evento a comparar. Cada modelo lista as fontes de dados necessárias para que a regra funcione, para que possa ver de novo se tem os eventos necessários já importados em Azure Sentinel.
+Embora possa sempre criar novas regras de análise a partir do zero, o Azure Sentinel fornece um conjunto de modelos de regras incorporados, criados por engenheiros de segurança da Microsoft, que pode usar como-é ou modificar para satisfazer as suas necessidades. Pode identificar facilmente os modelos de regra que utilizam indicadores de ameaça, uma vez que todos eles são intitulados a partir de "**mapa ti...".** Todos estes modelos de regra funcionam da mesma forma, sendo a única diferença que tipo de indicadores de ameaça são usados (domínio, e-mail, hash de ficheiro, endereço IP ou URL) e qual o tipo de evento a comparar. Cada modelo lista as fontes de dados necessárias para que a regra funcione, para que possa ver de novo se tem os eventos necessários já importados em Azure Sentinel.
 
 Vamos olhar para um destes modelos de regras e percorrer como ativar e configurar a regra para gerar alertas de segurança usando os indicadores de ameaça que importou para o Azure Sentinel. Para este exemplo, usaremos o modelo de regra chamado **ti map IP entidade para AzureActivity**. Esta regra corresponderá a qualquer indicador de ameaça do tipo endereço IP com todos os eventos de Atividade Azure. Quando um fósforo for encontrado, será gerado um **alerta,** bem como um **incidente** correspondente para investigação pela sua equipa de operações de segurança. Esta regra de análise só funcionará com sucesso se tiver permitido que um ou ambos os conectores de dados da **Inteligência de Ameaça** (para importar indicadores de ameaça) e o conector de dados da Atividade **Azure** (para importar os eventos de nível de subscrição do Azure).
 
@@ -423,7 +423,7 @@ Os livros de trabalho fornecem poderosos dashboards interativos que lhe dão inf
 
 Há também uma rica comunidade de livros do [Azure Monitor no GitHub](https://github.com/microsoft/Application-Insights-Workbooks) onde você pode baixar modelos adicionais e contribuir com seus próprios modelos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, soubeste das capacidades de inteligência de ameaça do Azure Sentinel e da nova lâmina da Inteligência de Ameaça. Para obter orientações práticas sobre a utilização das capacidades de inteligência de ameaça de Azure Sentinel, consulte os seguintes artigos:
 
 - [Ligue os dados da inteligência](./connect-threat-intelligence.md) de ameaça ao Azure Sentinel.

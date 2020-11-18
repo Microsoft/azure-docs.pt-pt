@@ -3,18 +3,18 @@ title: Anexar ou destacar uma galeria de imagens partilhada nos Serviços de Lab
 description: Este artigo descreve como anexar uma galeria de imagens partilhada a um laboratório de sala de aula em Azure Lab Services.
 ms.topic: article
 ms.date: 09/11/2020
-ms.openlocfilehash: 08d2a97138633a43e9acd69575c4b44e245d4faa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0870139d2320fa079f6705956e124f61479882
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056477"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660105"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Anexar ou destacar uma galeria de imagens partilhada nos Serviços do Laboratório Azure
 Este artigo mostra-lhe como anexar ou separar uma galeria de imagens partilhada numa conta de laboratório. 
 
 > [!NOTE]
-> Quando [guarda uma imagem de modelo de um laboratório](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) em Azure Lab Services para uma galeria de imagens partilhada, a imagem é enviada para a galeria como uma imagem especializada. [As imagens especializadas](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) mantêm informações específicas da máquina e perfis de utilizador. Você ainda pode enviar diretamente uma imagem generalizada para a galeria fora dos Serviços Azure Lab. 
+> Quando [guarda uma imagem de modelo de um laboratório](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) em Azure Lab Services para uma galeria de imagens partilhada, a imagem é enviada para a galeria como uma imagem especializada. [As imagens especializadas](../virtual-machines/windows/shared-image-galleries.md#generalized-and-specialized-images) mantêm informações específicas da máquina e perfis de utilizador. Você ainda pode enviar diretamente uma imagem generalizada para a galeria fora dos Serviços Azure Lab. 
 >
 > Um criador de laboratório pode criar um modelo VM baseado em imagens generalizadas e especializadas nos Serviços de Laboratório Azure. 
 
@@ -24,7 +24,7 @@ Aqui estão os dois cenários apoiados por esta característica:
 - Um administrador de contas de laboratório anexa uma galeria de imagens partilhada à conta do laboratório, e envia uma imagem para a galeria de imagens partilhada fora do contexto de um laboratório. Depois, os criadores de laboratório podem usar essa imagem da galeria de imagens partilhada para criar laboratórios. 
 - Uma conta de laboratório anexa uma galeria de imagens partilhada à conta do laboratório. Um criador de laboratório (instrutor) guarda a imagem personalizada do seu laboratório para a galeria de imagens partilhada. Em seguida, outros criadores de laboratório podem selecionar esta imagem a partir da galeria de imagens partilhada para criar um modelo para os seus laboratórios. 
 
-    Quando uma imagem é guardada numa galeria de imagens partilhada, a Azure Lab Services replica a imagem guardada para outras regiões disponíveis na mesma [geografia.](https://azure.microsoft.com/global-infrastructure/geographies/) Garante que a imagem está disponível para laboratórios criados noutras regiões na mesma geografia. Guardar imagens para uma galeria de imagens partilhadas incorre num custo adicional, que inclui o custo de todas as imagens replicadas. Este custo é separado do custo de utilização dos Serviços Azure Lab. Para obter mais informações sobre os preços da Galeria de Imagens Partilhadas, consulte [a Galeria de Imagens Partilhadas – Billing](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
+    Quando uma imagem é guardada numa galeria de imagens partilhada, a Azure Lab Services replica a imagem guardada para outras regiões disponíveis na mesma [geografia.](https://azure.microsoft.com/global-infrastructure/geographies/) Garante que a imagem está disponível para laboratórios criados noutras regiões na mesma geografia. Guardar imagens para uma galeria de imagens partilhadas incorre num custo adicional, que inclui o custo de todas as imagens replicadas. Este custo é separado do custo de utilização dos Serviços Azure Lab. Para obter mais informações sobre os preços da Galeria de Imagens Partilhadas, consulte [a Galeria de Imagens Partilhadas – Billing](../virtual-machines/windows/shared-image-galleries.md#billing).
 
 > [!IMPORTANT]
 > Durante a utilização de uma Galeria de Imagens Partilhadas, a Azure Lab Services suporta apenas imagens com menos de 128 GB de ESPAÇO DISCO OS. Imagens com mais de 128 GB de espaço em disco ou vários discos não serão mostradas na lista de imagens de máquinas virtuais durante a criação de laboratório.
@@ -86,7 +86,7 @@ Apenas uma galeria de imagens partilhada pode ser anexada a um laboratório. Se 
 
 ![Retire a galeria de imagens partilhada da conta do laboratório](./media/how-to-use-shared-image-gallery/detach.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para aprender como guardar uma imagem de laboratório na galeria de imagens partilhada ou usar uma imagem da galeria de imagens partilhada para criar um VM, veja [Como usar a galeria de imagens partilhada.](how-to-use-shared-image-gallery.md)
 
-Para obter mais informações sobre galerias de imagens partilhadas em geral, consulte [a galeria de imagens partilhada.](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
+Para obter mais informações sobre galerias de imagens partilhadas em geral, consulte [a galeria de imagens partilhada.](../virtual-machines/windows/shared-image-galleries.md)

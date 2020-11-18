@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 55e47b09ac4a6256a125a75c8a0f856e867e7c0e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 906aeaf87bfd71202064fae856a86985637985eb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337792"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659544"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Quickstart: Configurar o servidor de configuração Azure Spring Cloud
 
@@ -57,9 +57,19 @@ O procedimento a seguir configura o servidor config utilizando o portal Azure pa
 
 2. Na secção **de repositório padrão,** desafine o **URI** para https://github.com/Azure-Samples/piggymetrics-config " .
 
-3. Selecione **Aplicar** para guardar as alterações.
+3. Clique **em Validar**.
 
-    ![Screenshot do portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Navegue para o servidor config](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+4. Quando a validação estiver concluída, clique em **Aplicar** para guardar as suas alterações.
+
+    ![Validação do servidor config](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+5. A atualização da configuração pode demorar alguns minutos.
+ 
+    ![Atualizar o servidor config](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+6. Deverá receber uma notificação quando a configuração estiver completa.
 
 #### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 
@@ -98,7 +108,7 @@ O procedimento a seguir explica como resolver problemas as definições do servi
 
     [Estado de ![ saúde ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) do portal ASC ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, criou recursos Azure que continuarão a acumular encargos se permanecerem na sua subscrição. Se não pretende continuar para o próximo quickstart, consulte [clean up resources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Caso contrário, avance para o próximo arranque rápido:
 

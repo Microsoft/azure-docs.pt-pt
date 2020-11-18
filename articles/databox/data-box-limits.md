@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: b193247fee843796da0cb2fcfc1a874b1a1b72fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00ba711661d69bbaf53ff51fb2cb833d9b1c1ae2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660926"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660428"
 ---
 # <a name="azure-data-box-limits"></a>Limites da Caixa de Dados Azure
 
@@ -28,7 +28,7 @@ Considere estes limites à medida que implementa e opera a sua Caixa de Dados Mi
 - A Data Box pode armazenar um máximo de 500 milhões de ficheiros para importação e exportação.
 - A Data Box suporta um máximo de 512 contentores ou partilhas na nuvem. Os diretórios de alto nível dentro da partilha do utilizador tornam-se contentores ou partilhas de ficheiros Azure na nuvem. 
 - A capacidade de utilização da Caixa de Dados pode ser inferior a 80 TB devido ao consumo de metadados reFS.
-- A Data Box suporta um máximo de 5 ligações de clientes de cada vez numa partilha NFS. 
+- A Data Box suporta um máximo de 10 ligações com clientes de cada vez numa partilha NFS.
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento Azure
 

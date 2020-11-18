@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: e72acb532a33d0b3751bb8ad5051b1a3df4d7514
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491482"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660224"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Questões comuns sobre o mercado comercial da Microsoft
 
@@ -87,7 +87,7 @@ O mercado comercial funciona com um modelo de agência. O cliente assina um cont
 
 Como editor, define os termos de utilização para a sua solução de software, que os clientes devem aceitar como parte do fluxo de compra. Para simplificar e acelerar as coisas, fornecemos um Contrato Padrão que pode optar por incluir nos seus termos e condições. Isto permite que os clientes revejam o Contrato Padrão uma vez, obtenham a aprovação de equipas legais e de compra, e depois concentrem-se nas alterações para cada oferta.
 
-Pode criar alterações que se aplicam a todos os clientes, ou pode fazer as alterações específicas a determinados clientes. Também pode personalizar totalmente os seus termos e condições, que podem ser inseridos numa caixa de texto ou hospedados num website que será mostrado como um endereço web.
+Pode criar alterações que se aplicam a todos os clientes, ou pode fazer as alterações específicas a determinados clientes. Também pode personalizar totalmente os seus termos e condições, que podem ser inseridos numa caixa de texto no Partner Center.
 
 Para saber mais, consulte [o Standard Contract para o mercado comercial da Microsoft.](standard-contract.md)
 
@@ -99,10 +99,10 @@ Sim, o Azure Government Marketplace está disponível nas regiões do Governo de
 
 Existem quatro funções relevantes que regem o acesso ao Partner Center.
 
-- *Gestor* : Fornece permissões para gerir os utilizadores do Partner Center no diretório e criar e atualizar ofertas.
-- *Desenvolvedor* : Permite que um utilizador crie e atualize ofertas.
-- *Contribuinte Financeiro* : Fornece permissões para visualizar relatórios de pagamento.
-- *Proprietário* : Pode configurar a conta de pagamento e o perfil fiscal. O utilizador que aceitou o Contrato de Editor torna-se o Proprietário por defeito.
+- *Gestor*: Fornece permissões para gerir os utilizadores do Partner Center no diretório e criar e atualizar ofertas.
+- *Desenvolvedor*: Permite que um utilizador crie e atualize ofertas.
+- *Contribuinte Financeiro*: Fornece permissões para visualizar relatórios de pagamento.
+- *Proprietário*: Pode configurar a conta de pagamento e o perfil fiscal. O utilizador que aceitou o Contrato de Editor torna-se o Proprietário por defeito.
 
 Azure Ative Directy (Azure AD) As permissões *globais da Administração* são necessárias para criar novas contas de utilizador ou convidar contas de hóspedes no diretório subjacente. Partner Center aplica Azure AD ao modelo de identidade, e a instância AD Azure de uma organização é frequentemente gerida e controlada pelas suas equipas de TI ou segurança.
 
