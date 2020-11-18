@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: azure-communication-services
 author: mikben
 manager: mikben
@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 1675ad802f3a117c26ee10218f3b3bedad9b0a00
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 69b3e900973b1be484b76764847767b9e74d9998
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779766"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816779"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ No seu ficheiro POM, faça referência ao `azure-communication-chat` pacote com 
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.2</version> 
+    <version>1.0.0-beta.3</version> 
 </dependency>
 ```
 
@@ -66,7 +66,7 @@ Para a autenticação, o seu cliente necessita de fazer referência ao `azure-co
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0-beta.2</version> 
+    <version>1.0.0-beta.3</version> 
 </dependency>
 
 ```
@@ -85,7 +85,7 @@ As seguintes aulas e interfaces lidam com algumas das principais característica
 ## <a name="create-a-chat-client"></a>Criar um cliente de chat
 Para criar um cliente de chat, utilizará o ponto final do Serviço de Comunicações e o token de acesso que foi gerado como parte das etapas pré-necessárias. Os tokens de acesso ao utilizador permitem-lhe construir aplicações de clientes que autenticam diretamente os Serviços de Comunicação Azure. Assim que gerar estas fichas no seu servidor, passe-as de volta para um dispositivo cliente. Você precisa usar a classe CommunicationUserCredential da biblioteca de clientes Comuns para passar o símbolo para o seu cliente de chat. 
 
-Ao adicionar as declarações de importação, certifique-se de adicionar apenas importações do com.azure.communication.chat e com.azure.communication.chat.models namespaces, e não do com.azure.communication.chat.implementation namespace. No ficheiro App.java que foi gerado via Maven, pode utilizar o seguinte código para começar com:
+Ao adicionar as declarações de importação, certifique-se de adicionar apenas importações do com.azure.communication.chat e com.azure.communication.chat.models namespaces, e não do com.azure.communication.chat.implementation namespace. No ficheiro .java App que foi gerado via Maven, pode utilizar o seguinte código para começar com:
 
 ```Java
 import com.azure.communication.chat.*;

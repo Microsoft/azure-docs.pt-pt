@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 6baebdab06a72d3a4af05b4d2e04bc9eee6acb60
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025906"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833015"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho temporizador para funções Azure
 
@@ -163,7 +163,7 @@ Um exemplo do [objeto temporizador](#usage) é passado como o primeiro argumento
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir utiliza uma ligação do gatilho do temporizador cuja configuração é descrita no *function.jsficheiro.* A [função Python](functions-reference-python.md) real que utiliza a encadernação é descrita no ficheiro *__init__ .py.* O objeto transmitido para a função é do tipo [azure.funções.TimerRequest .](/python/api/azure-functions/azure.functions.timerrequest) A lógica da função escreve para os registos indicando se a invocação atual se deve a uma falha de horário.
+O exemplo a seguir utiliza uma ligação do gatilho do temporizador cuja configuração é descrita no *function.jsficheiro.* A [função Python](functions-reference-python.md) real que utiliza a ligação é descrita no ficheiro *__init__.py.* O objeto transmitido para a função é do tipo [azure.funções.TimerRequest .](/python/api/azure-functions/azure.functions.timerrequest) A lógica da função escreve para os registos indicando se a invocação atual se deve a uma falha de horário.
 
 Aqui estão os dados vinculativos do *function.jsarquivado:*
 
@@ -256,7 +256,7 @@ Os atributos não são suportados pela Python.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `TimerTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido como "TimerTrigger". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para "dentro". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -300,7 +300,7 @@ Cada campo pode ter um dos seguintes tipos de valores:
 |Tipo  |Exemplo  |Quando acionado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>"0 5 * * * *"</nobr>|a hh:05:00 onde hh é a cada hora (uma vez por hora)|
-|Todos os valores `*` ()|<nobr>"0 * 5 * * *"</nobr>|às 5:mm:00 todos os dias, onde mm é cada minuto da hora (60 vezes por dia)|
+|Todos os valores `*` ()|<nobr>"0 * 5 * * *"</nobr>|às 5:mm:00 todos os dias, onde mm é cada minuto da hora (60 vezes dentro da hora especificada)|
 |Uma gama `-` (operador)|<nobr>"5-7 * * * * *"</nobr>|em hh:mm:05,hh:mm:06, e hh:mm:07 onde hh:mm é cada minuto de cada hora (3 vezes por minuto)|
 |Um conjunto de valores `,` (operador)|<nobr>"5,8,10 * * * * *"</nobr>|em hh:mm:05,hh:mm:08, e hh:mm:10 onde hh:mm é cada minuto de cada hora (3 vezes por minuto)|
 |Um valor de intervalo `/` (operador)|<nobr>"0 */5 * * * *"</nobr>|às hh:00:00, hh:05:00, hh:10:00, e assim por diante através de hh:55:00 onde hh é a cada hora (12 vezes por hora)|

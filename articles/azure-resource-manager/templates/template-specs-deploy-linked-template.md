@@ -2,13 +2,13 @@
 title: Implementar uma especificação de modelo como um modelo ligado
 description: Aprenda a implementar uma especificação de modelo existente numa implementação ligada.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: 9755774f79ee4901c8aa691054da749f37756742
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/17/2020
+ms.openlocfilehash: 65ad5767817457133d0fbc34c7735cf52ff2c3f3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321579"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747473"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: Implementar uma especificação de modelo como um modelo ligado (Pré-visualização)
 
@@ -19,7 +19,7 @@ Aprenda a implementar uma [especificação](template-specs.md) de modelo existen
 Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 > [!NOTE]
-> As Especificações do Modelo estão atualmente em pré-visualização. Para usá-lo, tem de [se inscrever para a pré-visualização](https://aka.ms/templateSpecOnboarding).
+> As Especificações do Modelo estão atualmente em pré-visualização. Para a utilizar, tem de instalar a versão mais recente do PowerShell ou do Azure CLI. Para a Azure PowerShell, utilize [a versão 5.0.0 ou mais tarde](/powershell/azure/install-az-ps). Para O Azure CLI, utilize [a versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-template-spec"></a>Criar uma especificação de modelo
 

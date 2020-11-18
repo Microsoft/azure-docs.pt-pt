@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202961"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832811"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autenticar para serviços de comunicação Azure
 
@@ -72,11 +72,11 @@ Se não estiver a utilizar uma biblioteca de clientes para fazer pedidos HTTP à
 
 As fichas de acesso ao utilizador permitem que as aplicações do seu cliente autentem diretamente contra os Serviços de Comunicação Azure. Para isso, deverá criar um serviço de confiança que autentique os utilizadores da sua aplicação e emita fichas de acesso ao utilizador com a biblioteca de clientes da Administração. Visite a documentação conceptual da arquitetura do [cliente e do servidor](./client-and-server-architecture.md) para saber mais sobre as nossas considerações arquitetónicas.
 
-A `CommunicationClientCredential` classe contém a lógica para fornecer credenciais simbólicas de acesso ao utilizador às bibliotecas do cliente e gerir o seu ciclo de vida.
+A `CommunicationUserCredential` classe contém a lógica para fornecer credenciais simbólicas de acesso ao utilizador às bibliotecas do cliente e gerir o seu ciclo de vida.
 
 ### <a name="initialize-the-client-libraries"></a>Inicializar as bibliotecas de clientes
 
-Para rubricar bibliotecas de clientes dos Serviços de Comunicação Azure que requerem a autenticação simbólica de acesso ao utilizador, primeiro cria-se uma instância da `CommunicationClientCredential` classe e depois utiliza-a para inicializar um cliente API.
+Para rubricar bibliotecas de clientes dos Serviços de Comunicação Azure que requerem a autenticação simbólica de acesso ao utilizador, primeiro cria-se uma instância da `CommunicationUserCredential` classe e depois utiliza-a para inicializar um cliente API.
 
 Os seguintes snippets mostram-lhe como inicializar a biblioteca do cliente de chat com um token de acesso ao utilizador:
 

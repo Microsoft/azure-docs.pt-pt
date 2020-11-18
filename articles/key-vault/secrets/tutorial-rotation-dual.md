@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 5da31d45e068f414c8afa38bcb46cdf1f790a9e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a061cf493fba99c518448acd9c4bf4bd5949eb98
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843282"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831825"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos com dois conjuntos de credenciais de autenticação
 
@@ -67,8 +67,6 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 ```
 
 ## <a name="create-and-deploy-storage-account-key-rotation-function"></a>Criar e implementar função de rotação da chave da conta de armazenamento
-> [!IMPORTANT]
-> Abaixo o modelo requer Cofre chave, conta de armazenamento Azure e Função Azure para estar no mesmo grupo de recursos
 
 Em seguida, crie uma app de função com uma identidade gerida pelo sistema, além dos outros componentes necessários, e implemente funções de rotação de chaves de conta de armazenamento
 
@@ -85,13 +83,15 @@ As funções de rotação da aplicação de função requerem estes componentes 
    [![Imagem mostrando um botão marcado "Implementar para Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
 
 1. Na lista de **grupos de recursos,** selecione **akvrotation**.
-1. No Nome da **Conta de Armazenamento,** digite o nome da conta de armazenamento com as teclas de acesso para rodar
-1. No Nome do **Cofre de Chaves,** digite o nome do cofre da chave
-1. No Nome da **Aplicação de Função,** digite o nome da aplicação de função
-1. No **Nome Secreto**, escreva o nome secreto onde as chaves de acesso seriam armazenadas
-1. No **Url Repo**, tipo de função gitHub localização **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** ()
+1. Na **Conta de Armazenamento RG,** insira o nome do grupo de recursos onde existe a sua conta de armazenamento. Mantenha o valor predefinido **[grupo de recursos().nome]** se a sua conta de armazenamento já existir no mesmo grupo de recursos onde implementa a função de rotação de chave.
+1. No **Nome da Conta de Armazenamento,** insira o nome da conta de armazenamento, com as teclas de acesso a rodar.
+1. In **Key Vault RG,** insira o nome do grupo de recursos onde existe o cofre da chave. Mantenha o valor predefinido **[grupo de recursos().nome]** se o seu cofre de teclas já existir no mesmo grupo de recursos onde implementa a função de rotação da chave.
+1. Em **Key Vault Name,** insira o nome do cofre da chave.
+1. No **Nome da Aplicação de Função,** insira o nome da aplicação da função.
+1. Em **Nome Secreto,** insira um nome secreto onde as chaves de acesso seriam armazenadas.
+1. No **Url Repo,** insira o código de função GitHub local **https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell.git** ().
 1. Selecione **Review+Create**.
-1. Selecione **Criar**
+1. Selecione **Criar**.
 
    ![Rever e criar a primeira conta de armazenamento](../media/secrets/rotation-dual/dual-rotation-2.png)
 
@@ -205,7 +205,7 @@ az storage account keys list -n akvrotationstorage
 - [Conta de Armazenamento](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
 - [Cache de Redis](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 - Visão geral: [Cofre de chaves de monitorização com grade de eventos Azure](../general/event-grid-overview.md)
 - Como: Criar a [sua primeira função no portal Azure](../../azure-functions/functions-create-first-azure-function.md)
 - Como: [Receber e-mail quando um segredo de cofre chave muda](../general/event-grid-logicapps.md)

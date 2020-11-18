@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: cf7b82ec1da660ac68c6031434c0e0748ee67b3d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7141ebe4e7894c975ba2ee6fb39d5bfd4483ed41
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94523916"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816633"
 ---
 Começa com o reconhecimento facial usando a biblioteca do cliente Face para Python. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O serviço Face fornece-lhe acesso a algoritmos avançados para detetar e reconhecer rostos humanos em imagens.
 
@@ -165,6 +165,9 @@ Uma vez atribuídos rostos, deve treinar o **PersonGroup** para que possa identi
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_train)]
 
+> [!TIP]
+> A API face funciona num conjunto de modelos pré-construídos que são estáticos por natureza (o desempenho do modelo não vai regredir ou melhorar à medida que o serviço é executado). Os resultados que o modelo produz podem mudar se a Microsoft atualizar o backend do modelo sem migrar para uma versão totalmente nova do modelo. Para tirar partido de uma versão mais recente de um modelo, pode reforçá-lo **como** parâmetro com as mesmas imagens de inscrição.
+
 ## <a name="identify-a-face"></a>Identificar um rosto
 
 A operação Identificar tira uma imagem de uma pessoa (ou de várias pessoas) e procura encontrar a identidade de cada rosto na imagem (pesquisa de reconhecimento facial). Compara cada rosto detetado a um **PersonGroup,** uma base de dados de diferentes objetos **pessoais** cujas características faciais são conhecidas.
@@ -218,7 +221,7 @@ Execute a sua aplicação de reconhecimento facial a partir do diretório de apl
 python quickstart-file.py
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

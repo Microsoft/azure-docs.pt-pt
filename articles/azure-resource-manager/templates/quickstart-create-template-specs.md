@@ -2,15 +2,15 @@
 title: Criar e implementar especificações de modelo
 description: Aprenda a criar uma especificação de modelo a partir do modelo ARM. Em seguida, implemente a especificação do modelo para um grupo de recursos na sua subscrição.
 author: tfitzmac
-ms.date: 11/10/2020
+ms.date: 11/17/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 96ef5796aac1d0ee02e6bbafc40b7d3bcdea4e2f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8439b1de5a69b3e5bfc22e10f089938da921c1cb
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506367"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747507"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Quickstart: Criar e implementar especificações de modelo (Pré-visualização)
 
@@ -21,9 +21,7 @@ Este quickstart mostra-lhe como embalar um modelo de gestor de recursos Azure (m
 Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 > [!NOTE]
-> As Especificações do Modelo estão atualmente em pré-visualização. Para usá-lo, tem de [se inscrever na lista de espera.](https://aka.ms/templateSpecOnboarding)
->
-> Depois de aprovado na lista de espera, receberá instruções para instalar o módulo PowerShell de pré-visualização e o módulo CLI de pré-visualização.
+> As Especificações do Modelo estão atualmente em pré-visualização. Para a utilizar, tem de instalar a versão mais recente do PowerShell ou do Azure CLI. Para a Azure PowerShell, utilize [a versão 5.0.0 ou mais tarde](/powershell/azure/install-az-ps). Para O Azure CLI, utilize [a versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-template-spec"></a>Criar especificação de modelo
 

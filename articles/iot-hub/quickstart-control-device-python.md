@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ms.date: 09/14/2020
-ms.openlocfilehash: edbce93036652b338f192df237e8c5b09017ad33
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5db51e78a6770a642728cc058f425baf7c7e095b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747500"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832165"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Guia de Início Rápido: Controlar um dispositivo ligado a um hub IoT (Python)
 
@@ -37,15 +37,7 @@ Neste arranque rápido, utiliza-se um método direto para controlar um dispositi
 
 * Porta 8883 aberta na sua firewall. A amostra do dispositivo neste arranque rápido utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>Adicionar extensão Azure IoT
-
-Executar o seguinte comando para adicionar a extensão IoT do Microsoft Azure para Azure CLI à sua instância Cloud Shell. A Extensão IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do Serviço Aprovisionamento de Dispositivos IoT (DPS) à CLI do Azure.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -63,7 +55,7 @@ Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de u
 
 1. Executar o seguinte comando em Azure Cloud Shell para criar a identidade do dispositivo.
 
-    **Seu NomeIoTHubName** : Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
+    **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
 
     **MyPythonDevice:** Este é o nome do dispositivo que está a registar. Recomenda-se que use **MyPythonDevice** como mostrado. Se escolher um nome diferente para o seu dispositivo, também precisa de usar esse nome ao longo deste artigo e atualizar o nome do dispositivo nas aplicações da amostra antes de executá-los.
 
@@ -73,7 +65,7 @@ Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de u
 
 2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 
-    **Seu NomeIoTHubName** : Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
+    **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
@@ -87,7 +79,7 @@ Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de u
 
 3. Também precisa de uma _cadeia de ligação do serviço_ para permitir que a aplicação back-end se ligue ao seu hub IoT e obtenha as mensagens. O seguinte comando obtém a cadeia de ligação do serviço do seu hub IoT:
 
-    **Seu NomeIoTHubName** : Substitua este espaço reservado abaixo pelo nome que escolher para o seu hub IoT.
+    **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub show-connection-string \
@@ -106,11 +98,11 @@ Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de u
 
 A aplicação de dispositivo simulado liga-se a um ponto final específico do dispositivo no seu hub IoT, envia telemetria simulada e aguarda chamadas de método direto do seu hub. Neste guia de início rápido, a chamada de método direto do hub indica ao dispositivo para alterar o intervalo em que envia telemetria. O dispositivo simulado envia um reconhecimento de volta ao seu centro depois de executar o método direto.
 
-1. Numa janela de terminal local, navegue para a pasta raiz do projeto Python de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\simulated-device-2** .
+1. Numa janela de terminal local, navegue para a pasta raiz do projeto Python de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\simulated-device-2**.
 
 1. Abra o ficheiro **SimulatedDevice.py** num editor de texto à sua escolha.
 
-    Substitua o valor da `CONNECTION_STRING` variável pela cadeia de ligação do dispositivo que fez uma nota anterior. Em seguida, guarde as suas alterações para **SimulatedDevice.py** .
+    Substitua o valor da `CONNECTION_STRING` variável pela cadeia de ligação do dispositivo que fez uma nota anterior. Em seguida, guarde as suas alterações para **SimulatedDevice.py**.
 
 1. Na janela de terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas para a aplicação de dispositivo simulado:
 
@@ -132,11 +124,11 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub IoT. A aplicação faz chamadas de método direto para um dispositivo através do seu hub IoT e ouve para reconhecimentos. Normalmente, as aplicações back-end do Hub IoT são executadas na cloud.
 
-1. Noutra janela de terminal local, navegue para a pasta raiz do projeto Python de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\back-end-application** .
+1. Noutra janela de terminal local, navegue para a pasta raiz do projeto Python de exemplo. Em seguida, navegue para a pasta **iot-hub\Quickstarts\back-end-application**.
 
 1. Abra o ficheiro **BackEndApplication.py** num editor de texto à sua escolha.
 
-    Substitua o valor da `CONNECTION_STRING` variável pela cadeia de ligação de serviço que fez uma nota anterior. Em seguida, guarde as suas alterações para **BackEndApplication.py** .
+    Substitua o valor da `CONNECTION_STRING` variável pela cadeia de ligação de serviço que fez uma nota anterior. Em seguida, guarde as suas alterações para **BackEndApplication.py**.
 
 1. Na janela de terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas para a aplicação de dispositivo simulado:
 

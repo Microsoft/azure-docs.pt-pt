@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2020
-ms.openlocfilehash: a8890db90fa9f76b676a5fb944f74a773b00c8cd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 80280702748040e12d1d3d048644e6a16c926256
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737514"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832386"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformação de fonte no fluxo de dados de mapeamento
 
@@ -50,6 +50,7 @@ O fluxo de dados de mapeamento segue uma abordagem de extrato, carga e transform
 | [Base de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Caso Gerido (pré-visualização)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Hive](connector-hive.md#mapping-data-flow-properties) | | -/✓ | 
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
 As definições específicas destes conectores estão localizadas no separador **opções Source.** Os exemplos de scripts de fluxo de informação e de fluxo de dados nestas definições estão localizados na documentação do conector.
@@ -64,13 +65,13 @@ Os valores de desenvolvimento dos parâmetros do conjunto de dados podem ser con
 
 ![Screenshot que mostra o separador Definições de Origem.](media/data-flow/source1.png "Screenshot que mostra o separador Definições de Origem.")
 
-**Nome do fluxo de saída** : O nome da transformação da fonte.
+**Nome do fluxo de saída**: O nome da transformação da fonte.
 
-**Tipo de origem** : Escolha se pretende utilizar um conjunto de dados inline ou um objeto de conjunto de dados existente.
+**Tipo de origem**: Escolha se pretende utilizar um conjunto de dados inline ou um objeto de conjunto de dados existente.
 
-**Ligação de teste** : Teste se o serviço Spark do fluxo de dados pode ou não ligar-se com sucesso ao serviço ligado utilizado no seu conjunto de dados de origem. O modo Debug deve estar ligado para que esta função seja ativada.
+**Ligação de teste**: Teste se o serviço Spark do fluxo de dados pode ou não ligar-se com sucesso ao serviço ligado utilizado no seu conjunto de dados de origem. O modo Debug deve estar ligado para que esta função seja ativada.
 
-**Deriva de Schema** : A deriva de [Schema](concepts-data-flow-schema-drift.md) é a capacidade da Data Factory de lidar de forma nativa com esquemas flexíveis nos fluxos de dados sem precisar de definir explicitamente as alterações de colunas.
+**Deriva de Schema**: A deriva de [Schema](concepts-data-flow-schema-drift.md) é a capacidade da Data Factory de lidar de forma nativa com esquemas flexíveis nos fluxos de dados sem precisar de definir explicitamente as alterações de colunas.
 
 * Selecione a caixa de verificação **de deriva de esquema de esquema** se as colunas de origem mudarem frequentemente. Esta definição permite que todos os campos de origem que entram fluam através das transformações para a pia.
 
@@ -78,9 +79,9 @@ Os valores de desenvolvimento dos parâmetros do conjunto de dados podem ser con
 
 **Validar esquema:** Se **o esquema validado** for selecionado, o fluxo de dados não será executado se os dados de origem recebidas não corresponderem ao esquema definido do conjunto de dados.
 
-**Contagem de linhas sem limites** : O campo **de contagem de linhas skip** especifica quantas linhas ignorar no início do conjunto de dados.
+**Contagem de linhas sem limites**: O campo **de contagem de linhas skip** especifica quantas linhas ignorar no início do conjunto de dados.
 
-**Amostragem** : Permita que a **amostragem** limite o número de linhas da sua fonte. Utilize esta definição quando testar ou recolher dados da sua fonte para fins de depuragem.
+**Amostragem**: Permita que a **amostragem** limite o número de linhas da sua fonte. Utilize esta definição quando testar ou recolher dados da sua fonte para fins de depuragem.
 
 Para validar a sua fonte está configurada corretamente, ligue o modo de depurar e reveja uma pré-visualização de dados. Para mais informações, consulte [o modo Debug.](concepts-data-flow-debug-mode.md)
 

@@ -10,18 +10,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.custom: how-to, devx-track-python, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: fa1b19ef4ece3011c97c3158d54edd1d39efc09d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441992"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832641"
 ---
-# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como serviço Web
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Aprendizagem automática Azure implementado como um serviço web
 
 
-A implementação de um modelo Azure Machine Learning como um serviço web cria um ponto final rest API. Pode enviar dados para este ponto final e receber a predição devolvida pelo modelo. Neste documento, aprenda a criar clientes para o serviço web utilizando C#, Go, Java e Python.
+A implementação de um modelo do Azure Machine Learning como serviço Web cria um ponto final da API REST. Pode enviar dados para este ponto final e receber a predição devolvida pelo modelo. Neste documento, aprenda a criar clientes para o serviço web utilizando C#, Go, Java e Python.
 
 Cria um serviço web quando implementa um modelo para o seu ambiente local, Instâncias de Contentores Azure, Serviço Azure Kubernetes ou matrizes de portão programáveis em campo (FPGA). Você recupera o URI usado para aceder ao serviço web usando o [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Se a autenticação estiver ativa, também pode utilizar o SDK para obter as teclas de autenticação ou fichas.
 

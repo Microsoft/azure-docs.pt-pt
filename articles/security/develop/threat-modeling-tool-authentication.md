@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9a1afd1d998fcb3ba715c890cc4deac1f0a7da5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517721"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832535"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Quadro de Segurança: Autenticação / Mitigações
 
@@ -173,7 +173,7 @@ ms.locfileid: "94517721"
 | **Referências**              | [Visão geral do modelo de autenticação e segurança do Event Hubs](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Passos** | <p>O modelo de segurança Event Hubs baseia-se numa combinação de tokens de Assinatura de Acesso Partilhado (SAS) e editores de eventos. O nome da editora representa o DeviceID que recebe o token. Isto ajudaria a associar os tokens gerados com os respetivos dispositivos.</p><p>Todas as mensagens são marcadas com o criador no lado de serviço, permitindo a deteção de tentativas de falsificação de origem em carga útil. Ao autenticar dispositivos, gere um token SaS por dispositivo para uma editora única.</p>|
 
-## <a name="enable-azure-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Ativar a autenticação multi-factor Azure para administradores do Azure
+## <a name="enable-azure-ad-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Ativar a autenticação multi-factor Azure para administradores do Azure
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -181,7 +181,7 @@ ms.locfileid: "94517721"
 | **Fase SDL**               | Implementação |
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [O que é a Multi-Factor Authentication do Azure?](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **Referências**              | [O que é a autenticação multi-factor Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **Passos** | <p>A autenticação multi-factor (MFA) é um método de autenticação que requer mais do que um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações do utilizador. Funciona exigindo dois ou mais dos seguintes métodos de verificação:</p><ul><li>Algo que você sabe (tipicamente uma palavra-passe)</li><li>Algo que você tem (um dispositivo de confiança que não é facilmente duplicado, como um telefone)</li><li>Algo que és (biometria)</li><ul>|
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Restringir o acesso anónimo ao Cluster de Tecidos de Serviço

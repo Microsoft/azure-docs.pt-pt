@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 8dee3d9c91ac2b4fe97ada6069591f8f474c8c24
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 65f7af56e7f0042b8d4c312d17641a537f5fd908
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925000"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816725"
 ---
 Começa com o reconhecimento facial usando a biblioteca do cliente Face para Go. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O serviço Face fornece-lhe acesso a algoritmos avançados para detetar e reconhecer rostos humanos em imagens.
 
@@ -31,7 +31,7 @@ Utilize a biblioteca do cliente de serviço Face para ir a:
 
 * A última versão de [Go](https://golang.org/dl/)
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" crie um recurso Face crie um recurso Face no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso** .
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" crie um recurso Face crie um recurso Face no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API face. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 * Depois de obter uma chave e ponto final, [crie variáveis ambientais](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para a chave e ponto final, nomeado `FACE_SUBSCRIPTION_KEY` `FACE_ENDPOINT` e, respectivamente.
@@ -165,17 +165,17 @@ O código seguinte imprime os detalhes da correspondência para a consola.
 
 Para passar por este cenário, é necessário guardar as seguintes imagens para o diretório de raiz do seu projeto: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
-Este grupo de imagens contém três conjuntos de imagens de um só rosto que correspondem a três pessoas diferentes. The code will define three **PersonGroup Person** objects and associate them with image files that start with `woman` , `man` , and `child` .
+Este grupo de imagens contém três conjuntos de imagens de um só rosto que correspondem a três pessoas diferentes. O código definirá três objetos **persongroup person person person person** person person person e associá-los-á a ficheiros de imagem que começam com , e `woman` `man` `child` .
 
 ### <a name="create-persongroup"></a>Criar Grupo de Pessoas
 
-Depois de descarregar as suas imagens, adicione o seguinte código ao fundo do seu método **principal.** Este código autentica um objeto **[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)** e, em seguida, utiliza-o para definir um novo **PersonGroup** .
+Depois de descarregar as suas imagens, adicione o seguinte código ao fundo do seu método **principal.** Este código autentica um objeto **[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)** e, em seguida, utiliza-o para definir um novo **PersonGroup**.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_setup)]
 
 ### <a name="create-persongroup-persons"></a>Criar pessoas do Grupo de Pessoas
 
-The next block of code authenticates a **[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)** and uses it to define three new **PersonGroup Person** objects. Estes objetos representam cada uma pessoa no conjunto de imagens.
+O próximo bloco de código autentica um **[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)** e usa-o para definir três novos objetos **persongroup person person person person person person person** person person persongroup. Estes objetos representam cada uma pessoa no conjunto de imagens.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_setup)]
 
@@ -186,13 +186,16 @@ O código a seguir classifica as imagens pelo seu prefixo, deteta rostos e atrib
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_assign)]
 
 > [!TIP]
-> Também pode criar um **PersonGroup a** partir de imagens remotas referenciadas por URL. Consulte os [métodos PersonGroupPersonClient,](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient) tais como **AddFaceFromURL** .
+> Também pode criar um **PersonGroup a** partir de imagens remotas referenciadas por URL. Consulte os [métodos PersonGroupPersonClient,](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient) tais como **AddFaceFromURL**.
 
 ### <a name="train-persongroup"></a>Grupo de Pessoas do Comboio
 
 Uma vez atribuídos rostos, treina o **PersonGroup** para que possa identificar as características visuais associadas a cada um dos seus objetos **Pessoais.** O código a seguir chama o método do **comboio** assíncronos e sonda o resultado, imprimindo o estado à consola.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
+
+> [!TIP]
+> A API face funciona num conjunto de modelos pré-construídos que são estáticos por natureza (o desempenho do modelo não vai regredir ou melhorar à medida que o serviço é executado). Os resultados que o modelo produz podem mudar se a Microsoft atualizar o backend do modelo sem migrar para uma versão totalmente nova do modelo. Para tirar partido de uma versão mais recente de um modelo, pode reforçá-lo **como** parâmetro com as mesmas imagens de inscrição.
 
 ## <a name="identify-a-face"></a>Identificar um rosto
 
@@ -258,7 +261,7 @@ Execute a sua aplicação de reconhecimento facial a partir do diretório de apl
 go run sample-app.go
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

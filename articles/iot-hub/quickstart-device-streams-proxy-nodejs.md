@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 86b5c1dc396a755d898f0c3c332ab59933236afe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0d98f3c61191d5d5b333072682abe740761901f0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747443"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831893"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivos IoT Hub utilizando uma aplicação de procuração Node.js (pré-visualização)
 
@@ -30,13 +30,15 @@ Neste arranque rápido, ativa-se o tráfego de Secure Shell (SSH) e Remote Deskt
 
 * [Node.js 10+](https://nodejs.org).
 
+    Pode verificar a versão atual de Node.js na sua máquina de desenvolvimento utilizando o seguinte comando:
+
+    ```cmd/sh
+    node --version
+    ```
+
 * [Uma amostra Node.js projeto.](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip)
 
-Pode verificar a versão atual de Node.js na sua máquina de desenvolvimento utilizando o seguinte comando:
-
-```cmd/sh
-node --version
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 O Microsoft Azure IoT Hub suporta atualmente os fluxos de dispositivos como [uma funcionalidade de pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -47,8 +49,6 @@ O Microsoft Azure IoT Hub suporta atualmente os fluxos de dispositivos como [uma
 > * EUA Central EUAP
 > * Europa do Norte
 > * Sudeste Asiático
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ### <a name="add-azure-iot-extension"></a>Adicionar extensão Azure IoT
 
@@ -82,7 +82,7 @@ Se tiver completado [Quickstart: Enviar telemetria de um dispositivo para um hub
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. Para ativar a aplicação back-end para ligar ao seu hub IoT e recuperar as mensagens, também precisa de uma cadeia de *ligação de serviço* . O seguinte comando recupera a corda para o seu hub IoT:
+1. Para ativar a aplicação back-end para ligar ao seu hub IoT e recuperar as mensagens, também precisa de uma cadeia de *ligação de serviço*. O seguinte comando recupera a corda para o seu hub IoT:
 
    > [!NOTE]
    > Substitua o espaço reservado *YourIoTHubName* pelo nome que escolheu para o seu hub IoT.

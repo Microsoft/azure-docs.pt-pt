@@ -4,12 +4,12 @@ description: Saiba como descobrir VMware VMs no local com a ferramenta de avalia
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: f3e8f61c898b08cc0638597e77fd3260cb4593b2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8a09f4583bd5cdae977b927be9649897a2d24ee6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311291"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832658"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Tutorial: Descubra VMware VMs com avaliação do servidor
 
@@ -17,7 +17,7 @@ Como parte da sua viagem de migração para Azure, você descobre o seu inventá
 
 Este tutorial mostra-lhe como descobrir no local máquinas virtuais VMware (VMs) com a ferramenta Azure Migrate: Server Assessment, utilizando um aparelho Azure Migrate leve. Implementa o aparelho como VMware VM, para descobrir continuamente metadados de VM e desempenho, aplicações em execução em VMs e dependências de VM.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma conta Azure.
@@ -174,7 +174,7 @@ Verifique se o ficheiro OVA está seguro, antes de o implementar:
     
         **Algoritmo** | **Transferência** | **SHA256**
         --- | --- | ---
-        VMware (11.9 GB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140333) | bd5c19eec93a62d52cc507a6b408d07f33f92b72b72b7d39b8a1e3dfec4ec62830d7
+        VMware (11.9 GB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae8108328e8f3a7933d7835ecd871d1b17f367621ce3c74
 
     - Para o Governo de Azure:
     
@@ -213,10 +213,10 @@ Coloque o aparelho pela primeira vez.
 
 1. Na consola vSphere Client, clique com o botão direito no VM e, em seguida, selecione **Open Console**.
 2. Forneça o idioma, o fuso horário e a palavra-passe para o aparelho.
-3. Abra um browser em qualquer máquina que possa ligar ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
+3. Abra um browser em qualquer máquina que possa ligar ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço *IP*: 44368**.
 
    Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho do aparelho selecionando o atalho da aplicação.
-1. Aceite os termos da **licença**e leia as informações de terceiros.
+1. Aceite os termos da **licença** e leia as informações de terceiros.
 1. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
    - **Conectividade**: A aplicação verifica se o VM tem acesso à Internet. Se o VM utilizar um representante:
      - Clique em **Configurar o representante** para especificar o endereço de procuração (no formulário http://ProxyIPAddress ou na porta de http://ProxyFQDN) audição.

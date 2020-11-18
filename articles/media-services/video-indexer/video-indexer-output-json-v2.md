@@ -8,18 +8,18 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050867"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831571"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examinar a saída do Indexador de Vídeo
 
-Quando um vídeo é indexado, o Video Indexer poduz o conteúdo JSON que contém detalhes das informações de vídeo especificadas. Os insights incluem: transcrições, TORs, rostos, tópicos, blocos, etc. Cada tipo de insight inclui instâncias de intervalos de tempo que mostram quando a perceção aparece no vídeo. 
+Quando um vídeo é indexado, o Video Indexer produz o conteúdo JSON que contém detalhes das informações de vídeo especificadas. Os insights incluem: transcrições, TORs, rostos, tópicos, blocos, etc. Cada tipo de insight inclui instâncias de intervalos de tempo que mostram quando a perceção aparece no vídeo. 
 
 Pode examinar visualmente as informações resumidas do vídeo premindo o botão **Reproduzir** no vídeo no site do [Indexer de Vídeo.](https://www.videoindexer.ai/) 
 
@@ -187,6 +187,7 @@ Um rosto pode ter uma identificação, um nome, uma miniatura, outros metadados,
 |textualContentModeration|A [visão textualContentModeration.](#textualcontentmoderation)|
 |emoções| A [perceção das emoções.](#emotions)|
 |tópicos|Os [tópicos introspeção.](#topics)|
+|altifalantes|A perceção [dos altifalantes.](#speakers)|
 
 Exemplo:
 
@@ -222,36 +223,45 @@ casos|Uma lista de intervalos de tempo deste quarteirão.|
 |---|---|
 |ID|A identificação da linha.|
 |texto|A transcrição em si.|
+|confiança|A confiança da transcrição.|
+|speakerId|A identificação do orador.|
 |language|A linguagem da transcrição. Destina-se a apoiar a transcrição onde cada linha pode ter uma língua diferente.|
 |casos|Uma lista de intervalos de tempo onde esta linha apareceu. Se o caso for transcrição, terá apenas 1 instância.|
 
 Exemplo:
 
 ```json
-"transcript": [
+"transcript":[
 {
-    "id": 0,
-    "text": "Hi I'm Doug from office.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    }
-    ]
+  "id":1,
+  "text":"Well, good morning everyone and welcome to",
+  "confidence":0.8839,
+  "speakerId":1,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
 },
 {
-    "id": 1,
-    "text": "I have a guest. It's Michelle.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:02.7200000",
-        "end": "00:00:03.9600000"
-    }
-    ]
-}
-] 
+  "id":2,
+  "text":"ignite 2016. Your mission at Microsoft is to empower every",
+  "confidence":0.8944,
+  "speakerId":2,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
 ```
 
 #### <a name="ocr"></a>ocr
@@ -827,6 +837,42 @@ O Indexante de Vídeo faz inferência dos principais tópicos a partir de transc
 . . .
 ```
 
+#### <a name="speakers"></a>altifalantes
+
+|Nome|Descrição|
+|---|---|
+|ID|A identificação do altifalante.|
+|name|O nome do altifalante sob a forma de "Speaker # *<number>* " Por exemplo: "Orador #1".|
+|casos |Uma lista de intervalos de tempo onde este orador apareceu.|
+
+```json
+"speakers":[
+{
+  "id":1,
+  "name":"Speaker #1",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
+},
+{
+  "id":2,
+  "name":"Speaker #2",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
+` ` `
+```
 ## <a name="next-steps"></a>Passos seguintes
 
 [Portal do Desenvolvedor de Indexados de Vídeo](https://api-portal.videoindexer.ai)

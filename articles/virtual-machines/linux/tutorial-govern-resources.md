@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Gerir máquinas virtuais com o CLI
-description: Neste tutorial, você aprende a usar o CLI Azure para gerir máquinas virtuais Azure aplicando RBAC, polícias, fechaduras e tags.
+description: Neste tutorial, você aprende a usar o CLI Azure para gerir máquinas virtuais Azure aplicando Azure RBAC, polícias, fechaduras e tags.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 867349a321f2909d8e568be7e482a5517ddb50b9
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 565315ad78a2994f44973c4fdcd4519ab9e03ea8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517959"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831791"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Tutorial: Saiba mais sobre a gestão de máquinas virtuais linux com o Azure CLI
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location "East US"
 
 Atualmente, o grupo de recursos está vazio.
 
-## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
+## <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
 
 Deve confirmar que os utilizadores na sua organização possuem o nível adequado de acesso a estes recursos. Não vai querer conceder acesso ilimitado aos utilizadores, mas também precisa de confirmar que estes podem fazer o seu trabalho. [O controlo de acesso baseado em funções (Azure RBAC) permite-lhe](../../role-based-access-control/overview.md) gerir quais os utilizadores que têm permissão para completar ações específicas num âmbito.
 
@@ -63,7 +63,7 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Se receber um erro a indicar que o **Principal\<guid> não existe no diretório** , o novo grupo ainda não foi propagado pelo Azure Active Directory. Tente executar o comando novamente.
+Se receber um erro a indicar que o **Principal\<guid> não existe no diretório**, o novo grupo ainda não foi propagado pelo Azure Active Directory. Tente executar o comando novamente.
 
 Normalmente, pode repetir o processo para o *Contribuidor de Rede* e o *Contribuidor de Conta de Armazenamento* para confirmar que os utilizadores estão atribuídos para gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
 
@@ -202,7 +202,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 O grupo de segurança de rede bloqueado não pode ser eliminado até que o bloqueio seja removido. Para remover o bloqueio, obtenha os IDs dos bloqueios e forneça-os ao comando [az lock delete](/cli/azure/resource/lock?view=azure-cli-latest#az-resource-lock-delete):
 

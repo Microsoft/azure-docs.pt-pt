@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 35c120b6d7715ac6fefe0e8712040108568ee8de
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 037ff64f4811515e7ce64d66a36e08e71de54058
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747428"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831995"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivo ioT Hub utilizando uma aplicação de procuração C (pré-visualização)
 
@@ -46,9 +46,7 @@ A figura a seguir ilustra como os programas de procuração local e de dispositi
 > [!NOTE]
 > O tráfego SSH que é enviado através de um fluxo de dispositivo é escavado através do ponto de streaming do hub IoT em vez de ser enviado diretamente entre o serviço e o dispositivo. Para obter mais informações, consulte os [benefícios da utilização de fluxos de dispositivos Iot Hub](iot-hub-device-streams-overview.md#benefits). Além disso, a figura ilustra o daemon SSH que está a funcionar no mesmo dispositivo (ou máquina) que o dispositivo-procuração local. Neste arranque rápido, o fornecimento do endereço IP do daemon SSH permite que o dispositivo-procuração local e o daemon também funcionam em diferentes máquinas.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -62,11 +60,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 * Instale [o Visual Studio 2019](https://www.visualstudio.com/vs/) com o desenvolvimento do Desktop com a carga de trabalho [C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ativada.
 * Instale a versão mais recente do [Git](https://git-scm.com/download/).
 
-* Executar o seguinte comando para adicionar a extensão Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -157,7 +151,7 @@ Nesta secção, estabelece-se um fluxo de ponta a ponta para o tráfego do túne
 
 ### <a name="run-the-device-local-proxy-application"></a>Executar a aplicação de procuração local do dispositivo
 
-1. Editar o ficheiro de origem **iothub_client_c2d_streaming_proxy_sample.c** na pasta , e fornecer a `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample` cadeia de ligação do seu dispositivo, o nome IP/hostname do dispositivo-alvo e a porta SSH 22:
+1. Editar o ficheiro de origem **iothub_client_c2d_streaming_proxy_sample.c** na pasta , e fornecer a `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample` cadeia de ligação do dispositivo, o dispositivo alvo IP/nome de anfitrião e a porta SSH 22:
 
    ```C
    /* Paste in your device connection string  */

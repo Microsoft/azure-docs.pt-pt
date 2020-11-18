@@ -2,13 +2,13 @@
 title: Crie uma especificação de modelo com modelos ligados
 description: Aprenda a criar uma especificação de modelo com modelos ligados.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: b1862789ede4a9d2ab8c57bdb913c449a560dc58
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/17/2020
+ms.openlocfilehash: d86b46a88dde7ebffea81cdeb8dc184dd275c0da
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321592"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747439"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: Criar uma especificação de modelo com modelos ligados (Pré-visualização)
 
@@ -19,7 +19,7 @@ Aprenda a criar uma [especificação de modelo](template-specs.md) com um modelo
 Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 > [!NOTE]
-> As Especificações do Modelo estão atualmente em pré-visualização. Para usá-lo, tem de [se inscrever para a pré-visualização](https://aka.ms/templateSpecOnboarding).
+> As Especificações do Modelo estão atualmente em pré-visualização. Para a utilizar, tem de instalar a versão mais recente do PowerShell ou do Azure CLI. Para a Azure PowerShell, utilize [a versão 5.0.0 ou mais tarde](/powershell/azure/install-az-ps). Para O Azure CLI, utilize [a versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-linked-templates"></a>Criar modelos ligados
 
@@ -27,7 +27,7 @@ Crie o modelo principal e o modelo ligado.
 
 Para ligar um modelo, adicione um [recurso de implementações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na `templateLink` propriedade, especifique o caminho relativo do modelo ligado de acordo com o caminho do modelo principal.
 
-O modelo ligado é chamado **linkedTemplate.jsem** , e é armazenado em uma sub-página chamada **artefactos** no caminho onde o modelo principal é armazenado.  Pode utilizar um dos seguintes valores para o ParentePath:
+O modelo ligado é chamado **linkedTemplate.jsem**, e é armazenado em uma sub-página chamada **artefactos** no caminho onde o modelo principal é armazenado.  Pode utilizar um dos seguintes valores para o ParentePath:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`

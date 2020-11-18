@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3e53937122b8721aff5db435ac447b686ea16643
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: adf0f42b34a4bd7e5df2d2994408dbc175c5e01b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748685"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831927"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivo IoT Hub utilizando uma aplicação de procuração C# (pré-visualização)
 
@@ -43,9 +43,7 @@ A figura a seguir ilustra como as aplicações de procuração local e local de 
 > [!NOTE]
 > O tráfego SSH que é enviado através de um fluxo de dispositivo é escavado através do ponto de streaming do hub IoT em vez de ser enviado diretamente entre o serviço e o dispositivo. Para obter mais informações, consulte os [benefícios da utilização de fluxos de dispositivos Iot Hub](iot-hub-device-streams-overview.md#benefits).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,28 +56,21 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * As duas aplicações de amostra que você executou neste quickstart estão escritas em C#. Precisa do .NET Core SDK 2.1.0 ou mais tarde na sua máquina de desenvolvimento.
 
-  Pode baixar o [.NET Core SDK para várias plataformas a partir de .NET](https://www.microsoft.com/net/download/all).
+    Pode baixar o [.NET Core SDK para várias plataformas a partir de .NET](https://www.microsoft.com/net/download/all).
 
-* Verifique a versão atual de C# na sua máquina de desenvolvimento utilizando o seguinte comando:
+    Verifique a versão atual de C# na sua máquina de desenvolvimento utilizando o seguinte comando:
 
     ```
     dotnet --version
     ```
 
-* Executar o seguinte comando para adicionar a extensão Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 * [Descarregue as amostras Azure IoT C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)e extraia o arquivo ZIP.
 
 * Uma conta de utilizador válida e credencial no dispositivo (Windows ou Linux) utilizada para autenticar o utilizador.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -195,7 +186,7 @@ Saída da consola no lado do serviço (a aplicação de procuração local de se
 
 ![Saída de aplicação de procuração local de serviço](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
 
-Saída da consola na aplicação proxy local do dispositivo, que se conecta ao daemon SSH em *IP_address:22* :
+Saída da consola na aplicação proxy local do dispositivo, que se conecta ao daemon SSH em *IP_address:22*:
 
 ![Saída de aplicação de procuração local do dispositivo](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
 

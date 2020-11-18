@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 74669036a40048ca21aae56856981197defe1c35
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a41eb5b38b741f8bdde59f8a4f1e8de2b4767903
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286525"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832777"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault no Azure Private Link
 
@@ -44,7 +44,7 @@ Em seguida, pode criar um novo cofre de chaves ou estabelecer uma ligação priv
 
 ### <a name="create-a-new-key-vault-and-establish-a-private-link-connection"></a>Crie um novo cofre chave e estabeleça uma ligação de ligação privada
 
-Você pode criar um novo cofre de chaves seguindo os passos em [set e recuperar um segredo do Azure Key Vault usando o portal Azure](../secrets/quick-create-portal.md)
+Pode criar um Cofre de Chaves Azure utilizando [o portal Azure,](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md)ou [Azure PowerShell](../general/quick-create-powershell.md).
 
 Depois de configurar o básico do cofre da chave, selecione o separador de rede e siga estes passos:
 
@@ -270,9 +270,9 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 > [!NOTE]
 > O número de cofres-chave com pontos finais privados ativados por subscrição é um limite ajustável. O limite abaixo indicado é o limite de predefinição. Se pretender solicitar um aumento limite para o seu serviço, por favor envie um e-mail para akv-privatelink@microsoft.com . Aprovaremos estes pedidos caso a caso.
 
-**Preços** : Para obter informações sobre preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
+**Preços**: Para obter informações sobre preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitações** : O Ponto Final Privado para a Azure Key Vault só está disponível nas regiões públicas de Azure.
+**Limitações**: O Ponto Final Privado para a Azure Key Vault só está disponível nas regiões públicas de Azure.
 
 **Número máximo de pontos finais privados por porta-chaves:** 64.
 

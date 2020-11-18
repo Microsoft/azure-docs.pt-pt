@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 35df99d0a30b0952521281fa0d6bb95ce0509695
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8f7baca94d653d9851c506068ccf7ecf84063641
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741006"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832182"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualize os dados do sensor em tempo real do seu hub Azure IoT numa aplicação web
 
@@ -51,13 +51,7 @@ Neste tutorial, aprende-se a visualizar dados de sensores em tempo real que o se
 
 * Os passos deste artigo assumem uma máquina de desenvolvimento Windows; no entanto, pode facilmente executar estes passos num sistema Linux na sua concha preferida.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Executar o seguinte comando para adicionar a extensão IoT do Microsoft Azure para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicione um grupo de consumidores ao seu hub IoT
 
@@ -253,7 +247,7 @@ Se encontrar algum problema com esta amostra, experimente os passos nas seguinte
 
 ### <a name="azure-app-service-issues"></a>Problemas do Serviço de Aplicações Azure
 
-* No portal Azure, vá à sua aplicação web. Em **Monitorização** no painel esquerdo, selecione **registos de Serviço de Aplicações** . Rode o **registo de aplicação (Sistema de ficheiros)** para ligar, definir **nível** para erro e, em seguida, selecionar **Guardar** . Em seguida, abra **o fluxo de registo** (em **monitorização).**
+* No portal Azure, vá à sua aplicação web. Em **Monitorização** no painel esquerdo, selecione **registos de Serviço de Aplicações**. Rode o **registo de aplicação (Sistema de ficheiros)** para ligar, definir **nível** para erro e, em seguida, selecionar **Guardar**. Em seguida, abra **o fluxo de registo** (em **monitorização).**
 
 * A partir da sua aplicação web no portal Azure, em **Ferramentas de Desenvolvimento**  selecione  **Consola** e valide as versões nó e npm com `node -v` e `npm -v` .
 

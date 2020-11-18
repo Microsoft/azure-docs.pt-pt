@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213943"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832998"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Azure Blob para Funções Azure
 
@@ -20,6 +20,16 @@ O gatilho de armazenamento Blob inicia uma função quando é detetada uma bolha
 O gatilho de armazenamento Azure Blob requer uma conta de armazenamento para fins gerais. As contas V2 de armazenamento com [espaços hierárquicos](../storage/blobs/data-lake-storage-namespace.md) também são suportadas. Para utilizar uma conta apenas blob, ou se a sua aplicação tiver necessidades especializadas, reveja as alternativas à utilização deste gatilho.
 
 Para obter informações sobre detalhes de configuração e configuração, consulte a [visão geral](./functions-bindings-storage-blob.md).
+
+## <a name="polling"></a>Consultas
+
+As sondagens funcionam como um híbrido entre a inspeção de registos e a execução de verificações periódicas de contentores. As bolhas são digitalizadas em grupos de 10.000 de cada vez com um símbolo de continuação usado entre intervalos.
+
+> [!WARNING]
+> Além disso, [os registos de armazenamento são criados numa](/rest/api/storageservices/About-Storage-Analytics-Logging) base de "melhor esforço". Não há garantias de que todos os eventos sejam capturados. Em algumas condições, podem ser perdidos registos.
+> 
+> Se necessitar de um processamento de bolhas mais rápido ou fiável, considere criar uma [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) quando criar a bolha. Em seguida, use um gatilho de [fila](functions-bindings-storage-queue.md) em vez de um gatilho blob para processar a bolha. Outra opção é utilizar a Grade de Eventos; ver o tutorial [Automatizar redimensionar imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="alternatives"></a>Alternativas
 
@@ -297,7 +307,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aceder aos dados blob `context.bindings.<NAME>` utilizando o valor definido nafunction.js`<NAME>` * em*.
+Aceder aos dados blob `context.bindings.<NAME>` utilizando o valor definido nafunction.js`<NAME>` *em*.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -311,7 +321,7 @@ O `@BlobTrigger` atributo é usado para lhe dar acesso à bolha que desencadeou 
 
 ## <a name="blob-name-patterns"></a>Padrões de nome de blob
 
-Pode especificar um padrão de nome blob na `path` propriedade emfunction.js* sobre* ou no construtor `BlobTrigger` de atributos. O padrão de nome pode ser um [filtro ou expressão de ligação](./functions-bindings-expressions-patterns.md). As seguintes secções dão exemplos.
+Pode especificar um padrão de nome blob na `path` propriedade emfunction.js *sobre* ou no construtor `BlobTrigger` de atributos. O padrão de nome pode ser um [filtro ou expressão de ligação](./functions-bindings-expressions-patterns.md). As seguintes secções dão exemplos.
 
 ### <a name="get-file-name-and-extension"></a>Obtenha nome e extensão de ficheiros
 
@@ -321,7 +331,7 @@ O exemplo a seguir mostra como ligar-se ao nome do ficheiro blob e à extensão 
 "path": "input/{blobname}.{blobextension}",
 ```
 
-Se a bolha for nomeada *original-Blob1.txt, *os valores do código de `blobname` função e `blobextension` variáveis são *original-Blob1* e *txt*.
+Se a bolha for nomeada *original-Blob1.txt,* os valores do código de `blobname` função e `blobextension` variáveis são *original-Blob1* e *txt*.
 
 ### <a name="filter-on-blob-name"></a>Filtro no nome blob
 
@@ -331,7 +341,7 @@ O exemplo a seguir dispara apenas em bolhas no `input` recipiente que começam c
 "path": "input/original-{name}",
 ```
 
-Se o nome da bolha for *original-Blob1.txt, *o valor da `name` variável no código de função é `Blob1.txt` .
+Se o nome da bolha for *original-Blob1.txt,* o valor da `name` variável no código de função é `Blob1.txt` .
 
 ### <a name="filter-on-file-type"></a>Filtro no tipo de ficheiro
 
@@ -349,7 +359,7 @@ Para procurar aparelhos encaracolados em nomes de ficheiros, escape o aparelho u
 "path": "images/{{20140101}}-{name}",
 ```
 
-Se a bolha for nomeada * {20140101}-soundfile.mp3, *o `name` valor variável no código de função é *soundfile.mp3*.
+Se a bolha for nomeada *{20140101}-soundfile.mp3,* o `name` valor variável no código de função é *soundfile.mp3*.
 
 ## <a name="metadata"></a>Metadados
 
@@ -386,7 +396,7 @@ O tempo de funcionamento das funções Azure garante que nenhuma função de gat
 
 A Azure Functions armazena recibos de bolhas num recipiente chamado *azure-webjobs-hosts* na conta de armazenamento Azure para a sua aplicação de função (definida pela definição da `AzureWebJobsStorage` aplicação). Um recibo blob tem as seguintes informações:
 
-* A função desencadeada ("* &lt; nome da aplicação de função>*. Funções. * &lt; nome da função>*", por exemplo: "MyFunctionApp.Functions.CopyBlob")
+* A função desencadeada ("*&lt; nome da aplicação de função>*. Funções. *&lt; nome da função>*", por exemplo: "MyFunctionApp.Functions.CopyBlob")
 * O nome do recipiente
 * O tipo de bolha ("BlockBlob" ou "PageBlob")
 * O nome blob
@@ -400,7 +410,7 @@ Quando uma função de gatilho blob falha para uma determinada bolha, o Azure Fu
 
 Se todas as 5 tentativas falharem, a Azure Functions adiciona uma mensagem a uma fila de armazenamento chamada *webjobs-blobtrigger-poison*. O número máximo de retrós assim questão é configurável. A mesma definição MaxDequeueCount é usada para o manuseamento de bolhas venenosas e manuseamento de mensagens de fila venenosas. A mensagem de fila para bolhas venenosas é um objeto JSON que contém as seguintes propriedades:
 
-* FunctionId (no nome da aplicação da * &lt; função de *formato>. Funções. * &lt; nome da função>*)
+* FunctionId (no nome da aplicação da *&lt; função de* formato>. Funções. *&lt; nome da função>*)
 * BlobType ("BlockBlob" ou "PageBlob")
 * ContainerName
 * Nome Blob
@@ -413,16 +423,6 @@ O gatilho blob utiliza uma fila internamente, pelo que o número máximo de invo
 [O plano de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita uma aplicação de função numa máquina virtual (VM) a 1,5 GB de memória. A memória é utilizada por cada instância de execução simultânea e pelo tempo de funcionamento das funções em si. Se uma função com o gatilho de bolhas colocar toda a bolha na memória, a memória máxima utilizada por essa função apenas para bolhas é de 24 * tamanho máximo de bolha. Por exemplo, uma aplicação de função com três funções acionadas por bolhas e as definições predefinidas teria uma concordância máxima por VM de 3*24 = 72 invocações de função.
 
 As funções JavaScript e Java carregam toda a bolha na memória, e as funções C# fazem-no se se ligar a `string` , ou `Byte[]` . .
-
-## <a name="polling"></a>Consultas
-
-As sondagens funcionam como um híbrido entre a inspeção de registos e a execução de verificações periódicas de contentores. As bolhas são digitalizadas em grupos de 10.000 de cada vez com um símbolo de continuação usado entre intervalos.
-
-> [!WARNING]
-> Além disso, [os registos de armazenamento são criados numa](/rest/api/storageservices/About-Storage-Analytics-Logging) base de "melhor esforço". Não há garantias de que todos os eventos sejam capturados. Em algumas condições, podem ser perdidos registos.
-> 
-> Se necessitar de um processamento de bolhas mais rápido ou fiável, considere criar uma [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) quando criar a bolha. Em seguida, use um gatilho de [fila](functions-bindings-storage-queue.md) em vez de um gatilho blob para processar a bolha. Outra opção é utilizar a Grade de Eventos; ver o tutorial [Automatizar redimensionar imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md).
->
 
 ## <a name="next-steps"></a>Passos seguintes
 

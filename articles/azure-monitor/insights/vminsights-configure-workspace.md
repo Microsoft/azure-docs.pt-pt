@@ -7,17 +7,17 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506299"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747694"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurar log analytics espaço de trabalho para monitor azure para VMs
 O Azure Monitor para VMs recolhe os seus dados de um ou mais espaços de trabalho do Log Analytics no Azure Monitor. Antes dos agentes de bordo, deve criar e configurar um espaço de trabalho. Este artigo descreve os requisitos do espaço de trabalho e configura-o para o Azure Monitor para VMs.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Uma única subscrição pode utilizar qualquer número de espaços de trabalho dependendo dos seus requisitos O único requisito do espaço de trabalho é que esteja localizado num local suportado e configurado com a solução *VMInsights.*
 
 Uma vez configurado o espaço de trabalho, pode utilizar qualquer uma das opções disponíveis para instalar os agentes necessários em VM e VMSS e especificar um espaço de trabalho para que eles enviem os seus dados. O Azure Monitor para VMs recolherá dados de qualquer espaço de trabalho configurado na sua subscrição.
@@ -78,7 +78,7 @@ Antes de um espaço de trabalho Log Analytics poder ser utilizado com o Azure Mo
 > Quando adicionar a solução *VMInsights* ao espaço de trabalho, todas as máquinas virtuais existentes ligadas ao espaço de trabalho começarão a enviar dados para a InsightsMetrics. Os dados relativos aos outros tipos de dados não serão recolhidos até que adicione o Agente de Dependência às máquinas virtuais existentes ligadas ao espaço de trabalho.
 
 ### <a name="azure-portal"></a>Portal do Azure
-Existem três opções para configurar um espaço de trabalho existente a partir do portal Azure.
+Existem três opções para configurar um espaço de trabalho existente utilizando o portal Azure. Cada um é descrito abaixo.
 
 Para configurar um único espaço de trabalho, selecione as **outras opções de embarque** e, em seguida, **configure um espaço de trabalho**. Selecione uma subscrição e um espaço de trabalho e, em seguida, clique em **Configurar**.
 

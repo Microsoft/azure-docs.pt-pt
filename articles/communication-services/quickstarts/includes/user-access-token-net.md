@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 50819e8746860e72feda194915f75c4630677d0c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: ae388263daeb47786df22007348d2572e035de87
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506263"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816733"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +45,7 @@ dotnet build
 Enquanto ainda está no diretório de aplicações, instale a biblioteca da Administração de Serviços de Comunicação Azure para o pacote .NET utilizando o `dotnet add package` comando.
 
 ```console
-dotnet add package Azure.Communication.Administration --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Administration --version 1.0.0-beta.3
 ```
 
 ### <a name="set-up-the-app-framework"></a>Configurar o quadro de aplicações

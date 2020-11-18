@@ -3,12 +3,12 @@ title: host.jsem referência para Funções Azure 1.x
 description: A documentação de referência para as Funções Azure host.jsarquivada com o tempo de execução v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 588ab6723015f34d15e4a46ec4f7324302b13b81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167730"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832828"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>host.jsem referência para Funções Azure 1.x
 
@@ -93,7 +93,8 @@ As seguintes *host.jsde* amostra em ficheiros têm todas as opções possíveis 
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -230,7 +231,7 @@ Se partilhar uma conta de Armazenamento em várias aplicações de funções, ce
 
 ## <a name="logger"></a>madeireiro
 
-Controla a filtragem de registos escritos por um objeto [ILogger](functions-dotnet-class-library.md#ilogger) ou por [context.log](functions-reference-node.md#contextlog-method).
+Controla a filtragem de registos escritos por um objeto [ILogger](functions-dotnet-class-library.md#ilogger) ou por [contexto.log](functions-reference-node.md#contextlog-method).
 
 ```json
 {
@@ -286,6 +287,7 @@ Definição de configuração para a [ligação de saída SendGrind](functions-b
     "sendGrid": {
         "from": "Contoso Group <admin@contoso.com>"
     }
+}    
 ```
 
 |Propriedade  |Predefinição | Descrição |
@@ -301,7 +303,8 @@ Definição de configuração para [acionadores e encadernações do Service Bus
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     }
 }
 ```
@@ -310,7 +313,8 @@ Definição de configuração para [acionadores e encadernações do Service Bus
 |---------|---------|---------| 
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para a chamada que a bomba de mensagem deve iniciar. Por predefinição, o tempo de execução de Funções processa várias mensagens simultaneamente. Para direcionar o tempo de execução para processar apenas uma fila ou mensagem de tópico de cada vez, definido `maxConcurrentCalls` para 1. | 
 |prefetchCount|n/a|O PrefetchCount prefetch padrão que será usado pelo MensagemReceiver subjacente.| 
-|autoRenewTimeout|00:05:00|A duração máxima dentro da qual o bloqueio de mensagem será renovado automaticamente.| 
+|autoRenewTimeout|00:05:00|A duração máxima dentro da qual o bloqueio de mensagem será renovado automaticamente.|
+|autoComplete|true|Quando for verdade, o gatilho completará automaticamente o processamento da mensagem na execução bem sucedida da operação. Quando falsa, é da responsabilidade da função completar a mensagem antes de regressar.|
 
 ## <a name="singleton"></a>singleton
 

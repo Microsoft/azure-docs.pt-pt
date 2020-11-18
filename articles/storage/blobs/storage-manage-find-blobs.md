@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 8f1ea67605be3aee6257c293aea3db617d885645
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3174dbd36d9bb39ce606ec12f88397f795e91526
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370258"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832437"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gerir e encontrar dados do Azure Blob com etiquetas de índice blob (pré-visualização)
 
@@ -327,6 +327,7 @@ Esta secção descreve problemas e condições conhecidos na visualização púb
 - Quando a filtragem é scopeda num único recipiente, a `@container` única só pode ser transmitida se todas as etiquetas de índice na expressão do filtro forem verificações de igualdade (chave=valor).
 - Ao utilizar o operador de gama com a `AND` condição, só pode especificar o mesmo nome de chave de etiqueta de índice `"Age" > '013' AND "Age" < '100'` ().
 - A versão e o índice blob não são suportados. As etiquetas do índice blob são preservadas para versões, mas não são passadas para o motor do índice blob.
+- Não há API para determinar se as etiquetas de índice estão indexadas.
 - A falta de contas não é suportada. O índice blob pode não atualizar corretamente após a falha.
 - A gestão do ciclo de vida só suporta verificações de igualdade com correspondência de índice de bolha.
 - `Copy Blob` não copia as etiquetas de índice blob da bolha de origem para a nova bolha de destino. Pode especificar as etiquetas que deseja aplicadas à bolha de destino durante a operação de cópia.

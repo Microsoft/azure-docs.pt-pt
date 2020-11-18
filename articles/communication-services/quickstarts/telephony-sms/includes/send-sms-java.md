@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: azure-communication-services
 author: chrwhit
 manager: nimag
@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: 76aae596c145c736ae75e65f7f72fdbdcead5919
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 2daed8edbc433003b72e80de4f5fbfe3539edb31
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779304"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816659"
 ---
 Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de clientes de SMS java para enviar mensagens SMS.
 
@@ -58,7 +58,7 @@ Abra o ficheiro **pom.xml** no seu editor de texto. Adicione o seguinte elemento
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.2</version>
+    <version>1.0.0-beta.3</version>
 </dependency>
 ```
 
@@ -74,7 +74,7 @@ Adicione a `azure-core-http-netty` dependência ao seu ficheiro **pom.xml.**
 </dependency>
 ```
 
-Abra **/src/main/java/com/communication/quickstart/App.java** num editor de texto, adicione diretivas de importação e remova a `System.out.println("Hello world!");` declaração:
+Aberto **/src/main/java/com/communication/quickstart/App.java** num editor de texto, adicione diretivas de importação e remova a `System.out.println("Hello world!");` declaração:
 
 ```java
 package com.communication.quickstart;

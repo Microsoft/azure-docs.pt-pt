@@ -10,12 +10,12 @@ ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 60b7a87b4673fd1f5b1d95e5e2835878c263e784
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a4428d200cf99457f9370d7516dccf2e344e3319
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371759"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816639"
 ---
 <a name="HOLTop"></a>
 
@@ -90,7 +90,7 @@ npm install --save @azure/ai-text-analytics@5.0.0
 Instale os `@azure/cognitiveservices-textanalytics` pacotes NPM:
 
 ```console
-npm install --save @azure/cognitiveservices-textanalytics
+npm install --save @azure/cognitiveservices-textanalytics @azure/ms-rest-js
 ```
 
 > [!TIP]
@@ -122,7 +122,9 @@ const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-anal
 ```javascript
 "use strict";
 
-const { TextAnalyticsClient, CognitiveServicesCredential } = require("@azure/cognitiveservices-textanalytics");
+const os = require("os");
+const CognitiveServicesCredentials = require("@azure/ms-rest-js");
+const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics");
 ```
 ---
 

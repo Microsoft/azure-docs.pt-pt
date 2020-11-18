@@ -4,17 +4,16 @@ description: Aprenda a configurar uma transformação de pia no fluxo de dados d
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 11/17/2020
+ms.openlocfilehash: d45f5d5d1d61372ed959334519aa865c22d70748
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427314"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832522"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do sumidouro no fluxo de dados de mapeamento
 
@@ -65,13 +64,9 @@ O vídeo seguinte explica uma série de diferentes opções de pia para tipos de
 
 ![Screenshot que mostra as definições da Pia.](media/data-flow/sink-settings.png "Screenshot que mostra as definições da Pia.")
 
-**Deriva de Schema** : A deriva de [Schema](concepts-data-flow-schema-drift.md) é a capacidade da Data Factory de lidar de forma nativa com esquemas flexíveis nos fluxos de dados sem precisar de definir explicitamente as alterações de colunas. Ativar **Permitir que o schema drift** escreva colunas adicionais em cima do que está definido no esquema de dados do lavatório.
+**Deriva de Schema**: A deriva de [Schema](concepts-data-flow-schema-drift.md) é a capacidade da Data Factory de lidar de forma nativa com esquemas flexíveis nos fluxos de dados sem precisar de definir explicitamente as alterações de colunas. Ativar **Permitir que o schema drift** escreva colunas adicionais em cima do que está definido no esquema de dados do lavatório.
 
-**Validar esquema** : Se for selecionado um esquema validado, o fluxo de dados falhará se alguma coluna do esquema de origem de entrada não for encontrada na projeção da fonte ou se os tipos de dados não coincidirem. Utilize esta definição para impor que os dados de origem satisfaçam o contrato da sua projeção definida. É útil em cenários de origem de base de dados sinalizar que nomes ou tipos de colunas mudaram.
-
-**Utilizar o TempDB:** Por padrão, a Data Factory utilizará uma tabela temporária global para armazenar dados como parte do processo de carregamento. Em alternativa, pode desmarcar a opção "Use TempDB" e, em vez disso, peça à Data Factory para armazenar a tabela de detenção temporária numa base de dados do utilizador que está localizada na base de dados que está a ser utilizada para esta Pia.
-
-![Use DB temporário](media/data-flow/tempdb.png "Use DB temporário")
+**Validar esquema**: Se for selecionado um esquema validado, o fluxo de dados falhará se alguma coluna do esquema de origem de entrada não for encontrada na projeção da fonte ou se os tipos de dados não coincidirem. Utilize esta definição para impor que os dados de origem satisfaçam o contrato da sua projeção definida. É útil em cenários de origem de base de dados sinalizar que nomes ou tipos de colunas mudaram.
 
 ## <a name="cache-sink"></a>Pia cache
 
@@ -109,9 +104,14 @@ Por predefinição, os dados são escritos a vários lavatórios numa ordem não
 
 ![Pedido de pia personalizado](media/data-flow/cache-2.png "Pedido de pia personalizado")
 
+## <a name="error-row-handling"></a>Processamento da linha de erro
+
+Ao escrever para bases de dados, certas linhas de dados podem falhar devido a restrições definidas pelo destino. Por predefinição, um fluxo de dados falhará no primeiro erro que obtém. Em certos conectores, pode optar por Continuar por **erro** que permite que o fluxo de dados seja concluído mesmo que as linhas individuais tenham erros. Atualmente, esta capacidade só está disponível na Base de Dados Azure SQL. Para obter mais informações, consulte [o manuseamento de linhas de erro no Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
+
 ## <a name="data-preview-in-sink"></a>Pré-visualização de dados na pia
 
 Ao obter uma pré-visualização de dados num cluster de depuração, nenhum dado será escrito na sua pia. Uma imagem do aspeto dos dados será devolvida, mas nada será escrito para o seu destino. Para testar os dados de escrita na pia, coloque um depuração de gasoduto a partir da tela do gasoduto.
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Agora que criou o seu fluxo de dados, adicione uma [atividade de fluxo de dados ao seu pipeline](concepts-data-flow-overview.md).

@@ -10,12 +10,12 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: c8bce6afd914a22be80a57ae234e39161d182b7f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a084295aec2cafadd07d47e85a0116a89d37c985
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92499215"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816794"
 ---
 Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de clientes SMS dos Serviços de Comunicação C# PARA enviar mensagens SMS.
 
@@ -59,7 +59,7 @@ dotnet build
 Enquanto ainda está no diretório de aplicações, instale a biblioteca de clientes Azure Communication Services SMS para pacote .NET utilizando o `dotnet add package` comando.
 
 ```console
-dotnet add package Azure.Communication.Sms --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Sms --version 1.0.0-beta.3
 ```
 
 Adicione uma `using` diretiva ao topo de **Program.cs** para incluir o espaço `Azure.Communication` de nome.

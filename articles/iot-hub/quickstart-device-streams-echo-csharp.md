@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 4d825d2e4daee5778c7f8e3ef216c3e72d89b1c4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8a8e6f12a8709935a6fa9551261c56fc8f2aabbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747472"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832080"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Quickstart: Comunicar a uma aplicação do dispositivo em C# via streams de dispositivo ioT Hub (pré-visualização)
 
@@ -24,9 +24,7 @@ O Azure IoT Hub suporta atualmente os fluxos de dispositivos como [uma funcional
 
 [As correntes de dispositivos IoT Hub](./iot-hub-device-streams-overview.md) permitem que as aplicações de serviço e dispositivos se comuniquem de forma segura e amiga da firewall. Este quickstart envolve duas aplicações C# que aproveitam os fluxos do dispositivo para enviar dados de um lado para o outro (eco).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,22 +35,20 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
   * Sudeste Asiático
 
 * As duas aplicações de amostra que você executou neste quickstart estão escritas em C#. Precisa do .NET Core SDK 2.1.0 ou mais tarde na sua máquina de desenvolvimento.
-  * Descarregue o [.NET Core SDK para várias plataformas a partir de .NET](https://www.microsoft.com/net/download/all).
-  * Verifique a versão atual de C# na sua máquina de desenvolvimento utilizando o seguinte comando:
 
-   ```
-   dotnet --version
-   ```
+    Descarregue o [.NET Core SDK para várias plataformas a partir de .NET](https://www.microsoft.com/net/download/all).
 
-* Adicione a extensão Azure IoT para Azure CLI à sua instância Cloud Shell executando o seguinte comando. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+    Verifique a versão atual de C# na sua máquina de desenvolvimento utilizando o seguinte comando:
 
-    ```azurecli-interactive
-    az extension add --name azure-iot
+    ```
+    dotnet --version
     ```
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 * [Descarregue as amostras Azure IoT C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) e extraia o arquivo ZIP. Precisa dele tanto no lado do dispositivo como no lado de serviço.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
