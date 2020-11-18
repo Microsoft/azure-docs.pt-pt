@@ -108,11 +108,11 @@
     - name: Criar Balanceador de Carga público com o IPv6
       items:
         - name: CLI do Azure
-          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
+          href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
         - name: Azure PowerShell
-          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'
+          href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
         - name: Modelo Azure Resource Manager
-          href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
+          href: ../virtual-network/ipv6-configure-standard-load-balancer-template-json.md
           displayName: ARM
     - name: Configurar a reposição e o tempo limite de inatividade de TCP
       href: load-balancer-tcp-idle-timeout.md
@@ -167,9 +167,9 @@
     - name: Python
       href: /python/api/azure-mgmt-network/azure.mgmt.network.v2019_02_01.operations.loadbalancersoperations
     - name: REST
-      href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
+      href: /rest/api/load-balancer/loadbalancers
     - name: Modelo do Resource Manager
-      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers'
+      href: /azure/templates/microsoft.network/loadbalancers
       displayName: ARM
 - name: Recursos
   items:

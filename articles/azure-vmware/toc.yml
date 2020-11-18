@@ -44,6 +44,8 @@
       href: concepts-identity.md
     - name: Controlo de acesso baseado em funções
       href: concepts-role-based-access-control.md
+    - name: Monitorizar e reparar clouds privadas
+      href: concepts-monitor-repair-private-cloud.md
     - name: Atualizações da cloud privada
       href: concepts-upgrades.md
 - name: Guias de procedimentos

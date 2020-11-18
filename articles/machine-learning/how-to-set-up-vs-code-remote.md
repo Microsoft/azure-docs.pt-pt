@@ -1,7 +1,7 @@
 ---
 title: Conecte-se à instância computecional no Código do Estúdio Visual (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Saiba como se conectar a um azure machine learning em caso de código de estúdio visual
+description: Aprenda a conectar-se a um computo Azure Machine Learning no Código do Estúdio Visual para executar o Jupyter Notebook interativo e cargas de trabalho de desenvolvimento remoto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 09/03/2020
-ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: 2abad31173992a891e908bdbb61c37e905907d69
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708378"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697583"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conecte-se a uma instância computacional de aprendizagem de máquinas Azure no Código do Estúdio Visual (pré-visualização)
 
@@ -61,7 +61,7 @@ Para ligar a uma instância computacional:
 Neste momento, pode continuar a executar células no seu caderno Jupyter.
 
 > [!TIP]
-> Também pode trabalhar com ficheiros de script python (.py) que contêm células de código semelhantes a Jupyter. Para mais informações, consulte a [documentação interativa Visual Studio Code Python](https://code.visualstudio.com/docs/python/jupyter-support-py).
+> Também pode trabalhar com ficheiros de script Python (.py) que contêm células de código semelhantes a Jupyter. Para mais informações, consulte a [documentação interativa Visual Studio Code Python](https://code.visualstudio.com/docs/python/jupyter-support-py).
 
 ## <a name="configure-compute-instance-remote-development"></a>Configurar o desenvolvimento remoto de instância computacional
 

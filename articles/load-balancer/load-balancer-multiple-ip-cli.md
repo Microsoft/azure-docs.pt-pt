@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: bc1e477882f3d065dfe89e8511259732129cec30
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 06dfa65236bf1aa5cfde626c5574ffdf487eb045
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746040"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698364"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Equilíbrio de carga em várias configurações IP usando Azure CLI
 
@@ -30,7 +30,7 @@ Este artigo descreve como utilizar o Azure Load Balancer com vários endereços 
 
 Para alcançar o cenário descrito neste artigo, complete os seguintes passos:
 
-1. [Instale e configuure o CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) seguindo os passos do artigo ligado e faça login na sua conta Azure.
+1. [Instale e configuure o CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) seguindo os passos do artigo ligado e faça login na sua conta Azure.
 2. [Crie um grupo de recursos](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) chamado *contosofabrikam* da seguinte forma:
 
     ```azurecli
@@ -43,7 +43,7 @@ Para alcançar o cenário descrito neste artigo, complete os seguintes passos:
     az vm availability-set create --resource-group contosofabrikam --location westcentralus --name myAvailabilitySet
     ```
 
-4. [Crie uma rede virtual](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) chamada *myVNet* e uma sub-rede chamada *mySubnet* :
+4. [Crie uma rede virtual](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) chamada *myVNet* e uma sub-rede chamada *mySubnet*:
 
     ```azurecli
     az network vnet create --resource-group contosofabrikam --name myVnet --address-prefixes 10.0.0.0/16  --location westcentralus --subnet-name MySubnet --subnet-prefix 10.0.0.0/24
@@ -71,7 +71,7 @@ Para alcançar o cenário descrito neste artigo, complete os seguintes passos:
     az network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp2 --name fabrkamfe
     ```
 
-8. Crie as suas piscinas de endereços backend - *contosopool* e *fabrikampool* , uma [sonda](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  -  *HTTP* , e as suas regras de equilíbrio de carga - *HTTPc* e *HTTPf* :
+8. Crie as suas piscinas de endereços backend - *contosopool* e *fabrikampool*, uma [sonda](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  -  *HTTP*, e as suas regras de equilíbrio de carga - *HTTPc* e *HTTPf*:
 
     ```azurecli
     az network lb address-pool create --resource-group contosofabrikam --lb-name mylb --name contosopool

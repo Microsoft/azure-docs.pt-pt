@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542279"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697992"
 ---
 # <a name="azure-api-management-faqs"></a>FaQs de gestão da Azure API
 Obtenha as respostas para perguntas, padrões e boas práticas comuns para a Azure API Management.
@@ -71,18 +71,7 @@ Sim, pode gerir a Gestão da API programáticamente utilizando:
 * Os cmdlets powershell [de implantação](/powershell/module/wds) e [gestão de serviços.](/powershell/azure/servicemanagement/overview)
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Como posso adicionar um utilizador ao grupo de Administradores?
-Eis como pode adicionar um utilizador ao grupo de Administradores:
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Vá ao grupo de recursos que tem a instância de Gestão API que pretende atualizar.
-3. Na Gestão da API, atribua o papel de Contribuinte do **Serviço de Gestão da API** ao utilizador.
-
-Agora o colaborador recém-adicionado pode usar [cmdlets](/powershell/azure/)Azure PowerShell . Eis como se inscrever como administrador:
-
-1. Utilize o `Connect-AzAccount` cmdlet para iniciar sinserção.
-2. Desa parte para a subscrição que tem o serviço utilizando `Set-AzContext -SubscriptionID <subscriptionGUID>` .
-3. Obtenha um único URL de inscrição utilizando `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>` .
-4. Utilize o URL para aceder ao portal de administração.
+Os grupos de administradores são um grupo de sistema imutável. Os administradores de subscrição da Azure são membros deste grupo. Não é possível adicionar um utilizador a este grupo. Veja [como criar e utilizar grupos para gerir contas de programadores na Azure API Management](./api-management-howto-create-groups.md) para obter mais informações.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Porque é que a política que quero acrescentar não está disponível no editor de política?
 Se a política que pretende adicionar aparecer escurecida ou sombreada no editor de política, certifique-se de que está no âmbito correto da política. Cada declaração política foi concebida para que possa utilizar em âmbitos específicos e secções políticas. Para rever as secções e âmbitos de política para uma política, consulte a secção de Utilização da política nas políticas de [Gestão da API](./api-management-policies.md).

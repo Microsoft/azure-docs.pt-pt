@@ -1,16 +1,16 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para o Serviço Azure Kubernetes (AKS)
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para o Serviço Azure Kubernetes (AKS). Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 ms.service: container-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 52d60c3fa471960e6949b0169928280f3ac59e56
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 13fc6e177248794eddd64e2a406980d59e2d37d2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636600"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697820"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-kubernetes-service-aks"></a>Controlos de conformidade regulamentar da política Azure para o Serviço Azure Kubernetes (AKS)
 

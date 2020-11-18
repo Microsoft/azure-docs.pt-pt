@@ -9,17 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cd6b64f118460a115963ed0bf105641d80334348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c2f8058a85bbc0643ed31a7dc910339d0f6d9dd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934995"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697055"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>moreLikeThis (pré-visualização) em Azure Cognitive Search
 
 > [!IMPORTANT] 
-> Esta funcionalidade encontra-se atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2020-06-30-Preview](search-api-preview.md) fornece esta funcionalidade. Atualmente não existe porta ou suporte .NET SDK.
+> Esta funcionalidade encontra-se atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [versão REST API 2020-06-30-Preview](search-api-preview.md) fornece esta funcionalidade. Atualmente não existe porta ou suporte .NET SDK.
 
 `moreLikeThis=[key]` é um parâmetro de consulta na [API de Documentos de Busca](/rest/api/searchservice/search-documents) que encontra documentos semelhantes ao documento especificado pela chave do documento. Quando um pedido de pesquisa é feito `moreLikeThis` com, uma consulta é gerada com termos de pesquisa extraídos do documento dado que descrevem melhor esse documento. A consulta gerada é então usada para fazer o pedido de pesquisa. Por predefinição, o conteúdo de todos os campos pes pesjáveis é considerado, menos quaisquer campos restritos que especificou usando o `searchFields` parâmetro. O `moreLikeThis` parâmetro não pode ser utilizado com o parâmetro de pesquisa, `search=[string]` .
 
@@ -71,4 +71,4 @@ GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$
 Pode utilizar qualquer ferramenta de teste web para experimentar esta funcionalidade.  Recomendamos a utilização do Carteiro para este exercício.
 
 > [!div class="nextstepaction"]
-> [Explore Azure Cognitive Search REST APIs usando o Carteiro](search-get-started-postman.md)
+> [Explore Azure Cognitive Search REST APIs](search-get-started-rest.md)

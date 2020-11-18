@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 42ec5a661bd7b42ba5de5bfa99b3898291cc60fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f24ab2c646757f0241748336243b0d5f977d081c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935607"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698330"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registos do Azure Monitor para o Balanceador de Carga Básico público
 
 Pode utilizar diferentes tipos de registos em Azure para gerir e resolver problemas os Balanceadores básicos de carga. Alguns destes registos podem ser acedidos através do portal. Os registos podem ser transmitidos para um centro de eventos ou para um espaço de trabalho log analytics. Todos os troncos podem ser extraídos do armazenamento de blob Azure e vistos em diferentes ferramentas, tais como Excel e Power BI.  Pode saber mais sobre os diferentes tipos de registos da lista abaixo.
 
-* **Registos de atividades:** Pode utilizar [registos de atividades para monitorizar as ações sobre recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) para ver toda a atividade a ser submetida à subscrição(s) do Azure e ao seu estado. Os registos de atividade são ativados por padrão e podem ser vistos no portal Azure.
+* **Registos de atividades:** Pode utilizar [registos de atividades para monitorizar as ações sobre recursos](../azure-resource-manager/management/view-activity-logs.md) para ver toda a atividade a ser submetida à subscrição(s) do Azure e ao seu estado. Os registos de atividade são ativados por padrão e podem ser vistos no portal Azure.
 * **Registos de eventos de alerta:** Pode utilizar este registo para visualizar os alertas levantados pelo equilibrador de carga. O estado do balançador de carga é recolhido a cada cinco minutos. Este registo só é escrito se um evento de alerta de balanceador de carga for levantado.
 * **Registos de sondas de saúde:** Pode utilizar este registo para visualizar problemas detetados pela sua sonda de saúde, como o número de casos na sua piscina de backend que não estão a receber pedidos do equilibrador de carga devido a falhas na sonda de saúde. Este registo é escrito quando há uma alteração no estado da sonda de saúde.
 
@@ -35,21 +35,21 @@ Pode utilizar diferentes tipos de registos em Azure para gerir e resolver proble
 
 O registo de atividades é ativado automaticamente para todos os recursos do Resource Manager. Permitir que o registo de eventos e sondas de saúde comece a recolher os dados disponíveis através desses registos. Utilize os seguintes passos para ativar a exploração madeireira.
 
-Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver um equilibrador de carga, [crie um equilibrador de carga](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) antes de continuar.
+Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver um equilibrador de carga, [crie um equilibrador de carga](./quickstart-load-balancer-standard-public-portal.md) antes de continuar.
 
 1. No portal, clique em **grupos de recursos.**
 2. Selecione **\<resource-group-name>** onde está o seu equilibrador de carga.
 3. Selecione o seu balanceador de carga.
-4. Selecione **Definições de**diagnóstico de registo de  >  **atividades**.
+4. Selecione **Definições de** diagnóstico de registo de  >  **atividades**.
 5. No painel de **definições de Diagnóstico,** nas **definições de Diagnóstico**, selecione **+ Adicione a definição de diagnóstico**.
 6. No painel de criação de **definições de diagnóstico,** **insira o myLBDiagnostics** no campo **Nome.**
 7. Tem três opções para as **definições de Diagnóstico**.  Pode escolher um, dois ou três e configurar cada um para os seus requisitos:
    * **Arquivar para uma conta de armazenamento**
-   * **Transmita para um centro de eventos**
+   * **Transmitir em fluxo para um hub de eventos**
    * **Enviar para o Log Analytics**
 
     ### <a name="archive-to-a-storage-account"></a>Arquivar numa conta de armazenamento
-    Você precisará de uma conta de armazenamento já criada para este processo.  Para criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
+    Você precisará de uma conta de armazenamento já criada para este processo.  Para criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal)
 
     1. Selecione a caixa de verificação ao lado **do Arquivo para uma conta de armazenamento**.
     2. Selecione **Configurar** para abrir o painel **de conta de armazenamento Selecione.**
@@ -58,7 +58,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiv
     5. Selecione OK.
 
     ### <a name="stream-to-an-event-hub"></a>Transmitir em fluxo para um hub de eventos
-    Você precisará de um centro de eventos já criado para este processo.  Para criar um centro de eventos, consulte [Quickstart: Criar um centro de eventos usando o portal Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+    Você precisará de um centro de eventos já criado para este processo.  Para criar um centro de eventos, consulte [Quickstart: Criar um centro de eventos usando o portal Azure](../event-hubs/event-hubs-create.md)
 
     1. Selecione a caixa de verificação ao lado **do Stream para um centro de eventos**
     2. Selecione **Configurar** para abrir o painel **de hub de evento Select.**
@@ -68,7 +68,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiv
     6. Selecione OK.
 
     ### <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
-    Você precisará já ter um espaço de trabalho de analítica de log criado e configurado para este processo.  Para criar um espaço de trabalho log analytics, consulte [Criar um espaço de trabalho Log Analytics no portal Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+    Você precisará já ter um espaço de trabalho de analítica de log criado e configurado para este processo.  Para criar um espaço de trabalho log analytics, consulte [Criar um espaço de trabalho Log Analytics no portal Azure](../azure-monitor/learn/quick-create-workspace.md)
 
     1. Selecione a caixa de verificação ao lado **de Enviar para Registar Analítico**.
     2. Selecione a **Subscrição** onde o seu espaço de trabalho Log Analytics está na caixa de puxar para baixo.
@@ -86,9 +86,9 @@ Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiv
 
 ## <a name="activity-log"></a>Registo de atividades
 
-O registo de atividade é gerado por padrão. Os registos são preservados durante 90 dias na loja de Registos de Eventos da Azure. Saiba mais sobre estes registos lendo os [registos de atividades](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) do Ver para monitorizar as ações no artigo de recursos.
+O registo de atividade é gerado por padrão. Os registos são preservados durante 90 dias na loja de Registos de Eventos da Azure. Saiba mais sobre estes registos lendo os [registos de atividades](../azure-resource-manager/management/view-activity-logs.md) do Ver para monitorizar as ações no artigo de recursos.
 
-## <a name="archive-to-storage-account-logs"></a>Arquivar para guardar registos de conta
+## <a name="archive-to-storage-account-logs"></a>Arquivar nos registos da conta de armazenamento
 
 ### <a name="alert-event-log"></a>Registo de eventos de alerta
 
@@ -171,7 +171,7 @@ Conecte-se à sua conta de armazenamento e recupere as entradas de registo JSON 
 Quando a informação de diagnóstico é transmitida para um centro de eventos, pode ser usada para análise centralizada de registos numa ferramenta SIEM de terceiros com integração do Monitor Azure. Para obter mais informações, consulte [os dados de monitorização do Stream Azure para um centro de eventos](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
-Os recursos em Azure podem ter as suas informações de diagnóstico enviadas diretamente para um espaço de trabalho log analytics onde podem ser executadas consultas complexas contra a informação para resolução de problemas e análise.  Para obter mais informações, consulte [registos de recursos do Collect Azure no espaço de trabalho do Log Analytics no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
+Os recursos em Azure podem ter as suas informações de diagnóstico enviadas diretamente para um espaço de trabalho log analytics onde podem ser executadas consultas complexas contra a informação para resolução de problemas e análise.  Para obter mais informações, consulte [registos de recursos do Collect Azure no espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 ## <a name="next-steps"></a>Passos seguintes
 

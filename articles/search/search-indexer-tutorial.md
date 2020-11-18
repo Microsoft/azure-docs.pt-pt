@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e04c7da40719f77ca478f2ce577688af773f523d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 960657d27be4b9dab9f242428592bbb404a49d86
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399232"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697174"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Tutorial: Índice Azure SQL dados usando o .NET SDK
 
@@ -49,7 +49,7 @@ Este tutorial utiliza a Azure Cognitive Search para indexação e consultas, e a
 
 ### <a name="start-with-azure-sql-database"></a>Comece com a Base de Dados Azure SQL
 
-Neste passo, crie uma fonte de dados externa na Base de Dados Azure SQL que um indexante pode rastejar. Você pode usar o portal Azure e o arquivo *hotels.sql* a partir do download da amostra para criar o conjunto de dados na Base de Dados Azure SQL. A Azure Cognitive Search consome linhas achatadas, como uma gerada a partir de uma vista ou consulta. O ficheiro SQL na solução de exemplo cria e preenche uma única tabela.
+Neste passo, crie uma fonte de dados externa na Base de Dados Azure SQL que um indexante pode rastejar. Você pode usar o portal Azure e os *hotéis.sql* ficheiro a partir do download da amostra para criar o conjunto de dados na Base de Dados Azure SQL. A Azure Cognitive Search consome linhas achatadas, como uma gerada a partir de uma vista ou consulta. O ficheiro SQL na solução de exemplo cria e preenche uma única tabela.
 
 Se tiver um recurso de Base de Dados Azure SQL existente, pode adicionar-lhe a tabela de hotéis, a partir do passo 4.
 
@@ -65,11 +65,11 @@ Se tiver um recurso de Base de Dados Azure SQL existente, pode adicionar-lhe a t
 
    Se o acesso for negado, copie o endereço IP do cliente a partir da mensagem de erro e, em seguida, clique no link **de firewall do servidor set** para adicionar uma regra que permite o acesso a partir do computador do seu cliente, utilizando o IP do seu cliente para o intervalo. Pode levar vários minutos para que a regra faça efeito.
 
-1. Em Editor de Consulta, clique em **abrir a consulta** e navegar para a localização do ficheiro *hotels.sql* no seu computador local. 
+1. Em Editor de Consulta, clique em **abrir a consulta** e navegar para a localização dos *hotéis.sql* ficheiro no seu computador local. 
 
 1. Selecione o ficheiro e clique em **Abrir**. O script deverá ser parecido com o da captura de ecrã seguinte:
 
-   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Página Nova base de dados" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Script de SQL" border="false":::
 
 1. Clique em **Executar** para executar a consulta. No painel Resultados, deverá ver uma mensagem de consulta bem-sucedida para três linhas.
 
@@ -99,7 +99,7 @@ As chamadas da API requerem o URL de serviço e uma chave de acesso. Um serviço
 
 1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
 
-   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Página Nova base de dados" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obtenha uma chave de acesso http e acesso" border="false":::
 
 ## <a name="2---set-up-your-environment"></a>2 - Configurar o seu ambiente
 
@@ -201,7 +201,7 @@ Um objeto indexante é agnóstico de plataforma, onde a configuração, o agenda
 
 Prima F5 para construir e executar a solução. O programa é executado no modo de depuração. O estado de cada operação é reportado numa janela da consola.
 
-   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Página Nova base de dados" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Saída da consola" border="false":::
 
 O seu código é executado localmente no Visual Studio, conectando-se ao seu serviço de pesquisa no Azure, que por sua vez se conecta à Base de Dados Azure SQL e recupera o conjunto de dados. Com estas muitas operações, existem vários pontos potenciais de falha. Se tiver um erro, verifique primeiro as seguintes condições:
 
@@ -215,9 +215,9 @@ O seu código é executado localmente no Visual Studio, conectando-se ao seu ser
 
 Use o portal Azure para verificar a criação de objetos e, em seguida, use **o explorador de pesquisa** para consultar o índice.
 
-1. [Inscreva-se no portal Azure](https://portal.azure.com/), e na página **geral do** seu serviço de pesquisa, abra cada lista por sua vez para verificar se o objeto foi criado. **Os índices**, **Indexantes**e **Fontes de Dados** terão "hotéis", "azure-sql-indexer", e "azure-sql", respectivamente.
+1. [Inscreva-se no portal Azure](https://portal.azure.com/), e na página **geral do** seu serviço de pesquisa, abra cada lista por sua vez para verificar se o objeto foi criado. **Os índices**, **Indexantes** e **Fontes de Dados** terão "hotéis", "azure-sql-indexer", e "azure-sql", respectivamente.
 
-   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Página Nova base de dados" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Mosaicos de indexador e origem de dados" border="false":::
 
 1. Selecione o índice de hotéis. Na página dos hotéis, **o Explorador de Pesquisa** é o primeiro separador. 
 
@@ -225,7 +225,7 @@ Use o portal Azure para verificar a criação de objetos e, em seguida, use **o 
 
    As três entradas no índice são devolvidas como documentos JSON. O Explorador de Pesquisa devolve documentos em JSON, para que possa ver a estrutura inteira.
 
-   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Página Nova base de dados" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Consulta de um índice" border="false":::
    
 1. Em seguida, introduza uma cadeia de pesquisa: `search=river&$count=true`. 
 

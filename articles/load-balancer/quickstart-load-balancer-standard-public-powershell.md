@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 0dfb5a68149f4745d17581dcefed6aedcf394106
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 35dc088909522494d6c1cf4c94f9342c95fda59a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487709"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698496"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio usando Azure PowerShell
 
@@ -183,7 +183,7 @@ Crie uma regra de balançador de carga com [Add-AzLoadBalanceruleConfig](/powers
 * Envio de tráfego de rede equilibrado de carga para a piscina de endereço de backend **myBackEndPool** usando **a porta 80**. 
 * Utilizando a sonda de saúde **myHealthProbe**.
 * Protocolo **TCP**.
-* Tempo de **15 minutos**inativo.
+* Tempo de **15 minutos** inativo.
 * Ativar o reset do TCP.
 
 ```azurepowershell-interactive
@@ -421,7 +421,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic3 -LoadBa
 ```
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Defina um nome de utilizador e palavra-passe para as VMs com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Defina um nome de utilizador e palavra-passe para as VMs com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell
 $cred = Get-Credential
@@ -824,7 +824,7 @@ Crie uma regra de balançador de carga com [Add-AzLoadBalanceruleConfig](/powers
 * Envio de tráfego de rede equilibrado de carga para a piscina de endereço de backend **myBackEndPool** usando **a porta 80**. 
 * Utilizando a sonda de saúde **myHealthProbe**.
 * Protocolo **TCP**.
-* Tempo de **15 minutos**inativo.
+* Tempo de **15 minutos** inativo.
 
 
 ```azurepowershell-interactive
@@ -1079,7 +1079,7 @@ New-AzAvailabilitySet -ResourceGroupName $rg -Name $avs -Location $loc
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Defina um nome de utilizador e palavra-passe para as VMs com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Defina um nome de utilizador e palavra-passe para as VMs com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell
 $cred = Get-Credential
@@ -1191,7 +1191,7 @@ Leva alguns minutos para criar e configurar os três VMs.
 
 ## <a name="install-iis"></a>Instalar o IIS
 
-Utilize [a Configuração AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) para instalar a extensão de script personalizada. 
+Utilize [a Configuração AzVMExtension](/powershell/module/az.compute/set-azvmextension) para instalar a extensão de script personalizada. 
 
 A extensão executa o powerShell Add-WindowsFeature Web-Server instalar o webserver IIS e, em seguida, atualiza a página Default.htm para mostrar o nome de anfitrião do VM:
 
@@ -1242,7 +1242,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
-Utilize [o Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) para obter o endereço IP público do equilibrista de carga:
+Utilize [o Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço IP público do equilibrista de carga:
 
 ```azurepowershell-interactive
   ## Variables for command. ##
@@ -1281,5 +1281,3 @@ Neste arranque rápido
 Para saber mais sobre o Azure Load Balancer, continue a.
 > [!div class="nextstepaction"]
 > [What is Azure Load Balancer?](load-balancer-overview.md) (O que é o Balanceador de Carga do Azure?)
-
-

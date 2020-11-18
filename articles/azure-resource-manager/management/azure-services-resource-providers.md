@@ -2,13 +2,13 @@
 title: Fornecedores de recursos por serviços Azure
 description: Lista todos os espaços de nome do fornecedor de recursos para O Gestor de Recursos Azure e mostra o serviço Azure para esse espaço de nome.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: f9e31f902d36cf84fc559337f3c69529cf1c014b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/17/2020
+ms.openlocfilehash: c447a08b4422929f042315370b5888f3db0626e4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949127"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697735"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resource providers for Azure services (Fornecedor de recursos para serviços do Azure)
 
@@ -55,13 +55,13 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.ClassicSubscription<sup>1</sup> | Modelo de implementação clássica |
 | Microsoft.CognitiveServices | [Serviços Cognitivos](../../cognitive-services/index.yml) |
 | Microsoft.Commerce<sup>1</sup> | núcleo |
-| Microsoft.Compute | [Máquinas Virtuais](../../virtual-machines/index.yml)<br />[Conjuntos de escala de máquina virtual](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft.Consumption<sup>1</sup> | [Gestão de Custos](/azure/cost-management/) |
+| Microsoft.Compute | [Máquinas Virtuais](../../virtual-machines/index.yml)<br />[Conjuntos de Dimensionamento de Máquinas Virtuais](../../virtual-machine-scale-sets/index.yml) |
+| Microsoft.Consumption<sup>1</sup> | [Cost Management](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](../../container-instances/index.yml) |
-| Microsoft.ContainerRegistry | [Registo de Contentor](../../container-registry/index.yml) |
+| Microsoft.ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
-| Microsoft.CostManagement<sup>1</sup> | [Gestão de Custos](/azure/cost-management/) |
-| Microsoft.CostManagementExports | [Gestão de Custos](/azure/cost-management/) |
+| Microsoft.CostManagement<sup>1</sup> | [Cost Management](/azure/cost-management/) |
+| Microsoft.CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | [Sistema de Proteção de Dados do Cliente para o Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.CustomProviders | [Fornecedores Personalizados do Azure](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |
@@ -80,7 +80,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.DeploymentManager | [Gestor de Implementação Azure](../templates/deployment-manager-overview.md) |
 | Microsoft.DesktopVirtualization | [Windows Virtual Desktop](../../virtual-desktop/index.yml) |
 | Microsoft.Devices | [Hub IoT do Azure](../../iot-hub/index.yml)<br />[Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure](../../iot-dps/index.yml) |
-| Microsoft.DevOps | [DevOps do Azure](/azure/devops/) |
+| Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](../../dev-spaces/index.yml) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.DigitalTwins | [Azure Digital Twins](../../digital-twins/overview.md) |
@@ -92,7 +92,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.EventHub | [Hubs de Eventos](../../event-hubs/index.yml) |
 | Microsoft.Features<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.HanaOnAzure | [SAP HANA em Azure Grandes Instâncias](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
+| Microsoft.HanaOnAzure | [SAP HANA nas Instâncias Grandes do Azure](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
 | Microsoft.HealthcareApis | [API do Azure para FHIR](../../healthcare-apis/index.yml) |
@@ -126,7 +126,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Gateway de Aplicação](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[DNS do Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Load balancer](../../load-balancer/index.yml)<br />[Observador de Rede](../../network-watcher/index.yml)<br />[Gestor de Tráfego](../../traffic-manager/index.yml)<br />[Rede Virtual](../../virtual-network/index.yml)<br />[WAN Virtual](../../virtual-wan/index.yml)<br />[Gateway de VPN](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Gateway de Aplicação](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md)<br />[DNS do Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Balanceador de Carga](../../load-balancer/index.yml)<br />[Observador de Rede](../../network-watcher/index.yml)<br />[Gestor de Tráfego](../../traffic-manager/index.yml)<br />[Rede Virtual](../../virtual-network/index.yml)<br />[WAN Virtual](../../virtual-wan/index.yml)<br />[Gateway de VPN](../../vpn-gateway/index.yml)<br /> |
 | Microsoft.Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 | Microsoft.NotificationHubs | [Hubs de Notificação](../../notification-hubs/index.yml) |
 | Microsoft.ObjectStore | Loja de Objetos |
@@ -143,7 +143,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.Quantum | [Azure Quantum](https://azure.microsoft.com/services/quantum/) |
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.RedHatopenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
-| Microsoft.Relay | [Relé Azure](../../azure-relay/relay-what-is-it.md) |
+| Microsoft.Relay | [Reencaminhamento do Azure](../../azure-relay/relay-what-is-it.md) |
 | Microsoft.ResourceGraph<sup>1</sup> | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
 | Microsoft.ResourceHealth | [Azure Service Health](../../service-health/index.yml) |
 | Microsoft.Resources<sup>1</sup> | [Azure Resource Manager](../index.yml) |
@@ -151,7 +151,6 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Centro de Segurança](../../security-center/index.yml) |
-| Microsoft.SecurityGraph | [Centro de Segurança](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
 | Microsoft.SerialConsole<sup>1</sup> | [Consola em série Azure para Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
@@ -162,7 +161,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.SoftwarePlan | Licença |
 | Microsoft.Solutions | [Aplicações Geridas do Azure](../managed-applications/index.yml) |
 | Microsoft.Sql | [Base de Dados SQL do Azure](../../azure-sql/database/index.yml)<br /> [Instância Gerida do SQL no Azure](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft.SqlVirtualMachine | [Servidor SQL em Máquinas Virtuais Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
+| Microsoft.SqlVirtualMachine | [SQL Server nas Máquinas Virtuais do Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
 | Microsoft.Storage | [Armazenamento](../../storage/index.yml) |
 | Microsoft.StorageCache | [Azure HPC Cache](../../hpc-cache/index.yml) |
 | Microsoft.StorageSync | [Armazenamento](../../storage/index.yml) |
@@ -174,10 +173,10 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.Token | Token |
 | Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/linux/image-builder-overview.md) |
-| microsoft.visualstudio | [DevOps do Azure](/azure/devops/?view=azure-devops) |
+| microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VMware | [Solução VMware no Azure](../../azure-vmware/index.yml) |
 | Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](../../vmware-cloudsimple/index.md) |
-| Microsoft.VSOnline | [DevOps do Azure](/azure/devops/?view=azure-devops) |
+| Microsoft.VSOnline | [Azure DevOps](/azure/devops/) |
 | Microsoft.Web | [Serviço de Aplicações](../../app-service/index.yml)<br />[Funções do Azure](../../azure-functions/index.yml) |
 | Microsoft.WindowsDefenderATP | [Proteção Avançada Contra Ameaças do Microsoft Defender](../../security-center/security-center-wdatp.md) |
 | Microsoft.WindowsESU | Atualizações de segurança alargadas |

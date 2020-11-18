@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 834e4fe8c7b3923f40a07c02c0310200db222308
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740688"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697259"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Crie uma consulta simples na Pesquisa Cognitiva Azure
 
@@ -27,7 +27,7 @@ Uma sintaxe de consulta alternativa é [Full Lucene,](query-lucene-syntax.md)sup
 
 Os exemplos a seguir aproveitam um índice de pesquisa nyc jobs composto por empregos disponíveis com base num conjunto de dados fornecido pela iniciativa [City of New York OpenData.](https://nycopendata.socrata.com/) Estes dados não devem ser considerados atuais ou completos. O índice encontra-se num serviço de caixa de areia fornecido pela Microsoft, o que significa que não precisa de uma subscrição Azure ou de Azure Cognitive Search para experimentar estas consultas.
 
-O que precisa é do Carteiro ou de uma ferramenta equivalente para emitir pedido HTTP no GET. Para obter mais informações, consulte [Quickstart: Explore a API de Pesquisa Cognitiva Azure utilizando o Carteiro](search-get-started-postman.md).
+O que precisa é do Carteiro ou de uma ferramenta equivalente para emitir pedido HTTP no GET. Para mais informações, consulte [Quickstart: Explore a API de Pesquisa Cognitiva Azure](search-get-started-rest.md).
 
 ### <a name="set-the-request-header"></a>Desa estação o cabeçalho do pedido
 
@@ -43,7 +43,7 @@ Depois de especificar o cabeçalho do pedido, pode reutilizá-lo para todas as c
 
 O pedido é um comando GET emparelhado com um URL que contém o ponto final de pesquisa cognitiva do Azure e a cadeia de pesquisa.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Cabeçalho de pedido do carteiro GET" border="false":::
 
 A composição url tem os seguintes elementos:
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 A resposta a esta consulta deve ser semelhante à seguinte imagem.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Resposta da amostra do carteiro" border="false":::
 
 Deve ter reparado na pontuação da pesquisa na resposta. Pontuações uniformes de 1 ocorrem quando não há classificação, quer porque a pesquisa não foi completamente pesquisa de texto, quer porque não foi aplicado nenhum critério. Para uma busca nula sem critérios, as linhas voltam por ordem arbitrária. Quando incluir critérios reais, verá as pontuações de pesquisa evoluir em valores significativos.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 Usado em conjunto, o filtro é aplicado primeiro a todo o índice, e depois a pesquisa é realizada nos resultados do filtro. Por conseguinte, os filtros podem ser uma técnica útil para melhorar o desempenho de consultas, uma vez que reduzem o conjunto de documentos necessários à consulta de pesquisa para processamento.
 
-  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Resposta de consulta de filtro" border="false":::
 
 Se quiser experimentar isto no Carteiro usando GET, pode colar nesta cadeia:
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Filtro de gama para gamas numéricas" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Filtro de gama para intervalos de texto" border="false":::
 
 Também pode experimentá-las no Carteiro usando GET:
 
@@ -251,14 +251,14 @@ Utilizando a pesquisa padrãoMode (qualquer), são devolvidos 2800 documentos: o
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="modo de pesquisa qualquer" border="false":::
 
 Alteração da pesquisaMode para `all` impor um efeito cumulativo em critérios e devolve um conjunto de resultados menor - 21 documentos - composto por documentos que contenham toda a frase "corpo de bombeiros", menos os empregos no endereço do Metrotech Center.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Carteiro solicitam parâmetros definidos" border="false":::
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="modo de pesquisa todos" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Exemplo 8: Resultados estruturantes
 

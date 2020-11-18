@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072089"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698075"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
@@ -78,29 +78,30 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 Se quiser criar piscinas de nó com a imagem AKS Ubuntu 16.04, pode fazê-lo omitindo a `--aks-custom-headers` etiqueta personalizada.
 
+## <a name="container-runtime-configuration"></a>Configuração do tempo de execução do contentor
 
-## <a name="container-runtime-configuration-preview"></a>Configuração do tempo de execução do contentor (pré-visualização)
+Um tempo de funcionação do contentor é um software que executa contentores e gere imagens de contentores num nó. O tempo de execução ajuda a abstrato de chamadas de sys ou funcionalidade específica do sistema operativo (OS) para executar contentores em Linux ou Windows. Aglomerados AKS usando piscinas de nó de kubernetes versão 1.19 e maior utilização `containerd` como tempo de funcionação do contentor. Os agrupamentos AKS que usam Kubernetes antes do v1.19 para piscinas de nó usam [o Moby](https://mobyproject.org/) (estivador a montante) como tempo de execução do contentor.
 
-Um tempo de funcionação do contentor é um software que executa contentores e gere imagens de contentores num nó. O tempo de execução ajuda a abstrato de chamadas de sys ou funcionalidade específica do sistema operativo (OS) para executar contentores em Linux ou Windows. Hoje a AKS está a usar [o Moby](https://mobyproject.org/) (estivador a montante) como tempo de funcionação do contentor. 
-    
 ![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/) é um tempo de funcionamento do recipiente de núcleo compatível com [OCI](https://opencontainers.org/) (Open Container Initiative) que fornece o conjunto mínimo de funcionalidade necessária para executar contentores e gerir imagens num nó. Foi [doado](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) à Cloud Native Compute Foundation (CNCF) em março de 2017. A versão atual da Moby que a AKS utiliza hoje já aproveita e é construída em cima de `containerd` , como mostrado acima. 
+[`Containerd`](https://containerd.io/) é um tempo de funcionamento do recipiente de núcleo compatível com [OCI](https://opencontainers.org/) (Open Container Initiative) que fornece o conjunto mínimo de funcionalidade necessária para executar contentores e gerir imagens num nó. Foi [doado](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) à Cloud Native Compute Foundation (CNCF) em março de 2017. A versão atual da Moby que a AKS utiliza já aproveita e é construída em cima de `containerd` , como mostrado acima.
 
-Com um nó à base de contentores e piscinas de nó, em vez de falar com o `dockershim` , o kubelet falará diretamente `containerd` através do plugin CRI (interface de tempo de execução do contentor), removendo saltos extra no fluxo quando comparado com a implementação do Docker CRI. Como tal, verá uma melhor latência de arranque de pod e menos utilização de recursos (CPU e memória).
+Com um `containerd` nó à base e piscinas de nó, em vez de falar com o , o `dockershim` kubelet falará diretamente `containerd` através do plugin CRI (interface de tempo de execução do contentor), removendo saltos extra no fluxo quando comparado com a implementação do Docker CRI. Como tal, verá uma melhor latência de arranque de pod e menos utilização de recursos (CPU e memória).
 
 Ao utilizar `containerd` os nós AKS, a latência do arranque do pod melhora e o consumo de recursos de nó pelo tempo de funcionaamento do recipiente diminui. Estas melhorias são possibilitada por esta nova arquitetura onde kubelet fala diretamente `containerd` através do plugin CRI enquanto em Moby/Docker arquitetura kubelet falaria com o `dockershim` motor e estivador antes `containerd` de alcançar, tendo assim saltos extra no fluxo.
 
 ![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd` funciona em todas as versões GA de kubernetes em AKS, e em todas as versões de kubernetes acima acima de v1.10, e suporta todas as funcionalidades de kubernetes e AKS.
+`Containerd` funciona em todas as versões GA de Kubernetes em AKS, e em todas as versões de kubernetes acima acima de v1.19, e suporta todas as funcionalidades de Kubernetes e AKS.
 
 > [!IMPORTANT]
-> Depois de `containerd` ficar geralmente disponível em AKS, será a opção padrão e única disponível para o tempo de funcionação do contentor em novos clusters. Você ainda pode usar nodepools e clusters Moby em versões suportadas mais antigas até que estes caiam fora de suporte. 
+> Aglomerados com piscinas de nó criados em Kubernetes v1.19 ou maior padrão `containerd` para o seu tempo de funcionação do contentor. Os clusters com piscinas de nó numa versão suportada de Kubernetes menos de 1.19 recebem `Moby` para o seu tempo de funcionação do contentor, mas serão atualizados assim que a versão do grupo de nó `ContainerD` Kubernetes for atualizada para v1.19 ou superior. Você ainda pode usar `Moby` piscinas de nó e clusters em versões suportadas mais antigas até que estes caiam fora de suporte.
 > 
-> Recomendamos que teste as suas cargas de trabalho em `containerd` piscinas de nó antes de atualizar ou criar novos aglomerados com este tempo de funcionamento do recipiente.
+> É altamente recomendado testar as suas cargas de trabalho em piscinas de nó AKS com `containerD` antes de utilizar clusters em 1.19 ou superior.
 
-### <a name="use-containerd-as-your-container-runtime-preview"></a>Utilizar `containerd` como tempo de funcionação do seu recipiente (Pré-visualização)
+A secção seguinte explicará como pode utilizar e testar AKS com `containerD` clusters que ainda não estão a utilizar uma versão 1.19 ou superior de Kubernetes, ou que foram criados antes de esta funcionalidade ficar geralmente disponível, utilizando a pré-visualização da configuração de tempo de funcionação do contentor.
+
+### <a name="use-containerd-as-your-container-runtime-preview"></a>Utilizar `containerd` como tempo de funcionação do seu recipiente (pré-visualização)
 
 Deve ter os seguintes pré-requisitos:
 
@@ -137,7 +138,7 @@ Quando o estado aparecer como registado, reaprovida o registo do fornecedor de `
 az provider register --namespace Microsoft.ContainerService
 ```  
 
-### <a name="use-containerd-on-new-clusters-preview"></a>Utilização `containerd` em novos clusters (Pré-visualização)
+### <a name="use-containerd-on-new-clusters-preview"></a>Utilização `containerd` em novos clusters (pré-visualização)
 
 Configure o cluster para usar `containerd` quando o cluster for criado. Utilize a `--aks-custom-headers` bandeira para definir como tempo de `containerd` funcionação do recipiente.
 
@@ -150,7 +151,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-
 
 Se quiser criar clusters com o tempo de execução Moby (docker), pode fazê-lo omitindo a `--aks-custom-headers` etiqueta personalizada.
 
-### <a name="use-containerd-on-existing-clusters-preview"></a>Utilização `containerd` em clusters existentes (Pré-visualização)
+### <a name="use-containerd-on-existing-clusters-preview"></a>Utilização `containerd` em clusters existentes (pré-visualização)
 
 Configure uma nova piscina de nós para usar `containerd` . Use a `--aks-custom-headers` bandeira para definir como tempo de `containerd` execução para a piscina de nós.
 

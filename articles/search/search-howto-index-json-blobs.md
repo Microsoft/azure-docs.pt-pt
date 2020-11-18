@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: d41146b01b6b81804cdba31fbbf2541ba7ae0f03
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: a3c44d667b6baaf16e109dfb88c22c16a1ea2ce1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372389"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697208"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Como indexar as bolhas JSON usando um indexante Blob em Azure Cognitive Search
 
@@ -108,7 +108,7 @@ Pode utilizar a API REST para indexar as bolhas JSON, seguindo um fluxo de traba
 
 Pode rever o código de [exemplo REST](#rest-example) no final desta secção que mostra como criar os três objetos. Esta secção também contém detalhes sobre [os modos de análise JSON,](#parsing-modes) [bolhas únicas,](#parsing-single-blobs) [matrizes JSON](#parsing-arrays)e [matrizes aninhadas](#nested-json-arrays).
 
-Para indexação JSON baseada em código, utilize o [Carteiro](search-get-started-postman.md) e a API REST para criar estes objetos:
+Para indexação JSON baseada em código, utilize [o Código do Carteiro ou do Estúdio Visual](search-get-started-rest.md) e a API REST para criar estes objetos:
 
 + [índice](/rest/api/searchservice/create-index)
 + [fonte de dados](/rest/api/searchservice/create-data-source)
@@ -126,7 +126,7 @@ As bolhas JSON no armazenamento Azure Blob são normalmente um único documento 
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - Montar entradas para o pedido
 
-Para cada pedido, deve fornecer o nome de serviço e a chave de administração para Azure Cognitive Search (no cabeçalho POST), e o nome da conta de armazenamento e chave para armazenamento de bolhas. Pode utilizar [o Carteiro](search-get-started-postman.md) para enviar pedidos HTTP para a Azure Cognitive Search.
+Para cada pedido, deve fornecer o nome de serviço e a chave de administração para Azure Cognitive Search (no cabeçalho POST), e o nome da conta de armazenamento e chave para armazenamento de bolhas. Pode utilizar uma [ferramenta de teste web API](search-get-started-rest.md) para enviar pedidos HTTP para Azure Cognitive Search.
 
 Copie os seguintes quatro valores no Bloco de Notas para que possa colar num pedido:
 
@@ -329,7 +329,7 @@ Como notado, não são necessários mapeamentos de campo. Dado um índice com ca
 
 ## <a name="parse-json-arrays"></a>Parse JSON arrays
 
-Em alternativa, pode utilizar a opção de matriz JSON. Esta opção é útil quando as bolhas contêm uma *variedade de objetos JSON bem formados* , e você quer que cada elemento se torne um documento separado de Pesquisa Cognitiva Azure. Por exemplo, dada a seguinte bolha JSON, pode povoar o seu índice de Pesquisa Cognitiva Azure com três documentos separados, cada um com campos de "id" e "texto".  
+Em alternativa, pode utilizar a opção de matriz JSON. Esta opção é útil quando as bolhas contêm uma *variedade de objetos JSON bem formados*, e você quer que cada elemento se torne um documento separado de Pesquisa Cognitiva Azure. Por exemplo, dada a seguinte bolha JSON, pode povoar o seu índice de Pesquisa Cognitiva Azure com três documentos separados, cada um com campos de "id" e "texto".  
 
 ```text
     [

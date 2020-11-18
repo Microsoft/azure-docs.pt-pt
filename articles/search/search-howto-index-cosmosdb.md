@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: bf2282c5fda29cd266778a322efa4a0a33139c35
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: aed1aa03527481014a63c636181725b91b17a1e8
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372387"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697310"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Como indexar dados do Cosmos DB com um indexador na Pesquisa Cognitiva do Azure 
 
@@ -137,7 +137,7 @@ No início deste artigo é mencionado que [a indexação DB de Azure Cosmos](/az
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - Montar entradas para o pedido
 
-Para cada pedido, deve fornecer o nome de serviço e a chave de administração para Azure Cognitive Search (no cabeçalho POST), e o nome da conta de armazenamento e chave para armazenamento de bolhas. Pode utilizar [o Carteiro](search-get-started-postman.md) para enviar pedidos HTTP para a Azure Cognitive Search.
+Para cada pedido, deve fornecer o nome de serviço e a chave de administração para Azure Cognitive Search (no cabeçalho POST), e o nome da conta de armazenamento e chave para armazenamento de bolhas. Pode utilizar [o Código do Carteiro ou do Estúdio Visual](search-get-started-rest.md) para enviar pedidos HTTP para a Azure Cognitive Search.
 
 Copie os seguintes quatro valores no Bloco de Notas para que possa colar num pedido:
 
@@ -186,7 +186,7 @@ O corpo do pedido contém a definição de fonte de dados, que deve incluir os s
 | **nome** | Obrigatório. Escolha qualquer nome para representar o seu objeto de origem de dados. |
 |**tipo**| Obrigatório. Deve `cosmosdb` ser. |
 |**credenciais** | Obrigatório. Deve seguir o formato de cadeia de ligação Cosmos DB ou um formato de cadeia de ligação de identidade gerido.<br/><br/>Para **coleções SQL,** as cordas de ligação podem seguir qualquer um dos formatos abaixo: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>Uma cadeia de ligação de identidade gerida com o seguinte formato que não inclui uma chave de conta: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` . Para utilizar este formato de cadeia de ligação, siga as instruções para [configurar uma ligação indexante a uma base de dados Cosmos DB utilizando uma identidade gerida](search-howto-managed-identities-cosmos-db.md).<br/><br/>Para as coleções 3.2 e versão 3.6 **MongoDB** utilizem qualquer um dos seguintes formatos para a cadeia de ligação: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>Uma cadeia de ligação de identidade gerida com o seguinte formato que não inclui uma chave de conta: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` . Para utilizar este formato de cadeia de ligação, siga as instruções para [configurar uma ligação indexante a uma base de dados Cosmos DB utilizando uma identidade gerida](search-howto-managed-identities-cosmos-db.md).<br/><br/>Para **gráficos Gremlin e tabelas Cassandra,** inscreva-se para a [pré-visualização](https://aka.ms/azure-cognitive-search/indexer-preview) do indexante fechado para ter acesso à pré-visualização e informações sobre como formatar as credenciais.<br/><br/>Evite os números de porta na url do ponto final. Se incluir o número da porta, a Azure Cognitive Search não poderá indexar a sua base de dados DB Azure Cosmos.|
-| **recipiente** | Contém os seguintes elementos: <br/>**nome:** Obrigatório. Especifique o ID da recolha da base de dados a ser indexado.<br/>**consulta** : Opcional. Pode especificar uma consulta para aplainar um documento JSON arbitrário num esquema plano que a Azure Cognitive Search pode indexar.<br/>Para a API mongodb, Gremlin API e Cassandra API, as consultas não são apoiadas. |
+| **recipiente** | Contém os seguintes elementos: <br/>**nome:** Obrigatório. Especifique o ID da recolha da base de dados a ser indexado.<br/>**consulta**: Opcional. Pode especificar uma consulta para aplainar um documento JSON arbitrário num esquema plano que a Azure Cognitive Search pode indexar.<br/>Para a API mongodb, Gremlin API e Cassandra API, as consultas não são apoiadas. |
 | **dataChangeDetectionPolicy** | Recomendado. Consulte a secção [de Documentos Alterados de Indexação.](#DataChangeDetectionPolicy)|
 |**dataDeletionDetectionPolicy** | Opcional. Consulte a secção [de Documentos Eliminados de Indexação.](#DataDeletionDetectionPolicy)|
 
@@ -194,7 +194,7 @@ O corpo do pedido contém a definição de fonte de dados, que deve incluir os s
 Pode especificar uma consulta SQL para aplainar propriedades ou matrizes aninhadas, projetar propriedades JSON e filtrar os dados a serem indexados. 
 
 > [!WARNING]
-> As consultas personalizadas não são suportadas para **a API mongodb,** **Gremlin API** e **Cassandra API** : `container.query` o parâmetro deve ser definido para nulo ou omitido. Se precisar de utilizar uma consulta personalizada, informe-nos no [User Voice](https://feedback.azure.com/forums/263029-azure-search).
+> As consultas personalizadas não são suportadas para **a API mongodb,** **Gremlin API** e **Cassandra API**: `container.query` o parâmetro deve ser definido para nulo ou omitido. Se precisar de utilizar uma consulta personalizada, informe-nos no [User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
 Documento de exemplo:
 
