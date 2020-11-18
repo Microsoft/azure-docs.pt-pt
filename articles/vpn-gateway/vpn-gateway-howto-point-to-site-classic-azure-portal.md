@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: a66b76350da6f3b3804dac73a7aeb9f54d2e34eb
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 42b0945de55775f55f20cefdeb547cb5d6492c06
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938377"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657079"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configure uma ligação ponto-a-local utilizando a autenticação de certificado (clássico)
 
@@ -38,7 +38,7 @@ Utilize uma porta VPN VPN ponto-a-local (P2S) para criar uma ligação segura à
 
 ## <a name="settings-and-requirements"></a>Configurações e requisitos
 
-### <a name="requirements"></a>Requisitos
+### <a name="requirements"></a>Requirements
 
 As ligações de autenticação de certificado ponto-a-local requerem os seguintes itens. Há passos neste artigo que o ajudarão a criá-los.
 
@@ -111,7 +111,7 @@ Se utilizar certificados auto-assinados, devem ser criados utilizando parâmetro
 
 ## <a name="upload-the-root-certificate-cer-file"></a>Carregar o ficheiro .cer do certificado de raiz
 
-Após a criação do gateway, carrequiva o ficheiro .cer (que contém as informações de chave pública) para obter um certificado de raiz fidedigno para o servidor Azure. Não carre fique com a chave privada para o certificado de raiz. Depois de fazer o upload do certificado, o Azure utiliza-o para autenticar clientes que tenham instalado um certificado de cliente gerado a partir do certificado raiz fidedigno. Pode carregar mais tarde ficheiros adicionais de certificados de raiz fidedignos (até 20), se necessário.
+Após a criação do gateway, faça o upload do ficheiro .cer (que contém as informações de chave pública) para obter um certificado de raiz fidedigno para o servidor Azure. Não carre fique com a chave privada para o certificado de raiz. Depois de fazer o upload do certificado, o Azure utiliza-o para autenticar clientes que tenham instalado um certificado de cliente gerado a partir do certificado raiz fidedigno. Pode carregar mais tarde ficheiros adicionais de certificados de raiz fidedignos (até 20), se necessário.
 
 1. Navegue para a rede virtual que criou.
 1. Em **Definições**, selecione **ligações ponto-a-local**.
@@ -137,7 +137,7 @@ Pode utilizar o mesmo pacote de configuração do cliente VPN em cada computador
 
 1. O Azure gera um pacote com as definições específicas que o cliente necessita. Sempre que fizer alterações no VNet ou gateway, tem de descarregar um novo pacote de configuração do cliente e instalá-los nos computadores clientes.
 1. Depois de gerar o pacote, selecione **Download**.
-1. Instale o pacote de configuração do cliente no computador cliente. Ao instalar, se vir um popup smartScreen a dizer que o Windows protegeu o seu PC, selecione **Mais informações**e, em seguida, selecione **Executar de qualquer maneira**. Também pode guardar o pacote para instalar noutros computadores cliente.
+1. Instale o pacote de configuração do cliente no computador cliente. Ao instalar, se vir um popup smartScreen a dizer que o Windows protegeu o seu PC, selecione **Mais informações** e, em seguida, selecione **Executar de qualquer maneira**. Também pode guardar o pacote para instalar noutros computadores cliente.
 
 ### <a name="install-a-client-certificate"></a>Instalar um certificado de cliente
 
@@ -153,7 +153,7 @@ Quando instala um certificado de cliente, precisa da senha criada quando o certi
 
 1. No computador cliente, vá às definições de VPN.
 1. Selecione a VPN que criou. Se utilizar as definições de exemplo, a ligação será rotulada **como Grupo TestRG VNet1**.
-1. Selecione **Ligar**.
+1. Selecione **Connect** (Ligar).
 1. Na caixa de Rede Virtual Windows Azure, selecione **Connect**. Se aparecer uma mensagem pop-up sobre o certificado, **selecione Continue** a utilizar privilégios elevados e **Sim** para aceitar alterações de configuração.
 1. Quando a sua ligação for bem sucedida, verá uma notificação **conectada.**
 
@@ -187,7 +187,7 @@ Pode adicionar e remover certificados de raiz fidedigna do Azure. Quando remove 
 
 ### <a name="add-a-trusted-root-certificate"></a>Adicionar um certificado de raiz fidedigna
 
-Pode adicionar até 20 ficheiros de raiz fidedignos .cer ao Azure utilizando o mesmo processo que usou para adicionar o primeiro certificado de raiz fidedigno.
+Pode adicionar até 20 certificados de raiz fidedignos .cer ficheiros ao Azure utilizando o mesmo processo que usou para adicionar o primeiro certificado de raiz fidedigno.
 
 ### <a name="remove-a-trusted-root-certificate"></a>Remover um certificado de raiz fidedigna
 
@@ -202,23 +202,23 @@ A prática comum é utilizar o certificado de raiz para gerir o acesso nos níve
 
 Pode revogar um certificado de cliente, ao adicionar o thumbprint à lista de revogação.
 
-1. Obtenha o thumbprint do certificado de cliente. Para obter mais informações, consulte [Como: Recuperar a impressão digital de um certificado.](https://msdn.microsoft.com/library/ms734695.aspx)
+1. Obtenha o thumbprint do certificado de cliente. Para obter mais informações, consulte [Como: Recuperar a impressão digital de um certificado.](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate)
 1. Copie a informação para um editor de texto e remova os seus espaços para que seja uma cadeia contínua.
-1. Navegue **para a ligação VPN ponto-a-local**e, em seguida, selecione **Obter o certificado**.
+1. Navegue **para a ligação VPN ponto-a-local** e, em seguida, selecione **Obter o certificado**.
 1. Selecione **lista de revogação** para abrir a página da **lista de revogação.**
 1. Na **impressão digital,** cole a impressão digital do certificado como uma linha contínua de texto, sem espaços.
 1. **Selecione + Adicionar à lista** para adicionar a impressão digital à lista de revogação do certificado (CRL).
 
 Depois de concluída a atualização, o certificado já não pode ser utilizado para ligar. Os clientes que tentam ligar-se através deste certificado recebem uma mensagem a dizer que o certificado já não é válido.
 
-## <a name="faq"></a><a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a><a name="faq"></a>FAQ
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Depois da sua ligação estar concluída, pode adicionar máquinas virtuais às suas redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/).
+* Depois da sua ligação estar concluída, pode adicionar máquinas virtuais às suas redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](../index.yml).
 
-* Para saber mais sobre networking e máquinas virtuais Linux, consulte [a visão geral da rede Azure e Linux VM](../virtual-machines/linux/network-overview.md).
+* Para saber mais sobre networking e máquinas virtuais Linux, consulte [a visão geral da rede Azure e Linux VM](../virtual-machines/network-overview.md).
 
 * Para obter informações de resolução de problemas P2S, consulte [Resolução de problemas de ligações ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0682115727068c928418d97fbf92ed32897c39d4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88078942"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656756"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integre com o Azure AD Application Proxy em um servidor do Serviço de Inscrição de Dispositivos de Rede (NDES)
 
@@ -26,7 +26,7 @@ Azure Ative Directory (AD) Application Proxy permite-lhe publicar aplicações d
 
 Se é novo no Azure AD Application Proxy e quer saber mais, consulte [acesso remoto a aplicações no local através do Azure AD Application Proxy](application-proxy.md).
 
-O Azure AD Application Proxy é construído em Azure. Ele dá-lhe uma enorme quantidade de largura de banda de rede e infraestrutura de servidor para uma melhor proteção contra ataques de negação de serviço distribuídos (DDOS) e disponibilidade soberba. Além disso, não há necessidade de abrir portas de firewall externas para a sua rede no local e não é necessário nenhum servidor DMZ. Todo o tráfego é originado à entrada. Para obter uma lista completa de portas de saída, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através do Application Proxy in Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+O Azure AD Application Proxy é construído em Azure. Ele dá-lhe uma enorme quantidade de largura de banda de rede e infraestrutura de servidor para uma melhor proteção contra ataques de negação de serviço distribuídos (DDOS) e disponibilidade soberba. Além disso, não há necessidade de abrir portas de firewall externas para a sua rede no local e não é necessário nenhum servidor DMZ. Todo o tráfego é originado à entrada. Para obter uma lista completa de portas de saída, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através do Application Proxy in Azure Ative Directory](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 > Azure AD Application Proxy é uma funcionalidade que só está disponível se estiver a utilizar as edições Premium ou Basic do Azure Ative Directory. Para mais informações, consulte [os preços do Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 > Se tiver licenças do Enterprise Mobility Suite (EMS), pode utilizar esta solução.
@@ -70,7 +70,7 @@ O Azure AD Application Proxy é construído em Azure. Ele dá-lhe uma enorme qua
 
    ![certifique-se de que está a envolver as partes interessadas certas](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-enterprise-applications.png)
 
-1. Selecione **+Nova Aplicação**e, em seguida, selecione **a aplicação no local**. 
+1. Selecione **+Nova Aplicação** e, em seguida, selecione **a aplicação no local**. 
 
 1. Na **aplicação Adicionar a sua própria aplicação no local,** configuure os seguintes campos:
 
@@ -83,7 +83,7 @@ O Azure AD Application Proxy é construído em Azure. Ele dá-lhe uma enorme qua
 
 1. Teste se pode aceder ao seu servidor NDES através do proxy Azure AD Application, colando o link que copiou no passo 10 para um browser. Deverá ver uma página de boas-vindas IIS padrão.
 
-1. Como teste final, adicione o * caminhomscep.dll* ao URL existente que colou no passo anterior:
+1. Como teste final, adicione o *caminhomscep.dll* ao URL existente que colou no passo anterior:
 
    https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll
 
@@ -94,6 +94,6 @@ O Azure AD Application Proxy é construído em Azure. Ele dá-lhe uma enorme qua
    * Para o Gestor de Configuração, vá ao ponto de registo do certificado e ajuste o URL. Este URL é o que os dispositivos chamam e apresentam o seu desafio.
    * Para Intune autónomo, edite ou crie uma nova política SCEP e adicione o novo URL.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Com o Azure AD Application Proxy integrado com o NDES, publique aplicações para os utilizadores acederem. Para obter mais informações, consulte [as aplicações de publicação utilizando o Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
+Com o Azure AD Application Proxy integrado com o NDES, publique aplicações para os utilizadores acederem. Para obter mais informações, consulte [as aplicações de publicação utilizando o Azure AD Application Proxy](./application-proxy-add-on-premises-application.md).

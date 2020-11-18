@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 0a25d910b694968802e853a81c16e34dd0539f7a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9ea4ec748ca37f93e9711970b10746a009543d00
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203505"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656603"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configurar um único sign-on (SSO) baseado no OIDC para uma aplicação no seu inquilino Azure Ative (Azure AD)
 
@@ -54,20 +54,20 @@ Para configurar um único sinal de inscrição para uma aplicação:
 
 3. Após a autenticação bem sucedida, aparece um diálogo pedindo o consentimento administrativo. Selecione **Consentimento em nome da sua organização** e, em seguida, selecione **Aceitar**. 
 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="A screenshot mostra a única opção de inscrição e o botão de inscrição." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="A screenshot mostra o ecrã de consentimento para uma aplicação." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
 4. O pedido é adicionado ao seu inquilino e a página inicial do pedido aparece.
 
 
 > [!TIP]
-> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar esta série de arranque rápido, considere apagar a app para limpar o seu inquilino de teste. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o próximo artigo para aprender a apagar uma aplicação.
 > [!div class="nextstepaction"]

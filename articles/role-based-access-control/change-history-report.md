@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 0ad60e72300e381b57deb00f3db010e69a006441
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4ccd668fb6afa6787fadeda6ed92ebd954e2b892
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742940"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657810"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Ver registos de atividade para alterações do RBAC do Azure
 
@@ -48,7 +48,7 @@ O registo de atividade no portal tem vários filtros. Aqui estão os filtros rel
 | Categoria de eventos | <ul><li>Administrativo</li></ul> |
 | Operação | <ul><li>Criar atribuição de funções</li><li>Eliminar atribuição de funções</li><li>Criar ou atualizar a definição de função personalizada</li><li>Eliminar definição de função personalizada</li></ul> |
 
-Para obter mais informações sobre registos de atividades, consulte [os registos de atividade para monitorizar as ações sobre recursos.](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+Para obter mais informações sobre registos de atividades, consulte [os registos de atividade para monitorizar as ações sobre recursos.](../azure-resource-manager/management/view-activity-logs.md?toc=%252fazure%252fmonitoring-and-diagnostics%252ftoc.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -122,7 +122,7 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 ## <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
-[Os registos do Azure Monitor](../log-analytics/log-analytics-overview.md) são outra ferramenta que pode utilizar para recolher e analisar alterações do Azure RBAC para todos os seus recursos Azure. Os registos do Azure Monitor têm os seguintes benefícios:
+[Os registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md) são outra ferramenta que pode utilizar para recolher e analisar alterações do Azure RBAC para todos os seus recursos Azure. Os registos do Azure Monitor têm os seguintes benefícios:
 
 - Escreva consultas complexas e lógica
 - Integre com alertas, Power BI e outras ferramentas
@@ -133,13 +133,13 @@ Aqui estão os passos básicos para começar:
 
 1. [Criar um espaço de trabalho Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configure a solução Activity Log Analytics](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) para o seu espaço de trabalho.
+1. [Configure a solução Activity Log Analytics](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution) para o seu espaço de trabalho.
 
-1. [Ver os registos de atividade](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Uma forma rápida de navegar para a página de visão geral da solução De Registo de Atividade é clicar na opção **Logs.**
+1. [Ver os registos de atividade](../azure-monitor/platform/activity-log.md#activity-log-analytics-monitoring-solution). Uma forma rápida de navegar para a página de visão geral da solução De Registo de Atividade é clicar na opção **Logs.**
 
    ![Opção de registos do Monitor Azure no portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Utilize opcionalmente o [Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md) para consultar e visualizar os registos. Para obter mais informações, consulte Começar com consultas de registo do [Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
+1. Utilize opcionalmente o [Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) para consultar e visualizar os registos. Para obter mais informações, consulte Começar com consultas de registo do [Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 
 Aqui está uma consulta que devolve novas atribuições de funções organizadas pelo fornecedor de recursos-alvo:
 
@@ -161,6 +161,6 @@ AzureActivity
 
 ![Registos de atividades usando o portal Advanced Analytics - screenshot](./media/change-history-report/azure-log-analytics.png)
 
-## <a name="next-steps"></a>Passos seguintes
-* [Ver eventos no registo de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Monitorizar a Atividade de Subscrição com o Registo de Atividades do Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
+## <a name="next-steps"></a>Próximos passos
+* [Ver eventos no registo de atividades](../azure-resource-manager/management/view-activity-logs.md?toc=%252fazure%252fmonitoring-and-diagnostics%252ftoc.json)
+* [Monitorizar a Atividade de Subscrição com o Registo de Atividades do Azure](../azure-monitor/platform/platform-logs-overview.md)

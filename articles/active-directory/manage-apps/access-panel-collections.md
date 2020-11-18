@@ -14,19 +14,19 @@ ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 967ac34ddb736f58f66639181cdf10e4aaa8ffab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85956241"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656790"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Criar coleções no portal As Minhas Aplicações
 
 Os seus utilizadores podem utilizar o portal My Apps para visualizar e iniciar as aplicações baseadas na nuvem a que têm acesso. Por predefinição, todas as aplicações a que um utilizador pode aceder estão listadas numa única página. Para organizar melhor esta página para os seus utilizadores, se tiver uma licença Azure AD Premium P1 ou P2 pode configurar coleções. Com uma coleção, pode agrupar aplicações relacionadas (por exemplo, por função de trabalho, tarefa ou projeto) e exibi-las num separador. Uma coleção aplica essencialmente um filtro às aplicações que um utilizador já pode aceder, pelo que o utilizador vê apenas as aplicações na recolha que lhes foram atribuídas.
 
 > [!NOTE]
-> Este artigo abrange como um administrador pode ativar e criar coleções. Para obter informações para o utilizador final sobre como utilizar o portal e coleções My Apps, consulte [o Access e utilize coleções](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
+> Este artigo abrange como um administrador pode ativar e criar coleções. Para obter informações para o utilizador final sobre como utilizar o portal e coleções My Apps, consulte [o Access e utilize coleções](../user-help/my-applications-portal-workspaces.md).
 
 ## <a name="enable-the-latest-my-apps-features"></a>Ativar as mais recentes funcionalidades das My Apps
 
@@ -87,7 +87,7 @@ Pode aceder aos registos de auditoria no [portal Azure](https://portal.azure.com
 
 ## <a name="get-support-for-my-account-pages"></a>Obtenha suporte para as páginas da Minha Conta
 
-Na página My Apps, um utilizador pode selecionar **A minha conta**Ver a minha  >  **conta** para abrir as definições da sua conta. Na página Azure AD **My Account,** os utilizadores podem gerir as suas informações de segurança, dispositivos, senhas e muito mais. Também podem aceder às definições da conta do Office.
+Na página My Apps, um utilizador pode selecionar **A minha conta** Ver a minha  >  **conta** para abrir as definições da sua conta. Na página Azure AD **My Account,** os utilizadores podem gerir as suas informações de segurança, dispositivos, senhas e muito mais. Também podem aceder às definições da conta do Office.
 
 Caso necessite de submeter um pedido de apoio para um problema com a página da conta AZure ou com a página da conta do Office, siga estes passos para que o seu pedido seja encaminhado corretamente: 
 
@@ -95,5 +95,5 @@ Caso necessite de submeter um pedido de apoio para um problema com a página da 
 
 * Para problemas com a página **do Office "A minha conta",** abra um pedido de suporte dentro do centro de administração microsoft 365. Vá ao **Microsoft 365 admin center**  >  **Support**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Experiências de utilizador final para aplicações no Azure Ative Directory](end-user-experiences.md)

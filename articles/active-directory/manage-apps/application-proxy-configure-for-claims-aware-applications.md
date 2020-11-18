@@ -15,15 +15,15 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97def0608251f65aa222e13760877d4287135d08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5c840722ae6b03a0b8a7fa44e5999e14730d4f3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386984"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656280"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalhar com aplicações conscientes de reclamações no Application Proxy
-[As aplicações conscientes das reclamações](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) realizam uma reorientação para o Serviço de Token de Segurança (STS). O STS solicita credenciais ao utilizador em troca de um token e, em seguida, redireciona o utilizador para a aplicação. Existem algumas formas de permitir que o Application Proxy trabalhe com estes redirecionamentos. Utilize este artigo para configurar a sua implementação para aplicações conscientes de sinistros. 
+[As aplicações conscientes das reclamações](/previous-versions/windows/desktop/legacy/bb736227(v=vs.85)) realizam uma reorientação para o Serviço de Token de Segurança (STS). O STS solicita credenciais ao utilizador em troca de um token e, em seguida, redireciona o utilizador para a aplicação. Existem algumas formas de permitir que o Application Proxy trabalhe com estes redirecionamentos. Utilize este artigo para configurar a sua implementação para aplicações conscientes de sinistros. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Certifique-se de que o STS que a aplicação de sinistros redireciona para está disponível fora da sua rede no local. Pode disponibilizar o STS expondo-o através de um representante ou permitindo ligações externas. 
@@ -54,7 +54,5 @@ Se todos os URLs internos para as suas aplicações forem nomes de domínio tota
 
    ![Adicione um Ponto Final - definir valor de URL fidedigno - screenshot](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Permitir que as aplicações de clientes nativos interajam com aplicações proxy](application-proxy-configure-native-client-application.md)
-
-

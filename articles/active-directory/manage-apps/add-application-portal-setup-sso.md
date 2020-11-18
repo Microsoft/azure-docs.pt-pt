@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 2e5c588db6f372a50b2a80afd8a2a023ece34502
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 235c5c19c9a6e587106b3fd41691a3f775caa84f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203625"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656620"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configurar um único sign-on (SSO) baseado em SAML para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)
 
@@ -53,24 +53,24 @@ Para configurar um único sinal de inscrição para uma aplicação:
 
 1. Selecione **SAML** para abrir a página de configuração SSO. Neste exemplo, a aplicação que estamos a configurar para sSO é o GitHub. Depois de configurar o GitHub, os seus utilizadores podem inscrever-se no GitHub usando as suas credenciais do seu inquilino AZure AD.
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="A screenshot mostra a página configurar de assinatura única no portal AD Azure.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="A screenshot mostra a página de configuração de assinatura única no GitHub.":::
 
-1. O processo de configuração de uma aplicação para utilizar o Azure AD para SSO baseado em SAML varia consoante a aplicação. Há uma ligação com a orientação para o GitHub. Para encontrar guias para outras aplicações, consulte [Tutoriais para integrar aplicações SaaS com O Diretório Ativo Azure.](https://docs.microsoft.com/azure/active-directory/saas-apps/)
+1. O processo de configuração de uma aplicação para utilizar o Azure AD para SSO baseado em SAML varia consoante a aplicação. Há uma ligação com a orientação para o GitHub. Para encontrar guias para outras aplicações, consulte [Tutoriais para integrar aplicações SaaS com O Diretório Ativo Azure.](/azure/active-directory/saas-apps/)
 1. Siga o guia para configurar o SSO para a aplicação. Muitas aplicações têm requisitos específicos de subscrição para a funcionalidade SSO. Por exemplo, o GitHub requer uma subscrição da Enterprise.
     > [!TIP]
     > Para saber mais sobre as opções de configuração SAML, consulte o [sign-on único baseado em Configure SAML](configure-saml-single-sign-on.md).
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="A screenshot mostra a página configurar de assinatura única no portal AD Azure.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="O Screenshot mostra a opção de inscrição única na subscrição enterprise da página de preços do GitHub.":::
 
 > [!TIP]
-> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar esta série de arranque rápido, considere apagar a app para limpar o seu inquilino de teste. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o próximo artigo para aprender a apagar uma aplicação.
 > [!div class="nextstepaction"]

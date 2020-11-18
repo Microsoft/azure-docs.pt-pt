@@ -9,24 +9,24 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 05a2869152def0fc9a44defaa21f0643d9fdbb08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dffaac329f1581d9082fd8ab2c314f52b1730ab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504881"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656025"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Ligar dados do Azure Firewall
 
 > [!IMPORTANT]
 > O conector de dados Azure Firewall em Azure Sentinel está atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud que protege os recursos da Rede Virtual do Azure. É um firewall-as-service totalmente imponente com alta disponibilidade incorporada e escalabilidade de nuvem sem restrições. 
 
 Pode ligar os registos do Azure Firewall ao Azure Sentinel, permitindo-lhe visualizar dados de registo em livros de trabalho, usá-lo para criar alertas personalizados e incorporá-lo para melhorar a sua investigação.
 
-Saiba mais sobre [a monitorização dos registos do Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-diagnostics).
+Saiba mais sobre [a monitorização dos registos do Azure Firewall](../firewall/firewall-diagnostics.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,7 +60,7 @@ Saiba mais sobre [a monitorização dos registos do Azure Firewall](https://docs
 >
 > Com este conector de dados em particular, os indicadores de estado de conectividade (uma faixa de cor na galeria de conectores de dados e ícones de conexão ao lado dos nomes do tipo de dados) só mostrarão como *conectados* (verdes) se os dados ingerirem em algum ponto nas últimas duas semanas. Uma vez passadas duas semanas sem ingestão de dados, o conector mostrará como estando desligado. No momento em que mais dados chegam, o estado *ligado* voltará.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a ligar os registos do Azure Firewall ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

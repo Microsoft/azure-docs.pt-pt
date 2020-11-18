@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372485"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656739"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planeie um Azure Ative Directory My Apps
 
@@ -40,7 +40,7 @@ Permite ainda que os administradores gerem:
 
 Azure AD My Apps beneficia as empresas das seguintes formas:
 
-**Proporciona uma experiência intuitiva**do utilizador : As minhas apps fornecem-lhe uma única plataforma para todas as suas aplicações ligadas a Azure single sign-on (SSO)." Tem um portal unificado para encontrar as definições existentes e novas capacidades, como a gestão de grupos e o reset da palavra-passe de autosserviço, tal como são adicionados. A experiência intuitiva permite que os utilizadores regressem ao trabalho mais rápido e sejam mais produtivos, reduzindo ao mesmo tempo a sua frustração.
+**Proporciona uma experiência intuitiva** do utilizador : As minhas apps fornecem-lhe uma única plataforma para todas as suas aplicações ligadas a Azure single sign-on (SSO)." Tem um portal unificado para encontrar as definições existentes e novas capacidades, como a gestão de grupos e o reset da palavra-passe de autosserviço, tal como são adicionados. A experiência intuitiva permite que os utilizadores regressem ao trabalho mais rápido e sejam mais produtivos, reduzindo ao mesmo tempo a sua frustração.
 
 **Aumenta a produtividade**: Todas as aplicações de utilizadores nas Minhas Apps têm SSO ativado. Permitir o SSO através de aplicações empresariais e o Microsoft 365 cria uma experiência de sing-in superior reduzindo ou eliminando pedidos de inscrição adicionais. As minhas Apps usam o self-service e a adesão dinâmica e melhoram a segurança geral do seu sistema de identidade. As minhas Apps garantem que as pessoas certas gerem o acesso às aplicações. As minhas Apps servem como uma página de aterragem coerente para que encontre rapidamente recursos e continue as tarefas de trabalho.
 
@@ -54,10 +54,10 @@ Azure AD My Apps beneficia as empresas das seguintes formas:
 
 As minhas Apps são gratuitas e não requer licenças para usar a um nível básico. No entanto, o número de objetos no seu diretório e as funcionalidades adicionais que pretende implementar podem requerer licenças adicionais. Alguns cenários comuns de AD Azure que têm requisitos de licenciamento incluem as seguintes funcionalidades de segurança:
 
-* [Multi-Factor Authentication do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-* [Adesão baseada em grupo](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-* [Reposição personalizada de palavra-passe](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-* [Proteção de Identidade do Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+* [Multi-Factor Authentication do Azure](../authentication/concept-mfa-howitworks.md)
+* [Adesão baseada em grupo](../fundamentals/active-directory-manage-groups.md)
+* [Reposição personalizada de palavra-passe](../authentication/tutorial-enable-sspr.md)
+* [Proteção de Identidade do Diretório Ativo Azure](../identity-protection/overview-identity-protection.md)
 
 Consulte o [guia de licenciamento completo para Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -65,8 +65,8 @@ Consulte o [guia de licenciamento completo para Azure AD](https://azure.microsof
 
 Complete os seguintes pré-requisitos antes de iniciar este projeto:
 
-* [Integrar aplicação SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-* [Gerir o utilizador Azure AD e a infraestrutura de grupo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [Integrar aplicação SSO](./plan-sso-deployment.md)
+* [Gerir o utilizador Azure AD e a infraestrutura de grupo](../fundamentals/active-directory-manage-groups.md)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Plano Azure AD My Apps
 
@@ -122,11 +122,11 @@ A tabela a seguir lista várias configurações importantes das Minhas Apps e os
 | Determinar os grupos-piloto| Identifique o grupo de segurança Azure AD para ser utilizado e certifique-se de que todos os membros piloto fazem parte do grupo. |
 | Determinar o grupo ou grupos a habilitar para a produção.| Identifique os grupos de segurança AZure AD, ou os grupos de Diretório Ativo sincronizados com a Azure AD, a serem utilizados. Certifique-se de que todos os membros piloto fazem parte do grupo. |
 | Permitir que os utilizadores utilizem SSO para determinados tipos de aplicações| SSO Federado, OAuth, Password SSO, App Proxy |
-| Permitir que os utilizadores utilizem o reset da palavra-passe de autosserviço | Yes |
-| Permitir que os utilizadores utilizem a autenticação multi-factor| Yes |
+| Permitir que os utilizadores utilizem o reset da palavra-passe de autosserviço | Sim |
+| Permitir que os utilizadores utilizem a autenticação multi-factor| Sim |
 | Permitir que os utilizadores utilizem a gestão do grupo self-service para determinados tipos de grupos| Grupos de segurança, Grupos Microsoft 365 |
-| Permitir que os utilizadores utilizem a gestão de aplicações self-service| Yes |
-| Permitir que os utilizadores utilizem comentários de acesso| Yes |
+| Permitir que os utilizadores utilizem a gestão de aplicações self-service| Sim |
+| Permitir que os utilizadores utilizem comentários de acesso| Sim |
 
 ### <a name="plan-consent-strategy"></a>Estratégia de consentimento do plano
 
@@ -166,23 +166,23 @@ Para obter a melhor experiência com a página My Apps, comece pela integração
 
 Utilize SSO Federado com Azure AD (OpenID Connect/SAML) quando uma aplicação o suporta, em vez de SSO e ADFS baseados em palavra-passe.
 
-Para obter mais informações sobre como implementar e configurar as suas aplicações SaaS, consulte o [plano de implantação do SaaS SSO](https://aka.ms/deploymentplans/sso).
+Para obter mais informações sobre como implementar e configurar as suas aplicações SaaS, consulte o [plano de implantação do SaaS SSO](./plan-sso-deployment.md).
 
 #### <a name="plan-to-deploy-the-my-apps-browser-extension"></a>Plano para implementar a extensão do navegador My Apps
 
-Quando os utilizadores iniciarem sso com base em palavras-passe, precisam de instalar e utilizar a extensão de entrada segura das Minhas Apps. A extensão executa um script que transmite a palavra-passe no formulário de entrada da aplicação. Os utilizadores são solicitados a instalar a extensão quando lançarem pela primeira vez a aplicação SSO baseada em palavra-passe. Mais informações sobre a extensão podem ser encontradas nesta documentação sobre [a instalação da extensão do navegador My Apps.](access-panel-extension-problem-installing.md)
+Quando os utilizadores iniciarem sso com base em palavras-passe, precisam de instalar e utilizar a extensão de entrada segura das Minhas Apps. A extensão executa um script que transmite a palavra-passe no formulário de entrada da aplicação. Os utilizadores são solicitados a instalar a extensão quando lançarem pela primeira vez a aplicação SSO baseada em palavra-passe. Mais informações sobre a extensão podem ser encontradas nesta documentação sobre [a instalação da extensão do navegador My Apps.]()
 
-Se tiver de integrar aplicações SSO baseadas em palavras-passe, deve definir um mecanismo para implantar a extensão em escala com [navegadores suportados.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) As opções incluem:
+Se tiver de integrar aplicações SSO baseadas em palavras-passe, deve definir um mecanismo para implantar a extensão em escala com [navegadores suportados.](../user-help/my-apps-portal-end-user-access.md) As opções incluem:
 
-* [Política de Grupo para Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-* [Gestor de configuração para Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-* [Descarregamento e configuração orientados pelo utilizador para Chrome, Firefox, Microsoft Edge ou IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [Política de Grupo para Internet Explorer]()
+* [Gestor de configuração para Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Descarregamento e configuração orientados pelo utilizador para Chrome, Firefox, Microsoft Edge ou IE](../user-help/my-apps-portal-end-user-access.md)
 
 Os utilizadores que não usam aplicações SSO baseadas em palavras-passe também beneficiam da extensão. Estes benefícios incluem a capacidade de lançar qualquer app a partir da sua barra de pesquisa, encontrar acesso a aplicações recentemente utilizadas e ter um link para a página My Apps.
 
 #### <a name="plan-for-mobile-access"></a>Plano de acesso móvel
 
-Um navegador protegido com a política do Intune (Microsoft Edge ou Intune Managed Browser) é necessário para os utilizadores móveis que lançam aplicações SSO baseadas em palavras-passe. Um navegador protegido por políticas permite a transferência da palavra-passe guardada para a aplicação. O Microsoft Edge ou o navegador gerido fornece um conjunto de funcionalidades de proteção de dados web. Também pode utilizar o Microsoft Edge para cenários empresariais em dispositivos iOS e Android. O Microsoft Edge suporta os mesmos cenários de gestão que o Navegador Gerido Intune e melhora a experiência do utilizador. Saiba mais: [Gerir o acesso à Web utilizando um navegador protegido por políticas do Microsoft Intune.](https://docs.microsoft.com/intune/app-configuration-managed-browser)
+Um navegador protegido com a política do Intune (Microsoft Edge ou Intune Managed Browser) é necessário para os utilizadores móveis que lançam aplicações SSO baseadas em palavras-passe. Um navegador protegido por políticas permite a transferência da palavra-passe guardada para a aplicação. O Microsoft Edge ou o navegador gerido fornece um conjunto de funcionalidades de proteção de dados web. Também pode utilizar o Microsoft Edge para cenários empresariais em dispositivos iOS e Android. O Microsoft Edge suporta os mesmos cenários de gestão que o Navegador Gerido Intune e melhora a experiência do utilizador. Saiba mais: [Gerir o acesso à Web utilizando um navegador protegido por políticas do Microsoft Intune.](/intune/app-configuration-managed-browser)
 
 ## <a name="plan-your-my-apps-deployment"></a>Planeie a sua implementação de aplicações
 
@@ -248,7 +248,7 @@ Para auditamentos, relatórios e backups de recuperação de desastres, document
 
 Depois de uma aplicação ter sido configurada para SSO, os grupos são atribuídos ao acesso. Os utilizadores dos grupos designados terão acesso e verão a aplicação nas suas Apps e no launcher da aplicação Microsoft 365.
 
-Consulte [atribuir utilizadores e grupos a uma aplicação no Ative Directory](methods-for-assigning-users-and-groups.md).
+Consulte [atribuir utilizadores e grupos a uma aplicação no Ative Directory](./assign-user-or-group-access-portal.md).
 
 Se durante o teste ou implementação pretender adicionar os grupos mas ainda não permitir que as aplicações apareçam nas Minhas Apps, consulte [Ocultar uma aplicação da experiência do utilizador no Azure Ative Directory](hide-application-from-user-portal.md).
 
@@ -294,7 +294,7 @@ Os seguintes testes devem ser realizados com dispositivos corporativos e disposi
 
 ### <a name="rollback-steps"></a>Passos de reversão
 
-É importante planear o que fazer se a sua implantação não correr como planeado. Se a configuração SSO falhar durante a implementação, deve entender como [resolver problemas de SSO](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) e reduzir o impacto para os seus utilizadores. Em circunstâncias extremas, talvez precise de reverter o [SSO.](../manage-apps/plan-sso-deployment.md#rollback-process)
+É importante planear o que fazer se a sua implantação não correr como planeado. Se a configuração SSO falhar durante a implementação, deve entender como [resolver problemas de SSO](../hybrid/tshoot-connect-sso.md) e reduzir o impacto para os seus utilizadores. Em circunstâncias extremas, talvez precise de reverter o [SSO.](../manage-apps/plan-sso-deployment.md#rollback-process)
 
 
 ## <a name="manage-your-implementation"></a>Gerir a sua implementação
@@ -311,5 +311,5 @@ Utilize o papel menos privilegiado para realizar uma tarefa necessária no Diret
 
 Pode utilizar a [Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md) para gerir as suas funções para fornecer auditoria adicional, controlo e revisão de acesso aos utilizadores com permissões de diretório.
 
-## <a name="next-steps"></a>Passos seguintes
-[Planear uma implantação da Autenticação Multi-Factor Azure](https://aka.ms/deploymentplans/mfa)
+## <a name="next-steps"></a>Próximos passos
+[Planear uma implantação da Autenticação Multi-Factor Azure](../authentication/howto-mfa-getstarted.md)

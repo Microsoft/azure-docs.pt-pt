@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340313"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657181"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -103,9 +103,9 @@ Passos para adicionar os papéis do Azure:
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
 ### <a name="prerequisite-storage-account-access"></a>Pré-requisito: Acesso à conta de armazenamento
+
+[Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
 Antes de adicionar um alvo de armazenamento de bolhas, verifique se a cache tem as funções corretas para aceder à conta de armazenamento, e que as definições de firewall permitirão a criação do alvo de armazenamento.
 
@@ -217,7 +217,7 @@ Quando terminar, clique **em OK** para adicionar o alvo de armazenamento.
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
 Utilize o comando Azure CLI [az hpc-cache nfs-storage-target adicionar](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) para criar o alvo de armazenamento.
 
@@ -301,7 +301,7 @@ Leia [os alvos de armazenamento editar](hpc-cache-edit-storage.md) para saber ma
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
 Utilize a opção [az hpc-cache-target-target](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) para mostrar os alvos de armazenamento existentes para uma cache. Forneça o nome da cache e o grupo de recursos (a não ser que o tenha definido globalmente).
 
@@ -343,7 +343,7 @@ $
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar metas de armazenamento, continue com estas tarefas para ter o seu cache pronto a usar:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 97873c9f59dc0d99293d2b1ebaf87af309dbcf47
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 432104c7e2cb9486dfb47a793ae73829d8705b60
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208299"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655821"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -48,7 +48,7 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
     - [Azure Ative Directory](connect-azure-active-directory.md) - registos de auditoria e registos de login
     - [Atividades Azure](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+    - [Proteção contra DDoS do Azure](connect-azure-ddos-protection.md)
     - [Azure Defender for IoT](connect-asc-iot.md) (anteriormente Azure Security Center for IoT)
     - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Firewall](connect-azure-firewall.md)
@@ -137,17 +137,17 @@ Em alternativa, pode colocar o agente manualmente num VM Azure existente, num VM
 | AzureActivity | Ligar a atividade e [os registos de atividades do](../azure-monitor/platform/platform-logs-overview.md) [Azure](connect-azure-activity.md)| &#10003; | |
 | Auditorias | [Ligar ao Azure AD](connect-azure-active-directory.md)  | &#10003; | |
 | SigninLogs | [Ligar ao Azure AD](connect-azure-active-directory.md)  | &#10003; | |
-| AzureFirewall |[Diagnóstico do Azure](../firewall/tutorial-diagnostics.md) | &#10003; | |
-| InformationProtectionLogs_CL  | [Relatórios de Proteção de Informação da Azure](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Ligar ao Azure Information Protection](connect-azure-information-protection.md)  | &#10003; | Isto utiliza normalmente a função **InformationProtectionEvents** para além do tipo de dados. Para mais informações, consulte [Como modificar os relatórios e criar consultas personalizadas](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
+| AzureFirewall |[Diagnóstico do Azure](../firewall/firewall-diagnostics.md) | &#10003; | |
+| InformationProtectionLogs_CL  | [Relatórios de Proteção de Informação da Azure](/azure/information-protection/reports-aip)<br>[Ligar ao Azure Information Protection](connect-azure-information-protection.md)  | &#10003; | Isto utiliza normalmente a função **InformationProtectionEvents** para além do tipo de dados. Para mais informações, consulte [Como modificar os relatórios e criar consultas personalizadas](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
 | AzureNetworkAnalytics_CL  | [Análise de tráfego analítico de](../network-watcher/traffic-analytics.md) [tráfego](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Ligar CEF](connect-common-event-format.md)  | &#10003; | |
 | OfficeActivity | [Ligar o Office 365](connect-office-365.md) | &#10003; | |
-| SecurityEvents | [Ligar aos eventos de segurança do Windows](connect-windows-security-events.md)  | &#10003; | Para os livros de protocolos inseguros, consulte [a configuração do livro de trabalhos de protocolos inseguros](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
+| SecurityEvents | [Ligar aos eventos de segurança do Windows](connect-windows-security-events.md)  | &#10003; | Para os livros de protocolos inseguros, consulte [a configuração do livro de trabalhos de protocolos inseguros](./quickstart-get-visibility.md#use-built-in-workbooks)  |
 | Syslog | [Ligar a Syslog](connect-syslog.md) | &#10003; | |
-| Firewall de aplicação web da Microsoft (WAF) - (AzureDiagnostics) |[Conecte firewall de aplicação web da Microsoft](connect-microsoft-waf.md) | &#10003; | |
+| Firewall de aplicação web da Microsoft (WAF) - (AzureDiagnostics) |[Conecte firewall de aplicação web da Microsoft](./connect-azure-waf.md) | &#10003; | |
 | SymantecICDx_CL | [Ligar a Symantec](connect-symantec.md) | &#10003; | |
 | ThreatIntelligenceIndicator  | [Ligar às informações sobre ameaças](connect-threat-intelligence.md)  | &#10003; | |
-| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Mapa de serviço do Monitor Azure](../azure-monitor/insights/service-map.md)<br>[Insights VM do Monitor Azure no embarque](../azure-monitor/insights/vminsights-onboard.md) <br> [Ativar insights VM do Monitor Azure](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Utilização de embarque único em VM](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [Utilização da política de embarque via](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| &#10007; | Livro de insights VM  |
+| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Mapa de serviço do Monitor Azure](../azure-monitor/insights/service-map.md)<br>[Insights VM do Monitor Azure no embarque](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Ativar insights VM do Monitor Azure](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Utilização de embarque único em VM](../azure-monitor/insights/vminsights-enable-portal.md)<br>  [Utilização da política de embarque via](../azure-monitor/insights/vminsights-enable-policy.md)| &#10007; | Livro de insights VM  |
 | DnsEvents | [Ligar DNS](connect-dns.md) | &#10003; | |
 | W3CIISLog | [Ligar registos IIS](../azure-monitor/platform/data-sources-iis-logs.md)  | &#10007; | |
 | WireData | [Ligar dados de arame](../azure-monitor/insights/wire-data.md) | &#10007; | |
@@ -157,7 +157,7 @@ Em alternativa, pode colocar o agente manualmente num VM Azure existente, num VM
 | Segurança ASCAlert  | [Ligue alertas do Azure Defender](connect-azure-security-center.md) do Centro de Segurança Azure  | &#10003; | |
 | Segurança MCASAlert  | [Conecte a Segurança da Aplicação Microsoft Cloud](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
-| Sysmon (Evento) | [Ligar Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Conecte eventos do Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Pegue o Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | A coleção Sysmon não é instalada por defeito em máquinas virtuais. Para obter mais informações sobre como instalar o Agente Sysmon, consulte [sysmon.](https://docs.microsoft.com/sysinternals/downloads/sysmon) |
+| Sysmon (Evento) | [Ligar Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Conecte eventos do Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Pegue o Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | A coleção Sysmon não é instalada por defeito em máquinas virtuais. Para obter mais informações sobre como instalar o Agente Sysmon, consulte [sysmon.](/sysinternals/downloads/sysmon) |
 | Data de Configuração  | [Automatizar o inventário VM](../automation/change-tracking/overview.md)| &#10007; | |
 | ConfiguraçãoChange  | [Automatizar o rastreio de VM](../automation/change-tracking/overview.md) | &#10007; | |
 | F5 BIG-IP | [Ligar a F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |
@@ -165,7 +165,7 @@ Em alternativa, pode colocar o agente manualmente num VM Azure existente, num VM
 | Barracuda_CL | [Ligar a Barracuda](connect-barracuda.md) | &#10003; | |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar com o Azure Sentinel, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - Aprenda a [embarcar os seus dados ao Azure Sentinel](quickstart-onboard.md)e obtenha [visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

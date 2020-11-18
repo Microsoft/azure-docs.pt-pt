@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: b18eb0f8d57c06e82d243c10bf038a861bcf88d1
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: c28e79c9a6f8c489a97d360c4fe142d431b5ab5d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042708"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656552"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolução de problemas Kerberos limitou configurações da delegação para aplicação proxy
 
@@ -81,16 +81,16 @@ Como mencionado anteriormente, as mensagens de erro do navegador fornecem alguma
 
 ![Exemplo: Erro de configuração do KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-As entradas correspondentes vistas no registo de eventos mostram como eventos 13019 ou 12027. Encontre os registos de eventos de conector em **Aplicações e Serviços** &gt; **Regista o Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **Admin** .
+As entradas correspondentes vistas no registo de eventos mostram como eventos 13019 ou 12027. Encontre os registos de eventos de conector em **Aplicações e Serviços** &gt; **Regista o Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **Admin**.
 
 ![Evento 13019 do registo de eventos application Proxy](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 
 ![Evento 12027 do registo de eventos application Proxy](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic5.png)
 
-1. Utilize um registo **A** no seu DNS interno para o endereço da aplicação, não um **CName** .
+1. Utilize um registo **A** no seu DNS interno para o endereço da aplicação, não um **CName**.
 1. Reconfirm que o anfitrião do conector tem o direito de delegar na SPN da conta-alvo designada. É selecionado o reconhecimento de que é selecionado **qualquer protocolo de autenticação.** Para obter mais informações, consulte o [artigo de configuração SSO](application-proxy-configure-single-sign-on-with-kcd.md).
 1. Verifique se existe apenas uma instância da SPN em Azure AD. Emitir `setspn -x` a partir de um pedido de comando em qualquer anfitrião de membro de domínio.
-1. Verifique se é aplicada uma política de domínio que limita o [tamanho máximo das fichas Kerberos emitidas.](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/) Esta apólice impede o conector de obter um símbolo se for considerado excessivo.
+1. Verifique se é aplicada uma política de domínio que limita o [tamanho máximo das fichas Kerberos emitidas.](/archive/blogs/askds/maxtokensize-and-windows-8-and-windows-server-2012) Esta apólice impede o conector de obter um símbolo se for considerado excessivo.
 
 Um traço de rede que captura as trocas entre o anfitrião do conector e um KDC de domínio é o próximo melhor passo para obter mais detalhes de baixo nível sobre os problemas. Para obter mais informações, consulte o [papel de resolução de problemas de mergulho profundo](https://aka.ms/proxytshootpaper).
 
@@ -111,11 +111,11 @@ O consumidor do bilhete Kerberos fornecido pelo conector. Nesta fase, espere que
 
       ![Janela de inspeção da rede de navegador](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
 
-   - A bolha neste número não começa com **TIRMTVNTUAAB** . Assim, neste exemplo, Kerberos está disponível, e a bolha Kerberos não começa com **YII** .
+   - A bolha neste número não começa com **TIRMTVNTUAAB**. Assim, neste exemplo, Kerberos está disponível, e a bolha Kerberos não começa com **YII**.
 
 1. Remova temporariamente a NTLM da lista de fornecedores no site do IIS. Aceda diretamente à aplicação do Internet Explorer no anfitrião do conector. A NTLM já não está na lista de fornecedores. Pode aceder à aplicação usando apenas Kerberos. Se o acesso falhar, pode haver um problema com a configuração da aplicação. A autenticação de Kerberos não está a funcionar.
 
-   - Se kerberos não estiver disponível, verifique as definições de autenticação da aplicação no IIS. Certifique-se de que **o Negotiate** está listado no topo, com a NTLM logo abaixo. Se vir **Não Negociar** , **Kerberos ou Negociar** , ou **PKU2U,** continue apenas se Kerberos estiver funcional.
+   - Se kerberos não estiver disponível, verifique as definições de autenticação da aplicação no IIS. Certifique-se de que **o Negotiate** está listado no topo, com a NTLM logo abaixo. Se vir **Não Negociar**, **Kerberos ou Negociar**, ou **PKU2U,** continue apenas se Kerberos estiver funcional.
 
      ![Fornecedores de autenticação windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
 
@@ -138,11 +138,11 @@ O consumidor do bilhete Kerberos fornecido pelo conector. Nesta fase, espere que
 
       ![Configuração SPN no portal Azure](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
 
-   - Entre no IIS e selecione a opção **Editor de Configuração** para a aplicação. Navegue para **system.webServer/security/authentication/windowsAuthentication** . Certifique-se de que o valor **UseAppPoolCredentials** é **verdadeiro** .
+   - Entre no IIS e selecione a opção **Editor de Configuração** para a aplicação. Navegue para **system.webServer/security/authentication/windowsAuthentication**. Certifique-se de que o valor **UseAppPoolCredentials** é **verdadeiro**.
 
       ![Opção credencial de conjuntos de aplicativos de configuração IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 
-      Altere este valor para **Verdadeiro** . Remova todos os bilhetes Kerberos em cache do servidor back-end executando o seguinte comando:
+      Altere este valor para **Verdadeiro**. Remova todos os bilhetes Kerberos em cache do servidor back-end executando o seguinte comando:
 
       ```powershell
       Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
@@ -163,6 +163,6 @@ Se ainda não conseguir fazer progressos, o suporte da Microsoft pode ajudá-lo.
 - A Azure Application Proxy solicita um bilhete Kerberos antes de enviar o seu pedido para um pedido. Algumas aplicações de terceiros não gostam deste método de autenticação. Estas aplicações esperam que as negociações mais convencionais se realizem. O primeiro pedido é anónimo, o que permite que a aplicação responda com os tipos de autenticação que suporta através de um 401. Este tipo de negociação kerberos pode ser habilitado utilizando as etapas descritas neste documento: [Kerberos Delegação Restrita para uma única assinatura](application-proxy-configure-single-sign-on-with-kcd.md).
 - A autenticação multi-hop é comumente usada em cenários onde uma aplicação é hierárquica, com uma extremidade traseira e extremidade frontal, onde ambos requerem autenticação, como os SqL Server Reporting Services. Para configurar o cenário multi-hop, consulte o artigo [Dedesema restrita de Kerberos pode exigir transição de protocolo em cenários multi-hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Configure o KCD num domínio gerido](../../active-directory-domain-services/deploy-kcd.md).

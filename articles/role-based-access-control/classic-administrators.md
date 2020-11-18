@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370632"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657748"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássicos do Azure
 
@@ -44,7 +44,7 @@ Este artigo descreve como adicionar ou alterar as funções de administrador de 
 
     ![Screenshot que abre administradores clássicos](./media/classic-administrators/classic-administrators.png)
 
-1. Clique **em Adicionar**Adicionar  >  **coadministrador** para abrir o painel de coadministradores Add.
+1. Clique **em Adicionar** Adicionar  >  **coadministrador** para abrir o painel de coadministradores Add.
 
     Se a opção de coadministrador add estiver desativada, não tem permissões.
 
@@ -58,7 +58,7 @@ Para adicionar um utilizador convidado como Coadministrador, siga os mesmos pass
 
 - O utilizador convidado deve ter uma presença no seu diretório. Isto significa que o utilizador foi convidado para o seu diretório e aceitou o convite.
 
-Para obter mais informações sobre como adicionar um utilizador convidado ao seu diretório, consulte [os utilizadores de colaboração Do Diretório B2B do Add Azure Ative No portal Azure](../active-directory/b2b/add-users-administrator.md).
+Para obter mais informações sobre como adicionar um utilizador convidado ao seu diretório, consulte [os utilizadores de colaboração Do Diretório B2B do Add Azure Ative No portal Azure](../active-directory/external-identities/add-users-administrator.md).
 
 ### <a name="differences-for-guest-users"></a>Diferenças para os utilizadores convidados
 
@@ -125,8 +125,8 @@ Só pode haver um Administrador de Serviço por Subscrição Azure. A alteraçã
 
 | Conta de Administrador de Conta | Pode alterar o Administrador de Serviço para uma conta Microsoft diferente? | Pode alterar o Administrador de Serviço para uma conta AD Azure no mesmo diretório? | Pode alterar o Administrador de Serviço para uma conta AD Azure num diretório diferente? |
 | --- | --- | --- | --- |
-| Conta Microsoft | Yes | No | No |
-| Conta do Azure AD | Yes | Yes | No |
+| Conta Microsoft | Sim | Não | Não |
+| Conta do Azure AD | Sim | Sim | Não |
 
 Se o Administrador de Conta for uma conta AD Azure, pode alterar o Administrador de Serviço para uma conta AD Azure no mesmo diretório, mas não num diretório diferente. Por exemplo, abby@contoso.com pode alterar o Administrador de Serviço para , mas não pode alterar o Administrador de Serviço para a bob@contoso.com menos que tenha uma presença no john@notcontoso.com john@notcontoso.com diretório contoso.com.
 
@@ -148,7 +148,7 @@ Siga estes passos para ver o Administrador de Conta.
 
     ![Screenshot mostrando o administrador de conta](./media/classic-administrators/account-admin.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../role-based-access-control/role-assignments-portal.md)

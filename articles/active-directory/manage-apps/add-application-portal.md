@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fd81e5f87aaf4a28676b79863df60b71707849e9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91305759"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656518"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Adicione uma aplicação ao seu inquilino Azure Ative (Azure AD)
 
@@ -55,10 +55,10 @@ Para adicionar uma aplicação ao seu inquilino AZure AD:
     :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="A screenshot mostra o seletor de tipos SSO." lightbox="media/add-application-portal/sso-types.png":::
 
     - Se o desenvolvedor da aplicação usou a **norma OIDC** para SSO, então selecione **'Iniciar S-Up'.** Aparece uma página de configuração. Em seguida, vá ao quickstart na configuração de um único sign-on baseado no OIDC.
-    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="A screenshot mostra o seletor de tipos SSO.":::
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="O Screenshot mostra a adição de uma aplicação SSO baseada em OIDC.":::
 
     - Se o desenvolvedor da aplicação usou a **norma SAML** para SSO, então selecione **Create**. É apresentada uma página de introdução com as opções para configurar a aplicação para a sua organização. No formulário, pode editar o nome da aplicação para corresponder às necessidades da sua organização. Em seguida, vá ao quickstart na configuração de um único sinal baseado em SAML.
-    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="A screenshot mostra o seletor de tipos SSO.":::
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="A Screenshot mostra a adição de uma aplicação SSO baseada em SAML.":::
 
 
 > [!IMPORTANT]
@@ -69,13 +69,13 @@ Se a aplicação que procura não estiver na galeria, então pode selecionar o l
 Terminou de adicionar uma candidatura. O próximo quickstart mostra-lhe como alterar o logótipo e editar outras propriedades para a sua aplicação.
 
 > [!TIP]
-> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não vai continuar com a série quickstart, então considere apagar a app para limpar o seu inquilino de teste. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o próximo artigo para aprender a configurar uma aplicação.
 > [!div class="nextstepaction"]

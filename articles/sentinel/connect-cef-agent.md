@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 2f90a7c954fc8930f69dfee3e7b56b394225405a
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 512e5e0140038b27b7ffc9f2affb4a0e5b28b41b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516742"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655838"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Passo 1: Implementar o reencaminhador de registo
 
@@ -48,7 +48,7 @@ Neste passo, designará e configurará a máquina Linux que irá encaminhar os r
  
 1. A partir do menu de navegação Azure Sentinel, clique nos **conectores de dados.** A partir da lista de conectores, clique no **azulejo do Formato de Evento Comum (CEF)** e, em seguida, no botão de página do **conector Aberto** no direito inferior. 
 
-1. Abaixo **de 1.2 Instale o coletor CEF na máquina Linux,** copie o link fornecido sob **executar o seguinte script para instalar e aplicar o coletor CEF** , ou a partir do texto abaixo (aplicando o ID do espaço de trabalho e a chave primária no lugar dos espaços reservados):
+1. Abaixo **de 1.2 Instale o coletor CEF na máquina Linux,** copie o link fornecido sob **executar o seguinte script para instalar e aplicar o coletor CEF**, ou a partir do texto abaixo (aplicando o ID do espaço de trabalho e a chave primária no lugar dos espaços reservados):
 
     ```bash
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
@@ -209,8 +209,7 @@ Escolha um daemon syslog para ver a descrição apropriada.
         sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a implantar o agente Log Analytics para ligar aparelhos CEF ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
-- Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
-
+- Começa [a detetar ameaças com o Azure Sentinel.](./tutorial-detect-threats-built-in.md)

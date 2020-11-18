@@ -7,18 +7,18 @@ ms.topic: tutorial
 ms.service: firewall-manager
 ms.date: 10/22/2020
 ms.author: victorh
-ms.openlocfilehash: d9d9da9cd01b4bb9b3cabcf069990cd3cbd38d38
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e2bcdf947db60fb50b44abba9d6a224768840b28
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92429324"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656144"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-powershell"></a>Tutorial: Proteja o seu hub virtual usando a Azure PowerShell
 
 Neste tutorial, você cria um caso WAN virtual com um Hub Virtual numa região, e você implementa um Azure Firewall no Centro Virtual para garantir a conectividade. Neste exemplo, demonstra conectividade segura entre redes virtuais. O tráfego entre redes virtuais e os balcões site-to-site, ponto-a-local ou ExpressRoute também são suportados pelo Virtual Secure Hub.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Implementar o WAN virtual
@@ -31,7 +31,7 @@ Neste tutorial, ficará a saber como:
 
 - PowerShell 7
 
-   Este tutorial requer que você executar Azure PowerShell localmente no PowerShell 7. Para instalar o PowerShell 7, consulte [migração do Windows PowerShell 5.1 para PowerShell 7](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7).
+   Este tutorial requer que você executar Azure PowerShell localmente no PowerShell 7. Para instalar o PowerShell 7, consulte [migração do Windows PowerShell 5.1 para PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7).
 - Az.Network versão 3.2.0
 
     Se tiver a versão 3.4.0 ou posterior da Az.Network, terá de reduzir para utilizar alguns dos comandos deste tutorial. Pode verificar a versão do seu módulo Az.Network com o comando `Get-InstalledModule -Name Az.Network` . Para desinstalar o módulo Az.Network, corra `Uninstall-Module -name az.network` . Para instalar o módulo Az.Network 3.2.0, corra `Install-Module az.network -RequiredVersion 3.2.0 -force` .
@@ -277,7 +277,7 @@ Para eliminar o ambiente de teste, pode remover o grupo de recursos com todos os
 Remove-AzResourceGroup -Name $RG
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Conheça os parceiros de segurança de confiança](trusted-security-partners.md)

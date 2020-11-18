@@ -12,19 +12,19 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57efd88b9d194442920496107d4c37ba2baf94d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efe71fd77e9e4edb7fc7df4c633ae8f81177097b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85554993"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657825"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Exemplos de Azure AD PowerShell para Proxy de Aplicação AD AZure
 
-A tabela seguinte inclui links para exemplos de scripts PowerShell para Azure AD Application Proxy. Estas amostras requerem o [AzureAD V2 PowerShell para módulo Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) ou o [AzureAD V2 PowerShell para a versão de pré-visualização do módulo Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), salvo indicação em contrário.
+A tabela seguinte inclui links para exemplos de scripts PowerShell para Azure AD Application Proxy. Estas amostras requerem o [AzureAD V2 PowerShell para módulo Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) ou o [AzureAD V2 PowerShell para a versão de pré-visualização do módulo Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), salvo indicação em contrário.
 
 
-Para obter mais informações sobre os cmdlets utilizados nestas amostras, consulte [a Gestão de Aplicações Proxy Application e](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) a [Gestão do Conector de Aplicação Proxy.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+Para obter mais informações sobre os cmdlets utilizados nestas amostras, consulte [a Gestão de Aplicações Proxy Application e](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) a [Gestão do Conector de Aplicação Proxy.](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
 
 | Ligação | Descrição |
 |---|---|
@@ -32,7 +32,7 @@ Para obter mais informações sobre os cmdlets utilizados nestas amostras, consu
 | [Listar informações básicas para todas as aplicações Proxy de aplicações](scripts/powershell-get-all-app-proxy-apps-basic.md) | Lista informações básicas (AppId, DisplayName, ObjId) sobre todas as aplicações Proxy de aplicação no seu diretório . |
 | [Lista informações alargadas para todas as aplicações Proxy de aplicações](scripts/powershell-get-all-app-proxy-apps-extended.md) | Lista informações alargadas (AppId, DisplayName, ExternalUrl, InternalUrl, ExternalAuthenticationType) sobre todas as aplicações Proxy de aplicação no seu diretório.  |
 | [Listar todas as aplicações Proxy de aplicação por grupo de conector](scripts/powershell-get-all-app-proxy-apps-by-connector-group.md) | Lista informações sobre todas as aplicações Proxy da aplicação no seu diretório e quais os grupos de conector a que as aplicações são atribuídas. |
-| [Obtenha todas as aplicações Proxy de aplicação com uma política de vida simbólica](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Lista todas as aplicações Proxy da aplicação no seu diretório com uma política de vida simbólica e seus detalhes. Esta amostra requer a [versão de pré-visualização do módulo AzureAD V2 para a versão de pré-visualização do módulo Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
+| [Obtenha todas as aplicações Proxy de aplicação com uma política de vida simbólica](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Lista todas as aplicações Proxy da aplicação no seu diretório com uma política de vida simbólica e seus detalhes. Esta amostra requer a [versão de pré-visualização do módulo AzureAD V2 para a versão de pré-visualização do módulo Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
 |**Grupos do conector**||
 | [Obtenha todos os grupos de conector e conectores no diretório](scripts/powershell-get-all-connectors.md) | Lista todos os grupos de conector e conectores do seu diretório. |
 | [Mover todas as aplicações atribuídas a um grupo de conector para outro grupo de conector](scripts/powershell-move-all-apps-to-connector-group.md) | Move todas as aplicações atualmente atribuídas a um grupo de conector para um grupo de conector diferente. |

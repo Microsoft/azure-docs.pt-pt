@@ -12,12 +12,12 @@ ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 860d29d3fff2187e770a5ff00b7145fc188a497c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e43ad9dedf4212e9b30a08f0c978cb8d1a86776c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426488"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657419"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Kerberos Restrita Delegação para um único sign-on (SSO) para as suas apps com Proxy de aplicação
 
@@ -42,18 +42,18 @@ Este diagrama explica o fluxo quando um utilizador tenta aceder a uma aplicaçã
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de iniciar com um único sinal de acesso para aplicações IWA, certifique-se de que o seu ambiente está pronto com as seguintes definições e configurações:
 
-* As suas aplicações, como as aplicações Web SharePoint, estão definidas para utilizar a Autenticação Integrada do Windows. Para obter mais informações, consulte [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx), ou para SharePoint ver [Plano de autenticação Kerberos no SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+* As suas aplicações, como as aplicações Web SharePoint, estão definidas para utilizar a Autenticação Integrada do Windows. Para obter mais informações, consulte [Enable Support for Kerberos Authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759186(v=ws.11)), ou para SharePoint ver [Plano de autenticação Kerberos no SharePoint 2013](/SharePoint/security-for-sharepoint-server/kerberos-authentication-planning).
 * Todas as suas aplicações têm [Nomes Principais do Serviço.](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx)
-* O servidor que executa o Conector e o servidor que executa a aplicação são domínios unidos e parte do mesmo domínio ou domínios de confiança. Para obter mais informações sobre o domínio, consulte [Juntar um Computador a um Domínio](https://technet.microsoft.com/library/dd807102.aspx).
+* O servidor que executa o Conector e o servidor que executa a aplicação são domínios unidos e parte do mesmo domínio ou domínios de confiança. Para obter mais informações sobre o domínio, consulte [Juntar um Computador a um Domínio](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807102(v=ws.11)).
 * O servidor que executa o Conector tem acesso para ler o atributo TokenGroupsGlobalAndUniversal para os utilizadores. Esta definição padrão pode ter sido impactada pelo endurecimento da segurança do ambiente.
 
 ### <a name="configure-active-directory"></a>Configurar o Active Directory
 A configuração do Ative Directory varia, dependendo se o conector Proxy da aplicação e o servidor de aplicação estão no mesmo domínio ou não.
 
 #### <a name="connector-and-application-server-in-the-same-domain"></a>Conector e servidor de aplicações no mesmo domínio
-1. No Ative Directory, **Tools**aceda a  >  **Utilizadores e Computadores de Ferramentas.**
+1. No Ative Directory, **Tools** aceda a  >  **Utilizadores e Computadores de Ferramentas.**
 2. Selecione o servidor que executa o conector.
-3. Clique com o **Properties**botão direito e selecione  >  **a Delegação de**Propriedades.
+3. Clique com o **Properties** botão direito e selecione  >  **a Delegação de** Propriedades.
 4. Selecione **Confiar no computador p/ delegação apenas p/ serviços especificados**. 
 5. Selecione **Utilizar qualquer protocolo de autenticação**.
 6. Nos **Serviços aos quais esta conta pode apresentar credenciais delegadas** acrescentam o valor para a identidade SPN do servidor de aplicações. Isto permite que o Conector Proxy de aplicação personiem os utilizadores em AD contra as aplicações definidas na lista.
@@ -61,7 +61,7 @@ A configuração do Ative Directory varia, dependendo se o conector Proxy da apl
    ![Imagem de janela connector-SVR Properties](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Conector e servidor de aplicações em diferentes domínios
-1. Para obter uma lista de pré-requisitos para trabalhar com o KCD em todos os domínios, consulte [a Delegação Restrita kerberos através de domínios.](https://technet.microsoft.com/library/hh831477.aspx)
+1. Para obter uma lista de pré-requisitos para trabalhar com o KCD em todos os domínios, consulte [a Delegação Restrita kerberos através de domínios.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11))
 2. Utilize a `principalsallowedtodelegateto` propriedade da conta de serviço (conta de utilizador de computador ou de domínio dedicado) da aplicação web para permitir a delegação de autenticação Kerberos do Application Proxy (conector). O servidor de aplicações está a funcionar no contexto de `webserviceaccount` e o servidor delegado é `connectorcomputeraccount` . Execute os comandos abaixo num Controlador de Domínio (executando o Windows Server 2012 R2 ou mais tarde) no domínio de `webserviceaccount` . Utilize nomes fixos (não UPN) para ambas as contas.
 
    Se `webserviceaccount` for uma conta de computador, utilize estes comandos:
@@ -149,8 +149,7 @@ Se **o nome da conta SAM no local** for utilizado para a identidade do logon, o 
 Se houver um erro no processo SSO, aparece no registo de eventos da máquina do conector, conforme explicado na [resolução de problemas](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 No então, em alguns casos, o pedido é enviado com sucesso para o pedido de backend, enquanto esta aplicação responde em várias outras respostas HTTP. A resolução de problemas destes casos deve começar por examinar o número do evento 24029 na máquina de conector no registo de eventos de sessão de procuração de aplicação. A identidade do utilizador que foi utilizada para a delegação aparece no campo "utilizador" dentro dos detalhes do evento. Para ligar o registo de sessão, selecione **Mostrar registos analíticos e depurar** no menu de visualização do espectador do evento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Como configurar um pedido de procuração de aplicação para utilizar a delegação restrita kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Resolver problemas com o Proxy da Aplicação](application-proxy-troubleshoot.md)
-

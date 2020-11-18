@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7680c7ad4b2c5c8b8c1c13fb2344575659eda140
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 346536f5797841a850ef97dc4667110eafa721a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892826"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656961"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma ligação de Site a Site com o portal do Azure (clássico)
 
@@ -29,7 +29,7 @@ Uma ligação de gateway de VPN de Site para Site é utilizada para ligar a sua 
 
 ![Diagrama da ligação de Gateway de Rede de VPNs em vários sites](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
+## <a name="before-you-begin"></a><a name="before"></a>Before you begin
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
@@ -135,13 +135,13 @@ Se estiver a ter problemas em ligar, veja a secção **Resolver problemas** do �
 
 ## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>Como repor um gateway de VPN
 
-Repor o gateway de VPN do Azure é útil se perder a conectividade VPN em vários locais num ou mais túneis de rede de VPNs. Nesta situação, os dispositivos VPN no local estão todos a funcionar corretamente, mas não podem estabelecer túneis IPsec com os gateways de VPN do Azure. Para obter os passos, veja [Reset a VPN gateway](vpn-gateway-resetgw-classic.md#resetclassic) (Repor um gateway de VPN).
+Repor o gateway de VPN do Azure é útil se perder a conectividade VPN em vários locais num ou mais túneis de rede de VPNs. Nesta situação, os dispositivos VPN no local estão todos a funcionar corretamente, mas não podem estabelecer túneis IPsec com os gateways de VPN do Azure. Para obter os passos, veja [Reset a VPN gateway](./reset-gateway.md#resetclassic) (Repor um gateway de VPN).
 
 ## <a name="how-to-change-a-gateway-sku"></a><a name="changesku"></a>Como alterar um SKU de gateway
 
 Para obter passos para alterar um gateway SKU, consulte [Resize um gateway SKU](vpn-gateway-about-SKUS-legacy.md#classicresize).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/).
+* Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](../index.yml).
 * Para obter informações sobre o Túnel Forçado, veja [Acerca do Túnel Forçado](vpn-gateway-about-forced-tunneling.md).

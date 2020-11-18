@@ -5,16 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 11/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 016741606bad5536985a38b0e0664b39006e1df5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62ceafad0210065700e5c9734cfe9a055208ef35
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776566"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657895"
 ---
-# <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering-preview"></a>Configure uma ligação VPN site-to-site sobre o peering privado ExpressRoute (Preview)
+# <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Configure uma ligação VPN site-to-site sobre o espreitamento privado ExpressRoute
 
 Pode configurar uma VPN site-to-site para uma porta de entrada de rede virtual sobre um olho privado ExpressRoute usando um endereço IP RFC 1918. Esta configuração proporciona os seguintes benefícios:
 
@@ -76,14 +76,14 @@ Em ambos os exemplos, a Azure enviará tráfego para 10.0.1.0/24 sobre a ligaç�
 
    SkUs redundantes de zona têm "AZ" no final do SKU. Por exemplo, **VpnGw1AZ**. Os gateways redundantes de zona só estão disponíveis em regiões onde o serviço de zona de disponibilidade está disponível. Para obter informações sobre as regiões em que apoiamos zonas de disponibilidade, consulte [Regiões que suportam zonas de disponibilidade.](../availability-zones/az-region.md)
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Figura 1":::
-1. Ativar os IPs privados no gateway. Selecione **Configuração**e, em seguida, desemocione **os IPs privados** gateway para **ativados**. Selecione **Guardar** para guardar as alterações.
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="IPs privados gateway":::
+1. Ativar os IPs privados no gateway. Selecione **Configuração** e, em seguida, desemocione **os IPs privados** gateway para **ativados**. Selecione **Guardar** para guardar as alterações.
 1. Na página **'Vista Geral',** selecione **Ver Mais** para ver o endereço IP privado. Escreva estas informações para utilizar mais tarde nos passos de configuração.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Figura 1" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
-1. Para ativar **o endereço IP privado do Azure** na ligação, selecione  **Configuração**. **Desconfiem do endereço IP privado do Azure** para **ativar**e, em seguida, **selecione Guardar**.
+   :::image type="content" source="media/site-to-site-vpn-private-peering/gateway-overview.png" alt-text="Página geral" lightbox="media/site-to-site-vpn-private-peering/gateway-overview.png":::
+1. Para ativar **o endereço IP privado do Azure** na ligação, selecione  **Configuração**. **Desconfiem do endereço IP privado do Azure** para **ativar** e, em seguida, **selecione Guardar**.
 
-   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Figura 1":::
+   :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Gateway Private IPs - Habilitado":::
 1. Da sua firewall, ping o IP privado que você anotou no passo 3. O IP privado deve ser acessível sobre o espreitamento privado ExpressRoute.
 1. Utilize este IP privado como IP remoto na sua firewall no local para estabelecer o túnel Site-To-Site sobre o espreitamento privado ExpressRoute.
 
@@ -109,6 +109,6 @@ Em ambos os exemplos, a Azure enviará tráfego para 10.0.1.0/24 sobre a ligaç�
 1. Da sua firewall, ping o IP privado que você anotou no passo 2. Deve ser acessível sobre o olho privado ExpressRoute.
 1. Utilize este IP privado como IP remoto na sua firewall no local para estabelecer o túnel Site-To-Site sobre o espreitamento privado ExpressRoute.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o VPN Gateway, veja [o que é VPN Gateway?](vpn-gateway-about-vpngateways.md)

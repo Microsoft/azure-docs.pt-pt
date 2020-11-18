@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 4b34477a40530a0e6f26b59dd9707c019418b2a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517976"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655855"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa utilizando o Formato Comum de Eventos
 
@@ -84,7 +84,7 @@ Certifique-se de que a sua máquina também cumpre os seguintes requisitos:
 - Requisitos de software
   - Certifique-se de que tem a pitão 2.7 ou 3 a funcionar na sua máquina.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, ficou a saber como a Azure Sentinel recolhe registos CEF a partir de soluções de segurança e aparelhos. Para aprender a ligar a sua solução ao Azure Sentinel, consulte os seguintes artigos:
 
@@ -94,5 +94,4 @@ Neste documento, ficou a saber como a Azure Sentinel recolhe registos CEF a part
 
 Para saber mais sobre o que fazer com os dados recolhidos no Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
-- Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
-
+- Começa [a detetar ameaças com o Azure Sentinel.](./tutorial-detect-threats-built-in.md)

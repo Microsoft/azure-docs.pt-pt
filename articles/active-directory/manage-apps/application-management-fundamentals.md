@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642440"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656412"
 ---
 # <a name="application-management-best-practices"></a>Gestão de aplicações boas práticas
 
@@ -30,7 +30,7 @@ Este artigo contém recomendações e boas práticas para gerir aplicações no 
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Aplicativo cloud e recomendações únicas de inscrição
 | Recomendação | Comentários |
 | --- | --- |
-| Consulte a galeria de aplicações AZure AD para obter aplicações  | A Azure AD tem uma galeria que contém milhares de aplicações pré-integradas que são ativadas com um único sign-on da Enterprise (SSO). Para obter orientação de configuração específica de aplicações, consulte a [Lista de tutoriais de aplicações SaaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
+| Consulte a galeria de aplicações AZure AD para obter aplicações  | A Azure AD tem uma galeria que contém milhares de aplicações pré-integradas que são ativadas com um único sign-on da Enterprise (SSO). Para obter orientação de configuração específica de aplicações, consulte a [Lista de tutoriais de aplicações SaaS](../saas-apps/tutorial-list.md).  | 
 | Utilizar SSO federado baseado em SAML  | Quando uma aplicação o suporta, utilize SSO federado, baseado em SAML com Azure AD em vez de SSO e ADFS baseados em palavra-passe.  | 
 | Utilize SHA-256 para a assinatura do certificado  | A Azure AD usa o algoritmo SHA-256 por padrão para assinar a resposta SAML. Utilize SHA-256 a menos que a aplicação exija SHA-1 (ver [opções](certificate-signing-options.md) de assinatura de certificado e [problema de inscrição de pedidos](application-sign-in-problem-application-error.md).)  | 
 | Exigir atribuição do utilizador  | Por predefinição, os utilizadores podem aceder às suas aplicações empresariais sem serem atribuídos às mesmos. No entanto, se a aplicação expor as funções, ou se pretender que a aplicação apareça nas Minhas Apps de um utilizador, requer a atribuição do utilizador. (Consulte [a orientação do Programador para a integração de aplicações](developer-guidance-for-integrating-applications.md).)  | 
@@ -41,7 +41,7 @@ Este artigo contém recomendações e boas práticas para gerir aplicações no 
 ## <a name="provisioning-recommendations"></a>Recomendações de provisionamento
 | Recomendação | Comentários |
 | --- | --- |
-| Use tutoriais para configurar o provisionamento com aplicações na nuvem | Consulte a [Lista de tutoriais de aplicações saaS](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) para obter orientação passo a passo sobre a configuração do provisionamento para a aplicação de galeria que pretende adicionar. |
+| Use tutoriais para configurar o provisionamento com aplicações na nuvem | Consulte a [Lista de tutoriais de aplicações saaS](../saas-apps/tutorial-list.md) para obter orientação passo a passo sobre a configuração do provisionamento para a aplicação de galeria que pretende adicionar. |
 | Utilize registos de provisionamento (pré-visualização) para monitorizar o estado | Os [registos de fornecimento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) dão detalhes sobre todas as ações realizadas pelo serviço de fornecimento, incluindo o estatuto para cada utilizadores. |
 | Atribuir um grupo de distribuição ao e-mail de notificação de provisionamento | Para aumentar a visibilidade dos alertas críticos enviados pelo serviço de fornecimento, atribua um grupo de distribuição à definição de E-mails de Notificação. |
 

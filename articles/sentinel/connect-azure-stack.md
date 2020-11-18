@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 9ff70e7c05ca8de49f560fba3d59f0609785b8c4
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 9ac4aa9e93ac296913d7a62e83b182d673015bae
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636780"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655974"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Ligue as máquinas virtuais do Azure Stack Hub ao Azure Sentinel
 
@@ -34,8 +34,8 @@ Depois de ligar as máquinas Azure Stack Hub, escolha entre uma galeria de pain�
 
 Adicione a extensão da máquina virtual **Azure Monitor, Update e Configuration Management** às máquinas virtuais que executam no seu Azure Stack Hub. 
 
-1. Num novo separador de navegador, inicie sessão no [seu portal Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal).
-2. Vá à página **de máquinas Virtuais,** selecione a máquina virtual que pretende proteger com o Azure Sentinel. Para obter informações sobre como criar uma máquina virtual no Azure Stack Hub, consulte [criar um VM servidor windows com o portal Azure Stack Hub](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) ou Criar um [VM servidor Linux utilizando o portal Azure Stack Hub](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+1. Num novo separador de navegador, inicie sessão no [seu portal Azure Stack Hub](/azure-stack/user/azure-stack-use-portal#access-the-portal).
+2. Vá à página **de máquinas Virtuais,** selecione a máquina virtual que pretende proteger com o Azure Sentinel. Para obter informações sobre como criar uma máquina virtual no Azure Stack Hub, consulte [criar um VM servidor windows com o portal Azure Stack Hub](/azure-stack/user/azure-stack-quick-windows-portal) ou Criar um [VM servidor Linux utilizando o portal Azure Stack Hub](/azure-stack/user/azure-stack-quick-linux-portal).
 3. Selecione **Extensões**. É apresentada a lista de extensões de máquinas virtuais instaladas nesta máquina virtual.
 4. Clique no **separador Adicionar.** A lâmina do menu **New Resource** abre e mostra a lista de extensões de máquinas virtuais disponíveis. 
 5. Selecione a extensão de Gestão de **Azure Monitor, Atualização e Configuração** e clique em **Criar**. A janela **de configuração de extensão de instalação** abre-se.
@@ -45,7 +45,7 @@ Adicione a extensão da máquina virtual **Azure Monitor, Update e Configuration
    >[!NOTE]
    > Se não vir a extensão de Gestão de **Azure Monitor, Atualização e Configuração** listada no seu mercado, contacte o operador do Azure Stack Hub para o disponibilizar.
 
-6. No menu Azure Sentinel, selecione **as definições do Espaço de Trabalho seguidas** de **Advanced** , e copie a chave **de ID** e **espaço de trabalho (Chave Primária)**. 
+6. No menu Azure Sentinel, selecione **as definições do Espaço de Trabalho seguidas** de **Advanced**, e copie a chave **de ID** e **espaço de trabalho (Chave Primária)**. 
 1. Na janela de **extensão** Azure Stack Hub Instale-as, cole-as nos campos indicados e clique em **OK**.
 1. Após a conclusão da instalação de extensão, o seu estado mostra como **Provisioning Succeeded**. Pode levar até uma hora para a máquina virtual aparecer no portal Azure Sentinel.
 
@@ -62,10 +62,10 @@ Para remover a extensão:
 
 1. Abra o **Portal Azure Stack Hub**.
 2. Aceda à página **de máquinas Virtuais,** selecione a máquina virtual a partir da qual pretende remover a extensão.
-3. Selecione **Extensões** , selecione a extensão **Microsoft.EnterpriseCloud.Monitoring**.
+3. Selecione **Extensões**, selecione a extensão **Microsoft.EnterpriseCloud.Monitoring**.
 4. Clique em **Desinstalar** e confirmar a sua seleção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

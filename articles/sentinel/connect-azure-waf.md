@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 8f21b415ef36442d6ac1aac518cd1327f70b8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c554f3582e67622a5a1739c9e410328c902d491b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88264078"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655906"
 ---
 # <a name="connect-data-from-azure-web-application-firewall-waf"></a>Conecte dados a partir da Firewall de Aplicação Web Azure (WAF)
 
-As aplicações web são cada vez mais direcionadas por ataques maliciosos que exploram vulnerabilidades vulgarmente conhecidas. O Azure Web Application Firewall (WAF) fornece proteção centralizada das suas aplicações web contra explorações e ameaças comuns, tais como injeção de código e scripts de sites cruzados. O Azure WAF pode ser implantado no serviço [Azure Application Gateway,](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) no serviço [Azure Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview) e através de uma política waf [da Rede de Entrega de Conteúdos Azure (CDN)](https://docs.microsoft.com/azure/web-application-firewall/cdn/cdn-overview) (esta última em pré-visualização pública).
+As aplicações web são cada vez mais direcionadas por ataques maliciosos que exploram vulnerabilidades vulgarmente conhecidas. O Azure Web Application Firewall (WAF) fornece proteção centralizada das suas aplicações web contra explorações e ameaças comuns, tais como injeção de código e scripts de sites cruzados. O Azure WAF pode ser implantado no serviço [Azure Application Gateway,](../web-application-firewall/ag/ag-overview.md) no serviço [Azure Front Door](../web-application-firewall/afds/afds-overview.md) e através de uma política waf [da Rede de Entrega de Conteúdos Azure (CDN)](../web-application-firewall/cdn/cdn-overview.md) (esta última em pré-visualização pública).
 Pode ligar os registos Azure WAF ao Azure Sentinel, permitindo-lhe visualizar dados de registo em livros de trabalho, usá-lo para criar alertas personalizados e incorporá-lo para melhorar a sua investigação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -64,7 +64,7 @@ Pode ligar os registos Azure WAF ao Azure Sentinel, permitindo-lhe visualizar da
 >
 > Com este conector de dados em particular, os indicadores de estado de conectividade (uma faixa de cor na galeria de conectores de dados e ícones de conexão ao lado dos nomes do tipo de dados) só mostrarão como *conectados* (verdes) se os dados ingerirem em algum ponto nas últimas duas semanas. Uma vez passadas duas semanas sem ingestão de dados, o conector mostrará como estando desligado. No momento em que mais dados chegam, o estado *ligado* voltará.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a ligar os registos Azure WAF ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 81a735966b2a0ebdd7c8fcd9e9aa467d68aac354
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2d041782e8df795acb120ba1357cec5ef204dc28
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792757"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656333"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy existentes no local
 
@@ -179,7 +179,7 @@ Para a resolução inicial de problemas, execute os seguintes passos:
    ![Serviço de Conector Proxy de aplicação Azure AD em serviços.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 1. Executar o Analisador de Mensagens como administrador.
-1. Selecione **Iniciar o rastreio local** .
+1. Selecione **Iniciar o rastreio local**.
 1. Inicie o serviço de conector de aplicação AD Azure.
 1. Parem a captura da rede.
 
@@ -189,7 +189,7 @@ Para a resolução inicial de problemas, execute os seguintes passos:
 
 Se configurar o conector Proxy da aplicação para contornar os servidores proxy e ligar-se diretamente ao serviço Application Proxy, pretende procurar na captura de rede tentativas de ligação TCP falhadas.
 
-Utilize o filtro de analisador de mensagens para identificar estas tentativas. Introduza `property.TCPSynRetransmit` na caixa do filtro e selecione **Aplicar** .
+Utilize o filtro de analisador de mensagens para identificar estas tentativas. Introduza `property.TCPSynRetransmit` na caixa do filtro e selecione **Aplicar**.
 
 Um pacote SYN é o primeiro pacote enviado para estabelecer uma ligação TCP. Se este pacote não devolver uma resposta, o SYN é re-retribuído. Pode utilizar o filtro anterior para ver quaisquer SYNs retransmitidos. Em seguida, pode verificar se estes SYNs correspondem a qualquer tráfego relacionado com o conector.
 
@@ -205,7 +205,7 @@ O filtro anterior mostra apenas os pedidos e respostas dos HTTPs para/a partir d
 
 Se vir outros códigos de resposta, como o 407 ou o 502, isso significa que o representante está a necessitar de autenticação ou não permite o tráfego por outro motivo. Neste momento, contrata a equipa de suporte ao servidor proxy.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)
-* Se tiver problemas com problemas de conectividade do conector, faça a sua pergunta na página de perguntas do [Microsoft Q&A para o Azure Ative Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) ou crie um bilhete com a nossa equipa de suporte.
+* Se tiver problemas com problemas de conectividade do conector, faça a sua pergunta na página de perguntas do [Microsoft Q&A para o Azure Ative Directory](/answers/topics/azure-active-directory.html) ou crie um bilhete com a nossa equipa de suporte.

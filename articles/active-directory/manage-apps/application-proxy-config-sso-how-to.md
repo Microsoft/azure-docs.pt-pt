@@ -1,34 +1,29 @@
 ---
-title: Como configurar um único sign-on para uma aplicação de Procuração de Aplicação
-description: Como pode configurar um único sign-on na sua aplicação de procuração de aplicação rapidamente
+title: Compreenda o único sign-on com uma aplicação no local usando o Application Proxy
+description: Compreenda o único sinal de saúde com uma aplicação no local utilizando o Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 10/07/2020
 ms.author: kenwith
 ms.reviewer: japere, asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7df16a797fe0d7a0fd9a0b3857b1b1c32ba07ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642134"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656297"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Como configurar um único sign-on para uma aplicação de procuração de aplicação
 
 O único sinal de sso permite aos seus utilizadores aceder a uma aplicação sem autenticar várias vezes. Permite que a autenticação única ocorra na nuvem, contra o Azure Ative Directory, e permite que o serviço ou Conector personiem o utilizador para completar quaisquer desafios adicionais de autenticação da aplicação.
 
 ## <a name="how-to-configure-single-sign-on"></a>Como configurar um único sinal
-Para configurar o SSO, certifique-se primeiro de que a sua aplicação está configurada para Pré-Autenticação através do Diretório Ativo Azure. Para fazer esta configuração, aceda a **aplicações empresariais do Azure Ative Directory**  - &gt; **Enterprise Applications**  - &gt; **Todas as Aplicações**  - &gt; A sua ** - &gt; aplicação Proxy**. Nesta página, vê o campo "Pré Autenticação" e certifique-se de que está definido para "Azure Ative Directory". 
+Para configurar o SSO, certifique-se primeiro de que a sua aplicação está configurada para Pré-Autenticação através do Diretório Ativo Azure. Para fazer esta configuração, aceda a **aplicações empresariais do Azure Ative Directory**  - &gt; **Enterprise Applications**  - &gt; **Todas as Aplicações**  - &gt; A sua **- &gt; aplicação Proxy**. Nesta página, vê o campo "Pré Autenticação" e certifique-se de que está definido para "Azure Ative Directory". 
 
 Para obter mais informações sobre os métodos de pré-autenticação, consulte o passo 4 do [documento de publicação da aplicação.](application-proxy-add-on-premises-application.md)
 
@@ -41,7 +36,7 @@ Configure o tipo específico de inscrição única. Os métodos de inscrição s
 
 -   **Autenticação integrada do Windows**: Para aplicações que utilizem autenticação integrada do Windows (IWA), o sign-on único é ativado através da Delegação Restrita kerberos (KCD). Este método dá permissão aos Conectores Proxy da Aplicação em Ative Directory para personificar os utilizadores e enviar e receber fichas em seu nome. Os detalhes sobre a configuração do KCD podem ser encontrados no [Sign-On único com documentação KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Sign-on baseado em cabeçalho**: O sinal baseado no cabeçalho é ativado através de uma parceria e requer alguma configuração adicional. Para obter detalhes sobre a parceria e instruções passo a passo para configurar uma única inscrição para uma aplicação que utilize cabeçalhos para autenticação, consulte o [PingAccess para documentação AD Azure](application-proxy-configure-single-sign-on-with-ping-access.md).
+-   **Sign-on baseado em cabeçalho**: O sinal baseado no cabeçalho é utilizado para fornecer capacidades de inscrição únicas utilizando cabeçalhos HTTP. Para saber mais, consulte [o sign-on único baseado no Cabeçalho.](application-proxy-configure-single-sign-on-with-headers.md)
 
 -   **Saturação única :** Com um único sinal DE SAML, o Azure AD autentica-se na aplicação utilizando a conta Azure AD do utilizador. A Azure AD comunica a informação de inscrição à aplicação através de um protocolo de ligação. Com um único sign-on baseado em SAML, pode mapear os utilizadores para funções de aplicação específicas com base nas regras que define nas suas alegações SAML. Para obter informações sobre a configuração do único sinal de marcação [SAML, consulte a SAML para obter um único s-on com o Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -51,8 +46,8 @@ Nesta página, você também vê uma opção adicional Sign-On: Linked Sign-On. 
 
 Esta opção permite que um administrador crie um link para uma aplicação que os utilizadores primeiro aterram ao aceder à aplicação. Por exemplo, se houver uma aplicação configurada para autenticar utilizadores que utilizem os Serviços da Federação de Diretório Ativo 2.0, um administrador pode utilizar a opção "Linked Sign-On" para criar um link para o mesmo nas Minhas Apps.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Abóbada de senha para um único sinal com Proxy de aplicação](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Kerberos Delegação Restrita para um único sign-on com Proxy de aplicação](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Autenticação baseada em cabeçalho para um único sign-on com Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [Autenticação baseada em cabeçalho para um único sign-on com Application Proxy](application-proxy-configure-single-sign-on-with-headers.md) 
 - [SAML para um único sinal de inscrição com Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).

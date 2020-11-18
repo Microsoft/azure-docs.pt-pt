@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 161e2d424611661619b99ecac3515aac6a8464e0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428769"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656995"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>Monitorize a saúde dos seus conectores de dados com este livro do Azure Sentinel
 
@@ -42,12 +42,12 @@ Há três secções com açapões neste livro:
 
 1. O **separador Visão Geral** mostra o estado geral da ingestão de dados no espaço de trabalho selecionado: medidas de volume, taxas EPS e tempo do último registo recebido.
 
-1. O **separador de anomalias de recolha de dados** irá ajudá-lo a detetar anomalias no processo de recolha de dados, por tabela e fonte de dados. Cada separador apresenta anomalias para uma tabela específica (o separador **Geral** inclui uma coleção de tabelas). As anomalias são calculadas utilizando a função **series_decompose_anomalies()** que devolve uma **pontuação de anomalia**. [Saiba mais sobre esta função.](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx) Desaguise os seguintes parâmetros para a função avaliar:
+1. O **separador de anomalias de recolha de dados** irá ajudá-lo a detetar anomalias no processo de recolha de dados, por tabela e fonte de dados. Cada separador apresenta anomalias para uma tabela específica (o separador **Geral** inclui uma coleção de tabelas). As anomalias são calculadas utilizando a função **series_decompose_anomalies()** que devolve uma **pontuação de anomalia**. [Saiba mais sobre esta função](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Desaguise os seguintes parâmetros para a função avaliar:
 
-    - **AnomaliasTimeRange** : Este selecionador de tempo aplica-se apenas à visualização de anomalias de recolha de dados.
-    - **AmostraInterval** : O intervalo de tempo em que os dados são recolhidos no intervalo de tempo dado. A pontuação da anomalia é calculada apenas nos dados do último intervalo.
-    - **PositivoAlertThreshold** : Este valor define o limiar de pontuação de anomalia positiva. Aceita valores decimais.
-    - **NegativeAlertThreshold** : Este valor define o limiar de pontuação de anomalia negativa. Aceita valores decimais.
+    - **AnomaliesTimeRange**: Este seletor de hora só se aplica à vista de anomalias da recolha de dados.
+    - **SampleInterval**: O intervalo de tempo no qual os dados são amostrados no período de tempo especificado. A classificação de anomalias só é calculada para os dados do último intervalo.
+    - **PositiveAlertThreshold**: Este valor define o limiar de classificação de anomalias positivo. Aceita valores decimais.
+    - **NegativeAlertThreshold**: Este valor define o limiar de classificação de anomalias negativo. Aceita valores decimais.
 
         :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-2.png" alt-text="página de anomalias de monitorização de saúde do conector de dados" lightbox="media/monitor-data-connector-health/data-health-workbook-2.png":::
 
@@ -65,5 +65,5 @@ Há três secções com açapões neste livro:
 
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="página de informações de agente de monitorização de saúde do conector de dados" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba como [embarcar os seus dados no Azure Sentinel,](quickstart-onboard.md)ligue [fontes de dados](connect-data-sources.md)e [obtenha visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)

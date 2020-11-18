@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 7fe47289dcc6b6d6af4d13b36b5c3b1dae3baaf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 247abafd7abec38e43794b76268ee52538aee508
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89664725"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655685"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Utilize o Logstash para ligar fontes de dados ao Azure Sentinel
 
 > [!IMPORTANT]
-> A ingestão de dados utilizando o plugin de saída Logstash está atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A ingestão de dados utilizando o plugin de saída Logstash está atualmente em pré-visualização pública. Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Utilizando o novo plugin de saída do Azure Sentinel para o motor de recolha de **dados logstash,** pode agora enviar qualquer tipo de registo que pretenda através do Logstash diretamente para o seu espaço de trabalho Log Analytics em Azure Sentinel. Os seus registos serão enviados para uma tabela personalizada que definirá utilizando o plugin de saída.
 
@@ -48,8 +48,8 @@ O motor Logstash é composto por três componentes:
 
 O plugin de saída Azure Sentinel para Logstash envia dados formatados por JSON para o seu espaço de trabalho Log Analytics, utilizando a API do Colecionador de Dados HTTP Log Analytics. Os dados são ingeridos em registos personalizados.
 
-- Saiba mais sobre a [API Log Analytics REST](https://docs.microsoft.com/rest/api/loganalytics/create-request).
-- Saiba mais sobre [registos personalizados.](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs)
+- Saiba mais sobre a [API Log Analytics REST](/rest/api/loganalytics/create-request).
+- Saiba mais sobre [registos personalizados.](../azure-monitor/platform/data-sources-custom-logs.md)
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Implementar o plugin de saída Azure Sentinel em Logstash
 
@@ -57,7 +57,7 @@ O plugin de saída Azure Sentinel para Logstash envia dados formatados por JSON 
 
 O plugin de saída Azure Sentinel está disponível na coleção Logstash.
 
-- Siga as instruções no documento Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar o ***plugin microsoft-logstash-output-azure-loganalytics.***
+- Siga as instruções no documento Logstash [Working with plugins](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) para instalar o plugin **_microsoft-logstash-output-azure-loganalytics_* _.
    
 - Se o seu sistema de Logstash não tiver acesso à Internet, siga as instruções do documento de [Gestão de Plugin Offline](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) de Logstash para preparar e utilizar um pacote de plugin offline. (Isto exigirá que você construa outro sistema logstash com acesso à Internet.)
 
@@ -67,7 +67,7 @@ Utilize as informações na Estrutura de Logstash de um documento [de ficheiro c
 
 | Nome do campo | Tipo de dados | Descrição |
 |----------------|---------------|-----------------|
-| `workspace_id` | cadeia (de carateres) | Insira o seu espaço de trabalho ID GUID. * |
+| `workspace_id` | cadeia (de carateres) | Insira o seu espaço de trabalho ID GUID. _ |
 | `workspace_key` | string | Insira a sua chave primária do espaço de trabalho GUID. * |
 | `custom_log_table_name` | string | Desa ajuste o nome da tabela na qual os troncos serão ingeridos. Apenas um nome de mesa por plugin de saída pode ser configurado. A tabela de registos aparecerá em Azure Sentinel em **Logs,** em **Tabelas** na categoria **Registos Personalizados,** com um `_CL` sufixo. |
 | `endpoint` | string | Campo opcional. Por predefinição, este é o ponto final do Log Analytics. Utilize este campo para definir um ponto final alternativo. |
@@ -162,7 +162,7 @@ Aqui estão algumas configurações de amostra que usam algumas opções diferen
 
 1. Para ver os registos na tabela, consulte a tabela utilizando o nome da mesa como esquema.
 
-   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Screenshot de registos personalizados de registos.":::
+   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Screenshot de uma consulta de registos personalizados de registos de registos de registos.":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>Monitor de saída plugin registos de auditoria
 
@@ -170,7 +170,7 @@ Para monitorizar a conectividade e a atividade do plugin de saída Azure Sentine
 
 Se não estiver a ver nenhum dado neste ficheiro de registo, gere e envie alguns eventos localmente (através dos plugins de entrada e filtro) para se certificar de que o plugin de saída está a receber dados. O Azure Sentinel irá suportar apenas questões relacionadas com o plugin de saída.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, aprendeu a usar o Logstash para ligar fontes de dados externas ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

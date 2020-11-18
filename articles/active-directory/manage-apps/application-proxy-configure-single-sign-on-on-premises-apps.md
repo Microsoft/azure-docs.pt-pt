@@ -16,18 +16,18 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90838b0b613c043ae41a71c76b5e9023d21df3a6
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: e7d51aa7e75d7e94d1c2ac66d7edb92a3ef9395b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025855"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657470"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML único sinal de inscrição para aplicações no local com Proxy de aplicação
 
 Pode fornecer um único sinal de entrada (SSO) para aplicações no local que sejam protegidas com autenticação SAML e fornecer acesso remoto a estas aplicações através do Application Proxy. Com um único sign-on SAML, o Azure Ative Directory (Azure AD) autentica-se na aplicação utilizando a conta Azure AD do utilizador. A Azure AD comunica a informação de inscrição à aplicação através de um protocolo de ligação. Também pode mapear os utilizadores para funções de aplicação específicas com base nas regras que define nas suas reclamações SAML. Ao ativar a Aplicação Proxy para além do SAML SSO, os seus utilizadores terão acesso externo à aplicação e uma experiência SSO sem emenda.
 
-As aplicações devem poder consumir fichas SAML emitidas pela **Azure Ative Directory** . Esta configuração não se aplica a aplicações que utilizem um fornecedor de identidade no local. Para estes cenários, recomendamos a revisão [de Recursos para aplicações migratórias para a Azure AD.](migration-resources.md)
+As aplicações devem poder consumir fichas SAML emitidas pela **Azure Ative Directory**. Esta configuração não se aplica a aplicações que utilizem um fornecedor de identidade no local. Para estes cenários, recomendamos a revisão [de Recursos para aplicações migratórias para a Azure AD.](migration-resources.md)
 
 SAML SSO com Application Proxy também trabalha com a funcionalidade de encriptação de token SAML. Para obter mais informações, consulte a [encriptação do token Configure AD SAML](howto-saml-token-encryption.md).
 
@@ -39,11 +39,11 @@ Os diagramas de protocolo abaixo descrevem a sequência de sinalização única 
 
 ## <a name="create-an-application-and-set-up-saml-sso"></a>Crie uma aplicação e crie o SAML SSO
 
-1. No portal Azure, selecione **Azure Ative Directory > Aplicações Enterprise** e selecione **Nova aplicação** .
+1. No portal Azure, selecione **Azure Ative Directory > Aplicações Enterprise** e selecione **Nova aplicação**.
 
-2. Introduza o nome de exibição para a sua nova aplicação, **selecione Integre qualquer outra aplicação que não encontre na galeria** e, em seguida, selecione **Criar** .
+2. Introduza o nome de exibição para a sua nova aplicação, **selecione Integre qualquer outra aplicação que não encontre na galeria** e, em seguida, selecione **Criar**.
 
-3. Na página **'Visão Geral'** da aplicação, selecione **Single sign-on** .
+3. Na página **'Visão Geral'** da aplicação, selecione **Single sign-on**.
 
 4. Selecione **o SAML** como o método de inscrição única.
 
@@ -52,13 +52,13 @@ Os diagramas de protocolo abaixo descrevem a sequência de sinalização única 
 6. Adicione pelo menos um utilizador à aplicação e certifique-se de que a conta de teste tem acesso à aplicação. Enquanto estiver ligado à rede corporativa, utilize a conta de teste para ver se tem um único sinal de saturação para a aplicação. 
 
    > [!NOTE]
-   > Depois de configurar o Application Proxy, voltará e atualizará o **URL de resposta SAML** .
+   > Depois de configurar o Application Proxy, voltará e atualizará o **URL de resposta SAML**.
 
 ## <a name="publish-the-on-premises-application-with-application-proxy"></a>Publicar a aplicação no local com Application Proxy
 
 Antes de poder fornecer SSO para aplicações no local, tem de ativar o Application Proxy e instalar um conector. Consulte o tutorial [Adicione uma aplicação no local para acesso remoto através da Aplicação Proxy em Azure AD](application-proxy-add-on-premises-application.md) para aprender a preparar o ambiente no local, instalar e registar um conector e testar o conector. Em seguida, siga estes passos para publicar a sua nova aplicação com Application Proxy. Para outras definições não mencionadas abaixo, consulte a [aplicação Adicionar uma aplicação no local à secção AD Azure](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) no tutorial.
 
-1. Com a aplicação ainda aberta no portal Azure, selecione **Application Proxy** . Forneça o **URL Interno** para a aplicação. Se estiver a utilizar um domínio personalizado, também precisa de carregar o certificado TLS/SSL para a sua aplicação. 
+1. Com a aplicação ainda aberta no portal Azure, selecione **Application Proxy**. Forneça o **URL Interno** para a aplicação. Se estiver a utilizar um domínio personalizado, também precisa de carregar o certificado TLS/SSL para a sua aplicação. 
    > [!NOTE]
    > Como uma boa prática, utilize domínios personalizados sempre que possível para uma experiência otimizada do utilizador. Saiba mais sobre [trabalhar com domínios personalizados no Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
@@ -70,7 +70,7 @@ Antes de poder fornecer SSO para aplicações no local, tem de ativar o Applicat
 
 ## <a name="update-the-saml-configuration"></a>Atualizar a configuração SAML
 
-1. Com a aplicação ainda aberta no portal Azure, selecione **Single sign-on** . 
+1. Com a aplicação ainda aberta no portal Azure, selecione **Single sign-on**. 
 
 2. Na **configuração single Sign-On com página SAML,** vá ao título de **Configuração Básica SAML** e selecione o seu ícone **editar** (um lápis). Certifique-se de que o **URL externo** configurado no Application Proxy está preenchido nos campos **identifier,** **URL de resposta** e **URL logo.** Estes URLs são necessários para que o Application Proxy funcione corretamente. 
 
@@ -95,7 +95,7 @@ Quando tiver completado todos estes passos, a sua aplicação deve estar a funci
 1. Abra um navegador e navegue para o **URL Externo** que criou quando publicou a aplicação. 
 1. Inscreva-se na conta de teste que atribuiu à aplicação. Deverá ser capaz de carregar a aplicação e ter SSO na aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Como é que o Azure AD Application Proxy fornece um único sinal de inscrição?](application-proxy-single-sign-on.md)
+- [Como é que o Azure AD Application Proxy fornece um único sinal de inscrição?](./what-is-single-sign-on.md)
 - [Resolver problemas do Proxy de Aplicações](application-proxy-troubleshoot.md)

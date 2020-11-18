@@ -1,6 +1,6 @@
 ---
 title: Ligue os dados de Segurança da Cloud App ao Azure Sentinel. Microsoft Docs
-description: Aprenda a utilizar o conector Microsoft Cloud App Security (MCAS) para transmitir alertas e registos cloud discovery de MCAS para Azure Sentinel. 
+description: Aprenda a utilizar o conector Microsoft Cloud App Security (MCAS) para transmitir alertas e registos cloud discovery de MCAS para Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 5c67f517ffd3704644fbe8041f3ac1e7b0d1f09c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9827e93f793ef47a835aa0a5fb2005e2830a0824
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904552"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655719"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Conecte dados da Microsoft Cloud App Security 
 
-O conector [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) permite transmitir alertas e [registos cloud discovery](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) de MCAS para Azure Sentinel. Isto irá permitir-lhe ganhar visibilidade nas suas aplicações em nuvem, obter análises sofisticadas para identificar e combater ameaças cibernéticas e controlar como os seus dados viajam.
+O conector [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) permite transmitir alertas e [registos cloud discovery](/cloud-app-security/tutorial-shadow-it) de MCAS para Azure Sentinel. Isto irá permitir-lhe ganhar visibilidade nas suas aplicações em nuvem, obter análises sofisticadas para identificar e combater ameaças cibernéticas e controlar como os seus dados viajam.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - O seu utilizador deve ter lido e escrito permissões no espaço de trabalho.
 - O seu utilizador deve ter permissões de Administrador Global ou Administrador de Segurança no inquilino do espaço de trabalho.
-- Para transmitir os registos do Cloud Discovery no Azure Sentinel, [ative o Azure Sentinel como o seu SIEM na Microsoft Cloud App Security](https://aka.ms/AzureSentinelMCAS).
+- Para transmitir os registos do Cloud Discovery no Azure Sentinel, [ative o Azure Sentinel como o seu SIEM na Microsoft Cloud App Security](/cloud-app-security/siem-sentinel).
 
 > [!IMPORTANT]
 > Ingestão de registos cloud discovery está atualmente em pré-visualização pública.
 > Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 ## <a name="connect-to-cloud-app-security"></a>Conecte-se à Cloud App Security
 
-Se já tem Cloud App Security, certifique-se de que está [ativado na sua rede.](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security)
+Se já tem Cloud App Security, certifique-se de que está [ativado na sua rede.](/cloud-app-security/getting-started-with-cloud-app-security)
 Se a Cloud App Security for implementada e ingerir os seus dados, os dados de alerta podem ser facilmente transmitidos para o Azure Sentinel.
 
 
@@ -57,7 +57,7 @@ Se a Cloud App Security for implementada e ingerir os seus dados, os dados de al
 >
 > Uma vez que os dados da Cloud Discovery são agregados por dia, esteja ciente de que até 24 horas de dados mais recentes não serão refletidos no Azure Sentinel. No caso de uma investigação de baixo nível exigir dados mais imediatos, deve ser feito diretamente no aparelho de origem ou no serviço onde residem os dados brutos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a ligar a Microsoft Cloud App Security ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
-- Começa a detetar ameaças com o Azure Sentinel, utilizando regras [incorporadas](tutorial-detect-threats.md) ou [personalizadas.](tutorial-detect-threats-custom.md)
+- Começa a detetar ameaças com o Azure Sentinel, utilizando regras [incorporadas](./tutorial-detect-threats-built-in.md) ou [personalizadas.](tutorial-detect-threats-custom.md)

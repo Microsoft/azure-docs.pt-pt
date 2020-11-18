@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 090e3f93d025fe87ad5b89a98193574595f3d632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614633"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657113"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurar o espaço de nome agregado
 
@@ -57,7 +57,7 @@ A partir do portal Azure, carregue a página de definições **do Namespace.** P
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
 Ao utilizar o Azure CLI, deve adicionar um caminho de espaço de nome quando criar o alvo de armazenamento. Leia [Adicione um novo alvo de armazenamento Azure Blob](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) para mais detalhes.
 
@@ -119,7 +119,7 @@ Preencha estes valores para cada caminho do espaço de nome:
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurar o Azure CLI para a cache Azure HPC](./az-cli-prerequisites.md).
 
 Ao utilizar o Azure CLI, deve adicionar pelo menos um caminho de espaço de nome quando criar o alvo de armazenamento. Leia [Adicione um novo alvo de armazenamento NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) para mais detalhes.
 
@@ -129,7 +129,7 @@ As opções utilizadas para o comando de atualização são semelhantes ao coman
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar o espaço de nome agregado para os seus alvos de armazenamento, pode montar clientes na cache. Leia estes artigos para saber mais.
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 50c1cd62f52583a005e6e7fe8fb29ee8eafd1af9
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 18e40d0e62a69954b0e3c1e5770a71c8b0bcba8b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044467"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656688"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configure propriedades para uma aplicação no seu inquilino Azure Ative (Azure AD)
 
@@ -56,9 +56,9 @@ Para editar as propriedades da aplicação:
     | Sim | Sim | Sim | Os utilizadores designados podem ver a aplicação e iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
     | Sim | Sim | Não  | As utilizações atribuídas não podem ver a aplicação, mas podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
     | Sim | Não  | Sim | Os utilizadores designados podem ver a aplicação e iniciar sessão.<br>Os utilizadores não atribuídos não conseguem ver a aplicação, mas podem iniciar sedu. |
-    | Yes | Não  | Não  | Os utilizadores designados não podem ver a aplicação, mas podem iniciar sessão.<br>Os utilizadores não atribuídos não conseguem ver a aplicação, mas podem iniciar sedu. |
-    | Não  | Yes | Sim | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
-    | Não  | Yes | Não  | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Sim | Não  | Não  | Os utilizadores designados não podem ver a aplicação, mas podem iniciar sessão.<br>Os utilizadores não atribuídos não conseguem ver a aplicação, mas podem iniciar sedu. |
+    | Não  | Sim | Sim | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Não  | Sim | Não  | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
     | Não  | Não  | Sim | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
     | Não  | Não  | Não  | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
 
@@ -81,7 +81,7 @@ Para utilizar um logótipo personalizado:
 
 
 > [!TIP]
-> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 ## <a name="add-notes"></a>Adicionar notas
 
@@ -94,11 +94,11 @@ Pode utilizar o campo de notas para adicionar qualquer informação que seja rel
     ![Screenshot do ecrã Propriedades que mostra como alterar as notas](media/add-application-portal/notes-application.png)
 
     
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não vai continuar com a série quickstart, então considere apagar a app para limpar o seu inquilino de teste. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o próximo artigo para aprender a atribuir utilizadores à app.
 > [!div class="nextstepaction"]

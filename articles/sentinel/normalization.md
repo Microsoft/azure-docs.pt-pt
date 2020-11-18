@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 0c6129a24e6ed083114971df5f254eca54924400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939812"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657028"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalização em Azure Sentinel
 
@@ -97,7 +97,7 @@ Os parsers de tempo de consulta disponíveis estão disponíveis no [repositóri
 
     1. **Categoria**: pode selecionar uma categoria existente ou criar uma nova categoria (como *NormalizedNetworkSessionsParsers)*
     
-        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Instale um novo parser":::
+        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Salve o parser":::
 
 Para utilizar corretamente os parsers, deve também instalar o parser de esquemas de rede Vazio (que cria uma visão tabular vazia de todos os campos de esquemas de sessões de rede) e o meta-parser da rede (que junta todos os parsers habilitados a criar uma única visão de dados de várias fontes no esquema de rede). A instalação destes dois parsers é feita de forma semelhante às etapas acima mencionadas.
 
@@ -107,13 +107,15 @@ Ao guardar uma função de consulta, pode ser necessário fechar o explorador de
 
 Uma vez ativado, pode utilizar o meta-parser para consultar uma visão unificada de todos os parsers atualmente ativados. Para tal, vá à página de registos sentinela e questione o meta-parser:
 
-:::image type="content" source="./media/normalization/query-parser.png" alt-text="Instale um novo parser":::
+:::image type="content" source="./media/normalization/query-parser.png" alt-text="Consulta o parser":::
  
 Também pode aceder ao meta-parser ou aos parsers individuais utilizando o explorador de consultas na página de registos Sentinel, clicando em 'Explorador de Consulta':
 
-:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Instale um novo parser" e encontre a pasta 'NormalizaçãoNetworkParsers' (ou o nome da categoria que escolheu ao criar os parsers):
+:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Explorador de consultas":::
 
-:::image type="content" source="./media/normalization/find-parser.png" alt-text="Instale um novo parser":::
+No painel à direita, expanda a secção "Consultas Guardadas" e encontre a pasta 'NormalizaçãoNetworkParsers' (ou o nome da categoria que escolheu ao criar os parsers):
+
+:::image type="content" source="./media/normalization/find-parser.png" alt-text="Encontre o seu parser":::
 
 Pode clicar em cada analisador individual e ver a função subjacente que utiliza, e executá-la (ou aceder-lhe diretamente pelo seu pseudónimo, conforme descrito acima). Note que alguns parsers podem reter os campos originais lado a lado para os campos normalizados por conveniência. Isto pode ser facilmente editado na consulta do parser.
 
@@ -122,16 +124,18 @@ Pode clicar em cada analisador individual e ver a função subjacente que utiliz
 Pode repetir os passos acima (encontrar o parser no explorador de consultas), clicar no parser relevante e ver a sua implementação da função.
 Por exemplo, pode decidir editar o meta-parser para adicionar/remover os parsers individuais.
 
-:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Instale um novo parser" novamente e use o mesmo nome, pseudónimo e categoria. Será aberto um diálogo de sobreposição – prima "OK":
+:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Personalize o seu parser":::
+ 
+Uma vez alterada a função, clique em "Guardar" novamente e use o mesmo nome, pseudónimo e categoria. Será aberto um diálogo de sobreposição – prima "OK":
 
-:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Instale um novo parser":::
+:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Tens a certeza":::
 
 #### <a name="additional-information"></a>Informações adicionais
 
-Saiba mais sobre [consultas guardadas](../azure-monitor/log-query/saved-queries.md) (a implementação dos parsers de consulta) no Log Analytics.
+Saiba mais sobre [consultas guardadas](../azure-monitor/log-query/example-queries.md) (a implementação dos parsers de consulta) no Log Analytics.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, soube do esquema de normalização de Azure Sentinel. Para o esquema de referência em si, consulte [a referência de esquema de normalização de dados do Azure Sentinel](./normalization-schema.md).
 

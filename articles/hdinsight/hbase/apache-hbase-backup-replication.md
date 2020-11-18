@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: fdd43a017e584a07d61d41e1af06d30db2f30ac7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3ed55387034a383e402d027fd5cab60c4a59c23c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542782"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657045"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurar backup e replicação para Apache HBase e Apache Phoenix em HDInsight
 
@@ -219,6 +219,12 @@ Se não tiver uma conta secundária de Armazenamento Azure anexada ao seu cluste
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 ```
 
+Se o seu cluster de destino for um cluster ADLS Gen 2, altere o comando anterior para ajustar para as configurações que são usadas pela ADLS Gen 2:
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.<account_name>.dfs.core.windows.net=<key> -Dfs.azure.account.auth.type.<account_name>.dfs.core.windows.net=SharedKey -Dfs.azure.always.use.https.<account_name>.dfs.core.windows.net=false -Dfs.azure.account.keyprovider.<account_name>.dfs.core.windows.net=org.apache.hadoop.fs.azurebfs.services.SimpleKeyProvider -snapshot 'Snapshot1' -copy-to 'abfs://<container>@<account_name>.dfs.core.windows.net/hbase'
+```
+
 Após a exportação do instantâneo, sSH no nó de cabeça do cluster de destino e restaurar o instantâneo usando o `restore_snapshot` comando como descrito anteriormente.
 
 As imagens fornecem uma cópia de segurança completa de uma mesa no momento do `snapshot` comando. Os instantâneos não fornecem a capacidade de realizar instantâneos incrementais por janelas de tempo, nem especificar subconjuntos de colunas famílias para incluir no instantâneo.
@@ -242,7 +248,7 @@ Os passos gerais para configurar a replicação são:
 
 Para ativar a replicação no HDInsight, aplique uma Ação de Script no seu cluster HDInsight de fonte de execução. Para uma passagem de ativação da replicação no seu cluster, ou para experimentar a replicação em agrupamentos de amostras criados em redes virtuais utilizando modelos de Gestão de Recursos Azure, consulte [a replicação Configure Apache HBase](apache-hbase-replication.md). Este artigo também inclui instruções para permitir a replicação de metadados Phoenix.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar a replicação apache HBase](apache-hbase-replication.md)
 * [Trabalhar com a HBase Import and Export Utility](/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

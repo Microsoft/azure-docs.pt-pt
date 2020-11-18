@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f8494852bcff49602645c940470b529302f119f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09e813e0dff09885f104e43099b10d6f6f8a7f9b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165078"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657436"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Como permitir que as aplicações de clientes nativos interajam com aplicações de procuração
 
@@ -31,7 +31,7 @@ Para suportar aplicações de clientes nativos, a Application Proxy aceita ficha
 
 ![Relação entre utilizadores finais, Azure AD, e aplicações publicadas](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Para publicar aplicações nativas, utilize a Biblioteca de Autenticação da Microsoft, que cuida da autenticação e suporta muitos ambientes de clientes. O Proxy de aplicações encaixa-se [na aplicação Desktop que chama uma API web em nome de um](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) cenário de utilizador inscrito.
+Para publicar aplicações nativas, utilize a Biblioteca de Autenticação da Microsoft, que cuida da autenticação e suporta muitos ambientes de clientes. O Proxy de aplicações encaixa-se [na aplicação Desktop que chama uma API web em nome de um](../develop/authentication-flows-app-scenarios.md#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) cenário de utilizador inscrito.
 
 Este artigo percorre os quatro passos para publicar uma aplicação nativa com Application Proxy e a Azure AD Authentication Library.
 
@@ -57,7 +57,7 @@ Tem agora de registar a sua candidatura na Azure AD, da seguinte forma:
    - Para direcionar apenas clientes empresariais ou educativos, selecione **Contas em qualquer diretório organizacional.**
    - Para direcionar o conjunto mais amplo de identidades da Microsoft, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft.**
 1. Em **Redirect URI**, selecione **Cliente Público (mobile & desktop)** e, em seguida, digite o URI de redirecionamento `https://login.microsoftonline.com/common/oauth2/nativeclient` para a sua aplicação.
-1. Selecione e leia as Políticas da **Plataforma da Microsoft**e, em seguida, selecione **Registar**. É criada e exibida uma página geral para o novo registo de candidaturas.
+1. Selecione e leia as Políticas da **Plataforma da Microsoft** e, em seguida, selecione **Registar**. É criada e exibida uma página geral para o novo registo de candidaturas.
 
 Para obter informações mais detalhadas sobre a criação de um novo registo [de candidaturas, consulte a Integração de candidaturas com o Azure Ative Directory](../develop/quickstart-register-app.md).
 
@@ -68,7 +68,7 @@ Agora que registou a sua aplicação nativa, pode dar-lhe acesso a outras aplica
 1. Na barra lateral da nova página de registo de candidaturas, selecione **permissões API**. Aparece a página **de permissões** da API para o novo registo de candidatura.
 1. **Selecione Adicionar uma permissão**. Aparece a página **de permissões da API request.**
 1. Sob a **definição de Seleção de API,** selecione **APIs que a minha organização utiliza**. Aparece uma lista que contém as aplicações no seu diretório que expõem AS.
-1. Digite na caixa de pesquisa ou pergaminho para encontrar a aplicação de procuração que publicou no [Passo 1: Publique a sua aplicação de procuração](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-native-client-application#step-1-publish-your-proxy-application)e, em seguida, selecione a aplicação proxy.
+1. Digite na caixa de pesquisa ou pergaminho para encontrar a aplicação de procuração que publicou no [Passo 1: Publique a sua aplicação de procuração](#step-1-publish-your-proxy-application)e, em seguida, selecione a aplicação proxy.
 1. No **tipo de permissões que a sua aplicação requer?** Se a sua aplicação nativa necessitar de aceder à aplicação proxy API como utilizador inscrito, escolha **permissões delegadas**.
 1. No título **de permissões Select,** selecione a permissão desejada e selecione **Permissões de adicionar**. A página **de permissões da API** para a sua aplicação nativa mostra agora a aplicação de procuração e a permissão API que adicionou.
 
@@ -120,7 +120,7 @@ As informações necessárias no código de amostra podem ser encontradas no por
 
 Depois de editar o código MSAL com estes parâmetros, os seus utilizadores podem autenticar para aplicações de clientes nativos mesmo quando estão fora da rede corporativa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o fluxo de aplicações nativas, consulte [aplicações nativas no Azure Ative Directory](../azuread-dev/native-app.md).
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bef120e754c84798b2d1b48f4f00fbb8f5fb3c1d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587774"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656382"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configure domínios personalizados com Proxy de aplicação AD Azure
 
@@ -26,7 +26,7 @@ Ao publicar uma aplicação através do Azure Ative Directory Application Proxy,
 
 É uma boa ideia configurar domínios personalizados para as suas apps sempre que possível. Algumas razões para usar domínios personalizados incluem:
 
-- As ligações entre apps funcionam mesmo fora da rede corporativa. Sem um domínio personalizado, se a sua aplicação tiver ligações internas codificadas com códigos rígidos para alvos fora do Application Proxy, e as ligações não forem externamente resolúveis, serão dissolvadas. Quando os seus URLs internos e externos são os mesmos, evita este problema. Se não conseguir utilizar domínios personalizados, consulte [redirecionar links codificados para aplicações publicadas com O Azure AD Application Proxy](../application-proxy-link-translation.md) para outras formas de resolver este problema. 
+- As ligações entre apps funcionam mesmo fora da rede corporativa. Sem um domínio personalizado, se a sua aplicação tiver ligações internas codificadas com códigos rígidos para alvos fora do Application Proxy, e as ligações não forem externamente resolúveis, serão dissolvadas. Quando os seus URLs internos e externos são os mesmos, evita este problema. Se não conseguir utilizar domínios personalizados, consulte [redirecionar links codificados para aplicações publicadas com O Azure AD Application Proxy](./application-proxy-configure-hard-coded-link-translation.md) para outras formas de resolver este problema. 
   
 - Os seus utilizadores terão uma experiência mais fácil, pois podem chegar à aplicação com o mesmo URL de dentro ou de fora da sua rede. Não precisam de aprender urls internos e externos diferentes, ou rastrear a sua localização atual. 
 
@@ -123,7 +123,7 @@ Deve utilizar um certificado PFX para garantir que todos os certificados interm�
 
 Os métodos de assinatura de certificado mais comuns são suportados, tais como Nome Alternativo Sujeito (SAN). 
 
-Pode utilizar certificados wildcard desde que o wildcard corresponda ao URL externo. Você deve usar certificados wildcard para [aplicações wildcard](application-proxy-wildcard.md). Se pretender utilizar o certificado para também aceder a subdomínios, tem de adicionar os wildcards do subdomínio como nomes alternativos sujeitos no mesmo certificado. Por exemplo, um certificado para * \* .adventure-works.com* não funcionará para * \* .apps.adventure-works.com* a menos que adicione * \* .apps.adventure-works.com* como nome alternativo ao assunto. 
+Pode utilizar certificados wildcard desde que o wildcard corresponda ao URL externo. Você deve usar certificados wildcard para [aplicações wildcard](application-proxy-wildcard.md). Se pretender utilizar o certificado para também aceder a subdomínios, tem de adicionar os wildcards do subdomínio como nomes alternativos sujeitos no mesmo certificado. Por exemplo, um certificado para *\* .adventure-works.com* não funcionará para *\* .apps.adventure-works.com* a menos que adicione *\* .apps.adventure-works.com* como nome alternativo ao assunto. 
 
 Pode utilizar certificados emitidos pela sua própria infraestrutura de chaves públicas (PKI) se a cadeia de certificados estiver instalada nos dispositivos do seu cliente. A Intune pode implementar estes certificados para dispositivos geridos. Para dispositivos não geridos, deve instalar manualmente estes certificados. 
 
@@ -135,9 +135,9 @@ Toda a gestão de certificados é através das páginas de candidatura individua
 
 Uma vez que um certificado é carregado para uma aplicação, também será automaticamente aplicado a **novas** aplicações configuradas que usam o mesmo certificado. Terá de reessaltar o certificado para aplicações existentes no seu inquilino.
 
-Quando um certificado expira, recebe um aviso a dizer-lhe para enviar outro certificado. Se o certificado for revogado, os seus utilizadores poderão ver um aviso de segurança ao aceder à aplicação. Para atualizar o certificado para uma aplicação, navegue na página **de procuração** de aplicação para a aplicação, selecione **Certificate**e faça upload de um novo certificado. Se o certificado antigo não estiver a ser usado por outras aplicações, é apagado automaticamente. 
+Quando um certificado expira, recebe um aviso a dizer-lhe para enviar outro certificado. Se o certificado for revogado, os seus utilizadores poderão ver um aviso de segurança ao aceder à aplicação. Para atualizar o certificado para uma aplicação, navegue na página **de procuração** de aplicação para a aplicação, selecione **Certificate** e faça upload de um novo certificado. Se o certificado antigo não estiver a ser usado por outras aplicações, é apagado automaticamente. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Ative o único sign-on das](application-proxy-configure-single-sign-on-with-kcd.md) suas aplicações publicadas com autenticação AZure AD.
 * [Acesso condicional](../conditional-access/concept-conditional-access-cloud-apps.md) para as suas aplicações publicadas na nuvem.

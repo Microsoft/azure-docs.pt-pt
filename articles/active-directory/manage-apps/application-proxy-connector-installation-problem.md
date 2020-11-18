@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7babe23426cafe01cadc7a5557f91896aa9bbae4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 0b7fee330f93097b561714ecc938eaf3fee8f2b5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108206"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657334"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o Conector do Agente do Proxy de Aplicações
 
@@ -39,7 +39,7 @@ Quando a instalação de um conector falha, a causa raiz é geralmente uma das s
 
 **Objetivo:** Verifique se a máquina de conector pode ligar-se ao ponto de partida de registo do Application Proxy, bem como à página de login da Microsoft.
 
-1.  No servidor do conector, esgoe um teste de porta utilizando [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) ou outra ferramenta de teste de porta para verificar se as portas 443 e 80 estão abertas.
+1.  No servidor do conector, esgoe um teste de porta utilizando [telnet](/windows-server/administration/windows-commands/telnet) ou outra ferramenta de teste de porta para verificar se as portas 443 e 80 estão abertas.
 
 2.  Se alguma dessas portas não for bem sucedida, verifique se o Firewall ou o representante de backend têm acesso aos domínios e portas necessários, [prepare o ambiente no local](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
@@ -77,8 +77,8 @@ Verifique a impressão digital do certificado de cliente atual. A loja de certif
 Os possíveis **valores isInUserStore** são **verdadeiros** e **falsos.** Um valor **verdadeiro** significa que o certificado renovado automaticamente é armazenado no contentor pessoal na loja de certificados de utilizador do Serviço de Rede. Um valor **de falso** significa que o certificado de cliente foi criado durante a instalação ou registo iniciado pelo comando Register-AppProxyConnector e está armazenado no contentor pessoal na loja de certificados da máquina local.
 
 Se o valor for **verdadeiro,** siga estes passos para verificar o certificado:
-1. Baixar [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Extrair [o PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) do pacote e executar **o psexec -i-u "nt authority\network service" cmd.exe** de uma solicitação de comando elevada.
+1. Baixar [PsTools.zip](/sysinternals/downloads/pstools)
+2. Extrair [o PsExec](/sysinternals/downloads/psexec) do pacote e executar **o psexec -i-u "nt authority\network service" cmd.exe** de uma solicitação de comando elevada.
 3. Executar **certmgr.msc** no pedido de comando recém-aparecido
 4. Na consola de gestão expanda o recipiente Pessoal e clique em Certificados
 5. Localize o certificado emitido por **connectorregistrationca.msappproxy.net**
@@ -101,7 +101,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Para saber mais sobre o comando Register-AppProxyConnector, consulte [Criar um script de instalação sem supervisão para o conector Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+Para saber mais sobre o comando Register-AppProxyConnector, consulte [Criar um script de instalação sem supervisão para o conector Azure AD Application Proxy](./application-proxy-register-connector-powershell.md)
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifique se a administração é utilizada para instalar o conector
 
@@ -113,5 +113,5 @@ Ligue-se `https://login.microsoftonline.com` e use as mesmas credenciais. Certif
 
 Selecione a sua conta de utilizador e, em seguida, "Papel de Diretório" no menu resultante. Verifique se a função selecionada é "Administrador de Aplicação". Se não conseguir aceder a nenhuma das páginas ao longo destes degraus, não tem o papel necessário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)
