@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 0812716ab9d952969ccfc14fc0a1e833fae1c9e1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b52cc38c40d8b6a39961ab28d9f0600ea7ee2201
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653798"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841908"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -81,7 +81,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 ### <a name="how-do-i-retrieve-log-data"></a>Como recupero dados de registo?
 Todos os dados são obtidos a partir de um espaço de trabalho Log Analytics utilizando uma consulta de log escrita usando a Linguagem de Consulta de Kusto (KQL). Pode escrever as suas próprias consultas ou utilizar soluções e insights que incluam consultas de registo para uma determinada aplicação ou serviço. Consulte [a visão geral das consultas de registo no Azure Monitor](log-query/log-query-overview.md).
-
+p
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Posso eliminar dados de um espaço de trabalho do Log Analytics?
 Os dados são removidos de um espaço de trabalho de acordo com o seu [período de retenção.](platform/manage-cost-storage.md#change-the-data-retention-period) Pode eliminar dados específicos por razões de privacidade ou conformidade. Ver [Como exportar e apagar dados privados](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) para obter mais informações.
 
@@ -595,10 +595,6 @@ O Colecionador DeTelemetria Aberta é descrito no seu [lido GitHub.](https://git
 
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor para contentores
 
-### <a name="health-feature-is-in-private-preview"></a>A funcionalidade de saúde está em pré-visualização privada
-
-Estamos a planear fazer uma série de alterações para adicionar funcionalidade e abordar o seu feedback. A funcionalidade Saúde vai transitar para uma pré-visualização privada no final de junho de 2020, e para revisão de informação adicional no [seguinte anúncio de atualizações do Azure.](https://azure.microsoft.com/updates/ci-health-limited-preview/)
-
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>O que *os Outros Processos* representam sob a vista nó?
 
 **Outros processos** destinam-se a ajudá-lo a compreender claramente a causa principal do uso elevado de recursos no seu nó. Isto permite-lhe distinguir o uso entre processos contentorizados vs processos não-contentorizados.
@@ -813,7 +809,7 @@ Se tiver configurado o Azure Monitor com um espaço de trabalho Log Analytics ut
 Nesta condição, será solicitado com a opção **Try Now** quando abrir o VM e selecionar **Insights** a partir do painel esquerdo, mesmo depois de já ter sido instalado no VM.  No entanto, não é solicitado com opções como normalmente ocorreria se este VM não fosse a bordo do Azure Monitor para VMs. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se a sua pergunta não for respondida aqui, pode consultar os seguintes fóruns para perguntas e respostas adicionais.
 
 - [Log Analytics](/answers/topics/azure-monitor.html)

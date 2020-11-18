@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c64e01253652ea3b49ad6221f161bb78f499b6ed
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: c38fa77951aaeb5559dc2030f1401a896d7c238d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150537"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841925"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Azure Monitor
 
@@ -20,7 +20,7 @@ As soluções de monitorização no Azure Monitor fornecem uma análise do funci
 
 ## <a name="use-monitoring-solutions"></a>Utilizar soluções de monitorização
 
-A página **de visão geral das** soluções no Azure Monitor exibe um azulejo para cada solução instalada num espaço de trabalho log analytics. Para abrir esta página, aceda ao **Monitor Azure** no [portal Azure](https://ms.portal.azure.com). No menu **Insights,** selecione **Mais** para abrir o **Insights Hub**e, em seguida, clique em **espaços de trabalho Log Analytics**.
+A página **de visão geral das** soluções no Azure Monitor exibe um azulejo para cada solução instalada num espaço de trabalho log analytics. Para abrir esta página, aceda ao **Monitor Azure** no [portal Azure](https://ms.portal.azure.com). No menu **Insights,** selecione **Mais** para abrir o **Insights Hub** e, em seguida, clique em **espaços de trabalho Log Analytics**.
 
 [![Centro de Insights](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 

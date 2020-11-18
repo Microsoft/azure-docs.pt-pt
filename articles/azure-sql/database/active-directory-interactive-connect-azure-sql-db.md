@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: bef6e6c5ef795c192a846700fc046aa20274502d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 93831ec4c1dc3e34c2ea144e71b67dae711ee870
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673408"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841653"
 ---
-# <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Ligue à Base de Dados Azure SQL com autenticação multi-factor Azure
+# <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>Ligue à Base de Dados Azure SQL com autenticação multi-factor Azure AD
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Este artigo fornece um programa C# que se conecta à Base de Dados Azure SQL. O programa utiliza a autenticação de modo interativo, que suporta [a autenticação multi-factor Azure.](../../active-directory/authentication/concept-mfa-howitworks.md)
+Este artigo fornece um programa C# que se conecta à Base de Dados Azure SQL. O programa utiliza a autenticação de modo interativo, que suporta [a autenticação multi-factor Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 Para obter mais informações sobre o suporte à autenticação multi-factor para ferramentas SQL, consulte [o suporte do Diretório Ativo Azure em SqL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory).
 
@@ -39,7 +39,7 @@ A partir da versão 4.7.2 do quadro.NET, o enum [`SqlAuthenticationMethod`](/dot
 
 * Uma caixa de diálogo que pede um código de verificação de autenticação multi-factor, que o sistema enviou para um telemóvel.
 
-Para obter informações sobre como configurar a AD Azure para exigir autenticação multi-factor, consulte [Começar com autenticação multi-factor Azure na nuvem](../../active-directory/authentication/howto-mfa-getstarted.md).
+Para obter informações sobre como configurar a Ad Azure para exigir autenticação multi-factor, consulte [Começar com autenticação multi-factor AD Azure na nuvem](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 Para imagens destas caixas de diálogo, consulte [a autenticação de vários fatores configurar para o SQL Server Management Studio e AZure AD](authentication-mfa-ssms-configure.md).
 
@@ -60,23 +60,23 @@ O preenchimento de um registo de aplicações gera e exibe um **ID de aplicaçã
 
 Para registar e definir as permissões necessárias para a sua candidatura:
 
-1. No portal Azure, selecione **Azure Ative Directory**  >  **App registra**  >  **Novo registo** .
+1. No portal Azure, selecione **Azure Ative Directory**  >  **App registra**  >  **Novo registo**.
 
-    ![Registo da aplicação](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
+    ![Registo de aplicações](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
     Após a criação do registo da aplicação, o valor **de ID da aplicação** é gerado e exibido.
 
     ![ID da aplicação exibido](./media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. Selecione **permissões API**  >  **Adicione uma permissão** .
+2. Selecione **permissões API**  >  **Adicione uma permissão**.
 
     ![Permissões de definições para aplicação registada](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
-3. Selecione **APIs a minha organização utiliza** > tipo **Azure SQL Database** na > de pesquisa e selecione **Azure SQL Database** .
+3. Selecione **APIs a minha organização utiliza** > tipo **Azure SQL Database** na > de pesquisa e selecione **Azure SQL Database**.
 
     ![Adicionar acesso à API para Azure SQL Database](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4. Selecione **permissões delegadas**  >  **user_impersonation**  >  **Adicionar permissões** .
+4. Selecione **permissões delegadas**  >  **user_impersonation**  >  **Adicionar permissões**.
 
     ![Autorizações de delegado à API para Azure SQL Database](./media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
@@ -84,7 +84,7 @@ Para registar e definir as permissões necessárias para a sua candidatura:
 
 Para que o seu programa C# possa ser executado, um administrador lógico do [servidor SQL](logical-servers.md) precisa de atribuir um administrador AD AD Azure para o seu servidor.
 
-Na página do **servidor SQL,** selecione **Ative Directory**  >  **admin set** .
+Na página do **servidor SQL,** selecione **Ative Directory**  >  **admin set**.
 
 Para obter mais informações sobre os administradores e utilizadores da Azure AD para a Base de Dados Azure SQL, consulte as imagens em [Configurar e gerencie a autenticação do Azure Ative Directory com base de dados SQL](authentication-aad-configure.md#provision-azure-ad-admin-sql-database).
 
@@ -138,12 +138,12 @@ Executar SSMS a partir do mesmo computador, no mesmo edifício, onde planeia exe
 
 ### <a name="verify-azure-active-directory-multi-factor-authentication"></a>Verifique a autenticação multi-factor do Diretório Ativo Azure
 
-Executar SSMS novamente, desta vez com **autenticação** definida para **Azure Ative Diretório - Universal com MFA** . Esta opção requer a versão SSMS 17.5 ou posterior.
+Executar SSMS novamente, desta vez com **autenticação** definida para **Azure Ative Diretório - Universal com MFA**. Esta opção requer a versão SSMS 17.5 ou posterior.
 
 Para obter mais informações, consulte [a autenticação multi-factor configure para SSMS e AD AZure](authentication-mfa-ssms-configure.md).
 
 > [!NOTE]
-> Se for um utilizador convidado na base de dados, também precisa de fornecer **Options** o nome de domínio AZure AD para a base de dados: Selecione  >  **Opções Nome de domínio AD ou ID do inquilino** . Para encontrar o nome de domínio no portal Azure, selecione **Azure Ative Directory**  >  **Custom nomes de domínio** . No programa de exemplo C#, não é necessário fornecer um nome de domínio.
+> Se for um utilizador convidado na base de dados, também precisa de fornecer **Options** o nome de domínio AZure AD para a base de dados: Selecione  >  **Opções Nome de domínio AD ou ID do inquilino**. Para encontrar o nome de domínio no portal Azure, selecione **Azure Ative Directory**  >  **Custom nomes de domínio**. No programa de exemplo C#, não é necessário fornecer um nome de domínio.
 
 ## <a name="c-code-example"></a>Exemplo de código C#
 
@@ -152,7 +152,7 @@ Para obter mais informações, consulte [a autenticação multi-factor configure
 
 O programa exemplo C# baseia-se na montagem [*Microsoft.IdentityModel.Clients.ActiveDirectory*](/dotnet/api/microsoft.identitymodel.clients.activedirectory) DLL.
 
-Para instalar este pacote, no Estúdio Visual, selecione **Project**  >  **Manage NuGet Packages** . Procure e instale **Microsoft.IdentityModel.Clients.ActiveDirectory** .
+Para instalar este pacote, no Estúdio Visual, selecione **Project**  >  **Manage NuGet Packages**. Procure e instale **Microsoft.IdentityModel.Clients.ActiveDirectory**.
 
 Este é um exemplo do código fonte C#.
 

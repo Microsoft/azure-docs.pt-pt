@@ -9,13 +9,13 @@ ms.reviewer: larryfr
 ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
-ms.custom: deploy
-ms.openlocfilehash: 703f5e360261c47c443320459d601d65a5503f5a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: deploy, devx-track-azurecli
+ms.openlocfilehash: ddd075a5880899a065ee6eaaa4ff0636b6590370
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322431"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840785"
 ---
 # <a name="update-a-deployed-web-service"></a>Atualizar um serviço web implantado
 

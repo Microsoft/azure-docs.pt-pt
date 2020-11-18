@@ -3,19 +3,19 @@ title: Iniciar manualmente uma falha na sql Managed Instance
 description: Aprenda a falhar manualmente réplicas primárias e secundárias em Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7bcdabdb4e49d198b9acb7a1c57312b31a5b4fff
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791635"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842231"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Falha manual iniciada pelo utilizador em SqL Managed Instance
 
@@ -140,7 +140,7 @@ Não poderá ver a mesma saída com o nível de serviço GP acima mostrado para 
 
 > [!IMPORTANT]
 > As limitações funcionais da falha manual iniciada pelo utilizador são:
-> - Pode haver um (1) failover iniciado na mesma Instância Gerida a cada **30 minutos** .
+> - Pode haver um (1) failover iniciado na mesma Instância Gerida a cada **30 minutos**.
 > - Para os casos a.C. deve existir quórum de réplicas para que o pedido de caduco seja aceite.
 > - Para os casos a.C. não é possível especificar qual réplica secundária legível para iniciar a falha.
 

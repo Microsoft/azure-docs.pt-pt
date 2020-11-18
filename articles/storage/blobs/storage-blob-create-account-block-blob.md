@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 65a60425f09e9cd7a3e06ca1624621ed8b9fdcbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124973"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842078"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Criar uma conta BlockBlobStorage
 
@@ -88,13 +88,13 @@ az login
 ## <a name="portal"></a>[Portal](#tab/azure-portal)
 Para criar uma conta BlockBlobStorage no portal Azure, siga estes passos:
 
-1. No portal Azure, selecione **Todos os serviços** > a categoria **de Armazenamento** > Contas **de Armazenamento** .
+1. No portal Azure, selecione **Todos os serviços** > a categoria **de Armazenamento** > Contas **de Armazenamento**.
 
-2. Nas **contas de Armazenamento** , selecione **Add** .
+2. Nas **contas de Armazenamento**, selecione **Add**.
 
 3. No campo **Subscrição,** selecione a subscrição na qual criar a conta de armazenamento.
 
-4. No campo **grupo De recursos,** selecione um grupo de recursos existente ou selecione **Criar novo** , e insira um nome para o novo grupo de recursos.
+4. No campo **grupo De recursos,** selecione um grupo de recursos existente ou selecione **Criar novo**, e insira um nome para o novo grupo de recursos.
 
 5. No campo **de nome da conta De armazenamento,** insira um nome para a conta. Note as seguintes orientações:
 
@@ -108,19 +108,19 @@ Para criar uma conta BlockBlobStorage no portal Azure, siga estes passos:
 
    |Campo     |Valor  |
    |---------|---------|
-   |**Desempenho**    |  Selecione **Premium** .   |
-   |**Tipo de conta**    | Selecione **BlockBlobStorage** .      |
-   |**Replicação**    |  Deixe a definição padrão de **armazenamento localmente redundante (LRS)** .      |
+   |**Desempenho**    |  Selecione **Premium**.   |
+   |**Tipo de conta**    | Selecione **BlockBlobStorage**.      |
+   |**Replicação**    |  Deixe a definição padrão de **armazenamento localmente redundante (LRS)**.      |
 
    ![Mostra portal UI para criar uma conta de armazenamento de blob de bloco](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
 8. Escolha o separador **Avançado.**
 
-9. Se pretender otimizar a sua conta de armazenamento para análise de dados, em seguida, desapasça o **espaço de nome hierárquico** para **Ativado** . Caso contrário, deixe esta opção definida para o seu valor predefinido. Ativar esta definição com a sua conta BlockBlobStorage dá-lhe o nível premium para o [armazenamento de data lake.](premium-tier-for-data-lake-storage.md)  Para saber mais sobre o armazenamento do data lake, consulte [Introdução ao Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+9. Se pretender otimizar a sua conta de armazenamento para análise de dados, em seguida, desapasça o **espaço de nome hierárquico** para **Ativado**. Caso contrário, deixe esta opção definida para o seu valor predefinido. Ativar esta definição com a sua conta BlockBlobStorage dá-lhe o nível premium para o [armazenamento de data lake.](premium-tier-for-data-lake-storage.md)  Para saber mais sobre o armazenamento do data lake, consulte [Introdução ao Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 8. Selecione **Review + criar** para rever as definições da conta de armazenamento.
 
-9. Selecione **Criar** .
+9. Selecione **Criar**.
 
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

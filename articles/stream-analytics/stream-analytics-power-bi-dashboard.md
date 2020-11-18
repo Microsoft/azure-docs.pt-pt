@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/16/2020
-ms.openlocfilehash: 6dd855695a155e924f7c46bdb17449c5e6504ca6
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 4e3f31442c5fa645e27a640d8facf86aed20aa75
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745365"
+ms.locfileid: "94842486"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: Um dashboard de análise em tempo real para dados de streaming
 
@@ -221,7 +221,7 @@ Dada esta configuração, pode alterar a consulta original para o seguinte:
 ```
 
 ### <a name="renew-authorization"></a>Renovar a autorização
-Se a palavra-passe tiver sido alterada desde que o seu trabalho foi criado ou autenticado pela última vez, tem de reautorá-la à sua conta Power BI. Se a autenticação multi-factor Azure estiver configurada no seu inquilino Azure Ative Directory (Azure AD), também precisa de renovar a autorização do Power BI de duas em duas semanas. Se não renovar, poderá ver sintomas como a falta de saída de emprego ou `Authenticate user error` um nos registos de operação.
+Se a palavra-passe tiver sido alterada desde que o seu trabalho foi criado ou autenticado pela última vez, tem de reautorá-la à sua conta Power BI. Se a autenticação multi-factor Azure AD estiver configurada no seu inquilino Azure Ative Directory (Azure AD), também precisa de renovar a autorização do Power BI de duas em duas semanas. Se não renovar, poderá ver sintomas como a falta de saída de emprego ou `Authenticate user error` um nos registos de operação.
 
 Da mesma forma, se um trabalho começar após o token expirar, ocorre um erro e o trabalho falha. Para resolver este problema, pare o trabalho que está em execução e vá para a sua saída de Power BI. Para evitar a perda de dados, selecione o link **de autorização Renovar** e, em seguida, reinicie o seu trabalho a partir da última hora **parada**.
 

@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c8fe6c7ead587d58775984854260bd071215e42
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: eab1a3f81666cd3bddea9954f210e5825a538356
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965578"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840122"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Métodos de autenticação no Azure Ative Directory - Microsoft Authenticator app
 
-A aplicação Microsoft Authenticator fornece um nível adicional de segurança ao seu trabalho de AD ou conta escolar do Azure ou à sua conta Microsoft e está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS.](https://go.microsoft.com/fwlink/?linkid=866594) Com a aplicação Microsoft Authenticator, os utilizadores podem autenticar de forma sem palavras-passe durante o sent-in ou como uma opção de verificação adicional durante o reset da palavra-passe de autosserviço (SSPR) ou a autenticação multi-factor Azure.
+A aplicação Microsoft Authenticator fornece um nível adicional de segurança ao seu trabalho de AD ou conta escolar do Azure ou à sua conta Microsoft e está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS.](https://go.microsoft.com/fwlink/?linkid=866594) Com a aplicação Microsoft Authenticator, os utilizadores podem autenticar de forma sem palavras-passe durante o sent-in ou como uma opção de verificação adicional durante o reset da palavra-passe de autosserviço (SSPR) ou a autenticação multi-factor Ad Azure.
 
 Os utilizadores podem receber uma notificação através da aplicação móvel para que possam aprovar ou negar, ou utilizar a aplicação Authenticator para gerar um código de verificação do OATH que pode ser introduzido numa interface de entrada. Se ativar um código de notificação e verificação, os utilizadores que registem a aplicação Authenticator podem utilizar qualquer método para verificar a sua identidade.
 

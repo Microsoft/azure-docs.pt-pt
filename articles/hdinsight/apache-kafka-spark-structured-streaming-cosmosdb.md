@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
-ms.openlocfilehash: 20045ce914a340ac36e4df8cbd0df38e872a1d38
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 387eb4f4c73b2103a7461c0d06c4d0e0562ec9db
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487335"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842469"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Fluxo Estruturado de Faíscas Apache com Apache Kafka e Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Embora possa criar uma rede virtual Azure, Kafka e Spark agrupamentos manualment
 
     ![Valores de implementação personalizados HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-1. Leia os **Termos e Condições**e, em seguida, selecione **Concordo com os termos e condições acima indicados**.
+1. Leia os **Termos e Condições** e, em seguida, selecione **Concordo com os termos e condições acima indicados**.
 
 1. Finalmente, selecione **Comprar**. Pode levar até 45 minutos para criar os clusters, rede virtual e conta Cosmos DB.
 

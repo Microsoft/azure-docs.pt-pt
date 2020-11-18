@@ -4,18 +4,18 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 6da91248c197eae12fbc59f2da8c5294d95117b6
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 343ad80a6b68de352424fa8f16686fcece921954
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173838"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840921"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
 Pode resolver os erros encontrados durante a utilização do Azure Backup com as informações listadas abaixo:
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 Esta secção cobre a falha de funcionamento de backup da máquina Virtual Azure.
 
@@ -95,7 +95,7 @@ A operação de backup falhou devido a um problema com a aplicação **do Sistem
   * Execute o comando `msdtc -uninstall`
   * Execute o comando `msdtc -install`
   * Inicie o serviço MS DTC
-* Inicie a **aplicação**do sistema com o serviço Windows COM+ . Após o início da **Aplicação do Sistema COM+,** desencadeie uma tarefa de backup a partir do portal Azure.</ol>
+* Inicie a **aplicação** do sistema com o serviço Windows COM+ . Após o início da **Aplicação do Sistema COM+,** desencadeie uma tarefa de backup a partir do portal Azure.</ol>
 
 ### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState – a operação de instantâneo falhou porque os escritores VSS estavam num estado incorreto
 
@@ -124,8 +124,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 Passo 3: Se os passos 1 e 2 não resolverem o problema, então a falha pode ser devido ao timing dos escritores vss devido a IOPS limitado.<br>
 
-Para verificar, navegue nos ***registos de aplicações do Visualizador de Sistema e evento*** e verifique a seguinte mensagem de erro:<br>
-*O provedor de cópia-sombra cronometrou enquanto segurava as gravações para o volume que estava a ser copiado. Isto deve-se provavelmente a uma atividade excessiva no volume por uma aplicação ou um serviço de sistema. Tente novamente mais tarde quando a atividade no volume for reduzida.*<br>
+Para verificar, navegue para * Registos de **aplicação do visualizador de sistema e evento** _ e verifique a seguinte mensagem de erro:<br>
+_The fornecedor de cópias-sombra cronometrado enquanto segurava as gravações para o volume que está a ser copiado. Isto deve-se provavelmente a uma atividade excessiva no volume por uma aplicação ou um serviço de sistema. Tente novamente mais tarde quando a atividade no volume for reduzida.*<br>
 
 Solução:
 
@@ -157,7 +157,7 @@ Código de erro: Mensagem de erro Do UtilizadorErrorSkuNotAvailable Error: A cri
 
 Este erro ocorre porque o tamanho VM selecionado durante a operação de restauro é um tamanho não suportado. <br>
 
-Para resolver este problema, utilize a opção [de restaurar os discos](./backup-azure-arm-restore-vms.md#restore-disks) durante a operação de restauro. Utilize estes discos para criar um VM a partir da lista de [tamanhos VM suportados disponíveis utilizando](./backup-support-matrix-iaas.md#vm-compute-support) [cmdlets Powershell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+Para resolver este problema, utilize a opção [de restaurar os discos](./backup-azure-arm-restore-vms.md#restore-disks) durante a operação de restauro. Utilize estes discos para criar um VM a partir da lista de [tamanhos VM suportados disponíveis utilizando](./backup-support-matrix-iaas.md#vm-compute-support) [cmdlets PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported - VM criação falhou devido ao pedido de compra do Market Place não estar presente
 
@@ -207,7 +207,7 @@ Error message: Extension state is not supportive to backup operation
 A operação de backup falhou devido ao estado inconsistente da extensão de reserva. Para resolver este problema, siga estes passos:
 
 * Certifique-se de que o Agente Convidado está instalado e a responder
-* A partir do portal Azure, vá para **a Máquina Virtual**Todas as  >  **Extensões de**  >  **Definições**
+* A partir do portal Azure, vá para **a Máquina Virtual** Todas as  >  **Extensões de**  >  **Definições**
 * Selecione a extensão de backup VmSnapshot ou VmSnapshotLinux e selecione **Desinstalar**.
 * Depois de eliminar a extensão de backup, recandidutar a operação de backup
 * A operação de cópia de segurança subsequente irá instalar a nova extensão no estado pretendido
@@ -244,7 +244,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 Desta forma, garante-es que os instantâneos são criados através do anfitrião e não do Convidado. Repita a operação de cópia de segurança.
 
-**Passo 2**: Tente alterar o horário de backup para uma altura em que o VM esteja menos carregado (como menos CPU ou IOps)
+**Passo 2**: Tente alterar o horário de backup para uma altura em que o VM esteja menos carregado (como menos CPU ou IOPS)
 
 **Passo 3**: Tente [aumentar o tamanho do VM](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) e reforce a operação
 
@@ -283,14 +283,14 @@ Código de erro: Estado VmNotInDesirable <br/> Error message: The VM is in a sta
 * Se o VM estiver num estado transitório entre **correr** e **desligar,** aguarde que o Estado mude. Então desencadeie o trabalho de reserva.
 * Se o VM for um Linux VM e utilizar o módulo de kernel linux Security-Enhanced, exclua o caminho do Agente Azure Linux **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.
 
-* O Agente VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito e o agente VM. Em seguida, reinicie a operação. | Leia mais sobre [a instalação do Agente VM e como validar a instalação do Agente VM](#vm-agent).
+* O Agente VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito e o agente VM. Em seguida, reinicie a operação. • Leia mais sobre [a instalação do Agente VM e como validar a instalação do Agente VM](#vm-agent).
 
 ### <a name="extensionsnapshotfailednosecurenetwork---the-snapshot-operation-failed-because-of-failure-to-create-a-secure-network-communication-channel"></a>ExtensõesSnapshotFailedNoSecureNet - A operação snapshot falhou devido à falha na criação de um canal de comunicação de rede seguro
 
 Código de erro: ExtensionSnapshotFailedNoSecureNet <br/> Mensagem de erro: A operação instantânea falhou devido à falha na criação de um canal de comunicação de rede seguro.
 
 * Abra o Editor de Registo executando **regedit.exe** em modo elevado.
-* Identifique todas as versões do Quadro .NET presentes no seu sistema. Estão presentes sob a hierarquia da chave do registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft. **
+* Identifique todas as versões do Quadro .NET presentes no seu sistema. Estão presentes sob a hierarquia da chave do registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.**
 * Para cada quadro .NET presente na chave de registo, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:0000001**. </ol>
 
 ### <a name="extensionvcredistinstallationfailure---the-snapshot-operation-failed-because-of-failure-to-install-visual-c-redistributable-for-visual-studio-2012"></a>ExtensãoVCRedistInstallationFailure - A operação snapshot falhou devido à falha na instalação visual C++ Redistributable para Visual Studio 2012
@@ -321,8 +321,8 @@ Se tiver uma Política Azure que [regule as etiquetas dentro](../governance/poli
 
 Se depois de restaurado, nota que os discos estão offline então:
 
-* Verifique se a máquina onde o script é executado satisfaz os requisitos de SO. [Saiba mais](./backup-azure-restore-files-from-vm.md#system-requirements).  
-* Certifique-se de que não está a restaurar a mesma fonte, [Saiba mais](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine).
+* Verifique se a máquina onde o script é executado satisfaz os requisitos de SO. [Saiba mais](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
+* Certifique-se de que não está a restaurar a mesma fonte, [Saiba mais](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound - Restauro falhou porque a imagem do VM não foi encontrada
 

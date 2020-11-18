@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e2ebc0033f2d2d55571ba45a38b5e0061716673d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 04852e3081807930ced9fdacc75c956d9a15ff23
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532482"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840734"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Ative Directory B2C
 
@@ -98,7 +98,7 @@ As capacidades de enquadramento de política/identidade personalizadas estão em
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Autenticação de fator telefone](phone-factor-technical-profile.md) |  |  | X |  |
-| [Autenticação Azure MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Autenticação Azure AD MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [Palavra-passe monouso](one-time-password-technical-profile.md) |  | X |  |  |
 | [Diretório Ativo Azure](active-directory-technical-profile.md) como diretório local |  |  | X |  |
 | Subsistema de e-mail Azure para verificação de e-mail |  |  | X |  |

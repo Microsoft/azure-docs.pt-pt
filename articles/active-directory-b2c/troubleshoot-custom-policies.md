@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ea77540e5fcaac0c4231403473d25ebae46aac
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85384962"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840258"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Resolução de problemas Azure AD B2C políticas personalizadas e enquadramento de experiência de identidade
 
@@ -64,7 +64,7 @@ Os erros de validação comuns incluem:
 
 * Para rastrear a troca de mensagens entre o seu navegador cliente e o Azure AD B2C, utilize [o Fiddler](https://www.telerik.com/fiddler). Pode ajudá-lo a obter uma indicação de onde a sua viagem de utilizador está a falhar nos seus passos de orquestração.
 
-* No **modo Desenvolvimento,** utilize [o Application Insights](troubleshoot-with-application-insights.md) para rastrear a atividade da sua jornada de utilizador do Quadro de Experiências de Identidade. No **modo desenvolvimento,** pode observar a troca de reclamações entre o Quadro de Experiência de Identidade e os vários fornecedores de sinistros que são definidos por perfis técnicos, tais como fornecedores de identidade, serviços baseados em API, o diretório de utilizadores Azure AD B2C, e outros serviços, como a Autenticação Multi-Factor Azure.
+* No **modo Desenvolvimento,** utilize [o Application Insights](troubleshoot-with-application-insights.md) para rastrear a atividade da sua jornada de utilizador do Quadro de Experiências de Identidade. No **modo desenvolvimento,** pode observar a troca de reclamações entre o Quadro de Experiência de Identidade e os vários fornecedores de sinistros que são definidos por perfis técnicos, tais como fornecedores de identidade, serviços baseados em API, o diretório de utilizadores Azure AD B2C, e outros serviços, como a Autenticação Multi-Factor AD Azure.
 
 ## <a name="recommended-practices"></a>Práticas recomendadas
 
@@ -76,7 +76,7 @@ Os erros de validação comuns incluem:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Disponível no GitHub, descarregue o arquivo [active-directório-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip. Também pode clonar o repositório:
+Disponível no GitHub, descarregue o [active-directy-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip arquivo. Também pode clonar o repositório:
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 578f3244381c94552a159589478781640629271f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c7a94a24bd825249859ff699ab82ce4d3ae8fce1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788643"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842248"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL e Azure SQL Gestão De Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -112,11 +112,11 @@ A gestão central da identidade oferece os seguintes benefícios:
 > - O token de acesso Azure AD está em cache no lado do cliente e a sua vida útil depende da configuração simbólica. Veja o artigo, [Configurar vidas simbólicas no Azure Ative Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - Para obter orientações sobre problemas de resolução de problemas Azure AD Authentication, consulte o seguinte blog: [Troubleshooting Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).
 
-### <a name="azure-multi-factor-authentication"></a>Multi-Factor Authentication do Azure
+### <a name="azure-ad-multi-factor-authentication"></a>Autenticação de vários fatores Azure Ad
 
 > Mencionado em: Osa Practice #2, ISO Access Control (AC)
 
-A autenticação multi-factor Azure ajuda a fornecer segurança adicional, exigindo mais de uma forma de autenticação.
+A autenticação multi-factor Azure AD ajuda a fornecer segurança adicional, exigindo mais do que uma forma de autenticação.
 
 **Como implementar:**
 
@@ -144,7 +144,7 @@ A autenticação multi-factor Azure ajuda a fornecer segurança adicional, exigi
     - [bcp Utilitário](/sql/tools/bcp-utility): opção -G (interativo)
 
 - Implemente as suas aplicações para ligar à Base de Dados Azure SQL ou à Azure SQL Managed Instance utilizando a autenticação interativa com suporte à autenticação multi-factor.
-  - Consulte o artigo, [Ligue-se à Base de Dados Azure SQL com autenticação multi-factor Azure](active-directory-interactive-connect-azure-sql-db.md).
+  - Consulte o artigo, [Ligue-se à Base de Dados Azure SQL com autenticação multi-factor Azure AD](active-directory-interactive-connect-azure-sql-db.md).
   > [!NOTE]
   > Este modo de autenticação requer identidades baseadas no utilizador. Nos casos em que seja utilizado um modelo de identidade fidedigno que esteja a contornar a autenticação individual do utilizador Azure AD (por exemplo, utilização de identidade gerida para recursos Azure), a Autenticação Multi-Factor não se aplica.
 
@@ -236,7 +236,7 @@ Atribua apenas as [permissões necessárias](/sql/relational-databases/security/
        - [ALTERAR PAPEL](/sql/t-sql/statements/alter-role-transact-sql)
        - [ALTERAR O PAPEL DO SERVIDOR](/sql/t-sql/statements/alter-server-role-transact-sql)
     1. Em seguida, atribuir permissões para papéis.
-       - [CONCESSÃO](/sql/t-sql/statements/grant-transact-sql)
+       - [GRANT](/sql/t-sql/statements/grant-transact-sql)
   - Certifique-se de que não atribui os utilizadores a funções desnecessárias.
 
 - Em Azure Resource Manager:
@@ -769,9 +769,9 @@ A exfiltração de dados é a cópia, transferência ou recuperação não autor
 
 A ligação ao servidor por um ponto final público apresenta um risco de exfiltração de dados, uma vez que requer que os clientes abram as suas firewalls a IPs públicos.  
 
-**Cenário 1** : Uma aplicação num Azure VM liga-se a uma base de dados na Base de Dados Azure SQL. Um ator desonesto tem acesso ao VM e compromete-o. Neste cenário, a exfiltração de dados significa que uma entidade externa que utiliza o VM fraudulento se conecta à base de dados, copia dados pessoais e armazena-os num armazenamento de bolhas ou numa base de dados SQL diferente numa subscrição diferente.
+**Cenário 1**: Uma aplicação num Azure VM liga-se a uma base de dados na Base de Dados Azure SQL. Um ator desonesto tem acesso ao VM e compromete-o. Neste cenário, a exfiltração de dados significa que uma entidade externa que utiliza o VM fraudulento se conecta à base de dados, copia dados pessoais e armazena-os num armazenamento de bolhas ou numa base de dados SQL diferente numa subscrição diferente.
 
-**Cenário 2** : Um Rouge DBA. Este cenário é muitas vezes levantado por clientes sensíveis à segurança das indústrias regulamentadas. Neste cenário, um utilizador de alto privilégio poderá copiar dados da Base de Dados Azure SQL para outra subscrição não controlada pelo titular dos dados.
+**Cenário 2**: Um Rouge DBA. Este cenário é muitas vezes levantado por clientes sensíveis à segurança das indústrias regulamentadas. Neste cenário, um utilizador de alto privilégio poderá copiar dados da Base de Dados Azure SQL para outra subscrição não controlada pelo titular dos dados.
 
 **Potenciais atenuações:**
 

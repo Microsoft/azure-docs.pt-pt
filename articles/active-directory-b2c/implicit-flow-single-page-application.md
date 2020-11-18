@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 44300771ce6471c97dcd582884995395daae4995
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: fe31e1bf095d15cfdd7945288486cb866ace8246
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215489"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840615"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Sinal de uma página única na utilização do fluxo implícito OAuth 2.0 em Azure Ative Directory B2C
 
@@ -141,7 +141,7 @@ Várias outras validações que deve realizar são descritas em detalhe na [Espe
 
 * Garantindo que o utilizador ou organização se inscreveu para a aplicação.
 * Garantindo que o utilizador tem a devida autorização e privilégios.
-* Garantindo que ocorreu uma certa força de autenticação, como por exemplo através da utilização da Autenticação Multi-Factor Azure.
+* Garantindo que ocorreu uma certa força de autenticação, como por exemplo através da utilização da Autenticação Multi-Factor AD Azure.
 
 Para obter mais informações sobre as reclamações num token de identificação, consulte a [referência simbólica Azure AD B2C](tokens-overview.md).
 

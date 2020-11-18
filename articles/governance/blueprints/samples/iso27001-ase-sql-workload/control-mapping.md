@@ -3,12 +3,12 @@ title: Iso 27001 CONTROLOs de amostra de amostra de carga de carga DE TRABALHO I
 description: Controlo do mapeamento do sistema iso 27001 App Service Environment/SQL Database amostra de amostra de carga de trabalho para Azure Policy e Azure RBAC.
 ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 438f2af05e0c499e9f002b501b97e291705cee9a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4256f401e602a0641247dd06a1537289282f647b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420415"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842554"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto de carga de trabalho DA ISO 27001 ASE/SQL
 
@@ -82,7 +82,7 @@ A Azure implementa [o controlo de acesso baseado em funções (Azure RBAC) para 
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Procedimentos de início de sessão seguros
 
-Este projeto atribui três definições de Política Azure a contas de auditoria que não têm autenticação multi-factor ativada. A autenticação multi-factor Azure proporciona segurança adicional exigindo uma segunda forma de autenticação e proporciona uma autenticação forte. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
+Este projeto atribui três definições de Política Azure a contas de auditoria que não têm autenticação multi-factor ativada. A Azure AD Multi-Factor Authentication proporciona segurança adicional exigindo uma segunda forma de autenticação e proporciona uma autenticação forte. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
 - MFA deve ser ativado em contas com permissões de leitura na sua subscrição

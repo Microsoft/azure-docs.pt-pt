@@ -12,12 +12,12 @@ ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7a7736602fafb740d1d76fa09fd26da25e4ff9f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06253b571fd71623501c27fd5b0d9d4013727fc2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87481602"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840197"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos de utilizadores no Azure Ative Directory B2C
 
@@ -25,7 +25,7 @@ Para ajudá-lo a configurar as tarefas de identidade mais comuns para as suas ap
 
 - Tipos de conta utilizados para o s-in, tais como contas sociais como um Facebook ou contas locais
 - Atributos a serem recolhidos junto do consumidor, como o primeiro nome, código postal e tamanho do sapato
-- Multi-Factor Authentication do Azure
+- Autenticação de vários fatores Azure Ad
 - Personalização da interface de utilizador
 - Informação que o pedido recebe como reclamações num token
 

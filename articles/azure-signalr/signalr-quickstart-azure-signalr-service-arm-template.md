@@ -4,15 +4,15 @@ description: Neste Quickstart, aprenda a criar um Serviço Azure SignalR utiliza
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: zhshang
 ms.date: 10/02/2020
-ms.openlocfilehash: a7e8183f21ab49fe4662470d30e52977dd89153a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4ab029048b37a4dcb44ef405249dcb9e20de70cf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289923"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841634"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Quickstart: Use um modelo ARM para implementar o Serviço Azure SignalR
 
@@ -66,7 +66,7 @@ Na página **de Serviço Azure SignalR:**
 
 1. Se desejar, altere a **Subscrição** do padrão.
 
-2. Para **o grupo de recursos** , selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
+2. Para **o grupo de recursos**, selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
 
 3. Se criou um novo grupo de recursos, selecione uma **Região** para o grupo de recursos.
 

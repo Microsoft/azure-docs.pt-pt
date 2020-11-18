@@ -3,13 +3,13 @@ title: 'Tutorial: Enviar dados do Event Hubs para o armazém de dados - Grade de
 description: 'Tutorial: Descreve como usar a Azure Event Grid e os Centros de Eventos para migrar dados para um Azure Synapse Analytics. Utiliza uma Função Azure para recuperar um ficheiro Captura.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 4fb26bf92e6af1fd9e97f3b9434b4ab5e76316b3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: e6dfcac17d79edd417af07179224fdf922906c4e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305276"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841381"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir big data para um armazém de dados
 A Azure [Event Grid](overview.md) é um serviço inteligente de encaminhamento de eventos que lhe permite reagir a notificações (eventos) de apps e serviços. Por exemplo, pode desencadear uma Função Azure para processar dados do Event Hubs que foram capturados para um armazenamento Azure Blob ou Azure Data Lake Storage, e migrar os dados para outros repositórios de dados. Esta [amostra de integração de Centros de Eventos e Grelha de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra-lhe como usar os Centros de Eventos com a Grade de Eventos para migrar sem problemas dados de Centros de Eventos capturados, desde o armazenamento de blob até um Azure Synapse Analytics (anteriormente SQL Data Warehouse).
@@ -163,7 +163,7 @@ Feche a casca de nuvem selecionando o botão **Cloud Shell** no botão portal (o
     ![Recursos no grupo de recursos](media/event-grid-event-hubs-integration/resources-in-resource-group.png)
 
 ### <a name="create-a-table-in-azure-synapse-analytics"></a>Criar uma tabela no Azure Synapse Analytics
-Crie uma tabela no seu armazém de dados executando o script [CreateDataWarehouseTable.sql.](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) Para executar o script, pode utilizar o Visual Studio ou o Editor de Consulta no portal. Os seguintes passos mostram-lhe como usar o Editor de Consulta: 
+Crie uma tabela no seu armazém de dados executando o script [.sql CreateDataWarehouseTable.](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) Para executar o script, pode utilizar o Visual Studio ou o Editor de Consulta no portal. Os seguintes passos mostram-lhe como usar o Editor de Consulta: 
 
 1. Na lista de recursos do grupo de recursos, selecione a sua **piscina SQL dedicada.** 
 2. Na página Azure Synapse Analytics, selecione **Editor de Consulta (pré-visualização)** no menu esquerdo. 
@@ -203,7 +203,7 @@ Crie uma tabela no seu armazém de dados executando o script [CreateDataWarehous
 ## <a name="publish-the-azure-functions-app"></a>Publicar a aplicação de Funções do Azure
 
 1. Lançamento Visual Studio.
-2. Abra a solução **EventHubsCaptureEventGridDemo.sln** que descarregou do [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) como parte dos pré-requisitos.
+2. Abra a solução **EventHubsCaptureEventGridDemo.sln** que descarregou a partir do [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) como parte dos pré-requisitos.
 3. No Explorador de Soluções, clique com o botão direito do rato em **FunctionEGDWDumper** e selecione **Publicar**.
 
    ![Publicar aplicação de funções](media/event-grid-event-hubs-integration/publish-function-app.png)
@@ -269,7 +269,7 @@ Terminou a configuração do seu centro de eventos, Azure Synapse Analytics, app
     ![Cadeia de conexão para o espaço de nome do centro de eventos](media/event-grid-event-hubs-integration/get-connection-string.png)
 1. Volte para a sua solução visual Studio. 
 2. No projeto WindTurbineDataGenerator, abra **program.cs**.
-5. Substitua os dois valores constantes. Utilize o valor copiado para **EventHubConnectionString**. Utilize **hubdatamigration** , o nome do hub de eventos. Se usou um nome diferente para o centro do evento, especifique esse nome. 
+5. Substitua os dois valores constantes. Utilize o valor copiado para **EventHubConnectionString**. Utilize **hubdatamigration**, o nome do hub de eventos. Se usou um nome diferente para o centro do evento, especifique esse nome. 
 
    ```cs
    private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";

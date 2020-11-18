@@ -1,6 +1,6 @@
 ---
 title: Acesso remoto seguro em VM em Serviços de Domínio Azure AD / Microsoft Docs
-description: Saiba como garantir o acesso remoto aos VMs utilizando o Network Policy Server (NPS) e a Autenticação Multi-Factor Azure com uma implementação de Serviços de Ambiente de Trabalho remoto num domínio gerido por Serviços de Domínio do Diretório Ativo Azure.
+description: Saiba como garantir o acesso remoto aos VMs utilizando o Network Policy Server (NPS) e a Autenticação Multi-Factor AD Azure com uma implementação de Serviços de Ambiente de Trabalho remoto num domínio gerido por Serviços de Domínio do Diretório Ativo Azure.
 services: active-directory-ds
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: 2964ca74a05ccbc61646f8a289fc950b46cdad47
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a08b5bf4fb575f0cd2098b3ef180860bb8fbd6e0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967788"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840241"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Acesso remoto seguro a máquinas virtuais em Azure Ative Directory Domain Services
 
-Para garantir o acesso remoto a máquinas virtuais (VMs) que funcionam num domínio gerido por Azure Ative Directory Domain Services (Azure AD DS), pode utilizar serviços de secretária remoto (RDS) e Servidor de Política de Rede (NPS). O Azure AD DS autentica os utilizadores à medida que solicitam acesso através do ambiente RDS. Para uma maior segurança, pode integrar a Autenticação Multi-Factor Azure para fornecer uma solicitação de autenticação adicional durante os eventos de entrada. A Azure Multi-Factor Authentication utiliza uma extensão para NPS para fornecer esta funcionalidade.
+Para garantir o acesso remoto a máquinas virtuais (VMs) que funcionam num domínio gerido por Azure Ative Directory Domain Services (Azure AD DS), pode utilizar serviços de secretária remoto (RDS) e Servidor de Política de Rede (NPS). O Azure AD DS autentica os utilizadores à medida que solicitam acesso através do ambiente RDS. Para uma maior segurança, pode integrar a Autenticação Multi-Factor Azure AD para fornecer uma solicitação de autenticação adicional durante os eventos de entrada. A Azure AD Multi-Factor Authentication utiliza uma extensão para NPS para fornecer esta funcionalidade.
 
 > [!IMPORTANT]
 > A forma recomendada de ligar-se de forma segura aos seus VMs num domínio gerido Azure AD DS está a utilizar o Azure Bastion, um serviço PaaS totalmente gerido pela plataforma que fornece dentro da sua rede virtual. Um hospedeiro de bastião fornece conectividade segura e sem emenda do Protocolo remoto de Ambiente de Trabalho (PDR) aos seus VMs diretamente no portal Azure sobre SSL. Quando se conecta através de um hospedeiro de bastião, os seus VMs não precisam de um endereço IP público, e não precisa de usar grupos de segurança de rede para expor o acesso ao RDP na porta TCP 3389.
@@ -28,7 +28,7 @@ Para garantir o acesso remoto a máquinas virtuais (VMs) que funcionam num domí
 >
 > Para mais informações, veja [o que é Azure Bastion?][bastion-overview]
 
-Este artigo mostra-lhe como configurar RDS em Azure AD DS e utilizar opcionalmente a extensão Azure Multi-Factor Authentication NPS.
+Este artigo mostra-lhe como configurar RDS em Azure AD DS e utilizar opcionalmente a extensão NPS de autenticação multi-factor Azure AD.
 
 ![Visão geral dos Serviços de Ambiente de Trabalho Remoto (RDS)](./media/enable-network-policy-server/remote-desktop-services-overview.png)
 
@@ -66,32 +66,32 @@ A implantação do ambiente RD contém uma série de passos. O guia de implanta�
 
 Com o RD implantado no domínio gerido, pode gerir e utilizar o serviço como faria com um domínio AD DS no local.
 
-## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>Implementar e configurar NPS e a extensão Azure MFA NPS
+## <a name="deploy-and-configure-nps-and-the-azure-ad-mfa-nps-extension"></a>Implementar e configurar NPS e a extensão Azure AD MFA NPS
 
-Se quiser aumentar a segurança da experiência de inscrição do utilizador, pode integrar opcionalmente o ambiente RD com autenticação multi-factor Azure. Com esta configuração, os utilizadores recebem uma solicitação adicional durante a s início de sôm.
+Se quiser aumentar a segurança da experiência de inscrição do utilizador, pode integrar opcionalmente o ambiente RD com a autenticação multi-factor Ad Azure. Com esta configuração, os utilizadores recebem uma solicitação adicional durante a s início de sôm.
 
-Para fornecer esta capacidade, é instalado um Servidor de Política de Rede adicional (NPS) no seu ambiente juntamente com a extensão NPS de autenticação multi-factor Azure. Esta extensão integra-se com a Azure AD para solicitar e devolver o estado das solicitações de autenticação de vários fatores.
+Para fornecer esta capacidade, é instalado um Servidor de Política de Rede adicional (NPS) no seu ambiente juntamente com a extensão NPS de autenticação multi-factor Azure AD. Esta extensão integra-se com a Azure AD para solicitar e devolver o estado das solicitações de autenticação de vários fatores.
 
-Os utilizadores devem estar [registados para utilizar a Autenticação Multi-Factor Azure,][user-mfa-registration]que pode necessitar de licenças AD adicionais.
+Os utilizadores devem estar [registados para utilizar a autenticação multi-factor Azure AD,][user-mfa-registration]que pode necessitar de licenças AD adicionais.
 
-Para integrar a autenticação multi-factor Azure no ambiente de ambiente de trabalho remoto Azure AD DS, crie um Servidor NPS e instale a extensão:
+Para integrar a autenticação multi-factor AD Ad no ambiente de ambiente de trabalho remoto Azure AD DS, crie um Servidor NPS e instale a extensão:
 
 1. Crie um VM adicional do Windows Server 2016 ou 2019, como *o NPSVM01,* que esteja ligado a uma sub-rede de *cargas* de trabalho na sua rede virtual Azure AD DS. Junte-se ao VM ao domínio gerido.
 1. Inscreva-se no NPS VM como conta que faz parte do grupo de administradores da *Azure AD DC,* como *contosoadmin*.
-1. A partir do **Gestor do Servidor,** selecione **Adicionar Funções e Funcionalidades**e, em seguida, instale a função *De Política de Rede e Serviços de Acesso.*
-1. Utilize o artigo de como [instalar e configurar a extensão Azure MFA NPS][nps-extension].
+1. A partir do **Gestor do Servidor,** selecione **Adicionar Funções e Funcionalidades** e, em seguida, instale a função *De Política de Rede e Serviços de Acesso.*
+1. Utilize o artigo de como [instalar e configurar a extensão Azure AD MFA NPS][nps-extension].
 
-Com o servidor NPS e a extensão NPS de autenticação multi-factor Azure instaladas, preencha a secção seguinte para configurá-la para utilização com o ambiente RD.
+Com o servidor NPS e a extensão NPS de autenticação multi-factor Azure AD instalada, preencha a secção seguinte para configure-a para utilização com o ambiente RD.
 
-## <a name="integrate-remote-desktop-gateway-and-azure-multi-factor-authentication"></a>Integrar gateway remoto de desktop e autenticação multi-factor Azure
+## <a name="integrate-remote-desktop-gateway-and-azure-ad-multi-factor-authentication"></a>Integrar gateway remoto de desktop e autenticação multi-factor Azure AD
 
-Para integrar a extensão NPS de autenticação multi-factor Azure, utilize o artigo de como fazer para integrar a [sua infraestrutura remote desktop Gateway utilizando a extensão do Servidor de Política de Rede (NPS) e AD AZure][azure-mfa-nps-integration].
+Para integrar a extensão NPS de autenticação multi-factor Azure AD, utilize o artigo de como fazer para integrar a [sua infraestrutura remote desktop Gateway utilizando a extensão do Servidor de Política de Rede (NPS) e AD Azure][azure-mfa-nps-integration].
 
 São necessárias as seguintes opções adicionais de configuração para integrar-se com um domínio gerido:
 
 1. Não [registe o servidor NPS no Ative Directory][register-nps-ad]. Este passo falha num domínio gerido.
 1. No [passo 4 para configurar a política de rede,][create-nps-policy]verifique também a caixa para **ignorar as propriedades de marcação da conta de utilizador**.
-1. Se utilizar o Windows Server 2019 para o servidor NPS e a extensão NPS de autenticação multi-factor Azure, executar o seguinte comando para atualizar o canal seguro para permitir que o servidor NPS comunique corretamente:
+1. Se utilizar o Windows Server 2019 para o servidor NPS e a extensão NPS de autenticação multi-factor AD Azure, executar o seguinte comando para atualizar o canal seguro para permitir que o servidor NPS comunique corretamente:
 
     ```powershell
     sc sidtype IAS unrestricted
@@ -103,7 +103,7 @@ Os utilizadores são agora solicitados para um fator de autenticação adicional
 
 Para obter mais informações sobre a melhoria da resiliência da sua implementação, consulte [Serviços de Ambiente de Trabalho Remoto - Alta disponibilidade][rds-high-availability].
 
-Para obter mais informações sobre a obtenção de sing-in do utilizador, consulte [como funciona: Autenticação Multi-Factor Azure][concepts-mfa].
+Para obter mais informações sobre a obtenção de sing-in do utilizador, consulte [como funciona: Autenticação multi-factor Ad Azure][concepts-mfa].
 
 <!-- INTERNAL LINKS -->
 [bastion-overview]: ../bastion/bastion-overview.md

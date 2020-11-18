@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: f0f9d2affe39eaf74d4c0a537658d655a0c150d7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fe49dce276a15d9d7bc8ddaa5618c0e43dec62e9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789578"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841228"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gestão da Base de Dados Azure SQL após migração
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ Este artigo discute algumas das características fundamentais da Azure SQL Datab
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Monitorizar bases de dados com o portal do Azure
 
-No [portal Azure,](https://portal.azure.com/)pode monitorizar a utilização de uma base de dados individual selecionando a sua base de dados e clicando na tabela **de Monitorização.** É apresentada a janela **Métricas** que pode alterar ao clicar no botão **Editar gráfico** . Adicione as métricas seguintes:
+No [portal Azure,](https://portal.azure.com/)pode monitorizar a utilização de uma base de dados individual selecionando a sua base de dados e clicando na tabela **de Monitorização.** É apresentada a janela **Métricas** que pode alterar ao clicar no botão **Editar gráfico**. Adicione as métricas seguintes:
 
 - Percentagem de CPU
 - Percentagem de DTU
@@ -49,7 +49,7 @@ Depois de adicionar estas métricas, pode continuar a vê-las na tabela **de mon
 
 ![Monitorização da camada de serviços do desempenho da base de dados.](./media/manage-data-after-migrating-to-database/sqldb_service_tier_monitoring.png)
 
-Também pode configurar alertas para as métricas de desempenho. Clique no botão **Adicionar alerta** na janela **Métricas** . Siga o assistente para configurar o alerta. Tem a opção de alertar se as métricas excederem um determinado limiar ou se a métrica descer abaixo de um determinado limiar.
+Também pode configurar alertas para as métricas de desempenho. Clique no botão **Adicionar alerta** na janela **Métricas**. Siga o assistente para configurar o alerta. Tem a opção de alertar se as métricas excederem um determinado limiar ou se a métrica descer abaixo de um determinado limiar.
 
 Por exemplo, se espera que a carga de trabalho na sua base de dados aumente, pode optar por configurar um alerta por e-mail sempre que a base de dados atingir 80% em qualquer uma das métricas de desempenho. Pode usar isto como um aviso precoce para descobrir quando poderá ter de mudar para o próximo tamanho de computação mais alto.
 
@@ -101,12 +101,12 @@ A Base de Dados SQL leva a Segurança e Privacidade muito a sério. A segurança
 
 Existem dois métodos de autenticação oferecidos na Base de Dados SQL:
 
-- [Autenticação do Azure Active Directory](authentication-aad-overview.md)
+- [Autenticação do Diretório Ativo Azure](authentication-aad-overview.md)
 - [Autenticação SQL](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 A autenticação tradicional das janelas não é suportada. O Azure Ative Directory (Azure AD) é um serviço centralizado de gestão de identidade e acesso. Com isto pode fornecer convenientemente um Único Acesso De Acesso (SSO) a todo o pessoal da sua organização. O que isto significa é que as credenciais são partilhadas em todos os serviços da Azure para uma autenticação mais simples. 
 
-O Azure AD suporta [a autenticação multi-factor Azure](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) o Azure AD pode ser integrado com o Windows Server Ative Directory. A autenticação SQL funciona exatamente como a tens usado no passado. Fornece um nome de utilizador/palavra-passe e pode autenticar os utilizadores em qualquer base de dados num determinado servidor. Isto também permite que a SQL Database e a Azure Synapse Analytics (anteriormente SQL Data Warehouse) ofereçam autenticação multi-factor e contas de utilizadores convidados dentro de um domínio AD Azure. Se já tem um Diretório Ativo no local, pode federar o diretório com o Azure Ative Directory para estender o seu diretório ao Azure.
+O Azure AD suporta [a autenticação multi-factor Azure AD](authentication-mfa-ssms-overview.md) e com [alguns cliques](../../active-directory/hybrid/how-to-connect-install-express.md) o Azure AD pode ser integrado com o Windows Server Ative Directory. A autenticação SQL funciona exatamente como a tens usado no passado. Fornece um nome de utilizador/palavra-passe e pode autenticar os utilizadores em qualquer base de dados num determinado servidor. Isto também permite que a SQL Database e a Azure Synapse Analytics (anteriormente SQL Data Warehouse) ofereçam autenticação multi-factor e contas de utilizadores convidados dentro de um domínio AD Azure. Se já tem um Diretório Ativo no local, pode federar o diretório com o Azure Ative Directory para estender o seu diretório ao Azure.
 
 |**Se...**|**Base de Dados SQL / Azure Synapse Analytics**|
 |---|---|
@@ -172,7 +172,7 @@ Para proteger os seus dados sensíveis em voo e em repouso, a SQL Database forne
 |**Características**|**Always Encrypted**|**Encriptação de Dados Transparente**|
 |---|---|---|
 |**Extensão de encriptação**|De ponta a ponta|Dados de repouso|
-|**O servidor pode aceder a dados sensíveis**|Não|Sim, já que a encriptação é para os dados em repouso|
+|**O servidor pode aceder a dados sensíveis**|No|Sim, já que a encriptação é para os dados em repouso|
 |**Operações T-SQL permitidas**|Comparação da igualdade|Toda a área de superfície T-SQL está disponível|
 |**Alterações de aplicação necessárias para usar a funcionalidade**|Mínimo|Muito mínimo|
 |**Granularidade de encriptação**|Nível de coluna|Ao nível da base de dados|
@@ -320,11 +320,11 @@ A SQL Database utiliza algumas técnicas inteligentes que lhe permitem lidar com
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database-using-the-azure-portal"></a>Como exportar e importar dados como ficheiros BACPAC da Base de Dados SQL utilizando o portal Azure
 
-- **Exportação** : Pode exportar a sua base de dados na Base de Dados Azure SQL como um ficheiro BACPAC a partir do portal Azure
+- **Exportação**: Pode exportar a sua base de dados na Base de Dados Azure SQL como um ficheiro BACPAC a partir do portal Azure
 
    ![exportação de bases de dados](./media/manage-data-after-migrating-to-database/database-export1.png)
 
-- **Importação** : Também pode importar dados como um ficheiro BACPAC na sua base de dados na Base de Dados Azure SQL utilizando o portal Azure.
+- **Importação**: Também pode importar dados como um ficheiro BACPAC na sua base de dados na Base de Dados Azure SQL utilizando o portal Azure.
 
    ![importação de base de dados](./media/manage-data-after-migrating-to-database/import1.png)
 

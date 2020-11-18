@@ -5,19 +5,19 @@ keywords: encriptação de dados, chave de encriptação, encriptação em nuvem
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 11/02/2020
-ms.openlocfilehash: 45aca00adab8ef5b33a376af34642261c5e73255
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 257abf03994c7006b1c3789174f550515dcd309a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321636"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841466"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configure Sempre Encriptado usando o Cofre da Chave Azure 
 
@@ -55,7 +55,7 @@ Para obter o ID e *a chave* *da aplicação,* siga os passos para criar uma [apl
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Crie um cofre chave para guardar as chaves
 
-Agora que a sua aplicação cliente está configurada e tem o seu ID de aplicação, é hora de criar um cofre chave e configurar a sua política de acesso para que você e a sua aplicação possam aceder aos segredos do cofre (as chaves Sempre Encriptadas). As permissões *de criar* , *obter* , *obter,* *assinar,* *verificar,* *wrapKey* , e *desembrulhar* as permissões São necessárias para criar uma nova chave principal de coluna e para configurar encriptação com o SQL Server Management Studio.
+Agora que a sua aplicação cliente está configurada e tem o seu ID de aplicação, é hora de criar um cofre chave e configurar a sua política de acesso para que você e a sua aplicação possam aceder aos segredos do cofre (as chaves Sempre Encriptadas). As permissões *de criar*, *obter*, *obter,* *assinar,* *verificar,* *wrapKey*, e *desembrulhar* as permissões São necessárias para criar uma nova chave principal de coluna e para configurar encriptação com o SQL Server Management Studio.
 
 Pode criar rapidamente um cofre de chaves executando o seguinte script. Para uma explicação detalhada destes comandos e mais informações sobre a criação e configuração de um cofre chave, veja [o que é Azure Key Vault?](../../key-vault/general/overview.md)
 

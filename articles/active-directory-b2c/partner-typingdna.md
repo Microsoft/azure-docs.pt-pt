@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: f7d89942ad5209b854b8df486ad3e59a3976edfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edbc944e77d2483d32574f8044c72fc3d1292e2a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259056"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840439"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Tutorial para configurar o TNA da tipografia com o Azure Ative Directory B2C
 
 Nesta passagem, aprenda a integrar uma aplicação de pagamento online de amostra no Azure Ative Directory B2C com a APP De TipingDNA. Ao utilizar a App Datilografia DNA, os clientes Azure AD B2C podem cumprir os requisitos de transação [da Diretiva 2](https://www.typingdna.com/use-cases/sca-strong-customer-authentication) (PSD2) dos Serviços de Pagamento através da dinâmica do teclado e da forte autenticação do cliente. Saiba mais sobre o ADN da dactilografia [aqui.](https://www.typingdna.com/)
 
- O Azure AD B2C utiliza as tecnologias da Tipografia do ADN para capturar as características da dactilografia dos utilizadores e tê-las gravadas e analisadas para familiaridade em cada autenticação. Isto adiciona uma camada de proteção relacionada com o risco de uma autenticação e avalia os níveis de risco. O Azure AD B2C pode invocar outros mecanismos para fornecer mais confiança ao utilizador, alegando ser quem alega ser invocando a Azure MFA, forçando a verificação de e-mails, ou qualquer outra lógica personalizada para o seu cenário.
+ O Azure AD B2C utiliza as tecnologias da Tipografia do ADN para capturar as características da dactilografia dos utilizadores e tê-las gravadas e analisadas para familiaridade em cada autenticação. Isto adiciona uma camada de proteção relacionada com o risco de uma autenticação e avalia os níveis de risco. O Azure AD B2C pode invocar outros mecanismos para fornecer mais confiança ao utilizador, alegando ser quem alega ser invocando Azure AD MFA, forçando a verificação de e-mails ou qualquer outra lógica personalizada para o seu cenário.
 
 >[!NOTE]
 > Esta política de amostras baseia-se no pacote de arranque [SocialAndLocalAccountsWithMfa.](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa)
@@ -113,7 +113,7 @@ Estes limiares devem ser ajustados no seu caso de utilização.
 
 - Depois de a sua API ter avaliado `net_score` o, deve devolver uma reivindicação booleana à B2C - `promptMFA` .
 
-- A `promptMFA` reclamação é utilizada dentro de uma condição prévia para executar condicionalmente Azure MFA.
+- A `promptMFA` reclamação é utilizada dentro de uma condição prévia para executar condicionalmente Azure AD MFA.
 
 ```xml
 
@@ -170,7 +170,7 @@ Estes limiares devem ser ajustados no seu caso de utilização.
 ## <a name="test-the-user-flow"></a>Teste o fluxo do utilizador
 
 1. Abra o inquilino B2C e escolha o quadro de experiência de identidade.
-2. Selecione o seu **Fluxo de Utilizador**previamente criado.
+2. Selecione o seu **Fluxo de Utilizador** previamente criado.
 3. Selecione **Executar** fluxo de utilizador
 
     a. **Aplicação** - selecione a aplicação registada (a amostra é JWT)

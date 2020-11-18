@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 80ae79f73a55d5feb1aede7ccc7d3b2b64682a24
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 519e2da902e1121220bcbb28c4cb18a68001293b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364087"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840559"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Visão geral técnica e de características do Azure Ative Directory B2C
 
@@ -101,7 +101,7 @@ Pode configurar definições de fluxo de utilizador como estas para controlar co
 
 * Tipos de conta utilizados para o s-in, como contas sociais como um Facebook, ou contas locais que usam um endereço de e-mail e senha para iniciar sação
 * Atributos a recolher junto do consumidor, tais como o primeiro nome, código postal ou país/região de residência
-* Azure Multi-Factor Authentication (MFA)
+* Autenticação de vários fatores Azure Ad (MFA)
 * Personalização da interface de utilizador
 * Conjunto de reclamações num token que a sua aplicação recebe depois de o utilizador completar o fluxo do utilizador
 * Gestão de sessões

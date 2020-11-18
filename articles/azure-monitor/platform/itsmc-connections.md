@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: a75dd24769a4f1af018981ffcec279afc2a88b5a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682423"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842299"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI
 Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o It Service Management Connector (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para obter mais informações sobre o ITSMC, consulte [a Visão Geral.](./itsmc-overview.md)
@@ -41,6 +41,7 @@ Assegurar que os seguintes pré-requisitos sejam cumpridos:
 - Ligação híbrida criada e configurada. Mais informações: [Configurar a Ligação Híbrida](#configure-the-hybrid-connection).
 - Versões suportadas do Service Manager: 2012 R2 ou 2016.
 - Função de utilizador:  [Operador avançado](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+- Hoje os alertas enviados pelo Azure Monitor podem criar em Incidentes do Gestor de Serviços do System Center.
 
 > [!NOTE]
 > 
@@ -186,7 +187,7 @@ As seguintes secções fornecem detalhes sobre como ligar o seu produto ServiceN
 Assegurar que os seguintes pré-requisitos sejam cumpridos:
 - ITSMC instalado. Mais informações: [Adicionar a Solução de Conector de Gestão de Serviços de TI](./itsmc-overview.md#add-it-service-management-connector).
 - Versões suportadas pelo ServiceNow: Orlando, Nova Iorque, Madrid, Londres, Kingston, Jacarta, Istambul, Helsínquia, Genebra.
-- Hoje os alertas enviados pelo Azure Monitor podem criar no ServiceNow um dos seguintes elementos: Eventos, Incedents ou Alertas.
+- Hoje os alertas enviados pelo Azure Monitor podem criar no ServiceNow um dos seguintes elementos: Eventos, Incidentes ou Alertas.
 > [!NOTE]
 > A ITSMC suporta apenas a oferta oficial do SaaS do Service Now. As implementações privadas do Serviço Agora não são suportadas. 
 
@@ -429,6 +430,6 @@ Para gerar o ID/chave do cliente para Cherwell, utilize o seguinte procedimento:
     ![Id de utilizador cherwell](media/itsmc-connections/itsmc-cherwell-client-id.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
  - [Crie itens de trabalho ITSM a partir de alertas Azure](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
 

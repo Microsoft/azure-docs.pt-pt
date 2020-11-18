@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d044be923e5d7a621b72a926db0b4ce9a09b72
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 096d771cbf6e02a67903da7d5ce495890cc6828d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122729"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840496"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurar inscrição no telefone e iniciar sôm-in com políticas personalizadas em Azure AD B2C
 
@@ -35,7 +35,7 @@ Com a inscrição no telefone e o registo, o utilizador pode inscrever-se na apl
 > [!NOTE]
 > Sugerimos vivamente que inclua informações de consentimento na sua experiência de inscrição e inscrição semelhante ao texto da amostra abaixo. Este texto de amostra é apenas para fins informativos. Consulte o Manual de Monitorização do Código Curto no site da [CTIA](https://www.ctia.org/programs) e consulte os seus próprios especialistas legais ou de conformidade para obter orientações sobre o seu texto final e configuração de funcionalidades para atender às suas próprias necessidades de conformidade:
 >
-> *Ao fornecer o seu número de telefone, consente em receber uma senha única enviada por mensagem de texto para o ajudar a iniciar sing para *&lt; inserir: o nome &gt; da sua aplicação* . Podem aplicar-se as taxas padrão de mensagem e dados.*
+> *Ao fornecer o seu número de telefone, consente em receber uma senha única enviada por mensagem de texto para o ajudar a iniciar sing para *&lt; inserir: o nome &gt; da sua aplicação*. Podem aplicar-se as taxas padrão de mensagem e dados.*
 >
 > *&lt;inserir: um link para a sua Declaração de Privacidade&gt;*<br/>*&lt;inserir: um link para os seus Termos de Serviço&gt;*
 
@@ -56,27 +56,27 @@ Para adicionar as suas próprias informações de consentimento, personalize a s
 
 ### <a name="phone-sign-up-experience"></a>Experiência de inscrição no telefone
 
-Se o utilizador ainda não tiver uma conta para a sua aplicação, pode criar uma, escolhendo a ligação **'Iniciar sessão'.** Aparece uma página de inscrição, onde o utilizador seleciona o seu **País,** introduz o seu número de telefone e seleciona **Código de Envio** .
+Se o utilizador ainda não tiver uma conta para a sua aplicação, pode criar uma, escolhendo a ligação **'Iniciar sessão'.** Aparece uma página de inscrição, onde o utilizador seleciona o seu **País,** introduz o seu número de telefone e seleciona **Código de Envio**.
 
 ![O utilizador inicia a inscrição no telefone](media/phone-authentication/phone-signup-start.png)
 
-Um código de verificação único é enviado para o número de telefone do utilizador. O utilizador introduz o **Código de Verificação** na página de inscrição e, em seguida, seleciona **Código de Verificação** . (Se o utilizador não conseguir recuperar o código, pode selecionar **Enviar Novo Código** .)
+Um código de verificação único é enviado para o número de telefone do utilizador. O utilizador introduz o **Código de Verificação** na página de inscrição e, em seguida, seleciona **Código de Verificação**. (Se o utilizador não conseguir recuperar o código, pode selecionar **Enviar Novo Código**.)
 
 ![Utilizador verifica código durante a inscrição no telefone](media/phone-authentication/phone-signup-verify-code.png)
 
- O utilizador introduz qualquer outra informação solicitada na página de inscrição, por exemplo, Nome de **Exibição, Nome** **Dado** , e **Apelido** (País e número de telefone permanecem povoados). Se o utilizador quiser utilizar um número de telefone diferente, pode escolher **o número de alteração** para reiniciar a inscrição. Quando terminar, o utilizador seleciona **Continuar** .
+ O utilizador introduz qualquer outra informação solicitada na página de inscrição, por exemplo, Nome de **Exibição, Nome** **Dado**, e **Apelido** (País e número de telefone permanecem povoados). Se o utilizador quiser utilizar um número de telefone diferente, pode escolher **o número de alteração** para reiniciar a inscrição. Quando terminar, o utilizador seleciona **Continuar**.
 
 ![O utilizador fornece informações adicionais](media/phone-authentication/phone-signup-additional-info.png)
 
-Em seguida, o utilizador é solicitado a fornecer um e-mail de recuperação. O utilizador introduz o seu endereço de e-mail e, em seguida, seleciona **Enviar código de verificação** . É enviado um código para a caixa de entrada de e-mail do utilizador, que pode recuperar e introduzir na caixa **de códigos de Verificação.** Em seguida, o utilizador **seleciona Verificar o código** . 
+Em seguida, o utilizador é solicitado a fornecer um e-mail de recuperação. O utilizador introduz o seu endereço de e-mail e, em seguida, seleciona **Enviar código de verificação**. É enviado um código para a caixa de entrada de e-mail do utilizador, que pode recuperar e introduzir na caixa **de códigos de Verificação.** Em seguida, o utilizador **seleciona Verificar o código**. 
 
-Uma vez verificado o código, o utilizador seleciona **criar** para criar a sua conta. Ou se o utilizador quiser utilizar um endereço de e-mail diferente, pode escolher **o e-mail Change** .
+Uma vez verificado o código, o utilizador seleciona **criar** para criar a sua conta. Ou se o utilizador quiser utilizar um endereço de e-mail diferente, pode escolher **o e-mail Change**.
 
 ![Utilizador cria conta](media/phone-authentication/email-verification.png)
 
 ### <a name="phone-sign-in-experience"></a>Experiência de inscrição no telefone
 
-Se o utilizador tiver uma conta existente com o número de telefone como identificador, o utilizador introduz o seu número de telefone e seleciona **Continuar** . Confirmam o país e o número de telefone selecionando **Continue** , e um código de verificação único é enviado para o seu telefone. O utilizador introduz o código de verificação e seleciona **Continuar** a iniciar sção.
+Se o utilizador tiver uma conta existente com o número de telefone como identificador, o utilizador introduz o seu número de telefone e seleciona **Continuar**. Confirmam o país e o número de telefone selecionando **Continue**, e um código de verificação único é enviado para o seu telefone. O utilizador introduz o código de verificação e seleciona **Continuar** a iniciar sção.
 
 ![Experiência do utilizador de inscrição no telefone](media/phone-authentication/phone-signin-screens.png)
 
@@ -108,13 +108,13 @@ Os seguintes passos pressupõem que completou os [pré-requisitos](#prerequisite
 
 1. Em cada ficheiro, substitua a cadeia `yourtenant` pelo nome do seu inquilino Azure AD B2C. Por exemplo, se o nome do seu inquilino B2C for *contosob2c,* todos os casos `yourtenant.onmicrosoft.com` de se tornar `contosob2c.onmicrosoft.com` .
 
-1. Complete os passos nos [IDs](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de aplicação Add à secção de política personalizada de Começar com [políticas personalizadas no Azure Ative Directory B2C](custom-policy-get-started.md). Neste caso, atualize `/phone-number-passwordless/` **`Phone_Email_Base.xml`** com os **IDs de Aplicação (cliente)** das duas aplicações que registou ao completar os pré-requisitos, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework* .
+1. Complete os passos nos [IDs](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de aplicação Add à secção de política personalizada de Começar com [políticas personalizadas no Azure Ative Directory B2C](custom-policy-get-started.md). Neste caso, atualize `/phone-number-passwordless/` **`Phone_Email_Base.xml`** com os **IDs de Aplicação (cliente)** das duas aplicações que registou ao completar os pré-requisitos, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Faça upload dos ficheiros de política
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue até ao seu inquilino Azure AD B2C.
-1. No âmbito **de Políticas** , selecione Identity **Experience Framework** .
-1. Selecione **a política personalizada do Upload** .
+1. No âmbito **de Políticas**, selecione Identity **Experience Framework**.
+1. Selecione **a política personalizada do Upload**.
 1. Faça o upload dos ficheiros de política na seguinte ordem:
     1. *Phone_Email_Base.xml*
     1. *SignUpOrSignInWithPhone.xml*
@@ -128,9 +128,9 @@ Ao carregar cada ficheiro, o Azure adiciona o prefixo `B2C_1A_` .
 
 ## <a name="test-the-custom-policy"></a>Teste a política personalizada
 
-1. De acordo com **as políticas personalizadas,** selecione **B2C_1A_SignUpOrSignInWithPhone** .
-1. Sob **aplicação Select** , selecione a aplicação *webapp1* que registou ao completar os pré-requisitos.
-1. Para **Select response url** , escolha `https://jwt.ms` .
+1. De acordo com **as políticas personalizadas,** selecione **B2C_1A_SignUpOrSignInWithPhone**.
+1. Sob **aplicação Select**, selecione a aplicação *webapp1* que registou ao completar os pré-requisitos.
+1. Para **Select response url**, escolha `https://jwt.ms` .
 1. Selecione **Executar agora** e inscreva-se usando um endereço de e-mail ou um número de telefone.
 1. Selecione **Executar agora** mais uma vez e faça sê-lo com a mesma conta para confirmar que tem a configuração correta.
 
@@ -153,7 +153,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 ## <a name="next-steps"></a>Passos seguintes
 
 Pode encontrar o pacote de arranque de política personalizado (e outros pacotes de arranque) do telefone no GitHub: [Azure-Samples/active-directy-b2c-custom-policy-starterpack/scenarios/phone-number-password][starter-pack-phone] Os ficheiros de política de arranque utilizam perfis técnicos de autenticação de vários fatores e transformações de reclamações de números de telefone:
-* [Defina um perfil técnico de autenticação multi-factor Azure](multi-factor-auth-technical-profile.md)
+* [Defina um perfil técnico de autenticação multi-factor Azure AD](multi-factor-auth-technical-profile.md)
 * [Definir número de telefone reclama transformações](phone-number-claims-transformations.md)
 
 <!-- LINKS - External -->

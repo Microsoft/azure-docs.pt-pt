@@ -3,12 +3,12 @@ title: Controlos de amostras de plantas ISO 27001
 description: Controlo do mapeamento da amostra de planta ISO 27001. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
 ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 04e9863cd52c272cf74e2656df207f4ced7b4286
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0c1c20ae8b740ce019441dbee880f883947af160
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420243"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842503"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controlo da amostra de planta ISO 27001
 
@@ -84,7 +84,7 @@ Este projeto atribui três definições [de Política Azure](../../../policy/ove
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Procedimentos de início de sessão seguros
 
-Este projeto atribui três definições de Política Azure a contas de auditoria que não têm autenticação multi-factor ativada. A autenticação multi-factor Azure proporciona segurança adicional exigindo uma segunda forma de autenticação e proporciona uma autenticação forte. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
+Este projeto atribui três definições de Política Azure a contas de auditoria que não têm autenticação multi-factor ativada. A Azure AD Multi-Factor Authentication proporciona segurança adicional exigindo uma segunda forma de autenticação e proporciona uma autenticação forte. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
 - MFA deve ser ativado em contas com permissões de leitura na sua subscrição

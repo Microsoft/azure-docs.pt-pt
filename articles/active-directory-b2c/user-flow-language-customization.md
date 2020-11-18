@@ -11,12 +11,12 @@ ms.date: 08/13/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a5bfdada12229070568bb9b0556471ea5aab306f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a2c39d9809204328a6eba30c073b1fa81795924a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575956"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840292"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização linguística no Azure Ative Directory B2C
 
@@ -28,9 +28,9 @@ Utiliza a personalização de idiomas para selecionar em que idiomas o seu fluxo
 
 Pode não precisar desse nível de controlo sobre os idiomas que o seu cliente vê. Se não fornecer um `ui_locales` parâmetro, a experiência do cliente é ditada pelas definições do seu navegador. Ainda pode controlar quais os idiomas a que o seu fluxo de utilizador é traduzido adicionando-o como um idioma suportado. Se o navegador de um cliente estiver definido para mostrar um idioma que não quer suportar, então o idioma que selecionou como padrão em culturas apoiadas é mostrado em vez disso.
 
-* **Ui-locais especificado linguagem** : Depois de ativar a personalização do idioma, o fluxo do utilizador é traduzido para o idioma especificado aqui.
-* **Idioma solicitado pelo navegador** : Se nenhum `ui_locales` parâmetro foi especificado, o fluxo do utilizador é traduzido para o idioma solicitado pelo navegador, *se o idioma for suportado*.
-* **Linguagem por defeito de política** : Se o navegador não especificar um idioma, ou especificar um que não é suportado, o fluxo do utilizador é traduzido para o idioma predefinido do fluxo do utilizador.
+* **Ui-locais especificado linguagem**: Depois de ativar a personalização do idioma, o fluxo do utilizador é traduzido para o idioma especificado aqui.
+* **Idioma solicitado pelo navegador**: Se nenhum `ui_locales` parâmetro foi especificado, o fluxo do utilizador é traduzido para o idioma solicitado pelo navegador, *se o idioma for suportado*.
+* **Linguagem por defeito de política**: Se o navegador não especificar um idioma, ou especificar um que não é suportado, o fluxo do utilizador é traduzido para o idioma predefinido do fluxo do utilizador.
 
 > [!NOTE]
 > Se estiver a utilizar atributos personalizados do utilizador, tem de fornecer as suas próprias traduções. Para mais informações, consulte [Personalizar as suas cordas.](#customize-your-strings)
@@ -170,7 +170,7 @@ Também pode adicionar idiomas para os quais a Microsoft não fornece traduçõe
 4. No painel de contexto que se abre, identifique para que língua está a fornecer traduções introduzindo um código local válido.
 5. Para cada página, você pode baixar um conjunto de overrides para inglês e trabalhar nas traduções.
 6. Depois de terminar os ficheiros JSON, pode carregá-los para cada página.
-7. **Selecione Enable** , e o fluxo do utilizador pode agora mostrar este idioma para os seus utilizadores.
+7. **Selecione Enable**, e o fluxo do utilizador pode agora mostrar este idioma para os seus utilizadores.
 8. Salve a língua.
 
 >[!IMPORTANT]
@@ -200,7 +200,7 @@ Chrome e Firefox solicitam ambos para o seu idioma definido. Se for uma língua 
 
 ## <a name="supported-languages"></a>Linguagens suportadas
 
-Azure AD B2C inclui suporte para as seguintes línguas. As línguas de fluxo do utilizador são fornecidas pelo Azure AD B2C. As línguas de notificação de autenticação multi-factor (MFA) são fornecidas pela [Azure MFA](../active-directory/authentication/concept-mfa-howitworks.md).
+Azure AD B2C inclui suporte para as seguintes línguas. As línguas de fluxo do utilizador são fornecidas pelo Azure AD B2C. As línguas de notificação de autenticação multi-factor (MFA) são fornecidas pela [Azure AD MFA](../active-directory/authentication/concept-mfa-howitworks.md).
 
 | Linguagem              | Código do idioma | Fluxos do utilizador         | Notificações de MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

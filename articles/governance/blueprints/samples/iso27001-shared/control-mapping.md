@@ -3,12 +3,12 @@ title: ISO 27001 Serviços Partilhados controlos de amostragem
 description: Controlo do mapeamento da amostra de projeto iso 27001 dos Serviços Partilhados. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
 ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: bb1cfbc09e8a6209b9e6d0cb2970dc66ee05ba6d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: c79159fca9d619b727ef651bf42044182144ab35
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420347"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842520"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto iso 27001 dos serviços partilhados
 
@@ -82,7 +82,7 @@ Este projeto atribui três definições [de Política Azure](../../../policy/ove
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Procedimentos de início de sessão seguros
 
-Este projeto atribui três definições de Política Azure a contas de auditoria que não têm autenticação multi-factor ativada. A autenticação multi-factor Azure proporciona segurança adicional exigindo uma segunda forma de autenticação e proporciona uma autenticação forte. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
+Este projeto atribui três definições de Política Azure a contas de auditoria que não têm autenticação multi-factor ativada. A Azure AD Multi-Factor Authentication proporciona segurança adicional exigindo uma segunda forma de autenticação e proporciona uma autenticação forte. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
 - MFA deve ser ativado em contas com permissões de leitura na sua subscrição
