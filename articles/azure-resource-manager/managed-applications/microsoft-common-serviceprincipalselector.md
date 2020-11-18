@@ -1,30 +1,42 @@
 ---
 title: Elemento UI do UI do UI do ServiçoPrincipalSelector
-description: Descreve o elemento UI do Microsoft.Common.ServicePrincipalSelector para o portal Azure. Fornece um dropdown para escolher um identificador de aplicação e uma caixa de texto para inserir uma palavra-passe ou impressão digital de certificado.
+description: Descreve o elemento UI do Microsoft.Common.ServicePrincipalSelector para o portal Azure. Fornece um controlo para escolher uma aplicação e uma caixa de texto para inserir uma palavra-passe ou impressão digital de certificado.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
-ms.openlocfilehash: 73b242754bfae53b6df5abd9c2c8dee33b973dad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d41e41f110e927f436b38d6291719c138defa53
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576001"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745819"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Microsoft.Common.ServicePrincipalSelector UI elemento
 
-Um controlo que permite aos utilizadores selecionarem um principal de serviço existente ou registarem um novo. Quando selecionar **Create New,** passa pelos passos para registar uma nova aplicação. Quando seleciona uma aplicação existente, o controlo fornece uma caixa de texto para inserir uma palavra-passe ou uma impressão digital de certificado.
+Um controlo que permite aos utilizadores selecionarem um [principal de serviço](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) existente ou registarem uma nova aplicação. Quando selecionar **Criar Novo,** siga os passos para registar uma nova aplicação. Quando seleciona uma aplicação existente, o controlo fornece uma caixa de texto para inserir uma palavra-passe ou uma impressão digital de certificado.
 
-## <a name="ui-sample"></a>Amostra de UI
+## <a name="ui-samples"></a>Amostras de UI
 
-A vista padrão é determinada pelos valores da `defaultValue` propriedade. Se a `principalId` propriedade contiver um identificador globalmente único válido (GUID), o controlo procura o ID do objeto da aplicação. O valor predefinido aplica-se se o utilizador não fizer uma seleção a partir do dropdown.
+Pode utilizar uma aplicação predefinida, criar uma nova aplicação ou utilizar uma aplicação existente.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-initial.png" alt-text="Microsoft.Common.ServicePrincipalSelector vista inicial":::
+### <a name="use-default-application-or-create-new"></a>Use a aplicação padrão ou crie uma nova
 
-Quando selecionar **Criar um novo** ou um identificador de aplicações existente a partir do dropdown o Tipo de **Autenticação** é apresentado para introduzir uma palavra-passe ou impressão digital de certificado na caixa de texto.
+A vista padrão é determinada pelos valores do `defaultValue` imóvel e o **Tipo Principal** de Serviço está definido para **Criar Novo**. Se a `principalId` propriedade contiver um identificador globalmente único válido (GUID), o controlo procura o da aplicação `objectId` . O valor predefinido aplica-se se o utilizador não fizer uma seleção a partir do controlo.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-selection.png" alt-text="Microsoft.Common.ServicePrincipalSelector vista inicial":::
+Se pretender registar uma nova aplicação, selecione **Alterar** e é apresentada uma caixa de diálogo de **aplicação.** Introduzir **Nome**, **Tipo de conta suportada,** e selecione o botão **Registar.**
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-default.png" alt-text="Microsoft.Common.ServicePrincipalSelector vista inicial.":::
+
+Depois de registar uma nova aplicação, utilize o **Tipo de Autenticação** para introduzir uma impressão digital de senha ou certificado.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-authenticate.png" alt-text="Autenticação microsoft.common.servicePrincipalSelector.":::
+
+### <a name="use-existing-application"></a>Utilizar a aplicação existente
+
+Para utilizar uma aplicação existente, escolha **Selecione Existing** e, em seguida, **selecione Fazer seleção**. Utilize a caixa de diálogo **de aplicação Selecione** para procurar o nome da aplicação. A partir dos resultados, selecione a aplicação e, em seguida, o botão **Seleção.** Depois de selecionar uma aplicação, o controlo apresenta o **Tipo de Autenticação** para introduzir uma impressão digital de senha ou certificado.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-existing.png" alt-text="Microsoft.Common.ServicePrincipalSelector selecione a aplicação existente.":::
 
 ## <a name="schema"></a>Esquema
 
@@ -33,14 +45,12 @@ Quando selecionar **Criar um novo** ou um identificador de aplicações existent
   "name": "ServicePrincipal",
   "type": "Microsoft.Common.ServicePrincipalSelector",
   "label": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type",
     "sectionHeader": "Service Principal"
   },
   "toolTip": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type"
@@ -63,13 +73,13 @@ Quando selecionar **Criar um novo** ou um identificador de aplicações existent
 
 ## <a name="remarks"></a>Observações
 
-- As propriedades necessárias são:
+- As propriedades necessárias são as seguintes:
   - `name`
   - `type`
   - `label`
   - `defaultValue`: Especifica o predefinição `principalId` e `name` .
 
-- As propriedades opcionais são:
+- As propriedades opcionais são as seguintes:
   - `toolTip`: Anexa uma ponta de ferramenta `infoBalloon` a cada etiqueta.
   - `visible`: Ocultar ou visualizar o controlo.
   - `options`: Especifica se deve ou não ser disponibilizada a opção de impressão digital do certificado.
@@ -95,14 +105,12 @@ Segue-se um exemplo do `Microsoft.Common.ServicePrincipalSelector` controlo. A `
             "name": "ServicePrincipal",
             "type": "Microsoft.Common.ServicePrincipalSelector",
             "label": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type",
               "sectionHeader": "Service Principal"
             },
             "toolTip": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type"
@@ -138,9 +146,9 @@ Segue-se um exemplo do `Microsoft.Common.ServicePrincipalSelector` controlo. A `
 
 ## <a name="example-output"></a>Saída de exemplo
 
-É `appId` o ID do registo de candidatura que selecionou ou criou. `objectId`Trata-se de um conjunto de objectIds para os Principais de Serviço configurados para o registo de candidatura selecionado.
+É `appId` o ID do registo de candidatura que selecionou ou criou. `objectId`Trata-se de um conjunto de identificações de objetos para os principais de serviço configurados para o registo de candidatura selecionado.
 
-Quando nenhuma seleção é feita a partir da queda, o `newOrExisting` valor da propriedade é **novo:**
+Quando não é feita nenhuma seleção a partir do controlo, o `newOrExisting` valor da propriedade é **novo:**
 
 ```json
 {
@@ -165,7 +173,7 @@ Quando nenhuma seleção é feita a partir da queda, o `newOrExisting` valor da 
 }
 ```
 
-Quando **criar um novo** ou um identificador de aplicações existente é selecionado a partir do dropdown o valor da propriedade é `newOrExisting` **existente:**
+Quando **a Criação de uma** aplicação nova ou existente é selecionada a partir do controlo o valor da propriedade é `newOrExisting` **existente:**
 
 ```json
 {

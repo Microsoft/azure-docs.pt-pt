@@ -7,15 +7,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc4262d0190084064103aeabe48bec806213ea7f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7ab6d6511d1e2cec82b321003c9d663249ddcf49
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321219"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740231"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Tarefas de gestor de grupo de team data science process
 
@@ -43,7 +43,7 @@ O seguinte tutorial percorre os degraus em detalhe.
    
    ![Inscreva-se na sua conta Microsoft](./media/group-manager-tasks/signinvs.png)
    
-   Se não tiver uma conta Microsoft, selecione **Iniciar sessão agora** , crie uma conta Microsoft e inscreva-se na utilização desta conta. Se a sua organização tiver uma subscrição do Visual Studio, inscreva-se com as credenciais para essa subscrição.
+   Se não tiver uma conta Microsoft, selecione **Iniciar sessão agora**, crie uma conta Microsoft e inscreva-se na utilização desta conta. Se a sua organização tiver uma subscrição do Visual Studio, inscreva-se com as credenciais para essa subscrição.
    
 1. Depois de iniciar sessão, na parte superior direita da página Azure DevOps, selecione **Criar nova organização**.
    
@@ -65,9 +65,9 @@ A página **de resumo do** projeto **GroupCommon** abre. O URL da página é *ht
 
 Azure Repos acolhe os seguintes tipos de repositórios para o seu grupo:
 
-- **Repositórios comuns do grupo** : Repositórios de uso geral que várias equipas dentro de uma unidade de ciência de dados podem adotar para muitos projetos de ciência de dados. 
-- **Repositórios de equipas** : Repositórios para equipas específicas dentro de uma unidade de data science. Estes repositórios são específicos para as necessidades de uma equipa, e podem ser usados para vários projetos dentro dessa equipa, mas não são gerais o suficiente para serem usados em várias equipas dentro de uma unidade de data science.
-- **Repositórios de projetos** : Repositórios para projetos específicos. Tais repositórios podem não ser suficientemente gerais para vários projetos dentro de uma equipa, ou para outras equipas numa unidade de ciência de dados.
+- **Repositórios comuns do grupo**: Repositórios de uso geral que várias equipas dentro de uma unidade de ciência de dados podem adotar para muitos projetos de ciência de dados. 
+- **Repositórios de equipas**: Repositórios para equipas específicas dentro de uma unidade de data science. Estes repositórios são específicos para as necessidades de uma equipa, e podem ser usados para vários projetos dentro dessa equipa, mas não são gerais o suficiente para serem usados em várias equipas dentro de uma unidade de data science.
+- **Repositórios de projetos**: Repositórios para projetos específicos. Tais repositórios podem não ser suficientemente gerais para vários projetos dentro de uma equipa, ou para outras equipas numa unidade de ciência de dados.
 
 Para configurar os repositórios comuns do grupo no seu projeto, você: 
 - Mude o nome do repositório **padrão do GroupCommon** para **GroupProjectTemplate**
@@ -101,7 +101,7 @@ Para criar o repositório **GroupUtilities:**
    
    ![Selecione novo repositório](./media/group-manager-tasks/create-grouputilities-repo-1.png)
    
-1. No Criar um novo diálogo **de repositório,** selecione **Git** como **tipo** , insira *groupUtilities* como **o nome repositório** , e, em seguida, selecione **Criar**.
+1. No Criar um novo diálogo **de repositório,** selecione **Git** como **tipo**, insira *groupUtilities* como **o nome repositório**, e, em seguida, selecione **Criar**.
    
    ![Criar repositório de groupUtilities](./media/group-manager-tasks/create-grouputilities-repo-2.png)
    
@@ -121,13 +121,11 @@ Para importar os repositórios da equipa da TDSP:
    
    ![Selecione Importar](./media/group-manager-tasks/import-repo.png)
    
-1. No diálogo **repositório de importação a Git,** selecione **Git** como o **tipo Fonte** , e introduza *https: \/ /github.com/Azure/Azure-TDSP-ProjectTemplate.git* para o **URL clone**. Em seguida, **selecione Import**. Os conteúdos do repositório ProjectTemplate da equipa da Microsoft TDSP são importados para o repositório GroupProjectTemplate. 
+1. No diálogo **repositório de importação a Git,** selecione **Git** como o **tipo Fonte**, e introduza *https: \/ /github.com/Azure/Azure-TDSP-ProjectTemplate.git* para o **URL clone**. Em seguida, **selecione Import**. Os conteúdos do repositório ProjectTemplate da equipa da Microsoft TDSP são importados para o repositório GroupProjectTemplate. 
    
    ![Importar repositório de equipa da Microsoft TDSP](./media/group-manager-tasks/import-repo-2.png)
    
 1. No topo da página **Repos,** desça e selecione o repositório **GroupUtilities.**
-   
-1. Repita o processo de importação para importar o conteúdo do repositório **de utilitários** da equipa microsoft TDSP, *https: \/ /github.com/Azure/Azure-TDSP-Utilities.git,* para o seu repositório **groupUtilities.** 
    
 Cada um dos seus dois repositórios de grupo agora contém todos os ficheiros, exceto os do diretório *.git,* do repositório correspondente da equipa da Microsoft TDSP. 
 
@@ -168,12 +166,12 @@ Se pretender fazer alterações utilizando a sua máquina local ou DSVM e empurr
 - Uma subscrição Azure, se quiser criar um DSVM.
 - Git instalado na sua máquina. Se estiver a utilizar um DSVM, o Git está pré-instalado. Caso contrário, consulte as Plataformas e o [apêndice de ferramentas.](platforms-and-tools.md#appendix)
 - Se pretender utilizar um DSVM, o Windows ou o Linux DSVM criado e configurado em Azure. Para obter mais informações e instruções, consulte a [Documentação da Máquina Virtual da Ciência dos Dados.](../data-science-virtual-machine/index.yml)
-- Para um DSVM Do Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado na sua máquina. No ficheiro *README.md,* desloque-se até à secção **de Descarregamento e Instalação** e selecione o **instalador mais recente**. Descarregue o instalador *.exe* da página do instalador e execute-o. 
+- Para um DSVM Do Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado na sua máquina. No ficheiro *README.md,* desloque-se até à secção **de Descarregamento e Instalação** e selecione o **instalador mais recente**. Descarregue o instalador *de .exe* a partir da página do instalador e execute-o. 
 - Para um Linux DSVM, uma chave pública SSH configurada no seu DSVM e adicionada em Azure DevOps. Para obter mais informações e instruções, consulte a secção **de chaves públicas Create SSH** no [apêndice de ferramentas e ferramentas.](platforms-and-tools.md#appendix) 
 
 Primeiro, copie ou *clone* o repositório para a sua máquina local. 
    
-1. Na página de **resumo** do projeto **GroupCommon,** selecione **Repos** , e no topo da página, selecione o repositório que pretende clonar.
+1. Na página de **resumo** do projeto **GroupCommon,** selecione **Repos**, e no topo da página, selecione o repositório que pretende clonar.
    
 1. Na página de repo, selecione **Clone** na parte superior direita.
    

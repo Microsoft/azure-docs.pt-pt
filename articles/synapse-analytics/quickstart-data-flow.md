@@ -1,6 +1,6 @@
 ---
-title: Um quickstart para transformar dados usando um fluxo de dados de mapeamento
-description: Este tutorial fornece instruções passo a passo para usar a Azure Synapse Analytics para transformar dados com fluxo de dados de mapeamento
+title: 'Quickstart: Transforme dados usando um fluxo de dados de mapeamento'
+description: Este tutorial fornece instruções passo a passo para a utilização do Azure Synapse Analytics para transformar dados com fluxo de dados de mapeamento.
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 0bf1611dee2b3f7f9a3059e3118ddbf08c00f886
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 207679ad5b508b687c9cad372d144839fcaa501d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93343136"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743852"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Quickstart: Transforme dados usando fluxos de dados de mapeamento
 
-Neste quickstart, você usará o Azure Synapse Analytics para criar um pipeline que transforma dados de uma fonte de Armazenamento de Data Lake (ADLS) da Azure Data Lake (ADLS) para uma pia ADLS Gen2 usando o fluxo de dados de mapeamento. O padrão de configuração neste quickstart pode ser expandido ao transformar dados usando o fluxo de dados de mapeamento
+Neste quickstart, você usará a Azure Synapse Analytics para criar um pipeline que transforma dados de uma fonte de Armazenamento de Data Lake Gen2 (ADLS Gen2) para uma pia ADLS Gen2 usando o fluxo de dados de mapeamento. O padrão de configuração neste quickstart pode ser expandido ao transformar dados usando o fluxo de dados de mapeamento
 
 Neste arranque rápido, faça os seguintes passos:
 
@@ -29,17 +29,17 @@ Neste arranque rápido, faça os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure** : se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Espaço de trabalho Azure Synapse** : Criar um espaço de trabalho synapse utilizando o portal Azure seguindo as instruções em [Quickstart: Criar um espaço de trabalho Synapse](quickstart-create-workspace.md).
-* **Conta de armazenamento Azure** : Utiliza o armazenamento ADLS como lojas de dados *de origem* e *afunda.* Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) para seguir os passos para criar uma.
+* **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Espaço de trabalho Azure Synapse**: Criar um espaço de trabalho synapse utilizando o portal Azure seguindo as instruções em [Quickstart: Criar um espaço de trabalho Synapse](quickstart-create-workspace.md).
+* **Conta de armazenamento Azure**: Utiliza o armazenamento ADLS como lojas de dados *de origem* e *afunda.* Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) para seguir os passos para criar uma.
 
-    O ficheiro que estamos a transformar neste tutorial é MoviesDB.csv, que pode ser encontrado [aqui.](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv) Para recuperar o ficheiro do GitHub, copie o conteúdo para um editor de texto à sua escolha para guardar localmente como ficheiro .csv. Para fazer o upload do ficheiro para a sua conta de armazenamento, consulte [as bolhas de upload com o portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos serão referentes a um contentor chamado "dados de amostra".
+    O ficheiro que estamos a transformar neste tutorial é MoviesDB.csv, que pode ser encontrado [aqui.](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv) Para recuperar o ficheiro do GitHub, copie o conteúdo para um editor de texto à sua escolha para guardar localmente como um ficheiro .csv. Para fazer o upload do ficheiro para a sua conta de armazenamento, consulte [as bolhas de upload com o portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos serão referentes a um contentor chamado "dados de amostra".
 
 ### <a name="navigate-to-the-synapse-studio"></a>Navegue até ao Estúdio Synapse
 
 Depois de criar o seu espaço de trabalho Azure Synapse, tem duas formas de abrir o Synapse Studio:
 
-* Abra o seu espaço de trabalho sinapse no [portal Azure](https://ms.portal.azure.com/#home). No topo da secção Overview, selecione **Launch Synapse Studio**.
+* Abra o seu espaço de trabalho sinapse no [portal Azure](https://ms.portal.azure.com/#home). Selecione **Abrir** no cartão Open Synapse Studio em "Começar".
 * Abra [o Azure Synapse Analytics](https://web.azuresynapse.net/) e inscreva-se no seu espaço de trabalho.
 
 Neste arranque rápido, usamos o espaço de trabalho chamado "adftest2020" como exemplo. Irá navegar automaticamente para a página inicial do Synapse Studio.

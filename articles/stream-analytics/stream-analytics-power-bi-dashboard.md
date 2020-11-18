@@ -6,17 +6,17 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 8/6/2020
-ms.openlocfilehash: 2a130345a755644874b4547a5906101b593664a6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/16/2020
+ms.openlocfilehash: 6dd855695a155e924f7c46bdb17449c5e6504ca6
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123477"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745365"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: Um dashboard de análise em tempo real para dados de streaming
 
-O Azure Stream Analytics permite-lhe tirar partido de uma das principais ferramentas de inteligência empresarial, o [Microsoft Power BI](https://powerbi.com/). Neste artigo, aprende-se a criar ferramentas de inteligência empresarial usando o Power BI como uma produção para os seus trabalhos Azure Stream Analytics. Também aprende a criar e a usar um dashboard em tempo real.
+O Azure Stream Analytics permite-lhe tirar partido de uma das principais ferramentas de inteligência empresarial, o [Microsoft Power BI](https://powerbi.com/). Neste artigo, aprende-se a criar ferramentas de inteligência empresarial usando o Power BI como uma produção para os seus trabalhos Azure Stream Analytics. Também aprende a criar e a utilizar um dashboard em tempo real que é continuamente atualizado pelo trabalho stream Analytics.
 
 Este artigo continua a partir do tutorial [de deteção de fraude em tempo real](stream-analytics-real-time-fraud-detection.md) do Stream Analytics. Baseia-se no fluxo de trabalho criado nesse tutorial e adiciona uma saída de Power BI para que possa visualizar chamadas telefónicas fraudulentas que são detetadas por um trabalho de Streaming Analytics. 
 
@@ -37,9 +37,9 @@ No tutorial de deteção de fraudes em tempo real, a saída é enviada para o ar
 
 1. No portal Azure, abra o trabalho streaming Analytics que criou anteriormente. Se usou o nome sugerido, o trabalho `sa_frauddetection_job_demo` chama-se.
 
-2. No menu esquerdo, selecione **Outputs** em **topologia de Trabalho** . Em seguida, **selecione + Adicione** e escolha Power **BI** no menu suspenso.
+2. No menu esquerdo, selecione **Outputs** em **topologia de Trabalho**. Em seguida, **selecione + Adicione** e escolha Power **BI** no menu suspenso.
 
-3. Selecione **+ Adicionar**  >  **Power BI** . Em seguida, preencha o formulário com os seguintes detalhes e **selecione Autorizado** a usar a sua própria identidade de utilizador para ligar ao Power BI (o token é válido por 90 dias). 
+3. Selecione **+ Adicionar**  >  **Power BI**. Em seguida, preencha o formulário com os seguintes detalhes e **selecione Autorizado** a usar a sua própria identidade de utilizador para ligar ao Power BI (o token é válido por 90 dias). 
 
 >[!NOTE]
 >Para trabalhos de produção, recomendamos ligar-se à [utilização da Identidade Gerida para autenticar o seu trabalho Azure Stream Analytics para o Power BI](./powerbi-output-managed-identity.md).
@@ -57,14 +57,14 @@ No tutorial de deteção de fraudes em tempo real, a saída é enviada para o ar
    > Recomendamos que não crie explicitamente este conjunto de dados e tabela na sua conta Power BI. São criadas automaticamente quando inicia o seu trabalho stream Analytics e o trabalho começa a bombear a saída para o Power BI. Se a sua consulta de trabalho não devolver quaisquer resultados, o conjunto de dados e a tabela não são criados.
    >
 
-4. Quando seleciona **Autorizar** , uma janela de pop-up abre e é-lhe pedido que forneça credenciais para fazer a autenticação na sua conta do Power BI. Assim que a autorização for bem sucedida, **guarde** as definições.
+4. Quando seleciona **Autorizar**, uma janela de pop-up abre e é-lhe pedido que forneça credenciais para fazer a autenticação na sua conta do Power BI. Assim que a autorização for bem sucedida, **guarde** as definições.
 
-8. Clique em **Criar** .
+8. Clique em **Criar**.
 
 O conjunto de dados é criado com as seguintes definições:
 
 * **defaultRetentionPolicy: BasicFIFO** - Data is FIFO, com um máximo de 200.000 linhas.
-* **defaultMode: pushStreaming** - O conjunto de dados suporta tanto os azulejos de streaming como os visuais tradicionais baseados em relatórios (também conhecidos como push).
+* **defaultMode: híbrido** - O conjunto de dados suporta tanto os azulejos de streaming (também conhecidos como push) como os visuais tradicionais baseados em relatórios. Para o conteúdo push, os dados são continuamente atualizados a partir do trabalho de análise de fluxo neste caso, sem necessidade de agendar atualização do lado do Power BI.
 
 Atualmente, não é possível criar conjuntos de dados com outras bandeiras.
 
@@ -102,7 +102,7 @@ Para obter mais informações sobre conjuntos de dados Power BI, consulte a refe
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Clique em **Guardar** .
+4. Clique em **Guardar**.
 
 
 ## <a name="test-the-query"></a>Testar o modelo
@@ -117,9 +117,9 @@ Esta secção é opcional, mas recomendada.
 
        `telcodatagen.exe 1000 .2 2`
 
-2. Na página **de consulta** para o seu trabalho stream Analytics, clique nos pontos ao lado da `CallStream` entrada e, em seguida, selecione **dados de amostra a partir da entrada** .
+2. Na página **de consulta** para o seu trabalho stream Analytics, clique nos pontos ao lado da `CallStream` entrada e, em seguida, selecione **dados de amostra a partir da entrada**.
 
-3. Especifique que deseja três minutos de dados e clique **em OK** . Aguarde até receber uma notificação a indicar que foi criada uma amostra dos dados.
+3. Especifique que deseja três minutos de dados e clique **em OK**. Aguarde até receber uma notificação a indicar que foi criada uma amostra dos dados.
 
 4. Clique **em Teste** e reveja os resultados.
 
@@ -127,7 +127,7 @@ Esta secção é opcional, mas recomendada.
 
 1. Certifique-se de que a aplicação TelcoStreaming está em funcionamento.
 
-2. Navegue na página **'Vista Geral'** para o seu trabalho stream Analytics e selecione **Start** .
+2. Navegue na página **'Vista Geral'** para o seu trabalho stream Analytics e selecione **Start**.
 
     ![Inicie o trabalho stream analytics](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
@@ -140,7 +140,7 @@ O seu trabalho de Streaming Analytics começa a procurar chamadas fraudulentas n
 
     ![Localização do conjunto de dados de streaming no Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
-2. No seu espaço de trabalho, clique em **+ &nbsp; Criar** .
+2. No seu espaço de trabalho, clique em **+ &nbsp; Criar**.
 
     ![O botão Criar no espaço de trabalho Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard.png)
 
@@ -148,25 +148,25 @@ O seu trabalho de Streaming Analytics começa a procurar chamadas fraudulentas n
 
     ![Crie um dashboard e dê-lhe um nome no espaço de trabalho Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard-name.png)
 
-4. Na parte superior da janela, clique em **Adicionar azulejo,** selecione **DADOS DE STREAMING PERSONALIZADOs** e, em seguida, clique em **Seguinte** .
+4. Na parte superior da janela, clique em **Adicionar azulejo,** selecione **DADOS DE STREAMING PERSONALIZADOs** e, em seguida, clique em **Seguinte**.
 
     ![Azulejo de conjunto de dados de streaming personalizado no Power BI](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
-5. No **ÂMBITO DOS SEUS DATSETS,** selecione o conjunto de dados e, em seguida, clique em **Seguinte** .
+5. No **ÂMBITO DOS SEUS DATSETS,** selecione o conjunto de dados e, em seguida, clique em **Seguinte**.
 
     ![O seu conjunto de dados de streaming no Power BI](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
-6. Sob **o Tipo de Visualização** , selecione **Card** , e, em seguida, na lista **Fields,** selecione **chamadas fraudulentas** .
+6. Sob **o Tipo de Visualização**, selecione **Card**, e, em seguida, na lista **Fields,** selecione **chamadas fraudulentas**.
 
     ![Detalhes de visualização para novo azulejo](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
-7. Clique em **Seguinte** .
+7. Clique em **Seguinte**.
 
 8. Preencha detalhes de azulejos como um título e legenda.
 
     ![Título e legenda para novo azulejo](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
 
-9. Clique em **Aplicar** .
+9. Clique em **Aplicar**.
 
     Agora tem um contador de fraudes!
 
@@ -174,14 +174,14 @@ O seu trabalho de Streaming Analytics começa a procurar chamadas fraudulentas n
 
 8. Siga novamente os passos para adicionar um azulejo (começando com o passo 4). Desta vez, faça o seguinte:
 
-    * Quando chegar ao **Tipo de Visualização,** selecione **gráfico de linha** . 
-    * Adicione um eixo e selecione **windowend** . 
-    * Adicione um valor e selecione **fraudulentcalls** .
-    * Para **Janela de tempo a apresentar** , selecione os últimos 10 minutos.
+    * Quando chegar ao **Tipo de Visualização,** selecione **gráfico de linha**. 
+    * Adicione um eixo e selecione **windowend**. 
+    * Adicione um valor e selecione **fraudulentcalls**.
+    * Para **Janela de tempo a apresentar**, selecione os últimos 10 minutos.
 
       ![Criar azulejos para gráfico de linha em Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
-9. Clique **em seguida,** adicione um título e legenda, e clique em **Aplicar** .
+9. Clique **em seguida,** adicione um título e legenda, e clique em **Aplicar**.
 
      O painel Power BI dá-lhe agora duas visões de dados sobre chamadas fraudulentas, tal como detetado nos dados de streaming.
 
@@ -223,7 +223,7 @@ Dada esta configuração, pode alterar a consulta original para o seguinte:
 ### <a name="renew-authorization"></a>Renovar a autorização
 Se a palavra-passe tiver sido alterada desde que o seu trabalho foi criado ou autenticado pela última vez, tem de reautorá-la à sua conta Power BI. Se a autenticação multi-factor Azure estiver configurada no seu inquilino Azure Ative Directory (Azure AD), também precisa de renovar a autorização do Power BI de duas em duas semanas. Se não renovar, poderá ver sintomas como a falta de saída de emprego ou `Authenticate user error` um nos registos de operação.
 
-Da mesma forma, se um trabalho começar após o token expirar, ocorre um erro e o trabalho falha. Para resolver este problema, pare o trabalho que está em execução e vá para a sua saída de Power BI. Para evitar a perda de dados, selecione o link **de autorização Renovar** e, em seguida, reinicie o seu trabalho a partir da última hora **parada** .
+Da mesma forma, se um trabalho começar após o token expirar, ocorre um erro e o trabalho falha. Para resolver este problema, pare o trabalho que está em execução e vá para a sua saída de Power BI. Para evitar a perda de dados, selecione o link **de autorização Renovar** e, em seguida, reinicie o seu trabalho a partir da última hora **parada**.
 
 Depois de a autorização ter sido atualizada com o Power BI, aparece um alerta verde na área de autorização para refletir que a questão foi resolvida.
 

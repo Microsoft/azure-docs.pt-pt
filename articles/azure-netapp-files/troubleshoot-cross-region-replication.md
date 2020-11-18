@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 3aaa5d2bc6fdbda0d1db212539c719aa65cae61b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90709013"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745688"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Resolver problemas da replicação entre regiões
 
@@ -50,6 +50,7 @@ Este artigo descreve mensagens de erro e resoluções que podem ajudá-lo a reso
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Validar que a replicação foi quebrada ou não é insinibida e inativa (inicialização falhada).    |
 |     `Cannot delete   source replication`    |     Não é permitido eliminar a replicação do lado da fonte. Certifique-se de que está a apagar a replicação do lado do destino.    |
+| `Volume with replication cannot be deleted`  |  Elimine a replicação antes de apagar o volume. Ver [Eliminar replicações](cross-region-replication-delete.md). Esta operação requer que quebre o espreitamento antes de apagar a replicação para o volume. 
 
 ## <a name="errors-resyncing-volume"></a>Erros no volume de ressíduo
 

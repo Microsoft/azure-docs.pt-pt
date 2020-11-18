@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f7770e929e51ee51b09060e4247c5f92b27d1035
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fffb52e333bea1b2be11b127a9eab6656dc1d1f5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311878"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740333"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Fase de aquisição e compreensão de dados do Processo de Ciência de Dados da Equipa
 
@@ -48,9 +48,7 @@ Há três tarefas principais abordadas nesta fase:
 Desloque o processo para mover os dados dos locais de origem para os locais-alvo onde executa operações de análise, como treino e previsões. Para obter detalhes técnicos e opções sobre como mover os dados com vários serviços de dados Azure, consulte [os dados de carga em ambientes de armazenamento para análise](ingest-data.md). 
 
 ### <a name="explore-the-data"></a>Explorar os dados
-Antes de treinar os seus modelos, precisa de desenvolver uma boa compreensão dos dados. Os conjuntos de dados do mundo real são muitas vezes barulhentos, são valores em falta, ou têm uma série de outras discrepâncias. Pode utilizar a resumo e visualização de dados para auditar a qualidade dos seus dados e fornecer as informações necessárias para processar os dados antes de estar pronto para modelar. Este processo é muitas vezes iterativo.
-
-A TDSP fornece um utilitário automatizado, chamado [IDEAR,](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils)para ajudar a visualizar os dados e a preparar relatórios de resumo de dados. Recomendamos que comece com o IDEAR primeiro para explorar os dados para ajudar a desenvolver a compreensão inicial de dados interativamente sem codificação. Em seguida, pode escrever código personalizado para a exploração e visualização de dados. Para obter orientações sobre a limpeza dos [dados, consulte Tarefas para preparar dados para uma aprendizagem melhorada da máquina.](prepare-data.md)  
+Antes de treinar os seus modelos, precisa de desenvolver uma boa compreensão dos dados. Os conjuntos de dados do mundo real são muitas vezes barulhentos, são valores em falta, ou têm uma série de outras discrepâncias. Pode utilizar a resumo e visualização de dados para auditar a qualidade dos seus dados e fornecer as informações necessárias para processar os dados antes de estar pronto para modelar. Este processo é muitas vezes iterativo. Para obter orientações sobre a limpeza dos [dados, consulte Tarefas para preparar dados para uma aprendizagem melhorada da máquina.](prepare-data.md)  
 
 Depois de estar satisfeito com a qualidade dos dados limpos, o próximo passo é compreender melhor os padrões inerentes aos dados. Esta análise de dados ajuda-o a escolher e desenvolver um modelo preditivo adequado para o seu alvo. Procure provas de como os dados estão bem ligados ao alvo. Em seguida, determine se existem dados suficientes para avançar com os próximos passos de modelação. Mais uma vez, este processo é muitas vezes iterativo. Poderá ser necessário encontrar novas fontes de dados com dados mais precisos ou mais relevantes para aumentar o conjunto de dados inicialmente identificado na fase anterior. 
 
@@ -66,9 +64,9 @@ Nesta fase, desenvolve-se uma arquitetura de solução do pipeline de dados. Des
 ## <a name="artifacts"></a>Artefactos
 Seguem-se os resultados nesta fase:
 
-   * [Relatório de qualidade dos dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): Este relatório inclui resumos de dados, as relações entre cada atributo e alvo, classificação variável, e muito mais. A ferramenta [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) fornecida como parte do TDSP pode gerar rapidamente este relatório em qualquer conjunto de dados tabulares, como um ficheiro CSV ou uma tabela relacional. 
-   * **Arquitetura de solução** : A arquitetura da solução pode ser um diagrama ou descrição do seu pipeline de dados que utiliza para executar pontuação ou previsões em novos dados depois de ter construído um modelo. Também contém o pipeline para reconverter o seu modelo com base em novos dados. Guarde o documento no diretório do [Projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quando utilizar o modelo de estrutura do diretório TDSP.
-   * **Decisão do checkpoint** : Antes de iniciar a engenharia e a construção de modelos completos, pode reavaliar o projeto para determinar se o valor esperado é suficiente para continuar a prossegui-lo. Pode, por exemplo, estar pronto para prosseguir, precisar de recolher mais dados, ou abandonar o projeto, uma vez que os dados não existem para responder à pergunta.
+   * [Relatório de qualidade dos dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): Este relatório inclui resumos de dados, as relações entre cada atributo e alvo, classificação variável, e muito mais. 
+   * **Arquitetura de solução**: A arquitetura da solução pode ser um diagrama ou descrição do seu pipeline de dados que utiliza para executar pontuação ou previsões em novos dados depois de ter construído um modelo. Também contém o pipeline para reconverter o seu modelo com base em novos dados. Guarde o documento no diretório do [Projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quando utilizar o modelo de estrutura do diretório TDSP.
+   * **Decisão do checkpoint**: Antes de iniciar a engenharia e a construção de modelos completos, pode reavaliar o projeto para determinar se o valor esperado é suficiente para continuar a prossegui-lo. Pode, por exemplo, estar pronto para prosseguir, precisar de recolher mais dados, ou abandonar o projeto, uma vez que os dados não existem para responder à pergunta.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/30/2020
-ms.openlocfilehash: df6da5ce1dcd5213b3e54abe54c087bfdd8480c5
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.date: 11/17/2020
+ms.openlocfilehash: 3225013f09abd326c619b67caf77918889a64859
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379978"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741812"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Quickstart: Criar uma loja de conhecimentos Azure Cognitive Search no portal Azure
 
@@ -74,9 +74,9 @@ Está agora pronto para avançar com o assistente **de dados de Importação.**
 
 1. Para o **Nome,** insira `hotel-reviews-ds` .
 
-1. Para **o modo de análise** , selecione texto **delimitado** e, em seguida, selecione a caixa de verificação **First Line Contains Header.** Certifique-se de que o **personagem Delimiter** é uma vírgula (,).
+1. Para **o modo de análise**, selecione texto **delimitado** e, em seguida, selecione a caixa de verificação **First Line Contains Header.** Certifique-se de que o **personagem Delimiter** é uma vírgula (,).
 
-1. Em **Connection String** , cole na cadeia de ligação que copiou da página **'Teclas de acesso'** no Azure Storage.
+1. Em **Connection String**, cole na cadeia de ligação que copiou da página **'Teclas de acesso'** no Azure Storage.
 
 1. Em **Recipientes, insira** o nome do recipiente blob que guarda os dados.
 
@@ -96,7 +96,7 @@ Neste passo de feiticeiro, você vai criar um skillset com enriquecimentos cogni
 
 1. Para **o nome Skillset,** insira `hotel-reviews-ss` .
 
-1. Para **o campo de dados de origem** , selecione **reviews_text**.
+1. Para **o campo de dados de origem**, selecione **reviews_text**.
 
 1. Para **o nível de granularidade de enriquecimento,** selecione **Páginas (pedaços de 5000 caracteres)**
 
@@ -142,7 +142,7 @@ Neste passo de assistente, irá configurar um indexante que reunirá a fonte de 
 
 1. Para **nome,** insira `hotel-reviews-idxr` .
 
-1. Para **Agendar** , mantenha o predefinido **Uma vez**.
+1. Para **Agendar**, mantenha o predefinido **Uma vez**.
 
 1. Clique **em Submeter** para executar o indexante. Extração de dados, indexação, aplicação de competências cognitivas acontecem neste passo.
 
@@ -152,7 +152,7 @@ A indexação cognitiva de habilidades demora mais tempo a completar do que a in
 
 No portal Azure, também pode monitorizar o registo de atividades de Notificações para um link de **estado de notificação de pesquisa cognitiva Azure** clicável. A execução pode levar vários minutos para ser concluída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que enriqueceu os seus dados usando os Serviços Cognitivos e projetou os resultados numa loja de conhecimento, pode utilizar o Storage Explorer ou o Power BI para explorar o seu conjunto de dados enriquecido.
 

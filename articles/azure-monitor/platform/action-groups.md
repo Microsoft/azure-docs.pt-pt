@@ -1,28 +1,28 @@
 ---
-title: Criar e gerir grupos de ações no portal do Azure
+title: Criar e gerir grupos de ação no portal Azure
 description: Saiba como criar e gerir grupos de ação no portal Azure.
 author: dkamstra
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cbe3ef7080397b135ea0fb17cd50de9b1ccfdf09
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a5d685e49d941d7b6febbc220cdbfbcb631c4496
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336124"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94746368"
 ---
-# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
+# <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. Pode configurar até 2.000 grupos de ação numa subscrição.
 
 Este artigo mostra-lhe como criar e gerir grupos de ação no portal Azure.
 
 Cada ação é constituída pelas seguintes propriedades:
 
-* **Tipo** : A notificação ou ação realizada. Exemplos incluem envio de uma chamada de voz, SMS, e-mail; ou desencadeando vários tipos de ações automatizadas. Veja os tipos mais tarde neste artigo.
-* **Nome** : Um identificador único dentro do grupo de ação.
-* **Detalhes** : Os detalhes correspondentes que variam por *tipo.*
+* **Tipo**: A notificação ou ação realizada. Exemplos incluem envio de uma chamada de voz, SMS, e-mail; ou desencadeando vários tipos de ações automatizadas. Veja os tipos mais tarde neste artigo.
+* **Nome**: Um identificador único dentro do grupo de ação.
+* **Detalhes**: Os detalhes correspondentes que variam por *tipo.*
 
 Para obter informações sobre como utilizar modelos do Gestor de Recursos Azure para configurar grupos de ação, consulte [os modelos do Gestor de Recursos do grupo action](./action-groups-create-resource-manager-template.md).
 
@@ -59,15 +59,15 @@ De **acordo com os detalhes do exemplo:**
 
 1. Defina uma lista de notificações a enviar quando um alerta é desencadeado. Fornecer o seguinte para cada notificação:
 
-    a. **Tipo de notificação** : Selecione o tipo de notificação que pretende enviar. As opções disponíveis são:
+    a. **Tipo de notificação**: Selecione o tipo de notificação que pretende enviar. As opções disponíveis são:
       * Email Azure Resource Manager Role - Envie um e-mail para os utilizadores atribuídos a determinadas funções ARM de nível de subscrição.
       * Email/SMS/Push/Voice - Envie estes tipos de notificação para destinatários específicos.
     
-    b. **Nome** : Introduza um nome único para a notificação.
+    b. **Nome**: Introduza um nome único para a notificação.
 
-    c. **Detalhes** : Com base no tipo de notificação selecionado, insira um endereço de e-mail, número de telefone, etc.
+    c. **Detalhes**: Com base no tipo de notificação selecionado, insira um endereço de e-mail, número de telefone, etc.
     
-    d. **Esquema comum de alerta** : Pode optar por ativar o esquema comum de [alerta,](./alerts-common-schema.md)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta do Monitor Azure.
+    d. **Esquema comum de alerta**: Pode optar por ativar o esquema comum de [alerta,](./alerts-common-schema.md)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta do Monitor Azure.
 
     ![O separador Notificações](./media/action-groups/action-group-2-notifications.png)
     
@@ -77,13 +77,13 @@ De **acordo com os detalhes do exemplo:**
 
 1. Defina uma lista de ações para desencadear quando um alerta é desencadeado. Fornecer o seguinte para cada ação:
 
-    a. **Tipo de ação** : Selecione O Runbook automation, Azure Function, ITSM, Logic App, Secure Webhook, Webhook.
+    a. **Tipo de ação**: Selecione O Runbook automation, Azure Function, ITSM, Logic App, Secure Webhook, Webhook.
     
-    b. **Nome** : Introduza um nome único para a ação.
+    b. **Nome**: Introduza um nome único para a ação.
 
-    c. **Detalhes** : Com base no tipo de ação, introduza um webhook URI, app Azure, conexão ITSM ou livro de automação. Para a AÇÃO ITSM, especifique ainda o **Produto de Trabalho** e outros campos que a sua ferramenta ITSM necessita.
+    c. **Detalhes**: Com base no tipo de ação, introduza um webhook URI, app Azure, conexão ITSM ou livro de automação. Para a AÇÃO ITSM, especifique ainda o **Produto de Trabalho** e outros campos que a sua ferramenta ITSM necessita.
     
-    d. **Esquema comum de alerta** : Pode optar por ativar o esquema comum de [alerta,](./alerts-common-schema.md)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta do Monitor Azure.
+    d. **Esquema comum de alerta**: Pode optar por ativar o esquema comum de [alerta,](./alerts-common-schema.md)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta do Monitor Azure.
     
     ![O separador Ações](./media/action-groups/action-group-3-actions.png)
 
@@ -266,22 +266,108 @@ Webhooks são processados usando as seguintes regras
 - A segunda e terceira tentativas esperarão 30 segundos por uma resposta.
 - Após as 3 tentativas de ligar para o webhook, nenhum grupo de ação ligará para o ponto final durante 15 minutos.
 
-Intervalos de endereço IP de origem
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
+Intervalos de endereço IP de origem:
+
+ - 13.66.60.119/32
+ - 13.66.143.220/30
+ - 13.66.202.14/32
+ - 13.66.248.225/32
+ - 13.66.249.211/32
+ - 13.67.10.124/30
+ - 13.69.109.132/30
+ - 13.71.199.112/30
+ - 13.77.53.216/30
+ - 13.77.172.102/32
+ - 13.77.183.209/32
+ - 13.78.109.156/30
+ - 13.84.49.247/32
+ - 13.84.51.172/32
+ - 13.84.52.58/32
+ - 13.86.221.220/30
+ - 13.106.38.142/32
+ - 13.106.38.148/32
+ - 13.106.54.3/32
+ - 13.106.54.19/32
+ - 13.106.57.181/32
+ - 13.106.57.196/31
+ - 20.38.149.132/30
+ - 20.42.64.36/30
+ - 20.43.121.124/30
+ - 20.44.17.220/30
+ - 20.45.123.236/30
+ - 20.72.27.152/30
+ - 20.150.172.228/30
+ - 20.192.238.124/30
+ - 20.193.202.4/30
+ - 40.68.195.137/32
+ - 40.68.201.58/32
+ - 40.68.201.65/32
+ - 40.68.201.206/32
+ - 40.68.201.211/32
+ - 40.68.204.18/32
+ - 40.115.37.106/32
+ - 40.121.219.215/32
+ - 40.121.221.62/32
+ - 40.121.222.201/32
+ - 40.121.223.186/32
+ - 51.104.9.100/30
+ - 52.183.20.244/32
+ - 52.183.31.0/32
+ - 52.183.94.59/32
+ - 52.184.145.166/32
+ - 191.233.50.4/30
+ - 191.233.207.64/26
+ - 2603:1000:4:402::178/125
+ - 2603:1000:104:402::178/125
+ - 2603:1010:6:402::178/125
+ - 2603:1010:101:402::178/125
+ - 2603:1010:304:402::178/125
+ - 2603:1010:404:402::178/125
+ - 2603:1020:5:402::178/125
+ - 2603:1020:206:402::178/125
+ - 2603:1020:305:402::178/125
+ - 2603:1020:405:402::178/125
+ - 2603:1020:605:402::178/125
+ - 2603:1020:705:402::178/125
+ - 2603:1020:805:402::178/125
+ - 2603:1020:905:402::178/125
+ - 2603:1020:a04:402::178/125
+ - 2603:1020:b04:402::178/125
+ - 2603:1020:c04:402::178/125
+ - 2603:1020:d04:402::178/125
+ - 2603:1020:e04:402::178/125
+ - 2603:1020:f04:402::178/125
+ - 2603:1020:1004:800::f8/125
+ - 2603:1020:1104:400::178/125
+ - 2603:1030:f:400::978/125
+ - 2603:1030:10:402::178/125
+ - 2603:1030:104:402::178/125
+ - 2603:1030:107:400::f0/125
+ - 2603:1030:210:402::178/125
+ - 2603:1030:40b:400::978/125
+ - 2603:1030:40c:402::178/125
+ - 2603:1030:504:802::f8/125
+ - 2603:1030:608:402::178/125
+ - 2603:1030:807:402::178/125
+ - 2603:1030:a07:402::8f8/125
+ - 2603:1030:b04:402::178/125
+ - 2603:1030:c06:400::978/125
+ - 2603:1030:f05:402::178/125
+ - 2603:1030:1005:402::178/125
+ - 2603:1040:5:402::178/125
+ - 2603:1040:207:402::178/125
+ - 2603:1040:407:402::178/125
+ - 2603:1040:606:402::178/125
+ - 2603:1040:806:402::178/125
+ - 2603:1040:904:402::178/125
+ - 2603:1040:a06:402::178/125
+ - 2603:1040:b04:402::178/125
+ - 2603:1040:c06:402::178/125
+ - 2603:1040:d04:800::f8/125
+ - 2603:1040:f05:402::178/125
+ - 2603:1040:1104:400::178/125
+ - 2603:1050:6:402::178/125
+ - 2603:1050:403:400::1f8/125
 
 Para receber atualizações sobre alterações a estes endereços IP, recomendamos que configuize um alerta de Saúde de Serviço, que monitoriza notificações informativas sobre o serviço Grupos de Ação.
 

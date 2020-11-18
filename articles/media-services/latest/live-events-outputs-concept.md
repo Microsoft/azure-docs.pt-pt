@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: f7f73efff266e012616ac68d956abd921afaac2a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: a74dcb3cae74605e747a63f8fbb102404d8cc80e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337428"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741829"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo nos Serviços de Media
 
@@ -38,9 +38,9 @@ A Azure Media Services permite-lhe entregar eventos ao vivo aos seus clientes na
 
 Um [evento ao vivo](/rest/api/media/liveevents) pode ser definido para um *passe-through* (um codificadora ao vivo no local envia um fluxo bitrate múltiplo) ou *codificação ao vivo* (um codificante ao vivo no local envia um único fluxo de bitrate). Os tipos são definidos durante a criação usando [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None** : Um codificador ao vivo no local envia um fluxo bitrate múltiplo. O fluxo ingerido passa pelo evento ao vivo sem qualquer processamento adicional. Também chamado de modo de passagem.
-* **LiveEventEncodingType.Standard** : Um codificador ao vivo no local envia um único fluxo bitrate para o evento ao vivo e os Media Services criam vários fluxos bitrate. Se o feed de contribuição for de 720p ou resolução superior, a predefinição Predefinição **Default720p** codificará um conjunto de pares de resolução/bitrates de 6.
-* **LiveEventEncodingType.Premium1080p** : Um codificador ao vivo no local envia um único fluxo bitrate para o evento ao vivo e os Media Services criam vários fluxos de bitrate. A predefinição predefinida 1080p especifica o conjunto de saída dos pares de resolução/bitrates.
+* **LiveEventEncodingType.None**: Um codificador ao vivo no local envia um fluxo bitrate múltiplo. O fluxo ingerido passa pelo evento ao vivo sem qualquer processamento adicional. Também chamado de modo de passagem.
+* **LiveEventEncodingType.Standard**: Um codificador ao vivo no local envia um único fluxo bitrate para o evento ao vivo e os Media Services criam vários fluxos bitrate. Se o feed de contribuição for de 720p ou resolução superior, a predefinição Predefinição **Default720p** codificará um conjunto de pares de resolução/bitrates de 6.
+* **LiveEventEncodingType.Premium1080p**: Um codificador ao vivo no local envia um único fluxo bitrate para o evento ao vivo e os Media Services criam vários fluxos de bitrate. A predefinição predefinida 1080p especifica o conjunto de saída dos pares de resolução/bitrates.
 
 ### <a name="pass-through"></a>Pass-through
 
@@ -136,7 +136,7 @@ Pode utilizar URLs intuitivos ou não intuitivos.
     O modo vaidade é preferido por grandes emissores de mídia que usam codificadores de transmissão de hardware e não querem reconfigurar os seus codificadores quando iniciam o evento ao vivo. Estes emissores querem uma URL ingerível preditiva que não muda com o tempo.
 
     > [!NOTE]
-    > No portal Azure, o URL de vaidade é nomeado " *Prefixo de nome de hospedeiro estático* ".
+    > No portal Azure, o URL de vaidade é nomeado "*Prefixo de nome de hospedeiro estático*".
 
     Para especificar este modo na API, definido `useStaticHostName` para o momento da `true` criação (o padrão é `false` ). Quando `useStaticHostname` é definido como verdadeiro, o especificado a primeira parte do nome `hostnamePrefix` anfitrião atribuído à pré-visualização do evento ao vivo e ingerir pontos finais. O nome de anfitrião final seria uma combinação deste prefixo, o nome da conta de serviço de mídia e um código curto para o centro de dados Azure Media Services.
 
@@ -150,13 +150,13 @@ Pode utilizar URLs intuitivos ou não intuitivos.
     |---|---|---|
     |REST|[propriedades.vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--vaidade-url](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--token de acesso](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.md?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Regras de nomenclatura dos URLs de ingestão em direto
 
 * A cadeia *aleatória* abaixo é um número hexadecimal de 128 bits (que é composto por 32 carateres de 0-9 e a-f).
-* *o seu token de acesso* : A cadeia GUID válida que definiu ao utilizar o modo de vaidade. Por exemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
-* *nome do fluxo* : Indica o nome do fluxo para uma ligação específica. O valor do nome de fluxo é normalmente adicionado pelo codificar vivo que você usa. Pode configurar o codificader ao vivo para usar qualquer nome para descrever a ligação, por exemplo: "video1_audio1", "video2_audio1", "stream".
+* *o seu token de acesso*: A cadeia GUID válida que definiu ao utilizar o modo de vaidade. Por exemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *nome do fluxo*: Indica o nome do fluxo para uma ligação específica. O valor do nome de fluxo é normalmente adicionado pelo codificar vivo que você usa. Pode configurar o codificader ao vivo para usar qualquer nome para descrever a ligação, por exemplo: "video1_audio1", "video2_audio1", "stream".
 
 #### <a name="non-vanity-url"></a>URL de não vaidade
 

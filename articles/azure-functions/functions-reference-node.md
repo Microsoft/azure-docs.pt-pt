@@ -3,14 +3,14 @@ title: Referência do desenvolvedor JavaScript para Funções Azure
 description: Entenda como desenvolver funções usando o JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d32c63332c530ec05eb9f93661a8f2a0c5d8264c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628837"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743325"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 
@@ -328,7 +328,7 @@ Além do nível predefinido, estão disponíveis os seguintes métodos de regist
 | **erro _(mensagem)_**   | Escreve um evento de nível de erro nos registos.   |
 | **alertar _(mensagem)_**    | Escreve um evento de nível de aviso para os registos. |
 | **informação _(mensagem)_**    | Escreve para registo de nível de informação ou menor.    |
-| **verbose ( _mensagem)_** | Escreve para a gravação de nível verboso.           |
+| **verbose (_mensagem)_** | Escreve para a gravação de nível verboso.           |
 
 O exemplo a seguir escreve o mesmo registo ao nível dos rastreios de aviso, em vez do nível de informação:
 
@@ -563,21 +563,42 @@ Existem duas formas de instalar pacotes na sua App de Função:
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Em Funções, [as configurações da aplicação](functions-app-settings.md), como as cadeias de ligação de serviço, são expostas como variáveis ambientais durante a execução. Pode aceder a estas definições `process.env` utilizando, como mostrado aqui na segunda e terceira chamadas para `context.log()` onde registamos as `AzureWebJobsStorage` variáveis e `WEBSITE_SITE_NAME` ambientais:
+Adicione as suas próprias variáveis ambientais a uma aplicação de função, tanto em ambientes locais como em nuvem, tais como segredos operacionais (cordas de ligação, chaves e pontos finais) ou configurações ambientais (como variáveis de perfis). Aceda a estas definições utilizando `process.env` o seu código de função.
+
+### <a name="in-local-development-environment"></a>No ambiente de desenvolvimento local
+
+Ao executar localmente, o seu projeto de funções inclui um [ `local.settings.json` ficheiro,](/functions-run-local.md?tabs=node#local-settings-file)onde armazena as variáveis ambientais no `Values` objeto. 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>No ambiente de nuvem azure
+
+Ao correr em Azure, a aplicação de função permite-lhe configurar utiliza [as definições de Aplicação](functions-app-settings.md), como cadeias de ligação de serviço, e expõe estas definições como variáveis ambientais durante a execução. 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>Variáveis ambientais de acesso em código
+
+Aceda às definições de aplicações como variáveis ambientais `process.env` usando, como mostrado aqui na segunda e terceira chamadas para onde `context.log()` registamos as `AzureWebJobsStorage` variáveis e `WEBSITE_SITE_NAME` ambientais:
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-Ao correr localmente, as definições de aplicações são lidas a partir do [local.settings.jsno](functions-run-local.md#local-settings-file) ficheiro do projeto.
 
 ## <a name="configure-function-entry-point"></a>Configure ponto de entrada de função
 

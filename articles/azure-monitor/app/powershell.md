@@ -3,12 +3,12 @@ title: Automatizar insights de aplicação Azure com PowerShell Microsoft Docs
 description: Automatizar a criação e gestão de recursos, alertas e testes de disponibilidade no PowerShell utilizando um modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: 4dabb29abe4530307ef5204659297f4675376605
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 58ed537a8fa6622756e7bcddceb6e9321cfbd82e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694609"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741092"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerir recursos de Insights de Aplicação utilizando o PowerShell
 
@@ -469,7 +469,7 @@ Azure deve criar os recursos em ordem estrita. Para se certificar de que uma con
 Outros artigos de automação:
 
 * [Crie um recurso Application Insights](./create-new-resource.md#creating-a-resource-automatically) - método rápido sem usar um modelo.
-* [Criar testes Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [Criar testes Web](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-alerts-metric#availability-test-with-metric-alert)
 * [Enviar o Diagnóstico do Azure ao Application Insights](powershell-azure-diagnostics.md)
 * [Criar anotações de libertação](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

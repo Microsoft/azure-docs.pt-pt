@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/02/2020
-ms.openlocfilehash: 1745a2bf83cb704c8cc73e9d3bf0eba8245329b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: 49b7b855a7608b6426d0bda50330dbe1a3b5ced7
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924270"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741574"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Criar uma loja de conhecimentos usando REST e Carteiro
 
@@ -85,7 +85,7 @@ Para obter o valor `admin-key` para , vá ao serviço de Pesquisa Cognitiva Azur
 | `search-service-name` | O nome do serviço de Pesquisa Cognitiva Azure. A URL `https://{{search-service-name}}.search.windows.net` é. | 
 | `skillset-name` | Saia como **hotel-reviews-ss**. | 
 | `storage-account-name` | O nome da conta de armazenamento. | 
-| `storage-connection-string` | Na conta de armazenamento, no separador **Chaves de Acesso,** selecione **a tecla1**Connection  >  **string**. | 
+| `storage-connection-string` | Na conta de armazenamento, no separador **Chaves de Acesso,** selecione **a tecla1** Connection  >  **string**. | 
 | `storage-container-name` | Saia como **avaliações de hotéis.** | 
 
 ### <a name="review-the-request-collection-in-postman"></a>Reveja a recolha de pedidos no Carteiro

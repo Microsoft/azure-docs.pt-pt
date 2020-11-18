@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 4d307b2a16262645919423ef89c0d87636639bf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b99ec4158b1df5ab558026c05b9ec1024fb0722e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378717"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94742578"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
@@ -21,7 +21,7 @@ O Marketplace Rewards apoia-o na sua fase específica de crescimento, começando
 
 O programa cria um ciclo de feedback positivo: os benefícios em cada fase de crescimento ajudam-no a progredir para a fase seguinte, ajudando-o a crescer o seu negócio para os clientes da Microsoft, com o campo da Microsoft, e através do canal da Microsoft, alavancando o mercado comercial como plataforma.
 
-Os seus benefícios são diferenciados com base no facto de a sua oferta ser [List, Trial ou Transact.](../determine-your-listing-type.md#choose-a-listing-option)
+Os seus benefícios são diferenciados com base no facto de a sua oferta ser [Contacte-me, Teste Gratuito ou Transact.](../determine-your-listing-type.md)
 
 Será contactado por um membro da equipa de Prémios quando a sua oferta for transmitida ao vivo, com base na sua elegibilidade.
 

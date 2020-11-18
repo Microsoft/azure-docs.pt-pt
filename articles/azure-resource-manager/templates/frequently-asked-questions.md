@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f4238035a6fccb0addb9a481287b31732bd2662
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333125"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744540"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos ARM
 
@@ -68,7 +68,7 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 * **Posso criar uma subscrição num modelo ARM?**
 
-  Ainda não, mas estamos a trabalhar nisso.
+  Sim, para obter mais informações, consulte [programáticamente criar subscrições Azure com as mais recentes APIs](../../cost-management-billing/manage/programmatically-create-subscription.md).
 
 * **Como posso testar o meu modelo antes de o implementar?**
 
@@ -104,13 +104,13 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 ## <a name="template-specs"></a>Especificações de Modelo
 
-* **Como posso envolver-me na versão de pré-visualização de Especificações de Modelos?**
+* **Como posso começar com o lançamento de pré-visualização de Especificações de Modelos?**
 
-  [Junte-se à lista de espera](https://aka.ms/templateSpecsWaitlist) para especificações de modelo.
+  Instale a versão mais recente do PowerShell ou do Azure CLI. Para a Azure PowerShell, utilize [a versão 5.0.0 ou mais tarde](/powershell/azure/install-az-ps). Para O Azure CLI, utilize [a versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 * **Como estão relacionadas as especificações do modelo e as plantas Azure?**
 
-  A Azure Blueprints utilizará as especificações do modelo na sua implementação substituindo o recurso por `blueprint definition` um `template spec` recurso. Forneceremos um caminho de migração para converter a definição de planta em uma especificação de modelo, mas a definição de planta APIs ainda será suportada. Não há alterações no `blueprint assignment` recurso. As plantas continuarão a ser uma experiência de utilização para compor um ambiente governado em Azure.
+  A Azure Blueprints utilizará as especificações do modelo na sua implementação substituindo o recurso por `blueprint definition` um `template spec` recurso. Vamos fornecer um caminho de migração para converter a definição de planta em uma especificação de modelo, mas a definição de planta APIs ainda será suportada. Não há alterações no `blueprint assignment` recurso. As plantas continuarão a ser uma experiência de utilização para compor um ambiente governado em Azure.
 
 * **As especificações do modelo substituem os modelos ligados?**
 

@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 07/15/2020
-ms.openlocfilehash: abaf9abe9c52afba095fa52eee32a598ab6b3fcd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 11/17/2020
+ms.openlocfilehash: 12aa7f123ec5e417d710636f2afb4c60231cefc1
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058459"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94746555"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>Quickstart: Implementar a Pesquisa Cognitiva utilizando um modelo ARM
 
@@ -55,7 +55,7 @@ O portal apresenta um formulário que lhe permite fornecer facilmente valores de
 
 Quando a sua implementação estiver concluída, pode aceder ao seu novo grupo de recursos e ao novo serviço de pesquisa no portal.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros quickstarts e tutoriais de Pesquisa Cognitiva baseiam-se neste arranque rápido. Se pretender continuar a trabalhar com os rápidos e tutoriais subsequentes, pode desejar deixar este recurso no lugar. Quando já não é necessário, pode eliminar o grupo de recursos, que elimina o serviço de Pesquisa Cognitiva e recursos relacionados.
 

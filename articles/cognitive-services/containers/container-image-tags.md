@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 0efb278c217ede94f67b47250633622501a24414
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ba51776942ad28fc8d4b0db7dd2d0e162e5322b5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412549"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743342"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Etiquetas de imagem de contentores Azure Cognitive Services e notas de lançamento
 
@@ -574,6 +574,39 @@ A imagem do recipiente [neural texto-a-fala][sp-ntts] pode ser encontrada no sin
 
 Esta imagem do recipiente tem as seguintes etiquetas disponíveis. Também pode encontrar uma lista completa de [tags no MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list).
 
+
+# <a name="latest-version"></a>[Versão mais recente](#tab/current)
+
+Notas de lançamento `v1.3.0` para:
+* O recipiente Neural Texto-a-fala está geralmente disponível. 
+
+| Etiquetas de imagem                                  | Notas                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Imagem de recipiente com o `en-US` local e `en-US-AriaNeural` a voz.      |
+| `1.3.0-amd64-<locale-and-voice>`    | Substitua `<locale>` por um dos locais disponíveis, listado abaixo. Por exemplo, `1.3.0-amd64-en-us-arianeural`. |
+
+
+| v1.3.0 Locais e vozes           | Notas                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `de-de-katjaneural`                 | Imagem de recipiente com o `de-DE` local e `de-DE-KatjaNeural` a voz.     |
+| `en-au-natashaneural`               | Imagem de recipiente com o `en-AU` local e `en-AU-NatashaNeural` a voz.   |
+| `en-ca-claraneural`                 | Imagem de recipiente com o `en-CA` local e `en-CA-ClaraNeural` a voz.     |
+| `en-gb-libbyneural`                 | Imagem de recipiente com o `en-GB` local e `en-GB-LibbyNeural` a voz.     |
+| `en-gb-mianeural`                   | Imagem de recipiente com o `en-GB` local e `en-GB-MiaNeural` a voz.       |
+| `en-us-arianeural`                  | Imagem de recipiente com o `en-US` local e `en-US-AriaNeural` a voz.      |
+| `en-us-guyneural`                   | Imagem de recipiente com o `en-US` local e `en-US-GuyNeural` a voz.       |
+| `es-es-elviraneural`                | Imagem de recipiente com o `es-ES` local e `es-ES-ElviraNeural` a voz.    |
+| `es-mx-dalianeural`                 | Imagem de recipiente com o `es-MX` local e `es-MX-DaliaNeural` a voz.     |
+| `fr-ca-sylvieneural`                | Imagem de recipiente com o `fr-CA` local e `fr-CA-SylvieNeural` a voz.    |
+| `fr-fr-deniseneural`                | Imagem de recipiente com o `fr-FR` local e `fr-FR-DeniseNeural` a voz.    |
+| `it-it-elsaneural`                  | Imagem de recipiente com o `it-IT` local e `it-IT-ElsaNeural` a voz.      |
+| `ja-jp-nanamineural`                | Imagem de recipiente com o `ja-JP` local e `ja-JP-NanamiNeural` a voz.    |
+| `ko-kr-sunhineural`                 | Imagem de recipiente com o `ko-KR` local e `ko-KR-SunHiNeural` a voz.     |
+| `pt-br-franciscaneural`             | Imagem de recipiente com o `pt-BR` local e `pt-BR-FranciscaNeural` a voz. |
+| `zh-cn-xiaoxiaoneural`              | Imagem de recipiente com o `zh-CN` local e `zh-CN-XiaoxiaoNeural` a voz.  |
+
+# <a name="previous-version"></a>[Versão anterior](#tab/previous)
+
 | Etiquetas de imagem                                  | Notas                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Imagem de recipiente com o `en-US` local e `en-US-AriaNeural` a voz.      |
@@ -599,6 +632,8 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis. Também pode 
 | `ko-kr-sunhineural-preview`                 | Imagem de recipiente com o `ko-KR` local e `ko-KR-SunHiNeural` a voz.     |
 | `pt-br-franciscaneural-preview`             | Imagem de recipiente com o `pt-BR` local e `pt-BR-FranciscaNeural` a voz. |
 | `zh-cn-xiaoxiaoneural-preview`              | Imagem de recipiente com o `zh-CN` local e `zh-CN-XiaoxiaoNeural` a voz.  |
+
+---
 
 ## <a name="speech-language-detection"></a>Deteção de idioma de voz
 
