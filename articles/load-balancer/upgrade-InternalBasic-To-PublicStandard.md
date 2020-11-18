@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c69f528328d5ff983c7de9d7fad052a7c41285
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078749"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696256"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Ligação de saída necessária
-[O Azure Standard Load Balancer](load-balancer-overview.md) oferece um rico conjunto de funcionalidades e alta disponibilidade através da redundância de zona. Para saber mais sobre o Balancer de Carga SKU, consulte [a tabela de comparação](https://docs.microsoft.com/azure/load-balancer/skus#skus). Uma vez que o Balanceador de Carga Interna Padrão não fornece ligação de saída, fornecemos uma solução para criar um Balanceador de Carga Pública Padrão.
+[O Azure Standard Load Balancer](load-balancer-overview.md) oferece um rico conjunto de funcionalidades e alta disponibilidade através da redundância de zona. Para saber mais sobre o Balancer de Carga SKU, consulte [a tabela de comparação](./skus.md#skus). Uma vez que o Balanceador de Carga Interna Padrão não fornece ligação de saída, fornecemos uma solução para criar um Balanceador de Carga Pública Padrão.
 
 Há quatro fases numa atualização:
 
@@ -104,21 +104,21 @@ Aqui estão alguns cenários de como adicionar VMs para apoiar piscinas do recé
    
     1. Selecione o pool de backend que corresponde ao pool de backend do Balanceador de Carga Básica, selecione o seguinte valor: 
       - **Máquina Virtual**: Desça e selecione os VMs do pool de backend correspondente do Balanceador de Carga Básica.
-    1. Selecione **Guardar**.
+    1. Selecione **Save** (Guardar).
     >[!NOTE]
     >Para VMs que tenham IPs públicos, você precisará criar endereços IP standard primeiro onde o mesmo endereço IP não é garantido. Desassociar os VMs dos IPs básicos e associá-los aos endereços IP standard recém-criados. Em seguida, poderá seguir as instruções para adicionar VMs no pool backend do Balancer de Carga Padrão. 
 
 * **Criar novos VMs para adicionar aos pools de backend do recém-criado Balancer de Carga Pública Padrão.**
-    * Mais instruções sobre como criar VM e associá-lo ao Balanceador de Carga Padrão podem ser [consultados aqui](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+    * Mais instruções sobre como criar VM e associá-lo ao Balanceador de Carga Padrão podem ser [consultados aqui](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Criar uma regra de saída para a ligação de saída
 
-Siga as [instruções](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) para criar uma regra de saída para que possa
+Siga as [instruções](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) para criar uma regra de saída para que possa
 * Defina o NAT de saída do zero.
 * Dimensione e afina o comportamento do NAT existente.
 
 ### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>Criar regras NSG para VMs que abster a comunicação de ou para a Internet
-Se quiser abster-se de evitar que o tráfego de Internet chegue aos seus VMs, pode criar uma [regra NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) na Interface de Rede dos VMs.
+Se quiser abster-se de evitar que o tráfego de Internet chegue aos seus VMs, pode criar uma [regra NSG](../virtual-network/manage-network-security-group.md) na Interface de Rede dos VMs.
 
 ## <a name="common-questions"></a>Perguntas comuns
 
@@ -128,7 +128,7 @@ Sim. Ver [Ressalvas/Limitações.](#caveatslimitations)
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>O script Azure PowerShell também muda o tráfego do meu Balancer de Carga Básica para o recém-criado Balancer de Carga Padrão?
 
-N.º O script Azure PowerShell apenas migra a configuração. A migração real do tráfego é da sua responsabilidade e do seu controlo.
+Não. O script Azure PowerShell apenas migra a configuração. A migração real do tráfego é da sua responsabilidade e do seu controlo.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Dei conta de alguns problemas com a utilização deste guião. Como posso conseguir ajuda?
   

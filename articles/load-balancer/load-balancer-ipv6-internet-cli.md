@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735917"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696868"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Criar um equilibrista de carga pública com IPv6 usando Azure CLI
 
@@ -48,17 +48,17 @@ Os passos a seguir mostram como criar um equilibrador de carga pública utilizan
 
 Para implantar um equilibrador de carga, crie e configuure os seguintes objetos:
 
-* **Configuração IP frontal** : Contém endereços IP públicos para o tráfego de rede de entrada.
-* **Conjunto de endereços back-end** : Contém interfaces de rede (NICs) para que as máquinas virtuais recebam tráfego de rede do equilibrador de carga.
-* **Regras de equilíbrio de carga** : Contém regras que mapeiam uma porta pública no equilibrador de carga para uma porta na piscina de endereços de fundo.
-* **Regras NAT de entrada** : Contém regras de tradução de endereços de rede (NAT) que mapeiam uma porta no equilibrador de carga para uma porta para uma máquina virtual específica no pool de endereços back-end.
-* **Sondas** : Contém sondas de saúde que são usadas para verificar a disponibilidade de casos de máquinas virtuais na piscina de endereços back-end.
+* **Configuração IP frontal**: Contém endereços IP públicos para o tráfego de rede de entrada.
+* **Conjunto de endereços back-end**: Contém interfaces de rede (NICs) para que as máquinas virtuais recebam tráfego de rede do equilibrador de carga.
+* **Regras de equilíbrio de carga**: Contém regras que mapeiam uma porta pública no equilibrador de carga para uma porta na piscina de endereços de fundo.
+* **Regras NAT de entrada**: Contém regras de tradução de endereços de rede (NAT) que mapeiam uma porta no equilibrador de carga para uma porta para uma máquina virtual específica no pool de endereços back-end.
+* **Sondas**: Contém sondas de saúde que são usadas para verificar a disponibilidade de casos de máquinas virtuais na piscina de endereços back-end.
 
 ## <a name="set-up-azure-cli"></a>Configurar a CLI do Azure
 
 Neste exemplo, execute as ferramentas Azure CLI numa janela de comando PowerShell. Para melhorar a legibilidade e reutilização, utiliza as capacidades de script do PowerShell, não os cmdlets Azure PowerShell.
 
-1. [Instale e configuure o CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) seguindo os passos do artigo ligado e inscreva-se na sua conta Azure.
+1. [Instale e configuure o CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) seguindo os passos do artigo ligado e inscreva-se na sua conta Azure.
 
 2. Configurar variáveis PowerShell para utilização com os comandos Azure CLI:
 
@@ -122,7 +122,7 @@ Neste exemplo, execute as ferramentas Azure CLI numa janela de comando PowerShel
     > [!IMPORTANT]
     > O equilibrador de carga utiliza o rótulo de domínio do IP público como o seu nome de domínio totalmente qualificado (FQDN). Esta é uma mudança da implementação clássica, que usa o nome de serviço de nuvem como o equilibrador de carga FQDN.
     >
-    > Neste exemplo, o FQDN é *contoso09152016.southcentralus.cloudapp.azure.com* .
+    > Neste exemplo, o FQDN é *contoso09152016.southcentralus.cloudapp.azure.com*.
 
 ## <a name="create-front-end-and-back-end-pools"></a>Criar piscinas frontais e traseiras
 
@@ -284,7 +284,7 @@ Para criar VMs, você deve ter uma conta de armazenamento. Para o equilíbrio da
     ```
 
     > [!WARNING]
-    > Este exemplo utiliza o nome de utilizador e a palavra-passe para os VMs em texto claro. Tenha o cuidado adequado quando utilizar estas credenciais em texto claro. Para obter um método mais seguro de manuseamento de credenciais em PowerShell, consulte o [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+    > Este exemplo utiliza o nome de utilizador e a palavra-passe para os VMs em texto claro. Tenha o cuidado adequado quando utilizar estas credenciais em texto claro. Para obter um método mais seguro de manuseamento de credenciais em PowerShell, consulte o [`Get-Credential`](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.
 
 2. Crie o conjunto de disponibilidade:
 
@@ -299,5 +299,3 @@ Para criar VMs, você deve ter uma conta de armazenamento. Para o equilíbrio da
 
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
-
-

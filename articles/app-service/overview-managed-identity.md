@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 73b09c006b11e7f57dd3833191dd381b7f42a709
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c734c0ceb9c4d5418edc51a2c3ad3c052637ad31
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145842"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696987"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -35,9 +35,9 @@ Para configurar uma identidade gerida no portal, irá primeiro criar uma aplica�
 
 2. Se utilizar uma aplicação de função, navegue para **as funcionalidades da Plataforma.** Para outros tipos de **aplicativos,** desloque-se até ao grupo Definições na navegação à esquerda.
 
-3. Selecione **identidade** .
+3. Selecione **identidade**.
 
-4. Dentro do separador **Designado sistema,** **altere o Estado** para **ligar** . Clique em **Guardar** .
+4. Dentro do separador **Designado sistema,** **altere o Estado** para **ligar**. Clique em **Guardar**.
 
     ![Screenshot que mostra onde mudar o Estado para ligar e, em seguida, selecionar Save.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -200,11 +200,11 @@ Primeiro, terá de criar um recurso de identidade atribuído ao utilizador.
 
 3. Se utilizar uma aplicação de função, navegue para **as funcionalidades da Plataforma.** Para outros tipos de **aplicativos,** desloque-se até ao grupo Definições na navegação à esquerda.
 
-4. Selecione **identidade** .
+4. Selecione **identidade**.
 
-5. Dentro do **separador Utilizador atribuído,** clique em **Adicionar** .
+5. Dentro do **separador Utilizador atribuído,** clique em **Adicionar**.
 
-6. Procure a identidade que criou anteriormente e selecione-a. Clique em **Adicionar** .
+6. Procure a identidade que criou anteriormente e selecione-a. Clique em **Adicionar**.
 
     ![Identidade gerida no Serviço de Aplicações](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
@@ -345,7 +345,7 @@ Uma resposta bem sucedida de 200 OK inclui um corpo JSON com as seguintes propri
 > | expires_on    | O tempo de tempo quando a ficha de acesso expira. A data é representada como o número de segundos de "1970-01-01T0:0Z UTC" (corresponde à reivindicação do `exp` token).                                                                                |
 > | not_before    | O período de tempo quando o token de acesso entra em vigor, e pode ser aceite. A data é representada como o número de segundos de "1970-01-01T0:0Z UTC" (corresponde à reivindicação do `nbf` token).                                                      |
 > | recurso      | O recurso para o token de acesso foi solicitado, que corresponde ao `resource` parâmetro de cadeia de consulta do pedido.                                                                                                                               |
-> | token_type    | Indica o valor do tipo símbolo. O único tipo que a Azure AD suporta é o FBearer. Para obter mais informações sobre fichas ao portador, consulte o Quadro de [Autorização OAuth 2.0: Utilização do Token ao portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+> | token_type    | Indica o valor do tipo símbolo. O único tipo que a Azure AD suporta é o Portador. Para obter mais informações sobre fichas ao portador, consulte o Quadro de [Autorização OAuth 2.0: Utilização do Token ao portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
 Esta resposta é a mesma que a [resposta para o pedido de acesso ao serviço da Azure AD.](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)
 

@@ -4,17 +4,17 @@ description: Saiba como controlar as admissões de pod usando PodSecurityPolicy 
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: a9f6ead7edea7a3a6240e116d3073ea01fa9f6bb
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 77c618429503caf9aa7bb6abda109504bbf68d71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900113"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696001"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Pré-visualização - Proteja o seu cluster utilizando as políticas de segurança do pod no Serviço Azure Kubernetes (AKS)
 
 > [!WARNING]
-> **A funcionalidade descrita neste documento, a política de segurança do pod (pré-visualização), está definida para depreciação e deixará de estar disponível após 1 de fevereiro de 2021 a** favor da [Política Azure para a AKS.](use-pod-security-on-azure-policy.md) A data de depreciação foi prorrogada a partir da data anterior de 15 de outubro de 2020.
+> **A funcionalidade descrita neste documento, a política de segurança do pod (pré-visualização), está definida para depreciação e deixará de estar disponível após 31 de maio de 2021 a** favor da [Política Azure para a AKS.](use-pod-security-on-azure-policy.md) A data de depreciação foi prorrogada a partir da data anterior de 15 de outubro de 2020.
 >
 > Após a deprecação da política de segurança do pod (pré-visualização), tem de desativar a funcionalidade em quaisquer clusters existentes utilizando a funcionalidade prevadida para realizar futuras atualizações de clusters e permanecer dentro do suporte do Azure.
 >
@@ -24,7 +24,7 @@ Para melhorar a segurança do seu cluster AKS, pode limitar quais as cápsulas q
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -72,7 +72,7 @@ Num cluster Kubernetes, um controlador de admissão é usado para intercetar ped
 
 Quando ativa a política de segurança do pod num cluster AKS, algumas políticas predefinidos são aplicadas. Estas políticas predefinidas proporcionam uma experiência fora da caixa para definir quais as cápsulas que podem ser programadas. No entanto, os utilizadores de cluster podem ter problemas em implementar cápsulas até definir as suas próprias políticas. A abordagem recomendada é:
 
-* Criar um cluster do AKS
+* Criar um cluster do AKS (Create an AKS cluster)
 * Defina as suas próprias políticas de segurança de vagem
 * Ativar a função de política de segurança do pod
 
@@ -80,7 +80,7 @@ Para mostrar como as políticas predefinidos limitam as implementações do pod,
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>Ativar a política de segurança do pod num cluster AKS
 
-Pode ativar ou desativar a política de segurança do pod utilizando o comando [de atualização az aks.][az-aks-update] O exemplo seguinte permite a política de segurança do pod no nome de cluster *myAKSCluster* no grupo de recursos chamado *myResourceGroup* .
+Pode ativar ou desativar a política de segurança do pod utilizando o comando [de atualização az aks.][az-aks-update] O exemplo seguinte permite a política de segurança do pod no nome de cluster *myAKSCluster* no grupo de recursos chamado *myResourceGroup*.
 
 > [!NOTE]
 > Para uso no mundo real, não ative a política de segurança do pod até que tenha definido as suas próprias políticas personalizadas. Neste artigo, você ativa a política de segurança do pod como o primeiro passo para ver como as políticas padrão limitam as implementações do pod.
@@ -94,7 +94,7 @@ az aks update \
 
 ## <a name="default-aks-policies"></a>Políticas AKS predefinidos
 
-Ao ativar a política de segurança do pod, a AKS cria uma política padrão chamada *privilegiada* . Não edite nem remova a política predefinida. Em vez disso, crie as suas próprias políticas que definam as definições que pretende controlar. Vamos primeiro ver quais são estas políticas padrão como impactam as implementações das cápsulas.
+Ao ativar a política de segurança do pod, a AKS cria uma política padrão chamada *privilegiada*. Não edite nem remova a política predefinida. Em vez disso, crie as suas próprias políticas que definam as definições que pretende controlar. Vamos primeiro ver quais são estas políticas padrão como impactam as implementações das cápsulas.
 
 Para ver as políticas disponíveis, use o [kubectl obter][kubectl-get] comando da PSP, como mostra o exemplo seguinte
 
@@ -315,7 +315,7 @@ psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    R
 
 ## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>Permitir que a conta do utilizador utilize a política de segurança do pod personalizado
 
-No passo anterior, criou uma política de segurança para rejeitar cápsulas que solicitam acesso privilegiado. Para permitir a utilização da política, cria-se uma *Função* ou um *ClusterRole.* Em seguida, associa-se a um destes papéis usando uma *RoleBinding* ou *ClusterRoleBinding* .
+No passo anterior, criou uma política de segurança para rejeitar cápsulas que solicitam acesso privilegiado. Para permitir a utilização da política, cria-se uma *Função* ou um *ClusterRole.* Em seguida, associa-se a um destes papéis usando uma *RoleBinding* ou *ClusterRoleBinding*.
 
 Para tal, crie um ClusterRole que lhe permita *utilizar* a política *privilegiada da PSP* criada no passo anterior. Crie um ficheiro com o nome `psp-deny-privileged-clusterrole.yaml` e cole o seguinte manifesto YAML:
 
@@ -394,7 +394,7 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Para desativar a política de segurança da cápsula, utilize novamente o comando [de atualização az aks.][az-aks-update] O exemplo a seguir desativa a política de segurança do casulo no nome de cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup* :
+Para desativar a política de segurança da cápsula, utilize novamente o comando [de atualização az aks.][az-aks-update] O exemplo a seguir desativa a política de segurança do casulo no nome de cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az aks update \
@@ -422,7 +422,7 @@ Por fim, elimine o espaço *de nomes psp-aks:*
 kubectl delete namespace psp-aks
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou-lhe como criar uma política de segurança de pod para impedir o uso de acesso privilegiado. Existem muitas funcionalidades que uma política pode impor, como o tipo de volume ou o utilizador RunAs. Para obter mais informações sobre as opções disponíveis, consulte os documentos de referência da [política de segurança da cápsula Kubernetes.][kubernetes-policy-reference]
 

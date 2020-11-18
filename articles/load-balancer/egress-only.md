@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
-ms.openlocfilehash: b44f626546b313299701687157b37b7df021bd61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88038261"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694998"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Configuração do balanceador de carga só de saída
 
@@ -74,7 +74,7 @@ Crie uma máquina virtual na nova rede virtual.
     | Grupo de Recursos   | Selecione **Criar novo**. </br> Insira **o myResourceGroupLB**. </br> Selecione **OK**. |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Region           | Selecione **East US 2** |
+    | Região           | Selecione **East US 2** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -93,7 +93,7 @@ Crie uma máquina virtual na nova rede virtual.
     | Nome da sub-rede | Insira **myBackendSubnet** |
     | Intervalo de endereços da sub-rede | Insira **10.1.0.0/24** |
 
-7. Selecione **Guardar**.
+7. Selecione **Save** (Guardar).
 
 8. Selecione o separador **Segurança.**
 
@@ -112,7 +112,7 @@ Crie uma máquina virtual na nova rede virtual.
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. No lado superior esquerdo do portal, selecione **Criar uma**máquina Virtual  >  **compute de**recurso  >  **Virtual machine**. 
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual  >  **compute de** recurso  >  **Virtual machine**. 
    
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
@@ -123,7 +123,7 @@ Crie uma máquina virtual na nova rede virtual.
     | Grupo de Recursos | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM** |
-    | Region | Selecione **East US 2** |
+    | Região | Selecione **East US 2** |
     | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -136,7 +136,7 @@ Crie uma máquina virtual na nova rede virtual.
     | Portas de entrada públicas | Selecione **Permitir portas selecionadas** |
     | Selecione as portas de entrada | Selecione **RDP (3389)** |
 
-3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos**e, em seguida, **seguinte: Networking**.
+3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos** e, em seguida, **seguinte: Networking**.
   
 4. No separador Networking, selecione ou introduza:
 
@@ -173,7 +173,7 @@ Adicione o seu VM criado à piscina de backend de cada um.  Em seguida, configur
 
 ### <a name="create-internal-load-balancer"></a>Criar equilibrador de carga interno
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de**rede de**recursos  >  **Load Balancer**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  **Load Balancer**.
 
 2. No separador Básicos da página **'Criar balançador** de carga', insira ou selecione as **seguintes** informações: 
 
@@ -181,8 +181,8 @@ Adicione o seu VM criado à piscina de backend de cada um.  Em seguida, configur
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | Selecione **myResourceGroupLB** criado no passo anterior.|
-    | Nome                   | Insira **o meu InternalLoadBalancer**                                   |
-    | Region         | Selecione **E.U.A. Leste 2**.                                        |
+    | Name                   | Insira **o meu InternalLoadBalancer**                                   |
+    | Região         | Selecione **E.U.A. Leste 2**.                                        |
     | Tipo          | Selecione **Interno**.                                        |
     | SKU           | Selecione **Standard** |
     | Rede virtual | Selecione **myVNet** criado no passo anterior. |
@@ -195,7 +195,7 @@ Adicione o seu VM criado à piscina de backend de cada um.  Em seguida, configur
 
 ### <a name="create-public-load-balancer"></a>Criar equilibrador de carga pública
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de**rede de**recursos  >  **Load Balancer**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  **Load Balancer**.
 
 2. No separador Básicos da página **'Criar balançador** de carga', insira ou selecione as **seguintes** informações: 
 
@@ -203,8 +203,8 @@ Adicione o seu VM criado à piscina de backend de cada um.  Em seguida, configur
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e insira o **myResourceGroupLB** na caixa de texto.|
-    | Nome                   | Insira **myPublicLoadBalancer**                                   |
-    | Region         | Selecione **E.U.A. Leste 2**.                                        |
+    | Name                   | Insira **myPublicLoadBalancer**                                   |
+    | Região         | Selecione **E.U.A. Leste 2**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard** |
     | Endereço IP público | Selecione **Criar novo**. |
@@ -220,9 +220,9 @@ Adicione o seu VM criado à piscina de backend de cada um.  Em seguida, configur
 
 Crie a piscina de endereços **backend myInternalBackendPool**:
 
-1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**e, em seguida, selecione o **myInternalLoadBalancer** da lista de recursos.
+1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, em seguida, selecione o **myInternalLoadBalancer** da lista de recursos.
 
-2. Em **Definições**, selecione **pools backend**e, em seguida, selecione **Adicionar**.
+2. Em **Definições**, selecione **pools backend** e, em seguida, selecione **Adicionar**.
 
 3. Na página **de pool de backend,** para nome, escreva **myInternalBackendPool,** como o nome para a sua piscina de backend.
  
@@ -236,9 +236,9 @@ Crie a piscina de endereços **backend myInternalBackendPool**:
 
 Crie a piscina de endereços de backend **myPublicBackendPool**:
 
-1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**e, em seguida, selecione **myPublicLoadBalancer** da lista de recursos.
+1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, em seguida, selecione **myPublicLoadBalancer** da lista de recursos.
 
-2. Em **Definições**, selecione **pools backend**e, em seguida, selecione **Adicionar**.
+2. Em **Definições**, selecione **pools backend** e, em seguida, selecione **Adicionar**.
 
 3. Na página **de piscina de backend,** para nome, escreva **myPublicBackendPool,** como o nome para a sua piscina de backend.
 
@@ -252,23 +252,23 @@ Crie a piscina de endereços de backend **myPublicBackendPool**:
 
 1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**, e, em seguida, da lista de recursos, selecione **myVM** que está localizado no grupo de recursos **myResourceGroupLB.**
 
-2. Na página **'Vista Geral',** selecione **Connect**e, em seguida, **Bastion**.
+2. Na página **'Vista Geral',** selecione **Connect** e, em seguida, **Bastion**.
 
 4. Introduza o nome de utilizador e a palavra-passe introduzidos durante a criação de VM.
 
-5. Selecione **Ligar**.
+5. Selecione **Connect** (Ligar).
 
 6. Abra o Internet Explorer.
 
-7. **https://whatsmyip.org**Insira na barra de endereços.
+7. **https://whatsmyip.org** Insira na barra de endereços.
 
 8. A ligação deve falhar. Por predefinição, o balanceador de carga público padrão [não permite o tráfego de saída sem uma regra de saída definida](load-balancer-overview.md#securebydefault).
  
 ### <a name="create-a-public-load-balancer-outbound-rule"></a>Criar uma regra de saída do equilibrador de carga pública
 
-1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**e, em seguida, selecione **myPublicLoadBalancer** da lista de recursos.
+1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, em seguida, selecione **myPublicLoadBalancer** da lista de recursos.
 
-2. Em **Definições**, selecione **as regras de saída**e, em seguida, selecione **Adicionar**.
+2. Em **Definições**, selecione **as regras de saída** e, em seguida, selecione **Adicionar**.
 
 3. Utilize estes valores para configurar as regras de saída:
 
@@ -287,15 +287,15 @@ Crie a piscina de endereços de backend **myPublicBackendPool**:
 
 1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**, e, em seguida, da lista de recursos, selecione **myVM** que está localizado no grupo de recursos **myResourceGroupLB.**
 
-2. Na página **'Vista Geral',** selecione **Connect**e, em seguida, **Bastion**.
+2. Na página **'Vista Geral',** selecione **Connect** e, em seguida, **Bastion**.
 
 4. Introduza o nome de utilizador e a palavra-passe introduzidos durante a criação de VM.
 
-5. Selecione **Ligar**.
+5. Selecione **Connect** (Ligar).
 
 6. Abra o Internet Explorer.
 
-7. **https://whatsmyip.org**Insira na barra de endereços.
+7. **https://whatsmyip.org** Insira na barra de endereços.
 
 8. A ligação deve ter sucesso.
 
@@ -316,4 +316,4 @@ Esta configuração permite-lhe carregar o equilíbrio do tráfego interno que c
 - Saiba mais sobre [o Equilibrador de Carga Azure](load-balancer-overview.md).
 - Saiba mais [sobre as ligações de saída em Azure.](load-balancer-outbound-connections.md)
 - Perguntas [de faq](load-balancer-faqs.md)do balançador de carga .
-- Saiba mais sobre [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview)
+- Saiba mais sobre [Azure Bastion](../bastion/bastion-overview.md)

@@ -35,7 +35,7 @@
     - name: JavaScript
       href: search-get-started-javascript.md
     - name: REST
-      href: search-get-started-postman.md
+      href: search-get-started-rest.md
     - name: PowerShell
       href: search-get-started-powershell.md
     - name: Python
@@ -81,13 +81,13 @@
 - name: Amostras
   items:
     - name: Amostras em C#
-      href: /samples/browse/?languages=csharp&products=azure-cognitive-search
+      href: samples-dotnet.md
     - name: Exemplos do Java
-      href: /samples/browse/?languages=java&products=azure-cognitive-search
+      href: samples-java.md
     - name: Exemplos de JavaScript
-      href: /samples/browse/?languages=javascript&products=azure-cognitive-search
+      href: samples-javascript.md
     - name: Amostras de Python
-      href: /samples/browse/?languages=python&products=azure-cognitive-search
+      href: samples-python.md
     - name: Exemplos REST
       href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
 - name: Conceitos

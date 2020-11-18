@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3113216b2d8a7572bcb864819a379de6823ee444
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 90aafad2a17b9535bde29f811e630112ccbd02e3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409880"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696103"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança em Azure que o ajudam a proteger os seus dados, recursos e aplicações na nuvem e a atender às necessidades de segurança do seu negócio.
@@ -156,9 +156,9 @@ As empresas orientadas para a segurança devem concentrar-se em dar aos empregad
 
 ![Acesso seguro a recursos](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções. Em vez de dar permissão ilimitada a todos na sua subscrição ou recursos Azure, só pode permitir certas ações. Por exemplo, utilize o RBAC para permitir que um funcionário gere máquinas virtuais numa subscrição, enquanto outro pode gerir bases de dados SQL dentro da mesma subscrição.
+Com o RBAC do Azure, pode fazer a segregação de deveres na sua equipa e conceder aos utilizadores apenas a quantidade de acesso de que precisam para desempenhar as suas funções. Em vez de dar permissão ilimitada a todos na sua subscrição ou recursos Azure, só pode permitir certas ações. Por exemplo, use o Azure RBAC para permitir que um funcionário gere máquinas virtuais numa subscrição, enquanto outro pode gerir bases de dados SQL dentro da mesma subscrição.
 
-![Acesso seguro a recursos em Azure (RBAC)](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Acesso seguro a recursos usando Azure RBAC](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="data-security-and-encryption"></a>Segurança e encriptação de dados
 
@@ -210,7 +210,7 @@ As organizações que são fracas na classificação de [dados](https://download
 ## <a name="secure-your-application"></a>Proteja a sua aplicação
 Embora a Azure seja responsável por garantir a infraestrutura e plataforma em que a sua aplicação funciona, é da sua responsabilidade garantir a sua própria aplicação. Por outras palavras, precisa de desenvolver, implementar e gerir o código de aplicação e o conteúdo de forma segura. Sem isso, o código de aplicação ou conteúdo ainda pode ser vulnerável a ameaças.
 
-### <a name="web-application-firewall"></a>Firewall de aplicação Web
+### <a name="web-application-firewall"></a>Firewall de aplicações Web
 [A firewall de aplicações web (WAF)](../../web-application-firewall/ag/ag-overview.md) é uma funcionalidade do [Application Gateway](../../application-gateway/overview.md) que fornece proteção centralizada das suas aplicações web contra explorações e vulnerabilidades comuns.
 
 A firewall de aplicações Web baseia-se nas regras dos [conjuntos de regras de núcleo OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9. Cada vez mais, as aplicações Web são alvo de ataques maliciosos que exploram vulnerabilidades conhecidas comuns. Destas vulnerabilidades, são frequentes os ataques de injeção de SQL, scripting entre sites, entre muitas outras. Impedir este tipo de ataques ao código das aplicações constitui um desafio e exige uma manutenção, correção e monitorização rigorosas em várias camadas da topologia da aplicação. Uma firewall de aplicações Web centralizada ajuda a simplificar em muito a gestão da segurança e confere aos administradores de aplicações uma maior garantia de proteção contra as ameaças ou intrusões. Uma solução WAF também pode reagir mais rapidamente a uma ameaça de segurança ao corrigir uma vulnerabilidade conhecida numa localização central, em vez de proteger cada uma das aplicações Web individualmente. Os gateways de aplicações existentes podem ser facilmente convertidos num gateway de aplicação com firewall de aplicações Web ativada.
@@ -422,7 +422,7 @@ O Resource Manager oferece várias vantagens:
 
 - Pode definir as dependências entre recursos, para que sejam implantados na ordem correta.
 
-- Pode aplicar o controlo de acesso a todos os serviços no seu grupo de recursos porque o Controlo de Acesso Baseado em Funções (RBAC) está integrado de forma nativa na plataforma de gestão.
+- Pode aplicar o controlo de acesso a todos os serviços do seu grupo de recursos porque o controlo de acesso baseado em funções Azure (Azure RBAC) está nativamente integrado na plataforma de gestão.
 
 - Pode aplicar etiquetas a recursos para organizar logicamente todos os recursos na sua subscrição.
 

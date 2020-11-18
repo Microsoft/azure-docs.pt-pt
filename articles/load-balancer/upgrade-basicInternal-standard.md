@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59bf5eb22289238633b1f07c29a878bd0a9ae620
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500254"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696171"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Sem Conexão de saída necessária
-[O Azure Standard Load Balancer](load-balancer-overview.md) oferece um rico conjunto de funcionalidades e alta disponibilidade através da redundância de zona. Para saber mais sobre o Balancer de Carga SKU, consulte [a tabela de comparação](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[O Azure Standard Load Balancer](load-balancer-overview.md) oferece um rico conjunto de funcionalidades e alta disponibilidade através da redundância de zona. Para saber mais sobre o Balancer de Carga SKU, consulte [a tabela de comparação](./skus.md#skus).
 
 Este artigo introduz um script PowerShell que cria um Balanceador de Carga Padrão com a mesma configuração que o Balanceador de Carga Básica, juntamente com o tráfego migrador do Balanceador de Carga Básica para o Balanceador de Carga Padrão.
 
@@ -23,23 +23,23 @@ Este artigo introduz um script PowerShell que cria um Balanceador de Carga Padr�
 
 Um script Azure PowerShell está disponível que faz o seguinte:
 
-* Cria um Balanceador de Carga SKU Interno Padrão no local que especifica. Note que nenhuma [ligação de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) será fornecida pelo Balanceador De Carga Interna Padrão.
+* Cria um Balanceador de Carga SKU Interno Padrão no local que especifica. Note que nenhuma [ligação de saída](./load-balancer-outbound-connections.md) será fornecida pelo Balanceador De Carga Interna Padrão.
 * Copia perfeitamente as configurações do Balanceador de Carga SKU Básico para o recém-criado Balanceador de Carga Padrão.
 * Mover os IPs privados do Balanceador de Carga Básico para o recém-criado Balancer de Carga Padrão.
 * Mover perfeitamente os VMs do pool de backend do Balanceador de Carga Básica para o pool de backend do Balanceador de Carga Padrão
 
 ### <a name="caveatslimitations"></a>Ressalvas\Limitações
 
-* O Script só suporta a atualização do Balancer de Carga Interna onde não é necessária nenhuma ligação de saída. Se necessitar de [ligação de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para alguns dos seus VMs, consulte esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obter instruções. 
+* O Script só suporta a atualização do Balancer de Carga Interna onde não é necessária nenhuma ligação de saída. Se necessitar de [ligação de saída](./load-balancer-outbound-connections.md) para alguns dos seus VMs, consulte esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obter instruções. 
 * O Balanceador de Carga Básica tem de estar no mesmo grupo de recursos que os VMs e NICs de backend.
 * Se o balanceador de carga Standard for criado numa região diferente, não poderá associar os VM existentes na região antiga ao recém-criado Balancer de Carga Padrão. Para contornar esta limitação, certifique-se de criar um novo VM na nova região.
 * Se o seu Balancer de Carga não tiver nenhuma configuração IP frontal ou piscina de backend, é provável que atinja um erro que executa o script. Certifique-se de que não estão vazios.
 
 ## <a name="change-ip-allocation-method-to-static-for-frontend-ip-configuration-ignore-this-step-if-its-already-static"></a>Altere o método de atribuição ip para estática para a configuração IP frontend (ignore este passo se já estiver estático)
 
-1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**e, em seguida, selecione o seu Balancer de Carga Básica na lista de recursos.
+1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, em seguida, selecione o seu Balancer de Carga Básica na lista de recursos.
 
-2. Em **Definições**, selecione **a configuração IP frontend**e selecione a primeira configuração IP frontal. 
+2. Em **Definições**, selecione **a configuração IP frontend** e selecione a primeira configuração IP frontal. 
 
 3. Para **atribuição**, selecione **Estática**
 

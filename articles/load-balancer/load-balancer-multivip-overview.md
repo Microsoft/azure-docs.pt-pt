@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c2072d13cab9839a276c0437747d7075918e78a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448097"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696885"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários frontends para Azure Load Balancer
 
 O Azure Load Balancer permite-lhe carregar serviços de equilíbrio em várias portas, vários endereços IP ou ambos. Pode utilizar definições de balançadores de carga públicas e internas para carregar fluxos de equilíbrio através de um conjunto de VMs.
 
-Este artigo descreve os fundamentos desta capacidade, conceitos importantes e constrangimentos. Se pretender expor os serviços num endereço IP, pode encontrar instruções simplificadas para configurações de balançadores de carga [públicos](load-balancer-get-started-internet-portal.md) ou [internos.](load-balancer-get-started-ilb-arm-portal.md) Adicionar vários frontends é incremental a uma única configuração frontal. Utilizando os conceitos deste artigo, pode expandir uma configuração simplificada a qualquer momento.
+Este artigo descreve os fundamentos desta capacidade, conceitos importantes e constrangimentos. Se pretender expor os serviços num endereço IP, pode encontrar instruções simplificadas para configurações de balançadores de carga [públicos](./quickstart-load-balancer-standard-public-portal.md) ou [internos.](./quickstart-load-balancer-standard-internal-portal.md) Adicionar vários frontends é incremental a uma única configuração frontal. Utilizando os conceitos deste artigo, pode expandir uma configuração simplificada a qualquer momento.
 
 Quando define um Balançador de Carga Azure, uma configuração frontal e uma configuração de piscina de backend estão ligadas às regras. A sonda de saúde referenciada pela regra é usada para determinar como novos fluxos são enviados para um nó na piscina de backend. O frontend (aka VIP) é definido por um endereço IP composto por um endereço IP (público ou interno), um protocolo de transporte (UDP ou TCP), e um número de porta a partir da regra de equilíbrio de carga. O pool backend é uma coleção de configurações IP da Máquina Virtual (parte do recurso NIC) que referem o pool de backend balancer de carga.
 

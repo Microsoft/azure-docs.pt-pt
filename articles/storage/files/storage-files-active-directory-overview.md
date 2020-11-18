@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 93dd73b5a9149474be771537f47b448c5c4d7d8f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 0493b66928d944e251e6fe4abda4f1d3d8fb7e23
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629330"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695899"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral das opções de autenticação baseadas na identidade do Azure Files para acesso AMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -34,7 +34,7 @@ Para saber como ativar a autenticação Azure AD DS para ações de ficheiros Az
 
 -   **Azure Active Directory (Azure AD)**
 
-    Azure Ative Directory (Azure AD) é o serviço de gestão de identidade e diretório multi-inquilino da Microsoft. A Azure AD combina serviços de diretório principal, gestão de acesso a aplicações e proteção de identidade numa única solução. As máquinas virtuais (VMs) azure AD-joined Windows podem aceder a partilhas de ficheiros Azure com as suas credenciais AZure AD. Para mais informações, consulte [o que é o Diretório Ativo Azure?](../../active-directory/fundamentals/active-directory-whatis.md)
+    Azure Ative Directory (Azure AD) é o serviço de gestão de identidade e diretório multi-inquilino da Microsoft. A Azure AD combina serviços de diretório principal, gestão de acesso a aplicações e proteção de identidade numa única solução. As máquinas virtuais (VMs) azure AD-joined Windows não conseguem aceder a partilhas de ficheiros Azure com as suas credenciais AZure AD. Para mais informações, consulte [o que é o Diretório Ativo Azure?](../../active-directory/fundamentals/active-directory-whatis.md)
 
 -   **Serviços de Domínio do Diretório Ativo Azure (Azure AD DS)**
 

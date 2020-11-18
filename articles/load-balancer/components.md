@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: d2cd05251e7bf1a0b0ebcd24e6d3d0202f277969
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: bf7a35e8cedbe62aafb29aa6d9dc8fcb42e90b2e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685516"
+ms.locfileid: "94693771"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes do balançador de carga Azure
 
@@ -130,22 +130,22 @@ O equilibrador de carga básico não suporta as regras de saída.
 
 ## <a name="limitations"></a>Limitações
 
-- Saiba mais sobre [os limites](https://aka.ms/lblimits) do Balanceador de Carga 
+- Saiba mais sobre [os limites](../azure-resource-manager/management/azure-subscription-service-limits.md) do Balanceador de Carga 
 - O balançador de carga fornece o equilíbrio de carga e o encaminhamento da porta para protocolos específicos de TCP ou UDP. As regras de equilíbrio de carga e as regras nat de entrada suportam TCP e UDP, mas não outros protocolos IP, incluindo o ICMP.
 - O fluxo de saída de um VM de backend para uma parte frontal de um balanceador de carga interno falhará.
 - Uma regra do balançador de carga não pode abranger duas redes virtuais.  Os frontends e as suas instâncias de backend devem estar localizadas na mesma rede virtual.  
 - Reencaminhar fragmentos de IP não é suportado em regras de equilíbrio de carga. A fragmentação ip de pacotes UDP e TCP não é suportada em regras de equilíbrio de carga. As regras de equilíbrio de carga das portas HA podem ser utilizadas para encaminhar os fragmentos de IP existentes. Para mais informações, consulte [a visão geral das portas de alta disponibilidade.](load-balancer-ha-ports-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [Criar um balanceador de carga padrão público](quickstart-load-balancer-standard-public-portal.md) para começar com um balanceador de carga.
 - Saiba mais sobre [o Azure Load Balancer](load-balancer-overview.md).
-- Saiba mais sobre [o Endereço IP Público](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
+- Saiba mais sobre [o Endereço IP Público](../virtual-network/virtual-network-public-ip-address.md)
 - Saiba mais sobre [o Endereço IP Privado](../virtual-network/private-ip-addresses.md)
 - Saiba como utilizar [o Balancer de Carga Padrão e as Zonas de Disponibilidade](load-balancer-standard-availability-zones.md).
 - Saiba mais sobre [diagnósticos de balanceadores de carga padrão](load-balancer-standard-diagnostics.md).
 - Saiba mais sobre [o Reset TCP em Idle](load-balancer-tcp-reset.md).
 - Saiba mais sobre [o Balanceador de Carga Padrão com as regras de equilíbrio de carga dos portos HA](load-balancer-ha-ports-overview.md).
-- Saiba mais sobre [grupos de segurança de rede.](../virtual-network/security-overview.md)
-- Saiba mais sobre [os limites do balançador de carga](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
-- Saiba como utilizar [o encaminhamento do Porto.](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)
+- Saiba mais sobre [grupos de segurança de rede.](../virtual-network/network-security-groups-overview.md)
+- Saiba mais sobre [os limites do balançador de carga](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
+- Saiba como utilizar [o encaminhamento do Porto.](./tutorial-load-balancer-port-forwarding-portal.md)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: d57dfd0a496e71c1f0e6ddea839723da35bc5f76
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686247"
+ms.locfileid: "94694886"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Utilização de Insights para monitorizar e configurar o seu Balanceador de Carga Azure
 
@@ -26,7 +26,7 @@ Através do Azure Monitor para redes, é-lhe fornecidas visualizações de depen
 >Por favor, note que esta funcionalidade está na Pré-visualização e a visão de dependência funcional e o painel de instrumentos pré-configurado podem mudar para melhorar esta experiência
 
 >[!IMPORTANT]
->O Balanceador de Carga Padrão é necessário para ver métricas do espaço de nome do balanceador de carga no painel de métricas pré-configurado. Ainda será possível ver métricas a partir do conjunto de vm, escala de máquina virtual e espaços de nome do Monitor de Ligação, no entanto, recomendamos [o upgrade para a Standard](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard) para qualquer carga de trabalho de produção para tirar partido do conjunto robusto de métricas do Balancer de Carga.
+>O Balanceador de Carga Padrão é necessário para ver métricas do espaço de nome do balanceador de carga no painel de métricas pré-configurado. Ainda será possível ver métricas a partir do conjunto de vm, escala de máquina virtual e espaços de nome do Monitor de Ligação, no entanto, recomendamos [o upgrade para a Standard](./upgrade-basic-standard.md) para qualquer carga de trabalho de produção para tirar partido do conjunto robusto de métricas do Balancer de Carga.
 
 ## <a name="functional-dependency-view"></a>Vista de dependência funcional
 
@@ -40,12 +40,12 @@ Para os Balanceadores de Carga Padrão, os recursos do seu pool backend são cod
 
 ## <a name="metrics-dashboard"></a>Dashboard de métricas
 
-A partir da lâmina insights do seu Balancer de Carga, pode selecionar métricas mais detalhadas para ver um livro de trabalho pré-configurado [do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) contendo métricas métricas relevantes para aspetos específicos do seu Balanceador de Carga. Este painel mostrará o estado do Balanceador de Carga e ligará à documentação relevante no topo da página.
+A partir da lâmina insights do seu Balancer de Carga, pode selecionar métricas mais detalhadas para ver um livro de trabalho pré-configurado [do Monitor Azure](../azure-monitor/platform/workbooks-overview.md) contendo métricas métricas relevantes para aspetos específicos do seu Balanceador de Carga. Este painel mostrará o estado do Balanceador de Carga e ligará à documentação relevante no topo da página.
 
 No início, será apresentado com o separador Visão Geral. Pode navegar através dos separadores disponíveis cada um dos quais contém visuais relevantes para um aspeto específico do seu Balancer de Carga. A orientação explícita para cada um está disponível no painel de instrumentos na parte inferior de cada separador.
 
 Os separadores do painel de instrumentos atualmente disponíveis são:
-* Descrição geral
+* Descrição Geral
 * Disponibilidade de Front-end e Back-end
 * Débito de Dados
 * Distribuição de Fluxos
@@ -68,16 +68,16 @@ O separador Data Throughput permite-lhe rever a sua entrada e saída para identi
 ### <a name="flow-distribution"></a>Distribuição de Fluxos
 O Separador de Distribuição de Fluxo irá ajudá-lo a visualizar e gerir o número de fluxos que as suas instâncias de backend estão a receber e a produzir. Mostra a Taxa de Criação de Fluxo e a Contagem de Fluxos para o tráfego de entrada e saída, bem como o Tráfego de Rede que cada VM e a escala virtual de escala definida estão recebendo. 
 
-Estas opiniões podem dar-lhe feedback sobre se a configuração do Balancer de Carga ou os padrões de tráfego estão a levar a um tráfego desequilibrado. Por exemplo, se tiver a afinidade da sessão configurada e um único cliente estiver a fazer um número desproporcionado de pedidos. Também lhe informará se estiver a aproximar-se do [limite de fluxo por VM](https://docs.microsoft.com/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-recommendations) para o tamanho da sua máquina.
+Estas opiniões podem dar-lhe feedback sobre se a configuração do Balancer de Carga ou os padrões de tráfego estão a levar a um tráfego desequilibrado. Por exemplo, se tiver a afinidade da sessão configurada e um único cliente estiver a fazer um número desproporcionado de pedidos. Também lhe informará se estiver a aproximar-se do [limite de fluxo por VM](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) para o tamanho da sua máquina.
 
 ### <a name="connection-monitors"></a>Monitores de Ligação
-O separador Monitores de Ligação mostrar-lhe-á a latência de ida e volta num mapa global para todos os Monitores de [Conexão](https://docs.microsoft.com/azure/network-watcher/connection-monitor)  que configuraste. Estes visuais fornecem informações úteis para serviços com requisitos rigorosos de latência. Para satisfazer os seus requisitos poderá ser necessário adicionar implementações regionais adicionais ou passar para um modelo [de equilíbrio de carga regional transversal](https://docs.microsoft.com/azure/load-balancer/cross-region-overview)
+O separador Monitores de Ligação mostrar-lhe-á a latência de ida e volta num mapa global para todos os Monitores de [Conexão](../network-watcher/connection-monitor.md)  que configuraste. Estes visuais fornecem informações úteis para serviços com requisitos rigorosos de latência. Para satisfazer os seus requisitos poderá ser necessário adicionar implementações regionais adicionais ou passar para um modelo [de equilíbrio de carga regional transversal](./cross-region-overview.md)
 
 ### <a name="metric-definitions"></a>Definições de Métricas
-O separador Definições Métricas contém todas as informações mostradas no [artigo métricas multidimensionais](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics).
+O separador Definições Métricas contém todas as informações mostradas no [artigo métricas multidimensionais](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Reveja o painel de instrumentos e forneça feedback usando o link abaixo se houver algo que possa ser melhorado
-* [Reveja a documentação métrica para garantir que compreende como cada métrica é calculada](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics)
-* [Criar monitores de ligação para o seu balanceador de carga](https://docs.microsoft.com/azure/network-watcher/connection-monitor)
-* [Crie os seus próprios livros](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)de trabalho, pode inspirar-se clicando no botão de edição no seu painel de métricas detalhado
+* [Reveja a documentação métrica para garantir que compreende como cada métrica é calculada](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
+* [Criar monitores de ligação para o seu balanceador de carga](../network-watcher/connection-monitor.md)
+* [Crie os seus próprios livros](../azure-monitor/platform/workbooks-overview.md)de trabalho, pode inspirar-se clicando no botão de edição no seu painel de métricas detalhado

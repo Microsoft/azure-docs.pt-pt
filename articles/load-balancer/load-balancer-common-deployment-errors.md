@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3899a61e942695fed1e3da5fc543b298a42e24
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84221002"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695559"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Resolução de problemas erros comuns de implantação do Azure com o Equilibrador de Carga Azure
 
@@ -35,11 +35,11 @@ Este artigo descreve alguns erros comuns de implementação do Balançador de Ca
 |Não-InuseInactiveHealthProbe| Não é possível ter uma sonda que não seja utilizada por nenhuma regra configurada para a saúde da balança de máquinas virtual. Certifique-se de que a sonda que está configurada está a ser ativamente utilizada. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| Não é possível ter vários Balanceadores de Carga do mesmo tipo (internos, públicos). Pode ter um máximo de um balançador de carga interno e público. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | O Balancer de Carga Básica não é suportado para conjuntos de escala de máquina virtual de grupo de colocação múltipla ou conjunto de escala de máquina virtual de zona de disponibilidade cruzada. Utilize o Balanceador de Carga Padrão. |
-|MarketplacePurchaseEelegibilidadeFailed | Mude para a conta administrativa correta para permitir compras devido à subscrição ser uma Subscrição EA. Pode ler mais [aqui](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase). |
-|RecursosDeploymentFailure| Se o seu equilibrador de carga estiver num estado falhado, siga estes passos para trazê-lo de volta do estado falhado:<ol><li>Vá a https://resources.azure.com , e inscreva-se com as suas credenciais do portal Azure.</li><li>Selecione **Ler/Escrever**.</li><li>À esquerda, expanda as **Subscrições**e, em seguida, expanda a Subscrição com o Balanceador de Carga para atualizar.</li><li>Expandir **grupos de recursos**e, em seguida, expandir o grupo de recursos com o Balanceador de Carga para atualizar.</li><li>Selecione **Microsoft.Network**  >  **LoadBalancers**e, em seguida, selecione o Balanceador de Carga para atualizar, **LoadBalancer_1**.</li><li>Na página de exibição para **LoadBalancer_1**, selecione **GET**  >  **GET Edit**.</li><li>Atualize o valor **do ProvisioningState** de **Failed** to **Succeeded**.</li><li>Selecione **PUT**.</li></ol>|
+|MarketplacePurchaseEelegibilidadeFailed | Mude para a conta administrativa correta para permitir compras devido à subscrição ser uma Subscrição EA. Pode ler mais [aqui](../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase). |
+|RecursosDeploymentFailure| Se o seu equilibrador de carga estiver num estado falhado, siga estes passos para trazê-lo de volta do estado falhado:<ol><li>Vá a https://resources.azure.com , e inscreva-se com as suas credenciais do portal Azure.</li><li>Selecione **Ler/Escrever**.</li><li>À esquerda, expanda as **Subscrições** e, em seguida, expanda a Subscrição com o Balanceador de Carga para atualizar.</li><li>Expandir **grupos de recursos** e, em seguida, expandir o grupo de recursos com o Balanceador de Carga para atualizar.</li><li>Selecione **Microsoft.Network**  >  **LoadBalancers** e, em seguida, selecione o Balanceador de Carga para atualizar, **LoadBalancer_1**.</li><li>Na página de exibição para **LoadBalancer_1**, selecione **GET**  >  **GET Edit**.</li><li>Atualize o valor **do ProvisioningState** de **Failed** to **Succeeded**.</li><li>Selecione **PUT**.</li></ol>|
 |  |  |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Veja através da tabela de [comparação SKU](./skus.md) do balanceador de carga Azure
-* Saiba mais sobre [os limites do balançador de carga Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)
+* Saiba mais sobre [os limites do balançador de carga Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)

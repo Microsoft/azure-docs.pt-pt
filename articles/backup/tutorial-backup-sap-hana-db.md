@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 7bb836e92ce35869996725cb63f2d3808b570fa1
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684088"
+ms.locfileid: "94695219"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -227,11 +227,16 @@ Especificar as definições de política da seguinte forma:
    ![Política de backup diferencial](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Os backups incrementais não são suportados atualmente.
+   >Cópias de segurança incrementais estão agora disponíveis em visualização pública. Pode escolher um diferencial ou um incremental como uma cópia de segurança diária, mas não ambos.
    >
+7. Na **política de Cópia de Segurança Incremental,** selecione **Ativar** para abrir os controlos de frequência e retenção.
+    * No máximo, pode desencadear uma cópia de segurança incremental por dia.
+    * As cópias de segurança incrementais podem ser mantidas por um máximo de 180 dias. Se precisar de uma maior retenção, deve utilizar cópias de segurança completas.
 
-7. Selecione **OK** para guardar a política e voltar ao menu principal **Política de cópia de segurança**.
-8. Selecione **'Registar'** para adicionar uma política de backup de registo de transações,
+    ![Política incremental de backup](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+8. Selecione **OK** para guardar a política e voltar ao menu principal **Política de cópia de segurança**.
+9. Selecione **'Registar'** para adicionar uma política de backup de registo de transações,
    * **A Cópia de Segurança do Registo** é por definição padrão para **Ativar**. Isto não pode ser desativado, uma vez que a SAP HANA gere todos os backups de registo.
    * Definimos **2 horas** como horário de reserva e **15 dias** de retenção.
 
@@ -241,8 +246,8 @@ Especificar as definições de política da seguinte forma:
    > As cópias de segurança de registo só começam a fluir depois de concluída uma cópia de segurança completa bem sucedida.
    >
 
-9. Selecione **OK** para guardar a política e voltar ao menu principal **Política de cópia de segurança**.
-10. Depois de terminar de definir a política de backup, selecione **OK**.
+10. Selecione **OK** para guardar a política e voltar ao menu principal **Política de cópia de segurança**.
+11. Depois de terminar de definir a política de backup, selecione **OK**.
 
 Agora, configura com sucesso, backup(s) para a sua base de dados SAP HANA.
 

@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: 060048bf786f424d5df6eb8fb4813877acb0fea0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d02b46345af13770f77a7dac452127a665e01fd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823218"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696749"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Reposição do reposição do balançador de carga e tempo de marcha lenta
 
-Pode utilizar o [Balancer de Carga Padrão](load-balancer-standard-overview.md) para criar um comportamento de aplicação mais previsível para os seus cenários, permitindo que o TCP Reset on Idle para uma determinada regra. O comportamento padrão do Balancer de Carga é baixar silenciosamente os fluxos quando o tempo de inatividade de um fluxo é atingido.  Ativar esta função fará com que o Balancer de Carga envie resets TCP bidirecionais (pacote TCP RST) no tempo limite de marcha lenta.  Isto informará os pontos finais da sua aplicação de que a ligação já está fora de tempo e já não é utilizável.  Os pontos finais podem estabelecer imediatamente uma nova ligação, se necessário.
+Pode utilizar o [Balancer de Carga Padrão](./load-balancer-overview.md) para criar um comportamento de aplicação mais previsível para os seus cenários, permitindo que o TCP Reset on Idle para uma determinada regra. O comportamento padrão do Balancer de Carga é baixar silenciosamente os fluxos quando o tempo de inatividade de um fluxo é atingido.  Ativar esta função fará com que o Balancer de Carga envie resets TCP bidirecionais (pacote TCP RST) no tempo limite de marcha lenta.  Isto informará os pontos finais da sua aplicação de que a ligação já está fora de tempo e já não é utilizável.  Os pontos finais podem estabelecer imediatamente uma nova ligação, se necessário.
 
 ![Reset TCP do balançador de carga](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
  
 ## <a name="tcp-reset"></a>Reset TCP
 
-Altera este comportamento predefinido e permite o envio de Resets TCP no tempo limite de marcha lenta inativo nas regras de ACESSO NAT, regras de equilíbrio de carga e [regras de saída](https://aka.ms/lboutboundrules).  Quando ativado por regra, o Balanceador de Carga enviará o Reset TCP bidirecional (pacotes TCP RST) para os pontos finais do cliente e do servidor no momento do intervalo de marcha lenta para todos os fluxos correspondentes.
+Altera este comportamento predefinido e permite o envio de Resets TCP no tempo limite de marcha lenta inativo nas regras de ACESSO NAT, regras de equilíbrio de carga e [regras de saída](./load-balancer-outbound-connections.md#outboundrules).  Quando ativado por regra, o Balanceador de Carga enviará o Reset TCP bidirecional (pacotes TCP RST) para os pontos finais do cliente e do servidor no momento do intervalo de marcha lenta para todos os fluxos correspondentes.
 
 Os pontos finais que recebem pacotes TCP RST fecham imediatamente a tomada correspondente. Isto fornece uma notificação imediata aos pontos finais de que a libertação da ligação ocorreu e qualquer comunicação futura sobre a mesma ligação TCP falhará.  As aplicações podem purgar as ligações quando a tomada fecha e restabelece as ligações, se necessário, sem esperar que a ligação TCP aussa eventualmente.
 
@@ -48,7 +48,7 @@ Por predefinição, está programado para 4 minutos. Se um período de inativida
 
 Quando a ligação estiver fechada, a aplicação do seu cliente poderá receber a seguinte mensagem de erro: "A ligação subjacente foi encerrada: Uma ligação que se esperava que fosse mantida viva foi fechada pelo servidor."
 
-Uma prática comum é usar um TCP de vida. Esta prática mantém a ligação ativa por um período mais longo. Para obter mais informações, consulte estes [exemplos .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Com o tempo de vida ativo, os pacotes são enviados durante períodos de inatividade na ligação. Os pacotes de manutenção vivos asseguram que o valor de tempo de saída não é atingido e a ligação é mantida por um longo período de tempo.
+Uma prática comum é usar um TCP de vida. Esta prática mantém a ligação ativa por um período mais longo. Para obter mais informações, consulte estes [exemplos .NET](/dotnet/api/system.net.servicepoint.settcpkeepalive). Com o tempo de vida ativo, os pacotes são enviados durante períodos de inatividade na ligação. Os pacotes de manutenção vivos asseguram que o valor de tempo de saída não é atingido e a ligação é mantida por um longo período de tempo.
 
 A regulação funciona apenas para ligações de entrada. Para evitar perder a ligação, configufique a fixação do TCP com um intervalo inferior ao da definição de tempo de marcha lenta inativa ou aumente o valor de tempo de marcha lenta inativo. Para apoiar estes cenários, foi adicionado o apoio a um tempo limite configurável.
 
@@ -63,6 +63,6 @@ A TCP mantém-se viva para cenários em que a vida útil da bateria não é um c
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [o Balanceador de Carga Padrão](load-balancer-standard-overview.md).
-- Conheça as [regras de saída.](load-balancer-outbound-rules-overview.md)
+- Saiba mais sobre [o Balanceador de Carga Padrão](./load-balancer-overview.md).
+- Conheça as [regras de saída.](./load-balancer-outbound-connections.md#outboundrules)
 - [Configure o TCP RST no tempo limite de Idle](load-balancer-tcp-idle-timeout.md)

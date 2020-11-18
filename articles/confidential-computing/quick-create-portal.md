@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 7d952608a4850b840759e05a99bdd14cbe2a3a81
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1e417563b463d7033072b27bec505d10ef1adb47
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560966"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695746"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Quickstart: Implementar um VM de computação confidencial Azure no portal Azure
 
@@ -53,16 +53,16 @@ Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsof
 
 1. Escreva ou selecione os seguintes valores:
 
-   * **Região** : Selecione a região de Azure que é a certa para si.
+   * **Região**: Selecione a região de Azure que é a certa para si.
 
         > [!NOTE]
         > Máquinas virtuais de computação confidencial só funcionam em hardware especializado disponível em regiões específicas. Para as últimas regiões disponíveis para DCsv2-Series VMs, consulte [as regiões disponíveis.](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)
 
 1. Configure a imagem do sistema operativo que gostaria de utilizar para a sua máquina virtual.
 
-    * **Escolha imagem** : Para este tutorial, selecione Ubuntu 18.04 LTS. Também pode selecionar Windows Server 2019, Windows Server 2016 ou Ubuntu 16.04 LTS. Se optar por fazê-lo, será redirecionado neste tutorial em conformidade.
+    * **Escolha imagem**: Para este tutorial, selecione Ubuntu 18.04 LTS. Também pode selecionar Windows Server 2019, Windows Server 2016 ou Ubuntu 16.04 LTS. Se optar por fazê-lo, será redirecionado neste tutorial em conformidade.
     
-    * **Alternar a imagem para a Gen 2** : Máquinas virtuais de computação confidencial só funcionam em imagens [da Geração 2.](../virtual-machines/generation-2.md) Certifique-se de que a imagem selecionada é uma imagem da Gen 2. Clique no separador **Avançado** acima, onde está a configurar a máquina virtual. Desloque-se para baixo até encontrar a secção rotulada "VM Generation". Selecione Gen 2 e, em seguida, volte ao **separador Básicos.**
+    * **Alternar a imagem para a Gen 2**: Máquinas virtuais de computação confidencial só funcionam em imagens [da Geração 2.](../virtual-machines/generation-2.md) Certifique-se de que a imagem selecionada é uma imagem da Gen 2. Clique no separador **Avançado** acima, onde está a configurar a máquina virtual. Desloque-se para baixo até encontrar a secção rotulada "VM Generation". Selecione Gen 2 e, em seguida, volte ao **separador Básicos.**
     
 
         ![Separador Avançado](media/quick-create-portal/advanced-tab-virtual-machine.png)
@@ -70,7 +70,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsof
 
         ![Geração de VMs](media/quick-create-portal/gen2-virtual-machine.png)
 
-    * **Voltar à configuração básica** : Volte ao separador **Básicos** utilizando a navegação na parte superior.
+    * **Voltar à configuração básica**: Volte ao separador **Básicos** utilizando a navegação na parte superior.
 
 1. Escolha uma máquina virtual com capacidades de computação confidenciais no seletor de tamanhos, escolhendo o tamanho da **mudança.** No seletor de tamanho da máquina virtual, clique em **Limpar todos os filtros**. Escolha **Adicionar o filtro,** selecione **Family** para o tipo de filtro e, em seguida, selecione **apenas cálculo confidencial**.
 
@@ -81,25 +81,25 @@ Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsof
 
 1. Preencha as seguintes informações:
 
-   * **Tipo de autenticação** : Selecione **a chave pública SSH** se estiver a criar um Linux VM. 
+   * **Tipo de autenticação**: Selecione **a chave pública SSH** se estiver a criar um Linux VM. 
 
         > [!NOTE]
         > Tem a opção de utilizar uma chave pública SSH ou uma Palavra-passe para autenticação. O SSH é mais seguro. Para obter instruções sobre como gerar uma chave SSH, veja [Criar chaves SSH em Linux e Mac para VMs do Linux no Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-    * **Nome de utilizador** : Introduza o nome do administrador para o VM.
+    * **Nome de utilizador**: Introduza o nome do administrador para o VM.
 
-    * **Chave pública SSH** : Se aplicável, insira a sua chave pública RSA.
+    * **Chave pública SSH**: Se aplicável, insira a sua chave pública RSA.
     
-    * **Senha** : Se aplicável, introduza a sua palavra-passe para autenticação.
+    * **Senha**: Se aplicável, introduza a sua palavra-passe para autenticação.
 
-    * **Portas de entrada pública** : Escolha **Permitir portas selecionadas** e selecionar **SSH (22)** e **HTTP (80)** na lista **de portas de entrada pública Select.** Se estiver a implementar um VM do Windows, selecione **HTTP (80)** e **RDP (3389)**. Neste arranque rápido, este passo é necessário para ligar ao VM e completar a configuração SDK do Enclave Aberto. 
+    * **Portas de entrada pública**: Escolha **Permitir portas selecionadas** e selecionar **SSH (22)** e **HTTP (80)** na lista **de portas de entrada pública Select.** Se estiver a implementar um VM do Windows, selecione **HTTP (80)** e **RDP (3389)**. Neste arranque rápido, este passo é necessário para ligar ao VM e completar a configuração SDK do Enclave Aberto. 
 
      ![Portas de entrada](media/quick-create-portal/inbound-port-virtual-machine.png)
 
 
 1. Faça alterações no separador **Discos.**
 
-   * Se escolher um **DC1s_v2** , **DC2s_v2** , **DC4s_V2** máquina virtual, escolha um tipo de disco que seja **Standard SSD** ou **Premium SSD**. 
+   * Se escolher um **DC1s_v2**, **DC2s_v2**, **DC4s_V2** máquina virtual, escolha um tipo de disco que seja **Standard SSD** ou **Premium SSD**. 
    * Se escolher uma máquina virtual **DC8_v2,** escolha **o SSD Standard** como o seu tipo de disco.
 
 1. Faça quaisquer alterações que pretenda para as definições nos separadores seguintes ou mantenha as definições predefinidos.
@@ -168,7 +168,7 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.4/linux/distro/ubuntuServer18.04/sgx_linux_x64_driver_1.21.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.9/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.36.2.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```
@@ -189,7 +189,7 @@ sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-
 
 Consulte [a Utilização do SDK do Enclave Aberto](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/Linux_using_oe_sdk.md) no GitHub para verificar e utilizar o SDK instalado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3141d9937591467870ee4a88d16a96cbdb24a05b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410582"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696222"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na Nuvem Pública de Azure
 
@@ -38,7 +38,7 @@ Cada diretório do Azure AD é distinto e separado de outros diretórios do Azur
 
 ### <a name="azure-tenancy"></a>Arrendamento Azure
 
-Azure tenancy (Azure Subscription) refere-se a uma relação "cliente/faturação" e a um [inquilino](../../active-directory/develop/quickstart-create-new-tenant.md) único no [Azure Ative Directory](../../active-directory/fundamentals/active-directory-whatis.md). O isolamento do nível do inquilino no Microsoft Azure é alcançado usando o Azure Ative Directory e [os controlos baseados em funções oferecidos](../../role-based-access-control/overview.md) por ele. Cada subscrição do Azure está associada a um diretório Azure Ative (AD).
+Azure tenancy (Azure Subscription) refere-se a uma relação "cliente/faturação" e a um [inquilino](../../active-directory/develop/quickstart-create-new-tenant.md) único no [Azure Ative Directory](../../active-directory/fundamentals/active-directory-whatis.md). O isolamento de nível de inquilino no Microsoft Azure é alcançado usando o Azure Ative Directory e [o controlo de acesso baseado em funções Azure](../../role-based-access-control/overview.md) oferecido por ele. Cada subscrição do Azure está associada a um diretório Azure Ative (AD).
 
 Utilizadores, grupos e aplicações desse diretório podem gerir recursos na subscrição do Azure. Pode atribuir estes direitos de acesso utilizando o portal Azure, as ferramentas da linha de comando Azure e as APIs de Gestão Azure. Um inquilino da AD Azure é logicamente isolado usando limites de segurança para que nenhum cliente possa aceder ou comprometer os coinquilinos, quer maliciosamente quer acidentalmente. O Azure AD funciona em servidores "de metal nu" isolados num segmento de rede segregado, onde a filtragem de pacotes de nível de hospedeiro e o Windows Firewall bloqueiam ligações e tráfego indesejados.
 
@@ -52,7 +52,7 @@ Utilizadores, grupos e aplicações desse diretório podem gerir recursos na sub
 
 - O acesso físico aos servidores que compõem o serviço AZure AD e o acesso direto aos sistemas back-end da Azure AD é restrito.
 
-- Os utilizadores de AD Azure não têm acesso a ativos ou locais físicos, pelo que não lhes é possível contornar os controlos de política lógicos da RBAC indicados a seguir.
+- Os utilizadores de AZure AD não têm acesso a ativos ou locais físicos, pelo que não lhes é possível contornar os controlos de política lógicos do RBAC Azure indicados a seguir.
 
 Para diagnósticos e necessidades de manutenção, é necessário e utilizado um modelo operacional que utilize um sistema de elevação de privilégios just-in-time. A Azure AD Privileged Identity Management (PIM) introduz o [Eligible admins](../../active-directory/privileged-identity-management/pim-configure.md) conceito de administrador elegível. A função está inativa até que o utilizador precise de acesso. Nessa altura, o utilizador realiza um processo de ativação e torna-se num administrador ativo durante uma quantidade pré-determinada de tempo.
 
@@ -80,7 +80,7 @@ O Azure RBAC tem três funções básicas que se aplicam a todos os tipos de rec
 
 O resto das funções do Azure no Azure permitem a gestão de recursos específicos do Azure. Por exemplo, a função Contribuidor de Máquina Virtual permite ao utilizador criar e gerir máquinas virtuais. Não lhes dá acesso à Rede Virtual Azure ou à sub-rede a que a máquina virtual se conecta.
 
-[As funções incorporadas da RBAC](../../role-based-access-control/built-in-roles.md) listam as funções disponíveis no Azure. Especifica as operações e o âmbito que cada papel incorporado concede aos utilizadores. Se procura definir os seus próprios papéis para ainda mais controlo, veja como construir [papéis personalizados no Azure RBAC.](../../role-based-access-control/custom-roles.md)
+[As funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md) listam as funções disponíveis no Azure. Especifica as operações e o âmbito que cada papel incorporado concede aos utilizadores. Se procura definir os seus próprios papéis para ainda mais controlo, veja como construir [papéis personalizados no Azure RBAC.](../../role-based-access-control/custom-roles.md)
 
 Algumas outras capacidades para o Azure Ative Directory incluem:
 

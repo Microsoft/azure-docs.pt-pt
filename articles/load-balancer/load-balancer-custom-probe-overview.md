@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 82763842e6145b3883c46bcb9ddb45b7836c3cf2
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 605692d15a08246dd574b0724a550b4543a237a3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241825"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695525"
 ---
 # <a name="load-balancer-health-probes"></a>Sondas de estado de funcionamento do Balanceador de Carga
 
@@ -121,7 +121,7 @@ O seguinte ilustra como pode expressar este tipo de configuração de sonda num 
 ### <a name="http--https-probe"></a><a name="httpprobe"></a><a name="httpsprobe"></a>SONDA HTTP / HTTPS
 
 >[!NOTE]
->A sonda HTTPS só está disponível para [o Balanceador de Carga Padrão.](load-balancer-standard-overview.md)
+>A sonda HTTPS só está disponível para [o Balanceador de Carga Padrão.](./load-balancer-overview.md)
 
 As sondas HTTP e HTTPS baseiam-se na sonda TCP e emitem um HTTP GET com o caminho especificado. Ambas as sondas suportam caminhos relativos para o HTTP GET. As sondas HTTPS são as mesmas que as sondas HTTP com a adição de um invólucro de Segurança da Camada de Transporte (TLS, anteriormente conhecido como SSL). A sonda de saúde é marcada quando o caso responde com um estado HTTP 200 dentro do período de tempo limite.  A sonda de saúde tenta verificar a porta da sonda de saúde configurada a cada 15 segundos por defeito. O intervalo mínimo da sonda é de 5 segundos. A duração total de todos os intervalos não pode exceder 120 segundos.
 
@@ -169,7 +169,7 @@ As funções de serviço em nuvem (funções de trabalhador e funções web) uti
 
 Uma sonda de agente convidado é um cheque do agente convidado dentro do VM. Em seguida, ouve e responde com uma resposta HTTP 200 OK apenas quando a instância está no estado Ready. (Outros estados estão ocupados, reciclando ou parando.)
 
-Para obter mais informações, consulte [configurar o ficheiro de definição de serviço (csdef) para sondas de saúde](https://msdn.microsoft.com/library/azure/ee758710.aspx) ou [começar por criar um equilibrador de carga pública para serviços na nuvem](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
+Para obter mais informações, consulte [configurar o ficheiro de definição de serviço (csdef) para sondas de saúde](/previous-versions/azure/reference/ee758710(v=azure.100)) ou [começar por criar um equilibrador de carga pública para serviços na nuvem](/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
 
 Se o agente convidado não responder com HTTP 200 OK, o equilibrador de carga marca a ocorrência como não respondendo. Em seguida, deixa de enviar fluxos para este caso. O balançador de carga continua a verificar o caso. 
 
@@ -215,7 +215,7 @@ Se todas as sondas para todas as instâncias de um pool de backend falharem, os 
 
 O Load Balancer utiliza um serviço de sondagem distribuído para o seu modelo de saúde interna. O serviço de sondagem reside em cada hospedeiro onde os VMs e podem ser programados a pedido para gerar sondas de saúde de acordo com a configuração do cliente. O tráfego da sonda de saúde é diretamente entre o serviço de sondagem que gera a sonda de saúde e o VM do cliente. Todas as sondas de saúde load balancer originam do endereço IP 168.63.129.16 como fonte.  Pode utilizar o espaço de endereço IP dentro de um VNet que não é espaço RFC1918.  Utilizando um endereço IP de propriedade global, a Microsoft reduz a hipótese de um endereço IP entrar em conflito com o espaço de endereço IP que utiliza dentro do VNet.  Este endereço IP é o mesmo em todas as regiões e não muda e não é um risco para a segurança, porque só o componente interno da plataforma Azure pode obter um pacote a partir deste endereço IP. 
 
-A etiqueta de serviço AzureLoadBalancer identifica este endereço IP de origem nos [seus grupos de segurança](../virtual-network/security-overview.md) de rede e permite o tráfego de sondas de saúde por padrão.
+A etiqueta de serviço AzureLoadBalancer identifica este endereço IP de origem nos [seus grupos de segurança](../virtual-network/network-security-groups-overview.md) de rede e permite o tráfego de sondas de saúde por padrão.
 
 Para além das sondas de saúde Load Balancer, as [seguintes operações utilizam este endereço IP:](../virtual-network/what-is-ip-address-168-63-129-16.md)
 
@@ -233,15 +233,15 @@ Por vezes, pode ser útil para a sua aplicação gerar uma resposta de sonda de 
 
 Para o equilíbrio da carga UDP, deve gerar um sinal de sonda de saúde personalizado a partir do ponto final de backend e utilizar uma sonda de saúde TCP, HTTP ou HTTPS que direcione o ouvinte correspondente para refletir a saúde da sua aplicação UDP.
 
-Ao utilizar [as regras de equilíbrio de carga dos portos HA](load-balancer-ha-ports-overview.md) com [o Balanceador de Carga Padrão,](load-balancer-standard-overview.md)todas as portas são equilibradas em carga e uma única resposta da sonda de saúde deve refletir o estado de toda a instância.
+Ao utilizar [as regras de equilíbrio de carga dos portos HA](load-balancer-ha-ports-overview.md) com [o Balanceador de Carga Padrão,](./load-balancer-overview.md)todas as portas são equilibradas em carga e uma única resposta da sonda de saúde deve refletir o estado de toda a instância.
 
 Não traduza ou proxy uma sonda de saúde através do caso que recebe a sonda de saúde para outro caso no seu VNet, uma vez que esta configuração pode levar a falhas em cascata no seu cenário.  Considere o seguinte cenário: um conjunto de aparelhos de terceiros é implantado no pool de backend de um recurso load balancer para fornecer escala e redundância para os aparelhos e a sonda de saúde está configurada para sondar uma porta que o aparelho de terceiros proxie ou se traduz para outras máquinas virtuais atrás do aparelho.  Se sondar a mesma porta que está a utilizar para traduzir ou solicitar pedidos às outras máquinas virtuais por detrás do aparelho, qualquer resposta da sonda de uma única máquina virtual atrás do aparelho marcará o próprio aparelho morto. Esta configuração pode levar a uma falha em cascata de todo o cenário de aplicação como resultado de um único ponto final de backend atrás do aparelho.  O gatilho pode ser uma falha intermitente da sonda que fará com que o Balancer de Carga marque o destino original (a instância do aparelho) e, por sua vez, pode desativar todo o seu cenário de aplicação. Em vez disso, sondar a saúde do aparelho. A seleção da sonda para determinar o sinal de saúde é uma consideração importante para os cenários de aparelhos virtuais de rede (NVA) e deve consultar o seu fornecedor de aplicações para saber qual é o sinal de saúde adequado para tais cenários.
 
 Se não permitir a [origem ip](#probesource) da sonda nas suas políticas de firewall, a sonda de saúde falhará, uma vez que não consegue chegar ao seu caso.  Por sua vez, o Balanceador de Carga marcará o seu caso devido à falha da sonda de saúde.  Esta configuração errada pode fazer com que o seu cenário de aplicação equilibrado falhe.
 
-Para a sonda de saúde do Load Balancer para marcar o seu caso, **deve** permitir este endereço IP em quaisquer [grupos de segurança](../virtual-network/security-overview.md) da rede Azure e políticas locais de firewall.  Por predefinição, todos os grupos de segurança da rede incluem a [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer para permitir o tráfego de sondas de saúde.
+Para a sonda de saúde do Load Balancer para marcar o seu caso, **deve** permitir este endereço IP em quaisquer [grupos de segurança](../virtual-network/network-security-groups-overview.md) da rede Azure e políticas locais de firewall.  Por predefinição, todos os grupos de segurança da rede incluem a [etiqueta de serviço](../virtual-network/network-security-groups-overview.md#service-tags) AzureLoadBalancer para permitir o tráfego de sondas de saúde.
 
-Se desejar testar uma falha da sonda de saúde ou marcar uma instância individual, pode utilizar um [grupo de segurança](../virtual-network/security-overview.md) de rede para bloquear explicitamente a sonda de saúde (porto de destino ou IP de [origem)](#probesource)e simular a falha de uma sonda.
+Se desejar testar uma falha da sonda de saúde ou marcar uma instância individual, pode utilizar um [grupo de segurança](../virtual-network/network-security-groups-overview.md) de rede para bloquear explicitamente a sonda de saúde (porto de destino ou IP de [origem)](#probesource)e simular a falha de uma sonda.
 
 Não configuure o seu VNet com a gama de endereços IP da Microsoft que contém 168.63.129.16.  Tais configurações colidirão com o endereço IP da sonda de saúde e podem fazer com que o seu cenário falhe.
 
@@ -251,7 +251,7 @@ Não ative [os tempos de TCP](https://tools.ietf.org/html/rfc1323).  Permitir qu
 
 ## <a name="monitoring"></a>Monitorização
 
-[O balanceador de carga padrão](load-balancer-standard-overview.md) público e interno expõe por ponto final e o estado da sonda de saúde de backend como métricas multidimensionais através do Azure Monitor. Estas métricas podem ser consumidas por outros serviços Azure ou aplicações parceiras. 
+[O balanceador de carga padrão](./load-balancer-overview.md) público e interno expõe por ponto final e o estado da sonda de saúde de backend como métricas multidimensionais através do Azure Monitor. Estas métricas podem ser consumidas por outros serviços Azure ou aplicações parceiras. 
 
 O Balancer de Carga Pública Básica expõe o estado da sonda de saúde resumido por piscina de backend através de registos do Azure Monitor.  Os registos do Monitor Azure não estão disponíveis para os balançadores de carga básico internos.  Pode utilizar [registos do Azure Monitor](load-balancer-monitor-log.md) para verificar o estado de saúde da sonda e contagem de sondas do balançador de carga pública. O registo pode ser usado com Power BI ou Azure Operational Insights para fornecer estatísticas sobre o estado de saúde do equilibrador de carga.
 
@@ -262,7 +262,7 @@ O Balancer de Carga Pública Básica expõe o estado da sonda de saúde resumido
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [Balanceador de Carga Standard](load-balancer-standard-overview.md)
+- Saiba mais sobre o [Balanceador de Carga Standard](./load-balancer-overview.md)
 - [Começar a criar um balanceador de carga pública em Resource Manager utilizando o PowerShell](quickstart-load-balancer-standard-public-powershell.md)
-- [REST API para sondas de saúde](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
+- [REST API para sondas de saúde](/rest/api/load-balancer/loadbalancerprobes/)
 - Solicite novas capacidades de sonda de saúde com [a voz do Utilizador do Balancer de Carga](https://aka.ms/lbuservoice)

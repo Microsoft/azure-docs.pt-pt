@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: f165064ed5b0583ebb469c47426a2b6403307971
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4e07285eca0fd10b73b386fcf139cdad5b94ddc2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048360"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696409"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga em múltiplas zonas de disponibilidade com um Balanceador de Carga Standard, através do portal do Azure
 
@@ -37,7 +37,7 @@ O balanceamento de carga fornece um nível mais elevado de disponibilidade ao pr
 
 Para obter mais informações sobre a utilização das Zonas de disponibilidade com o Balanceador de Carga Standard, veja [Balanceador de Carga Standard e Zonas de Disponibilidade](load-balancer-standard-availability-zones.md).
 
-Se preferir, pode concluir este tutorial com a [CLI do Azure](load-balancer-standard-public-zone-redundant-cli.md).
+Se preferir, pode concluir este tutorial com a [CLI do Azure](./quickstart-load-balancer-standard-public-cli.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
@@ -53,14 +53,14 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Ao criar um novo IP público durante a criação do balanceador de carga, é automaticamente configurado como uma versão de SKU Standard e tem também com redundância entre zonas automaticamente.
 
-1. No lado superior esquerdo do ecrã, clique em **Criar um equilibrador**de carga de  >  **rede de**recursos  >  **Load Balancer**.
+1. No lado superior esquerdo do ecrã, clique em **Criar um equilibrador** de carga de  >  **rede de** recursos  >  **Load Balancer**.
 2. No separador **Básico da** página **'Criar balanceador** de carga', introduzir ou selecionar as seguintes informações, aceitar as predefinições para as definições restantes e, em seguida, selecionar **Rever + criar**:
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e digitar *MyResourceGroupLBAZ* na caixa de texto.|
-    | Nome                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard**.                          |
@@ -104,7 +104,7 @@ Crie um grupo de segurança de rede para definir ligações recebidas para a sua
 Nesta secção, irá criar regras do grupo de segurança de rede para permitir ligações de entrada através de HTTP e RDP no portal do Azure.
 
 1. No portal do Azure, clique em **Todos os recursos**, no menu da esquerda e, em seguida, clique em **myNetworkSecurityGroup**, que se encontra no grupo de recursos **myResourceGroupLBAZ**.
-2. Em **Definições**, clique em **Regras de segurança de entrada** e, em seguida, clique em**Adicionar**.
+2. Em **Definições**, clique em **Regras de segurança de entrada** e, em seguida, clique em **Adicionar**.
 3. Introduza estes valores para a regra de segurança de entrada com o nome *myHTTPRule* para permitir ligações HTTP de entrada através da porta 80:
     - *Service Tag* - na **Origem**.
     - *Internet* - na **Etiqueta do serviço de origem**
@@ -151,7 +151,7 @@ Crie máquinas virtuais em diferentes zonas (zona 1, zona 2 e zona 3) na região
 1. Clique em **Todos os recursos**, no menu da esquerda e, na lista de recursos, clique em **myVM1**, que se encontra no grupo de recursos *myResourceGroupLBAZ*.
 2. Na página **Descrição geral**, clique em **Ligar** para estabelecer o RDP para a VM.
 3. Inicie sessão na VM com o nome de utilizador *azureuser*.
-4. No ambiente de trabalho do servidor, navegue para o **Windows Administrative Tools**Windows > **PowerShell**.
+4. No ambiente de trabalho do servidor, navegue para o **Windows Administrative Tools** Windows > **PowerShell**.
 5. Na Janela do PowerShell, execute os seguintes comandos para instalar o servidor IIS, remova o ficheiro iisstart.htm predefinido e, em seguida, adicione um novo ficheiro iisstart.htm que apresenta o nome da VM:
    ```azurepowershell-interactive
     
@@ -233,7 +233,7 @@ Para permitir ao balanceador de carga monitorizar o estado da aplicação, pode 
 
 Para ver o balanceador de carga a distribuir tráfego nas VMs ao longo da zona, pode forçar a atualização do browser.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém o balançador de carga e selecione **Delete**.
 

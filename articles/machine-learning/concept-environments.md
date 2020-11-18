@@ -1,23 +1,22 @@
 ---
 title: Sobre ambientes de aprendizagem automática Azure
 titleSuffix: Azure Machine Learning
-description: Neste artigo, aprenda as vantagens dos ambientes de aprendizagem automática, que permitem definições de dependência de aprendizagem automática reprodutível, auditáveis e portáteis em diversos alvos de computação.
+description: Conheça os ambientes de aprendizagem automática, que permitem definições de dependência de aprendizagem automática reprodutível, auditáveis, & portátil para vários alvos de computação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
-ms.date: 07/08/2020
-ms.openlocfilehash: 9c554abc8aef89ca353e06c14b04fab2622d2827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 78f8d6d216659eaad01d512dd45696dd31035885
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322196"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695389"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>O que são ambientes de aprendizagem automática Azure?
-
 
 Os ambientes de aprendizagem automática Azure são uma encapsulação do ambiente onde o seu treino de aprendizagem automática acontece. Especificam os pacotes Python, variáveis ambientais e configurações de software em torno dos seus scripts de treino e pontuação. Também especificam os tempos de execução (Python, Spark ou Docker). Os ambientes são entidades geridas e versadas dentro do seu espaço de trabalho machine learning que permitem fluxos de trabalho de aprendizagem automática reprodutível, auditáveis e portáteis através de uma variedade de alvos computacional.
 

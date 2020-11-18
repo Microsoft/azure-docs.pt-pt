@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: f5ae1f7f84293fdf23b680a407a5a168316f3163
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0429eec2a84c22f3d998baa4dde4f543d4927f16
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94407993"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695338"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações PaaS
 
@@ -73,19 +73,19 @@ Há décadas que os princípios e padrões do perímetro da rede estão disponí
 
 Seguem-se as melhores práticas para a gestão do perímetro de identidade.
 
-**Melhores práticas** : Fixe as suas chaves e credenciais para garantir a sua implantação paaS.   
-**Detalhe** : Perder chaves e credenciais é um problema comum. Pode utilizar uma solução centralizada onde as chaves e segredos podem ser armazenados em módulos de segurança de hardware (HSMs). [O Azure Key Vault](../../key-vault/general/overview.md) protege as suas chaves e segredos encriptando chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, ficheiros .pfx e palavras-passe usando chaves protegidas por HSMs.
+**Melhores práticas**: Fixe as suas chaves e credenciais para garantir a sua implantação paaS.   
+**Detalhe**: Perder chaves e credenciais é um problema comum. Pode utilizar uma solução centralizada onde as chaves e segredos podem ser armazenados em módulos de segurança de hardware (HSMs). [O Azure Key Vault](../../key-vault/general/overview.md) protege as suas chaves e segredos encriptando chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, ficheiros .pfx e palavras-passe usando chaves protegidas por HSMs.
 
-**Melhores práticas** : Não coloque credenciais e outros segredos em código fonte ou GitHub.   
-**Detalhe** : A única coisa pior do que perder as chaves e credenciais é ter uma parte não autorizada a ter acesso a elas. Os atacantes podem aproveitar as tecnologias bot para encontrar chaves e segredos armazenados em repositórios de código, como o GitHub. Não coloque chaves e segredos nestes repositórios de código público.
+**Melhores práticas**: Não coloque credenciais e outros segredos em código fonte ou GitHub.   
+**Detalhe**: A única coisa pior do que perder as chaves e credenciais é ter uma parte não autorizada a ter acesso a elas. Os atacantes podem aproveitar as tecnologias bot para encontrar chaves e segredos armazenados em repositórios de código, como o GitHub. Não coloque chaves e segredos nestes repositórios de código público.
 
-**Melhores práticas** : Proteja as suas interfaces de gestão VM nos serviços híbridos PaaS e IaaS utilizando uma interface de gestão que lhe permite gerir remotamente estes VMs diretamente.   
-**Detalhe** : Podem ser utilizados protocolos de gestão remota como [SSH,](https://en.wikipedia.org/wiki/Secure_Shell) [RDP](https://support.microsoft.com/kb/186607)e [PowerShell.](/powershell/module/microsoft.powershell.core/enable-psremoting) Em geral, recomendamos que não permita o acesso remoto direto aos VMs a partir da internet.
+**Melhores práticas**: Proteja as suas interfaces de gestão VM nos serviços híbridos PaaS e IaaS utilizando uma interface de gestão que lhe permite gerir remotamente estes VMs diretamente.   
+**Detalhe**: Podem ser utilizados protocolos de gestão remota como [SSH,](https://en.wikipedia.org/wiki/Secure_Shell) [RDP](https://support.microsoft.com/kb/186607)e [PowerShell.](/powershell/module/microsoft.powershell.core/enable-psremoting) Em geral, recomendamos que não permita o acesso remoto direto aos VMs a partir da internet.
 
 Se possível, utilize abordagens alternativas como a utilização de redes privadas virtuais numa rede virtual Azure. Se não estiverem disponíveis abordagens alternativas, certifique-se de que utiliza frases-passe complexas e autenticação de dois fatores (como [a autenticação multi-factor Azure).](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-**Melhores práticas** : Utilize plataformas de autenticação e autorização fortes.   
-**Detalhe** : Utilize identidades federadas no Azure AD em vez de lojas de utilizadores personalizadas. Quando utiliza identidades federadas, aproveita-se uma abordagem baseada na plataforma e delega a gestão das identidades autorizadas aos seus parceiros. Uma abordagem de identidade federada é especialmente importante quando os funcionários são despedidos e que a informação precisa de ser refletida através de múltiplos sistemas de identidade e autorização.
+**Melhores práticas**: Utilize plataformas de autenticação e autorização fortes.   
+**Detalhe**: Utilize identidades federadas no Azure AD em vez de lojas de utilizadores personalizadas. Quando utiliza identidades federadas, aproveita-se uma abordagem baseada na plataforma e delega a gestão das identidades autorizadas aos seus parceiros. Uma abordagem de identidade federada é especialmente importante quando os funcionários são despedidos e que a informação precisa de ser refletida através de múltiplos sistemas de identidade e autorização.
 
 Utilize mecanismos de autenticação e autorização fornecidos pela plataforma em vez de código personalizado. A razão é que o desenvolvimento de código de autenticação personalizado pode ser propenso a erros. A maioria dos seus desenvolvedores não são especialistas em segurança e é improvável que estejam cientes das subtilezas e dos mais recentes desenvolvimentos na autenticação e autorização. O código comercial (por exemplo, da Microsoft) é frequentemente amplamente revisto pela segurança.
 
@@ -112,20 +112,20 @@ A tabela que se segue lista as ameaças stride e dá alguns exemplos de mitigaç
 
 Seguem-se as melhores práticas para a utilização do Serviço de Aplicações.
 
-**Melhores práticas** : [Autenticar através do Azure Ative Directory](../../app-service/overview-authentication-authorization.md).   
-**Detalhe** : O Serviço de Aplicações fornece um serviço OAuth 2.0 para o seu fornecedor de identidade. O OAuth 2.0 foca-se na simplicidade do desenvolvedor de clientes, ao mesmo tempo que fornece fluxos de autorização específicos para aplicações web, aplicações de desktop e telemóveis. A Azure AD utiliza o OAuth 2.0 para permitir o acesso a aplicações móveis e web.
+**Melhores práticas**: [Autenticar através do Azure Ative Directory](../../app-service/overview-authentication-authorization.md).   
+**Detalhe**: O Serviço de Aplicações fornece um serviço OAuth 2.0 para o seu fornecedor de identidade. O OAuth 2.0 foca-se na simplicidade do desenvolvedor de clientes, ao mesmo tempo que fornece fluxos de autorização específicos para aplicações web, aplicações de desktop e telemóveis. A Azure AD utiliza o OAuth 2.0 para permitir o acesso a aplicações móveis e web.
 
-**Boas práticas** : Restringir o acesso com base na necessidade de conhecer e menos privilégios princípios de segurança.   
-**Detalhe** : Restringir o acesso é imperativo para as organizações que pretendem impor políticas de segurança para o acesso aos dados. Pode utilizar o RBAC para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito. Para saber mais sobre a concessão de acesso aos utilizadores às aplicações, consulte Começar com a [gestão de acessos.](../../role-based-access-control/overview.md)
+**Boas práticas**: Restringir o acesso com base na necessidade de conhecer e menos privilégios princípios de segurança.   
+**Detalhe**: Restringir o acesso é imperativo para as organizações que pretendem impor políticas de segurança para o acesso aos dados. Pode utilizar o Azure RBAC para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito. Para saber mais sobre a concessão de acesso aos utilizadores às aplicações, consulte Começar com a [gestão de acessos.](../../role-based-access-control/overview.md)
 
 **Melhor prática:** Proteja as suas chaves.   
-**Detalhe** : Azure Key Vault ajuda a salvaguardar chaves criptográficas e segredos que aplicações e serviços em nuvem usam. Com o Key Vault, pode encriptar chaves e segredos (tais como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, . Ficheiros PFX e palavras-passe) utilizando chaves protegidas por módulos de segurança de hardware (HSMs). Para maior segurança, pode importar ou gerar chaves nos HSMs. Consulte [o Azure Key Vault](../../key-vault/general/overview.md) para saber mais. Também pode utilizar o Key Vault para gerir os seus certificados TLS com renovação automática.
+**Detalhe**: Azure Key Vault ajuda a salvaguardar chaves criptográficas e segredos que aplicações e serviços em nuvem usam. Com o Key Vault, pode encriptar chaves e segredos (tais como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, . Ficheiros PFX e palavras-passe) utilizando chaves protegidas por módulos de segurança de hardware (HSMs). Para maior segurança, pode importar ou gerar chaves nos HSMs. Consulte [o Azure Key Vault](../../key-vault/general/overview.md) para saber mais. Também pode utilizar o Key Vault para gerir os seus certificados TLS com renovação automática.
 
-**Boas práticas** : Restringir os endereços IP de origem de entrada.   
-**Detalhe** : [O App Service Environment](../../app-service/environment/intro.md) tem uma funcionalidade de integração de rede virtual que o ajuda a restringir os endereços IP de origem recebida através de grupos de segurança de rede. As redes virtuais permitem-lhe colocar recursos Azure numa rede não internet, encaminhável a que controla o acesso. Para saber mais, consulte [Integrar a sua aplicação com uma rede virtual Azure.](../../app-service/web-sites-integrate-with-vnet.md)
+**Boas práticas**: Restringir os endereços IP de origem de entrada.   
+**Detalhe**: [O App Service Environment](../../app-service/environment/intro.md) tem uma funcionalidade de integração de rede virtual que o ajuda a restringir os endereços IP de origem recebida através de grupos de segurança de rede. As redes virtuais permitem-lhe colocar recursos Azure numa rede não internet, encaminhável a que controla o acesso. Para saber mais, consulte [Integrar a sua aplicação com uma rede virtual Azure.](../../app-service/web-sites-integrate-with-vnet.md)
 
-**Melhores práticas** : Monitorize o estado de segurança dos seus ambientes de Serviço de Aplicações.   
-**Detalhe** : Utilize o Centro de Segurança Azure para monitorizar os ambientes do serviço de aplicações. Quando o Centro de Segurança identifica potenciais vulnerabilidades de segurança, cria [recomendações](../../security-center/asset-inventory.md) que o orientam através do processo de configuração dos controlos necessários.
+**Melhores práticas**: Monitorize o estado de segurança dos seus ambientes de Serviço de Aplicações.   
+**Detalhe**: Utilize o Centro de Segurança Azure para monitorizar os ambientes do serviço de aplicações. Quando o Centro de Segurança identifica potenciais vulnerabilidades de segurança, cria [recomendações](../../security-center/asset-inventory.md) que o orientam através do processo de configuração dos controlos necessários.
 
 > [!NOTE]
 > O Serviço de Aplicações de Monitorização está em pré-visualização e está disponível apenas no [nível padrão](../../security-center/security-center-pricing.md) do Centro de Segurança.

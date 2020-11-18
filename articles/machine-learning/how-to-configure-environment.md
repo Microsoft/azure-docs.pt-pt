@@ -1,22 +1,22 @@
 ---
 title: Criar ambiente de desenvolvimento python
 titleSuffix: Azure Machine Learning
-description: Aprenda a criar um ambiente de desenvolvimento Python para a Azure Machine Learning. Use ambientes Conda, crie ficheiros de configuração e configuure o seu próprio servidor de cadernos baseado na nuvem, Cadernos Jupyter, Azure Databricks, IDEs, editores de código e a Máquina Virtual de Ciência de Dados.
+description: Crie ambientes de desenvolvimento de Python de aprendizagem de máquinas Azure em cadernos Jupyter, Código de Estúdio Visual, Azure Databricks e Máquinas Virtuais de Ciência de Dados.
 services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 09/30/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 451ad33a9d041635c3f51e323539b423378d02d1
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 03d10f71b585090157eff164cc98246f50608fe1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422914"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695372"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Crie um ambiente de desenvolvimento python para a aprendizagem de máquinas Azure
 
@@ -43,7 +43,7 @@ Este artigo também fornece dicas de utilização adicionais para as seguintes f
 
 ### <a name="local-and-dsvm-only-create-a-workspace-configuration-file"></a><a id="workspace"></a> Apenas local e DSVM: Criar um ficheiro de configuração do espaço de trabalho
 
-O ficheiro de configuração do espaço de trabalho é um ficheiro JSON que diz ao SDK como comunicar com o seu espaço de trabalho Azure Machine Learning. O ficheiro é nomeado *config.jsem* , e tem o seguinte formato:
+O ficheiro de configuração do espaço de trabalho é um ficheiro JSON que diz ao SDK como comunicar com o seu espaço de trabalho Azure Machine Learning. O ficheiro é nomeado *config.jsem*, e tem o seguinte formato:
 
 ```json
 {
@@ -61,7 +61,7 @@ Criar um ficheiro de configuração do espaço de trabalho num dos seguintes mé
 
 * Portal do Azure
 
-    **Descarregue o ficheiro** : No [portal Azure,](https://ms.portal.azure.com)selecione  **Descarregue config.jsna** secção **'Visão Geral'** do seu espaço de trabalho.
+    **Descarregue o ficheiro**: No [portal Azure,](https://ms.portal.azure.com)selecione  **Descarregue config.jsna** secção **'Visão Geral'** do seu espaço de trabalho.
 
     ![Portal do Azure](./media/how-to-configure-environment/configure.png)
 

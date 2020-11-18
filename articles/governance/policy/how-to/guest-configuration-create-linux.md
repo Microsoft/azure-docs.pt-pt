@@ -4,12 +4,12 @@ description: Saiba como criar uma política de configuração de hóspedes Azure
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346881"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694247"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -163,10 +163,10 @@ Os ficheiros de apoio devem ser embalados em conjunto. O pacote completo é util
 
 O `New-GuestConfigurationPackage` cmdlet cria o pacote. Parâmetros do `New-GuestConfigurationPackage` cmdlet ao criar o conteúdo linux:
 
-- **Nome** : Nome do pacote de configuração do hóspede.
-- **Configuração** : Documento de configuração compilado no caminho completo.
-- **Caminho** : Caminho da pasta de saída. Este parâmetro é opcional. Se não for especificado, o pacote é criado no diretório atual.
-- **ChefInspecProfilePath** : Caminho completo para o perfil InSpec. Este parâmetro só é suportado na criação de conteúdo para auditar o Linux.
+- **Nome**: Nome do pacote de configuração do hóspede.
+- **Configuração**: Documento de configuração compilado no caminho completo.
+- **Caminho**: Caminho da pasta de saída. Este parâmetro é opcional. Se não for especificado, o pacote é criado no diretório atual.
+- **ChefInspecProfilePath**: Caminho completo para o perfil InSpec. Este parâmetro só é suportado na criação de conteúdo para auditar o Linux.
 
 Executar o seguinte comando para criar um pacote utilizando a configuração dada no passo anterior:
 
@@ -183,9 +183,9 @@ Uma vez que o agente está realmente a avaliar o ambiente local, na maioria dos 
 
 Parâmetros do `Test-GuestConfigurationPackage` cmdlet:
 
-- **Nome** : Nome da política de configuração do hóspede.
-- **Parâmetro** : Parâmetros de política fornecidos em formato haxixe.
-- **Caminho** : Percurso completo do pacote de Configuração de Convidados.
+- **Nome**: Nome da política de configuração do hóspede.
+- **Parâmetro**: Parâmetros de política fornecidos em formato haxixe.
+- **Caminho**: Percurso completo do pacote de Configuração de Convidados.
 
 Executar o seguinte comando para testar o pacote criado pelo passo anterior:
 
@@ -210,13 +210,13 @@ Uma vez criado e carregado um pacote de política personalizada de Configuraçã
 
 Parâmetros do `New-GuestConfigurationPolicy` cmdlet:
 
-- **ContentUri** : Public http http(s) uri do pacote de conteúdo de configuração de hóspedes.
-- **DisplayName** : Nome do visor da política.
-- **Descrição** : Descrição da política.
-- **Parâmetro** : Parâmetros de política fornecidos em formato haxixe.
-- **Versão** : Versão política.
-- **Caminho** : Caminho de destino onde são criadas definições políticas.
-- **Plataforma** : Plataforma-alvo (Windows/Linux) para a política de configuração de hóspedes e pacote de conteúdo.
+- **ContentUri**: Public http http(s) uri do pacote de conteúdo de configuração de hóspedes.
+- **DisplayName**: Nome do visor da política.
+- **Descrição**: Descrição da política.
+- **Parâmetro**: Parâmetros de política fornecidos em formato haxixe.
+- **Versão**: Versão política.
+- **Caminho**: Caminho de destino onde são criadas definições políticas.
+- **Plataforma**: Plataforma-alvo (Windows/Linux) para a política de configuração de hóspedes e pacote de conteúdo.
 - **Tag** adiciona um ou mais filtros de etiqueta à definição de política
 - **Categoria** define o campo de metadados de categoria na definição de política
 
@@ -330,9 +330,9 @@ Para lançar uma atualização da definição de política, existem três domín
 > [!NOTE]
 > A `version` propriedade da atribuição de Configuração de Hóspedes apenas afeta pacotes que são hospedados pela Microsoft. A melhor prática para a versão personalizada é incluir a versão no nome do ficheiro.
 
-- **Versão** : Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um número de versão maior do que o que é publicado atualmente.
-- **conteúdoUri** : Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um URI para a localização da embalagem. A inclusão de uma versão em pacote no nome do ficheiro garantirá que o valor desta propriedade muda em cada versão.
-- **contentHash** : Esta propriedade é atualizada automaticamente pelo `New-GuestConfigurationPolicy` cmdlet. É um valor haxixe do pacote criado `New-GuestConfigurationPackage` por. A propriedade deve estar correta para o `.zip` ficheiro que publica. Se apenas a propriedade **contentUri** for atualizada, a Extensão não aceitará o pacote de conteúdo.
+- **Versão**: Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um número de versão maior do que o que é publicado atualmente.
+- **conteúdoUri**: Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um URI para a localização da embalagem. A inclusão de uma versão em pacote no nome do ficheiro garantirá que o valor desta propriedade muda em cada versão.
+- **contentHash**: Esta propriedade é atualizada automaticamente pelo `New-GuestConfigurationPolicy` cmdlet. É um valor haxixe do pacote criado `New-GuestConfigurationPackage` por. A propriedade deve estar correta para o `.zip` ficheiro que publica. Se apenas a propriedade **contentUri** for atualizada, a Extensão não aceitará o pacote de conteúdo.
 
 A forma mais fácil de lançar um pacote atualizado é repetir o processo descrito neste artigo e fornecer um número de versão atualizado. Este processo garante que todas as propriedades foram corretamente atualizadas.
 
@@ -375,8 +375,8 @@ Para utilizar a função Validação de Assinatura, execute o `Protect-GuestConf
 
 Parâmetros do `Protect-GuestConfigurationPackage` cmdlet:
 
-- **Caminho** : Percurso completo do pacote de Configuração de Convidados.
-- **PublicGpgKeyPath** : Caminho chave GPG público. Este parâmetro só é suportado ao assinar conteúdo para Linux.
+- **Caminho**: Percurso completo do pacote de Configuração de Convidados.
+- **PublicGpgKeyPath**: Caminho chave GPG público. Este parâmetro só é suportado ao assinar conteúdo para Linux.
 
 Uma boa referência para a criação de chaves GPG para usar com máquinas Linux é fornecida por um artigo sobre GitHub, [Gerando uma nova chave GPG](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
@@ -385,13 +385,7 @@ A política de acesso ao Cofre-Chave deve permitir ao fornecedor de recursos com
 
 Após a publicação do seu conteúdo, apedie uma etiqueta com nome `GuestConfigPolicyCertificateValidation` e valor a todas as `enabled` máquinas virtuais onde deve ser necessária a assinatura de código. Consulte as [amostras tags](../samples/built-in-policies.md#tags) de como as etiquetas podem ser entregues em escala usando a Política Azure. Uma vez que esta etiqueta está em vigor, a definição de política gerada através do `New-GuestConfigurationPolicy` cmdlet permite o requisito através da extensão de Configuração do Convidado.
 
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Atribuições de política de configuração de hóspedes de resolução de problemas (visualização)
-
-Uma ferramenta está disponível na pré-visualização para ajudar na resolução de problemas das atribuições de Configuração de Convidados Azure Policy. A ferramenta está em pré-visualização e foi publicada na PowerShell Gallery como módulo [de Resolução de Problemas de Configuração de Convidados](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-Para obter mais informações sobre os cmdlets desta ferramenta, utilize o comando Get-Help em PowerShell para mostrar a orientação incorporada. Como a ferramenta está a receber atualizações frequentes, esta é a melhor maneira de obter informações mais recentes.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a auditoria de VMs com [configuração de hóspedes.](../concepts/guest-configuration.md)
 - Entenda como [criar políticas programáticas.](./programmatically-create.md)

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398016"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695066"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga transversal (Pré-visualização)
 
@@ -74,7 +74,7 @@ O equilibrador de carga transversal Azure utiliza algoritmo de equilíbrio de ca
 
 O modo de distribuição de carga configurado dos equilibradores regionais de carga é utilizado para tomar a decisão final de encaminhamento quando vários equilibradores de carga regionais são utilizados para a geo-proximidade.
 
-Para obter mais informações, consulte [configurar o modo de distribuição para O Balancer de Carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-distribution-mode).
+Para obter mais informações, consulte [configurar o modo de distribuição para O Balancer de Carga Azure](./load-balancer-distribution-mode.md).
 
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>Capacidade de escalar para cima/para baixo atrás de um único ponto final
@@ -84,7 +84,7 @@ Quando expõe o ponto final global de um balanceador de carga cross-region aos c
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### <a name="static-ip"></a>IP estático
-O balanceador de carga transversal vem com um IP público estático, que garante que o endereço IP permanece o mesmo. Para saber mais sobre IP estático, leia mais [aqui](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#allocation-method)
+O balanceador de carga transversal vem com um IP público estático, que garante que o endereço IP permanece o mesmo. Para saber mais sobre IP estático, leia mais [aqui](../virtual-network/public-ip-addresses.md#allocation-method)
 
 ### <a name="client-ip-preservation"></a>Preservação IP do cliente
 O equilibrador de carga transversal é um equilibrador de carga de rede de passagem de camadas 4. Esta passagem preserva o IP original do pacote.  O IP original está disponível para o código em execução na máquina virtual. Esta preservação permite-lhe aplicar lógica específica a um endereço IP.

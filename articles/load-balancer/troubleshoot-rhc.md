@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855257"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696324"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Problemas de saúde, problemas de saúde, frontend e disponibilidade de backend 
 
@@ -52,7 +52,7 @@ Vamos verificar o nosso estado da sonda de saúde e descobrir que todas as inst�
   * Se achar que este problema de NSG é o caso, mova a regra de Permitir existente ou crie uma nova regra de alta prioridade para permitir o tráfego AzureLoadBalancer
 * Verifique o seu sossia. Certifique-se de que os seus VMs estão a ouvir na porta da sonda e reveja as suas regras de firewall de SISTEMA para garantir que não estão a bloquear o tráfego da sonda originário do endereço IP 168.63.129.16
   * Pode verificar as portas de audição executando netstat - a prompt de comando do Windows ou netstat -l num terminal Linux
-* Não coloque uma firewall NVA VM no pool de backend do equilibrador de carga, use [rotas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) para encaminhar o tráfego para rebasar instâncias através da firewall
+* Não coloque uma firewall NVA VM no pool de backend do equilibrador de carga, use [rotas definidas pelo utilizador](../virtual-network/virtual-networks-udr-overview.md#user-defined) para encaminhar o tráfego para rebasar instâncias através da firewall
 * Certifique-se de que está a utilizar o protocolo certo, se utilizar HTTP para sondar uma porta de audição para uma aplicação não-HTTP, a sonda falhará
 
 Se já passou por esta lista de verificação e ainda está a encontrar falhas nas sondas de saúde, pode haver problemas raros na plataforma com impacto no serviço de sonda para as suas instâncias. Neste caso, o Azure tem as suas costas e um alerta automatizado é enviado à nossa equipa para resolver rapidamente todos os problemas da plataforma.
@@ -61,5 +61,3 @@ Se já passou por esta lista de verificação e ainda está a encontrar falhas n
 
 * [Saiba mais sobre a sonda de saúde Azure Load Balancer](load-balancer-custom-probe-overview.md)
 * [Saiba mais sobre as métricas do Balançador de Carga Azure](load-balancer-standard-diagnostics.md)
-
-

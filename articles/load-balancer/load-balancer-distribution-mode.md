@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: aa2d2cda59f23ef0b961ccac60b119996423688e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4e4fa9819343c90b5639fc485af8acb48968d62e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682338"
+ms.locfileid: "94695661"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configure o modo de distribuição para o Balançador de Carga Azure
 
@@ -199,7 +199,7 @@ x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
 Date: Thu, 16 Oct 2014 22:49:21 GMT
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição Geral do Balanceador de Carga do Azure (Azure Load Balancer overview)](load-balancer-overview.md)
 * [Começar com a configuração de um equilibrador de carga virado para a Internet](quickstart-load-balancer-standard-public-powershell.md)

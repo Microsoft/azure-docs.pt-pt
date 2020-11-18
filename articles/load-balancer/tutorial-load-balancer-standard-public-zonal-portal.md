@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f91c9c0f401a455543b12af81eed48bd1a3349bd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044960"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696443"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga dentro de uma zona de disponibilidade com o Balanceador de Carga Standard através do portal do Azure
 
@@ -37,7 +37,7 @@ Este tutorial cria uma [instância do Balanceador de Carga Standard do Azure](ht
 
 Para obter mais informações sobre a utilização de zonas de disponibilidade com balanceador de carga [padrão, consulte as Zonas Padrão de Balançador de Carga e Disponibilidade](load-balancer-standard-availability-zones.md).
 
-Se preferir, utilize a [CLI do Azure](load-balancer-standard-public-zonal-cli.md) para concluir este tutorial.
+Se preferir, utilize a [CLI do Azure](./quickstart-load-balancer-standard-public-cli.md) para concluir este tutorial.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,14 +51,14 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 O Balanceador de Carga Standard só suporta endereços IP públicos padrão. Quando cria um novo IP público durante a criação do balanceador de carga, o mesmo é configurado, de forma automática, como uma versão de SKU Standard. Também tem redundância de zona automaticamente.
 
-1. No lado superior esquerdo do ecrã, **selecione Criar um**  >  equilibrador de carga de**rede de**recursos  >  **Load Balancer**.
+1. No lado superior esquerdo do ecrã, **selecione Criar um**  >  equilibrador de carga de **rede de** recursos  >  **Load Balancer**.
 2. No separador **Básico da** página **'Criar balanceador** de carga', introduzir ou selecionar as seguintes informações, aceitar as predefinições para as definições restantes e, em seguida, selecionar **Rever + criar**:
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e digitar *MyResourceGroupZLB* na caixa de texto.|
-    | Nome                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard**.                          |
@@ -151,7 +151,7 @@ Nesta secção, vai criar regras de NSG para permitir ligações de entrada que 
 1. Selecione **Todos os recursos**, no menu mais à esquerda. Em seguida, na lista de recursos, selecione **myVM1**. Está localizado no grupo de recursos **myResourceGroupZLB**.
 2. Na página **Descrição geral**, selecione **Ligar** para utilizar RDP para aceder à VM.
 3. Inicie sessão na VM com o nome de utilizador e a palavra-passe que especificou quando a criou. Para especificar as credenciais que introduziu quando criou a VM, poderá ter de selecionar **Mais opções**. Em seguida, selecione **Utilizar uma conta diferente**. Por fim, selecione **OK**. Poderá receber um aviso de certificado durante o processo de início de sessão. Selecione **Sim** para continuar a ligação.
-4. No ambiente de trabalho do servidor, navegue para o **Windows Administrative Tools**Windows  >  **PowerShell**.
+4. No ambiente de trabalho do servidor, navegue para o **Windows Administrative Tools** Windows  >  **PowerShell**.
 6. Na janela do **PowerShell**, execute os seguintes comandos para instalar o servidor IIS. Estes comandos também removem o ficheiro iisstart.htm predefinido e, em seguida, adicione um ficheiro iisstart.htm novo que apresente o nome da VM:
 
    ```azurepowershell-interactive
@@ -226,7 +226,7 @@ As regras de balanceador de carga definem a forma como o tráfego é distribuíd
       ![Servidor Web do IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 3. Para ver o balanceador de carga em ação, force a paragem da VM que é apresentada. Atualize o browser para ver o nome do outro servidor mostrado no browser.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Selecione o grupo de recursos que contém o balanceador de carga. Em seguida, selecione **Eliminar**.
 

@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 0ec70963dd7f464ae4e72c3bf79e06ebfb5238fc
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 5e2f323f705a891f06cee1d25779351d02a91572
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616183"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695270"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial - Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -154,6 +154,7 @@ Dentro da especificação do [protocolo SCIM 2.0,](http://www.simplecloud.info/#
 * Suporta consulta de utilizadores ou grupos, de acordo com a secção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os utilizadores são recuperados pelos seus `id` `username` `externalId` e, e os grupos são questionados por `displayName` .  
 * Suporta consulta do utilizador por ID e por gestor, de acordo com a secção 3.4.2 do protocolo SCIM.  
 * Suporta grupos de consulta por ID e por membro, de acordo com a secção 3.4.2 do protocolo SCIM.  
+* Suporta o filtro [excluídoAttributes=membros](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group) ao consultar o recurso de grupo, de acordo com a secção 3.4.2.5 do protocolo SCIM.
 * Aceita um único sinal de portador para autenticação e autorização da Azure AD para a sua aplicação.
 * Suporta a eliminação suave de um utilizador `active=false` e a restauração do utilizador `active=true` (o objeto do utilizador deve ser devolvido num pedido, quer o utilizador esteja ou não ativo). A única altura em que o utilizador não deve ser devolvido é quando é duramente eliminado da aplicação. 
 
@@ -809,7 +810,7 @@ Para mais informações sobre HTTPS em ASP.NET Utilização do núcleo o seguint
 
 Os pedidos do Azure Ative Directory incluem um token portador de OAuth 2.0. Qualquer serviço que receba o pedido deve autenticar o emitente como sendo a Azure Ative Directory para o inquilino esperado do Azure Ative Directory.
 
-No token, o emitente é identificado por uma reivindicação do ISS, como `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` . Neste exemplo, o endereço base do valor da reclamação, `https://sts.windows.net` identifica o Azure Ative Directory como o emitente, enquanto o segmento de endereço relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_ , é um identificador único do inquilino do Diretório Ativo Azure para o qual o token foi emitido.
+No token, o emitente é identificado por uma reivindicação do ISS, como `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` . Neste exemplo, o endereço base do valor da reclamação, `https://sts.windows.net` identifica o Azure Ative Directory como o emitente, enquanto o segmento de endereço relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, é um identificador único do inquilino do Diretório Ativo Azure para o qual o token foi emitido.
 
 O público para o token será o ID do modelo de candidatura para a aplicação na galeria, cada uma das aplicações registadas num único inquilino pode receber a mesma `iss` reclamação com pedidos de SCIM. O ID do modelo de aplicação para todas as aplicações personalizadas é _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. O símbolo gerado pelo serviço de fornecimento Azure AD só deve ser utilizado para testes. Não deve ser utilizado em ambientes de produção.
 
@@ -1149,7 +1150,7 @@ As aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligad
 8. Se o ponto final do SCIM necessitar de um token portador de OAuth de um emitente diferente do Azure AD, em seguida, copie o símbolo do portador de OAuth necessário no campo **token secreto** opcional. Se este campo ficar em branco, o Azure AD inclui um token portador de OAuth emitido a partir de Azure AD a cada pedido. As aplicações que usam o Azure AD como fornecedor de identidade podem validar este token emitido pela AZure AD. 
    > [!NOTE]
    > Não *_é_* recomendado deixar este campo em branco e confiar num símbolo gerado pela Azure AD. Esta opção está disponível principalmente para efeitos de teste.
-9. Selecione _ *Ligação de teste* * para que o Azure Ative Directory tente ligar-se ao ponto final DO SCIM. Se a tentativa falhar, é apresentada informação de erro.  
+9. Selecione _ *Ligação de teste** para que o Azure Ative Directory tente ligar-se ao ponto final DO SCIM. Se a tentativa falhar, é apresentada informação de erro.  
 
     > [!NOTE]
     > **A Ligação** de Teste consulta o ponto final DO SCIM para um utilizador que não existe, utilizando um GUID aleatório como a propriedade correspondente selecionada na configuração AD Azure. A resposta correta esperada é HTTP 200 OK com uma mensagem scim ListResponse vazia.
@@ -1160,7 +1161,7 @@ As aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligad
     > [!NOTE]
     > Pode desativar opcionalmente a sincronização de objetos de grupo desativando o mapeamento de "grupos".
 
-12. Em **Definições** , o campo **Scope** define quais os utilizadores e grupos que estão sincronizados. Selecione **Sync apenas utilizadores e grupos atribuídos** (recomendado) apenas para sincronizar utilizadores e grupos atribuídos no **separador Utilizadores e grupos.**
+12. Em **Definições**, o campo **Scope** define quais os utilizadores e grupos que estão sincronizados. Selecione **Sync apenas utilizadores e grupos atribuídos** (recomendado) apenas para sincronizar utilizadores e grupos atribuídos no **separador Utilizadores e grupos.**
 13. Uma vez concluída a sua configuração, desa um conjunto do **Estado de Provisionamento** para **On**.
 14. **Selecione Guardar** para iniciar o serviço de fornecimento de Ad Azure.
 15. Se sincronizar apenas utilizadores e grupos designados (recomendado), certifique-se de selecionar o **separador Utilizadores e grupos** e atribuir os utilizadores ou grupos que pretende sincronizar.
