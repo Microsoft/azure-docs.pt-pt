@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 9055bb9689895a9b74f3d6b5affa325a3b594d65
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396520"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874683"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -69,7 +69,7 @@ Os utilizadores desta função podem criar registos de aplicações quando a def
 
 ### <a name="authentication-administrator"></a>[Administrador de Autenticação](#authentication-administrator-permissions)
 
-Os utilizadores com esta função podem definir ou redefinir credenciais de não senha para alguns utilizadores e podem atualizar palavras-passe para todos os utilizadores. Os administradores de autenticação podem exigir que os utilizadores que não sejam administradores ou que sejam designados para algumas funções se re-registem contra as credenciais não senhas existentes (por exemplo, MFA ou FIDO), podendo também revogar **o remember MFA no dispositivo** , que solicita mFA no próximo registo. Estas ações aplicam-se apenas aos utilizadores que não sejam administradores ou que lhes sejam atribuídas uma ou mais das seguintes funções:
+Os utilizadores com esta função podem definir ou redefinir credenciais de não senha para alguns utilizadores e podem atualizar palavras-passe para todos os utilizadores. Os administradores de autenticação podem exigir que os utilizadores que não sejam administradores ou que sejam designados para algumas funções se re-registem contra as credenciais não senhas existentes (por exemplo, MFA ou FIDO), podendo também revogar **o remember MFA no dispositivo**, que solicita mFA no próximo registo. Estas ações aplicam-se apenas aos utilizadores que não sejam administradores ou que lhes sejam atribuídas uma ou mais das seguintes funções:
 
 * Administrador de Autenticação
 * Leitores de Diretório
@@ -311,7 +311,7 @@ Os utilizadores desta função podem monitorizar notificações e atualizações
 
 Não utilizar. Esta função é automaticamente atribuída ao Comércio, e não se destina ou é suportada para qualquer outra utilização. Veja os detalhes abaixo.
 
-A função de Utilizador do Comércio Moderno dá a certos utilizadores permissão para aceder ao centro de administração microsoft 365 e ver as entradas de navegação esquerda para **Home** , **Billing** e **Support**. O conteúdo disponível nestas áreas é controlado por [funções específicas do comércio](../../cost-management-billing/manage/understand-mca-roles.md) atribuídas aos utilizadores para gerir produtos que compraram para si ou para a sua organização. Isto pode incluir tarefas como pagar contas ou acesso a contas de faturação e perfis de faturação. 
+A função de Utilizador do Comércio Moderno dá a certos utilizadores permissão para aceder ao centro de administração microsoft 365 e ver as entradas de navegação esquerda para **Home**, **Billing** e **Support**. O conteúdo disponível nestas áreas é controlado por [funções específicas do comércio](../../cost-management-billing/manage/understand-mca-roles.md) atribuídas aos utilizadores para gerir produtos que compraram para si ou para a sua organização. Isto pode incluir tarefas como pagar contas ou acesso a contas de faturação e perfis de faturação. 
 
 Os utilizadores com a função de Utilizador de Comércio Moderno normalmente têm permissões administrativas em outros sistemas de compra da Microsoft, mas não têm funções de administrador global ou administrador de faturação usadas para aceder ao centro de administração. 
 
@@ -489,7 +489,7 @@ Os utilizadores com esta função podem gerir [dispositivos certificados por Equ
 
 Os utilizadores desta função podem gerir todos os aspetos da carga de trabalho das Equipas Microsoft através das Equipas microsoft & Skype para centro de administração de negócios e os respetivos módulos PowerShell. Isto inclui, entre outras áreas, todas as ferramentas de gestão relacionadas com a telefonia, mensagens, reuniões e as próprias equipas. Esta função também oferece a capacidade de criar e gerir todos os grupos Microsoft 365, gerir bilhetes de suporte e monitorizar a saúde do serviço.
 
-### <a name="user-administrator"></a>[Administrador de Utilizadores](#user-administrator-permissions)
+### <a name="user-administrator"></a>[Administrador do Utilizador](#user-administrator-permissions)
 
 Os utilizadores com esta função podem criar utilizadores e gerir todos os aspetos dos utilizadores com algumas restrições (ver tabela) e podem atualizar as políticas de validade da palavra-passe. Além disso, os utilizadores com esta função podem criar e gerir todos os grupos. Esta função inclui também a capacidade de criar e gerir as vistas dos utilizadores, gerir bilhetes de apoio e monitorizar a saúde do serviço. Os administradores do utilizador não têm permissão para gerir algumas propriedades do utilizador para os utilizadores na maioria das funções de administrador. O utilizador com esta função não tem permissões para gerir o MFA. As funções que são exceções a esta restrição estão listadas no quadro seguinte.
 
@@ -1513,7 +1513,7 @@ Pode gerir todos os aspetos do produto Power BI.
 
 ### <a name="power-platform-administrator-permissions"></a>Permissões de administrador da plataforma de energia
 
-Pode criar e gerir todos os aspetos do Microsoft Dynamics 365, PowerApps e Microsoft Flow. 
+Pode criar e gerir todos os aspetos do Microsoft Dynamics 365, PowerApps e Power Automamate.
 
 > [!NOTE]
 > Esta função tem permissões adicionais fora do Azure Ative Directory. Para mais informações, consulte a descrição da função acima.
@@ -1524,7 +1524,7 @@ Pode criar e gerir todos os aspetos do Microsoft Dynamics 365, PowerApps e Micro
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gere os bilhetes de apoio da Azure para serviços de nível de diretório. |
 | microsoft.dynamics365/allEntities/allTasks | Gerir todos os aspetos da Dynamics 365. |
-| microsoft.flow/allEntities/allTasks | Gerencie todos os aspetos do Microsoft Flow. |
+| microsoft.flow/allEntities/allTasks | Gerir todos os aspetos da Power Automamate. |
 | microsoft.powerApps/allEntities/allTasks | Gerir todos os aspetos do PowerApps. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configuure a Microsoft 365 Service Health. |
@@ -1982,7 +1982,7 @@ As seguintes funções não devem ser utilizadas. Foram depreciadas e serão rem
 
 Nem todos os papéis devolvidos pela PowerShell ou pela MS Graph API são visíveis no portal Azure. A tabela seguinte organiza essas diferenças.
 
-Nome API | Nome do portal Azure | Notas
+Nome da API | Nome do portal Azure | Notas
 -------- | ------------------- | -------------
 Administrador da Empresa | Administrador Global | [Nome alterado para melhor clareza](permissions-reference.md#role-template-ids)
 Administrador de serviço crm | Administrador dinâmico 365 | [Reflete a marca atual do produto](permissions-reference.md#role-template-ids)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 544625fe9fd2dbd87ad7330d7277494cbfbe6eb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e5cb077868a224620d1a23e1ff1aac9c8d9f095
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891099"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874479"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Crie certificados para o seu Azure Stack Edge Pro utilizando a ferramenta Azure Stack Hub Readiness Checker 
 
@@ -42,7 +42,7 @@ Pode utilizar a ferramenta Azure Stack Hub Readiness Checker (AzsReadinessChecke
 Para criar CSRs para a implementação do dispositivo Azure Stack Edge Pro, certifique-se de que: 
 
 - Tem um cliente a executar o Windows 10 ou o Windows Server 2016 ou mais tarde. 
-- Descarregou a ferramenta Microsoft Azure Stack Hub Readiness Checker 1.2002.1133.85 [da PowerShell Gallery](https://aka.ms/AzsReadinessChecker) deste sistema. Talvez precise procurar por este pacote. Apenas esta versão da ferramenta pode criar certificados para dispositivos Azure Stack Edge Pro.
+- Descarregou a ferramenta Microsoft Azure Stack Hub Readiness Checker [da PowerShell Gallery](https://aka.ms/AzsReadinessChecker) neste sistema.
 - Tem as seguintes informações para os certificados:
   - Nome do dispositivo
   - Número de série do nó
@@ -56,7 +56,7 @@ Utilize estes passos para preparar os certificados do dispositivo Azure Stack Ed
 2. Instale a ferramenta Azure Stack Hub Readiness Checker. Na solicitação powerShell, escreva: 
 
     ```azurepowershell
-    Install-Module -Name Microsoft.AzureStack.ReadinessChecker -RequiredVersion 1.2002.1133.85 -Force
+    Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
     Para verificar a versão instalada, escreva:  
@@ -73,7 +73,7 @@ Utilize estes passos para preparar os certificados do dispositivo Azure Stack Ed
     
 4. Para criar um pedido de certificado, forneça as seguintes informações. Se estiver a gerar um certificado VPN, algumas destas entradas não se aplicam. 
     
-    |Input |Descrição  |
+    |Entrada |Descrição  |
     |---------|---------|
     |`OutputRequestPath`|O caminho do arquivo no seu cliente local onde deseja que os pedidos de certificado sejam criados.        |
     |`DeviceName`|O nome do seu dispositivo na página **dispositivos** na UI web local do seu dispositivo. <br> Este campo não é necessário para um certificado VPN.         |

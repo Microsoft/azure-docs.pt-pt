@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 0f121caddc6b629920479a34bef7b284dea117a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ea861dce23e50bc5fcae50116a3e71793d402f8f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677501"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873323"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhorar a proteção contra ameaças integrando operações de segurança com a Microsoft Graph Security & Azure Logic Apps
 
@@ -30,7 +30,7 @@ Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e o conector Mic
 
 O fluxo de trabalho da sua aplicação lógica pode usar ações que obtenham respostas do conector microsoft Graph Security e disponibilizar essa saída para outras ações no seu fluxo de trabalho. Também pode ter outras ações no seu fluxo de trabalho, utilizar a saída das ações do conector de Segurança do Gráfico microsoft. Por exemplo, se receber alertas de alta gravidade através do conector Microsoft Graph Security, pode enviar esses alertas numa mensagem de correio eletrónico utilizando o conector Outlook. 
 
-Para saber mais sobre a Microsoft Graph Security, consulte a visão geral da API de [Segurança de Gráficos da Microsoft](/graph/security-concept-overview). Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Se procura o Microsoft Flow ou PowerApps, veja [o que é Flow ou](https://flow.microsoft.com/) O que é [PowerApps?](https://powerapps.microsoft.com/)
+Para saber mais sobre a Microsoft Graph Security, consulte a visão geral da API de [Segurança de Gráficos da Microsoft](/graph/security-concept-overview). Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Se procura Power Automamate ou PowerApps, veja o que [What is PowerApps?](https://powerapps.microsoft.com/) [é Power Automate?](https://flow.microsoft.com/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,11 +64,11 @@ Para saber mais sobre a Microsoft Graph Security, consulte a visão geral da API
 
    -ou-
 
-   Para aplicações lógicas existentes, sob o último passo em que pretende adicionar uma ação de Segurança do Gráfico da Microsoft, selecione **Novo passo** .
+   Para aplicações lógicas existentes, sob o último passo em que pretende adicionar uma ação de Segurança do Gráfico da Microsoft, selecione **Novo passo**.
 
    -ou-
 
-   Para adicionar uma ação entre os degraus, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal de mais (+) que aparece e **selecione Adicione uma ação** .
+   Para adicionar uma ação entre os degraus, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal de mais (+) que aparece e **selecione Adicione uma ação**.
 
 1. Na caixa de pesquisa, introduza "segurança do gráfico microsoft" como filtro. Na lista de ações, selecione a ação desejada.
 
@@ -93,13 +93,13 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógi
 
    | Propriedade | Propriedade (JSON) | Necessário | Tipo | Descrição |
    |----------|-----------------|----------|------|-------------|
-   | **Intervalo** | `interval` | Sim | Número inteiro | Um inteiro positivo que descreve com que frequência o fluxo de trabalho funciona com base na frequência. Aqui estão os intervalos mínimos e máximos: <p><p>- Mês: 1-16 meses <br>- Dia: 1-500 dias <br>- Hora: 1-12.000 horas <br>- Minuto: 1-72.000 minutos <br>- Segundo: 1-9.999,999 segundos <p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", então a recorrência é a cada 6 meses. |
+   | **Intervalo** | `interval` | Yes | Número inteiro | Um inteiro positivo que descreve com que frequência o fluxo de trabalho funciona com base na frequência. Aqui estão os intervalos mínimos e máximos: <p><p>- Mês: 1-16 meses <br>- Dia: 1-500 dias <br>- Hora: 1-12.000 horas <br>- Minuto: 1-72.000 minutos <br>- Segundo: 1-9.999,999 segundos <p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", então a recorrência é a cada 6 meses. |
    | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana** ou **Mês** |
    | **Fuso horário** | `timeZone` | Não | String | Aplica-se apenas quando especifica uma hora de início porque este gatilho não aceita [a compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. |
    | **Hora de início** | `startTime` | Não | String | Fornecer uma data e hora de início neste formato: <p><p>YYYY-MM-DDThh:mm:mm se selecionar um fuso horário <p>-ou- <p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14:00, então especifique "2017-09-18T14:00:00" e selecione um fuso horário como o Horário Padrão do Pacífico. Ou, especificar "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** Este horário de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data UTC,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, deve adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente. <p>Para horários simples, a hora de início é a primeira ocorrência, enquanto para horários complexos, o gatilho não dispara tão cedo quanto a hora de início. [*Quais são as maneiras que posso usar a data de início e a hora?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
-1.  Quando terminar, na barra de ferramentas do designer, **selecione Save** .
+1.  Quando terminar, na barra de ferramentas do designer, **selecione Save**.
 
 1.  Agora continue a adicionar uma ou mais ações à sua aplicação lógica para as tarefas que pretende executar com os resultados do gatilho.
 

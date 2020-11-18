@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de41bd030ea73ac68bfac5fbfbd03ae14cf7980f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891384"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874241"
 ---
 # <a name="certificate-requirements"></a>Requisitos de certificados
 
@@ -30,12 +30,13 @@ Os requisitos de emissão de certificados são os seguintes:
 * O certificado *emitido para:* o campo não deve ser o mesmo que o *emitido por:* campo, com exceção dos certificados Root CA.
 
 
-
 ## <a name="certificate-algorithms"></a>Algoritmos de certificado
 
 Os algoritmos de certificado devem ter os seguintes requisitos:
 
 * Os certificados devem usar o algoritmo de chave RSA.
+
+* Apenas são suportados certificados RSA com Microsoft RSA/Schannel Cryptographic Provider.
 
 * O algoritmo de assinatura de certificado não pode ser SHA1.
 
@@ -74,13 +75,15 @@ Os certificados PFX instalados no seu dispositivo Azure Stack Edge Pro devem sat
 
 * A encriptação PFX do certificado deve ser 3DES. Esta é a encriptação padrão utilizada na exportação de um cliente Windows 10 ou loja de certificados Windows Server 2016. Para obter mais informações relacionadas com o 3DES, consulte [O DeS Triplo.](https://en.wikipedia.org/wiki/Triple_DES)
 
-* Os ficheiros PFX de certificado devem ter valores válidos *de Assinatura Digital* e *KeyEncipherment* no seu campo *de Utilização Chave.*
+* Os ficheiros PFX de certificado devem ter valores válidos *de Assinatura Digital* e *KeyEncipherment* no campo *'Utilização chave'.*
 
 * Os ficheiros PFX do certificado devem ter os valores *autenticação do servidor (1.3.6.1.5.5.7.3.1)* e *Autenticação do Cliente (1.3.6.1.5.5.7.3.2)* no campo *de Utilização da Chave Melhorada.*
 
 * As palavras-passe de todos os ficheiros PFX de certificado devem ser as mesmas no momento da sua implantação se estiver a utilizar a Ferramenta de Verificação de Prontidão de Azure Stack. Para obter mais informações, consulte [Criar certificados para o seu Azure Stack Edge Pro utilizando a ferramenta Azure Stack Hub Readiness Checker](azure-stack-edge-j-series-create-certificates-tool.md).
 
 * A palavra-passe do certificado PFX deve ser uma senha complexa. Tome nota desta palavra-passe porque é usada como parâmetro de implantação.
+
+* Utilize apenas certificados RSA com o fornecedor criptográfico Microsoft RSA/Schannel.
 
 Para obter mais informações, consulte [os certificados Export PFX com chave privada.](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)
 

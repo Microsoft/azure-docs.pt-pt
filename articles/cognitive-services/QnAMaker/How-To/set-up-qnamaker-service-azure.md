@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: ccd070d2d7a6fcccab6d243567dfbe02960cc870
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5185e7d0bd60eec239f1233db7f9789cbefc2c10
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376446"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873544"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerir os recursos do Fabricante QnA
 
@@ -133,6 +133,7 @@ O Ambiente de Serviço de Aplicações pode ser usado para hospedar o serviço d
 2. Exponha o serviço de aplicações e permita a disponibilidade do QnA Maker como:
     * Disponível publicamente - padrão
     * Tag de serviço DNS: `CognitiveServicesManagement`
+3. Crie uma instância de serviço cognitivo QnA Maker (Microsoft.CognitiveServices/contas) utilizando o Azure Resource Manager, onde o ponto final do QnA Maker deve ser definido para o Ambiente de Serviço de Aplicações.
 
 ### <a name="network-isolation-for-app-service"></a>Isolamento de rede para serviço de aplicações
 
@@ -143,8 +144,6 @@ O Serviço Cognitivo QnA Maker utiliza a etiqueta de serviço: `CognitiveService
 * Navegue na secção de rede do seu recurso De Serviço de Aplicações e clique na opção "Configurar a Restrição de Acesso" para adicionar os IPs a uma lista de admissões.
 
 Também temos um script automatizado para fazer o mesmo para o seu Serviço de Aplicações. Pode encontrar o [script PowerShell para configurar uma lista de admissões](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) no GitHub. Você precisa inserir id de subscrição, grupo de recursos e nome real do Serviço de Aplicações como parâmetros de script. A execução do script irá automaticamente adicionar o IPs à lista de admissões do Serviço de Aplicações.
-    
-1. Crie uma instância de serviço cognitivo QnA Maker (Microsoft.CognitiveServices/contas) utilizando o Azure Resource Manager, onde o ponto final do QnA Maker deve ser definido para o Ambiente de Serviço de Aplicações.
 
 ### <a name="business-continuity-with-traffic-manager"></a>Continuidade de negócio com gestor de tráfego
 
@@ -221,7 +220,7 @@ O ponto final está na mesma região que o recurso porque as teclas de ponto fin
 
 As teclas de ponto final podem ser geridas a partir do [portal QnA Maker](https://qnamaker.ai).
 
-1. Inscreva-se no [portal QnA Maker,](https://qnamaker.ai)vá ao seu perfil e, em seguida, selecione **as definições de Serviço** :
+1. Inscreva-se no [portal QnA Maker,](https://qnamaker.ai)vá ao seu perfil e, em seguida, selecione **as definições de Serviço**:
 
     ![Chave de ponto final](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
@@ -265,7 +264,7 @@ Atualmente, não é possível realizar uma atualização no local da pesquisa Az
 
 1. Restaurar os índices do seu recurso de pesquisa original Azure para o novo. Consulte o [código de amostra de restauro de cópia de segurança](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-1. Depois de os dados terem sido restaurados, aceda ao seu novo recurso de pesquisa Azure, selecione **Keys,** e escreva o **Nome** e a **tecla Admin** :
+1. Depois de os dados terem sido restaurados, aceda ao seu novo recurso de pesquisa Azure, selecione **Keys,** e escreva o **Nome** e a **tecla Admin**:
 
     ![Chaves de pesquisa do Fabricante QNA Azure](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-keys.png)
 

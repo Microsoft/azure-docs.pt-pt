@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9b061a6d3d7d2a6598d8ed7c48428d756db6e97d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 93a5d17ce5ea5ec60c67604efe5081d2b3425a84
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126280"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873697"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Arquitetura de referência da monitorização de resíduos associada 
 
@@ -39,10 +39,10 @@ Os dispositivos utilizados em ambientes abertos, como caixotes de lixo, podem se
 O Azure IoT Central é uma plataforma IoT App, que o faz começar a funcionar rapidamente na sua solução IoT. Pode marcar, personalizar e integrar a sua solução com serviços de terceiros.
 Depois de ligar os seus dispositivos de água inteligentes à IoT Central, obtém comando e controlo do dispositivo, monitorização e alerta, interface do utilizador com RBAC incorporado, dashboards de insights configuráveis e opções de extensibilidade. 
 
-## <a name="extensibility-and-integrations"></a>Extensibilidade e integrações 
+## <a name="extensibility-and-integrations"></a>Extensibilidade e integrações
 Pode estender a sua aplicação IoT na IoT Central e opcionalmente:
-* transformar e integrar os seus dados IoT para análises avançadas, por exemplo, modelos de aprendizagem automática de formação, através da exportação contínua de dados a partir da aplicação IoT Central. 
-* automatizar fluxos de trabalho noutros sistemas desencadeando ações usando o Microsoft Flow ou webhooks a partir da aplicação IoT Central
+* transformar e integrar os seus dados IoT para análises avançadas, por exemplo, modelos de aprendizagem automática de formação, através da exportação contínua de dados a partir da aplicação IoT Central.
+* automatizar fluxos de trabalho noutros sistemas desencadeando ações utilizando Power Automamate ou webhooks a partir da aplicação IoT Central
 * aceder programaticamente à sua aplicação IoT na IoT Central através de APIs centrais IoT.
 
 ## <a name="business-applications"></a>Aplicações empresariais 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e90bcfe7238ae998ac677a9d7eebef0ffa8939
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568357"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874258"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Erros de certificado de resolução de problemas
 
@@ -46,6 +46,7 @@ O quadro que se segue apresenta erros comuns de certificado e informações deta
 | CertificateManagement_MissingServerOid | O certificado com nome sujeito {0} não tem autenticação do servidor OID. Verifique as propriedades do certificado e, se necessário, traga um novo certificado.|
 | CertificateManagement_NameMismatch | Incompatibilidade do tipo de certificado. Âmbito esperado: {0} encontrado {1} . Faça upload do certificado apropriado.|
 | CertificateManagement_NoPrivateKeyPresent | Certificado com nome do sujeito {0} não tem chave privada presente. Faça o upload de um certificado .pfx com chave privada.|
+| CertificateManagement_NoRSACryptoPrivateKey | A chave privada para certificado com nome sujeito {0} não é acessível. Certifique-se de que está a utilizar um certificado suportado. Apenas o Microsoft RSA/Schannel Cryptographic Provider é suportado. |
 | CertificateManagement_NotSelfSignedCertificate | O certificado com nome do sujeito {0} não é auto-assinado. Os certificados de raiz devem ser auto-assinados |
 | CertificateManagement_NotSupportedOnVirtualAppliance | Esta operação não é suportada no dispositivo virtual. Este erro indica que a assinatura só ocorrerá com o Gateway da Caixa de Dados em funcionamento no Aparelho Cloud Tático. Este erro ocorre durante a gestão do dispositivo através do Windows PowerShell.|
 | CertificateManagement_SelfSignedCertificate | O certificado com nome do sujeito {0} é auto-assinado. Faça o upload de um certificado que está devidamente assinado.|
@@ -57,6 +58,8 @@ O quadro que se segue apresenta erros comuns de certificado e informações deta
 | CertificadoImportFailure | O certificado com impressão digital {0} não foi importado no {1} nó. Se o problema persistir, contacte o Microsoft Support. |
 | CertificadoApplyFailure | O certificado com impressão digital {0} não foi aplicado no {1} nó. Se o problema persistir, contacte o Microsoft Support.|
 | NodeNotReachable | Não foi possível validar o certificado em {0} . Verifique a saúde do hardware e software do sistema.|
+| OBTER CÓDIGO DE ERRO | A chave privada deste certificado não é acessível. Certifique-se de que está a utilizar um certificado suportado. Apenas o Microsoft RSA/Schannel Cryptographic Provider é suportado. |
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

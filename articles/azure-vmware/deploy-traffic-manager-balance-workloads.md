@@ -3,12 +3,12 @@ title: Implementar gestor de tráfego para equilibrar cargas de trabalho da Azur
 description: Saiba como integrar o Traffic Manager com a Azure VMware Solution (AVS) para equilibrar as cargas de trabalho das aplicações em vários pontos finais em diferentes regiões.
 ms.topic: how-to
 ms.date: 08/14/2020
-ms.openlocfilehash: 076d9c77d68df3d8acb7b531b3dfbea40fb3cedd
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: ed74bb0dfc533abadd50af32afc06c9cb4106193
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593141"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874311"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-avs-workloads"></a>Implementar gestor de tráfego para equilibrar cargas de trabalho da Azure VMware Solution (AVS)
 
@@ -30,7 +30,7 @@ Como mostrado no seguinte número, o Azure Traffic Manager fornece um equilíbri
 
 A ligação sobre a rede virtual entre as duas regiões de nuvem privada AVS, Eua Ocidental e Europa Ocidental, e um servidor no local no Leste dos EUA, usa um gateway ExpressRoute.   
 
-![Diagrama da arquitetura da integração do Gestor de Tráfego com Azure VMware Solution](media/traffic-manager/traffic-manager-topology.png)
+:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagrama da arquitetura da integração do Gestor de Tráfego com Azure VMware Solution" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -75,7 +75,7 @@ No nosso cenário, um segmento NSX-T está configurado no ambiente AVS onde a m�
 
 1. Selecione **Segmentos** para ver os seus segmentos configurados. Neste caso, vemos que o Contoso-segment1 está ligado ao gateway Contoso-T01, um router flexível Tier-1.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Screenshot mostrando perfis de segmento no NSX-T Manager.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Screenshot mostrando perfis de segmento no NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-avs.png":::    
 
 2. Selecione **Gateways Tier-1** para ver uma lista dos seus gateways Tier-1 com o número de segmentos ligados. Selecione o segmento ligado ao Contoso-T01. Abre-se uma janela mostrando a interface lógica configurada no router Tier-01. Isto serve como porta de entrada para a máquina virtual do membro da piscina de backend ligada ao segmento.
 
@@ -83,7 +83,7 @@ No nosso cenário, um segmento NSX-T está configurado no ambiente AVS onde a m�
 
 3. No cliente VM vSphere, selecione a máquina virtual para ver os seus detalhes. Note que o seu endereço IP corresponde ao que vimos no passo 3 da secção anterior: 172.29.1.10.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Screenshot mostrando detalhes VM no VSphere Client.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Screenshot mostrando detalhes VM no VSphere Client." lightbox="media/traffic-manager/nsx-t-vm-details.png":::    
 
 4. Selecione a máquina virtual e, em seguida, clique em **AÇÕES > Editar Definições** para verificar a ligação ao segmento NSX-T.
 
@@ -103,7 +103,7 @@ No nosso cenário, um segmento NSX-T está configurado no ambiente AVS onde a m�
 
 3. Selecione **Descrição geral**. Copie o URL em **nome DNS**.
 
-   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Screenshot mostrando uma visão geral do ponto final do Traffic Manager com o nome DNS em destaque."::: 
+   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Screenshot mostrando uma visão geral do ponto final do Traffic Manager com o nome DNS em destaque." lightbox="media/traffic-manager/traffic-manager-endpoints.png"::: 
 
 4. Cole o URL de nome DNS num browser. A imagem que se segue mostra o tráfego direcionado para a região da Europa Ocidental.
 

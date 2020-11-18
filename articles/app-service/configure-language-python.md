@@ -2,19 +2,19 @@
 title: Configure aplicações Linux Python
 description: Saiba como configurar o recipiente Python no qual são executadas aplicações web, utilizando tanto o portal Azure como o Azure CLI.
 ms.topic: quickstart
-ms.date: 11/06/2020
+ms.date: 11/16/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 9e0e9098959231d4283608e8191081ae2df6737a
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 149f8deb8839b3adce3555300c94b8ebdf587100
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425920"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873850"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
 
-Este artigo descreve como o [Azure App Service](overview.md) gere as aplicações Python e como pode personalizar o comportamento do Serviço de Aplicações quando necessário. As aplicações Python devem ser implementadas com todos os módulos [pip](https://pypi.org/project/pip/) necessários.
+Este artigo descreve como o [Azure App Service](overview.md) gere as aplicações Python, como pode migrar as aplicações existentes para o Azure e como pode personalizar o comportamento do Serviço de Aplicações quando necessário. As aplicações Python devem ser implementadas com todos os módulos [pip](https://pypi.org/project/pip/) necessários.
 
 O motor de implementação do Serviço de Aplicações ativa automaticamente um ambiente virtual e funciona `pip install -r requirements.txt` para si quando implementa um [repositório Git](deploy-local-git.md), ou um pacote [zip](deploy-zip.md).
 
@@ -22,7 +22,7 @@ Este guia fornece conceitos e instruções fundamentais para os desenvolvedores 
 
 Pode utilizar o [portal Azure](https://portal.azure.com) ou o CLI Azure para configuração:
 
-- **Portal Azure** , use a página de Configuração de **Configurações** da aplicação  >  **Configuration** como descrito no [Configure uma aplicação de Serviço de Aplicações no portal Azure](configure-common.md).
+- **Portal Azure**, use a página de Configuração de **Configurações** da aplicação  >  **Configuration** como descrito no [Configure uma aplicação de Serviço de Aplicações no portal Azure](configure-common.md).
 
 - **Azure CLI:** tem duas opções.
 
@@ -34,7 +34,7 @@ Pode utilizar o [portal Azure](https://portal.azure.com) ou o CLI Azure para con
 
 ## <a name="configure-python-version"></a>Versão Configure Python
 
-- **Portal Azure** : utilize o separador **definições gerais** na página **de Configuração,** conforme descrito nas [definições gerais de Configuração](configure-common.md#configure-general-settings) para recipientes Linux.
+- **Portal Azure**: utilize o separador **definições gerais** na página **de Configuração,** conforme descrito nas [definições gerais de Configuração](configure-common.md#configure-general-settings) para recipientes Linux.
 
 - **Azure CLI:**
 
@@ -94,7 +94,31 @@ Para obter mais informações sobre como o App Service funciona e constrói apli
 > [!NOTE]
 > Utilize sempre caminhos relativos em todos os scripts pré e pós-construção porque o recipiente de construção em que o Oryx funciona é diferente do recipiente de tempo de execução em que a aplicação funciona. Nunca confie na colocação exata da pasta do projeto da sua aplicação dentro do recipiente (por exemplo, que é colocada no *local/wwwroot).*
 
-## <a name="production-settings-for-django-apps"></a>Configurações de produção para apps django
+## <a name="migrate-existing-applications-to-azure"></a>Migrar as aplicações existentes para a Azure
+
+As aplicações web existentes podem ser redistribuídas para a Azure da seguinte forma:
+
+1. **Repositório de origem**: Mantenha o seu código fonte num repositório adequado como o GitHub, que lhe permite configurar uma implantação contínua mais tarde neste processo.
+    1. O seu ficheiro *requirements.txt* deve estar na raiz do seu repositório para o Serviço de Aplicações instalar automaticamente as embalagens necessárias.    
+
+1. **Base de dados**: Se a aplicação depender de uma base de dados, também fornece os recursos necessários ao Azure. Ver [Tutorial: Implementar uma aplicação web Django com PostgreSQL - crie uma base de dados](tutorial-python-postgresql-app.md#create-postgres-database-in-azure) por exemplo.
+
+1. **Recursos de serviço de aplicações**: Crie um grupo de recursos, Plano de Serviço de Aplicações e aplicação web do Serviço de Aplicações para hospedar a sua aplicação. Pode fazê-lo mais facilmente fazendo uma primeira implementação do seu código através do comando Azure CLI `az webapp up` , como mostrado no [Tutorial: Implementar uma aplicação web Django com PostgreSQL - implementar o código](tutorial-python-postgresql-app.md#deploy-the-code-to-azure-app-service). Substitua os nomes do grupo de recursos, o Plano de Serviço de Aplicações e a aplicação web para ser mais adequado para a sua aplicação.
+
+1. **Variáveis ambientais**: Se a sua aplicação necessitar de variáveis ambientais, crie [configurações equivalentes de aplicações do Serviço de Aplicações](configure-common.md#configure-app-settings)de Aplicações . Estas definições de Serviço de Aplicações aparecem no seu código como variáveis ambientais, conforme descrito nas [variáveis do ambiente Access](#access-app-settings-as-environment-variables).
+    - As ligações de base de dados, por exemplo, são frequentemente geridas através de tais configurações, como mostrado no [Tutorial: Implementar uma aplicação web Django com PostgreSQL - configurar variáveis para ligar a base de dados](tutorial-python-postgresql-app.md#configure-environment-variables-to-connect-the-database).
+    - Consulte [as definições de Produção para apps Django](#production-settings-for-django-apps) para configurações específicas para aplicações típicas do Django.
+
+1. **Startup de aplicações**: Reveja a secção, [processo de arranque do Container](#container-startup-process) mais tarde neste artigo para entender como o Serviço de Aplicações tenta executar a sua app. O Serviço de Aplicações utiliza o servidor web Gunicorn por padrão, que deve ser capaz de encontrar o seu objeto de aplicação ou *wsgi.py* pasta. Se necessário, pode [personalizar o comando de arranque](#customize-startup-command).
+
+1. **Implementação contínua**: Crie uma implementação contínua, conforme descrito na [implementação contínua do Serviço de Aplicações Azure](deploy-continuous-deployment.md) se utilizar pipelines Azure ou implantação kudu, ou [implementar para o Serviço de Aplicações utilizando ações do GitHub](deploy-github-actions.md) se utilizar ações do GitHub.
+
+1. **Ações personalizadas**: Para executar ações dentro do recipiente de Serviço de Aplicações que acolhe a sua aplicação, como migrações de base de dados Django, pode [ligar-se ao recipiente através do SSH](configure-linux-open-ssh-session.md). Para um exemplo de execução das migrações na base de dados do Django, consulte [Tutorial: Implemente uma aplicação web Django com PostgreSQL - executar migrações de base de dados](tutorial-python-postgresql-app.md#run-django-database-migrations).
+    - Ao utilizar a implementação contínua, pode executar essas ações utilizando comandos pós-construção, conforme descrito anteriormente no [Customize build automation](#customize-build-automation).
+
+Com estes passos concluídos, deverá ser capaz de comprometer alterações no seu repositório de origem e ter essas atualizações automaticamente implantadas no Serviço de Aplicações.
+
+### <a name="production-settings-for-django-apps"></a>Configurações de produção para apps django
 
 Para um ambiente de produção como o Azure App Service, as aplicações do Django devem seguir a lista de verificação de [implementação](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) do Django (djangoproject.com).
 
@@ -146,7 +170,7 @@ Para aplicações Django, o Serviço de Aplicações procura um ficheiro chamado
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Se pretender um controlo mais específico sobre o comando de arranque, utilize um [comando de arranque personalizado](#customize-startup-command), substitua-o pelo nome da pasta que contém `<module>` *wsgi.py* – e adicione um argumento se esse módulo não estiver na raiz `--chdir` do projeto. Por exemplo, se o seu *wsgi.py* estiver localizado sob *a malha/backend/config* da raiz do seu projeto, utilize os argumentos `--chdir knboard/backend config.wsgi` .
+Se pretender um controlo mais específico sobre o comando de arranque, utilize um [comando de arranque personalizado](#customize-startup-command), substitua-o pelo nome da pasta que contém `<module>` *wsgi.py*– e adicione um argumento se esse módulo não estiver na raiz `--chdir` do projeto. Por exemplo, se o seu *wsgi.py* estiver localizado sob *a malha/backend/config* da raiz do seu projeto, utilize os argumentos `--chdir knboard/backend config.wsgi` .
 
 Para ativar o registo de produção, adicione os `--access-logfile` parâmetros e `--error-logfile` os parâmetros como mostrado nos exemplos para [comandos de arranque personalizados](#customize-startup-command).
 
@@ -178,15 +202,15 @@ Mais uma vez, se espera ver uma aplicação implementada em vez da aplicação p
 
 Como indicado anteriormente neste artigo, pode fornecer configurações de configuração para Gunicorn através de um ficheiro *gunicorn.conf.py* na raiz do projeto, conforme descrito na [visão geral da configuração de Gunicorn](https://docs.gunicorn.org/en/stable/configure.html#configuration-file).
 
-Se tal configuração não for suficiente, pode controlar o comportamento de arranque do recipiente fornecendo um comando de arranque personalizado ou vários comandos num ficheiro de comando de arranque. Um ficheiro de comando de arranque pode usar qualquer nome que escolha, como *startup.sh* , *startup.cmd,* *startup.txt* , e assim por diante.
+Se tal configuração não for suficiente, pode controlar o comportamento de arranque do recipiente fornecendo um comando de arranque personalizado ou vários comandos num ficheiro de comando de arranque. Um ficheiro de comando de arranque pode usar qualquer nome que escolha, como *startup.sh*, *startup.cmd,* *startup.txt*, e assim por diante.
 
 Todos os comandos devem utilizar caminhos relativos para a pasta raiz do projeto.
 
 Para especificar um ficheiro de comando ou comando de arranque:
 
-- **Portal Azure** : selecione a página de Configuração da **aplicação** e, em seguida, selecione **definições gerais**. No campo **Comando de Arranque,** coloque o texto completo do seu comando de arranque ou o nome do seu ficheiro de comando de arranque. Em seguida, **selecione Guardar** para aplicar as alterações. Consulte [configurar as definições gerais](configure-common.md#configure-general-settings) para recipientes Linux.
+- **Portal Azure**: selecione a página de Configuração da **aplicação** e, em seguida, selecione **definições gerais**. No campo **Comando de Arranque,** coloque o texto completo do seu comando de arranque ou o nome do seu ficheiro de comando de arranque. Em seguida, **selecione Guardar** para aplicar as alterações. Consulte [configurar as definições gerais](configure-common.md#configure-general-settings) para recipientes Linux.
 
-- **Azure CLI** : use o comando [configurar az webapp com](/cli/azure/webapp/config#az_webapp_config_set) o `--startup-file` parâmetro para definir o comando ou ficheiro de arranque:
+- **Azure CLI**: use o comando [configurar az webapp com](/cli/azure/webapp/config#az_webapp_config_set) o `--startup-file` parâmetro para definir o comando ou ficheiro de arranque:
 
     ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -198,7 +222,7 @@ O Serviço de Aplicações ignora quaisquer erros que ocorram ao processar um co
 
 ### <a name="example-startup-commands"></a>Exemplo de comandos de arranque
 
-- **Adicionados argumentos de Gunicorn** : O exemplo a seguir adiciona `--workers=4` a uma linha de comando gunicorn para iniciar uma aplicação Django: 
+- **Adicionados argumentos de Gunicorn**: O exemplo a seguir adiciona `--workers=4` a uma linha de comando gunicorn para iniciar uma aplicação Django: 
 
     ```bash
     # <module-path> is the relative path to the folder that contains the module
@@ -208,7 +232,7 @@ O Serviço de Aplicações ignora quaisquer erros que ocorram ao processar um co
 
     Para obter mais informações, veja [Executar o Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
-- **Ativar a exploração madeireira para Django** : Adicione os `--access-logfile '-'` argumentos e os argumentos à linha de `--error-logfile '-'` comando:
+- **Ativar a exploração madeireira para Django**: Adicione os `--access-logfile '-'` argumentos e os argumentos à linha de `--error-logfile '-'` comando:
 
     ```bash    
     # '-' for the log files means stdout for --access-logfile and stderr for --error-logfile.
@@ -219,7 +243,7 @@ O Serviço de Aplicações ignora quaisquer erros que ocorram ao processar um co
 
     Para obter mais informações, consulte [a exploração madeireira de Gunicorn](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
     
-- **Módulo principal frasco personalizado** : por padrão, o Serviço de Aplicações assume que o módulo principal de uma aplicação Flask é *application.py* ou *app.py*. Se o seu módulo principal utilizar um nome diferente, então deve personalizar o comando de arranque. Por exemplo, tem uma aplicação Flask cujo módulo principal é *hello.py* e o objeto da aplicação Flask nesse ficheiro é `myapp` nomeado, então o comando é o seguinte:
+- **Módulo principal frasco personalizado**: por padrão, o Serviço de Aplicações assume que o módulo principal de uma aplicação Flask é *application.py* ou *app.py*. Se o seu módulo principal utilizar um nome diferente, então deve personalizar o comando de arranque. Por exemplo, tem uma aplicação Flask cujo módulo principal é *hello.py* e o objeto da aplicação Flask nesse ficheiro é `myapp` nomeado, então o comando é o seguinte:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -231,7 +255,7 @@ O Serviço de Aplicações ignora quaisquer erros que ocorram ao processar um co
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
     ```
     
-- **Utilize um servidor não-Gunicorn** : Para utilizar um servidor web diferente, como [aiohttp,](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html)utilize o comando apropriado como comando de arranque ou no ficheiro de comando de arranque:
+- **Utilize um servidor não-Gunicorn**: Para utilizar um servidor web diferente, como [aiohttp,](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html)utilize o comando apropriado como comando de arranque ou no ficheiro de comando de arranque:
 
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -282,7 +306,7 @@ Criar problemas como dependências incorretas em *requirements.txt* e erros em s
 
 Quando estiver ligado com sucesso à sessão SSH, deverá ver a mensagem "SSH CONNECTION ESTABLISHED" na parte inferior da janela. Se vir erros como "SSH_CONNECTION_CLOSED" ou uma mensagem de que o contentor está a reiniciar, pode estar a impedir o início do recipiente da aplicação. Consulte [a resolução de problemas](#troubleshooting) para obter medidas para investigar possíveis problemas.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 Em geral, o primeiro passo na resolução de problemas é utilizar o App Service Diagnostics:
 
@@ -326,19 +350,19 @@ As secções seguintes fornecem orientações adicionais para questões específ
 
 #### <a name="could-not-find-setuppy-or-requirementstxt"></a>Não consegui encontrar setup.py ou requirements.txt
 
-- **O fluxo de registo mostra "Não foi possível encontrar setup.py ou requirements.txt; Não funcionando a instalação do pip."** : O processo de construção oryx não conseguiu encontrar o seu ficheiro *requirements.txt.*
+- **O fluxo de registo mostra "Não foi possível encontrar setup.py ou requirements.txt; Não funcionando a instalação do pip."**: O processo de construção oryx não conseguiu encontrar o seu ficheiro *requirements.txt.*
 
     - Ligue-se ao contentor da aplicação web via [SSH](#open-ssh-session-in-browser) e verifique se *requirements.txt* é nomeado corretamente e existe diretamente no *site/wwwroot*. Se não existir, faça do site que o ficheiro existe no seu repositório e está incluído na sua implantação. Se existir numa pasta separada, mova-a para a raiz.
 
 #### <a name="other-issues"></a>Outros problemas
 
-- **As palavras-passe não aparecem na sessão SSH quando escritas** : Por razões de segurança, a sessão SSH mantém a sua palavra-passe escondida à medida que escreve. Os caracteres estão a ser gravados, no entanto, por isso digite a sua palavra-passe como de costume e prima **Enter** quando for feito.
+- **As palavras-passe não aparecem na sessão SSH quando escritas**: Por razões de segurança, a sessão SSH mantém a sua palavra-passe escondida à medida que escreve. Os caracteres estão a ser gravados, no entanto, por isso digite a sua palavra-passe como de costume e prima **Enter** quando for feito.
 
-- **Os comandos na sessão SSH parecem estar cortados** : O editor pode não ser comandos de embrulho de palavras, mas ainda devem funcionar corretamente.
+- **Os comandos na sessão SSH parecem estar cortados**: O editor pode não ser comandos de embrulho de palavras, mas ainda devem funcionar corretamente.
 
-- **Os ativos estáticos não aparecem numa aplicação do Django** : Certifique-se de que ativou o [módulo whitenoise](http://whitenoise.evans.io/en/stable/django.html)
+- **Os ativos estáticos não aparecem numa aplicação do Django**: Certifique-se de que ativou o [módulo whitenoise](http://whitenoise.evans.io/en/stable/django.html)
 
-- **Vê a mensagem: "A Ligação SSL Fatal é necessária"** : Verifique quaisquer nomes de utilizador e palavras-passe utilizados para aceder a recursos (como bases de dados) a partir da aplicação.
+- **Vê a mensagem: "A Ligação SSL Fatal é necessária"**: Verifique quaisquer nomes de utilizador e palavras-passe utilizados para aceder a recursos (como bases de dados) a partir da aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

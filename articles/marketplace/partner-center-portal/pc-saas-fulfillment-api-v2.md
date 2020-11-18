@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 06a2a5bbe637cd2366dbdf218c0278cd683635df
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c2679be2ca1db9017cbc37219402fa4e1c0666a5
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130039"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874428"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>SaaS cumpre APIs versão 2 no mercado comercial
 
@@ -82,11 +82,14 @@ Apenas uma subscrição ativa pode ser atualizada. Enquanto a subscrição está
 
 ##### <a name="update-initiated-from-the-marketplace"></a>Atualização iniciada a partir do mercado
 
-Neste fluxo, o cliente altera o plano de subscrição ou a quantidade de lugares do M365 Admin Center.  
+Neste fluxo, o cliente altera o plano de subscrição ou quantidade de lugares do portal Azure ou M365 Admin Center.  
 
 1. Assim que uma atualização for inserida, a Microsoft chamará o URL webhook da editora, configurado no campo **Webhook de Conexão** no Partner Center, com um valor adequado para *a ação* e outros parâmetros relevantes.  
 1. O lado da editora deve escrutinar as alterações necessárias ao serviço SaaS e notificar a Microsoft quando a alteração estiver concluída, chamando o [Estado de Atualização da Operação API](#update-the-status-of-an-operation).
 1. Se o Patch for enviado com estado de falha, o processo de atualização não será concluído no lado da Microsoft.  A subscrição do SaaS ficará com o plano existente e a quantidade de lugares.
+
+> [!NOTE]
+> O editor deve invocar patch para [atualizar o estado da operação API](#update-the-status-of-an-operation) com uma resposta De falha/sucesso dentro de uma janela de tempo de *10 segundos* após receber a notificação webhook. Se o estado de funcionamento do PATCH não for recebido dentro dos 10 segundos, o plano de alteração é *automaticamente corrigido como Sucesso*. 
 
 A sequência de chamadas API para um cenário de atualização iniciado pelo Marketplace é mostrada abaixo.
 
@@ -108,7 +111,7 @@ A sequência de API requer o cenário de atualização iniciado pelo lado da edi
 
 #### <a name="suspended-suspended"></a>Suspenso *(suspenso)*
 
-Este estado indica que o pagamento de um cliente pelo serviço SaaS não foi recebido. A editora será notificada desta alteração no estado de subscrição do SaaS pela Microsoft. A notificação é feita através de uma chamada para webhook com parâmetro *de ação* definido para *Suspenso* .
+Este estado indica que o pagamento de um cliente pelo serviço SaaS não foi recebido. A editora será notificada desta alteração no estado de subscrição do SaaS pela Microsoft. A notificação é feita através de uma chamada para webhook com parâmetro *de ação* definido para *Suspenso*.
 
 A editora pode ou não fazer alterações no serviço SaaS do lado da editora. Recomendamos que o editor disponibilize esta informação ao cliente suspenso e limites ou bloqueie o acesso do cliente ao serviço SaaS.  Há uma probabilidade de o pagamento nunca ser recebido.
 
@@ -788,7 +791,7 @@ Código: 500 Erro interno do servidor. Re-tentar a chamada da API.  Se o erro pe
 
 #### <a name="get-operation-status"></a>Obter estado de operação
 
-Não  **subscrição,** **ChangePlan** ou **ChangeQuantity** .
+Não  **subscrição,** **ChangePlan** ou **ChangeQuantity**.
 
 A `operationId` chamada para esta API pode ser recuperada a partir do valor devolvido pela **Operação-Localização,** receber chamadas de API de operações pendentes ou o valor do `<id>` parâmetro recebido numa chamada webhook.
 

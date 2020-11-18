@@ -3,12 +3,12 @@ title: Conceitos - Nuvens privadas e aglomerados
 description: Conheça as principais capacidades dos centros de dados definidos por software Azure VMware Solution e clusters vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: daa712a722ca3252a49e4f54e0cc9e42de4ffc73
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0454ade503ce40de46363f65d36a64340219c0b1
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337326"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874020"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware Solution conceitos de nuvem privada e cluster
 
@@ -59,7 +59,7 @@ As versões de software atuais do software VMware utilizado nos clusters de nuve
 
 Para qualquer novo cluster numa nuvem privada, a versão de software corresponde ao que está atualmente em execução. Para qualquer nova nuvem privada numa subscrição, a versão mais recente da stack de software é instalada.
 
-Pode encontrar as políticas e processos gerais de upgrade para o software da plataforma Azure VMware Solution descrito no artigo [upgrades Concepts.](concepts-upgrades.md)
+Pode encontrar as políticas e processos gerais de upgrade para o software da plataforma Azure VMware Solution descrito em [atualizações e atualizações de nuvem privada .](concepts-upgrades.md)
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Manutenção do anfitrião e gestão do ciclo de vida
 

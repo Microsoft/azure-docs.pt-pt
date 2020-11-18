@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 6508db654cd27ca4b3844f6037f13fb504173e11
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3bd4d328c6b0b73a51f325adde988c8f0988ea8a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361170"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873816"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente de inferência do Azure Machine Learning com redes virtuais
 
@@ -115,6 +115,8 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 Quando o processo de criação estiver concluído, pode executar inferência, ou pontuação de modelos, num cluster AKS por trás de uma rede virtual. Para mais informações, consulte [Como implementar para a AKS](how-to-deploy-and-where.md).
 
+Para obter mais informações sobre a utilização de Role-Based Access Control com Kubernetes, consulte [Use Azure RBAC para obter autorização de Kubernetes](../aks/manage-azure-rbac.md).
+
 ## <a name="network-contributor-role"></a>Papel de contribuinte de rede
 
 > [!IMPORTANT]
@@ -151,8 +153,8 @@ Para obter mais informações sobre a utilização do balançador de carga inter
 
 Existem duas abordagens para isolar o tráfego de e para o cluster AKS para a rede virtual:
 
-* __Cluster Privado AKS__ : Esta abordagem utiliza a Azure Private Link para garantir comunicações com o cluster para operações de implantação/gestão.
-* __Balanceador de carga AKS interno__ : Esta abordagem configura o ponto final para as suas implementações para AKS para utilizar um IP privado dentro da rede virtual.
+* __Cluster Privado AKS__: Esta abordagem utiliza a Azure Private Link para garantir comunicações com o cluster para operações de implantação/gestão.
+* __Balanceador de carga AKS interno__: Esta abordagem configura o ponto final para as suas implementações para AKS para utilizar um IP privado dentro da rede virtual.
 
 > [!WARNING]
 > O equilibrador de carga interno não funciona com um cluster AKS que utiliza kubenet. Se pretender utilizar um equilibrador de carga interno e um cluster AKS privado ao mesmo tempo, configuure o seu cluster AKS privado com interface de rede de contentores Azure (CNI). Para mais informações, consulte [a rede Configure Azure CNI no Serviço Azure Kubernetes](../aks/configure-azure-cni.md).
@@ -267,7 +269,7 @@ Para utilizar o ACI numa rede virtual para o seu espaço de trabalho, utilize os
 
 Se não quiser utilizar as regras de saída predefinidas e pretender limitar o acesso de saída da sua rede virtual, deve permitir o acesso ao Registo de Contentores Azure. Por exemplo, certifique-se de que os seus Grupos de Segurança de Rede (NSG) contêm uma regra que permite o acesso à marca de serviço __AzureContainerRegistry.RegionName__ onde '{RegionName} é o nome de uma região de Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo é parte três de uma série de rede virtual em quatro partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
 

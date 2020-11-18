@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a9ad018980784a1f809ad28a77dacf9f0328fffa
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561323"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873901"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Segurança e governação da empresa para a Azure Machine Learning
 
@@ -30,8 +30,8 @@ Quando se utiliza um serviço de cloud, a melhor prática é restringir o acesso
 
 A maioria dos recursos de autenticação para a Azure Machine Learning utilizam o Azure Ative Directory (Azure AD) para autenticação e controlo de acesso baseado em funções (Azure RBAC) para autorização. As exceções a isto são:
 
-* __SSH__ : Pode permitir o acesso do SSH a alguns recursos de computação, tais como a instância computacional Azure Machine Learning. O acesso SSH utiliza a autenticação baseada em chaves. Para obter mais informações sobre a criação de teclas SSH, consulte [criar e gerir as teclas SSH](../virtual-machines/linux/create-ssh-keys-detailed.md). Para obter informações sobre como permitir o acesso ao SSH, consulte [criar e gerir a instância de cálculo Azure Machine Learning](how-to-create-manage-compute-instance.md).
-* __Modelos implementados como serviços web__ : As implementações de serviço web podem utilizar o controlo de acesso baseado em __chaves__ ou __símbolos.__ As chaves são cordas estáticas. As fichas são recuperadas utilizando uma conta AZure AD. Para obter mais informações, consulte a [autenticação configurar para modelos implementados como serviço web.](how-to-authenticate-web-service.md)
+* __SSH__: Pode permitir o acesso do SSH a alguns recursos de computação, tais como a instância computacional Azure Machine Learning. O acesso SSH utiliza a autenticação baseada em chaves. Para obter mais informações sobre a criação de teclas SSH, consulte [criar e gerir as teclas SSH](../virtual-machines/linux/create-ssh-keys-detailed.md). Para obter informações sobre como permitir o acesso ao SSH, consulte [criar e gerir a instância de cálculo Azure Machine Learning](how-to-create-manage-compute-instance.md).
+* __Modelos implementados como serviços web__: As implementações de serviço web podem utilizar o controlo de acesso baseado em __chaves__ ou __símbolos.__ As chaves são cordas estáticas. As fichas são recuperadas utilizando uma conta AZure AD. Para obter mais informações, consulte a [autenticação configurar para modelos implementados como serviço web.](how-to-authenticate-web-service.md)
 
 Os serviços específicos em que a Azure Machine Learning conta, como os serviços de armazenamento de dados Azure, têm os seus próprios métodos de autenticação e autorização. Para obter mais informações sobre a autenticação dos serviços de armazenamento, consulte [o Connect to storage services](how-to-access-data.md).
 
@@ -75,6 +75,8 @@ A tabela a seguir enumera algumas das principais operações de Aprendizagem aut
 | Serviço web de chamada | ✓ | ✓ | ✓ |
 
 Se as funções incorporadas não satisfaçam as suas necessidades, pode criar papéis personalizados. As funções personalizadas controlam todas as operações dentro de um espaço de trabalho, tais como criar um cálculo, submeter uma corrida, registar uma loja de dados ou implementar um modelo. As funções personalizadas podem ter lido, escrito ou apagado permissões sobre os vários recursos de um espaço de trabalho, tais como clusters, datastores, modelos e pontos finais. Pode disponibilizar a função a um nível específico do espaço de trabalho, a um nível específico de grupo de recursos ou a um nível de subscrição específico. Para obter mais informações, consulte [Gerir os utilizadores e as funções num espaço de trabalho de Aprendizagem automática Azure.](how-to-assign-roles.md)
+
+Para obter mais informações sobre a utilização do RBAC com Kubernetes, consulte [Azure Role-Based Access Control para autorização kubernetes](../aks/manage-azure-rbac.md).
 
 > [!IMPORTANT]
 > A Azure Machine Learning depende de outros serviços Azure Blob e Azure Kubernetes Services. Cada serviço Azure tem as suas próprias configurações Azure RBAC. Para atingir o nível de controlo de acesso pretendido, poderá ter de aplicar as configurações Azure RBAC para Azure Machine Learning e as dos serviços utilizados com a Azure Machine Learning.
@@ -185,8 +187,8 @@ O Centro de Segurança do Azure oferece gestão de segurança unificada e prote�
 
 [A Azure Policy](../governance/policy/index.yml) é uma ferramenta de governação que lhe permite garantir que os recursos da Azure estão em conformidade com as suas políticas. Com a Azure Machine Learning, pode atribuir as seguintes políticas:
 
-* **Chave gerida pelo cliente** : Auditar ou impor se os espaços de trabalho devem utilizar uma chave gerida pelo cliente.
-* **Ligação privada** : Audite se os espaços de trabalho utilizam um ponto final privado para comunicar com uma rede virtual.
+* **Chave gerida pelo cliente**: Auditar ou impor se os espaços de trabalho devem utilizar uma chave gerida pelo cliente.
+* **Ligação privada**: Audite se os espaços de trabalho utilizam um ponto final privado para comunicar com uma rede virtual.
 
 Para obter mais informações sobre a Política Azure, consulte a documentação da [Política Azure](../governance/policy/overview.md).
 

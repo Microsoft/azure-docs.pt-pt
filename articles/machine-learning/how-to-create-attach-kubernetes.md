@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 9b14ba12c9f9b679d1d63008d31825647f42619d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c8b3ab965c5a85bd6f25e5325fdca24026aec787
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318059"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873833"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
 
@@ -306,5 +306,6 @@ No estúdio Azure Machine Learning, __selecione Compute,__ __Inference clusters_
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Use a Azure RBAC para a autorização de Kubernetes](../aks/manage-azure-rbac.md)
 * [Como e onde implementar um modelo](how-to-deploy-and-where.md)
 * [Implementar um modelo para um cluster de serviço Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)

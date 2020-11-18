@@ -4,12 +4,12 @@ description: Automatizar relatórios personalizados diários/semanais/mensais co
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827739"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873715"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados da Azure Application Insights
 
@@ -31,7 +31,7 @@ Cada empresa tem as suas necessidades únicas de reporte, tais como:
 
 Pode [consultar programáticamente](https://dev.applicationinsights.io/) os dados de Insights de Aplicação para gerar relatórios personalizados num horário. As seguintes opções podem ajudá-lo a começar rapidamente:
 
-* [Automatizar relatórios com o Microsoft Flow](../platform/logicapp-flow-connector.md)
+* [Automatizar relatórios com a Power Automamate](../platform/logicapp-flow-connector.md)
 * [Automatizar relatórios com apps lógicas](automate-with-logic-apps.md)
 * Utilize o modelo de [função Azure](../../azure-functions/functions-create-first-azure-function.md) "Application Insights programado" no cenário de Monitorização. Esta função utiliza o SendGrid para entregar o e-mail. 
 

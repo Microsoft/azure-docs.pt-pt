@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: fa7919f54663387ddef811d02137da6d3ffb9d9b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4e50560d2f090c99d1f354ebbc11ab2357dd61e8
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646632"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874734"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI
 
@@ -155,7 +155,7 @@ No computador local, crie um ficheiro denominado `serialization.json` e adicione
 Em seguida, execute o cmdlet `az stream-analytics input create`. Certifique-se de substituir o valor da `datasource` variável pelo caminho onde guardou a definição de entrada de trabalho ficheiro JSON, e o valor da `serialization` variável pelo caminho onde guardou o ficheiro JSON de serialização.
 
 ```azurecli
-az stream-analytics input create 
+az stream-analytics input create \
     --resource-group streamanalyticsrg 
     --job-name streamanalyticsjob \
     --name asaiotinput \
@@ -191,7 +191,7 @@ No computador local, crie um ficheiro denominado `datasink.json` e adicione os s
 Em seguida, execute o cmdlet `az stream-analytics output`. Certifique-se de substituir o valor da `datasource` variável pelo caminho onde guardou o ficheiro JSON de definição de saída de trabalho e o valor da `serialization` variável pelo caminho onde guardou o ficheiro JSON de serialização.
 
 ```azurecli
-az stream-analytics output create 
+az stream-analytics output create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name asabloboutput \
@@ -206,7 +206,7 @@ Adicione uma transformação ao seu trabalho usando a [transformação az stream
 Executar o `az stream-analytics transformation create` cmdlet.
 
 ```azurecli
-az stream-analytics transformation create 
+az stream-analytics transformation create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name Transformation \
@@ -230,7 +230,7 @@ Inicie o trabalho utilizando o [trabalho de arranque de az stream-analytics](/cl
 Depois de executar o cmdlet seguinte, devolve `True` como a saída, se o trabalho for iniciado. No contentor de armazenamento, é criada uma pasta de saída com os dados transformados.
 
 ```azurecli
-az stream-analytics job start 
+az stream-analytics job start \
     --resource-group streamanalyticsrg \
     --name streamanalyticsjob \
     --output-start-mode JobStartTime
@@ -246,7 +246,7 @@ az group delete \
     --no-wait
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, você implementou um simples trabalho stream Analytics usando Azure CLI. Também pode implementar tarefas do Stream Analytics com o [portal do Azure](stream-analytics-quick-create-portal.md) e o [Visual Studio](stream-analytics-quick-create-vs.md).
 

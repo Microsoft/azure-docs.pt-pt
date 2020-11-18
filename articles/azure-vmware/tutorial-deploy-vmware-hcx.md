@@ -3,12 +3,12 @@ title: Tutorial - Implementar e configurar VMware HCX
 description: Aprenda a implementar e configurar uma solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 11/23/2020
-ms.openlocfilehash: 5ee5390ef45e71baf3843cadc815de2f7e06bdac
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 35cc87d7f3f1345972a7f27cecaeb96c6fa687dc
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842369"
+ms.locfileid: "94873918"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
@@ -88,9 +88,7 @@ Antes de colocar o aparelho virtual no seu vCenter no local, tem de descarregar 
 
 1. Selecione **Administration**  >  **Atualizações do sistema de administração** e, em seguida, selecione **Request Download Link**.
 
-1. Selecione a opção que pretende descarregar o ficheiro VMware HCX Connector OVA.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/vmware-hcx-download-link.png" alt-text="solicitar link de descarregamento" lightbox="media/tutorial-vmware-hcx/vmware-hcx-download-link.png":::
+1. Selecione a opção à sua escolha para descarregar o ficheiro VMware HCX Connector OVA.
 
 ## <a name="deploy-the-vmware-hcx-connector-ova-on-premises"></a>Implementar o Conector VMware HCX OVA no local
 
@@ -162,7 +160,7 @@ Depois de colocar o VMware HCX Connector OVA no local e ligar o aparelho, está 
    > [!NOTE]
    > Vai sentir um atraso depois de reiniciar antes de ser solicitado para o próximo passo.
 
-Após o reinício dos serviços, tem de ver o vCenter a mostrar como verde no ecrã que aparece. Tanto o vCenter como o SSO devem ter os parâmetros de configuração adequados, que devem ser os mesmos que o ecrã anterior.
+Após o reinício dos serviços, verá o vCenter a mostrar-se como verde no ecrã que aparece. Tanto o vCenter como o SSO devem ter os parâmetros de configuração adequados, que devem ser os mesmos que o ecrã anterior.
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot do painel de instrumentos com o estado do vCenter verde." lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
@@ -179,11 +177,7 @@ Pode ligar (emparelhamento) o VMware HCX Cloud Manager na Solução VMware Azure
 
 1. Inscreva-se no seu vCenter no local, e em **Casa,** selecione **HCX**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png" alt-text="Screenshot do vCenter Client com HCX selecionado entre atalhos." lightbox="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png":::
-
 1. Em **Infraestruturas**, selecione **O Emparelhamento do Site** e, em seguida, selecione a opção **'Ligar ao Local Remoto'** (no meio do ecrã). 
-
-   :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="Screenshot de seleções para criar um site remoto." lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
 
 1. Introduza o endereço de utilizador HCX URL ou IP da Solução VMware Azure que observou anteriormente, o nome de utilizador Azure VMware Solution cloudadmin \@ vsphere.local username e a palavra-passe. Em seguida, selecione **Ligar**.
 
@@ -224,7 +218,7 @@ Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: HC
 
 ### <a name="create-a-compute-profile"></a>Criar um perfil computacional
 
-1. Selecione **Perfis compute**  >  **create Compute Profile**.
+1. Em **Infraestruturas**, selecione **Interconnect**  >  **Compute Profiles**  >  **Create Compute Profile**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-create.png" alt-text="Screenshot que mostra as seleções para começar a criar um perfil computacional." lightbox="media/tutorial-vmware-hcx/compute-profile-create.png":::
 
@@ -347,7 +341,7 @@ Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: V�
 
 Se pretender estender quaisquer redes do seu ambiente no local até à Azure VMware Solution, siga estes passos:
 
-1. Em **Serviços**, selecione **extensão de rede** e, em seguida, selecione Criar uma **extensão de rede**.
+1. Em **Serviços**, selecione **Extensão de Rede** Crie uma  >  **extensão de rede**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-network-extension.png" alt-text="Screenshot que mostra seleções para começar a criar uma extensão de rede." lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
 

@@ -4,15 +4,15 @@ description: Compreenda como utilizar gatilhos temporizadores em Funções Azure
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6baebdab06a72d3a4af05b4d2e04bc9eee6acb60
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833015"
+ms.locfileid: "94874088"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho temporizador para funções Azure
 
@@ -299,11 +299,11 @@ Cada campo pode ter um dos seguintes tipos de valores:
 
 |Tipo  |Exemplo  |Quando acionado  |
 |---------|---------|---------|
-|Um valor específico |<nobr>"0 5 * * * *"</nobr>|a hh:05:00 onde hh é a cada hora (uma vez por hora)|
-|Todos os valores `*` ()|<nobr>"0 * 5 * * *"</nobr>|às 5:mm:00 todos os dias, onde mm é cada minuto da hora (60 vezes dentro da hora especificada)|
-|Uma gama `-` (operador)|<nobr>"5-7 * * * * *"</nobr>|em hh:mm:05,hh:mm:06, e hh:mm:07 onde hh:mm é cada minuto de cada hora (3 vezes por minuto)|
-|Um conjunto de valores `,` (operador)|<nobr>"5,8,10 * * * * *"</nobr>|em hh:mm:05,hh:mm:08, e hh:mm:10 onde hh:mm é cada minuto de cada hora (3 vezes por minuto)|
-|Um valor de intervalo `/` (operador)|<nobr>"0 */5 * * * *"</nobr>|às hh:00:00, hh:05:00, hh:10:00, e assim por diante através de hh:55:00 onde hh é a cada hora (12 vezes por hora)|
+|Um valor específico |<nobr>`0 5 * * * *`</nobr>| Uma vez a cada hora do dia ao minuto 5 de cada hora |
+|Todos os valores `*` ()|<nobr>`0 * 5 * * *`</nobr>| A cada minuto da hora, começando na hora 5 |
+|Uma gama `-` (operador)|<nobr>`5-7 * * * * *`</nobr>| Três vezes por minuto - em segundos 5 a 7 durante cada minuto de cada hora de cada dia |
+|Um conjunto de valores `,` (operador)|<nobr>`5,8,10 * * * * *`</nobr>| Três vezes por minuto - aos segundos 5, 8 e 10 durante cada minuto de cada hora de cada dia |
+|Um valor de intervalo `/` (operador)|<nobr>`0 */5 * * * *`</nobr>| 12 vezes por hora - no segundo 0 de cada 5 minutos de cada hora de cada dia |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -311,18 +311,18 @@ Cada campo pode ter um dos seguintes tipos de valores:
 
 Aqui estão alguns exemplos de expressões NCRONTAB que pode usar para o gatilho do temporizador em Funções Azure.
 
-|Exemplo|Quando acionado  |
-|---------|---------|
-|`"0 */5 * * * *"`|uma vez a cada cinco minutos|
-|`"0 0 * * * *"`|uma vez no topo de cada hora|
-|`"0 0 */2 * * *"`|uma vez a cada duas horas|
-|`"0 0 9-17 * * *"`|uma vez a cada hora das 9:00 às 17:00|
-|`"0 30 9 * * *"`|às 9:30 todos os dias|
-|`"0 30 9 * * 1-5"`|às 9:30 am todos os dias da semana|
-|`"0 30 9 * Jan Mon"`|às 9:30 todas as segundas-feiras de janeiro|
+| Exemplo            | Quando acionado                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | uma vez a cada cinco minutos            |
+| `0 0 * * * *`      | uma vez no topo de cada hora      |
+| `0 0 */2 * * *`    | uma vez a cada duas horas               |
+| `0 0 9-17 * * *`   | uma vez a cada hora das 9:00 às 17:00  |
+| `0 30 9 * * *`     | às 9:30 todos os dias               |
+| `0 30 9 * * 1-5`   | às 9:30 am todos os dias da semana           |
+| `0 30 9 * Jan Mon` | às 9:30 todas as segundas-feiras de janeiro |
 
 > [!NOTE]
-> A expressão NCRONTAB requer seis formatos **de campo.** Cinco expressões de cron de campo não são suportadas em Azure.
+> A expressão NCRONTAB requer um formato **de seis campos.** A sexta posição de campo é um valor para segundos que é colocado no início da expressão. Cinco expressões de cron de campo não são suportadas em Azure.
 
 ### <a name="ncrontab-time-zones"></a>Fusos horários NCRONTAB
 
