@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656739"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835667"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planeie um Azure Ative Directory My Apps
 
@@ -26,7 +26,7 @@ Ao utilizar as minhas apps Azure AD, pode:
 * Descubra e aceda a todos os recursos ligados à Azure AD da sua empresa, tais como aplicações
 * Solicitar acesso a novas apps e grupos
 * Gerir o acesso a estes recursos para outros
-* Gerir resets de senha de autosserviço e definições de autenticação multi-factor Azure
+* Gerir resets de senha de autosserviço e definições de autenticação multi-factor Ad Azure
 * Gerir os seus dispositivos
 
 Permite ainda que os administradores gerem:
@@ -54,7 +54,7 @@ Azure AD My Apps beneficia as empresas das seguintes formas:
 
 As minhas Apps são gratuitas e não requer licenças para usar a um nível básico. No entanto, o número de objetos no seu diretório e as funcionalidades adicionais que pretende implementar podem requerer licenças adicionais. Alguns cenários comuns de AD Azure que têm requisitos de licenciamento incluem as seguintes funcionalidades de segurança:
 
-* [Multi-Factor Authentication do Azure](../authentication/concept-mfa-howitworks.md)
+* [Autenticação de vários fatores Azure Ad](../authentication/concept-mfa-howitworks.md)
 * [Adesão baseada em grupo](../fundamentals/active-directory-manage-groups.md)
 * [Reposição personalizada de palavra-passe](../authentication/tutorial-enable-sspr.md)
 * [Proteção de Identidade do Diretório Ativo Azure](../identity-protection/overview-identity-protection.md)
@@ -122,11 +122,11 @@ A tabela a seguir lista várias configurações importantes das Minhas Apps e os
 | Determinar os grupos-piloto| Identifique o grupo de segurança Azure AD para ser utilizado e certifique-se de que todos os membros piloto fazem parte do grupo. |
 | Determinar o grupo ou grupos a habilitar para a produção.| Identifique os grupos de segurança AZure AD, ou os grupos de Diretório Ativo sincronizados com a Azure AD, a serem utilizados. Certifique-se de que todos os membros piloto fazem parte do grupo. |
 | Permitir que os utilizadores utilizem SSO para determinados tipos de aplicações| SSO Federado, OAuth, Password SSO, App Proxy |
-| Permitir que os utilizadores utilizem o reset da palavra-passe de autosserviço | Sim |
-| Permitir que os utilizadores utilizem a autenticação multi-factor| Sim |
+| Permitir que os utilizadores utilizem o reset da palavra-passe de autosserviço | Yes |
+| Permitir que os utilizadores utilizem a autenticação multi-factor| Yes |
 | Permitir que os utilizadores utilizem a gestão do grupo self-service para determinados tipos de grupos| Grupos de segurança, Grupos Microsoft 365 |
-| Permitir que os utilizadores utilizem a gestão de aplicações self-service| Sim |
-| Permitir que os utilizadores utilizem comentários de acesso| Sim |
+| Permitir que os utilizadores utilizem a gestão de aplicações self-service| Yes |
+| Permitir que os utilizadores utilizem comentários de acesso| Yes |
 
 ### <a name="plan-consent-strategy"></a>Estratégia de consentimento do plano
 
@@ -311,5 +311,5 @@ Utilize o papel menos privilegiado para realizar uma tarefa necessária no Diret
 
 Pode utilizar a [Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md) para gerir as suas funções para fornecer auditoria adicional, controlo e revisão de acesso aos utilizadores com permissões de diretório.
 
-## <a name="next-steps"></a>Próximos passos
-[Planear uma implantação da Autenticação Multi-Factor Azure](../authentication/howto-mfa-getstarted.md)
+## <a name="next-steps"></a>Passos seguintes
+[Planear uma implantação da Autenticação Multi-Factor AZURE AD](../authentication/howto-mfa-getstarted.md)

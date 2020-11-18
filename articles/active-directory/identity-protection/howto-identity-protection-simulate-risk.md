@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463761"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835905"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulação de deteções de riscos na Proteção de Identidade
 
@@ -40,7 +40,7 @@ Mais informações sobre cada deteção de risco podem ser encontradas no artigo
 Completar o seguinte procedimento requer que utilize:
 
 - O [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) para simular endereços IP anónimos. Poderá ser necessário utilizar uma máquina virtual se a sua organização restringir a utilização do navegador Tor.
-- Uma conta de teste que ainda não está registada para autenticação multi-factor Azure.
+- Uma conta de teste que ainda não está registada para autenticação multi-factor Azure AD.
 
 **Para simular uma sindução de um IP anónimo, execute os seguintes passos:**
 
@@ -61,7 +61,7 @@ O procedimento abaixo utiliza um recém-criado:
 O preenchimento do seguinte procedimento requer que utilize uma conta de utilizador que tenha:
 
 - Pelo menos 30 dias de história.
-- Autenticação multi-factor Azure ativada.
+- Autenticação multi-factor Azure AD ativada.
 
 **Para simular uma inscrição a partir de um local desconhecido, execute os seguintes passos:**
 

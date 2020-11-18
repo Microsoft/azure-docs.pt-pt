@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294873"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836194"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia híbrida de adoção de identidade
 Nesta tarefa, define a estratégia de adoção de identidade híbrida para a sua solução de identidade híbrida para satisfazer os requisitos de negócio que foram discutidos em:
@@ -176,7 +176,7 @@ O seguinte não é apoiado e não deve ser escolhido como uma implementação:
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Definir estratégia de autenticação de vários fatores
-Nesta tarefa definirá a estratégia de autenticação multi-factor a utilizar.  A autenticação multi-factor Azure vem em duas versões diferentes.  Um é baseado em nuvem e o outro está no local baseado no servidor Azure MFA.  Com base na avaliação que fez acima, pode determinar qual a solução correta para a sua estratégia.  Utilize a tabela abaixo para determinar qual a melhor opção de design que melhor satisfaz os requisitos de segurança da sua empresa:
+Nesta tarefa definirá a estratégia de autenticação multi-factor a utilizar.  A autenticação multi-factor Azure AD vem em duas versões diferentes.  Um é baseado em nuvem e o outro está no local baseado no servidor Azure MFA.  Com base na avaliação que fez acima, pode determinar qual a solução correta para a sua estratégia.  Utilize a tabela abaixo para determinar qual a melhor opção de design que melhor satisfaz os requisitos de segurança da sua empresa:
 
 Opções de design de vários fatores:
 
@@ -213,6 +213,6 @@ A autenticação multi-factor está disponível por padrão para administradores
 ## <a name="next-steps"></a>Passos seguintes
 [Determinar os requisitos de proteção de dados](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 [Visão geral de considerações de design](plan-hybrid-identity-design-considerations-overview.md)
 

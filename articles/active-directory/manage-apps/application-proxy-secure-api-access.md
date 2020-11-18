@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e38d8261bf141248fd143f27c74e0761e54f73f9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: eaa4a8f92809dcf44969958573231ad37d908daa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649335"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835702"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acesso seguro às APIs no local com Proxy de Aplicação AD Azure
 
@@ -24,7 +24,7 @@ Você pode ter APIs de lógica de negócio correndo no local, ou hospedado em m�
 
 Este artigo acompanha-o através da criação de uma solução de Proxy de aplicação AD Azure para hospedar um serviço web API que as aplicações nativas podem aceder.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O diagrama que se segue mostra uma forma tradicional de publicar APIs no local. Esta abordagem requer a abertura das portas de entrada 80 e 443.
 
@@ -36,7 +36,7 @@ O seguinte diagrama mostra como pode usar o Azure AD Application Proxy para publ
 
 O Azure AD Application Proxy forma a espinha dorsal da solução, funcionando como um ponto final público para acesso a API, e fornecendo autenticação e autorização. Pode aceder às suas APIs a partir de uma vasta gama de plataformas utilizando as bibliotecas da [Microsoft Authentication Library (MSAL).](../azuread-dev/active-directory-authentication-libraries.md)
 
-Uma vez que a autenticação e autorização de procuração de aplicações Azure AD são construídas em cima do Azure AD, pode utilizar o Acesso Condicionado AD Azure para garantir que apenas dispositivos fidedignos podem aceder a APIs publicados através do Application Proxy. Utilize a Azure AD Join ou Azure AD Hybrid Unidos para desktops e Intune Managed para dispositivos. Também pode usufruir de funcionalidades do Azure Ative Directory Premium, como a Autenticação Multi-Factor Azure e a segurança apoiada pela aprendizagem automática da [Azure Identity Protection](../identity-protection/overview-identity-protection.md).
+Uma vez que a autenticação e autorização de procuração de aplicações Azure AD são construídas em cima do Azure AD, pode utilizar o Acesso Condicionado AD Azure para garantir que apenas dispositivos fidedignos podem aceder a APIs publicados através do Application Proxy. Utilize a Azure AD Join ou Azure AD Hybrid Unidos para desktops e Intune Managed para dispositivos. Também pode usufruir de funcionalidades do Azure Ative Directory Premium, como a Autenticação Multi-Factor AD Azure, e a segurança apoiada pela aprendizagem automática da [Azure Identity Protection](../identity-protection/overview-identity-protection.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -187,7 +187,7 @@ Depois de configurar os parâmetros, construa e execute a aplicação nativa. Qu
 
 ![A screenshot mostra uma mensagem Secret A P I Successful e um botão OK.](./media/application-proxy-secure-api-access/success.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
 - [Quickstart: Configurar uma aplicação do cliente para aceder a APIs web](../develop/quickstart-configure-app-access-web-apis.md)

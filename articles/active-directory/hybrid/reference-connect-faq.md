@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff2651d2fed9c307bbb90623572b4a74d750d3a4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014638"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836075"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Diretório Ativo Azure Conecta FAQ
 
@@ -117,7 +117,7 @@ Segue-se um documento informativo que apresenta algumas das melhores práticas q
 - Mantenha a consistência da versão entre os Servidores AD AD do Azure tanto quanto possível 
 
 **P: Posso permitir que o Azure AD Connect crie a conta Azure AD Connector na máquina do Grupo de Trabalho?**
-N.º  Para permitir que o Azure AD Connect crie automaticamente a conta Azure AD Connector, a máquina deve ser ligada ao domínio.  
+Não.  Para permitir que o Azure AD Connect crie automaticamente a conta Azure AD Connector, a máquina deve ser ligada ao domínio.  
 
 ## <a name="network"></a>Rede
 **P: Tenho uma firewall, dispositivo de rede, ou outra coisa que limita o tempo que as ligações podem permanecer abertas na minha rede. Qual deve ser o limite de tempo do lado do cliente quando eu usar O AZure AD Connect?**  
@@ -147,10 +147,10 @@ Utilize as orientações descritas no artigo [renovar certificados.](how-to-conn
 
 ## <a name="environment"></a>Ambiente
 **P: É suportado para renomear o servidor depois de Azure AD Connect ter sido instalado?**  
-N.º A alteração do nome do servidor torna o motor de sincronização incapaz de se ligar à instância da base de dados SQL e o serviço não pode ser iniciado.
+Não. A alteração do nome do servidor torna o motor de sincronização incapaz de se ligar à instância da base de dados SQL e o serviço não pode ser iniciado.
 
 **P: As regras de sincronização cryptográficas de próxima geração (NGC) são suportadas numa máquina ativada por FIPS?**  
-N.º  Não são suportadas.
+Não.  Não são suportadas.
 
 **Q. Se desativei um dispositivo sincronizado (por exemplo: HAADJ) no portal Azure, por que é reativado?**<br>
 Os dispositivos sincronizados podem ser da autoria ou dominados nas instalações. Se um dispositivo sincronizado estiver ativado no local, poderá ser reativado no portal Azure, mesmo que tenha sido previamente desativado por um administrador. Para desativar um dispositivo sincronizado, utilize o Ative Directory no local para desativar a conta do computador.
@@ -178,7 +178,7 @@ Não, definir manualmente o atributo ImmutableId num grupo AD Azure existente ou
 Com exceção dos cmdlets que estão documentados neste site, outros cmdlets PowerShell encontrados no Azure AD Connect não são suportados para uso do cliente.
 
 **P: Posso utilizar a opção "Exportação/importação de servidores" encontrada no Gestor de Serviços de Sincronização para mover a configuração entre servidores?**  
-N.º Esta opção não recupera todas as definições de configuração e não deve ser utilizada. Em vez disso, utilize o assistente para criar a configuração base no segundo servidor e use o editor de regras de sincronização para gerar scripts PowerShell para mover qualquer regra personalizada entre servidores. Para mais informações, consulte [a migração swing.](how-to-upgrade-previous-version.md#swing-migration)
+Não. Esta opção não recupera todas as definições de configuração e não deve ser utilizada. Em vez disso, utilize o assistente para criar a configuração base no segundo servidor e use o editor de regras de sincronização para gerar scripts PowerShell para mover qualquer regra personalizada entre servidores. Para mais informações, consulte [a migração swing.](how-to-upgrade-previous-version.md#swing-migration)
 
 **P: As palavras-passe podem ser em cache para a página de início de Sação Azure, e este cache pode ser evitado porque contém um elemento de entrada de palavra-passe com o atributo *autocomplete = atributo "falso"?***  
 Atualmente, a modificação dos atributos HTML do campo **Palavra-Passe,** incluindo a etiqueta autocompleta, não é suportada. Estamos neste momento a trabalhar numa funcionalidade que permite o JavaScript personalizado, que permite adicionar qualquer atributo ao campo **Palavra-Passe.**
@@ -187,7 +187,7 @@ Atualmente, a modificação dos atributos HTML do campo **Palavra-Passe,** inclu
 Atualmente, a modificação dos atributos HTML do campo de entrada **password,** incluindo a etiqueta autocompleta, não é suportada. Estamos neste momento a trabalhar numa funcionalidade que permite o JavaScript personalizado, que permite adicionar qualquer atributo ao campo **Palavra-Passe.**
 
 **P: Existe uma maneira de prevenir sessões simultâneas?**  
-N.º
+Não.
 
 ## <a name="auto-upgrade"></a>Atualização automática
 
@@ -218,7 +218,7 @@ Sim, ainda precisa de atualizar para a versão 1.1.750.0 ou mais tarde. Ativar o
 Não precisa de saber o nome de utilizador e a palavra-passe que foi inicialmente utilizado para atualizar o Azure AD Connect. Utilize qualquer conta AD Azure que tenha o papel de Administrador Global.
 
 **P: Como posso encontrar qual versão do Azure AD Connect estou a usar?**  
-Para verificar qual a versão do Azure AD Connect instalada no seu servidor, vá ao Painel de Controlo **Programs**e procure a versão instalada do Microsoft Azure AD Connect selecionando  >  **Programas e Funcionalidades**, como mostrado aqui:
+Para verificar qual a versão do Azure AD Connect instalada no seu servidor, vá ao Painel de Controlo **Programs** e procure a versão instalada do Microsoft Azure AD Connect selecionando  >  **Programas e Funcionalidades**, como mostrado aqui:
 
 ![Versão Azure AD Connect no Painel de Controlo](./media/reference-connect-faq/faq1.png)
 
@@ -261,7 +261,7 @@ Se precisar de ajuda para atualizar para uma versão mais recente do Azure AD Co
 ## <a name="operational-best-practice"></a>Melhores práticas operacionais    
 Abaixo estão algumas das melhores práticas que deve implementar ao sincronizar entre o Windows Server Ative Directory e o Azure Ative Directory.
 
-**Aplicar autenticação multi-factor para todas as contas sincronizadas** A autenticação multi-factor Azure ajuda a salvaguardar o acesso a dados e aplicações, mantendo a simplicidade para os utilizadores. Proporciona segurança adicional exigindo uma segunda forma de autenticação e proporciona uma autenticação forte através de uma gama de métodos de autenticação fáceis de usar. Os utilizadores podem ou não ser desafiados para mFA com base nas decisões de configuração que um administrador toma. Pode ler mais sobre mFA aqui: https://www.microsoft.com/security/business/identity/mfa?rtc=1
+**Aplicar autenticação multi-factor para todas as contas sincronizadas** A autenticação multi-factor Azure AD ajuda a salvaguardar o acesso a dados e aplicações, mantendo a simplicidade para os utilizadores. Proporciona segurança adicional exigindo uma segunda forma de autenticação e proporciona uma autenticação forte através de uma gama de métodos de autenticação fáceis de usar. Os utilizadores podem ou não ser desafiados para mFA com base nas decisões de configuração que um administrador toma. Pode ler mais sobre mFA aqui: https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
 **Siga as diretrizes de segurança do servidor Azure AD Connect** O servidor Azure AD Connect contém dados de identidade críticos e deve ser tratado como um componente tier 0, conforme documentado no [modelo de nível administrativo](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)do Diretório Ativo . Consulte também [as nossas diretrizes para assegurar o seu servidor AADConnect](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).
 

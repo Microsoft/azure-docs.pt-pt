@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd918aef85deefc23771413c3eb7b92f1189d39
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776107"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835803"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Remediar riscos e desbloquear utilizadores
 
@@ -37,7 +37,7 @@ Os administradores têm as seguintes opções para remediar:
 
 ### <a name="self-remediation-with-risk-policy"></a>Auto-remediação com política de risco
 
-Se permitir que os utilizadores se auto-remediarem, com a autenticação multi-factor (MFA) e a autoassistência (SSPR) nas suas políticas de risco, podem desbloquear-se quando o risco for detetado. Estas deteções são então consideradas fechadas. Os utilizadores devem ter-se registado previamente para Azure MFA e SSPR para poderem utilizar quando o risco for detetado.
+Se permitir que os utilizadores se auto-remediarem, com a Autenticação Multi-Factor AD (MFA) e a redefinição da palavra-passe de autosserviço (SSPR) nas suas políticas de risco, podem desbloquear-se quando o risco for detetado. Estas deteções são então consideradas fechadas. Os utilizadores devem ter-se registado previamente para Azure AD MFA e SSPR para poderem utilizar quando o risco for detetado.
 
 Algumas deteções podem não elevar o risco para o nível em que seria necessária uma autorreparação do utilizador, mas os administradores devem ainda avaliar estas deteções. Os administradores podem determinar que são necessárias medidas adicionais como [bloquear o acesso a partir de locais](../conditional-access/howto-conditional-access-policy-location.md) ou reduzir o risco aceitável nas suas políticas.
 
@@ -49,7 +49,7 @@ Aos administradores são dadas duas opções ao redefinir uma palavra-passe para
 
 - **Gerar uma palavra-passe temporária** - Ao gerar uma senha temporária, pode imediatamente trazer uma identidade de volta para um estado seguro. Este método requer contactar os utilizadores afetados porque precisam de saber qual é a senha temporária. Como a palavra-passe é temporária, o utilizador é solicitado a alterar a palavra-passe para algo novo durante o próximo s-in.
 
-- **Exigir que o utilizador reinicie a palavra-passe** - Exigir que os utilizadores reiniciem as palavras-passe permite a autorrecuperação sem contactar o help desk ou um administrador. Este método aplica-se apenas aos utilizadores registados para Azure MFA e SSPR. Para os utilizadores que não tenham sido registados, esta opção não está disponível.
+- **Exigir que o utilizador reinicie a palavra-passe** - Exigir que os utilizadores reiniciem as palavras-passe permite a autorrecuperação sem contactar o help desk ou um administrador. Este método aplica-se apenas aos utilizadores registados para Azure AD MFA e SSPR. Para os utilizadores que não tenham sido registados, esta opção não está disponível.
 
 ### <a name="dismiss-user-risk"></a>Descartar o risco do utilizador
 

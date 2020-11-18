@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8776ad915ff215eef143f62aaa9e242ff0354f3e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 28a9080ce878e262573adf0b3c79394079c09ca2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368796"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835973"
 ---
 # <a name="identity-protection-policies"></a>Políticas do Identity Protection
 
@@ -24,11 +24,11 @@ A Azure Ative Directory Identity Protection inclui três políticas predefinidas
 
 ![Políticas do Identity Protection](./media/concept-identity-protection-policies/identity-protection-policies.png)
 
-## <a name="azure-mfa-registration-policy"></a>Política de registo do Azure MFA
+## <a name="azure-ad-mfa-registration-policy"></a>Política de registo de MFA Azure AD
 
-A Proteção de Identidade pode ajudar as organizações a lançar a autenticação multi-factor (MFA) a utilizar uma política de acesso condicional que requer registo no início da sação. Ativar esta política é uma ótima maneira de garantir que novos utilizadores na sua organização se registaram para MFA no seu primeiro dia. A autenticação multi-factor é um dos métodos de auto-remediação para eventos de risco dentro da Proteção de Identidade. A auto-remediação permite que os seus utilizadores tomem medidas por si só para reduzir o volume de chamadas helpdesk.
+A Proteção de Identidade pode ajudar as organizações a lançar a autenticação multi-factor Azure AD (MFA) usando uma política de acesso condicional que requer registo no início de sação. Ativar esta política é uma ótima maneira de garantir que novos utilizadores na sua organização se registaram para MFA no seu primeiro dia. A autenticação multi-factor é um dos métodos de auto-remediação para eventos de risco dentro da Proteção de Identidade. A auto-remediação permite que os seus utilizadores tomem medidas por si só para reduzir o volume de chamadas helpdesk.
 
-Mais informações sobre a autenticação multi-factor Azure podem ser encontradas no artigo, [Como funciona: Autenticação Multi-Factor Azure](../authentication/concept-mfa-howitworks.md).
+Mais informações sobre a autenticação multi-factor Azure AD podem ser encontradas no artigo, [Como funciona: Autenticação multi-factor Azure AD](../authentication/concept-mfa-howitworks.md).
 
 ## <a name="sign-in-risk-policy"></a>Política de risco do início de sessão
 
@@ -37,7 +37,7 @@ A Proteção de Identidade analisa os sinais de cada s indicado, tanto em tempo 
 Se o risco for detetado, os utilizadores podem efetuar a autenticação de vários fatores para se auto-remediar e fechar o evento de sinalização de risco para evitar ruídos desnecessários para os administradores.
 
 > [!NOTE] 
-> Os utilizadores devem ter-se registado previamente para autenticação multi-factor Azure antes de desencadear a política de risco de inscrição.
+> Os utilizadores devem ter-se registado previamente para autenticação multi-factor Azure AD antes de desencadear a política de risco de inscrição.
 
 ### <a name="custom-conditional-access-policy"></a>Política de acesso condicional personalizado
 
@@ -58,8 +58,8 @@ Se o risco for detetado, os utilizadores podem efetuar a autoassistência de aut
 
 - [Ativar o reset da palavra-passe de autosserviço AZure AD](../authentication/howto-sspr-deployment.md)
 
-- [Ativar a Multi-Factor Authentication do Azure](../authentication/howto-mfa-getstarted.md)
+- [Ativar a autenticação de vários fatores Azure Ad](../authentication/howto-mfa-getstarted.md)
 
-- [Ativar a política de registo de autenticação multi-factor Azure](howto-identity-protection-configure-mfa-policy.md)
+- [Ativar a política de registo de autenticação multi-factor Azure AD](howto-identity-protection-configure-mfa-policy.md)
 
 - [Ativar políticas de insusição e risco de utilizador](howto-identity-protection-configure-risk-policies.md)

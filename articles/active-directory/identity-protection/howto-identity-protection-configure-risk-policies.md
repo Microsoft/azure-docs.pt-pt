@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 366d68be1a7f115980973015e363da6095876754
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367470"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835922"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Como: Configurar e permitir políticas de risco
 
@@ -33,7 +33,7 @@ Ambas as políticas funcionam para automatizar a resposta às deteções de risc
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Se a sua organização quiser permitir que os utilizadores se auto-remediarem quando os riscos são detetados, os utilizadores devem estar registados tanto para o reset da palavra-passe de autosserviço como para a autenticação multi-factor Azure. Recomendamos [que se permita a experiência de registo de informação de segurança combinada](../authentication/howto-registration-mfa-sspr-combined.md) para a melhor experiência. Permitir que os utilizadores se auto-remediarem leva-os de volta a um estado produtivo mais rapidamente sem exigir a intervenção do administrador. Os administradores ainda podem ver estes eventos e investigá-los após o facto. 
+Se a sua organização quiser permitir que os utilizadores se auto-remediarem quando os riscos são detetados, os utilizadores devem estar registados tanto para o reset da palavra-passe de autosserviço como para a autenticação multi-factor Azure AD. Recomendamos [que se permita a experiência de registo de informação de segurança combinada](../authentication/howto-registration-mfa-sspr-combined.md) para a melhor experiência. Permitir que os utilizadores se auto-remediarem leva-os de volta a um estado produtivo mais rapidamente sem exigir a intervenção do administrador. Os administradores ainda podem ver estes eventos e investigá-los após o facto. 
 
 ## <a name="choosing-acceptable-risk-levels"></a>Escolha níveis de risco aceitáveis
 
@@ -76,7 +76,7 @@ Para permitir que as políticas de risco de utilização e de risco de inscriç�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar a política de registo de autenticação multi-factor Azure](howto-identity-protection-configure-mfa-policy.md)
+- [Ativar a política de registo de autenticação multi-factor Azure AD](howto-identity-protection-configure-mfa-policy.md)
 
 - [O que é o risco](concept-identity-protection-risks.md)
 
