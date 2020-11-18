@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 4c817194bbe0e4cf211992920bad9deb40bf05f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b4902e1fb7a2a181d3d5b2ce2ac6d1d458500fce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632214"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844187"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Execução de pacotes de resolução de problemas no tempo de execução da integração do SSIS
 
@@ -121,14 +121,14 @@ Este erro ocorre quando o tempo de funcionaamento da integração SSIS não cons
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Mensagem de erro: "Microsoft OLE DB Provider for Analysis Services. 'Hresult: 0x80004005 Descrição:' ERRO COM: erro COM: mscorlib; A exceção foi lançada pelo alvo de uma invocação"
 
-Uma das causas potenciais é que o nome de utilizador ou palavra-passe com autenticação multi-factor Azure ativado está configurado para a autenticação dos Serviços de Análise Azure. Esta autenticação não é suportada no tempo de integração do SSIS. Tente utilizar um principal de serviço para autenticação dos Serviços de Análise Azure:
+Uma das causas potenciais é que o nome de utilizador ou palavra-passe com autenticação multi-factor AZure AD ativada está configurado para a autenticação dos Serviços de Análise Azure. Esta autenticação não é suportada no tempo de integração do SSIS. Tente utilizar um principal de serviço para autenticação dos Serviços de Análise Azure:
 
 1. Prepare um diretor de serviço como descrito na [Automação com os principais de serviço.](../analysis-services/analysis-services-service-principal.md)
 2. Em Connection Manager, configurar **Utilize um nome de utilizador específico e senha:** desconfie o **AppID** como nome de utilizador e **clienteSecret** como palavra-passe.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Mensagem de erro: "A ADONET Source falhou em adquirir a ligação {GUID} com a seguinte mensagem de erro: O login falhou para o utilizador 'NT AUTHORITY\ANONYMOUS LOGON'" ao utilizar uma identidade gerida
 
-Certifique-se de que não configura o método de autenticação do Connection Manager como **Autenticação de Password do Diretório Ativo** quando o parâmetro *ConnectUsingManagedIdentity* for **Verdadeiro** . Em vez disso, pode configumentá-la como **Autenticação SQL,** o que é ignorado se *o ConnectUsingManagedIdentity* estiver definido.
+Certifique-se de que não configura o método de autenticação do Connection Manager como **Autenticação de Password do Diretório Ativo** quando o parâmetro *ConnectUsingManagedIdentity* for **Verdadeiro**. Em vez disso, pode configumentá-la como **Autenticação SQL,** o que é ignorado se *o ConnectUsingManagedIdentity* estiver definido.
 
 ### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>Error message: "0xC020801F at ..., OData Source [...]: Não é possível adquirir uma ligação gerida a partir do gestor de ligação de tempo de execução"
 

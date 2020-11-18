@@ -2,19 +2,19 @@
 title: FAQ - Azure Synapse Analytics (pré-visualização de espaços de trabalho)
 description: FAQ para Azure Synapse Analytics (pré-visualização de espaços de trabalho)
 services: synapse-analytics
-author: ArnoMicrosoft
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d7e8ea231dd6db9eab6cf9115f6ce2e62893371a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 530ebe09ee0ca44b0a5fbd4b8da2784e2c7ae7ea
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305407"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843898"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics (pré-visualização de espaços de trabalho) frequentemente perguntas
 
@@ -99,10 +99,8 @@ R: O acesso a ficheiros e pastas é atualmente gerido através da ADLS Gen2. Par
 
 R: Sim, você pode usar suas aplicações de negócio de terceiros, como Tableau e Power BI, para conectar-se a piscina SQL dedicada e piscina SQL sem servidor. Spark apoia IntelliJ.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Criar uma área de trabalho](quickstart-create-workspace.md)
-- [Utilizar o Synapse Studio](quickstart-synapse-studio.md)
-- [Crie uma piscina SQL dedicada](quickstart-create-sql-pool-portal.md)
-- [Use a piscina SQL sem servidor](quickstart-sql-on-demand.md)
-- [Crie uma piscina Apache Spark sem servidor](quickstart-create-apache-spark-pool-portal.md) 
+* [Começa com o Azure Synapse Analytics](get-started.md)
+* [Criar uma área de trabalho](quickstart-create-workspace.md)
+* [Utilizar conjunto de SQL sem servidor](quickstart-sql-on-demand.md)

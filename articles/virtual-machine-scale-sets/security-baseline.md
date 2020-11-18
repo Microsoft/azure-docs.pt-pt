@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a015c3881e2fa51ecfaaba57e6bb6262194012d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3932a1dee0eee16e7d64ff4c6085919d85b431ab
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367878"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843269"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Linha de base de segurança Azure para conjuntos de escala de máquina virtual
 
@@ -612,7 +612,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 * [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Registo da análise de Armazenamento do Azure](../storage/common/storage-analytics-logging.md)
+* [Azure Storage analytics logging](../storage/common/storage-analytics-logging.md) (Registo de análise do Armazenamento do Azure)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -974,7 +974,7 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 * [Como integrar-se com identidades geridas aZure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Como criar um Cofre-Chave](../key-vault/secrets/quick-create-portal.md)
+* [Como criar um Cofre-Chave](../key-vault/general/quick-create-portal.md)
 
 * [Como autenticar para o Cofre de Chaves](../key-vault/general/authentication.md)
 

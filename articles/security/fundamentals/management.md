@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: 779330d7881040026f45a031f95f44d770f39a56
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e9eabc73c244526f0ea15b9c72b5377545f662b2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412770"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844868"
 ---
 # <a name="security-management-in-azure"></a>Gestão de segurança no Azure
 Os subscritores do Azure poderão gerir os respetivos ambientes de nuvem a partir de vários dispositivos, incluindo estações de trabalho de gestão, PCs de programadores e, até mesmo, dispositivos de utilizador final com privilégios que tenham permissões específicas de tarefas. Em alguns casos, as funções administrativas são efetuadas através das consolas baseadas na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Noutros casos, poderão existir ligações diretas para o Azure a partir de sistemas no local através de Redes Privadas Virtuais (VPNs), Serviços de Terminal, protocolos de aplicações cliente ou (através de programação) a API de Gestão de Serviço do Azure (SMAPI). Além disso, os pontos finais de cliente podem ser um domínio associado ou isolado e não gerido, como tablets ou smartphones.
@@ -112,7 +112,7 @@ Um Gateway de ambiente de trabalho remoto é um serviço proxy baseado na polít
 * Associe o Gateway de RD ao mesmo [domínio de gestão](/previous-versions/windows/it-pro/windows-2000-server/bb727085(v=technet.10)) que o das estações de trabalho do administrador. Isto é necessário quando estiver a utilizar o ExpressRoute ou a rede de VPNs IPsec dentro de um domínio que tenha uma confiança unidirecional para o Azure AD, ou se forem credenciais de federação entre a instância do AD DS no local e o Azure AD.
 * Configure uma [política de autorização de ligações do cliente](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753324(v=ws.11)) para permitir que o Gateway de RD verifique se o nome do computador cliente é válido (associado ao domínio) e se tem permissão para aceder ao portal do Azure.
 * Utilize IPsec para a [VPN do Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) para obter mais proteção de tráfego de gestão contra a espionagem e o furto de tokens ou considere uma ligação da Internet isolada através do [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Ative o Multi-Factor Authentication (através do [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)) ou a autenticação por smart card para administradores que iniciem sessão através do Gateway de RD.
+* Ativar a autenticação de vários fatores (via [autenticação multi-factor Azure AD)](../../active-directory/authentication/concept-mfa-howitworks.md)ou a autenticação de cartões inteligentes para administradores que iniciam sessão através do RD Gateway.
 * Configure as [restrições de endereço IP](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) da origem ou o [Grupos de Segurança de Rede](../../virtual-network/network-security-groups-overview.md) no Azure para minimizar o número de pontos finais de gestão permitidos.
 
 ## <a name="security-guidelines"></a>Diretrizes de segurança

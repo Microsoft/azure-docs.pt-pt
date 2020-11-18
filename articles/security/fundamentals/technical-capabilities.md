@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 90aafad2a17b9535bde29f811e630112ccbd02e3
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 575486a89cd078325b76fa684ff9bd3d59a619c9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696103"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844272"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança em Azure que o ajudam a proteger os seus dados, recursos e aplicações na nuvem e a atender às necessidades de segurança do seu negócio.
@@ -92,7 +92,7 @@ Não só os utilizadores não têm de gerir vários conjuntos de nomes de utiliz
 
 #### <a name="multi-factor-authentication"></a>Autenticação multifator
 
-[A Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md) é um método de autenticação que requer a utilização de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações do utilizador. [O MFA ajuda a salvaguardar](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicações ao mesmo tempo que satisfaz a procura do utilizador por um processo simples de inscrição. Fornece autenticação forte através de uma série de opções de verificação — chamada telefónica, mensagem de texto ou código de verificação ou verificação de aplicações móveis e fichas OAuth de terceiros.
+[A Azure AD Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md) é um método de autenticação que requer a utilização de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações do utilizador. [O MFA ajuda a salvaguardar](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicações ao mesmo tempo que satisfaz a procura do utilizador por um processo simples de inscrição. Fornece autenticação forte através de uma série de opções de verificação — chamada telefónica, mensagem de texto ou código de verificação ou verificação de aplicações móveis e fichas OAuth de terceiros.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Relatórios de monitorização de segurança, alertas e aprendizagem automática
 

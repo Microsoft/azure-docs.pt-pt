@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 64a87df4e4fea9fb29e787ab3420f1a62f41323d
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: b72d083216b7cd0ae7a588bfd721d8981829bfc7
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592418"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844374"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizar dados com o Power BI
 
 Neste tutorial, você aprenderá a criar um espaço de trabalho Power BI, ligar o seu espaço de trabalho Azure Synapse e criar um conjunto de dados Power BI que utiliza dados no seu espaço de trabalho Azure Synapse. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A partir dos dados do Táxi de NYC, criámos conjuntos de dados agregados em duas tabelas:
 - **nyctaxi.contagem de passageiros**
@@ -70,7 +70,7 @@ Pode ligar um espaço de trabalho Power BI ao seu espaço de trabalho Azure Syna
 1. No lado esquerdo, em **Workspaces,** selecione o espaço de trabalho **NYCTaxiWorkspace1.**
 1. Dentro desse espaço de trabalho, localize um conjunto de dados chamado **Análise de Passageiros** e um relatório chamado **Análise de Passageiros.**
 1. Passe sobre o conjunto de **dados PassengerAnalysis,** selecione o botão elipse (...) e, em seguida, selecione **Definições**.
-1. Nas **credenciais de origem de dados** , descreva o **método de autenticação** para **OAuth2** e, em seguida, selecione **Iniciar sposição em**.
+1. Nas **credenciais de origem de dados**, descreva o **método de autenticação** para **OAuth2** e, em seguida, selecione **Iniciar sposição em**.
 
 ### <a name="edit-a-report-in-synapse-studio"></a>Editar uma reportagem no Synapse Studio
 
@@ -79,14 +79,10 @@ Pode ligar um espaço de trabalho Power BI ao seu espaço de trabalho Azure Syna
 1. Passe sobre **o Power BI** e selecione o nó de **relatórios Power BI.**
 1. Sob **o Power BI** deve ver:
     * Sob os conjuntos de dados **do NYCTaxiWorkspace1** Power BI , um novo conjunto de  >  **dados** chamado **PassengerAnalysis**.
-    * Ao abrigo dos relatórios **NYCTaxiWorkspace1**  >  **Power BI** , um novo relatório chamado **PassengerAnalysis**.
+    * Ao abrigo dos relatórios **NYCTaxiWorkspace1**  >  **Power BI**, um novo relatório chamado **PassengerAnalysis**.
 1. Selecione o relatório **PassengerAnalysis.** O relatório abre e pode editá-lo diretamente no Synapse Studio.
 
-## <a name="monitor-activities"></a>Monitorizar atividades
 
-1. No Estúdio Synapse, vá ao **monitor.**
-1. Neste local, você pode ver uma história de todas as atividades que estão acontecendo no espaço de trabalho e quais estão ativas agora.
-1. Explore as **corridas** de Pipeline, **aplicações Apache Spark** e **SQL** para ver o que já fez no espaço de trabalho.
 
 ## <a name="next-steps"></a>Passos seguintes
 

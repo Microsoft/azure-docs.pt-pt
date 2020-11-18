@@ -16,12 +16,13 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 93b692574588396f776c4d62bd24072382ae8471
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+- devx-track-azurecli
+ms.openlocfilehash: 8627681d843d15658882529424375486a4cdb1b9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912145"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845174"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -116,7 +117,7 @@ Ao utilizar o SASL PLAIN com AMQP, um cliente que se conecta a um hub IoT pode u
 
 ## <a name="scope-iot-hub-level-credentials"></a>Credenciais de nível de hub IoT de âmbito
 
-Você pode estender as políticas de segurança de nível ioT ao criar fichas com um recurso restrito URI. Por exemplo, o ponto final para enviar mensagens dispositivo-a-nuvem a partir de um dispositivo é **/dispositivo/{deviceId}/mensagens/eventos** . Também pode utilizar uma política de acesso partilhado ao nível do hub IoT com permissões **DeviceConnect** para assinar um token cujo recursoURI é **/dispositivos/{deviceId}** . Esta abordagem cria um símbolo que só é utilizável para enviar mensagens em nome do **dispositivo dispositivoId** .
+Você pode estender as políticas de segurança de nível ioT ao criar fichas com um recurso restrito URI. Por exemplo, o ponto final para enviar mensagens dispositivo-a-nuvem a partir de um dispositivo é **/dispositivo/{deviceId}/mensagens/eventos**. Também pode utilizar uma política de acesso partilhado ao nível do hub IoT com permissões **DeviceConnect** para assinar um token cujo recursoURI é **/dispositivos/{deviceId}**. Esta abordagem cria um símbolo que só é utilizável para enviar mensagens em nome do **dispositivo dispositivoId**.
 
 Este mecanismo é semelhante à política de editores do [Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab)e permite-lhe implementar métodos de autenticação personalizados.
 
@@ -144,13 +145,13 @@ Aqui estão os valores esperados:
 
 | Valor | Descrição |
 | --- | --- |
-| {assinatura} |Uma sequência de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry` . **Importante** : A chave é descodificada a partir da base64 e usada como chave para executar o cálculo HMAC-SHA256. |
+| {assinatura} |Uma sequência de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry` . **Importante**: A chave é descodificada a partir da base64 e usada como chave para executar o cálculo HMAC-SHA256. |
 | {resourceURI} |Prefixo URI (por segmento) dos pontos finais que podem ser acedidos com este token, começando pelo nome de anfitrião do hub IoT (sem protocolo). Por exemplo, `myHub.azure-devices.net/devices/device1` |
 | {expiração} |UtF8 strings por número de segundos desde a época 00:00:00 UTC em 1 de janeiro de 1970. |
 | {URL-codificado-recursosURI} |Codificação de URL minúscula do recurso uri de menor caso |
 | {políticaName} |O nome da política de acesso partilhado a que se refere este símbolo. Ausente se o símbolo se refere a credenciais de registo de dispositivos. |
 
-**Nota no prefixo** : O prefixo URI é calculado por segmento e não pelo carácter. Por `/a/b` exemplo, é um prefixo `/a/b/c` para, mas não para `/a/bc` .
+**Nota no prefixo**: O prefixo URI é calculado por segmento e não pelo carácter. Por `/a/b` exemplo, é um prefixo `/a/b/c` para, mas não para `/a/bc` .
 
 O seguinte Node.js snippet mostra uma função chamada **GenerateSasToken** que calcula o token a partir das entradas `resourceUri, signingKey, policyName, expiresInMins` . As secções seguintes detalham como inicializar as diferentes entradas para os diferentes casos de utilização de token.
 
@@ -379,7 +380,7 @@ Os certificados suportados incluem:
 
 * **Um certificado X.509 existente.** Um dispositivo pode já ter um certificado X.509 associado ao mesmo. O dispositivo pode utilizar este certificado para autenticar com o IoT Hub. Funciona com impressão digital ou autenticação ca. 
 
-* **Certificado X.509 assinado pela CA** . Para identificar um dispositivo e autenticá-lo com o IoT Hub, pode utilizar um certificado X.509 gerado e assinado por uma Autoridade de Certificação (CA). Funciona com impressão digital ou autenticação ca.
+* **Certificado X.509 assinado pela CA**. Para identificar um dispositivo e autenticá-lo com o IoT Hub, pode utilizar um certificado X.509 gerado e assinado por uma Autoridade de Certificação (CA). Funciona com impressão digital ou autenticação ca.
 
 * **Um certificado X-509 auto-gerado e auto-assinado.** Um fabricante de dispositivos ou um implantador interno podem gerar estes certificados e armazenar a chave privada correspondente (e certificado) no dispositivo. Pode utilizar ferramentas como [o utilitário OpenSSL](https://www.openssl.org/) e [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) para este fim. Só funciona com a autenticação de impressão digital.
 

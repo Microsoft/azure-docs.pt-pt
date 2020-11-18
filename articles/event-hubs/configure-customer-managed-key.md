@@ -3,17 +3,17 @@ title: Configure a sua própria chave para encriptar os dados do Azure Event Hub
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f073c42373e75fc1cb34d1c752350f9d2c61872
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537263"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843218"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
 O Azure Event Hubs fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O Event Hubs conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados que são armazenados com o Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Azure Event Hubs suporta agora a opção de encriptar dados em repouso com as teclas geridas pela Microsoft ou com teclas geridas pelo cliente (Bring Your Own Key – BYOK). Esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às teclas geridas pelo cliente que são utilizadas para encriptar os dados do Azure Event Hubs em repouso.
 
 Ativar a função BYOK é um processo de configuração de uma única vez no seu espaço de nome.
@@ -23,7 +23,7 @@ Ativar a função BYOK é um processo de configuração de uma única vez no seu
 
 Pode utilizar o Azure Key Vault para gerir as suas chaves e auditar o uso da chave. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. Para mais informações sobre o Azure Key Vault, veja [o que é o Cofre da Chave Azure?](../key-vault/general/overview.md)
 
-Este artigo mostra como configurar um cofre-chave com chaves geridas pelo cliente utilizando o portal Azure. Para aprender a criar um cofre-chave utilizando o portal Azure, consulte [Quickstart: set and retrieve a secret from Azure Key Vault using the Azure Portal](../key-vault/secrets/quick-create-portal.md).
+Este artigo mostra como configurar um cofre-chave com chaves geridas pelo cliente utilizando o portal Azure. Para aprender a criar um cofre-chave utilizando o portal Azure, consulte [Quickstart: Crie um Cofre de Chaves Azure utilizando o portal Azure](../key-vault/general/quick-create-portal.md).
 
 > [!IMPORTANT]
 > A utilização de chaves geridas pelo cliente com a Azure Event Hubs requer que o cofre-chave tenha duas propriedades necessárias configuradas. São:  **Soft Delete** and **Do Not Purpur**. Estas propriedades são ativadas por padrão quando cria um novo cofre chave no portal Azure. No entanto, se necessitar de ativar estas propriedades num cofre de chaves existente, deve utilizar o PowerShell ou o Azure CLI.

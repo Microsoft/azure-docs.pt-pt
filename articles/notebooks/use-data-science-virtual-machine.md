@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d65a39c1a1d302e565b59db1644af2c08befb6b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85830316"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843167"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Use máquinas virtuais Azure Data Science
 
@@ -24,7 +24,7 @@ Por padrão, os projetos funcionam no nível **de Computação Livre,** que est�
 
 ## <a name="create-a-dsvm-instance"></a>Criar uma instância DSVM
 
-Para criar uma nova instância DSVM, siga as instruções da [Create a Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Para obter mais informações, incluindo detalhes sobre preços, consulte [as Máquinas Virtuais da Ciência dos Dados.](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+Para criar uma nova instância DSVM, siga as instruções da [Create a Ubuntu Data Science VM](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md). Para obter mais informações, incluindo detalhes sobre preços, consulte [as Máquinas Virtuais da Ciência dos Dados.](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
 
 ## <a name="connect-to-the-dsvm"></a>Ligue-se ao DSVM
 
@@ -68,4 +68,4 @@ Se vários utilizadores partilharem um DSVM, pode evitar bloquear-se uns aos out
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre DSVMs sobre [Introdução a Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).
+Saiba mais sobre DSVMs sobre [Introdução a Azure Data Science Virtual Machines](../machine-learning/data-science-virtual-machine/overview.md).

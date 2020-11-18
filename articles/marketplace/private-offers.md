@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 0bb5dccfc99a693ec89ed08ac31b77eb16442f73
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5396845e13e94b4d957f42618baaf19c408f559d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129971"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843779"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas no mercado comercial da Microsoft
 
@@ -51,6 +51,9 @@ Para *novas ofertas que incluem apenas planos privados,* os editores podem criar
 Para ofertas privadas novas e existentes, os editores podem direcionar os clientes usando identificadores de subscrição. Os editores que usam uma oferta de aplicação Virtual Machine ou Azure podem limitar a disponibilidade de um plano privado a um ID de subscrição individual do Azure ou carregar um CSV de até 20.000 IDs de subscrição Azure. Ao utilizar uma oferta privada da SaaS App, os editores podem associar um ID de inquilino para limitar a disponibilidade de um plano privado, utilizando a abordagem de upload manual ou CSV.
 
 Uma vez que uma oferta tenha sido certificada e publicada, os clientes podem ser atualizados ou removidos do plano em poucos minutos, utilizando a funcionalidade Sync Private Subscriptions. Esta capacidade permite que os editores atualizem de forma rápida e fácil a lista de clientes aos quais o plano privado é apresentado sem certificar ou publicar novamente a oferta.
+
+>[!NOTE]
+>Aplicabilidade do Azure gov: Ofertas privadas (ou mais precisamente: planos privados) estão disponíveis para a nuvem gov como qualquer outra oferta. Um plano também pode transferir o estatuto de privado para público e vice-versa. O controlo sobre a nuvem que a oferta estará disponível está nas mãos do parceiro e pode ser configurado através do Partner Center. 
 
 ## <a name="deploying-private-offers"></a>Implantação de ofertas privadas
 

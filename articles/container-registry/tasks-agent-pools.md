@@ -3,17 +3,17 @@ title: Use piscina dedicada para executar tarefa - Tarefas
 description: Crie um conjunto de cálculos dedicado (piscina de agente) no seu registo para executar uma tarefa de Registo de Contentores Azure.
 ms.topic: article
 ms.date: 10/12/2020
-ms.custom: references_regions
-ms.openlocfilehash: 86c539c3b34ca0e54d65f15c4d9d01a99f9b31c6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 94956af14aad2b62e6455f443329bcd3232095c0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997370"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844919"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Executar uma tarefa ACR em uma piscina de agente dedicado
 
-Crie um pool VM gerido pela Azure *(piscina*de agente) para permitir a execução das suas [tarefas de Registo de Contentores Azure][acr-tasks] num ambiente computacional dedicado. Depois de configurar uma ou mais piscinas no seu registo, pode escolher uma piscina para executar uma tarefa no lugar do ambiente computacional padrão do serviço.
+Crie um pool VM gerido pela Azure *(piscina* de agente) para permitir a execução das suas [tarefas de Registo de Contentores Azure][acr-tasks] num ambiente computacional dedicado. Depois de configurar uma ou mais piscinas no seu registo, pode escolher uma piscina para executar uma tarefa no lugar do ambiente computacional padrão do serviço.
 
 Uma piscina de agentes fornece:
 
@@ -93,7 +93,7 @@ az acr agentpool update \
 
 Os grupos de agentes de tarefas requerem acesso aos seguintes serviços Azure. As seguintes regras de firewall devem ser adicionadas a quaisquer grupos de segurança de rede existentes ou rotas definidas pelo utilizador.
 
-| Direção | Protocolo | Origem         | Porta de origem | Destino          | Dest Porto | Usado    |
+| Direção | Protocolo | Origem         | Porta de origem | Destino          | Dest Porto | Utilizada    |
 |-----------|----------|----------------|-------------|----------------------|-----------|---------|
 | Saída  | TCP      | VirtualNetwork | Qualquer         | AzureKeyVault        | 443       | Predefinição |
 | Saída  | TCP      | VirtualNetwork | Qualquer         | Armazenamento              | 443       | Predefinição |

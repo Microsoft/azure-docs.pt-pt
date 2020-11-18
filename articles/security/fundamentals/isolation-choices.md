@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 3141d9937591467870ee4a88d16a96cbdb24a05b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c06fb0830ae709918b668ed60efbaaf47a63ce84
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696222"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842843"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na Nuvem Pública de Azure
 
@@ -90,7 +90,7 @@ Algumas outras capacidades para o Azure Ative Directory incluem:
 
 - A Azure AD fornece identidade como serviço através da federação através da utilização [de Serviços da Federação de Diretórios Ativos,](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)sincronização e replicação com diretórios no local.
 
-- [A Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) é o serviço de autenticação multi-factor que exige que os utilizadores verifiquem as inscrições utilizando uma aplicação móvel, chamada telefónica ou mensagem de texto. Pode ser usado com Azure AD para ajudar a garantir recursos no local com o servidor Azure Multi-Factor Authentication, e também com aplicações e diretórios personalizados usando o SDK.
+- [A Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) é o serviço de autenticação multi-factor que exige que os utilizadores verifiquem as inserções através de uma aplicação móvel, chamada telefónica ou mensagem de texto. Pode ser usado com Azure AD para ajudar a garantir recursos no local com o servidor Azure Multi-Factor Authentication, e também com aplicações e diretórios personalizados usando o SDK.
 
 - [Os Serviços de Domínio Azure AD](https://azure.microsoft.com/services/active-directory-ds/) permitem-lhe juntar máquinas virtuais Azure a um domínio ative Directory sem implantar controladores de domínio. Pode iniciar sôs-se nestas máquinas virtuais com as suas credenciais de Ative Directory corporativo e administrar máquinas virtuais unidas a domínios, utilizando a Política de Grupo para impor linhas de segurança em todas as suas máquinas virtuais Azure.
 

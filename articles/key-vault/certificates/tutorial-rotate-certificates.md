@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 2d981e902f829eb0fa8283b6a38ae376a780bcc9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 591d71e8cd6af2801540f5a1a41ad88b1f538e81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289748"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844493"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configurar o certificado autorrotação no Cofre de Chaves
 
@@ -41,7 +41,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
-Crie um cofre de chaves ou selecione o cofre existente para realizar operações (consulte [Passos para criar um cofre de chaves).](../secrets/quick-create-portal.md) No exemplo, o nome do cofre-chave é **Exemplo-Vault.**
+Crie um cofre de chaves Azure utilizando [o portal Azure,](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md)ou [Azure PowerShell](../general/quick-create-powershell.md). No exemplo, o nome do cofre-chave é **Exemplo-Vault.**
 
 ![Saída após a criação do cofre chave termina](../media/certificates/tutorial-import-cert/vault-properties.png)
 
@@ -77,8 +77,8 @@ Key Vault auto-rota certificados através de parcerias estabelecidas com CAs. Co
 1. **Selecione Gerar/Importar.**
 1. No ecrã de **certificados,** atualize os seguintes valores:
 
-   - **Período de validade** : Insira o valor (em meses). A criação de certificados de curta duração é uma prática de segurança recomendada. Por padrão, o valor de validade de um certificado recém-criado é de 12 meses.
-   - **Tipo de ação vitalícia** : Selecione a ação de renovação automática e alerta do certificado e, em seguida, atualize **a percentagem** de vida útil ou **o número de dias antes de expirar**. Por defeito, a renovação automática de um certificado é fixada em 80% da sua vida útil. A partir do menu suspenso, selecione uma das seguintes opções.
+   - **Período de validade**: Insira o valor (em meses). A criação de certificados de curta duração é uma prática de segurança recomendada. Por padrão, o valor de validade de um certificado recém-criado é de 12 meses.
+   - **Tipo de ação vitalícia**: Selecione a ação de renovação automática e alerta do certificado e, em seguida, atualize **a percentagem** de vida útil ou **o número de dias antes de expirar**. Por defeito, a renovação automática de um certificado é fixada em 80% da sua vida útil. A partir do menu suspenso, selecione uma das seguintes opções.
 
         |  Renovar automaticamente num dado momento| Envie por e-mail todos os contactos num dado momento |
         |-----------|------|
@@ -99,8 +99,8 @@ Key Vault auto-rota certificados através de parcerias estabelecidas com CAs. Co
 
 1. No ecrã **da Política de Emissão,** atualize os seguintes valores:
 
-   - **Período de validade** : Atualizar o valor (em meses).
-   - **Tipo de Ação vitalícia** : Selecione a ação de renovação automática e alerta do certificado e, em seguida, atualize a **percentagem** de vida útil ou **o número de dias antes de expirar**.
+   - **Período de validade**: Atualizar o valor (em meses).
+   - **Tipo de Ação vitalícia**: Selecione a ação de renovação automática e alerta do certificado e, em seguida, atualize a **percentagem** de vida útil ou **o número de dias antes de expirar**.
 
    ![Propriedades de certificados](../media/certificates/tutorial-rotate-cert/cert-policy-change.png)
 

@@ -3,12 +3,12 @@ title: Perguntas frequentes - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Azure Event Hubs e suas respostas.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 41b010315adaf5a0eca2939b1d42fe4d7c159628
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909714"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843048"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
 
@@ -59,10 +59,10 @@ O Event Hubs emite métricas exaustivas que fornecem o estado dos seus recursos 
 O Azure Event Hubs armazena dados do cliente. Estes dados são automaticamente armazenados pelos Event Hubs numa única região, pelo que este serviço satisfaz automaticamente os requisitos de residência de dados da região, incluindo os especificados no [Trust Center.](https://azuredatacentermap.azurewebsites.net/)
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Que portas preciso para abrir na firewall? 
-Pode utilizar os seguintes protocolos com a Azure Service Bus para enviar e receber mensagens:
+Pode utilizar os seguintes protocolos com os Azure Event Hubs para enviar e receber eventos:
 
-- AMQP
-- HTTP
+- Protocolo avançado de fila de mensagens 1.0 (AMQP)
+- Protocolo de Transferência de Hipertexto 1.1 com TLS (HTTPS)
 - Apache Kafka
 
 Consulte a tabela seguinte para as portas de saída que precisa de abrir para utilizar estes protocolos para comunicar com os Azure Event Hubs. 
@@ -70,8 +70,21 @@ Consulte a tabela seguinte para as portas de saída que precisa de abrir para ut
 | Protocolo | Portas | Detalhes | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 e 5672 | Consulte o [guia de protocolo amQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP, HTTPS | 80, 443 |  |
+| HTTPS | 443 | Esta porta é utilizada para a API HTTP/REST e para amqp-over-WebSockets. |
 | Kafka | 9093 | Ver [Use Event Hubs a partir de aplicações kafka](event-hubs-for-kafka-ecosystem-overview.md)
+
+A porta HTTPS é necessária para comunicação de saída também quando a AMQP é utilizada sobre o porto 5671, porque várias operações de gestão realizadas pelos SDKs clientes e a aquisição de fichas da Azure Ative Directory (quando utilizada) atropelam HTTPS. 
+
+Os Azure SDKs oficiais geralmente usam o protocolo AMQP para o envio e receção de eventos de Event Hubs. A opção de protocolo AMQP-over-WebSockets passa por cima do porto TCP 443 tal como a API HTTP, mas é de outra forma funcionalmente idêntica com AMQP simples. Esta opção tem maior latência inicial de ligação devido a viagens de ida e volta extra de aperto de mão e um pouco mais de sobrecarga como compensação pela partilha do porto HTTPS. Se este modo for selecionado, a porta TCP 443 é suficiente para a comunicação. As seguintes opções permitem selecionar o modo amQP simples ou amqp WebSockets:
+
+| Linguagem | Opção   |
+| -------- | ----- |
+| .NET     | [EventHubConnectionOptions.TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype?view=azure-dotnet&preserve-view=true) propriedade com [EventHubsTransportType.AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) ou [EventHubsTransportType.AmqpWebSockets](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) |
+| Java     | [com.microsoft.azure.eventhubs.EventProcessorClientBuilder.transporttype](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype?view=azure-java-stable&preserve-view=true) com [AmqpTransportType.AMQP](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) ou [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) |
+| Nó  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions?view=azure-node-latest&preserve-view=true) tem uma `webSocketOptions` propriedade. |
+| Python | [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient?view=azure-python&preserve-view=true) com [TransportType.Amqp](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python) ou [TransportType.AmqpOverWebSocket](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python&preserve-view=true) |
+
+
 
 ### <a name="what-ip-addresses-do-i-need-to-allow"></a>Que endereços IP preciso de permitir?
 Para encontrar os endereços IP certos para adicionar à lista permitida para as suas ligações, siga estes passos:
@@ -194,8 +207,8 @@ Ao criar um espaço de nome básico ou de nível padrão no portal Azure, pode s
 1. Na página **Event Bus Namespace,** selecione **Novo pedido de suporte** no menu esquerdo. 
 1. Na página de **novo pedido de apoio,** siga estes passos:
     1. Para **Resumo,** descreva a questão em poucas palavras. 
-    1. Para **o tipo de problema** , selecione **Quota** . 
-    1. Para **o subtipo de problemas,** selecione **Pedido de aumento ou diminuição da unidade de produção** . 
+    1. Para **o tipo de problema**, selecione **Quota**. 
+    1. Para **o subtipo de problemas,** selecione **Pedido de aumento ou diminuição da unidade de produção**. 
     
         :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Página de pedido de apoio":::
 
@@ -230,10 +243,10 @@ Pode solicitar que a contagem de divisórias seja aumentada para 40 (exato) atra
 1. Na página **Event Bus Namespace,** selecione **Novo pedido de suporte** no menu esquerdo. 
 1. Na página de **novo pedido de apoio,** siga estes passos:
     1. Para **Resumo,** descreva a questão em poucas palavras. 
-    1. Para **o tipo de problema** , selecione **Quota** . 
-    1. Para **o subtipo de problemas,** selecione **Pedido de alteração de partição** . 
+    1. Para **o tipo de problema**, selecione **Quota**. 
+    1. Para **o subtipo de problemas,** selecione **Pedido de alteração de partição**. 
     
-        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Página de pedido de apoio":::
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Aumentar a contagem de divisórias":::
 
 A contagem de divisórias pode ser aumentada para exatamente 40. Neste caso, o número de TUs também tem de ser aumentado para 40. Se decidir mais tarde baixar o limite de TU para <= 20, o limite máximo de partição também é reduzido para 32. 
 
@@ -257,7 +270,7 @@ O tamanho total de todos os eventos armazenados, incluindo qualquer sobrecarga i
 
 Cada evento enviado para um centro de eventos conta como uma mensagem faturada. Um *evento de entrada* é definido como uma unidade de dados que é inferior ou igual a 64 KB. Qualquer evento com menos ou igual a 64 KB de tamanho é considerado um evento faturalável. Se o evento for superior a 64 KB, o número de eventos faturantes é calculado de acordo com o tamanho do evento, em múltiplos de 64 KB. Por exemplo, um evento de 8-KB enviado para o centro de eventos é anunciado como um evento, mas uma mensagem de 96 KB enviada para o centro de eventos é faturada como dois eventos.
 
-Os eventos consumidos a partir de um centro de eventos, bem como operações de gestão e chamadas de controlo, como postos de controlo, não são contabilizados como eventos de entrada faturada, mas acumulam-se até ao subsídio de unidade de produção.
+Os eventos consumidos a partir de um centro de eventos, e operações de gestão e chamadas de controlo, como postos de controlo, não são contabilizados como eventos de entrada faturada, mas acumulam-se até ao subsídio de unidade de produção.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>As taxas de ligação intermediadas aplicam-se aos Centros de Eventos?
 
@@ -299,9 +312,9 @@ Para saber mais sobre o nosso SLA, consulte a página [De Acordos de Nível de S
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Como posso direcionar uma versão específica do Azure Storage SDK ao usar o Azure Blob Storage como uma loja de checkpoint?
-Se executar este código no Azure Stack Hub, sofrerá erros de tempo de execução a menos que tenha como alvo uma versão API de armazenamento específica. Isto porque o Event Hubs SDK utiliza a mais recente API de Armazenamento Azure disponível disponível no Azure que pode não estar disponível na sua plataforma Azure Stack Hub. O Azure Stack Hub pode suportar uma versão diferente do Storage Blob SDK do que o que normalmente está disponível no Azure. Se estiver a utilizar o Azure Blog Storage como uma loja de checkpoint, verifique a [versão API suportada do Azure Storage para a sua construção do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e direcione essa versão no seu código. 
+Se executar este código no Azure Stack Hub, irá experimentar erros de tempo de execução a menos que tenha como alvo uma versão API de armazenamento específica. Isto porque o Event Hubs SDK utiliza a mais recente API de Armazenamento Azure disponível disponível no Azure que pode não estar disponível na sua plataforma Azure Stack Hub. O Azure Stack Hub pode suportar uma versão diferente do Storage Blob SDK do que o que normalmente está disponível no Azure. Se estiver a utilizar o Azure Blog Storage como uma loja de checkpoint, verifique a [versão API suportada para o seu Azure Stack Hub e](/azure-stack/user/azure-stack-acs-differences?#api-version) direcione essa versão no seu código. 
 
-Por exemplo, Se estiver a executar a versão Azure Stack Hub 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de clientes Event Hubs SDK utiliza a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar o serviço de armazenamento API versão 2019-02-02. Para um exemplo sobre como direcionar uma versão API de armazenamento específica, consulte as seguintes amostras para C#, Java, Python e JavaScript/TypeScript.  
+Por exemplo, Se estiver a executar a versão Azure Stack Hub 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de clientes Event Hubs SDK utiliza a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar a versão API do serviço de armazenamento 2019-02-02. Para um exemplo sobre como direcionar uma versão API de armazenamento específica, consulte as seguintes amostras para C#, Java, Python e JavaScript/TypeScript.  
 
 Para um exemplo sobre como direcionar uma versão API de armazenamento específica do seu código, consulte as seguintes amostras no GitHub: 
 

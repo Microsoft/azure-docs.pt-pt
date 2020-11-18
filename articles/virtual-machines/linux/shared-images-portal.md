@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e65e5478c81a99db7789eab4d532ddd01ffc635a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2661715164cc6aa5f5ff587f2ddf28c0918445d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307165"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843575"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>Criar uma Galeria de Imagens Partilhadas utilizando o portal
 
@@ -23,7 +23,7 @@ Uma [Galeria de Imagens Partilhadas](shared-image-galleries.md) simplifica a par
 
 A Galeria de Imagens Partilhada permite-lhe partilhar as suas imagens VM personalizadas com outras pessoas da sua organização, dentro ou em regiões, dentro de um inquilino Azure AD. Escolha quais as imagens que pretende partilhar, em que regiões quer disponibilizá-las e com quem quer partilhá-las. Pode criar várias galerias para que possa, logicamente, agrupar imagens partilhadas. 
 
-A galeria é um recurso de alto nível que fornece controlo de acesso baseado em funções completa (RBAC). As imagens podem ser versadas e pode optar por replicar cada versão de imagem para um conjunto diferente de regiões do Azure. A galeria funciona apenas com Imagens Geridas.
+A galeria é um recurso de alto nível que fornece um controlo de acesso baseado em funções Azure (Azure RBAC). As imagens podem ser versadas e pode optar por replicar cada versão de imagem para um conjunto diferente de regiões do Azure. A galeria funciona apenas com Imagens Geridas.
 
 A funcionalidade Image Gallery partilhada tem vários tipos de recursos. Vamos usá-los ou construí-los neste artigo:
 
@@ -36,7 +36,7 @@ A funcionalidade Image Gallery partilhada tem vários tipos de recursos. Vamos u
 
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar o exemplo neste artigo, você deve ter uma imagem gerida existente de um VM generalizado, ou uma foto de um VM especializado. Pode seguir [tutorial: Criar uma imagem personalizada de um Azure VM com Azure PowerShell](tutorial-custom-images.md) para criar uma imagem gerida, ou [criar um instantâneo](../windows/snapshot-copy-managed-disk.md) para um VM especializado. Tanto para imagens geridas como para instantâneos, o tamanho do disco de dados não pode ser superior a 1 TB.
 

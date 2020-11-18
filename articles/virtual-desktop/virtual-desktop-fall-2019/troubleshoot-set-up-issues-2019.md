@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31219fda04095d48b55165f59c27f3dee85485a9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009261"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843643"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Criação de piscina de inquilino e anfitrião no Windows Virtual Desktop (clássico)
 
@@ -26,7 +26,7 @@ Visite a [Comunidade Virtual desktop tech do Windows](https://techcommunity.micr
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Aquisição da imagem multi-sessão do Windows 10 Enterprise
 
-Para utilizar a imagem multi-sessão do Windows 10 Enterprise, vá ao Azure Marketplace, **selecione Get Start**Microsoft Windows  >  **10** > e Windows [10 Enterprise para Desktops Virtuais, Versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Para utilizar a imagem multi-sessão do Windows 10 Enterprise, vá ao Azure Marketplace, **selecione Get Start** Microsoft Windows  >  **10** > e Windows [10 Enterprise para Desktops Virtuais, Versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 > [!div class="mx-imgBorder"]
 > ![Uma imagem de seleção do Windows 10 Enterprise para Desktops Virtuais, Versão 1809.](../media/AzureMarketPlace.png)
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Erro: O utilizador requer o Multi-Factor Authentication (MFA) do Microsoft Azure
+### <a name="error-user-requires-azure-ad-multi-factor-authentication-mfa"></a>Erro: O utilizador requer autenticação multi-factor Azure AD (MFA)
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot da sua implementação falhou devido à falta de autenticação multi-factor (MFA)](../media/MFARequiredError.png)
@@ -386,7 +386,7 @@ Exemplo de erro bruto:
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Causa:** O administrador de inquilino virtual do Windows virtual requer que a Azure Multi-Factor Authentication (MFA) entre.
+**Causa:** O administrador de inquilino virtual do Windows Virtual requer que a Azure AD Multi-Factor Authentication (MFA) entre.
 
 **Correção:** Crie um diretor de serviço e atribua-lhe uma função para o seu inquilino virtual windows desktop seguindo os passos em [Tutorial: Crie diretores de serviço e atribuições de funções com o PowerShell.](create-service-principal-role-powershell.md) Depois de verificar se pode iniciar sôm no Windows Virtual Desktop com o principal do serviço, reexaminar a oferta do Azure Marketplace ou o modelo GitHub Azure Resource Manager, dependendo do método que está a utilizar. Siga as instruções abaixo para introduzir os parâmetros corretos para o seu método.
 

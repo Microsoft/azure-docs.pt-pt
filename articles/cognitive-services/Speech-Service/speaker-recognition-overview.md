@@ -12,14 +12,14 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento de colunas, biometria de voz
-ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5001ac166b37f3a3852bc14261a5b5d199d778cd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397264"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844577"
 ---
-# <a name="what-is-speaker-recognition"></a>O que é o Reconhecimento de Orador?
+# <a name="what-is-speaker-recognition-preview"></a>O que é o Reconhecimento de Oradores (Pré-visualização)?
 
 O serviço de Reconhecimento de Altifalantes fornece algoritmos que verificam e identificam os altifalantes pelas suas características de voz únicas utilizando biometria de voz. O Reconhecimento dos Oradores é usado para responder à pergunta "quem está a falar?". Fornece dados de formação áudio para um único altifalante, o que cria um perfil de inscrição baseado nas características únicas da voz do orador. Em seguida, pode cruzar as amostras de voz áudio contra este perfil para verificar se o altifalante é a mesma pessoa (verificação do altifalante) ou cruzar amostras de voz áudio contra um *grupo* de perfis de altifalantes inscritos, para ver se corresponde a algum perfil do grupo (identificação do altifalante). Em contraste, [a diarização](batch-transcription.md#speaker-separation-diarization) dos altifalantes agrupe segmentos de áudio por altifalante numa operação de lote.
 
@@ -67,7 +67,7 @@ Tal como acontece com todos os recursos dos Serviços Cognitivos, os desenvolved
 | Qual é a diferença entre a verificação independente de texto e texto? | A verificação dependente de texto requer uma frase-passe específica tanto para a inscrição como para o reconhecimento. A verificação independente de texto requer uma amostra de voz mais longa para a inscrição, mas qualquer coisa pode ser falada, incluindo durante o reconhecimento.|
 | Que línguas são apoiadas? | Inglês, Francês, Espanhol, Chinês, Alemão, Italiano, Japonês e Português |
 | Que regiões de Azure são apoiadas? | O Speaker Recognition é um serviço de pré-visualização, e atualmente apenas disponível na região oeste dos EUA.|
-| Que formatos áudio são suportados? | Mono 16 bit, 16kHz PCM-codificado WAV |
+| Que formatos de áudio são suportados? | Mono 16 bit, 16kHz PCM-codificado WAV |
 | **Aceitar** e **Rejeitar** respostas não são precisas, como é que se afina o limiar? | Uma vez que o limiar ideal varia muito com cenários, a API decide se aceita ou "Rejeitar" simplesmente com base num limiar padrão de 0,5. Os utilizadores avançados são aconselhados a anular a decisão por defeito e a afinar o resultado com base no seu próprio cenário. |
 | Pode inscrever um orador várias vezes? | Sim, para verificação dependente de texto, pode inscrever um altifalante até 50 vezes. Para verificação independente de texto ou identificação de altifalantes, pode inscrever-se com até 300 segundos de áudio. |
 | Que dados são armazenados em Azure? | O áudio de inscrição é armazenado no serviço até que o perfil de voz seja [eliminado](speaker-recognition-basics.md#deleting-voice-profile-enrollments). As amostras de áudio de reconhecimento não são retidas ou armazenadas. |

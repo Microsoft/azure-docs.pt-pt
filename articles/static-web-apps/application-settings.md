@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.custom: devx-track-js
-ms.openlocfilehash: c89ccee430d374d9aee58326627ff800f737324b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 00502c97e3fc06972c27cedf565d77b52f558795
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250033"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844817"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configurar configurar configurações de aplicações para visualização de aplicações web estáticas Azure
 
@@ -63,7 +63,7 @@ Para obter informações sobre como utilizar variáveis ambientais com a sua est
 
 As APIs em Azure Static Web Apps são alimentadas por Azure Functions, que lhe permite definir definições de aplicações no _local.settings.jsno_ ficheiro. Este ficheiro define as definições de aplicação na `Values` propriedade da configuração.
 
-A amostra que se _ seguelocal.settings.jsmostra_ como adicionar um valor para o `DATABASE_CONNECTION_STRING` .
+A amostra que se _seguelocal.settings.jsmostra_ como adicionar um valor para o `DATABASE_CONNECTION_STRING` .
 
 ```json
 {
@@ -144,7 +144,7 @@ O comando Azure CLI requer uma série de valores específicos da sua conta para 
 2. Nome do grupo de recursos
 3. ID da subscrição
 
-:::image type="content" source="media/application-settings/overview.png" alt-text="Vista de configuração de aplicativos web estáticos Azure":::
+:::image type="content" source="media/application-settings/overview.png" alt-text="Visão geral das aplicações web estáticas do Azure":::
 
 4. A partir de um terminal ou linha de comando, execute o seguinte comando. Certifique-se de que substitui os espaços reservados de `<YOUR_STATIC_SITE_NAME>` , e pelos seus `<YOUR_RESOURCE_GROUP_NAME>` `<YOUR_SUBSCRIPTION_ID>` valores da janela _Overview._
 

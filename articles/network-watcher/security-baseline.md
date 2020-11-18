@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 28b3bc5adfc3c2e83de658947193b6046a455c32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00594c3ec060076ad249af7e93e0a3d5a1eccdb4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231508"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845157"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Linha de segurança Azure para Observador de Rede
 
@@ -291,11 +291,11 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Utilizar máquinas dedicadas (Estações de acesso privilegiadas) para todas as tarefas administrativas
 
-**Orientação**: Utilize uma estação de trabalho de acesso privilegiada (PAW) com autenticação multi-factor (MFA) ativada para iniciar sessão e configurar os seus recursos relacionados com o Azure Sentinel.
+**Orientação**: Utilize uma estação de trabalho de acesso privilegiado (PAW) com autenticação multi-factor AD (MFA) ativada para iniciar sessão e configurar os seus recursos relacionados com o Azure Sentinel.
 
 * [Estações de Trabalho de Acesso Privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Planear a implementação da Multi-Factor Authentication do Azure baseada na cloud](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Planejando uma implementação de autenticação multi-factor Azure AD baseada na nuvem](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 

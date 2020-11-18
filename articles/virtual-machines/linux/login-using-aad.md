@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 882df9d0dcb01d6321455b845fed087a5e14ccc6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002328"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843082"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Inicie sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory
 
@@ -21,7 +21,7 @@ Para melhorar a segurança das máquinas virtuais Linux (VMs) em Azure, pode int
 
 > [!IMPORTANT]
 > A autenticação do Azure Ative Directory está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > Utilize esta funcionalidade numa máquina virtual de teste que espera descartar após o teste.
 >
 
@@ -138,7 +138,7 @@ az role assignment create \
 
 Para obter mais informações sobre como utilizar o Azure RBAC para gerir o acesso aos seus recursos de subscrição Azure, consulte utilizando o [Azure CLI,](../../role-based-access-control/role-assignments-cli.md) [portal Azure](../../role-based-access-control/role-assignments-portal.md)ou [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-Também pode configurar a Azure AD para exigir a autenticação de vários fatores para um utilizador específico iniciar sedutação na máquina virtual Linux. Para obter mais informações, consulte [Começar com a autenticação multi-factor Azure na nuvem.](../../active-directory/authentication/howto-mfa-getstarted.md)
+Também pode configurar a Azure AD para exigir a autenticação de vários fatores para um utilizador específico iniciar sedutação na máquina virtual Linux. Para obter mais informações, consulte [Começar com a autenticação multi-factor Azure AD na nuvem.](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Faça login na máquina virtual Linux
 

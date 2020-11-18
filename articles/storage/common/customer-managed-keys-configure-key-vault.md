@@ -1,5 +1,5 @@
 ---
-title: Configurar encriptação com chaves geridas pelo cliente armazenadas no Cofre da Chave Azure
+title: Configurar a encriptação com chaves geridas pelo cliente armazenadas no Azure Key Vault
 titleSuffix: Azure Storage
 description: Aprenda a configurar a encriptação de armazenamento Azure com chaves geridas pelo cliente armazenadas no Cofre da Chave Azure utilizando o portal Azure, PowerShell ou Azure CLI.
 services: storage
@@ -10,15 +10,15 @@ ms.date: 09/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 02661c9c2a581ab21a2ae9dc31e5da95426c0edd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782387"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843388"
 ---
-# <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurar encriptação com chaves geridas pelo cliente armazenadas no Cofre da Chave Azure
+# <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurar a encriptação com chaves geridas pelo cliente armazenadas no Azure Key Vault
 
 O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. Por predefinição, os dados são encriptados com as teclas geridas pela Microsoft. Para controlo adicional sobre as chaves de encriptação, pode gerir as suas próprias chaves. As chaves geridas pelo cliente devem ser armazenadas no Cofre da Chave Azure ou no Modelo de Segurança Gerida do Cofre de Chaves (HSM) (pré-visualização).
 
@@ -43,7 +43,7 @@ Para permitir a proteção de purga num cofre de chaves existente, siga estes pa
 
 1. Navegue até ao cofre chave no portal Azure.
 1. Em **Definições,** escolha **Propriedades.**
-1. Na secção **de proteção de purga,** escolha **Ativar a proteção contra a purga** .
+1. Na secção **de proteção de purga,** escolha **Ativar a proteção contra a purga**.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -175,12 +175,12 @@ O Azure Storage pode atualizar automaticamente a chave gerida pelo cliente que �
 Para configurar as teclas geridas pelo cliente com atualização automática da versão chave no portal Azure, siga estes passos:
 
 1. Navegue até à sua conta de armazenamento.
-1. Na lâmina **Definições** para a conta de armazenamento, clique em **Encriptação** . Selecione a opção **Chaves Geridas pelo Cliente,** como mostra a seguinte imagem.
+1. Na lâmina **Definições** para a conta de armazenamento, clique em **Encriptação**. Selecione a opção **Chaves Geridas pelo Cliente,** como mostra a seguinte imagem.
 
     ![Screenshot do portal mostrando opção de encriptação](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
 1. Escolha a **opção Selecionar a partir da** opção Key Vault.
-1. **Selecione um cofre e uma chave de teclas** .
+1. **Selecione um cofre e uma chave de teclas**.
 1. Selecione o cofre de chaves que contém a chave que pretende utilizar.
 1. Selecione a chave do cofre da chave.
 
@@ -190,7 +190,7 @@ Para configurar as teclas geridas pelo cliente com atualização automática da 
 
 Depois de ter especificado a chave, o portal Azure indica que a atualização automática da versão chave está ativada e exibe a versão chave atualmente em uso para encriptação.
 
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Screenshot mostrando como permitir a proteção de purga ao criar um cofre chave":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Screenshot mostrando atualização automática da versão chave ativada":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

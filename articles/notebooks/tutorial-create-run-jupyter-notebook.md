@@ -4,12 +4,12 @@ description: Saiba como criar e executar um Caderno Jupyter em Azure Notebooks P
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: cb8be1618de7e95a7096e4ea9dec78bf4aa277f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47e9a07c7b8abffc06bfd30a792af46ba04adf5c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589274"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844476"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um Caderno Jupyter com Python
 
@@ -19,7 +19,7 @@ Este tutorial acompanha-o através do processo de utilização de Cadernos Azure
 
 O caderno completo pode ser encontrado em [Amostras de Cadernos GitHub - Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Este tutorial, no entanto, começa com um novo projeto e um caderno vazio para que você possa experimentar criá-lo passo a passo.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um caderno de projeto com alguns dados da amostra
@@ -62,15 +62,15 @@ O modelo linear de regressão que cria no caderno extrai dados de um ficheiro do
     https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
     ```
 
-1. O * ficheirocricket_chirps.csv* deve agora constar da lista de ficheiros do seu projeto:
+1. O *ficheirocricket_chirps.csv* deve agora constar da lista de ficheiros do seu projeto:
 
     ![Arquivo CSV recentemente criado mostrando na lista de ficheiros do projeto](media/tutorial/csv-file-in-project.png)
 
 ### <a name="create-a-file-from-scratch"></a>Criar um arquivo a partir do zero
 
-1. No painel de instrumentos do seu projeto em Azure Notebooks, **selecione + Novo**Ficheiro Em  >  **Branco**
+1. No painel de instrumentos do seu projeto em Azure Notebooks, **selecione + Novo** Ficheiro Em  >  **Branco**
 1. Um campo aparece na lista de ficheiros do projeto. Introduza *cricket_chirps.csv* e prima Enter.
-1. *Clique*cricket_chirps.csvà direita e selecione **Editar File**.
+1. *Clique* cricket_chirps.csvà direita e selecione **Editar File**.
 1. No editor que aparece, insira os seguintes dados:
 
     ```csv
@@ -134,7 +134,7 @@ Com o ficheiro de dados pronto e o conjunto de ambiente do projeto, pode agora c
 
 ## <a name="tour-the-notebook-interface"></a>Visite a interface do portátil
 
-Com o caderno em funcionamento, pode adicionar células code e Markdown, executar essas células e gerir o funcionamento do caderno. Primeiro, porém, vale a pena demorar alguns minutos a familiarizar-se com a interface. Para obter documentação **Help**completa, selecione o comando do menu  >  **Ajuda do Bloco de Ajuda.**
+Com o caderno em funcionamento, pode adicionar células code e Markdown, executar essas células e gerir o funcionamento do caderno. Primeiro, porém, vale a pena demorar alguns minutos a familiarizar-se com a interface. Para obter documentação **Help** completa, selecione o comando do menu  >  **Ajuda do Bloco de Ajuda.**
 
 Ao longo da parte superior da janela vê-se os seguintes itens:
 
@@ -158,7 +158,7 @@ Os grupos de comandos de menu são os seguintes:
 | Editar | Comandos típicos para cortar, copiar e colar células, encontrar e substituir valores, gerir os anexos celulares e inserir imagens.  |
 | Vista | Comandos para controlar a visibilidade de diferentes partes da UI Jupyter. |
 | Inserir | Ordena a inserção de uma nova célula acima ou abaixo da célula atual. Utiliza estes comandos frequentemente ao criar um caderno. |
-| Cell | Os vários comandos **Run** executam uma ou mais células em diferentes combinações. Os comandos **do Tipo de Célula** alteram o tipo de célula entre **Código**, **Markdown**e **Raw NBConvert** (texto simples). Os **comandos Current Outputs** e **All Outputs** controlam a forma como a saída do código de execução é mostrada e inclui um comando para limpar toda a saída. |
+| Cell | Os vários comandos **Run** executam uma ou mais células em diferentes combinações. Os comandos **do Tipo de Célula** alteram o tipo de célula entre **Código**, **Markdown** e **Raw NBConvert** (texto simples). Os **comandos Current Outputs** e **All Outputs** controlam a forma como a saída do código de execução é mostrada e inclui um comando para limpar toda a saída. |
 | Kernel | Comandos para gerir como o código está sendo executado no núcleo, juntamente com **Change kernel** para alterar a versão idioma ou Python usada para executar o caderno. |
 | Dados | Comandos para carregar e descarregar ficheiros do projeto ou sessão. Ver [Trabalhar com ficheiros de dados do projeto](work-with-project-data-files.md) |
 | Widgets | Comandos para gerir [Jupyter Widgets,](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html)que fornecem capacidades adicionais para visualização, mapeamento e conspiração.|
@@ -174,7 +174,7 @@ Usa-se vários destes comandos à medida que preenche o caderno nas secções qu
 
     ![Queda da barra de ferramentas do tipo de pilha](media/tutorial/tutorial-cell-type-drop-down.png)
 
-1. Altere o tipo de célula para **Markdown** utilizando a barra de ferramentas para baixo; alternadamente, **Cell**utilize o comando do  >  menu de marcação do tipo**de célula**  >  **celular:**
+1. Altere o tipo de célula para **Markdown** utilizando a barra de ferramentas para baixo; alternadamente, **Cell** utilize o comando do  >  menu de marcação do tipo **de célula**  >  **celular:**
 
     ![Comando do menu do tipo de pilha](media/tutorial/tutorial-cell-type-menu.png)
 
@@ -199,7 +199,7 @@ Usa-se vários destes comandos à medida que preenche o caderno nas secções qu
     When you run a code cell, Jupyter executes the code; when you run a Markdown cell, Jupyter renders all the formatting into text that's suitable for presentation.
     ```
 
-1. Para tornar o Markdown em HTML para o navegador, selecione **Cell**o comando **'Executar'** na barra de ferramentas ou utilize o comando  >  **Cell Run Cells.** O código Markdown para formatação e links aparece agora como espera que eles apareçam num browser.
+1. Para tornar o Markdown em HTML para o navegador, selecione **Cell** o comando **'Executar'** na barra de ferramentas ou utilize o comando  >  **Cell Run Cells.** O código Markdown para formatação e links aparece agora como espera que eles apareçam num browser.
 
 1. Quando executas a última célula no caderno, o Jupyter cria automaticamente uma nova célula abaixo daquela que correste. Coloque mais Markdown nesta célula repetindo os passos nesta secção com o seguinte Markdown:
 
@@ -221,7 +221,7 @@ Usa-se vários destes comandos à medida que preenche o caderno nas secções qu
 
 Como a célula markdown anterior explicou, pode incluir comandos diretamente no caderno. Pode utilizar comandos para instalar pacotes, executar caracóis ou wget para recuperar dados, ou qualquer outra coisa. Os Cadernos Jupyter funcionam eficazmente dentro de uma máquina virtual Linux, por isso tens o comando Linux completo preparado para trabalhar.
 
-1. Introduza os comandos abaixo na célula de código que apareceu depois de ter usado **Run** na célula Markdown anterior. Se não vir uma nova célula, **Insert**crie uma com  >  **insira a célula abaixo** ou utilize o **+** botão na barra de ferramentas.
+1. Introduza os comandos abaixo na célula de código que apareceu depois de ter usado **Run** na célula Markdown anterior. Se não vir uma nova célula, **Insert** crie uma com  >  **insira a célula abaixo** ou utilize o **+** botão na barra de ferramentas.
 
     ```bash
     !pip install numpy
@@ -240,7 +240,7 @@ Como a célula markdown anterior explicou, pode incluir comandos diretamente no 
 
     ![Indicador ocupado para o núcleo do caderno](media/tutorial/tutorial-kernel-busy.png)
 
-1. Também leva algum tempo para que todos os `pip install` comandos sejam executados, e porque já instalou estes pacotes no ambiente do projeto (e porque também estão incluídos nos Cadernos Azure por defeito), vê-se muitas mensagens que dizem: "Requisito já satisfeito". Toda esta saída pode ser distrativa visualmente, por isso selecione **Cell**essa célula (usando um único clique), em seguida, use o  >  Toggle de**saídas de células**  >  **celulares** para ocultar a saída. Também pode utilizar o comando **Clear** no mesmo submenu para remover completamente a saída.
+1. Também leva algum tempo para que todos os `pip install` comandos sejam executados, e porque já instalou estes pacotes no ambiente do projeto (e porque também estão incluídos nos Cadernos Azure por defeito), vê-se muitas mensagens que dizem: "Requisito já satisfeito". Toda esta saída pode ser distrativa visualmente, por isso selecione **Cell** essa célula (usando um único clique), em seguida, use o  >  Toggle de **saídas de células**  >  **celulares** para ocultar a saída. Também pode utilizar o comando **Clear** no mesmo submenu para remover completamente a saída.
 
     O comando **Toggle** esconde apenas a saída mais recente da célula; se voltar a executar a célula, a saída reaparece.
 
@@ -405,7 +405,7 @@ Tente refazer o caderno inteiro agora:
 
 ## <a name="save-halt-and-close-the-notebook"></a>Poupe, pare e feche o caderno
 
-Durante o período em que está a editar um **File**caderno, pode guardar o seu estado atual com o comando  >  **'Guardar e Checkpoint'** ou com o botão de guardar na barra de ferramentas. Um "checkpoint" cria uma imagem a que pode voltar a qualquer momento durante a sessão. Os pontos de verificação permitem-lhe fazer uma série de alterações experimentais, e se essas alterações não funcionarem, pode simplesmente reverter para um ponto de verificação utilizando o comando **Desatada**de Ficheiro  >  **reverte para Checkpoint.** Uma abordagem alternativa é criar células extras e comentar qualquer código que não queira executar; de qualquer forma funciona.
+Durante o período em que está a editar um **File** caderno, pode guardar o seu estado atual com o comando  >  **'Guardar e Checkpoint'** ou com o botão de guardar na barra de ferramentas. Um "checkpoint" cria uma imagem a que pode voltar a qualquer momento durante a sessão. Os pontos de verificação permitem-lhe fazer uma série de alterações experimentais, e se essas alterações não funcionarem, pode simplesmente reverter para um ponto de verificação utilizando o comando **Desatada** de Ficheiro  >  **reverte para Checkpoint.** Uma abordagem alternativa é criar células extras e comentar qualquer código que não queira executar; de qualquer forma funciona.
 
 Também pode utilizar o comando **File**  >  **Make a Copy** a qualquer momento para fazer uma cópia do estado atual do caderno num novo ficheiro no seu projeto. Essa cópia abre automaticamente num novo separador de navegador.
 
@@ -433,4 +433,4 @@ Artigos de como fazer:
 - [Apresentar diapositivos](present-jupyter-notebooks-slideshow.md)
 - [Trabalhar com ficheiros de dados](work-with-project-data-files.md)
 - [Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Utilizar o Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Utilizar o Azure Machine Learning](../machine-learning/samples-notebooks.md)

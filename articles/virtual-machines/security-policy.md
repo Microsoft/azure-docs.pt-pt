@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 06d71713075b401c876edd87f0ec884bcb252589
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 83d291ae72e79ec3600015fac07ee4ab80fe5df4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977753"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843558"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Proteger e utilizar políticas em máquinas virtuais no Azure
 
@@ -67,7 +67,7 @@ A funcionalidade de identidades geridas para recursos do Azure no Active Directo
 
 [As políticas Azure](../governance/policy/overview.md) podem ser usadas para definir o comportamento desejado para os [VMs](./windows/policy.md) windows e [Linux](./linux/policy.md)da sua organização. Ao usar políticas, uma organização pode impor várias convenções e regras em toda a empresa. A aplicação do comportamento pretendido pode ajudar a mitigar o risco, contribuindo para o sucesso da organização.
 
-## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
+## <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
 
 Utilizando [o controlo de acesso baseado em funções (Azure RBAC) ( Azure RBAC),](../role-based-access-control/overview.md)pode segregar os deveres dentro da sua equipa e conceder apenas a quantidade de acesso aos utilizadores no seu VM de que precisam para desempenhar os seus trabalhos. Em vez de dar permissão ilimitada a todos no VM, só pode permitir certas ações. Pode configurar o controlo de acesso para o VM no [portal Azure,](../role-based-access-control/role-assignments-portal.md)utilizando o [Azure CLI](/cli/azure/role), ou[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 

@@ -3,12 +3,12 @@ title: Práticas de segurança recomendadas
 description: Ao utilizar o Farol Azure, é importante considerar o controlo de segurança e acesso.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399385"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843728"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
@@ -17,11 +17,11 @@ Ao utilizar [o Farol Azure,](../overview.md)é importante considerar o controlo 
 > [!TIP]
 > Estas recomendações aplicam-se também às [empresas que gerem vários inquilinos](enterprise.md) com o Farol de Azure.
 
-## <a name="require-azure-multi-factor-authentication"></a>Exigir a Multi-Factor Authentication do Azure
+## <a name="require-azure-ad-multi-factor-authentication"></a>Requerem autenticação de vários fatores Azure Ad
 
-[A autenticação multi-factor Azure](../../active-directory/authentication/concept-mfa-howitworks.md) (também conhecida como verificação em duas etapas) ajuda a evitar que os atacantes tenham acesso a uma conta, exigindo várias etapas de autenticação. Deverá necessitar de autenticação multi-factor para todos os utilizadores do seu inquilino gerente, incluindo utilizadores que tenham acesso aos recursos delegados do cliente.
+[A autenticação multi-factor Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md) (também conhecida como verificação em duas etapas) ajuda a evitar que os atacantes tenham acesso a uma conta, exigindo várias etapas de autenticação. Deverá necessitar de autenticação multi-factor para todos os utilizadores do seu inquilino gerente, incluindo utilizadores que tenham acesso aos recursos delegados do cliente.
 
-Sugerimos que peça aos seus clientes que implementem a Autenticação Multi-Factor Azure também nos seus inquilinos.
+Sugerimos que peça aos seus clientes que implementem a Autenticação Multi-Factor Azure AD também nos seus inquilinos.
 
 ## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Atribuir permissões a grupos, utilizando o princípio do menor privilégio
 
@@ -47,5 +47,5 @@ Tenha em mente que quando você [estiver a bordo de clientes através de uma ofe
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Implementar a autenticação multi-factor Azure](../../active-directory/authentication/howto-mfa-getstarted.md).
+- [Implementar a autenticação de vários fatores Azure](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Conheça as [experiências de gestão de inquilinos cruzados.](cross-tenant-management-experience.md)

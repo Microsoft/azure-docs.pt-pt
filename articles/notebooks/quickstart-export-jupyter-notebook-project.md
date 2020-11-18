@@ -3,12 +3,12 @@ title: Exportar um projeto Jupyter Notebook a partir da Pré-visualização de C
 description: Exporte rapidamente um projeto jupyter Notebook.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: 3153247b9d15167ab437d6c46142bbd41f8e4b23
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea16bd61b542217fb6f2d5ba1d926a0bc19d4cce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90030451"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844425"
 ---
 # <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Quickstart: Export a Jupyter Notebook project in Azure Notebooks Preview
 
@@ -79,7 +79,7 @@ O Azure Machine Learning fornece uma plataforma de aprendizagem automática de p
 1. Utilizando a barra de navegação do lado esquerdo, selecione **Cadernos**.
 1. Clique no botão **'Carregar ficheiros'** e faça o upload dos ficheiros do projeto que descarregou a partir de Azure Notebooks.
 
-Para obter informações adicionais sobre Azure ML e executar cadernos Jupyter, pode rever a [documentação](../machine-learning/how-to-run-jupyter-notebooks.md) ou experimentar o módulo [de Intro para Machine Learning](https://docs.microsoft.com/learn/modules/intro-to-azure-machine-learning-service/) no Microsoft Learn.
+Para obter informações adicionais sobre Azure ML e executar cadernos Jupyter, pode rever a [documentação](../machine-learning/how-to-run-jupyter-notebooks.md) ou experimentar o módulo [de Intro para Machine Learning](/learn/modules/intro-to-azure-machine-learning-service/) no Microsoft Learn.
 
 
 ## <a name="use-azure-lab-services"></a>Utilizar serviços de laboratório Azure

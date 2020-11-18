@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: dab065f4d2b025fa15966d81b66b41acb12c54b3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/17/2020
+ms.openlocfilehash: 68c211608cfceedaa9d13a595be6d1e5de17f1d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027147"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845011"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Usando padrões de coluna no fluxo de dados de mapeamento
 
@@ -23,11 +23,11 @@ Várias transformações de fluxo de dados de mapeamento permitem-lhe referencia
 * Se os campos de origem de entrada mudarem frequentemente, como o caso de alterar colunas em ficheiros de texto ou bases de dados NoSQL. Este cenário é conhecido como [deriva de esquema.](concepts-data-flow-schema-drift.md)
 * Se quiser fazer uma operação comum num grande grupo de colunas. Por exemplo, querer lançar todas as colunas que têm o nome 'total' da sua coluna num duplo.
 
-Os padrões de coluna estão atualmente disponíveis nas transformações de colunas derivadas, agregadas, selecionadas e afundadas.
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Iui1]
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Padrões de coluna em coluna derivada e agregado
 
-Para adicionar um padrão de coluna numa coluna derivada, agregada ou transformação de janela, clique em **Adicionar** acima da lista de colunas ou do ícone mais ao lado de uma coluna derivada existente. Escolha **Adicionar o padrão da coluna** .
+Para adicionar um padrão de coluna numa coluna derivada, agregada ou transformação de janela, clique em **Adicionar** acima da lista de colunas ou do ícone mais ao lado de uma coluna derivada existente. Escolha **Adicionar o padrão da coluna**.
 
 ![A screenshot mostra o ícone mais para adicionar o padrão da coluna.](media/data-flow/add-column-pattern.png "Padrões de Coluna")
 
@@ -42,6 +42,12 @@ O padrão de coluna acima corresponde a cada coluna do tipo duplo e cria uma col
 Para verificar se a sua condição de correspondência está correta, pode validar o esquema de saída das colunas definidas no **separador Inspecionar** ou obter uma imagem instantânea dos dados no **separador de pré-visualização de Dados.** 
 
 ![A screenshot mostra o separador de esquema de saída.](media/data-flow/columnpattern3.png "Padrões de Coluna")
+
+### <a name="hierarchical-pattern-matching"></a>Correspondência de padrão hierárquico
+
+Você pode construir padrão combinando dentro de estruturas hierárquicas complexas também. Expanda a secção `Each MoviesStruct that matches` onde será solicitado para cada hierarquia no seu fluxo de dados. Em seguida, pode construir padrões de correspondência para propriedades dentro dessa hierarquia escolhida.
+
+![A imagem mostra o padrão da coluna hierárquica.](media/data-flow/patterns-hierarchy.png "Padrões de coluna em hierarquias")
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Mapeamento baseado em regras em selecionar e afundar
 
@@ -77,7 +83,7 @@ O exemplo acima coincide com todos os subcolumns de coluna `a` complexa. `a` con
 
 ## <a name="pattern-matching-expression-values"></a>Padrões correspondentes valores de expressão.
 
-* `$$` traduz-se para o nome ou valor de cada jogo no tempo de execução
+* `$$` traduz-se para o nome ou valor de cada partida no tempo de execução. Pense em `$$` equivalente `this` a.
 * `name` representa o nome de cada coluna de entrada
 * `type` representa o tipo de dados de cada coluna de entrada
 * `stream` representa o nome associado a cada fluxo, ou transformação no seu fluxo

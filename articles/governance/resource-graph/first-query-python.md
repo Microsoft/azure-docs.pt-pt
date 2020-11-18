@@ -3,13 +3,13 @@ title: 'Quickstart: A sua primeira consulta python'
 description: Neste arranque rápido, siga os passos para ativar a biblioteca de Gráficos de Recurso para Python e executar a sua primeira consulta.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: d7ffa8aee7087e77ff14808327251ef495e88f6f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 01e0fd5bfbc5f353474c8305eefc044390c3586a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057404"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845119"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando Python
 
@@ -125,7 +125,7 @@ Com as bibliotecas Python adicionadas ao seu ambiente de eleição, é hora de e
 
 Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se desejar remover as bibliotecas instaladas do seu ambiente Python, pode fazê-lo utilizando o seguinte comando:
 

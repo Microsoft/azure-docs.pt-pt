@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: a33b702209bf2724098b7a0db907b1b7237ceccf
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 07537e26b169414e3f8ec35cc32945c20f7eb7ce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592622"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843286"
 ---
 # <a name="analyze-with-apache-spark"></a>Analise com Faísca Apache
 
@@ -23,7 +23,7 @@ ms.locfileid: "94592622"
 
 Neste tutorial, você vai aprender os passos básicos para carregar e analisar dados com Apache Spark para Azure Synapse.
 
-1. No centro **de dados,** clique em **Adicionar um novo recurso** (mais botão acima do **Linked** )  >> **Browse Samples**. 
+1. No centro **de dados,** clique em **Adicionar um novo recurso**(mais botão acima do **Linked**)  >> **Browse Samples**. 
 1. Encontre **a Comissão de Táxis & Limousine da NYC - registos amarelos de viagem** de táxi e clique nele. 
 1. Na parte inferior da página prima **Continue** e depois adicione **conjunto de dados**. 
 1. Agora no centro **de dados** sob o clique direito **ligado** no **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** e selecione Novo **caderno**
@@ -60,8 +60,8 @@ Temos dados disponíveis numa tabela em **SQLPOOL1.** Coloque-o numa base de dad
 
 1. Aceda ao centro **de dados,** clique com o botão direito **bases de dados** e, em seguida, selecione **Refresh**. Devia ver estas bases de dados:
 
-    - **SQLPOOL1** (piscina SQL dedicada)
-    - **nyctaxi** (piscina Apache Spark sem servidor)
+    - **SQLPOOL1 (SQL)**
+    - **nyctaxi (Faísca)**
 
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analise os dados do Táxi de NYC usando Spark e cadernos
 

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: blehr
-ms.custom: references_regions
-ms.openlocfilehash: a1bd303390626eaea71e588e325fedbd2d8fa4b9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 0c248149694c2bf66b8c94e9c0a29a8f7da9f4e4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353361"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843745"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Atualizar endereços IP públicos
 
@@ -148,24 +148,14 @@ Um novo grupo de recursos em Azure Resource Manager é criado usando o nome do I
 
 ## <a name="limitations"></a>Limitações
 
-* Atualmente, esta capacidade só está disponível nas seguintes regiões:<br>
-E.U.A. Centro-Oeste<br>
-E.U.A. Centro-Norte<br>
-E.U.A. Oeste<br>
-E.U.A. Oeste 2<br>
-Leste da Noruega<br>
-Norte da África do Sul<br>
-E.U.A. Leste<br>
-Europa do Norte<br>
-Coreia do Sul Central<br>
-Centro Indiano<br>
-E.U.A. Leste 2<br>
-Suíça Norte<br>
-Oeste da Índia<br>
-Alemanha Norte<br>
-Canadá Central<br>
-Sul de França<br>
-Oeste da Índia
+* Esta capacidade não está atualmente disponível nas seguintes regiões:<br>
+US Gov - Virginia<br>
+US DoD - Leste<br>
+US DoD Centro<br>
+Leste da China<br>
+China Leste 2<br>
+Norte da China<br>
+China Norte 2
 
 * Para atualizar um IP público básico, não pode ser associado a qualquer recurso Azure.  Por favor, [reveja esta página](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) para mais informações sobre como desassociar os IPs públicos.  Da mesma forma, para migrar um IP Reservado, não pode ser associado a qualquer Serviço cloud.  Por favor, [reveja esta página](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) para obter mais informações sobre como desassociar os IPs reservados.  
 * Os IPs públicos atualizados de Basic para Standard SKU continuarão a não ter [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) e, portanto, não podem ser associados a um recurso Azure que seja redundante ou zonal.  Note que isto se aplica apenas às regiões que oferecem zonas de disponibilidade.

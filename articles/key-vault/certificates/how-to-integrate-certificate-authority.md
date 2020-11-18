@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 50f2515cee92ead8018ffaaf4b4574905f8007d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289542"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844510"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrar o Key Vault com a Autoridade de Certificação DigiCert
 
@@ -31,14 +31,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para completar este guia, você deve ter os seguintes recursos.
 * Um cofre. Você pode usar um cofre de chaves existente, ou criar um novo seguindo os passos em um destes arranques rápidos:
-   - [Crie um cofre-chave com o Azure CLI](../secrets/quick-create-cli.md)
-   - [Crie um cofre com Azure PowerShell](../secrets/quick-create-powershell.md)
-   - [Crie um cofre-chave com o portal Azure](../secrets/quick-create-portal.md).
+   - [Crie um cofre-chave com o Azure CLI](../general/quick-create-cli.md)
+   - [Crie um cofre com Azure PowerShell](../general/quick-create-powershell.md)
+   - [Crie um cofre-chave com o portal Azure](../general/quick-create-portal.md).
 *   Tem de ativar a conta DigiCert CertCentral. [Inscreva-se na](https://www.digicert.com/account/signup/) sua conta CertCentral.
 *   Permissões de nível de administrador nas suas contas.
 
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 
 Certifique-se de que tem as seguintes informações úteis na sua conta DigiCert Central:
 -   ID de conta certcentral
@@ -56,11 +56,11 @@ Depois de recolher informações acima da conta DigiCert CertCentral, pode agora
 4.  Selecione A opção **Adicionar.**
  ![adicionar autoridades de certificados](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  No ecrã **da Create a Certificate A Autoridade** escolhe os seguintes valores:
-    -   **Nome** : Adicione um nome emitente identificável. Exemplo DigicertCA
-    -   **Provedor** : Selecione DigiCert do menu.
-    -   **ID de conta** : Insira o seu ID de ContaCentral DigiCert Cert
-    -   **Senha de conta** : Introduza a chave API gerada na sua Conta Centro de Cert Cert DigiCert
-    -   **ID da organização** : Enter OrgID recolhido a partir da ContaCentral DigiCert 
+    -   **Nome**: Adicione um nome emitente identificável. Exemplo DigicertCA
+    -   **Provedor**: Selecione DigiCert do menu.
+    -   **ID de conta**: Insira o seu ID de ContaCentral DigiCert Cert
+    -   **Senha de conta**: Introduza a chave API gerada na sua Conta Centro de Cert Cert DigiCert
+    -   **ID da organização**: Enter OrgID recolhido a partir da ContaCentral DigiCert 
     -   Clique em **Criar**.
    
 6.  Verá que a DigicertCA foi agora adicionada na lista das Autoridades de Certificados.
@@ -89,7 +89,7 @@ New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
 Deve usar um nome único para o seu cofre. Aqui "Contoso-Vaultname" é o nome para Key Vault em todo este guia.
 
 - **Nome do cofre** Nome Contoso-Vaultname.
-- **Nome do grupo de recursos** : ContosoResourceGroup.
+- **Nome do grupo de recursos**: ContosoResourceGroup.
 - **Localização** O Eastus.
 
 ```azurepowershell-interactive

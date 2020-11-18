@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3d199ae202cbe99176f3ca5d0ae82ecdeec84ca4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d6cf0ba06293a073fc8fbe26e2386f1852429002
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684513"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844000"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes sobre discos de VM IaaS do Azure e discos premium geridos e não geridos
 
@@ -76,7 +76,7 @@ Dependendo da região onde está localizado o conjunto de disponibilidade que ut
 
 Criou uma conta de armazenamento privado para diagnósticos de VM.
 
-**Que tipo de suporte ao Controlo de Acesso Role-Based está disponível para Discos Geridos?**
+**Que tipo de suporte de controlo de acesso baseado em funções Azure está disponível para Discos Geridos?**
 
 Os Discos Geridos suportam três funções-chave predefinidos:
 
@@ -304,7 +304,7 @@ Não. Azure Site Recovery Azure to Azure protection for VMs with Managed Disks e
 
 **Posso migrar VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptadas para discos geridos?**
 
-Sim
+Yes
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Encriptação de Discos Geridos e Serviço de Armazenamento
 
@@ -342,7 +342,7 @@ Sim. Todas as imagens e imagens geridas são automaticamente encriptadas.
 
 **Posso converter VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptadas para discos geridos?**
 
-Sim
+Yes
 
 **Será que um VHD exportado de um disco gerido ou de um instantâneo também será encriptado?**
 

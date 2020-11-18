@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.custom: mvc
-ms.openlocfilehash: 3e2cb1d7c5f4d19a91eeb2999d7cbe449c10f822
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 65cc3d2fdcbdea934e80a5f0012ca4f3da157ca3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543005"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843439"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Quickstart: Criar uma base de dados Azure para o MySQL Flexible Server utilizando O Azure CLI
 
@@ -142,7 +142,7 @@ O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **a
 
 ## <a name="connect-using-mysql-command-line-client"></a>Conecte-se usando o cliente da linha de comando mysql
 
-Uma vez que o servidor flexível foi criado com *acesso privado (VNet Integration)* , terá de se ligar ao seu servidor a partir de um recurso dentro do mesmo VNet que o seu servidor. Pode criar uma máquina virtual e adicioná-la à rede virtual criada. 
+Uma vez que o servidor flexível foi criado com *acesso privado (VNet Integration)*, terá de se ligar ao seu servidor a partir de um recurso dentro do mesmo VNet que o seu servidor. Pode criar uma máquina virtual e adicioná-la à rede virtual criada. 
 
 Uma vez criado o seu VM, pode entrar na máquina e instalar a ferramenta cliente popular, **[mysql.exe](https://dev.mysql.com/downloads/)** ferramenta de linha de comando.
 
@@ -152,7 +152,7 @@ Com mysql.exe, conecte-se utilizando o comando abaixo. Substitua os valores pelo
  mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não precisa destes recursos para outro início rápido/tutorial, pode eliminá-los ao executar o seguinte comando:
 

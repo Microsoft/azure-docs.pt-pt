@@ -6,14 +6,14 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 0fd792684150598449deabd14c0e19f266597bd9
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b2ab22cff7a008cb55c7e3d2170113a2504ff697
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093978"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843677"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure Spring Cloud CI/CD com ações do GitHub
 
@@ -333,7 +333,7 @@ Para verificar se a ação foi ativada, clique no **separador Ações** na pági
 
 ![Verificar a ação ativada](./media/github-actions/actions3.png)
 
-Se a sua ação correr por engano, por exemplo, se não tiver definido a credencial Azure, pode repetir as verificações após a correção do erro. On the GitHub repository page, click **Actions**, select the specific workflow task, and then click the **Rerun checks** button to rerun checks:
+Se a sua ação correr por engano, por exemplo, se não tiver definido a credencial Azure, pode repetir as verificações após a correção do erro. Na página de repositório do GitHub, clique em **Ações,** selecione a tarefa específica de fluxo de trabalho e, em seguida, clique no botão de verificação de re-re-re-re-re-re-re-re-re-re-re-re-rerun: **Rerun checks**
 
 ![Verificações de repetição](./media/github-actions/actions4.png)
 

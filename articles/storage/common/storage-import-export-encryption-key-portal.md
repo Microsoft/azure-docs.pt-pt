@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4362b579b7f01570a2b5fd072bf53ad495797cd8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fb91a490083629101470565a630b659c090e071b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783781"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843371"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Utilize chaves geridas pelo cliente no Cofre chave Azure para o serviço de importação/exportação
 
@@ -33,7 +33,7 @@ Antes de começar, confirme que:
     - [Criar um trabalho de importação para ficheiros.](storage-import-export-data-to-files.md)
     - [Criar um trabalho de exportação para bolhas](storage-import-export-data-from-blobs.md)
 
-2. Tem um Cofre de Chaves Azure existente com uma chave que pode usar para proteger a sua chave BitLocker. Para aprender a criar um cofre-chave utilizando o portal Azure, consulte [Quickstart: set and retrieve a secret from Azure Key Vault using the Azure Portal](../../key-vault/secrets/quick-create-portal.md).
+2. Tem um Cofre de Chaves Azure existente com uma chave que pode usar para proteger a sua chave BitLocker. Para aprender a criar um cofre-chave utilizando o portal Azure, consulte [Quickstart: Crie um Cofre de Chaves Azure utilizando o portal Azure](../../key-vault/general/quick-create-portal.md).
 
     - **Apagou suavemente** e **não expurgará** o cofre de teclas existente. Estas propriedades não são ativadas por padrão. Para ativar estas propriedades, consulte as secções intituladas **Permitir a eliminação suave** e a **proteção da purga ativada** num dos seguintes artigos:
 
@@ -48,7 +48,7 @@ Antes de começar, confirme que:
 Configurar a chave gerida pelo cliente para o seu serviço de importação/exportação é opcional. Por predefinição, o serviço De importação/Exportação utiliza uma chave gerida pela Microsoft para proteger a sua chave BitLocker. Para ativar as chaves geridas pelo cliente no portal Azure, siga estes passos:
 
 1. Vá à lâmina **de visão geral** para o seu trabalho de Importação.
-2. No painel direito, **selecione Escolha como as suas teclas BitLocker estão encriptadas** .
+2. No painel direito, **selecione Escolha como as suas teclas BitLocker estão encriptadas**.
 
     ![Escolha a opção de encriptação](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
 
@@ -64,11 +64,11 @@ Configurar a chave gerida pelo cliente para o seu serviço de importação/expor
 
     ![Selecione ou crie o Cofre da Chave Azure](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. Também pode selecionar **Criar novo** para criar um novo cofre de chaves. Na lâmina do **cofre da chave Create,** insira o grupo de recursos e o nome do cofre da chave. Aceite todos os outros incumprimentos. Selecione **Review + Criar** .
+6. Também pode selecionar **Criar novo** para criar um novo cofre de chaves. Na lâmina do **cofre da chave Create,** insira o grupo de recursos e o nome do cofre da chave. Aceite todos os outros incumprimentos. Selecione **Review + Criar**.
 
     ![Criar novo Cofre de Chaves Azure](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 
-7. Reveja as informações associadas ao cofre de chaves e selecione **Criar** . Espere alguns minutos para a criação do cofre de chaves para completar.
+7. Reveja as informações associadas ao cofre de chaves e selecione **Criar**. Espere alguns minutos para a criação do cofre de chaves para completar.
 
     ![Criar cofre de chaves Azure](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
@@ -80,11 +80,11 @@ Configurar a chave gerida pelo cliente para o seu serviço de importação/expor
 
     Se a proteção para eliminar e purgar suavemente não estiver ativada quando criar o cofre de teclas, o cofre da chave será atualizado para ter uma proteção de eliminação e purga suave ativada.
 
-10. Forneça o nome da sua chave, aceite as outras predefinições e selecione **Criar** .
+10. Forneça o nome da sua chave, aceite as outras predefinições e selecione **Criar**.
 
     ![Criar nova chave](./media/storage-import-export-encryption-key-portal/encryption-key-8.png)
 
-11. Selecione a **versão** e, em seguida, escolha **Selecione** . Foi-lhe notificada que uma chave foi criada no seu cofre.
+11. Selecione a **versão** e, em seguida, escolha **Selecione**. Foi-lhe notificada que uma chave foi criada no seu cofre.
 
     ![Nova chave criada no cofre chave](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
 

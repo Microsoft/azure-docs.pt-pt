@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 48d0483247f610a1e8c7491e13ea86883bf8f341
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410373"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843694"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança da gestão de identidade Azure
 
@@ -79,13 +79,13 @@ Saiba mais:
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-A Azure Multi-Factor Authentication é um método de autenticação que requer a utilização de mais de um método de verificação e adiciona uma segunda camada crítica de segurança a inscrições e transações do utilizador. A Autenticação Multi-Factor ajuda a salvaguardar o acesso a dados e aplicações, ao mesmo tempo que satisfaz a procura do utilizador por um simples processo de inscrição. Fornece autenticação forte através de uma série de opções de verificação: chamadas telefónicas, mensagens de texto ou notificações de aplicações móveis ou códigos de verificação e fichas OAuth de terceiros.
+A Azure AD Multi-Factor Authentication é um método de autenticação que requer a utilização de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações do utilizador. A Autenticação Multi-Factor ajuda a salvaguardar o acesso a dados e aplicações, ao mesmo tempo que satisfaz a procura do utilizador por um simples processo de inscrição. Fornece autenticação forte através de uma série de opções de verificação: chamadas telefónicas, mensagens de texto ou notificações de aplicações móveis ou códigos de verificação e fichas OAuth de terceiros.
 
 Saiba mais:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é a Multi-Factor Authentication do Azure?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Como funciona o Multi-Factor Authentication do Azure](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [O que é a autenticação multi-factor Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Como funciona a autenticação multi-factor Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>RBAC do Azure
 
@@ -107,10 +107,10 @@ Monitorização de segurança, alertas e relatórios baseados em aprendizagem au
 
 No portal Azure, os relatórios enquadram-se nas seguintes categorias:
 
-* **Relatórios de anomalias** : Contenha eventos de entrada que achamos ser anómalos. O nosso objetivo é dar-lhe a conhecer tal atividade e permitir-lhe determinar se um evento é suspeito.
-* **Relatórios de aplicações integrados** : Forneça informações sobre como as aplicações em nuvem estão a ser usadas na sua organização. A Azure AD oferece integração com milhares de aplicações em nuvem.
-* **Relatórios de erro** : Indique erros que possam ocorrer quando fornece contas a aplicações externas.
-* **Relatórios específicos do utilizador** : Mostrar dados de atividade de inscrição do dispositivo para um utilizador específico.
+* **Relatórios de anomalias**: Contenha eventos de entrada que achamos ser anómalos. O nosso objetivo é dar-lhe a conhecer tal atividade e permitir-lhe determinar se um evento é suspeito.
+* **Relatórios de aplicações integrados**: Forneça informações sobre como as aplicações em nuvem estão a ser usadas na sua organização. A Azure AD oferece integração com milhares de aplicações em nuvem.
+* **Relatórios de erro**: Indique erros que possam ocorrer quando fornece contas a aplicações externas.
+* **Relatórios específicos do utilizador**: Mostrar dados de atividade de inscrição do dispositivo para um utilizador específico.
 * **Registos** de atividades : Contenha um registo de todos os eventos auditados nas últimas 24 horas, nos últimos 7 dias, ou dure 30 dias, e alterações de atividade de grupo e atividade de reset e registo de passwords.
 
 Saiba mais:

@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548035"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844749"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Encriptação dupla Azure HDInsight para dados em repouso
 
@@ -71,17 +71,17 @@ Consulte [Criar uma identidade gerida atribuída pelo utilizador](../active-dire
 
 ### <a name="create-azure-key-vault"></a>Criar cofre de chaves Azure
 
-Criar um cofre de chaves. Consulte [Create Azure Key Vault](../key-vault/secrets/quick-create-portal.md) para etapas específicas.
+Criar um cofre de chaves. Consulte [Create Azure Key Vault](../key-vault/general/quick-create-portal.md) para etapas específicas.
 
 HDInsight suporta apenas o Cofre da Chave Azure. Se tiveres o teu próprio cofre, podes importar as tuas chaves para o Cofre da Chave Azure. Lembre-se de que o cofre da chave deve ter **a exclusão soft** ativada. Para mais informações sobre a importação de chaves existentes, visite [Sobre chaves, segredos e certificados.](../key-vault/general/about-keys-secrets-certificates.md)
 
 ### <a name="create-key"></a>Criar chave
 
-1. A partir do seu **Settings** novo cofre-chave, navegue para  >  **Definições Teclas**  >  **+ Gerar/Importar** .
+1. A partir do seu **Settings** novo cofre-chave, navegue para  >  **Definições Teclas**  >  **+ Gerar/Importar**.
 
     ![Gere uma nova chave no Cofre da Chave Azure](./media/disk-encryption/create-new-key.png "Gere uma nova chave no Cofre da Chave Azure")
 
-1. Forneça um nome e, em seguida, **selecione Criar** . Mantenha o tipo de **chave** predefinido de **RSA** .
+1. Forneça um nome e, em seguida, **selecione Criar**. Mantenha o tipo de **chave** predefinido de **RSA**.
 
     ![gera nome chave](./media/disk-encryption/create-key.png "Gerar nome chave")
 
@@ -95,7 +95,7 @@ HDInsight suporta apenas o Cofre da Chave Azure. Se tiveres o teu próprio cofre
 
 ### <a name="create-access-policy"></a>Criar política de acesso
 
-1. A partir do seu novo cofre-chave, navegue para **definições**  >  **Políticas de acesso** + Adicionar Política de  >  **Acesso** .
+1. A partir do seu novo cofre-chave, navegue para **definições**  >  **Políticas de acesso**+ Adicionar Política de  >  **Acesso**.
 
     ![Criar nova política de acesso ao Cofre da Chave Azure](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -103,15 +103,15 @@ HDInsight suporta apenas o Cofre da Chave Azure. Se tiveres o teu próprio cofre
 
     |Propriedade |Descrição|
     |---|---|
-    |Permissões-chave|**Selecione Obter** , **Desembrulhar a tecla** e **embrulhar a tecla** .|
-    |Permissões Secretas|**Selecione Obter,** **Definir** e **Eliminar** .|
+    |Permissões-chave|**Selecione Obter**, **Desembrulhar a tecla** e **embrulhar a tecla**.|
+    |Permissões Secretas|**Selecione Obter,** **Definir** e **Eliminar**.|
     |Selecione principal|Selecione a identidade gerida atribuída pelo utilizador que criou anteriormente.|
 
     ![Definir O principal selecionado para a política de acesso a aacaure key vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-1. Selecione **Adicionar** .
+1. Selecione **Adicionar**.
 
-1. Selecione **Guardar** .
+1. Selecione **Guardar**.
 
     ![Salvar a política de acesso ao cofre da chave Azure](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -359,7 +359,7 @@ Pode haver cenários em que poderá querer alterar as chaves de encriptação ut
 
 #### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
-Para rodar a chave, precisa do cofre uri da chave base. Assim que o tiver feito, aceda à secção de propriedades do cluster HDInsight no portal e clique na **Chave de Alteração** no URL da Chave de **Encriptação do Disco** . Introduza o novo url-chave e submeta-se para rodar a chave.
+Para rodar a chave, precisa do cofre uri da chave base. Assim que o tiver feito, aceda à secção de propriedades do cluster HDInsight no portal e clique na **Chave de Alteração** no URL da Chave de **Encriptação do Disco**. Introduza o novo url-chave e submeta-se para rodar a chave.
 
 ![girar a chave de encriptação do disco](./media/disk-encryption/change-key.png)
 

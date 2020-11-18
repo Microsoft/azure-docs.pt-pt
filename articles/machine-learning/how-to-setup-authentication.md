@@ -11,23 +11,23 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: adc0547e36e9cf996a87c2683b4830541b8cd360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7fa6beacf4456145e312494a72dad321dfef3754
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442111"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843932"
 ---
-# <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação para recursos de aprendizagem automática Azure e fluxos de trabalho
+# <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação dos recursos e dos fluxos de trabalho do Azure Machine Learning
 
 
 Saiba como configurar a autenticação no seu espaço de trabalho Azure Machine Learning. A autenticação no seu espaço de trabalho Azure Machine Learning baseia-se no __Azure Ative Directory__ (Azure AD) para a maioria das coisas. Em geral, existem três fluxos de trabalho de autenticação que pode utilizar ao ligar-se ao espaço de trabalho:
 
-* __Interativo__ : Utilize a sua conta no Azure Ative Directory para autenticar diretamente ou para obter um token que seja utilizado para a autenticação. A autenticação interativa é utilizada durante _a experimentação e o desenvolvimento iterativo._ A autenticação interativa permite controlar o acesso a recursos (como um serviço web) por utilizador.
+* __Interativo__: Utilize a sua conta no Azure Ative Directory para autenticar diretamente ou para obter um token que seja utilizado para a autenticação. A autenticação interativa é utilizada durante _a experimentação e o desenvolvimento iterativo._ A autenticação interativa permite controlar o acesso a recursos (como um serviço web) por utilizador.
 
-* __Principal de serviço__ : Cria uma conta principal de serviço no Azure Ative Directory e utiliza-a para autenticar ou obter um token. Um principal de serviço é utilizado quando precisa de um _processo automatizado para autenticar_ o serviço sem exigir interação do utilizador. Por exemplo, um script de integração e implantação contínua que treina e testa um modelo sempre que o código de formação muda.
+* __Principal de serviço__: Cria uma conta principal de serviço no Azure Ative Directory e utiliza-a para autenticar ou obter um token. Um principal de serviço é utilizado quando precisa de um _processo automatizado para autenticar_ o serviço sem exigir interação do utilizador. Por exemplo, um script de integração e implantação contínua que treina e testa um modelo sempre que o código de formação muda.
 
-* __Identidade gerida__ : Ao utilizar o Azure Machine Learning SDK _numa Máquina Virtual Azure,_ pode ser gerida uma identidade gerida para o Azure. Este fluxo de trabalho permite que o VM se conecte ao espaço de trabalho utilizando a identidade gerida, sem armazenar credenciais no código Python ou levando o utilizador a autenticar. Os clusters de cálculo Azure Machine Learning também podem ser configurados para usar uma identidade gerida para aceder ao espaço de trabalho quando _os modelos de treino._
+* __Identidade gerida__: Ao utilizar o Azure Machine Learning SDK _numa Máquina Virtual Azure,_ pode ser gerida uma identidade gerida para o Azure. Este fluxo de trabalho permite que o VM se conecte ao espaço de trabalho utilizando a identidade gerida, sem armazenar credenciais no código Python ou levando o utilizador a autenticar. Os clusters de cálculo Azure Machine Learning também podem ser configurados para usar uma identidade gerida para aceder ao espaço de trabalho quando _os modelos de treino._
 
 > [!IMPORTANT]
 > Independentemente do fluxo de trabalho de autenticação utilizado, o controlo de acesso baseado em funções (Azure RBAC) é utilizado para estender o nível de acesso (autorização) permitido aos recursos. Por exemplo, um processo de administração ou automação pode ter acesso a criar uma instância computacional, mas não usá-lo, enquanto um cientista de dados poderia usá-lo, mas não apagá-lo ou criá-lo. Para obter mais informações, consulte [Gerir o acesso ao espaço de trabalho Azure Machine Learning](how-to-assign-roles.md).
@@ -141,7 +141,7 @@ A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho 
 
 1. Permitir uma [identidade gerida atribuída pelo sistema para os recursos da Azure no VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
-1. A partir do [portal Azure,](https://portal.azure.com)selecione o seu espaço de trabalho e, em seguida, selecione __Access Control (IAM)__ , Adicione a Atribuição de __Funções__ e selecione __a Máquina Virtual__ a partir do Access Access __To__ dropdown. Finalmente, selecione a identidade do seu VM.
+1. A partir do [portal Azure,](https://portal.azure.com)selecione o seu espaço de trabalho e, em seguida, selecione __Access Control (IAM)__, Adicione a Atribuição de __Funções__ e selecione __a Máquina Virtual__ a partir do Access Access __To__ dropdown. Finalmente, selecione a identidade do seu VM.
 
 1. Selecione o papel a atribuir a esta identidade. Por exemplo, colaborador ou um papel personalizado. Para mais informações consulte, [Controle o acesso aos recursos.](how-to-assign-roles.md)
 
@@ -154,7 +154,7 @@ Para obter mais informações, consulte [Configurar a identidade gerida para o c
 ## <a name="use-interactive-authentication"></a>Utilize a autenticação interativa
 
 > [!IMPORTANT]
-> A autenticação interativa utiliza o seu navegador e requer cookies (incluindo cookies de 3ª parte). Se tiver cookies desativados, poderá receber um erro como "não podemos inscrevê-lo". Este erro também pode ocorrer se tiver ativado [a autenticação de vários fatores Azure](../active-directory/authentication/concept-mfa-howitworks.md).
+> A autenticação interativa utiliza o seu navegador e requer cookies (incluindo cookies de 3ª parte). Se tiver cookies desativados, poderá receber um erro como "não podemos inscrevê-lo". Este erro também pode ocorrer se tiver ativado [a autenticação multi-factor Azure AD](../active-directory/authentication/concept-mfa-howitworks.md).
 
 A maioria dos exemplos na documentação e amostras utilizam a autenticação interativa. Por exemplo, ao utilizar o SDK existem duas chamadas de função que irão automaticamente insusá-lo com um fluxo de autenticação baseado em UI:
 
@@ -403,4 +403,4 @@ ws = Workspace(subscription_id="your-sub-id",
 
 * [Como usar segredos no treino.](how-to-use-secrets-in-runs.md)
 * [Como configurar a autenticação para modelos implantados como serviço web](how-to-authenticate-web-service.md).
-* [Consumir um modelo de Aprendizagem automática Azure implementado como serviço web](how-to-consume-web-service.md).
+* [Consumir um modelo do Azure Machine Learning implementado como serviço Web](how-to-consume-web-service.md).

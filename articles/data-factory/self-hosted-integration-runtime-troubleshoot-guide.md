@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: ca8d359638d97f77377f02d47d824fa216acdcc8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928115"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844102"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
 
@@ -48,11 +48,26 @@ Para atividades falhadas em execução em IR /ID Partilhado, a Azure Data Factor
 
 ## <a name="self-hosted-ir-general-failure-or-error"></a>Erro ou falha geral do IR Autoalojado
 
+### <a name="out-of-memory-issue"></a>Fora da questão da memória
+
+#### <a name="symptoms"></a>Sintomas
+
+A questão "OutOfMemoryException" ocorre quando se tenta executar atividade de procura com IR ou IR auto-hospedado.
+
+#### <a name="cause"></a>Causa
+
+A nova atividade pode encontrar-se com a questão OOM (OutOfMemory) se a máquina de infravermelhos tiver um elevado uso de memória no momento. A questão pode ser causada por uma grande escala de execução de atividade simultânea, e o erro é por design.
+
+#### <a name="resolution"></a>Resolução
+
+Verifique a utilização do recurso e a execução simultânea da atividade no nó DE INFRAVERMELHO. Ajuste o tempo de atividade interno e desencadeado para evitar demasiada execução no mesmo nó de infravermelhos ao mesmo tempo.
+
+
 ### <a name="tlsssl-certificate-issue"></a>Problema com o certificado TLS/SSL
 
 #### <a name="symptoms"></a>Sintomas
 
-Ao tentar ativar o certificado TLS/SSL (avançado) no **Configuration Manager do IR Autoalojado** -> **Acesso remoto a partir da intranet** , depois de selecionar o certificado TLS/SSL, é apresentado o erro abaixo:
+Ao tentar ativar o certificado TLS/SSL (avançado) no **Configuration Manager do IR Autoalojado** -> **Acesso remoto a partir da intranet**, depois de selecionar o certificado TLS/SSL, é apresentado o erro abaixo:
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
@@ -65,7 +80,7 @@ Este é um problema conhecido no WCF: a validação TLS/SSL do WCF verifica apen
 #### <a name="resolution"></a>Resolução
 
 O certificado de caráter universal é suportado no IR Autoalojado do Azure Data Factory v2. Este problema normalmente ocorre porque o certificado SSL não está correto. O último DNSName na SAN deve ser válido. Siga os passos abaixo para o verificar. 
-1.  Consola de Gestão Aberta, verifique duplamente o Nome Alternativo *do Assunto* e *do Assunto* a partir dos Detalhes do Certificado. Acima, por exemplo, o último item em *Nome Alternativo Sujeito* , que é "DNS Name= microsoft.com.com", não é legítimo.
+1.  Consola de Gestão Aberta, verifique duplamente o Nome Alternativo *do Assunto* e *do Assunto* a partir dos Detalhes do Certificado. Acima, por exemplo, o último item em *Nome Alternativo Sujeito*, que é "DNS Name= microsoft.com.com", não é legítimo.
 2.  Contacte a empresa de emissão de certificados para remover o nome DNS errado.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problema de limite de trabalhos simultâneos
@@ -83,7 +98,7 @@ Há uma limitação para a definição, uma vez que o valor depende do computado
 
 > [!TIP] 
 > - Para mais detalhes sobre o que é a contagem do núcleo lógico, e como encontrar a contagem de núcleos lógicos da nossa máquina, consulte [este artigo.](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/)
-> - Para mais detalhes sobre como calcular o math.log, consulte [este artigo](https://www.rapidtables.com/calc/math/Log_Calculator.html).
+> - Para mais detalhes sobre como calcular a matemática.log, consulte [este artigo.](https://www.rapidtables.com/calc/math/Log_Calculator.html)
 
 
 ### <a name="self-hosted-ir-ha-ssl-certificate-issue"></a>Problema do Certificado SSL de HA do IR Autoalojado
@@ -102,7 +117,7 @@ Quando processamos casos relacionados com o handshake do SSL/TLS, podemos encont
 
 - Aqui está uma forma rápida e intuitiva de resolver problemas X.509 falha na cadeia de certificação X.509.
  
-    1. Exporte o certificado, que precisa de ser verificado. Aceda a Gerir certificado do computador, localize o certificado que quer verificar e clique com o botão direito do rato em **Todas as tarefas** -> **Exportar** .
+    1. Exporte o certificado, que precisa de ser verificado. Aceda a Gerir certificado do computador, localize o certificado que quer verificar e clique com o botão direito do rato em **Todas as tarefas** -> **Exportar**.
     
         ![Tarefas de exportação](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,7 +153,7 @@ Quando processamos casos relacionados com o handshake do SSL/TLS, podemos encont
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. Em seguida, a **ferramenta de Recuperação de URL** será aberta. Pode verificar os certificados do AIA, CDP e OCSP ao clicar no botão **Recuperar** .
+    1. Em seguida, a **ferramenta de Recuperação de URL** será aberta. Pode verificar os certificados do AIA, CDP e OCSP ao clicar no botão **Recuperar**.
 
         ![Botão de recuperação](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -164,8 +179,8 @@ Se tomar o monitor de processos, pode ver o seguinte resultado:
 
 > [!TIP] 
 > Pode definir o filtro como mostrado na imagem abaixo.
-> Diz-nos que o dll **System.ValueTuple** não está localizado na pasta relacionada com o GAC, nem em *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* , ou em *C:\Program Files\Microsoft Integration Runtime\4.0\Pasta partilhada.*
-> Basicamente, carregará o DLL da pasta *GAC* primeiro e, em seguida, da pasta *Partilhado* e, por fim, da pasta *Gateway* . Portanto, pode colocar o DLL em qualquer caminho que possa ser útil.
+> Diz-nos que o dll **System.ValueTuple** não está localizado na pasta relacionada com o GAC, nem em *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway*, ou em *C:\Program Files\Microsoft Integration Runtime\4.0\Pasta partilhada.*
+> Basicamente, carregará o DLL da pasta *GAC* primeiro e, em seguida, da pasta *Partilhado* e, por fim, da pasta *Gateway*. Portanto, pode colocar o DLL em qualquer caminho que possa ser útil.
 
 ![Configurar filtros](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -179,7 +194,7 @@ Pode utilizar o mesmo método para resolver outros problemas de ficheiros ou ass
 
 A razão pela qual vê o System.ValueTuple.dll em *%windir%\Microsoft.NET\montagem* e *%windir%\montagem* é que se trata de um comportamento .NET. 
 
-A partir do erro abaixo, pode ver claramente o *sistema de montagem.ValueTuple* não está lá. Assim, tal questão acontece quando a aplicação tenta verificar a montagem *System.ValueTuple.dll* .
+A partir do erro abaixo, pode ver claramente o *sistema de montagem.ValueTuple* não está lá. Assim, tal questão acontece quando a aplicação tenta verificar a montagem *System.ValueTuple.dll*.
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
@@ -210,7 +225,7 @@ Se nenhuma das causas acima referidas se aplicar, pode ir à pasta: *%programdat
 
 #### <a name="symptoms"></a>Sintomas
 
-Depois de criar os IRs Autoalojados para os arquivos de dados de origem e de destino, deve ligar os dois IRs em conjunto para concluir uma cópia. Se as lojas de dados estiverem configuradas em VNETs diferentes, ou não conseguirem compreender o mecanismo de gateway, irá atingir erros como: *o condutor da fonte não pode ser encontrado no destino IR;* *a fonte não pode ser acedida pelo destino IR* .
+Depois de criar os IRs Autoalojados para os arquivos de dados de origem e de destino, deve ligar os dois IRs em conjunto para concluir uma cópia. Se as lojas de dados estiverem configuradas em VNETs diferentes, ou não conseguirem compreender o mecanismo de gateway, irá atingir erros como: *o condutor da fonte não pode ser encontrado no destino IR;* *a fonte não pode ser acedida pelo destino IR*.
  
 #### <a name="cause"></a>Causa
 
@@ -295,7 +310,7 @@ Se o erro aparecer como acima *Não AutorizadoAccessExcepção,* siga as instru�
 
     ![Conta de serviço de início de síl,](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. Verifique se a conta de serviço de início de súmã tem a permissão R/W sobre a pasta: *%programdata%\Microsoft\DataTransfer\DataManagementGateway* .
+2. Verifique se a conta de serviço de início de súmã tem a permissão R/W sobre a pasta: *%programdata%\Microsoft\DataTransfer\DataManagementGateway*.
 
     - Por predefinição, se a conta de início de sposição do serviço não tiver sido alterada, deverá ter a permissão de R/W.
 
@@ -305,7 +320,7 @@ Se o erro aparecer como acima *Não AutorizadoAccessExcepção,* siga as instru�
         1. Limpe desinstalar o atual IR auto-hospedado.
         1. Instale as bits de IR auto-hospedadas.
         1. Siga abaixo as instruções para alterar a conta de serviço: 
-            1. Vá para a pasta de instalação auto-achatada do IR, mude para a pasta: *Microsoft Integration Runtime\4.0\Shared* .
+            1. Vá para a pasta de instalação auto-achatada do IR, mude para a pasta: *Microsoft Integration Runtime\4.0\Shared*.
             1. Inicie uma linha de comando usando privilégios elevados. Substitua *\<user>* e pelo seu próprio nome de utilizador e senha *\<password>* e, em seguida, corra abaixo do comando:
                        
                 ```
@@ -404,6 +419,47 @@ A instalação depende do serviço de instalação do Windows. Existem razões v
 - Alguns ficheiros ou registos do sistema foram tocados involuntariamente
 
 
+### <a name="ir-service-account-failed-to-fetch-certificate-access"></a>Conta de serviço de IR não conseguiu acesso a certificado
+
+#### <a name="symptoms"></a>Sintomas
+
+Ao instalar o IR auto-hospedado através do gestor de configuração de tempo de execução da integração da Microsoft, é gerado um certificado com um CA fidedigno. O certificado não pôde ser aplicado para encriptar a comunicação entre dois nós. 
+
+As informações de erro mostram o seguinte: 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
+
+![Não concedeu acesso a certificado de conta de serviço de IR](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+
+#### <a name="cause"></a>Causa
+
+O certificado está a utilizar o KSP (fornecedor de armazenamento chave), que ainda não é suportado. O SHIR só suporta o certificado CSP (Cryptographic Service Provider) até agora.
+
+#### <a name="resolution"></a>Resolução
+
+O certificado CSP é recomendado para este caso.
+
+**Solução 1:** Utilizar abaixo o comando para importar o certificado:
+
+```
+Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx 
+```
+
+![Use a certutil](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+
+**Solução 2:** Conversão de certificados:
+
+openssl pkcs12 -in .\xxxx.pfx -out .\xxxx_new.pem -password pass:*\<EnterPassword>*
+
+openssl pkcs12 -exportação -in .\xxxx_new.pem -out xxxx_new.pfx
+
+Antes e depois da conversão:
+
+![Antes da alteração do certificado](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+
+![Após alteração do certificado](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
+
+
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problemas de conectividade ir auto-hospedados
 
 ### <a name="self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>O tempo de integração auto-hospedado não pode ligar-se ao serviço na nuvem
@@ -431,7 +487,7 @@ O tempo de integração auto-hospedado não pode ligar-se ao serviço Data Facto
     ```
         
    > [!NOTE]     
-   > O URL de serviço pode variar, dependendo da localização da sua Data Factory. Pode encontrar o URL de serviço em **ADF UI**  >  **Connections**  >  **Integrationtimes**  >  EditE URLs de Serviço de Ver Urls de serviço de imposições **auto-hospedadas**  >  **Nodes**  >  **View Service URLs** .
+   > O URL de serviço pode variar, dependendo da localização da sua Data Factory. Pode encontrar o URL de serviço em **ADF UI**  >  **Connections**  >  **Integrationtimes**  >  EditE URLs de Serviço de Ver Urls de serviço de imposições **auto-hospedadas**  >  **Nodes**  >  **View Service URLs**.
             
     Segue-se a resposta esperada:
             
@@ -569,7 +625,7 @@ Pegue o traço de netmon e analise mais.
  
     *Pacote de rede do Linux System A com TTL 64 -> B TTL 64 Menos 1 = 63 -> C TTL 63 Menos 1 = 62 -> TTL 62 Menos 1 = 61 IR auto-hospedado*
 
-- Na situação ideal, o TTL será 128, o que significa que o Windows System está a executar a nossa Fábrica de Dados. Como mostrado a seguir, *128 - 107 = 21 lúpulo* , o que significa que 21 lúpulos para o pacote foram enviados da Data Factory para o AUTO-hospedado IR durante o aperto de mão TCP 3.
+- Na situação ideal, o TTL será 128, o que significa que o Windows System está a executar a nossa Fábrica de Dados. Como mostrado a seguir, *128 - 107 = 21 lúpulo*, o que significa que 21 lúpulos para o pacote foram enviados da Data Factory para o AUTO-hospedado IR durante o aperto de mão TCP 3.
  
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
@@ -587,11 +643,11 @@ Quando se tenta teletar **8.8.8.8.8 888** com vestígios de netmon recolhidos, �
 ![traço netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-Isto significa que não foi possível fazer a ligação TCP ao lado do servidor **8.8.8.8** com base na porta **888** , pelo que vê aí dois pacotes adicionais **SynReTransmit.** Uma vez que a Fonte **SELF-HOST2** não conseguiu estabelecer ligação a **8.8.8.8** no primeiro pacote, continuará a fazer a ligação.
+Isto significa que não foi possível fazer a ligação TCP ao lado do servidor **8.8.8.8** com base na porta **888**, pelo que vê aí dois pacotes adicionais **SynReTransmit.** Uma vez que a Fonte **SELF-HOST2** não conseguiu estabelecer ligação a **8.8.8.8** no primeiro pacote, continuará a fazer a ligação.
 
 > [!TIP]
-> - Pode clicar **Load Filter** em  ->  **endereços de filtro padrão de filtro** de carga  ->  **Addresses**  ->  **endereços IPv4** .
-> - Inserir **IPv4.Endereço == 8.8.8.8** como filtro e clique em **Aplicar** . Depois disso, só verá a comunicação da máquina local para o destino **8.8.8.8** .
+> - Pode clicar **Load Filter** em  ->  **endereços de filtro padrão de filtro** de carga  ->  **Addresses**  ->  **endereços IPv4**.
+> - Inserir **IPv4.Endereço == 8.8.8.8** como filtro e clique em **Aplicar**. Depois disso, só verá a comunicação da máquina local para o destino **8.8.8.8**.
 
 ![endereços de filtro 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         

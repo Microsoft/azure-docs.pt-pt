@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: cdd5a8b518a374340af35d5f866d51d016e5ac79
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: cb6680482466018f86779d9c0318bbfe4e749be1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745195"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843150"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Monitorização do armazenamento do Azure Blob
 
@@ -80,14 +80,14 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
 
 2. Navegue até à sua conta de armazenamento.
 
-3. Na secção **de Monitorização,** clique nas **definições de Diagnóstico (pré-visualização)** .
+3. Na secção **de Monitorização,** clique nas **definições de Diagnóstico (pré-visualização)**.
 
    > [!div class="mx-imgBorder"]
    > ![portal - Registos de diagnóstico](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)   
 
 4. Escolha **o blob** como o tipo de armazenamento para o qual pretende ativar os registos.
 
-5. Clique **na definição de diagnóstico de adicionar** .
+5. Clique **na definição de diagnóstico de adicionar**.
 
    > [!div class="mx-imgBorder"]
    > ![portal - Registos de recursos - adicione a definição de diagnóstico](media/monitor-blob-storage/diagnostic-logs-settings-pane-2.png)

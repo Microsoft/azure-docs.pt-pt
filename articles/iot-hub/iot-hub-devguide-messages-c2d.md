@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.custom: mqtt
-ms.openlocfilehash: daf4fb2ab9650c3a68b8862fd391817d5ff626b0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mqtt, devx-track-azurecli
+ms.openlocfilehash: ba58f7897827cf7ce7f6156df1434733d89d7f42
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147758"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844459"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envie mensagens nuvem-para-dispositivo a partir de um hub IoT
 
@@ -81,7 +81,7 @@ Quando envia uma mensagem nuvem-a-dispositivo, o serviço pode solicitar a entre
 | negativo | Se a mensagem nuvem-para-dispositivo chegar ao estado *de letras Mortas,* o hub IoT gera uma mensagem de feedback. |
 | cheio     | O hub IoT gera uma mensagem de feedback em qualquer dos casos. |
 
-Se o valor **Ack** estiver *completo*e não receber uma mensagem de feedback, significa que a mensagem de feedback expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que pode processar o feedback antes de expirar. O prazo máximo de validade é de dois dias, o que deixa tempo para que o serviço volte a funcionar se ocorrer uma falha.
+Se o valor **Ack** estiver *completo* e não receber uma mensagem de feedback, significa que a mensagem de feedback expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que pode processar o feedback antes de expirar. O prazo máximo de validade é de dois dias, o que deixa tempo para que o serviço volte a funcionar se ocorrer uma falha.
 
 Como explicado em [Endpoints,](iot-hub-devguide-endpoints.md)o hub IoT fornece feedback através de um ponto final virado para o serviço, */messages/servicebound/feedback*, como mensagens. A semântica para receber feedback é a mesma que para mensagens cloud-to-device. Sempre que possível, o feedback da mensagem é loteado numa única mensagem, com o seguinte formato:
 

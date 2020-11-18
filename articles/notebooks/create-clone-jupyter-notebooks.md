@@ -3,12 +3,12 @@ title: Criar e clonar cadernos Jupyter - Pré-visualização de cadernos Azure
 description: Os projetos de pré-visualização de Cadernos Azure gerem uma coleção de cadernos e ficheiros relacionados, que pode criar novos ou clones a partir de outra fonte.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e5930178b7951ff5f701228cee4ea7cb5f0e6da
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181506"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844391"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Criar e clonar projetos em Azure Notebooks Preview
 
@@ -28,7 +28,7 @@ O que pode fazer no painel de instrumentos depende se está inscrito na conta qu
 
 | Comando | Disponível para | Descrição |
 | --- | --- | --- |
-| **Correr** | Proprietário | Inicia o servidor do projeto e abre a pasta do projeto em Jupyter. (Mais comummente, navega-se primeiro numa pasta de projeto, depois começa-se um caderno a partir daí.) |
+| **Executar** | Proprietário | Inicia o servidor do projeto e abre a pasta do projeto em Jupyter. (Mais comummente, navega-se primeiro numa pasta de projeto, depois começa-se um caderno a partir daí.) |
 | **Transferência** | Qualquer pessoa | Descarrega uma cópia do projeto selecionado como um ficheiro ZIP. |
 | **Partilhar** | Qualquer pessoa | Exibe o popup de partilha através do qual pode obter um URL para um projeto selecionado, partilhar para as redes sociais, enviar um e-mail com o URL e obter o código HTML ou Markdown para com um crachá de "bloco de lançamento" (ver [obter um crachá de lançamento)](#obtain-a-launch-badge)com o URL. |
 | **Eliminar** | Proprietário | Elimina o projeto selecionado. Esta operação não pode ser anulada. |
@@ -138,4 +138,4 @@ Para clonar um projeto:
 - [Como: Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
 - [Como: Trabalhar com ficheiros de dados](work-with-project-data-files.md)
 - [Como: Aceder aos recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: Utilizar a aprendizagem automática Azure](use-machine-learning-services-jupyter-notebooks.md)
+- [Como: Utilizar a aprendizagem automática Azure](../machine-learning/samples-notebooks.md)

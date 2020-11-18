@@ -3,12 +3,12 @@ title: Linha de Base de Segurança Azure para Azure DevTest Labs
 description: Linha de Base de Segurança Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 64e5ac46fbeb71706f7b1ae2d3682260e3cbc651
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207296"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843201"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de Base de Segurança Azure para Azure DevTest Labs
 
@@ -62,7 +62,7 @@ Para obter mais informações, veja os seguintes artigos:
 **Responsabilidade:** Cliente
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: Configurar a retenção de armazenamento de registos de segurança
-***Orientação:** No Azure Monitor, detenva o período de retenção de registos para os espaços de trabalho do Log Analytics associados às instâncias da Azure DevTest Labs de acordo com os regulamentos de conformidade da sua organização.
+**_Orientação:_* No Azure Monitor, detenva o período de retenção de registos para os espaços de trabalho do Log Analytics associados às instâncias da Azure DevTest Labs de acordo com os regulamentos de conformidade da sua organização.
 
 Para obter mais informações, consulte o seguinte artigo: [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -175,9 +175,9 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 - [Como permitir o MFA em Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure](../security-center/security-center-identity-access.md)
 
-**Monitorização do Centro de Segurança Azure:*** Sim
+**Monitorização do Centro de Segurança Azure:** _ Sim
 
-**Responsabilidade:** Cliente
+_ *Responsabilidade:** Cliente
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Utilizar máquinas dedicadas (Estações de acesso privilegiadas) para todas as tarefas administrativas
@@ -387,7 +387,7 @@ A Microsoft realiza a gestão de vulnerabilidades nos recursos subjacentes que s
 **Responsabilidade:** Cliente
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Implementar solução automatizada de gestão de patchs de software de terceiros
-***Orientação:*** Como administrador de laboratório, pode usar [artefactos da DevTest Labs](add-artifact-vm.md) para automatizar atualizações para imagens personalizadas do laboratório, incluindo patches de segurança e outras atualizações. 
+**_Orientação:_* _ Como administrador de laboratório, pode utilizar [artefactos da DevTest Labs](add-artifact-vm.md) para automatizar atualizações para imagens personalizadas do laboratório, incluindo patches de segurança e outras atualizações. 
 
 Saiba mais sobre [a DevTest Labs Image Factory](image-factory-create.md), que é uma solução de configuração como código que constrói e distribui automaticamente as imagens de forma regular com todas as configurações desejadas. 
 
@@ -396,7 +396,7 @@ Como administrador de subscrição, também pode utilizar a solução Azure Upda
 - [Solução de Gestão de Atualização em Azure](../automation/update-management/update-mgmt-overview.md)
 - [Gerir atualizações e patches para os seus VMs](../automation/update-management/update-mgmt-overview.md)
 
-**Monitorização do Centro de Segurança Azure:** Não aplicável
+_ *Monitorização do Centro de Segurança Azure:** Não aplicável
 
 **Responsabilidade:** Cliente
 
@@ -692,7 +692,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 
 - [Configurar identidade gerida para implantar ambientes do Gestor de Recursos Azure em Laboratórios DevTest](use-managed-identities-environments.md)
 - [Configurar identidade gerida para implantar máquinas virtuais em Laboratórios DevTest](enable-managed-identities-lab-vms.md)
-- [Como criar um cofre chave](../key-vault/secrets/quick-create-portal.md)
+- [Como criar um cofre chave](../key-vault/general/quick-create-portal.md)
 - [Como autenticar para o Cofre de Chaves](../key-vault/general/authentication.md)
 - [Como atribuir uma política de acesso ao Cofre de Chaves](../key-vault/general/assign-access-policy-portal.md)
 

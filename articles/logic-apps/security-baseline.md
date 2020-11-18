@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ccfc290df64417bf0504849a83dbe68efcbddefe
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424067"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843711"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança Azure para Apps Lógicas
 
@@ -384,7 +384,7 @@ Se estiver a utilizar a Infraestrutura como Código, evite armazenar senhas em c
 
 - [Como proteger e aceder a dados em Apps Lógicas](logic-apps-securing-a-logic-app.md)
 
-- [Como definir e recuperar um segredo do Cofre da Chave Azure](../key-vault/secrets/quick-create-portal.md)
+- [Como definir e recuperar um segredo do Cofre da Chave Azure](../key-vault/general/quick-create-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -486,7 +486,7 @@ Além disso, cada ponto final de pedido de uma aplicação lógica tem uma Assin
 
 Quando houver suporte em Aplicações Lógicas, utilize uma identidade gerida para aceder facilmente a outros recursos que são protegidos pelo Azure Ative Directory (Azure AD) e autenticar a sua identidade sem iniciar sessão, em vez de credenciais ou segredos. O Azure gere esta identidade automaticamente e ajuda a proteger as credenciais, uma vez que não precisa de introduzir segredos nem proceder a sua rotação.
 
-A Azure Logic Apps suporta identidades geridas atribuídas pelo sistema e atribuídas pelo utilizador. A aplicação lógica pode utilizar a identidade atribuída pelo sistema ou uma única identidade atribuída pelo utilizador, que pode partilhar num grupo de aplicações lógicas, mas não ambas. Atualmente, apenas gatilhos e ações específicas suportam identidades geridas, não conectores geridos ou ligações, por exemplo:
+O Azure Logic Apps suporta identidades geridas atribuídas pelo sistema e pelo utilizador. A aplicação lógica pode utilizar a identidade atribuída pelo sistema ou uma única identidade atribuída pelo utilizador, que pode partilhar num grupo de aplicações lógicas, mas não ambas. Atualmente, apenas acionadores e ações integrados específicos suportam identidades geridas, não ligações nem conectores geridos. Por exemplo:
 
 -  HTTP
 
@@ -1057,7 +1057,7 @@ Quando criar um ambiente de serviço de integração (ISE) para hospedar as suas
 
 **Orientação**: Para aceder facilmente a outros recursos protegidos pelo Azure Ative Directory (Azure AD) e autenticar a sua identidade sem iniciar sessão, a sua aplicação lógica pode utilizar uma identidade gerida (anteriormente Identidade de Serviço Gerida ou MSI), em vez de credenciais ou segredos. O Azure gere esta identidade automaticamente e ajuda a proteger as credenciais, uma vez que não precisa de introduzir segredos nem proceder a sua rotação.
 
-Atualmente, apenas gatilhos e ações específicas suportam identidades geridas, não conectores geridos ou ligações, por exemplo:
+Atualmente, apenas acionadores e ações integrados específicos suportam identidades geridas, não ligações nem conectores geridos. Por exemplo:
 
 - HTTP
 - Funções do Azure

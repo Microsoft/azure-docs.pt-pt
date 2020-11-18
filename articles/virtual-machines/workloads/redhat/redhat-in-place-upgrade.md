@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: beede74134affeb3ee0d4bdd20d5da3b4c5e6eda
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1160bc43db0dc9ec1714b1766c8cadf09660e291
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566627"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844573"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Atualizações da Red Hat Enterprise Linux no local
 
@@ -62,7 +62,7 @@ Execute estes passos cuidadosamente. É definitivamente recomendado experimentar
     yum install leapp-rhui-azure
     ```
     
-1. Utilize o ficheiro leapp-data.tar.gz com repomap.csv e pes-events.js, presente no [portal RedHat,](https://access.redhat.com/articles/3664871)e extrai-os. 
+1. Utilize dados .tar.gz ficheiros com repomap.csv e pes-events.js, presentes no [portal RedHat,](https://access.redhat.com/articles/3664871)e extraia-os. 
     1. Descarregue o ficheiro.
     1. Extrair o conteúdo e remover o ficheiro utilizando o seguinte comando:
     ```bash
@@ -124,8 +124,8 @@ Consult the pre-upgrade report for details and possible remediation.
 ============================================================
 ```
 **Solução**\
-Ativar o acesso à raiz em `/etc/sshd_conf` .
-Isto é causado por não permitir o acesso à raiz em `/etc/sshd_conf` conforme a secção "[Preparações para a atualização](#preparations-for-the-upgrade)". 
+Ativar o acesso à raiz em `/etc/sshd_config` .
+Isto é causado por não permitir o acesso à raiz em `/etc/sshd_config` conforme a secção "[Preparações para a atualização](#preparations-for-the-upgrade)". 
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre as [imagens do Chapéu Vermelho em Azure.](./redhat-images.md)
