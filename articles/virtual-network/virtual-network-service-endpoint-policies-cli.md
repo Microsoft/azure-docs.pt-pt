@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 53f10996a7f15e32261f151600163f41df4e58ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a080c3953c48227301052a0bb151c8cba96e515a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666794"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737392"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gerir a exfiltração de dados para contas de armazenamento de Azure com políticas de ponto final de serviço de rede virtual utilizando o Azure CLI
 
@@ -37,11 +37,11 @@ Neste artigo, vai aprender a:
 * Confirme o acesso à conta de armazenamento permitida a partir da sub-rede.
 * Confirme que o acesso é negado à conta de armazenamento não autorizada a partir da sub-rede.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este início rápido requer a execução da versão 2.0.28 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli). 
+- Este artigo requer a versão 2.0.28 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/13/2020
-ms.openlocfilehash: ac56aab233c9d07ea7e82a4eefc4918746e3bdbe
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/17/2020
+ms.openlocfilehash: 730178d974ba95db968332ac669f701486b513bd
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592520"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738531"
 ---
 # <a name="co-sell-partner-engagement"></a>Compromisso entre parceiros para venda conjunta
 
@@ -30,7 +30,7 @@ O programa co-venda está disponível para **software construído com a sua prop
 
 Ofertas que atingem **a Azure IP Co-venda** de estatuto incentivado obtenha estes benefícios adicionais do mercado:
 
-- A taxa de serviço no mercado é reduzida de 20% para 10%. Este desconto aplica-se à sua oferta IaaS ou SaaS vendida através do mercado comercial. Para mais informações, consulte [Taxa de Serviço Reduzida](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) para mais detalhes.
+- A taxa de serviço no mercado é reduzida de 20% para 10%. Este desconto aplica-se à sua oferta IaaS ou SaaS vendida através do mercado comercial. Para mais informações, consulte [as taxas de serviço do mercado comercial](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees) para mais detalhes.
 - Os parceiros Cloud Solution Provider (CSP) recebem um incentivo de 10% para vender a sua oferta IaaS ou SaaS. Saiba mais sobre o programa CSP no [programa Cloud Solution Provider](cloud-solution-providers.md).
 - As vendas da sua oferta através do mercado comercial contribuirão para os compromissos de consumo da Azure dos clientes. Os clientes elegíveis verão a oferta marcada como **"Azure benefit elegível"** no portal Azure. Para mais detalhes, consulte [o benefício do compromisso de consumo da Azure.](azure-consumption-commitment-benefit.md)
 - Ofertas que alcançam **Azure IP Co-venda incentivado** ou **Aplicações Empresariais Co-vender** o status incentivado receberá um crachá **de "soluções preferenciais"** nas montras. O crachá promove a qualidade, desempenho e capacidade de uma oferta para atender às necessidades dos clientes numa determinada área vertical ou de solução da indústria. Saiba mais [em soluções Preferidas no Microsoft AppSource e no Azure Marketplace.](preferred-solutions.md)
@@ -63,15 +63,15 @@ Inicie a sua viagem de Co-venda diretamente no Partner Center seguindo os passos
 
     :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Esta imagem mostra a localização da Co-venda com o separador Microsoft.":::
 
-1. Forneça detalhes básicos da listagem para ajudar os vendedores da Microsoft a classificar rapidamente e descobrir a sua oferta na secção **De listagem.** *(Obrigatório: todos os campos.* )
+1. Forneça detalhes básicos da listagem para ajudar os vendedores da Microsoft a classificar rapidamente e descobrir a sua oferta na secção **De listagem.** *(Obrigatório: todos os campos.*)
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Esta imagem mostra a secção de Listagem do separador Co-venda.":::  
 
-1. Forneça detalhes sobre a sua oferta e carrene a garantia na secção **Documentos.** Os vendedores da Microsoft usarão esta informação para recomendar e vender a sua oferta. *(Requerido: Pager de um pager e deck de apresentação do cliente.* )
+1. Forneça detalhes sobre a sua oferta e carrene a garantia na secção **Documentos.** Os vendedores da Microsoft usarão esta informação para recomendar e vender a sua oferta. *(Requerido: Pager de um pager e deck de apresentação do cliente.*)
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Esta imagem mostra a secção documentos no separador Co-venda.":::
 
-1. Faça upload de informações de contacto de vendas na secção **Contactos.** Os vendedores da Microsoft podem contactar estes contactos para solicitar informações adicionais sobre a sua oferta. *(Requerido: um contacto para cada geografia em que a sua oferta é disponibilizada.* )
+1. Faça upload de informações de contacto de vendas na secção **Contactos.** Os vendedores da Microsoft podem contactar estes contactos para solicitar informações adicionais sobre a sua oferta. *(Requerido: um contacto para cada geografia em que a sua oferta é disponibilizada.*)
 
     :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Esta imagem mostra a secção Contactos no separador Co-venda.":::
 

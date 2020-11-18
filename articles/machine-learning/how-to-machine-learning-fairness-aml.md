@@ -1,26 +1,24 @@
 ---
 title: Avaliar a equidade dos modelos ML em Python (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Saiba como avaliar a equidade dos seus modelos no Azure Machine Learning
+description: Aprenda a avaliar e a mitigar a equidade dos seus modelos de aprendizagem automática usando Fairlearn e o Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fbd4990fd330960bb8dbce2e2a8d1bcb578cf2a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337887"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701189"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utilize a Azure Machine Learning com o pacote fairlearn open-source para avaliar a equidade dos modelos ML (pré-visualização)
-
-
 
 Neste guia de como fazer, você aprenderá a usar o pacote De Pitão de código aberto [fairlearn](https://fairlearn.github.io/) com Azure Machine Learning para executar as seguintes tarefas:
 

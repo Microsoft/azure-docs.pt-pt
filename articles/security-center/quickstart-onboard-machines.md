@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 88c34be45a832f8944217630568927bc7d52fd88
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 572c657dd44db73b1401c72f0750fe8e000985ac
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660207"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734359"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Ligue as suas máquinas não-Azure ao Centro de Segurança
 
@@ -21,7 +21,7 @@ O Centro de Segurança pode monitorizar a postura de segurança dos seus computa
 
 Pode ligar os seus computadores não-Azure de qualquer das seguintes formas:
 
-- Utilização de servidores ativados aZure Arc **(recomendado)**
+- Utilização de servidores ativados Azure Arc **(recomendado)**
 - Das páginas do Security Center no portal Azure (**Começar** e **Inventar)**
 
 Cada um destes é descrito nesta página.
@@ -135,7 +135,7 @@ Parabéns! Agora podem ver as suas máquinas Azure e não-Azure juntas num só l
 
   ![Ícone ASC para servidor Azure Arc](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Servidor ativado Azure Arc
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Esta página mostrou-lhe como adicionar as suas máquinas não-Azure ao Centro de Segurança Azure. Para monitorizar o seu estado, utilize as ferramentas de inventário como explicado na página seguinte:
 

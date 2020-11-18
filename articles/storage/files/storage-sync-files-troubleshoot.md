@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: dd9e67b8cea88421986d4ca9e3545c6dce618672
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: c7405ada800bd5fb9161e9d96bd4c8b0484be620
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626406"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737018"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -1266,7 +1266,24 @@ Se encontrar problemas com o Azure File Sync num servidor, comece por completar 
 
 Se o problema não for resolvido, execute a ferramenta AFSDiag e envie a sua saída de ficheiro .zip para o engenheiro de suporte atribuído ao seu caso para posterior diagnóstico.
 
-Para executar AFSDiag, execute os seguintes passos:
+Para executar AFSDiag, execute os passos abaixo.
+
+Para a versão do agente v11 e posteriormente:
+1. Abra uma janela PowerShell elevada e, em seguida, executar os seguintes comandos (prima Insira após cada comando):
+
+    > [!NOTE]
+    >O AFSDiag criará o diretório de saída e uma pasta temporária no mesmo antes de recolher registos e apagará a pasta temporária após a execução. Especifique um local de saída que não contenha dados.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. Reproduza o problema. Quando terminar, insira **D.**
+3. Um ficheiro .zip que contenha registos e ficheiros de rastreio é guardado no diretório de saída que especificou. 
+
+Para a versão do agente v10 e mais cedo:
 1. Crie um diretório onde a saída AFSDiag será guardada (por exemplo, C:\Output).
     > [!NOTE]
     >O AFSDiag eliminará todos os conteúdos do diretório de saídas antes de recolher registos. Especifique um local de saída que não contenha dados.
@@ -1282,6 +1299,7 @@ Para executar AFSDiag, execute os seguintes passos:
 4. Para o nível de rastreio do modo de utilizador Azure File Sync, introduza **1** (salvo especificação em contrário, para criar mais vestígios verbosos) e, em seguida, prima Enter.
 5. Reproduza o problema. Quando terminar, insira **D.**
 6. Um ficheiro .zip que contenha registos e ficheiros de rastreio é guardado no diretório de saída que especificou.
+
 
 ## <a name="see-also"></a>Ver também
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

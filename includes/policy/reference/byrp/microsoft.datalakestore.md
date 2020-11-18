@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 79fb78e557a86ad789489000700a6f3bf33242e3
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: cd224835c4fdd6d7cc55fa6b6b959d4f5fbf6aa1
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314906"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94736916"
 ---
-|Nome<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Implementar definições de diagnóstico para data lake storage Gen1 para centro de eventos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8d096bc-85de-4c5f-8cfb-857bd1b9d62d) |Implementa as definições de diagnóstico para data lake storage gen1 para transmitir para um Centro de Eventos regional quando qualquer Gen1 de Armazenamento de Data Lake que esteja faltando esta definição de diagnóstico é criado ou atualizado. |ImplementarIfNotExists, Desativado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DataLakeStorage_DeployDiagnosticLog_Deploy_EventHub.json) |
 |[Implementar definições de diagnóstico para data lake storage Gen1 para log analytics espaço de trabalho](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F25763a0a-5783-4f14-969e-79d4933eb74b) |Implementa as definições de diagnóstico para data lake storage gen1 para transmitir para um espaço de trabalho regional Log Analytics quando qualquer Gen1 de Armazenamento de Data Lake que esteja faltando esta definição de diagnóstico é criado ou atualizado. |ImplementarIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DataLakeStorage_DeployDiagnosticLog_Deploy_LogAnalytics.json) |

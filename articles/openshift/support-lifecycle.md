@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: c066931cece60d14767b86254020ea5ba4bad1be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b563fac9044dccd832aa42c0193eed24cad26754
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88854503"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737919"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Ciclo de vida do suporte do Azure Red Hat OpenShift 4
 
@@ -97,12 +97,10 @@ Consulte o seguinte guia para o histórico de lançamento da [plataforma de desb
 
 |Versão OCP|Liberação a montante|Disponibilidade geral aberta do chapéu vermelho azul|Fim da Vida|
 |-|-|-|-|
-|4.3|Fevereiro de 2020|Maio de 2020|Agosto de 2020|
-|4.4|Maio de 2020|Agosto de 2020|4.6 GA|
-|4.5|Julho de 2020|outubro de 2020|4.7 GA
-|4.6|*Início do Quarto Trimestre de 2020|*Final do Quarto Trimestre de 2020|4.8 GA|
-
-\*_Pendente de confirmação da data de lançamento a montante._
+|4.3|Janeiro de 2020|Abril de 2020| Agosto de 2020|
+|4.4|Maio de 2020|Julho de 2020|4.6 GA|
+|4.5|Julho de 2020| Novembro de 2020|4.7 GA
+|4,6|Outubro de 2020| dezembro de 2020|4.8 GA|
 
 ## <a name="faq"></a>FAQ
 

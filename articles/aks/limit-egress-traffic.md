@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380216"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701607"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlo tráfego de saídas para nós de cluster no Serviço Azure Kubernetes (AKS)
 
@@ -209,8 +209,10 @@ São necessárias as seguintes regras de FQDN/aplicação para clusters AKS que 
 
 | FQDN                                          | Porta      | Utilização      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Este endereço é utilizado para o correto funcionamento da Política Azure. (atualmente em pré-visualização em AKS) |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Este endereço é utilizado para retirar as políticas incorporadas do GitHub para garantir o correto funcionamento da Política Azure. (atualmente em pré-visualização em AKS) |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | Este endereço é usado para puxar as políticas de Kubernetes e para reportar o estado de conformidade do cluster ao serviço de política. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | Este endereço é usado para retirar os artefactos gatekeeper de políticas incorporadas. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Este endereço é utilizado para o correto funcionamento da Política Azure.  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Este endereço é utilizado para retirar as políticas incorporadas do GitHub para garantir o correto funcionamento da Política Azure. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Addon Azure Policy que envia dados de telemetria para aplicações insights ponto final. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Restringir o tráfego de saídas usando firewall Azure
@@ -761,7 +763,7 @@ Devia ver a aplicação de voto AKS. Neste exemplo, o IP público firewall foi `
 ![A screenshot mostra a App de Voto A K S com botões para Gatos, Cães e Reset, e totais.](media/limit-egress-traffic/aks-vote.png)
 
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos do Azure, elimine o grupo de recursos AKS.
 
@@ -769,7 +771,7 @@ Para limpar os recursos do Azure, elimine o grupo de recursos AKS.
 az group delete -g $RG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu quais portas e moradas para permitir se quiser restringir o tráfego de saídas para o cluster. Também viu como proteger o tráfego de saída usando a Azure Firewall. 
 

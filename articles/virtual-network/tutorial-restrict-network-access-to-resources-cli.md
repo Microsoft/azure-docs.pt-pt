@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2be9b5e6fd489b331982d31693bf810d488d92b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a1eab081a7c1e83a57ef4735c6eb5248d92defc
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87484169"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734128"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restringir o acesso à rede aos recursos paaS com pontos finais de serviço de rede virtual usando o Azure CLI
 
@@ -35,11 +35,11 @@ Os pontos finais de serviço de rede virtual permitem-lhe limitar o acesso de re
 * Confirmar o acesso a um recurso a partir de uma sub-rede
 * Confirmar que o acesso é negado a um recurso a partir de uma sub-rede e da Internet
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este início rápido requer a execução da versão 2.0.28 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli). 
+- Este artigo requer a versão 2.0.28 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 

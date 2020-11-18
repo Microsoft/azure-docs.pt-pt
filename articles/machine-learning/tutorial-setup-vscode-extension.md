@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Configurar a extensão do Código do Estúdio Visual (pré-visualização)'
 titleSuffix: Azure Machine Learning
-description: Saiba como configurar a extensão de Aprendizagem automática do Código do Estúdio Visual Azure.
+description: Aprenda a instalar e executar scripts de treino usando a extensão Azure Machine Learning Visual Studio Code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/09/2020
-ms.openlocfilehash: 48fb2ce3672634af202500ccb256e7730933fff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: f485c12bf82dde798a77175a3fab4d76488150c3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86199763"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701206"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension-preview"></a>Configurar a extensão do Código do Estúdio Visual de Aprendizagem de Máquinas Azure (pré-visualização)
 
@@ -38,7 +38,7 @@ Neste tutorial, irá aprender as seguintes tarefas:
 1. Abra o Visual Studio Code.
 1. Selecione o ícone **extensões** da Barra de **Atividade** para abrir a vista extensões.
 1. Na visão Extensões, procure "Azure Machine Learning".
-1. Selecione **Instalar**.
+1. Selecione **Install** (Instalar).
 
     > [!div class="mx-imgBorder"]
     > ![Instalar extensão de código VS machine learning Azure](./media/tutorial-setup-vscode-extension/install-aml-vscode-extension.PNG)

@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2020
+ms.date: 11/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: b2f66f9d4a96bda323413ac9016f582f5605e6cd
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a5cc0fdf0473cb8ceafd164a34df6f0bd66dd6d3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073330"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737443"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos do Azure Guest OS e matriz de compatibilidade SDK
 Fornece-lhe informações atualizadas sobre as mais recentes versões do Azure Guest OS para serviços cloud. Estas informações ajudam-no a planear o seu caminho de upgrade antes de um So convidado ser desativado. Se configurar as suas funções para utilizar atualizações *automáticas* do Guest OS, conforme descrito nas [Definições de Atualização do Azure Guest OS,][Azure Guest OS Update Settings]não é vital que leia esta página.
@@ -41,6 +41,9 @@ Fornece-lhe informações atualizadas sobre as mais recentes versões do Azure G
 Não tem a certeza de como atualizar o seu SO convidado? Olha para [isto.][cloud updates]
 
 ## <a name="news-updates"></a>Atualizações de notícias
+
+###### <a name="november-17-2020"></a>**17 de novembro de 2020**
+O Os Convidados de outubro foi lançado. 
 
 ###### <a name="october-10-2020"></a>**10 de outubro de 2020**
 O Convidado de setembro foi lançado. 
@@ -131,7 +134,7 @@ O Convidado de setembro foi lançado.
 > O Windows Azure SDK para .NET - 3.0 pode ser descarregado [aqui][Windows Azure SDK].
 >
 >Etapas de instalação:
->1. Por favor, desinstale quaisquer versões mais antigas do MicrosoftAzureAuthoringTools*.msi
+>1. Desinstale quaisquer versões mais antigas do MicrosoftAzureAuthoringTools*.msi
 >2. Instale o [Azure SDK para .NET - 3.0][Windows Azure SDK]
 >3. Reinicie a sua máquina
 >4. Crie um novo projeto de Cloud Service e adicione um único papel de trabalhador
@@ -143,8 +146,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.24_202010-02 |  17 de novembro de 2020  |  Posto 6.26  |  
 |  WA-GUEST-OS-6.23_202009-01  |  10 de outubro de 2020  |  Posto 6.25  |  
-|  WA-GUEST-OS-6.22_202008-02  |  5 de setembro de 2020  |  Posto 6.24  |  
+|~~WA-GUEST-OS-6.22_202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  |  
 |~~WA-GUEST-OS-6.21_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
 |~~WA-GUEST-OS-6.20_202006-02~~|  10 de agosto de 2020  |  5 de setembro de 2020  |  
 |~~WA-GUEST-OS-6.19_202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
@@ -179,8 +183,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.48_202010-02  |  17 de novembro de 2020  |  Posto 5.50  | 
 |  WA-GUEST-OS-5.47_202009-01  |  10 de outubro de 2020  |  Posto 5.49  | 
-|  WA-GUEST-OS-5.46_202008-02  |  5 de setembro de 2020  |  Posto 5.48  |  
+|~~WA-GUEST-OS-5.46_202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  |  
 |~~WA-GUEST-OS-5.45_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
 |~~WA-GUEST-OS-5.44_202006-02~~|  10 de agosto de 2020  |  5 de setembro de 2020  |  
 |~~WA-GUEST-OS-5.43_202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
@@ -212,8 +217,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.83_202010-02  |  17 de novembro de 2020  |  Posto 4.85  | 
 |  WA-GUEST-OS-4.82_202009-01  |  10 de outubro de 2020  |  Posto 4.84  | 
-|  WA-GUEST-OS-4.81_202008-02  |  5 de setembro de 2020  |  Posto 4.83  | 
+|~~WA-GUEST-OS-4.81_202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  | 
 |~~WA-GUEST-OS-4.80_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  | 
 |~~WA-GUEST-OS-4.79_202006-02~~|  10 de agosto de 2020  |  5 de setembro de 2020  | 
 |~~WA-GUEST-OS-4.78_202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
@@ -245,8 +251,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.90_202010-02  |  17 de novembro de 2020  |  Posto 3.92  |  
 |  WA-GUEST-OS-3.89_202009-01  |  10 de outubro de 2020  |  Posto 3.91  |  
-|  WA-GUEST-OS-3.88_202008-02  |  5 de setembro de 2020  |  Posto 3.90  |  
+|~~WA-GUEST-OS-3.88_202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020  |  
 |~~WA-GUEST-OS-3.87_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
 |~~WA-GUEST-OS-3.86_202006-02~~|  10 de agosto de 2020  |  5 de setembro de 2020  |  
 |~~WA-GUEST-OS-3.85_202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
@@ -278,8 +285,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.103_202010-02  |  17 de novembro de 2020  |  Posto 2.105  |  
 |  WA-GUEST-OS-2.102_202009-01  |  10 de outubro de 2020  |  Posto 2.104  |  
-|  WA-GUEST-OS-2.101_202008-02  |  5 de setembro de 2020  |  Posto 2.103  |  
+|~~WA-GUEST-OS-2.101_202008-02~~|  5 de setembro de 2020  |  17 de novembro de 2020 |    
 |~~WA-GUEST-OS-2.100_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
 |~~WA-GUEST-OS-2.99_202006-02~~|  10 de agosto de 2020  | 5 de setembro de 2020  |  
 |~~WA-GUEST-OS-2.98_202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  

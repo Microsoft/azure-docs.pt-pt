@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: babd40e0e3a3b7a254a8410313c5d4e3bb2832f0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 26e30b42906a3d8d7a3fcdc013537104a85f32fe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686946"
+ms.locfileid: "94701862"
 ---
 # <a name="java-code-samples-for-azure-cognitive-search"></a>Amostras de código de Java para pesquisa cognitiva Azure
 
@@ -47,5 +47,5 @@ As seguintes amostras têm um artigo associado na [documentação de Pesquisa Co
 
 | Amostras | Description | 
 |---------|-------------|
-| [arranque rápido](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart) | Código fonte para [Quickstart: Criar um índice de pesquisa](search-get-started-javascript.md). Esta amostra chama as APIs rest. |
+| [arranque rápido](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/quickstart) | Código fonte para [Quickstart: Criar um índice de pesquisa em Java](search-get-started-java.md). Esta amostra chama as APIs rest. |
 | [search-java-indexer-demo](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/search-java-indexer-demo) | Demonstra um indexador Azure Cosmos DB em Java. Esta amostra chama as APIs rest. |

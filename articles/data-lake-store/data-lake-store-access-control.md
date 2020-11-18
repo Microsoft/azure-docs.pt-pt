@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190158"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701454"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso no Azure Data Lake Storage Gen1
 
@@ -250,7 +250,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>É necessário ativar o suporte para as ACLs?
 
-N.º O controlo de acesso via ACLs está sempre ligado para uma conta Gen1 de armazenamento de data lake.
+Não. O controlo de acesso via ACLs está sempre ligado para uma conta Gen1 de armazenamento de data lake.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Que permissões são necessárias para eliminar recursivamente uma pasta e o respetivo conteúdo?
 
@@ -280,7 +280,11 @@ As entradas nas ACLs são armazenadas como GUIDs que correspondem aos utilizador
 
 ### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-im-using-the-azure-portal"></a>Porque é que, por vezes, vejo GUIDs nas ACLs quando utilizo o portal do Azure?
 
-Quando um utilizador deixa de existir no Azure AD, é apresentado um GUID. Normalmente, isto acontece quando o utilizador já não está na empresa ou se a conta dele tiver sido eliminada no Azure AD.
+Quando um utilizador deixa de existir no Azure AD, é apresentado um GUID. Normalmente, isto acontece quando o utilizador já não está na empresa ou se a conta dele tiver sido eliminada no Azure AD. Além disso, certifique-se de que está a utilizar o ID certo para configurar ACLs (detalhes em questão abaixo).
+
+### <a name="when-using-service-principal-what-id-should-i-use-to-set-acls"></a>Ao utilizar o principal de serviço, que ID devo usar para definir ACLs?
+
+No Portal Azure, aceda às **aplicações Azure Ative Directory -> Enterprise** e selecione a sua aplicação. O **separador Visão** Geral deve apresentar um ID de objeto e é isso que deve ser utilizado ao adicionar ACLs para acesso a dados (e não Id de aplicação).
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>O Data Lake Storage Gen1 suporta a herança dos ACLs?
 
@@ -297,6 +301,6 @@ Não, mas as ACLs Predefinidas podem ser utilizadas para definir ACLs para fiche
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controlo de acesso em Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)

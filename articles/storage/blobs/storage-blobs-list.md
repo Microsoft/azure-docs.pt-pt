@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0bd2b295e5e4d4d5ea6e25869c8c109ff8bbbf38
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660768"
+ms.locfileid: "94701318"
 ---
 # <a name="list-blobs-with-net"></a>Lista de bolhas com .NET
 
@@ -64,6 +64,10 @@ Pode devolver metadados blob com os resultados.
 - Se estiver a utilizar o .NET v12 SDK, especifique o valor **dos metadados** para a enumeração [blobTraits.](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits)
 
 - Se estiver a utilizar o .NET v11 SDK, especifique o valor **dos metadados** para a enumeração [BlobListingDetails.](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) O Azure Storage inclui metadados com cada bolha devolvida, pelo que não precisa de ligar para um dos **métodos FetchAttributes** neste contexto para recuperar os metadados blob.
+
+### <a name="list-blob-versions-or-snapshots"></a>Listar versões blob ou instantâneos
+
+Para listar versões blob ou instantâneos com a biblioteca de clientes .NET v12, especifique o parâmetro [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) com o campo **Versão** ou **Snapshot.** Versões e instantâneos estão listados do mais antigo ao mais recente. Para obter mais informações sobre as versões de listagem, consulte [as versões Blob list](versioning-enable.md#list-blob-versions).
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Listagem plana versus listagem hierárquica
 
@@ -244,7 +248,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Blobs de lista](/rest/api/storageservices/list-blobs)
 - [Enumerando recursos blob](/rest/api/storageservices/enumerating-blob-resources)

@@ -1,6 +1,6 @@
 ---
-title: Um quickstart para carregar dados na piscina SQL usando a atividade copy
-description: Use a Azure Synapse Analytics para carregar dados na piscina SQL
+title: 'Quickstart: para carregar dados em pool SQL dedicado usando a atividade de cópia'
+description: Utilize a atividade de cópia do gasoduto no Azure Synapse Analytics para carregar dados em piscinas SQL dedicadas.
 services: synapse-analytics
 ms.author: jingwang
 author: linda33wj
@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 12b5530ccf154220b11f9d1286d629caf2209475
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 542fde3ac951bf60d999361dc114491515fb9528
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280923"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94735250"
 ---
-# <a name="quickstart-load-data-into-sql-pool-using-copy-activity"></a>Quickstart: Carregue os dados na piscina SQL utilizando a atividade copy
+# <a name="quickstart-load-data-into-dedicated-sql-pool-using-the-copy-activity"></a>Quickstart: Carregue os dados em pool SQL dedicado usando a atividade de cópia
 
-O Azure Synapse Analytics oferece vários motores de análise para ajudá-lo a ingerir, transformar, modelar e analisar os seus dados. Uma piscina SQL oferece capacidades de computação e armazenamento baseadas em T-SQL. Depois de criar uma piscina SQL no seu espaço de trabalho Synapse, os dados podem ser carregados, modelados, processados e entregues para uma visão analítica mais rápida.
+O Azure Synapse Analytics oferece vários motores de análise para ajudá-lo a ingerir, transformar, modelar e analisar os seus dados. Um pool SQL dedicado oferece capacidades de computação e armazenamento baseadas em T-SQL. Depois de criar uma piscina DE SQL dedicada no seu espaço de trabalho Synapse, os dados podem ser carregados, modelados, processados e entregues para uma visão analítica mais rápida.
 
-Neste arranque rápido, aprende-se a *carregar dados da Base de Dados Azure SQL para a Azure Synapse Analytics*. Pode seguir passos semelhantes para copiar dados de outros tipos de lojas de dados. E o fluxo semelhante aplica-se à cópia de dados entre outra fonte e afundar também.
+Neste arranque rápido, aprende-se a *carregar dados da Base de Dados Azure SQL para a Azure Synapse Analytics*. Pode seguir passos semelhantes para copiar dados de outros tipos de lojas de dados. Este fluxo semelhante aplica-se também à cópia de dados para outras fontes e sumidouros.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,13 +29,13 @@ Neste arranque rápido, aprende-se a *carregar dados da Base de Dados Azure SQL 
 * Espaço de trabalho Azure Synapse: Criar um espaço de trabalho synapse utilizando o portal Azure seguindo as instruções em [Quickstart: Criar um espaço de trabalho Synapse](quickstart-create-workspace.md).
 * Base de Dados Azure SQL: Este tutorial copia dados do conjunto de dados da amostra DE ADVENTURE Works LT na Base de Dados Azure SQL. Pode criar esta base de dados de amostras na Base de Dados SQL seguindo as instruções na [Criação de uma base de dados de amostras na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md). Ou pode utilizar outras lojas de dados seguindo passos semelhantes.
 * Conta de armazenamento Azure: O Azure Storage é utilizado como área *de preparação* na operação de cópia. Se não tem uma conta de armazenamento do Azure, veja as instruções apresentadas em [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
-* Azure Synapse Analytics: Você usa uma piscina SQL como uma loja de dados de pia. Se não tiver uma instância Azure Synapse Analytics, consulte [Criar uma piscina SQL](quickstart-create-sql-pool-portal.md) para obter passos para criar um.
+* Azure Synapse Analytics: Você usa uma piscina SQL dedicada como uma loja de dados de lavatórios. Se não tiver uma instância Azure Synapse Analytics, consulte [Criar uma piscina SQL dedicada](quickstart-create-sql-pool-portal.md) para etapas para criar uma.
 
 ### <a name="navigate-to-the-synapse-studio"></a>Navegue até ao Estúdio Synapse
 
-Depois de criar o seu espaço de trabalho Azure Synapse, tem duas formas de abrir o Synapse Studio:
+Após a criação do seu espaço de trabalho synapse, tem duas formas de abrir o Synapse Studio:
 
-* Abra o seu espaço de trabalho sinapse no [portal Azure](https://ms.portal.azure.com/#home). No topo da secção Overview, selecione **Launch Synapse Studio**.
+* Abra o seu espaço de trabalho sinapse no [portal Azure](https://ms.portal.azure.com/#home). Selecione **Abrir** no cartão Open Synapse Studio em "Começar".
 * Abra [o Azure Synapse Analytics](https://web.azuresynapse.net/) e inscreva-se no seu espaço de trabalho.
 
 Neste arranque rápido, usamos o espaço de trabalho chamado "adftest2020" como exemplo. Irá navegar automaticamente para a página inicial do Synapse Studio.
@@ -44,7 +44,7 @@ Neste arranque rápido, usamos o espaço de trabalho chamado "adftest2020" como 
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 
-No Azure Synapse Analytics, um serviço ligado é onde define as suas informações de ligação a outros serviços. Nesta secção, você irá criar dois tipos de serviços ligados: Azure SQL Database e Azure Data Lake Storage Gen2 serviços ligados.
+No Azure Synapse Analytics, um serviço ligado é onde define as suas informações de ligação a outros serviços. Nesta secção, você irá criar dois tipos de serviços ligados: Azure SQL Database e Azure Data Lake Storage Gen2 (ADLS Gen2) serviços ligados.
 
 1. Na página inicial do Synapse Studio, selecione o **separador Gerir** na navegação à esquerda.
 1. Em ligações externas, selecione serviços Linked.
@@ -66,7 +66,7 @@ No Azure Synapse Analytics, um serviço ligado é onde define as suas informaç�
  
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 
-Um oleoduto contém o fluxo lógico para uma execução de um conjunto de atividades. Nesta secção, você vai criar um pipeline contendo uma atividade de cópia que ingere dados da Base de Dados Azure SQL em uma piscina SQL.
+Um oleoduto contém o fluxo lógico para uma execução de um conjunto de atividades. Nesta secção, você vai criar um pipeline contendo uma atividade de cópia que ingere dados da Azure SQL Database em uma piscina DE SQL dedicada.
 
 1. Aceda ao **separador Integração.** Selecione no ícone mais ao lado do cabeçalho dos oleodutos e selecione Pipeline.
 
@@ -83,8 +83,8 @@ Um oleoduto contém o fluxo lógico para uma execução de um conjunto de ativid
 
    ![Configurar propriedades de conjunto de dados de origem](media/quickstart-copy-activity-load-sql-pool/source-dataset-properties.png)
 1. Selecione **OK** quando terminar.
-1. Selecione sobre a atividade da cópia e vá para o separador Afundar. Selecione **Novo** para criar um novo conjunto de dados de pia.
-1. Selecione **o pool SQL Analytics** como sua loja de dados e selecione **Continue**.
+1. Selecione a atividade da cópia e vá para o separador Afundar. Selecione **Novo** para criar um novo conjunto de dados de pia.
+1. Selecione **Azure Synapse pool SQL dedicado** como sua loja de dados e selecione **Continue**.
 1. No painel  **de propriedades set,** selecione a piscina SQL Analytics que criou no passo anterior. Se estiver a escrever para uma tabela existente, sob *o nome de tabela* selecione-a a partir do dropdown. Caso contrário, verifique "Editar" e introduza o seu novo nome de mesa. Selecione **OK** quando terminar.
 1. Para as definições do conjunto de dados do sink, ative **a tabela de criação automática** no campo de opções tabela.
 
@@ -102,7 +102,7 @@ Um oleoduto contém o fluxo lógico para uma execução de um conjunto de ativid
 
 Uma vez terminada a configuração do seu oleoduto, pode executar uma corrida de depuragem antes de publicar os seus artefactos para verificar se está tudo correto.
 
-1. Para depurar o pipeline, selecione **Depurar** na barra de ferramentas. Verá o estado da execução do pipeline no separador **Saída** , na parte inferior da janela. 
+1. Para depurar o pipeline, selecione **Depurar** na barra de ferramentas. Verá o estado da execução do pipeline no separador **Saída**, na parte inferior da janela. 
 
    ![Depurar o pipeline](media/quickstart-copy-activity-load-sql-pool/debugging-result.png)
 
@@ -122,7 +122,7 @@ Nesta secção, aciona manualmente o gasoduto publicado no passo anterior.
    ![Detalhes da atividade](media/quickstart-copy-activity-load-sql-pool/activity-details.png)
 
 1. Para voltar à vista do gasoduto, selecione a ligação **de todas as tubagem** na parte superior. Selecione **Atualizar** para atualizar a lista.
-1. Verifique se os seus dados estão corretamente escritos na piscina SQL.
+1. Verifique se os seus dados estão corretamente escritos na piscina SQL dedicada.
 
 
 ## <a name="next-steps"></a>Passos seguintes

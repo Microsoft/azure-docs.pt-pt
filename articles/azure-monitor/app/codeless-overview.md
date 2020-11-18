@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 234f772b4a77b780f0b0c1faf307c93847e5caf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa5c2a0070ea0c3a0963f97fc1a04670eeaa4827
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87310723"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701896"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>O que é auto-instrumentação ou anexação codeless - Azure Monitor Application Insights?
 
@@ -23,17 +23,17 @@ A Application Insights está integrada com vários fornecedores de recursos e tr
 
 À medida que adicionamos cada vez mais integrações, a matriz de capacidade de auto-instrumentação torna-se complexa. O quadro abaixo mostra-lhe o estado atual da questão no que diz respeito ao apoio a vários fornecedores de recursos, línguas e ambientes.
 
-|Fornecedor de Ambiente/Recursos | .NET            | .NET Core       | Java            | Node.js         |
-|------------------------------|-----------------|-----------------|-----------------|-----------------|
-|Serviço de aplicações Azure no Windows  | GA, OnBD*       | GA, opt-in      | Pré-visualização privada | Pré-visualização privada |
-|Serviço de Aplicações Azure em Linux    | N/D             | Não suportado   | Pré-visualização pública  | Pré-visualização pública  |
-|Serviço de Aplicações Azure em AKS      | N/D             | No design       | No design       | No design       |
-|Funções Azure - básico       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
-|Funções Azure - dependências| Não suportado   | Não suportado   | Pré-visualização pública  | Não suportado   |
-|Azure Kubernetes Service      | N/D             | No design       | Através do agente   | No design       |
-|Janelas Azure VMs             | Pré-visualização pública  | Não suportado   | Não suportado   | Não suportado   |
-|Janelas VMs nas instalações       | GA, opt-in      | Não suportado   | Através do agente   | Não suportado   |
-|Agente autónomo- qualquer env.   | Não suportado   | Não suportado   | Pré-visualização pública  | Não suportado   |
+|Fornecedor de Ambiente/Recursos          | .NET            | .NET Core       | Java            | Node.js         |
+|---------------------------------------|-----------------|-----------------|-----------------|-----------------|
+|Serviço de aplicações Azure no Windows           | GA, OnBD*       | GA, opt-in      | Pré-visualização privada | Pré-visualização privada |
+|Serviço de Aplicações Azure em Linux             | N/D             | Não suportado   | Pré-visualização privada | Pré-visualização pública  |
+|Serviço de Aplicações Azure em AKS               | N/D             | No design       | No design       | No design       |
+|Funções Azure - básico                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
+|Azure Functions Windows - dependências | Não suportado   | Não suportado   | Pré-visualização pública  | Não suportado   |
+|Azure Kubernetes Service               | N/D             | No design       | Através do agente   | No design       |
+|Janelas Azure VMs                      | Pré-visualização pública  | Não suportado   | Não suportado   | Não suportado   |
+|Janelas VMs nas instalações                | GA, opt-in      | Não suportado   | Através do agente   | Não suportado   |
+|Agente autónomo- qualquer env.            | Não suportado   | Não suportado   | GA              | Não suportado   |
 
 *O OnBD é abreviado para On by Predefinido - os Insights de Aplicação serão ativados automaticamente assim que implementar a sua aplicação em ambientes suportados. 
 

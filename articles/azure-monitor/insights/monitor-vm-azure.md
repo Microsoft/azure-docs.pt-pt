@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491635"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738106"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorização de máquinas virtuais Azure com Monitor Azure
 Este artigo descreve como usar o Azure Monitor para recolher e analisar dados de monitorização de máquinas virtuais Azure para manter a sua saúde. As máquinas virtuais podem ser monitorizadas para disponibilidade e desempenho com o Azure Monitor como qualquer [outro recurso Azure](monitor-azure-resource.md), mas são únicas a partir de outros recursos, uma vez que também é necessário monitorizar o funcionamento e o sistema de hóspedes e as cargas de trabalho que o operam. 
@@ -31,7 +31,7 @@ Este artigo descreve como usar o Azure Monitor para recolher e analisar dados de
 ## <a name="monitoring-data"></a>Monitorizar dados
 As máquinas virtuais em Azure geram [troncos](../platform/data-platform-logs.md) e [métricas](../platform/data-platform-metrics.md) como mostrado no diagrama seguinte.
 
-![Descrição geral](media/monitor-vm-azure/logs-metrics.png)
+![Descrição Geral](media/monitor-vm-azure/logs-metrics.png)
 
 
 ### <a name="virtual-machine-host"></a>Anfitrião de máquinas virtuais
@@ -207,7 +207,7 @@ Por exemplo, para criar um alerta que verifique se alguma máquina virtual de um
 
 ```kusto
 Heartbeat
-| where TimeGenerated < ago(10m)
+| where TimeGenerated > ago(10m)
 | where ResourceGroup == "my-resource-group"
 | summarize max(TimeGenerated) by Computer
 ```
@@ -218,7 +218,7 @@ Para criar um alerta se ocorrer um número excessivo de logons falhados em quais
 
 ```kusto
 Event
-| where TimeGenerated < ago(1hr)
+| where TimeGenerated > ago(1hr)
 | where EventID == 4625
 ```
 

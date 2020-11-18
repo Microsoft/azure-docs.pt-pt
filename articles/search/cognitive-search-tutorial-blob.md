@@ -7,28 +7,34 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/15/2020
-ms.openlocfilehash: e9d438349f3a080f52050f22a0f991140b3e6b4d
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 11/17/2020
+ms.openlocfilehash: 21f0d141567f17c470732088c6a93a2ae7ed3c67
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699156"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738055"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use REST e IA para gerar conteúdo pesmável a partir de bolhas Azure
 
-Se tiver texto ou imagens não estruturados no armazenamento de Azure Blob, um [oleoduto de enriquecimento de IA](cognitive-search-concept-intro.md) pode extrair informações e criar novos conteúdos que são úteis para a pesquisa completa de texto ou cenários de mineração de conhecimento. Embora um pipeline possa processar imagens, este tutorial REST foca-se no texto, aplicando a deteção de linguagem e processamento de linguagem natural para criar novos campos que você pode alavancar em consultas, facetas e filtros.
+Se tiver texto ou imagens não estruturados no armazenamento do Azure Blob, um [gasoduto de enriquecimento de IA](cognitive-search-concept-intro.md) pode extrair informações e criar novos conteúdos a partir de bolhas que são úteis para pesquisas de texto completo ou cenários de mineração de conhecimento. Embora um pipeline possa processar imagens, este tutorial REST foca-se no texto, aplicando a deteção de linguagem e processamento de linguagem natural para criar novos campos que você pode alavancar em consultas, facetas e filtros.
 
 Este tutorial utiliza o Carteiro e as [APIs search REST](/rest/api/searchservice/) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Comece com documentos inteiros (texto não estruturado) como PDF, HTML, DOCX e PPTX no armazenamento Azure Blob.
-> * Defina um pipeline que extraia texto, deteta linguagem, reconhece entidades e deteta frases-chave.
-> * Defina um índice para armazenar a saída (conteúdo bruto, mais pares de valor-nome gerados pelo gasoduto).
-> * Execute o pipeline para iniciar transformações e análises, e para criar e carregar o índice.
+> * Crie serviços e uma coleção de Carteiro.
+> * Criar um oleoduto de enriquecimento que extraia texto, deteta linguagem, reconhece entidades e deteta frases-chave.
+> * Crie um índice para armazenar a saída (conteúdo bruto, mais pares de valor-nome gerados pelo gasoduto).
+> * Execute o oleoduto para realizar transformações e análises, e para carregar o índice.
 > * Explore resultados utilizando a pesquisa completa por texto e uma sintaxe de consulta rica.
 
 Se não tiver uma subscrição do Azure, abra uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="overview"></a>Descrição Geral
+
+Este tutorial utiliza C# e o Azure Cognitive Search REST APIs para criar uma fonte de dados, índice, indexante e skillset. Você começará com documentos inteiros (texto não estruturado) como PDF, HTML, DOCX e PPTX no armazenamento Azure Blob, e depois executá-los através de um skillset para extrair entidades, frases-chave e outro texto nos ficheiros de conteúdo.
+
+Este skillset usa habilidades incorporadas baseadas em APIs de Serviços Cognitivos. As etapas no oleoduto incluem a deteção de linguagem em texto, extração de frases-chave e reconhecimento de entidades (organizações). Novas informações são armazenadas em novos campos que pode alavancar em consultas, facetas e filtros.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,6 +50,8 @@ Se não tiver uma subscrição do Azure, abra uma [conta gratuita](https://azure
 1. Abra esta [pasta OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) e no canto superior esquerdo, clique em **Baixar** para copiar os ficheiros para o seu computador. 
 
 1. Clique com o botão direito no ficheiro zip e selecione **Extract All**. Existem 14 ficheiros de vários tipos. Vais usar 7 para este exercício.
+
+Opcionalmente, também pode descarregar o código fonte, um ficheiro de recolha do Carteiro, para este tutorial. O código-fonte pode ser encontrado em [https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial) .
 
 ## <a name="1---create-services"></a>1 - Criar serviços
 
@@ -107,7 +115,7 @@ O terceiro componente é Azure Cognitive Search, que pode [criar no portal.](sea
 
 Tal como acontece com o armazenamento da Azure Blob, aproveite um momento para recolher a chave de acesso. Mais à frente, quando iniciar os pedidos estruturantes, terá de fornecer o ponto final e a tecla api de administração utilizada para autenticar cada pedido.
 
-### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obtenha uma api-chave de administrador e URL para pesquisa cognitiva Azure
+### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Copie uma chave api-chave de administrador e URL para pesquisa cognitiva Azure
 
 1. [Inscreva-se no portal Azure,](https://portal.azure.com/)e na página **de Visão Geral** do seu serviço de pesquisa, obtenha o nome do seu serviço de pesquisa. Pode confirmar o seu nome de serviço revendo o URL do ponto final. Se o seu URL de ponto final `https://mydemo.search.windows.net` fosse, o seu nome de serviço seria `mydemo` .
 
@@ -131,7 +139,7 @@ Em Cabeçalhos, desconfie "Content-type" `application/json` e desaver-se `api-ke
 
 ## <a name="3---create-the-pipeline"></a>3 - Criar o gasoduto
 
-Na Pesquisa Cognitiva Azure, o processamento de IA ocorre durante a indexação (ou ingestão de dados). Esta parte do walkthrough cria quatro objetos: fonte de dados, definição de índice, skillset, indexante. 
+Na Pesquisa Cognitiva Azure, o enriquecimento ocorre durante a indexação (ou ingestão de dados). Esta parte do walkthrough cria quatro objetos: fonte de dados, definição de índice, skillset, indexante. 
 
 ### <a name="step-1-create-a-data-source"></a>Passo 1: criar uma origem de dados
 
@@ -350,7 +358,7 @@ Um [Indexer](/rest/api/searchservice/create-indexer) conduz o oleoduto. Os três
 
     ```json
     {
-      "name":"cog-search-demo-idxr",    
+      "name":"cog-search-demo-idxr",
       "dataSourceName" : "cog-search-demo-ds",
       "targetIndexName" : "cog-search-demo-idx",
       "skillsetName" : "cog-search-demo-ss",

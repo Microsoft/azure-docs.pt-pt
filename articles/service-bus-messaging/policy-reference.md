@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para mensagens de autocarro do serviço Azure
 description: Lista definições de política incorporadas para a Azure Service Bus Messaging. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: reference
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-reference
-ms.openlocfilehash: e957922a3401fa6e4645d187a2bc1feec1f99b3e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: cc298a606409d4bf50dacfc5965fe503235cb5ee
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329054"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94736634"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-bus-messaging"></a>Azure Policy definições incorporadas para mensagens de autocarro do serviço Azure
 

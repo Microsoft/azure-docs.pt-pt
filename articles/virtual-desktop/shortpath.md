@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: aee3f5602d0bd1ff12717d903d662ce4605de61d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ee37ab90910058378172223a3435047346f5fe7c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683765"
+ms.locfileid: "94701792"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows Virtual Desktop RDP Shortpath (pré-visualização)
 
@@ -53,7 +53,7 @@ O diagrama abaixo dá uma visão geral de alto nível da ligação da rede RDP S
 
 :::image type="content" source="media/rdp-shortpath-connections.svg" alt-text="Diagrama de Ligações de Rede DE Shortpath RDP" lightbox="media/rdp-shortpath-connections.svg":::
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Para suportar o Caminho Curto RDP, o cliente virtual do Windows desktop precisa de uma linha de visão direta para o anfitrião da sessão. Pode obter uma linha de visão direta utilizando uma das seguintes tecnologias:
 
@@ -176,7 +176,7 @@ Para verificar se as ligações estão a utilizar o Shortpath RDP, abra o diálo
 Para verificar esta sessão está a utilizar o transporte RDP Shortpath:
 
 1. Ligue-se ao ambiente de trabalho do VM utilizando o cliente de ambiente de trabalho virtual do Windows.
-2. Lançar o Observador de Eventos e navegar para o seguinte nó: **Aplicações e Registos de Serviços > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > Operacional**
+2. Lançar o Observador de Eventos e navegar para o seguinte nó: **Aplicações e Registos de Serviços > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > Microsoft-Windows-RemoteDesktopServices-RdpCoreCDV/Operacional**
 3. Para determinar se o transporte de PDR é utilizado, procure o ID 131 do evento.
 
 ### <a name="using-log-analytics-to-verify-shortpath-connectivity"></a>Utilização de Log Analytics para verificar a conectividade shortpath
@@ -252,7 +252,7 @@ Para desativar o Caminho Curto RDP para um anfitrião de sessão específica, po
 Gostaríamos de ouvir sobre as suas experiências com esta pré-estreia pública!
 * Para perguntas, pedidos, comentários e outros comentários, [utilize este formulário de feedback](https://aka.ms/RDPShortpathFeedback).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a conectividade da rede virtual do Windows Desktop, consulte [a conectividade da rede virtual de desktop do Windows.](network-connectivity.md)
 * Para começar com a Qualidade de Serviço (QoS) para o Windows Virtual Desktop, consulte [implementar qualidade de serviço (QoS) para Windows Virtual Desktop](rdp-quality-of-service-qos.md).

@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ee8c7cf2b34d5923f84bf9b9ba3cf5b10034e3e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c7edafd8a4a85e00a02486c646c77ddff5ff3e6b
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458056"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737103"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização hash de palavras-passe com a sincronização do Azure AD Connect
 Este artigo fornece informações de que precisa de sincronizar as suas palavras-passe de utilizador de uma instância do Ative Directory no local para uma instância do Azure Ative Directory (Azure AD) baseada na nuvem.
@@ -53,7 +53,7 @@ A secção seguinte descreve, em profundidade, como funciona a sincronização d
 
 1. De dois em dois minutos, o agente de sincronização de hash de palavra-passe no servidor AD Connect solicita hashes de senha armazenadas (o atributo unicodePwd) de um DC.  Este pedido é através do protocolo padrão de replicação [MS-DRSR](/openspecs/windows_protocols/ms-drsr/f977faaa-673e-4f66-b9bf-48c640241d47) utilizado para sincronizar dados entre DCs. A conta de serviço deve ter Alterações de Diretório de Replica e Alterações de Diretório de Replicação Todas as permissões de AD (concedidas por padrão na instalação) para obter os hashes de palavra-passe.
 2. Antes de enviar, o DC encripta o hash de senha MD4 utilizando uma chave que é um haxixe [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) da tecla de sessão RPC e um sal. Em seguida, envia o resultado para o agente de sincronização de hash de palavra-passe sobre o RPC. O DC também passa o sal para o agente de sincronização usando o protocolo de replicação de DC, para que o agente possa desencriptar o envelope.
-3. Depois de o agente de sincronização de hash de palavra-passe ter o envelope encriptado, utiliza [o MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1) e o sal para gerar uma chave para desencriptar os dados recebidos de volta ao seu formato MD4 original. O agente de sincronização de hash de palavra-passe nunca tem acesso à senha de texto clara. O uso do agente de sincronização de hash de palavra-passe de MD5 é estritamente para compatibilidade do protocolo de replicação com o DC, e só é usado nas instalações entre o DC e o agente de sincronização de hash password.
+3. Depois de o agente de sincronização de hash de palavra-passe ter o envelope encriptado, utiliza [o MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1) e o sal para gerar uma chave para desencriptar os dados recebidos de volta ao seu formato MD4 original. O agente de sincronização de hash de palavra-passe nunca tem acesso à senha de texto clara. A utilização do agente de sincronização de haxixe de palavra-passe de MD5 é estritamente para compatibilidade do protocolo de replicação com o DC, e só é usada no local entre o DC e o agente de sincronização de hash password.
 4. O agente de sincronização de hash de palavra-passe expande o hash de senha binária de 16 bytes para 64 bytes, convertendo primeiro o haxixe para uma corda hexadémica de 32 bytes, depois convertendo esta corda de volta em binário com a codificação UTF-16.
 5. O agente de sincronização de hash de palavra-passe adiciona um sal por utilizador, constituído por um sal de 10 bytes, ao binário de 64 bytes para proteger ainda mais o haxixe original.
 6. O agente de sincronização de hash de palavra-passe combina então o hash MD4 mais o sal por utilizador e introduz-o na função [PBKDF2.](https://www.ietf.org/rfc/rfc2898.txt) São utilizadas 1000 iterações do algoritmo de hashing com chave [HMAC-SHA256.](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) 

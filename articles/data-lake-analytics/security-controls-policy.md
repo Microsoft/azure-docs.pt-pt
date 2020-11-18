@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para a Azure Data Lake Analytics
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para Azure Data Lake Analytics. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 81a4d4e5137d9f04e4ecce3083cc8b6096926ffd
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0077f758322cbf0a76b341bcb300e48da6333196
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314925"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701556"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-lake-analytics"></a>Controlos de conformidade regulamentar da política Azure para a Azure Data Lake Analytics
 

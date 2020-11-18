@@ -1,7 +1,7 @@
 ---
 title: Criar e gerir recursos VS Extensão de Código (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Criar e gerir recursos com a extensão do Código VS
+description: Aprenda a criar e gerir os recursos de Aprendizagem automática Azure utilizando a extensão do Código do Estúdio Visual Azure Machine Learning.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/30/2020
-ms.openlocfilehash: 2e410cbc7813031929ea040b2cc4fb2967b99c1b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: f8eb18b190b72381f1a93575eb39b3d19d8d431b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319355"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701420"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerir os recursos de aprendizagem automática Azure com a extensão do código VS (pré-visualização)
 
@@ -56,8 +56,8 @@ Os métodos alternativos para criar um espaço de trabalho incluem:
 1. Expanda o nó de subscrição que contém o seu espaço de trabalho.
 1. Clique com o botão direito no espaço de trabalho que pretende remover.
 1. Selecione se deseja remover:
-    - *Apenas o espaço de trabalho* : Esta opção elimina **apenas** o recurso Azure do espaço de trabalho. O grupo de recursos, as contas de armazenamento e quaisquer outros recursos a que o espaço de trabalho foi anexado ainda estão em Azure.
-    - *Com recursos associados* : Esta opção elimina o espaço de trabalho **e** todos os recursos que lhe estão associados.
+    - *Apenas o espaço de trabalho*: Esta opção elimina **apenas** o recurso Azure do espaço de trabalho. O grupo de recursos, as contas de armazenamento e quaisquer outros recursos a que o espaço de trabalho foi anexado ainda estão em Azure.
+    - *Com recursos associados*: Esta opção elimina o espaço de trabalho **e** todos os recursos que lhe estão associados.
 
 ## <a name="datastores"></a>Arquivos de dados
 
@@ -96,8 +96,8 @@ Para mais informações, consulte [as lojas de dados.](concept-data.md#datastore
 
 A extensão suporta atualmente os seguintes tipos de conjunto de dados:
 
-- *Tabular* : Permite materializar dados num DataFrame (Pandas ou PySpark).
-- *Arquivo* : Um ficheiro ou recolha de ficheiros. Permite-lhe descarregar ou montar ficheiros no seu cálculo.
+- *Tabular*: Permite materializar dados num DataFrame (Pandas ou PySpark).
+- *Arquivo*: Um ficheiro ou recolha de ficheiros. Permite-lhe descarregar ou montar ficheiros no seu cálculo.
 
 Para mais informações, consulte [conjuntos de dados](concept-data.md#datasets)
 
@@ -159,11 +159,11 @@ Para mais informações, consulte [os ambientes.](concept-environments.md)
 1. No aviso:
     1. Forneça um nome para o seu ambiente
     1. Defina a configuração do seu ambiente:
-        - *Ambientes curados* : Ambientes pré-configurados em Azure Machine Learning. Pode personalizar ainda mais o ambiente modificando a `dependencies` propriedade no ficheiro JSON. Saiba mais sobre [ambientes curados.](resource-curated-environments.md)
-        - *Ficheiro de dependências conda* : Para ambientes Anaconda, o ficheiro que contém a definição de ambiente pode ser fornecido.
-        - *Ficheiro de requisitos do Pip* : Para ambientes de pip, o ficheiro que contém a definição de ambiente pode ser fornecido.
-        - *Ambiente Conda existente* : Esta opção procura os ambientes conda no seu PC local e tenta construir um ambiente a partir do ambiente selecionado.
-        - *Costume* : Defina os seus próprios canais e dependências
+        - *Ambientes curados*: Ambientes pré-configurados em Azure Machine Learning. Pode personalizar ainda mais o ambiente modificando a `dependencies` propriedade no ficheiro JSON. Saiba mais sobre [ambientes curados.](resource-curated-environments.md)
+        - *Ficheiro de dependências conda*: Para ambientes Anaconda, o ficheiro que contém a definição de ambiente pode ser fornecido.
+        - *Ficheiro de requisitos do Pip*: Para ambientes de pip, o ficheiro que contém a definição de ambiente pode ser fornecido.
+        - *Ambiente Conda existente*: Esta opção procura os ambientes conda no seu PC local e tenta construir um ambiente a partir do ambiente selecionado.
+        - *Costume*: Defina os seus próprios canais e dependências
     1. Um ficheiro de configuração abre no editor. Se estiver satisfeito com a sua configuração, **selecione Save and continue** ou abra a paleta de comando VS Code **(Ver > Paleta de Comando)** e **digite Azure ML: Save and Continue**.
 
 ### <a name="view-environment-configurations"></a>Ver configurações de ambiente

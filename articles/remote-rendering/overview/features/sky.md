@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a193fdf82ed5e9a785c6c01db4931fb05e9aaac7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 58c07654c174f5b94512574cb4c279d35897dc71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205749"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701947"
 ---
 # <a name="sky-reflections"></a>Reflexos do céu
 
@@ -119,7 +119,7 @@ Use `AzureSession.Actions.LoadTextureAsync` com para carregar `TextureType.Textu
 
 A renderização remota Azure fornece alguns mapas ambientais incorporados que estão sempre disponíveis. Todos os mapas ambientais incorporados são cubos.
 
-|Identificador                         | Descrição                                              | Ilustração                                                      |
+|Identificador                         | Description                                              | Ilustração                                                      |
 |-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
 |builtin://Autoshop                 | Variedade de luzes de listras, iluminação de base interior brilhante    | ![Autoshop skybox usado para iluminar um objeto](media/autoshop.png)
 |builtin://BoilerRoom               | Definição de luz interior brilhante, múltiplas luzes de janela      | ![Cabine de água da Caldeira usada para iluminar um objeto](media/boiler-room.png)
@@ -146,4 +146,3 @@ A renderização remota Azure fornece alguns mapas ambientais incorporados que e
 * [Lights](../../overview/features/lights.md)
 * [Materiais](../../concepts/materials.md)
 * [Texturas](../../concepts/textures.md)
-* [A ferramenta de linha de comando TexConv](../../resources/tools/tex-conv.md)

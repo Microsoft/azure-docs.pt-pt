@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 6cd696bf0853b1e6bafc06f2e99b2808970fed25
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6bcdb4a48f71e28514229116c10bd25747b55616
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686854"
+ms.locfileid: "94701828"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Amostras de código JavaScript para Pesquisa Cognitiva Azure
 
@@ -38,7 +38,7 @@ O Azure SDK para Java inclui numerosas amostras e uma [página de início](https
 | [indexadores](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Demonstra como criar, atualizar, obter, listar, redefinir e eliminar [indexadores](search-indexer-overview.md).|
 | [conjunto de habilidades](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   Demonstra como criar, atualizar, obter, listar e eliminar [habilidades](cognitive-search-working-with-skillsets.md) que são indexantes anexados, e que realizam enriquecimento baseado em IA durante a indexação. |
 | [sinónimoMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Demonstra como criar, atualizar, obter, listar e eliminar [mapas de sinónimos](search-synonyms.md).  |
-| [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | As consultas são só de leitura. Esta consulta de amostra executa contra um índice público hospedado pela Microsoft.  |
+| [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Demonstra a execução de consultas contra um índice público apenas de leitura hospedado pela Microsoft.  |
 
 ## <a name="typescript-samples"></a>Amostras de TypeScript
 
@@ -51,7 +51,7 @@ O SDK também fornece exemplos TypeScript, listados aqui para sua conveniência.
 | [indexadores](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Demonstra como criar, atualizar, obter, listar, redefinir e eliminar [indexadores](search-indexer-overview.md).|
 | [conjunto de habilidades](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   Demonstra como criar, atualizar, obter, listar e eliminar [habilidades](cognitive-search-working-with-skillsets.md) que são indexantes anexados, e que realizam enriquecimento baseado em IA durante a indexação. |
 | [sinónimoMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Demonstra como criar, atualizar, obter, listar e eliminar [mapas de sinónimos](search-synonyms.md).  |
-| [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.js) | Demonstra a execução de consultas contra um índice público apenas de leitura hospedado pela Microsoft.  |
+| [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Demonstra a execução de consultas contra um índice público apenas de leitura hospedado pela Microsoft.  |
 
 ## <a name="documentation-samples"></a>Exemplos de documentação
 
@@ -59,7 +59,7 @@ As seguintes amostras têm um artigo associado na [documentação de Pesquisa Co
 
 | Amostras | Description | 
 |---------|-------------|
-| [arranque rápido](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/Quickstart) | Código fonte para [Quickstart: Criar um índice de pesquisa em JavaScript](search-get-started-javascript.md).  |
+| [arranque rápido](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Código fonte para [Quickstart: Criar um índice de pesquisa em JavaScript](search-get-started-javascript.md).  |
 
 ## <a name="standalone-samples"></a>Amostras autónomas
 

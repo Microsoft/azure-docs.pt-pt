@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f950cb63b5083a85ab5420434abdd9a720115b1a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76119623"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734553"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Resolução de problemas um Azure VM defeituoso usando a virtualização aninhada em Azure
 
@@ -60,7 +60,7 @@ Para montar o VM defeituoso, o Rescue VM deve utilizar o mesmo tipo de Conta de 
 
 11. Verifique a caixa para reiniciar automaticamente o servidor, se necessário.
 
-12. Selecione **Instalar**.
+12. Selecione **Install** (Instalar).
 
 13. Permitir que o servidor instale a função Hyper-V. Isto demora alguns minutos e o servidor reiniciará automaticamente.
 
@@ -92,7 +92,7 @@ Para montar o VM defeituoso, o Rescue VM deve utilizar o mesmo tipo de Conta de 
 
 12. Clique com o botão direito no VM que criou e, em seguida, selecione **Definições**.
 
-13. Selecione **o controlador IDE 0**, selecione **Hard Drive**e, em seguida, clique em **Adicionar**.
+13. Selecione **o controlador IDE 0**, selecione **Hard Drive** e, em seguida, clique em **Adicionar**.
 
     ![a imagem sobre adiciona novo disco rígido](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
@@ -111,7 +111,7 @@ Para montar o VM defeituoso, o Rescue VM deve utilizar o mesmo tipo de Conta de 
 
 1.  Depois de voltar a pôr o VM on-line, desligue o VM no gestor do Hyper-V.
 
-2.  [Desmonte e retire o disco de OS reparado](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
+2.  [Desmonte e retire o disco de OS reparado](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk
 ).
 3.  [Substitua o disco de so utilizado pelo VM pelo disco oss reparado](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
 ).

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: a0e4e0de15348f4f52d7f0f68bad728a27f6387e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 98ba7c63e057e1f6b1f37a6529b6e94e2f514d6d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413025"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701036"
 ---
 # <a name="azure-operational-security-best-practices"></a>Melhores práticas de Segurança Operacional da Azure
 Este artigo fornece um conjunto de boas práticas operacionais para proteger os seus dados, aplicações e outros ativos em Azure.
@@ -34,14 +34,14 @@ A segurança operacional da Azure refere-se aos serviços, controlos e funcional
 ## <a name="manage-and-monitor-user-passwords"></a>Gerir e monitorizar as palavras-passe do utilizador
 A tabela que se segue lista algumas boas práticas relacionadas com a gestão das palavras-passe dos utilizadores:
 
-**Melhores práticas** : Certifique-se de que tem o nível adequado de proteção de senhas na nuvem.   
-**Detalhe** : Siga a orientação no [Microsoft Password Guidance](https://www.microsoft.com/research/publication/password-guidance/), que é traçado para os utilizadores das plataformas de identidade da Microsoft (Azure Ative Directory, Ative Directory e Microsoft).
+**Melhores práticas**: Certifique-se de que tem o nível adequado de proteção de senhas na nuvem.   
+**Detalhe**: Siga a orientação no [Microsoft Password Guidance](https://www.microsoft.com/research/publication/password-guidance/), que é traçado para os utilizadores das plataformas de identidade da Microsoft (Azure Ative Directory, Ative Directory e Microsoft).
 
-**Melhores práticas** : Monitorize para ações suspeitas relacionadas com as suas contas de utilizador.   
-**Detalhe** : Monitorize [para utilizadores em risco](../../active-directory/identity-protection/overview-identity-protection.md) e [inscrições arriscadas](../../active-directory/identity-protection/overview-identity-protection.md) utilizando relatórios de segurança Azure AD.
+**Melhores práticas**: Monitorize para ações suspeitas relacionadas com as suas contas de utilizador.   
+**Detalhe**: Monitorize [para utilizadores em risco](../../active-directory/identity-protection/overview-identity-protection.md) e [inscrições arriscadas](../../active-directory/identity-protection/overview-identity-protection.md) utilizando relatórios de segurança Azure AD.
 
-**Melhores práticas** : Detetar e remediar automaticamente senhas de alto risco.   
-**Detalhe** : [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) é uma característica da edição Azure AD Premium P2 que lhe permite:
+**Melhores práticas**: Detetar e remediar automaticamente senhas de alto risco.   
+**Detalhe**: [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) é uma característica da edição Azure AD Premium P2 que lhe permite:
 
 - Detetar potenciais vulnerabilidades que afetam as identidades da sua organização
 - Configure respostas automatizadas para detetar ações suspeitas relacionadas com as identidades da sua organização
@@ -59,25 +59,25 @@ Você pode construir uma estrutura flexível de grupos de gestão e subscriçõe
 
 Aqui estão algumas boas práticas para a utilização de grupos de gestão:
 
-**Melhores práticas** : Certifique-se de que as novas assinaturas aplicam elementos de governação como políticas e permissões à medida que são adicionadas.   
-**Detalhe** : Utilize o grupo de gestão de raiz para atribuir elementos de segurança a nível empresarial que se aplicam a todos os ativos da Azure. Políticas e permissões são exemplos de elementos.
+**Melhores práticas**: Certifique-se de que as novas assinaturas aplicam elementos de governação como políticas e permissões à medida que são adicionadas.   
+**Detalhe**: Utilize o grupo de gestão de raiz para atribuir elementos de segurança a nível empresarial que se aplicam a todos os ativos da Azure. Políticas e permissões são exemplos de elementos.
 
-**Melhores práticas** : Alinhar os níveis superiores dos grupos de gestão com a estratégia de segmentação para proporcionar um ponto de controlo e consistência política em cada segmento.   
-**Detalhe** : Criar um único grupo de gestão para cada segmento no âmbito do grupo de gestão de raiz. Não crie outros grupos de gestão sob a raiz.
+**Melhores práticas**: Alinhar os níveis superiores dos grupos de gestão com a estratégia de segmentação para proporcionar um ponto de controlo e consistência política em cada segmento.   
+**Detalhe**: Criar um único grupo de gestão para cada segmento no âmbito do grupo de gestão de raiz. Não crie outros grupos de gestão sob a raiz.
 
-**Boas práticas** : Limitar a profundidade do grupo de gestão para evitar confusões que dificultam tanto as operações como a segurança.   
-**Detalhe** : Limite a sua hierarquia a três níveis, incluindo a raiz.
+**Boas práticas**: Limitar a profundidade do grupo de gestão para evitar confusões que dificultam tanto as operações como a segurança.   
+**Detalhe**: Limite a sua hierarquia a três níveis, incluindo a raiz.
 
-**Melhores práticas** : Selecione cuidadosamente quais os itens a aplicar a toda a empresa com o grupo de gestão de raiz.   
-**Detalhe** : Certifique-se de que os elementos do grupo de gestão de raízes têm uma necessidade clara de ser aplicados em todos os recursos e que são de baixo impacto.
+**Melhores práticas**: Selecione cuidadosamente quais os itens a aplicar a toda a empresa com o grupo de gestão de raiz.   
+**Detalhe**: Certifique-se de que os elementos do grupo de gestão de raízes têm uma necessidade clara de ser aplicados em todos os recursos e que são de baixo impacto.
 
 Os bons candidatos incluem:
 
 - Requisitos regulamentares que têm um impacto claro no negócio (por exemplo, restrições relacionadas com a soberania de dados)
-- Requisitos com efeitos negativos potenciais quase nulos nas operações, como a política com efeito de auditoria ou as atribuições de permissão do RBAC que foram cuidadosamente revistas
+- Requisitos com efeitos negativos potenciais quase nulos nas operações, como a política com efeito de auditoria ou as atribuições de permissão do RBAC do Azure que foram cuidadosamente revistas
 
-**Melhores práticas** : Planeie cuidadosamente e teste todas as alterações em toda a empresa no grupo de gestão de raízes antes de as aplicar (política, modelo RBAC, e assim por diante).   
-**Detalhe** : As alterações no grupo de gestão de raiz podem afetar todos os recursos do Azure. Embora forneçam uma forma poderosa de garantir a consistência em toda a empresa, erros ou utilização incorreta podem afetar negativamente as operações de produção. Teste todas as alterações ao grupo de gestão de raízes num laboratório de teste ou piloto de produção.
+**Melhores práticas**: Planeie cuidadosamente e teste todas as alterações em toda a empresa no grupo de gestão de raízes antes de as aplicar (política, modelo Azure RBAC, e assim por diante).   
+**Detalhe**: As alterações no grupo de gestão de raiz podem afetar todos os recursos do Azure. Embora forneçam uma forma poderosa de garantir a consistência em toda a empresa, erros ou utilização incorreta podem afetar negativamente as operações de produção. Teste todas as alterações ao grupo de gestão de raízes num laboratório de teste ou piloto de produção.
 
 ## <a name="streamline-environment-creation-with-blueprints"></a>Dinamizar a criação do ambiente com plantas
 O serviço [Azure Blueprints](../../governance/blueprints/overview.md) permite que arquitetos em nuvem e grupos centrais de tecnologias da informação definam um conjunto repetível de recursos Azure que implemente e adere aos padrões, padrões e requisitos de uma organização. A Azure Blueprints permite que as equipas de desenvolvimento construam e suportem rapidamente novos ambientes com um conjunto de componentes incorporados e a confiança de que estão a criar esses ambientes dentro do cumprimento organizacional.
@@ -104,25 +104,25 @@ Quase todas as organizações empresariais têm um sistema de informação de se
 
 Eis algumas boas práticas para prevenir, detetar e responder a ameaças:
 
-**Melhores práticas** : Aumente a velocidade e a escalabilidade da sua solução SIEM utilizando um SIEM baseado na nuvem.   
-**Detalhe** : Investigue as funcionalidades e capacidades do [Azure Sentinel](../../sentinel/overview.md) e compare-os com as capacidades do que está a utilizar no local. Considere adotar o Azure Sentinel se cumprir os requisitos do SIEM da sua organização.
+**Melhores práticas**: Aumente a velocidade e a escalabilidade da sua solução SIEM utilizando um SIEM baseado na nuvem.   
+**Detalhe**: Investigue as funcionalidades e capacidades do [Azure Sentinel](../../sentinel/overview.md) e compare-os com as capacidades do que está a utilizar no local. Considere adotar o Azure Sentinel se cumprir os requisitos do SIEM da sua organização.
 
-**Melhores práticas** : Encontre as vulnerabilidades de segurança mais graves para que possa priorizar a investigação.   
-**Detalhe** : Reveja a sua [pontuação segura do Azure](../../security-center/secure-score-security-controls.md) para ver as recomendações resultantes das políticas e iniciativas do Azure incorporadas no Centro de Segurança Azure. Estas recomendações ajudam a resolver riscos de topo como atualizações de segurança, proteção de pontos finais, encriptação, configurações de segurança, WAF em falta, VMs ligados à Internet, e muito mais.
+**Melhores práticas**: Encontre as vulnerabilidades de segurança mais graves para que possa priorizar a investigação.   
+**Detalhe**: Reveja a sua [pontuação segura do Azure](../../security-center/secure-score-security-controls.md) para ver as recomendações resultantes das políticas e iniciativas do Azure incorporadas no Centro de Segurança Azure. Estas recomendações ajudam a resolver riscos de topo como atualizações de segurança, proteção de pontos finais, encriptação, configurações de segurança, WAF em falta, VMs ligados à Internet, e muito mais.
 
 A pontuação segura, que se baseia nos controlos do Center for Internet Security (CIS), permite comparar a segurança Azure da sua organização contra fontes externas. A validação externa ajuda a validar e enriquecer a estratégia de segurança da sua equipa.
 
-**Melhores práticas** : Monitorize a postura de segurança de máquinas, redes, serviços de armazenamento e dados e aplicações para descobrir e priorizar potenciais problemas de segurança.  
-**Detalhe** : Siga as [recomendações de segurança](../../security-center/security-center-recommendations.md) no Centro de Segurança a partir de início, com os itens de maior prioridade.
+**Melhores práticas**: Monitorize a postura de segurança de máquinas, redes, serviços de armazenamento e dados e aplicações para descobrir e priorizar potenciais problemas de segurança.  
+**Detalhe**: Siga as [recomendações de segurança](../../security-center/security-center-recommendations.md) no Centro de Segurança a partir de início, com os itens de maior prioridade.
 
-**Melhores práticas** : Integrar alertas do Centro de Segurança na sua solução de informação de segurança e gestão de eventos (SIEM).   
-**Detalhe** : A maioria das organizações com um SIEM usam-na como centro de compensação para alertas de segurança que requerem uma resposta analista. Os eventos processados produzidos pelo Security Center são publicados no Registo de Atividades do Azure, um dos registos disponíveis através do Azure Monitor. O Azure Monitor oferece um oleoduto consolidado para encaminhar qualquer um dos seus dados de monitorização para uma ferramenta SIEM. Consulte [alertas stream para uma solução siem, soar ou gestão de serviços de TI](../../security-center/export-to-siem.md) para obter instruções. Se estiver a utilizar o Azure Sentinel, consulte [o Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Melhores práticas**: Integrar alertas do Centro de Segurança na sua solução de informação de segurança e gestão de eventos (SIEM).   
+**Detalhe**: A maioria das organizações com um SIEM usam-na como centro de compensação para alertas de segurança que requerem uma resposta analista. Os eventos processados produzidos pelo Security Center são publicados no Registo de Atividades do Azure, um dos registos disponíveis através do Azure Monitor. O Azure Monitor oferece um oleoduto consolidado para encaminhar qualquer um dos seus dados de monitorização para uma ferramenta SIEM. Consulte [alertas stream para uma solução siem, soar ou gestão de serviços de TI](../../security-center/export-to-siem.md) para obter instruções. Se estiver a utilizar o Azure Sentinel, consulte [o Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
-**Melhores práticas** : Integre os registos Azure com o seu SIEM.   
-**Detalhe** : Utilize [o Monitor Azure para recolher e exportar dados](../../azure-monitor/overview.md#integrate-and-export-data). Esta prática é fundamental para permitir a investigação de incidentes de segurança, e a retenção de registos on-line é limitada. Se estiver a utilizar o Azure Sentinel, consulte [as fontes de dados do Connect](../../sentinel/connect-data-sources.md).
+**Melhores práticas**: Integre os registos Azure com o seu SIEM.   
+**Detalhe**: Utilize [o Monitor Azure para recolher e exportar dados](../../azure-monitor/overview.md#integrate-and-export-data). Esta prática é fundamental para permitir a investigação de incidentes de segurança, e a retenção de registos on-line é limitada. Se estiver a utilizar o Azure Sentinel, consulte [as fontes de dados do Connect](../../sentinel/connect-data-sources.md).
 
-**Melhores práticas** : Acelere os seus processos de investigação e caça e reduza os falsos positivos integrando as capacidades de Deteção e Resposta de Pontos Finais (EDR) na sua investigação de ataque.   
-**Detalhe** : [Ativar o Microsoft Defender para integração de Endpoint](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) através da sua política de segurança do Security Center. Considere usar Azure Sentinel para caçar ameaças e resposta a incidentes.
+**Melhores práticas**: Acelere os seus processos de investigação e caça e reduza os falsos positivos integrando as capacidades de Deteção e Resposta de Pontos Finais (EDR) na sua investigação de ataque.   
+**Detalhe**: [Ativar o Microsoft Defender para integração de Endpoint](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) através da sua política de segurança do Security Center. Considere usar Azure Sentinel para caçar ameaças e resposta a incidentes.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Monitorar monitorização de rede baseada em cenários
 Os clientes constroem uma rede de ponta a ponta no Azure, combinando recursos de rede como uma rede virtual, ExpressRoute, Application Gateway e equilibradores de carga. A monitorização está disponível em cada um dos recursos da rede.
@@ -131,31 +131,31 @@ Os clientes constroem uma rede de ponta a ponta no Azure, combinando recursos de
 
 Seguem-se as melhores práticas de monitorização da rede e de ferramentas disponíveis.
 
-**Melhores práticas** : Automatizar a monitorização da rede remota com a captura de pacotes.  
-**Detalhe** : Monitorize e diagnostice problemas de rede sem iniciar sessão nos seus VMs utilizando o Network Watcher. Captura [de pacotes](../../network-watcher/network-watcher-alert-triggered-packet-capture.md) de gatilho definindo alertas e obter acesso a informações de desempenho em tempo real ao nível do pacote. Quando vir um problema, pode investigar em detalhe para obter melhores diagnósticos.
+**Melhores práticas**: Automatizar a monitorização da rede remota com a captura de pacotes.  
+**Detalhe**: Monitorize e diagnostice problemas de rede sem iniciar sessão nos seus VMs utilizando o Network Watcher. Captura [de pacotes](../../network-watcher/network-watcher-alert-triggered-packet-capture.md) de gatilho definindo alertas e obter acesso a informações de desempenho em tempo real ao nível do pacote. Quando vir um problema, pode investigar em detalhe para obter melhores diagnósticos.
 
-**Melhores práticas** : Obtenha informações sobre o tráfego da sua rede utilizando registos de fluxo.  
-**Detalhe** : Construa uma compreensão mais profunda dos seus padrões de tráfego de rede utilizando [registos de fluxo de grupo de segurança de rede](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). A informação nos registos de fluxos ajuda-o a recolher dados para a conformidade, auditoria e monitorização do seu perfil de segurança da rede.
+**Melhores práticas**: Obtenha informações sobre o tráfego da sua rede utilizando registos de fluxo.  
+**Detalhe**: Construa uma compreensão mais profunda dos seus padrões de tráfego de rede utilizando [registos de fluxo de grupo de segurança de rede](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). A informação nos registos de fluxos ajuda-o a recolher dados para a conformidade, auditoria e monitorização do seu perfil de segurança da rede.
 
-**Melhores práticas** : Diagnosticar problemas de conectividade VPN.  
-**Detalhe** : Utilize o Observador de Rede para [diagnosticar os seus problemas de gateway VPN mais comuns e problemas de conexão](../../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Não só pode identificar o problema, mas também usar registos detalhados para investigar mais aprofundadamente.
+**Melhores práticas**: Diagnosticar problemas de conectividade VPN.  
+**Detalhe**: Utilize o Observador de Rede para [diagnosticar os seus problemas de gateway VPN mais comuns e problemas de conexão](../../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Não só pode identificar o problema, mas também usar registos detalhados para investigar mais aprofundadamente.
 
 ## <a name="secure-deployment-by-using-proven-devops-tools"></a>Implementação segura utilizando ferramentas de DevOps comprovadas
 Use as seguintes devOps para garantir que a sua empresa e equipas são produtivas e eficientes.
 
-**Melhores práticas** : Automatizar a construção e implantação de serviços.  
-**Detalhe** : [A infraestrutura como código](/azure/devops/learn/what-is-infrastructure-as-code) é um conjunto de técnicas e práticas que ajudam os profissionais de TI a eliminar o fardo da construção e gestão do dia-a-dia da infraestrutura modular. Permite que os profissionais de TI construam e mantenham o seu ambiente moderno de servidor de uma forma que é como a forma como os desenvolvedores de software constroem e mantêm o código de aplicação.
+**Melhores práticas**: Automatizar a construção e implantação de serviços.  
+**Detalhe**: [A infraestrutura como código](/azure/devops/learn/what-is-infrastructure-as-code) é um conjunto de técnicas e práticas que ajudam os profissionais de TI a eliminar o fardo da construção e gestão do dia-a-dia da infraestrutura modular. Permite que os profissionais de TI construam e mantenham o seu ambiente moderno de servidor de uma forma que é como a forma como os desenvolvedores de software constroem e mantêm o código de aplicação.
 
 Pode utilizar [o Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para forrê-lo utilizando um modelo declarativo. Num único modelo, pode implementar vários serviços, bem como as respetivas dependências. Utilize o mesmo modelo para implementar repetidamente a sua aplicação em todas as fases do ciclo de vida da aplicação.
 
-**Melhores práticas** : Construa e implemente automaticamente para aplicações web Azure ou serviços na nuvem.  
-**Detalhe** : Pode configurar os seus Projetos Azure DevOps para  [construir e implementar automaticamente](/azure/devops/pipelines/index) para aplicações web Azure ou serviços na nuvem. O Azure DevOps implanta automaticamente os binários depois de fazer uma construção para a Azure após cada check-in de código. O processo de construção de pacotes é equivalente ao comando Package em Visual Studio, e os passos de publicação são equivalentes ao comando Publicar em Visual Studio.
+**Melhores práticas**: Construa e implemente automaticamente para aplicações web Azure ou serviços na nuvem.  
+**Detalhe**: Pode configurar os seus Projetos Azure DevOps para  [construir e implementar automaticamente](/azure/devops/pipelines/index) para aplicações web Azure ou serviços na nuvem. O Azure DevOps implanta automaticamente os binários depois de fazer uma construção para a Azure após cada check-in de código. O processo de construção de pacotes é equivalente ao comando Package em Visual Studio, e os passos de publicação são equivalentes ao comando Publicar em Visual Studio.
 
-**Melhores práticas** : Gestão de lançamentos automatizada.  
-**Detalhe** : [A azure Pipelines](/azure/devops/pipelines/index) é uma solução para automatizar a implantação em várias fases e gerir o processo de libertação. Crie oleodutos de implantação contínua geridos para libertar rapidamente, facilmente e com frequência. Com a Azure Pipelines, pode automatizar o seu processo de libertação e pode ter fluxos de trabalho de aprovação predefinidos. Implementar no local e na nuvem, estender e personalizar conforme necessário.
+**Melhores práticas**: Gestão de lançamentos automatizada.  
+**Detalhe**: [A azure Pipelines](/azure/devops/pipelines/index) é uma solução para automatizar a implantação em várias fases e gerir o processo de libertação. Crie oleodutos de implantação contínua geridos para libertar rapidamente, facilmente e com frequência. Com a Azure Pipelines, pode automatizar o seu processo de libertação e pode ter fluxos de trabalho de aprovação predefinidos. Implementar no local e na nuvem, estender e personalizar conforme necessário.
 
-**Melhores práticas** : Verifique o desempenho da sua aplicação antes de a lançar ou implemente atualizações para a produção.  
-**Detalhe** : Executar [testes](/azure/devops/test/load-test/overview#alternatives) de carga baseados em nuvem para:
+**Melhores práticas**: Verifique o desempenho da sua aplicação antes de a lançar ou implemente atualizações para a produção.  
+**Detalhe**: Executar [testes](/azure/devops/test/load-test/overview#alternatives) de carga baseados em nuvem para:
 
 - Encontre problemas de desempenho na sua aplicação.
 - Melhorar a qualidade de implantação.
@@ -165,27 +165,27 @@ Pode utilizar [o Azure Resource Manager](../../azure-resource-manager/templates/
 [Apache JMeter](https://jmeter.apache.org/) é uma ferramenta de código aberto livre e popular com um forte apoio comunitário.
 
 **Melhores práticas:** Monitorizar o desempenho da aplicação.  
-**Detalhe** : [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) é um serviço extensível de gestão de desempenho de aplicações (APM) para desenvolvedores web em várias plataformas. Utilize insights de aplicação para monitorizar a sua aplicação web ao vivo. Deteta automaticamente anomalias de desempenho. Inclui ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os utilizadores realmente fazem com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
+**Detalhe**: [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) é um serviço extensível de gestão de desempenho de aplicações (APM) para desenvolvedores web em várias plataformas. Utilize insights de aplicação para monitorizar a sua aplicação web ao vivo. Deteta automaticamente anomalias de desempenho. Inclui ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os utilizadores realmente fazem com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Mitigar e proteger contra o DDoS
 A negação de serviço distribuída (DDoS) é um tipo de ataque que tenta esgotar os recursos de aplicação. O objetivo é afetar a disponibilidade da aplicação e a sua capacidade de lidar com pedidos legítimos. Estes ataques estão a tornar-se mais sofisticados e maiores em tamanho e impacto. Podem ser direcionados para qualquer ponto final que seja acessível publicamente através da internet.
 
 Projetar e construir para a resiliência do DDoS requer planeamento e conceção para uma variedade de modos de falha. Seguem-se as melhores práticas para a construção de serviços de resiliência dDoS em Azure.
 
-**Melhores práticas** : Garantir que a segurança é uma prioridade ao longo de todo o ciclo de vida de uma aplicação, desde a conceção e implementação até à implantação e operações. As aplicações podem ter bugs que permitem um volume relativamente baixo de pedidos para usar um monte de recursos, resultando numa paragem de serviço.  
-**Detalhe** : Para ajudar a proteger um serviço em execução no Microsoft Azure, deverá ter uma boa compreensão da arquitetura da sua aplicação e focar-se nos [cinco pilares da qualidade do software.](/azure/architecture/guide/pillars) Deve conhecer os volumes de tráfego típicos, o modelo de conectividade entre a aplicação e outras aplicações, e os pontos finais de serviço que estão expostos à internet pública.
+**Melhores práticas**: Garantir que a segurança é uma prioridade ao longo de todo o ciclo de vida de uma aplicação, desde a conceção e implementação até à implantação e operações. As aplicações podem ter bugs que permitem um volume relativamente baixo de pedidos para usar um monte de recursos, resultando numa paragem de serviço.  
+**Detalhe**: Para ajudar a proteger um serviço em execução no Microsoft Azure, deverá ter uma boa compreensão da arquitetura da sua aplicação e focar-se nos [cinco pilares da qualidade do software.](/azure/architecture/guide/pillars) Deve conhecer os volumes de tráfego típicos, o modelo de conectividade entre a aplicação e outras aplicações, e os pontos finais de serviço que estão expostos à internet pública.
 
 Garantir que uma aplicação é resistente o suficiente para lidar com uma negação de serviço que é direcionada para a aplicação em si é o mais importante. A segurança e a privacidade são integradas na plataforma Azure, a começar pelo Ciclo de [Vida para o Desenvolvimento de Segurança (SDL).](https://www.microsoft.com/sdl) O SDL aborda a segurança em todas as fases de desenvolvimento e garante que o Azure é continuamente atualizado para torná-lo ainda mais seguro.
 
-**Melhores práticas** : Desenhe as suas aplicações para [escalar horizontalmente](/azure/architecture/guide/design-principles/scale-out) para satisfazer a procura de uma carga amplificada, especificamente em caso de ataque DDoS. Se a sua aplicação depender de uma única instância de um serviço, cria um único ponto de falha. A provisionar várias instâncias torna o seu sistema mais resistente e escalável.  
-**Detalhe** : Para [o Azure App Service,](../../app-service/overview.md)selecione um [plano de Serviço de Aplicações](../../app-service/overview-hosting-plans.md) que oferece várias instâncias.
+**Melhores práticas**: Desenhe as suas aplicações para [escalar horizontalmente](/azure/architecture/guide/design-principles/scale-out) para satisfazer a procura de uma carga amplificada, especificamente em caso de ataque DDoS. Se a sua aplicação depender de uma única instância de um serviço, cria um único ponto de falha. A provisionar várias instâncias torna o seu sistema mais resistente e escalável.  
+**Detalhe**: Para [o Azure App Service,](../../app-service/overview.md)selecione um [plano de Serviço de Aplicações](../../app-service/overview-hosting-plans.md) que oferece várias instâncias.
 
 Para a Azure Cloud Services, configuure cada um dos seus papéis para usar [várias instâncias](../../cloud-services/cloud-services-choose-me.md).
 
 Para [máquinas virtuais Azure](../../virtual-machines/windows/overview.md), certifique-se de que a sua arquitetura VM inclui mais de um VM e que cada VM está incluído num [conjunto de disponibilidade.](../../virtual-machines/windows/tutorial-availability-sets.md) Recomendamos a utilização de conjuntos de escala de máquina virtual para capacidades de autoscalagem.
 
-**Boas práticas** : Camadas de defesas de segurança numa aplicação reduz a possibilidade de um ataque bem sucedido. Implemente designs seguros para as suas aplicações utilizando as capacidades incorporadas da plataforma Azure.  
-**Pormenor** : O risco de ataque aumenta com o tamanho (área de superfície) da aplicação. Pode reduzir a área de superfície utilizando uma lista de aprovação para fechar o espaço de endereço IP exposto e portas de audição que não são necessárias nos equilibros de carga[(Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) e [Azure Application Gateway).](../../application-gateway/application-gateway-create-probe-portal.md)
+**Boas práticas**: Camadas de defesas de segurança numa aplicação reduz a possibilidade de um ataque bem sucedido. Implemente designs seguros para as suas aplicações utilizando as capacidades incorporadas da plataforma Azure.  
+**Pormenor**: O risco de ataque aumenta com o tamanho (área de superfície) da aplicação. Pode reduzir a área de superfície utilizando uma lista de aprovação para fechar o espaço de endereço IP exposto e portas de audição que não são necessárias nos equilibros de carga[(Azure Load Balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) e [Azure Application Gateway).](../../application-gateway/application-gateway-create-probe-portal.md)
 
 [Os grupos de segurança da](../../virtual-network/network-security-groups-overview.md) rede são outra forma de reduzir a superfície de ataque. Pode utilizar [etiquetas de serviço](../../virtual-network/network-security-groups-overview.md#service-tags) e grupos de segurança de [aplicações](../../virtual-network/network-security-groups-overview.md#application-security-groups) para minimizar a complexidade para criar regras de segurança e configurar a segurança da rede, como uma extensão natural da estrutura de uma aplicação.
 
@@ -207,16 +207,16 @@ Enable Azure Policy para monitorizar e aplicar a política escrita da sua organi
 
 Eis algumas boas práticas de segurança a seguir depois de adotar a Política Azure:
 
-**Boas práticas** : A política apoia vários tipos de efeitos. Pode ler sobre eles na estrutura de [definição de Política Azure.](../../governance/policy/concepts/definition-structure.md#policy-rule) As operações comerciais podem ser negativamente afetadas pelo efeito **de negação** e pelo efeito **corretiva,** pelo que comece com o efeito **de auditoria** para limitar o risco de impacto negativo da política.   
-**Detalhe** : [Inicie as implementações de políticas em modo de auditoria](../../governance/policy/concepts/definition-structure.md#policy-rule) e, posteriormente, progrida para **negar** ou **remediar**. Teste e reveja os resultados do efeito de auditoria antes de passar a **negar** ou **remediar**.
+**Boas práticas**: A política apoia vários tipos de efeitos. Pode ler sobre eles na estrutura de [definição de Política Azure.](../../governance/policy/concepts/definition-structure.md#policy-rule) As operações comerciais podem ser negativamente afetadas pelo efeito **de negação** e pelo efeito **corretiva,** pelo que comece com o efeito **de auditoria** para limitar o risco de impacto negativo da política.   
+**Detalhe**: [Inicie as implementações de políticas em modo de auditoria](../../governance/policy/concepts/definition-structure.md#policy-rule) e, posteriormente, progrida para **negar** ou **remediar**. Teste e reveja os resultados do efeito de auditoria antes de passar a **negar** ou **remediar**.
 
 Para obter mais informações, consulte [Criar e gerir políticas para impor o cumprimento.](../../governance/policy/tutorials/create-and-manage.md)
 
-**Melhores práticas** : Identifique as funções responsáveis pela monitorização das violações das políticas e garanta que as medidas de reparação adequadas sejam tomadas rapidamente.   
-**Detalhe** : Tenha a conformidade do monitor de função atribuído através do [portal Azure](../../governance/policy/how-to/get-compliance-data.md#portal) ou através da [linha de comando](../../governance/policy/how-to/get-compliance-data.md#command-line).
+**Melhores práticas**: Identifique as funções responsáveis pela monitorização das violações das políticas e garanta que as medidas de reparação adequadas sejam tomadas rapidamente.   
+**Detalhe**: Tenha a conformidade do monitor de função atribuído através do [portal Azure](../../governance/policy/how-to/get-compliance-data.md#portal) ou através da [linha de comando](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
-**Boas práticas** : A política de azure é uma representação técnica das políticas escritas de uma organização. Mapear todas as definições da Política Azure para políticas organizacionais para reduzir a confusão e aumentar a consistência.   
-**Detalhe** : Mapear na documentação da sua organização ou na própria definição de Política Azure adicionando uma referência à política organizacional na [definição de política](../../governance/policy/concepts/definition-structure.md#display-name-and-description) ou na descrição da definição de [iniciativa.](../../governance/policy/concepts/initiative-definition-structure.md#metadata)
+**Boas práticas**: A política de azure é uma representação técnica das políticas escritas de uma organização. Mapear todas as definições da Política Azure para políticas organizacionais para reduzir a confusão e aumentar a consistência.   
+**Detalhe**: Mapear na documentação da sua organização ou na própria definição de Política Azure adicionando uma referência à política organizacional na [definição de política](../../governance/policy/concepts/definition-structure.md#display-name-and-description) ou na descrição da definição de [iniciativa.](../../governance/policy/concepts/initiative-definition-structure.md#metadata)
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitor Azure Relatórios de risco AD
 A grande maioria das falhas de segurança ocorre quando os atacantes têm acesso a um ambiente roubando a identidade de um utilizador. Descobrir identidades comprometidas não é tarefa fácil. O Azure AD utiliza algoritmos de aprendizagem automática adaptativa e heurística para detetar ações suspeitas relacionadas com as suas contas de utilizador. Cada ação suspeita detetada é armazenada num registo chamado deteção de [risco.](../../active-directory/identity-protection/overview-identity-protection.md) As deteções de risco são registadas nos relatórios de segurança da AZure. Para mais informações, leia sobre os [utilizadores em relatório](../../active-directory/identity-protection/overview-identity-protection.md) de segurança de risco e o [relatório de segurança de entradas de risco](../../active-directory/identity-protection/overview-identity-protection.md).

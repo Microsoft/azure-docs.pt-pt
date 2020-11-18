@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 20003a91726e5ccee7f73d85b7c9a9389801e0ad
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337751"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701760"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Como utilizar o OPENROWSET utilizando a piscina SQL sem servidor (pré-visualização) no Azure Synapse Analytics
 
@@ -84,7 +84,7 @@ OPENROWSET
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
-WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })  
+WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
  
 <bulk_options> ::=  
@@ -129,7 +129,7 @@ Abaixo encontrará os <storage account path> valores relevantes que irão ligar-
 Especifica um caminho dentro do seu armazenamento que aponta para a pasta ou ficheiro que pretende ler. Se o caminho aponta para um recipiente ou pasta, todos os ficheiros serão lidos a partir desse recipiente ou pasta em particular. Os ficheiros nas sub-dobradeiras não serão incluídos. 
 
 Pode utilizar wildcards para direcionar vários ficheiros ou pastas. É permitida a utilização de vários wildcards não consagrtivos.
-Abaixo está um exemplo que lê todos os *ficheiros csv* começando com a *população* de todas as pastas começando com */csv/população* :  
+Abaixo está um exemplo que lê todos os *ficheiros csv* começando com a *população* de todas as pastas começando com */csv/população*:  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Se especificar a unstructured_data_path ser uma pasta, uma consulta de piscina SQL sem servidor recuperará ficheiros dessa pasta. 
@@ -156,7 +156,7 @@ A cláusula COM permite especificar colunas que pretende ler a partir de ficheir
     > Os nomes das colunas nos ficheiros Parquet são sensíveis ao caso. Se especificar o nome da coluna com invólucro diferente do invólucro de nome de coluna no ficheiro Parquet, os valores NULL serão devolvidos para essa coluna.
 
 
-column_name = Nome para a coluna de saída. Se fornecido, este nome substitui o nome da coluna no ficheiro de origem.
+column_name = Nome para a coluna de saída. Se fornecido, este nome substitui o nome da coluna no ficheiro de origem e no nome da coluna fornecido no caminho JSON, se houver um. Se json_path não for fornecida, será automaticamente adicionada como "$.column_name". Verifique json_path argumento de comportamento.
 
 column_type = Tipo de dados para a coluna de saída. A conversão implícita do tipo de dados terá lugar aqui.
 
@@ -171,11 +171,16 @@ WITH (
 )
 ```
 
+json_path = [expressão do caminho JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) para coluna ou propriedade aninhada. O [modo de caminho](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) predefinido é laxante.
+
+> [!NOTE]
+> Em modo rigoroso, a consulta falhará com erro se o caminho fornecido não existir. Em modo laxista a consulta terá sucesso e a expressão do caminho JSON avaliará para NU.
+
 **\<bulk_options>**
 
 FIELDTERMINATOR ='field_terminator'
 
-Especifica o exterminador de campo a utilizar. O exterminador de campo predefinido é uma vírgula (" **,** ").
+Especifica o exterminador de campo a utilizar. O exterminador de campo predefinido é uma vírgula ("**,**").
 
 ROWTERMINATOR ='row_terminator''
 
@@ -273,7 +278,7 @@ Os ficheiros parquet contêm descrições de tipo para cada coluna. A tabela a s
 | INT32 |INT(8, falso) |tinyint |
 | INT32 |INT(16, falso) |int |
 | INT32 |INT(32, falso) |bigint |
-| INT32 |DATE |date |
+| INT32 |DATE |data |
 | INT32 |DECIMAL |decimal |
 | INT32 |TEMPO (MILLIS)|hora |
 | INT64 |INT(64, verdade) |bigint |
@@ -327,7 +332,7 @@ FROM
 
 ### <a name="read-specific-columns-from-csv-file"></a>Ler colunas específicas a partir do ficheiro CSV
 
-O exemplo a seguir devolve apenas duas colunas com os números ordinais 1 e 4 dos ficheiros da população*.csv. Como não há fila de cabeçalho nos ficheiros, começa a ler a partir da primeira linha:
+O exemplo a seguir devolve apenas duas colunas com os números ordinais 1 e 4 da população*.csv ficheiros. Como não há fila de cabeçalho nos ficheiros, começa a ler a partir da primeira linha:
 
 ```sql
 SELECT 
@@ -359,6 +364,32 @@ WITH (
     [stateName] VARCHAR (50),
     [population] bigint
 ) AS [r]
+```
+
+### <a name="specify-columns-using-json-paths"></a>Especifique colunas usando caminhos JSON
+
+O exemplo a seguir mostra como pode utilizar [expressões de trajetória JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) na cláusula COM e demonstra a diferença entre modos de caminho rigorosos e laxistas: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    --lax path mode samples
+    [stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+    [stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+    [COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+    [countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+
+    --strict path mode samples
+    [population] bigint 'strict $.population' -- this one works as column name casing is valid
+    --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+)
+AS [r]
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

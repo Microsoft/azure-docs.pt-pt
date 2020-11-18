@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932887"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701138"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Criar um índice básico de pesquisa em Azure Cognitive Search
 
@@ -59,7 +59,7 @@ Chegar a um design de índice final é um processo iterativo. É comum começar 
 
    ![Adicionar página de índice mostrando atributos por tipo de dados](media/search-what-is-an-index//field-definitions.png "Adicionar página de índice mostrando atributos por tipo de dados")
 
-1. Descarregue o esquema de índice usando [Get Index (REST API)](/rest/api/searchservice/get-index) e uma ferramenta de teste web como [o Carteiro.](search-get-started-postman.md) Tem agora uma representação JSON do índice que pode adaptar-se ao código.
+1. Descarregue o esquema de índice usando [Get Index (REST API)](/rest/api/searchservice/get-index) e uma ferramenta de teste web como [o Carteiro.](search-get-started-rest.md) Tem agora uma representação JSON do índice que pode adaptar-se ao código.
 
 1. [Carregue o seu índice com dados.](search-what-is-data-import.md) A Azure Cognitive Search aceita documentos JSON. Para carregar os seus dados programáticamente, pode utilizar o Carteiro com documentos JSON na carga útil do pedido. Se os seus dados não forem facilmente expressos como JSON, este passo será o mais intensivo de trabalho. 
 
@@ -70,7 +70,7 @@ Chegar a um design de índice final é um processo iterativo. É comum começar 
 Durante o desenvolvimento, planeie reconstruções frequentes. Porque as estruturas físicas são criadas no serviço, [a queda e a recriação de índices](search-howto-reindex.md) são necessárias para a maioria das modificações a uma definição de campo existente. Pode considerar trabalhar com um subconjunto dos seus dados para fazer com que as reconstruções vão mais rápido. 
 
 > [!Tip]
-> O código, em vez de uma abordagem do portal, é recomendado para trabalhar em design de índice e importação de dados simultaneamente. Como alternativa, ferramentas como [o Carteiro e a API REST](search-get-started-postman.md) são úteis para testes de prova de conceito quando os projetos de desenvolvimento ainda estão em fase inicial. Pode escruissar alterações incrementais a uma definição de índice num organismo de pedido e, em seguida, enviar o pedido ao seu serviço para recriar um índice utilizando um esquema atualizado.
+> O código, em vez de uma abordagem do portal, é recomendado para trabalhar em design de índice e importação de dados simultaneamente. Como alternativa, ferramentas como [o Postman e o Visual Studio Code](search-get-started-rest.md) são úteis para testes de prova de conceito quando os projetos de desenvolvimento ainda estão em fase inicial. Pode escruissar alterações incrementais a uma definição de índice num organismo de pedido e, em seguida, enviar o pedido ao seu serviço para recriar um índice utilizando um esquema atualizado.
 
 ## <a name="index-schema"></a>Esquema de índice
 
@@ -169,7 +169,7 @@ Os campos têm um nome, um tipo que classifica os dados armazenados, e atributos
 
 ### <a name="data-types"></a>Tipos de dados
 
-| Tipo | Descrição |
+| Tipo | Description |
 |------|-------------|
 | Edm.String |Texto que pode opcionalmente ser tokenized para pesquisa de texto completo (quebra de palavras, cauling, e assim por diante). |
 | Coleção (Edm.String) |Uma lista de cadeias que pode, opcionalmente, ser atomizada para pesquisa em texto completo. Não existe um limite superior teórico do número de itens numa coleção, contudo, o limite superior de 16 MB de tamanho de payload aplica-se às coleções. |
@@ -242,7 +242,7 @@ A imagem a seguir ilustra padrões de armazenamento de índices resultantes de v
 
 ![Tamanho do índice com base na seleção de atributos](./media/search-what-is-an-index/realestate-index-size.png "Tamanho do índice com base na seleção de atributos")
 
-Embora estas variantes de índice sejam artificiais, podemos referir-nos a elas para comparações amplas de como os atributos afetam o armazenamento. A definição "recuperável" aumenta o tamanho do índice? N.º Adicionar campos a um **indicador aumenta** o tamanho do índice? Sim.
+Embora estas variantes de índice sejam artificiais, podemos referir-nos a elas para comparações amplas de como os atributos afetam o armazenamento. A definição "recuperável" aumenta o tamanho do índice? Não. Adicionar campos a um **indicador aumenta** o tamanho do índice? Sim.
 
 Os índices que suportam filtro e classificação são proporcionalmente maiores do que os índices que suportam apenas a pesquisa completa de texto. Isto porque filtrar e classificar as operações para obter correspondências exatas, exigindo a presença de cordas de texto verbatim. Em contraste, os campos pes pesjáveis que suportam consultas de texto completo usam índices invertidos, que são povoados com termos simbólicos que consomem menos espaço do que documentos inteiros. 
 

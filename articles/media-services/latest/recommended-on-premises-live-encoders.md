@@ -6,15 +6,15 @@ keywords: codificação;codificadores;meios de comunicação
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/31/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 3532032f8fd3ac6e673d3913fd13f7f83ae7759e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88de41ae62e3a81fdb51981afe42135649bf34b4
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295364"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734315"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificadores de streaming verificados no local
 
@@ -50,6 +50,7 @@ Ao transmitir em fluxo através de RTMPS, verifique as definições da firewall 
 > Os codificadores devem suportar o TLS 1.2 quando utilizarem os protocolos RTMPS.
 
 - Adobe Flash Media Live Encoder 3.2
+- [Antix Digital](http://www.antixdigital.com/) StreamZ Live (anteriormente Imagine Communication SelenioFlex Live)
 - [Blackmagic ATEM Mini e ATEM Mini PRO](https://www.blackmagicdesign.com/products/atemmini)
 - [Cambria Ao Vivo 4.3](https://www.capellasystems.net/products/cambria-live/)
 - Elemental Live (versão 2.14.15 e superior)
@@ -78,11 +79,11 @@ Os Media Services recomendam a utilização de um dos seguintes codificadores ao
 > Os codificadores devem suportar o TLS 1.2 quando utilizarem os protocolos HTTPS.
 
 - Ateme TITAN Live
+- [Antix Digital](http://www.antixdigital.com/) StreamZ Live (anteriormente Imagine Communication SelenioFlex Live)
 - Cisco Digital Media Encoder 2200
 - Elemental Live (versão 2.14.15 e superior devido ao requisito TLS 1.2)
 - Envivio 4Caster C4 Gen III 
 - [Ffmpeg](https://www.ffmpeg.org)
-- Imagine comunicações Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
 
 > [!TIP]
@@ -116,7 +117,7 @@ Para reproduzir conteúdo, tanto um stream de áudio como de vídeo deve estar p
 > [!IMPORTANT]
 > Observe a condição física da máquina (CPU / Memória / etc) pois o upload de fragmentos para a nuvem envolve operações de CPU e IO. Se alterar quaisquer definições no codificador, certifique-se de que repor os canais /evento ao vivo para que a alteração produza efeitos.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Streaming em direto com media services v3](live-streaming-overview.md)
 

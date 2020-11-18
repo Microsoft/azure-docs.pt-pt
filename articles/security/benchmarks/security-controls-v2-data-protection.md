@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8e12a74ee689ba7b013b1c4a6881deac78680be0
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408927"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701053"
 ---
 # <a name="security-control-v2-data-protection"></a>Controlo de Segurança V2: Proteção de Dados
 
@@ -34,7 +34,7 @@ Pode utilizar a Azure SQL Information Protection para ajudar na classificação 
 
 - [Como implementar a Azure SQL Data Discovery](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**Responsabilidade** : Compartilhado
+**Responsabilidade**: Compartilhado
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -50,17 +50,17 @@ Pode utilizar a Azure SQL Information Protection para ajudar na classificação 
 |--|--|--|--|
 | DP-2 | 13.2, 2.10 | SC-7, AC-4 |
 
-Proteja os dados sensíveis restringindo o acesso utilizando o Azure Role Based Access Control (Azure RBAC), controlos de acesso baseados em rede e controlos específicos nos serviços Azure (como encriptação em SQL e outras bases de dados). 
+Proteja os dados sensíveis restringindo o acesso utilizando o controlo de acesso baseado em funções Azure (Azure RBAC), controlos de acesso baseados em rede e controlos específicos nos serviços Azure (como encriptação em SQL e outras bases de dados). 
 
 Para garantir um controlo de acesso consistente, todos os tipos de controlo de acesso devem estar alinhados com a sua estratégia de segmentação empresarial. A estratégia de segmentação da empresa também deve ser informada pela localização de dados e sistemas críticos sensíveis ou empresariais.
 
 Para a plataforma subjacente, que é gerida pela Microsoft, a Microsoft trata todos os conteúdos do cliente como sensíveis e protege contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou alguns controlos e capacidades de proteção de dados predefinidos.
 
-- [Controlo de Acesso Baseado em Função Azure (RBAC)](../../role-based-access-control/overview.md)
+- [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/overview.md)
 
 - [Compreender a proteção de dados do cliente em Azure](../fundamentals/protection-customer-data.md)
 
-**Responsabilidade** : Compartilhado
+**Responsabilidade**: Compartilhado
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -88,7 +88,7 @@ Se necessário para o cumprimento da prevenção de perda de dados (DLP), pode u
 
 - [Ativar o Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**Responsabilidade** : Compartilhado
+**Responsabilidade**: Compartilhado
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -116,7 +116,7 @@ Por padrão, o Azure fornece encriptação para dados em trânsito entre centros
 
 - [Dupla encriptação para dados do Azure em trânsito](../fundamentals/double-encryption.md#data-in-transit)
 
-**Responsabilidade** : Compartilhado
+**Responsabilidade**: Compartilhado
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -146,7 +146,7 @@ O Azure fornece encriptação para dados em repouso por padrão. Para dados alta
 
 - [Dados em repouso dupla encriptação em Azure](../fundamentals/double-encryption.md#data-at-rest)
 
-**Responsabilidade** : Compartilhado
+**Responsabilidade**: Compartilhado
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

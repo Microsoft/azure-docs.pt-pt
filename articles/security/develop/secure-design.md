@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e8eab3a1054541b1ef7fc6d2e65089f01f0df3c0
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ad3980db6348867e92664e314326d23b4274abcc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517160"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701573"
 ---
 # <a name="design-secure-applications-on-azure"></a>Design aplicações seguras em Azure
 Neste artigo apresentamos atividades de segurança e controlos a ter em conta quando desenha aplicações para a nuvem. São abrangidos os recursos de formação, juntamente com questões de segurança e conceitos a ter em conta durante as fases de requisitos e de conceção do Ciclo de Vida para o Desenvolvimento de Segurança da Microsoft [(SDL).](/previous-versions/windows/desktop/cc307891(v=msdn.10)) O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenhar uma aplicação mais segura.
@@ -217,7 +217,7 @@ Utilize mecanismos de autenticação e autorização fornecidos pela plataforma 
 
 O conceito de [menor privilégio](https://en.wikipedia.org/wiki/Principle_of_least_privilege) significa dar aos utilizadores o nível preciso de acesso e controlo de que necessitam para fazerem o seu trabalho e nada mais.
 
-Um desenvolvedor de software precisaria de direitos de administração de domínio? Um assistente administrativo precisaria de acesso aos controlos administrativos no seu computador pessoal? Avaliar o acesso ao software não é diferente. Se utilizar [o controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) para dar aos utilizadores diferentes habilidades e autoridade na sua aplicação, não daria a todos acesso a tudo. Ao limitar o acesso ao que é necessário para cada função, limita-se o risco de ocorrência de um problema de segurança.
+Um desenvolvedor de software precisaria de direitos de administração de domínio? Um assistente administrativo precisaria de acesso aos controlos administrativos no seu computador pessoal? Avaliar o acesso ao software não é diferente. Se utilizar o [controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) para dar aos utilizadores diferentes habilidades e autoridade na sua aplicação, não daria a todos acesso a tudo. Ao limitar o acesso ao que é necessário para cada função, limita-se o risco de ocorrência de um problema de segurança.
 
 Certifique-se de que a sua aplicação impõe [menos privilégios](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) ao longo dos seus padrões de acesso.
 
@@ -233,7 +233,7 @@ Implementar o acesso *just-in-time* (JIT) para reduzir ainda mais o tempo de exp
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Exigir a reautensão para transações importantes
 
-[A falsificação de pedidos de cross-site](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (também conhecida como *XSRF* ou *CSRF* ) é um ataque contra aplicações hospedadas na Web em que uma aplicação web maliciosa influencia a interação entre um navegador de cliente e uma aplicação web que confia nesse navegador. Os ataques de falsificação de pedidos de sites são possíveis porque os navegadores da Web enviam automaticamente alguns tipos de fichas de autenticação a cada pedido para um website.
+[A falsificação de pedidos de cross-site](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (também conhecida como *XSRF* ou *CSRF*) é um ataque contra aplicações hospedadas na Web em que uma aplicação web maliciosa influencia a interação entre um navegador de cliente e uma aplicação web que confia nesse navegador. Os ataques de falsificação de pedidos de sites são possíveis porque os navegadores da Web enviam automaticamente alguns tipos de fichas de autenticação a cada pedido para um website.
 Esta forma de exploração também é conhecida como um *ataque de um clique* ou uma *sessão de equitação* porque o ataque aproveita a sessão anteriormente autenticada do utilizador.
 
 A melhor forma de se defender deste tipo de ataque é pedir ao utilizador algo que só o utilizador pode fornecer antes de cada transação importante, como uma compra, desativação de conta ou uma alteração de senha. Pode pedir ao utilizador para reentrar na sua palavra-passe, completar um captcha ou enviar um sinal secreto que só o utilizador teria. A abordagem mais comum é o símbolo secreto.

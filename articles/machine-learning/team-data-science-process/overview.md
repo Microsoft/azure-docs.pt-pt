@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: overview
-ms.date: 1/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc9a5e604e6ac52eb0e853725123272ca924fa36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4a341d33c957af8fe7423bda80f1d34a7f59cdd6
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91362236"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738004"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 
@@ -70,7 +70,7 @@ O diagrama seguinte proporciona uma visão da grelha das tarefas (em azul) e art
 
 Ter todos os projetos compartilhando uma estrutura de diretório e modelos de uso para documentos de projeto torna fácil para os membros da equipa encontrar informações sobre seus projetos. Todos os códigos e documentos são armazenados num sistema de controlo de versão (VCS) como Git, TFS ou Subversão para permitir a colaboração da equipa. O rastreio de tarefas e funcionalidades num sistema ágil de rastreio de projetos como Jira, Rally e Azure DevOps permite um rastreio mais próximo do código para funcionalidades individuais. Este rastreio também permite que as equipas obtenham melhores estimativas de custos. A TDSP recomenda a criação de um repositório separado para cada projeto no VCS para a versão, segurança da informação e colaboração. A estrutura padronizada para todos os projetos ajuda a construir conhecimento institucional em toda a organização.
 
-Fornecemos modelos para a estrutura da pasta e documentos necessários em locais padrão. Esta estrutura de pasta organiza os ficheiros que contêm código para a exploração de dados e extração de recursos, e que registam iterações de modelos. Estes modelos facilitam aos membros da equipa a compreensão do trabalho feito pelos outros e a adição de novos membros às equipas. É fácil visualizar e atualizar modelos de documentos em formato de marcação. Use modelos para fornecer listas de verificação com questões-chave para cada projeto para garantir que o problema está bem definido e que os resultados vão de encontro à qualidade esperada. Alguns exemplos:
+Fornecemos modelos para a estrutura da pasta e documentos necessários em locais padrão. Esta estrutura de pasta organiza os ficheiros que contêm código para a exploração de dados e extração de recursos, e que registam iterações de modelos. Estes modelos facilitam aos membros da equipa a compreensão do trabalho feito pelos outros e a adição de novos membros às equipas. É fácil visualizar e atualizar modelos de documentos em formato de marcação. Use modelos para fornecer listas de verificação com questões-chave para cada projeto para garantir que o problema está bem definido e que os resultados vão de encontro à qualidade esperada. Os exemplos incluem:
 
 - uma carta de projeto para documentar o problema de negócios e âmbito do projeto
 - relatórios de dados para documentar a estrutura e as estatísticas dos dados brutos
@@ -100,7 +100,7 @@ Aqui está um exemplo de uma equipa que trabalha em vários projetos e partilha 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Ferramentas e utilidades para a execução do projeto
 
-Introduzir processos na maioria das organizações é um desafio. As ferramentas fornecidas para implementar o processo de ciência dos dados e o ciclo de vida ajudam a reduzir as barreiras e aumentar a consistência da sua adoção. A TDSP fornece um conjunto inicial de ferramentas e scripts para iniciar a adoção de TDSP dentro de uma equipa. Também ajuda a automatizar algumas das tarefas comuns no ciclo de vida da ciência dos dados, como a exploração de dados e modelação de base. Existe uma estrutura bem definida, fornecida para que os indivíduos contribuam com ferramentas e utilidades partilhadas no repositório de código partilhado da sua equipa. Estes recursos podem então ser alavancados por outros projetos dentro da equipa ou da organização. A TDSP também planeia permitir as contribuições de ferramentas e serviços públicos para toda a comunidade. Os utilitários TDSP podem ser clonados a partir do [GitHub.](https://github.com/Azure/Azure-TDSP-Utilities)
+Introduzir processos na maioria das organizações é um desafio. As ferramentas fornecidas para implementar o processo de ciência dos dados e o ciclo de vida ajudam a reduzir as barreiras e aumentar a consistência da sua adoção. A TDSP fornece um conjunto inicial de ferramentas e scripts para iniciar a adoção de TDSP dentro de uma equipa. Também ajuda a automatizar algumas das tarefas comuns no ciclo de vida da ciência dos dados, como a exploração de dados e modelação de base. Existe uma estrutura bem definida, fornecida para que os indivíduos contribuam com ferramentas e utilidades partilhadas no repositório de código partilhado da sua equipa. Estes recursos podem então ser alavancados por outros projetos dentro da equipa ou da organização.  A Microsoft fornece uma extensa ferramenta dentro do [Azure Machine Learning](../index.yml) suportando tanto a open-source (Python, R, ONNX e quadros comuns de deep learning) como também a própria ferramenta da Microsoft (AutoML).
 
 
 ## <a name="next-steps"></a>Passos seguintes

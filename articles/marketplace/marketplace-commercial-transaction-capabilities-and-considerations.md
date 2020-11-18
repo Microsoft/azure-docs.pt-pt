@@ -4,27 +4,27 @@ description: Este artigo descreve os preços, a faturação, a faturação e as 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: c6ce256db907589ace7e77157397257732564fb6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9a975ee863e81a9f542e717d734f12db850f749e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130328"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738327"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transação de mercado comercial
 
-Este artigo descreve os preços, a faturação, a faturação e as considerações de pagamento para o mercado comercial da Microsoft. 
+Este artigo descreve os preços, a faturação, a faturação e as considerações de pagamento para o mercado comercial da Microsoft.
 
 ## <a name="transactions-by-listing-option"></a>Transações por opção de listagem
 
-A editora ou a Microsoft são responsáveis pela gestão de transações de licenças de software para ofertas no mercado comercial. A opção de listagem que escolhe para a sua oferta determina quem gere a transação. Consulte [Escolha uma opção de listagem](./determine-your-listing-type.md#choose-a-listing-option) para disponibilidade e explicações de cada opção de publicação.
+A editora ou a Microsoft são responsáveis pela gestão de transações de licenças de software para ofertas no mercado comercial. A opção de listagem que escolhe para a sua oferta determina quem gere a transação. Para disponibilidade e explicações de cada opção de publicação, consulte [Introdução às opções de listagem](determine-your-listing-type.md)
 
 ### <a name="contact-me-free-trial-and-byol-options"></a>Contacte-me, teste gratuito e opções BYOL
 
-Os editores podem escolher o _teste Contact me_ e _Free,_ opções para fins promocionais e de aquisição de utilizadores. Para alguns tipos de oferta, os editores podem escolher a opção trazer a sua própria licença (BYOL) para permitir que os clientes comprem uma subscrição da sua oferta usando uma licença que compraram diretamente de si. Com estas opções, a Microsoft não participa diretamente nas transações de licenças de software da editora e não há nenhuma taxa de transação associada. 
+Os editores podem escolher o _teste Contact me_ e _Free,_ opções para fins promocionais e de aquisição de utilizadores. Para alguns tipos de oferta, os editores podem escolher a opção trazer a sua própria licença (BYOL) para permitir que os clientes comprem uma subscrição da sua oferta usando uma licença que compraram diretamente de si. Com estas opções, a Microsoft não participa diretamente nas transações de licenças de software da editora e não há nenhuma taxa de transação associada.
 
 Os editores são responsáveis por apoiar todos os aspetos da transação de licença de software. Isto inclui, mas não se limita à ordem, cumprimento, medição, faturação, faturação, pagamento e cobrança. Com a opção de listagem Contacte-me, as editoras mantêm 100% das taxas de licenciamento de software de editores cobradas ao cliente.
 
@@ -84,7 +84,15 @@ Para cenários de publicação de transações, pode disponibilizar gratuitament
 
 Além de usar tipos de oferta e modelos de faturação para rentabilizar uma oferta, você pode transagir uma oferta privada, completa com preços negociados, específicos do negócio ou configurações personalizadas. As ofertas privadas são apoiadas pelas três opções de publicação de transações.
 
-Esta opção permite preços mais altos ou mais baixos do que a oferta publicamente disponível. As ofertas privadas podem ser usadas para descontar ou adicionar um prémio a uma oferta. As ofertas privadas podem ser disponibilizadas a um ou mais clientes, listando a sua subscrição Azure ao nível da oferta.
+Esta opção permite preços mais altos ou mais baixos do que a oferta publicamente disponível. Você pode usar ofertas privadas para desconto ou adicionar um prémio a uma oferta. Pode disponibilizar ofertas privadas a um ou mais clientes, listando a sua subscrição Azure ao nível da oferta.
+
+### <a name="commercial-marketplace-service-fees"></a>Taxas de serviço de mercado comercial
+
+Cobramos uma taxa de serviço de loja padrão de 20% quando os clientes compram a sua oferta de transação no mercado comercial. Para mais informações sobre esta taxa, consulte a secção 5c do [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560).
+
+Para certas ofertas transacionáveis que publica no mercado comercial, poderá beneficiar de uma taxa reduzida de serviço de loja de 10%. Para uma oferta de qualificação, deve ter sido designada pela Microsoft como Azure IP Co-sell incentivado. A elegibilidade deve ser cumprida pelo menos cinco dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês.
+
+A Taxa reduzida de Serviço de Marketplace aplica-se à Azure IP Co-vender saaS, VMs, apps geridas e quaisquer outras soluções de IaAS transacionáveis qualificadas disponibilizadas através do mercado comercial. As ofertas pagas do SaaS associadas a uma aplicação da Microsoft Teams ou a pelo menos dois add-ins microsoft 365 (Excel, PowerPoint, Word, Outlook e SharePoint) e publicadas no Microsoft AppSource também recebem este desconto.
 
 ### <a name="examples"></a>Exemplos
 
@@ -143,10 +151,6 @@ Neste cenário, a Microsoft fatura $100,00 pela sua licença de software e paga 
 |---------|---------|
 |Microsoft paga-lhe 80% do custo da sua licença <br> \* A Microsoft paga-lhe 90% do custo da sua licença por quaisquer aplicações SaaS qualificadas   |   $80,00 por mês <br> \* $90,00 por mês    |
 |Microsoft mantém 20% do custo da sua licença <br> \* A Microsoft mantém 10% do custo da sua licença para quaisquer aplicações SaaS qualificadas.  |  $20,00 por mês <br> \* $10,00     |
-
-### <a name="reduced-service-fee"></a>Taxa reduzida de serviço
-
-Para certas ofertas que publica no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560)) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser cumprida pelo menos cinco dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa de Serviço de Mercado Reduzida aplica-se à Azure IP Co-vender saaS, VMs, apps geridas e quaisquer outras ofertas de iass transacionáveis qualificadas disponibilizadas através do mercado comercial. As ofertas pagas do SaaS associadas a uma aplicação da Microsoft Teams ou a pelo menos dois add-ins microsoft 365 (Excel, PowerPoint, Word, Outlook e SharePoint) e publicadas no AppSource também recebem este desconto.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Faturação, pagamento, faturação e cobranças de clientes
 

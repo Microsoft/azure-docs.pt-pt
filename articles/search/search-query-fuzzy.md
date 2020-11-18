@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934893"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701590"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Pesquisa fuzzy para corrigir erros ortográficos e erros de tipografia
 
@@ -73,7 +73,7 @@ Na Pesquisa Cognitiva Azure, além do termo e distância (máximo de 2), não ex
 
 ## <a name="testing-fuzzy-search"></a>Testar pesquisa duvidosa
 
-Para testes simples, recomendamos [pesquisar explorador](search-explorer.md) ou [carteiro](search-get-started-postman.md) para iterar sobre uma expressão de consulta. Ambas as ferramentas são interativas, o que significa que você pode passar rapidamente através de várias variantes de um termo e avaliar as respostas que voltam.
+Para testes simples, recomendamos [pesquisar explorador](search-explorer.md) ou [carteiro](search-get-started-rest.md) para iterar sobre uma expressão de consulta. Ambas as ferramentas são interativas, o que significa que você pode passar rapidamente através de várias variantes de um termo e avaliar as respostas que voltam.
 
 Quando os resultados são ambíguos, [o destaque de sucesso](search-pagination-page-layout.md#hit-highlighting) pode ajudá-lo a identificar a partida na resposta. 
 
@@ -132,7 +132,7 @@ Note que a mesma resposta é devolvida, mas agora em vez de combinar em "especia
 
 O objetivo deste exemplo alargado é ilustrar a clareza que o destaque pode trazer a resultados ambíguos. Em todos os casos, o mesmo documento é devolvido. Se tivesse confiado em documentos de identificação para verificar uma correspondência, poderia ter perdido a mudança de "especial" para "SQL".
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Como funciona a pesquisa completa de texto na Azure Cognitive Search (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Explorador de pesquisa](search-explorer.md)

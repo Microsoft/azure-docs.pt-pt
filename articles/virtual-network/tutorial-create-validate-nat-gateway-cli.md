@@ -15,24 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7d4467e557105100fc32940c05fa349722689867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ec054d55432ad2680314b4ff91a067d37b629d4
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054379"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734335"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutorial: Criar uma porta de entrada NAT usando O CLI Azure e testar o serviço NAT
 
 Neste tutorial, você vai criar uma porta de entrada NAT para fornecer conectividade de saída para máquinas virtuais em Azure. Para testar o gateway NAT, você implanta uma máquina virtual de origem e destino. Você vai testar o gateway NAT fazendo ligações de saída para um endereço IP público. Estas ligações virão da fonte para a máquina virtual de destino. Este tutorial implementa a origem e o destino em duas redes virtuais diferentes no mesmo grupo de recursos apenas para a simplicidade.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Pode completar este tutorial usando a Azure Cloud Shell ou executar os respetivos comandos localmente.  Se não usou a Azure Cloud Shell, deve [entrar agora.](https://shell.azure.com)
-
-Se optar por executar estes comandos localmente, tem de instalar o CLI.  Este tutorial requer que esteja a executar uma versão da versão 2.0.71 do Azure CLI ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
-
+- Este artigo requer a versão 2.0.71 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

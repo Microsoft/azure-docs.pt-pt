@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 43b28c9f2efc8ffe17e0bf21b1c395d64e89b6a8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6e2df9168b880e565ea9b70c82c2c0c1b55b4db8
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660020"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737248"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Tutorial: Implementar Azure Spring Cloud em rede virtual Azure (injeção VNet)
 
@@ -31,6 +31,7 @@ Deve registar-se o fornecedor de recursos Azure Spring Cloud *Microsoft.AppPlatf
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
+az provider register --namespace Microsoft.ContainerService
 ```
 ## <a name="virtual-network-requirements"></a>Requisitos de rede virtual
 A rede virtual à qual implementa a sua instância de serviço Azure Spring Cloud deve satisfazer os seguintes requisitos:
@@ -150,11 +151,11 @@ Esses recursos de rede estão ligados à sua rede virtual criada acima.
    > [!Important]
    > Os grupos de recursos são totalmente geridos pelo serviço Azure Spring Cloud. Não elimine manualmente ou modifique qualquer recurso no seu interior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Implementar aplicação para Azure Spring Cloud no seu VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Resolução de problemas Azure Spring Cloud em VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [Responsabilidades do cliente para correr Azure Spring Cloud em VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)

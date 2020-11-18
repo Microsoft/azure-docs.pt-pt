@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6dd64ae8b7b7307d7dcd510d1fdb877365c6f36
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8dc2eb898c12e374bc503c5a05f00eb20667443b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675952"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701845"
 ---
 # <a name="quickstart-create-a-search-index-using-the-legacy-microsoftazuresearch-v10-client-library"></a>Quickstart: Criar um índice de pesquisa utilizando o legado Microsoft.Azure.Search v10 client library
 
@@ -55,7 +55,7 @@ As chamadas para o serviço requerem um ponto final URL e uma chave de acesso em
 
    Pegue a chave de consulta também. É uma boa prática emitir pedidos de consulta com acesso apenas de leitura.
 
-![Obtenha uma chave de acesso http e acesso](media/search-get-started-postman/get-url-key.png "Obtenha uma chave de acesso http e acesso")
+![Obtenha uma chave de acesso http e acesso](media/search-get-started-rest/get-url-key.png "Obtenha uma chave de acesso http e acesso")
 
 Todos os pedidos requerem uma chave API em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
@@ -69,7 +69,7 @@ O [pacote Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure
 
 Para este projeto, utilize a versão 10 do `Microsoft.Azure.Search` pacote NuGet e o mais recente `Microsoft.Extensions.Configuration.Json` pacote NuGet.
 
-1. In **Tools**  >  **NuGet Package Manager** , selecione Gerir **pacotes nuget para solução...** . 
+1. In **Tools**  >  **NuGet Package Manager**, selecione Gerir **pacotes nuget para solução...**. 
 
 1. Clique em **Browse** (Procurar).
 
@@ -86,9 +86,9 @@ Para este projeto, utilize a versão 10 do `Microsoft.Azure.Search` pacote NuGet
 
 1. Em Add New Item, procure por "JSON" para devolver uma lista de tipos de artigos relacionados com JSON.
 
-1. Escolha **o Ficheiro JSON,** nomeie o ficheiro "appsettings.jsligado", e clique em **Adicionar** . 
+1. Escolha **o Ficheiro JSON,** nomeie o ficheiro "appsettings.jsligado", e clique em **Adicionar**. 
 
-1. Adicione o ficheiro ao seu diretório de saída. Clique appsettings.jsà direita e selecione **Propriedades.** No **Copy to Output Directory** , selecione Copy if **newer** .
+1. Adicione o ficheiro ao seu diretório de saída. Clique appsettings.jsà direita e selecione **Propriedades.** No **Copy to Output Directory**, selecione Copy if **newer**.
 
 1. Copie o seguinte JSON no seu novo ficheiro JSON. 
 

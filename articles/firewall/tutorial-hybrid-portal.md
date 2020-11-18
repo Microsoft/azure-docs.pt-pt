@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/19/2020
+ms.date: 11/17/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 89a6239a28c66ab24f423c19baf0d329f87b38d5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 78e934a90b8d4e8feccf18a5cada3ec4920e1642
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658609"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734458"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementar e configurar a Firewall Azure numa rede híbrida utilizando o portal Azure
 
@@ -88,16 +88,17 @@ Agora, crie o VNet:
 
 1. A partir da página inicial do portal Azure, **selecione Criar um recurso**.
 2. Em **Rede,** selecione **Rede Virtual.**
-7. Para **o grupo de recursos**, selecione **FW-Hybrid-Test**.
+1. Selecione **Criar**.
+1. Para **o grupo de recursos**, selecione **FW-Hybrid-Test**.
 1. Para **nome,** tipo **VNet-hub**.
-2. Selecione **Seguinte: Endereços IP**.
-3. Para **o espaço IPv4 Address,** tipo **10.5.0.0/16**.
-6. No **nome da sub-rede,** selecione **predefinição**.
-7. para **o nome** **AzureFirewallSubnet**. A firewall estará nesta sub-rede, e o nome da sub-rede **tem** de ser AzureFirewallSubnet.
-8. Para **a gama Address**, tipo **10.5.0.0/26**. 
-9. Selecione **Guardar**.
-10. Selecione **Rever + criar**.
-11. Selecione **Criar**.
+1. Selecione **Seguinte: Endereços IP**.
+1. Para **o espaço IPv4 Address,** elimine o endereço predefinido e o tipo **10.5.0.0/16**.
+1. No **nome da sub-rede,** selecione **Adicionar sub-rede**.
+1. Para o nome **da sub-rede,** tipo **AzureFirewallSubnet**. A firewall estará nesta sub-rede, e o nome da sub-rede **tem** de ser AzureFirewallSubnet.
+1. Para **a gama de endereços sub-rede**, tipo **10.5.0.0/26**. 
+1. Selecione **Adicionar**.
+1. Selecione **Rever + criar**.
+1. Selecione **Criar**.
 
 ## <a name="create-the-spoke-virtual-network"></a>Criar a rede virtual falada
 
@@ -107,11 +108,11 @@ Agora, crie o VNet:
 1. Para **nome**, tipo **VNet-Spoke**.
 2. Para **a Região**, selecione **(EUA) Leste DOS EUA.**
 3. Selecione **Seguinte: Endereços IP**.
-4. Para **o espaço de endereço IPv4**, tipo **10.6.0.0/16**.
-6. No **nome da sub-rede,** selecione **predefinição**.
-7. para **o tipo de nome** **SN-Workload**.
-8. Para **a gama Address**, tipo **10.6.0.0/24**. 
-9. Selecione **Guardar**.
+4. Para **o espaço de endereço IPv4,** elimine o endereço predefinido e o tipo **10.6.0.0/16**.
+6. No **nome da sub-rede,** selecione **Adicionar sub-rede**.
+7. Para o tipo **de sub-rede** **SN-Workload**.
+8. Para **a gama de endereços sub-rede**, tipo **10.6.0.0/24**. 
+9. Selecione **Adicionar**.
 10. Selecione **Rever + criar**.
 11. Selecione **Criar**.
 
@@ -123,11 +124,11 @@ Agora, crie o VNet:
 1. Para **nome**, tipo **VNet-OnPrem**.
 2. Para **a Região**, selecione **(EUA) Leste DOS EUA.**
 3. Selecione **Seguinte : Endereços IP**
-4. Para **o espaço de endereço IPv4**, tipo **192.168.0.0/16**.
-5. No **nome da sub-rede,** selecione **predefinição**.
-7. para **o nome** **SN-Corp**.
-8. Em **Intervalo de endereços**, escreva **192.168.1.0/24**. 
-9. Selecione **Guardar**.
+4. Para **o espaço de endereço IPv4**, elimine o endereço predefinido e o tipo **192.168.0.0/16**.
+5. No **nome da sub-rede,** selecione **Adicionar sub-rede**.
+7. Para o nome **sub-rede** tipo **SN-Corp**.
+8. Para **a gama de endereços sub-rede**, tipo **192.168.1.0/24**. 
+9. Selecione **Adicionar**.
 10. Selecione **Rever + criar**.
 11. Selecione **Criar**.
 
@@ -272,21 +273,31 @@ Agora, espreita o centro e fala redes virtuais.
 1. Abra o grupo de recursos **FW-Hybrid-Test** e selecione a rede virtual **VNet-hub.**
 2. Na coluna esquerda, **selecione Peerings**.
 3. Selecione **Adicionar**.
-4. Para **nome,** **escreva HubtoSpoke**.
-5. Para a **rede Virtual**, selecione **VNet-spoke**
-6. Para o nome do espremiamento de VNetSpoke para VNet-hub, **escreva SpoketoHub**.
-7. Selecione **Permita o trânsito de gateway**.
-8. Selecione **OK**.
+4. Nesta **rede virtual:**
+ 
+   
+   |Nome da definição  |Valor  |
+   |---------|---------|
+   |Nome de link de espreitar| HubtoSpoke|
+   |Tráfego para rede virtual remota|   Permitir (predefinição)      |
+   |Tráfego reencaminhado de rede virtual remota    |   Permitir (predefinição)      |
+   |Gateway de rede virtual     |  Use o portal desta rede virtual       |
+    
+5. Em **rede virtual remota:**
 
-### <a name="configure-additional-settings-for-the-spoketohub-peering"></a>Configurar definições adicionais para o olhar do SpoketoHub
+   |Nome da definição  |Valor  |
+   |---------|---------|
+   |Nome de link de espreitar | SpoketoHub|
+   |Modelo de implementação de rede virtual| Resource Manager|
+   |Subscrição|\<your subscription\>|
+   |Rede virtual| VNet-Spoke
+   |Tráfego para rede virtual remota     |   Permitir (predefinição)      |
+   |Tráfego reencaminhado de rede virtual remota    |   Permitir (predefinição)      |
+   |Gateway de rede virtual     |  Use o portal da rede virtual remota       |
 
-Terá de ativar o **tráfego reencaminhado** do SpoketoHub.
+5. Selecione **Adicionar**.
 
-1. Abra o grupo de recursos **FW-Hybrid-Test** e selecione a rede virtual **VNet-Spoke.**
-2. Na coluna esquerda, **selecione Peerings**.
-3. Selecione o **olho do SpoketoHub.**
-4. Em **Permitir o tráfego reencaminhado do VNet-hub para vNet-Spoke,** selecione **Enabled**.
-5. Selecione **Guardar**.
+   :::image type="content" source="media/tutorial-hybrid-portal/firewall-peering.png" alt-text="Vnet olhando":::
 
 ## <a name="create-the-routes"></a>Criar as rotas
 
@@ -440,7 +451,7 @@ Em seguida, altere a ação das coleções de regras de rede da firewall para **
 2. Selecione **Regras**.
 3. Selecione o separador **de recolha de regras da Rede** e selecione a coleção de regras **RCNet01.**
 4. For **Action**, selecione **Deny**.
-5. Selecione **Guardar**.
+5. Selecione **Save** (Guardar).
 
 Feche quaisquer ambientes de trabalho remotos existentes antes de testar as regras alteradas. Agora execute os testes novamente. Desta vez, devem falhar todos.
 
@@ -448,7 +459,7 @@ Feche quaisquer ambientes de trabalho remotos existentes antes de testar as regr
 
 Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos, elimine o grupo de recursos **FW-Hybrid-Test** para eliminar todos os recursos relacionados com a firewall.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, pode monitorizar os registos do Azure Firewall.
 

@@ -1,7 +1,7 @@
 ---
 title: Ambientes organizados
 titleSuffix: Azure Machine Learning
-description: Coleção de ambientes curados disponíveis no Azure Machine Learning
+description: Conheça os ambientes curados da Azure Machine Learning, um conjunto de ambientes pré-configurados que ajudam a reduzir os tempos de experimentação e preparação de implantação.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -9,13 +9,13 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.date: 09/03/2020
-ms.openlocfilehash: 4ae96976f81aab9a0949594551c82d3a3fec4f0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: 0e6817e03c5e5363ad925367b0632e26fc2da4a2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662081"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701403"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Ambientes curados de aprendizagem de máquinas Azure
 

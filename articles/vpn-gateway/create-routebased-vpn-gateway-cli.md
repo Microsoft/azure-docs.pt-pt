@@ -7,22 +7,24 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e43f324a8c32615eded782e75291b575852c4382
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bbd7e39ee65ba304ec62697b6fcc77bea133b41
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393756"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737257"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Criar um gateway VPN baseado em rotas usando CLI
 
 Este artigo ajuda-o a criar rapidamente um gateway Azure VPN baseado em rotas utilizando o Azure CLI. Um gateway VPN é usado ao criar uma ligação VPN à sua rede no local. Também pode utilizar uma porta de entrada VPN para ligar VNets.
 
-Os passos deste artigo criarão um VNet, uma sub-rede, uma sub-rede de gateway, e um gateway VPN baseado em rotas (gateway de rede virtual). Um gateway de rede virtual pode demorar 45 minutos ou mais a criar. Uma vez concluída a criação do gateway, pode então criar ligações. Estes passos requerem uma assinatura Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Os passos deste artigo criarão um VNet, uma sub-rede, uma sub-rede de gateway, e um gateway VPN baseado em rotas (gateway de rede virtual). Um gateway de rede virtual pode demorar 45 minutos ou mais a criar. Uma vez concluída a criação do gateway, pode então criar ligações. Estes passos requerem uma assinatura Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- Este artigo requer a versão 2.0.4 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -56,7 +58,7 @@ az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
   -g TestRG1 \
-  --address-prefix 10.1.255.0/27 
+  --address-prefix 10.1.255.0/27 
 ```
 
 ## <a name="request-a-public-ip-address"></a><a name="PublicIP"></a>Solicitar um endereço IP público
@@ -67,7 +69,7 @@ Um gateway VPN deve ter um endereço IP público atribuído dinamicamente. O end
 az network public-ip create \
   -n VNet1GWIP \
   -g TestRG1 \
-  --allocation-method Dynamic 
+  --allocation-method Dynamic 
 ```
 
 ## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Criar o gateway de VPN
