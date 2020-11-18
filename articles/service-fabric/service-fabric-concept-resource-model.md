@@ -4,12 +4,12 @@ description: Este artigo fornece uma visão geral da gestão de uma aplicação 
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258730"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681691"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicação de tecido de serviço
 
@@ -55,7 +55,7 @@ Após a criação da conta de armazenamento, cria-se um recipiente blob onde as 
 Os recursos do seu cluster podem ser assegurados definindo o nível de acesso público a **privados.** Pode conceder acesso de várias formas:
 
 * Autorizar o acesso a bolhas e filas utilizando [o Azure Ative Directory](../storage/common/storage-auth-aad-app.md).
-* Conceder acesso aos dados de blob e fila Azure utilizando [o RBAC no portal Azure](../storage/common/storage-auth-aad-rbac-portal.md).
+* Conceder acesso aos dados de blob e fila Azure utilizando [o Azure RBAC no portal Azure](../storage/common/storage-auth-aad-rbac-portal.md).
 * Delege o acesso utilizando uma [assinatura de acesso partilhado.](/rest/api/storageservices/delegate-access-with-shared-access-signature)
 
 O exemplo na imagem a seguir utiliza acesso de leitura anónimo para bolhas.
@@ -71,12 +71,12 @@ Neste tutorial, utilizamos o [pedido de amostra de voto.](https://github.com/Azu
 1. No Estúdio Visual, clique à direita no projeto **De Votação** e, em seguida, selecione **Pacote**.
 
    ![Aplicação de pacotes][PackageApplication]  
-1. Vá ao *diretório .\service-fabric-dotnet-quickstart\Vot\pkg\Debug.* Feche o conteúdo num ficheiro chamado *Voting.zip*. O * ficheiroApplicationManifest.xml* deve estar na raiz do ficheiro zip.
+1. Vá ao *diretório .\service-fabric-dotnet-quickstart\Vot\pkg\Debug.* Feche o conteúdo num ficheiro chamado *Voting.zip*. O *ficheiroApplicationManifest.xml* deve estar na raiz do ficheiro zip.
 
    ![Aplicação Zip][ZipApplication]  
 1. Mude o nome do ficheiro para alterar a extensão de .zip para *.sfpkg*.
 
-1. No portal Azure, no recipiente de **aplicações** para a sua conta de armazenamento, selecione **Upload**e, em seguida, carreja **Voting.sfpkg**. 
+1. No portal Azure, no recipiente de **aplicações** para a sua conta de armazenamento, selecione **Upload** e, em seguida, carreja **Voting.sfpkg**. 
 
    ![Pacote de aplicativos de upload][UploadAppPkg]
 
@@ -178,7 +178,7 @@ Para eliminar uma aplicação que foi implementada utilizando o modelo de recurs
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Obtenha informações sobre o modelo de recursos de aplicação:
 

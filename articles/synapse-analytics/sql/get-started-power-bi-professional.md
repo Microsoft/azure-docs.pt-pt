@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 97b611c449302c95d4b24c305ce50ee7683e85ea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c26e2bd27c0c3187768252fd922c31a2cc23d735
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316466"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682093"
 ---
 # <a name="connect-to-serverless-sql-pool-with-power-bi-professional"></a>Conecte-se à piscina SQL sem servidor com o Power BI Professional
 
@@ -106,6 +106,6 @@ Selecione **Azure** no menu e, em seguida, **Azure SQL Database**.
 Escreva o URL para a base de dados e o nome da base de dados onde a vista reside.
 ![Selecione base de dados no ponto final.](./media/get-started-power-bi-professional/step-2-db.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para [consultar ficheiros de armazenamento](get-started-azure-data-studio.md) para aprender a ligar-se à piscina SQL sem servidor usando o Azure Data Studio.

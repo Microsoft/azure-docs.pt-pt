@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX com
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 50e3e052915b6bcc1f6dee89f5ed5e2acf13dd78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: eb58bbe127349aaebed3b1eb00281cf2938c1933
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124361"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681589"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada com um endereço IP público estático no Serviço Azure Kubernetes (AKS)
 
@@ -25,7 +25,7 @@ Também pode:
 - [Crie um controlador de entrada que use os seus próprios certificados TLS][aks-ingress-own-tls]
 - [Crie um controlador ingress que usa o Let's Encrypt para gerar automaticamente certificados TLS com um endereço IP público dinâmico][aks-ingress-tls]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Os comandos acima criam um endereço IP que será eliminado se eliminar o seu cluster AKS. Em alternativa, pode criar um endereço IP num grupo de recursos diferente que pode ser gerido separadamente do seu cluster AKS. Se criar um endereço IP num grupo de recursos diferente, certifique-se de que o principal de serviço utilizado pelo cluster AKS delegou permissões para o outro grupo de recursos, como o *Network Contributor* . Para obter mais informações, consulte [Utilize um endereço IP público estático e etiqueta DNS com o balançador de carga AKS][aks-static-ip].
+> Os comandos acima criam um endereço IP que será eliminado se eliminar o seu cluster AKS. Em alternativa, pode criar um endereço IP num grupo de recursos diferente que pode ser gerido separadamente do seu cluster AKS. Se criar um endereço IP num grupo de recursos diferente, certifique-se de que o principal de serviço utilizado pelo cluster AKS delegou permissões para o outro grupo de recursos, como o *Network Contributor*. Para obter mais informações, consulte [Utilize um endereço IP público estático e etiqueta DNS com o balançador de carga AKS][aks-static-ip].
 
 Agora, implante a tabela *de entrada de nginx* com Helm. Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para beneficiar totalmente da execução de réplicas do controlador de entrada, certifique-se de que há mais de um nó no seu cluster AKS.
 
@@ -62,10 +62,10 @@ Deve passar dois parâmetros adicionais para a libertação helm para que o cont
 O controlador de entrada também tem de estar agendado num nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. É especificado um seletor de nós com o parâmetro `--set nodeSelector` para indicar ao agendador do Kubernetes que execute o controlador de entrada do NGINX num nó baseado no Linux.
 
 > [!TIP]
-> O exemplo a seguir cria um espaço de nome Kubernetes para os recursos *ingressos denominados ingress-basic* . Especifique um espaço de nome para o seu próprio ambiente, conforme necessário. Se o seu cluster AKS não estiver ativado por RBAC, adicione `--set rbac.create=false` aos comandos Helm.
+> O exemplo a seguir cria um espaço de nome Kubernetes para os recursos *ingressos denominados ingress-basic*. Especifique um espaço de nome para o seu próprio ambiente, conforme necessário. Se o seu cluster AKS não estiver ativado por Kubernetes RBAC, adicione `--set rbac.create=false` aos comandos Helm.
 
 > [!TIP]
-> Se pretender permitir a [preservação ip da fonte do cliente][client-source-ip] para pedidos a contentores no seu cluster, adicione ao comando de `--set controller.service.externalTrafficPolicy=Local` instalação Helm. A FONTE DO CLIENTE IP é armazenada no cabeçalho de pedido sob *X-Forwarded-For* . Ao utilizar um controlador de entrada com a preservação IP de fonte do cliente ativada, o passe do TLS não funcionará.
+> Se pretender permitir a [preservação ip da fonte do cliente][client-source-ip] para pedidos a contentores no seu cluster, adicione ao comando de `--set controller.service.externalTrafficPolicy=Local` instalação Helm. A FONTE DO CLIENTE IP é armazenada no cabeçalho de pedido sob *X-Forwarded-For*. Ao utilizar um controlador de entrada com a preservação IP de fonte do cliente ativada, o passe do TLS não funcionará.
 
 Atualize o seguinte script com o **endereço IP** do seu controlador de entrada e um **nome único** que gostaria de usar para o prefixo FQDN.
 
@@ -115,7 +115,7 @@ O controlador de entrada do NGINX suporta a terminação de TLS. Existem várias
 > [!NOTE]
 > Este artigo usa o `staging` ambiente para Let's Encrypt. Nas implementações de produção, utilização `letsencrypt-prod` e `https://acme-v02.api.letsencrypt.org/directory` nas definições de recursos e na instalação do gráfico Helm.
 
-Para instalar o controlador cert-manager num cluster ativado pelo RBAC, utilize o seguinte `helm install` comando:
+Para instalar o controlador cert-manager num cluster ativado por CHC de Kubernetes, utilize o seguinte `helm install` comando:
 
 ```console
 # Label the cert-manager namespace to disable resource validation
@@ -382,7 +382,7 @@ Adicione agora o caminho */olá-mundo-dois* ao FQDN, tal como *`https://demo-aks
 
 ![Exemplo de aplicação dois](media/ingress/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este artigo usou helm para instalar os componentes, certificados e aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 
@@ -441,7 +441,7 @@ Por fim, remova o endereço IP público estático criado para o controlador de e
 az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 

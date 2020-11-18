@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: alzam
-ms.openlocfilehash: 09d39acc867124acfd5c3c38d5c26053218972e7
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7c2c1930b8f801db7f70baa5b713a641606be644
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109107"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661176"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Autenticação do Azure Ative Directory: Configurar um cliente VPN para ligações de protocolo P2S OpenVPN
 
@@ -160,7 +160,7 @@ Sim, com o [hotfix KB4577063.](https://support.microsoft.com/help/4577063/window
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Como adiciono sufixos DNS ao cliente VPN?
 
-Pode modificar o ficheiro XML de ** \<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes> ** perfil descarregado e adicionar as tags
+Pode modificar o ficheiro XML de **\<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes>** perfil descarregado e adicionar as tags
 
 ```
 <azvpnprofile>
@@ -178,7 +178,7 @@ Pode modificar o ficheiro XML de ** \<dnssuffixes> \<dnssufix> \</dnssufix> \</d
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Como adiciono servidores DNS personalizados ao cliente VPN?
 
-Pode modificar o ficheiro XML de ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** perfil descarregado e adicionar as tags
+Pode modificar o ficheiro XML de **\<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers>** perfil descarregado e adicionar as tags
 
 ```
 <azvpnprofile>
@@ -194,12 +194,12 @@ Pode modificar o ficheiro XML de ** \<dnsservers> \<dnsserver> \</dnsserver> \</
 ```
 
 > [!NOTE]
-> O cliente OpenVPN Azure AD utiliza entradas na Tabela de Política de Resolução de Nomes DNS (NRPT), o que significa que os servidores DNS não serão listados sob a saída de `ipconfig /all` . Para confirmar as definições de DNS em utilização, consulte [a Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps&preserve-view=true) no PowerShell.
+> O cliente OpenVPN Azure AD utiliza entradas na Tabela de Política de Resolução de Nomes DNS (NRPT), o que significa que os servidores DNS não serão listados sob a saída de `ipconfig /all` . Para confirmar as definições de DNS em utilização, consulte [a Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy?preserve-view=true&view=win10-ps) no PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Como adiciono rotas personalizadas ao cliente VPN?
 
-Pode modificar o ficheiro XML de ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** perfil descarregado e adicionar as tags
+Pode modificar o ficheiro XML de **\<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes>** perfil descarregado e adicionar as tags
 
 ```
 <azvpnprofile>
@@ -217,7 +217,7 @@ Pode modificar o ficheiro XML de ** \<includeroutes> \<route> \<destination> \<m
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Como posso bloquear (excluir) rotas do cliente VPN?
 
-Pode modificar o ficheiro XML de ** \<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes> ** perfil descarregado e adicionar as tags
+Pode modificar o ficheiro XML de **\<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes>** perfil descarregado e adicionar as tags
 
 ```
 <azvpnprofile>
@@ -235,7 +235,7 @@ Pode modificar o ficheiro XML de ** \<excluderoutes> \<route> \<destination> \<m
 
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Posso importar o perfil de uma linha de comando?
 
-Pode importar o perfil a partir de uma linha de comando, colocando o ficheiro ** deazurevpnconfig.xml** descarregado no **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** e executando o seguinte comando:
+Pode importar o perfil a partir de uma linha de comando, colocando o ficheiro **deazurevpnconfig.xml** descarregado no **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** e executando o seguinte comando:
 
 ```
 azurevpn -i azurevpnconfig.xml 
@@ -243,6 +243,6 @@ azurevpn -i azurevpnconfig.xml
 para forçar a importação usar o interruptor **-f** também
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte [Criar um inquilino do Azure Ative Directory para ligações P2S Open VPN que utilizam a autenticação AZURE AD](openvpn-azure-ad-tenant.md).

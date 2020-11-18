@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: d6995073ba7d283a30f7580456cd61573752f7cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa2d2cda59f23ef0b961ccac60b119996423688e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051394"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682338"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configure o modo de distribuição para o Balançador de Carga Azure
 
@@ -199,8 +199,8 @@ x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
 Date: Thu, 16 Oct 2014 22:49:21 GMT
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Visão geral do balançador interno de carga Azure](load-balancer-internal-overview.md)
+* [Descrição Geral do Balanceador de Carga do Azure (Azure Load Balancer overview)](load-balancer-overview.md)
 * [Começar com a configuração de um equilibrador de carga virado para a Internet](quickstart-load-balancer-standard-public-powershell.md)
 * [Configurar definições de tempo limite TCP inativo para o balanceador de carga](load-balancer-tcp-idle-timeout.md)

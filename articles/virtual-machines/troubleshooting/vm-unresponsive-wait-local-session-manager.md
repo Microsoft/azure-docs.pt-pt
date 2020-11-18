@@ -1,6 +1,6 @@
 ---
-title: VM não responde enquanto espera pelo gerente da sessão local
-description: Este artigo fornece medidas para resolver problemas em que o So convidado está preso à espera que o Gerente de Sessão Local termine o processamento enquanto inicia um VM Azure.
+title: VM não responde enquanto espera pelo serviço local de Gerente de Sessão
+description: Este artigo fornece passos para resolver problemas em que o SO convidado está preso à espera que o Gerente de Sessão Local termine o processamento enquanto está a iniciar um VM Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mibufo
@@ -12,49 +12,45 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: f2f0177b5fe8bb97773d297319f6c9196d8178d2
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8af8d7695c48c6ac682109bb38935e98921fa9e4
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536239"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681912"
 ---
-# <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager"></a>VM não responde enquanto espera pelo gerente da sessão local
+# <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager-service"></a>VM não responde enquanto espera pelo serviço local de Gerente de Sessão
 
-Este artigo fornece passos para resolver problemas em que o So convidado está preso à espera que o Gerente de Sessão Local termine o processamento enquanto inicia uma máquina virtual Azure (VM).
+Este artigo fornece medidas para resolver problemas em que o sistema operativo convidado (os hóspedes) está preso à espera que o Gerente de Sessão Local termine o processamento enquanto faz as botas de uma máquina virtual Azure (VM).
 
 ## <a name="symptoms"></a>Sintomas
 
-Quando utilizar [diagnósticos boot](./boot-diagnostics.md) para visualizar a imagem do VM, verá que a imagem exibe uma solicitação com a mensagem: *"Por favor, aguarde o Gestor de Sessão Local"*
+Quando utilizar [diagnósticos de arranque](./boot-diagnostics.md) para visualizar uma imagem da saída do VM, verá que a imagem exibe uma solicitação com uma mensagem "Por favor, aguarde o Gestor de Sessão Local".
 
-![A imagem mostra o OS do Hóspede preso com a mensagem "Por favor, aguarde o Gestor de Sessão Local" no Windows Server 2012 R2.](media/vm-unresponsive-wait-local-session-manager/vm-unresponsive-wait-local-session-manager-1.png)
+![Screenshot mostrando o so-convidado preso no Windows Server 2012 R2, com uma mensagem "Por favor, aguarde o Gestor de Sessão Local".](media/vm-unresponsive-wait-local-session-manager/vm-unresponsive-wait-local-session-manager-1.png)
 
 ## <a name="cause"></a>Causa
 
-Pode haver várias razões para uma máquina virtual estar presa à espera do Gerente local de Sessão. Se esperar pelo Gestor de Sessão Local é um problema persistente, terá de recolher um depósito de memória para análise.
+Pode haver várias razões para um VM ficar preso à espera do Gerente local da Sessão. Se este problema persistir, é necessário recolher um depósito de memória para análise.
 
 ## <a name="solution"></a>Solução
 
-Em alguns casos, simplesmente esperar o tempo suficiente para que o processo esteja concluído irá resolver o seu problema. Se o seu VM não estiver a responder e permanecer no ecrã de espera durante mais de uma hora, deverá recolher uma lixeira de memória e, em seguida, contactar o suporte da Microsoft.
+Em alguns casos, simplesmente esperar que o processo termine irá resolver a questão. Se o seu VM não responder e permanecer no ecrã de espera por mais de uma hora, deve recolher uma lixeira de memória e, em seguida, contactar o suporte da Microsoft.
 
-### <a name="collect-the-memory-dump-file"></a>Recolher o ficheiro de despejo de memória
+### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Fixe o disco DE a um novo VM de reparação
 
-Para resolver este problema, primeiro tem de recolher o ficheiro de despejo de memória para o acidente e, em seguida, contactar o suporte com o ficheiro de despejo de memória. Para recolher o ficheiro de despejo, siga estes passos:
+1. Para preparar um VM de reparação, siga os passos 1-3 dos comandos de [reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md).
+1. Ligue-se ao VM de reparação utilizando a Ligação de Ambiente de Trabalho Remoto.
 
-#### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Fixe o disco DE a um novo VM de reparação
+### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Localize o ficheiro de despejo e envie um bilhete de apoio
 
-1. Siga [os passos 1-3 dos Comandos de Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar um VM de reparação.
-2. Ligue-se ao VM de reparação utilizando ligação de ambiente de trabalho remoto.
+1. Na vM de reparação, aceda à pasta Do Windows no disco oss anexado. Por exemplo, se a letra de unidade atribuída ao disco de SO anexado estiver marcada como *F,* vá a `F:\Windows` .
+1. Procure o ficheiro *.dmp memória* e, em seguida, envie um bilhete [de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo de memória anexado.
+1. Se tiver dificuldade em localizar a *memória.dmp* ficheiro, siga o guia para [gerar um ficheiro de despejo de falhas utilizando chamadas de interrupção não mascarada (NMI).](/windows/client-management/generate-kernel-or-complete-crash-dump)
 
-#### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Localize o ficheiro de despejo e envie um bilhete de apoio
+Para obter mais informações sobre chamadas NMI, consulte as chamadas NMI no guia do utilizador [da Consola em Série Azure.](./serial-console-windows.md#use-the-serial-console-for-nmi-calls)
 
-1. Na vM de reparação, aceda à pasta Windows no disco oss anexado. Se a letra do controlador atribuída ao disco de sos anexado estiver rotulada como *F,* então tem de ir a `F:\Windows` .
-2. Localize o ficheiro **memory.dmp** e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo de memória.
-3. Se tiver problemas em localizar o ficheiro **memory.dmp,** siga o guia para [gerar um ficheiro de despejo de falhas utilizando chamadas de interrupção não mascarada (NMI).](/windows/client-management/generate-kernel-or-complete-crash-dump)
-
-Para obter mais informações sobre chamadas NMI, consulte as [chamadas de interrupção não mascarada (NMI) no](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) guia do utilizador da consola em série.
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Resolução de problemas Azure Erros de Arranque de Máquina Virtual](boot-error-troubleshoot.md)
+> [Resolução de problemas Erros de arranque da Máquina Virtual Azure](boot-error-troubleshoot.md)

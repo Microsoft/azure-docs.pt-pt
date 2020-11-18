@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2bcd919629eb03581c35a2090d53e451141d94a4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f307ff9e7d609628bc22374fc5874dcbf993e4c2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487108"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661193"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conecte redes virtuais de diferentes modelos de implementação usando o portal
 
@@ -28,7 +28,7 @@ Ligar um VNet clássico a um VNet do Gestor de Recursos é semelhante à ligaç�
 
 Se ainda não tiver um gateway de rede virtual e não quiser criar um, talvez queira considerar ligar os seus VNets utilizando o VNet Peering. O VNet peering não utiliza um gateway de VPN. Para obter mais informações, veja [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="before-you-begin"></a><a name="before"></a>Antes de começar
+### <a name="before-you-begin"></a><a name="before"></a>Before you begin
 
 
 
@@ -75,10 +75,10 @@ Para esta configuração, cria uma ligação de gateway VPN sobre um túnel VPN 
 
 A tabela a seguir mostra um exemplo de como os VNets e locais locais são definidos:
 
-| Rede Virtual | Espaço de Endereços | Region | Liga-se ao site de rede local |
+| Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |E.U.A. Oeste | RMVNetLocal (192.168.0.0/16) |
-| RMVNet | (192.168.0.0/16) |E.U.A Leste |ClassicVNetLocal (10.0.0.0/24) |
+| RMVNet | (192.168.0.0/16) |E.U.A. Leste |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="section-1---configure-the-classic-vnet-settings"></a><a name="classicvnet"></a>Secção 1 - Configurar as definições clássicas do VNet
 
@@ -86,7 +86,7 @@ Nesta secção, você cria o VNet clássico, a rede local (site local) e o gatew
 
 ### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a> Criar um VNet clássico
 
-Se não tiver um VNet clássico e estiver a executar estes passos como exercício, pode criar um VNet utilizando [este artigo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e os valores de definições de [Exemplo](#values) de cima.
+Se não tiver um VNet clássico e estiver a executar estes passos como exercício, pode criar um VNet utilizando [este artigo](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) e os valores de definições de [Exemplo](#values) de cima.
 
 Se já tem um VNet com uma porta VPN, verifique se o gateway é Dynamic. Se for Estática, deve primeiro apagar o gateway VPN antes de proceder à [configuração do site local.](#local)
 
@@ -117,7 +117,7 @@ Se já tem um VNet com uma porta VPN, verifique se o gateway é Dynamic. Se for 
 3. Clique **na Sub-rede - Configurar as definições necessárias** para abrir a página **de sub-rede Adicionar.** O **Nome** já está configurado com o valor exigido: **GatewaySubnet**.
 4. O **intervalo Address** refere-se ao intervalo para a sub-rede gateway. Embora possa criar uma sub-rede gateway com uma gama de endereços /29 (3 endereços), recomendamos a criação de uma sub-rede de gateway que contenha mais endereços IP. Isto irá acomodar configurações futuras que podem requerer mais endereços IP disponíveis. Se possível, utilize /27 ou /28. Se estiver a utilizar estes passos como exercício, pode consultar os [valores exemplo .](#values) Para este exemplo, utilizamos '10.0.0.32/28'. Clique **em OK** para criar a sub-rede gateway.
 5. Na página de **configuração gateway,** **Size** refere-se ao gateway SKU. Selecione o gateway SKU para o seu gateway VPN.
-6. Verifique se o **Tipo de Encaminhamento** é **Dinâmico**e, em seguida, clique em **OK** para voltar à página **de Ligação Nova VPN.**
+6. Verifique se o **Tipo de Encaminhamento** é **Dinâmico** e, em seguida, clique em **OK** para voltar à página **de Ligação Nova VPN.**
 7. Na página **New VPN Connection,** clique **em OK** para começar a criar o seu gateway VPN. A criação de um gateway de VPN pode demorar até 45 minutos a concluir.
 
 ### <a name="4-copy-the-virtual-network-gateway-public-ip-address"></a><a name="ip"></a>4. Copiar o endereço IP público da rede virtual
@@ -170,10 +170,10 @@ Neste passo, vai criar o gateway de rede virtual da VNet. Criar um gateway, muit
 
 **Valores de exemplo:** Gateway de rede local = ClassicVNetLocal
 
-| Rede Virtual | Espaço de Endereços | Region | Liga-se ao site de rede local |Endereço IP público gateway|
+| Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |Endereço IP público gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |E.U.A. Oeste | RMVNetLocal (192.168.0.0/16) |O endereço IP público que é atribuído ao gateway ClassicVNet|
-| RMVNet | (192.168.0.0/16) |E.U.A Leste |ClassicVNetLocal (10.0.0.0/24) |O endereço IP público que é atribuído ao gateway RMVNet.|
+| RMVNet | (192.168.0.0/16) |E.U.A. Leste |ClassicVNetLocal (10.0.0.0/24) |O endereço IP público que é atribuído ao gateway RMVNet.|
 
 O gateway de rede local especifica a gama de endereços e o endereço IP público associado ao seu VNet clássico e ao seu gateway de rede virtual. Se estiver a fazer estes passos como exercício, consulte os valores exemplo.
 

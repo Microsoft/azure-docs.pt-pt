@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: a0903a1da02b1f187e6f12e35fcb4bc05cd82939
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 4da232569a0f490b7fd6c2e50b81be6508ac5933
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516786"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682099"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: Criar um balanceador de carga público para fazer o balanceamento de carga das VMs com a CLI do Azure
 
@@ -467,7 +467,7 @@ Utilize [a rede az public-ip criar](https://docs.microsoft.com/cli/azure/network
 
 Utilize [o prefixo ip da rede az](https://docs.microsoft.com/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) para criar um prefixo IP público para a conectividade de saída.
 
-Para obter mais informações sobre a escala de ACESSO NAT e conectividade de saída, consulte [o SCALE Outbound NAT com vários endereços IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scale).
+Para obter mais informações sobre a escala de ACESSO NAT e conectividade de saída, consulte [o SCALE Outbound NAT com vários endereços IP](load-balancer-outbound-connections.md).
 
 #### <a name="public-ip"></a>IP público
 
@@ -1067,7 +1067,7 @@ Copie o endereço IP público e cole-o na barra de endereço do browser.
 ```
 :::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="Testar o balanceador de carga" border="true":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, utilize o comando de eliminação do [grupo AZ](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) para remover o grupo de recursos, o equilibrador de carga e todos os recursos relacionados.
 
@@ -1076,7 +1076,7 @@ Quando já não for necessário, utilize o comando de eliminação do [grupo AZ]
     --name CreatePubLBQS-rg
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste arranque rápido
 
 * Criou um balanceador de carga padrão ou público

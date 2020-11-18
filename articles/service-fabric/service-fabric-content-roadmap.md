@@ -3,12 +3,12 @@ title: Saiba mais sobre o Azure Service Fabric
 description: Conheça os conceitos centrais e as principais áreas do Azure Service Fabric. Fornece uma visão geral alargada do Tecido de Serviço e como criar microserviços.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 6cbc99b56df18448add47a70b42742aa8dabbeb5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 07b41f10430592e6035bfe0179cb717d0bc5c8b0
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461503"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681742"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Quer aprender sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  O Tecido de Serviço tem uma grande área de superfície, no entanto, e há muito a aprender.  Este artigo fornece uma sinopse de Tecido de Serviço e descreve os conceitos fundamentais, modelos de programação, ciclo de vida da aplicação, testes, clusters e monitorização de saúde. Leia a [Visão Geral](service-fabric-overview.md) e [O que são microserviços?](service-fabric-overview-microservices.md) Este artigo não contém uma lista completa de conteúdos, mas liga-se a uma visão geral e a receber artigos para todas as áreas do Service Fabric. 
@@ -75,7 +75,7 @@ Por predefinição, o Service Fabric implementa e ativa os serviços como proces
 ### <a name="reliable-actors"></a>Reliable Actors
 Construído em cima de Serviços Confiáveis, o quadro [de Ator Fiável](service-fabric-reliable-actors-introduction.md) é uma estrutura de aplicação que implementa o padrão de Ator Virtual, baseado no padrão de design do ator. O quadro de Ator Fiável usa unidades independentes de computação e estado com execução de linha única chamadas atores. O quadro de Ator Fiável fornece uma comunicação construída para os atores e configurações de persistência e escala pré-definidas.
 
-### <a name="aspnet-core"></a>Núcleo de ASP.NET
+### <a name="aspnet-core"></a>ASP.NET Core
 O Service Fabric integra-se com [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) como um modelo de programação de primeira classe para a construção de aplicações web e API.  ASP.NET Core pode ser usado de duas maneiras diferentes no Tecido de Serviço:
 
 - Hospedado como um hóspede executável. Isto é usado principalmente para executar aplicações core ASP.NET existentes no Tecido de Serviço sem alterações de código.
@@ -131,7 +131,7 @@ Os clusters devem ser protegidos para evitar que os utilizadores não autorizado
 Os cenários de segurança do cluster são:
 * Segurança nó-a-nó
 * Segurança cliente-nó
-* Controlo de acesso baseado em funções (RBAC)
+* Controlo de acesso baseado em funções do Tecido de Serviço
 
 Para mais informações, leia [Secure a cluster](service-fabric-cluster-security.md).
 
@@ -182,7 +182,7 @@ O fluxo de trabalho global de monitorização e diagnósticos consiste em três 
 
 Vários produtos estão disponíveis que cobrem estas três áreas, e você é livre de escolher diferentes tecnologias para cada um. Para mais informações, leia [Monitorização e diagnósticos para O Tecido de Serviço Azure.](service-fabric-diagnostics-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como criar um [cluster no Azure](service-fabric-cluster-creation-via-portal.md) ou um [cluster autónomo no Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Experimente criar um serviço com os modelos de programação [Reliable Services](service-fabric-reliable-services-quick-start.md) ou [Reliable Actors](service-fabric-reliable-actors-get-started.md).
 * Saiba como [migrar dos Serviços cloud.](service-fabric-cloud-services-migration-differences.md)

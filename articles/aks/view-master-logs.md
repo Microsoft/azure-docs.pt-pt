@@ -4,20 +4,20 @@ description: Saiba como ativar e ver os registos do nó mestre kubernetes no Ser
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 82570606aee294aafe7da5ffaf581b11b6775073
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a0e58174c38ec19d42f524b9bc94247e05296467
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899936"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682235"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever os registos de nó principal do Kubernetes no Azure Kubernetes Service (AKS)
 
 Com o Azure Kubernetes Service (AKS), os componentes principais como o *kube-apiserver* e o *kube-controller-manager* são fornecidos como um serviço gerido. Cria e gere os nós que executam o tempo de execução do *kubelet* e do contentor e implementa as suas aplicações através do servidor API gerido de Kubernetes. Para ajudar a resolver problemas com a sua aplicação e serviços, poderá ter de visualizar os registos gerados por estes componentes principais. Este artigo mostra-lhe como utilizar registos do Azure Monitor para ativar e consultar os registos dos componentes principais de Kubernetes.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-Este artigo requer um cluster AKS existente na sua conta Azure. Se ainda não tiver um cluster AKS, crie um utilizando o portal [Azure CLI][cli-quickstart] ou [Azure][portal-quickstart]. Os registos do Azure Monitor funcionam com clusters AKS ativados por RBAC e não-RBAC.
+Este artigo requer um cluster AKS existente na sua conta Azure. Se ainda não tiver um cluster AKS, crie um utilizando o portal [Azure CLI][cli-quickstart] ou [Azure][portal-quickstart]. Os registos do Azure Monitor funcionam com clusters AKS ativados por Kubernetes, Azure RBAC e não-RBAC.
 
 ## <a name="enable-resource-logs"></a>Ativar registos de recursos
 
@@ -25,21 +25,21 @@ Para ajudar a recolher e rever dados de várias fontes, os registos do Azure Mon
 
 Os registos do Monitor Azure estão ativados e geridos no portal Azure. Para ativar a recolha de registos para os componentes principais de Kubernetes no seu cluster AKS, abra o portal Azure num navegador web e complete os seguintes passos:
 
-1. Selecione o grupo de recursos para o seu cluster AKS, como *o myResourceGroup* . Não selecione o grupo de recursos que contém os seus recursos individuais de cluster AKS, como *MC_myResourceGroup_myAKSCluster_eastus* .
-1. No lado esquerdo, escolha **as definições de Diagnóstico** .
-1. Selecione o seu cluster AKS, como *o myAKSCluster,* e depois opte por adicionar a **definição de diagnóstico** .
-1. Introduza um nome, como *myAKSClusterLogs,* selecione a opção de **Enviar para Registar analíticos** .
+1. Selecione o grupo de recursos para o seu cluster AKS, como *o myResourceGroup*. Não selecione o grupo de recursos que contém os seus recursos individuais de cluster AKS, como *MC_myResourceGroup_myAKSCluster_eastus*.
+1. No lado esquerdo, escolha **as definições de Diagnóstico**.
+1. Selecione o seu cluster AKS, como *o myAKSCluster,* e depois opte por adicionar a **definição de diagnóstico**.
+1. Introduza um nome, como *myAKSClusterLogs,* selecione a opção de **Enviar para Registar analíticos**.
 1. Selecione um espaço de trabalho existente ou crie um novo. Se criar um espaço de trabalho, forneça um nome de espaço de trabalho, um grupo de recursos e uma localização.
-1. Na lista de registos disponíveis, selecione os registos que pretende ativar. Para este exemplo, ative os registos *de administração de kube-audit* e *kube-audit-admin.* Os registos comuns incluem o *kube-apiserver,* *o controlador-controlador de kube* e *o kube-scheduler* . Pode retornar e alterar os registos recolhidos assim que os espaços de trabalho do Log Analytics estiverem ativados.
+1. Na lista de registos disponíveis, selecione os registos que pretende ativar. Para este exemplo, ative os registos *de administração de kube-audit* e *kube-audit-admin.* Os registos comuns incluem o *kube-apiserver,* *o controlador-controlador de kube* e *o kube-scheduler*. Pode retornar e alterar os registos recolhidos assim que os espaços de trabalho do Log Analytics estiverem ativados.
 1. Quando estiver pronto, **selecione Guardar** para ativar a recolha dos registos selecionados.
 
 ## <a name="log-categories"></a>Categorias de registo
 
 Além das entradas escritas por Kubernetes, os registos de auditoria do seu projeto também têm entradas de AKS.
 
-Os registos de auditoria são registados em três categorias: *kube-audit,* *kube-audit-admin* , e *guard* .
+Os registos de auditoria são registados em três categorias: *kube-audit,* *kube-audit-admin*, e *guard*.
 
-- A categoria *kube-audit* contém todos os dados de registo de auditoria para cada evento de auditoria, incluindo *obter,* *lista,* *criar,* *atualizar,* *excluir,* *corrigir* e *publicar* .
+- A categoria *kube-audit* contém todos os dados de registo de auditoria para cada evento de auditoria, incluindo *obter,* *lista,* *criar,* *atualizar,* *excluir,* *corrigir* e *publicar*.
 - A categoria *kube-audit-admin* é um subconjunto da categoria de registo *de auditoria de kube.* *kube-audit-admin* reduz significativamente o número de registos, excluindo os eventos de auditoria de *obter* e *listar* do registo.
 - A categoria *de guarda* é gerida a Azure AD e as auditorias Azure RBAC. Para a gestão Azure AD: token in, informações do utilizador para fora. Para Azure RBAC: comentários de acesso dentro e fora.
 
@@ -84,7 +84,7 @@ Pode levar até 10 minutos para os registos de diagnóstico serem ativados e apa
 
 No portal Azure, navegue para o seu cluster AKS e selecione **Logs** no lado esquerdo. Feche a janela *'Exemplo',* se aparecer.
 
-No lado esquerdo, escolha **Logs** . Para ver os registos *de auditoria de kube,* insira a seguinte consulta na caixa de texto:
+No lado esquerdo, escolha **Logs**. Para ver os registos *de auditoria de kube,* insira a seguinte consulta na caixa de texto:
 
 ```
 AzureDiagnostics
@@ -151,7 +151,7 @@ AKS regista os seguintes eventos:
 | *masterclient*           | O nome de exibição no registo de auditoria do MasterClientCertificate, o certificado que obtém a az aks obter credenciais |
 | *não declarado*             | O nome de exibição para ClientCertificate, que é usado por nós de agente |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a ativar e rever os registos dos componentes principais de Kubernetes no seu cluster AKS. Para monitorizar e resolver mais problemas, também pode [ver os registos de Kubelet][kubelet-logs] e [permitir o acesso ao nó SSH][aks-ssh].
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63505f470410234f720dd28c29e87c4a2a6d123f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082057"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661142"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Ligar redes virtuais a partir de modelos de implementação diferentes com o PowerShell
 
@@ -29,13 +29,13 @@ Ligar um VNet clássico a um VNet do Gestor de Recursos é semelhante à ligaç�
 
 Se ainda não tiver um gateway de rede virtual e não quiser criar um, talvez queira considerar ligar os seus VNets utilizando o VNet Peering. O VNet peering não utiliza um gateway de VPN. Para obter mais informações, veja [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
-## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
+## <a name="before-you-begin"></a><a name="before"></a>Before you begin
 
 Os passos seguintes acompanham-no através das definições necessárias para configurar um gateway dinâmico ou baseado em rotas para cada VNet e criar uma ligação VPN entre os gateways. Esta configuração não suporta gateways estáticos ou baseados em políticas.
 
 ### <a name="prerequisites"></a><a name="pre"></a>Pré-requisitos
 
-* Ambos os VNets já foram criados. Se precisar de criar uma rede virtual de gestor de recursos, consulte [criar um grupo de recursos e uma rede virtual.](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network) Para criar uma rede virtual clássica, consulte [Criar um VNet clássico.](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic)
+* Ambos os VNets já foram criados. Se precisar de criar uma rede virtual de gestor de recursos, consulte [criar um grupo de recursos e uma rede virtual.](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network) Para criar uma rede virtual clássica, consulte [Criar um VNet clássico.](/previous-versions/azure/virtual-network/create-virtual-network-classic)
 * Os intervalos de endereços para os VNets não se sobrepõem entre si, nem se sobrepõem a qualquer uma das gamas para outras ligações a que os gateways podem estar ligados.
 * Instalou os mais recentes cmdlets PowerShell. Veja [como instalar e configurar a Azure PowerShell](/powershell/azure/) para obter mais informações. Certifique-se de que instala tanto os cmdlets de Gestão de Serviços (SM) como os cmdlets do Gestor de Recursos (RM). 
 
@@ -90,7 +90,7 @@ Gateway IP configuração de endereçamento = gwipconfig
    ```azurepowershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-3. Abra o ficheiro .xml que descarregou para editá-lo. Para um exemplo do ficheiro de configuração da rede, consulte o [Esquema de Configuração da Rede](https://msdn.microsoft.com/library/jj157100.aspx).
+3. Abra o ficheiro .xml que descarregou para editá-lo. Para um exemplo do ficheiro de configuração da rede, consulte o [Esquema de Configuração da Rede](/previous-versions/azure/reference/jj157100(v=azure.100)).
 
 ### <a name="2-verify-the-gateway-subnet"></a>2. Verificar a sub-rede gateway
 No elemento **VirtualNetworkSites,** adicione uma sub-rede de gateway ao seu VNet se ainda não tiver sido criada uma. Ao trabalhar com o ficheiro de configuração da rede, a sub-rede gateway DEVE ser denominada "GatewaySubnet" ou Azure não pode reconhecê-lo e usá-lo como sub-rede de gateway.

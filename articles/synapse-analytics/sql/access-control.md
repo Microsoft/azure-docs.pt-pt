@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7c6de17e4ed4f5666554908e9b13fb9e299b027a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311746"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682065"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerir o acesso a espaços de trabalho, dados e oleodutos
 
@@ -102,7 +102,7 @@ O controlo de acesso aos dados subjacentes é dividido em três partes:
 > [!TIP]
 > Os passos abaixo precisam de ser executados para **cada** base de dados SQL para conceder o acesso do utilizador a todas as bases de dados SQL, exceto na [secção Desincê-lo nível de servidor,](#server-level-permission) onde pode atribuir ao utilizador uma função sysadmin.
 
-### <a name="serverless-sql-pool"></a>Piscina SQL sem servidor
+### <a name="serverless-sql-pool"></a>Conjunto de SQL sem servidor
 
 Nesta secção, pode encontrar exemplos sobre como dar ao utilizador uma permissão para uma determinada base de dados ou permissões completas do servidor.
 
@@ -147,7 +147,7 @@ CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### <a name="dedicated-sql-pool"></a>Piscina SQL dedicada
+### <a name="dedicated-sql-pool"></a>Conjunto de SQL dedicado
 
 Para conceder acesso a um utilizador a uma **única** base de dados SQL, siga estes passos:
 
@@ -198,6 +198,6 @@ REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
 DROP USER [<workspacename>];
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para uma visão geral da identidade gerida pelo espaço de trabalho da Synapse, consulte a identidade gerida pelo espaço de [trabalho Azure Synapse.](../security/synapse-workspace-managed-identity.md) Para saber mais sobre os principais da base de dados, consulte [os principais.](https://msdn.microsoft.com/library/ms181127.aspx) Informações adicionais sobre funções de base de dados podem ser encontradas no artigo [de funções de Base de Dados.](https://msdn.microsoft.com/library/ms189121.aspx)

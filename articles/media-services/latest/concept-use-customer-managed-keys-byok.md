@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a89ff56eb9e0f0a29b5b1fed7543c5f718425e51
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326038"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681827"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Traga a sua própria chave (chaves geridas pelo cliente) com serviços de mídia
 
@@ -37,9 +37,11 @@ Pode especificar um nome chave e uma versão chave, ou apenas um nome chave. Qua
 > [!WARNING]
 > O Media Services monitoriza o acesso à chave do cliente. Se a chave do cliente se tornar inacessível (por exemplo, a chave foi eliminada ou o Cofre-Chave foi eliminado ou a concessão de acesso foi removida), os Serviços de Comunicação social transitarão a conta para o Estado Inacessível da Chave cliente (desativando efetivamente a conta). No entanto, a conta pode ser eliminada neste estado. As únicas operações suportadas são conta GET, LIST e DELETE; todos os outros pedidos (codificação, streaming, e assim por diante) falharão até que o acesso à chave de conta seja restaurado.
 
-## <a name="tutorial"></a>Tutorial
-Experimente as [teclas geridas pelo cliente tutorial ou traga a sua própria chave (BYOK) com os Serviços](tutorial-byok.md) de Comunicação Social para aprender a configurar e utilizar as chaves geridas pelo cliente com a API do Postman e da Azure REST.
+## <a name="tutorials"></a>Tutoriais
 
-## <a name="next-steps"></a>Passos seguintes
+- [Utilize o portal Azure para utilizar chaves geridas pelo cliente ou BYOK com Serviços de Mídia](tutorial-byok-portal.md)
+- [Utilize chaves geridas pelo cliente ou BYOK com serviços de mídia REST API](tutorial-byok-postman.md).
 
-* [Tutorial: Use chaves geridas pelo cliente ou traga a sua própria chave (BYOK) com serviços de mídia](tutorial-byok.md)
+## <a name="next-steps"></a>Próximos passos
+
+[Proteja o seu conteúdo com encriptação dinâmica dos Media Services](content-protection-overview.md)

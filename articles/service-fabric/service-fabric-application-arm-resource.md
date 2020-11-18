@@ -3,12 +3,12 @@ title: Implementar e atualizar com o Azure Resource Manager
 description: Saiba como implementar aplicações e serviços num cluster de Tecidos de Serviço utilizando um modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb866eb24fb1b286f496bad9845d1ee557baa221
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256514"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681674"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerir aplicações e serviços como recursos do Gestor de Recursos Azure
 
@@ -18,7 +18,7 @@ Esta é a forma recomendada para implementar quaisquer aplicações de configura
 
 Quando aplicável, gerencie as suas aplicações como recursos do Gestor de Recursos para melhorar:
 * Pista de auditoria: Gestor de Recursos audita cada operação e mantém um Registo de *Atividades* detalhado que pode ajudá-lo a rastrear quaisquer alterações feitas a estas aplicações e ao seu cluster.
-* Controlo de acesso baseado em funções (RBAC): Gerir o acesso a clusters, bem como aplicações implementadas no cluster, pode ser feito através do mesmo modelo de Gestor de Recursos.
+* Controlo de acesso baseado em funções (Azure RBAC): Gerir o acesso a clusters, bem como aplicações implementadas no cluster, pode ser feito através do mesmo modelo de Gestor de Recursos.
 * O Azure Resource Manager (via portal Azure) torna-se um balcão único para gerir o seu cluster e implementações de aplicações críticas.
 
 O seguinte corte mostra os diferentes tipos de recursos que podem ser geridos através de um modelo:
@@ -266,7 +266,7 @@ Se o seu cluster já está em funcionamento e algumas aplicações que gostaria 
 > [!NOTE]
 > Para permitir que uma atualização de cluster ignore aplicações não saudáveis, o cliente pode especificar "maxPercentUnhealthyApplications: 100" na secção "upgradeDescription/healthPolicy"; descrições detalhadas para todas as configurações estão na [documentação da Política de Upgrade do Cluster API dos Tecidos](/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)de Serviço .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Utilize o [Tecido de Serviço CLI](service-fabric-cli.md) ou [PowerShell](service-fabric-deploy-remove-applications.md) para implementar outras aplicações no seu cluster. 
 * [Atualize o seu cluster de tecido de serviço](service-fabric-cluster-upgrade.md)
