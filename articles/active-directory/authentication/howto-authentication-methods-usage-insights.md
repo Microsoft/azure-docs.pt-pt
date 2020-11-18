@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03989e37ac05228dade2fdcda43856e8a5240865
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe8a916f4c3ce8869b6b487e33dcdecc061f8cbf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964915"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839595"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Métodos de autenticação utilização & insights (pré-visualização)
 
-As informações de utilização & permitem-lhe compreender como os métodos de autenticação para funcionalidades como a autenticação multi-factor Azure e o reset da palavra-passe de autosserviço estão a funcionar na sua organização. Esta capacidade de reporte fornece à sua organização os meios para entender que métodos estão a ser registados e como estão a ser utilizados.
+As informações de utilização & permitem-lhe compreender como os métodos de autenticação para funcionalidades como Azure AD Multi-Factor Authentication e self-service password reset estão a funcionar na sua organização. Esta capacidade de reporte fornece à sua organização os meios para entender que métodos estão a ser registados e como estão a ser utilizados.
 
 ## <a name="permissions-and-licenses"></a>Permissões e licenças
 
@@ -31,14 +31,14 @@ As seguintes funções podem aceder ao uso e insights:
 - Administrador de Segurança
 - Leitor de Relatórios
 
-Não é necessário um licenciamento adicional para aceder ao uso e aos insights. As informações de autenticação multi-factor Azure e autosserviço de autosserviço reset (SSPR) podem ser encontradas no site de preços do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Não é necessário um licenciamento adicional para aceder ao uso e aos insights. As informações de autenticação multi-factor AD E autosserviço de autosserviço podem ser encontradas no site de preços do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Como funciona
 
 Para aceder à utilização e insights do método de autenticação:
 
 1. Navegue pelo [portal Azure](https://portal.azure.com).
-1. Navegue para **Azure Ative Directory**  >  **Password redefinir**o uso &  >  **insights**.
+1. Navegue para **Azure Ative Directory**  >  **Password redefinir** o uso &  >  **insights**.
 1. A partir das vistas gerais **de Registo** ou **Utilização,** pode optar por abrir os relatórios pré-filtrados para filtrar com base nas suas necessidades.
 
 ![Visão geral do & de utilização](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
@@ -92,7 +92,7 @@ Utilizando os controlos no topo da lista, pode procurar um utilizador e filtrar 
 
 Os dados apresentados nestes relatórios serão adiados até 60 minutos. Existe um campo "Última atualização" no portal Azure para identificar a recente data dos seus dados.
 
-Os dados de utilização e insights não substituem os relatórios de atividade de autenticação multi-factor Azure ou informações contidas no relatório de inscrições Azure AD.
+Os dados de utilização e insights não substituem os relatórios de atividade de autenticação multi-factor Azure AD ou informações contidas no relatório de inscrições Azure AD.
 
 O relatório não pode ser atualmente filtrado para excluir utilizadores externos.
 

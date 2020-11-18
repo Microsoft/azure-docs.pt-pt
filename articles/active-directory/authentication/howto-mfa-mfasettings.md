@@ -1,6 +1,6 @@
 ---
-title: Configurar autenticação multi-factor Azure - Diretório Ativo Azure
-description: Saiba como configurar definições para autenticação multi-factor Azure no portal Azure
+title: Configurar autenticação multi-factor Azure AD - Diretório Ativo Azure
+description: Saiba como configurar as definições para autenticação multi-factor Azure AD no portal Azure
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,26 +12,26 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 17fbba605f6f20fa384d59a8c89ee536a9b121bf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: adca22b3a8d9b93dfbc62202106127a5833a4c38
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964440"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839204"
 ---
-# <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar Definições do Multi-Factor Authentication do Azure
+# <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurar configurar definições de autenticação multi-factor Ad Azure
 
-Para personalizar a experiência do utilizador final para autenticação multi-factor Azure, pode configurar opções para configurações como os limiares de bloqueio de conta ou alertas de fraude e notificações. Algumas configurações estão diretamente no portal Azure para Azure Ative Directory (Azure AD), e algumas num portal separado de autenticação multi-factor Azure.
+Para personalizar a experiência do utilizador final para autenticação multi-factor Azure AD, pode configurar opções para configurações como os limiares de bloqueio de conta ou alertas de fraude e notificações. Algumas configurações estão diretamente no portal Azure para Azure Ative Directory (Azure AD), e algumas num portal separado de autenticação multi-factor AZure AD.
 
-As seguintes definições de autenticação multi-factor Azure estão disponíveis no portal Azure:
+As seguintes definições de autenticação multi-factor Azure AD estão disponíveis no portal Azure:
 
 | Funcionalidade | Descrição |
 | ------- | ----------- |
-| [Bloqueio de conta](#account-lockout) | Bloqueie temporariamente as contas de utilização da Autenticação Multi-Factor Azure se houver demasiadas tentativas de autenticação negadas seguidas. Esta funcionalidade aplica-se apenas aos utilizadores que introduzam um PIN para autenticar. (MFA Server) |
-| [Utilizadores de bloco/desbloqueio](#block-and-unblock-users) | Impedir que utilizadores específicos possam receber pedidos de autenticação multi-factor Azure. Todas as tentativas de autenticação de utilizadores bloqueados são automaticamente negadas. Os utilizadores permanecem bloqueados durante 90 dias a partir do momento em que estão bloqueados ou desbloqueados manualmente. |
+| [Bloqueio de conta](#account-lockout) | Bloqueie temporariamente as contas da utilização da Autenticação Multi-Factor Azure AD se houver demasiadas tentativas de autenticação negadas em sequência. Esta funcionalidade aplica-se apenas aos utilizadores que introduzam um PIN para autenticar. (MFA Server) |
+| [Utilizadores de bloco/desbloqueio](#block-and-unblock-users) | Impedir que os utilizadores específicos possam receber pedidos de autenticação multi-factor Azure AD. Todas as tentativas de autenticação de utilizadores bloqueados são automaticamente negadas. Os utilizadores permanecem bloqueados durante 90 dias a partir do momento em que estão bloqueados ou desbloqueados manualmente. |
 | [Alerta de fraudes](#fraud-alert) | Configurar configurações que permitem aos utilizadores reportar pedidos de verificação fraudulentos. |
 | [Notificações](#notifications) | Ativar notificações de eventos a partir do MFA Server. |
-| [Tokens OATH](concept-authentication-oath-tokens.md) | Usado em ambientes Azure MFA baseados em nuvem para gerir tokens OATH para utilizadores. |
+| [Tokens OATH](concept-authentication-oath-tokens.md) | Usado em ambientes Azure AD MFA baseados na nuvem para gerir tokens OATH para os utilizadores. |
 | [Definições de chamadas telefónicas](#phone-call-settings) | Configurar configurações relacionadas com chamadas telefónicas e saudações para ambientes em nuvem e no local. |
 | Fornecedores | Isto irá mostrar quaisquer fornecedores de autenticação existentes que possa ter associado à sua conta. Novos fornecedores de autenticação não podem ser criados a partir de 1 de setembro de 2018 |
 
@@ -50,14 +50,14 @@ Estão disponíveis as seguintes definições:
 Para configurar as definições de bloqueio de conta, complete as seguintes definições:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-1. Navegue pelo bloqueio da conta MFA de segurança de segurança **ativa Azure**  >  **Security**  >  **MFA**  >  **Account lockout**Ative .
+1. Navegue pelo bloqueio da conta MFA de segurança de segurança **ativa Azure**  >  **Security**  >  **MFA**  >  **Account lockout** Ative .
 1. Introduza os valores necessários para o seu ambiente e, em seguida, **selecione Guardar**.
 
     ![Screenshot das definições de bloqueio de conta no portal Azure](./media/howto-mfa-mfasettings/account-lockout-settings.png)
 
 ## <a name="block-and-unblock-users"></a>Bloquear e desbloquear utilizadores
 
-Se o dispositivo de um utilizador tiver sido perdido ou roubado, pode bloquear as tentativas de autenticação multi-factor do Azure para a conta associada. Quaisquer tentativas de autenticação multi-factor Azure para utilizadores bloqueados são automaticamente negadas. Os utilizadores permanecem bloqueados durante 90 dias a partir do momento em que são bloqueados.
+Se o dispositivo de um utilizador tiver sido perdido ou roubado, pode bloquear as tentativas de autenticação multi-factor Azure AD para a conta associada. Quaisquer tentativas de autenticação multi-factor Azure Ad para utilizadores bloqueados são automaticamente negadas. Os utilizadores permanecem bloqueados durante 90 dias a partir do momento em que são bloqueados.
 
 ### <a name="block-a-user"></a>Bloquear um utilizador
 
@@ -65,7 +65,7 @@ Para bloquear um utilizador, complete os seguintes passos:
 
 1. Navegue para utilizadores do **Azure Ative Directory**  >  **Security**  >  **MFA**  >  **Block/desbloquear**.
 1. **Selecione Adicionar** para bloquear um utilizador.
-1. Selecione o **Grupo de Replicação**e, em seguida, escolha *Azure Default*.
+1. Selecione o **Grupo de Replicação** e, em seguida, escolha *Azure Default*.
 
     Introduza o nome de utilizador para o utilizador bloqueado como `username\@domain.com` , em seguida, forneça um comentário no campo *'Razão'.*
 1. Quando estiver pronto, selecione **OK** para bloquear o utilizador.
@@ -85,7 +85,7 @@ A funcionalidade de alerta de fraude permite que os utilizadores relatem tentati
 
 Estão disponíveis as seguintes opções de configuração de alerta de fraude:
 
-* **Bloquear automaticamente os utilizadores que denunciam fraude**: Se um utilizador reportar fraude, as tentativas de autenticação Azure MFA para a conta de utilizador são bloqueadas durante 90 dias ou até que um administrador desbloqueie a sua conta. Um administrador pode rever as inscrições utilizando o relatório de inscrição e tomar as medidas adequadas para evitar futuras fraudes. Um administrador pode então [desbloquear](#unblock-a-user) a conta do utilizador.
+* **Bloquear automaticamente os utilizadores que denunciam fraude**: Se um utilizador reportar fraude, as tentativas de autenticação Azure AD MFA para a conta de utilizador são bloqueadas durante 90 dias ou até que um administrador desbloqueie a sua conta. Um administrador pode rever as inscrições utilizando o relatório de inscrição e tomar as medidas adequadas para evitar futuras fraudes. Um administrador pode então [desbloquear](#unblock-a-user) a conta do utilizador.
 * **Código para denunciar fraude durante a saudação inicial**: Quando os utilizadores recebem uma chamada telefónica para efetuar a autenticação de vários fatores, normalmente pressionam **#** para confirmar a sua entrada. Para denunciar a fraude, o utilizador introduz um código antes de premir **#** . Este código é **0** por padrão, mas pode personalizá-lo.
 
    > [!NOTE]
@@ -110,7 +110,7 @@ As notificações por e-mail podem ser configuradas quando os utilizadores repor
 
 Para configurar notificações de alerta de fraude, complete as seguintes definições:
 
-1. Consulte notificações **Azure Active Directory**de  >  **Security**  >  **autenticação multi-factor de**segurança de segurança Azure  >  **Notifications**Ative.
+1. Consulte notificações **Azure Active Directory** de  >  **Security**  >  **autenticação multi-factor de** segurança de segurança Azure  >  **Notifications** Ative.
 1. Insira o endereço de e-mail para adicionar na caixa seguinte.
 1. Para remover um endereço de e-mail existente, selecione a opção **...** ao lado do endereço de e-mail pretendido e, em seguida, selecione **Delete**.
 1. Quando estiver pronto, **selecione Guardar**.
@@ -156,7 +156,7 @@ Nos Estados Unidos, se ainda não configuraste o ID do MFA Caller, as chamadas d
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> Quando as chamadas de autenticação multi-factor Azure são feitas através da rede telefónica pública, por vezes as chamadas são encaminhadas através de uma transportadora que não suporta o ID do chamador. Por isso, o ID do chamador não está garantido, mesmo que a autenticação multi-factor Azure sempre o envie. Isto aplica-se tanto a chamadas telefónicas como a mensagens de texto fornecidas pela Autenticação Multi-Factor Azure. Se precisar de validar que uma mensagem de texto é da Autenticação Multi-Factor Azure, consulte [que códigos curtos SMS são utilizados para o envio de mensagens?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
+> Quando as chamadas de autenticação multi-factor Azure AD são feitas através da rede telefónica pública, por vezes as chamadas são encaminhadas através de uma transportadora que não suporta o ID do chamador. Por isso, o ID do chamador não está garantido, mesmo que a autenticação multi-factor Ad Azure sempre o envie. Isto aplica-se tanto a chamadas telefónicas como a mensagens de texto fornecidas pela Autenticação Multi-Factor AZure AD. Se precisar de validar que uma mensagem de texto é da Autenticação Multi-Factor AD Azure, consulte [que códigos curtos SMS são utilizados para o envio de mensagens?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Para configurar o seu próprio número de identificação de chamada, complete os seguintes passos:
 
@@ -166,11 +166,11 @@ Para configurar o seu próprio número de identificação de chamada, complete o
 
 ### <a name="custom-voice-messages"></a>Mensagens de voz personalizadas
 
-Pode utilizar as suas próprias gravações ou saudações para autenticação multi-factor Azure com a funcionalidade de mensagens de voz personalizadas. Estas mensagens podem ser utilizadas para além ou para substituir as gravações padrão da Microsoft.
+Pode utilizar as suas próprias gravações ou saudações para autenticação multi-factor Azure AD com a funcionalidade de mensagens de voz personalizadas. Estas mensagens podem ser utilizadas para além ou para substituir as gravações padrão da Microsoft.
 
 Antes de começar, esteja atento às seguintes restrições:
 
-* Os formatos de ficheiro suportado são *.wav* e *.mp3*.
+* Os formatos de ficheiros suportados são *.wav* e *.mp3*.
 * O limite de tamanho do ficheiro é de 1 MB.
 * As mensagens de autenticação devem ser inferiores a 20 segundos. Mensagens com mais de 20 segundos podem fazer com que a verificação falhe. O utilizador pode não responder antes de terminar a mensagem e os tempos de verificação.
 
@@ -223,20 +223,20 @@ Para utilizar as suas próprias mensagens personalizadas, complete os seguintes 
 1. Escolha o **tipo** de saudação, como *Saudação (padrão)* ou *Autenticação bem sucedida.*
 1. Selecione o **Idioma**, com base na secção anterior sobre o [comportamento personalizado do idioma da mensagem](#custom-message-language-behavior).
 1. Navegue e selecione um ficheiro de som *.mp3* ou *.wav* para carregar.
-1. Quando estiver pronto, **selecione Adicionar**e, em seguida, **Guardar**.
+1. Quando estiver pronto, **selecione Adicionar** e, em seguida, **Guardar**.
 
 ## <a name="mfa-service-settings"></a>Definições de serviço MFA
 
-As definições para palavras-passe de aplicações, IPs fidedignos, opções de verificação e lembre-se que a autenticação multi-factor para Azure Multi-Factor Authentication pode ser encontrada nas definições de serviço. Este é mais um portal legado, e não faz parte do portal AD AZure regular.
+As definições para palavras-passe de aplicações, IPs fidedignos, opções de verificação e lembre-se que a autenticação multi-factor Azure pode ser encontrada nas definições de serviço. Este é mais um portal legado, e não faz parte do portal AD AZure regular.
 
 As definições de serviço podem ser acedidas a partir do portal Azure através da navegação para **Azure Ative Directory**  >  **Security**  >  **MFA**  >  **Obter**  >  **Configure**  >  **configurações adicionais de MFA baseadas na nuvem**. Uma nova janela ou separador abre com opções adicionais *de definições de serviço.*
 
 ## <a name="trusted-ips"></a>IPs Fidedignos
 
-A funcionalidade _IPs Fidedigna_ da Autenticação Multi-Factor Azure contorna as indicações de autenticação de vários fatores para os utilizadores que iniciarem sedutação a partir de um intervalo de endereços IP definido. Pode definir gamas IP fidedignas para os ambientes no local até quando os utilizadores estiverem num desses locais, não existe nenhuma solicitação de autenticação multi-factor Azure.
+A funcionalidade _IPs Fidedigna_ da Autenticação Multi-Factor Azure AD contorna as solicitações de autenticação de vários fatores para os utilizadores que iniciarem sedutação a partir de uma gama de endereços IP definida. Pode definir gamas IP fidedignas para os ambientes no local até quando os utilizadores estiverem num desses locais, não existe nenhuma solicitação de autenticação multi-factor AD Azure.
 
 > [!NOTE]
-> Os IPs fidedignos só podem incluir gamas IP privadas quando utilizar o MFA Server. Para autenticação multi-factor Azure baseada na nuvem, só pode utilizar intervalos de endereços IP públicos.
+> Os IPs fidedignos só podem incluir gamas IP privadas quando utilizar o MFA Server. Para autenticação multi-factor Azure AD baseada na nuvem, só pode utilizar intervalos de endereços IP públicos.
 >
 > As gamas IPv6 só são suportadas na interface [de localização nomeada (pré-visualização).](../conditional-access/location-condition.md#preview-features)
 
@@ -263,7 +263,7 @@ Independentemente de o IP fidedigno ser definido, a autenticação de vários fa
 
 Pode utilizar regras de acesso condicional para definir locais nomeados utilizando os seguintes passos:
 
-1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, navegue para **Security**  >  **Conditional Access**  >  **locais com**acesso condicional de segurança .
+1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, navegue para **Security**  >  **Conditional Access**  >  **locais com** acesso condicional de segurança .
 1. Selecione **Nova localização**.
 1. Insira um nome para o local.
 1. Selecione **Mark como localização fidedigna.**
@@ -274,7 +274,7 @@ Pode utilizar regras de acesso condicional para definir locais nomeados utilizan
 
 Para permitir iPs fidedignos utilizando políticas de acesso condicional, complete os seguintes passos:
 
-1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, navegue para **Security**  >   **Conditional Access**  >  **locais com**acesso condicional de segurança .
+1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, navegue para **Security**  >   **Conditional Access**  >  **locais com** acesso condicional de segurança .
 1. Selecione **Configurar IPs fidedignos MFA**.
 1. Na página **Definições de Serviço,** em **IPs Fidedignos,** escolha entre qualquer uma das duas opções seguintes:
 
@@ -291,7 +291,7 @@ Para permitir iPs fidedignos utilizando políticas de acesso condicional, comple
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Ativar a funcionalidade IPs Fidedigno utilizando as definições de serviço
 
-Se não quiser utilizar políticas de Acesso Condicional para ativar IPs fidedignos, pode configurar as *definições* de serviço para autenticação multi-factor Azure utilizando os seguintes passos:
+Se não quiser utilizar políticas de Acesso Condicional para ativar IPs fidedignos, pode configurar as *definições* de serviço para autenticação multi-factor Azure AD utilizando os seguintes passos:
 
 1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, escolha **Utilizadores**.
 1. Selecione **Multi-Factor Authentication**.
@@ -311,7 +311,7 @@ Se não quiser utilizar políticas de Acesso Condicional para ativar IPs fidedig
 
 ## <a name="verification-methods"></a>Métodos de verificação
 
-Pode escolher os métodos de verificação disponíveis para os seus utilizadores no portal de definições de serviço. Quando os seus utilizadores inscrevem as suas contas para a Autenticação Multi-Factor Azure, eles escolhem o seu método de verificação preferido a partir das opções que ativou. Orientação para o processo de inscrição do utilizador é fornecida na [Configuração da minha conta para a autenticação de vários fatores.](../user-help/multi-factor-authentication-end-user-first-time.md)
+Pode escolher os métodos de verificação disponíveis para os seus utilizadores no portal de definições de serviço. Quando os seus utilizadores inscrevem as suas contas para a Autenticação Multi-Factor AZure AD, eles escolhem o seu método de verificação preferido a partir das opções que ativou. Orientação para o processo de inscrição do utilizador é fornecida na [Configuração da minha conta para a autenticação de vários fatores.](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 Estão disponíveis os seguintes métodos de verificação:
 
@@ -376,4 +376,4 @@ Depois de ativar a funcionalidade de autenticação multi-factor de ressaltaçã
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre os métodos disponíveis para utilização na Autenticação Multi-Factor Azure, consulte que métodos de [autenticação e verificação estão disponíveis no Diretório Ativo Azure?](concept-authentication-methods.md)
+Para saber mais sobre os métodos disponíveis para utilização na Autenticação Multi-Factor AD Azure, consulte que métodos de [autenticação e verificação estão disponíveis no Diretório Ativo Azure?](concept-authentication-methods.md)

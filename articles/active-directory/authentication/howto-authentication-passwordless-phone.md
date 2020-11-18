@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05f3d422c9a504a0089290f3c2e1e68d809366ac
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 9da0c00bd8498e3f43d5f8258308fbc010a6a274
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592962"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839527"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Ativar o sing-in sem palavras-passe com a aplicação Microsoft Authenticator (pré-visualização)
 
@@ -36,7 +36,7 @@ As pessoas que ativaram o registo telefónico a partir da aplicação Microsoft 
 
 Para utilizar o acesso telefónico sem palavras-passe com a aplicação Microsoft Authenticator, devem ser cumpridos os seguintes pré-requisitos:
 
-- Autenticação multi-factor Azure, com notificações push permitidas como método de verificação.
+- Autenticação multi-factor Azure AD, com notificações push permitidas como método de verificação.
 - A versão mais recente do Microsoft Authenticator instalada em dispositivos com o iOS 8.0 ou superior, ou Android 6.0 ou superior.
 
 > [!NOTE]
@@ -141,4 +141,4 @@ Para saber mais sobre a autenticação AD AD e métodos sem palavras-passe, cons
 
 - [Saiba como funciona a autenticação sem palavras-passe](concept-authentication-passwordless.md)
 - [Saiba mais sobre o registo do dispositivo](../devices/overview.md#getting-devices-in-azure-ad)
-- [Saiba mais sobre a autenticação multi-factor Azure](../authentication/howto-mfa-getstarted.md)
+- [Saiba mais sobre a autenticação multi-factor Azure AD](../authentication/howto-mfa-getstarted.md)

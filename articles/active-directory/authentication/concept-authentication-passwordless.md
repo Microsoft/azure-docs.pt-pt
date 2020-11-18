@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b308b47ff813237bdf90637334f20ac6b5490a19
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dbe22a1af8fbf61629fa9df1267416ca3822884b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992831"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840088"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Azure Ative Directory
 
@@ -62,7 +62,7 @@ Também pode permitir que o telefone do seu colaborador se torne um método de a
 
 A App Authenticator transforma qualquer telefone iOS ou Android numa credencial forte e sem palavras-passe. Os utilizadores podem iniciar sposição em qualquer plataforma ou navegador através da notificação do seu telemóvel, correspondendo um número exibido no ecrã ao do telemóvel e, em seguida, utilizando o seu biométrico (toque ou rosto) ou PIN para confirmar. Consulte o [Download e instale a aplicação Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) para obter detalhes de instalação.
 
-O sôs-in sem palavras-passe com a aplicação Microsoft Authenticator para Azure AD está atualmente em pré-visualização. A utilização da aplicação Microsoft Authenticator para autenticação secundária para autenticação multi-factor Azure, reset de palavra-passe de autosserviço (SSPR) ou fichas de software OATH é GA. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+O sôs-in sem palavras-passe com a aplicação Microsoft Authenticator para Azure AD está atualmente em pré-visualização. A utilização da aplicação Microsoft Authenticator para autenticação secundária para autenticação multi-factor AD Azure, redefinição de senha de autosserviço (SSPR) ou fichas de software OATH é GA. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A autenticação sem palavras-passe utilizando a aplicação Authenticator segue o mesmo padrão básico que o Windows Hello for Business. É um pouco mais complicado, uma vez que o utilizador precisa de ser identificado para que o Azure AD possa encontrar a versão da Microsoft Authenticator App a ser utilizada:
 

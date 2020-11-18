@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0c19e33ab6f91e69f9c7dbc5bc29fef1fd53bb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964881"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839578"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeie uma implementação de autenticação sem palavras-passe no Azure Ative Directory
 
@@ -67,9 +67,9 @@ As organizações devem cumprir os seguintes requisitos antes de iniciar uma imp
 
 | Pré-requisito | App autenticador | Chaves de segurança FIDO2 |
 | --- | --- | --- |
-| Está ativado [o registo combinado para a autenticação multi-factor Azure e o reset da palavra-passe de autosserviço (SSPR)](howto-registration-mfa-sspr-combined.md) | √ | √ |
-| [Os utilizadores podem realizar a autenticação de vários fatores Azure](howto-mfa-getstarted.md) | √ | √ |
-| [Os utilizadores registaram-se para autenticação de vários fatores Azure e SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| Está ativado [o registo combinado para autenticação multi-factor AD Azure e redefinição da palavra-passe de autosserviço (SSPR)](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| [Os utilizadores podem realizar autenticação multi-factor Azure AD](howto-mfa-getstarted.md) | √ | √ |
+| [Os utilizadores registaram-se para autenticação multi-factor Azure AD e SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Os utilizadores registaram os seus dispositivos móveis no Azure Ative Directory](../devices/overview.md) | √ |   |
 | Versão 1809 ou superior do Windows 10 utilizando um navegador suportado como Microsoft Edge ou Mozilla Firefox <br> (versão 67 ou superior). <br> *A Microsoft recomenda a versão 1903 ou superior para suporte nativo*. |   | √ |
 | Chaves de segurança FIDO2 compatíveis. Certifique-se de que está a utilizar um dispositivo de segurança FIDO2 [testado e verificado pela Microsoft](./concept-authentication-passwordless.md) ou outro dispositivo de segurança FIDO2 compatível. |   | √ |
@@ -78,11 +78,11 @@ As organizações devem cumprir os seguintes requisitos antes de iniciar uma imp
 
 Os pré-requisitos para o Windows Hello são altamente dependentes de estar a implementar numa configuração no local, híbrida ou apenas em nuvem. Para mais informações, consulte a [listagem completa de pré-requisitos para o Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### <a name="azure-multi-factor-authentication"></a>Multi-Factor Authentication do Azure
+### <a name="azure-ad-multi-factor-authentication"></a>Autenticação de vários fatores Azure Ad
 
-Os utilizadores registam o seu método sem palavra-passe como parte do fluxo de registo de autenticação de vários fatores Azure. A autenticação multi-factor com um nome de utilizador e palavra-passe juntamente com outro método registado pode ser usada como um recuo no caso de não poderem usar o seu telefone ou chave de segurança em alguns cenários.
+Os utilizadores registam o seu método sem palavra-passe como parte do fluxo de registo de autenticação multi-factor Azure AD. A autenticação multi-factor com um nome de utilizador e palavra-passe juntamente com outro método registado pode ser usada como um recuo no caso de não poderem usar o seu telefone ou chave de segurança em alguns cenários.
 
-### <a name="licensing"></a>Licensing 
+### <a name="licensing"></a>Licenciamento 
 Não existe um custo adicional para a autenticação sem palavra-passe, embora alguns pré-requisitos possam exigir uma subscrição premium. Para informações detalhadas sobre funcionalidades e licenciamento na página de licenciamento do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 ## <a name="develop-a-plan"></a>Desenvolver um plano
@@ -140,7 +140,7 @@ Transforma qualquer iOS ou telefone Android numa credencial forte e sem palavras
 
 **Integração AD FS** - Quando um utilizador permite a credencial sem palavras-passe do Microsoft Authenticator, a autenticação para esse utilizador não pode enviar uma notificação para aprovação. Os utilizadores de um inquilino híbrido estão impedidos de serem direcionados para a ADFS para iniciar seduca, a menos que selecionem "Use a sua palavra-passe em vez disso". Este processo também contorna quaisquer políticas de acesso condicional no local e fluxos de autenticação de passagem. No entanto, se for especificada uma *login_hint,* o utilizador é encaminhado para a ADFS e contorna a opção de utilização da credencial sem palavra-passe.
 
-**Servidor de autenticação multi-factor Azure** - Os utilizadores finais habilitados para a autenticação de vários fatores através do servidor Azure MFA de uma organização podem criar e utilizar uma única credencial de acesso telefónico sem palavras-passe. Se o utilizador tentar atualizar várias instalações (5 ou mais) do Autenticador Microsoft com a credencial, esta alteração pode resultar num erro.
+**Servidor de autenticação multi-factor Azure AD** - Os utilizadores finais habilitados para a autenticação de vários fatores através do servidor Azure MFA de uma organização podem criar e utilizar uma única credencial de acesso telefónico sem palavras-passe. Se o utilizador tentar atualizar várias instalações (5 ou mais) do Autenticador Microsoft com a credencial, esta alteração pode resultar num erro.
 
 **Registo do Dispositivo** - Para utilizar a aplicação Authenticator para autenticação sem palavras-passe, o dispositivo deve estar registado no inquilino Azure AD e não pode ser um dispositivo partilhado. Um dispositivo só pode ser registado num único inquilino. Este limite significa que apenas uma conta de trabalho ou escola é suportada para o início de sômedão telefónico utilizando a aplicação Authenticator.
 

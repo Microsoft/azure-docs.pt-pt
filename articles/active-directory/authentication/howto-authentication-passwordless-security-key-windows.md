@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b88b2ca0a420295a7a53608f02923e72045e1c44
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8fba2610b3343744c448e390bc2d713b38da481d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964745"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839476"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Ativar o acesso da chave de segurança sem palavras-passe aos dispositivos windows 10 com o Azure Ative Directory (pré-visualização)
 
@@ -29,7 +29,7 @@ Este documento centra-se em permitir a autenticação sem palavras-passe baseada
 
 | Tipo de Dispositivo | Azure AD associado | associado ao Azure AD Híbrido |
 | --- | --- | --- |
-| [Multi-Factor Authentication do Azure](howto-mfa-getstarted.md) | X | X |
+| [Autenticação de vários fatores Azure Ad](howto-mfa-getstarted.md) | X | X |
 | [Pré-visualização do registo combinado de informações de segurança](concept-registration-mfa-sspr-combined.md) | X | X |
 | Chaves de [segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis | X | X |
 | WebAuthN requer versão 10 do Windows 1903 ou superior | X | X |
@@ -79,7 +79,7 @@ As organizações podem optar por utilizar um ou mais dos seguintes métodos par
 Para ativar a utilização de chaves de segurança utilizando o Intune, complete os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Navegue para o **Microsoft Intune**  >  **Device matriculando**Windows  >  **Hello**for  >  **Business**  >  **Properties**.
+1. Navegue para o **Microsoft Intune**  >  **Device matriculando** Windows  >  **Hello** for  >  **Business**  >  **Properties**.
 1. Em **Definições**, defina **As teclas de segurança para iniciar sômposições** **ativadas**.
 
 A configuração das chaves de segurança para o sing-in não depende da configuração do Windows Hello for Business.
@@ -117,7 +117,7 @@ Para dispositivos não geridos pelo Intune, pode ser instalado um pacote de prov
 1. No seu projeto recém-criado, navegue para **configurações de tempo de execução**  >  **WindowsHelloForBusiness**  >  **SecurityKeys**  >  **UseSecurityKeyForSignIn**.
 1. Defina **useSecurityKeyForSignIn** para *ativar*.
 1. Selecione **Export**  >  **pacote de provisionamento de exportação**
-1. Deixe as predefinições na janela **Build** sob **descrever o pacote de provisionamento**e, em seguida, selecione **Seguinte**.
+1. Deixe as predefinições na janela **Build** sob **descrever o pacote de provisionamento** e, em seguida, selecione **Seguinte**.
 1. Deixe as predefinições na janela **Build** sob **detalhes de segurança Selecione para o pacote de provisionamento** e selecione **Next**.
 1. Tome nota ou altere o caminho nas janelas **Build** em **Select where to save the provisioning package** and select **Next**.
 1. Selecione **Construir** na página **de pacote de provisionamento.**
@@ -129,7 +129,7 @@ Para dispositivos não geridos pelo Intune, pode ser instalado um pacote de prov
 
 ### <a name="enable-with-group-policy"></a>Ativar com Política de Grupo
 
-Para **dispositivos híbridos Azure AD,** as organizações podem configurar a seguinte definição de Política de Grupo para permitir o sinal de chave de segurança FIDO. A definição pode ser encontrada na **configuração do computador**  >  **Modelos Administrativos**  >  **Modelos Do sistema**De início de  >  **Logon**  >  **sposição Ligue o sinal de chave de segurança**:
+Para **dispositivos híbridos Azure AD,** as organizações podem configurar a seguinte definição de Política de Grupo para permitir o sinal de chave de segurança FIDO. A definição pode ser encontrada na **configuração do computador**  >  **Modelos Administrativos**  >  **Modelos Do sistema** De início de  >  **Logon**  >  **sposição Ligue o sinal de chave de segurança**:
 
 - A definição desta política para **Ativado** permite que os utilizadores entrem com as teclas de segurança.
 - A definição desta política para **desativar** ou **não configurar** impede que os utilizadores entrem com teclas de segurança.
@@ -164,4 +164,4 @@ Se quiser partilhar feedback ou encontrar problemas durante a pré-visualizaçã
 
 [Saiba mais sobre o registo do dispositivo](../devices/overview.md)
 
-[Saiba mais sobre a autenticação multi-factor Azure](../authentication/howto-mfa-getstarted.md)
+[Saiba mais sobre a autenticação multi-factor Azure AD](../authentication/howto-mfa-getstarted.md)

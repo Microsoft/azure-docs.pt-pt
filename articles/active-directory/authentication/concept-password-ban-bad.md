@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 026f45e715f6d442b27cdd0274f029a68330f7ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356591"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839833"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminar palavras-passe más usando a Azure Ative Directory Password Protection
 
@@ -24,7 +24,7 @@ Muitas orientações de segurança recomendam que não use a mesma palavra-passe
 
 Com a Azure AD Password Protection, as listas de senhas proibidas globais são automaticamente aplicadas a todos os utilizadores de um inquilino AD Azure. Para suportar as suas necessidades de negócio e segurança, pode definir entradas numa lista de senhas proibidas sob medida. Quando os utilizadores alteram ou reiniciam as suas palavras-passe, estas listas de senhas proibidas são verificadas para impor a utilização de senhas fortes.
 
-Deve utilizar funcionalidades adicionais como [autenticação multi-factor Azure,](concept-mfa-howitworks.md)e não apenas confiar em palavras-passe fortes aplicadas pela Azure AD Password Protection. Para obter mais informações sobre a utilização de várias camadas de segurança para os seus eventos de entrada, consulte [o seu Pa$$word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+Deve utilizar funcionalidades adicionais como [autenticação multi-factor Azure AD](concept-mfa-howitworks.md), e não apenas confiar em palavras-passe fortes aplicadas pela Azure AD Password Protection. Para obter mais informações sobre a utilização de várias camadas de segurança para os seus eventos de entrada, consulte [o seu Pa$$word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > Este artigo conceptual explica a um administrador como funciona a Proteção de PasswordS Azure AD. Se é um utilizador final já registado para redefinição da palavra-passe de autosserviço e precisa de voltar à sua conta, vá a [https://aka.ms/sspr](https://aka.ms/sspr) .
@@ -222,7 +222,7 @@ Quando um utilizador tenta redefinir uma palavra-passe para algo que seria proib
 
 Informações adicionais de licenciamento, incluindo custos, podem ser encontradas no site de preços do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a usar uma lista de senhas proibidas personalizadas, complete o seguinte tutorial:
 

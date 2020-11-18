@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99d57e084a6a765b8598ba7f8eebbd7ddb34d74
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964643"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839306"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Ativar o sing-in da chave de segurança sem palavras-passe (pré-visualização)
 
@@ -29,7 +29,7 @@ Este documento centra-se em ativar a autenticação sem palavras-passe baseada e
 
 ## <a name="requirements"></a>Requisitos
 
-- [Multi-Factor Authentication do Azure](howto-mfa-getstarted.md)
+- [Autenticação de vários fatores Azure Ad](howto-mfa-getstarted.md)
 - Ativar a [pré-visualização do registo de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
 - Chaves de [segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis
 - WebAuthN requer versão 10 do Windows 10 ou superior**
@@ -62,8 +62,8 @@ As funcionalidades de inscrição para métodos de autenticação sem palavras-p
 1. Navegue para [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 1. Inscreva-se se já não.
 1. Clique **em Informações de Segurança.**
-   1. Se o utilizador já tiver pelo menos um método de autenticação multi-factor Azure registado, pode registar imediatamente uma chave de segurança FIDO2.
-   1. Se não tiverem pelo menos um método de autenticação multi-factor Azure registado, devem adicionar um.
+   1. Se o utilizador já tiver pelo menos um método de autenticação multi-factor Azure AD registado, pode registar imediatamente uma chave de segurança FIDO2.
+   1. Se não tiverem registado pelo menos um método de autenticação multi-factor Azure AD, devem adicionar um.
 1. Adicione uma chave de segurança FIDO2 clicando **no método Adicionar** e escolhendo a chave de **Segurança**.
 1. Escolha **o dispositivo USB** ou o dispositivo **NFC**.
 1. Tenha a chave pronta e escolha **a seguir.**
@@ -105,4 +105,4 @@ Estamos a trabalhar no suporte de uma funcionalidade que permite a mudança da U
 
 [Saiba mais sobre o registo do dispositivo](../devices/overview.md)
 
-[Saiba mais sobre a autenticação multi-factor Azure](../authentication/howto-mfa-getstarted.md)
+[Saiba mais sobre a autenticação multi-factor Azure AD](../authentication/howto-mfa-getstarted.md)

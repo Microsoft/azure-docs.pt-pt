@@ -1,6 +1,6 @@
 ---
-title: Configurar palavras-passe de aplicativos para autenticação multi-factor Azure - Diretório Ativo Azure
-description: Saiba como configurar e utilizar palavras-passe de aplicações para aplicações antigas na Autenticação Multi-Factor Azure
+title: Configurar palavras-passe de aplicativos para autenticação multi-factor Azure AD - Diretório Ativo Azure
+description: Saiba como configurar e utilizar palavras-passe de aplicativos para aplicações antigas na Autenticação Multi-Factor AD Azure
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85031896a196dd742868466243dd401345b0bc97
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 282bf6a30d8ff70440999ff3763c0d5544ef428d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964507"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839272"
 ---
-# <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Ativar e utilizar a autenticação multi-factor Azure com aplicações antigas usando senhas de aplicação
+# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Ativar e utilizar autenticação multi-factor Azure AD com aplicações antigas usando senhas de aplicação
 
-Algumas aplicações mais antigas, não-navegadores, como o Office 2010 ou mais cedo e o Apple Mail antes do iOS 11 não entendem pausas ou quebras no processo de autenticação. Se um utilizador estiver habilitado para autenticação multi-factor Azure e tentar utilizar uma destas aplicações mais antigas e não-navegadores, não conseguirá autenticar com sucesso. Para utilizar estas aplicações de forma segura com a autenticação multi-factor Azure ativada para contas de utilizador, pode utilizar as palavras-passe da aplicação. Estas palavras-passe da aplicação substituíram a sua senha tradicional para permitir que uma aplicação contornasse a autenticação de vários fatores e funcionasse corretamente.
+Algumas aplicações mais antigas, não-navegadores, como o Office 2010 ou mais cedo e o Apple Mail antes do iOS 11 não entendem pausas ou quebras no processo de autenticação. Se um utilizador estiver habilitado para autenticação multi-factor Azure AD e tentar utilizar uma destas aplicações mais antigas e não-navegadores, não conseguirá autenticar com sucesso. Para utilizar estas aplicações de forma segura com a autenticação multi-factor Azure AD ativada para contas de utilizador, pode utilizar as palavras-passe da aplicação. Estas palavras-passe da aplicação substituíram a sua senha tradicional para permitir que uma aplicação contornasse a autenticação de vários fatores e funcionasse corretamente.
 
 A autenticação moderna é suportada para os clientes do Microsoft Office 2013 e mais tarde. Os clientes do Office 2013, incluindo o Outlook, suportam protocolos de autenticação modernos e podem ser habilitados a trabalhar com verificação em duas etapas. Após a ativação do cliente, as palavras-passe da aplicação não são necessárias para o cliente.
 
@@ -31,7 +31,7 @@ Este artigo mostra-lhe como ativar e usar senhas de aplicações para aplicaçõ
 
 ## <a name="overview-and-considerations"></a>Visão geral e considerações
 
-Quando uma conta de utilizador é ativada para autenticação multi-factor Azure, o pedido regular de inscrição é interrompido por um pedido de verificação adicional. Algumas aplicações mais antigas não entendem esta quebra no processo de inscrição, por isso a autenticação falha. Para manter a segurança da conta de utilizador e deixar a autenticação multi-factor ativada, as palavras-passe da aplicação podem ser utilizadas em vez do nome de utilizador e palavra-passe regulares do utilizador. Quando uma palavra-passe de aplicação usada durante o sent-in, não há nenhuma solicitação de verificação adicional, por isso a autenticação é bem sucedida.
+Quando uma conta de utilizador é ativada para autenticação multi-factor Azure AD, o pedido regular de inscrição é interrompido por um pedido de verificação adicional. Algumas aplicações mais antigas não entendem esta quebra no processo de inscrição, por isso a autenticação falha. Para manter a segurança da conta de utilizador e deixar a autenticação multi-factor Azure AD ativada, as palavras-passe da aplicação podem ser utilizadas em vez do nome de utilizador e palavra-passe regulares do utilizador. Quando uma palavra-passe de aplicação usada durante o sent-in, não há nenhuma solicitação de verificação adicional, por isso a autenticação é bem sucedida.
 
 As palavras-passe da aplicação são geradas automaticamente, não especificadas pelo utilizador. Esta palavra-passe gerada automaticamente dificulta a adivinhação de um intruso, por isso é mais seguro. Os utilizadores não têm de acompanhar as palavras-passe ou introduzi-las sempre que as palavras-passe da aplicação são inseridas apenas uma vez por aplicação.
 
@@ -39,7 +39,7 @@ Quando utiliza palavras-passe de aplicações, aplicam-se as seguintes considera
 
 * Há um limite de 40 palavras-passe de aplicações por utilizador.
 * As aplicações que cache palavras-passe e as usam em cenários no local podem falhar porque a palavra-passe da aplicação não é conhecida fora do trabalho ou da conta escolar. Um exemplo deste cenário são os e-mails da Exchange que estão no local, mas o correio arquivado está na nuvem. Neste cenário, a mesma palavra-passe não funciona.
-* Depois de a Azure Multi-Factor Authentication ser ativada na conta de um utilizador, as palavras-passe da aplicação podem ser utilizadas com a maioria dos clientes não-navegador, como o Outlook e o Microsoft Skype para negócios. No entanto, as ações administrativas não podem ser realizadas utilizando senhas de aplicação através de aplicações não-navegador, como o Windows PowerShell. As ações não podem ser executadas mesmo quando o utilizador tem uma conta administrativa.
+* Depois de a Azure AD Multi-Factor Authentication ser ativada na conta de um utilizador, as palavras-passe da aplicação podem ser usadas com a maioria dos clientes não-navegador, como o Outlook e o Microsoft Skype para negócios. No entanto, as ações administrativas não podem ser realizadas utilizando senhas de aplicação através de aplicações não-navegador, como o Windows PowerShell. As ações não podem ser executadas mesmo quando o utilizador tem uma conta administrativa.
     * Para executar scripts PowerShell, crie uma conta de serviço com uma senha forte e não ative a conta para verificação em duas etapas.
 * Se suspeitar que uma conta de utilizador está comprometida e revogar/redefinir a palavra-passe da conta, as palavras-passe da aplicação também devem ser atualizadas. As palavras-passe da aplicação não são revogadas automaticamente quando uma palavra-passe da conta de utilizador é revogada/reiniciada. O utilizador deve eliminar as palavras-passe de aplicações existentes e criar novas.
    * Para obter mais informações, consulte [Criar e eliminar palavras-passe de aplicações da página adicional de verificação de segurança.](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page)
@@ -55,7 +55,7 @@ Recomenda-se criar uma palavra-passe de aplicação por dispositivo, em vez de u
 
 ## <a name="federated-or-single-sign-on-app-passwords"></a>Senhas de aplicação federadas ou únicas
 
-A Azure AD suporta a federação, ou um único sign-on (SSO), com serviços de domínio de diretório ativo no local (DS AD). Se a sua organização for federada com Azure AD e estiver a utilizar a autenticação multi-factor Azure, aplicam-se as seguintes considerações de senha de aplicação:
+A Azure AD suporta a federação, ou um único sign-on (SSO), com serviços de domínio de diretório ativo no local (DS AD). Se a sua organização for federada com Azure AD e estiver a utilizar a autenticação multi-factor Azure AD, aplicam-se as seguintes considerações de senha de aplicação:
 
 >[!NOTE]
 > Os seguintes pontos aplicam-se apenas aos clientes federados (SSO).
@@ -72,7 +72,7 @@ Por exemplo, suponha que tenha a seguinte arquitetura:
 * O seu caso no local do Ative Directory é federado com Azure AD.
 * Usas o Exchange online.
 * Usas o Skype para negócios no local.
-* Utiliza a autenticação multi-factor Azure.
+* Utiliza a autenticação multi-factor Azure AD.
 
 Neste cenário, utiliza as seguintes credenciais:
 
@@ -99,10 +99,10 @@ Por padrão, os utilizadores não podem criar senhas de aplicação. A funcional
 
 ## <a name="create-an-app-password"></a>Criar uma senha de aplicação
 
-Quando os utilizadores completam o seu registo inicial de Autenticação Multi-Factor Azure, existe a opção de criar senhas de aplicação no final do processo de registo.
+Quando os utilizadores completam o seu registo inicial de Autenticação Multi-Factor AZure AD, existe a opção de criar senhas de aplicação no final do processo de registo.
 
-Os utilizadores também podem criar senhas de aplicação após o registo. Para obter mais informações e passos detalhados para os seus utilizadores, veja [o que são palavras-passe da aplicação na Autenticação Multi-Factor Azure?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Os utilizadores também podem criar senhas de aplicação após o registo. Para obter mais informações e passos detalhados para os seus utilizadores, veja [o que são as palavras-passe da aplicação na Autenticação Multi-Factor AD Azure?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre como permitir que os utilizadores se registem rapidamente para autenticação multi-factor Azure, consulte [a visão geral do registo de informações](concept-registration-mfa-sspr-combined.md)de segurança combinadas .
+Para obter mais informações sobre como permitir que os utilizadores se registem rapidamente para autenticação multi-factor Azure AD, consulte [a visão geral do registo de informações](concept-registration-mfa-sspr-combined.md)de segurança combinadas .

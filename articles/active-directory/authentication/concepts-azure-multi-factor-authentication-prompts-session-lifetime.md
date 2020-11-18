@@ -1,6 +1,6 @@
 ---
-title: Azure Multi-Factor Authentication solicita e vida útil da sessão
-description: Saiba mais sobre a configuração recomendada para pedidos de reauthentication com autenticação multi-factor Azure e como a vida útil da sessão é aplicada.
+title: Azure AD Multi-Factor Authentication solicita e vida útil da sessão
+description: Saiba mais sobre a configuração recomendada para pedidos de reautorização com autenticação multi-factor AZure AD e como a vida útil da sessão é aplicada.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a759d4e686f43133716cc1c40237db74a015210
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 87b30b12e75a583ccee9780f97a6492961365cca
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964949"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839680"
 ---
-# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Otimizar as solicitações de reauthentication e compreender a vida útil da sessão para autenticação multi-factor Azure
+# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Otimizar as solicitações de reautorização e compreender a vida útil da sessão para autenticação multi-factor Azure AD
 
 O Azure Ative Directory (Azure AD) tem várias configurações que determinam a frequência com que os utilizadores precisam de reautorização. Esta reauthentication pode ser com um primeiro fator, como palavra-passe, FIDO ou Autenticador Microsoft sem palavras-passe, ou para realizar a autenticação multi-factor (MFA). Pode configurar estas definições de reautorca necessárias para o seu próprio ambiente e a experiência do utilizador que deseja.
 
@@ -106,7 +106,7 @@ Para configurar ou rever a opção *Remain,* complete os seguintes passos:
 
 1. No portal AD AZure, procure e selecione *O Diretório Ativo Azure*.
 1. Selecione **Branding da Empresa,** em seguida, para cada local, escolha **a opção Show para permanecer assinado em**.
-1. Escolha *Sim*e, em seguida, selecione **Guardar**.
+1. Escolha *Sim* e, em seguida, selecione **Guardar**.
 
 Para lembrar as definições de autenticação de vários fatores, complete os seguintes passos:
 
@@ -136,4 +136,4 @@ O quadro que se segue resume as recomendações baseadas em licenças:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar, preencha o tutorial para [Garantir eventos de entrada de utilizador com autenticação multi-factor Azure](tutorial-enable-azure-mfa.md) ou [Utilize deteções de risco para iniciar insusões de utilizador para desencadear a autenticação multi-factor Azure](tutorial-risk-based-sspr-mfa.md).
+Para começar, preencha o tutorial para [Garantir eventos de entrada de utilizador com autenticação multi-factor AD Azure](tutorial-enable-azure-mfa.md) ou [utilize deteções de risco para iniciar insusentuques para ativar a autenticação multi-factor Azure AD](tutorial-risk-based-sspr-mfa.md).

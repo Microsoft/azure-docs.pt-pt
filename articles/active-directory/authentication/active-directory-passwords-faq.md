@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 078b24e7fc3668e9b5832f0bfa46024db9b33848
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965561"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840105"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Redefinição de senha de autosserviço frequentemente feita perguntas
 
@@ -36,12 +36,12 @@ Esta FAQ é dividida nas seguintes secções:
 
 * **P: Os meus utilizadores podem registar os seus próprios dados de redefinição de password?**
 
-  > **R:** Sim. Enquanto a palavra-passe estiver ativada e estiver licenciada, os utilizadores podem ir ao portal de registo de redefinição de passwords ( https://aka.ms/ssprsetup) para registar as suas informações de autenticação. Os utilizadores também podem inscrever-se através do Painel de Acesso ( Painel de https://myapps.microsoft.com) Acesso). Para se registarem através do Painel de Acesso, têm de selecionar a sua imagem de perfil, selecionar **Perfil**e, em seguida, selecionar o Registo para a opção **de reset da palavra-passe.**
+  > **R:** Sim. Enquanto a palavra-passe estiver ativada e estiver licenciada, os utilizadores podem ir ao portal de registo de redefinição de passwords ( https://aka.ms/ssprsetup) para registar as suas informações de autenticação. Os utilizadores também podem inscrever-se através do Painel de Acesso ( Painel de https://myapps.microsoft.com) Acesso). Para se registarem através do Painel de Acesso, têm de selecionar a sua imagem de perfil, selecionar **Perfil** e, em seguida, selecionar o Registo para a opção **de reset da palavra-passe.**
   >
-  > Se ativar [o registo combinado,](concept-registration-mfa-sspr-combined.md)os utilizadores podem registar-se tanto para a Autenticação Multi-Factor SSPR como para a Azure ao mesmo tempo.
+  > Se ativar [o registo combinado,](concept-registration-mfa-sspr-combined.md)os utilizadores podem registar-se tanto para a Autenticação Multi-Factor SSPR como para a Azure AD ao mesmo tempo.
 * **P: Se eu permitir o reset da palavra-passe para um grupo e, em seguida, decidir capacitá-lo para todos os meus utilizadores são obrigados a re-registrar?**
 
-  > **R:** Não. Os utilizadores que tenham preenchido os dados de autenticação não são obrigados a re-registar-se.
+  > **A:** Não. Os utilizadores que tenham preenchido os dados de autenticação não são obrigados a re-registar-se.
   >
   >
 * **P: Posso definir dados de redefinição de palavra-passe em nome dos meus utilizadores?**
@@ -61,7 +61,7 @@ Esta FAQ é dividida nas seguintes secções:
   >
 * **P: Os meus utilizadores têm de estar registados antes de poderem utilizar o reset da palavra-passe?**
 
-  > **R:** Não. Se definir informações de autenticação suficientes em seu nome, os utilizadores não têm de se registar. O reset da palavra-passe funciona desde que tenha formatado corretamente os dados armazenados nos campos apropriados no diretório.
+  > **A:** Não. Se definir informações de autenticação suficientes em seu nome, os utilizadores não têm de se registar. O reset da palavra-passe funciona desde que tenha formatado corretamente os dados armazenados nos campos apropriados no diretório.
   >
   >
 * **P: Posso sincronizar ou definir o telefone de autenticação, o e-mail de autenticação ou os campos telefónicos de autenticação alternativa em nome dos meus utilizadores?**
@@ -101,7 +101,7 @@ Esta FAQ é dividida nas seguintes secções:
   > Se não receber a notificação neste período de tempo:
   > * Verifique a sua pasta de lixo.
   > * Verifique se o número ou e-mail que está a ser contactado é o que espera.
-  > * Verifique se os dados de autenticação no diretório estão corretamente formatados, por exemplo, +1 4255551234 ou * \@ contoso.com do utilizador*. 
+  > * Verifique se os dados de autenticação no diretório estão corretamente formatados, por exemplo, +1 4255551234 ou *\@ contoso.com do utilizador*. 
 * **P: Que línguas são suportadas por reset de palavra-passe?**
 
   > **A:** A palavra-passe repôs uI, mensagens SMS e chamadas de voz localizadas nos mesmos idiomas que são suportados no Microsoft 365.
@@ -159,7 +159,7 @@ Esta FAQ é dividida nas seguintes secções:
   >
 * **P: Pode um utilizador registar a mesma questão de segurança mais de uma vez?**
 
-  > **R:** Não. Depois de um utilizador registar uma pergunta específica, não pode registar-se para essa pergunta uma segunda vez.
+  > **A:** Não. Depois de um utilizador registar uma pergunta específica, não pode registar-se para essa pergunta uma segunda vez.
   >
   >
 * **P: É possível estabelecer um limite mínimo de questões de segurança para o registo e reposição?**
