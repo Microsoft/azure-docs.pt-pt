@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 336f58635465f77c60d04c53bb1893cb60f5f35f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2ab87dfdeb18f97265c3bb2f34616c942a345c1e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791227"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698952"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Java usando APIs de REST
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "92791227"
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 
 Crie uma aplicação de consola Java que cria, carrega e consulta um índice de pesquisa usando [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK,](/java/azure/jdk/)e a [API de Pesquisa Cognitiva Azure](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação da aplicação. Em alternativa, pode [descarregar e executar a aplicação completa.](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/)
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Utilizamos o seguinte software e serviços para construir e testar este arranque rápido:
 
-+ [IntelliJ IDEA](https://www.jetbrains.com/idea/)
++ [Ideia Intellij](https://www.jetbrains.com/idea/)
 
 + [Java 11 SDK](/java/azure/jdk/)
 
@@ -63,22 +63,22 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-1. Abra a ideia intelliJ e selecione **Create New Project** .
-1. Selecione **Maven** .
+1. Abra a ideia intelliJ e selecione **Create New Project**.
+1. Selecione **Maven**.
 1. Na lista **do Project SDK,** selecione o Java 11 SDK.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Criar um projeto maven" border="false":::
 
 1. Para **GroupId** e **ArtifactId,** insira `AzureSearchQuickstart` .
 1. Aceite os restantes incumprimentos para abrir o projeto.
 
 ### <a name="specify-maven-dependencies"></a>Especificar dependências de Maven
 
-1. Selecione **File**  >  **Definições de ficheiros** .
-1. Na janela **Definições,** selecione **Construção, Execução, Implementação**  >  **Ferramentas de Construção**  >  **Maven**  >  **Maven Importando** .
+1. Selecione **File**  >  **Definições de ficheiros**.
+1. Na janela **Definições,** selecione **Construção, Execução, Implementação**  >  **Ferramentas de Construção**  >  **Maven**  >  **Maven Importando**.
 1. Selecione os  **projetos Import Maven** verifique automaticamente a caixa e clique **em OK** para fechar a janela. Os plugins maven e outras dependências serão automaticamente sincronizados quando atualizar o ficheiro pom.xml no passo seguinte.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Opções de importação de Maven nas definições de IntelliJ" border="false":::
 
 1. Abra o ficheiro pom.xml e substitua o conteúdo pelos seguintes detalhes de configuração Maven. Estes incluem referências ao [Plugin Maven DoEc e](https://www.mojohaus.org/exec-maven-plugin/) a uma [API de interface JSON](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
@@ -133,14 +133,14 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 ### <a name="set-up-the-project-structure"></a>Configurar a estrutura do projeto
 
-1. Selecione **File**  >  **estrutura de projeto de arquivo** .
+1. Selecione **File**  >  **estrutura de projeto de arquivo**.
 1. Selecione **Módulos** e expanda a árvore de origem para aceder ao conteúdo da `src`  >   `main` pasta.
 1. Na `src`  >   `main`  >  `java` pasta, adicione `app` e adicione as `service` pastas. Para isso, selecione a `java` pasta, prima Alt + Insira e, em seguida, introduza o nome da pasta.
 1. Na `src`  >   `main`  > `resources` pasta, adicione `app` e adicione as `service` pastas.
 
     Quando terminar, a árvore do projeto deve parecer a seguinte imagem.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Estrutura do diretório do projeto" border="false":::
 
 1. Clique em **OK** para fechar a janela.
 
@@ -373,10 +373,10 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 1. Verifique se o seu projeto tem a seguinte estrutura.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Estrutura de diretório de projeto mais aulas" border="false":::
 
 1. Abra a janela da ferramenta **Maven** e execute este objetivo maven: `verify exec:java` 
- :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
+ :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Execute o objetivo maven: verifique exec:java" border="false":::
 
 Ao processar concluído, procure uma mensagem BUILD SUCCESS seguida de um código de saída zero (0).
 

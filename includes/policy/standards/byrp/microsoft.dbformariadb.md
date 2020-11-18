@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 3d8ad77611e51532edcb79b06515c384732f3cea
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b2f286d3229b572ea06ef607c8d8ee8189a7f9da
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314204"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700278"
 ---
 ## <a name="azure-security-benchmark"></a>Referência de Segurança do Azure
 

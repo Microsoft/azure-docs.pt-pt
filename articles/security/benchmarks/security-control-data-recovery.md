@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ee28cbffd6f047b4991d29781e0b131a44c7dfae
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 835e4f681d514bb6b92caa5ee076e3794ed59236
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409183"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698823"
 ---
 # <a name="security-control-data-recovery"></a>Controlo de Segurança: Recuperação de Dados
 
@@ -58,7 +58,7 @@ Garantir a capacidade de realizar periodicamente a restauração de dados de con
 |--|--|--|
 | 9.4 | 10.4 | Cliente |
 
-Para cópias de segurança no local, a encriptação inativa de dados é fornecida ao utilizar a frase de acesso que forneceu ao fazer cópias de segurança no Azure. Nas VMs do Azure, os dados são encriptados inativamente com a Encriptação do Serviço de Armazenamento (SSE). Utilize o controlo de acesso baseado em funções para proteger as cópias de segurança e as chaves geridas pelo cliente.  
+Para cópias de segurança no local, a encriptação inativa de dados é fornecida ao utilizar a frase de acesso que forneceu ao fazer cópias de segurança no Azure. Nas VMs do Azure, os dados são encriptados inativamente com a Encriptação do Serviço de Armazenamento (SSE). Utilize o controlo de acesso baseado em funções Azure para proteger cópias de segurança e chaves geridas pelo cliente.  
 
 Ativar Soft-Delete e limpar a proteção no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.  Se o Azure Storage for utilizado para armazenar cópias de segurança, ative a eliminação suave para guardar e recuperar os seus dados quando as bolhas ou as imagens blob forem eliminadas. 
 

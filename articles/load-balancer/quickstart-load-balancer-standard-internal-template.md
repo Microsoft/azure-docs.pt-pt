@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: 41c90bb58e6ece968f8e2bf211a14e4e4e98211f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a029ee79019c958eaf240a4656c96c6e1848f04d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910870"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700329"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio utilizando um modelo ARM
 
@@ -21,7 +21,7 @@ Este quickstart descreve como usar um modelo de Gestor de Recursos Azure (modelo
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-2-vms-internal-load-balancer%2Fazuredeploy.json)
 
@@ -76,7 +76,7 @@ az deployment group create \
 
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-template/verify-creation.png" alt-text="Portal Azure do utilizador para verificar a criação de recursos." border="true":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando de eliminação do [grupo az](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos contidos no seu interior.
 
@@ -90,4 +90,4 @@ Quando já não é necessário, pode utilizar o comando de eliminação do [grup
 Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Crie e implemente o seu primeiro modelo ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Crie e implemente o seu primeiro modelo ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fca6b40f4bd871041d14d119eb44e8366d8562ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669177"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700465"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de Carga Standard e Zonas de Disponibilidade
 
@@ -151,11 +151,11 @@ Os seus recursos em zonas não afetadas por falhas estarão disponíveis. A sua 
   - Quando uma zona falha, o seu serviço compreende esta falha e se o Estado está perdido, como vai recuperar?
   - Quando uma zona regressa, a sua aplicação entende como convergir com segurança?
 
-Reveja [os padrões de design em nuvem Azure](https://docs.microsoft.com/azure/architecture/patterns/) para melhorar a resiliência da sua aplicação a cenários de falha.
+Reveja [os padrões de design em nuvem Azure](/azure/architecture/patterns/) para melhorar a resiliência da sua aplicação a cenários de falha.
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [As Zonas de Disponibilidade](../availability-zones/az-overview.md)
-- Saiba mais sobre o [Balanceador de Carga Standard](load-balancer-standard-overview.md)
-- Saiba como [carregar VMs de equilíbrio dentro de uma zona usando um Balanceador de Carga Padrão com um frontend zonal](load-balancer-standard-public-zonal-cli.md)
-- Saiba como [carregar vMs de equilíbrio em zonas usando um Balanceador de Carga Padrão com um frontend redundante de zona](load-balancer-standard-public-zone-redundant-cli.md)
-- Conheça os [padrões de design de nuvem Azure](https://docs.microsoft.com/azure/architecture/patterns/) para melhorar a resiliência da sua aplicação a cenários de falha.
+- Saiba mais sobre o [Balanceador de Carga Standard](./load-balancer-overview.md)
+- Saiba como [carregar VMs de equilíbrio dentro de uma zona usando um Balanceador de Carga Padrão com um frontend zonal](./quickstart-load-balancer-standard-public-cli.md)
+- Saiba como [carregar vMs de equilíbrio em zonas usando um Balanceador de Carga Padrão com um frontend redundante de zona](./quickstart-load-balancer-standard-public-cli.md)
+- Conheça os [padrões de design de nuvem Azure](/azure/architecture/patterns/) para melhorar a resiliência da sua aplicação a cenários de falha.

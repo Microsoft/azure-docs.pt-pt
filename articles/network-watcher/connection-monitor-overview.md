@@ -1,6 +1,6 @@
 ---
-title: Monitor de conexão (pré-visualização) / Microsoft Docs
-description: Saiba como utilizar o Connection Monitor (Preview) para monitorizar a comunicação da rede num ambiente distribuído.
+title: Monitor de Conexão / Microsoft Docs
+description: Saiba como utilizar o Connection Monitor para monitorizar a comunicação da rede num ambiente distribuído.
 services: network-watcher
 documentationcenter: na
 author: vinynigam
@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447826"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699241"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorização da conectividade da rede com monitor de ligação (pré-visualização)
+# <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorização da conectividade da rede com monitor de ligação
 
-O Monitor de Ligação (Preview) fornece uma monitorização unificada de ligação de ponta a ponta no Observador de Rede Azure. A funcionalidade Connection Monitor (Preview) suporta implementações híbridas e azure em nuvem. O Network Watcher fornece ferramentas para monitorizar, diagnosticar e visualizar métricas relacionadas com a conectividade para as suas implementações Azure.
+O Connection Monitor fornece uma monitorização unificada de ligação de ponta a ponta no Observador de Rede Azure. A funcionalidade Connection Monitor suporta implementações híbridas e azure em nuvem. O Network Watcher fornece ferramentas para monitorizar, diagnosticar e visualizar métricas relacionadas com a conectividade para as suas implementações Azure.
 
-Aqui estão alguns casos de utilização para Monitor de Ligação (Pré-visualização):
+Aqui estão alguns casos de utilização para o Monitor de Ligação:
 
 - O VM do seu servidor web frontal comunica com um VM de servidor de base de dados numa aplicação de vários níveis. Pretende verificar a conectividade da rede entre os dois VMs.
 - Você quer VMs na região leste dos EUA para ping VMs na região central dos EUA, e você quer comparar latências de rede cross-region.
@@ -34,9 +34,9 @@ Aqui estão alguns casos de utilização para Monitor de Ligação (Pré-visuali
 - A sua aplicação híbrida necessita de conectividade para um ponto final de armazenamento Azure. O seu site no local e a sua aplicação Azure ligam-se ao mesmo ponto final de armazenamento Azure. Você quer comparar as latências do local com as latências da aplicação Azure.
 - Pretende verificar a conectividade entre as configurações no local e os VMs Azure que acolhem a sua aplicação em nuvem.
 
-Na sua fase de pré-visualização, o Connection Monitor combina o melhor de duas funcionalidades: a funcionalidade Monitor de [Ligação](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) do Observador de Rede e o Monitor de Conectividade de Serviço (NPM) Monitor de [Serviço](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [Monitorização ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm)e [Monitorização de Desempenho.](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor)
+O Connection Monitor combina o melhor de duas funcionalidades: a funcionalidade Network Watcher [Connection Monitor (Classic)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) e o Monitor de Conectividade de Desempenho da Rede (NPM) Monitor de Conectividade de [Serviços,](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity) [Monitorização ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm)e Funcionalidade [de Monitorização de Desempenho.](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor)
 
-Aqui estão alguns benefícios do Monitor de Ligação (Visualização):
+Aqui estão alguns benefícios do Monitor de Ligação:
 
 * Experiência unificada e intuitiva para necessidades de monitorização Azure e híbridas
 * Monitorização da conectividade transversal e transversal do espaço de trabalho
@@ -47,7 +47,7 @@ Aqui estão alguns benefícios do Monitor de Ligação (Visualização):
 
 ![Diagrama mostrando como o Monitor de Ligação interage com VMs Azure, anfitriões não-Azure, pontos finais e locais de armazenamento de dados](./media/connection-monitor-2-preview/hero-graphic.png)
 
-Para começar a utilizar o Monitor de Ligação (Pré-visualização) para monitorização, siga estes passos: 
+Para começar a utilizar o Monitor de Ligação para monitorização, siga estes passos: 
 
 1. Instale agentes de monitorização.
 1. Ativar o Observador de Rede na sua subscrição.
@@ -59,7 +59,7 @@ As seguintes secções fornecem detalhes para estes passos.
 
 ## <a name="install-monitoring-agents"></a>Instalar agentes de monitorização
 
-O Monitor de Ligação baseia-se em ficheiros leves executáveis para executar verificações de conectividade.  Suporta controlos de conectividade tanto dos ambientes Azure como dos ambientes no local. O ficheiro executável que utiliza depende se o seu VM está hospedado no Azure ou no local.
+O Monitor de Ligação baseia-se em ficheiros leves executáveis para executar verificações de conectividade. Suporta controlos de conectividade tanto dos ambientes Azure como dos ambientes no local. O ficheiro executável que utiliza depende se o seu VM está hospedado no Azure ou no local.
 
 ### <a name="agents-for-azure-virtual-machines"></a>Agentes para máquinas virtuais Azure
 
@@ -89,19 +89,19 @@ O Monitor de Ligação monitoriza a comunicação a intervalos regulares. Inform
 
 As fontes podem ser VMs Azure ou máquinas no local que tenham um agente de monitorização instalado. Os pontos finais de destino podem ser Microsoft 365 URLs, Dynamics 365 URLs, URLs personalizados, IDs de recursos VM Azure, IPv4, IPv6, FQDN ou qualquer nome de domínio.
 
-### <a name="access-connection-monitor-preview"></a>Monitor de ligação de acesso (pré-visualização)
+### <a name="access-connection-monitor"></a>Monitor de conexão de acesso
 
 1. Na página inicial do portal Azure, vá ao **Network Watcher**.
-1. À esquerda, na secção **de Monitorização,** selecione **Connection Monitor (Preview)**.
-1. Vê todos os monitores de ligação que foram criados no Connection Monitor (Preview). Para ver os monitores de ligação que foram criados na experiência clássica do Connection Monitor, aceda ao separador **Monitor de Ligação.**
+1. À esquerda, na secção **de Monitorização,** selecione **Connection Monitor**.
+1. Vê todos os monitores de ligação que foram criados no Connection Monitor. Para ver os monitores de ligação que foram criados na experiência clássica do Connection Monitor, aceda ao separador **Monitor de Ligação.**
     
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot mostrando monitores de conexão que foram criados no Monitor de Ligação (Preview)" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot mostrando monitores de conexão que foram criados no Monitor de Ligação" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
 
 ### <a name="create-a-connection-monitor"></a>Criar um monitor de ligação
 
-Nos monitores de ligação que cria no Connection Monitor (Preview), pode adicionar tanto as máquinas no local como os VMs Azure como fontes. Estes monitores de ligação também podem monitorizar a conectividade com os pontos finais. Os pontos finais podem estar no Azure ou em qualquer outro URL ou IP.
+Nos monitores de ligação que cria no Connection Monitor, pode adicionar tanto as máquinas no local como os VMs Azure como fontes. Estes monitores de ligação também podem monitorizar a conectividade com os pontos finais. Os pontos finais podem estar no Azure ou em qualquer outro URL ou IP.
 
-O Monitor de Ligação (Pré-visualização) inclui as seguintes entidades:
+O Monitor de Ligação inclui as seguintes entidades:
 
 * **Recurso de monitor** de ligação - Um recurso Azure específico da região. Todas as seguintes entidades são propriedades de um recurso de monitor de ligação.
 * **Ponto final** – Uma fonte ou destino que participa em verificações de conectividade. Exemplos de pontos finais incluem VMs Azure, agentes no local, URLs e IPs.
@@ -111,7 +111,7 @@ O Monitor de Ligação (Pré-visualização) inclui as seguintes entidades:
 
  ![Diagrama mostrando um monitor de ligação, definindo a relação entre grupos de teste e testes](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Pode criar uma pré-visualização do monitor de ligação utilizando [o portal Azure](connection-monitor-preview-create-using-portal.md) ou [ARMClient](connection-monitor-preview-create-using-arm-client.md)
+Pode criar um monitor de ligação utilizando [o portal Azure](connection-monitor-preview-create-using-portal.md) ou [ARMClient](connection-monitor-preview-create-using-arm-client.md)
 
 Todas as fontes, destinos e configurações de teste que adiciona a um grupo de teste são discriminadas a testes individuais. Aqui está um exemplo de como as fontes e destinos são divididos:
 
@@ -151,7 +151,7 @@ Depois de criar um monitor de ligação, as fontes verificam a conectividade com
 
 ### <a name="checks-in-a-test"></a>Verifica num teste
 
-Com base no protocolo que escolheu na configuração do teste, o Connection Monitor (Preview) executa uma série de verificações para o par de destino de origem. Os cheques são executados de acordo com a frequência de teste que escolheu.
+Com base no protocolo que escolheu na configuração do teste, o Connection Monitor executa uma série de verificações para o par de destino de origem. Os cheques são executados de acordo com a frequência de teste que escolheu.
 
 Se utilizar HTTP, o serviço calcula o número de respostas HTTP que devolveram um código de resposta válido. Podem ser definidos códigos de resposta válidos utilizando o PowerShell e o CLI. O resultado determina a percentagem de verificações falhadas. Para calcular o RTT, o serviço mede o tempo entre uma chamada HTTP e a resposta.
 
@@ -164,14 +164,14 @@ Com base nos dados que os cheques devolvem, os testes podem ter os seguintes est
 * **Passe** – Os valores reais para a percentagem de verificações falhadas e o RTT estão dentro dos limiares especificados.
 * **Falha** – Os valores reais para a percentagem de verificações falhadas ou rtt excederam os limiares especificados. Se não for especificado um limiar, um teste atinge o estado de Falha quando a percentagem de controlos falhados é de 100.
 * **Aviso** – 
-     * Se o limiar for especificado e o Monitor de Ligação (Preview) observar os controlos falhados por cento mais de 80% do limiar, o teste é marcado como aviso.
-     * Na ausência de limiares especificados, o Monitor de Ligação (Pré-visualização) atribui automaticamente um limiar. Quando esse limiar for ultrapassado, o estado do teste muda para Aviso.Para o tempo de ida e volta nos testes TCP ou ICMP, o limiar é de 750msec. No que diz a falta de cheques por cento, o limiar é de 10%. 
+     * Se o limiar for especificado e o Monitor de Ligação observar os controlos falhados por cento mais de 80% do limiar, o teste é marcado como aviso.
+     * Na ausência de limiares especificados, o Connection Monitor atribui automaticamente um limiar. Quando esse limiar for ultrapassado, o estado do teste muda para Aviso.Para o tempo de ida e volta nos testes TCP ou ICMP, o limiar é de 750msec. No que diz a falta de cheques por cento, o limiar é de 10%. 
 * **Indeterminado**   – Sem dados no Log Analytics Workspace.Verifique as métricas. 
 * **Não correr**   – Deficiente por desativar o grupo de teste  
 
 ### <a name="data-collection-analysis-and-alerts"></a>Recolha, análise e alertas de dados
 
-Os dados que o Monitor de Ligação (Preview) recolhe são armazenados no espaço de trabalho Do Log Analytics. Você configura este espaço de trabalho quando criou o monitor de ligação. 
+Os dados que o Monitor de Ligação recolhe são armazenados no espaço de trabalho do Log Analytics. Você configura este espaço de trabalho quando criou o monitor de ligação. 
 
 Os dados de monitorização também estão disponíveis em Métricas do Monitor Azure. Pode utilizar o Log Analytics para manter os seus dados de monitorização durante o tempo que desejar. O Azure Monitor armazena métricas por apenas 30 dias por defeito. 
 
@@ -181,7 +181,7 @@ Pode [definir alertas baseados em métricas nos dados.](https://azure.microsoft.
 
 Nos painéis de monitorização, vê uma lista dos monitores de ligação a que pode aceder para as suas assinaturas, regiões, selos de tempo, fontes e tipos de destino.
 
-Quando vai ao Monitor de Ligação (Pré-visualização) do Observador de Redes, pode visualizar dados por:
+Quando vai ao Monitor de Ligação do Observador de Redes, pode visualizar dados por:
 
 * **Monitor de conexão** – Lista de todos os monitores de ligação criados para as suas subscrições, regiões, selos de tempo, fontes e tipos de destino. Esta vista é o padrão.
 * **Grupos de teste** – Lista de todos os grupos de teste criados para as suas subscrições, regiões, selos de tempo, fontes e tipos de destino. Estes grupos de teste não são filtrados por monitores de ligação.
@@ -197,20 +197,20 @@ Pode filtrar uma lista com base em:
 * **Filtros estatais** – Filtrar pelo estado do monitor de ligação, grupo de teste ou teste. Ver caixa 2 na imagem a seguir.
 * **Filtro baseado em alerta** - Filtrar por alertas disparados sobre o recurso do monitor de ligação. Ver a caixa 3 na imagem a seguir.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Screenshot mostrando como filtrar vistas de monitores de ligação, grupos de teste e testes no Monitor de Ligação (Preview)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Screenshot mostrando como filtrar vistas de monitores de ligação, grupos de teste e testes no Monitor de Ligação " lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
-Por exemplo, para ver todos os testes no Monitor de Ligação (Pré-visualização) onde o IP de origem é 10.192.64.56:
+Por exemplo, para ver todos os testes no Connection Monitor onde o IP de origem é 10.192.64.56:
 1. Alterar a vista para **Testar**.
 1. No campo de pesquisa, tipo *10.192.64.56*
 1. No **Âmbito do** filtro de nível superior, selecione **Fontes**.
 
-Para mostrar apenas testes falhados no Monitor de Ligação (Pré-visualização) onde o IP de origem é 10.192.64.56:
+Para mostrar apenas testes falhados no Monitor de Ligação onde o IP de origem é 10.192.64.56:
 1. Alterar a vista para **Testar**.
 1. Para o filtro estatal, selecione **Fail**.
 1. No campo de pesquisa, tipo *10.192.64.56*
 1. No **Âmbito do** filtro de nível superior, selecione **Fontes**.
 
-Para mostrar apenas testes falhados no Monitor de Ligação (Pré-visualização) onde o destino é outlook.office365.com:
+Para mostrar apenas testes falhados no Connection Monitor onde o destino é outlook.office365.com:
 1. Alterar a vista para **o Teste**.
 1. Para o filtro estatal, selecione **Fail**.
 1. No campo de pesquisa, *introduza outlook.office365.com*
@@ -265,9 +265,9 @@ Utilize o Log Analytics para criar visualizações personalizadas dos seus dados
 
 #### <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
 
-Nos monitores de ligação que foram criados antes da experiência do Monitor de Ligação (Pré-visualização), as quatro métricas estão disponíveis: % Sondas Falhadas, MédiasRoundtripMs, ChecksFailedPercent (Preview) e RoundTripTimeMs (Preview). Nos monitores de ligação que foram criados na experiência Connection Monitor (Preview), os dados só estão disponíveis para as métricas que estão marcadas com *(Preview)*.
+Nos monitores de ligação que foram criados antes da experiência do Monitor de Ligação, todas as quatro métricas estão disponíveis: % Sondas Falhadas, MédiasRoundtripMs, ChecksFailedPercent (Preview) e RoundTripTimeMs (Preview). Nos monitores de ligação que foram criados na experiência Connection Monitor, os dados só estão disponíveis para as métricas com as etiquetas *(Pré-visualização)*.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot mostrando métricas no Monitor de Ligação (Pré-visualização)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot mostrando métricas no Monitor de Ligação" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 Quando utilizar métricas, desenhe o tipo de recurso como Microsoft.Network/networkWatchers/connectionMonitors
 
@@ -282,18 +282,18 @@ Quando utilizar métricas, desenhe o tipo de recurso como Microsoft.Network/netw
 
 Pode criar alertas métricos em monitores de ligação utilizando os métodos abaixo 
 
-1. Do Monitor de Ligação (Preview), durante a criação do Monitor de [Ligação utilizando o portal Azure](connection-monitor-preview-create-using-portal.md#) 
-1. Do Monitor de Ligação (Pré-visualização), utilizando "Alertas de Configuração" no painel de instrumentos 
+1. Do Monitor de Ligação, durante a criação do Monitor de [Ligação utilizando o portal Azure](connection-monitor-preview-create-using-portal.md#) 
+1. Do Monitor de Ligação, utilizando "Alertas de Configuração" no painel de instrumentos 
 1. Do Monitor Azure - Para criar um alerta no Monitor Azure: 
-    1. Escolha o recurso do monitor de ligação que criou no Monitor de Ligação (Preview).
+    1. Escolha o recurso do monitor de ligação que criou no Monitor de Ligação.
     1. Certifique-se de que **a Métrica** aparece como tipo de sinal para o monitor de ligação.
-    1. Em **Condição de Adicionar** , para o Nome do **Sinal** , selecione **ChecksFailedPercent (Preview)** ou **RoundTripTimeMs (Preview)**.
+    1. Em **Condição de Adicionar**, para o Nome do **Sinal**, selecione **ChecksFailedPercent (Preview)** ou **RoundTripTimeMs (Preview)**.
     1. Para **o tipo de sinal,** escolha **métricas.** Por exemplo, selecione **ChecksFailedPercent (Preview)**.
     1. Todas as dimensões da métrica estão listadas. Escolha o nome de dimensão e valor da dimensão. Por exemplo, selecione **o Endereço de Origem** e, em seguida, introduza o endereço IP de qualquer fonte no seu monitor de ligação.
     1. Na **Lógica de Alerta,** preencha os seguintes detalhes:
-        * **Tipo de condição** : **Estática**.
+        * **Tipo de condição**: **Estática**.
         * **Condição** e **Limiar**.
-        * **Agregação Granularidade e Frequência de Avaliação** : Monitor de Ligação (Pré-visualização) atualiza os dados a cada minuto.
+        * **Agregação Granularidade e Frequência de Avaliação**: O Monitor de Ligação atualiza os dados a cada minuto.
     1. Em **Ações,** escolha o seu grupo de ação.
     1. Forneça detalhes de alerta.
     1. Crie a regra de alerta.
@@ -302,7 +302,7 @@ Pode criar alertas métricos em monitores de ligação utilizando os métodos ab
 
 ## <a name="diagnose-issues-in-your-network"></a>Diagnosticar problemas na sua rede
 
-O Monitor de Ligação (Pré-visualização) ajuda-o a diagnosticar problemas no monitor de ligação e na sua rede. Os problemas na sua rede híbrida são detetados pelos agentes do Log Analytics que instalou anteriormente. Os problemas em Azure são detetados pela extensão do Observador de Rede. 
+O Monitor de Ligação ajuda-o a diagnosticar problemas no monitor de ligação e na sua rede. Os problemas na sua rede híbrida são detetados pelos agentes do Log Analytics que instalou anteriormente. Os problemas em Azure são detetados pela extensão do Observador de Rede. 
 
 Pode ver problemas na rede Azure na topologia da rede.
 
@@ -348,5 +348,5 @@ Para as redes cujas fontes são Azure VMs, podem ser detetadas as seguintes ques
 
 ## <a name="next-steps"></a>Passos Seguintes
     
-   * [Saiba como criar o Monitor de Ligação (Pré-visualização) utilizando o portal Azure](connection-monitor-preview-create-using-portal.md)  
-   * [Saiba como criar o Monitor de Ligação (Pré-visualização) utilizando o ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * [Saiba como criar o Monitor de Ligação utilizando o portal Azure](connection-monitor-preview-create-using-portal.md)  
+   * [Saiba como criar o Monitor de Ligação utilizando o ARMClient](connection-monitor-preview-create-using-arm-client.md)  

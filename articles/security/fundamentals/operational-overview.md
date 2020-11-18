@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 7b0ea9cc1788065a92e168e41a0c293bb1f4ea9b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 9dcb1113bb37cb0f5f65c54ae9d6ca76a88330c1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409362"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698670"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral da segurança operacional do Azure
 
@@ -87,7 +87,7 @@ Com o Azure Ative Directory, todas as aplicações que publica para os seus parc
 - Validação de encriptação de disco.
 - Ataques baseados em rede.
 
-O Security Center utiliza [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md). O RBAC fornece [funções incorporadas](../../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços em Azure.
+O Security Center utiliza [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md). O Azure RBAC fornece [funções incorporadas](../../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços em Azure.
 
 O Centro de Segurança avalia a configuração dos seus recursos para identificar problemas de segurança e vulnerabilidades. No Security Center, vê informações relacionadas com um recurso apenas quando lhe é atribuída a função de proprietário, colaborador ou leitor para a subscrição ou grupo de recursos a que pertence um recurso.
 

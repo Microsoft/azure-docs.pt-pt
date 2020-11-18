@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 33c26af86bfcf2f748a0fa68ee4f3d0da1f132e1
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8ec39c4616f5a34f8326b56d4f0ba6e15cdad91c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057557"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699122"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnosticar, reparar e comprometer alterações na sua habilidade
 
 Neste artigo, você usará o portal Azure para aceder às sessões de Debug para reparar problemas com o skillset fornecido. O skillset tem alguns erros que precisam de ser resolvidos. Este tutorial irá levá-lo através de uma sessão de depurar para identificar e resolver problemas com entradas e saídas de habilidades.
 
 > [!Important]
-> As sessões de depuração são uma funcionalidade de pré-visualização fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> As sessões de depuração são uma funcionalidade de pré-visualização fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -59,7 +59,7 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
 
-:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Obtenha uma chave de acesso http e acesso" border="false":::
+:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obtenha uma chave de acesso http e acesso" border="false":::
 
 Todos os pedidos requerem uma chave API em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
@@ -78,15 +78,15 @@ Nesta secção, o Carteiro e uma recolha fornecida são utilizados para criar a 
 1. Introduza o armazenamentoConnectionString a partir da página de chaves da sua conta de Armazenamento Azure.
 1. Introduza o recipienteName para o recipiente que criou na conta de armazenamento.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="Obtenha uma chave de acesso http e acesso":::
+> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="editar variáveis no Carteiro":::
 
 A coleção contém quatro chamadas REST diferentes que são usadas para completar esta secção.
 
 A primeira chamada cria a fonte de dados. `clinical-trials-ds`. A segunda chamada cria o skillset, `clinical-trials-ss` . A terceira chamada cria o índice, `clinical-trials` . A quarta e última chamada cria o indexante, `clinical-trials-idxr` . Depois de todas as chamadas da coleção terem sido concluídas, feche o Carteiro e regresse ao portal Azure.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="Obtenha uma chave de acesso http e acesso":::
+> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="usando o Carteiro para criar fonte de dados":::
 
-## <a name="check-the-results"></a>Verifique os resultados
+## <a name="check-the-results"></a>Verificar os resultados
 
 O skillset contém alguns erros comuns. Nesta secção, executar uma consulta vazia para devolver todos os documentos apresentará vários erros. Nas etapas seguintes, as questões serão resolvidas através de uma sessão de depurar.
 
@@ -107,7 +107,7 @@ Volte ao ecrã geral do serviço de pesquisa.
 
 ## <a name="start-your-debug-session"></a>Inicie a sua sessão de depurar
 
-> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Obtenha uma chave de acesso http e acesso":::
+> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="iniciar uma nova sessão de depurar":::
 
 1. Clique no separador Debug (pré-visualização).
 1. Selecione +NewDebugSession
@@ -120,7 +120,7 @@ Volte ao ecrã geral do serviço de pesquisa.
 > [!Important]
 > Uma sessão de depurar só funciona com um único documento. Um documento específico no conjunto de dados pode ser > selecionado ou a sessão será padrão para o primeiro documento.
 
-> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Obtenha uma chave de acesso http e acesso":::
+> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Nova sessão de depurar começou":::
 
 Quando a sessão de depuração tiver terminado de executar, a sessão predefine no separador DeSecimentos de IA, destacando o Gráfico de Habilidades.
 
@@ -140,7 +140,7 @@ No separador Erros/Avisos, existe um erro para uma operação rotulada `Enrichme
 1. Selecione o **</>** símbolo no início da linha e abra o Avaliador de Expressão.
 1. Clique no botão **Avaliar** para confirmar que esta expressão está a resultar num erro. Confirmará que a propriedade "languageCode" não é uma entrada válida.
 
-> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Obtenha uma chave de acesso http e acesso":::
+> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Avaliador de Expressão":::
 
 Há duas formas de investigar este erro na sessão. A primeira é olhar para onde vem a entrada - que habilidade na hierarquia deve produzir este resultado? O separador Execuções no painel de detalhes de habilidade deve mostrar a origem da entrada. Se não houver origem, isto indica um erro de mapeamento de campo.
 
@@ -148,28 +148,73 @@ Há duas formas de investigar este erro na sessão. A primeira é olhar para ond
 1. Olhe para os INPUTS e encontre "languageCode". Não há nenhuma fonte para esta entrada listada. 
 1. Mude o painel esquerdo para visualizar a Estrutura de Dados Enriquecida. Não existe um caminho mapeado correspondente ao "languageCode".
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Obtenha uma chave de acesso http e acesso" e "document/merged_content/locations".
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Estrutura de Dados Enriquecida":::
+
+Há um caminho traçado para "linguagem". Então, há um erro nas definições de habilidade. Para corrigir isto, a expressão no #1 habilidade com a expressão "/documento/idioma" terá de ser atualizada.
+
+1. Abra o avaliador de expressão **</>** para o caminho "linguagem".
+1. Copie a expressão. Feche a janela.
+1. Vá às Definições de Habilidade para a habilidade #1 e abra o Avaliador de Expressão **</>** para a entrada "LanguageCode".
+1. Cole o novo valor, '/documento/idioma' na caixa de Expressão e clique em **Avaliar.**
+1. Deve mostrar a entrada correta "en". Clique em Aplicar para atualizar a expressão.
+1. Clique em **Guardar** no painel de detalhes de habilidades certos.
+1. Clique em **Executar** no menu da janela da sessão. Isto irá dar início a mais uma execução do skillset usando o documento. 
+
+Assim que a execução da sessão de depuração estiver concluída, clique no separador Erros/Avisos e mostrará que o erro com a etiqueta "Enriquecimento.NerSkillV2.#1" desapareceu. No entanto, existem ainda dois avisos de que o serviço não conseguiu mapear campos de saída para organizações e locais para o índice de pesquisa. Faltam valores: "/document/merged_content/organizations" e "document/merged_content/locations".
 
 ## <a name="fix-missing-skill-output-values"></a>Corrigir valores de saída de competência em falta
 
-> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Obtenha uma chave de acesso http e acesso" e "/documento/conteúdo/localizações", respectivamente.
+> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Erros e avisos":::
 
-> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Obtenha uma chave de acesso http e acesso" do INPUT.
+Faltam valores de saída de uma habilidade. Para identificar a habilidade com o erro aceda à Estrutura de Dados Enriquecidos, encontre o nome de valor e veja a sua Fonte Originária. No caso das organizações e dos valores de locais em falta, são saídas de #1 de competências. A abertura do avaliador de expressão </> para cada caminho, apresentará as expressões listadas como "/documento/conteúdo/organizações" e "/documento/conteúdo/localizações", respectivamente.
 
-> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Obtenha uma chave de acesso http e acesso" do OUTPUTS.
+> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Entidade de avaliadores de expressão":::
 
-> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Obtenha uma chave de acesso http e acesso" a partir de "conteúdo". Quais são os resultados para estas entidades na competência?
+A produção para estas entidades está vazia e não deve estar vazia. Quais são as entradas que produzem este resultado?
+
+1. Vá ao **Skill Graph** e selecione habilidade #1.
+1. Selecione O separador **execuções** no painel de detalhes de habilidades certos.
+1. Abra o avaliador de expressão **</>** para o "texto" do INPUT.
+
+> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Entrada para habilidade de texto":::
+
+O resultado apresentado para esta entrada não parece uma entrada de texto. Parece uma imagem rodeada de novas linhas. A falta de texto significa que nenhuma entidade pode ser identificada. Olhando para a hierarquia do skillset exibe o conteúdo é processado primeiro pela habilidade #6 (OCR) e depois passado para a habilidade #5 (Merge). 
+
+1. Selecione a habilidade #5 (Merge) no **Gráfico de Habilidades**.
+1. Selecione o separador **Execuções** no painel de detalhes de habilidades certos e abra o Avaliador de Expressão **</>** para o "Texto fundido" do OUTPUTS.
+
+> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Saída para a capacidade de fusão":::
+
+Aqui o texto é emparelhado com a imagem. Olhando para a expressão "/document/merged_content" é visível o erro nos caminhos das "organizações" e "localizações" para a #1 habilidade. Em vez de utilizar "/documento/conteúdo" deve utilizar "/document/merged_content" para as entradas de "texto".
+
+1. Copie a expressão para a saída "Texto fundido" e feche a janela do avaliador de expressão.
+1. Selecione habilidade #1 no **Gráfico de Habilidades**.
+1. Selecione o separador **Definições de Habilidade** no painel de detalhes de habilidades certos.
+1. Abra o avaliador de expressão **</>** para a entrada "texto".
+1. Cole a nova expressão na caixa. Clique **em Avaliar**.
+1. Deve ser apresentada a entrada correta com o texto adicionado. Clique **em Aplicar** para atualizar as Definições de Habilidade.
+1. Clique em **Guardar** no painel de detalhes de habilidades certos.
+1. Clique em **Executar** no menu da janela das sessões. Isto irá dar início a mais uma execução do skillset usando o documento.
+
+Depois que o indexante terminou de funcionar, os erros ainda estão lá. Volte para a perícia #1 e investigue. A entrada para a habilidade foi corrigida para "merged_content" a partir de "conteúdo". Quais são os resultados para estas entidades na competência?
 
 1. Selecione o **separador AI Enriquecimentos.**
 1. Selecione **Skill Graph** e clique em #1 de habilidade.
 1. Navegue nas **Definições de Habilidade** para encontrar "saídas".
 1. Abra o Avaliador de Expressão **</>** para a entidade "organizações".
 
-> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Obtenha uma chave de acesso http e acesso" e edite-o para ler "/document/merged_content".
+> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Produção para entidades de organizações":::
+
+Avaliar o resultado da expressão dá o resultado correto. A habilidade está a trabalhar para identificar o valor correto para a entidade, "organizações". No entanto, o mapeamento de saída no caminho da entidade ainda está a lançar um erro. Ao comparar a trajetória de saída na habilidade com a trajetória de saída no erro, a habilidade que está a ser a parentalidade das saídas, organizações e localizações sob o nó /documento/conteúdo. Enquanto o mapeamento do campo de saída espera que os resultados sejam parentados no nó /documento/merged_content. No passo anterior, a entrada passou de '/documento/conteúdo' para '/documento/merged_content'. O contexto nas definições de habilidades tem de ser alterado de modo a garantir que a saída é gerada com o contexto certo.
+
+1. Selecione o **separador AI Enriquecimentos.**
+1. Selecione **Skill Graph** e clique em #1 de habilidade.
+1. Navegue nas **Definições de Habilidade** para encontrar "contexto".
+1. Clique duas vezes na definição para "contexto" e edite-o para ler "/document/merged_content".
 1. Clique em **Guardar** no painel de detalhes de habilidades certos.
 1. Clique em **Executar** no menu da janela das sessões. Isto irá dar início a mais uma execução do skillset usando o documento.
 
-> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Obtenha uma chave de acesso http e acesso":::
+> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Correção de contexto na definição de habilidade":::
 
 Todos os erros foram resolvidos.
 
@@ -190,9 +235,9 @@ Quando o indexante terminar de funcionar, deve haver uma marca de verificação 
 1. Abra o índice 'ensaios clínicos' e no separador Explorador de Pesquisa, clique em **Procurar**.
 1. A janela de resultados deve mostrar que as entidades de organizações e locais estão agora povoadas com os valores esperados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Ao trabalhar na sua própria subscrição, depois de concluir um projeto, recomendamos que verifique se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os recursos** ou **grupos** de recursos no painel de navegação à esquerda.
 

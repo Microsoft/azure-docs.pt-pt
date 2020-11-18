@@ -1,7 +1,7 @@
 ---
-title: Migrar para o Monitor de Ligação (Pré-visualização) do Monitor de Ligação
+title: Migrar para o Monitor de Ligação do Monitor de Ligação
 titleSuffix: Azure Network Watcher
-description: Saiba como migrar para o Monitor de Ligação (Pré-visualização) a partir do Monitor de Ligação.
+description: Saiba como migrar para o Monitor de Ligação a partir do Monitor de Ligação.
 services: network-watcher
 documentationcenter: na
 author: vinynigam
@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: 05b42024529b8d9de3590488ecafbdf83283e007
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d77ec77bae0394b11cb47ae838740dc39855f7c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441821"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699072"
 ---
-# <a name="migrate-to-connection-monitor-preview-from-connection-monitor"></a>Migrar para o Monitor de Ligação (Pré-visualização) do Monitor de Ligação
+# <a name="migrate-to-connection-monitor-from-connection-monitor"></a>Migrar para o Monitor de Ligação do Monitor de Ligação
 
-Pode migrar os monitores de ligação existentes para um novo monitor de ligação melhorado (Preview) com apenas alguns cliques e com zero tempo de inatividade. Para saber mais sobre os benefícios, consulte [o Connection Monitor (Preview)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview).
+Pode migrar os monitores de ligação existentes para um novo Monitor de Ligação melhorado com apenas alguns cliques e com zero tempo de inatividade. Para saber mais sobre os benefícios, consulte [o Connection Monitor.](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview)
 
 ## <a name="key-points-to-note"></a>Pontos-chave a notar
 
 A migração ajuda a produzir os seguintes resultados:
 
 * Agentes e definições de firewall funcionam como está. Não são necessárias alterações. 
-* Os monitores de ligação existentes estão mapeados para o monitor de ligação (pré-visualização) > formato de teste do Grupo de Teste >. Ao selecionar **Editar,** pode visualizar e modificar as propriedades do novo Monitor de Ligação, descarregar um modelo para escoar alterações no Monitor de Ligação e submetê-lo através do Azure Resource Manager. 
+* Os monitores de ligação existentes estão mapeados para o > grupo de teste do Grupo de Teste de Ligação >. Ao selecionar **Editar,** pode visualizar e modificar as propriedades do novo Monitor de Ligação, descarregar um modelo para escoar alterações no Monitor de Ligação e submetê-lo através do Azure Resource Manager. 
 * As máquinas virtuais Azure com a extensão do Observador de Rede enviam dados tanto para o espaço de trabalho como para as métricas. O Monitor de Ligação disponibiliza os dados através das novas métricas (ChecksFailedPercent [Preview] e RoundTripTimeMs [Preview]) em vez das métricas antigas (ProbesFailedPercent e AverageRoundtripMs). 
 * Monitorização de dados:
    * **Alertas**: Migrar automaticamente para as novas métricas.
@@ -40,15 +40,15 @@ Se estiver a utilizar um espaço de trabalho personalizado, certifique-se de que
 
 ## <a name="migrate-the-connection-monitors"></a>Migrar os monitores de ligação
 
-1. Para migrar os monitores de ligação mais antigos para o mais recente, selecione **Connection Monitor**e, em seguida, selecione **Monitores de Ligação Migrar**.
+1. Para migrar os monitores de ligação mais antigos para o mais recente, selecione **Connection Monitor** e, em seguida, selecione **Monitores de Ligação Migrar**.
 
-    ![Screenshot mostrando a migração de monitores de ligação para Monitor de Ligação (Pré-visualização).](./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png)
+    ![Screenshot mostrando a migração de monitores de ligação para o Monitor de Ligação.](./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png)
     
 1. Selecione a sua subscrição e os monitores de ligação que pretende migrar e, em seguida, **selecione Migrar selecionado**. 
 
-Com apenas alguns cliques, emigrou os monitores de ligação existentes para o Monitor de Ligação (Preview). 
+Com apenas alguns cliques, emigrou os monitores de ligação existentes para o Monitor de Ligação. 
 
-Agora pode personalizar as propriedades do Connection Monitor (Preview), alterar o espaço de trabalho predefinido, baixar modelos e verificar o estado da migração. 
+Agora pode personalizar as propriedades do Connection Monitor, alterar o espaço de trabalho predefinido, os modelos de descarregamento e verificar o estado de migração. 
 
 Após o início da migração, ocorrem as seguintes alterações: 
 * O recurso Azure Resource Manager altera o monitor de ligação mais recente.
@@ -57,12 +57,12 @@ Após o início da migração, ocorrem as seguintes alterações:
     * Cada teste é migrado para um grupo de teste chamado *DefaultTestGroup*.
     * Os pontos finais de origem e destino são criados e utilizados no novo grupo de teste. Os nomes predefinidos são *padrãoSourceEndpoint* e *padrãoDestinationEndpoint*.
     * A porta de destino e o intervalo de sondagem são movidos para uma configuração de teste chamada *Configuração padrão do Teste*. O protocolo é definido com base nos valores portuários. Os limiares de sucesso e outras propriedades opcionais ficam em branco.
-* Os alertas de métricas são migrados para alertas de métricas do Monitor de Ligação (Pré-visualização). As métricas são diferentes, daí a mudança. Para obter mais informações, consulte [a monitorização da conectividade da rede com o Monitor de Ligação (Pré-visualização)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor).
-* Os monitores de ligação migrados deixaram de ser apresentados como a solução de monitor de ligação mais antiga. Estão agora disponíveis para utilização apenas no Monitor de Ligação (Pré-visualização).
+* Os alertas de métricas são migrados para alertas de métricas do Monitor de Ligação. As métricas são diferentes, daí a mudança. Para obter mais informações, consulte [a monitorização da conectividade da rede com o Monitor de Ligação.](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor)
+* Os monitores de ligação migrados deixaram de ser apresentados como a solução de monitor de ligação mais antiga. Estão agora disponíveis para utilização apenas no Monitor de Ligação.
 * Quaisquer integrações externas, como dashboards no Power BI e Grafana, e integrações com sistemas de Informação de Segurança e Gestão de Eventos (SIEM), devem ser migradas manualmente. Este é o único passo manual que precisa de ser acionado para migrar a sua configuração.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o Monitor de Ligação (Pré-visualização), consulte:
-* [Migrar do Monitor de Desempenho da Rede para o Monitor de Ligação (Pré-visualização)](migrate-to-connection-monitor-preview-from-network-performance-monitor.md)
-* [Criar Monitor de Conexão (Pré-visualização) utilizando o portal Azure](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)
+Para saber mais sobre o Connection Monitor, consulte:
+* [Migrar do Monitor de Desempenho da Rede para o Monitor de Ligação](migrate-to-connection-monitor-preview-from-network-performance-monitor.md)
+* [Criar Monitor de Ligação utilizando o portal Azure](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)

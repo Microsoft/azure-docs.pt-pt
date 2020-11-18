@@ -1,7 +1,7 @@
 ---
-title: Create Connection Monitor Preview - Portal Azure
+title: Criar Monitor de Conexão - Portal Azure
 titleSuffix: Azure Network Watcher
-description: Este artigo descreve como criar um monitor na pré-visualização do Monitor de Ligação utilizando o portal Azure.
+description: Este artigo descreve como criar um monitor no Monitor de Ligação utilizando o portal Azure.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 97d20f2b6b7b355ea5c810ad46b084f42b9bd6d1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8c4df64334957a78fcf05c11625335214f8e032a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447853"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699377"
 ---
-# <a name="create-a-monitor-in-connection-monitor-preview-by-using-the-azure-portal"></a>Criar um monitor na pré-visualização do monitor de ligação utilizando o portal Azure
+# <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Criar um monitor no Monitor de Ligação utilizando o portal Azure
 
-Saiba como utilizar a pré-visualização do Monitor de Ligação para monitorizar a comunicação entre os seus recursos. Este artigo descreve como criar um monitor utilizando o portal Azure. O Connection Monitor suporta implementações de nuvem híbrida e Azure.
+Saiba como utilizar o Connection Monitor para monitorizar a comunicação entre os seus recursos. Este artigo descreve como criar um monitor utilizando o portal Azure. O Connection Monitor suporta implementações de nuvem híbrida e Azure.
 
-## <a name="before-you-begin"></a>Antes de começar 
+## <a name="before-you-begin"></a>Before you begin 
 
-Nos monitores de ligação que cria utilizando a pré-visualização do Monitor de Ligação, pode adicionar tanto as máquinas no local como os VMs Azure como fontes. Estes monitores de ligação também podem monitorizar a conectividade com os pontos finais. Os pontos finais podem ser em Azure ou em qualquer outro URL ou IP.
+Nos monitores de ligação que cria utilizando o Connection Monitor, pode adicionar tanto as máquinas no local como os VMs Azure como fontes. Estes monitores de ligação também podem monitorizar a conectividade com os pontos finais. Os pontos finais podem ser em Azure ou em qualquer outro URL ou IP.
 
 Aqui estão algumas definições para começar:
 
@@ -47,25 +47,25 @@ Aqui estão algumas definições para começar:
 
 ## <a name="create-a-connection-monitor"></a>Criar um monitor de ligação
 
-Para criar um monitor na pré-visualização do Monitor de Ligação utilizando o portal Azure:
+Para criar um monitor no Monitor de Ligação utilizando o portal Azure:
 
 1. Na página inicial do portal Azure, vá ao **Network Watcher**.
-1. No painel esquerdo, na secção **de monitorização,** selecione **Monitor de ligação (Pré-visualização)**.
+1. No painel esquerdo, na secção **de monitorização,** selecione **Monitor de ligação**.
 
-   Verá todos os monitores de ligação que foram criados na pré-visualização do Monitor de Ligação. Para ver os monitores de ligação que foram criados no clássico Monitor de Ligação, aceda ao **separador Monitor de Ligação.**
+   Verá todos os monitores de ligação que foram criados no Connection Monitor. Para ver os monitores de ligação que foram criados no clássico Monitor de Ligação, aceda ao **separador Monitor de Ligação.**
 
-   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot que mostra monitores de conexão criados na pré-visualização do Monitor de Ligação.":::
+   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot que mostra monitores de conexão criados no Connection Monitor.":::
    
     
-1. No painel **de instrumentos 'Preview' do Monitor** de Ligação, no canto superior esquerdo, selecione **Criar**.
+1. No painel **'Monitor de** Ligação', no canto superior esquerdo, selecione **Criar**.
 
    
 
 1. No **separador Básicos,** introduza informações para o seu monitor de ligação: 
-   * **Nome do monitor de ligação** : Introduza um nome para o seu monitor de ligação. Use as regras padrão de nomeação para recursos Azure.
-   * **Subscrição** : Selecione uma subscrição para o seu monitor de ligação.
-   * **Região** : Selecione uma região para o seu monitor de ligação. Pode selecionar apenas os VM de origem que são criados nesta região.
-   * **Configuração do espaço de trabalho** : Escolha um espaço de trabalho personalizado ou o espaço de trabalho predefinido. O seu espaço de trabalho contém os seus dados de monitorização.
+   * **Nome do monitor de ligação**: Introduza um nome para o seu monitor de ligação. Use as regras padrão de nomeação para recursos Azure.
+   * **Subscrição**: Selecione uma subscrição para o seu monitor de ligação.
+   * **Região**: Selecione uma região para o seu monitor de ligação. Pode selecionar apenas os VM de origem que são criados nesta região.
+   * **Configuração do espaço de trabalho**: Escolha um espaço de trabalho personalizado ou o espaço de trabalho predefinido. O seu espaço de trabalho contém os seus dados de monitorização.
        * Para utilizar o espaço de trabalho predefinido, selecione a caixa de verificação. 
        * Para escolher um espaço de trabalho personalizado, limpe a caixa de verificação. Em seguida, selecione a subscrição e a região para o seu espaço de trabalho personalizado. 
 
@@ -86,13 +86,13 @@ Para criar um monitor na pré-visualização do Monitor de Ligação utilizando 
 1. No **separador 'Rever +' criar,** rever as informações básicas e os grupos de teste antes de criar o monitor de ligação. Se precisar de editar o monitor de ligação, pode fazê-lo voltando aos respetivos separadores. 
    :::image type="content" source="./media/connection-monitor-2-preview/review-create-cm.png" alt-text="Screenshot que mostra o separador Review + criar no Monitor de Ligação.":::
    > [!NOTE] 
-   > O **separador Review + create** mostra o custo por mês durante a fase de pré-visualização do Monitor de Ligação. Atualmente, a coluna **Custo Corrente/Mês** não apresenta qualquer custo. Quando o Monitor de Ligação estiver geralmente disponível, esta coluna apresentará uma carga mensal. 
+   > O **separador Review + create** mostra o custo por mês durante a fase do Monitor de Ligação. Atualmente, a coluna **Custo Corrente/Mês** não apresenta qualquer custo. Quando o Monitor de Ligação estiver geralmente disponível, esta coluna apresentará uma carga mensal. 
    > 
-   > Mesmo durante a fase de pré-visualização do Monitor de Ligação, aplicam-se os custos de ingestão do Log Analytics.
+   > Mesmo durante a fase do Monitor de Ligação, aplicam-se os custos de ingestão do Log Analytics.
 
 1. Quando estiver pronto para criar o monitor de ligação, na parte inferior do **separador 'Revisão + criar',** selecione **Criar**.
 
-A pré-visualização do monitor de ligação cria o recurso do monitor de ligação em segundo plano.
+O Monitor de Ligação cria o recurso do monitor de ligação em segundo plano.
 
 ## <a name="create-test-groups-in-a-connection-monitor"></a>Criar grupos de teste num monitor de ligação
 
@@ -100,9 +100,9 @@ Cada grupo de teste num monitor de ligação inclui fontes e destinos que são t
 
 No portal Azure, para criar um grupo de teste num monitor de ligação, especifique valores para os seguintes campos:
 
-* **Grupo de teste desativação** : Pode selecionar esta caixa de verificação para desativar a monitorização de todas as fontes e destinos que o grupo de teste especifica. Esta seleção é apurada por defeito.
+* **Grupo de teste desativação**: Pode selecionar esta caixa de verificação para desativar a monitorização de todas as fontes e destinos que o grupo de teste especifica. Esta seleção é apurada por defeito.
 * **Nome:** Nomeie o seu grupo de teste.
-* **Fontes** : Pode especificar tanto os VMs Azure como as máquinas no local como fontes se os agentes forem instalados neles. Para saber mais sobre a instalação de um agente para a sua fonte, consulte [os agentes de monitorização da Instalação](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+* **Fontes**: Pode especificar tanto os VMs Azure como as máquinas no local como fontes se os agentes forem instalados neles. Para saber mais sobre a instalação de um agente para a sua fonte, consulte [os agentes de monitorização da Instalação](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
    * Para escolher agentes Azure, selecione o **separador pontos finais Azure.** Aqui vê apenas VMs que estão ligados à região que especificou quando criou o monitor de ligação. Por padrão, os VMs são agrupados na subscrição a que pertencem. Estes grupos estão em colapso. 
    
        Pode aprofundar do nível de **Subscrição** para outros níveis na hierarquia:
@@ -119,7 +119,7 @@ No portal Azure, para criar um grupo de teste num monitor de ligação, especifi
    
        Se precisar de adicionar monitor de desempenho de rede ao seu espaço de trabalho, obtenha-o no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Para obter informações sobre como adicionar Monitor de Desempenho de Rede, consulte [soluções de monitorização no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
    
-       No **Monitor de Ligação Create** , no separador **Básicos,** a região predefinida é selecionada. Se mudar a região, pode escolher agentes de espaços de trabalho na nova região. Pode selecionar um ou mais agentes ou sub-redes. Na vista **Subnet,** pode selecionar IPs específicos para monitorização. Se adicionar várias sub-redes, será criada uma rede personalizada no local chamada **OnPremises_Network_1.** Também pode alterar o **Grupo por** selecionador para grupo por agentes.
+       No **Monitor de Ligação Create**, no separador **Básicos,** a região predefinida é selecionada. Se mudar a região, pode escolher agentes de espaços de trabalho na nova região. Pode selecionar um ou mais agentes ou sub-redes. Na vista **Subnet,** pode selecionar IPs específicos para monitorização. Se adicionar várias sub-redes, será criada uma rede personalizada no local chamada **OnPremises_Network_1.** Também pode alterar o **Grupo por** selecionador para grupo por agentes.
 
       :::image type="content" source="./media/connection-monitor-2-preview/add-non-azure-sources.png" alt-text="Screenshot que mostra o painel Add Sources e o separador pontos finais não-Azure no Monitor de Ligação.":::
 
@@ -127,7 +127,7 @@ No portal Azure, para criar um grupo de teste num monitor de ligação, especifi
    
    * Quando terminar de configurar as fontes, selecione **'Fazer'** na parte inferior do separador. Ainda pode editar propriedades básicas como o nome do ponto final selecionando o ponto final na vista **Do Grupo de Teste criar.** 
 
-* **Destinos** : Pode monitorizar a conectividade a um Azure VM, uma máquina no local ou qualquer ponto final (um IP público, URL ou FQDN) especificando-o como um destino. Num único grupo de teste, pode adicionar VMs Azure, máquinas no local, URLs Office 365, UrLs Dynamics 365 e pontos finais personalizados.
+* **Destinos**: Pode monitorizar a conectividade a um Azure VM, uma máquina no local ou qualquer ponto final (um IP público, URL ou FQDN) especificando-o como um destino. Num único grupo de teste, pode adicionar VMs Azure, máquinas no local, URLs Office 365, UrLs Dynamics 365 e pontos finais personalizados.
 
     * Para escolher VMs Azure como destinos, selecione o **separador Azure endpoints.** Por padrão, os VMs Azure são agrupados numa hierarquia de subscrição que está na região que selecionou no **Monitor de Ligação Create** no **separador Básicos.** Pode mudar a região e escolher VMs Azure da nova região. Em seguida, pode perfurar do nível de **Subscrição** para outros níveis na hierarquia, assim como pode quando definir os pontos finais Azure fonte.
 
@@ -142,7 +142,7 @@ No portal Azure, para criar um grupo de teste num monitor de ligação, especifi
     
       Se precisar de adicionar Monitor de Desempenho de Rede ao seu espaço de trabalho, obtenha-o no Azure Marketplace. Para obter informações sobre como adicionar Monitor de Desempenho de Rede, consulte [soluções de monitorização no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
 
-      No **Monitor de Ligação Create** , no separador **Básicos,** a   região predefinida é selecionada. Se mudar a região, pode escolher agentes de espaços de trabalho na nova região. Pode selecionar um ou mais agentes ou sub-redes. Na vista **Subnet,** pode selecionar IPs específicos para monitorização. Se adicionar várias sub-redes, será criada uma rede personalizada no local chamada **OnPremises_Network_1.**  
+      No **Monitor de Ligação Create**, no separador **Básicos,** a   região predefinida é selecionada. Se mudar a região, pode escolher agentes de espaços de trabalho na nova região. Pode selecionar um ou mais agentes ou sub-redes. Na vista **Subnet,** pode selecionar IPs específicos para monitorização. Se adicionar várias sub-redes, será criada uma rede personalizada no local chamada **OnPremises_Network_1.**  
 
       :::image type="content" source="./media/connection-monitor-2-preview/add-non-azure-dest.png" alt-text="Screenshot que mostra o painel Add Destinations e o separador pontos finais não-Azure.":::
     
@@ -155,17 +155,17 @@ No portal Azure, para criar um grupo de teste num monitor de ligação, especifi
     * Para escolher os pontos finais recentemente utilizados, aceda ao **separador ponto final recente.**  
     * Quando terminar de escolher destinos, selecione **'Fazer'.** Ainda pode editar propriedades básicas como o nome do ponto final selecionando o ponto final na vista **Do Grupo de Teste criar.** 
 
-* **Configurações de teste** : Pode adicionar uma ou mais configurações de teste a um grupo de teste. Crie uma nova configuração de teste utilizando o **separador de configuração Novo.** Ou adicione uma configuração de teste de outro grupo de teste no mesmo Monitor de Ligação do **separador Escolha.**
+* **Configurações de teste**: Pode adicionar uma ou mais configurações de teste a um grupo de teste. Crie uma nova configuração de teste utilizando o **separador de configuração Novo.** Ou adicione uma configuração de teste de outro grupo de teste no mesmo Monitor de Ligação do **separador Escolha.**
 
-    * **Nome da configuração do teste** : Nomeie a configuração do teste.
-    * **Protocolo** : Selecione **TCP,** **ICMP,** ou **HTTP**. Para alterar HTTP para HTTPS, selecione **HTTP** como o protocolo e, em seguida, selecione **443** como porta.
-        * **Criar configuração de teste TCP** : Esta caixa de verificação só aparece se selecionar **HTTP** na lista **de protocolos.** Selecione esta caixa de verificação para criar outra configuração de teste que utilize as mesmas fontes e destinos especificados em outros lugares na sua configuração. A nova configuração do teste chama-se **\<name of test configuration> _networkTestConfig**.
-        * **Desativar o rasto** : Esta caixa de verificação aplica-se quando o protocolo é TCP ou ICMP. Selecione esta caixa para impedir que as fontes descubram topologia e hop-by-hop RTT.
-    * **Porto de destino** : Você pode fornecer um porto de destino à sua escolha.
-        * **Ouvir na porta** : Esta caixa de verificação aplica-se quando o protocolo é TCP. Selecione esta caixa de verificação para abrir a porta TCP escolhida se ainda não estiver aberta. 
-    * **Frequência de teste** : Nesta lista, especifique com que frequência as fontes irão pingar destinos no protocolo e na porta que especificou. Pode escolher 30 segundos, 1 minuto, 5 minutos, 15 minutos ou 30 minutos. Selecione **o costume** para introduzir outra frequência que está entre 30 segundos e 30 minutos. As fontes testarão a conectividade com destinos com base no valor que escolher. Por exemplo, se selecionar 30 segundos, as fontes verificarão a conectividade com o destino pelo menos uma vez em cada período de 30 segundos.
-    * **Limiar de sucesso** : Pode definir limiares nos seguintes parâmetros de rede:
-       * **Verificações falhadas** : Desa esta medida de verificação que pode falhar quando as fontes verificam a conectividade com os destinos utilizando os critérios especificados. Para o protocolo TCP ou ICMP, a percentagem de controlos falhados pode ser equiparada à percentagem de perda de pacotes. Para o protocolo HTTP, este valor representa a percentagem de pedidos HTTP que não receberam resposta.
+    * **Nome da configuração do teste**: Nomeie a configuração do teste.
+    * **Protocolo**: Selecione **TCP,** **ICMP,** ou **HTTP**. Para alterar HTTP para HTTPS, selecione **HTTP** como o protocolo e, em seguida, selecione **443** como porta.
+        * **Criar configuração de teste TCP**: Esta caixa de verificação só aparece se selecionar **HTTP** na lista **de protocolos.** Selecione esta caixa de verificação para criar outra configuração de teste que utilize as mesmas fontes e destinos especificados em outros lugares na sua configuração. A nova configuração do teste chama-se **\<name of test configuration> _networkTestConfig**.
+        * **Desativar o rasto**: Esta caixa de verificação aplica-se quando o protocolo é TCP ou ICMP. Selecione esta caixa para impedir que as fontes descubram topologia e hop-by-hop RTT.
+    * **Porto de destino**: Você pode fornecer um porto de destino à sua escolha.
+        * **Ouvir na porta**: Esta caixa de verificação aplica-se quando o protocolo é TCP. Selecione esta caixa de verificação para abrir a porta TCP escolhida se ainda não estiver aberta. 
+    * **Frequência de teste**: Nesta lista, especifique com que frequência as fontes irão pingar destinos no protocolo e na porta que especificou. Pode escolher 30 segundos, 1 minuto, 5 minutos, 15 minutos ou 30 minutos. Selecione **o costume** para introduzir outra frequência que está entre 30 segundos e 30 minutos. As fontes testarão a conectividade com destinos com base no valor que escolher. Por exemplo, se selecionar 30 segundos, as fontes verificarão a conectividade com o destino pelo menos uma vez em cada período de 30 segundos.
+    * **Limiar de sucesso**: Pode definir limiares nos seguintes parâmetros de rede:
+       * **Verificações falhadas**: Desa esta medida de verificação que pode falhar quando as fontes verificam a conectividade com os destinos utilizando os critérios especificados. Para o protocolo TCP ou ICMP, a percentagem de controlos falhados pode ser equiparada à percentagem de perda de pacotes. Para o protocolo HTTP, este valor representa a percentagem de pedidos HTTP que não receberam resposta.
        * **Tempo de viagem de ida** e volta : Desaconte o RTT, em milissegundos, para saber quanto tempo as fontes podem demorar a ligar-se ao destino através da configuração do teste.
        
    :::image type="content" source="./media/connection-monitor-2-preview/add-test-config.png" alt-text="Screenshot que mostra onde configurar uma configuração de teste no Monitor de Ligação.":::
@@ -176,17 +176,17 @@ Pode configurar alertas em testes que estão a falhar com base nos limiares defi
 
 No portal Azure, para criar alertas para um monitor de ligação, especifique valores para estes campos: 
 
-- **Criar alerta** : Pode selecionar esta caixa de verificação para criar um alerta métrico no Azure Monitor. Quando selecionar esta caixa de verificação, os outros campos serão ativados para edição. Serão aplicáveis taxas adicionais para o alerta, com base no [preço dos alertas.](https://azure.microsoft.com/pricing/details/monitor/) 
+- **Criar alerta**: Pode selecionar esta caixa de verificação para criar um alerta métrico no Azure Monitor. Quando selecionar esta caixa de verificação, os outros campos serão ativados para edição. Serão aplicáveis taxas adicionais para o alerta, com base no [preço dos alertas.](https://azure.microsoft.com/pricing/details/monitor/) 
 
-- **Âmbito de aplicação**  >  **Recurso**  >  **Hierarquia** : Estes valores são preenchidos automaticamente, com base nos valores especificados no separador **Básicos.**
+- **Âmbito de aplicação**  >  **Recurso**  >  **Hierarquia**: Estes valores são preenchidos automaticamente, com base nos valores especificados no separador **Básicos.**
 
-- **Nome da condição** : O alerta é criado na `Test Result(preview)` métrica. Quando o resultado do teste do monitor de ligação for um resultado falhado, a regra de alerta dispara. 
+- **Nome da condição**: O alerta é criado na `Test Result(preview)` métrica. Quando o resultado do teste do monitor de ligação for um resultado falhado, a regra de alerta dispara. 
 
 - **Nome do grupo de** ação : Pode introduzir o seu e-mail diretamente ou pode criar alertas através de grupos de ação. Se introduzir o seu e-mail diretamente, será criado um grupo de ação com o nome **NPM Email ActionGroup.** O ID de e-mail é adicionado a esse grupo de ação. Se optar por utilizar grupos de ação, tem de selecionar um grupo de ação previamente criado. Para aprender a criar um grupo de ação, consulte [Criar grupos de ação no portal Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) Após a criação do alerta, pode [gerir os seus alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
 
-- **Nome da regra de alerta** : O nome do monitor de ligação.
+- **Nome da regra de alerta**: O nome do monitor de ligação.
 
-- **Ativar a regra após a criação** : Selecione esta caixa de verificação para ativar a regra de alerta com base na condição. Desative esta caixa de verificação se pretender criar a regra sem a ativar. 
+- **Ativar a regra após a criação**: Selecione esta caixa de verificação para ativar a regra de alerta com base na condição. Desative esta caixa de verificação se pretender criar a regra sem a ativar. 
 
 :::image type="content" source="./media/connection-monitor-2-preview/create-alert-filled.png" alt-text="Screenshot que mostra o separador de alerta Criar no Monitor de Ligação.":::
 

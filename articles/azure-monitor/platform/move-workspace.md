@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
-ms.openlocfilehash: 04da4d6466d450d04d7008332e32ea3d59cd0252
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 8d7fde6661a4a133f689016559f010767c662417
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555537"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699751"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para diferentes grupos de subscrição ou recursos
 
@@ -30,7 +30,7 @@ A fonte de espaço de trabalho e as assinaturas de destino devem existir dentro 
 
 ## <a name="workspace-move-considerations"></a>Considerações de movimento de espaço de trabalho
 - As soluções geridas que são instaladas no espaço de trabalho serão movidas com a operação de movimento do espaço de trabalho Log Analytics. 
-- As teclas do espaço de trabalho são regeradas com movimento de espaço de trabalho (primário e secundário). se você chave a sua chave espaço de trabalho é um cofre, atualize-os com as novas chaves geradas. 
+- As teclas do espaço de trabalho (primária e secundária) são regeradas com a operação de movimento do espaço de trabalho. Se mantiver uma cópia das chaves do seu espaço de trabalho no cofre da chave, atualize-as com as novas teclas geradas após o movimento do espaço de trabalho. 
 - Os agentes conectados permanecerão ligados e manterão o envio de dados para o espaço de trabalho após a mudança. 
 - Uma vez que a operação de movimento requer que não existam Serviços Ligados do espaço de trabalho, as soluções que dependem desse link devem ser removidas para permitir a movimentação do espaço de trabalho. Soluções que devem ser removidas antes de poder desvincular a sua conta de automação:
   - Gestão de Atualizações

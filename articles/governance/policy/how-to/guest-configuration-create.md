@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: ea9b40006deefbac2c253082eda4ef2da12149a4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348887"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700685"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -164,7 +164,7 @@ O formato do pacote deve ser um ficheiro .zip.
 
 ### <a name="storing-guest-configuration-artifacts"></a>Armazenar artefactos de configuração de hóspedes
 
-A embalagem .zip deve ser armazenada num local acessível pelas máquinas virtuais geridas.
+O pacote .zip deve ser armazenado num local acessível pelas máquinas virtuais geridas.
 Exemplos incluem repositórios GitHub, um Azure Repo, ou armazenamento Azure. Se preferir não tornar o pacote público, pode incluir um [token SAS](../../../storage/common/storage-sas-overview.md) no URL. Também pode implementar [o ponto final de serviço](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para máquinas numa rede privada, embora esta configuração se aplique apenas ao acesso ao pacote e não à comunicação com o serviço.
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Passo a passo, criando uma política de auditoria de configuração personalizada para windows
@@ -202,9 +202,9 @@ Uma vez compilados os ficheiros de suporte, os ficheiros de apoio devem ser emba
 
 O `New-GuestConfigurationPackage` cmdlet cria o pacote. Os módulos necessários pela configuração devem estar disponíveis em `$Env:PSModulePath` . Parâmetros do `New-GuestConfigurationPackage` cmdlet ao criar conteúdo do Windows:
 
-- **Nome** : Nome do pacote de configuração do hóspede.
-- **Configuração** : Documento de configuração DSC compilado no caminho completo.
-- **Caminho** : Caminho da pasta de saída. Este parâmetro é opcional. Se não for especificado, o pacote é criado no diretório atual.
+- **Nome**: Nome do pacote de configuração do hóspede.
+- **Configuração**: Documento de configuração DSC compilado no caminho completo.
+- **Caminho**: Caminho da pasta de saída. Este parâmetro é opcional. Se não for especificado, o pacote é criado no diretório atual.
 
 Executar o seguinte comando para criar um pacote utilizando a configuração dada no passo anterior:
 
@@ -220,9 +220,9 @@ Uma vez que o agente está realmente a avaliar o ambiente local, na maioria dos 
 
 Parâmetros do `Test-GuestConfigurationPackage` cmdlet:
 
-- **Nome** : Nome da política de configuração do hóspede.
-- **Parâmetro** : Parâmetros de política fornecidos em formato haxixe.
-- **Caminho** : Percurso completo do pacote de Configuração de Convidados.
+- **Nome**: Nome da política de configuração do hóspede.
+- **Parâmetro**: Parâmetros de política fornecidos em formato haxixe.
+- **Caminho**: Percurso completo do pacote de Configuração de Convidados.
 
 Executar o seguinte comando para testar o pacote criado pelo passo anterior:
 
@@ -247,13 +247,13 @@ Uma vez criado e carregado um pacote de política personalizada de Configuraçã
 
 Parâmetros do `New-GuestConfigurationPolicy` cmdlet:
 
-- **ContentUri** : Public http http(s) uri do pacote de conteúdo de configuração de hóspedes.
-- **DisplayName** : Nome do visor da política.
-- **Descrição** : Descrição da política.
-- **Parâmetro** : Parâmetros de política fornecidos em formato haxixe.
-- **Versão** : Versão política.
-- **Caminho** : Caminho de destino onde são criadas definições políticas.
-- **Plataforma** : Plataforma-alvo (Windows/Linux) para a política de configuração de hóspedes e pacote de conteúdo.
+- **ContentUri**: Public http http(s) uri do pacote de conteúdo de configuração de hóspedes.
+- **DisplayName**: Nome do visor da política.
+- **Descrição**: Descrição da política.
+- **Parâmetro**: Parâmetros de política fornecidos em formato haxixe.
+- **Versão**: Versão política.
+- **Caminho**: Caminho de destino onde são criadas definições políticas.
+- **Plataforma**: Plataforma-alvo (Windows/Linux) para a política de configuração de hóspedes e pacote de conteúdo.
 - **Tag** adiciona um ou mais filtros de etiqueta à definição de política
 - **Categoria** define o campo de metadados de categoria na definição de política
 
@@ -474,10 +474,10 @@ Os ficheiros de apoio devem ser embalados em conjunto. O pacote completo é util
 
 O `New-GuestConfigurationPackage` cmdlet cria o pacote. Para conteúdos de terceiros, utilize o parâmetro **FilesToInclude** para adicionar o conteúdo InSpec à embalagem. Você não precisa especificar o **ChefProfilePath** como para pacotes Linux.
 
-- **Nome** : Nome do pacote de configuração do hóspede.
-- **Configuração** : Documento de configuração compilado no caminho completo.
-- **Caminho** : Caminho da pasta de saída. Este parâmetro é opcional. Se não for especificado, o pacote é criado no diretório atual.
-- **FilesoInclude** : Caminho completo para o perfil InSpec.
+- **Nome**: Nome do pacote de configuração do hóspede.
+- **Configuração**: Documento de configuração compilado no caminho completo.
+- **Caminho**: Caminho da pasta de saída. Este parâmetro é opcional. Se não for especificado, o pacote é criado no diretório atual.
+- **FilesoInclude**: Caminho completo para o perfil InSpec.
 
 Executar o seguinte comando para criar um pacote utilizando a configuração dada no passo anterior:
 
@@ -496,9 +496,9 @@ Se quiser lançar uma atualização da política, existem três domínios que re
 > [!NOTE]
 > A `version` propriedade da atribuição de Configuração de Hóspedes apenas afeta pacotes que são hospedados pela Microsoft. A melhor prática para a versão personalizada é incluir a versão no nome do ficheiro.
 
-- **Versão** : Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um número de versão maior do que o que é publicado atualmente.
-- **conteúdoUri** : Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um URI para a localização da embalagem. A inclusão de uma versão em pacote no nome do ficheiro garantirá que o valor desta propriedade muda em cada versão.
-- **contentHash** : Esta propriedade é atualizada automaticamente pelo `New-GuestConfigurationPolicy` cmdlet. É um valor haxixe do pacote criado `New-GuestConfigurationPackage` por. A propriedade deve estar correta para o `.zip` ficheiro que publica. Se apenas a propriedade **contentUri** for atualizada, a Extensão não aceitará o pacote de conteúdo.
+- **Versão**: Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um número de versão maior do que o que é publicado atualmente.
+- **conteúdoUri**: Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um URI para a localização da embalagem. A inclusão de uma versão em pacote no nome do ficheiro garantirá que o valor desta propriedade muda em cada versão.
+- **contentHash**: Esta propriedade é atualizada automaticamente pelo `New-GuestConfigurationPolicy` cmdlet. É um valor haxixe do pacote criado `New-GuestConfigurationPackage` por. A propriedade deve estar correta para o `.zip` ficheiro que publica. Se apenas a propriedade **contentUri** for atualizada, a Extensão não aceitará o pacote de conteúdo.
 
 A forma mais fácil de lançar um pacote atualizado é repetir o processo descrito neste artigo e fornecer um número de versão atualizado. Este processo garante que todas as propriedades foram corretamente atualizadas.
 
@@ -518,8 +518,8 @@ Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindo
 
 Parâmetros do `Protect-GuestConfigurationPackage` cmdlet:
 
-- **Caminho** : Percurso completo do pacote de Configuração de Convidados.
-- **Certificado** : Certificado de assinatura de código para assinar o pacote. Este parâmetro só é suportado ao assinar conteúdo para o Windows.
+- **Caminho**: Percurso completo do pacote de Configuração de Convidados.
+- **Certificado**: Certificado de assinatura de código para assinar o pacote. Este parâmetro só é suportado ao assinar conteúdo para o Windows.
 
 O agente de configuração de hóspedes espera que a chave pública do certificado esteja presente em "Autoridades de Certificados de Raiz Fidedignas" em máquinas Windows e no caminho `/usr/local/share/ca-certificates/extra` nas máquinas Linux. Para que o nó verifique o conteúdo assinado, instale a chave pública do certificado na máquina antes de aplicar a política personalizada. Este processo pode ser feito utilizando qualquer técnica dentro do VM ou utilizando a Política Azure. Um modelo de exemplo é [fornecido aqui.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)
 A política de acesso ao Cofre-Chave deve permitir ao fornecedor de recursos compute aceder a certificados durante as implementações. Para obter etapas detalhadas, consulte [Configurar o Cofre de Chaves para máquinas virtuais no Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
@@ -533,13 +533,7 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 
 Após a publicação do seu conteúdo, apedie uma etiqueta com nome `GuestConfigPolicyCertificateValidation` e valor a todas as `enabled` máquinas virtuais onde deve ser necessária a assinatura de código. Consulte as [amostras tags](../samples/built-in-policies.md#tags) de como as etiquetas podem ser entregues em escala usando a Política Azure. Uma vez que esta etiqueta está em vigor, a definição de política gerada através do `New-GuestConfigurationPolicy` cmdlet permite o requisito através da extensão de Configuração do Convidado.
 
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Atribuições de política de configuração de hóspedes de resolução de problemas (visualização)
-
-Uma ferramenta está disponível na pré-visualização para ajudar na resolução de problemas das atribuições de Configuração de Convidados Azure Policy. A ferramenta está em pré-visualização e foi publicada na PowerShell Gallery como módulo [de Resolução de Problemas de Configuração de Convidados](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-Para obter mais informações sobre os cmdlets desta ferramenta, utilize o comando Get-Help em PowerShell para mostrar a orientação incorporada. Como a ferramenta está a receber atualizações frequentes, esta é a melhor maneira de obter informações mais recentes.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a auditoria de VMs com [configuração de hóspedes.](../concepts/guest-configuration.md)
 - Entenda como [criar políticas programáticas.](./programmatically-create.md)

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 5935bc3f59585b19fc3b45bdfd567bb1f9404234
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675587"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700227"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Criar e gerir chaves api para um serviço de Pesquisa Cognitiva Azure
 
 Todos os pedidos a um serviço de pesquisa precisam de uma leitura única `api-key` que foi gerada especificamente para o seu serviço. Este `api-key` é o único mecanismo para autenticar o acesso ao ponto final do seu serviço de pesquisa e deve ser incluído em cada pedido. 
 
-+ Em [soluções REST](search-get-started-postman.md), a chave api é tipicamente especificada num cabeçalho de pedido
++ Em [soluções REST](search-get-started-rest.md), a chave api é tipicamente especificada num cabeçalho de pedido
 
 + Em [soluções .NET](search-howto-dotnet-sdk.md), uma chave é frequentemente especificada como uma configuração e depois passada como [um AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
@@ -33,7 +33,7 @@ Uma chave api é uma cadeia composta por números e letras gerados aleatoriament
 
 São utilizados dois tipos de chaves para aceder ao seu serviço de pesquisa: administração (ler-escrever) e consulta (apenas para leitura).
 
-|Chave|Descrição|Limites|  
+|Chave|Description|Limites|  
 |---------|-----------------|------------|  
 |Administrador|Concede plenos direitos a todas as operações, incluindo a capacidade de gerir o serviço, criar e eliminar índices, indexadores e fontes de dados.<br /><br /> Duas teclas de administração, referidas como chaves *primárias* e *secundárias* no portal, são geradas quando o serviço é criado e podem ser regeneradas individualmente a pedido. Ter duas teclas permite-lhe passar por cima de uma tecla enquanto utiliza a segunda chave para o acesso continuado ao serviço.<br /><br /> As teclas de administração só são especificadas nos cabeçalhos de pedido HTTP. Não é possível colocar uma chave api-administrador numa URL.|Máximo de 2 por serviço|  
 |Consulta|Concede acesso apenas de leitura a índices e documentos, e são normalmente distribuídos para aplicações de clientes que emitem pedidos de pesquisa.<br /><br /> As chaves de consulta são criadas a pedido. Pode criá-las manualmente no portal ou programáticamente através da [API Management REST](/rest/api/searchmanagement/).<br /><br /> As teclas de consulta podem ser especificadas num cabeçalho de pedido HTTP para pesquisa, sugestão ou operação de pesquisa. Em alternativa, pode passar uma chave de consulta como parâmetro num URL. Dependendo da forma como a sua aplicação de cliente formula o pedido, pode ser mais fácil passar a chave como parâmetro de consulta:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|50 por serviço|  
@@ -47,11 +47,11 @@ São utilizados dois tipos de chaves para aceder ao seu serviço de pesquisa: ad
 
 Pode obter chaves de acesso no portal ou através da [API Management REST](/rest/api/searchmanagement/). Para obter mais informações, consulte [Gerir a administração e consultar as teclas api.](search-security-api-keys.md)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Enuse os [serviços de pesquisa](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  da sua subscrição.
 3. Selecione o serviço e na **Settings** página 'Vista Geral', clique em  > **Definições Teclas** para visualizar as teclas de administração e consulta.
 
-   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Página do portal, configurações de recuperação, secção de chaves" border="false":::
+   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Página do portal, ver definições, seção de teclas" border="false":::
 
 ## <a name="create-query-keys"></a>Criar chaves de consulta
 
@@ -59,13 +59,13 @@ As chaves de consulta são utilizadas para o acesso apenas à leitura de documen
 
 Restringir o acesso e as operações em aplicações de clientes é essencial para salvaguardar os ativos de pesquisa no seu serviço. Utilize sempre uma chave de consulta em vez de uma chave de administração para qualquer consulta originária de uma aplicação do cliente.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Enuse os [serviços de pesquisa](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  da sua subscrição.
-3. Selecione o serviço e na **Settings** página 'Vista Geral', clique em  > **Definições Teclas** .
-4. Clique **em Gerir as teclas de consulta** .
+3. Selecione o serviço e na **Settings** página 'Vista Geral', clique em  > **Definições Teclas**.
+4. Clique **em Gerir as teclas de consulta**.
 5. Utilize a tecla de consulta já gerada para o seu serviço ou crie até 50 novas teclas de consulta. A chave de consulta padrão não está nomeada, mas as chaves de consulta adicionais podem ser nomeadas para a gestão.
 
-   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Página do portal, configurações de recuperação, secção de chaves" border="false":::
+   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Criar ou utilizar uma chave de consulta" border="false":::
 
 > [!Note]
 > Um exemplo de código que mostra a utilização da chave de consulta pode ser encontrado em [Consulta um índice de Pesquisa Cognitiva Azure em C#](./search-get-started-dotnet.md).

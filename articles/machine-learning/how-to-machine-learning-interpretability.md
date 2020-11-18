@@ -1,7 +1,7 @@
 ---
 title: Interpretação do modelo em Azure Machine Learning (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Saiba como explicar porque é que o seu modelo faz previsões utilizando o Azure Machine Learning SDK. Pode ser usado durante o treino e inferência para entender como o seu modelo faz previsões.
+description: Aprenda a compreender & explicar como o seu modelo de aprendizagem automática faz previsões durante o treino & inferencing usando o Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: f98e18abb8ba06ea632ee9c63c1a726879e825d2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: dff0aeaf84ce87ed728d333cb68aee3a349bc111
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311506"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699394"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretação do modelo em Azure Machine Learning (pré-visualização)
 

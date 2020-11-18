@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90d60a20bb464936d04662b0b9286bd7aaac9e74
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397271"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700176"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutorial: Criar um analisador personalizado para números de telefone
 
@@ -59,9 +59,9 @@ Para cada pedido, tem de:
 
 1. `<YOUR-ADMIN-API-KEY>`Substitua-a pela chave primária ou secundária do seu serviço de pesquisa.
 
-  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Carteiro solicita URL e cabeçalho" border="false":::
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="Carteiro solicita URL e cabeçalho" border="false":::
 
-Se não estiver familiarizado com o Carteiro, consulte [o Explore Azure Cognitive Search REST APIs usando o Carteiro](search-get-started-postman.md).
+Se não está familiarizado com o Carteiro, consulte [o Explore Azure Cognitive Search REST APIs](search-get-started-rest.md).
 
 ## <a name="3---create-an-initial-index"></a>3 - Criar um índice inicial
 
@@ -160,7 +160,7 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
 
 Com os dados no índice, estamos prontos para começar a procurar.
 
-### <a name="search"></a>Pesquisa
+### <a name="search"></a>Pesquisar
 
 Para tornar a pesquisa intuitiva, o melhor é não esperar que os utilizadores formatem consultas de uma forma específica. Um utilizador pode pesquisar `(425) 555-0100` em qualquer um dos formatos que mostramos acima e ainda espera que os resultados sejam devolvidos. Neste passo, vamos testar algumas consultas de amostra para ver como se comportam.
 
@@ -239,11 +239,11 @@ Os analisadores consistem em três componentes:
 
 No diagrama abaixo, pode ver como estes três componentes trabalham em conjunto para tokenizar uma frase:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Carteiro solicita URL e cabeçalho":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Diagrama do processo do Analisador para tokenizar uma frase":::
 
 Estes tokens são então armazenados num índice invertido, o que permite pesquisas rápidas e completas de texto.  Um índice invertido permite a pesquisa por texto completo mapeando todos os termos únicos extraídos durante a análise lexical aos documentos em que ocorrem. Pode ver um exemplo no diagrama abaixo:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Carteiro solicita URL e cabeçalho":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Índice invertido de exemplo":::
 
 Toda a procura se resume a procurar os termos armazenados no índice invertido. Quando um utilizador emite uma consulta:
 
@@ -251,7 +251,7 @@ Toda a procura se resume a procurar os termos armazenados no índice invertido. 
 1. O índice invertido é então digitalizado para documentos com termos correspondentes.
 1. Finalmente, os documentos recuperados são classificados pelo [algoritmo de semelhança.](index-ranking-similarity.md)
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Carteiro solicita URL e cabeçalho":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Diagrama do processo do Analisador classificando a semelhança":::
 
 Se os termos de consulta não corresponderem aos termos do seu índice invertido, os resultados não serão devolvidos. Para saber mais sobre como funcionam as consultas, consulte este artigo na pesquisa completa por [texto.](search-lucene-query-architecture.md)
 

@@ -1,15 +1,15 @@
 ---
 title: Organize os seus recursos com grupos de gestão - Azure Governance
 description: Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: c48361e7f3d67c6d3eec40d5acb47917f7835db5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951881"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699598"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são os grupos de gestão do Azure?
 
@@ -90,7 +90,7 @@ Estas permissões são herdadas pelos recursos subordinados existentes na hierar
 
 A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos de gestão.
 
-| Nome de papel Azure             | Criar | Mudar o Nome | Mover-se\*\* | Delete | Atribuir Acesso | Atribuir Política | Ler  |
+| Nome de papel Azure             | Criar | Mudar o Nome | Mover-se\*\* | Eliminar | Atribuir Acesso | Atribuir Política | Ler  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Proprietário                       | X      | X      | X        | X      | X             | X             | X     |
 |Contribuinte                 | X      | X      | X        | X      |               |               | X     |
@@ -150,7 +150,7 @@ As definições de função são de âmbito atribuível em qualquer lugar da hie
 
 Por exemplo, vamos olhar para uma pequena parte de uma hierarquia para um visual.
 
-:::image type="complex" source="./media/subtree.png" alt-text="Diagrama de uma hierarquia de grupo de gestão de amostras." border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagrama de um subconjunto da hierarquia do grupo de gestão da amostra." border="false":::
    O diagrama centra-se no grupo de gestão de raiz com grupos de gestão de crianças I T e Marketing. O grupo de gestão I T tem um único grupo de gestão infantil chamado Production, enquanto o grupo de gestão de Marketing tem duas subscrições de crianças Free Trial.
 :::image-end:::
 
@@ -171,7 +171,11 @@ Existem limitações quando se utilizam funções personalizadas em grupos de ge
  - Só é possível definir um grupo de gestão nos âmbitos atribuíveis de um novo papel. Esta limitação está em vigor para reduzir o número de situações em que as definições de funções e atribuições de funções são desligadas. Esta situação acontece quando uma subscrição ou grupo de gestão com uma atribuição de papel se muda para um pai diferente que não tem a definição de papel.  
  - As ações do plano de dados do fornecedor de recursos não podem ser definidas em funções personalizadas do grupo de gestão. Esta restrição está em vigor, uma vez que há um problema de latência com a atualização dos fornecedores de recursos de planos de dados.
    Esta questão da latência está a ser trabalhada e estas ações serão desativadas da definição de papel para reduzir quaisquer riscos.
- - O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito atribuível da definição de função. Se houver um erro ou um ID de grupo de gestão incorreto listado, a definição de função ainda será criada.  
+ - O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito atribuível da definição de função. Se houver um erro ou um ID de grupo de gestão incorreto listado, a definição de função ainda será criada.
+
+> [!IMPORTANT]
+> A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção.
+> Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Grupos de gestão móvel e subscrições 
 
@@ -194,7 +198,7 @@ Se a função do Proprietário na subscrição for herdada do grupo de gestão a
 
 Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md). Pode procurar todos os eventos que acontecem a um grupo de gestão na mesma localização central de outros recursos do Azure. Por exemplo, pode ver todas as alterações de Atribuições de Funções ou de Atribuição de Política feitas a um grupo de gestão específico.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Diagrama de uma hierarquia de grupo de gestão de amostras." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Screenshot de Registos de Atividade e operações relacionadas com o grupo de gestão selecionado." border="false":::
 
 Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 

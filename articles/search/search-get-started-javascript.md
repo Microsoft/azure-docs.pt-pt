@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5ccbe1035c5cc73993e069c7683d6b15ae18e21c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0e1b7aa0eb56d5668b6561b36a0f63e719974573
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795951"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698901"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure utilizando o JavaScript SDK
 > [!div class="op_single_selector"]
@@ -24,10 +24,10 @@ ms.locfileid: "92795951"
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 
 
-Utilize o [SDK Javascript/Typscript para Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest) para criar uma aplicação Node.js no JavaScript que cria, carrega e consulta um índice de pesquisa.
+Utilize o [SDK Javascript/Typscript para Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme) para criar uma aplicação Node.js no JavaScript que cria, carrega e consulta um índice de pesquisa.
 
 Este artigo demonstra como criar a aplicação passo a passo. Em alternativa, pode [descarregar o código de origem e os dados](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) e executar a aplicação a partir da linha de comando.
 
@@ -56,9 +56,9 @@ As chamadas para o serviço requerem um ponto final URL e uma chave de acesso em
 
 1. [Inscreva-se no portal Azure,](https://portal.azure.com/)e na página **geral do** seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-2. Em **Settings**  >  **Definições Teclas** , obtenha uma chave de administração para todos os direitos sobre o serviço, necessários para criar ou eliminar objetos. Há duas chaves primárias e secundárias intercambiáveis. Pode usar qualquer um.
+2. Em **Settings**  >  **Definições Teclas**, obtenha uma chave de administração para todos os direitos sobre o serviço, necessários para criar ou eliminar objetos. Há duas chaves primárias e secundárias intercambiáveis. Pode usar qualquer um.
 
-   ![Obtenha uma chave de acesso http e acesso](media/search-get-started-postman/get-url-key.png "Obtenha uma chave de acesso http e acesso")
+   ![Obtenha uma chave de acesso http e acesso](media/search-get-started-rest/get-url-key.png "Obtenha uma chave de acesso http e acesso")
 
 Todos os pedidos requerem uma chave API em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
@@ -80,7 +80,7 @@ Comece por abrir o Código VS e o seu [terminal integrado](https://code.visualst
     ```
      Aceite os valores predefinidos, com exceção da Licença, que deve definir para "MIT". 
 
-3. Instale `@azure/search-documents` , o [SDK Javascript/Typscript para Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest).
+3. Instale `@azure/search-documents` , o [SDK Javascript/Typscript para Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme).
 
     ```cmd
     npm install @azure/search-documents

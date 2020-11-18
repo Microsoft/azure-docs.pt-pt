@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7c68bb9c7a94cf32bd1d9342660a9f0029f5d10d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 9b9a83cf71dfa7658c34c3c98f8d12a056adad0c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410407"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698789"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho IaaS no Azure
 Este artigo descreve as melhores práticas de segurança para VMs e sistemas operativos.
@@ -37,16 +37,16 @@ O primeiro passo para proteger os seus VMs é garantir que apenas os utilizadore
 >
 >
 
-**Melhores práticas** : Controle o acesso vM.   
-**Detalhe** : Use [as políticas Azure](../../governance/policy/overview.md) para estabelecer convenções para recursos na sua organização e crie políticas personalizadas. Aplicar estas políticas a recursos, como [grupos de recursos.](../../azure-resource-manager/management/overview.md) Os VMs que pertencem a um grupo de recursos herdam as suas políticas.
+**Melhores práticas**: Controle o acesso vM.   
+**Detalhe**: Use [as políticas Azure](../../governance/policy/overview.md) para estabelecer convenções para recursos na sua organização e crie políticas personalizadas. Aplicar estas políticas a recursos, como [grupos de recursos.](../../azure-resource-manager/management/overview.md) Os VMs que pertencem a um grupo de recursos herdam as suas políticas.
 
 Se a sua organização tiver muitas subscrições, poderá precisar de uma forma de gerir o acesso, as políticas e a conformidade dessas subscrições. [Os grupos de gestão Azure](../../governance/management-groups/overview.md) proporcionam um nível de âmbito acima das subscrições. Organiza subscrições em grupos de gestão (contentores) e aplica as suas condições de governação a esses grupos. Todas as subscrições dentro de um grupo de gestão herdam automaticamente as condições aplicadas ao grupo. Os grupos de gestão dão-lhe capacidades de gestão de nível empresarial em grande escala, independentemente do seu tipo de subscrição.
 
-**Melhores práticas** : Reduza a variabilidade na sua configuração e implantação de VMs.   
-**Detalhe** : Utilize modelos [do Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para fortalecer as suas escolhas de implementação e facilitar a compreensão e inventário dos VMs no seu ambiente.
+**Melhores práticas**: Reduza a variabilidade na sua configuração e implantação de VMs.   
+**Detalhe**: Utilize modelos [do Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para fortalecer as suas escolhas de implementação e facilitar a compreensão e inventário dos VMs no seu ambiente.
 
 **Melhores práticas:** Garantir acesso privilegiado.   
-**Detalhe** : Utilize uma [abordagem de menor privilégio](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e funções Azure incorporadas para permitir aos utilizadores aceder e configurar VMs:
+**Detalhe**: Utilize uma [abordagem de menor privilégio](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e funções Azure incorporadas para permitir aos utilizadores aceder e configurar VMs:
 
 - [Contribuinte de Máquinas Virtuais](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Pode gerir VMs, mas não a rede virtual ou conta de armazenamento a que estão ligados.
 - [Classic Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Pode gerir VMs criados utilizando o modelo de implementação clássico, mas não a rede virtual ou conta de armazenamento a que os VM estão conectados.
@@ -74,17 +74,17 @@ O Microsoft Antimalware inclui funcionalidades como proteção em tempo real, di
 
 Pode integrar soluções de Antimalware e parceiros da Microsoft com [o Azure Security Center](../../security-center/index.yml) para facilitar a implementação e deteções incorporadas (alertas e incidentes).
 
-**Melhores práticas** : Instale uma solução antimalware para proteger contra malware.   
-**Detalhe** : [Instale uma solução de parceiro microsoft ou Antimalware Microsoft](../../security-center/security-center-services.md#supported-endpoint-protection-solutions-)
+**Melhores práticas**: Instale uma solução antimalware para proteger contra malware.   
+**Detalhe**: [Instale uma solução de parceiro microsoft ou Antimalware Microsoft](../../security-center/security-center-services.md#supported-endpoint-protection-solutions-)
 
-**Melhores práticas** : Integre a sua solução antimalware com o Security Center para monitorizar o estado da sua proteção.   
-**Detalhe** : [Gerir problemas de proteção de pontos finais com o Centro de Segurança](../../security-center/security-center-partner-integration.md)
+**Melhores práticas**: Integre a sua solução antimalware com o Security Center para monitorizar o estado da sua proteção.   
+**Detalhe**: [Gerir problemas de proteção de pontos finais com o Centro de Segurança](../../security-center/security-center-partner-integration.md)
 
 ## <a name="manage-your-vm-updates"></a>Gerencie as suas atualizações de VM
 Os VMs Azure, como todos os VMs no local, devem ser geridos pelo utilizador. O Azure não emite atualizações do Windows para as VMs. Precisa de gerir as atualizações de VM.
 
-**Melhores práticas** : Mantenha os seus VMs atuais.   
-**Detalhe** : Utilize a solução [de Gestão](../../automation/update-management/overview.md) de Atualização na Azure Automation para gerir as atualizações do sistema operativo para os seus computadores Windows e Linux que são implantados em Azure, em ambientes no local ou em outros fornecedores de nuvem. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
+**Melhores práticas**: Mantenha os seus VMs atuais.   
+**Detalhe**: Utilize a solução [de Gestão](../../automation/update-management/overview.md) de Atualização na Azure Automation para gerir as atualizações do sistema operativo para os seus computadores Windows e Linux que são implantados em Azure, em ambientes no local ou em outros fornecedores de nuvem. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
 
 Os computadores que são geridos pela Gestão de Atualizações utilizam as seguintes configurações para realizar a avaliação e as implementações de atualização:
 
@@ -95,20 +95,20 @@ Os computadores que são geridos pela Gestão de Atualizações utilizam as segu
 
 Se utilizar o Windows Update, deixe ativar a definição automática de Atualização do Windows.
 
-**Melhores práticas** : Certifique-se de que as imagens que construiu incluem a mais recente ronda de atualizações do Windows.   
-**Detalhe** : Verifique e instale todas as atualizações do Windows como um primeiro passo de cada implementação. Esta medida é especialmente importante para aplicar quando implementa imagens que vêm de si ou da sua própria biblioteca. Embora as imagens do Azure Marketplace sejam atualizadas automaticamente por padrão, pode haver um tempo de atraso (até algumas semanas) após um lançamento público.
+**Melhores práticas**: Certifique-se de que as imagens que construiu incluem a mais recente ronda de atualizações do Windows.   
+**Detalhe**: Verifique e instale todas as atualizações do Windows como um primeiro passo de cada implementação. Esta medida é especialmente importante para aplicar quando implementa imagens que vêm de si ou da sua própria biblioteca. Embora as imagens do Azure Marketplace sejam atualizadas automaticamente por padrão, pode haver um tempo de atraso (até algumas semanas) após um lançamento público.
 
-**Melhores práticas** : Reenfectuar periodicamente os seus VMs para forçar uma nova versão do SISTEMA.   
-**Detalhe** : Defina o seu VM com um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para que possa reimplantá-lo facilmente. A utilização de um modelo dá-lhe um VM remendado e seguro quando precisa.
+**Melhores práticas**: Reenfectuar periodicamente os seus VMs para forçar uma nova versão do SISTEMA.   
+**Detalhe**: Defina o seu VM com um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para que possa reimplantá-lo facilmente. A utilização de um modelo dá-lhe um VM remendado e seguro quando precisa.
 
-**Melhores práticas** : Aplique rapidamente atualizações de segurança em VMs.   
-**Detalhe** : Permita ao Azure Security Center (nível gratuito ou standard) [identificar as atualizações de segurança em falta e aplicá-las](../../security-center/asset-inventory.md).
+**Melhores práticas**: Aplique rapidamente atualizações de segurança em VMs.   
+**Detalhe**: Permita ao Azure Security Center (nível gratuito ou standard) [identificar as atualizações de segurança em falta e aplicá-las](../../security-center/asset-inventory.md).
 
-**Melhores práticas** : Instale as últimas atualizações de segurança.   
-**Detalhe** : Algumas das primeiras cargas de trabalho que os clientes mudam para a Azure são laboratórios e sistemas virados para o exterior. Se os seus VMs Azure hospedar aplicações ou serviços que precisam de ser acessíveis à internet, esteja atento ao patching. Remendar para além do sistema operativo. As vulnerabilidades não remendadas nas aplicações dos parceiros também podem levar a problemas que podem ser evitados se estiver em vigor uma boa gestão de patchs.
+**Melhores práticas**: Instale as últimas atualizações de segurança.   
+**Detalhe**: Algumas das primeiras cargas de trabalho que os clientes mudam para a Azure são laboratórios e sistemas virados para o exterior. Se os seus VMs Azure hospedar aplicações ou serviços que precisam de ser acessíveis à internet, esteja atento ao patching. Remendar para além do sistema operativo. As vulnerabilidades não remendadas nas aplicações dos parceiros também podem levar a problemas que podem ser evitados se estiver em vigor uma boa gestão de patchs.
 
-**Melhores práticas** : Implementar e testar uma solução de backup.   
-**Detalhe** : Uma cópia de segurança tem de ser manuseada da mesma forma que lida com qualquer outra operação. Isto aplica-se a sistemas que fazem parte do seu ambiente de produção que se estende até à nuvem.
+**Melhores práticas**: Implementar e testar uma solução de backup.   
+**Detalhe**: Uma cópia de segurança tem de ser manuseada da mesma forma que lida com qualquer outra operação. Isto aplica-se a sistemas que fazem parte do seu ambiente de produção que se estende até à nuvem.
 
 Os sistemas de teste e dev devem seguir estratégias de backup que forneçam capacidades de restauro semelhantes às que os utilizadores se habituaram, com base na sua experiência com ambientes no local. As cargas de trabalho de produção transferidas para a Azure devem integrar-se com as soluções de backup existentes, quando possível. Ou, pode utilizar [o Azure Backup](../../backup/backup-azure-vms-first-look-arm.md) para ajudar a responder aos seus requisitos de backup.
 
@@ -151,34 +151,34 @@ Recomendamos que criptografe os seus discos rígidos virtuais (VHDs) para ajudar
 
 Seguem-se as melhores práticas para a utilização da encriptação do disco Azure:
 
-**Melhores práticas** : Ative a encriptação em VMs.   
-**Detalhe** : Azure Disk Encryption gera e escreve as chaves de encriptação do cofre da chave. A gestão das chaves de encriptação no cofre requer autenticação AZure AD. Crie uma aplicação AD AZure para este fim. Para efeitos de autenticação, pode utilizar a autenticação [AZure AD baseada em clientes ou o certificado de cliente AZure AD.](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)
+**Melhores práticas**: Ative a encriptação em VMs.   
+**Detalhe**: Azure Disk Encryption gera e escreve as chaves de encriptação do cofre da chave. A gestão das chaves de encriptação no cofre requer autenticação AZure AD. Crie uma aplicação AD AZure para este fim. Para efeitos de autenticação, pode utilizar a autenticação [AZure AD baseada em clientes ou o certificado de cliente AZure AD.](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)
 
-**Melhor prática** : Utilize uma chave de encriptação chave (KEK) para uma camada adicional de segurança para chaves de encriptação. Adicione um KEK ao seu cofre de chaves.   
-**Detalhe** : Utilize o [cmdlet Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) para criar uma chave de encriptação chave no cofre da chave. Também pode importar um KEK do seu módulo de segurança de hardware no local (HSM) para gestão de chaves. Para mais informações, consulte a documentação do [Cofre de Chaves.](../../key-vault/keys/hsm-protected-keys.md) Quando uma chave de encriptação chave é especificada, a Encriptação do Disco Azure usa essa chave para embrulhar os segredos de encriptação antes de escrever para Key Vault. Manter uma cópia desta chave numa gestão chave no local, o HSM oferece proteção adicional contra a supressão acidental das chaves.
+**Melhor prática**: Utilize uma chave de encriptação chave (KEK) para uma camada adicional de segurança para chaves de encriptação. Adicione um KEK ao seu cofre de chaves.   
+**Detalhe**: Utilize o [cmdlet Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) para criar uma chave de encriptação chave no cofre da chave. Também pode importar um KEK do seu módulo de segurança de hardware no local (HSM) para gestão de chaves. Para mais informações, consulte a documentação do [Cofre de Chaves.](../../key-vault/keys/hsm-protected-keys.md) Quando uma chave de encriptação chave é especificada, a Encriptação do Disco Azure usa essa chave para embrulhar os segredos de encriptação antes de escrever para Key Vault. Manter uma cópia desta chave numa gestão chave no local, o HSM oferece proteção adicional contra a supressão acidental das chaves.
 
-**Melhor prática** : Faça uma [foto e/ou](../../virtual-machines/windows/snapshot-copy-managed-disk.md) cópia de segurança antes que os discos sejam encriptados. As cópias de segurança fornecem uma opção de recuperação se uma falha inesperada acontecer durante a encriptação.   
-**Detalhe** : VMs com discos geridos requerem uma cópia de segurança antes da encriptação ocorrer. Depois de ser feita uma cópia de segurança, pode utilizar o **cmdlet Set-AzVMDiskEncryptionExtension** para encriptar os discos geridos especificando o parâmetro *-skipVmBackup.* Para obter mais informações sobre como fazer backup e restaurar VMs encriptados, consulte o artigo [de Backup Azure.](../../backup/backup-azure-vms-encryption.md)
+**Melhor prática**: Faça uma [foto e/ou](../../virtual-machines/windows/snapshot-copy-managed-disk.md) cópia de segurança antes que os discos sejam encriptados. As cópias de segurança fornecem uma opção de recuperação se uma falha inesperada acontecer durante a encriptação.   
+**Detalhe**: VMs com discos geridos requerem uma cópia de segurança antes da encriptação ocorrer. Depois de ser feita uma cópia de segurança, pode utilizar o **cmdlet Set-AzVMDiskEncryptionExtension** para encriptar os discos geridos especificando o parâmetro *-skipVmBackup.* Para obter mais informações sobre como fazer backup e restaurar VMs encriptados, consulte o artigo [de Backup Azure.](../../backup/backup-azure-vms-encryption.md)
 
-**Melhores práticas** : Para garantir que os segredos de encriptação não cruzem fronteiras regionais, a Encriptação do Disco Azure precisa do cofre-chave e os VMs para serem localizados na mesma região.   
-**Detalhe** : Criar e utilizar um cofre-chave que esteja na mesma região que o VM para ser encriptado.
+**Melhores práticas**: Para garantir que os segredos de encriptação não cruzem fronteiras regionais, a Encriptação do Disco Azure precisa do cofre-chave e os VMs para serem localizados na mesma região.   
+**Detalhe**: Criar e utilizar um cofre-chave que esteja na mesma região que o VM para ser encriptado.
 
 Quando aplicar encriptação de disco Azure, pode satisfazer as seguintes necessidades do negócio:
 
-- Os IAAS VMs são protegidos em repouso através da tecnologia de encriptação padrão da indústria para atender aos requisitos de segurança organizacional e conformidade.
+- As VMs IaaS são protegidas em inatividade através de tecnologias de encriptação padrão no setor para dar resposta a requisitos de conformidade e segurança organizacionais.
 - Os IAAS VMs começam sob chaves e políticas controladas pelo cliente, e você pode auditar o seu uso no seu cofre chave.
 
 ## <a name="restrict-direct-internet-connectivity"></a>Restringir a conectividade direta da internet
 Monitorize e restringa a conectividade direta da Internet VM. Os atacantes verificam constantemente as gamas IP em nuvem pública para portas de gestão abertas e tentam ataques "fáceis", como senhas comuns e vulnerabilidades conhecidas por não ser remadas. A tabela que se segue enumera as melhores práticas para ajudar a proteger contra estes ataques:
 
-**Melhores práticas** : Evitar exposição inadvertida ao encaminhamento e segurança da rede.   
-**Detalhe** : Utilize o RBAC para garantir que apenas o grupo central de rede tenha permissão para recursos de rede.
+**Melhores práticas**: Evitar exposição inadvertida ao encaminhamento e segurança da rede.   
+**Detalhe**: Utilize o Azure RBAC para garantir que apenas o grupo central de rede tenha permissão para recursos de rede.
 
-**Melhores práticas** : Identifique e remedia vMs expostos que permitam o acesso a partir de "qualquer" endereço IP de origem.   
-**Detalhe** : Utilize o Centro de Segurança Azure. O Security Center recomendará que restringa o acesso através de pontos finais virados para a Internet se algum dos seus grupos de segurança de rede tiver uma ou mais regras de entrada que permitam o acesso a partir de "qualquer" endereço IP de origem. O Security Center recomendará que edite estas regras de entrada para restringir o [acesso](../../security-center/security-center-network-recommendations.md) a endereços IP de origem que realmente precisam de acesso.
+**Melhores práticas**: Identifique e remedia vMs expostos que permitam o acesso a partir de "qualquer" endereço IP de origem.   
+**Detalhe**: Utilize o Centro de Segurança Azure. O Security Center recomendará que restringa o acesso através de pontos finais virados para a Internet se algum dos seus grupos de segurança de rede tiver uma ou mais regras de entrada que permitam o acesso a partir de "qualquer" endereço IP de origem. O Security Center recomendará que edite estas regras de entrada para restringir o [acesso](../../security-center/security-center-network-recommendations.md) a endereços IP de origem que realmente precisam de acesso.
 
-**Melhores práticas** : Restringir portas de gestão (RDP, SSH).   
-**Detalhe** : [O acesso em VM just-in-time (JIT)](../../security-center/security-center-just-in-time.md) pode ser utilizado para bloquear o tráfego de entrada nos seus VMs Azure, reduzindo a exposição a ataques, proporcionando fácil acesso à ligação aos VM quando necessário. Quando o JIT está ativado, o Centro de Segurança bloqueia o tráfego de entrada para os seus VMs Azure, criando uma regra de grupo de segurança de rede. Selecione as portas do VM para as quais o tráfego de entrada será bloqueado. Estas portas são controladas pela solução JIT.
+**Melhores práticas**: Restringir portas de gestão (RDP, SSH).   
+**Detalhe**: [O acesso em VM just-in-time (JIT)](../../security-center/security-center-just-in-time.md) pode ser utilizado para bloquear o tráfego de entrada nos seus VMs Azure, reduzindo a exposição a ataques, proporcionando fácil acesso à ligação aos VM quando necessário. Quando o JIT está ativado, o Centro de Segurança bloqueia o tráfego de entrada para os seus VMs Azure, criando uma regra de grupo de segurança de rede. Selecione as portas do VM para as quais o tráfego de entrada será bloqueado. Estas portas são controladas pela solução JIT.
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança da Azure para obter mais boas práticas de segurança quando estiver a desenhar, implementar e gerir as suas soluções em nuvem utilizando o Azure.

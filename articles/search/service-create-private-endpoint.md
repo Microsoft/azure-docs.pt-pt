@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: bbbc79a129ec3140ea6d286cbdce0165e2f6ae7b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280395"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700159"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto final privado para uma ligação segura à Pesquisa Cognitiva Azure
 
@@ -38,7 +38,7 @@ Os pontos finais privados do seu serviço de pesquisa permitem-lhe:
 
 Nesta secção, irá criar uma rede virtual e uma sub-rede para hospedar o VM que será utilizado para aceder ao ponto final privado do seu serviço de pesquisa.
 
-1. A partir do separador casa portal Azure, **selecione Criar uma**rede  >  virtual de rede**de**  >  **Virtual network**recursos.
+1. A partir do separador casa portal Azure, **selecione Criar uma** rede  >  virtual de rede **de**  >  **Virtual network** recursos.
 
 1. Na **Criar rede virtual,** insira ou selecione esta informação:
 
@@ -46,7 +46,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede para hospedar o VM qu
     | ------- | ----- |
     | Subscrição | Selecione a sua subscrição|
     | Grupo de recursos | Selecione **Criar novo,** insira *myResourceGroup,* em seguida, selecione **OK** |
-    | Nome | Insira *myVirtualNetwork* |
+    | Name | Insira *myVirtualNetwork* |
     | Região | Selecione a região desejada |
     |||
 
@@ -58,7 +58,7 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
 
 1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar um recurso**  >  **Web**  >  **Azure Cognitive Search**.
 
-1. Em **Novo Serviço de Pesquisa - Básicos, insira**ou selecione estas informações:
+1. Em **Novo Serviço de Pesquisa - Básicos, insira** ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -87,7 +87,7 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | Localização | Selecione **West US**.|
     | Name | Introduza *myPrivateEndpoint*.  |
-    | Recurso secundário de destino | Deixe o **serviço de pesquisa**predefinido . |
+    | Recurso secundário de destino | Deixe o **serviço de pesquisa** predefinido . |
     | **REDES** |  |
     | Rede virtual  | Selecione *MyVirtualNetwork* do grupo de recursos *myResourceGroup*. |
     | Sub-rede | Selecione *mySubnet*. |
@@ -110,9 +110,9 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma**máquina Virtual  >  **Compute de**recurso  >  **Virtual machine**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina Virtual  >  **Compute de** recurso  >  **Virtual machine**.
 
-1. Na **Criar uma máquina virtual - Básicos, insira**ou selecione esta informação:
+1. Na **Criar uma máquina virtual - Básicos, insira** ou selecione esta informação:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -123,7 +123,7 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Nome da máquina virtual | *Insira o myVm*. |
     | Região | Selecione **West US** ou qualquer região que estiver usando. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
-    | Imagem | Selecione **o Centro de Dados 2019 do Windows**Server . |
+    | Imagem | Selecione **o Centro de Dados 2019 do Windows** Server . |
     | Tamanho | Deixe o **padrão DS1 v2**. |
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de utilizador | Insira um nome de utilizador à sua escolha. |
@@ -133,7 +133,7 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Portas de entrada públicas | Deixe o predefinido **Deixar as portas selecionadas**. |
     | Selecione as portas de entrada | Deixe o PDR predefinido **(3389)**. |
     | **POUPE DINHEIRO** |  |
-    | Já tem uma licença do Windows? | Deixe o **nº**padrão . |
+    | Já tem uma licença do Windows? | Deixe o **nº** padrão . |
     |||
 
 1. Selecione **Seguinte: Discos**.
@@ -208,7 +208,7 @@ Quando o ponto final do serviço de pesquisa é privado, algumas funcionalidades
     Aliases:  [search service name].search.windows.net
     ```
 
-1. A partir do VM, ligue-se ao serviço de pesquisa e crie um índice. Pode seguir este [quickstart](search-get-started-postman.md) para criar um novo índice de pesquisa no seu serviço no Carteiro utilizando a API REST. A configuração de pedidos do Carteiro requer o ponto final do serviço de pesquisa (https://[nome do serviço de pesquisa].search.windows.net) e a chave api-administrador que copiou num passo anterior.
+1. A partir do VM, ligue-se ao serviço de pesquisa e crie um índice. Pode seguir este [quickstart](search-get-started-rest.md) para criar um novo índice de pesquisa no seu serviço utilizando a API REST. A configuração de pedidos a partir de uma ferramenta de teste web API requer o ponto final do serviço de pesquisa (https://[nome do serviço de pesquisa].search.windows.net) e a chave api-chave de administração que copiou num passo anterior.
 
 1. A completar o arranque rápido do VM é a confirmação de que o serviço está totalmente operacional.
 
@@ -218,9 +218,9 @@ Quando o ponto final do serviço de pesquisa é privado, algumas funcionalidades
 
 ## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando terminar de usar o Private Endpoint, o serviço de pesquisa e o VM, elimine o grupo de recursos e todos os recursos que contém:
-1. Introduza o *myResourceGroup*   na caixa de **Pesquisa** no topo do portal e selecione o *myResourceGroup*   a partir dos resultados da pesquisa. 
+1. Introduza o  *myResourceGroup*   na caixa de **Pesquisa** no topo do portal e selecione o  *myResourceGroup*   a partir dos resultados da pesquisa. 
 1. Selecione **Eliminar grupo de recursos**. 
-1. Introduza *o myResourceGroup*   para type the RESOURCE GROUP **NAME** e selecione **Delete**.
+1. Introduza  *o myResourceGroup*   para type the RESOURCE GROUP **NAME** e selecione **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, criou um VM numa rede virtual e um serviço de pesquisa com um Private Endpoint. Ligou-se ao VM a partir da internet e comunicou-se de forma segura ao serviço de pesquisa utilizando o Private Link. Para saber mais sobre o Private Endpoint, veja [o que é Azure Private Endpoint?](../private-link/private-endpoint-overview.md)

@@ -10,22 +10,22 @@ ms.custom: REST, seodec18
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 3b5aedb20bc7a8d2aa6f3aa3d8691a71af4cd3a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eeca560989c174bcb654116eb13da40d6ec79e60
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808378"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700516"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Obtenha métricas de utilização do Balanceador de Carga utilizando a API REST
 
-Recolher o número de bytes processados por um [Balanceador de Carga Padrão](/azure/load-balancer/load-balancer-standard-overview) por um intervalo de tempo utilizando a [API Azure REST](/rest/api/azure/).
+Recolher o número de bytes processados por um [Balanceador de Carga Padrão](./load-balancer-overview.md) por um intervalo de tempo utilizando a [API Azure REST](/rest/api/azure/).
 
 A documentação completa de referência e amostras adicionais para a API REST estão disponíveis na [referência Azure Monitor REST](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Criar o pedido
 
-Utilize o seguinte pedido GET para recolher a [métrica ByteCount](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) de um Balanceador de Carga Padrão. 
+Utilize o seguinte pedido GET para recolher a [métrica ByteCount](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics) de um Balanceador de Carga Padrão. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -44,10 +44,10 @@ Os seguintes cabeçalhos são obrigatórios:
 
 | Nome | Descrição |
 | :--- | :---------- |
-| subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, consulte [Trabalhar com várias subscrições](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, consulte [Trabalhar com várias subscrições](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | O nome do grupo de recursos que contém o recurso. Pode obter este valor a partir da Azure Resource Manager API, CLI ou do portal. |
 | loadBalancerName | O nome do Equilibrador de Carga Azure. |
-| nomes métricos | Lista separada por vírgulas de  [métricas válidas do Balanceador](/azure/load-balancer/load-balancer-standard-diagnostics)de Carga . |
+| nomes métricos | Lista separada por vírgulas de  [métricas válidas do Balanceador](./load-balancer-standard-diagnostics.md)de Carga . |
 | api-version | A versão API a utilizar para o pedido.<br /><br /> Este documento abrange a versão `2018-01-01` api, incluída no URL acima.  |
 | timespan | O tempo da consulta. É uma corda com o seguinte `startDateTime_ISO/endDateTime_ISO` formato. Este parâmetro opcional está definido para devolver um dia de dados no exemplo. |
 | &nbsp; | &nbsp; |

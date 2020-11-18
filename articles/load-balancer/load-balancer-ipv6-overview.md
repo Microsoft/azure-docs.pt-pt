@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 443e8c09ea46c0c20b557d77d6ed7bd63db00085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4061a3dbf4dc92d6d412528115d46edc36d20d5e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90058755"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700694"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para Equilibrista de Carga Azure
 
 
 >[!NOTE] 
->Este conteúdo foi substituído pelo [IPv6 para a visão geral do Azure VNet](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). O Azure recomenda que as novas implementações do IPv6 utilizem as novas funcionalidades do IPv6 para redes virtuais Azure.
+>Este conteúdo foi substituído pelo [IPv6 para a visão geral do Azure VNet](../virtual-network/ipv6-overview.md). O Azure recomenda que as novas implementações do IPv6 utilizem as novas funcionalidades do IPv6 para redes virtuais Azure.
 
 >[!NOTE]
->O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre o Balanceador de Carga Padrão, consulte [a visão geral do Balancer de Carga Padrão](load-balancer-standard-overview.md).
+>O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre o Balanceador de Carga Padrão, consulte [a visão geral do Balancer de Carga Padrão](./load-balancer-overview.md).
 
 Os equilibradores básicos de carga virados para a Internet SKU podem ser implantados com um endereço IPv6. Além da conectividade IPv4, isto permite as seguintes capacidades:
 
@@ -77,7 +77,7 @@ Limitações
 * Os VMs Azure não podem ligar-se ao IPv6 a outros VMs, outros serviços Azure ou dispositivos no local. Só podem comunicar com o equilibrista de carga Azure sobre o IPv6. No entanto, podem comunicar com estes outros recursos utilizando o IPv4.
 * A proteção do Grupo de Segurança de Rede (NSG) para iPv4 é suportada em implementações de dupla pilha (IPv4+IPv6). Os NSGs não se aplicam aos pontos finais do IPv6.
 * O ponto final do IPv6 no VM não está diretamente exposto à internet. Está atrás de um equilibrador de carga. Apenas as portas especificadas nas regras do balançador de carga estão acessíveis em relação ao IPv6.
-* **Atualmente, não**é suportado a alteração do parâmetro IdleTimeout para o IPv6 . O padrão é de quatro minutos.
+* **Atualmente, não** é suportado a alteração do parâmetro IdleTimeout para o IPv6 . O padrão é de quatro minutos.
 * Alterar o parâmetro de cargaDistributionMethod para IPv6 não está **atualmente suportado**.
 * O IPv6 para Balanceador de Carga Básica está bloqueado a um **SKU dinâmico.**  O IPv6 para um Balanceador de Carga Padrão está bloqueado num SKU **estático.**
 * O NAT64 (tradução do IPv6 para o IPv4) não é suportado.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c3812cef9b90a15870733441c9e830daf32e0b18
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1ed477c6cf069dbb402e5bda9c1f48f7bc208f18
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408945"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698806"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Controlo de Segurança V2: Backup e Recuperação
 
@@ -36,7 +36,7 @@ Para um nível de proteção mais elevado, pode permitir a opção de armazename
 
 - [Como permitir a restauração da região transversal](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -58,7 +58,7 @@ Certifique-se de que os seus backups estão protegidos contra ataques. Isto deve
 
 Para cópias de segurança no local que utilizem O Backup Azure, a encriptação em repouso é fornecida utilizando a palavra-passe que fornece. Para cópias de segurança regulares do serviço Azure, os dados de backup são automaticamente encriptados utilizando as teclas geridas pela plataforma Azure. Pode optar por encriptar as cópias de segurança utilizando a chave gerida pelo cliente. Neste caso, certifique-se de que esta chave gerida pelo cliente no cofre chave também está no âmbito de backup. 
 
-Utilize o controlo de acesso baseado em funções em Azure Backup, Azure Key Vault ou outros recursos para proteger cópias de segurança e chaves geridas pelo cliente. Além disso, pode ativar funcionalidades de segurança avançadas para exigir MFA antes que as cópias de segurança possam ser alteradas ou eliminadas.
+Utilize o controlo de acesso baseado em funções Azure em Azure Backup, Azure Key Vault ou outros recursos para proteger cópias de segurança e chaves geridas pelo cliente. Além disso, pode ativar funcionalidades de segurança avançadas para exigir MFA antes que as cópias de segurança possam ser alteradas ou eliminadas.
 
 - [Visão geral das funcionalidades de segurança no Azure Backup](../../backup/security-overview.md)
 
@@ -68,7 +68,7 @@ Utilize o controlo de acesso baseado em funções em Azure Backup, Azure Key Vau
 
 - [Funcionalidades de segurança para ajudar a proteger os backups híbridos de ataques](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -90,7 +90,7 @@ Efetue periodicamente a restauração de dados da sua cópia de segurança. Cert
 
 - [Como restaurar chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -108,7 +108,7 @@ Certifique-se de que tem medidas para prevenir e recuperar da perda de chaves. A
 
 - [Como permitir a eliminação suave e a proteção de purga no Cofre de Chaves](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Responsabilidade** : Cliente
+**Responsabilidade**: Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

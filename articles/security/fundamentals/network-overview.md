@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: a26228b33a7d90df558de2ecdf4686910e606a54
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 526947c4d2db9fd87727fdd60c33bcaa9e75c6ff
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413297"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699870"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança da rede Azure
 
@@ -81,7 +81,7 @@ Saiba mais:
 
 #### <a name="asc-just-in-time-vm-access"></a>ASC mesmo a tempo do acesso vm
 
-[O centro de segurança Azure](../../security-center/security-center-introduction.md) pode gerir os NSGs em VMs e bloquear o acesso ao VM até que um utilizador com as permissões de acesso de acesso adequadamente baseadas em funções, o [RBAC,](../../role-based-access-control/overview.md) solicite acesso. Quando o utilizador é autorizado com sucesso, a ASC faz modificações nos NSGs para permitir o acesso a portas selecionadas durante o tempo especificado. Quando o tempo expirar, os NSGs são restaurados ao seu estado de segurança anterior.
+[O centro de segurança Azure](../../security-center/security-center-introduction.md) pode gerir os NSGs em VMs e bloquear o acesso ao VM até que um utilizador com o controlo de acesso adequado baseado em funções [Azure RBAC](../../role-based-access-control/overview.md) solicite acesso. Quando o utilizador é autorizado com sucesso, a ASC faz modificações nos NSGs para permitir o acesso a portas selecionadas durante o tempo especificado. Quando o tempo expirar, os NSGs são restaurados ao seu estado de segurança anterior.
 
 Saiba mais:
 

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.openlocfilehash: 84defa0704c44bb0ed4564195725f7dd1c42312c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e9d438349f3a080f52050f22a0f991140b3e6b4d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788065"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699156"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use REST e IA para gerar conteúdo pesmável a partir de bolhas Azure
 
@@ -43,7 +43,7 @@ Se não tiver uma subscrição do Azure, abra uma [conta gratuita](https://azure
 
 1. Abra esta [pasta OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) e no canto superior esquerdo, clique em **Baixar** para copiar os ficheiros para o seu computador. 
 
-1. Clique com o botão direito no ficheiro zip e selecione **Extract All** . Existem 14 ficheiros de vários tipos. Vais usar 7 para este exercício.
+1. Clique com o botão direito no ficheiro zip e selecione **Extract All**. Existem 14 ficheiros de vários tipos. Vais usar 7 para este exercício.
 
 ## <a name="1---create-services"></a>1 - Criar serviços
 
@@ -61,13 +61,13 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 1. No separador Básicos, são necessários os seguintes itens. Aceite os incumprimentos para tudo o resto.
 
-   + **Grupo de recursos** . Selecione um existente ou crie um novo, mas use o mesmo grupo para todos os serviços para que possa geri-los coletivamente.
+   + **Grupo de recursos**. Selecione um existente ou crie um novo, mas use o mesmo grupo para todos os serviços para que possa geri-los coletivamente.
 
-   + **Nome da conta de armazenamento** . Se acha que pode ter múltiplos recursos do mesmo tipo, use o nome para desambiguar por tipo e região, por *exemplo, blobstoragewestus* . 
+   + **Nome da conta de armazenamento**. Se acha que pode ter múltiplos recursos do mesmo tipo, use o nome para desambiguar por tipo e região, por *exemplo, blobstoragewestus*. 
 
-   + **Localização** . Se possível, escolha o mesmo local utilizado para a Azure Cognitive Search and Cognitive Services. Um único local anula as cargas de largura de banda.
+   + **Localização**. Se possível, escolha o mesmo local utilizado para a Azure Cognitive Search and Cognitive Services. Um único local anula as cargas de largura de banda.
 
-   + **Tipo de Conta** . Escolha o predefinido, *StorageV2 (finalidade geral v2)* .
+   + **Tipo de Conta**. Escolha o predefinido, *StorageV2 (finalidade geral v2)*.
 
 1. Clique **em 'Rever + Criar'** para criar o serviço.
 
@@ -75,7 +75,7 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 1. Clique no serviço **Blobs.**
 
-1. Clique **em + Recipiente** para criar um recipiente e nomeie-o *cog-search-demo* .
+1. Clique **em + Recipiente** para criar um recipiente e nomeie-o *cog-search-demo*.
 
 1. Selecione *a demonstração de pesquisa de cog e,* em seguida, clique em **Upload** para abrir a pasta onde guardou os ficheiros de descarregamento. Selecione todos os ficheiros de não imagem. Devia ter 7 ficheiros. Clique **em OK** para carregar.
 
@@ -121,13 +121,13 @@ Todos os pedidos requerem uma chave API no cabeçalho de cada pedido enviado ao 
 
 ## <a name="2---set-up-postman"></a>2 - Configurar carteiro
 
-Inicie o Postman e configure um pedido de HTTP. Se não estiver familiarizado com esta ferramenta, consulte [As APIs de Pesquisa Cognitiva explore Azure utilizando o Carteiro](search-get-started-postman.md).
+Inicie o Postman e configure um pedido de HTTP. Se não estiver familiarizado com esta ferramenta, consulte As APIs de [Pesquisa Cognitiva explore Azure](search-get-started-rest.md).
 
 Os métodos de pedido utilizados neste tutorial são **POST,** **PUT** e **GET.** Utilizará os métodos para fazer quatro chamadas API para o seu serviço de pesquisa: criar uma fonte de dados, um skillset, um índice e um indexante.
 
 Em Cabeçalhos, desconfie "Content-type" `application/json` e desaver-se `api-key` com a chave api de administração do seu serviço de Pesquisa Cognitiva Azure. Uma vez definidos os cabeçalhos, pode usá-los para todos os pedidos neste exercício.
 
-  ![Carteiro solicita URL e cabeçalho](media/search-get-started-postman/postman-url.png "Carteiro solicita URL e cabeçalho")
+  ![Carteiro solicita URL e cabeçalho](media/search-get-started-rest/postman-url.png "Carteiro solicita URL e cabeçalho")
 
 ## <a name="3---create-the-pipeline"></a>3 - Criar o gasoduto
 
@@ -143,7 +143,7 @@ Um [objeto de origem de dados](/rest/api/searchservice/create-data-source) forne
    https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2020-06-30
    ```
 
-1. A pedido **Body** , copie a seguinte definição JSON, substituindo a `connectionString` com a ligação real da sua conta de armazenamento. 
+1. A pedido **Body**, copie a seguinte definição JSON, substituindo a `connectionString` com a ligação real da sua conta de armazenamento. 
 
    Lembre-se de editar o nome do recipiente também. Sugerimos "cog-search-demo" para o nome do contentor num passo anterior.
 
@@ -173,9 +173,9 @@ Um [objeto skillset](/rest/api/searchservice/create-skillset) é um conjunto de 
     https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-sd?api-version=2020-06-30
     ```
 
-1. A pedido **Body** , copie a definição JSON abaixo. Esta habilidade consiste nas seguintes competências incorporadas.
+1. A pedido **Body**, copie a definição JSON abaixo. Esta habilidade consiste nas seguintes competências incorporadas.
 
-   | Habilidade                 | Descrição    |
+   | Habilidade                 | Description    |
    |-----------------------|----------------|
    | [Reconhecimento de Entidades](cognitive-search-skill-entity-recognition.md) | Extrai os nomes de pessoas, organizações e locais de conteúdo no recipiente blob. |
    | [Deteção de Idioma](cognitive-search-skill-language-detection.md) | Deteta a linguagem do conteúdo. |
@@ -258,7 +258,7 @@ Um [índice](/rest/api/searchservice/create-index) fornece o esquema usado para 
    https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2020-06-30
    ```
 
-1. A pedido **Body** , copiar a seguinte definição JSON. O `content` campo armazena o documento em si. Campos adicionais `languageCode` `keyPhrases` para, e `organizations` representam novas informações (campos e valores) criadas pelo skillset.
+1. A pedido **Body**, copiar a seguinte definição JSON. O `content` campo armazena o documento em si. Campos adicionais `languageCode` `keyPhrases` para, e `organizations` representam novas informações (campos e valores) criadas pelo skillset.
 
     ```json
     {
@@ -342,7 +342,7 @@ Um [Indexer](/rest/api/searchservice/create-indexer) conduz o oleoduto. Os três
    https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2020-06-30
    ```
 
-1. A pedido **Body** , copie a definição JSON abaixo. Note os elementos de mapeamento de campo; estes mapeamentos são importantes porque definem o fluxo de dados. 
+1. A pedido **Body**, copie a definição JSON abaixo. Note os elementos de mapeamento de campo; estes mapeamentos são importantes porque definem o fluxo de dados. 
 
    Os `fieldMappings` são processados antes do skillset, enviando conteúdo da fonte de dados para campos-alvo num índice. Você usará mapeamentos de campo para enviar conteúdo existente e não modificado para o índice. Se os nomes e tipos de campo forem os mesmos em ambas as extremidades, não é necessário mapear.
 

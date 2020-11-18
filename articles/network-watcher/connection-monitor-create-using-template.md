@@ -1,7 +1,7 @@
 ---
-title: Criar pré-visualização do monitor de ligação - ARMClient
+title: Criar Monitor de Conexão - ARMClient
 titleSuffix: Azure Network Watcher
-description: Saiba como criar o Monitor de Ligação (Pré-visualização) utilizando o ARMClient.
+description: Saiba como criar o Monitor de Ligação utilizando o ARMClient.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 5a351e550cac9edcc8ce1c54fbe5c57d012ee607
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447798"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699105"
 ---
-# <a name="create-a-connection-monitor-preview-using-the-armclient"></a>Criar um monitor de ligação (pré-visualização) utilizando o ARMClient
+# <a name="create-a-connection-monitor-using-the-armclient"></a>Criar um monitor de ligação utilizando o ARMClient
 
-Saiba como criar o Connection Monitor (Preview) para monitorizar a comunicação entre os seus recursos utilizando o ARMClient. Suporta implantações de nuvem híbrida e Azure.
+Saiba como criar o Connection Monitor para monitorizar a comunicação entre os seus recursos utilizando o ARMClient. Suporta implantações de nuvem híbrida e Azure.
 
-## <a name="before-you-begin"></a>Antes de começar 
+## <a name="before-you-begin"></a>Before you begin 
 
-Nos monitores de ligação que cria no Connection Monitor (Preview), pode adicionar tanto as máquinas no local como os VMs Azure como fontes. Estes monitores de ligação também podem monitorizar a conectividade com os pontos finais. Os pontos finais podem estar no Azure ou em qualquer outro URL ou IP.
+Nos monitores de ligação que cria no Connection Monitor, pode adicionar tanto as máquinas no local como os VMs Azure como fontes. Estes monitores de ligação também podem monitorizar a conectividade com os pontos finais. Os pontos finais podem estar no Azure ou em qualquer outro URL ou IP.
 
-O Monitor de Ligação (Pré-visualização) inclui as seguintes entidades:
+O Monitor de Ligação inclui as seguintes entidades:
 
 * **Recurso de monitor** de ligação - Um recurso Azure específico da região. Todas as seguintes entidades são propriedades de um recurso de monitor de ligação.
 * **Ponto final** – Uma fonte ou destino que participa em verificações de conectividade. Exemplos de pontos finais incluem VMs Azure, agentes no local, URLs e IPs.
@@ -359,7 +359,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * Pontos Finais
     * nome – Nome único para cada ponto final
-    * resourceId – Para pontos finais do Azure, o ID de recursos refere-se ao ID de recursos do gestor de recursos Azure para máquinas virtuais. Para pontos finais não-Azure, o ID de recursos refere-se ao ID de recurso do gestor de recursos Azure para o espaço de trabalho Log Analytics ligado a agentes não-Azure.
+    * resourceId – Para pontos finais do Azure, o ID de recursos refere-se ao ID de recursos do Azure Resource Manager para máquinas virtuais. No caso de pontos finais não-Azure, o ID de recursos refere-se ao ID de recursos do Azure Resource Manager para o espaço de trabalho Log Analytics ligado a agentes não-Azure.
     * endereço – Aplicável apenas quando o ID de recurso não for especificado ou se o ID de recurso for espaço de trabalho Log Analytics. Se usado com o ID do recurso Log Analytics, este refere-se ao FQDN do agente que pode ser usado para monitorização. Se for utilizado sem identificação de recursos, este pode ser o URL ou IP de qualquer ponto final público.
     * filtro – Para pontos finais não-Azure, utilize o filtro para selecionar agentes do espaço de trabalho Log Analytics que serão utilizados para monitorização no recurso monitor de ligação. Se os filtros não estiverem definidos, todos os agentes pertencentes ao espaço de trabalho Log Analytics podem ser utilizados para monitorização
         * tipo – Definir tipo como "Endereço de Agente"

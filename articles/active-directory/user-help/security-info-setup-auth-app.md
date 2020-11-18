@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 133e6b533a3d87ef519d0f586ea59db1bbce28b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96be79a349478db7d0452cae1ff07ee1c48aaa3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83744490"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700098"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurar a app Microsoft Authenticator como o seu método de verificação
 
@@ -45,6 +45,11 @@ Os métodos de informação de segurança são utilizados tanto para a verifica�
 ## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Configurar a aplicação Microsoft Authenticator a partir da página de informações de Segurança
 
 Dependendo das definições da sua organização, poderá utilizar uma aplicação de autenticação como um dos seus métodos de informação de segurança. Não é obrigado a utilizar a aplicação Microsoft Authenticator, e pode escolher uma aplicação diferente durante o processo de configuração. No entanto, este artigo utiliza a aplicação Microsoft Authenticator.
+
+>[!Important]
+> Se tiver configurado a aplicação Microsoft Authenticator em 5 dispositivos diferentes ou 5 fichas de hardware , não poderá configurar uma sexta e poderá ver a seguinte mensagem de erro.
+> 
+> **Não é possível configurar o Microsoft Authenticator porque já tem cinco aplicações autenticadoras ou fichas de hardware. Contacte o seu administrador para eliminar uma das suas aplicações autenticadoras ou fichas de hardware.**
 
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Para configurar a aplicação Microsoft Authenticator
 
@@ -117,7 +122,7 @@ Se já não pretender utilizar a sua aplicação autenticadora como método de i
 
 2. Selecione **Sim** da caixa de confirmação para eliminar a aplicação autenticadora. Após a aplicação autenticadora ser eliminada, é removida da sua informação de segurança e desaparece da página de informações de **Segurança.** Se a aplicação autenticadora for o seu método padrão, o padrão mudará para outro método disponível.
 
-3. Abra a aplicação autenticadora no seu dispositivo móvel, selecione **contas Editar**e, em seguida, elimine o seu trabalho ou conta escolar a partir da aplicação autenticadora.
+3. Abra a aplicação autenticadora no seu dispositivo móvel, selecione **contas Editar** e, em seguida, elimine o seu trabalho ou conta escolar a partir da aplicação autenticadora.
 
     A sua conta é completamente removida da aplicação autenticadora para pedidos de verificação de dois fatores e de reposição de passwords.
 

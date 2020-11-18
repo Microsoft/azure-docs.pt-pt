@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 46b1cbbd620cf2de8d875927f5745e91fcf608c5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410050"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700764"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Serviços de segurança e tecnologias disponíveis no Azure
 
@@ -67,7 +67,7 @@ Com o tempo, esta lista mudará e crescerá, tal como o Azure. Certifique-se de 
 ## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
 |Serviço|Description|
 |------|--------|
-| [&nbsp;Controlo de &nbsp; acesso baseado em funções Azure &nbsp;](../../role-based-access-control/role-assignments-portal.md)|Uma funcionalidade de controlo de acessos concebida para permitir aos utilizadores acederem apenas aos recursos a que são necessários aceder com base nas suas funções dentro da organização.  |
+| [Controlo &nbsp; de acesso baseado em funções Azure &nbsp;](../../role-based-access-control/role-assignments-portal.md)|Uma funcionalidade de controlo de acessos concebida para permitir aos utilizadores acederem apenas aos recursos a que são necessários aceder com base nas suas funções dentro da organização.  |
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|Um repositório de autenticação baseado na nuvem que suporta um multi-inquilino, diretório baseado em nuvem e múltiplos serviços de gestão de identidade dentro de Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|Um serviço de gestão de identidade que permite controlar a forma como os clientes se inscrevem, se inscrevem e gerem os seus perfis ao utilizarem aplicações baseadas no Azure.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| Uma versão baseada na nuvem e gerida dos Serviços de Domínio do Diretório Ativo. |
