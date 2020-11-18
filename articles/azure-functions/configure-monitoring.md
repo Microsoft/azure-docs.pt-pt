@@ -3,13 +3,13 @@ title: Configure monitorização para funções Azure
 description: Saiba como ligar a sua aplicação de função a Application Insights para monitorização e como configurar a recolha de dados.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: f5b1b00c534abf1e7f82d2aca69dd4763b40d5ad
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217189"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833083"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar a monitorização para as funções do Azure
 
@@ -258,13 +258,13 @@ Se um recurso Application Insights não foi criado com a sua aplicação de fun�
     | **Novo nome do recurso** | Nome de aplicação exclusivo | É mais fácil utilizar o mesmo nome da aplicação de funções, que tem de ser exclusivo na subscrição. | 
     | **Localização** | Europa Ocidental | Se possível, utilize a mesma [região](https://azure.microsoft.com/regions/) da aplicação de funções, ou uma que esteja perto dessa região. |
 
-    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Ativar a o Application Insights a partir do portal":::
+    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Criar um recurso do Application Insights":::
 
 1. Selecione **Aplicar**. 
 
    O recurso do Application Insights é criado no mesmo grupo de recursos e subscrição da aplicação de funções. Após a criação do recurso, feche a janela do Application Insights.
 
-1. Na sua aplicação de função, selecione **Configuração** em **Definições**e, em seguida, selecione **definições de Aplicação**. Se vir uma definição chamada `APPINSIGHTS_INSTRUMENTATIONKEY`, a integração do Application Insights está ativada para a aplicação de funções em execução no Azure. Se, por alguma razão, esta definição não existir, adicione-a utilizando a sua chave de instrumentação Application Insights como valor.
+1. Na sua aplicação de função, selecione **Configuração** em **Definições** e, em seguida, selecione **definições de Aplicação**. Se vir uma definição chamada `APPINSIGHTS_INSTRUMENTATIONKEY`, a integração do Application Insights está ativada para a aplicação de funções em execução no Azure. Se, por alguma razão, esta definição não existir, adicione-a utilizando a sua chave de instrumentação Application Insights como valor.
 
 > [!NOTE]
 > As primeiras versões de Funções utilizadas na monitorização incorporada, que já não é recomendada. Ao ativar a integração do Application Insights para uma aplicação de tal função, também deve [desativar a sessão embutimento.](#disable-built-in-logging)  

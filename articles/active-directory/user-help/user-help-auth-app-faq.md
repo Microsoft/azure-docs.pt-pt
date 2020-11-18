@@ -12,18 +12,18 @@ ms.topic: end-user-help
 ms.date: 10/20/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 017898249f1ad32a37b7ccd6bce17fe3d32843f3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 65bd5a89d132a575817480d0609109a3f379e969
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480314"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833967"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes (FAQ) sobre a aplicação Microsoft Authenticator
 
 Este artigo responde a perguntas comuns sobre a aplicação Microsoft Authenticator. Se não vir uma resposta à sua pergunta, vá ao fórum de aplicações do [Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 
-A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticator, e é a aplicação recomendada quando utiliza a Autenticação Multi-Factor Azure. A aplicação Microsoft Authenticator está disponível para [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) e [iOS.](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458)
+A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticator, e é a aplicação recomendada quando utiliza a Autenticação Multi-Factor AD Azure. A aplicação Microsoft Authenticator está disponível para [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) e [iOS.](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458)
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -96,7 +96,7 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 
 **P:** Por que só recebo notificações quando a aplicação está aberta? Quando a aplicação está fechada, não recebo notificações.
 
-**R:** Se estiver a receber notificações, mas não um alerta, mesmo com o seu toque ligado, deverá verificar as definições da sua aplicação. Certifique-se de que a aplicação está ligada para usar som ou para vibrar para notificações. Se não receber notificações, deverá verificar as seguintes condições:<ul><li>O seu telefone está no modo "Não Perturbar ou Acalmar"? Estes modos podem impedir que as aplicações enviem notificações.</li><li>Pode receber notificações de outras aplicações? Caso contrário, pode ser um problema com as ligações de rede no seu telemóvel, ou com o canal de notificações do Android ou da Apple. Pode tentar resolver as suas ligações de rede através das definições do seu telefone. Poderá ter de falar com o seu fornecedor de serviços para ajudar no canal de notificações Android ou Apple.</li><li>Pode receber notificações de algumas contas na app, mas não noutras? Se sim, remova a conta problemática da sua app, adicione-a novamente permitindo notificações e veja se isso corrige o problema.</li></ul>Se tentou todos estes passos e ainda está com problemas, recomendamos o envio dos seus ficheiros de registo para diagnósticos. Abra a aplicação, vá para **Ajudar**e, em seguida, selecione **Enviar registos**. Depois disso, vá ao fórum da [aplicação Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) e diga-nos o problema que está a ver e os passos que tentou.
+**R:** Se estiver a receber notificações, mas não um alerta, mesmo com o seu toque ligado, deverá verificar as definições da sua aplicação. Certifique-se de que a aplicação está ligada para usar som ou para vibrar para notificações. Se não receber notificações, deverá verificar as seguintes condições:<ul><li>O seu telefone está no modo "Não Perturbar ou Acalmar"? Estes modos podem impedir que as aplicações enviem notificações.</li><li>Pode receber notificações de outras aplicações? Caso contrário, pode ser um problema com as ligações de rede no seu telemóvel, ou com o canal de notificações do Android ou da Apple. Pode tentar resolver as suas ligações de rede através das definições do seu telefone. Poderá ter de falar com o seu fornecedor de serviços para ajudar no canal de notificações Android ou Apple.</li><li>Pode receber notificações de algumas contas na app, mas não noutras? Se sim, remova a conta problemática da sua app, adicione-a novamente permitindo notificações e veja se isso corrige o problema.</li></ul>Se tentou todos estes passos e ainda está com problemas, recomendamos o envio dos seus ficheiros de registo para diagnósticos. Abra a aplicação, vá para **Ajudar** e, em seguida, selecione **Enviar registos**. Depois disso, vá ao fórum da [aplicação Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) e diga-nos o problema que está a ver e os passos que tentou.
 
 ### <a name="switch-to-push-notifications"></a>Mudar para notificações push
 

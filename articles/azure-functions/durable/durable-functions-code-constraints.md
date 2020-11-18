@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee1561e85e769bf8a82ce96d5ce010eece92a0fa
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dc301cf7149ad9fcd5bd5c02226afedc4df5e3ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392621"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833100"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Restrições do código de função do orquestrador
 
@@ -30,8 +30,8 @@ A tabela que se segue mostra exemplos de APIs que deve evitar porque *não* são
 
 | Categoria API | Razão | Solução |
 | ------------ | ------ | ---------- |
-| Datas e horas  | As APIs que devolvem a data ou hora corrente não são desdeterministas porque o valor devolvido é diferente para cada repetição. | Utilize a `CurrentUtcDateTime` API em .NET, a `currentUtcDateTime` API em JavaScript ou a `current_utc_datetime` API em Python, que são seguras para repetição. |
-| GUIDs e UUIDs  | As APIs que devolvem um GUID ou UUID aleatórios não são desdeterministas porque o valor gerado é diferente para cada repetição. | Utilize `NewGuid` em .NET ou `newGuid` em JavaScript para gerar GUIDs aleatórios de forma segura. |
+| Datas e horas  | As APIs que devolvem a data ou hora corrente não são desdeterministas porque o valor devolvido é diferente para cada repetição. | Utilize a propriedade [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) em .NET, a `currentUtcDateTime` API em JavaScript ou a `current_utc_datetime` API em Python, que são seguras para repetição. |
+| GUIDs e UUIDs  | As APIs que devolvem um GUID ou UUID aleatórios não são desdeterministas porque o valor gerado é diferente para cada repetição. | Utilize [o NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) em .NET ou `newGuid` em JavaScript para gerar GUIDs aleatórios de forma segura. |
 | Números aleatórios | As APIs que devolvem números aleatórios não são desdeterministas porque o valor gerado é diferente para cada repetição. | Utilize uma função de atividade para devolver números aleatórios a uma orquestração. Os valores de retorno das funções de atividade são sempre seguros para a repetição. |
 | Enlaces | As ligações de entrada e saída normalmente fazem E/S e não são desdeterminísticas. Uma função orquestradora não deve utilizar diretamente nem mesmo as ligações do [cliente de orquestração](durable-functions-bindings.md#orchestration-client) e [da entidade](durable-functions-bindings.md#entity-client) cliente. | Utilize encadernações de entrada e saída dentro das funções de cliente ou de atividade. |
 | Rede | As chamadas de rede envolvem sistemas externos e não são desdeterminais. | Utilize funções de atividade para escamar chamadas de rede. Se necessitar de fazer uma chamada HTTP da função do seu orquestrador, também pode utilizar as [APIS HTTP duráveis.](durable-functions-http-features.md#consuming-http-apis) |
@@ -57,7 +57,7 @@ Uma orquestração duradoura pode funcionar continuamente durante dias, meses, a
 > [!NOTE]
 > Esta secção descreve detalhes de implementação interna do Quadro de Tarefas Duráveis. Pode utilizar funções duráveis sem conhecer esta informação. Destina-se apenas a ajudá-lo a entender o comportamento de repetição.
 
-Tarefas que podem esperar com segurança nas funções de orquestrador são ocasionalmente referidas como *tarefas duradouras*. O Quadro de Tarefas Durável cria e gere estas tarefas. Exemplos são as tarefas devolvidas por **CallActivityAsync** , **WaitForExternalEvent** e **CreateTimer** em funções de orquestrador .NET.
+Tarefas que podem esperar com segurança nas funções de orquestrador são ocasionalmente referidas como *tarefas duradouras*. O Quadro de Tarefas Durável cria e gere estas tarefas. Exemplos são as tarefas devolvidas por **CallActivityAsync**, **WaitForExternalEvent** e **CreateTimer** em funções de orquestrador .NET.
 
 Estas tarefas duráveis são geridas internamente por uma lista de `TaskCompletionSource` objetos em .NET. Durante a repetição, estas tarefas são criadas como parte da execução do código orquestrador. Estão acabados enquanto o despachante enumera os correspondentes eventos históricos.
 

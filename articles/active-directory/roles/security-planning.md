@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69428898ca123bf5b5fa96cf041818cc15f5ac40
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378640"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834460"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -114,7 +114,7 @@ Avaliar as contas que são atribuídas ou elegíveis para o papel de administrad
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ligue a autenticação de vários fatores e registe todas as outras contas de administração não federadas altamente privilegiadas
 
-Exija a autenticação multi-factor (MFA) no início de sessão para todos os utilizadores individuais que estejam permanentemente atribuídos a uma ou mais funções de administração Admin da Azure: Administrador global, administrador de funções privilegiadas, administrador de câmbio e administrador do SharePoint. Utilize o guia para ativar a [autenticação multi-factor (MFA) para as suas contas de administração e certifique-se](../authentication/howto-mfa-userstates.md) de que todos os utilizadores se registaram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Mais informações podem ser encontradas no passo 2 e no passo 3 do guia Proteja o [acesso a dados e serviços na Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Exija a autenticação multi-factor Azure AD (MFA) no início de sessão para todos os utilizadores individuais que estejam permanentemente atribuídos a uma ou mais funções de administração Azure AD: Administrador global, administrador de funções privilegiadas, administrador de câmbio e administrador do SharePoint. Utilize o guia para ativar a [autenticação multi-factor (MFA) para as suas contas de administração e certifique-se](../authentication/howto-mfa-userstates.md) de que todos os utilizadores se registaram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Mais informações podem ser encontradas no passo 2 e no passo 3 do guia Proteja o [acesso a dados e serviços na Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Fase 2: Mitigar ataques frequentemente utilizados
 
@@ -135,7 +135,7 @@ O aumento do "traga o seu próprio dispositivo" e o trabalho a partir das polít
 * Certifique-se de que as suas contas que são utilizadas para fins de administração:
 
   * Ter endereços de e-mail de trabalho anexados a eles
-  * Registre-se para autenticação multi-factor Azure ou utilize MFA no local
+  * Registre-se para autenticação multi-factor Azure AD ou utilize MFA no local
 * Peça aos utilizadores a justificação do seu negócio para o acesso administrativo.
 * Remova o acesso de administração para os indivíduos e serviços que não precisam dele.
 
@@ -240,7 +240,7 @@ A sua organização deve ter todos os colaboradores a lidar com transações com
 
 #### <a name="continue-rollout-of-stronger-authentication-for-all-users"></a>Continue a implantação de autenticação mais forte para todos os utilizadores
 
-Requerem que os utilizadores altamente expostos tenham uma autenticação moderna e forte, como o Azure MFA ou o Windows Hello. Exemplos de utilizadores altamente expostos incluem:
+Exija que os utilizadores altamente expostos tenham uma autenticação moderna e forte, como o Azure AD MFA ou o Windows Hello. Exemplos de utilizadores altamente expostos incluem:
 
 * Executivos de suíte C
 * Gestores de alto nível

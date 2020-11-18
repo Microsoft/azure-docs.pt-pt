@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 6c768df964d46364a8ca501c078dbecaf1aaa21f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: e2432ca4cecb3c36d2fae19907c1ad17d9ef2505
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095565"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833508"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementar para o Serviço de Aplicações usando ações do GitHub
 
@@ -47,7 +47,7 @@ Pode começar rapidamente com as ações do GitHub utilizando o Centro de Implem
 
 1. Navegue para o seu webapp no portal Azure
 1. No lado esquerdo, clique no **Centro de Implementação**
-1. Em **Implementação Contínua (CI/ CD)** , selecione **GitHub**
+1. Em **Implementação Contínua (CI/ CD)**, selecione **GitHub**
 1. Em seguida, selecione **GitHub Actions**
 1. Use as dropdowns para selecionar o seu repositório GitHub, ramo e pilha de aplicações
     - Se o ramo selecionado estiver protegido, pode continuar a adicionar o ficheiro de fluxo de trabalho. Certifique-se de rever as proteções da sua filial antes de continuar.
@@ -71,7 +71,7 @@ Um perfil de publicação é uma credencial de nível de aplicação. Configura 
 
 1. Vá ao seu serviço de aplicações no portal Azure. 
 
-1. Na página **'Vista Geral',** selecione **Obter Perfil De publicação** .
+1. Na página **'Vista Geral',** selecione **Obter Perfil De publicação**.
 
 1. Guarde o ficheiro transferido. Vais usar o conteúdo do ficheiro para criar um segredo do GitHub.
 
@@ -110,7 +110,7 @@ No exemplo acima, substitua os espaços reservados pelo seu ID de subscrição, 
 
 # <a name="publish-profile"></a>[Publicar perfil](#tab/applevel)
 
-No [GitHub,](https://github.com/)navegue no seu repositório, selecione **Definições > Segredos > Adicione um novo segredo** .
+No [GitHub,](https://github.com/)navegue no seu repositório, selecione **Definições > Segredos > Adicione um novo segredo**.
 
 Para utilizar [credenciais de nível de aplicação,](#generate-deployment-credentials)cole o conteúdo do ficheiro de perfil de publicação descarregado no campo de valor do segredo. Diga o nome do `AZURE_WEBAPP_PUBLISH_PROFILE` segredo.
 
@@ -124,7 +124,7 @@ Ao configurar o seu fluxo de trabalho GitHub, utilize a ação `AZURE_WEBAPP_PUB
 
 # <a name="service-principal"></a>[Service principal (Principal de serviço)](#tab/userlevel)
 
-No [GitHub,](https://github.com/)navegue no seu repositório, selecione **Definições > Segredos > Adicione um novo segredo** .
+No [GitHub,](https://github.com/)navegue no seu repositório, selecione **Definições > Segredos > Adicione um novo segredo**.
 
 Para utilizar [credenciais ao nível do utilizador,](#generate-deployment-credentials)cole toda a saída JSON do comando Azure CLI para o campo de valor do segredo. Dê o nome ao `AZURE_CREDENTIALS` segredo.
 

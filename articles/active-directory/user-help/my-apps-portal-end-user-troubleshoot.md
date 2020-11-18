@@ -12,12 +12,12 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 6c148e673b8ada549a6543f8f35634aaf29abff0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5ae946f82590f2270719570e4b589d49542ffec8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123953"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833984"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Problemas de resolução de problemas com o portal My Apps
 
@@ -51,7 +51,7 @@ Se tiver problemas em iniciar sessão no portal **My Apps,** pode experimentar o
 
 - Certifique-se de que a sua palavra-passe está correta e que ainda não expirou. Para obter mais informações, consulte [Redefinir o seu trabalho ou a palavra-passe da escola.](active-directory-passwords-update-your-own-password.md)
 
-- Certifique-se de que a sua informação de verificação é atual e precisa. Para mais informações, consulte [o que significa para mim a autenticação multi-factor Azure ou](./multi-factor-authentication-end-user-first-time.md) [alterando os seus métodos e informações de informação de segurança](./security-info-setup-auth-app.md).
+- Certifique-se de que a sua informação de verificação é atual e precisa. Para obter mais informações, veja [o que significa para mim a autenticação multi-factor Azure AD ou](./multi-factor-authentication-end-user-first-time.md) [alterando os seus métodos e informações de informação de segurança](./security-info-setup-auth-app.md).
 
 - Adicione o URL do portal **My App** à configuração de sites de segurança > segurança > > **de segurança.**
 
@@ -75,7 +75,7 @@ Se receber uma mensagem **Access Negada** depois de iniciar uma aplicação a pa
 
 - Certifique-se de que a sua palavra-passe está correta e que ainda não expirou. Para obter mais informações, consulte [Redefinir o seu trabalho ou a palavra-passe da escola.](active-directory-passwords-update-your-own-password.md)
 
-- Certifique-se de que a sua informação de verificação é atual e precisa. Para mais informações, consulte [o que significa para mim a autenticação multi-factor Azure ou](./multi-factor-authentication-end-user-first-time.md) [alterando os seus métodos e informações de informação de segurança](./security-info-setup-auth-app.md).
+- Certifique-se de que a sua informação de verificação é atual e precisa. Para obter mais informações, veja [o que significa para mim a autenticação multi-factor Azure AD ou](./multi-factor-authentication-end-user-first-time.md) [alterando os seus métodos e informações de informação de segurança](./security-info-setup-auth-app.md).
 
 - Limpe a cache do seu navegador e tente entrar novamente.
 

@@ -14,19 +14,19 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fba46ee5632f7411c433e4bba29201c59c552f21
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009567"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835208"
 ---
 # <a name="delegate-access-to-privileged-identity-management"></a>Delegado de acesso à Gestão de Identidade Privilegiada
 
 Para delegar o acesso à Gestão de Identidade Privilegiada (PIM), um Administrador Global pode atribuir outros utilizadores à função de Administrador de Função Privilegiada. Por padrão, os administradores de segurança e os leitores de Segurança têm acesso apenas de leitura à Gestão de Identidade Privilegiada. Para conceder acesso à Gestão de Identidade Privilegiada, o primeiro utilizador pode atribuir outros à **função de Administrador de Função Privilegiada.** O papel de Administrador de Função Privilegiada é necessário apenas para gerir funções Azure AD. As permissões privilegiadas de administrador de funções não são necessárias para gerir as definições para os recursos Azure.
 
 > [!NOTE]
-> Gerir a Gestão de Identidade Privilegiada requer autenticação multi-factor Azure. Como as contas da Microsoft não podem registar-se para autenticação multi-factor Azure, um utilizador que se inscreva numa conta da Microsoft não pode aceder à Gestão de Identidade Privilegiada.
+> Gerir a Gestão de Identidade Privilegiada requer autenticação multi-factor Azure AD. Como as contas da Microsoft não podem registar-se para autenticação multi-factor Azure AD, um utilizador que se inscreva numa conta da Microsoft não pode aceder à Gestão de Identidade Privilegiada.
 
 Certifique-se de que há sempre pelo menos dois utilizadores numa função de Administrador de Função Privilegiada, caso um utilizador esteja bloqueado ou a sua conta seja eliminada.
 

@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c3cd91fb2a878567dc4b09fbddfcf448ec95edd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: abb7f93437cd45914d3824e9f557241ba0d71162
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368541"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835395"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Configurar configurações privilegiadas do grupo de acesso (pré-visualização) na Gestão de Identidade Privilegiada
 
@@ -92,7 +92,7 @@ E, pode escolher uma destas opções de duração de atribuição **ativa:**
 
 ## <a name="require-multi-factor-authentication"></a>Requerem autenticação de vários fatores
 
-A Gestão de Identidade Privilegiada proporciona a aplicação opcional da Autenticação Multi-Factor Azure para dois cenários distintos.
+A Gestão de Identidade Privilegiada proporciona a aplicação opcional da Autenticação Multi-Factor Azure AD para dois cenários distintos.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Requerer autenticação multi-factor em atribuição ativa
 
@@ -102,7 +102,7 @@ Para garantir que o administrador de recursos que cumpre a atribuição é quem 
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Requerem autenticação multi-factor na ativação
 
-Pode exigir que os utilizadores elegíveis para uma função provem quem estão a usar a Autenticação Multi-Factor Azure antes de poderem ser ativados. A autenticação multi-factor garante que o utilizador é quem diz ser com certeza razoável. A aplicação desta opção protege recursos críticos em situações em que a conta de utilizador possa ter sido comprometida.
+Pode exigir aos utilizadores elegíveis para uma função que provem quem estão a utilizar a autenticação multi-factor Ad Azure antes de poderem ser ativados. A autenticação multi-factor garante que o utilizador é quem diz ser com certeza razoável. A aplicação desta opção protege recursos críticos em situações em que a conta de utilizador possa ter sido comprometida.
 
 Para exigir a autenticação de vários fatores antes da ativação, verifique a **autenticação multi-factor requere na caixa de ativação.**
 

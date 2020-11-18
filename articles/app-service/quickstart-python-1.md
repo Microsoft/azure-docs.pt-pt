@@ -3,15 +3,15 @@ title: 'Quickstart: Criar uma aplicação Python para Linux'
 description: Começa com o Azure App Service, implantando uma aplicação Python num contentor Linux no Serviço de Aplicações.
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: 8fa349d719f93c8efda14556280da9d9b438f630
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: dc4c67437d6cc6d5eea87bf414058a676d7cd8a4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579118"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833695"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-for-linux"></a>Quickstart: Criar uma aplicação Python no Azure App Service para Linux
 
@@ -150,7 +150,7 @@ O código de amostra Python está a executar um contentor Linux no Serviço de A
     flask run
     ```
     
-    Por predefinição, o servidor assume que o módulo de entrada da aplicação se encontra em *app.py* , como é utilizado na amostra. (Se utilizar um nome de módulo diferente, desaprote a `FLASK_APP` variável ambiente para esse nome.)
+    Por predefinição, o servidor assume que o módulo de entrada da aplicação se encontra em *app.py*, como é utilizado na amostra. (Se utilizar um nome de módulo diferente, desaprote a `FLASK_APP` variável ambiente para esse nome.)
 
 1. Abra um navegador web e vá para a aplicação de amostras em `http://localhost:5000/` . A aplicação exibe a mensagem **Hello, World!**
 
@@ -277,7 +277,7 @@ O menu Serviço de Aplicações fornece diferentes páginas para configurar a su
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nos passos anteriores, criou os recursos do Azure num grupo de recursos. O grupo de recursos tem um nome como "appsvc_rg_Linux_CentralUS" dependendo da sua localização. Se utilizar um SKU de Serviço de Aplicações que não seja o nível F1 gratuito, estes recursos incorrem em custos contínuos (ver [preços do Serviço de Aplicações).](https://azure.microsoft.com/pricing/details/app-service/linux/)
 

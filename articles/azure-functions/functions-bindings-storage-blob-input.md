@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f5a01724bfefd50297182f998b46f99eacca5843
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a46c272ee2f7aa2d6621e3dc2db81605ba0363f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325781"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833117"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Ligação de entrada de armazenamento Azure Blob para funções Azure
 
@@ -175,6 +175,15 @@ No *function.jsem* ficheiro, a `queueTrigger` propriedade metadados é utilizada
 
 A secção [de configuração](#configuration) explica estas propriedades.
 
+A `dataType` propriedade determina qual a ligação utilizada. Estão disponíveis os seguintes valores para apoiar diferentes estratégias vinculativas:
+
+| Valor vinculativo | Predefinição | Descrição | Exemplo |
+| --- | --- | --- | --- |
+| `undefined` | Y | Usa a ligação rica | `def main(input: func.InputStream)` |
+| `string` | N | Usa ligação genérica e lança o tipo de entrada como um `string` | `def main(input: str)` |
+| `binary` | N | Usa ligação genérica e lança a bolha de entrada como `bytes` objeto Python | `def main(input: bytes)` |
+
+
 Aqui está o código Python:
 
 ```python
@@ -309,6 +318,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome** | n/a | O nome da variável que representa a bolha no código de função.|
 |**caminho** |**BlobPath** | O caminho para a bolha. |
 |**conexão** |**Ligação**| O nome de uma definição de aplicação que contém o [fio de ligação de armazenamento](../storage/common/storage-configure-connection-string.md) para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de Funções procura uma definição de aplicação que se chama "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .<br><br>O fio de ligação deve destinar-se a uma conta de armazenamento para fins gerais e não a uma [conta de armazenamento apenas com bolhas](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**dataType**| n/a | Para idiomas de tipo dinâmico, especifica o tipo de dados subjacente. Os valores possíveis `string` `binary` são, ou `stream` . Para obter mais detalhes, consulte os [conceitos de gatilhos e encadernações.](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions) |
 |n/a | **Acesso** | Indica se vai ler ou escrever. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -325,7 +335,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aceder aos dados blob `context.bindings.<NAME>` utilizando o valor definido nafunction.js`<NAME>` * em*.
+Aceder aos dados blob `context.bindings.<NAME>` utilizando o valor definido nafunction.js`<NAME>` *em*.
 
 # <a name="python"></a>[Python](#tab/python)
 

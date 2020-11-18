@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d826b80c11b700d753acc18f8d4c626a65510f93
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961895"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833814"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Boas práticas e guia de resolução de problemas para aplicações de nó no Azure App Service Windows
 
@@ -121,13 +121,13 @@ Leia [as aplicações de node.js de Debug no Windows](https://tomasz.janczuk.org
 
 Muitas aplicações gostariam de fazer ligações de saída como parte do seu funcionamento regular. Por exemplo, quando um pedido chega, a sua app de nó gostaria de contactar uma API REST em outro lugar e obter algumas informações para processar o pedido. Você gostaria de usar um agente keep alive ao fazer chamadas http ou https. Pode usar o módulo de agentekeepalive como agente de manutenção viva ao fazer estas chamadas de saída.
 
-O módulo de agentekeepalive garante que as tomadas são reutilizadas no seu VM webapp Azure. A criação de uma nova tomada em cada pedido de saída adiciona sobrecarga à sua aplicação. Ter a sua aplicação a reutilizar tomadas para pedidos de saída garante que a sua aplicação não exceda os maxSockets que são atribuídos por VM. A recomendação sobre o Azure App Service é definir o valor de maxSockets do agenteKeepAlive para um total de (4 instâncias de node.exe \* 40 maxSockets/instância) 160 tomadas por VM.
+O módulo de agentekeepalive garante que as tomadas são reutilizadas no seu VM webapp Azure. A criação de uma nova tomada em cada pedido de saída adiciona sobrecarga à sua aplicação. Ter a sua aplicação a reutilizar tomadas para pedidos de saída garante que a sua aplicação não exceda os maxSockets que são atribuídos por VM. A recomendação sobre o Azure App Service é definir o valor de maxSockets do agenteKeepAlive para um total de (4 instâncias de node.exe \* 32 maxSockets/instância) 128 tomadas por VM.
 
 Configuração [do agente de exemploKeepALive:](https://www.npmjs.com/package/agentkeepalive)
 
 ```nodejs
 let keepaliveAgent = new Agent({
-    maxSockets: 40,
+    maxSockets: 32,
     maxFreeSockets: 10,
     timeout: 60000,
     keepAliveTimeout: 300000

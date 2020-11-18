@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69884b9e07172e9b25f4c14884be8713da23cbdb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0e230a975748fe2f737c4b8fe8491887351d387
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369833"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835378"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Atribuir funções de Azure AD em Gestão de Identidade Privilegiada
 
@@ -147,7 +147,7 @@ Siga estes passos para tornar um utilizador elegível para um papel de administr
 
 1. Agora que o utilizador é elegível para o papel, informe-os de que podem ativá-lo de acordo com as instruções em Ativar as [minhas funções de AD Azure em Gestão de Identidade Privilegiada.](pim-how-to-activate-role.md)
 
-    Os administradores elegíveis são convidados a registar-se para autenticação multi-factor Azure durante a ativação. Se um utilizador não puder registar-se no MFA, ou estiver a utilizar uma conta Microsoft (por @outlook.com exemplo), tem de os tornar permanentes em todas as suas funções.
+    Os administradores elegíveis são convidados a registar-se para autenticação multi-factor Azure AD durante a ativação. Se um utilizador não puder registar-se no MFA, ou estiver a utilizar uma conta Microsoft (por @outlook.com exemplo), tem de os tornar permanentes em todas as suas funções.
 
 ## <a name="make-a-role-assignment-permanent"></a>Tornar uma atribuição de papel permanente
 

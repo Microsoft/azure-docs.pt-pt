@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 889972f7d94ab960354982275d45bdc5d5726d6e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 528003ac482da6f254bf437321c70c389d23844b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356829"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835089"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutorial: Configure Looop para o fornecimento automático de utilizadores
 
@@ -85,7 +85,7 @@ Para configurar o Looop para o fornecimento automático de utilizadores com Azur
 
     ![Looop na lista de resultados](common/search-new-app.png)
 
-5. Selecione o **botão Desinsubamento para Looop** que irá redirecioná-lo para a página de login do Looop. 
+5. Selecione o **botão Desinsubamento para Looop,** que irá redirecioná-lo para a página de login do Looop. 
 
     ![Looop OIDC Adicionar](media/looop-provisioning-tutorial/signup.png)
 
@@ -135,7 +135,23 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 9. Reveja os atributos do utilizador que são sincronizados de Azure AD a Looop na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador em Looop para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Atributos do utilizador looop](media/looop-provisioning-tutorial/userattributes.png)
+   |Atributo|Tipo|Suportado para filtragem|
+   |---|---|---|
+   |userName|String|&check;|
+   |active|Booleano|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |externalId|String|
+   |urn:ietf:params:scim:schemas:extensão:Looop:2.0:User:area|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_1|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_2|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_3|String|
+   |urn:ietf:params:scim:schemas:extensão:Looop:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:employee_id|String|
+   |urn:ietf:params:scim:schemas:extensão:Looop:2.0:Utilizador:localização|String|
+   |urn:ietf:params:scim:schemas:extensão:Looop:2.0:Utilizador:posição|String|
+   |urn:ietf:params:scim:schemas:extensão:Looop:2.0:User:startAt|String|
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Meta Networks Connector**.
 
@@ -143,7 +159,12 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 11. Reveja os atributos do grupo que são sincronizados de Azure AD a Meta Networks Connector na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar com os grupos no Conector Meta Networks para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Atributos do Grupo Looop](media/looop-provisioning-tutorial/groupattributes.png)
+    |Atributo|Tipo|Suportado para filtragem|
+    |---|---|---|
+    |displayName|String|&check;|
+    |membros|Referência|
+    |externalId|String|
+
 
 10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

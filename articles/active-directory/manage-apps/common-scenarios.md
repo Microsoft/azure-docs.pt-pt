@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9699f425b296f1c88162c78b8f86de74303747be
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2b78562bc3590bdf5b15e4061ba23e1284b07c16
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658337"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835497"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizar a gestão de aplicações com a Azure AD
 
@@ -62,7 +62,7 @@ A identidade é o eixo da segurança. Se uma identidade fica comprometida, é in
 
 |Funcionalidade  |Descrição| Recomendação |
 |---------|---------| ---------|
-|Azure MFA|A Azure Multi-Factor Authentication (MFA) é uma solução de verificação em dois passos da Microsoft. Utilizando métodos de autenticação aprovados pela administração, o Azure MFA ajuda a salvaguardar o acesso aos seus dados e aplicações, ao mesmo tempo que satisfaz a exigência de um processo de inscrição simples.| [Ativar o MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) para os seus utilizadores.  |
+|Azure AD MFA|A Azure AD Multi-Factor Authentication (MFA) é a solução de verificação em duas etapas da Microsoft. Utilizando métodos de autenticação aprovados pela administração, o Azure AD MFA ajuda a salvaguardar o acesso aos seus dados e aplicações, satisfazendo a procura de um processo simples de inscrição.| [Ativar o MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) para os seus utilizadores.  |
 |Acesso Condicional|Com o Acesso Condicional, pode implementar decisões automatizadas de controlo de acesso para quem pode aceder às suas aplicações na nuvem, com base nas condições.| Reveja os [incumprimentos de segurança](../fundamentals/concept-fundamentals-security-defaults.md) e [as políticas comuns que](../conditional-access/concept-conditional-access-policy-common.md) os clientes estão a usar. | 
 |Identity Protection|A Identity Protection utiliza as aprendizagens que a Microsoft adquiriu da sua posição em organizações com a Azure AD, o espaço de consumo com contas da Microsoft e em jogos com a Xbox para proteger os seus utilizadores. A Microsoft analisa 6,5 biliões de sinais por dia para identificar e proteger os clientes de ameaças.|Ativar as [políticas de proteção de identidade padrão](../identity-protection/concept-identity-protection-policies.md) fornecidas pelo nosso serviço. | 
 

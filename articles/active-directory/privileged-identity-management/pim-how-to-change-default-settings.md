@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 391d4d6cb925eec0ea7be19eb6fa6849aa38985e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fadcf3f5aefa76ab03d6313643fc18df71f6c3b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369748"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835242"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurar definições de papel de AD Azure na Gestão de Identidade Privilegiada
 
@@ -81,7 +81,7 @@ E, pode escolher uma destas opções de duração de atribuição **ativa:**
 
 ## <a name="require-multi-factor-authentication"></a>Requerem autenticação de vários fatores
 
-A Gestão de Identidade Privilegiada proporciona a aplicação opcional da Autenticação Multi-Factor Azure para dois cenários distintos.
+A Gestão de Identidade Privilegiada proporciona a aplicação opcional da Autenticação Multi-Factor Azure AD para dois cenários distintos.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Requerer autenticação multi-factor em atribuição ativa
 
@@ -91,7 +91,7 @@ Para garantir que o administrador que cumpre a atribuição é quem eles dizem s
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Requerem autenticação multi-factor na ativação
 
-Pode exigir que os utilizadores elegíveis para uma função provem quem estão a usar a Autenticação Multi-Factor Azure antes de poderem ser ativados. A autenticação multi-factor garante que o utilizador é quem diz ser com certeza razoável. A aplicação desta opção protege recursos críticos em situações em que a conta de utilizador possa ter sido comprometida.
+Pode exigir aos utilizadores elegíveis para uma função que provem quem estão a utilizar a autenticação multi-factor Ad Azure antes de poderem ser ativados. A autenticação multi-factor garante que o utilizador é quem diz ser com certeza razoável. A aplicação desta opção protege recursos críticos em situações em que a conta de utilizador possa ter sido comprometida.
 
 Para exigir a autenticação de vários fatores antes da ativação, verifique a **autenticação multi-factor requere na** caixa de ativação no separador atribuição da definição de **função de edição**.
 
@@ -167,8 +167,8 @@ Utilize o comutador **de bilhetes Incident/Request** para exigir que os administ
 
 Utilize o **comutador multi-factor authentication** para especificar se deve exigir que os utilizadores verifiquem a sua identidade com MFA antes de poderem ativar as suas funções. Só têm de verificar a sua identidade uma vez por sessão, não sempre que ativam um papel. Há duas dicas a ter em mente quando ativar o MFA:
 
-- Os utilizadores que tenham contas da Microsoft para os seus endereços de e-mail (normalmente @outlook.com , mas nem sempre) não podem registar-se para autenticação multi-factor Azure. Se pretender atribuir funções a utilizadores com contas Microsoft, deve torná-las administradores permanentes ou desativar a autenticação multi-factor para essa função.
-- Não é possível desativar a autenticação multi-factor Azure para funções altamente privilegiadas para Azure AD e Microsoft 365. Esta função de segurança ajuda a proteger as seguintes funções:  
+- Os utilizadores que tenham contas da Microsoft para os seus endereços de e-mail (normalmente @outlook.com , mas nem sempre) não podem registar-se para autenticação multi-factor Azure AD. Se pretender atribuir funções a utilizadores com contas Microsoft, deve torná-las administradores permanentes ou desativar a autenticação multi-factor para essa função.
+- Não é possível desativar a autenticação multi-factor Azure AD para funções altamente privilegiadas para Azure AD e Microsoft 365. Esta função de segurança ajuda a proteger as seguintes funções:  
   
   - Administrador de Proteção de Informação da Azure
   - Administrador de faturação

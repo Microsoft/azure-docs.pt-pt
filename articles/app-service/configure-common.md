@@ -5,13 +5,13 @@ keywords: serviço de aplicativos azure, aplicativo web, configurações de apli
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 86f9f227c0ea92b7b52a3037759426cc87f6d937
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
+ms.openlocfilehash: 1ab6f5e9c7b602ce124116c02584c5a48a3f597f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152050"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833661"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar uma app de Serviço de Aplicações no portal Azure
 
@@ -21,15 +21,15 @@ Este tópico explica como configurar configurações comuns para aplicações we
 
 No Serviço de Aplicações, as configurações das aplicações são variáveis passadas como variáveis ambientais para o código de aplicação. Para aplicações Linux e recipientes personalizados, o Serviço de Aplicações passa as definições de aplicações para o recipiente usando a `--env` bandeira para definir a variável ambiental no recipiente.
 
-No [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida, selecione a sua aplicação. 
+No [portal Azure,]procure e selecione **Serviços de Aplicações** e, em seguida, selecione a sua aplicação. 
 
 ![Pesquisa de Serviços de Aplicações](./media/configure-common/search-for-app-services.png)
 
-No menu esquerdo da aplicação, selecione **Configuration**  >  **configurações de Aplicação de**configuração .
+No menu esquerdo da aplicação, selecione **Configuration**  >  **configurações de Aplicação de** configuração .
 
 ![Definições de Aplicação](./media/configure-common/open-ui.png)
 
-Para ASP.NET e ASP.NET os desenvolvedores do Core, configurar as definições de aplicações no Serviço de Aplicações é como defini-las `<appSettings>` em *Web.config* ou *appsettings.jsem*, mas os valores no Serviço de Aplicações substituem os * deWeb.config* ou *appsettings.jsem*. Pode manter as definições de desenvolvimento (por exemplo, a palavra-passe local do MySQL) em *Web.config* ou *appsettings.js,* mas os segredos de produção (por exemplo, palavra-passe da base de dados Azure MySQL) são seguros no Serviço de Aplicações. O mesmo código utiliza as definições de desenvolvimento quando depura localmente, e utiliza os seus segredos de produção quando implantado no Azure.
+Para ASP.NET e ASP.NET os desenvolvedores do Core, configurar as definições de aplicações no Serviço de Aplicações é como defini-las `<appSettings>` em *Web.config* ou *appsettings.jsem*, mas os valores no Serviço de Aplicações substituem os *deWeb.config* ou *appsettings.jsem*. Pode manter as definições de desenvolvimento (por exemplo, a palavra-passe local do MySQL) em *Web.config* ou *appsettings.js,* mas os segredos de produção (por exemplo, palavra-passe da base de dados Azure MySQL) são seguros no Serviço de Aplicações. O mesmo código utiliza as definições de desenvolvimento quando depura localmente, e utiliza os seus segredos de produção quando implantado no Azure.
 
 Outras pilhas linguísticas, igualmente, obtêm as configurações da aplicação como variáveis ambientais no tempo de execução. Para etapas específicas de pilha de linguagem, consulte:
 
@@ -112,11 +112,11 @@ Pode utilizar o CLI Azure para criar e gerir as definições a partir da linha d
 
 ## <a name="configure-connection-strings"></a>Configurar cadeias de ligação
 
-No [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida, selecione a sua aplicação. No menu esquerdo da aplicação, selecione **Configuration**  >  **configurações de Aplicação de**configuração .
+No [portal Azure,]procure e selecione **Serviços de Aplicações** e, em seguida, selecione a sua aplicação. No menu esquerdo da aplicação, selecione **Configuration**  >  **configurações de Aplicação de** configuração .
 
 ![Definições de Aplicação](./media/configure-common/open-ui.png)
 
-Para ASP.NET e ASP.NET os desenvolvedores do Core, configurar as cadeias de ligação no Serviço de Aplicações é como defini-las `<connectionStrings>` em *Web.config*, mas os valores que definiu no Serviço de Aplicações substituem os *Web.config*. Pode manter as definições de desenvolvimento (por exemplo, um ficheiro de base de dados) em * segredos deWeb.config* e de produção (por exemplo, credenciais de base de dados SQL) em segurança no Serviço de Aplicações. O mesmo código utiliza as definições de desenvolvimento quando depura localmente, e utiliza os seus segredos de produção quando implantado no Azure.
+Para ASP.NET e ASP.NET os desenvolvedores do Core, configurar as cadeias de ligação no Serviço de Aplicações é como defini-las `<connectionStrings>` em *Web.config*, mas os valores que definiu no Serviço de Aplicações substituem os *Web.config*. Pode manter as definições de desenvolvimento (por exemplo, um ficheiro de base de dados) em *segredos deWeb.config* e de produção (por exemplo, credenciais de base de dados SQL) em segurança no Serviço de Aplicações. O mesmo código utiliza as definições de desenvolvimento quando depura localmente, e utiliza os seus segredos de produção quando implantado no Azure.
 
 Para outras pilhas de idiomas, é melhor usar [as definições](#configure-app-settings) de aplicações em vez disso, porque as cordas de conexão requerem formatação especial nas teclas variáveis para aceder aos valores. No entanto, há uma exceção: certos tipos de bases de dados Azure são apoiados juntamente com a aplicação se configurar as suas cadeias de ligação na sua aplicação. Para mais informações, veja [o que é ressoou.](manage-backup.md#what-gets-backed-up) Se não precisar desta cópia de segurança automatizada, use as definições de aplicações.
 
@@ -184,13 +184,13 @@ As cordas de ligação têm a seguinte formatação JSON:
 
 ## <a name="configure-general-settings"></a>Configurar as definições gerais
 
-No [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida, selecione a sua aplicação. No menu esquerdo da aplicação, selecione **Configuration**  >  **Configuração Definições Gerais**.
+No [portal Azure,]procure e selecione **Serviços de Aplicações** e, em seguida, selecione a sua aplicação. No menu esquerdo da aplicação, selecione **Configuration**  >  **Configuração Definições Gerais**.
 
 ![Definições gerais](./media/configure-common/open-general.png)
 
 Aqui, pode configurar algumas definições comuns para a aplicação. Algumas configurações exigem que você [escalone até níveis de preços mais elevados](manage-scale-up.md).
 
-- **Configurações de**pilha : A pilha de software para executar a aplicação, incluindo as versões idioma e SDK.
+- **Configurações de** pilha : A pilha de software para executar a aplicação, incluindo as versões idioma e SDK.
 
     Para aplicações Linux e aplicativos de contentores personalizados, pode selecionar a versão de tempo de execução do idioma e definir um **comando de Arranque** opcional ou um ficheiro de comando de arranque.
 
@@ -214,7 +214,7 @@ Aqui, pode configurar algumas definições comuns para a aplicação. Algumas co
 
 Esta definição destina-se apenas a aplicações do Windows.
 
-No [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida, selecione a sua aplicação. No menu esquerdo da aplicação, selecione **Configuration**  >  **Os documentos Padrão de**Configuração .
+No [portal Azure,]procure e selecione **Serviços de Aplicações** e, em seguida, selecione a sua aplicação. No menu esquerdo da aplicação, selecione **Configuration**  >  **Os documentos Padrão de** Configuração .
 
 ![Documentos predefinidos](./media/configure-common/open-documents.png)
 
@@ -224,7 +224,7 @@ Se a aplicação utilizar módulos que se encaminham com base em URL em vez de s
 
 ## <a name="configure-path-mappings"></a>Configurar mapeamentos de caminhos
 
-No [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida, selecione a sua aplicação. No menu esquerdo da aplicação, selecione **Configuration**  >  **os mapeamentos do Caminho de**Configuração .
+No [portal Azure,]procure e selecione **Serviços de Aplicações** e, em seguida, selecione a sua aplicação. No menu esquerdo da aplicação, selecione **Configuration**  >  **os mapeamentos do Caminho de** Configuração .
 
 ![Mapeamentos de caminhos](./media/configure-common/open-path.png)
 
@@ -236,7 +236,7 @@ Para aplicações windows, você pode personalizar os mapeamentos do manipulador
 
 Os mapeamentos do manipulador permitem adicionar processadores de script personalizados para lidar com pedidos de extensões de ficheiros específicas. Para adicionar um manipulador personalizado, clique em **Novo manipulador**. Configure o manipulador da seguinte forma:
 
-- **Extensão**. A extensão do ficheiro que pretende manusear, como * \* .php* ou *handler.fcgi*.
+- **Extensão**. A extensão do ficheiro que pretende manusear, como *\* .php* ou *handler.fcgi*.
 - **Processador script**. O caminho absoluto do processador de scripts para si. Os pedidos para ficheiros que correspondam à extensão do ficheiro são processados pelo processador script. Utilize o caminho `D:\home\site\wwwroot` para se referir ao diretório de raiz da sua aplicação.
 - **Argumentos.** Argumentos de linha de comando opcionais para o processador de scripts.
 

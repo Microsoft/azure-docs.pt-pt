@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee1734e61ffe59fccf3ad35c1f0c607882f7f40
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659202"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835514"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Utilize o relatório de atividade da aplicação AD FS (pré-visualização) para migrar aplicações para Azure AD
 
@@ -76,7 +76,7 @@ A tabela que se segue lista todos os testes de configuração que são realizado
 
 |Resultado  |Passe/Aviso/Falha  |Descrição  |
 |---------|---------|---------|
-|Test-ADFSRPAdditionalAuthenticationRules <br> Pelo menos uma regra não migradora foi detetada para a Autorização Adicional.       | Passe/Aviso          | A parte dependente tem regras para solicitar a autenticação de vários fatores (MFA). Para passar para Azure AD, traduza essas regras em políticas de Acesso Condicional. Se estiver a utilizar um MFA no local, recomendamos que se mude para a Azure MFA. [Saiba mais sobre o Acesso Condicional.](../authentication/concept-mfa-howitworks.md)        |
+|Test-ADFSRPAdditionalAuthenticationRules <br> Pelo menos uma regra não migradora foi detetada para a Autorização Adicional.       | Passe/Aviso          | A parte dependente tem regras para solicitar a autenticação de vários fatores (MFA). Para passar para Azure AD, traduza essas regras em políticas de Acesso Condicional. Se estiver a utilizar um MFA no local, recomendamos que se mude para o Azure AD MFA. [Saiba mais sobre o Acesso Condicional.](../authentication/concept-mfa-howitworks.md)        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> A parte de contemitimento tem AdicionalWSFedEndpoint definido para verdadeiro.       | Aprovado/Reprovado          | A parte de confiança em AD FS permite múltiplos pontos finais de afirmação WS-Fed.Atualmente, a AZure AD só suporta uma.Se tiver um cenário em que este resultado esteja a bloquear a migração, [avise-nos.](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)     |
 |Test-ADFSRPAllowedAuthenticationClassReferences <br> O Partido De Confiar definiu AsReferências De Classe Permitidas.       | Aprovado/Reprovado          | Esta definição em AD FS permite especificar se a aplicação está configurada apenas para permitir certos tipos de autenticação. Recomendamos a utilização de Acesso Condicional para alcançar esta capacidade. Se tiver um cenário em que este resultado esteja a bloquear a migração, [avise-nos.](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695672-allow-in-azure-ad-to-specify-certain-authentication)  [Saiba mais sobre o Acesso Condicional.](../authentication/concept-mfa-howitworks.md)          |
 |Test-ADFSRPAlwaysRequireAuthentication <br> AlwaysRequireAuthenticationCheckResult      | Aprovado/Reprovado          | Esta definição em AD FS permite especificar se a aplicação está configurada para ignorar cookies SSO e **Sempre Pronta para Autenticação.** No Azure AD, pode gerir a sessão de autenticação utilizando políticas de Acesso Condicional para obter comportamentos semelhantes. [Saiba mais sobre configurar a gestão da sessão de autenticação com Acesso Condicional.](../conditional-access/howto-conditional-access-session-lifetime.md)          |
@@ -123,7 +123,7 @@ A tabela que se segue lista todos os testes de regras de reclamação que são r
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | A declaração de emissão utiliza Expressões Regulares para transformar o valor da reivindicação a emitir.Para obter uma funcionalidade semelhante em Azure AD, pode utilizar uma transformação pré-definida como Extract(), Trim(), ToLower, entre outros. Para obter mais informações, consulte [Personalizar reclamações emitidas no token SAML para aplicações empresariais.](../develop/active-directory-saml-claims-customization.md)          |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Vídeo: Como usar o relatório de atividade da AD FS para migrar uma aplicação](https://www.youtube.com/watch?v=OThlTA239lU)
 - [Managing applications with Azure Active Directory](what-is-application-management.md) (Gerir aplicações com o Azure Active Directory)

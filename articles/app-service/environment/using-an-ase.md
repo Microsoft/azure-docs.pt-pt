@@ -6,13 +6,13 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 1e6bace9652ff68bb4cc28d482016b7e7510154b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 86d0569d95df18924ed47682b75d7491c71d4483
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150192"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833559"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um Ambiente do Serviço de Aplicações
 
@@ -36,7 +36,7 @@ Se não tiver um ASE, pode criar um seguindo as instruções no [Criar um Ambien
 
 Para criar uma aplicação num ASE:
 
-1. Selecione **Criar uma**  >  **Web + Mobile**Web  >  **App**.
+1. Selecione **Criar uma**  >  **Web + Mobile** Web  >  **App**.
 
 1. Insira um nome para a aplicação. Se já selecionou um plano de Serviço de Aplicações num ASE, o nome de domínio da aplicação reflete o nome de domínio do ASE:
 
@@ -139,7 +139,7 @@ Para configurar DNS em zonas privadas Azure DNS:
 1. criar um registo A naquela zona que aponta @ para o endereço IP ILB
 1. criar um registo A nessa zona que aponta *.scm para o endereço IP ILB
 
-As definições DE DNS para o seu sufixo de domínio padrão ASE não restringem as suas aplicações a serem apenas acessíveis por esses nomes. Pode definir um nome de domínio personalizado sem qualquer validação nas suas aplicações num ILB ASE. Se então quiser criar uma zona denominada *contoso.net,* pode fazê-lo e apontá-la para o endereço IP ILB. O nome de domínio personalizado funciona para pedidos de aplicações, mas não para o site scm. O site scm só está disponível * &lt; no appname &gt; .scm. &lt; asename &gt; .appserviceenvironment.net*. 
+As definições DE DNS para o seu sufixo de domínio padrão ASE não restringem as suas aplicações a serem apenas acessíveis por esses nomes. Pode definir um nome de domínio personalizado sem qualquer validação nas suas aplicações num ILB ASE. Se então quiser criar uma zona denominada *contoso.net,* pode fazê-lo e apontá-la para o endereço IP ILB. O nome de domínio personalizado funciona para pedidos de aplicações, mas não para o site scm. O site scm só está disponível *&lt; no appname &gt; .scm. &lt; asename &gt; .appserviceenvironment.net*. 
 
 A zona chamada *. &lt; asename &gt; .appserviceenvironment.net* é globalmente única. Antes de maio de 2019, os clientes puderam especificar o sufixo de domínio do ILB ASE. Se quisesse usar *.contoso.com* para o sufixo de domínio, poderia fazê-lo e isso incluiria o site scm. Houve desafios com este modelo, incluindo; gerir o certificado SSL predefinido, falta de um único sinal com o site scm e a obrigação de usar um certificado wildcard. O processo de atualização do certificado por defeito ILB ASE também foi disruptivo e causou o reinício da aplicação. Para resolver estes problemas, o comportamento do ILB ASE foi alterado para usar um sufixo de domínio baseado no nome do ASE e com um sufixo propriedade da Microsoft. A alteração ao comportamento do ILB ASE só afeta as ASEs do ILB feitas após maio de 2019. AsES ILB pré-existentes devem ainda gerir o certificado predefinido do ASE e a sua configuração de DNS.
 
@@ -185,7 +185,7 @@ Pode integrar o seu ASE com o Azure Monitor para enviar registos sobre o ASE par
 Para ativar o registo no seu ASE:
 
 1. No portal, aceda às **definições de Diagnóstico**.
-1. **Selecione Adicionar a definição de diagnóstico**.
+1. Selecione **Adicionar definição de diagnóstico**.
 1. Fornecer um nome para a integração de registos.
 1. Selecione e configure os destinos de registo que deseja.
 1. Selecione **AppServiceEnvironmentPlatformLogs**.
@@ -209,7 +209,7 @@ Para criar um alerta contra os seus registos, siga as instruções em [Criar, ve
 
 Se tiver vários ASEs, talvez queira que alguns ASEs sejam atualizados antes de outros. Dentro do objeto ASE **HostingEnvironment Resource Manager,** pode definir um valor para **upgradePreferência**. A **definição de actualizaçãoPreference** pode ser configurada utilizando um modelo, ARMClient ou https://resources.azure.com . Os três valores possíveis são:
 
-- **Nenhum**: O Azure atualizará o seu ASE num lote específico. Este valor é a predefinição.
+- **Nenhum**: O Azure atualizará o seu ASE num lote específico. este valor é a predefinição.
 - **Início**: O seu ASE será atualizado na primeira metade das atualizações do Serviço de Aplicações.
 - **Tarde**: O seu ASE será atualizado na segunda metade das atualizações do Serviço de Aplicações.
 

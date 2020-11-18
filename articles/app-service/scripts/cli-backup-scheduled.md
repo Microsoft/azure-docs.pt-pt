@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: mvc, seodec18
-ms.openlocfilehash: cc87438d785b7c45506c638ee80e10ae4021674f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 4055ae213000b2c3d6a39cd33db0cdfc87bd7b6f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962762"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834987"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Crie uma cópia de segurança programada para uma aplicação do Serviço de Aplicações utilizando o CLI
 

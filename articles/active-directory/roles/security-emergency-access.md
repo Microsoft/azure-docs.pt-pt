@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378759"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834443"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerir contas de acesso de emergência em Azure AD
 
@@ -33,7 +33,7 @@ Este artigo fornece orientações para a gestão de contas de acesso de emergên
 Uma organização pode precisar de usar uma conta de acesso de emergência nas seguintes situações:
 
 - As contas dos utilizadores são federadas, e a federação está atualmente indisponível devido a uma quebra na rede de telemóveis ou a uma falha no fornecedor de identidade. Por exemplo, se o anfitrião do fornecedor de identidade no seu ambiente tiver caído, os utilizadores poderão não conseguir entrar quando a Azure AD redireciona para o seu fornecedor de identidade.
-- Os administradores estão registados através da Autenticação Multi-Factor Azure, e todos os seus dispositivos individuais estão indisponíveis ou o serviço não está disponível. Os utilizadores podem não conseguir completar a autenticação multi-factor para ativar uma função. Por exemplo, uma falha na rede de telemóveis está a impedi-los de atender chamadas telefónicas ou receber mensagens de texto, os únicos dois mecanismos de autenticação que registaram para o seu dispositivo.
+- Os administradores estão registados através da Autenticação Multi-Factor Azure AD, e todos os seus dispositivos individuais estão indisponíveis ou o serviço não está disponível. Os utilizadores podem não conseguir completar a autenticação multi-factor para ativar uma função. Por exemplo, uma falha na rede de telemóveis está a impedi-los de atender chamadas telefónicas ou receber mensagens de texto, os únicos dois mecanismos de autenticação que registaram para o seu dispositivo.
 - A pessoa com o mais recente acesso ao Administrador Global deixou a organização. O Azure AD impede que a última conta de Administrador Global seja eliminada, mas não impede que a conta seja eliminada ou desativada no local. Qualquer uma das situações pode tornar a organização incapaz de recuperar a conta.
 - Circunstâncias imprevistas, como uma emergência de desastres naturais, durante as quais um telemóvel ou outras redes podem estar indisponíveis. 
 
@@ -44,7 +44,7 @@ Criar duas ou mais contas de acesso de emergência. Estas contas devem ser conta
 Ao configurar estas contas, devem ser cumpridos os seguintes requisitos:
 
 - As contas de acesso de emergência não devem ser associadas a qualquer utilizador individual da organização. Certifique-se de que as suas contas não estão ligadas a quaisquer telemóveis fornecidos pelos funcionários, fichas de hardware que viajam com funcionários individuais ou outras credenciais específicas do empregado. Esta precaução abrange os casos em que um trabalhador individual é inacessível quando a credencial é necessária. É importante garantir que quaisquer dispositivos registados sejam mantidos num local conhecido e seguro que tenha múltiplos meios de comunicação com a Azure AD.
-- O mecanismo de autenticação utilizado para uma conta de acesso de emergência deve ser distinto do utilizado pelas suas outras contas administrativas, incluindo outras contas de acesso de emergência.  Por exemplo, se o seu administrador normal de singing for via no local MFA, então Azure MFA seria um mecanismo diferente.  No entanto, se o Azure MFA é a sua principal parte de autenticação para as suas contas administrativas, então considere uma abordagem diferente para estas, como utilizar o Acesso Condicional com um fornecedor de MFA de terceiros através de controlos personalizados.
+- O mecanismo de autenticação utilizado para uma conta de acesso de emergência deve ser distinto do utilizado pelas suas outras contas administrativas, incluindo outras contas de acesso de emergência.  Por exemplo, se o seu administrador normal de singing for via no local MFA, então Azure AD MFA seria um mecanismo diferente.  No entanto, se o Azure AD MFA é a sua principal parte de autenticação para as suas contas administrativas, então considere uma abordagem diferente para estas, como a utilização do Acesso Condicional com um fornecedor de MFA de terceiros através de controlos personalizados.
 - O dispositivo ou credencial não deve expirar ou estar no âmbito de uma limpeza automatizada devido à falta de utilização.  
 - Deve tornar a atribuição de função de Administrador Global permanente para as suas contas de acesso de emergência. 
 
@@ -87,11 +87,11 @@ As organizações devem monitorizar a atividade de registo de login e auditoria 
 ### <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) com uma conta atribuída à função de Colaborador de Monitorização no Azure Monitor.
-1. Selecione **Todos os serviços** ", introduza "log analytics" em Search e, em seguida, selecione **Log Analytics workspaces**.
+1. Selecione **Todos os serviços**", introduza "log analytics" em Search e, em seguida, selecione **Log Analytics workspaces**.
 1. Selecione uma área de trabalho.
 1. No seu espaço de trabalho, selecione **Alertas**  >  **Nova regra de alerta**.
     1. Em **Recurso,** verifique se a subscrição é aquela com a qual pretende associar a regra de alerta.
-    1. Em **Condição** , selecione **Adicionar**.
+    1. Em **Condição**, selecione **Adicionar**.
     1. Selecione **pesquisa de registo personalizado** no nome **Signal**.
     1. Em **Consulta de Pesquisa,** introduza a seguinte consulta, inserindo os IDs do objeto das duas contas de vidro de rutura.
         > [!NOTE]
@@ -112,7 +112,7 @@ As organizações devem monitorizar a atividade de registo de login e auditoria 
     1. Selecione **Concluído**. Pode agora ver o custo mensal estimado deste alerta.
 1. Selecione um grupo de ação de utilizadores para ser notificado pelo alerta. Se quiser criar um, consulte [criar um grupo de ação](#create-an-action-group).
 1. Para personalizar a notificação de e-mail enviada aos membros do grupo de ação, selecione ações ao abrigo **de Ações Personalizadas**.
-1. Em **Detalhes de Alerta** , especifique o nome da regra de alerta e adicione uma descrição opcional.
+1. Em **Detalhes de Alerta**, especifique o nome da regra de alerta e adicione uma descrição opcional.
 1. Desa estaleia o nível de **Severidade** do evento. Recomendamos que o coloque na **Critical(Sev 0)**.
 1. Sob **a regra Enable após a criação,** deixe-a definida como **sim**.
 1. Para desligar os alertas durante algum tempo, selecione a caixa **de verificação alertas de supressão** e introduza a duração da espera antes de voltar a alertar e, em seguida, selecione **Guardar**.

@@ -13,17 +13,17 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f27dd7daf310e425b09db7905ad2f7c37fcff81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056033"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834171"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Inscreva-se na sua conta de trabalho ou escola usando o seu método de verificação de dois fatores
 
 > [!NOTE]
-> O objetivo deste artigo é passar por uma experiência típica de inscrição. Para obter ajuda para iniciar sessão ou para resolver problemas, consulte [ter problemas com a autenticação multi-factor Azure](multi-factor-authentication-end-user-troubleshoot.md).
+> O objetivo deste artigo é passar por uma experiência típica de inscrição. Para obter ajuda para iniciar sessão ou para resolver problemas, consulte [ter problemas com a autenticação multi-factor Ad Azure](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## <a name="what-will-your-sign-in-experience-be"></a>Qual será a sua experiência de inscrição?
 A sua experiência de início de súdin difere consoante o que escolhe utilizar como segundo fator: uma chamada telefónica, uma aplicação de autenticação ou textos. Escolha a opção que melhor descreve o que está a fazer:
@@ -83,7 +83,7 @@ Se utilizar a aplicação Microsoft Authenticator para obter códigos de verific
    ![Use método alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-- Se tiver problemas em iniciar sessão com verificação em duas etapas, obtenha mais informações em [Ter problemas com a autenticação multi-factor Azure](multi-factor-authentication-end-user-troubleshoot.md).
+- Se tiver problemas em iniciar sessão com verificação em duas etapas, obtenha mais informações sobre [ter problemas com a autenticação multi-factor AD Azure](multi-factor-authentication-end-user-troubleshoot.md).
 
 - Saiba como [gerir as definições de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md).
 

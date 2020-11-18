@@ -6,13 +6,13 @@ ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 18dc50302b4a77d8e3e7683306e2aa4d07ef5fe8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 5e4ee96da09f43c11e7de85bc306d3c5f24aec38
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962371"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834868"
 ---
 # <a name="bind-a-custom-tlsssl-certificate-to-an-app-service-app-using-cli"></a>Ligue um certificado TLS/SSL personalizado a uma aplicação de Serviço de Aplicações utilizando o CLI
 

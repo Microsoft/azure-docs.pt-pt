@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2d3f04777983d24d5219c55c5309b7d12c214594
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2d0157f3e7ab0ef373235fcc6e188f9caa36eff4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070695"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833304"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de segurança Azure para Automação
 
@@ -886,7 +886,7 @@ Também pode utilizar recomendações do Azure Security Center como uma base de 
 
 * [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Recomendações de segurança - um guia de referência](../security-center/recommendations-reference.md)
+* [Recomendações de segurança: um guia de referência](../security-center/recommendations-reference.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1040,7 +1040,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize a Configur
 
 * [Utilize a autenticação de runbook com identidades geridas](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
-* [Como criar um Cofre-Chave](../key-vault/secrets/quick-create-portal.md)
+* [Como criar um Cofre-Chave](../key-vault/general/quick-create-portal.md)
 
 * [Como autenticar para o Cofre de Chaves](../key-vault/general/authentication.md)
 
@@ -1226,7 +1226,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-* [Utilizar etiquetas para organizar os seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
+* [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
