@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/17/2020
-ms.openlocfilehash: 49b7b855a7608b6426d0bda50330dbe1a3b5ced7
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.date: 11/18/2020
+ms.openlocfilehash: 6af9b8f97d622ae10cfdbcaa8ca50abb42ec7332
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94741574"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889059"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Criar uma loja de conhecimentos usando REST e Carteiro
 
@@ -84,7 +84,7 @@ Para obter o valor `admin-key` para , vá ao serviço de Pesquisa Cognitiva Azur
 | `index-name` | Saia como **hotel-reviews-ix**. | 
 | `search-service-name` | O nome do serviço de Pesquisa Cognitiva Azure. A URL `https://{{search-service-name}}.search.windows.net` é. | 
 | `skillset-name` | Saia como **hotel-reviews-ss**. | 
-| `storage-account-name` | O nome da conta de armazenamento. | 
+| `storage-account-name` | O nome da conta de armazenamento Azure. | 
 | `storage-connection-string` | Na conta de armazenamento, no separador **Chaves de Acesso,** selecione **a tecla1** Connection  >  **string**. | 
 | `storage-container-name` | Saia como **avaliações de hotéis.** | 
 

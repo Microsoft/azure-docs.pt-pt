@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f172bfcb6e4f11520eb9082052968626efe6fecb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dd2ffacb176ed3733acba8699d4e870b15dd3c42
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651248"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888713"
 ---
 # <a name="identity-model"></a>Modelo de identidade
 
@@ -81,8 +81,8 @@ A aplicação do cliente deve utilizar um ponto final de serviço de confiança 
 
 Se cache fichas de acesso a uma loja de apoio, recomendamos a utilização de encriptação. Um sinal de acesso são dados sensíveis. Pode ser usado para atividades maliciosas se não estiver protegido. Alguém que tenha acesso pode iniciar o SDK e aceder à API. A API acessível é restrita apenas com base nos âmbitos que o token de acesso tem. Recomendamos a emissão de fichas de acesso que tenham apenas os âmbitos necessários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução à gestão de tokens de acesso, consulte [Criar e gerir fichas de acesso.](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
-* Para uma introdução à autenticação, consulte [Authenticate to Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication).
-* Para uma introdução à residência de dados e privacidade, consulte [a disponibilidade da Região e a residência de dados.](https://docs.microsoft.com/azure/communication-services/concepts/privacy)
+* Para uma introdução à gestão de tokens de acesso, consulte [Criar e gerir fichas de acesso.](../quickstarts/access-tokens.md)
+* Para uma introdução à autenticação, consulte [Authenticate to Azure Communication Services](./authentication.md).
+* Para uma introdução à residência de dados e privacidade, consulte [a disponibilidade da Região e a residência de dados.](./privacy.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 7421162ed68a879d9f935a3efd5c6267e159a648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54d1d8a29c87f8d129c0ea5b29973c4fef0e6f7a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324306"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889002"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar um espaço de trabalho Log Analytics com Azure CLI 2.0
 
@@ -28,11 +28,11 @@ Para outras fontes, tais como VMs Azure e Windows ou VMs Linux no seu ambiente, 
 * [Recolher dados do computador híbrido Linux](./quick-collect-linux-computer.md)
 * [Recolher dados do computador híbrido Windows](quick-collect-windows-computer.md)
 
-Se não tiver uma subscrição do Azure, crie [uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este guia de início rápido requer a execução da versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Este artigo requer a versão 2.0.30 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 Criar um espaço de trabalho com [a criação de grupo az.](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) O exemplo a seguir cria um espaço de trabalho na localização *leste* usando um modelo de Gestor de Recursos a partir da sua máquina local. O modelo JSON é configurado apenas para o solicitar o nome do espaço de trabalho, e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão no seu ambiente. Ou pode armazenar o modelo numa conta de armazenamento Azure para acesso partilhado na sua organização. Para mais informações sobre o trabalho com os modelos, consulte [recursos de implementação com modelos de Gestor de Recursos e CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
@@ -107,7 +107,7 @@ Os seguintes parâmetros definem um valor predefinido:
     ```
 
 2. Edite o modelo para satisfazer os seus requisitos. Reveja a referência [do modelo Microsoft.OperationalInsights/workspaces](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber quais as propriedades e valores suportados.
-3. Guarde este ficheiro à medida ** quedeploylaworkspacetemplate.jsnuma** pasta local.   
+3. Guarde este ficheiro à medida **quedeploylaworkspacetemplate.jsnuma** pasta local.   
 4. Está pronto para implementar este modelo. Utilize os seguintes comandos da pasta que contém o gabarito. Quando você é solicitado para um nome de espaço de trabalho, forneça um nome que é globalmente único em todas as subscrições do Azure.
 
     ```azurecli

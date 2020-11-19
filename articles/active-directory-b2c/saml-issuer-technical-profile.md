@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f52111fbbbd90f3d2f39f538c4bf1a2672cd504b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73c381624b69acb6fe7a6296a3153160812818bf
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961243"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886418"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico para um emitente de token SAML numa política personalizada do Azure Ative Directory B2C
 
@@ -26,7 +26,7 @@ O Azure Ative Directory B2C (Azure AD B2C) emite vários tipos de fichas de segu
 
 ## <a name="protocol"></a>Protocolo
 
-O **atributo nome** do elemento **Protocolo** tem de ser definido para `None` . Desacorda o elemento **OutputTokenFormat** para `SAML2` .
+O **atributo nome** do elemento **Protocolo** tem de ser definido para `SAML2` . Desacorda o elemento **OutputTokenFormat** para `SAML2` .
 
 O exemplo a seguir mostra um perfil técnico `Saml2AssertionIssuer` para:
 
@@ -51,15 +51,15 @@ O exemplo a seguir mostra um perfil técnico `Saml2AssertionIssuer` para:
 
 ## <a name="input-output-and-persist-claims"></a>Entradas, saídas e reivindicações persistentes
 
-Os **elementos InputClaims,** **OutputClaims**e **PersistClaims** estão vazios ou ausentes. Os **elementos InutputClaimsTransformations** e **OutputClaimsTransformations** também estão ausentes.
+Os **elementos InputClaims,** **OutputClaims** e **PersistClaims** estão vazios ou ausentes. Os **elementos InutputClaimsTransformations** e **OutputClaimsTransformations** também estão ausentes.
 
 ## <a name="metadata"></a>Metadados
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| EmitenteUri | Não | O nome do emitente que aparece na resposta SAML. O valor deve ser o mesmo que configurado na aplicação do partido em gestão. |
-| XmlSignatureAlgorithm | Não | O método que a Azure AD B2C utiliza para assinar a Afirmação SAML. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. Para configurar a resposta SAML, consulte [os metadados SAML do partido Relying](relyingparty.md#metadata)|
-|TokenNotBeforeSkewInSeconds| Não| Especifica o desvio, como um inteiro, para o carimbo de tempo que marca o início do período de validade. Quanto maior for este número, mais recua no tempo o período de validade começa em relação ao tempo em que os pedidos são emitidos para a parte que conta. Por exemplo, quando o TokenNotBeforeSkewInSegundos está definido para 60 segundos, se o token for emitido às 13:05:10 UTC, o token é válido a partir das 13:04:10 UTC. O valor predefinido é 0. O valor máximo é de 3600 (uma hora). |
+| EmitenteUri | No | O nome do emitente que aparece na resposta SAML. O valor deve ser o mesmo que configurado na aplicação do partido em gestão. |
+| XmlSignatureAlgorithm | No | O método que a Azure AD B2C utiliza para assinar a Afirmação SAML. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. Para configurar a resposta SAML, consulte [os metadados SAML do partido Relying](relyingparty.md#metadata)|
+|TokenNotBeforeSkewInSeconds| No| Especifica o desvio, como um inteiro, para o carimbo de tempo que marca o início do período de validade. Quanto maior for este número, mais recua no tempo o período de validade começa em relação ao tempo em que os pedidos são emitidos para a parte que conta. Por exemplo, quando o TokenNotBeforeSkewInSegundos está definido para 60 segundos, se o token for emitido às 13:05:10 UTC, o token é válido a partir das 13:04:10 UTC. O valor predefinido é 0. O valor máximo é de 3600 (uma hora). |
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -67,8 +67,8 @@ O elemento CryptographicKeys contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| MetadadosSigning | Sim | O certificado X509 (conjunto de teclas RSA) para usar para assinar metadados SAML. Azure AD B2C utiliza esta chave para assinar os metadados. |
-| SamlMessageSigning| Sim| Especifique o certificado X509 (conjunto de teclas RSA) para utilizar para assinar mensagens SAML. A Azure AD B2C utiliza esta chave para assinar a resposta `<samlp:Response>` enviada à parte que conta.|
+| MetadadosSigning | Yes | O certificado X509 (conjunto de teclas RSA) para usar para assinar metadados SAML. Azure AD B2C utiliza esta chave para assinar os metadados. |
+| SamlMessageSigning| Yes| Especifique o certificado X509 (conjunto de teclas RSA) para utilizar para assinar mensagens SAML. A Azure AD B2C utiliza esta chave para assinar a resposta `<samlp:Response>` enviada à parte que conta.|
 
 ## <a name="session-management"></a>Gestão de sessões
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20003a91726e5ccee7f73d85b7c9a9389801e0ad
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 2458b5f3f0c0091bb6ec24e62a1d5614e4e1ecd8
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701760"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888594"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Como utilizar o OPENROWSET utilizando a piscina SQL sem servidor (pré-visualização) no Azure Synapse Analytics
 
@@ -225,6 +225,9 @@ Detalhes da versão 2.0 do parser CSV:
 - O limite máximo de tamanho da linha é de 8 MB.
 - As seguintes opções não são suportadas: DATA_COMPRESSION.
 - A corda vazia citada ("") é interpretada como uma corda vazia.
+- Formato suportado para tipo de dados DATE: YYYYY-MM-DD
+- Formato suportado para o tipo de dados TIME: HH:MM:SS[.fracional segundos]
+- Formato suportado para tipo de dados DATETIME2: YYYY-MM-DD HH:MM:SS[.segundos fracionais]
 
 HEADER_ROW = { TRUE FALSO}
 

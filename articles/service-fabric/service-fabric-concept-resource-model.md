@@ -4,12 +4,12 @@ description: Este artigo fornece uma visão geral da gestão de uma aplicação 
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 886b7d6b40bebf6234064b0627017db1d8cfe31f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681691"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888832"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicação de tecido de serviço
 
@@ -91,6 +91,7 @@ A aplicação da amostra contém [modelos do Gestor de Recursos Azure](https://g
 >
 >
 
+
 | Parâmetro              | Descrição                                 | Exemplo                                                      | Comentários                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | O nome do cluster para o qual está a implantar | sf-cluster123                                                |                                                              |
@@ -138,6 +139,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 ## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Atualize a aplicação de Tecido de Serviço utilizando o Gestor de Recursos
 
+
+> [!IMPORTANT]
+> Qualquer serviço que seja implantado através da definição ARM JSON deve ser removido da secção DefaultServices do ficheiro ApplicationManifest.xml correspondente.
+
+
 Você pode atualizar uma aplicação que já foi implantada para um cluster de Tecido de Serviço por uma destas razões:
 
 * Um novo serviço é adicionado à aplicação. Uma definição de serviço deve ser adicionada aos ficheiros *service-manifest.xml* e *application-manifest.xml* quando um serviço é adicionado à aplicação. Para refletir uma nova versão de uma aplicação, também deve alterar a versão do tipo de aplicação de 1.0.0 para 1.0.1 em [UserApp.Parameters.jsem](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
@@ -178,7 +184,7 @@ Para eliminar uma aplicação que foi implementada utilizando o modelo de recurs
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Obtenha informações sobre o modelo de recursos de aplicação:
 

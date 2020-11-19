@@ -3,12 +3,12 @@ title: Como ativar o seu recurso Azure VMware Solution
 description: Saiba como submeter um pedido de suporte para ativar o seu recurso Azure VMware Solution. Também pode solicitar mais nós na sua nuvem privada Azure VMware Solution.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: c9c31d8ffbf62a511f4f2ab19f995b6bc0ee0ca4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8e1b891559cb2d01adc9fdf834ef3c9714fe1233
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695151"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888441"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Como ativar o recurso Azure VMware Solution
 Saiba como submeter um pedido de suporte para ativar o seu recurso [Azure VMware Solution.](introduction.md) Também pode solicitar mais nós na sua nuvem privada Azure VMware Solution.
@@ -78,7 +78,7 @@ Os CSPs devem utilizar [o Microsoft Partner Center](https://partner.microsoft.co
 
 1. Reveja e termine a configuração geral da subscrição do plano Azure para o seu cliente. Para obter mais informações, consulte [a documentação do Microsoft Partner Center](https://docs.microsoft.com/partner-center/azure-plan-manage).
 
-Depois de configurar o plano Azure e as permissões de RBAC necessárias como CSP, irá contratar a Microsoft para ativar a quota para uma subscrição do plano Azure. Aceder ao portal Azure do Partner Center utilizando o procedimento **Admin Em Nome do** (AOBO).
+Depois de configurar o plano Azure e as permissões de RBAC necessárias em vSphere estão em vigor como CSP, você irá envolver a Microsoft para ativar a quota para uma subscrição do plano Azure. Aceder ao portal Azure do Partner Center utilizando o procedimento **Admin Em Nome do** (AOBO).
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com).
 

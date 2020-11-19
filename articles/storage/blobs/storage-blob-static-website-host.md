@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 03850315a05f569d2c6ba9405b6ec38bb6b1305d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cdaa813e0eccb23563301052aee268ab61533a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78330400"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888509"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -21,7 +21,7 @@ ms.locfileid: "78330400"
 
 Neste tutorial, você vai aprender a construir e implementar um site estático para o Azure Storage. Quando terminar, terá um website estático a que os utilizadores possam aceder publicamente. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar hospedagem estática do site
@@ -39,7 +39,7 @@ Este tutorial utiliza [o Código do Estúdio Visual,](https://code.visualstudio.
 Depois de instalar o Código do Estúdio Visual, instale a extensão de pré-visualização do Azure Storage. Esta extensão integra a funcionalidade de gestão de Armazenamento Azure com o Código do Estúdio Visual. Utilizará a extensão para implementar o seu website estático para o Azure Storage. Para instalar a extensão:
 
 1. Abra o Visual Studio Code.
-2. Na barra de **ferramentas,** clique em Extensões . Procure *por Azure Storage*e selecione a extensão **de Armazenamento Azure** da lista. Em seguida, clique no botão **Instalar** para instalar a extensão.
+2. Na barra de **ferramentas,** clique em Extensões . Procure *por Azure Storage* e selecione a extensão **de Armazenamento Azure** da lista. Em seguida, clique no botão **Instalar** para instalar a extensão.
 
     ![Instale a extensão de armazenamento Azure no Código VS](media/storage-blob-static-website-host/install-extension-vs-code.png)
 
@@ -55,7 +55,7 @@ O primeiro passo é configurar a sua conta de armazenamento para hospedar um web
 1. Localize a sua conta de armazenamento e apresente a visão geral da conta.
 1. Selecione **site estático** para exibir a página de configuração para sites estáticos.
 1. Selecione **Ativado** para permitir hospedagem estática do site para a conta de armazenamento.
-1. No campo **de nome do documento Índice,** especifique uma página de índice predefinido deindex.htm* l*. A página de índice predefinido é apresentada quando um utilizador navega para a raiz do seu website estático.  
+1. No campo **de nome do documento Índice,** especifique uma página de índice predefinido deindex.htm *l*. A página de índice predefinido é apresentada quando um utilizador navega para a raiz do seu website estático.  
 1. No campo de trajetória do **documento Erro,** especifique uma página de erro padrão de *404.html*. A página de erro predefinida é exibida quando um utilizador tenta navegar para uma página que não existe no seu website estático.
 1. Clique em **Guardar**. O portal Azure apresenta agora o seu ponto final estático do site. 
 
@@ -77,14 +77,24 @@ Em seguida, crie uma página web hello world com Visual Studio Code e implemente
 1. Abra *index.html* no editor, cole o seguinte texto no ficheiro e guarde-o:
 
     ```
-    <h1>Hello World!</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>Hello World!</h1>
+      </body>
+    </html>
     ```
 
 1. Crie o ficheiro de erro predefinido e nomeie-o *404.html*.
 1. Abra *404.html* no editor, cole o seguinte texto no ficheiro e guarde-o:
 
     ```
-    <h1>404</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>404</h1>
+      </body>
+    </html>
     ```
 
 1. Clique com o botão direito sob a pasta *mywebsite* no painel **Explorer** e selecione **Implementar para o Site Estático...** para implementar o seu website. Será solicitado a iniciar sessão no Azure para recuperar uma lista de subscrições.

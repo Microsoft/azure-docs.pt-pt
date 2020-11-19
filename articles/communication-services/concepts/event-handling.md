@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 67c701946eedf85176b3d14b09d3e723c4c74285
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e661b99e3c5028f40ea69ddedc22c7ee2895acec
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072123"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888730"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Tratamento de Eventos em Serviços de Comunicação Azure
 
@@ -22,13 +22,13 @@ ms.locfileid: "92072123"
 
 A Azure Communication Services integra-se com [a Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para fornecer notificações de eventos em tempo real de forma fiável, escalável e segura. O objetivo deste artigo é ajudá-lo a configurar as suas aplicações para ouvir eventos dos Serviços de Comunicação. Por exemplo, pode querer atualizar uma base de dados, criar um item de trabalho e entregar uma notificação push sempre que uma mensagem SMS é recebida por um número de telefone associado ao seu recurso de Serviços de Comunicação.
 
-A azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido, que utiliza um modelo de subscrição de publicação. A Event Grid tem suporte integrado para serviços Azure, como [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [Azure Logic Apps.](https://docs.microsoft.com/azure/azure-functions/functions-overview) Pode fornecer alertas de eventos para serviços não-Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que a Grade de Eventos suporta, consulte [uma introdução à Grelha de Eventos Azure](https://docs.microsoft.com/azure/event-grid/overview).
+A azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido, que utiliza um modelo de subscrição de publicação. A Event Grid tem suporte integrado para serviços Azure, como [Azure Functions](../../azure-functions/functions-overview.md) e [Azure Logic Apps.](../../azure-functions/functions-overview.md) Pode fornecer alertas de eventos para serviços não-Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que a Grade de Eventos suporta, consulte [uma introdução à Grelha de Eventos Azure](../../event-grid/overview.md).
 
 :::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Diagrama mostrando o modelo de evento da Azure Event Grid.":::
 
 ## <a name="events-types"></a>Tipos de eventos
 
-A grelha de eventos utiliza [subscrições de eventos](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) para encaminhar mensagens de evento para assinantes. 
+A grelha de eventos utiliza [subscrições de eventos](../../event-grid/concepts.md#event-subscriptions) para encaminhar mensagens de evento para assinantes. 
 
 A Azure Communication Services emite os seguintes tipos de eventos:
 
@@ -50,7 +50,7 @@ Pode utilizar o portal Azure ou O CLI Azure para subscrever eventos emitidos pel
 
 ## <a name="event-subjects"></a>Temas do evento
 
-O `subject` campo de todos os eventos de Serviços de Comunicação identifica o utilizador, número de telefone ou entidade que é alvo do evento. Prefixos comuns são usados para permitir a [simples filtragem da grelha de evento.](https://docs.microsoft.com/azure/event-grid/event-filtering)
+O `subject` campo de todos os eventos de Serviços de Comunicação identifica o utilizador, número de telefone ou entidade que é alvo do evento. Prefixos comuns são usados para permitir a [simples filtragem da grelha de evento.](../../event-grid/event-filtering.md)
 
 | Prefixo do sujeito                              | Entidade de Serviço de Comunicação |
 | ------------------------------------------- | ---------------------------- |
@@ -351,6 +351,6 @@ Esta secção contém um exemplo de como seriam esses dados para cada evento.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](https://docs.microsoft.com/azure/event-grid/overview)
-* Para uma introdução aos conceitos de grelha de eventos Azure, consulte [Conceitos em Grelha de Eventos?](https://docs.microsoft.com/azure/event-grid/concepts)
-* Para uma introdução ao Azure Event Grid SystemTopics, consulte [tópicos do Sistema na Grelha de Eventos Azure?](https://docs.microsoft.com/azure/event-grid/system-topics)
+* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](../../event-grid/overview.md)
+* Para uma introdução aos conceitos de grelha de eventos Azure, consulte [Conceitos em Grelha de Eventos?](../../event-grid/concepts.md)
+* Para uma introdução ao Azure Event Grid SystemTopics, consulte [tópicos do Sistema na Grelha de Eventos Azure?](../../event-grid/system-topics.md)

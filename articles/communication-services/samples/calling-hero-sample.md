@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 799c46ad2715e1edd3d2fba24a8350fd2608d3d8
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: c872c2a2799eee3ae9e39653b0046b70ca5d7e8b
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233938"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887540"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Começa com o grupo a chamar amostra de herói
 
@@ -32,7 +32,7 @@ O Grupo de Serviços de Comunicação Azure **Call Hero Sample** demonstra como 
 
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure. 
 
@@ -42,17 +42,17 @@ Aqui está o aspeto da amostra:
 
 Quando carrega no botão "Iniciar uma chamada", a aplicação web requer um token de acesso do utilizador a partir da aplicação do lado do servidor. Este token é então usado para ligar a app do cliente aos Serviços de Comunicação Azure. Assim que o token for recuperado, ser-lhe-á solicitado que especifique a câmara e o microfone que pretende utilizar. Poderá desativar/ativar os seus dispositivos com controlos de alternância:
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot mostrando a página de aterragem da aplicação da amostra.":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot mostrando o ecrã pré-chamada da aplicação da amostra.":::
 
 Assim que configurar o nome e os dispositivos do ecrã, pode juntar-se à sessão de chamadas. Agora você verá a tela principal de chamada onde vive a experiência principal de chamada.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot mostrando a página de aterragem da aplicação da amostra.":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot mostrando o ecrã principal da aplicação da amostra.":::
 
 Componentes do ecrã principal de chamada:
 
-1. **Media Gallery** : O palco principal onde os participantes são mostrados. Se um participante tiver a sua câmara ativada, o seu feed de vídeo é mostrado aqui. Cada participante tem um azulejo individual que mostra o seu nome de exibição e fluxo de vídeo (quando há um)
-2. **Cabeçalho** : É aqui que se encontram os controlos de chamada primário para alternar as definições e a barra lateral do participante, ligar o vídeo e misturar,partilhar o ecrã e deixar a chamada.
-3. **Barra lateral** : É aqui que são mostradas informações sobre os participantes e as definições quando alternadas utilizando os controlos do cabeçalho. O componente pode ser descartado utilizando o 'X' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais utilizadores a conversar. A barra lateral permite configurar as definições do microfone e da câmara.
+1. **Media Gallery**: O palco principal onde os participantes são mostrados. Se um participante tiver a sua câmara ativada, o seu feed de vídeo é mostrado aqui. Cada participante tem um azulejo individual que mostra o seu nome de exibição e fluxo de vídeo (quando há um)
+2. **Cabeçalho**: É aqui que se encontram os controlos de chamada primário para alternar as definições e a barra lateral do participante, ligar o vídeo e misturar,partilhar o ecrã e deixar a chamada.
+3. **Barra lateral**: É aqui que são mostradas informações sobre os participantes e as definições quando alternadas utilizando os controlos do cabeçalho. O componente pode ser descartado utilizando o 'X' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais utilizadores a conversar. A barra lateral permite configurar as definições do microfone e da câmara.
 
 Abaixo encontrará mais informações sobre pré-requisitos e passos para configurar a amostra.
 
@@ -96,7 +96,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 2. Crie um novo perfil de publicação e selecione a sua subscrição Azure.
 3. Antes de publicar, adicione a sua cadeia de ligação com `Edit App Service Settings` , e preencha `ResourceConnectionString` como chave e forneça a sua cadeia de ligação (copiada a partir de appsettings.js) como o valor.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 
@@ -116,4 +116,4 @@ Para obter mais informações, veja os seguintes artigos:
 - [Redux](https://redux.js.org/) - Gestão do Estado do lado do cliente
 - [FluentUI](https://aka.ms/fluent-ui) - Biblioteca de UI alimentada pela Microsoft
 - [Reagir](https://reactjs.org/) - Biblioteca para construção de interfaces de utilizador
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Enquadramento para a construção de aplicações web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - Enquadramento para a construção de aplicações web

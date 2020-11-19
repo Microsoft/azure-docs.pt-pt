@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Criar um grupo de gestão com JavaScript'
 description: Neste quickstart, você usa o JavaScript para criar um grupo de gestão para organizar os seus recursos numa hierarquia de recursos.
-ms.date: 09/30/2020
+ms.date: 11/18/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 965e4b8f81a26cab8f6e34cab3e51d6a97f5a6a6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676224"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886605"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Quickstart: Criar um grupo de gestão com JavaScript
 
@@ -71,7 +71,7 @@ Para permitir que o JavaScript questione o Azure Resource Graph, o ambiente deve
        const createMG = async () => {
           const credentials = await authenticator.interactiveLogin();
           const client = new managementGroups.ManagementGroupsAPI(credentials);
-          const result = await client.createOrUpdate(
+          const result = await client.managementGroups.createOrUpdate(
              groupId: argv.groupID,
              {
                  displayName: argv.displayName

@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 5396845e13e94b4d957f42618baaf19c408f559d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fdd8c752e8cf610ef3c32e1af91b3ad6454c0813
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843779"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887183"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas no mercado comercial da Microsoft
 
@@ -42,6 +42,8 @@ Para *ofertas novas ou existentes com planos,* as editoras podem facilmente cria
 Os planos privados são componentes de uma oferta e só são visíveis e purciáveis pelos clientes visados. Os planos privados podem reutilizar as imagens base e/ou oferecer metadados já publicados para um plano público. Esta opção permite que os editores criem múltiplas variações privadas de uma oferta pública sem terem de publicar várias versões da mesma imagem base e oferecer metadados. Para a aplicação Virtual Machine e Azure oferece apenas, quando um plano privado partilha uma imagem base com um plano público, quaisquer alterações à imagem base da oferta irão propagar-se em todos os planos públicos e privados usando essa imagem base.
 
 Para *novas ofertas que incluem apenas planos privados,* os editores podem criar as suas ofertas como qualquer outra oferta, e depois marcar os planos como privados. As ofertas que apenas têm planos privados não serão detetáveis ou acessíveis através do mercado comercial da Microsoft ou do [portal Azure](https://azure.microsoft.com/features/azure-portal/) por clientes que não estejam associados à oferta.
+
+Estão disponíveis planos privados para o Governo Azure Global e Azure.
 
 >[!NOTE]
 >Uma oferta que contenha apenas planos privados não será visível no mercado público de Azure ou AppSource.

@@ -6,14 +6,14 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1ed2929dc5dc79c30f2a9583966e32d81b63ba2e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1803a0070321ff4d895203f027f839601bb726ee
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487913"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887149"
 ---
-# <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificação de manutenção planeada na Base de Dados Azure para PostgreSQL - Servidor Único
+# <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificação de manutenção planeada na Base de Dados do Azure para PostgreSQL – Servidor Único
 
 Saiba como se preparar para eventos de manutenção planeados na sua Base de Dados Azure para PostgreSQL.
 
@@ -21,7 +21,7 @@ Saiba como se preparar para eventos de manutenção planeados na sua Base de Dad
 
 A Azure Database for PostgreSQL executa patching automatizado do hardware subjacente, o SISTEMA e o motor da base de dados. O patch inclui novas funcionalidades de serviço, segurança e atualizações de software. Para o motor PostgreSQL, as atualizações de versão menores são automáticas e incluídas como parte do ciclo de remendos. Não é necessária nenhuma ação do utilizador ou configurações para remendar. O patch é testado extensivamente e lançado utilizando práticas de implementação seguras.
 
-Uma manutenção planeada é uma janela de manutenção quando estas atualizações de serviço são implementadas para servidores de uma determinada região de Azure. Durante a manutenção planeada, é criado um evento de notificação para informar os clientes quando a atualização de serviço é implementada na região de Azure hospedando os seus servidores. A duração mínima entre duas manutenção planeadas é de 30 dias. Recebe uma notificação da próxima janela de manutenção com 72 horas de antecedência.
+Uma manutenção planeada é uma janela de manutenção quando estas atualizações de serviço são implementadas para servidores de uma determinada região de Azure. Durante as manutenções planeadas, é criado um evento de notificação para informar os clientes de quando a atualização do serviço será implementada na região do Azure onde os servidores estão alojados. A duração mínima entre duas manutenção planeadas é de 30 dias. Receberá uma notificação sobre a próxima janela de manutenção com 72 horas de antecedência.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planeada - duração e impacto do cliente
 
@@ -61,7 +61,7 @@ Pode consultar a notificação de manutenção planeada no portal Azure ou confi
 7. Certifique-se de que a regra enable após a criação está definida para Sim.
 8. Selecione **Criar regra de alerta** para completar o seu alerta
 
-Para obter etapas detalhadas sobre como criar **alertas**de saúde de serviço, consulte os [alertas de registo de atividades da Create nas notificações do serviço](../service-health/alerts-activity-log-service-notifications-portal.md).
+Para obter etapas detalhadas sobre como criar **alertas** de saúde de serviço, consulte os [alertas de registo de atividades da Create nas notificações do serviço](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Posso cancelar ou adiar a manutenção planeada?
 
@@ -78,7 +78,7 @@ Um erro transitório, também conhecido como falha transitória, é um erro que 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para quaisquer perguntas ou sugestões que possa ter sobre trabalhar com a Azure Database para PostgreSQL, envie um e-mail para a Base de Dados Azure para a Equipa PostgreSQL em *AskAzureDBforMySQL@service.microsoft.com* .
+- Para quaisquer perguntas ou sugestões que possa ter sobre trabalhar com a Azure Database para PostgreSQL, envie um e-mail para a Base de Dados Azure para a Equipa PostgreSQL em *AskAzureDBforPostgreSQL@service.microsoft.com* .
 - Veja [como configurar alertas](howto-alert-on-metric.md) para orientação sobre a criação de um alerta sobre uma métrica.
 - [Problemas de conexão de resolução de problemas para Azure Database para PostgreSQL - Servidor Único](howto-troubleshoot-common-connection-issues.md)
 - [Lidar com erros transitórios e ligar eficientemente à Base de Dados de Azure para PostgreSQL - Servidor Único](concepts-connectivity.md)

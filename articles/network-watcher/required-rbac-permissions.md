@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: 5e048729aa1d37a63678451525f8f37612c8c464
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9a5bd6dff05fe39d62e5bf5f897bc61936686bb7
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426745"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887234"
 ---
 # <a name="azure-role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Permissões de controlo de acesso baseadas em funções Azure necessárias para utilizar as capacidades do Observador de Rede
 
@@ -90,6 +90,7 @@ O controlo de acesso baseado em funções (Azure RBAC) permite-lhe atribuir apen
 | Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/topology/action                   | Obter topologia                                                   |
+| Microsoft.Network/networkWatchers/topology/read                     | Mesmo que acima                                                  |
 
 ## <a name="reachability-report"></a>Relatório de alcance
 

@@ -3,12 +3,12 @@ title: Planeamento da implementação da Solução VMware Azure
 description: Este artigo descreve um fluxo de trabalho de implementação de Solução VMware Azure.  O resultado final é um ambiente pronto para a criação e migração de máquinas virtuais (VM).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: a8ebd5bd4a9e553e24fbe528a4f6654bd4a1dee4
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 08a15e6f8cad4068415cec3353544829f2218fb0
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873340"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888985"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planeamento da implementação da Solução VMware Azure
 
@@ -92,14 +92,6 @@ Tenha em mente que:
 
 - Se pretender estender as redes a partir do local, essas redes devem ligar-se a um [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) no seu ambiente VMware no local.  
 - Se a rede(s) pretender prolongar ao vivo num [vSphere Standard Switch,](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html)então não pode ser estendida.
-
-## <a name="expressroute-global-reach-peering-network"></a>Rede de observação ExpressRoute Global Reach
-
-Identifique um `/29` bloco de endereços de rede CIDR necessário para o observamento expressRoute Global Reach. Lembre-se, quaisquer segmentos IP criados devem ser únicos em toda a sua Solução VMware Azure e pegada no local. Os IPs deste segmento são utilizados em cada extremidade da ligação ExpressRoute Global Reach para ligar o circuito Azure VMware Solution ExpressRoute com o circuito ExpressRoute no local. 
-
-**Exemplo:** 10.1.0.0/29
-
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificar - ExpressRoute Global Reach rede de espreitamento" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Rede Virtual Azure para anexar Solução VMware Azure
 

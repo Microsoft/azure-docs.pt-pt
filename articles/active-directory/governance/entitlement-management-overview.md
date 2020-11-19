@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ecc25af19694c0befdd24b041807e2067db4f13b
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362472"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886945"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -144,17 +144,22 @@ Nuvens especializadas, como a Azure Germany, e a Azure China 21Vianet, não est�
 Certifique-se de que o seu diretório tem pelo menos tantas licenças Azure AD Premium P2 como tem:
 
 - Utilizadores membros que **podem** solicitar um pacote de acesso.
-- Utilizadores membros e convidados que solicitam um pacote de acesso.
-- Utilizadores membros e convidados que aprovam pedidos de um pacote de acesso.
-- Utilizadores membros e convidados que tenham uma atribuição direta a um pacote de acesso.
+- Utilizadores membros e convidados que <u>solicitam</u> um pacote de acesso.
+- Utilizadores membros e convidados que <u>aprovam pedidos</u> de um pacote de acesso.
+- Utilizadores membros que <u>analisam atribuições</u> para um pacote de acesso. 
+- Utilizadores membros e convidados que tenham uma <u>atribuição direta</u> a um pacote de acesso.
+
+Para os utilizadores convidados, as necessidades de licenciamento dependerão do [modelo de licenciamento](../external-identities/external-identities-pricing.md) que está a usar. No entanto, as atividades dos utilizadores abaixo são consideradas a utilização Azure AD Premium P2:
+- Utilizadores convidados que <u>solicitam</u> um pacote de acesso. 
+- Utilizadores <u>convidados que aprovam pedidos</u> de um pacote de acesso.
+- Utilizadores <u>convidados que analisam atribuições</u> para um pacote de acesso.
+- Utilizadores convidados que tenham uma <u>atribuição direta</u> a um pacote de acesso. 
 
 As licenças Azure AD Premium P2 **não** são necessárias para as seguintes tarefas:
 
 - Não são necessárias licenças para utilizadores com a função de Administrador Global que criem os catálogos iniciais, pacotes de acesso e políticas e delegam tarefas administrativas a outros utilizadores.
 - Não são necessárias licenças para utilizadores que tenham sido delegadas tarefas administrativas, tais como criador de catálogos, proprietário de catálogos e gestor de pacotes de acesso.
 - Não são necessárias licenças para os hóspedes que **possam** solicitar pacotes de acesso, mas **não** solicitem um pacote de acesso.
-
-O preço das identidades externas da Azure AD (utilizador convidado) baseia-se nos utilizadores ativos mensais (MAU), que é a contagem de utilizadores únicos com atividade de autenticação dentro de um mês civil. Este modelo substitui o modelo de faturação de rácio de 1:5, que permitiu até cinco utilizadores convidados por cada licença Azure AD Premium no seu inquilino. Quando o seu inquilino estiver ligado a uma subscrição e utilizar funcionalidades de Identidades Externas para colaborar com os utilizadores convidados, será automaticamente faturado utilizando o modelo de faturação baseado na MAU. Para obter mais informações, consulte o modelo de Billing para [identidades externas Azure AD](../external-identities/external-identities-pricing.md).
 
 Para obter mais informações sobre licenças, consulte [atribuir ou remover licenças utilizando o portal Azure Ative Directory](../fundamentals/license-users-groups.md).
 

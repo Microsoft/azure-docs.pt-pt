@@ -5,12 +5,12 @@ ms.date: 10/21/2020
 ms.topic: conceptual
 description: Descreve o processo de migração de Azure Dev Spaces para Bridge to Kubernetes
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores, Ponte para Kubernetes
-ms.openlocfilehash: 7a7642d986d8490c5d0dc3c413e658b21b010798
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d48814df30c17f9b51d8642efa0960a26bbd24f4
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895261"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888526"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrar para o Bridge to Kubernetes
 
@@ -48,24 +48,24 @@ Azure Dev Spaces e Bridge to Kubernetes têm características semelhantes, tamb�
 | Acesso de segurança necessário no seu cluster  | Colaborador do Cluster AKS  | Kubernetes RBAC -Atualização de implantação   |
 | Acesso de segurança necessário no seu computador de desenvolvimento  | N/D  | Administrador local / sudo   |
 | **Usabilidade** |
-| Independente dos artefactos de Kubernetes e Docker  | Não  | Sim   |
-| Reversão automática de alterações, pós-depuro  | Não  | Sim   |
+| Independente dos artefactos de Kubernetes e Docker  | No  | Yes   |
+| Reversão automática de alterações, pós-depuro  | No  | Yes   |
 | **Ferramenta de cliente suportada** |
-| Obras com Visual Studio 2019  | Sim  | Sim   |
-| Trabalha com Código de Estúdio Visual  | Sim  | Sim   |
-| Trabalha com um CLI  | Sim  | Não   |
+| Obras com Visual Studio 2019  | Yes  | Yes   |
+| Trabalha com Código de Estúdio Visual  | Yes  | Yes   |
+| Trabalha com um CLI  | Yes  | No   |
 | **Compatibilidade do Sistema Operativo** |
-| Funciona no Windows 10  | Sim  | Sim  |
-| Trabalha em Linux  | Sim  | Sim  |
-| Trabalha no macOS  | Sim  | Sim  |
+| Funciona no Windows 10  | Yes  | Yes  |
+| Trabalha em Linux  | Yes  | Yes  |
+| Trabalha no macOS  | Yes  | Yes  |
 | **Capacidades** |
-| Isolamento do desenvolvedor ou desenvolvimento de equipas  | Sim  | Sim  |
-| Variáveis ambientais seletivamente substituindo  | Não  | Sim  |
-| Criação de Dockerfile e Gráfico helm  | Sim  | Não  |
-| Implementação persistente do código para Kubernetes  | Sim  | Não  |
-| Depuragem remota em uma cápsula Kubernetes  | Sim  | Não  |
-| Depuragem local, ligada a Kubernetes  | Não  | Sim  |
-| Depurando vários serviços ao mesmo tempo, na mesma estação de trabalho  | Sim  | Sim  |
+| Isolamento do desenvolvedor ou desenvolvimento de equipas  | Yes  | Yes  |
+| Variáveis ambientais seletivamente substituindo  | No  | Yes  |
+| Criação de Dockerfile e Gráfico helm  | Yes  | No  |
+| Implementação persistente do código para Kubernetes  | Yes  | No  |
+| Depuragem remota em uma cápsula Kubernetes  | Yes  | No  |
+| Depuragem local, ligada a Kubernetes  | No  | Yes  |
+| Depurando vários serviços ao mesmo tempo, na mesma estação de trabalho  | Yes  | Yes  |
 
 ## <a name="kubernetes-inner-loop-development"></a>Desenvolvimento do loop interno de Kubernetes
 
@@ -85,7 +85,7 @@ A Ponte para Kubernetes tem a flexibilidade para trabalhar com aplicações em e
 1. Se estiver a utilizar o Visual Studio, atualize o seu Visual Studio IDE para a versão 16.7 ou superior e instale a extensão Bridge to Kubernetes a partir do [Visual Studio Marketplace][vs-marketplace]. Se estiver a utilizar o Código do Estúdio Visual, instale a [extensão Bridge to Kubernetes][vsc-marketplace].
 1. Desative o controlador Azure Dev Spaces utilizando o portal Azure Ou o [Azure Dev Spaces CLI][azds-delete].
 1. Use [a casca de nuvem Azure](https://shell.azure.com). Ou no Mac, Linux ou Windows com bash instalado, abra um pedido de concha de bash. Certifique-se de que as seguintes ferramentas estão disponíveis no seu ambiente de linha de comando: Azure CLI, docker, kubectl, curl, alcatrão e gunzip.
-1. Crie um registo de contentores ou use um existente. Pode criar um registo de contentores em Azure utilizando [o Registo do Contentor Azure](../container-registry/index.yml) ou utilizando o Docker [Hub](https://hub.docker.com/). Ao utilizar a Azure Cloud Shell, apenas o Registo de Contentores Azure está disponível para hospedar imagens de estivadores.
+1. Crie um registo de contentores ou use um existente. Pode criar um registo de contentores em Azure utilizando [o Registo do Contentor Azure](https://azure.microsoft.com/services/container-registry/) ou utilizando o Docker [Hub](https://hub.docker.com/). Ao utilizar a Azure Cloud Shell, apenas o Registo de Contentores Azure está disponível para hospedar imagens de estivadores.
 1. Executar o roteiro de migração para converter os ativos da Azure Dev Spaces para bridge para os ativos de Kubernetes. O script constrói uma nova imagem compatível com Bridge to Kubernetes, envia-a para o registo designado e, em seguida, usa [Helm](https://helm.sh) para atualizar o cluster com a imagem. Deve fornecer o grupo de recursos, o nome do cluster AKS e um registo de contentores. Existem outras opções de linha de comando, como mostrado aqui:
 
    ```azure-cli
@@ -117,7 +117,7 @@ A Ponte para Kubernetes tem a flexibilidade para trabalhar com aplicações em e
 
 Também pode utilizar o encaminhamento específico do desenvolvedor com Bridge to Kubernetes. O cenário de desenvolvimento da equipa Azure Dev Spaces utiliza vários espaços de nomes Kubernetes para isolar um serviço do resto da aplicação usando o conceito de espaços de nome de pais e crianças. Bridge to Kubernetes oferece a mesma capacidade, mas com características de desempenho melhoradas e dentro do mesmo espaço de nome de aplicação.
 
-Tanto a Bridge to Kubernetes como a Azure Dev Spaces requerem que os cabeçalhos HTTP estejam presentes e propagados ao longo da aplicação. Se já configurar a sua aplicação para lidar com a propagação do cabeçalho para Azure Dev Spaces, então o cabeçalho precisa de ser atualizado. Para a transição para Bridge para Kubernetes a partir de Azure Dev Spaces, atualize o cabeçalho configurado de *azds-route-as* para *kubernetes-route-as* .
+Tanto a Bridge to Kubernetes como a Azure Dev Spaces requerem que os cabeçalhos HTTP estejam presentes e propagados ao longo da aplicação. Se já configurar a sua aplicação para lidar com a propagação do cabeçalho para Azure Dev Spaces, então o cabeçalho precisa de ser atualizado. Para a transição para Bridge para Kubernetes a partir de Azure Dev Spaces, atualize o cabeçalho configurado de *azds-route-as* para *kubernetes-route-as*.
 
 ## <a name="evaluate-bridge-to-kubernetes"></a>Avaliar Ponte para Kubernetes
 

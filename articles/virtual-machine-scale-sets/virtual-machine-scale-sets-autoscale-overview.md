@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: dd042b28035b5e9a4b18041d6c1a81f77cfd4ea7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 092b95845ed033ac0705e325fc6535739088848f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86527409"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888798"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Descrição geral do dimensionamento automático com o conjunto de dimensionamento de máquinas virtuais do Azure
 Um conjunto de escala de máquina virtual Azure pode aumentar ou diminuir automaticamente o número de instâncias VM que executam a sua aplicação. Este comportamento automatizado e elástico reduz a sobrecarga de gestão para monitorizar e otimizar o desempenho da sua aplicação. Cria regras que definem o desempenho aceitável para uma experiência positiva do cliente. Quando esses limiares definidos são cumpridos, as regras de autoescala tomam medidas para ajustar a capacidade do seu conjunto de escala. Também pode agendar eventos para aumentar ou diminuir automaticamente a capacidade da sua escala definida em horários fixos. Este artigo fornece uma visão geral das métricas de desempenho disponíveis e quais as ações que a autoescala pode realizar.
@@ -22,6 +22,9 @@ Um conjunto de escala de máquina virtual Azure pode aumentar ou diminuir automa
 
 ## <a name="benefits-of-autoscale"></a>Benefícios da autoescala
 Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no conjunto de dimensionamento também aumenta. Se este aumento de carga for consistente, em vez de ser apenas uma breve exigência, pode configurar regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento.
+
+> [!NOTE]
+> Ao utilizar reparações automáticas para o seu conjunto de escala, o número máximo de casos na balança definida pode ser de 200. Saiba mais sobre [reparações de instâncias automáticas.](./virtual-machine-scale-sets-automatic-instance-repairs.md)
 
 Quando estas instâncias de VM forem criadas e as aplicações forem implementadas, o conjunto de dimensionamento começa a distribuir o tráfego pelas mesmas através do balanceador de carga. Você controla que métricas monitorizar, como CPU ou memória, quanto tempo a carga da aplicação deve cumprir um determinado limiar, e quantas instâncias VM para adicionar ao conjunto de escala.
 
@@ -77,7 +80,7 @@ Quando cria regras de autoescalação para monitorizar uma determinada métrica,
 | Máximo          |
 | Total            |
 | Último             |
-| Contagem            |
+| de palavras            |
 
 As regras de autoescala são então ativadas quando as métricas são comparadas com o seu limiar definido com um dos seguintes operadores:
 
@@ -85,7 +88,7 @@ As regras de autoescala são então ativadas quando as métricas são comparadas
 |--------------------------|
 | Maior que             |
 | Maior ou igual a |
-| Menor do que                |
+| Menor que                |
 | Menor ou igual a    |
 | Igual a                 |
 | Diferente de             |
@@ -135,7 +138,7 @@ Pode criar regras de autoescala que utilizem métricas baseadas em hospedeiros c
 - [CLI do Azure](tutorial-autoscale-cli.md)
 - [Modelo do Azure](tutorial-autoscale-template.md)
 
-Esta visão geral detalha como utilizar regras de autoescala para escalar horizontalmente e aumentar ou diminuir o *número* de instâncias VM no seu conjunto de escala. Também pode escalar verticalmente para aumentar ou diminuir o *tamanho*da instância VM . Para obter mais informações, consulte [autoescala vertical com conjuntos de escala de máquina virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+Esta visão geral detalha como utilizar regras de autoescala para escalar horizontalmente e aumentar ou diminuir o *número* de instâncias VM no seu conjunto de escala. Também pode escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM . Para obter mais informações, consulte [autoescala vertical com conjuntos de escala de máquina virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Para obter informações sobre como gerir as suas instâncias em VM, consulte [Gerir conjuntos de balanças de máquinas virtuais com Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 

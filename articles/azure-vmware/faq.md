@@ -4,12 +4,12 @@ description: Fornece respostas a algumas das perguntas comuns sobre a Azure VMwa
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: f2b46b37fc8c773062402c52f2903a7a10acc2c4
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: f83413bc54164107b8e8a4e6010f8a826a5fe327
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874717"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888424"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre Azure VMware Solution
 
@@ -218,7 +218,7 @@ Terá privilégios de grupo CloudAdmin. Para mais informações, consulte [Os Co
 
 #### <a name="what-privileges-and-permissions-will-i-have-on-the-nsx-t-manager"></a>Que privilégios e permissões terei sobre o gerente da NSX-T?
 
-Você terá privilégios completos de administrador em NSX-T e poderá gerir o controlo de acesso baseado em funções como faria com o NSX-T Data Center no local. Para mais informações, consulte [Os Conceitos de Acesso e Identidade.](concepts-identity.md)
+Você terá privilégios completos de administrador em NSX-T e pode gerir o controlo de acesso baseado em funções vSphere como você faria com o NSX-T Data Center no local. Para mais informações, consulte [Os Conceitos de Acesso e Identidade.](concepts-identity.md)
 
 > [!NOTE]
 > Um router T0 é criado e configurado como parte de uma implementação de nuvem privada. Qualquer modificação nesse router lógico ou nos VMs de nó de borda NSX-T pode afetar a conectividade à sua nuvem privada.

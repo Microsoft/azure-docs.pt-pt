@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e6fc3441fac5fe037e9a268d26012761d1fece70
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8faa6533ba4dc7fad61c045278c5504c5f78d900
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92463266"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888968"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Começar com a amostra de chamada web
 
@@ -27,7 +27,7 @@ A amostra de **chamada web** dos Serviços de Comunicação Azure demonstra como
 
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A amostra de chamada web é uma aplicação web que serve como uma caminhada passo a passo através das várias capacidades fornecidas pela web services web call client library. 
 
@@ -37,7 +37,7 @@ Quando a [amostra de chamada](https://github.com/Azure-Samples/communication-ser
 
 :::image type="content" source="./media/web-calling-tutorial-page-1.png" alt-text="Web chamando tutorial 1" lightbox="./media/web-calling-tutorial-page-1.png":::
 
-:::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Web chamando tutorial 1" lightbox="./media/web-calling-tutorial-page-2.png":::
+:::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Web chamando tutorial 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
 
 ## <a name="user-provisioning-and-sdk-initialization"></a>Provisão de utilizadores e inicialização de SDK 
@@ -52,7 +52,7 @@ Clique no botão "Mostrar código" para ver o código de amostra que pode utiliz
 
 Deve ver o seguinte assim que o seu SDK for inicializado:
 
-:::image type="content" source="./media/user-provisioning.png" alt-text="Web chamando tutorial 1" lightbox="./media/user-provisioning.png":::
+:::image type="content" source="./media/user-provisioning.png" alt-text="Aprovisionamento de utilizadores" lightbox="./media/user-provisioning.png":::
 
 Está agora pronto para começar a fazer chamadas usando o seu recurso de Serviços de Comunicação!
 
@@ -64,17 +64,17 @@ Para chamadas de saída 1:1 ou 1:N, pode especificar várias identidades dos uti
 
 Ao ligar para os números de telefone da PSTN, especifique o seu ID de chamada alternativo. Clique no botão "Fazer chamada" para fazer uma chamada de saída:
 
-:::image type="content" source="./media/place-a-call.png" alt-text="Web chamando tutorial 1" lightbox="./media/place-a-call.png":::
+:::image type="content" source="./media/place-a-call.png" alt-text="Fazer uma chamada" lightbox="./media/place-a-call.png":::
 
 Para se juntar a uma chamada de grupo, insira o GUID que identifica a chamada e clique no botão "Junte-se ao grupo":
 
-:::image type="content" source="./media/join-a-group-call.png" alt-text="Web chamando tutorial 1" lightbox="./media/join-a-group-call.png":::
+:::image type="content" source="./media/join-a-group-call.png" alt-text="Junte-se a uma chamada de grupo" lightbox="./media/join-a-group-call.png":::
 
 Clique no botão "Mostrar código" para ver o código de amostra para fazer chamadas, receber chamadas e juntar chamadas de grupo.
 
 Uma chamada ativa é assim:
 
-:::image type="content" source="./media/group-call.png" alt-text="Web chamando tutorial 1" lightbox="./media/group-call.png":::
+:::image type="content" source="./media/group-call.png" alt-text="Chamada de grupo" lightbox="./media/group-call.png":::
 
 Esta amostra também fornece fragmentos de código para as seguintes capacidades:
 
@@ -95,7 +95,7 @@ Para obter mais informações, veja os seguintes artigos:
 
 - Familiarize-se com [a utilização da biblioteca de clientes de chamadas](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Saiba mais sobre [como funciona a chamada](../concepts/voice-video-calling/about-call-types.md)
-- Rever os [docs de referência da API](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+- Rever os [docs de referência da API](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
 
 ## <a name="additional-reading"></a>Leitura adicional
 
@@ -103,4 +103,4 @@ Para obter mais informações, veja os seguintes artigos:
 - [Redux](https://redux.js.org/) - Gestão do Estado do lado do cliente
 - [FluentUI](https://aka.ms/fluent-ui) - Biblioteca de UI alimentada pela Microsoft
 - [Reagir](https://reactjs.org/) - Biblioteca para construção de interfaces de utilizador
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Enquadramento para a construção de aplicações web
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - Enquadramento para a construção de aplicações web

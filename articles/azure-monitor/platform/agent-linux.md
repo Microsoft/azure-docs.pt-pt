@@ -1,19 +1,19 @@
 ---
-title: Instale o agente Log Analytics nos computadores Linux
+title: Instalar o agente do Log Analytics em computadores Linux
 description: Este artigo descreve como ligar computadores Linux alojados em outras nuvens ou no local ao Azure Monitor com o agente Log Analytics para Linux.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e1dbf5e20aa206189397cab26e9b867f4942e1d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332506"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886843"
 ---
-# <a name="install-log-analytics-agent-on-linux-computers"></a>Instale o agente Log Analytics nos computadores Linux
+# <a name="install-log-analytics-agent-on-linux-computers"></a>Instalar o agente do Log Analytics em computadores Linux
 Este artigo fornece detalhes sobre a instalação do agente Log Analytics em computadores Linux utilizando os seguintes métodos:
 
 * [Instale o agente para o Linux utilizando um script de invólucro](#install-the-agent-using-wrapper-script) alojado no GitHub. Este é o método recomendado para instalar e atualizar o agente quando o computador tem conectividade com a Internet, diretamente ou através de um servidor proxy.
@@ -30,13 +30,17 @@ Consulte [a visão geral dos agentes do Azure Monitor](agents-overview.md#suppor
 
 >[!NOTE]
 >O OpenSSL 1.1.0 só é suportado em plataformas x86_x64 (64 bits) e o OpenSSL antes de 1.x não é suportado em nenhuma plataforma.
->
+
+>[!NOTE]
+>A execução do Agente Linux Log Analytics em contentores não é suportada. Se precisar de monitorizar os contentores, por favor, aproveite a [solução de monitorização](../insights/containers.md) do contentor para os anfitriões Docker ou [para o Monitor Azure para recipientes](../insights/container-insights-overview.md) para Kubernetes.
+
 Começando com versões lançadas após agosto de 2018, estamos a fazer as seguintes alterações ao nosso modelo de suporte:  
 
 * Apenas as versões do servidor são suportadas, não clientes.  
 * Concentre o suporte em qualquer um dos [distros Azure Linux Endossados.](../../virtual-machines/linux/endorsed-distros.md) Note que pode haver algum atraso entre um novo distro/versão sendo Azure Linux Endossado e suportado para o agente Log Analytics Linux.
 * Todos os lançamentos menores são suportados para cada versão principal listada.
-* As versões que tenham passado a data de fim de suporte do fabricante não são suportadas.  
+* As versões que tenham passado a data de fim de suporte do fabricante não são suportadas.
+* Suporta apenas imagens VM; os contentores, mesmo os derivados de imagens oficiais de editores distro, não são suportados.
 * As novas versões da AMI não são suportadas.  
 * Apenas as versões que executam o SSL 1.x por padrão são suportadas.
 

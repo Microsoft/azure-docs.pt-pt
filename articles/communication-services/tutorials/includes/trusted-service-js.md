@@ -8,12 +8,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: d4ef8baa123f805d380b14fa24abff65903cb41d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: daf2d675bbbee324769b6e1e8d8d34587d37c72f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947383"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886628"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,7 +23,7 @@ ms.locfileid: "90947383"
 - A [extensão de Funções Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Código de Estúdio Visual. 
 - Um recurso ativo dos Serviços de Comunicação e cadeia de ligação. [Criar um recurso de Serviços de Comunicação.](../../quickstarts/create-communication-resource.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 :::image type="content" source="../media/trusted-service-architecture.png" alt-text="Diagrama para arquitetura de serviço de confiança":::
 
@@ -37,7 +37,7 @@ Para mais informações, consulte a arquitetura do [servidor cliente](../../conc
 
 ### <a name="azure-functions-set-up"></a>Funções Azure configurada
 
-Vamos primeiro configurar a estrutura básica para a nossa função Azure. Instruções passo a passo sobre a configuração podem ser encontradas aqui: [Criar uma função usando Código de Estúdio Visual](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript)
+Vamos primeiro configurar a estrutura básica para a nossa função Azure. Instruções passo a passo sobre a configuração podem ser encontradas aqui: [Criar uma função usando Código de Estúdio Visual](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)
 
 A nossa função Azure requer a seguinte configuração:
 
@@ -46,7 +46,7 @@ A nossa função Azure requer a seguinte configuração:
 - Nível de Autorização: Anónimo (Isto pode ser trocado mais tarde se preferir um modelo de autorização diferente)
 - Nome da função: Definido pelo utilizador
 
-Depois de seguir as [instruções de Funções Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript) com a configuração acima, deverá ter um projeto no Código do Estúdio Visual para a Função Azure com um `index.js` ficheiro que contenha a função em si. O código dentro deste ficheiro deve ser o seguinte:
+Depois de seguir as [instruções de Funções Azure](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript) com a configuração acima, deverá ter um projeto no Código do Estúdio Visual para a Função Azure com um `index.js` ficheiro que contenha a função em si. O código dentro deste ficheiro deve ser o seguinte:
 
 ```javascript
 
@@ -128,15 +128,15 @@ Para os Serviços de Comunicação `CommunicationUser` existentes, pode saltar o
 
 ## <a name="test-the-azure-function"></a>Teste a Função Azure
 
-Executar a Função Azure localmente utilizando `F5` . Isto rubricará a Função Azure localmente e torná-la-á acessível através de: `http://localhost:7071/api/FUNCTION_NAME` . Consulte documentação adicional sobre [o funcionamento local](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#run-the-function-locally)
+Executar a Função Azure localmente utilizando `F5` . Isto rubricará a Função Azure localmente e torná-la-á acessível através de: `http://localhost:7071/api/FUNCTION_NAME` . Consulte documentação adicional sobre [o funcionamento local](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-locally)
 
 Abra o URL no seu navegador e deverá ver um corpo de resposta com o Id do Utilizador de Comunicação, token e expiração para o token.
 
-:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Diagrama para arquitetura de serviço de confiança":::
+:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Screenshot mostrando um exemplo de resposta para a função Azure criada.":::
 
 ## <a name="deploy-the-function-to-azure"></a>Implementar a Função para Azure
 
-Para implementar a sua Função Azure, pode seguir [as instruções passo a passo](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#sign-in-to-azure)
+Para implementar a sua Função Azure, pode seguir [as instruções passo a passo](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure)
 
 Geralmente, terá de:
 1. Inscreva-se no Azure do Visual Studio
@@ -151,4 +151,4 @@ Executar a função Azure usando o url `http://<function-appn-ame>.azurewebsites
 
 Pode encontrar o URL clicando corretamente na função no Código do Estúdio Visual e copiando o URL de função.
 
-Para mais informações sobre [a execução da sua função Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript#run-the-function-in-azure)
+Para mais informações sobre [a execução da sua função Azure](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-in-azure)

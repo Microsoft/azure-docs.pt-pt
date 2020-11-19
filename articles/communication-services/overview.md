@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1c79ffb02df4a64b2c506ef0863d9bb2da06db53
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d680df0ec5e18cca4d7a42edf45dbd6a50be1472
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303374"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888611"
 ---
 # <a name="what-is-azure-communication-services"></a>O que é o Azure Communication Services?
 
@@ -77,9 +77,9 @@ Os seguintes recursos irão ajudá-lo a conhecer as bibliotecas de clientes dos 
 
 Existem outros dois produtos de comunicação da Microsoft que pode considerar alavancagem que não são diretamente interoperáveis com os Serviços de Comunicação neste momento:
 
- - [As APIs de Comunicação cloud do Microsoft permitem](https://docs.microsoft.com/graph/cloud-communications-concept-overview) que as organizações construam experiências de comunicação ligadas a utilizadores do Azure Ative Directory com licenças M365. Isto é ideal para aplicações ligadas ao Azure Ative Directory ou onde pretende alargar experiências de produtividade em Equipas microsoft. Existem também APIs para construir aplicações e personalização dentro da [experiência das Equipas.](https://docs.microsoft.com/microsoftteams/platform/?view=msteams-client-js-latest&preserve-view=true)
+ - [As APIs de Comunicação cloud do Microsoft permitem](/graph/cloud-communications-concept-overview) que as organizações construam experiências de comunicação ligadas a utilizadores do Azure Ative Directory com licenças M365. Isto é ideal para aplicações ligadas ao Azure Ative Directory ou onde pretende alargar experiências de produtividade em Equipas microsoft. Existem também APIs para construir aplicações e personalização dentro da [experiência das Equipas.](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest)
 
- - [Azure PlayFab Party](https://docs.microsoft.com/gaming/playfab/features/multiplayer/networking/) simplifica a adição de chat de baixa latência e comunicação de dados aos jogos. Enquanto podes alimentar sistemas de chat e networking com Serviços de Comunicação, o PlayFab é uma opção personalizada e gratuita na Xbox.
+ - [Azure PlayFab Party](/gaming/playfab/features/multiplayer/networking/) simplifica a adição de chat de baixa latência e comunicação de dados aos jogos. Enquanto podes alimentar sistemas de chat e networking com Serviços de Comunicação, o PlayFab é uma opção personalizada e gratuita na Xbox.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

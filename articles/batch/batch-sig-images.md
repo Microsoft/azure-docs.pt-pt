@@ -2,14 +2,14 @@
 title: Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
 description: As piscinas de imagem personalizadas são uma forma eficiente de configurar os nós computacional para executar as cargas de trabalho do Lote.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 4a41e8345bdb4c4e8761debe8e6b39f8588f5a8c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0ba6270e6b6b4fcd258d8f5b3668931706f95b5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745515"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888356"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
 
@@ -210,7 +210,7 @@ Use os seguintes passos para criar uma piscina a partir de uma imagem partilhada
 1. Selecione **Pools** e, em seguida, **Adicione** para criar uma nova piscina.
 1. Na secção **Tipo de Imagem,** selecione **Galeria de Imagens Partilhadas.**
 1. Complete as restantes secções com informações sobre a sua imagem gerida.
-1. Selecione **OK** .
+1. Selecione **OK**.
 
 ![Crie uma piscina com uma imagem partilhada com o portal.](media/batch-sig-images/create-custom-pool.png)
 
@@ -218,7 +218,7 @@ Use os seguintes passos para criar uma piscina a partir de uma imagem partilhada
 
 Se planeia criar uma piscina com centenas ou milhares de VMs ou mais usando uma Imagem Partilhada, utilize as seguintes orientações.
 
-- **Números de réplica da Galeria de Imagens Partilhadas.**  Para cada piscina com até 600 casos, recomendamos que guarde pelo menos uma réplica. Por exemplo, se estiver a criar uma piscina com 3000 VMs, deve manter pelo menos 5 réplicas da sua imagem. Sugerimos sempre manter mais réplicas do que requisitos mínimos para um melhor desempenho.
+- **Números de réplica da Galeria de Imagens Partilhadas.**  Para cada piscina com até 300 casos, recomendamos que guarde pelo menos uma réplica. Por exemplo, se estiver a criar uma piscina com 3000 VMs, deve manter pelo menos 10 réplicas da sua imagem. Sugerimos sempre manter mais réplicas do que requisitos mínimos para um melhor desempenho.
 
 - **Redimensionar o tempo limite.** Se a sua piscina contiver um número fixo de nós (se não for auto-escalado), aumente a `resizeTimeout` propriedade da piscina dependendo do tamanho da piscina. Para cada 1000 VMs, o tempo limite recomendado de redimensionar é de pelo menos 15 minutos. Por exemplo, o tempo limite recomendado para uma piscina com 2000 VMs é de pelo menos 30 minutos.
 

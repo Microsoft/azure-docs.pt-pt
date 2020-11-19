@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 70441c3a1953fa1b6ebd69ef9cdb324d6cc04a5b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e31a1cef427062723adf4b45bd47cd8009630128
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336457"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888815"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Quickstart: Configurar ficheiros Azure NetApp e criar um volume NFS
 
@@ -28,12 +28,10 @@ Neste arranque rápido, irá configurar os seguintes itens:
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 > [!IMPORTANT]
 > É necessário ter acesso ao serviço Azure NetApp Files. Para solicitar o acesso ao serviço, consulte a página de submissão da [lista de espera Azure NetApp Files](https://aka.ms/azurenetappfiles).  Deve aguardar um e-mail oficial de confirmação da equipa do Azure NetApp Files antes de continuar.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ---
 
@@ -64,6 +62,10 @@ Este artigo requer o módulo Azure PowerShell versão 2.6.0 ou posterior. Execut
     ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Prepare o seu ambiente para o Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
@@ -176,7 +178,7 @@ O seguinte corte de código mostra como criar uma conta NetApp num modelo de Ges
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. A partir da lâmina de gestão de Ficheiros Azure NetApp, selecione a sua conta NetApp **(myaccount1** ).
+1. A partir da lâmina de gestão de Ficheiros Azure NetApp, selecione a sua conta NetApp **(myaccount1**).
 
     ![Selecione conta NetApp](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)
 
@@ -260,7 +262,7 @@ O seguinte corte de código mostra como criar um pool de capacidade num modelo d
 
 3. Na janela Criar um Volume, fornecer informações sobre o volume:
    1. Insira **o myvol1** como o nome do volume.
-   2. Selecione a sua piscina de capacidade **(mypool1** ).
+   2. Selecione a sua piscina de capacidade **(mypool1**).
    3. Utilize o valor predefinido para quota.
    4. Em rede virtual, clique em **Criar novo** para criar uma nova rede virtual Azure (Vnet).  Em seguida, preencha as seguintes informações:
        * Insira **o myvnet1** como o nome Vnet.
@@ -278,7 +280,7 @@ O seguinte corte de código mostra como criar um pool de capacidade num modelo d
 4. Clique **em Protocolo** e, em seguida, complete as seguintes ações:
     * Selecione **NFS** como o tipo de protocolo para o volume.
     * Insira **o myfilepath1** como o caminho do ficheiro que será usado para criar o caminho de exportação para o volume.
-    * Selecione a versão NFS **(NFSv3** ou **NFSv4.1** ) para o volume.
+    * Selecione a versão NFS **(NFSv3** ou **NFSv4.1**) para o volume.
       Consulte [considerações](azure-netapp-files-create-volumes.md#considerations) e boas [práticas](azure-netapp-files-create-volumes.md#best-practice) sobre versões NFS.
 
     ![Especificar o protocolo NFS para arranque rápido](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)

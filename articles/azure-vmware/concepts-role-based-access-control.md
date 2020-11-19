@@ -1,16 +1,16 @@
 ---
-title: Conceitos - Controlo de acesso baseado em funções (RBAC)
-description: Conheça as principais capacidades do controlo de acesso baseado em funções para a Azure VMware Solution
+title: Conceitos - vSphere controlo de acesso baseado em funções (vSphere RBAC)
+description: Conheça as principais capacidades do controlo de acesso baseado em funções vSphere para Azure VMware Solution
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 6e1864fdfe397325a7c5ba601b625bcc1776174c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fbd5b48ce30a6612c45ebd97f08812efd29c50b3
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535491"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888407"
 ---
-# <a name="role-based-access-control-rbac-for-azure-vmware-solution"></a>Controlo de acesso baseado em funções (RBAC) para Azure VMware Solution
+# <a name="vsphere-role-based-access-control-vsphere-rbac-for-azure-vmware-solution"></a>vSphere controlo de acesso baseado em funções (vSphere RBAC) para Azure VMware Solution
 
 Na Azure VMware Solution, o vCenter tem um utilizador local incorporado chamado cloudadmin e atribuído ao papel cloudAdmin incorporado. O utilizador local de cloudadmin é utilizado para configurar utilizadores em AD. Em geral, o papel CloudAdmin cria e gere cargas de trabalho na sua nuvem privada. Na Azure VMware Solution, o papel CloudAdmin tem privilégios vCenter que diferem de outras soluções de nuvem VMware.     
 
@@ -31,14 +31,14 @@ O utilizador privado da nuvem não tem acesso e não consegue configurar compone
 Pode ver os privilégios concedidos ao papel cloudAdmin da Solução Azure VMware no seu VMware Solution privado VMware Solution vCenter.
 
 1. Inicie sessão no SDDC vSphere Client e vá para a **Menu**  >  **Administração** do Menu.
-1. Sob **controlo de acesso** , selecione **Roles**.
+1. Sob **controlo de acesso**, selecione **Roles**.
 1. Na lista de funções, selecione **CloudAdmin** e, em seguida, selecione **Privileges**. 
 
    :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="Como ver os privilégios de papel cloudAdmin no vSphere Client":::
 
 O papel cloudAdmin na Azure VMware Solution tem os seguintes privilégios no vCenter. Consulte a documentação do [produto VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) para obter uma explicação detalhada de cada privilégio.
 
-| Privilege | Description |
+| Privilege | Descrição |
 | --------- | ----------- |
 | **Alarmes** | Alarme de reconhecimento<br />Criar alarme<br />Desativar a ação de alarme<br />Modificar o alarme<br />Remover o alarme<br />Definir estado de alarme |
 | **Permissões** | Modificar permissões |

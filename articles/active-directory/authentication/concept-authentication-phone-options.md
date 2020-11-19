@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 11/18/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39555c5b396e8a8fd3449331cd2fd68b96ad2087
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4510dac833d0576273472b6f925d546b55257614
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840003"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886809"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticação em Diretório Ativo Azure - opções de telefone
 
@@ -57,7 +57,7 @@ Com a verificação de chamadas telefónicas durante a Autenticação Multi-Fact
 Se tiver problemas com a autenticação do telefone para a Azure AD, reveja as seguintes etapas de resolução de problemas:
 
 * "Atingiu o nosso limite em chamadas de verificação" ou "Atingiu o nosso limite em códigos de verificação de texto" mensagens de erro durante a sin-in
-   * Utilize o código de aplicação ou verificação do autenticador Micrsoft para completar a autenticação ou tente novamente mais tarde.
+   * A Microsoft pode limitar as tentativas de autenticação repetidas que são efetuadas pelo mesmo utilizador num curto espaço de tempo. Esta limitação não se aplica ao Microsoft Authenticator ou código de verificação. Se tiver atingido estes limites, pode utilizar a App Autenticador, código de verificação ou tentar entrar novamente em alguns minutos.
 * Identificação de chamada bloqueada num único dispositivo.
    * Reveja quaisquer números bloqueados configurados no dispositivo.
 * Número de telefone errado ou código de país/região incorreto, ou confusão entre o número de telefone pessoal versus número de telefone de trabalho.

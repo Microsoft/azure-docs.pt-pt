@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 315dfcb10b11278401d6cc0abd42b40b5f55f72a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6efcadf85816bb6aa014893bb9b20476a0701990
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968366"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886758"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Monitor e revisão de registos para ambientes de proteção de senhas Azure AD
 
@@ -66,15 +66,19 @@ Os principais eventos relacionados com validação de passwords são os seguinte
 
 | Evento |Alteração da palavra-passe |Conjunto de palavra-passe|
 | --- | :---: | :---: |
-|Passe |10014 |10015|
+|Aprovação |10014 |10015|
 |Falha (devido à política de senha do cliente)| 10016, 30002| 10017, 30003|
 |Falha (devido à política de senha da Microsoft)| 10016, 30004| 10017, 30005|
 |Falha (devido às políticas combinadas de palavra-passe da Microsoft e do cliente)| 10016, 30026| 10017, 30027|
+|Falha (devido ao nome de utilizador)| 10016, 30021| 10017, 30022|
 |Passe só para auditoria (teria falhado a política de senha do cliente)| 10024, 30008| 10025, 30007|
 |Passe só para auditoria (teria falhado a política de senha da Microsoft)| 10024, 30010| 10025, 30009|
 |Passe só para auditoria (teria falhado as políticas combinadas da Microsoft e da palavra-passe do cliente)| 10024, 30028| 10025, 30029|
+|Passe só para auditoria (teria falhado devido ao nome de utilizador)| 10016, 30024| 10017, 30023|
 
 Os casos na tabela acima que se referem a "políticas combinadas" referem-se a situações em que a palavra-passe de um utilizador continha pelo menos um símbolo da lista de palavras-passe proibidas pela Microsoft e da lista de palavras-passe proibidas pelo cliente.
+
+Os casos na tabela acima que se referem a "nome de utilizador" referem-se a situações em que a palavra-passe de um utilizador continha o nome da conta do utilizador e/ou um dos nomes amigáveis do utilizador. Qualquer um dos cenários fará com que a palavra-passe do utilizador seja rejeitada quando a política estiver definida para Impor, ou aprovada se a política estiver no modo de Auditoria.
 
 Quando um par de eventos é registado em conjunto, ambos os eventos são explicitamente associados por ter o mesmo CorrelationId.
 

@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ff3e7fee87661fb89ba930b7368bd54e71ad57bf
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 775075765c8c8eaa94541c0f094c1f7743fe59d9
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357628"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886792"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Resolução de problemas nos Serviços de Comunicação da Azure
 
@@ -23,16 +23,16 @@ Este documento irá ajudá-lo a resolver problemas que poderá experimentar dent
 
 Encorajamos os desenvolvedores a apresentarem perguntas, sugerirem funcionalidades e reportarem problemas como problemas no [repositório](https://github.com/Azure/communication)dos Serviços de Comunicação GitHub. Outros fóruns incluem:
 
-* [Perguntas e Respostas da Microsoft](https://docs.microsoft.com/answers/questions/topics/single/101418.html)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
+* [Perguntas e Respostas da Microsoft](/answers/questions/topics/single/101418.html)
+* [Stackoverflow](https://stackoverflow.com/questions/tagged/azure+communication)
 
 Dependendo do seu plano de [suporte à](https://azure.microsoft.com/support/plans/) subscrição Azure, poderá enviar um bilhete de apoio diretamente através do [portal Azure.](https://azure.microsoft.com/support/create-ticket/)
 
 Para ajudá-lo a resolver determinados tipos de problemas, pode ser-lhe pedido qualquer uma das seguintes informações:
 
-* **MS-CV ID** : Este ID é usado para resolver chamadas e mensagens de resolução de problemas. 
-* **ID de chamada** : Este ID é usado para identificar chamadas de Serviços de Comunicação.
-* **ID de mensagem SMS** : Este ID é utilizado para identificar mensagens SMS.
+* **MS-CV ID**: Este ID é usado para resolver chamadas e mensagens de resolução de problemas. 
+* **ID de chamada**: Este ID é usado para identificar chamadas de Serviços de Comunicação.
+* **ID de mensagem SMS**: Este ID é utilizado para identificar mensagens SMS.
 * **Registos de** chamadas : Estes registos contêm informações detalhadas que podem ser usadas para resolver problemas de chamadas e problemas de rede.
 
 
