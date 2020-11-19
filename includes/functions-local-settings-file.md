@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: aae89e1c6f8db2fb657ac2a43c4bce0396ab3ddd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca8d8edd334d89e03624793a35c49971ba8161ec
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376441"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94885026"
 ---
 ## <a name="local-settings-file"></a>Ficheiro de definições locais
 
@@ -52,7 +52,7 @@ As seguintes definições de aplicação podem ser incluídas na **`Values`** ma
 
 | Definição | Valores | Descrição |
 |-----|-----|-----|
-|**`AzureWebJobsStorage`**| Cadeia de ligação de conta de armazenamento, ou<br/>`UseDevelopmentStorage=true`| Contém o fio de ligação para uma conta de armazenamento Azure. Necessário ao utilizar gatilhos diferentes do HTTP. Para mais informações, consulte a [`AzureWebJobsStorage`] referência.<br/>Quando tiver o [emulador de armazenamento Azure](../articles/storage/common/storage-use-emulator.md) instalado localmente e definido [`AzureWebJobsStorage`] `UseDevelopmentStorage=true` para, a Core Tools utiliza o emulador. O emulador é útil durante o desenvolvimento, mas deve testar com uma ligação de armazenamento real antes de ser implantado.| 
+|**`AzureWebJobsStorage`**| Cadeia de ligação de conta de armazenamento, ou<br/>`UseDevelopmentStorage=true`| Contém o fio de ligação para uma conta de armazenamento Azure. Necessário ao utilizar gatilhos diferentes do HTTP. Para mais informações, consulte a [`AzureWebJobsStorage`] referência.<br/>Quando tiver o [Emulador de Armazenamento Azure](../articles/storage/common/storage-use-emulator.md) instalado localmente e definido [`AzureWebJobsStorage`] `UseDevelopmentStorage=true` para, a Core Tools utiliza o emulador. O emulador é útil durante o desenvolvimento, mas deve testar com uma ligação de armazenamento real antes de ser implantado.| 
 |**`AzureWebJobs.<FUNCTION_NAME>.Disabled`**| `true`\|`false` | Para desativar uma função quando estiver a funcionar localmente, adicione `"AzureWebJobs.<FUNCTION_NAME>.Disabled": "true"` à coleção, onde `<FUNCTION_NAME>` está o nome da função. Para saber mais, consulte [Como desativar funções em Funções Azure](../articles/azure-functions/disable-function.md#localsettingsjson) |
 |**`FUNCTIONS_WORKER_RUNTIME`** | `dotnet`<br/>`node`<br/>`java`<br/>`powershell`<br/>`python`| Indica a linguagem direcionada do tempo de funcionamento das Funções. Necessário para a versão 2.x e superior do tempo de funcionamento das Funções. Esta definição é gerada para o seu projeto pela Core Tools. Para saber mais, consulte a [`FUNCTIONS_WORKER_RUNTIME`](../articles/azure-functions/functions-app-settings.md#functions_worker_runtime) referência.|
 | **`FUNCTIONS_WORKER_RUNTIME_VERSION`** | `~7` |Indica que o PowerShell 7 deve ser utilizado quando funciona localmente. Se não estiver definido, então o PowerShell Core 6 é utilizado. Esta definição só é utilizada quando funciona localmente. Ao correr em Azure, a versão de tempo de execução PowerShell é determinada pela definição de configuração do `powerShellVersion` site, que pode ser [definida no portal](../articles/azure-functions/functions-reference-powershell.md#changing-the-powershell-version). | 
