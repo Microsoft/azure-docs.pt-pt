@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/30/2020
-ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/18/2020
+ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131365"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917907"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -36,9 +36,9 @@ Quando restaura uma base de dados, o serviço determina quais as cópias de segu
 
 ### <a name="backup-storage-redundancy"></a>Redundância de armazenamento de backup
 
-Por padrão, a Base de Dados SQL e a SQL Managed Instance armazenam dados em [bolhas](../../storage/common/storage-redundancy.md) de armazenamento geo-redundantes (RA-GRS) que são replicadas numa [região emparelhada.](../../best-practices-availability-paired-regions.md) Isto ajuda a proteger contra falhas que impactam o armazenamento de backup na região primária e permite restaurar o seu servidor numa região diferente em caso de desastre. 
+Por padrão, a Base de Dados SQL e a SQL Managed Instance armazenam dados em [bolhas](../../storage/common/storage-redundancy.md) de armazenamento geo-redundantes que são replicadas numa [região emparelhada.](../../best-practices-availability-paired-regions.md) Isto ajuda a proteger contra falhas que impactam o armazenamento de backup na região primária e permite restaurar o seu servidor numa região diferente em caso de desastre. 
 
-A opção de configurar a redundância de armazenamento de backup proporciona a flexibilidade para escolher entre bolhas de armazenamento localmente redundantes, redundantes de zona ou geo-redundantes para uma SQL Managed Instance ou uma Base de Dados SQL. Para garantir que os seus dados permanecem na mesma região onde a sua instância gerida ou base de dados SQL é implantada, pode alterar a redundância de armazenamento de backup geo redundante padrão e configurar quer localmente redundante (LRS) quer bolhas de armazenamento redundantes de zona (ZRS) para cópias de segurança. Os mecanismos de redundância de armazenamento armazenam várias cópias dos seus dados para que seja protegido contra eventos planeados e não planeados, incluindo falhas de hardware transitórios, falhas de rede ou de energia, ou desastres naturais maciços. A redundância de armazenamento de backup configurada é aplicada tanto a definições de retenção de backup de curto prazo que são usadas para restauro pontual (PITR) e backups de retenção a longo prazo utilizados para backups de longo prazo (LTR). 
+A opção de configurar a redundância de armazenamento de backup proporciona a flexibilidade para escolher entre bolhas de armazenamento localmente redundantes, redundantes de zona ou geo-redundantes para uma SQL Managed Instance ou uma Base de Dados SQL. Para garantir que os seus dados permanecem na mesma região onde a sua instância gerida ou base de dados SQL é implantada, pode alterar a redundância de armazenamento de backup geo redundante padrão e configurar blobs de armazenamento localmente redundantes ou redundantes para backups. Os mecanismos de redundância de armazenamento armazenam várias cópias dos seus dados para que seja protegido contra eventos planeados e não planeados, incluindo falhas de hardware transitórios, falhas de rede ou de energia, ou desastres naturais maciços. A redundância de armazenamento de backup configurada é aplicada tanto a definições de retenção de backup de curto prazo que são usadas para restauro pontual (PITR) e backups de retenção a longo prazo utilizados para backups de longo prazo (LTR). 
 
 Para uma Base de Dados SQL, a redundância de armazenamento de backup pode ser configurada no momento da criação da base de dados ou pode ser atualizada para uma base de dados existente; as alterações efetuadas a uma base de dados existente aplicam-se apenas a futuras cópias de segurança. Após a atualização da redundância de armazenamento de backup de uma base de dados existente, pode demorar até 48 horas para que as alterações sejam aplicadas. Note que a restauração do geo é desativada assim que uma base de dados é atualizada para usar armazenamento redundante local ou zona. 
 
@@ -179,9 +179,9 @@ Pode monitorizar o consumo total de armazenamento de backup para cada tipo de c�
 ### <a name="backup-storage-redundancy"></a>Redundância de armazenamento de backup
 
 A redundância de armazenamento de backup tem impacto nos custos de backup da seguinte forma:
-- Preço LRS = x
-- Preço ZRS = 1.25x
-- Preço RA-GRS = 2x
+- preço localmente redundante = x
+- preço redundante de zona = 1,25x
+- preço geo-redundante = 2x
 
 Para mais detalhes sobre preços de armazenamento de backup visite a [página de preços da Base de Dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/single/) e a página de preços de [Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
@@ -190,9 +190,9 @@ Para mais detalhes sobre preços de armazenamento de backup visite a [página de
 
 ### <a name="monitor-costs"></a>Monitorizar os custos
 
-Para compreender os custos de armazenamento de backup, vá à **Gestão de Custos + Faturação** no portal Azure, selecione **Cost Management** e, em seguida, selecione Análise **de Custos** . Selecione a subscrição desejada como **Scope** e, em seguida, filtre pelo período de tempo e serviço em que está interessado.
+Para compreender os custos de armazenamento de backup, vá à **Gestão de Custos + Faturação** no portal Azure, selecione **Cost Management** e, em seguida, selecione Análise **de Custos**. Selecione a subscrição desejada como **Scope** e, em seguida, filtre pelo período de tempo e serviço em que está interessado.
 
-Adicione um filtro para **o nome de serviço** e, em seguida, selecione a base de **dados sql** na lista de drop-down. Utilize o filtro **da subcategoria** do medidor para escolher o contador de faturação para o seu serviço. Para uma única base de dados ou uma piscina de base de dados elástica, selecione **armazenamento de backup pitr de piscina único/elástico** . Para uma instância gerida, selecione **o armazenamento de backup mi PITR** . As subcategorias **de Armazenamento** e **Computação** também podem interessar-lhe, mas não estão associados a custos de armazenamento de backup.
+Adicione um filtro para **o nome de serviço** e, em seguida, selecione a base de **dados sql** na lista de drop-down. Utilize o filtro **da subcategoria** do medidor para escolher o contador de faturação para o seu serviço. Para uma única base de dados ou uma piscina de base de dados elástica, selecione **armazenamento de backup pitr de piscina único/elástico**. Para uma instância gerida, selecione **o armazenamento de backup mi PITR**. As subcategorias **de Armazenamento** e **Computação** também podem interessar-lhe, mas não estão associados a custos de armazenamento de backup.
 
 ![Análise de custos de armazenamento de backup](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -373,7 +373,7 @@ Para obter mais informações, consulte [a API de Retenção de Retenção de Re
 > [!NOTE]
 > A redundância de armazenamento configurada para cópias de segurança para a SQL Managed Instance só pode ser especificada durante o processo de instância gerido por criar. Uma vez que o recurso é aprovisionado, não pode alterar a opção de redundância de armazenamento de backup. Para a Base de Dados SQL, a pré-visualização pública desta funcionalidade está atualmente disponível no Brasil Sul e está geralmente disponível na região do Sudeste Asiático Azure. 
 
-Uma redundância de armazenamento de reserva de uma instância gerida só pode ser definida durante a criação de exemplo. Para uma Base de Dados SQL pode ser configurado ao criar a base de dados ou pode ser atualizado para uma base de dados existente. O valor predefinido é o armazenamento geo-redundante (RA-GRS). Para diferenças de preços entre a página de preços redundante localmente (LRS), a zona redundante (ZRS) e a visita de armazenamento de backup geo-redundante (RA-GRS) [gerida por instâncias](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+Uma redundância de armazenamento de reserva de uma instância gerida só pode ser definida durante a criação de exemplo. Para uma Base de Dados SQL pode ser configurado ao criar a base de dados ou pode ser atualizado para uma base de dados existente. O valor padrão é armazenamento geo-redundante. Para diferenças de preços entre a visita de armazenamento de backup de nível redundante local, redundante e geo-redundante, a visita de armazenamento [de dados geridos por instâncias](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Configurar redundância de armazenamento de backup utilizando o portal Azure
 

@@ -2,17 +2,17 @@
 title: Use uma imagem gerida para criar uma piscina de imagem personalizada
 description: Crie um conjunto de imagens personalizadas Batch a partir de uma imagem gerida até provisão de nós computacional com o software e dados para a sua aplicação.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851286"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916581"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Use uma imagem gerida para criar uma piscina de imagem personalizada
 
-Para criar uma piscina de imagens personalizada para as máquinas virtuais (VMs) da sua piscina de Lote, pode utilizar uma imagem gerida para criar uma [imagem da Galeria de Imagens Partilhada.](batch-sig-images.md) A utilização de apenas uma imagem gerida também é suportada, mas apenas para versões API até e incluindo 2019-08-01. 
+Para criar uma piscina de imagens personalizada para as máquinas virtuais (VMs) da sua piscina de Lote, pode utilizar uma imagem gerida para criar uma [imagem da Galeria de Imagens Partilhada.](batch-sig-images.md) A utilização de apenas uma imagem gerida também é suportada, mas apenas para versões API até e incluindo 2019-08-01.
 
 > [!IMPORTANT]
 > Na maioria dos casos, deverá criar imagens personalizadas utilizando a Galeria de Imagens Partilhadas. Ao utilizar a Galeria de Imagens Partilhadas, pode providenciar piscinas mais rapidamente, escalar maiores quantidades de VMs e melhorar a fiabilidade ao a provisionar VMs. Para saber mais, consulte [a Galeria de Imagens Partilhadas para criar uma piscina personalizada.](batch-sig-images.md)
@@ -49,6 +49,7 @@ Se estiver a criar um novo VM para a imagem, utilize uma primeira imagem do Azur
 - Não instale extensões Azure, como a extensão de Script Personalizado, no VM. Se a imagem contiver uma extensão pré-instalada, o Azure pode encontrar problemas ao implantar o pool do Lote.
 - Ao utilizar discos de dados anexados, é necessário montar e formatar os discos a partir de um VM para os utilizar.
 - Certifique-se de que a imagem de SO base que fornece utiliza a unidade temporária predefinido. O agente de nó de lote espera atualmente a unidade temporária predefinido.
+- Certifique-se de que o disco SO não está encriptado.
 - Uma vez em funcionamento o VM, ligue-o através de RDP (para Windows) ou SSH (para Linux). Instale qualquer software necessário ou copie os dados pretendidos.  
 
 ### <a name="create-a-vm-snapshot"></a>Criar um instantâneo VM

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: fabfdce72202f79e2ac5bad08d124df7ce2de542
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 5e3fbd1868cc1216cb7b9d02b2aa8e690af33952
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592588"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917686"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analisar dados numa conta de armazenamento
 
@@ -41,6 +41,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```
 
 ### <a name="analyze-data-in-a-storage-account"></a>Analisar dados numa conta de armazenamento
+
+Pode analisar os dados na sua conta ADLS Gen2 padrão do seu espaço de trabalho ou pode ligar uma conta de armazenamento ADLS Gen2 ou Blob ao seu espaço de trabalho através de "**Gerir**" > "**Serviços Ligados**" > "**Novo**" (Os passos abaixo referem-se à conta primária da ADLS Gen2).
 
 1. No Synapse Studio, vá ao centro **de dados** e, em seguida, selecione **Linked**.
 1. Vá às **contas de armazenamento**  >  **myworkspace (Primário - contosolake)**.

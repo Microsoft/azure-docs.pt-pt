@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 498934c01970b296c1491e7ccd36ad947324306a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e90c1d1cfa02f63a2b5115124dee2a9da68e2f3f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445341"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917278"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Crie um sugestivo para permitir resultados autocompletos e sugeridos numa consulta
 
@@ -54,7 +54,7 @@ O autocompleto beneficia de um conjunto maior de campos para extrair porque o co
 
 As sugestões, por outro lado, produzem melhores resultados quando a sua escolha de campo é seletiva. Lembre-se que a sugestão é um proxy para um documento de pesquisa para que você queira campos que melhor representam um único resultado. Nomes, títulos ou outros campos únicos que distinguem entre vários jogos funcionam melhor. Se os campos consistem em valores repetitivos, as sugestões consistem em resultados idênticos e um utilizador não saberá em que clicar.
 
-Para satisfazer ambas as experiências de pesquisa como você, adicione todos os campos que você precisa para preencher automaticamente, mas depois use **$select** , **$top** , **$filter** , e **searchFields** para controlar resultados para sugestões.
+Para satisfazer ambas as experiências de pesquisa como você, adicione todos os campos que você precisa para preencher automaticamente, mas depois use **$select**, **$top**, **$filter**, e **searchFields** para controlar resultados para sugestões.
 
 ### <a name="choose-analyzers"></a>Escolha analisadores
 
@@ -120,20 +120,20 @@ Na API REST, adicione sugestivos através do [Índice de Criação](/rest/api/se
 Em C#, defina um [objeto SearchSuggester](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` é uma coleção de um objeto SearchIndex, mas só pode levar um item. 
 
 ```csharp
-private static void CreateIndex(string indexName, SearchIndexClient indexClient)
+private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
 {
-    FieldBuilder fieldBuilder = new FieldBuilder();
-    var searchFields = fieldBuilder.Build(typeof(Hotel));
+    var definition = new SearchIndex()
+    {
+        FieldBuilder builder = new FieldBuilder();
+        Fields = builder.Build(typeof(Hotel);
+        Suggesters = new List<Suggester>() {new Suggester()
+            {
+                Name = "sg",
+                SourceFields = new string[] { "HotelName", "Category" }
+            }}
+    }
 
-    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
-
-    var definition = new SearchIndex(indexName, searchFields);
-
-    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
-
-    definition.Suggesters.Add(suggester);
-
-    indexClient.CreateOrUpdateIndex(definition);
+    await indexClient.CreateIndexAsync(definition);
 }
 ```
 

@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b3256591c0aa2536fd42bcdbb2ef339fc1d5c48
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3ceead297ea726e256d806c08c22810b39296793
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356812"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917176"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Como utilizar Azure.Search.Documents numa aplicação C# .NET
 
@@ -231,6 +231,22 @@ private static void WriteDocuments(SearchResults<Hotel> searchResults)
 }
 ```
 
+Uma abordagem alternativa é adicionar campos a um índice diretamente. O exemplo que se segue mostra apenas alguns campos.
+
+   ```csharp
+    SearchIndex index = new SearchIndex(indexName)
+    {
+        Fields =
+            {
+                new SimpleField("hotelId", SearchFieldDataType.String) { IsKey = true, IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelName") { IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelCategory") { IsFilterable = true, IsSortable = true },
+                new SimpleField("baseRate", SearchFieldDataType.Int32) { IsFilterable = true, IsSortable = true },
+                new SimpleField("lastRenovationDate", SearchFieldDataType.DateTimeOffset) { IsFilterable = true, IsSortable = true }
+            }
+    };
+   ```
+
 ### <a name="field-definitions"></a>Definições de campo
 
 O seu modelo de dados em .NET e o seu esquema de índice correspondente devem suportar a experiência de pesquisa que gostaria de dar ao seu utilizador final. Cada objeto de nível superior em .NET, como um documento de pesquisa num índice de pesquisa, corresponde a um resultado de pesquisa que apresentaria na sua interface de utilizador. Por exemplo, numa aplicação de pesquisa de hotel os seus utilizadores finais podem querer pesquisar pelo nome do hotel, funcionalidades do hotel ou as características de um quarto em particular. 
@@ -436,7 +452,7 @@ UploadDocuments(searchClient);
 
 ## <a name="run-queries"></a>Executar consultas
 
-Em primeiro lugar, crie um `SearchClient` que leia a chave de pesquisa e consulta da API a partir de **appsettings.jsem** :
+Em primeiro lugar, crie um `SearchClient` que leia a chave de pesquisa e consulta da API a partir de **appsettings.jsem**:
 
 ```csharp
 private static SearchClient CreateSearchClientForQueries(string indexName, IConfigurationRoot configuration)
@@ -621,7 +637,7 @@ WriteDocuments(results);
 
 Esta secção conclui esta introdução ao .NET SDK, mas não pares aqui. A próxima secção sugere recursos adicionais para aprender mais sobre programação com Azure Cognitive Search.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + Consulte a documentação de referência da API para [Azure.Search.Documents](/dotnet/api/azure.search.documents) e [REST API](/rest/api/searchservice/)
 

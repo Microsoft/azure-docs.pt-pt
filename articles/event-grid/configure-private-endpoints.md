@@ -2,14 +2,14 @@
 title: Configurar pontos finais privados para tópicos ou domínios da Grelha de Eventos Azure
 description: Este artigo descreve como configurar pontos finais privados para tópicos ou domínios da Grelha de Eventos Azure.
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8e0cfc0a850ae15ea6d03ff6ca8b90003adbfc9
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324149"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916989"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurar pontos finais privados para tópicos ou domínios da Grelha de Eventos Azure
 Você pode usar [pontos finais privados](../private-link/private-endpoint-overview.md) para permitir ingresss de eventos diretamente da sua rede virtual para seus tópicos e domínios de forma segura através de um [link privado](../private-link/private-link-overview.md) sem passar pela internet pública. O ponto final privado utiliza um endereço IP a partir do espaço de endereço VNet para o seu tópico ou domínio. Para obter mais informações conceptuais, consulte [a segurança da rede.](network-security.md)
@@ -31,7 +31,7 @@ Esta secção mostra-lhe como usar o portal Azure para criar um ponto final priv
     2. Selecione um **grupo de recursos Azure** para o ponto final privado. 
     3. Insira um **nome** para o ponto final. 
     4. Selecione a **região** para o ponto final. O seu ponto final privado deve estar na mesma região que a sua rede virtual, mas pode numa região diferente do recurso de ligação privada (neste exemplo, um tópico de grelha de eventos). 
-    5. Em seguida, selecione **Seguinte: O ** botão >de recursos na parte inferior da página. 
+    5. Em seguida, selecione **Seguinte: O** botão >de recursos na parte inferior da página. 
 
       ![Ponto final privado - página básica](./media/configure-private-endpoints/basics-page.png)
 3. Na página **de Recursos,** siga estes passos: 
@@ -68,7 +68,7 @@ Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recur
 
 Existem quatro estados de provisionamento:
 
-| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
+| Ação do serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
 | Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário de recursos link privado. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
@@ -81,7 +81,7 @@ As seguintes secções mostram-lhe como aprovar ou rejeitar uma ligação de pon
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Na barra de pesquisa, digite **tópicos de Grade de Eventos** ou **domínios de Grade de Eventos**.
 1. Selecione o **tópico** ou **domínio** que pretende gerir.
-1. Selecione o **separador 'Rede'.**
+1. Selecione o separador **Rede**.
 1. Se houver alguma ligação pendente, verá uma ligação listada com **pendente** no estado de provisionamento. 
 
 ### <a name="to-approve-a-private-endpoint"></a>Para aprovar um ponto final privado
@@ -108,7 +108,7 @@ Pode rejeitar um ponto final privado que esteja no estado pendente ou aprovado. 
 
 1. Selecione o **ponto final privado** que pretende rejeitar e selecione **Rejeitar** na barra de ferramentas.
 
-    ![Screenshot que mostra as ligações "Networking - Private endpoint "(pré-visualização)" com "Rejeitar" selecionadas.](./media/configure-private-endpoints/reject-button.png)
+    ![Screenshot que mostra as ligações "Networking - Private endpoint" com "Rejeitar" selecionadas.](./media/configure-private-endpoints/reject-button.png)
 1. Na caixa de diálogo de **ligação Rejeitar,** introduza um comentário (opcional) e selecione **Sim**. 
 
     ![Ponto final privado - rejeitar](./media/configure-private-endpoints/reject.png)
@@ -121,7 +121,7 @@ Pode rejeitar um ponto final privado que esteja no estado pendente ou aprovado. 
 
 
 ## <a name="use-azure-cli"></a>Utilizar a CLI do Azure
-Para criar um ponto final privado, utilize o método [de criação de ponto final privado da rede AZ,](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) como mostra o seguinte exemplo:
+Para criar um ponto final privado, utilize o método [de criação de ponto final privado da rede AZ,](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) como mostra o seguinte exemplo:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -135,12 +135,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Para descrições dos parâmetros utilizados no exemplo, consulte a documentação para [a criação de pontos de terminação privadas da rede AZ](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Alguns pontos a notar neste exemplo são: 
+Para descrições dos parâmetros utilizados no exemplo, consulte a documentação para [a criação de pontos de terminação privadas da rede AZ](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Alguns pontos a notar neste exemplo são: 
 
 - Para `private-connection-resource-id` , especificar o ID de recurso do **tópico** ou **domínio**. O exemplo anterior utiliza o tipo: tópico.
 - para `group-ids` especificar `topic` ou . `domain` . No exemplo anterior, `topic` é usado. 
 
-Para eliminar um ponto final privado, utilize o método [de eliminação do ponto de terminação privado da rede AZ,](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) tal como mostrado no seguinte exemplo:
+Para eliminar um ponto final privado, utilize o método [de eliminação do ponto de terminação privado da rede AZ,](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) tal como mostrado no seguinte exemplo:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
@@ -165,7 +165,7 @@ az extension add -n eventgrid
 ```
 
 ### <a name="create-a-private-endpoint"></a>Criar um ponto final privado
-Para criar um ponto final privado, utilize o método [de criação de ponto final privado da rede AZ,](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) como mostra o seguinte exemplo:
+Para criar um ponto final privado, utilize o método [de criação de ponto final privado da rede AZ,](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) como mostra o seguinte exemplo:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -179,12 +179,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Para descrições dos parâmetros utilizados no exemplo, consulte a documentação para [a criação de pontos de terminação privadas da rede AZ](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Alguns pontos a notar neste exemplo são: 
+Para descrições dos parâmetros utilizados no exemplo, consulte a documentação para [a criação de pontos de terminação privadas da rede AZ](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Alguns pontos a notar neste exemplo são: 
 
 - Para `private-connection-resource-id` , especificar o ID de recurso do **tópico** ou **domínio**. O exemplo anterior utiliza o tipo: tópico.
 - para `group-ids` especificar `topic` ou . `domain` . No exemplo anterior, `topic` é usado. 
 
-Para eliminar um ponto final privado, utilize o método [de eliminação do ponto de terminação privado da rede AZ,](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) tal como mostrado no seguinte exemplo:
+Para eliminar um ponto final privado, utilize o método [de eliminação do ponto de terminação privado da rede AZ,](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) tal como mostrado no seguinte exemplo:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>

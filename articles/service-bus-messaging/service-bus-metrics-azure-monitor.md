@@ -2,13 +2,13 @@
 title: Métricas de autocarro da Azure Service em Azure Monitor Microsoft Docs
 description: Este artigo explica como usar o Azure Monitor para monitorizar as entidades de Service Bus (filas, tópicos e subscrições).
 ms.topic: article
-ms.date: 09/30/2020
-ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598130"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916887"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de ônibus de serviço Azure em Azure Monitor
 
@@ -23,7 +23,7 @@ O Azure Monitor fornece interfaces de utilizador unificadas para monitorização
 
 O Azure Monitor fornece várias formas de aceder às métricas. Pode aceder às métricas através do [portal Azure,](https://portal.azure.com)ou utilizar as APIs do Monitor Azure (REST e .NET) e analisar soluções como registos do Azure Monitor e Centros de Eventos. Para obter mais informações, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
 
-As métricas são ativadas por padrão, e pode aceder aos últimos 30 dias de dados. Se precisar de reter dados por um período de tempo mais longo, pode arquivar dados de métricas numa conta de Armazenamento Azure. Este valor está configurado em [definições de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) no Azure Monitor.
+As métricas são ativadas por padrão, e pode aceder aos últimos 30 dias de dados. Se precisar de manter os dados por um período mais longo, pode arquivar dados de métricas numa conta de Armazenamento Azure. Este valor está configurado em [definições de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) no Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Métricas de acesso no portal
 
@@ -31,7 +31,7 @@ Pode monitorizar métricas ao longo do tempo no [portal Azure](https://portal.az
 
 ![Screenshot da página Monitor - Métricas (pré-visualização) no portal Azure.][1]
 
-Também pode aceder às métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nome e, em seguida, clique em **Métricas**. Para apresentar métricas filtradas no âmbito da entidade, selecione a entidade e, em seguida, clique em **Métricas**.
+Também pode aceder às métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nome e, em seguida, selecione **Métricas**. Para apresentar métricas filtradas no âmbito da entidade, selecione a entidade e, em seguida, selecione **Métricas**.
 
 ![Screenshot da página Monitor - Métricas (pré-visualização) filtrada no âmbito da entidade.][2]
 
@@ -41,7 +41,7 @@ Para as métricas que suportam dimensões, deve filtrar com o valor de dimensão
 
 As métricas e alertas no Monitor Azure são carregados por alerta. Estas cargas devem estar disponíveis no portal quando o alerta for configurado e antes de ser guardado. 
 
-Soluções adicionais que ingerem dados de métricas são faturadas diretamente por essas soluções. Por exemplo, é faturado pelo Azure Storage se arquivar dados de métricas numa conta de Armazenamento Azure. Também é faturado pelo Log Analytics se transmitir dados de métricas para Registar Analytics para análise avançada.
+Soluções adicionais que ingerem dados de métricas são faturadas diretamente por essas soluções. Por exemplo, é faturado pelo Azure Storage se arquivar dados de métricas numa conta de Armazenamento Azure. também é faturado pelo Log Analytics se transmitir dados de métricas para Registar Analytics para análise avançada.
 
 As seguintes métricas dão-lhe uma visão geral da saúde do seu serviço. 
 
@@ -80,20 +80,18 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 | Mensagens Ativas| Contagem de mensagens ativas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: Nome da entidade |
 | Mensagens com letras mortas| Contagem de mensagens com letras mortas numa fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/>Dimensão: Nome da entidade |
 | Mensagens agendadas| Contagem de mensagens programadas numa fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média  <br/> Dimensão: Nome da entidade |
+| Mensagens Completas| Contagem de mensagens completas numa fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: Nome da entidade |
+| Mensagens Abandonadas| Contagem de mensagens abandonadas numa fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: Nome da entidade |
 | Tamanho | Tamanho de uma entidade (fila ou tópico) em bytes. <br/><br/>Unidade: Contagem <br/>Tipo de agregação: Média <br/>Dimensão: Nome da entidade | 
 
 > [!NOTE]
-> Os valores para as seguintes métricas são valores pontuais. As mensagens recebidas que foram consumidas imediatamente após esse ponto-a-tempo podem não ser refletidas nestas métricas. 
-> - Mensagens
-> - Mensagens ativas 
-> - Mensagens com letras mortas 
-> - Mensagens agendadas 
+> Os valores das mensagens, ativas, com letras mortas, programadas, completadas e abandonadas são valores pontuais. As mensagens recebidas que foram consumidas imediatamente após esse ponto-a-tempo podem não ser refletidas nestas métricas. 
 
 ## <a name="connection-metrics"></a>Métricas de ligação
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Ligações Ativas|O número de ligações ativas num espaço de nome, bem como numa entidade no espaço de nomes. O valor desta métrica é um valor pontual. As ligações que estavam ativas imediatamente após esse ponto-a-tempo podem não ser refletidas na métrica.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
+|Ligações Ativas|O número de ligações ativas num espaço de nome e numa entidade no espaço de nomes. O valor desta métrica é um valor pontual. As ligações que estavam ativas imediatamente após esse ponto-a-tempo podem não ser refletidas na métrica.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
 |Ligações Abertas |O número de ligações abertas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
 |Ligações Fechadas |O número de ligações fechadas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
 
@@ -113,7 +111,7 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 
 ## <a name="metrics-dimensions"></a>Dimensões das métricas
 
-A Azure Service Bus suporta as seguintes dimensões para métricas no Azure Monitor. Adicionar dimensões às suas métricas é opcional. Se não adicionar dimensões, as métricas são especificadas ao nível do espaço de identificação. 
+A Azure Service Bus suporta as seguintes dimensões para métricas no Azure Monitor. Adicionar dimensões às suas métricas é opcional. Se não adicionar dimensões, as métricas são especificadas ao nível do espaço de nome. 
 
 |Nome de dimensão|Descrição|
 | ------------------- | ----------------- |
@@ -131,7 +129,7 @@ A Azure Service Bus suporta as seguintes dimensões para métricas no Azure Moni
     4. Selecione **Concluído**. 
     
         ![Selecionar espaço de nomes](./media/service-bus-metrics-azure-monitor/select-namespace.png)
-1. **Selecione Adicionar critérios**e faça as seguintes ações na página lógica de **sinal de configuração:**
+1. **Selecione Adicionar critérios** e faça as seguintes ações na página lógica de **sinal de configuração:**
     1. Selecione **métricas** para **o tipo de sinal**. 
     2. Selecione um sinal. Por exemplo: **Erros de serviço**. 
 

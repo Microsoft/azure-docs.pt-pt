@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: a02fa7d9f656ed3b6e61aab1f42e2a3ffca131a7
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490275"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917261"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -65,7 +65,7 @@ Todos os recipientes criados dentro de uma base de dados com produção a forera
 
 Se a carga de trabalho numa partição lógica consumir mais do que a produção atribuída a uma partição lógica específica, as suas operações são limitadas à taxa. Quando ocorre a limitação da taxa, pode aumentar a produção de toda a base de dados ou voltar a tentar as operações. Para obter mais informações sobre partição, consulte [as divisórias lógicas.](partitioning-overview.md)
 
-Os contentores numa base de dados de débito partilhado partilham o débito (RU/s) alocado a essa base de dados. Pode ter até quatro contentores com um mínimo de 400 RU/s na base de dados. Com a produção normalizada (manual), cada novo recipiente após os quatro primeiros exigirá um mínimo adicional de 100 RU/s. Por exemplo, se tiver uma base de dados de débito partilhado com oito contentores, o mínimo de RU/s na base de dados será de 800 RU/s. Com a produção de autoescala a provisionada, pode ter até 25 contentores numa base de dados com max 4000 RU/s (balanças entre 400 - 4000 RU/s).
+Os contentores numa base de dados de débito partilhado partilham o débito (RU/s) alocado a essa base de dados. Com a produção normalizada (manual), pode ter até 25 contentores com um mínimo de 400 RU/s na base de dados. Com a produção de autoescala a provisionada, pode ter até 25 contentores numa base de dados com max 4000 RU/s (balanças entre 400 - 4000 RU/s).
 
 > [!NOTE]
 > Em fevereiro de 2020, introduzimos uma alteração que permite ter um máximo de 25 contentores numa base de dados de produção partilhada, o que permite melhor a partilha de produção através dos contentores. Após os primeiros 25 contentores, só pode adicionar mais contentores à base de dados se forem [a provisionados com produção dedicada](#set-throughput-on-a-database-and-a-container), que é separada da produção partilhada da base de dados.<br>
@@ -111,7 +111,6 @@ O ru/s mínimo real pode variar dependendo da configuração da sua conta. Mas g
 * 400 RU/s 
 * Armazenamento atual em GB * 10 RU/s (a menos que o seu recipiente ou base de dados contenha mais de 1 TB de dados, consulte o nosso [programa de alto armazenamento/baixo rendimento)](#high-storage-low-throughput-program)
 * RU/s mais elevados a provisionados na base de dados ou no contentor / 100
-* Contagem de contentores * 100 RU/s (apenas base de dados de produção partilhada)
 
 ### <a name="changing-the-provisioned-throughput"></a>Alteração da produção a provisionada
 
@@ -147,8 +146,8 @@ Este quadro mostra uma comparação entre a produção padrão de provisionament
 
 |**Parâmetro**  |**Produção padrão (manual) numa base de dados**  |**Produção padrão (manual) num recipiente**|**Produção de escala automática numa base de dados** | **Produção de escala automática num contentor**|
 |---------|---------|---------|---------|---------|
-|Ponto de entrada (ru/s mínimo) |400 RU/s. Após os quatro primeiros contentores, cada recipiente adicional requer um mínimo de 100 RU/s</li> |400| Autoescala entre 400 - 4000 RU/s. Pode ter até 25 contentores sem RU/s mínimo por recipiente</li> | Autoescala entre 400 - 4000 RU/s.|
-|RU/s mínimo por contentor|100|400|--|Autoescala entre 400 - 4000 RU/s|
+|Ponto de entrada (ru/s mínimo) |400 RU/s. Pode ter até 25 recipientes sem ru/s mínimo por recipiente.</li> |400| Autoescala entre 400 - 4000 RU/s. Pode ter até 25 recipientes sem ru/s mínimo por recipiente.</li> | Autoescala entre 400 - 4000 RU/s.|
+|RU/s mínimo por contentor|--|400|--|Autoescala entre 400 - 4000 RU/s|
 |RUs máximos|Ilimitado, na base de dados.|Ilimitado, no contentor.|Ilimitado, na base de dados.|Ilimitado, no contentor.
 |RUs atribuídos ou disponíveis para um recipiente específico|Sem garantias. As RUs atribuídas a um determinado contentor dependem das propriedades. As propriedades podem ser a escolha das chaves de partição dos contentores que partilham a produção, a distribuição da carga de trabalho e o número de contentores. |Todas as RUs configuradas no recipiente são exclusivamente reservadas ao recipiente.|Sem garantias. As RUs atribuídas a um determinado contentor dependem das propriedades. As propriedades podem ser a escolha das chaves de partição dos contentores que partilham a produção, a distribuição da carga de trabalho e o número de contentores. |Todas as RUs configuradas no recipiente são exclusivamente reservadas ao recipiente.|
 |Armazenamento máximo para um recipiente|Ilimitado.|Ilimitado|Ilimitado|Ilimitado|

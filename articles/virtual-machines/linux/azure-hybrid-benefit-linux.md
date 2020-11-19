@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: a26a618d4f1bd9900136561d95c21c1ecbaadfaa
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516446"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916479"
 ---
-# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Antevisão pública: Azure Hybrid Benefit – como se aplica às máquinas virtuais Linux
+# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure Hybrid Benefit – como se aplica às máquinas virtuais Linux
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O Azure Hybrid Benefit permite-lhe migrar mais facilmente as suas máquinas virtuais Red Hat Enterprise Linux (RHEL) e SUSE Linux Enterprise Server (SLES) para Azure utilizando a sua própria subscrição de software Red Hat ou SUSE pré-existente. Com este benefício, você só paga pelos custos de infraestrutura do seu VM porque a taxa de software é coberta pela sua subscrição RHEL ou SLES. O benefício é aplicável a todas as imagens pay-as-you-go (PAYG) da RHEL e do SLES Marketplace.
 
 > [!IMPORTANT]
-> A Azure Hybrid Benefit for Linux VMs está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Hybrid Benefit for Linux VMs já está disponível para o público
+
 
 ## <a name="benefit-description"></a>Descrição de benefícios
 
@@ -44,12 +44,6 @@ A Azure Hybrid Benefit está disponível para todas as imagens RHEL e SLES Marke
 Instâncias Reservadas, Anfitriões Dedicados e Benefícios Híbridos SQL não são elegíveis para o Benefício Híbrido Azure se já estiver a utilizar o benefício com os VMs Linux.
 
 ## <a name="how-to-get-started"></a>Como começar
-
-A Azure Hybrid Benefit está atualmente em fase de pré-visualização para Os VMs Do Linux. Assim que tiver acesso à pré-visualização, poderá ativar o benefício utilizando o Azure CLI.
-
-### <a name="public-preview"></a>Pré-visualização pública
-
-A Azure Hybrid Benefit (para Linux) está agora em fase de pré-visualização pública. Pode utilizar os passos abaixo para permitir o benefício para as distribuições de Chapéu Vermelho e SUSE. 
 
 ### <a name="red-hat-customers"></a>Clientes da Red Hat
 

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: df4faf367951402914abb03285498e0da6f3105f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9a2bda0a526c307ae17d8415f6f24423ddf51b63
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337681"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917771"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Corretor de ID Azure HDInsight (HIB)
 
@@ -137,6 +137,25 @@ curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application
 ``` 
 
 Para a utilização da Beeline e da Livy, também pode seguir os códigos de amostras fornecidos [aqui](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) para configurar o seu cliente para usar o OAuth e ligar-se ao cluster.
+
+## <a name="faq"></a>FAQ
+### <a name="what-app-is-created-by-hdinsight-in-aad"></a>Que aplicação é criada pela HDInsight em AAD?
+Para cada cluster, uma aplicação de terceiros será registada em AAD com o cluster uri como o identifierUri https://clustername.azurehdinsight.net (como).
+
+### <a name="why-are-users-prompted-for-consent-before-using-hib-enabled-clusters"></a>Por que os utilizadores são solicitados a pedir consentimento antes de usar clusters hib habilitados?
+No AAD, é necessário o consentimento para todas as aplicações de terceiros antes de poder autenticar os utilizadores ou aceder aos dados.
+
+### <a name="can-the-consent-be-approved-programatically"></a>O consentimento pode ser aprovado de forma programaticamente?
+Microsoft Graph api permite automatizar o consentimento, ver a documentação da [API](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) A sequência para automatizar o consentimento é:
+
+* Registe uma aplicação e conceda a Aplicação.ReadWrite.Todas as permissões à aplicação, para aceder ao Microsoft Graph
+* Após a criação de um cluster, consulta para a app cluster com base no identificador uri
+* Registar consentimento para a app
+
+Quando o cluster é eliminado, o HDInsight elimina a aplicação e não há necessidade de limpar qualquer consentimento.
+
+ 
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

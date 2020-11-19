@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 11/15/2020
-ms.openlocfilehash: 48bd32569b7eb7fa09f83f81190bf96baa42fae0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.date: 11/19/2020
+ms.openlocfilehash: a79055a77ec73ce2b267bb4f16fa91f37e22ea75
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659986"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916785"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configure um IR auto-hospedado como representante de um Azure-SSIS IR na Azure Data Factory
 
@@ -175,8 +175,10 @@ Para permitir que os seus componentes personalizados/3º partidos acedam a dados
 
 1. Instale os seus componentes personalizados/3º partidos direcionados para o SQL Server 2017 no Azure-SSIS IR através [de configurações personalizadas standard/express](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
 
-1. Crie as seguintes teclas de registo DTSPath em IR auto-hospedado se já não existirem: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` e `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` .
- 
+1. Crie as seguintes teclas de registo DTSPath em IR auto-hospedado se já não existirem:
+   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` definido para `C:\Program Files\Microsoft SQL Server\140\DTS\`
+   1. `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` definido para `C:\Program Files (x86)\Microsoft SQL Server\140\DTS\`
+   
 1. Instale os seus componentes personalizados/3º partidos direcionados para o SQL Server 2017 no IR auto-hospedado sob o DTSPath acima e certifique-se de que o seu processo de instalação:
 
    1. Cria, `<DTSPath>` `<DTSPath>/Connections` e `<DTSPath>/PipelineComponents` `<DTSPath>/UpgradeMappings` pastas se já não existirem.
@@ -185,7 +187,7 @@ Para permitir que os seus componentes personalizados/3º partidos acedam a dados
    
    1. Instala todos os conjuntos referenciados pelos conjuntos de componentes personalizados/3º partidos na cache de montagem global (GAC).
 
-Aqui está um [exemplo de componente de 3º partido](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir) que usa uma configuração expressa personalizada e IR auto-hospedado como um proxy para Azure-SSIS IR.
+Aqui estão exemplos dos nossos parceiros, [Theobald Software](https://kb.theobald-software.com/xtract-is/XIS-for-Azure-SHIR) e [Aecorsoft,](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir)que adaptaram os seus componentes para usar a nossa configuração personalizada expressa e o IR auto-hospedado como proxy para a Azure-SSIS IR.
 
 ## <a name="enforce-tls-12"></a>Impor TLS 1.2
 
@@ -201,6 +203,6 @@ Se precisar de utilizar uma encriptação forte/protocolo de rede mais seguro (T
 - A alteração dos valores variáveis do objeto tipo em tarefas de encenação no local não será refletida noutras tarefas.
 - *O modo de aplicação de parâmetros* na Fonte OLEDB não é atualmente suportado. Como solução alternativa, utilize o *Comando SQL from Variable* como o *AccessMode* e use *a Expressão* para inserir as suas variáveis/parâmetros num comando SQL. Como ilustração, consulte o pacote *ParameterMappingSample.dtsx* que pode ser encontrado na pasta *SelfHostedIRProxy/Limitations* do nosso recipiente de pré-visualização pública. Utilizando o Azure Storage Explorer, pode ligar-se ao nosso recipiente de pré-visualização público introduzindo o SAS URI acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar o seu IR auto-hospedado como um representante para o seu Azure-SSIS IR, pode implementar e executar os seus pacotes para aceder aos dados no local como executar atividades do Pacote SSIS em pipelines data Factory. Para saber como, consulte [os pacotes Run SSIS como executar atividades de pacote SSIS em pipelines data factory](./how-to-invoke-ssis-package-ssis-activity.md).

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660292"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916496"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Resolução de problemas Azure partilha problemas de desempenho
 
@@ -196,7 +196,7 @@ Alterações recentes nas definições de configuração de config multicanais S
 
 ### <a name="cause"></a>Causa  
 
-A notificação de alteração de ficheiros de um número elevado nas ações de ficheiros pode resultar em elevadas latências significativas. Isto ocorre tipicamente com sites hospedados em partilhas de ficheiros com estrutura de diretório aninhado profundo. Um cenário típico é a aplicação web hospedada do IIS onde a notificação de alteração de ficheiros é configurada para cada diretório na configuração predefinida. Cada alteração (ReadDirectoryChangesW) sobre a ação que o cliente SMB está registado para empurrar uma notificação de alteração do serviço de ficheiros para o cliente, que requer recursos do sistema, e emite piora com o número de alterações. Isto pode causar estrangulamento de partilha e, assim, resultar em maior latência do lado do cliente. 
+A notificação de alteração de ficheiros de um número elevado nas ações de ficheiros pode resultar em elevadas latências significativas. Isto ocorre tipicamente com sites hospedados em partilhas de ficheiros com estrutura de diretório aninhado profundo. Um cenário típico é a aplicação web hospedada do IIS onde a notificação de alteração de ficheiros é configurada para cada diretório na configuração predefinida. Cada alteração[(ReadDirectoryChangesW)](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)sobre a ação que o cliente SMB está registado para empurrar uma notificação de alteração do serviço de ficheiros para o cliente, que requer recursos do sistema, e emite piora com o número de alterações. Isto pode causar estrangulamento de partilha e, assim, resultar em maior latência do lado do cliente. 
 
 Para confirmar, pode utilizar a Azure Metrics no portal - 
 
@@ -213,10 +213,8 @@ Para confirmar, pode utilizar a Azure Metrics no portal -
     - Atualize o intervalo de votação do IIS Worker Process (W3WP) para 0, definindo `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` o seu registo e reinicie o processo W3WP. Para saber mais sobre esta definição, consulte [as teclas de registo comuns que são utilizadas por muitas partes do IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
 - Aumente a frequência do intervalo de votação da notificação de alteração de ficheiros para reduzir o volume.
     - Atualize o intervalo de votação do processo do trabalhador W3WP para um valor mais elevado (por exemplo, 10 mins ou 30mins) com base na sua exigência. Desace no `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [seu registo](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) e reinicie o processo W3WP.
-- Se o diretório físico mapeado do seu site tiver uma estrutura de diretório aninhada, pode tentar limitar o âmbito da notificação de alteração de ficheiros para reduzir o volume de notificação.
-    - Por padrão, o IIS utiliza a configuração a partir de ficheiros Web.config no diretório físico para o qual o diretório virtual está mapeado, bem como em quaisquer diretórios infantis nesse diretório físico. Se não pretender utilizar ficheiros Web.config em diretórios infantis, especifique falso para o atributo allowSubDirConfig no diretório virtual. Mais detalhes podem ser encontrados [aqui.](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories) 
-
-Definir o diretório virtual do IIS "allowSubDirConfig" definindo Web.Config para falso para excluir do âmbito de aplicação os diretórios físicos de crianças mapeados.  
+- Se o diretório físico mapeado do seu site tiver uma estrutura de diretório aninhada, pode tentar limitar o âmbito da notificação de alteração de ficheiros para reduzir o volume de notificação. Por padrão, o IIS utiliza a configuração a partir de ficheiros Web.config no diretório físico para o qual o diretório virtual está mapeado, bem como em quaisquer diretórios infantis nesse diretório físico. Se não pretender utilizar ficheiros Web.config em diretórios infantis, especifique falso para o atributo allowSubDirConfig no diretório virtual. Mais detalhes podem ser encontrados [aqui.](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories) 
+    - Definir o diretório virtual do IIS "permitir que o SuubDirConfig" se ajuste em Web.Config *falso* para excluir do âmbito de aplicação os diretórios físicos de crianças mapeados.  
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Como criar um alerta se uma partilha de ficheiros for acelerada
 
@@ -286,7 +284,7 @@ Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a 
 
 Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 - [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)  
 - [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)  
 - [FAQ sobre Ficheiros do Azure](storage-files-faq.md)

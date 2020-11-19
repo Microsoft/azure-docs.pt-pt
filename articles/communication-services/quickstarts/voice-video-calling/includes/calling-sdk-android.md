@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 1f71c01d53a89ce1b459826689eb5b2e4899b3a2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c015561e66d77e6df352e601bf1a67da5996d4d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886712"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915329"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -153,7 +153,7 @@ As notificações de push mobile são as notificações pop-up que vê nos dispo
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Uma conta Firebase criada com mensagens cloud (FCM) ativada e com o seu serviço de mensagens cloud firebase ligado a uma instância do Azure Notification Hub. Consulte [as notificações dos Serviços de Comunicação](https://docs.microsoft.com/azure/communication-services/concepts/notifications) para obter mais informações.
+Uma conta Firebase criada com mensagens cloud (FCM) ativada e com o seu serviço de mensagens cloud firebase ligado a uma instância do Azure Notification Hub. Consulte [as notificações dos Serviços de Comunicação](../../../concepts/notifications.md) para obter mais informações.
 Além disso, o tutorial assume que está a usar a versão 3.6 ou superior do Android Studio para construir a sua aplicação.
 
 É necessário um conjunto de permissões para a aplicação Android para poder receber mensagens de notificações de Mensagens Cloud Firebase. No seu `AndroidManifest.xml` ficheiro, adicione o seguinte conjunto de permissões logo após o *manifesto<...>* ou abaixo da *</application>* etiqueta

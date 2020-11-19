@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 503d3d5ed9b099e01a88ee40ef80e88105beb340
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491822"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917737"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,26 +41,48 @@ Pode provistirá a produção a nível de contentores ou a nível de base de dad
 > [!NOTE]
 > Para conhecer as melhores práticas de gestão de cargas de trabalho que tenham chaves de partição que requerem limites mais elevados para armazenamento ou produção, consulte [Criar uma chave de partição sintética](synthetic-partition-keys.md).
 
-Um recipiente Cosmos (ou base de dados de produção partilhada) deve ter um rendimento mínimo de 400 RU/s. À medida que o recipiente cresce, a produção mínima suportada também depende dos seguintes fatores:
+### <a name="minimum-throughput-limits"></a>Limites mínimos de produção
 
-* A produção máxima alguma vez a provisionada no contentor. Por exemplo, se a sua produção fosse aumentada para 50.000 RU/s, então a produção mais baixa possível seria 500 RU/s.
-* O armazenamento atual em GB no recipiente. Por exemplo, se o seu recipiente tiver 100 GB de armazenamento, então a produção mais baixa possível seria 1000 RU/s. **Nota:** se o seu contentor ou base de dados contiver mais de 1 TB de dados, a sua conta poderá ser elegível para o nosso [programa de "alto armazenamento/baixa produção".](set-throughput.md#high-storage-low-throughput-program)
-* O rendimento mínimo numa base de dados de produção partilhada também depende do número total de contentores que já criou numa base de dados de produção partilhada, medida a 100 RU/s por contentor. Por exemplo, se criou cinco contentores dentro de uma base de dados de produção partilhada, então a produção deve ser de pelo menos 500 RU/s.
+Um recipiente Cosmos (ou base de dados de produção partilhada) deve ter um rendimento mínimo de 400 RU/s. À medida que o recipiente cresce, a Cosmos DB requer uma produção mínima para garantir que a base de dados ou o contentor têm recursos suficientes para as suas operações.
 
 A produção atual e mínima de um contentor ou de uma base de dados pode ser recuperada a partir do portal Azure ou dos SDKs. Para obter mais informações, consulte [a produção de provisão em contentores e bases de dados.](set-throughput.md) 
 
-> [!NOTE]
-> Em alguns casos, poderá reduzir a produção para menos de 10%. Utilize a API para obter os RUs mínimos exatos por recipiente.
+O ru/s mínimo real pode variar dependendo da configuração da sua conta. Pode utilizar [as métricas do Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para visualizar o histórico de produção provisitada (RU/s) e armazenamento num recurso. 
+
+#### <a name="minimum-throughput-on-container"></a>Produção mínima no contentor 
+
+Para estimar a produção mínima exigida a um recipiente com produção manual, encontre o máximo de:
+
+* 400 RU/s 
+* Armazenamento atual em GB * 10 RU/s
+* RU/s mais elevado a provisionado no contentor / 100
+
+Exemplo: Suponha que tenha um recipiente a provisionado com 400 RU/s e 0 GB de armazenamento. Aumenta-se a produção para 50.000 RU/s e importa 20 GB de dados. O RU/s mínimo é agora `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Com o tempo, o armazenamento aumenta para 200 GB. O RU/s mínimo é agora `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 RU/s. 
+
+**Nota:** se o seu contentor ou base de dados contiver mais de 1 TB de dados, a sua conta poderá ser elegível para o nosso [programa de "alto armazenamento/baixa produção".](set-throughput.md#high-storage-low-throughput-program)
+
+#### <a name="minimum-throughput-on-shared-throughput-database"></a>Produção mínima na base de dados de produção partilhada 
+Para estimar o rendimento mínimo exigido de uma base de dados de produção partilhada com produção manual, encontre o máximo de:
+
+* 400 RU/s 
+* Armazenamento atual em GB * 10 RU/s
+* RU/s mais elevado a provisionado na base de dados / 100
+* 400 + MAX (Contagem de contentores - 25,0) * 100 RU/s
+
+Exemplo: Suponha que tenha uma base de dados a provisionada com 400 RU/s, 15 GB de armazenamento e 10 contentores. O RU/s mínimo é `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. Se houvesse 30 contentores na base de dados, o RU/s mínimo seria `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 RU/s. 
+
+**Nota:** se o seu contentor ou base de dados contiver mais de 1 TB de dados, a sua conta poderá ser elegível para o nosso [programa de "alto armazenamento/baixa produção".](set-throughput.md#high-storage-low-throughput-program)
 
 Em resumo, aqui estão os limites mínimos previstos para a RU. 
 
 | Recurso | Limite predefinido |
 | --- | --- |
-| RUs mínimos por contentor[(modo dedicado a produção)](account-databases-containers-items.md#azure-cosmos-containers) | 400 |
-| RUs mínimos por base de dados[(modo de produção partilhado)](account-databases-containers-items.md#azure-cosmos-containers) | 400 |
-| RUs mínimos por contentor dentro de uma base de dados de produção partilhada | 100 |
+| RUs mínimos por contentor[(modo dedicado a produção)](databases-containers-items.md#azure-cosmos-containers) | 400 |
+| RUs mínimos por base de dados[(modo de produção partilhado)](databases-containers-items.md#azure-cosmos-containers) | 400 RU/s para os primeiros 25 contentores. Mais 100 RU/s para cada recipiente posteriormente. |
 
-Cosmos DB suporta a escala elástica de produção (RUs) por contentor ou base de dados através dos SDKs ou portal. Cada recipiente pode escalar sincronizadamente e imediatamente dentro de uma escala de 10 a 100 vezes, entre valores mínimos e máximos. Se o valor de produção solicitado estiver fora do alcance, o dimensionamento é realizado de forma assíncronea. A escala assíncrona pode demorar minutos a horas a ser concluída, dependendo do rendimento solicitado e do tamanho do armazenamento de dados no recipiente.  
+Cosmos DB suporta a escala programática de produção (RU/s) por contentor ou base de dados através dos SDKs ou portal.    
+
+Dependendo das atuais configurações de R/S aprovisionadas e de recursos, cada recurso pode escalar sincronizadamente e imediatamente entre o RU/s mínimo até 100x o RU/s mínimo. Se o valor de produção solicitado estiver fora do alcance, o dimensionamento é realizado de forma assíncronea. A escala assíncrona pode demorar minutos a horas a ser concluída, dependendo do rendimento solicitado e do tamanho do armazenamento de dados no recipiente.  
 
 ### <a name="serverless"></a>Sem servidor
 
@@ -172,9 +194,9 @@ A Azure Cosmos DB mantém metadados do sistema para cada conta. Estes metadados 
 
 | Recurso | Limite predefinido |
 | --- | --- |
-|A taxa máxima de recolha cria uma taxa por minuto| 5|
-|Base de dados máxima criar taxa por minuto|   5|
-|Taxa máxima de atualização de produção prevista por minuto| 5|
+|A taxa máxima de recolha cria uma taxa por minuto|    5|
+|Base de dados máxima criar taxa por minuto|    5|
+|Taxa máxima de atualização de produção prevista por minuto|    5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limites para a produção de autoescala prevista
 

@@ -5,29 +5,29 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 84336051fc3d653fbe73f650f2fc2badb2ec58da
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148938"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917533"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança da rede para recursos da Grelha de Eventos Azure
 Este artigo descreve como utilizar as seguintes funcionalidades de segurança com a Azure Event Grid: 
 
 - Etiquetas de serviço para saídas
-- Regras ip firewall para entrada (pré-visualização)
+- Regras ip firewall para entrada
 - Pontos finais privados para entrada
 
 
 ## <a name="service-tags"></a>Etiquetas de serviço
 Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede. Para obter mais informações sobre etiquetas de serviço, consulte [a visão geral das etiquetas de serviço.](../virtual-network/service-tags-overview.md)
 
-Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/network-security-groups-overview.md#security-rules)de rede   ou [Azure Firewall](../firewall/service-tags.md). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da etiqueta de serviço (por exemplo, **AzureEventGrid)** no campo de *origem*ou destino adequado   de uma *destination*   regra, pode permitir ou negar o tráfego para o serviço correspondente.
+Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/network-security-groups-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da etiqueta de serviço (por exemplo, **AzureEventGrid)** no campo de *origem* ou *destino* adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente.
 
 | Etiqueta de serviço | Objetivo | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|
-| AzureEventGrid | Grelha de Eventos Azure. | Ambos | Não | Não |
+| AzureEventGrid | Grelha de Eventos Azure. | Ambos | No | No |
 
 
 ## <a name="ip-firewall"></a>Firewall de IP 
@@ -45,7 +45,7 @@ Você pode usar [pontos finais privados](../private-link/private-endpoint-overvi
 A utilização de pontos finais privados para o seu recurso Desemboado permite-lhe:
 
 - Acesso seguro ao seu tópico ou domínio a partir de um VNet sobre a rede de espinha dorsal da Microsoft em oposição à internet pública.
-- Ligue-se de forma segura a partir de redes no local que se ligam ao VNet utilizando VPN ou ExpressRoutes com o peering privado.
+- Conectar-se de forma segura a partir de redes no local que se conectam ao VNet utilizando VPN ou Express Routes com o peering privado.
 
 Quando cria um ponto final privado para um tópico ou domínio no seu VNet, é enviado um pedido de consentimento para aprovação ao titular do recurso. Se o utilizador que solicita a criação do ponto final privado for também proprietário do recurso, este pedido de consentimento é automaticamente aprovado. Caso contrário, a ligação está em estado **pendente** até ser aprovada. As aplicações no VNet podem ligar-se ao serviço de Grade de Eventos através do ponto final privado de forma perfeita, utilizando as mesmas cordas de ligação e mecanismos de autorização que utilizariam de outra forma. Os proprietários de recursos podem gerir os pedidos de consentimento e os pontos finais privados, através do **separador pontos finais Privados** para o recurso no portal Azure.
 
@@ -83,10 +83,10 @@ A tabela que se segue descreve os vários estados da ligação privada ao ponto 
 
 | Estado de Ligação   |  Publicar com sucesso (Sim/Não) |
 | ------------------ | -------------------------------|
-| Aprovado           | Sim                            |
-| Rejeitado           | Não                             |
-| Pendente            | Não                             |
-| Desligado       | Não                             |
+| Aprovado           | Yes                            |
+| Rejeitado           | No                             |
+| Pendente            | No                             |
+| Desligado       | No                             |
 
 Para que a publicação seja bem sucedida, o estado de ligação de ponto final privado deve ser **aprovado**. Se uma ligação for rejeitada, não pode ser aprovada usando o portal Azure. A única possibilidade é apagar a ligação e criar uma nova.
 

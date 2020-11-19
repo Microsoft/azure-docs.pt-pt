@@ -5,17 +5,17 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0559a9b763d273579373bb57922606f14ff6e6db
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ab13e02c9154dbfc1bd28872f1bd6f993019a604
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94574381"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915552"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma [aplicação de chamada de Serviços de Comunicação em funcionamento.](../getting-started-with-calling.md)
-- Uma [colocação de equipas.](https://docs.microsoft.com/deployoffice/teams-install)
+- Uma [colocação de equipas.](/deployoffice/teams-install)
 
 ## <a name="enable-teams-interoperability"></a>Ativar a Interoperabilidade das Equipas
 
@@ -98,7 +98,7 @@ meetingButton.addEventListener("click", () => {
 
 ## <a name="get-the-meeting-context"></a>Obtenha o contexto de reunião
 
-O contexto de Equipas pode ser recuperado usando APIs de gráfico. Isto é detalhado na [documentação do Gráfico.](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-beta&tabs=http)
+O contexto de Equipas pode ser recuperado usando APIs de gráfico. Isto é detalhado na [documentação do Gráfico.](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta)
 
 Você também pode obter as informações de reunião necessárias da URL **de reunião** de encontro na reunião convidar-se a si mesmo.
 
@@ -115,4 +115,3 @@ Abra o seu navegador e navegue para http://localhost:8080/ . Deverá ver o segui
 :::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Screenshot da aplicação JavaScript concluída.":::
 
 Insira o contexto das Equipas na caixa de texto e pressione o Encontro de Equipas de *Adesão* para se juntar à reunião das Equipas a partir da sua aplicação de Serviços de Comunicação.
-

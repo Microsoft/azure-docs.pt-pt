@@ -2,13 +2,13 @@
 title: Mobilizar recursos para grupos de recursos
 description: Descreve como implementar recursos num modelo de Gestor de Recursos Azure. Mostra como direcionar mais do que um grupo de recursos.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: fd211641d7fcc02a1db154053597497583b21ae5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/18/2020
+ms.openlocfilehash: 5e33f0d505759944ccaf2233aa122b6ab701c91f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681669"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917431"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implementações de grupos de recursos com modelos ARM
 
@@ -83,6 +83,8 @@ Ao ser implantado num grupo de recursos, pode mobilizar recursos para:
 
 * o grupo de recursos-alvo da operação
 * outros grupos de recursos na mesma subscrição ou outras subscrições
+* qualquer subscrição no inquilino
+* o inquilino para o grupo de recursos
 * [recursos de extensão](scope-extension-resources.md) podem ser aplicados a recursos
 
 O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
@@ -95,6 +97,8 @@ Para implantar recursos no recurso-alvo, adicione esses recursos à secção de 
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
 
+Para obter um modelo de exemplo, consulte [Implementar para o grupo de recursos alvo](#deploy-to-target-resource-group).
+
 ### <a name="scope-to-resource-group-in-same-subscription"></a>Âmbito para grupo de recursos na mesma subscrição
 
 Para implementar recursos para um grupo de recursos diferente na mesma subscrição, adicione uma implantação aninhada e inclua a `resourceGroup` propriedade. Se não especificar o ID de subscrição ou o grupo de recursos, o grupo de subscrição e recursos do modelo principal são utilizados. Todos os grupos de recursos devem existir antes de executar a implantação.
@@ -103,13 +107,43 @@ No exemplo seguinte, a implantação aninhada visa um grupo de recursos chamado 
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/same-sub-to-resource-group.json" highlight="9,13":::
 
+Para obter um modelo de exemplo, consulte [Implementar em vários grupos de recursos](#deploy-to-multiple-resource-groups).
+
 ### <a name="scope-to-resource-group-in-different-subscription"></a>Âmbito para grupo de recursos em subscrição diferente
 
 Para implementar recursos para um grupo de recursos numa subscrição diferente, adicione uma implementação aninhada e inclua as `subscriptionId` `resourceGroup` propriedades e propriedades. No exemplo seguinte, a implantação aninhada visa um grupo de recursos chamado `demoResourceGroup` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/different-sub-to-resource-group.json" highlight="9,10,14":::
 
-## <a name="cross-resource-groups"></a>Grupos de recursos cruzados
+Para obter um modelo de exemplo, consulte [Implementar em vários grupos de recursos](#deploy-to-multiple-resource-groups).
+
+### <a name="scope-to-subscription"></a>Âmbito de subscrição
+
+Para implementar recursos para uma subscrição, adicione uma implantação aninhada e inclua a `subscriptionId` propriedade. A subscrição pode ser a subscrição para o grupo de recursos-alvo, ou qualquer outra subscrição no inquilino. Além disso, desa cos um conjunto de `location` imóveis para a implantação aninhada.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-subscription.json" highlight="9,10,14":::
+
+Para obter um modelo de exemplo, consulte [Criar grupo de recursos.](#create-resource-group)
+
+### <a name="scope-to-tenant"></a>Âmbito para inquilino
+
+Pode criar recursos no arrendatário definindo o `scope` conjunto para `/` . O utilizador que implementa o modelo deve ter o [acesso necessário para implantar no arrendatário](deploy-to-tenant.md#required-access).
+
+Pode utilizar uma implantação aninhada `scope` e `location` definida.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
+
+Ou, pode definir o âmbito `/` para alguns tipos de recursos, como grupos de gestão.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
+
+## <a name="deploy-to-target-resource-group"></a>Implementar para o grupo de recursos-alvo
+
+Para implantar recursos no grupo de recursos-alvo, defina esses recursos na secção de **recursos** do modelo. O modelo a seguir cria uma conta de armazenamento no grupo de recursos que é especificado na operação de implantação.
+
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
+
+## <a name="deploy-to-multiple-resource-groups"></a>Implementar em vários grupos de recursos
 
 Pode implantar em mais de um grupo de recursos num único modelo ARM. Para direcionar um grupo de recursos diferente do modelo dos pais, use um [modelo aninhado ou ligado.](linked-templates.md) Dentro do tipo de recurso de implementação, especifique os valores para o ID de subscrição e o grupo de recursos para o qual pretende que o modelo aninhado seja implantado. Os grupos de recursos podem existir em diferentes subscrições.
 
@@ -152,10 +186,10 @@ $secondRG = "secondarygroup"
 $firstSub = "<first-subscription-id>"
 $secondSub = "<second-subscription-id>"
 
-Select-AzSubscription -Subscription $secondSub
+Set-AzContext -Subscription $secondSub
 New-AzResourceGroup -Name $secondRG -Location eastus
 
-Select-AzSubscription -Subscription $firstSub
+Set-AzContext -Subscription $firstSub
 New-AzResourceGroup -Name $firstRG -Location southcentralus
 
 New-AzResourceGroupDeployment `
@@ -207,6 +241,76 @@ az deployment group create \
 ```
 
 ---
+
+## <a name="create-resource-group"></a>Criar grupo de recursos
+
+A partir de uma implementação de grupo de recursos, pode mudar para o nível de uma subscrição e criar um grupo de recursos. O modelo a seguir implanta uma conta de armazenamento no grupo de recursos-alvo e cria um novo grupo de recursos na subscrição especificada.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        },
+        "newResourceGroupName": {
+            "type": "string"
+        },
+        "nestedSubscriptionID": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[variables('storageName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "demoSubDeployment",
+            "location": "westus",
+            "subscriptionId": "[parameters('nestedSubscriptionID')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Resources/resourceGroups",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('newResourceGroupName')]",
+                            "location": "[parameters('location')]",
+                            "properties": {}
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

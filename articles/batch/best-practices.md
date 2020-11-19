@@ -1,18 +1,18 @@
 ---
 title: Melhores práticas
-description: Aprenda as melhores práticas e dicas úteis para desenvolver a sua solução Azure Batch.
-ms.date: 08/12/2020
+description: Aprenda as melhores práticas e dicas úteis para desenvolver as suas soluções Azure Batch.
+ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: dff6668050e45d9179cd985aa10670b56afe5377
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a799aa7de19b9d5b0b8e085252cb172efebd05dc
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913233"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916870"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
-Este artigo discute uma coleção de boas práticas para a utilização do serviço Azure Batch de forma eficaz e eficiente, com base na experiência da vida real com o Batch. Leia este artigo para evitar armadilhas de design, potenciais problemas de desempenho e anti-padrões durante o desenvolvimento e utilização de Batch.
+Este artigo discute uma coleção de boas práticas e dicas úteis para usar eficazmente o serviço Azure Batch, com base em experiências reais com Batch. Estas dicas podem ajudá-lo a melhorar o desempenho e evitar armadilhas de design nas suas soluções Azure Batch.
 
 ## <a name="pools"></a>Conjuntos
 
@@ -41,7 +41,7 @@ Este artigo discute uma coleção de boas práticas para a utilização do servi
 A vida útil da piscina pode variar dependendo do método de alocação e das opções aplicadas à configuração da piscina. As piscinas podem ter uma vida útil arbitrária e um número variado de nós computacional na piscina em qualquer momento. É da sua responsabilidade gerir os nódinhos de computação na piscina, quer explicitamente, quer através de funcionalidades fornecidas pelo serviço (autoescala ou autopool).
 
 - **Mantenha as piscinas frescas.**
-    Deve redimensionar as suas piscinas para zero a cada poucos meses para garantir que obtém as [últimas atualizações de agentes de nó e correções de erros.](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) A sua piscina não receberá atualizações de agentes de nó, a menos que seja recriada ou redimensionada para 0 nós de computação. Antes de recriar ou redimensionar a sua piscina, é aconselhável baixar quaisquer registos de agentes de nó para fins de depuração, conforme discutido na secção [Nodes.](#nodes)
+    Redimensione as suas piscinas para zero a cada poucos meses para garantir que obtém as [últimas atualizações de agentes de nó e correções de erros](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). A sua piscina não receberá atualizações de agentes de nó, a menos que seja recriada ou redimensionada para 0 nós de computação. Antes de recriar ou redimensionar a sua piscina, é aconselhável baixar quaisquer registos de agentes de nó para fins de depuração, conforme discutido na secção [Nodes.](#nodes)
 
 - **Recriação da piscina** Numa nota semelhante, não é aconselhável apagar e recriar as suas piscinas diariamente. Em vez disso, crie uma nova piscina, atualize os seus empregos existentes para apontar para a nova piscina. Uma vez que todas as tarefas tenham sido transferidas para a nova piscina, em seguida, apagar a piscina antiga.
 
@@ -67,7 +67,7 @@ As piscinas podem ser criadas usando imagens de terceiros publicadas no Azure Ma
 
 ### <a name="azure-region-dependency"></a>Dependência da região de Azure
 
-É aconselhável não depender de uma única região de Azure se tiver uma carga de trabalho sensível ao tempo ou de produção. Embora raras, há problemas que podem afetar toda uma região. Por exemplo, se o seu processamento precisar de começar numa hora específica, considere aumentar a piscina na sua região primária *muito antes da hora de início* . Se a balança da piscina falhar, pode voltar a escalar uma piscina numa região de reserva (ou regiões). Piscinas em várias contas em diferentes regiões fornecem uma cópia de segurança pronta e facilmente acessível se algo correr mal com outra piscina. Para mais informações, consulte [Design a sua aplicação para obter alta disponibilidade.](high-availability-disaster-recovery.md)
+É aconselhável não depender de uma única região de Azure se tiver uma carga de trabalho sensível ao tempo ou de produção. Embora raras, há problemas que podem afetar toda uma região. Por exemplo, se o seu processamento precisar de começar numa hora específica, considere aumentar a piscina na sua região primária *muito antes da hora de início*. Se a balança da piscina falhar, pode voltar a escalar uma piscina numa região de reserva (ou regiões). Piscinas em várias contas em diferentes regiões fornecem uma cópia de segurança pronta e facilmente acessível se algo correr mal com outra piscina. Para mais informações, consulte [Design a sua aplicação para obter alta disponibilidade.](high-availability-disaster-recovery.md)
 
 ## <a name="jobs"></a>Tarefas
 
@@ -175,7 +175,7 @@ Para obter mais informações sobre o Gestor de Recursos e modelos, consulte [Qu
 
 ## <a name="connectivity"></a>Conectividade
 
-Reveja as seguintes orientações ao considerar a conectividade nas suas soluções Batch.
+Reveja as seguintes orientações relacionadas com a conectividade nas suas soluções Batch.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Grupos de Segurança de Rede (NSGs) e Rotas Definidas pelo Utilizador (UDRs)
 
@@ -198,6 +198,10 @@ Certifique-se de que os seus clientes de serviço Batch dispõem de políticas d
 
 Normalmente, as máquinas virtuais numa piscina de Lote são acedidas através de endereços IP públicos que podem mudar ao longo da vida útil da piscina. Isto pode dificultar a interação com uma base de dados ou outro serviço externo que limite o acesso a determinados endereços IP. Para garantir que os endereços IP públicos na sua piscina não mudam inesperadamente, pode criar uma piscina usando um conjunto de endereços IP públicos estáticos que controla. Para obter mais informações, consulte [criar um pool Azure Batch com endereços IP públicos especificados.](create-pool-public-ip.md)
 
+### <a name="testing-connectivity-with-cloud-services-configuration"></a>Testar conectividade com configuração de Serviços cloud
+
+Não é possível utilizar o protocolo normal "ping"/ICMP com serviços na nuvem, porque o protocolo ICMP não é permitido através do equilibrador de carga Azure. Para obter mais informações, consulte [conectividade e networking para serviços de nuvem Azure.](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service)
+
 ## <a name="batch-node-underlying-dependencies"></a>Dependências subjacentes ao nó do lote
 
 Considere as seguintes dependências e restrições ao conceber as suas soluções Batch.
@@ -206,12 +210,12 @@ Considere as seguintes dependências e restrições ao conceber as suas soluçõ
 
 O Azure Batch cria e gere um conjunto de utilizadores e grupos no VM, que não deve ser alterado. São os seguintes:
 
-#### <a name="windows"></a>Windows
+Windows:
 
 - Um utilizador chamado **PoolNonAdmin**
 - Um grupo de utilizadores chamado **WATaskCommon**
 
-#### <a name="linux"></a>Linux
+Linux:
 
 - Um utilizador chamado **_azbatch**
 
@@ -220,3 +224,9 @@ O Azure Batch cria e gere um conjunto de utilizadores e grupos no VM, que não d
 O lote tenta ativamente limpar o diretório de trabalho em que as tarefas são executadas, uma vez que o seu tempo de retenção expira. Quaisquer ficheiros escritos fora deste diretório são [da sua responsabilidade de limpar para](#manage-task-lifetime) evitar preencher o espaço do disco.
 
 A limpeza automatizada do diretório de trabalho será bloqueada se executar um serviço no Windows a partir do diretório de trabalho startTask, devido à pasta ainda em uso. Isto resultará num desempenho degradado. Para corrigir isto, mude o diretório desse serviço para um diretório separado que não seja gerido pelo Batch.
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [Criar uma conta Azure Batch utilizando o portal Azure](batch-account-create-portal.md).
+- Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
+- Saiba mais sobre [as quotas, limites e restrições padrão do Azure Batch e como solicitar aumentos de quota](batch-quota-limit.md).

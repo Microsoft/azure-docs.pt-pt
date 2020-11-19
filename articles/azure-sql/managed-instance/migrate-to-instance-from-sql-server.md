@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 7e7775f289e0221862d11c585ae85a5b0bc6cc27
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788555"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917805"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de casos de servidor SQL para Azure SQL Caso Gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Neste artigo, você aprende sobre os métodos para migrar um SQL Server 2005 ou posterior instância de versão para [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). Para obter informações sobre migração para uma única base de dados ou piscina elástica, consulte [Migrar para a Base de Dados SQL](../database/migrate-to-database-from-sql-server.md). Para obter informações sobre migração de outras plataformas, consulte [o Guia de Migração da Base de Dados Azure.](https://datamigration.microsoft.com/)
+Neste artigo, você aprende sobre os métodos para migrar um SQL Server 2005 ou posterior instância de versão para [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). Para obter informações sobre migração para uma única base de dados ou piscina elástica, consulte [a visão geral da migração: SQL Server to SQL Database](../migration-guides/database/sql-server-to-sql-database-overview.md). Para obter informações sobre migração de outras plataformas e orientação sobre ferramentas e opções, consulte [Migração para Azure SQL](../migration-guides/index.yml).
 
 > [!NOTE]
 > Se quiser começar rapidamente e experimentar a Azure SQL Managed Instance, talvez queira ir ao [guia de arranque rápido](quickstart-content-reference-guide.md) em vez desta página.
@@ -122,7 +122,7 @@ Para saber mais sobre este cenário e etapas de configuração para o Serviço d
 
 ### <a name="native-restore-from-url"></a>RESTAURO nativo a partir do URL
 
-RESTAURAR as cópias de segurança nativas (.ficheiros bak) retirados de uma instância sql Server, disponível no [Azure Storage,](https://azure.microsoft.com/services/storage/)é uma das principais capacidades da SQL Managed Instance que permite uma migração rápida e fácil da base de dados offline.
+RESTAURAR as cópias de segurança nativas (.bak ficheiros) retirados de uma instância do SQL Server, disponível no [Azure Storage,](https://azure.microsoft.com/services/storage/)é uma das principais capacidades da SQL Managed Instance que permite uma migração rápida e fácil da base de dados offline.
 
 O diagrama a seguir fornece uma visão geral de alto nível do processo:
 
@@ -132,7 +132,7 @@ A tabela a seguir fornece mais informações sobre os métodos que pode utilizar
 
 |Passo|Motor e versão SQL|Método de backup/restauro|
 |---|---|---|
-|Coloque backup no Azure Storage|Antes de 2012 SP1 CU2|Faça o upload do ficheiro .bak diretamente para o Azure Storage|
+|Coloque backup no Azure Storage|Antes de 2012 SP1 CU2|Faça o upload .bak ficheiro diretamente para o Azure Storage|
 ||2012 SP1 CU2 - 2016|Backup direto utilizando sintaxe despreordenada [com sintaxe CREDENCIAL](/sql/t-sql/statements/restore-statements-transact-sql)|
 ||2016 e acima|Backup direto utilizando [COM CREDENCIAL SAS](/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
 |Restaurar do Azure Storage para um caso gerido|[RESTAURAR A PARTIR DE URL com CREDENTIAL SAS](restore-sample-database-quickstart.md)|
