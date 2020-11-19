@@ -5,20 +5,18 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c7d41d889692856a9818aacd265e67b0c2d3d1ad
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d0d559579e841553e04c26bf4dcc78934de3e95
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422877"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920207"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Ligue as funções Azure ao Armazenamento Azure utilizando ferramentas de linha de comando
 
 Neste artigo, integra uma fila de Armazenamento Azure com a função e conta de armazenamento que criou no artigo de arranque rápido anterior. Obtém esta integração utilizando uma *ligação de saída* que escreve dados de um pedido HTTP para uma mensagem na fila. A conclusão deste artigo não incorre em custos adicionais para além dos poucos cêntimos usd do quickstart anterior. Para saber mais sobre encadernações, consulte [a Azure Functions triggers e encaderna os conceitos.](functions-triggers-bindings.md)
 
 ## <a name="configure-your-local-environment"></a>Configure o seu ambiente local
-
-Antes de começar, tem de completar o artigo, [Quickstart: Criar um projeto Azure Functions a partir da linha de comando][previous-quickstart]. Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.
 
 ::: zone pivot="programming-language-csharp"  
 Antes de começar, tem de completar o artigo, [Quickstart: Criar um projeto Azure Functions a partir da linha de comando](create-first-function-cli-csharp.md). Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.  

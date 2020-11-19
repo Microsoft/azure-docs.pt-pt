@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: c8b3ab965c5a85bd6f25e5325fdca24026aec787
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 0f2b9476c9b8c0b5164bfbf29d65d260340effe4
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873833"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919765"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
 
@@ -43,6 +43,8 @@ A Azure Machine Learning pode implementar modelos de aprendizagem automática tr
 - Se **ligar** um cluster AKS, que tem uma [gama IP autorizada habilitada a aceder ao servidor API,](../aks/api-server-authorized-ip-ranges.md)ative as gamas IP do plano de controlo AML para o cluster AKS. O plano de controlo AML é implantado em regiões emparelhadas e implanta cápsulas de inferência no cluster AKS. Sem acesso ao servidor API, as cápsulas de inferência não podem ser implantadas. Utilize as [gamas IP](https://www.microsoft.com/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas](../best-practices-availability-paired-regions.md) ao permitir as gamas IP num cluster AKS.
 
     Os intervalos de IP autorizados só funcionam com o Balanceador de Carga Padrão.
+
+- Ao **anexar** um cluster AKS, deve estar na mesma subscrição Azure que o seu espaço de trabalho Azure Machine Learning.
 
 - Se quiser utilizar um cluster AKS privado (utilizando o Azure Private Link), deve criar primeiro o cluster e, em seguida, **anexá-lo** ao espaço de trabalho. Para obter mais informações, consulte [criar um cluster privado de Serviço Azure Kubernetes](../aks/private-clusters.md).
 

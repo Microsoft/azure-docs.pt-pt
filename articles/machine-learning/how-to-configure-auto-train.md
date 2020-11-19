@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: b49b9f710a98495342687c4ce1dc702078b27246
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f4546433f5bd20e2f001d6d868d8adfb4b9bf8c0
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535338"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920377"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
@@ -130,26 +130,24 @@ Alguns exemplos incluem:
 1. Experiência de classificação utilizando AUC ponderado como a métrica primária com minutos de tempo de experiência definidos para 30 minutos e 2 dobras de validação cruzada.
 
    ```python
-       automl_classifier=AutoMLConfig(
-       task='classification',
-       primary_metric='AUC_weighted',
-       experiment_timeout_minutes=30,
-       blocked_models=['XGBoostClassifier'],
-       training_data=train_data,
-       label_column_name=label,
-       n_cross_validations=2)
+       automl_classifier=AutoMLConfig(task='classification',
+                                      primary_metric='AUC_weighted',
+                                      experiment_timeout_minutes=30,
+                                      blocked_models=['XGBoostClassifier'],
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=2)
    ```
 1. O exemplo a seguir é uma experiência de regressão definida para terminar após 60 minutos com cinco dobras cruzadas de validação.
 
    ```python
-      automl_regressor = AutoMLConfig(
-      task='regression',
-      experiment_timeout_minutes=60,
-      allowed_models=['KNN'],
-      primary_metric='r2_score',
-      training_data=train_data,
-      label_column_name=label,
-      n_cross_validations=5)
+      automl_regressor = AutoMLConfig(task='regression',
+                                      experiment_timeout_minutes=60,
+                                      allowed_models=['KNN'],
+                                      primary_metric='r2_score',
+                                      training_data=train_data,
+                                      label_column_name=label,
+                                      n_cross_validations=5)
    ```
 
 
@@ -222,7 +220,7 @@ Em todas as experiências automatizadas de machine learning, os seus dados são 
 
 Ao configurar as suas experiências no `AutoMLConfig` seu objeto, pode ativar/desativar a definição `featurization` . A tabela a seguir mostra as definições aceites para a exibição no [objeto AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-|Configuração de exibição | Description |
+|Configuração de exibição | Descrição |
 | ------------- | ------------- |
 |`"featurization": 'auto'`| Indica que, como parte do pré-processamento, [os guarda-dados e as etapas de exibição](how-to-configure-auto-features.md#featurization) são executados automaticamente. **Definição padrão**.|
 |`"featurization": 'off'`| Indica que o passo de exibição não deve ser feito automaticamente.|
@@ -301,6 +299,18 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
+<a name="exit"></a> 
+
+### <a name="exit-criteria"></a>Critérios de saída
+
+Existem algumas opções que pode definir no seu AutoMLConfig para terminar a sua experiência.
+
+|Critérios| descrição
+|----|----
+Sem &nbsp; critérios | Se não definir quaisquer parâmetros de saída, a experiência continua até que não haja mais progressos na sua métrica primária.
+Depois de &nbsp; um longo período de &nbsp; &nbsp; &nbsp; tempo| Utilize `experiment_timeout_minutes` nas suas definições para definir quanto tempo, em minutos, a sua experiência deve continuar a decorrer. <br><br> Para evitar falhas no tempo de experiência, há um mínimo de 15 minutos, ou 60 minutos se o tamanho da sua linha por coluna exceder 10 milhões.
+Uma &nbsp; pontuação &nbsp; foi &nbsp; &nbsp; alcançada| A utilização completa a experiência depois de ter `experiment_exit_score` sido alcançada uma pontuação métrica primária especificada.
+
 ## <a name="run-experiment"></a>Experiência de execução
 
 Para ml automatizado, você cria um `Experiment` objeto, que é um objeto nomeado em um `Workspace` usado para executar experiências.
@@ -327,17 +337,15 @@ run = experiment.submit(automl_config, show_output=True)
 >As dependências são instaladas pela primeira vez numa nova máquina.  Pode levar até 10 minutos antes de ser mostrada a saída.
 >Definição `show_output` para `True` resultados na saída mostrada na consola.
 
- <a name="exit"></a> 
+### <a name="multiple-child-runs-on-clusters"></a>Várias crianças correm em aglomerados
 
-### <a name="exit-criteria"></a>Critérios de saída
+As corridas automatizadas de crianças experimentadas ml podem ser realizadas em um cluster que já está executando outra experiência. No entanto, o tempo depende de quantos nós o cluster tem, e se esses nós estão disponíveis para executar uma experiência diferente.
 
-Há algumas opções que pode definir para terminar a sua experiência.
+Cada nó no cluster atua como uma máquina virtual individual (VM) que pode realizar uma única corrida de treino; para ml automatizado isto significa uma corrida de crianças. Se todos os nós estiverem ocupados, a nova experiência está na fila. Mas se houver nós livres, a nova experiência será executada em paralelo nos nós/VMs disponíveis.
 
-|Critérios| descrição
-|----|----
-Sem &nbsp; critérios | Se não definir quaisquer parâmetros de saída, a experiência continua até que não haja mais progressos na sua métrica primária.
-Depois de &nbsp; um longo período de &nbsp; &nbsp; &nbsp; tempo| Utilize `experiment_timeout_minutes` nas suas definições para definir quanto tempo, em minutos, a sua experiência deve continuar a decorrer. <br><br> Para evitar falhas no tempo de experiência, há um mínimo de 15 minutos, ou 60 minutos se o tamanho da sua linha por coluna exceder 10 milhões.
-Uma &nbsp; pontuação &nbsp; foi &nbsp; &nbsp; alcançada| A utilização completa a experiência depois de ter `experiment_exit_score` sido alcançada uma pontuação métrica primária especificada.
+Para ajudar a gerir as corridas de crianças e quando podem ser realizadas, recomendamos que crie um cluster dedicado por experiência, e que combine o número `max_concurrent_iterations` da sua experiência com o número de nós no cluster. Desta forma, utilize todos os nós do agrupamento ao mesmo tempo com o número de corridas/iterações simultâneas que pretende.
+
+Configure  `max_concurrent_iterations` no seu `AutoMLConfig` objeto. Se não estiver configurado, por defeito só é permitida uma execução/iteração de uma criança em simultâneo por experiência.  
 
 ## <a name="explore-models-and-metrics"></a>Explore modelos e métricas
 
@@ -348,7 +356,7 @@ Consulte [avaliar os resultados automatizados](how-to-understand-automated-ml.md
 Para obter um resumo de exibição e entender que características foram adicionadas a um determinado modelo, consulte [a transparência da Participação.](how-to-configure-auto-features.md#featurization-transparency) 
 
 > [!NOTE]
-> Os algoritmos que a ML automatizada emprega têm aleatoriedade inerente que pode causar uma ligeira variação numa pontuação final de métricas recomendadas dos modelos, como precisão. A ML automatizada também realiza operações em dados como divisão de ensaios de comboio, divisão de validação de comboios ou validação cruzada quando necessário. Portanto, se executar uma experiência com as mesmas configurações e métrica primária várias vezes, provavelmente verá variação em cada experiência métricas pontuadas devido a estes fatores. 
+> Os algoritmos que a ML automatizada emprega têm aleatoriedade inerente que pode causar uma ligeira variação na pontuação final das métricas de um modelo recomendado, como precisão. A ML automatizada também realiza operações em dados como divisão de ensaios de comboio, divisão de validação de comboios ou validação cruzada quando necessário. Portanto, se executar uma experiência com as mesmas configurações e métrica primária várias vezes, provavelmente verá variação em cada experiência métricas pontuadas devido a estes fatores. 
 
 ## <a name="register-and-deploy-models"></a>Registar e implantar modelos
 

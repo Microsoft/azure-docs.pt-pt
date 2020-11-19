@@ -3,12 +3,12 @@ title: Criar políticas programaticamente
 description: Este artigo acompanha-o através de políticas programáticas para a Política Azure com Azure CLI, Azure PowerShell e REST API.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 86c1b60608780cba4d8ae27e3c82ace458f09a26
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491805"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920020"
 ---
 # <a name="programmatically-create-policies"></a>Criar políticas programaticamente
 
@@ -203,7 +203,7 @@ Para criar uma definição de política, utilize o seguinte procedimento:
    ```
 
    O comando cria uma definição de política chamada _Contas de Armazenamento de Auditoria Abertas a Redes Públicas._
-   Para obter mais informações sobre outros parâmetros que possa utilizar, consulte [a definição de política az create](/cli/azure/policy/definition#az-policy-definition-create).
+   Para obter mais informações sobre outros parâmetros que possa utilizar, consulte [a definição de política az create](/cli/azure/policy/definition#az_policy_definition_create).
 
    Quando chamado sem parâmetros de localização, `az policy definition creation` o predefinição em guardar a definição de política na subscrição selecionada do contexto das sessões. Para guardar a definição para um local diferente, utilize os seguintes parâmetros:
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: aa45bc9f70bf05074391dd14cc5fc774eb77c762
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7cd704dad3d0ede55e4df4d9e222ff83fd7ae350
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536256"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919646"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 
@@ -126,20 +126,20 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
     
         1. Permitir uma aprendizagem profunda.
     
-        1. Selecione *coluna de tempo* : Esta coluna contém os dados de tempo a utilizar.
+        1. Selecione *coluna de tempo*: Esta coluna contém os dados de tempo a utilizar.
 
-        1. Selecione *o horizonte de previsão* : Indique quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) poderão prever para o futuro. Quanto mais o modelo for necessário para prever o futuro, menos preciso se tornará. [Saiba mais sobre previsão e previsão do horizonte.](how-to-auto-train-forecast.md)
+        1. Selecione *o horizonte de previsão*: Indique quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) poderão prever para o futuro. Quanto mais o modelo for necessário para prever o futuro, menos preciso se tornará. [Saiba mais sobre previsão e previsão do horizonte.](how-to-auto-train-forecast.md)
 
 1. (Opcional) Ver definições de configuração de adição: definições adicionais que pode utilizar para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados. 
 
-    Configurações adicionais|Description
+    Configurações adicionais|Descrição
     ------|------
     Métrica primária| Métrica principal usada para marcar o seu modelo. [Saiba mais sobre as métricas dos modelos.](how-to-configure-auto-train.md#primary-metric)
     Explicar o melhor modelo | Selecione para ativar ou desativar, de modo a mostrar explicações para o melhor modelo recomendado. <br> Esta funcionalidade não está atualmente disponível para [certos algoritmos de previsão.](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model) 
     Algoritmo bloqueado| Selecione algoritmos que pretende excluir do trabalho de treino. <br><br> Permitir algoritmos só está disponível para [experiências SDK.](how-to-configure-auto-train.md#supported-models) <br> Consulte os [modelos suportados para cada tipo de tarefa](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
-    Critério de saída| Quando qualquer um destes critérios é cumprido, o trabalho de formação é interrompido. <br> *Tempo de formação (horas)* : Quanto tempo para permitir que o trabalho de formação corra. <br> *Limiar de pontuação métrica* : Pontuação métrica mínima para todos os oleodutos. Isto garante que se tiver uma métrica de destino definida que deseja alcançar, não gasta mais tempo no trabalho de formação do que o necessário.
+    Critério de saída| Quando qualquer um destes critérios é cumprido, o trabalho de formação é interrompido. <br> *Tempo de formação (horas)*: Quanto tempo para permitir que o trabalho de formação corra. <br> *Limiar de pontuação métrica*: Pontuação métrica mínima para todos os oleodutos. Isto garante que se tiver uma métrica de destino definida que deseja alcançar, não gasta mais tempo no trabalho de formação do que o necessário.
     Validação| Selecione uma das opções de validação cruzada para utilizar no trabalho de treino. <br> [Saiba mais sobre validação cruzada.](how-to-configure-cross-validation-data-splits.md#prerequisites)<br> <br>A previsão suporta apenas a validação cruzada k-fold.
-    Simultaneidade| *Iterações máximas simultâneas* : Número máximo de condutas (iterações) para testar no trabalho de formação. O trabalho não funcionará mais do que o número especificado de iterações.
+    Simultaneidade| *Iterações máximas simultâneas*: Número máximo de condutas (iterações) para testar no trabalho de formação. O trabalho não funcionará mais do que o número especificado de iterações. Saiba mais sobre como a ML automatizada executa [várias corridas de crianças em clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
 1. (Opcional) Ver definições de visualização: se optar por ativar a **caracterização automática** no formulário **configurações de configuração adicionais,** aplicam-se as técnicas de apri metragem de atenção predefinidos. Nas **definições** de visualização do View pode alterar estas padrão e personalizar em conformidade. Saiba como [personalizar as ações.](#customize-featurization) 
 
@@ -202,7 +202,7 @@ O ML automatizado ajuda-o a implementar o modelo sem escrever código:
     Campo| Valor
     ----|----
     Nome| Insira um nome único para a sua implantação.
-    Description| Introduza uma descrição para identificar melhor para que é esta implantação.
+    Descrição| Introduza uma descrição para identificar melhor para que é esta implantação.
     Tipo de computação| Selecione o tipo de ponto final que pretende implantar: *Serviço Azure Kubernetes (AKS)* ou *Instância de Contentores Azure (ACI)*.
     Nome da computação| *Aplica-se apenas a AKS:* Selecione o nome do cluster AKS para o quais pretende implementar.
     Ative a autenticação | Selecione para permitir a autenticação baseada em símbolos ou em teclas.

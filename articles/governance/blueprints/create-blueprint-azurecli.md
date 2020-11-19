@@ -3,12 +3,12 @@ title: 'Quickstart: Criar uma planta com Azure CLI'
 description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, definir e implantar artefactos utilizando o Azure CLI.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 790e23897a24ea06565572163b8226af88e0bb7c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 88ccd3fe6271a79d201007954e7997b68d2dc69b
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057965"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920564"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Quickstart: Definir e Atribuir uma Planta Azure com Azure CLI
 
@@ -116,9 +116,9 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
      > [!NOTE]
      > Utilize o nome de ficheiro _blueprint.jsquando_ importar as definições do seu projeto.
-     > Este nome de ficheiro é usado quando se chama [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext-blueprint-az-blueprint-import).
+     > Este nome de ficheiro é usado quando se chama [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
 
-     O objeto blueprint é criado na subscrição padrão por padrão por padrão. Para especificar o grupo de gestão, utilize **o grupo de gestão de parâmetros**. Para especificar a subscrição, utilize **a subscrição do**parâmetro .
+     O objeto blueprint é criado na subscrição padrão por padrão por padrão. Para especificar o grupo de gestão, utilize **o grupo de gestão de parâmetros**. Para especificar a subscrição, utilize **a subscrição do** parâmetro .
 
 1. Adicione o grupo de recursos para os artefactos de armazenamento à definição.
 
@@ -361,7 +361,7 @@ Uma vez que uma planta é publicada usando o CLI Azure, é atribuível a uma sub
      > [!IMPORTANT]
      > A Azure Blueprints não gere a identidade gerida atribuída pelo utilizador. Os utilizadores são responsáveis por atribuir funções e permissões suficientes ou a atribuição do projeto falhará.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 ### <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 

@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9c1a08161dafa500e9cab2038621c2329cfe6d27
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 85f17897c0e3089a2d2bc5b172e98fa24e8085ff
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286889"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920445"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados do Key Vault
 Os seguintes cenários descrevem vários dos usos primários do serviço de gestão de certificados key Vault, incluindo os passos adicionais necessários para a criação do seu primeiro certificado no seu cofre-chave.
@@ -113,7 +113,6 @@ AKV suporta 2 formatos baseados em PEM. Pode fundir um único certificado codifi
 
 CERTIFICADO -----BEGIN----- ---------------
 
-Atualmente, não suportamos chaves EC em formato PEM.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Criação de um certificado com um CA não associado ao Key Vault  
  Este método permite trabalhar com outros CAs do que os fornecedores parceiros da Key Vault, o que significa que a sua organização pode trabalhar com um CA à sua escolha.  

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 466851ce04a047f3edabcf33b45dba9cab0db20e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 76f541a45c56669d17103f16997f3d036955b773
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132708"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919693"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Visão geral do agente do Azure Monitor (pré-visualização)
 O agente Azure Monitor (AMA) recolhe dados de monitorização do sistema operativo convidado de máquinas virtuais e entrega-os ao Azure Monitor. Estes artigos fornecem uma visão geral do agente Azure Monitor, incluindo como instalá-lo e como configurar a recolha de dados.
@@ -78,7 +78,7 @@ O agente Azure Monitor envia dados para as Métricas do Monitor Azure ou para um
 
 | Origem de dados | Destinos | Descrição |
 |:---|:---|:---|
-| Desempenho        | Métricas do Monitor Azure<br>Área de trabalho do Log Analytics | Valores numéricos que medem o desempenho de diferentes aspetos do sistema operativo e cargas de trabalho. |
+| Desempenho        | Métricas do Azure Monitor<br>Área de trabalho do Log Analytics | Valores numéricos que medem o desempenho de diferentes aspetos do sistema operativo e cargas de trabalho. |
 | Registos do Evento Windows | Área de trabalho do Log Analytics | Informação enviada para o sistema de registo de eventos do Windows. |
 | Syslog             | Área de trabalho do Log Analytics | Informação enviada para o sistema de registo de eventos Linux. |
 
@@ -101,7 +101,7 @@ O Agente monitor Azure é implementado como uma [extensão Azure VM](../../virtu
 |:---|:---|:---|
 | Publisher | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
 | Tipo      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
+| TypeHandlerVersion  | 1,0 | 1.5 |
 
 Instale o agente Azure Monitor utilizando qualquer um dos métodos para instalar agentes de máquinas virtuais, incluindo o seguinte utilizando o PowerShell ou o CLI. Em alternativa, pode instalar o agente e configurar a recolha de dados em máquinas virtuais na sua assinatura Azure utilizando o portal com o procedimento descrito na [recolha de dados configure para o agente Azure Monitor (pré-visualização)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
 
@@ -134,7 +134,7 @@ az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Mo
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell2)
 
 ```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
+Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus -TypeHandlerVersion 1.5
 ```
 ---
 

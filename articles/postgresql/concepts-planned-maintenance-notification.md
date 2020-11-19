@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1803a0070321ff4d895203f027f839601bb726ee
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887149"
+ms.locfileid: "94920258"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificação de manutenção planeada na Base de Dados do Azure para PostgreSQL – Servidor Único
 
@@ -78,7 +78,7 @@ Um erro transitório, também conhecido como falha transitória, é um erro que 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para quaisquer perguntas ou sugestões que possa ter sobre trabalhar com a Azure Database para PostgreSQL, envie um e-mail para a Base de Dados Azure para a Equipa PostgreSQL em *AskAzureDBforPostgreSQL@service.microsoft.com* .
+- Para quaisquer perguntas ou sugestões que possa ter sobre trabalhar com a Base de Dados Azure para PostgreSQL, envie um e-mail para a Base de Dados Azure para a Equipa PostgreSQL em AskAzureDBforPostgreSQL@service.microsoft.com
 - Veja [como configurar alertas](howto-alert-on-metric.md) para orientação sobre a criação de um alerta sobre uma métrica.
 - [Problemas de conexão de resolução de problemas para Azure Database para PostgreSQL - Servidor Único](howto-troubleshoot-common-connection-issues.md)
 - [Lidar com erros transitórios e ligar eficientemente à Base de Dados de Azure para PostgreSQL - Servidor Único](concepts-connectivity.md)

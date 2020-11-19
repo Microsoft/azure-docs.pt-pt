@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: how-to, automl
 ms.date: 03/09/2020
-ms.openlocfilehash: a79fc0311e940b9b4eb3e14838ef22e09342a066
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 65ce11581972c83b0294c0afcbe95e5a35ef2471
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358002"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920581"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Preparar modelos com machine learning automatizado na cloud
 
@@ -45,7 +45,7 @@ ws = Workspace.from_config()
 
 Crie o [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?preserve-view=true&view=azure-ml-py) alvo no seu espaço de trabalho ( ) se já não `ws` existir.
 
-**Estimativa de tempo** : A criação do alvo AmlCompute demora aproximadamente 5 minutos.
+**Estimativa de tempo**: A criação do alvo AmlCompute demora aproximadamente 5 minutos.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -228,7 +228,7 @@ O [caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba [como configurar as definições para o treino automático](how-to-configure-auto-train.md).
 * Consulte o [modo de](how-to-machine-learning-interpretability-automl.md) ativar as funcionalidades de interpretação do modelo em experiências automatizadas de ML.

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 11/16/2020
-ms.openlocfilehash: 78c35e42cefa8897d9f93c3a941b4c0e8b81e5f9
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4dd4729589e429cb1b028b183fdfd144617d1d1b
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686958"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920649"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server-using-the-azure-portal"></a>Atualização principal da versão em Azure Database para MySQL Single Server usando o portal Azure
 
@@ -34,6 +34,9 @@ Para completar este guia, precisa:
 
 Siga estes passos para realizar a atualização da versão principal para o seu Azure Database do servidor MySQL 5.6
 
+> [!IMPORTANT]
+> Recomendamos realizar a atualização primeiro na cópia restaurada do servidor em vez de atualizar a produção diretamente. Veja [como realizar a restauração pontual](howto-restore-server-portal.md#point-in-time-restore).
+
 1. No [portal Azure,](https://portal.azure.com/)selecione a base de dados Azure existente para o servidor MySQL 5.6.
 
 2. Na página **'Vista Geral',** clique no botão **'Upgrade'** na barra de ferramentas.
@@ -44,6 +47,6 @@ Siga estes passos para realizar a atualização da versão principal para o seu 
 
 4. Uma notificação confirmará que a atualização é bem sucedida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a política de versão Azure Database para a política de versão MySQL](concepts-version-policy.md).

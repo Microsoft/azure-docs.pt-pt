@@ -4,12 +4,12 @@ description: Fornece respostas a algumas das perguntas comuns sobre a Azure VMwa
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: f83413bc54164107b8e8a4e6010f8a826a5fe327
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c9a8b5f9e02cc76789755bf81d309826de1459c5
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888424"
+ms.locfileid: "94920598"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre Azure VMware Solution
 
@@ -237,7 +237,7 @@ Sim, os clientes podem implementar a Azure VMware Solution dentro de uma subscri
 
 A Microsoft fornece suporte para Azure VMware Solution. Pode submeter um pedido de [apoio.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 
 
-Para as subscrições geridas pela CSP, o primeiro nível de suporte será fornecido pelo Provedor de Solução da mesma forma que a CSP para outros serviços da Azure.
+Para as subscrições geridas pela CSP, o primeiro nível de suporte é fornecido pelo Provedor de Solução da mesma forma que a CSP para outros serviços Azure.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Que contas preciso para criar uma nuvem privada Azure VMware Solution?
 
@@ -247,9 +247,9 @@ Você precisará de uma conta Azure numa subscrição do Azure.
 
 A Microsoft e a Red Hat partilham uma equipa de suporte integrada e de apoio que fornece um ponto de contacto unificado para os ecossistemas da Red Hat que estão a funcionar na plataforma Azure.  À semelhança de outros serviços da plataforma Azure que trabalham com a Red Hat Enterprise Linux, a Azure VMware Solution está sob o Cloud Access e o guarda-chuva de suporte integrado, e a Red Hat Enterprise Linux é suportada para correr em cima da Azure VMware Solution dentro do Azure.
 
-#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>A VMware HCX Enterprise Edition está disponível e, em caso afirmativo, quanto custa?
+#### <a name="is-vmware-hcx-enterprise-available-and-if-so-how-much-does-it-cost"></a>A VMware HCX Enterprise está disponível e, em caso afirmativo, quanto custa?
 
-VMware HCX Enterprise Edition (EE) está disponível com a Azure VMware Solution como uma função/serviço *de pré-visualização.* Enquanto vMware HCX EE para Azure VMware Solution está em Pré-visualização, é uma função/serviço gratuito e sujeito a termos e condições de serviço de pré-visualização. Assim que o serviço VMware HCX EE for classificado, receberá um aviso de 30 dias de que a faturação irá mudar. Pode desligar ou optar por sair do serviço.
+A VMware HCX Enterprise está disponível com a Azure VMware Solution como função/serviço *de pré-visualização.* Enquanto a VMware HCX Enterprise for Azure VMware Solution está em Pré-visualização, é uma função/serviço gratuito e sujeita a termos e condições de serviço de pré-visualização. Assim que o serviço VMware HCX Enterprise for a GA, receberá um aviso de 30 dias de que a faturação irá mudar. Pode desligá-lo ou optar por não o serviço.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Como solicito um aumento da quota de anfitrião para a Azure VMware Solution?
 
@@ -260,8 +260,7 @@ Para as assinaturas EA, utilize o seguinte procedimento. Primeiro, vai precisar 
 * Um [Acordo de Empresa Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
 * Uma conta Azure numa subscrição do Azure.
 
-Antes de criar o seu recurso Azure VMware Solution, tem de enviar um bilhete de apoio para alocar os seus nós. Leva até cinco dias úteis para confirmar o seu pedido e alocar os seus nós. Se tiver uma nuvem privada Azure VMware Solution e quiser mais nós atribuídos, passará pelo mesmo processo.
-
+Antes de criar o seu recurso Azure VMware Solution, envie um bilhete de apoio para que os seus nós tenham os seus nós atribuídos. Leva até cinco dias úteis para confirmar o seu pedido e alocar os seus nós. Se tiver uma nuvem privada Azure VMware Solution e quiser mais nós atribuídos, passará pelo mesmo processo.
 
 1. No seu portal Azure, no âmbito **da Ajuda + Suporte,** crie um **[novo pedido de suporte](https://rc.portal.azure.com/#create/Microsoft.Support)** e forneça as seguintes informações para o bilhete:
    - **Tipo de emissão:** Técnico
