@@ -287,6 +287,10 @@
           items:
             - name: Parar/Iniciar o servidor MySQL
               href: how-to-stop-start-server.md
+        - name: Atualização da versão principal
+          items:
+            - name: Atualização da versão principal
+              href: how-to-major-version-upgrade.md
         - name: Aumentar automaticamente o armazenamento
           items:
             - name: Portal do Azure

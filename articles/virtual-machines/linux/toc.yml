@@ -336,7 +336,9 @@
         - name: Cópia de Segurança e recuperação após desastre para discos
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Discos partilhados
-          href: disks-shared.md
+          href: ../disks-shared.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Escalões de desempenho dos discos
+          href: ../disks-change-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Discos de SO Efémeros
           href: ../ephemeral-os-disks.md
     - name: Redes
@@ -971,8 +973,10 @@
               href: add-disk.md
             - name: Portal do Azure
               href: attach-disk-portal.md
-        - name: Alterar escalão do disco
+        - name: Alterar escalão do disco - PowerShell/CLI
           href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Alterar escalão do disco - Portal
+          href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Desligar um disco
           href: detach-disk.md
         - name: Implementar discos com o modelo do Resource Manager
@@ -1148,6 +1152,8 @@
               href: upload-vhd.md
             - name: Utilizar o Azure Site Recovery
               href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
+        - name: Migrar do WebLogic para o Azure
+          href: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines
 - name: Referência
   items:
     - name: CLI do Azure

@@ -28,7 +28,7 @@
       href: network-watcher-nsg-flow-logging-portal.md
 - name: Conceitos
   items:
-    - name: Monitor de Ligação (Pré-visualização)
+    - name: Monitor de Ligação
       href: connection-monitor-overview.md
     - name: Diagnosticar problemas de filtragem de tráfego de rede de VM
       href: network-watcher-ip-flow-verify-overview.md
@@ -58,7 +58,7 @@
   items:
     - name: Configurar o Observador de Rede
       href: network-watcher-create.md
-    - name: Criar o Monitor de Ligação (Pré-visualização)
+    - name: Criar Monitor de Ligação
       items:
         - name: Com o Portal do Azure
           href: connection-monitor-create-using-portal.md
@@ -66,11 +66,11 @@
           href: connection-monitor-create-using-template.md
         - name: Utilizar o PowerShell
           href: connection-monitor-create-using-powershell.md
-    - name: Migrar para o Monitor de Ligação (Pré-visualização)
+    - name: Migrar para o Monitor de Ligação
       items:
         - name: Do Monitor de Desempenho de Rede
           href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
-        - name: Do Monitor de Ligação
+        - name: Do Monitor de Ligação (Clássico)
           href: migrate-to-connection-monitor-preview-from-connection-monitor.md
     - name: Diagnosticar problemas de rede de VM
       items:

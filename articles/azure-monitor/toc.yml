@@ -944,14 +944,28 @@
           href: insights/vminsights-maps.md
         - name: Monitorizar desempenho
           href: insights/vminsights-performance.md
-        - name: Monitorizar alterações
-          href: insights/vminsights-change-analysis.md
+        - name: Monitorizar estado de funcionamento de convidado (pré-visualização)
+          items:
+            - name: Descrição Geral
+              href: insights/vminsights-health-overview.md
+            - name: Ativar
+              href: insights/vminsights-health-enable.md
+            - name: Alertas
+              href: insights/vminsights-health-alerts.md
+            - name: Configurar monitores no portal
+              href: insights/vminsights-health-configure.md
+            - name: Configurar monitores em escala
+              href: insights/vminsights-health-configure-dcr.md
+            - name: Resolução de problemas
+              href: insights/vminsights-health-troubleshoot.md
         - name: Analisar dados com consultas de registo
           href: insights/vminsights-log-search.md
+        - name: Monitorizar desempenho
+          href: insights/vminsights-alerts.md
+        - name: Monitorizar alterações
+          href: insights/vminsights-change-analysis.md
         - name: Visualizar dados com livros
           href: insights/vminsights-workbooks.md
-        - name: Criar regras de alertas
-          href: insights/vminsights-alerts.md
         - name: Desativar a monitorização
           href: insights/vminsights-optout.md
     - name: Azure Monitor para contentores

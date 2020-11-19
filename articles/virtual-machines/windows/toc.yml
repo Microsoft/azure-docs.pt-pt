@@ -330,7 +330,9 @@
         - name: Cópia de Segurança e recuperação após desastre para discos
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Discos partilhados
-          href: disks-shared.md
+          href: ../disks-shared.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Escalões de desempenho dos discos
+          href: ../disks-change-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Discos de SO Efémeros
           href: ../ephemeral-os-disks.md
     - name: Redes
@@ -886,8 +888,10 @@
               href: attach-disk-ps.md
             - name: Portal do Azure
               href: attach-managed-disk-portal.md
-        - name: Alterar escalão do disco
+        - name: Alterar escalão do disco - PowerShell/CLI
           href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Alterar escalão do disco - Portal
+          href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Desligar um disco
           href: detach-disk.md
         - name: Implementar discos com o modelo do Resource Manager

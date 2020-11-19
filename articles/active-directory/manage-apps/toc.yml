@@ -63,14 +63,24 @@
           href: plan-sso-deployment.md
         - name: Opções de início de sessão único
           href: sso-options.md
+        - name: Início de sessão único com aplicações no local
+          href: application-proxy-config-sso-how-to.md
         - name: SSO baseado em OIDC
           href: configure-oidc-single-sign-on.md
         - name: SAML-based SSO (SSO baseado no SAML)
           href: configure-saml-single-sign-on.md
+        - name: SSO baseado em SAML (aplicações no local)
+          href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: SSO baseado em palavra-passe
           href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: SSO baseado em Palavra-passe (aplicações no local)
+          href: application-proxy-configure-single-sign-on-password-vaulting.md
         - name: SSO baseado em ligação
           href: configure-linked-sign-on.md
+        - name: SSO baseado em Cabeçalho (aplicações no local)
+          href: application-proxy-configure-single-sign-on-with-headers.md
+        - name: SSO baseado em Kerberos (aplicações no local)
+          href: application-proxy-configure-single-sign-on-with-kcd.md
         - name: SSO com um clique
           href: one-click-sso-tutorial.md
     - name: Segurança de aplicações
@@ -182,24 +192,16 @@
           href: application-proxy-remove-personal-data.md
         - name: Configurar domínio personalizado
           href: application-proxy-configure-custom-domain.md
-        - name: Início de sessão único com o Proxy de Aplicações
-          items:
-            - name: Delegação Restrita de Kerberos (KCD)
-              href: application-proxy-configure-single-sign-on-with-kcd.md
-            - name: Colocação de palavras-passe em cofres
-              href: application-proxy-configure-single-sign-on-password-vaulting.md
-            - name: Cabeçalhos
-              href: application-proxy-configure-single-sign-on-with-ping-access.md
-            - name: SAML SSO
-              href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: Proteger aplicações legadas com controladores ou redes de entrega de aplicações
           href: secure-hybrid-access.md
         - name: Instruções de publicação
           items:
             - name: Integrar com o Proxy de Aplicação num servidor NDES
               href: active-directory-app-proxy-protect-ndes.md
+            - name: Integrar com o Proxy de Aplicações com PingAccess
+              href: application-proxy-ping-access-publishing-guide.md
             - name: Integrar com o Azure AD Domain Services
-              href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
+              href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
             - name: Integrar no Power BI
               href: application-proxy-integrate-with-power-bi.md
             - name: Integrar com o Cloud App Security
@@ -256,14 +258,12 @@
               href: application-proxy-connectivity-no-working-connector.md
             - name: Configurar no portal de administração
               href: application-proxy-config-how-to.md
-            - name: Configurar o início de sessão único na minha aplicação
-              href: application-proxy-config-sso-how-to.md
             - name: Problema ao criar uma aplicação no portal de administração
               href: application-proxy-config-problem.md
             - name: Configurar Delegação Restrita de Kerberos
               href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
             - name: Configurar com o PingAccess
-              href: application-proxy-back-end-ping-access-how-to.md
+              href: /azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide
             - name: Erro "Não é Possível Aceder a esta Aplicação Empresarial"
               href: application-proxy-sign-in-bad-gateway-timeout-error.md
             - name: Problema ao instalar o Conector do Agente do Proxy de Aplicações
@@ -281,11 +281,11 @@
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda para programadores
-      href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
+      href: ../develop/developer-support-help-options.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
     - name: Fórum de comentários do Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+      href: /answers/topics/azure-active-directory.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: Atualizações de serviço

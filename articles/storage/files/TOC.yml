@@ -67,6 +67,12 @@
           href: storage-sync-files-networking-overview.md
         - name: Acerca do arrumo na cloud
           href: storage-sync-cloud-tiering.md
+    - name: Desempenho e dimensionamento
+      items:
+        - name: Desempenho SMB Multicanal
+          href: storage-files-smb-multichannel-performance.md
+        - name: Metas de escalabilidade e desempenho
+          href: storage-files-scale-targets.md
     - name: Impedir eliminações de dados acidentais
       href: storage-files-prevent-file-share-deletion.md
     - name: Fazer cópia de segurança de partilhas de ficheiros
@@ -74,9 +80,7 @@
     - name: Encriptação em inatividade
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Encriptação inativa com chaves geridas pelo cliente
-      href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Metas de escalabilidade e desempenho
-      href: storage-files-scale-targets.md
+      href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Ofertas de conformidade
       href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: FAQ
@@ -87,8 +91,6 @@
       items:
         - name: Criar uma partilha de ficheiros SMB
           href: storage-how-to-create-file-share.md
-        - name: Permitir partilha de ficheiros de grandes dimensões
-          href: storage-files-how-to-create-large-file-share.md
         - name: Criar uma partilha de ficheiros premium
           href: storage-how-to-create-premium-fileshare.md
         - name: Criar uma partilha NFS
@@ -231,6 +233,12 @@
               href: storage-files-migration-storsimple-8000.md
             - name: Guia de migração do StorSimple 1200
               href: storage-files-migration-storsimple-1200.md
+    - name: Melhorar o desempenho
+      items:
+        - name: Ativar o SMB Multicanal
+          href: storage-files-enable-smb-multichannel.md
+        - name: Permitir partilha de ficheiros de grandes dimensões
+          href: storage-files-how-to-create-large-file-share.md
     - name: Programar
       items:
         - name: Configurar cadeias de ligação

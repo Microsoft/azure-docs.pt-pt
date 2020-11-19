@@ -139,6 +139,8 @@
       href: ../../container-instances/security-baseline.md
     - name: Linha de base de segurança do Container Registry
       href: ../../container-registry/security-baseline.md
+    - name: Linha de base de segurança da Rede de Entrega de Conteúdos
+      href: ../../cdn/security-baseline.md
     - name: Linha de base de segurança do Cosmos DB
       href: ../../cosmos-db/security-baseline.md
     - name: Linha de base de segurança do Cost Management
