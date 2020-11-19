@@ -4,12 +4,12 @@ description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma 
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 2c99244df7811b09abaf10d54d924a727201bbad
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a14659b64bbc86cfc50cbf8a377c0245fba25065
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076645"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886248"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Criar um recipiente do Windows Server num cluster Azure Kubernetes Service (AKS) utilizando o Azure CLI
 
@@ -19,9 +19,9 @@ O Azure Kubernetes Service (AKS) é um serviço gerido pela Kubernetes que permi
 
 Este artigo pressupõe uma compreensão básica dos conceitos de Kubernetes. Para obter mais informações, consulte [os conceitos fundamentais da Kubernetes para o Serviço Azure Kubernetes (AKS)][kubernetes-concepts].
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ### <a name="limitations"></a>Limitações
 

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 63cc4448034b6a2ae2d74f4a2d9a0a62296678cf
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93417593"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886486"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notificação de manutenção planeada na Base de Dados Azure para MySQL - Servidor Único
 
@@ -21,7 +21,7 @@ Saiba como se preparar para eventos de manutenção planeados na sua Base de Dad
 
 A Azure Database for MySQL service executa patching automatizado do hardware subjacente, o SISTEMA e o motor da base de dados. O patch inclui novas funcionalidades de serviço, segurança e atualizações de software. Para o motor MySQL, as atualizações de versão menor são automáticas e incluídas como parte do ciclo de remendos. Não é necessária nenhuma ação do utilizador ou configurações para remendar. O patch é testado extensivamente e lançado utilizando práticas de implementação seguras.
 
-Uma manutenção planeada é uma janela de manutenção quando estas atualizações de serviço são implementadas para servidores de uma determinada região de Azure. Durante a manutenção planeada, é criado um evento de notificação para informar os clientes quando a atualização de serviço é implementada na região de Azure hospedando os seus servidores. A duração mínima entre duas manutenção planeadas é de 30 dias. Recebe uma notificação da próxima janela de manutenção com 72 horas de antecedência.
+Uma manutenção planeada é uma janela de manutenção quando estas atualizações de serviço são implementadas para servidores de uma determinada região de Azure. Durante as manutenções planeadas, é criado um evento de notificação para informar os clientes de quando a atualização do serviço será implementada na região do Azure onde os servidores estão alojados. A duração mínima entre duas manutenção planeadas é de 30 dias. Receberá uma notificação sobre a próxima janela de manutenção com 72 horas de antecedência.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planeada - duração e impacto do cliente
 
@@ -78,7 +78,7 @@ Um erro transitório, também conhecido como falha transitória, é um erro que 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para quaisquer perguntas ou sugestões que possa ter sobre trabalhar com a Azure Database para o MySQL, envie um e-mail para a Base de Dados Azure para a Equipa MySQL em *AskAzureDBforMySQL@service.microsoft.com* .
+- Para quaisquer perguntas ou sugestões que possa ter sobre trabalhar com a Azure Database para o MySQL, envie um e-mail para a Base de Dados Azure para a Equipa MySQL em **AskAzureDBforMySQL@service.microsoft.com** .
 - Veja [como configurar alertas](howto-alert-on-metric.md) para orientação sobre a criação de um alerta sobre uma métrica.
 - [Problemas de conexão de resolução de problemas para Azure Database para MySQL - Servidor Único](howto-troubleshoot-common-connection-issues.md)
 - [Lidar com erros transitórios e ligar eficientemente à Base de Dados Azure para MySQL - Servidor Único](concepts-connectivity.md)

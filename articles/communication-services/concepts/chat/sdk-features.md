@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3b66c962758afc28da3c6be938c13d768c4f2572
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b239cf6d253c1c2d2e36d213e92e0b218add3f8c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666148"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885993"
 ---
 # <a name="chat-client-library-overview"></a>Descrição geral da biblioteca de cliente de chat
 
@@ -52,7 +52,7 @@ A lista a seguir apresenta o conjunto de funcionalidades que estão atualmente d
 | Eventos             | Utilize a Grade de Eventos para subscrever a atividade do utilizador que acontece em linhas de chat e integre serviços de notificação personalizados ou lógica de negócio     | ✔️   | ✔️  | ✔️    | ✔️  |
 | Monitorização        | Monitorize o uso em termos de mensagens enviadas                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Monitorize a qualidade e o estado dos pedidos de API feitos pela sua app e configuure alertas através do portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
-|Características adicionais | Use [APIs de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/) juntamente com a biblioteca de clientes de chat para permitir funcionalidades inteligentes - *tradução linguística & análise de sentimento da mensagem recebida num cliente, conversão de texto para compor uma mensagem enquanto o membro fala, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+|Características adicionais | Use [APIs de Serviços Cognitivos](../../../cognitive-services/index.yml) juntamente com a biblioteca de clientes de chat para permitir funcionalidades inteligentes - *tradução linguística & análise de sentimento da mensagem recebida num cliente, conversão de texto para compor uma mensagem enquanto o membro fala, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 11b9c553573d9e6188ba634b4cb966d6a9b850b4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 051f903c0b203045886b80f72d868adc1fa85f73
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948298"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886119"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,11 +23,11 @@ Para criar um recurso Azure Communication Services, inscreva-se primeiro no [por
 
 Introduza **a Comunicação** na **entrada 'Pesquisar o Mercado'** ou na barra de pesquisa no topo do portal.
 
-:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Screenshot realçando a criação de um botão de recurso no portal Azure.":::
+:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Screenshot mostrando uma busca por serviços de comunicação na barra de pesquisa.":::
 
 Selecione **serviços de comunicação** nos resultados e, em seguida, selecione **Adicionar**.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Screenshot realçando a criação de um botão de recurso no portal Azure.":::
+:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Screenshot mostrando o painel Azure, realçando o botão adicionar.":::
 
 Pode agora configurar o seu recurso de Serviços de Comunicação. Na primeira página do processo de criação, será solicitado que especifique:
 
@@ -36,7 +36,7 @@ Pode agora configurar o seu recurso de Serviços de Comunicação. Na primeira p
 * O nome do recurso serviços de comunicação
 * A geografia com que o recurso será associado
 
-No passo seguinte, pode atribuir etiquetas ao recurso. As etiquetas podem ser usadas para organizar os seus recursos Azure. Consulte a [documentação de marcação de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) para obter mais informações sobre etiquetas.
+No passo seguinte, pode atribuir etiquetas ao recurso. As etiquetas podem ser usadas para organizar os seus recursos Azure. Consulte a [documentação de marcação de recursos](../../../azure-resource-manager/management/tag-resources.md) para obter mais informações sobre etiquetas.
 
 Finalmente, pode rever a sua configuração e **criar** o recurso. Note que a colocação levará alguns minutos para ser concluída.
 

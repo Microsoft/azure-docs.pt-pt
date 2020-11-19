@@ -114,8 +114,8 @@
           href: overview-authentication-authorization.md
         - name: SO e aplicação de patches do tempo de execução
           href: overview-patch-os-runtime.md
-        - name: Controlos de segurança incorporados
-          href: app-service-security-controls.md
+        - name: Linha de base de segurança
+          href: security-baseline.md
         - name: Controlos de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

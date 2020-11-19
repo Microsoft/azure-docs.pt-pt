@@ -10,18 +10,18 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 8b606108d0e33ba1dd49e37c0f407b0caa350f6b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a93ac3b5d988be33c0f27726a75b1006f990d1da
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667508"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886128"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Quickstart: Criar e gerir recursos dos Serviços de Comunicação
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primeiro recurso de Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser adcedidos através do portal Azure ou com a biblioteca de clientes de gestão .NET. A biblioteca de clientes de gestão permite-lhe criar, configurar, atualizar e eliminar os seus recursos e interfaces com [o Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), o serviço de implementação e gestão da Azure. Todas as funcionalidades disponíveis nas bibliotecas dos clientes estão disponíveis no portal Azure. 
+Inicie-se com os Serviços de Comunicação Azure, disponibilizando o seu primeiro recurso de Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser adcedidos através do portal Azure ou com a biblioteca de clientes de gestão .NET. A biblioteca de clientes de gestão permite-lhe criar, configurar, atualizar e eliminar os seus recursos e interfaces com [o Azure Resource Manager](../../azure-resource-manager/management/overview.md), o serviço de implementação e gestão da Azure. Todas as funcionalidades disponíveis nas bibliotecas dos clientes estão disponíveis no portal Azure. 
 
 > [!WARNING]
 > Note que a disponibilidade dos Serviços de Comunicação está restrita à geografia dos EUA durante a pré-visualização pública. Note também que os recursos de comunicação não podem ser transferidos para uma subscrição diferente durante a pré-visualização pública.
@@ -47,8 +47,8 @@ Depois de navegar para o seu recurso de Serviços de Comunicação, selecione **
 As bibliotecas de clientes dos Serviços de Comunicação utilizam cadeias de ligação para autorizar pedidos feitos aos Serviços de Comunicação. Tem várias opções para armazenar a sua cadeia de ligação:
 
 * Uma aplicação em execução no ambiente de trabalho ou num dispositivo pode armazenar a cadeia de ligação num **ficheiroapp.config** ou **web.config.** Adicione o fio de ligação à secção **AppSettings nestes** ficheiros.
-* Uma aplicação em execução num Serviço de Aplicações Azure pode armazenar a cadeia de ligação nas definições de [aplicação do Serviço de Aplicações da App.](https://docs.microsoft.com/azure/app-service/configure-common) Adicione o fio de ligação à secção de cordas de **ligação** do separador Definições de Aplicação dentro do portal.
-* Pode armazenar a sua cadeia de ligação no [Cofre da Chave Azure](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+* Uma aplicação em execução num Serviço de Aplicações Azure pode armazenar a cadeia de ligação nas definições de [aplicação do Serviço de Aplicações da App.](../../app-service/configure-common.md) Adicione o fio de ligação à secção de cordas de **ligação** do separador Definições de Aplicação dentro do portal.
+* Pode armazenar a sua cadeia de ligação no [Cofre da Chave Azure](../../data-factory/store-credentials-in-key-vault.md).
 * Se estiver a executar a sua aplicação localmente, pode querer armazenar a sua cadeia de ligação numa variável ambiental.
 
 ### <a name="store-your-connection-string-in-an-environment-variable"></a>Guarde a sua cadeia de conexão numa variável ambiental
@@ -67,7 +67,7 @@ Depois de adicionar a variável de ambiente, poderá ter de reiniciar todos os p
 
 #### <a name="macos"></a>[macOS](#tab/unix)
 
-Edite o seu **.zshrc**e adicione a variável ambiental:
+Edite o seu **.zshrc** e adicione a variável ambiental:
 
 ```bash
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
@@ -87,7 +87,7 @@ Depois de adicionar a variável de ambiente, execute `source ~/.bash_profile` a 
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

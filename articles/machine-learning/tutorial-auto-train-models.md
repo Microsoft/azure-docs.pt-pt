@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4f6e194f04789fbcaf24d69965dfa8ac61b20a38
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358614"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886333"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Utilizar machine learning automatizado para prever tarifas de táxi
 
@@ -39,7 +39,9 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 * Complete o tutorial de [configuração](tutorial-1st-experiment-sdk-setup.md) se ainda não tiver um espaço de trabalho de Aprendizagem automática Azure ou uma máquina virtual de caderno.
 * Depois de completar o tutorial de configuração, abra os *tutoriais/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* usando o mesmo servidor de caderno.
 
-Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se desejar executá-lo no seu próprio [ambiente local.](how-to-configure-environment.md#local) Corra `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` para obter os pacotes necessários.
+Este tutorial também está disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se desejar executá-lo no seu próprio [ambiente local.](how-to-configure-environment.md#local) Para obter os pacotes necessários, 
+* [Instale o `automl` cliente completo.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)
+* Corra `pip install azureml-opendatasets azureml-widgets` para obter os pacotes necessários.
 
 ## <a name="download-and-prepare-data"></a>Baixar e preparar dados
 
@@ -395,7 +397,7 @@ Se não planeia usar os recursos que criou, elimine-os, para não incorrer em qu
 
 Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial automatizado de aprendizagem automática, fez as seguintes tarefas:
 
