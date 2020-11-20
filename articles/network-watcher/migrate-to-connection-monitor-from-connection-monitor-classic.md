@@ -1,5 +1,5 @@
 ---
-title: Migrar para o Monitor de Ligação do Monitor de Ligação
+title: Migrar para o Monitor de Ligação (Pré-visualização) do Monitor de Ligação
 titleSuffix: Azure Network Watcher
 description: Saiba como migrar para o Monitor de Ligação a partir do Monitor de Ligação.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: 0ae1a1f36b9f81145b49245d8e6ace37ab36f834
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d785ecd48816150cd33d8e2f5fcce2ff36f1603f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94974913"
+ms.locfileid: "94985795"
 ---
-# <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrar para o Monitor de Ligação a partir do Monitor de Ligação (Clássico)
+# <a name="migrate-to-connection-monitor-preview-from-connection-monitor-classic"></a>Migrar para o Monitor de Ligação (Pré-visualização) do Monitor de Ligação (Clássico)
 
-Pode migrar os monitores de ligação existentes para um novo Monitor de Ligação melhorado com apenas alguns cliques e com zero tempo de inatividade. Para saber mais sobre os benefícios, consulte [o Connection Monitor.](./connection-monitor-overview.md)
+Pode migrar os monitores de ligação existentes para um novo monitor de ligação melhorado (Preview) com apenas alguns cliques e com zero tempo de inatividade. Para saber mais sobre os benefícios, consulte [o Connection Monitor.](./connection-monitor-overview.md)
+
+> [!IMPORTANT]
+> O Monitor de Ligação encontra-se atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="key-points-to-note"></a>Pontos-chave a notar
 
@@ -61,7 +65,7 @@ Após o início da migração, ocorrem as seguintes alterações:
 * Os monitores de ligação migrados deixaram de ser apresentados como a solução de monitor de ligação mais antiga. Estão agora disponíveis para utilização apenas no Monitor de Ligação.
 * Quaisquer integrações externas, como dashboards no Power BI e Grafana, e integrações com sistemas de Informação de Segurança e Gestão de Eventos (SIEM), devem ser migradas manualmente. Este é o único passo manual que precisa de ser acionado para migrar a sua configuração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Connection Monitor, consulte:
 * [Migrar do Monitor de Desempenho da Rede para o Monitor de Ligação](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor)

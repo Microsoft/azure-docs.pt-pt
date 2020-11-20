@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc33d3c07461b5662e1454ec131dbc2b5f19a390
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7b048581b29fa4244c42261810f382b229a627dd
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126178"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985972"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitetura do Azure IoT Central
 
@@ -54,7 +54,7 @@ A IoT Central permite as seguintes capacidades para dispositivos IoT Edge:
   - A telemetria que cada módulo envia.
   - As propriedades que cada módulo reporta.
   - Os comandos a que cada módulo responde.
-  - As relações entre um modelo de capacidade de gateway IoT Edge e modelo de capacidade do dispositivo a jusante.
+  - As relações entre um dispositivo de gateway IoT Edge e dispositivo a jusante.
   - Propriedades em nuvem que não estão armazenadas no dispositivo IoT Edge.
   - Personalizações, dashboards e formulários que fazem parte da sua aplicação IoT Central.
 
@@ -133,12 +133,12 @@ Numa aplicação Azure IoT Central, os modelos do dispositivo definem o comporta
 
 ![Arquitetura de modelo](media/concepts-architecture/template-architecture.png)
 
-Num modelo de dispositivo de aplicação IoT Central contém:
+Num modelo de [dispositivo](concepts-device-templates.md) IoT Central contém:
 
-- **Os modelos de capacidade** do dispositivo especificam as capacidades de um dispositivo como a telemetria que envia, as propriedades que definem o estado do dispositivo e os comandos a que o dispositivo responde. As capacidades do dispositivo são organizadas em uma ou mais interfaces.
+- Um modelo de **dispositivo** para especificar as capacidades de um dispositivo como a telemetria que envia, as propriedades que definem o estado do dispositivo, e os comandos a que o dispositivo responde. As capacidades do dispositivo são organizadas em uma ou mais interfaces.
 - **Propriedades na nuvem** especificam as propriedades IoT Central lojas para um dispositivo. Estas propriedades são armazenadas apenas na IoT Central e nunca são enviadas para um dispositivo.
 - **As vistas** especificam os dashboards e formas que o construtor cria para permitir que o operador monitorize e gere os dispositivos.
-- **As personalizações** permitem ao construtor sobrepor-se a algumas das definições no modelo de capacidade do dispositivo para torná-las mais relevantes para a aplicação IoT Central.
+- **As personalizações** permitem ao construtor sobrepor-se a algumas das definições no modelo do dispositivo para torná-las mais relevantes para a aplicação IoT Central.
 
 Uma aplicação pode ter um ou mais dispositivos simulados e reais com base em cada modelo de dispositivo.
 
@@ -152,7 +152,7 @@ Numa aplicação Azure IoT Central, pode [criar e executar empregos](howto-run-a
 
 ## <a name="role-based-access-control-rbac"></a>Controlo de acesso baseado em funções (RBAC)
 
-Um [administrador pode definir regras](howto-manage-users-roles.md) de acesso para uma aplicação Azure IoT Central usando uma das funções predefinidas ou criando uma função personalizada. As funções determinam quais as áreas da aplicação a que um utilizador tem acesso e que ações pode realizar.
+Cada aplicação IoT Central tem o seu próprio sistema RBAC incorporado. Um [administrador pode definir regras](howto-manage-users-roles.md) de acesso para uma aplicação Azure IoT Central usando uma das funções predefinidas ou criando uma função personalizada. As funções determinam quais as áreas da aplicação a que um utilizador tem acesso e que ações pode realizar.
 
 ## <a name="security"></a>Segurança
 
@@ -170,6 +170,6 @@ Um administrador pode personalizar o UI da aplicação aplicando temas personali
 
 Um operador pode criar dashboards de aplicação personalizados. Pode ter vários dashboards que exibem dados diferentes e alternam entre eles.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu sobre a arquitetura da Azure IoT Central, o próximo passo sugerido é aprender sobre a [conectividade do dispositivo](concepts-get-connected.md) no Azure IoT Central.

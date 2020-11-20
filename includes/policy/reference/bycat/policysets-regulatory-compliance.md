@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 394bad6623eeb4ce4b43cadd9bef53934ed7e852
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dc4ec31a307d559fad84392522e6847aab1e3873
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311618"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94986973"
 ---
 |Nome |Descrição |Políticas |Versão |
 |---|---|---|---|
@@ -18,7 +18,7 @@ ms.locfileid: "92311618"
 |[Referência de Segurança do Azure](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |Esta iniciativa inclui políticas de implementação de auditoria e extensão de máquinas virtuais que abordam um subconjunto de recomendações de Benchmark de Segurança Azure. Serão adicionadas políticas adicionais nas próximas versões. Para mais informações, [https://aka.ms/azsecbm](https://aka.ms/azsecbm) visite. |136 |6.1.0-pré-visualização |
 |[Canada Federal PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Esta iniciativa inclui políticas de implementação de auditoria e de extensão de máquinas virtuais que abordam um subconjunto de controlos federais de PBMM do Canadá. Serão adicionadas políticas adicionais nas próximas versões. Para mais informações, [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint) visite. |60 |3.0.0 |
 |[CIS Microsoft Azure Foundations Benchmark 1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json) |Esta iniciativa inclui políticas de auditoria que abordam um subconjunto de recomendações de benchmark da CIS Microsoft Azure Foundations Benchmark. Serão adicionadas políticas adicionais nas próximas versões. Para mais informações, [https://aka.ms/cisazure-blueprint](https://aka.ms/cisazure-blueprint) visite. |87 |7.1.0 |
-|[FedRAMP Alto](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Esta iniciativa inclui políticas de implementação de auditoria e extensão de máquinas virtuais que abordam um subconjunto de controlos FedRAMP H. Serão adicionadas políticas adicionais nas próximas versões. Para mais informações, [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint) visite. |72 |3.0.0 |
+|[FedRAMP Alto](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Esta iniciativa inclui políticas de implementação de auditoria e extensão de máquinas virtuais que abordam um subconjunto de controlos FedRAMP H. Serão adicionadas políticas adicionais nas próximas versões. Para mais informações, [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint) visite. |72 |3.0.1 |
 |[FedRAMP Moderado](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_M_audit.json) |Esta iniciativa inclui políticas de implementação de auditoria e de extensão de máquinas virtuais que abordam um subconjunto de controlos FedRAMP M. Serão adicionadas políticas adicionais nas próximas versões. Para mais informações, [https://aka.ms/fedrampm-blueprint](https://aka.ms/fedrampm-blueprint) visite. |62 |3.0.0 |
 |[HITRUST/HIPAA](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json) |Esta iniciativa inclui políticas de implementação de auditoria e de extensão de máquinas virtuais que abordam um subconjunto de controlos HITRUST/HIPAA. Serão adicionadas políticas adicionais nas próximas versões. Para mais informações, [https://aka.ms/hipaa-blueprint](https://aka.ms/hipaa-blueprint) visite. |121 |4.1.0 |
 |[IRS1075 setembro 2016](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRS1075_audit.json) |Esta iniciativa inclui políticas de implementação de auditoria e de extensão de máquinas virtuais que abordam um subconjunto de controlos de IRS1075 setembro de 2016. Serão adicionadas políticas adicionais nas próximas versões. Para mais informações, [https://aka.ms/irs1075-blueprint](https://aka.ms/irs1075-blueprint) visite. |62 |3.0.0 |

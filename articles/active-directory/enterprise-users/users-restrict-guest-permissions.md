@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 11/15/2020
+ms.date: 11/17/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cac88e57ce0135295ac4b7078111102fa69e6838
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e89793ed8404bf36f2857f228d94fdf2a8828d43
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646598"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984265"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restringir permissões de acesso a hóspedes (pré-visualização) no Azure Ative Directory
 
@@ -155,7 +155,8 @@ O serviço sem suporte atual pode ter problemas de compatibilidade com a nova co
 Pergunta | Resposta
 -------- | ------
 Onde se aplicam estas permissões? | Estas permissões de nível de diretório são aplicadas em todos os serviços e portais AZure AD, incluindo o Microsoft Graph, PowerShell v2, o portal Azure e o portal My Apps. Os serviços da Microsoft 365 que aproveitam os grupos microsoft 365 para cenários de colaboração também são afetados, nomeadamente o Outlook, Microsoft Teams e SharePoint.
-Que partes do portal My Apps irá afetar esta funcionalidade? | A funcionalidade dos grupos no portal My Apps irá homenagear estas novas permissões. Isto inclui todos os caminhos para ver a lista de grupos e membros do grupo nas Minhas Apps. Não foram feitas alterações à disponibilidade de azulejos do grupo. A disponibilidade de azulejos de grupo ainda é controlada pela configuração do grupo existente no portal de administração Azure.
+Como é que as permissões restritas afetam quais os grupos que os hóspedes podem ver? | Independentemente das permissões de hóspedes predefinidas ou restritas, os hóspedes não podem enumerar a lista de grupos ou utilizadores. Os hóspedes podem ver grupos de que são membros tanto no portal Azure como no portal My Apps, dependendo das permissões:<li>**Permissões por defeito**: Para encontrar os grupos de que são membros do portal Azure, o hóspede deve procurar o seu ID de objeto na lista **de todos os utilizadores** e, em seguida, selecionar **Grupos**. Aqui podem ver a lista de grupos de que são membros, incluindo todos os detalhes do grupo, incluindo nome, e-mail, e assim por diante. No portal My Apps, podem ver uma lista de grupos que possuem e grupos dos quais são membros.</li><li>**Permissões restritas de hóspedes**: No portal Azure, ainda podem encontrar a lista de grupos de que são membros, procurando o seu ID de objeto na lista de todos os utilizadores e, em seguida, selecione Grupos. Eles só podem ver detalhes muito limitados sobre o grupo, nomeadamente o ID do objeto. Por design, as colunas Nome e Email estão em branco e o Tipo de Grupo não é reconhecido. No portal My Apps, não conseguem aceder à lista de grupos que possuem ou grupos de que são membros.</li><br>Para uma comparação mais detalhada das permissões de diretório que vêm da API do gráfico, consulte [permissões do utilizador predefinidos](../fundamentals/users-default-permissions.md#member-and-guest-users).
+Que partes do portal My Apps irá afetar esta funcionalidade? | A funcionalidade dos grupos no portal My Apps irá homenagear estas novas permissões. Isto inclui todos os caminhos para ver a lista de grupos e membros do grupo nas Minhas Apps. Não foram feitas alterações à disponibilidade de azulejos do grupo. A disponibilidade de azulejos de grupo ainda é controlada pela configuração do grupo existente no portal Azure.
 Estas permissões substituem as definições de hóspedes do SharePoint ou da Microsoft Teams? | Não. As definições existentes ainda controlam a experiência e o acesso nessas aplicações. Por exemplo, se vir problemas no SharePoint, verifique duas vezes as definições de partilha externa.
 Quais são os problemas de compatibilidade conhecidos no Planner e no Yammer? | <li>Com permissões definidas para 'restrito', os hóspedes que iniciaram sessão na aplicação Planner ou que acedam ao Planner em Microsoft Teams não poderão aceder aos seus planos ou a quaisquer tarefas.<li>Com permissões definidas para 'restrito', os hóspedes que entrarem em Yammer não poderão sair do grupo.
 As minhas permissões de hóspedes existentes serão alteradas no meu inquilino? | Não foram efetuadas alterações nas definições atuais. Mantemos a retrocompatibilidade com as definições existentes. Decide quando quer fazer mudanças.

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: c15750a7a63293994ff7c6b68cb85a5066acee90
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: d22d70a360290e7fbfabf1d05fc49d4ef6eb8c83
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981141"
+ms.locfileid: "94986339"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -67,9 +67,9 @@ A piscina Spark diz ao Azure Synapse quantos recursos de faíscas usar. Paga ape
 
 ## <a name="the-built-in-serverless-sql-pool"></a>A piscina SQL sem servidor incorporada
 
-Cada espaço de trabalho vem com uma piscina pré-construída chamada **Built-in.** Esta piscina não pode ser apagada. A piscina SQL sem servidor permite-lhe trabalhar com o SQL sem ter de criar ou pensar em gerir uma piscina SQL sem servidor em Azure Synapse. Ao contrário das piscinas SQL dedicadas, a faturação de um pool SQL sem servidor baseia-se na quantidade de dados digitalizados para executar a consulta, e não no número de recursos utilizados para executar a consulta.
+Cada espaço de trabalho vem com uma piscina SQL sem servidor pré-construída chamada **Built-in**. Esta piscina não pode ser apagada. Piscinas SQL sem servidor permitem-lhe usar SQL com a capacidade de reserva com piscinas SQL dedicadas. Ao contrário das piscinas SQL dedicadas, a faturação de um pool SQL sem servidor baseia-se na quantidade de dados digitalizados para executar a consulta, e não no número de capacidade atribuída à piscina.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Analise usando uma piscina SQL dedicada](get-started-analyze-sql-pool.md)

@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para Azure Data Lake Storage Gen1
 description: Lista definições políticas incorporadas da Azure Policy para a Azure Data Lake Storage Gen1. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: reference
 author: twooley
 ms.author: twooley
 ms.service: data-lake-store
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8f2e54a364d46670f39af1c5ac3d9ebf36b82f93
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 6c895c65e122154afeb2a29cb2d905460316538f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94736906"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988447"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-storage-gen1"></a>Azure Policy definições incorporadas para Azure Data Lake Storage Gen1
 

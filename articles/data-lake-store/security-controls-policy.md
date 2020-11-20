@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para a Azure Data Lake Storage Gen1
 description: Lista os controlos de conformidade regulamentar da política Azure disponíveis para a Azure Data Lake Storage Gen1. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: sample
 author: normesta
 ms.author: normesta
 ms.service: data-lake-store
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: ac8d4989991f3aad2d7800d63a33c4a3192a5b4d
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 25d091fbe2c51306cd17fb36bc6e91cbeff62ba4
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700747"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987410"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-lake-storage-gen1"></a>Controlos de conformidade regulamentar da política Azure para a Azure Data Lake Storage Gen1
 
@@ -23,7 +23,7 @@ Pode atribuir os incorporados a um controlo de **segurança** individualmente pa
 
 [!INCLUDE [azure-policy-compliancecontrols-adls](../../includes/policy/standards/byrp/microsoft.datalakestore.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).

@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 245a00acb07d1c0e769a243413fccdf64d544f5a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1cc313daf0e76ddd14865959410b07d9bdc189d7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133688"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984926"
 ---
 # <a name="pronunciation-assessment"></a>Avaliação da pronúncia
 
@@ -154,12 +154,12 @@ double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 Esta tabela lista os parâmetros de configuração para avaliação da pronúncia.
 
-| Parâmetro | Descrição | Obrigatório / Opcional |
+| Parâmetro | Descrição | Necessário? |
 |-----------|-------------|---------------------|
 | Texto de Referência | O texto contra o que a pronúncia será avaliado. | Necessário |
-| Sistema de Classificação | O sistema de pontos para a calibração da pontuação. Os valores aceites são `FivePoint` `HundredMark` e. A predefinição é `FivePoint`. | Opcional |
-| Granularidade | A granularidade de avaliação. Os valores aceites são `Phoneme` , que mostram a pontuação no nível completo do texto, palavra e fon de texto, que mostra a `Word` pontuação no texto completo e no nível de palavra, `FullText` que mostra a pontuação apenas no nível de texto completo. A predefinição é `Phoneme`. | Opcional |
-| EnableMiscue | Permite o cálculo do erro. Com isto ativado, as palavras pronunciadas serão comparadas com o texto de referência, e serão marcadas com omissão/inserção com base na comparação. Os valores aceites são `False` `True` e. A predefinição é `False`. | Opcional |
+| Sistema de Classificação | O sistema de pontos para a calibração da pontuação. O `FivePoint` sistema dá uma pontuação de 0-5 pontos flutuantes, e dá uma `HundredMark` pontuação de 0-100 pontos flutuantes. Predefinição: `FivePoint`. | Opcional |
+| Granularidade | A granularidade de avaliação. Os valores aceites são `Phoneme` , que mostram a pontuação no nível completo do texto, palavra e fon de texto, que mostra a `Word` pontuação no texto completo e no nível de palavra, `FullText` que mostra a pontuação apenas no nível de texto completo. Predefinição: `Phoneme`. | Opcional |
+| EnableMiscue | Permite o cálculo do erro. Com isto ativado, as palavras pronunciadas serão comparadas com o texto de referência, e serão marcadas com omissão/inserção com base na comparação. Os valores aceites são `False` `True` e. Predefinição: `False`. | Opcional |
 | CenárioId | Um GUID indicando um sistema de pontos personalizado. | Opcional |
 
 ### <a name="pronunciation-assessment-result-parameters"></a>Parâmetros de resultados de avaliação da pronúncia
@@ -174,7 +174,7 @@ Esta tabela enumera os parâmetros de resultado da avaliação da pronúncia.
 | `PronunciationScore` | Pontuação geral indicando a qualidade da pronúncia do discurso dado. Isto é agregado de `AccuracyScore` , `FluencyScore` e com `CompletenessScore` peso. |
 | `ErrorType` | Este valor indica se uma palavra é omitida, inserida ou mal pronunciada, em comparação com `ReferenceText` . Os valores possíveis são `None` (ou seja, nenhum erro nesta palavra), `Omission` `Insertion` e `Mispronunciation` . |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 <!-- TODO: update the sample links after release -->
 

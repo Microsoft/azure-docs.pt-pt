@@ -1,5 +1,5 @@
 ---
-title: Criar Monitor de Conexão - Portal Azure
+title: Criar Monitor de Conexão (Pré-visualização) - Portal Azure
 titleSuffix: Azure Network Watcher
 description: Este artigo descreve como criar um monitor no Monitor de Ligação utilizando o portal Azure.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: d652f1eae62270fa8968d64a2bd15a1261dca673
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f1ba23d53d79587c9d75c1d840c1d3857725d8dd
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949195"
+ms.locfileid: "94984384"
 ---
-# <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Criar um monitor no Monitor de Ligação utilizando o portal Azure
+# <a name="create-a-monitor-in-connection-monitor-preview-by-using-the-azure-portal"></a>Criar um monitor no Monitor de Ligação (Pré-visualização) utilizando o portal Azure
 
 Saiba como utilizar o Connection Monitor para monitorizar a comunicação entre os seus recursos. Este artigo descreve como criar um monitor utilizando o portal Azure. O Connection Monitor suporta implementações de nuvem híbrida e Azure.
+
+> [!IMPORTANT]
+> O Monitor de Ligação encontra-se atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Before you begin 
 
@@ -199,7 +203,7 @@ Os monitores de ligação têm estes limites de escala:
 * Fontes e destinos máximos por monitor de ligação: 100
 * Configurações máximas de teste por monitor de ligação: 2 através do portal Azure
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba [como analisar os dados de monitorização e definir alertas.](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
 * Saiba [como diagnosticar problemas na sua rede.](./connection-monitor-overview.md#diagnose-issues-in-your-network)

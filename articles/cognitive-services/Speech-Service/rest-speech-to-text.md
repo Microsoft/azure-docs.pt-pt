@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb66d8a197a33d6d0ad46502b510662f43ea1ca
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532522"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988566"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -90,10 +90,10 @@ O áudio é enviado no corpo do `POST` pedido HTTP. Deve estar num dos formatos 
 
 Esta tabela lista os parâmetros necessários e opcionais para a avaliação da pronúncia.
 
-| Parâmetro | Descrição | Obrigatório / Opcional |
+| Parâmetro | Descrição | Necessário? |
 |-----------|-------------|---------------------|
 | Texto de Referência | O texto contra o que a pronúncia será avaliado. | Necessário |
-| Sistema de Classificação | O sistema de pontos para a calibração da pontuação. Os valores aceites são `FivePoint` `HundredMark` e. A predefinição é `FivePoint`. | Opcional |
+| Sistema de Classificação | O sistema de pontos para a calibração da pontuação. O `FivePoint` sistema dá uma pontuação de 0-5 pontos flutuantes, e dá uma `HundredMark` pontuação de 0-100 pontos flutuantes. Predefinição: `FivePoint`. | Opcional |
 | Granularidade | A granularidade de avaliação. Os valores aceites são `Phoneme` , que mostram a pontuação no nível completo do texto, palavra e fon de texto, que mostra a `Word` pontuação no texto completo e no nível de palavra, `FullText` que mostra a pontuação apenas no nível de texto completo. A predefinição é `Phoneme`. | Opcional |
 | Dimensão | Define os critérios de saída. Os valores aceites são `Basic` , que mostram apenas a pontuação de precisão, `Comprehensive` mostra pontuações em mais dimensões (por exemplo, pontuação de fluência e pontuação de completude no nível de texto completo, tipo de erro no nível de palavra). Consulte [os parâmetros de resposta](#response-parameters) para ver definições de diferentes dimensões de pontuação e tipos de erros de palavras. A predefinição é `Basic`. | Opcional |
 | EnableMiscue | Permite o cálculo do erro. Com isto ativado, as palavras pronunciadas serão comparadas com o texto de referência, e serão marcadas com omissão/inserção com base na comparação. Os valores aceites são `False` `True` e. A predefinição é `False`. | Opcional |
@@ -147,7 +147,7 @@ Pronunciation-Assessment: eyJSZWZlcm...
 
 O código de estado HTTP para cada resposta indica sucesso ou erros comuns.
 
-| Código de estado de HTTP | Descrição | Razão possível |
+| Código de estado de HTTP | Descrição | Motivo possível |
 |------------------|-------------|-----------------|
 | `100` | Continuar | O pedido inicial foi aceite. Proceda ao envio do resto dos dados. (Usado com transferência em pedaços) |
 | `200` | OK | O pedido foi bem sucedido; o corpo de resposta é um objeto JSON. |
@@ -304,7 +304,7 @@ Uma resposta típica para o reconhecimento com avaliação da pronúncia:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)

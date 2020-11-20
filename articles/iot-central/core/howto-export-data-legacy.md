@@ -7,12 +7,12 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 812fd0c10b63cfe469a10a99069f201fcc2cc658
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9e5f4fd14f56f0a2dff45dd2650ea552b07fecd7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126742"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987359"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exportar dados de IoT para destinos em nuvem usando exportação de dados (legado)
 
@@ -22,7 +22,7 @@ ms.locfileid: "92126742"
 > - Para obter informações sobre as novas funcionalidades de exportação de dados de pré-visualização, consulte [os dados do IoT de exportação para destinos em nuvem utilizando a exportação de dados.](./howto-export-data.md)
 > - Para conhecer as diferenças entre as características de exportação de dados de pré-visualização e as características de exportação de dados legados, consulte a [tabela de comparação](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
-Este artigo descreve como utilizar a funcionalidade de exportação de dados na Azure IoT Central. Esta funcionalidade permite-lhe exportar os seus dados continuamente para **Azure Event Hubs,** **Azure Service Bus**ou **a azure Blob.** A exportação de dados utiliza o formato JSON e pode incluir informações sobre telemetria, informações do dispositivo e modelo do dispositivo. Utilize os dados exportados para:
+Este artigo descreve como utilizar a funcionalidade de exportação de dados na Azure IoT Central. Esta funcionalidade permite-lhe exportar os seus dados continuamente para **Azure Event Hubs,** **Azure Service Bus** ou **a azure Blob.** A exportação de dados utiliza o formato JSON e pode incluir informações sobre telemetria, informações do dispositivo e modelo do dispositivo. Utilize os dados exportados para:
 
 - Perspicácias e análises de caminhos quentes. Esta opção inclui o desencadear de regras personalizadas no Azure Stream Analytics, desencadear fluxos de trabalho personalizados em Azure Logic Apps ou passá-lo através de Funções Azure para serem transformados.
 - Análises de caminhos frios, como modelos de treinamento em Azure Machine Learning ou análise de tendências a longo prazo no Microsoft Power BI.
@@ -85,9 +85,9 @@ Agora que tem um destino para exportar dados, siga estes passos para configurar 
     > [!Tip]
     > Se não vir **a exportação de Dados** no painel esquerdo, então não tem permissões para configurar a exportação de dados na sua app. Fale com um administrador para configurar a exportação de dados.
 
-3. Selecione o botão **+ Novo.** Escolha um dos **Azure Blob Storage,** **Azure Event Hubs,** **Azure Service Bus Queue**ou **Azure Service Bus Topic** como destino da sua exportação. O número máximo de exportações por pedido é de cinco.
+3. Selecione o botão **+ Novo.** Escolha um dos **Azure Blob Storage,** **Azure Event Hubs,** **Azure Service Bus Queue** ou **Azure Service Bus Topic** como destino da sua exportação. O número máximo de exportações por pedido é de cinco.
 
-4. Insira um nome para a exportação. Na caixa de lista de drop-down, selecione o seu **espaço de nome**ou **introduza uma cadeia de ligação**.
+4. Insira um nome para a exportação. Na caixa de lista de drop-down, selecione o seu **espaço de nome** ou **introduza uma cadeia de ligação**.
 
     - Só vê contas de armazenamento, espaços de nomes de Event Hubs e espaços de nomes de Service Bus na mesma subscrição que a sua aplicação IoT Central. Se pretender exportar para um destino fora desta subscrição, escolha Introduzir uma cadeia de **ligação** e ver o passo 6.
     - Para aplicações criadas usando o plano de preços gratuitos, a única forma de configurar a exportação de dados é através de uma cadeia de conexão. As aplicações no plano de preços gratuitos não têm uma subscrição associada do Azure.
@@ -109,7 +109,7 @@ Agora que tem um destino para exportar dados, siga estes passos para configurar 
           1. Em **Definições**, selecione **teclas de acesso**
           2. Copie a cadeia de ligação key1 ou a cadeia de ligação key2
 
-    Cole na corda de ligação. Digite o nome do **recipiente**ou sensível à caixa.
+    Cole na corda de ligação. Digite o nome do **recipiente** ou sensível à caixa.
 
 7. Em **Dados para exportar,** escolha os tipos de dados para exportar, fixando o tipo para **On**.
 
@@ -382,7 +382,6 @@ Este exemplo mostra uma mensagem sobre os dados dos modelos do dispositivo no ce
                           {
                               "@id": "<id>",
                               "@type": ["Command"],
-                              "commandType": "synchronous",
                               "request": {
                                   "@id": "<id>",
                                   "@type": ["SchemaField"],
@@ -506,7 +505,6 @@ Este instantâneo de exemplo mostra uma mensagem que contém dados de dispositiv
                           {
                               "@id": "<id>",
                               "@type": ["Command"],
-                              "commandType": "synchronous",
                               "request": {
                                   "@id": "<id>",
                                   "@type": ["SchemaField"],
@@ -750,7 +748,7 @@ Para **os modelos do Dispositivo,** diferenças notáveis entre o antigo formato
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe exportar os seus dados para a Azure Event Hubs, Azure Service Bus e Azure Blob, continue para o próximo passo:
 

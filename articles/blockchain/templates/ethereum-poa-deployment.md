@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bbfca4d890440574ee6717ca910969226fc781a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283433"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987070"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implementar o modelo de solução de consórcio de prova de autoridade do Ethereum no Azure
 
@@ -48,7 +48,7 @@ Cada destacamento de membro do consórcio inclui:
 * Monitor Azure para agregação de registos e estatísticas de desempenho
 * VNet Gateway (opcional) para permitir ligações VPN em VNets privados
 
-Por padrão, os pontos finais de RPC e peering são acessíveis através do IP público para permitir a conectividade simplificada entre subscrições e nuvens. Para controlos de acesso ao nível de aplicação, pode utilizar [os contratos de permissão da Parity.](https://wiki.parity.io/Permissioning) As redes implementadas atrás de VPNs, que alavancam os gateways VNet para a conectividade de subscrição cruzada são suportadas. Uma vez que as implementações de VPN e VNet são mais complexas, é melhor começar com um modelo IP público ao prototipar uma solução.
+Por padrão, os pontos finais de RPC e peering são acessíveis através do IP público para permitir a conectividade simplificada entre subscrições e nuvens. Para controlos de acesso ao nível de aplicação, pode utilizar os contratos de permissão da Parity. As redes implementadas atrás de VPNs, que alavancam os gateways VNet para a conectividade de subscrição cruzada são suportadas. Uma vez que as implementações de VPN e VNet são mais complexas, é melhor começar com um modelo IP público ao prototipar uma solução.
 
 Os recipientes estivadores são utilizados para a fiabilidade e modularidade. O Registo de Contentores Azure é utilizado para hospedar e servir imagens versadas como parte de cada implantação. As imagens do contentor consistem em:
 
@@ -84,11 +84,11 @@ No [portal Azure,](https://portal.azure.com) **selecione Criar um recurso** no c
 
 Selecione **Blockchain**  >  **Ethereum Proof-of-Authority Consortium (pré-visualização)**.
 
-### <a name="basics"></a>Noções básicas
+### <a name="basics"></a>Informações básicas
 
 De acordo com **os Básicos,** especifique os valores para os parâmetros padrão para qualquer implantação.
 
-![Noções básicas](./media/ethereum-poa-deployment/basic-blade.png)
+![Informações básicas](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parâmetro | Descrição | Valor de exemplo
 ----------|-------------|--------------
@@ -341,7 +341,7 @@ ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
 
 Para chegar a nós de transação adicionais, incremente o número da porta por um.
 
-Se se deslocar para mais de uma região, altere o comando para o nome DNS ou endereço IP do esquilibrador de carga nessa região. Para encontrar o nome DNS ou endereço IP das outras regiões, encontre o recurso com a convenção de nomeação ** \* \* \* \* \* -lbpip-reg \# ** e veja o seu nome DNS e propriedades de endereço IP.
+Se se deslocar para mais de uma região, altere o comando para o nome DNS ou endereço IP do esquilibrador de carga nessa região. Para encontrar o nome DNS ou endereço IP das outras regiões, encontre o recurso com a convenção de nomeação **\* \* \* \* \* -lbpip-reg \#** e veja o seu nome DNS e propriedades de endereço IP.
 
 ## <a name="azure-traffic-manager-load-balancing"></a>Balanço de carga do Gestor de Tráfego Azure
 
@@ -685,7 +685,7 @@ Agora que o seu contrato inteligente está implementado, pode enviar uma transa�
 
 ## <a name="webassembly-wasm-support"></a>Suporte webAssembly (WASM)
 
-O suporte webAssembly já está ativado para si em redes PoA recém-implantadas. Permite o desenvolvimento de contratos inteligentes em qualquer idioma que transpile para Web-Assembly (Rust, C, C++). Para mais informações, consulte: [Parity Overview of WebAssembly](https://wiki.parity.io/WebAssembly-Home) e [Tutorial da Parity Tech](https://github.com/paritytech/pwasm-tutorial)
+O suporte webAssembly já está ativado para si em redes PoA recém-implantadas. Permite o desenvolvimento de contratos inteligentes em qualquer idioma que transpile para Web-Assembly (Rust, C, C++). Para mais informações, consulte [Tutorial da Parity Tech.](https://github.com/paritytech/pwasm-tutorial)
 
 ## <a name="faq"></a>FAQ
 
@@ -715,7 +715,7 @@ A monitorização é uma característica opcional. Em alguns casos raros em que 
 
 ### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>As implementações ip públicas são compatíveis com implementações de rede privada?
 
-N.º O despresogromento requer comunicação bidirecional, pelo que toda a rede deve ser pública ou privada.
+Não. O despresogromento requer comunicação bidirecional, pelo que toda a rede deve ser pública ou privada.
 
 ### <a name="what-is-the-expected-transaction-throughput-of-proof-of-authority"></a>Qual é o resultado da transação esperada da Prova de Autoridade?
 
@@ -739,6 +739,6 @@ Envolva-se com engenheiros da Microsoft e especialistas da comunidade Azure Bloc
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais soluções Azure Blockchain, consulte a documentação do [Azure Blockchain.](../index.yml)

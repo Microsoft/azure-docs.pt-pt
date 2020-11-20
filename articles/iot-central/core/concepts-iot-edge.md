@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 5c51649e742f6e314e0e324ae19c38f1a83b02ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4248246be845aa8608aac8b8a3ce761ea1ef86
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016865"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987053"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Ligar dispositivos Azure IoT Edge a uma aplicação do Azure IoT Central
 
@@ -63,9 +63,9 @@ No Azure IoT Central, pode importar um manifesto de implantação para criar um 
 
 IoT Central modela um dispositivo IoT Edge da seguinte forma:
 
-* Cada modelo de dispositivo IoT Edge tem um modelo de capacidade do dispositivo.
+* Cada modelo de dispositivo IoT Edge tem um modelo de dispositivo.
 * Para cada módulo personalizado listado no manifesto de implementação, é gerado um modelo de capacidade do módulo.
-* Estabelece-se uma relação entre cada modelo de capacidade do módulo e um modelo de capacidade do dispositivo.
+* Estabelece-se uma relação entre cada modelo de capacidade do módulo e um modelo de dispositivo.
 * Um modelo de capacidade de módulo implementa interfaces de módulos.
 * Cada interface de módulo contém telemetria, propriedades e comandos.
 
@@ -73,8 +73,8 @@ IoT Central modela um dispositivo IoT Edge da seguinte forma:
 
 ## <a name="iot-edge-gateway-devices"></a>Dispositivos de gateway IoT Edge
 
-Se selecionou um dispositivo IoT Edge para ser um dispositivo de gateway, pode adicionar relações a jusante aos modelos de capacidade do dispositivo para dispositivos que pretende ligar ao dispositivo gateway.
+Se selecionou um dispositivo IoT Edge para ser um dispositivo de gateway, pode adicionar relações a jusante aos modelos de dispositivos para dispositivos que pretende ligar ao dispositivo gateway.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se você é um desenvolvedor de dispositivos, um próximo passo sugerido é aprender sobre [os tipos de dispositivos gateway na IoT Central](./tutorial-define-gateway-device-type.md).

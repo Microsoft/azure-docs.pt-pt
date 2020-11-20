@@ -11,15 +11,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2020
+ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b65190c0fd2fcac132f762116a63357a08e6bf02
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7777888bd27325e9094032458922969494a9a64e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967742"
+ms.locfileid: "94984962"
 ---
 # <a name="know-the-terms"></a>Conhecer os termos
 
@@ -45,6 +45,7 @@ Várias definições comuns são amplamente utilizadas no Guia de Arquitetura e 
 - **Revisão**: Existem duas revisões de selos diferentes para os selos HANA Large Instance. Estes diferem na arquitetura e proximidade com os anfitriões de máquinas virtuais Azure
     - "Revisão 3" (Rev 3): é o design original que foi implementado a partir de meados do ano de 2016
     - "Revisão 4" (Rev 4): é um novo design que pode proporcionar uma proximidade mais próxima aos anfitriões de máquinas virtuais Azure e com essa latência de rede mais baixa entre os VMs Azure e as unidades HANA Large Instance 
+    - "Revisão 4.2" (Rev 4.2): na Revisão 4 DCs existentes, os recursos são remarcados para a Infraestrutura BareMetal.  Os clientes podem aceder aos seus recursos como instâncias BareMetal a partir do portal Azure. 
 
 Uma variedade de recursos adicionais estão disponíveis sobre como implementar uma carga de trabalho SAP na nuvem. Se planeia executar uma implantação de SAP HANA em Azure, precisa de ser experiente e consciente dos princípios do Azure IaaS e da implantação de cargas de trabalho SAP em Azure IaaS. Antes de continuar, consulte [soluções SAP em máquinas virtuais Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações. 
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
-ms.openlocfilehash: 8b0d6665b440516d29cc9aeb0b6e50f509528574
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ec193eab02d937e9d93b8632fa171fec8227d6c2
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503441"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987526"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gerir a azure SQL Gestão de Casos de reserva a longo prazo (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Para **remover-AzSqlInstanceDatabaseLongTermRetentionBackup,** terá de ter uma 
 > [!NOTE]
 > A função contribuidora de casos geridos não tem permissão para eliminar cópias de segurança LTR.
 
-As permissões do RBAC poderiam ser concedidas no âmbito *de subscrição* ou *grupo de recursos.* No entanto, para aceder a cópias de segurança LTR que pertençam a uma instância abandonada, a permissão deve ser concedida no âmbito de *subscrição* desse caso.
+As permissões Azure RBAC poderiam ser concedidas no âmbito de *subscrição* ou *grupo de recursos.* No entanto, para aceder a cópias de segurança LTR que pertençam a uma instância abandonada, a permissão deve ser concedida no âmbito de *subscrição* desse caso.
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
@@ -145,7 +145,7 @@ Restore-AzSqlInstanceDatabase -FromLongTermRetentionBackup -ResourceId $ltrBacku
 > [!NOTE]
 > A partir daqui, pode ligar à base de dados restaurada através do o SQL Server Management Studio para efetuar tarefas necessárias, bem como para extrair alguns dados da base de dados restaurada para copiá-los para a base de dados existente ou para eliminar a base de dados existente e mudar o nome da base de dados restaurada para o nome da base de dados existente. Ver [ponto no tempo restaurar](../database/recovery-using-backups.md#point-in-time-restore).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre cópias de segurança automáticas geradas pelo serviço, veja [cópias de segurança automáticas](../database/automated-backups-overview.md)
 - Para saber mais sobre a retenção de longa duração de cópia de segurança, veja [retenção de longa duração de cópia de segurança](../database/long-term-retention-overview.md)

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f95df6fb74071dc16814f11fb48521f984c89778
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967904"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988049"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial - Defina um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central
 
@@ -51,11 +51,11 @@ Para criar um modelo de dispositivo para um dispositivo **S1 Sensor:**
 
 1. Na página **'Rever',** **selecione Criar** para adicionar o modelo do dispositivo à sua aplicação. 
 
-Para criar um modelo de dispositivo para um dispositivo *** RS40 Sensor de Ocupação:**
+Para criar um modelo de dispositivo para um dispositivo *_* RS40 Sensor de Ocupação:_*
 
 1. No painel esquerdo, selecione **Modelos de Dispositivo .** Em seguida, selecione **+** para começar a adicionar o modelo.
 
-1. Desloque-se para baixo até ver o azulejo do dispositivo ***RS40 Occupancy Sensor.** Selecione o azulejo e, em seguida, **selecione Seguinte: Personalize**.
+1. Desloque-se para baixo até ver o azulejo do dispositivo **_RS40 Occupancy Sensor._* Selecione o azulejo e, em seguida, **selecione Seguinte: Personalize**.
 
 1. Na página **'Rever',** **selecione Criar** para adicionar o modelo do dispositivo à sua aplicação. 
 
@@ -142,7 +142,7 @@ Para publicar o modelo do dispositivo gateway:
 
 3. Na caixa de diálogo **do modelo do dispositivo,** escolha **publicar**.
 
-Após a publicação de um modelo de dispositivo, é visível na página **dispositivos** e no operador. Num modelo de dispositivo publicado, não é possível editar um modelo de capacidade do dispositivo sem criar uma nova versão. No entanto, pode fazer atualizações para propriedades na nuvem, personalizações e vistas, num modelo de dispositivo publicado. Estas atualizações não fazem com que uma nova versão seja criada. Depois de escoar quaisquer alterações, **selecione Publicar**  para empurrar essas alterações para fora para o seu operador.
+Após a publicação de um modelo de dispositivo, é visível na página **dispositivos** e no operador. Num modelo de dispositivo publicado, não é possível editar um modelo de dispositivo sem criar uma nova versão. No entanto, pode fazer atualizações para propriedades na nuvem, personalizações e vistas, num modelo de dispositivo publicado. Estas atualizações não fazem com que uma nova versão seja criada. Depois de escoar quaisquer alterações, **selecione Publicar**  para empurrar essas alterações para fora para o seu operador.
 
 ## <a name="create-the-simulated-devices"></a>Criar os dispositivos simulados
 
@@ -154,7 +154,7 @@ Para criar um dispositivo de gateway simulado:
 
 1. Selecione **+** para começar a adicionar um novo dispositivo.
 
-1. Mantenha o **ID** e **o nome do dispositivo**gerados. Certifique-se de que o interruptor **simulado** está **ligado**. Selecione **Criar**.
+1. Mantenha o **ID** e **o nome do dispositivo** gerados. Certifique-se de que o interruptor **simulado** está **ligado**. Selecione **Criar**.
 
 Para criar um dispositivo simulado a jusante:
 
@@ -162,13 +162,13 @@ Para criar um dispositivo simulado a jusante:
 
 1. Selecione **+** para começar a adicionar um novo dispositivo.
 
-1. Mantenha o **ID** e **o nome do dispositivo**gerados. Certifique-se de que o interruptor **simulado** está **ligado**. Selecione **Criar**.
+1. Mantenha o **ID** e **o nome do dispositivo** gerados. Certifique-se de que o interruptor **simulado** está **ligado**. Selecione **Criar**.
 
 1. Na página **dispositivos,** selecione **S1 Sensor** na lista de modelos do dispositivo.
 
 1. Selecione **+** para começar a adicionar um novo dispositivo.
 
-1. Mantenha o **ID** e **o nome do dispositivo**gerados. Certifique-se de que o interruptor **simulado** está **ligado**. Selecione **Criar**.
+1. Mantenha o **ID** e **o nome do dispositivo** gerados. Certifique-se de que o interruptor **simulado** está **ligado**. Selecione **Criar**.
 
 ![Dispositivos simulados na sua aplicação](./media/tutorial-define-gateway-device-type/simulated-devices.png)
 

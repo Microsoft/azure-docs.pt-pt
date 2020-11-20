@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 7bcdabdb4e49d198b9acb7a1c57312b31a5b4fff
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 51e9e66e2fd8ff60dd20c275a66fd13c047cc629
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842231"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985523"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Falha manual iniciada pelo utilizador em SqL Managed Instance
 
@@ -37,16 +37,16 @@ Pode considerar a execução de um [failover manual](../database/high-availabili
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Iniciar falha manual em SqL Managed Instance
 
-### <a name="rbac-permissions-required"></a>Permissões DO RBAC necessárias
+### <a name="azure-rbac-permissions-required"></a>Permissões Azure RBAC necessárias
 
-O utilizador que iniciar uma falha terá de ter uma das seguintes funções do RBAC:
+O utilizador que iniciar uma falha terá de ter uma das seguintes funções do Azure:
 
 - Função do Proprietário de Assinatura, ou
 - Papel de contribuinte de instância gerida, ou
 - Função personalizada com a seguinte permissão:
   - `Microsoft.Sql/managedInstances/failover/action`
 
-### <a name="using-powershell"></a>Com o PowerShell
+### <a name="using-powershell"></a>Utilizar o PowerShell
 
 A versão mínima de Az.Sql tem de ser [v2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Considere usar [a Azure Cloud Shell](../../cloud-shell/overview.md) do portal Azure que tem sempre a versão mais recente do PowerShell disponível. 
 
@@ -144,7 +144,7 @@ Não poderá ver a mesma saída com o nível de serviço GP acima mostrado para 
 > - Para os casos a.C. deve existir quórum de réplicas para que o pedido de caduco seja aceite.
 > - Para os casos a.C. não é possível especificar qual réplica secundária legível para iniciar a falha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a alta disponibilidade de exemplo gerido [Alta disponibilidade para Azure SQL Managed Instance](../database/high-availability-sla.md).
 - Para uma visão geral, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md). .

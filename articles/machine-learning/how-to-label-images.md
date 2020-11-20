@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b138b3eb52a0bfb6dca2ec6fdf0b855223bab698
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542189"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984452"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Identifie imagens em um projeto de rotulagem 
 
@@ -82,7 +82,7 @@ Especialmente no início de um projeto de rotulagem, o modelo de machine learnin
 
 Se o seu projeto for do tipo "Classificação de Imagem Multi-Class", atribuirá uma única etiqueta a toda a imagem. Para rever as instruções a qualquer momento, vá à página **Instruções** e selecione **Ver instruções detalhadas**.
 
-Se perceber que cometeu um erro depois de atribuir uma etiqueta a uma imagem, pode consertá-la. Selecione o " **X** " na etiqueta que é exibida abaixo da imagem para limpar a etiqueta. Ou, selecione a imagem e escolha outra classe. O valor recentemente selecionado substituirá a etiqueta previamente aplicada.
+Se perceber que cometeu um erro depois de atribuir uma etiqueta a uma imagem, pode consertá-la. Selecione o "**X**" na etiqueta que é exibida abaixo da imagem para limpar a etiqueta. Ou, selecione a imagem e escolha outra classe. O valor recentemente selecionado substituirá a etiqueta previamente aplicada.
 
 ## <a name="tag-images-for-multi-label-classification"></a>Etiquetar imagens para classificação de várias etiquetas
 
@@ -96,7 +96,7 @@ Selecione a imagem que pretende rotular e, em seguida, selecione a etiqueta. A e
 
 ![Animação mostra fluxo multilabel](./media/how-to-label-images/multilabel.gif)
 
-Para corrigir um erro, clique no " **X** " para limpar uma etiqueta individual ou selecionar as imagens e, em seguida, selecione a etiqueta, que limpa a etiqueta de todas as imagens selecionadas. Este cenário é mostrado aqui. Clicar em "Land" limpará a etiqueta das duas imagens selecionadas.
+Para corrigir um erro, clique no "**X**" para limpar uma etiqueta individual ou selecionar as imagens e, em seguida, selecione a etiqueta, que limpa a etiqueta de todas as imagens selecionadas. Este cenário é mostrado aqui. Clicar em "Land" limpará a etiqueta das duas imagens selecionadas.
 
 ![Uma imagem mostra vários deselecções](./media/how-to-label-images/multiple-deselection.png)
 
@@ -133,7 +133,7 @@ Se o seu projeto for do tipo "Segmentação de Exemplo (Polygon)", especificará
 
 1. Selecione uma etiqueta para o polígono que pretende criar.
 1. Selecione a ferramenta **da região do poligão Desenhe** ![ a ferramenta da região do polígono ](./media/how-to-label-images/polygon-tool.png) ou selecione "P".
-3. Clique para cada ponto no polígono.  Quando tiver completado a forma, clique duas vezes para terminar.
+1. Clique para cada ponto no polígono.  Quando tiver completado a forma, clique duas vezes para terminar.
 
     :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Criar polígonos para Gato e Cão":::
 
@@ -155,6 +155,8 @@ Quando envia uma página de dados marcados, o Azure atribui-lhe novos dados não
 
 Quando terminar a rotulagem, selecione o seu nome no canto superior direito do portal de rotulagem e, em seguida, selecione **a sing-out**. Se não assinar, eventualmente, o Azure irá "cronometrar" e atribuir os seus dados a outro labeler.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda a [treinar modelos de classificação de imagem em Azure](./tutorial-train-models-with-aml.md)
+
+

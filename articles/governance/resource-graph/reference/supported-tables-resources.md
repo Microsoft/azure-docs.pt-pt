@@ -1,15 +1,15 @@
 ---
 title: Tipos de recursos suportados do Gestor de Recursos Azure
 description: Forneça uma lista dos tipos de recursos do Azure Resource Manager suportados pelo Azure Resource Graph e Change History.
-ms.date: 10/28/2020
+ms.date: 11/20/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: e604fe7c5e3a7f40e31f43db64bcd59ae0545ac0
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: fa5a5f5741f05e6f5f30a3d04958ba0b450a1bb7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927571"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988345"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráfico de recurso Azure e referência do tipo de recurso
 
@@ -68,6 +68,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.aisupercomputador/contas/grupos de trabalho
 - microsoft.aisupercomputador/contas/grupos de emprego/emprego
 - microsoft.alertsmanagement/actionrules
+- microsoft.alertsmanagement/resourcehealthalertrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servidores
 - microsoft.apimanagement/service
@@ -88,6 +89,10 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectories
 - microsoft.azureactivedirectory/guestusages
+- microsoft.azurearcdata/datacontrollers
+- microsoft.azurearcdata/postgresinstances
+- microsoft.azurearcdata/sqlmanagedinstances
+- microsoft.azurearcdata/sqlserverinstances
 - microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
@@ -103,6 +108,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.baremetal/consolas
 - microsoft.baremetal/crayservers
 - microsoft.baremetal/monitoringservers
+- microsoft.baremetalinfrastructure/baremetalinstances
 - microsoft.batcontas ch/batch
 - microsoft.batchai/clusters
 - microsoft.batchai/fileservers
@@ -131,6 +137,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.cloudes/contas
 - microsoft.cloudsearch/indexes
 - microsoft.cloudtest/accounts
+- microsoft.cloudtest/hostedpools
 - microsoft.cloudtest/images
 - microsoft.cloudtest/pools
 - microsoft.codespaces/planos
@@ -177,6 +184,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.containerservice/openshiftmanagedclusters
 - microsoft.contoso/clusters
 - microsoft.contoso/empregados
+- microsoft.contoso/torres
 - microsoft.costmanagement/conectores
 - microsoft.customproviders/resourceproviders
 - microsoft.d365customerinsights/instances
@@ -205,6 +213,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.dbforpostgresql/servidores
 - microsoft.dbforpostgresql/serversv2
 - microsoft.dbforpostgresql/singleservers
+- microsoft.delegado de rede/controlador
 - microsoft.delegado de rede/delegadosubnets
 - microsoft.delegadonetwork/orchestratorinstances
 - microsoft.deploymentmanager/artifactsources
@@ -302,6 +311,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.machinelearning/workspaces
 - microsoft.machinelearningcompute/operationalizationclusters
 - microsoft.machinelearningservices/workspaces
+- microsoft.machinelearningservices/workspaces/batchendpoints
 - microsoft.machinelearningservices/workspaces/inferenceendpoints
 - microsoft.machinelearningservices/workspaces/inferenceendpoints/deployments
 - microsoft.machinelearningservices/workspaces/onlineendpoints
@@ -316,6 +326,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.managednetwork/managednetworks/managednetworkgroups
 - microsoft.managednetwork/managednetworks/managednetworkpeeringpolicies
 - microsoft.maps/accounts
+- microsoft.maps/accounts/criadores
 - microsoft.maps/accounts/privateatlases
 - microsoft.marketplaceapps/classicdevservices
 - microsoft.media/mediaservices
@@ -389,6 +400,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.network/serviceendpointpolicies
 - microsoft.network/trafficmanagerprofils
 - microsoft.network/virtualhubs
+- microsoft.network/virtualhubs/bgpconnections
+- microsoft.network/virtualhubs/ipconfigurations
 - microsoft.network/virtualnetworkgateways
 - microsoft.network/virtualnetworks
 - microsoft.network/virtualnetworktaps
@@ -424,6 +437,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.powerbi/workspacecollections
 - microsoft.powerbidedicated/capacities
 - microsoft.projectbabylon/contas
+- microsoft.purview/accounts
 - microsoft.quantum/workspaces
 - microsoft.recoveryservices/vaults
 - microsoft.redhatopenshift/openshiftclusters
@@ -465,12 +479,12 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.spoolservice/spools
 - microsoft.sql/instancepools
 - microsoft.sql/managedinstances
-- microsoft.sql/managedinstances/databases
+- microsoft.sql/managedinstances/bases de dados
 - microsoft.sql/servidores
 - microsoft.sql/servidores/bases de dados
-- microsoft.sql/servers/elasticpools
-- microsoft.sql/servidores/jobaccounts
-- microsoft.sql/servers/jobagents
+- microsoft.sql/servidores/elásticos
+- microsoft.sql/servidores/contas de emprego
+- microsoft.sql/servidores/agentes de emprego
 - microsoft.sql/virtualclusters
 - microsoft.sqlvirtualmachine/sqlvirtualmachinegroups
 - microsoft.sqlvirtualmachine/sqlvirtualmachines
@@ -572,7 +586,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 
 - microsoft.resourcehealth/eventos
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a [língua de consulta.](../concepts/query-language.md)
 - Saiba mais sobre como [explorar recursos.](../concepts/explore-resources.md)

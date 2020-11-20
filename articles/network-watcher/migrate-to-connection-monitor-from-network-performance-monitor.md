@@ -1,5 +1,5 @@
 ---
-title: Migrar para o Monitor de Ligação do Monitor de Desempenho da Rede
+title: Migrar para o Monitor de Ligação (Pré-visualização) do Monitor de Desempenho da Rede
 titleSuffix: Azure Network Watcher
 description: Saiba como migrar para o Monitor de Ligação a partir do Monitor de Desempenho da Rede.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: 949f717c56892f8a1d0826e8e6f1f2164a4a142c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 38ea682b4f3894f373d16908b942b4fa578741c4
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94974932"
+ms.locfileid: "94985812"
 ---
-# <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrar para o Monitor de Ligação do Monitor de Desempenho da Rede
+# <a name="migrate-to-connection-monitor-preview-from-network-performance-monitor"></a>Migrar para o Monitor de Ligação (Pré-visualização) do Monitor de Desempenho da Rede
 
 Pode migrar os testes do Monitor de Desempenho da Rede (NPM) para um novo Monitor de Ligação melhorado com um único clique e com zero tempo de inatividade. Para saber mais sobre os benefícios, consulte [o Connection Monitor.](./connection-monitor-overview.md)
+
+> [!IMPORTANT]
+> O Monitor de Ligação encontra-se atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 >[!NOTE]
 > Apenas os testes do Monitor de Conectividade de Serviço podem ser migrados para o Monitor de Ligação.
@@ -70,7 +74,7 @@ Após a migração, certifique-se de:
 * Migrar quaisquer integrações externas para a mesa ConnectionMonitor_CL. Exemplos de integrações externas são dashboards em Power BI e Grafana, e integrações com sistemas de Informação de Segurança e Gestão de Eventos (SIEM).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Connection Monitor, consulte:
 * [Migrar do Monitor de Ligação para o Monitor de Ligação](/azure/network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic)

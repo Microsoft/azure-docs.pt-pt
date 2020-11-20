@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para o Azure Batch
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para O Lote Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: sample
 author: JnHs
 ms.author: jenhayes
 ms.service: batch
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: f351da484855d2628334a236ed71edd307d52aa6
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e1bb6a80bfd1411fe30774c429a2d18782b27ece
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695695"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987869"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-batch"></a>Controlos de conformidade regulamentar da política Azure para o Azure Batch
 
@@ -22,7 +22,7 @@ ms.locfileid: "94695695"
 
 [!INCLUDE [azure-policy-compliancecontrols-batch](../../includes/policy/standards/byrp/microsoft.batch.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).

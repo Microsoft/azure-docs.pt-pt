@@ -1,5 +1,5 @@
 ---
-title: Monitor de Conexão / Microsoft Docs
+title: Monitor de ligação (Pré-visualização) em Azure / Microsoft Docs
 description: Saiba como utilizar o Connection Monitor para monitorizar a comunicação da rede num ambiente distribuído.
 services: network-watcher
 documentationcenter: na
@@ -15,18 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 13b379fd3b4f788d79cbb6a9bf6d40cb1693eaf9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cb24cc55844d7c42d68e75d6f6ef947b1315a306
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949002"
+ms.locfileid: "94984367"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorização da conectividade da rede com monitor de ligação
+# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorização da conectividade da rede com monitor de ligação (pré-visualização)
 
 O Connection Monitor fornece uma monitorização unificada de ligação de ponta a ponta no Observador de Rede Azure. A funcionalidade Connection Monitor suporta implementações híbridas e azure em nuvem. O Network Watcher fornece ferramentas para monitorizar, diagnosticar e visualizar métricas relacionadas com a conectividade para as suas implementações Azure.
 
-Aqui estão alguns casos de utilização para o Monitor de Ligação:
+> [!IMPORTANT]
+> O Monitor de Ligação encontra-se atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Aqui estão alguns casos de utilização para o Monitor de Ligação:
 
 - O VM do seu servidor web frontal comunica com um VM de servidor de base de dados numa aplicação de vários níveis. Pretende verificar a conectividade da rede entre os dois VMs.
 - Você quer VMs na região leste dos EUA para ping VMs na região central dos EUA, e você quer comparar latências de rede cross-region.

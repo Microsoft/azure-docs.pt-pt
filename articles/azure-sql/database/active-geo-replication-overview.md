@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 7c16e3b991bffd9c6bbcc4759a07b9e122ef5b72
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c7a24dbe93bf0096e327804be07acc3f67d2f03b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125347"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985761"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,8 +64,8 @@ Como as bases de dados secundárias são legíveis, podem ser usadas para descar
 
 Para além da recuperação de desastres, a geo-replicação ativa pode ser utilizada nos seguintes cenários:
 
-- **Migração da base de dados** : Pode utilizar a geo-replicação ativa para migrar uma base de dados de um servidor para outro online com tempo mínimo de inatividade.
-- **Atualizações da aplicação** : Pode criar uma cópia extra secundária como cópia traseira durante as atualizações da aplicação.
+- **Migração da base de dados**: Pode utilizar a geo-replicação ativa para migrar uma base de dados de um servidor para outro online com tempo mínimo de inatividade.
+- **Atualizações da aplicação**: Pode criar uma cópia extra secundária como cópia traseira durante as atualizações da aplicação.
 
 Para alcançar a continuidade real do negócio, adicionar redundância de base de dados entre datacenters é apenas uma parte da solução. A recuperação de uma aplicação (serviço) de ponta a ponta após uma falha catastrófica requer a recuperação de todos os componentes que constituem o serviço e quaisquer serviços dependentes. Exemplos destes componentes incluem o software do cliente (por exemplo, um navegador com um JavaScript personalizado), extremidades frontais web, armazenamento e DNS. É fundamental que todos os componentes sejam resistentes às mesmas falhas e estejam disponíveis dentro do objetivo de tempo de recuperação (RTO) da sua aplicação. Por isso, é necessário identificar todos os serviços dependentes e compreender as garantias e capacidades que proporcionam. Em seguida, deve tomar as medidas adequadas para garantir que o seu serviço funciona durante a falha dos serviços de que depende. Para obter mais informações sobre a conceção de soluções para a recuperação de [desastres, consulte a conceção de soluções cloud para recuperação de desastres utilizando a geo-replicação ativa.](designing-cloud-solutions-for-disaster-recovery.md)
 
@@ -244,7 +244,7 @@ Para medir o atraso no que diz respeito às alterações na base de dados primá
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestão programática de geo-replicação ativa
 
-Como discutido anteriormente, a geo-replicação ativa também pode ser gerida programáticamente usando a Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis. A geo-replicação ativa inclui um conjunto de APIs do Gestor de Recursos Azure para gestão, incluindo os cmdlets [AZURE SQL Database REST](/rest/api/sql/) E [Azure PowerShell](/powershell/azure/). Estas APIs requerem a utilização de grupos de recursos e apoiam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md).
+Como discutido anteriormente, a geo-replicação ativa também pode ser gerida programáticamente usando a Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis. A geo-replicação ativa inclui um conjunto de APIs do Gestor de Recursos Azure para gestão, incluindo os cmdlets [AZURE SQL Database REST](/rest/api/sql/) E [Azure PowerShell](/powershell/azure/). Estas APIs requerem a utilização de grupos de recursos e apoiam o controlo de acesso baseado em funções Azure (Azure RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Gerir o failover de bases de dados individuais e agmbadas
 
@@ -293,7 +293,7 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 | [Eliminar ligação de replicação](/rest/api/sql/replicationlinks/delete) | Elimina uma ligação de replicação de base de dados. Não é possível fazê-lo durante o fracasso. |
 |  | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para os scripts de amostra, consulte:
   - [Configurar e efetuar a ativação pós-falha de uma base de dados através de georreplicação ativa](scripts/setup-geodr-and-failover-database-powershell.md)

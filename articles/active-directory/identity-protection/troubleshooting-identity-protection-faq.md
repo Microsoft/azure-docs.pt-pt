@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec45ce7634b7bc0a8f38f354112cdc2e172f1e17
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288362"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987342"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes proteção de identidade no Diretório Ativo Azure
 
@@ -95,6 +95,4 @@ Dado que o risco do utilizador é cumulativo de natureza e não expira, um utili
 
 A pontuação de risco agregada elevada pode basear-se em outras características do sinal, ou no facto de mais de uma deteção ter disparado para esse sinal. E inversamente, um sinal pode ter um risco de inscrição (agregado) de Medium, mesmo que as deteções associadas à inscrição sejam de alto risco. 
 
-### <a name="why-is-the-detection-which-is-linked-to-a-risky-sign-in-have-a-different-risk-level-than-the-sign-in-risk-level-real-time"></a>Por que razão a deteção que está ligada a um sinal de risco tem um nível de risco diferente do nível de risco de inscrição (em tempo real)? 
 
-Recentemente fizemos melhorias na forma como o risco de inscrição em tempo real é calculado. A discrepância observada entre o nível de deteção de risco e o nível de risco de inscrição resulta dessas alterações. Note que o risco de entrada em tempo real é o valor que é usado durante a aplicação da política. 
