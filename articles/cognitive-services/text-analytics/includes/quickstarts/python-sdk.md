@@ -5,12 +5,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 2913daf3dbe066eed8207ef4438e48e58992179c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: d819a574411a32ac1d76bd012b4b9fb0b4956c6b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371730"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979702"
 ---
 <a name="HOLTop"></a>
 
@@ -118,30 +118,30 @@ Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a bibl
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimentos](#sentiment-analysis)
 * [Mineração de opinião](#opinion-mining)
-* [Deteção de idioma](#language-detection)
+* [Deteção linguística](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner) 
 * [Reconhecimento de informação pessoalmente identificável](#personally-identifiable-information-recognition) 
 * [Ligação de entidades](#entity-linking)
-* [Extração de expressões-chave](#key-phrase-extraction)
+* [Extração de frase-chave](#key-phrase-extraction)
 
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimentos](#sentiment-analysis)
-* [Deteção de idioma](#language-detection)
+* [Deteção linguística](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner) 
 * [Ligação de entidades](#entity-linking)
-* [Extração de expressões-chave](#key-phrase-extraction)
+* [Extração de frase-chave](#key-phrase-extraction)
 
 # <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimentos](#sentiment-analysis)
-* [Deteção de idioma](#language-detection)
+* [Deteção linguística](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner) 
 * [Ligação de entidades](#entity-linking)
-* [Extração de expressões-chave](#key-phrase-extraction)
+* [Extração de frase-chave](#key-phrase-extraction)
 
 ---
 
@@ -254,8 +254,7 @@ Para fazer análise de sentimento com a mineração de opinião, crie uma nova f
 def sentiment_analysis_with_opinion_mining_example(client):
 
     documents = [
-        "The food and service were unacceptable, but the concierge were nice",
-        "The rooms were beautiful but dirty. The AC was good and quiet, but the elevator was broken"
+        "The food and service were unacceptable, but the concierge were nice"
     ]
 
     result = client.analyze_sentiment(documents, show_opinion_mining=True)
@@ -286,8 +285,17 @@ def sentiment_analysis_with_opinion_mining_example(client):
             for mined_opinion in sentence.mined_opinions:
                 aspect = mined_opinion.aspect
                 print("......'{}' aspect '{}'".format(aspect.sentiment, aspect.text))
+                print("......Aspect score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
+                    aspect.confidence_scores.positive,
+                    aspect.confidence_scores.negative,
+                ))
                 for opinion in mined_opinion.opinions:
                     print("......'{}' opinion '{}'".format(opinion.sentiment, opinion.text))
+                    print("......Opinion score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
+                        opinion.confidence_scores.positive,
+                        opinion.confidence_scores.negative,
+                    ))
+            print("\n")
         print("\n")
           
 sentiment_analysis_with_opinion_mining_example(client)
@@ -307,38 +315,41 @@ Neutral=0.00
 Negative=0.16
 
 ......'negative' aspect 'food'
+......Aspect score:
+......Positive=0.01
+......Negative=0.99
+
 ......'negative' opinion 'unacceptable'
+......Opinion score:
+......Positive=0.01
+......Negative=0.99
+
 ......'negative' aspect 'service'
+......Aspect score:
+......Positive=0.01
+......Negative=0.99
+
 ......'negative' opinion 'unacceptable'
+......Opinion score:
+......Positive=0.01
+......Negative=0.99
+
 ......'positive' aspect 'concierge'
+......Aspect score:
+......Positive=1.00
+......Negative=0.00
+
 ......'positive' opinion 'nice'
+......Opinion score:
+......Positive=1.00
+......Negative=0.00
 
 
-Document Sentiment: negative
-Overall scores: positive=0.00; neutral=0.00; negative=1.00
 
-Sentence: The rooms were beautiful but dirty.
-Sentence sentiment: negative
-Sentence score:
-Positive=0.01
-Neutral=0.00
-Negative=0.99
 
-......'mixed' aspect 'rooms'
-......'positive' opinion 'beautiful'
-......'negative' opinion 'dirty'
-Sentence: The AC was good and quiet, but the elevator was broken
-Sentence sentiment: negative
-Sentence score:
-Positive=0.00
-Neutral=0.00
-Negative=1.00
 
-......'positive' aspect 'AC'
-......'positive' opinion 'good'
-......'positive' opinion 'quiet'
-......'negative' aspect 'elevator'
-......'negative' opinion 'broken'
+Press any key to continue . . .
+
 ```
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/03/2020
 ms.author: aahi
-ms.openlocfilehash: 3f2611c9535b9721cccadf35e56bdd21a3020257
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2c2ebe9b419100163ae55c1be85dd1464904e841
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677440"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94978665"
 ---
 ### <a name="container-repositories-and-images"></a>Repositórios e imagens de contentores
 
@@ -89,9 +89,8 @@ Anteriormente, os recipientes de pré-visualização fechados estavam alojados n
 |--|--|--|
 | [Imagem Digitalizada](../../Computer-vision/computer-vision-how-to-install-containers.md) | Ler v2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 | [Imagem Digitalizada](../../Computer-vision/computer-vision-how-to-install-containers.md) | Ler v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
-| [Imagem Digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container) | Análise Espacial | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
+| [Imagem Digitalizada](../../computer-vision/spatial-analysis-container.md) | Análise Espacial | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
 | [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=ctts) | Texto-a-discurso personalizado | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` |
 | [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=lid) | Deteção de Idioma | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` |
 | [API de Serviço de Voz](../../speech-service/speech-container-howto.md?tab=ntts) | Texto-a-discurso neural | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech` |
-| [Análise de texto para a saúde](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Análise de Texto para a saúde | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |
-
+| [Análise de Texto para a saúde](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Análise de Texto para a saúde | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |

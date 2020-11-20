@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: b8c7e419c9497e8111530e62bd9117581da7141a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a0ed1ef796412211d1d0871d3e09aed4f7346ae5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371737"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979531"
 ---
 <a name="HOLTop"></a>
 
@@ -174,12 +174,12 @@ Se estiver a utilizar a versão `3.x` do serviço, pode utilizar uma instância 
 
 ## <a name="code-examples"></a>Exemplos de código
 
-* [Análise de sentimentos](#sentiment-analysis)
+* [Análise de sentimento](#sentiment-analysis)
 * [Mineração de opinião](#opinion-mining)
-* [Deteção de idioma](#language-detection)
+* [Deteção linguística](#language-detection)
 * [Reconhecimento de Entidades Nomeadas](#named-entity-recognition-ner)
 * [Ligação de entidades](#entity-linking)
-* [Extração de expressões-chave](#key-phrase-extraction)
+* [Extração de frase-chave](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -262,13 +262,7 @@ static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 {
     var documents = new List<string>
     {
-        "The food and service were unacceptable, but the concierge were nice.",
-        "The rooms were beautiful. The AC was good and quiet.",
-        "The breakfast was good, but the toilet was smelly.",
-        "Loved this hotel - good breakfast - nice shuttle service - clean rooms.",
-        "I had a great unobstructed view of the Microsoft campus.",
-        "Nice rooms but bathrooms were old and the toilet was dirty when we arrived.",
-        "We changed rooms as the toilet smelled."
+        "The food and service were unacceptable, but the concierge were nice."
     };
 
     AnalyzeSentimentResultCollection reviews = client.AnalyzeSentimentBatch(documents, options: new AnalyzeSentimentOptions()
@@ -279,20 +273,27 @@ static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
     foreach (AnalyzeSentimentResult review in reviews)
     {
         Console.WriteLine($"Document sentiment: {review.DocumentSentiment.Sentiment}\n");
+        Console.WriteLine($"\tPositive score: {review.DocumentSentiment.ConfidenceScores.Positive:0.00}");
+        Console.WriteLine($"\tNegative score: {review.DocumentSentiment.ConfidenceScores.Negative:0.00}");
+        Console.WriteLine($"\tNeutral score: {review.DocumentSentiment.ConfidenceScores.Neutral:0.00}\n");
         foreach (SentenceSentiment sentence in review.DocumentSentiment.Sentences)
         {
             Console.WriteLine($"\tText: \"{sentence.Text}\"");
             Console.WriteLine($"\tSentence sentiment: {sentence.Sentiment}");
-            Console.WriteLine($"\tPositive score: {sentence.ConfidenceScores.Positive:0.00}");
-            Console.WriteLine($"\tNegative score: {sentence.ConfidenceScores.Negative:0.00}");
-            Console.WriteLine($"\tNeutral score: {sentence.ConfidenceScores.Neutral:0.00}\n");
+            Console.WriteLine($"\tSentence positive score: {sentence.ConfidenceScores.Positive:0.00}");
+            Console.WriteLine($"\tSentence negative score: {sentence.ConfidenceScores.Negative:0.00}");
+            Console.WriteLine($"\tSentence neutral score: {sentence.ConfidenceScores.Neutral:0.00}\n");
 
             foreach (MinedOpinion minedOpinion in sentence.MinedOpinions)
             {
                 Console.WriteLine($"\tAspect: {minedOpinion.Aspect.Text}, Value: {minedOpinion.Aspect.Sentiment}");
+                Console.WriteLine($"\tAspect positive score: {minedOpinion.Aspect.ConfidenceScores.Positive:0.00}");
+                Console.WriteLine($"\tAspect negative score: {minedOpinion.Aspect.ConfidenceScores.Negative:0.00}");
                 foreach (OpinionSentiment opinion in minedOpinion.Opinions)
                 {
                     Console.WriteLine($"\t\tRelated Opinion: {opinion.Text}, Value: {opinion.Sentiment}");
+                    Console.WriteLine($"\t\tRelated Opinion positive score: {opinion.ConfidenceScores.Positive:0.00}");
+                    Console.WriteLine($"\t\tRelated Opinion negative score: {opinion.ConfidenceScores.Negative:0.00}");
                 }
             }
         }
@@ -306,117 +307,37 @@ static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 ```console
 Document sentiment: Positive
 
-        Text: "The food and service were unacceptable, but the concierge were nice."
-        Sentence sentiment: Positive
         Positive score: 0.84
         Negative score: 0.16
         Neutral score: 0.00
 
+        Text: "The food and service were unacceptable, but the concierge were nice."
+        Sentence sentiment: Positive
+        Sentence positive score: 0.84
+        Sentence negative score: 0.16
+        Sentence neutral score: 0.00
+
         Aspect: food, Value: Negative
+        Aspect positive score: 0.01
+        Aspect negative score: 0.99
                 Related Opinion: unacceptable, Value: Negative
+                Related Opinion positive score: 0.01
+                Related Opinion negative score: 0.99
         Aspect: service, Value: Negative
+        Aspect positive score: 0.01
+        Aspect negative score: 0.99
                 Related Opinion: unacceptable, Value: Negative
+                Related Opinion positive score: 0.01
+                Related Opinion negative score: 0.99
         Aspect: concierge, Value: Positive
+        Aspect positive score: 1.00
+        Aspect negative score: 0.00
                 Related Opinion: nice, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
 
 
-Document sentiment: Positive
-
-        Text: "The rooms were beautiful."
-        Sentence sentiment: Positive
-        Positive score: 1.00
-        Negative score: 0.00
-        Neutral score: 0.00
-
-        Aspect: rooms, Value: Positive
-                Related Opinion: beautiful, Value: Positive
-        Text: "The AC was good and quiet."
-        Sentence sentiment: Positive
-        Positive score: 1.00
-        Negative score: 0.00
-        Neutral score: 0.00
-
-        Aspect: AC, Value: Positive
-                Related Opinion: good, Value: Positive
-                Related Opinion: quiet, Value: Positive
-
-
-Document sentiment: Negative
-
-        Text: "The breakfast was good, but the toilet was smelly."
-        Sentence sentiment: Negative
-        Positive score: 0.01
-        Negative score: 0.99
-        Neutral score: 0.00
-
-        Aspect: breakfast, Value: Positive
-                Related Opinion: good, Value: Positive
-        Aspect: toilet, Value: Negative
-                Related Opinion: smelly, Value: Negative
-
-
-Document sentiment: Positive
-
-        Text: "Loved this hotel - good breakfast - nice shuttle service - clean rooms."
-        Sentence sentiment: Positive
-        Positive score: 1.00
-        Negative score: 0.00
-        Neutral score: 0.00
-
-        Aspect: hotel, Value: Positive
-                Related Opinion: good, Value: Positive
-        Aspect: breakfast, Value: Positive
-                Related Opinion: nice, Value: Positive
-        Aspect: shuttle service, Value: Positive
-                Related Opinion: loved, Value: Positive
-        Aspect: rooms, Value: Positive
-                Related Opinion: good, Value: Positive
-                Related Opinion: nice, Value: Positive
-                Related Opinion: clean, Value: Positive
-                Related Opinion: loved, Value: Positive
-
-
-Document sentiment: Positive
-
-        Text: "I had a great unobstructed view of the Microsoft campus."
-        Sentence sentiment: Positive
-        Positive score: 1.00
-        Negative score: 0.00
-        Neutral score: 0.00
-
-        Aspect: view, Value: Positive
-                Related Opinion: great, Value: Positive
-                Related Opinion: unobstructed, Value: Positive
-
-
-Document sentiment: Negative
-
-        Text: "Nice rooms but bathrooms were old and the toilet was dirty when we arrived."
-        Sentence sentiment: Negative
-        Positive score: 0.00
-        Negative score: 1.00
-        Neutral score: 0.00
-
-        Aspect: rooms, Value: Positive
-                Related Opinion: nice, Value: Positive
-        Aspect: bathrooms, Value: Negative
-                Related Opinion: old, Value: Negative
-        Aspect: toilet, Value: Negative
-                Related Opinion: dirty, Value: Negative
-
-
-Document sentiment: Neutral
-
-        Text: "We changed rooms as the toilet smelled."
-        Sentence sentiment: Neutral
-        Positive score: 0.01
-        Negative score: 0.03
-        Neutral score: 0.96
-
-        Aspect: rooms, Value: Negative
-                Related Opinion: smelled, Value: Negative
-        Aspect: toilet, Value: Negative
-                Related Opinion: smelled, Value: Negative
+Press any key to exit.
 ```
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)

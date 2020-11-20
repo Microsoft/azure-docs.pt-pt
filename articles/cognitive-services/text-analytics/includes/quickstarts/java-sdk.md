@@ -10,18 +10,18 @@ ms.date: 10/07/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 66881fc03719e83f5354d19d0fde9eb474c17359
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e43c187b3bef7fe46cb1265fb989c0a082c27838
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371987"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979156"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[Visualização da versão 3.1](#tab/version-3-1)
 
-[Documentação de referência](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.1/sdk/textanalytics/azure-ai-textanalytics)  |  [Pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.1)  |  [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.1/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Documentação de referência](/java/api/overview/azure/ai-textanalytics-readme-pre?view=azure-java-preview)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.1/sdk/textanalytics/azure-ai-textanalytics)  |  [Pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.1)  |  [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.1/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
@@ -151,10 +151,10 @@ O cliente Text Analytics é um `TextAnalyticsClient` objeto que autentica a Azur
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimentos](#sentiment-analysis) 
 * [Mineração de opinião](#opinion-mining)
-* [Deteção de idioma](#language-detection)
+* [Deteção linguística](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner)
 * [Ligação de entidades](#entity-linking)
-* [Extração de expressões-chave](#key-phrase-extraction)
+* [Extração de frase-chave](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -225,7 +225,7 @@ Para realizar a análise de sentimento com a mineração de opinião, crie uma n
 ```java
 static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
 {
-    // The Document that needs be analyzed.
+    // The document that needs be analyzed.
     String document = "Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.";
 
     System.out.printf("Document = %s%n", document);
@@ -234,20 +234,26 @@ static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
     final DocumentSentiment documentSentiment = client.analyzeSentiment(document, "en", options);
     SentimentConfidenceScores scores = documentSentiment.getConfidenceScores();
     System.out.printf(
-            "\tRecognized document sentiment: %s, positive score: %f, neutral score: %f, negative score: %f.%n",
+            "Recognized document sentiment: %s, positive score: %f, neutral score: %f, negative score: %f.%n",
             documentSentiment.getSentiment(), scores.getPositive(), scores.getNeutral(), scores.getNegative());
 
     documentSentiment.getSentences().forEach(sentenceSentiment -> {
         SentimentConfidenceScores sentenceScores = sentenceSentiment.getConfidenceScores();
-        System.out.printf("\t\tSentence sentiment: %s, positive score: %f, neutral score: %f, negative score: %f.%n",
+        System.out.printf("\tSentence sentiment: %s, positive score: %f, neutral score: %f, negative score: %f.%n",
                 sentenceSentiment.getSentiment(), sentenceScores.getPositive(), sentenceScores.getNeutral(), sentenceScores.getNegative());
         sentenceSentiment.getMinedOpinions().forEach(minedOpinions -> {
             AspectSentiment aspectSentiment = minedOpinions.getAspect();
-            System.out.printf("\t\t\tAspect sentiment: %s, aspect text: %s%n", aspectSentiment.getSentiment(),
+            System.out.printf("\t\tAspect sentiment: %s, aspect text: %s%n", aspectSentiment.getSentiment(),
                     aspectSentiment.getText());
+            SentimentConfidenceScores aspectScores = aspectSentiment.getConfidenceScores();
+            System.out.printf("\t\tAspect positive score: %f, negative score: %f.%n",
+                    aspectScores.getPositive(), aspectScores.getNegative());
             for (OpinionSentiment opinionSentiment : minedOpinions.getOpinions()) {
-                System.out.printf("\t\t\t\t'%s' opinion sentiment because of \"%s\". Is the opinion negated: %s.%n",
+                System.out.printf("\t\t\t'%s' opinion sentiment because of \"%s\". Is the opinion negated: %s.%n",
                         opinionSentiment.getSentiment(), opinionSentiment.getText(), opinionSentiment.isNegated());
+                SentimentConfidenceScores opinionScores = opinionSentiment.getConfidenceScores();
+                System.out.printf("\t\t\tOpinion positive score: %f, negative score: %f.%n",
+                        opinionScores.getPositive(), opinionScores.getNegative());
             }
         });
     });
@@ -257,16 +263,21 @@ static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 ### <a name="output"></a>Saída
 
 ```console
-Text = Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.
-    Recognized document sentiment: negative, positive score: 0.010000, neutral score: 0.140000, negative score: 0.850000.
-        Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
-            Aspect sentiment: negative, aspect text: atmosphere
-                'negative' opinion sentiment because of "bad". Is the opinion negated: false.
-        Sentence sentiment: negative, positive score: 0.020000, neutral score: 0.440000, negative score: 0.540000.
-        Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
-            Aspect sentiment: negative, aspect text: Staff
-                'negative' opinion sentiment because of "friendly". Is the opinion negated: true.
-                'negative' opinion sentiment because of "helpful". Is the opinion negated: true.
+Document = Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.
+Recognized document sentiment: negative, positive score: 0.010000, neutral score: 0.140000, negative score: 0.850000.
+    Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
+        Aspect sentiment: negative, aspect text: atmosphere
+        Aspect positive score: 0.010000, negative score: 0.990000.
+            'negative' opinion sentiment because of "bad". Is the opinion negated: false.
+            Opinion positive score: 0.010000, negative score: 0.990000.
+    Sentence sentiment: negative, positive score: 0.020000, neutral score: 0.440000, negative score: 0.540000.
+    Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
+        Aspect sentiment: negative, aspect text: Staff
+        Aspect positive score: 0.000000, negative score: 1.000000.
+            'negative' opinion sentiment because of "friendly". Is the opinion negated: true.
+            Opinion positive score: 0.000000, negative score: 1.000000.
+            'negative' opinion sentiment because of "helpful". Is the opinion negated: true.
+            Opinion positive score: 0.000000, negative score: 1.000000.
 
 Process finished with exit code 0
 ```
