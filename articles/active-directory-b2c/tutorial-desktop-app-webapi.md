@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eca6297a704e1ef478c09baf227cf622d6890bb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84298857"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953156"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web Node.js a partir de uma aplicação de ambiente de trabalho com o Azure Active Directory B2C
 
 Este tutorial mostra-lhe como chamar uma API web Node.js protegida pelo Azure Ative Directory B2C (Azure AD B2C) de uma aplicação de desktop da Windows Presentation Foundation (WPF), também protegida pelo Azure AD B2C.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Adicionar uma aplicação de API Web
@@ -51,16 +51,16 @@ Para ligar para uma API web protegida a partir de uma aplicação de cliente nat
 
 No tutorial pré-requisito, registou uma aplicação de cliente nativo chamada *nativeapp1*. Os seguintes passos configuram o registo de candidaturas nativas com os âmbitos da API que expôs para *o webapi1* na secção anterior. Isto permite que a aplicação de desktop obtenha um token de acesso a partir de Azure AD B2C que a API web pode usar para verificar e fornecer acesso alargado aos seus recursos. Configura e execute tanto a aplicação de ambiente de trabalho como as amostras de código web API mais tarde no tutorial.
 
-Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregtraining)
+Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/)
 
-1. Selecione **as inscrições da App**e, em seguida, selecione a aplicação de cliente nativo que deve ter acesso à API. Por exemplo, *a nativeapp1*.
+1. Selecione **as inscrições da App** e, em seguida, selecione a aplicação de cliente nativo que deve ter acesso à API. Por exemplo, *a nativeapp1*.
 1. Em **Gestão**, selecione **permissões API**.
 1. Sob **permissões configuradas,** **selecione Adicione uma permissão**.
 1. Selecione o **separador As Minhas APIs.**
 1. Selecione a API à qual deve ser concedido o acesso ao pedido de cliente nativo. Por exemplo, *webapi1*.
-1. Em **Permissão,** expanda **a demonstração**e, em seguida, selecione os âmbitos que definiu anteriormente. Por exemplo, *demo.read* e *demo.write*.
+1. Em **Permissão,** expanda **a demonstração** e, em seguida, selecione os âmbitos que definiu anteriormente. Por exemplo, *demo.read* e *demo.write*.
 1. **Selecione Permissões de adicionar**. Como dirigido, aguarde alguns minutos antes de seguir para o próximo passo.
 1. Selecione **o consentimento administrativo do Grant para (o nome do seu inquilino)**.
 1. Selecione a sua conta de administrador atualmente assinada ou inscreva-se com uma conta no seu inquilino Azure AD B2C que foi atribuída pelo menos a função de administrador de *aplicação cloud.*
@@ -70,7 +70,7 @@ Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nos
 #### <a name="applications-legacy"></a>[Candidaturas (Legado)](#tab/applications-legacy/)
 
 1. Selecione **Aplicações (Legado)** e, em seguida, selecione *nativeapp1*.
-1. Selecione **o acesso a API**e, em seguida, selecione **Adicionar**.
+1. Selecione **o acesso a API** e, em seguida, selecione **Adicionar**.
 1. No **dropdown Select API,** selecione *webapi1*.
 1. No **dropdown Select Scopes,** selecione os âmbitos que definiu anteriormente. Por exemplo, *demo.read* e *demo.write*.
 1. Selecione **OK**.

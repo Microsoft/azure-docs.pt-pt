@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 29b34041042f00d72b8a9fe86e31bd80f8c77dc2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91396540"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953955"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>O que é o Azure Active Directory B2C?
 
@@ -79,7 +79,7 @@ A WoodGrove Mercearia oferece várias opções de inscrição com base na relaç
 
 * Os clientes **individuais** podem inscrever-se ou inscrever-se com contas individuais, como por exemplo com um fornecedor de identidade social ou um endereço de e-mail e senha.
 * Os clientes **empresariais** podem inscrever-se ou inscrever-se com as suas credenciais empresariais.
-* **Parceiros** e fornecedores são indivíduos que fornecem à mercearia produtos para vender. A identidade do parceiro é fornecida pela [Azure Ative Directory B2B](../active-directory/b2b/what-is-b2b.md).
+* **Parceiros** e fornecedores são indivíduos que fornecem à mercearia produtos para vender. A identidade do parceiro é fornecida pela [Azure Ative Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 
 ![Páginas individuais (B2C), negócios (B2C) e parceiro (B2B)](./media/overview/woodgrove-overview.png)
 
@@ -95,7 +95,7 @@ Quando um cliente **seleciona Inscrever-se na sua conta pessoal** e, em seguida,
 
 ![Página de inscrição personalizada woodGrove hospedada por Azure AD B2C](./media/overview/sign-up.png)
 
-Depois de introduzir um endereço de e-mail e selecionar **Enviar código de verificação,** o Azure AD B2C envia-lhes o código. Assim que introduzirem o seu código, **selecione Verificar**código , e, em seguida, introduzir as outras informações no formulário, também devem concordar com os termos de serviço.
+Depois de introduzir um endereço de e-mail e selecionar **Enviar código de verificação,** o Azure AD B2C envia-lhes o código. Assim que introduzirem o seu código, **selecione Verificar** código , e, em seguida, introduzir as outras informações no formulário, também devem concordar com os termos de serviço.
 
 Clicar no botão **Criar** faz com que o Azure AD B2C redirecione o utilizador de volta para o website da WoodGrove. Quando redireciona, o Azure AD B2C passa um token de autenticação OpenID Connect para a aplicação web WoodGrove. O utilizador está agora inscrito e pronto para ir, o seu nome de exibição mostrado no canto superior direito para indicar que estão inscritos.
 
@@ -111,7 +111,7 @@ Esta política oferece ao utilizador a opção de utilizar as suas credenciais c
 
 O **'Iniciar s-in' com o link** da sua conta de fornecedor utiliza a funcionalidade de colaboração do Azure Ative Directory B2B. Azure AD B2B é uma família de funcionalidades no Azure Ative Directory para gerir identidades de parceiros. Essas identidades podem ser federadas do Azure Ative Directory para acesso a aplicações protegidas aZURE AD B2C.
 
-Saiba mais sobre o Azure AD B2B em [Qual é o acesso do utilizador convidado no Azure Ative Directory B2B?](../active-directory/b2b/what-is-b2b.md)
+Saiba mais sobre o Azure AD B2B em [Qual é o acesso do utilizador convidado no Azure Ative Directory B2B?](../active-directory/external-identities/what-is-b2b.md)
 
 <!-- UNCOMMENT WHEN REPO IS UPDATED WITH LATEST DEMO CODE
 ### Sample code

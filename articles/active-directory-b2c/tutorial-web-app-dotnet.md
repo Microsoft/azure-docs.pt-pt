@@ -11,18 +11,18 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5957ccb7bd7ff7e7acc0ed76899850bbca09ad6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c3c63b6116e02e8a742b69e90c11e182d72ab2e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664805"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953037"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Ativar a autenticação numa aplicação web utilizando o Azure Ative Directory B2C
 
 Este tutorial mostra-lhe como usar o Azure Ative Directory B2C (Azure AD B2C) para iniciar seduções e inscrever utilizadores numa aplicação web ASP.NET. O Azure AD B2C permite que as suas aplicações autentem para as contas sociais, contas empresariais e contas do Azure Ative Directory utilizando protocolos de série aberta.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Atualizar a aplicação em Azure AD B2C
@@ -45,7 +45,7 @@ No tutorial que completou como parte dos pré-requisitos, registou uma aplicaç�
 
 ### <a name="add-a-redirect-uri-reply-url"></a>Adicione um URI de redirecionamento (URL de resposta)
 
-Para atualizar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregtraining)
+Para atualizar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/)
 
@@ -77,7 +77,7 @@ Em seguida, crie um segredo de cliente para a aplicação web registada. A amost
 
 ## <a name="configure-the-sample"></a>Configure a amostra
 
-Neste tutorial, você configura uma amostra que você pode baixar a partir de GitHub. A amostra utiliza ASP.NET para fornecer uma lista simples de tarefas. A amostra utiliza [componentes de middleware Microsoft OWIN](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/). [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone o exemplo a partir do GitHub. Certifique-se de que extrai o ficheiro de exemplo numa pasta em que o comprimento de carateres total do caminho seja inferior a 260.
+Neste tutorial, você configura uma amostra que você pode baixar a partir de GitHub. A amostra utiliza ASP.NET para fornecer uma lista simples de tarefas. A amostra utiliza [componentes de middleware Microsoft OWIN](/aspnet/aspnet/overview/owin-and-katana/). [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone o exemplo a partir do GitHub. Certifique-se de que extrai o ficheiro de exemplo numa pasta em que o comprimento de carateres total do caminho seja inferior a 260.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
@@ -95,7 +95,7 @@ Atualize as definições no ficheiro Web.config para funcionar com o fluxo do ut
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 1. No projeto **TaskWebApp,** abra o ficheiro **Web.config.**
     1. Atualize o valor `ida:Tenant` e com o nome do inquilino `ida:AadInstance` Azure AD B2C que criou. Por exemplo, `fabrikamb2c` substitua-o por `contoso` .
-    1. Substitua o valor do ID do `ida:TenantId` diretório, que pode encontrar nos imóveis para o seu inquilino Azure B2C (no portal Azure sob o ID do **Diretório Azure Ative**  >  **Directory**  >  **Directory ID**Properties).
+    1. Substitua o valor do ID do `ida:TenantId` diretório, que pode encontrar nos imóveis para o seu inquilino Azure B2C (no portal Azure sob o ID do **Diretório Azure Ative**  >  **Directory**  >  **Directory ID** Properties).
     1. Substitua o valor do `ida:ClientId` ID da aplicação que registou.
     1. Substitua o valor de `ida:ClientSecret` pela chave que registou. Se o segredo do cliente contiver quaisquer entidades XML predefinidas, por exemplo menos do que `<` ( , superiores a ( `>` ) ampersand ( `&` ) ou citação dupla `"` (), você deve escapar desses caracteres codificando o segredo do cliente antes de adicioná-lo ao seu Web.config.
     1. Substitua o valor de `ida:SignUpSignInPolicyId` `b2c_1_signupsignin1` .

@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 10/14/2020
+ms.date: 11/19/2020
 ms.author: victorh
-ms.openlocfilehash: 0f7fec997ec6d0c73fe6d1039ab1033752e0cedf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9fb8bf689e2767f681994258c4d2c51be41d6c68
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566576"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952136"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política do Azure Web Application Firewall (WAF)
 
@@ -53,7 +53,7 @@ Esta política global é adequada para contoso.com e fabrikam.com, mas é precis
 
 O adatum.com/payments URI é onde tens de ter cuidado. Por isso, aplique outra política sobre esse URI e deixe todas as regras ativadas, e também remova todas as exclusões.
 
-Neste exemplo, tem uma política global que se aplica a dois sites. Você tem uma política por site que se aplica a um site, e depois uma política per-URI que se aplica a uma regra específica baseada em caminhos. Consulte (inserir link aqui quando existir) como criar por site e políticas por URI para o exemplo do PowerShell correspondente.
+Neste exemplo, tem uma política global que se aplica a dois sites. Você tem uma política por site que se aplica a um site, e depois uma política per-URI que se aplica a uma regra específica baseada em caminhos. Consulte [as políticas de Configure per site WAF utilizando a Azure PowerShell](per-site-policies.md) para o exemplo do PowerShell correspondente.
 
 ## <a name="existing-waf-configurations"></a>Configurações WAF existentes
 

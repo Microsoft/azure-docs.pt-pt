@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb833ff35dae4fe1c0c27204ec66fa6b4cdb82c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 340c9629af89bfacb85b37503743fc5770070ae3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388889"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951847"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalize a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Ative Directory B2C
 
@@ -34,9 +34,9 @@ Complete os passos em [Começar com políticas personalizadas.](custom-policy-ge
 
 Para configurar a personalização da UI, copie o **ContentDefinition** e os seus elementos infantis do ficheiro base para o ficheiro de extensões.
 
-1. Abra o arquivo base da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> . Este ficheiro base é um dos ficheiros de política incluídos no pacote de iniciação de políticas personalizadas, que deveria ter obtido no pré-requisito, [começar com políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Abra o arquivo base da sua apólice. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> . Este ficheiro base é um dos ficheiros de política incluídos no pacote de iniciação de políticas personalizadas, que deveria ter obtido no pré-requisito, [começar com políticas personalizadas](./custom-policy-get-started.md).
 1. Procure e copie todo o conteúdo do elemento **ContentDefinitions.**
-1. Abra o ficheiro de extensão. Por exemplo, *TrustFrameworkExtensions.xml. * Procure o elemento **Blocos de Construção.** Se o elemento não existir, adicione-o.
+1. Abra o ficheiro de extensão. Por exemplo, *TrustFrameworkExtensions.xml.* Procure o elemento **Blocos de Construção.** Se o elemento não existir, adicione-o.
 1. Cole todo o conteúdo do elemento **ContentDefinitions** que copiou como criança do elemento **BuildingBlocks.**
 1. Procure o elemento **ContentDefinition** que contém `Id="api.signuporsignin"` no XML que copiou.
 1. Altere o valor de **LoadUri** para o URL do ficheiro HTML que carregou para armazenamento. Por exemplo, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.

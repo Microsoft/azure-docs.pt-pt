@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4d8174cd0bfdb2297099b403fb836210c5529ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86170229"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953887"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial para configurar arkose Labs com Azure Ative Directory B2C
 
@@ -66,7 +66,7 @@ Para criar uma conta de armazenamento, siga estes passos:
 
 4. Selecione  **Adicionar**.
 
-5. No **grupo de Recursos**, selecione Criar **novo,** insira um nome para o novo grupo de recursos e, em seguida, selecione **OK**.
+5. No  **grupo de Recursos**, selecione Criar  **novo,** insira um nome para o novo grupo de recursos e, em seguida, selecione **OK**.
 
 6. Introduza um nome para a conta de armazenamento. O nome que escolher tem de ser exclusivo no Azure, deve ter entre 3 e 24 carateres de comprimento e apenas pode conter números e letras minúsculas.
 
@@ -80,7 +80,7 @@ Para criar uma conta de armazenamento, siga estes passos:
 
 1. Na página geral da conta de armazenamento, selecione  **Blobs**.
 
-2. Selecione  **O Recipiente**, introduza um nome para o recipiente, escolha  **Blob** (acesso de leitura anónima apenas para bolhas) e, em seguida, selecione **OK**.
+2. Selecione   **O Recipiente**, introduza um nome para o recipiente, escolha   **Blob** (acesso de leitura anónima apenas para bolhas) e, em seguida, selecione **OK**.
 
 #### <a name="enable-cross-origin-resource-sharing-cors"></a>Permitir a partilha de recursos de origem cruzada (CORS)
 
@@ -90,7 +90,7 @@ O código AD B2C do Azure em um navegador usa uma abordagem moderna e padrão pa
 
 2. Para  **origens permitidas,** insira  `https://your-tenant-name.b2clogin.com` . Substitua o seu nome de inquilino pelo nome do seu inquilino Azure AD B2C. Por exemplo,  `https://fabrikam.b2clogin.com`. Use todas as letras minúsculas ao inserir o nome do seu inquilino.
 
-3. Para **Métodos Permitidos**, selecione **GET,** **PUT**e **OPÇÕES**.
+3. Para  **Métodos Permitidos**, selecione  **GET,** **PUT** e  **OPÇÕES**.
 
 4. Para **cabeçalhos permitidos,** introduza um asterisco (*).
 
@@ -106,11 +106,11 @@ O código AD B2C do Azure em um navegador usa uma abordagem moderna e padrão pa
 
 Baixe Git Bash e siga os passos abaixo:
 
-1. Siga as instruções para [criar uma aplicação web,](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php)até à mensagem "Parabéns!Implementou a sua primeira aplicação PHP para o Serviço de Aplicações" exibe.
+1. Siga as instruções para [criar uma aplicação web,](../app-service/quickstart-php.md)até à mensagem "Parabéns!Implementou a sua primeira aplicação PHP para o Serviço de Aplicações" exibe.
 
-2. Abra a pasta local e mude o nome do ficheiro **index.php** para **verificar-token.php**.
+2. Abra a pasta local e mude o nome do ficheiro **.php índice** **para verificar.php**.
 
-3. Abra o ficheiro recém-renomeado check-token.php e:
+3. Abra o ficheiro de verificação de ficheiros recentemente renomeado.php ficheiro e:
 
    a. Substitua o conteúdo pelo conteúdo do ficheiro check-token.php encontrado no [repositório GitHub](https://github.com/ArkoseLabs/Azure-AD-B2C).
 
@@ -138,7 +138,7 @@ Baixe Git Bash e siga os passos abaixo:
 
 5. Faça o upload do ficheiro index.html para o armazenamento de bolhas acima criado.
 
-6. Vá ao **upload do**contentor  >  **Container**  >  **de armazenamento.**
+6. Vá ao **upload do** contentor  >  **Container**  >  **de armazenamento.**
 
 #### <a name="set-up-azure-ad-b2c"></a>Configurar Azure AD B2C
 
@@ -149,7 +149,7 @@ Baixe Git Bash e siga os passos abaixo:
 
 2. Ativar o JavaScript no [fluxo do utilizador.](user-flow-javascript-overview.md)
 
-3. Na mesma página de fluxo do utilizador, ative o URL da página personalizada: Vá ao layout da página **de fluxo do utilizador**use conteúdo de página  >  **page layout**  >  **personalizada**  =  **sim**  >  **insira URL de página personalizada**.
+3. Na mesma página de fluxo do utilizador, ative o URL da página personalizada: Vá ao layout da página **de fluxo do utilizador** use conteúdo de página  >  **page layout**  >  **personalizada**  =  **sim**  >  **insira URL de página personalizada**.
 Este URL de página personalizada é obtido a partir da localização do ficheiro index.html dentro do armazenamento do blob  
 
    ![Screenshot mostrando o url de armazenamento arkose Labs](media/partner-arkose-labs/arkose-storage-url.png)

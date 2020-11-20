@@ -11,19 +11,19 @@ ms.topic: how-to
 ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 558e6cea4d5e0c9bd0f6222f9070d2b867a5bf44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6064bd2c62922abea44508b8bf6cdfa3e7ecbc92
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85384945"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953309"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Iniciar sação usando uma aplicação iOS
 
 A plataforma de identidade da Microsoft utiliza as normas de abertura, como o OAuth2 e o OpenID Connect. A utilização de um protocolo de padrão aberto oferece mais escolha de desenvolvedor ao selecionar uma biblioteca para integrar-se com os nossos serviços. Fornecemos este walkthrough e outros como ele para ajudar os desenvolvedores a escrever aplicações que se conectam à plataforma Microsoft Identity. A maioria das bibliotecas que [implementam a especificação OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) são capazes de se ligar à plataforma Microsoft Identity.
 
 > [!WARNING]
-> A Microsoft não fornece correções para bibliotecas de terceiros e não fez uma revisão dessas bibliotecas. Esta amostra está a usar uma biblioteca de terceiros chamada AppAuth que foi testada para compatibilidade em cenários básicos com o Azure AD B2C. As questões e os pedidos de funcionalidade devem ser direcionados para o projeto de código aberto da biblioteca. Para obter mais informações, consulte [este artigo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
+> A Microsoft não fornece correções para bibliotecas de terceiros e não fez uma revisão dessas bibliotecas. Esta amostra está a usar uma biblioteca de terceiros chamada AppAuth que foi testada para compatibilidade em cenários básicos com o Azure AD B2C. As questões e os pedidos de funcionalidade devem ser direcionados para o projeto de código aberto da biblioteca. Para obter mais informações, consulte [este artigo](../active-directory/develop/reference-v2-libraries.md).
 >
 >
 
@@ -45,7 +45,7 @@ Também grave o seu URI de redirecionamento personalizado para utilização num 
 ## <a name="create-your-user-flows"></a>Crie os fluxos do seu utilizador
 No Azure AD B2C, todas as experiências do utilizador são definidas por um [fluxo de utilizador](user-flow-overview.md). Esta aplicação contém uma experiência de identidade: um início de sismo combinado e uma inscrição. Quando criar o fluxo do utilizador, certifique-se de:
 
-* Nos **atributos de inscrição**, selecione o **nome de visualização**do atributo .  Também pode selecionar outros atributos.
+* Nos **atributos de inscrição**, selecione o **nome de visualização** do atributo .  Também pode selecionar outros atributos.
 * Nos **pedidos de aplicação**, selecione o **nome de exibição** de reclamações e o **ID do objeto do utilizador.** Também pode selecionar outras reclamações.
 * Copie o **nome** de cada fluxo de utilizador depois de o criar. O nome de fluxo do utilizador é `b2c_1_` pré-fixado quando guarda o fluxo do utilizador.  Precisa do nome de fluxo do utilizador mais tarde.
 

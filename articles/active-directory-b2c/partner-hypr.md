@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4f6b09061a4aa98824e176af55efcedfab3df48c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b80b1a4b3f9bcde6cf01b0e0e59425c6783bd5d9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051949"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953768"
 ---
 # <a name="tutorial-for-configuring-hypr-with-azure-active-directory-b2c"></a>Tutorial para configurar HYPR com Azure Ative Directory B2C
 
@@ -28,7 +28,7 @@ Para começar, vai precisar de:
 
 - Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
 
-- Um [inquilino Azure AD B2C.](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) O inquilino está ligado à sua assinatura Azure.
+- Um [inquilino Azure AD B2C.](./tutorial-create-tenant.md) O inquilino está ligado à sua assinatura Azure.
 
 - Um inquilino de nuvem HYPR, obtenha uma [conta de teste](https://get.hypr.com/free-trial)gratuita.
 
@@ -62,7 +62,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 1. Aceda à [política Azure AD B2C HYPR](https://github.com/HYPR-Corp-Public/Azure-AD-B2C-HYPR-Sample/tree/master/policy) na pasta Política.
 
-2. Siga este [documento](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) para baixar o [pacote de arranque LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
+2. Siga este [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) para baixar o [pacote de arranque LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
 
 3. Configure a política para o inquilino Azure AD B2C.
 
@@ -73,7 +73,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 1. Abra o inquilino Azure AD B2C e em Políticas selecione **Quadro de Experiência de Identidade.**
 
-2. Selecione o **seu Signo De Assinatura de Inscrição**anteriormente criado.
+2. Selecione o **seu Signo De Assinatura de Inscrição** anteriormente criado.
 
 3. Selecione **Executar o fluxo do utilizador** e selecione as definições:
 
@@ -91,6 +91,6 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 Para obter informações adicionais, reveja os seguintes artigos:
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Começar com políticas personalizadas em Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Começar com políticas personalizadas em Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

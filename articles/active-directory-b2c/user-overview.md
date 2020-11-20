@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb13b350dfecf70e5f3a45755f6f77069a855c6c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f7a4d0852edded516b7fbe42f15abfe160e44cd3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363849"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952799"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas dos utilizadores no Azure Ative Directory B2C
 
@@ -50,29 +50,29 @@ Quando adicionar uma nova conta de trabalho, tem de considerar as seguintes defi
 Pode utilizar as seguintes informações para criar uma nova conta de trabalho:
 
 - [Portal do Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Atualizar um perfil de utilizador
 
 Pode utilizar as seguintes informações para atualizar o perfil de um utilizador:
 
 - [Portal do Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Redefinir uma palavra-passe para um utilizador
 
 Pode utilizar as seguintes informações para redefinir a palavra-passe de um utilizador:
 
 - [Portal do Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Utilizador convidado
 
-Pode convidar utilizadores externos para o seu inquilino como utilizador convidado. Um cenário típico para convidar um utilizador convidado para o seu inquilino Azure AD B2C é partilhar responsabilidades administrativas. Para um exemplo de utilização de uma conta de hóspedes, consulte [propriedades de um utilizador de colaboração Azure Ative Directory B2B](../active-directory/b2b/user-properties.md).
+Pode convidar utilizadores externos para o seu inquilino como utilizador convidado. Um cenário típico para convidar um utilizador convidado para o seu inquilino Azure AD B2C é partilhar responsabilidades administrativas. Para um exemplo de utilização de uma conta de hóspedes, consulte [propriedades de um utilizador de colaboração Azure Ative Directory B2B](../active-directory/external-identities/user-properties.md).
 
 Quando convida um utilizador convidado para o seu inquilino, fornece o endereço de e-mail do destinatário e uma mensagem descrevendo o convite. O link de convite leva o utilizador à página de consentimento onde o botão **Get Started** é selecionado e a revisão das permissões é aceite. Se uma caixa de entrada não estiver anexada ao endereço de e-mail, o utilizador pode navegar para a página de consentimento indo para uma página da Microsoft usando as credenciais convidadas. O utilizador é então obrigado a resgatar o convite da mesma forma que clicar no link no e-mail. Por exemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-Também pode utilizar a [API do Microsoft Graph](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) para convidar um utilizador convidado.
+Também pode utilizar a [API do Microsoft Graph](/graph/api/invitation-post?view=graph-rest-beta) para convidar um utilizador convidado.
 
 ## <a name="consumer-user"></a>Consumidor
 

@@ -11,19 +11,19 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 79219d7a7b59818d54acc6a2b0b4c8093ead3a6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acbd2918bd311cec1c27018763ad10771d779d85
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385234"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953326"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Iniciar sação usando uma aplicação Android em Azure Ative Directory B2C
 
 A plataforma de identidade da Microsoft utiliza as normas de abertura, como o OAuth2 e o OpenID Connect. Estas normas permitem-lhe alavancar qualquer biblioteca que deseje integrar com o Azure Ative Directory B2C. Para ajudá-lo a usar outras bibliotecas, pode usar uma passagem como esta para demonstrar como configurar bibliotecas de terceiros para se conectar à plataforma de identidade da Microsoft. A maioria das bibliotecas que [implementam a especificação OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) pode ligar-se à plataforma Microsoft Identity.
 
 > [!WARNING]
-> A Microsoft não fornece correções para bibliotecas de terceiros e não fez uma revisão dessas bibliotecas. Esta amostra está a usar uma biblioteca de terceiros chamada AppAuth que foi testada para compatibilidade em cenários básicos com o Azure AD B2C. As questões e os pedidos de funcionalidade devem ser direcionados para o projeto de código aberto da biblioteca. Consulte [este artigo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) para mais informações.
+> A Microsoft não fornece correções para bibliotecas de terceiros e não fez uma revisão dessas bibliotecas. Esta amostra está a usar uma biblioteca de terceiros chamada AppAuth que foi testada para compatibilidade em cenários básicos com o Azure AD B2C. As questões e os pedidos de funcionalidade devem ser direcionados para o projeto de código aberto da biblioteca. Consulte [este artigo](../active-directory/develop/reference-v2-libraries.md) para mais informações.
 >
 >
 

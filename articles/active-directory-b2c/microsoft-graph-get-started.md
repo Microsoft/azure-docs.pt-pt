@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d95b45b9be0893282a532bae9ec0278c3a141686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e32f50e02e45487830c5ea7ff476a0571960f6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385931"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954006"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerir Azure AD B2C com o Microsoft Graph
 
@@ -49,7 +49,7 @@ Antes de os seus scripts e aplicações poderem interagir com a [Microsoft Graph
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **de Inscrição + Diretório** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No portal Azure, procure e selecione **Azure AD B2C**.
-1. Selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
+1. Selecione **as inscrições da App** e, em seguida, selecione Novo **registo**.
 1. Insira um **Nome** para a inscrição. Por exemplo, *o 'managementapp1' ( aplicação de gestão).*
 1. Selecione **Contas apenas neste diretório organizacional**.
 1. Ao abrigo **de permissões,** limpe o *consentimento da administração Grant para abrir e offline_access caixa de verificação de permissões.*
@@ -66,7 +66,7 @@ Em seguida, conceda as permissões de aplicação registadas para manipular os r
 
 [!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
-Tem agora uma aplicação que tem permissão para *criar,* *ler,* *atualizar*e *eliminar* utilizadores no seu inquilino Azure AD B2C. Continue até a secção seguinte para adicionar permissões *de atualização de palavra-passe.*
+Tem agora uma aplicação que tem permissão para *criar,* *ler,* *atualizar* e *eliminar* utilizadores no seu inquilino Azure AD B2C. Continue até a secção seguinte para adicionar permissões *de atualização de palavra-passe.*
 
 ## <a name="enable-user-delete-and-password-update"></a>Ativar a eliminação do utilizador e atualização de palavra-passe
 
@@ -85,12 +85,12 @@ Se a sua aplicação ou script precisar de eliminar utilizadores ou atualizar as
 ## <a name="next-steps"></a>Passos seguintes
 Agora que registou o seu pedido de gestão e lhe concedeu as permissões necessárias, as suas aplicações e serviços (por exemplo, Azure Pipelines) podem usar as suas credenciais e permissões para interagir com a API do Microsoft Graph. 
 
-* [Obter um token de acesso do Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
-* [Use o token de acesso para ligar para o Microsoft Graph](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Obter um token de acesso do Azure AD](/graph/auth-v2-service#4-get-an-access-token)
+* [Use o token de acesso para ligar para o Microsoft Graph](/graph/auth-v2-service#4-get-an-access-token)
 * [Operações B2C suportadas pelo Microsoft Graph](microsoft-graph-operations.md)
 * [Gerir contas de utilizadores AZure AD B2C com Gráfico microsoft](manage-user-accounts-graph-api.md)
 * [Obtenha registos de auditoria com a AZure AD reportando API](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
-[ms-graph]: https://docs.microsoft.com/graph/
+[ms-graph]: /graph/
 [ms-graph-api]: https://docs.microsoft.com/graph/api/overview

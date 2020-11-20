@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cfce5b42d37908d0ba89cff9c4831cb25b968524
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07a8f785cf2b9a64f3acb9f44c4fca5023c4fcf3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259327"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953751"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Tutorial para configurar iDologia com Diretório Ativo Azure B2C 
 
@@ -67,13 +67,13 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1 - Implantar a API
 
-Implementar o [código API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) fornecido para um serviço Azure. O código pode ser publicado a partir do Visual Studio, seguindo estas [instruções](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implementar o [código API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) fornecido para um serviço Azure. O código pode ser publicado a partir do Visual Studio, seguindo estas [instruções](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 Você precisará do URL do serviço implantado para configurar Azure AD com as configurações necessárias.
 
 ### <a name="part-2---configure-the-api"></a>Parte 2 - Configurar a API 
 
-As definições de aplicação podem ser [configuradas no Serviço de Aplicações em Azure.](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings) Com este método, as definições podem ser configuradas de forma segura sem as verificar num repositório. Terá de fornecer as seguintes definições à API de Descanso:
+As definições de aplicação podem ser [configuradas no Serviço de Aplicações em Azure.](../app-service/configure-common.md#configure-app-settings) Com este método, as definições podem ser configuradas de forma segura sem as verificar num repositório. Terá de fornecer as seguintes definições à API de Descanso:
 
 | Definições da aplicação | Origem | Notas |
 | :-------- | :------------| :-----------|
@@ -121,7 +121,7 @@ A política da amostra utiliza estes nomes-chave:
 
 1. Abra o inquilino Azure AD B2C e, em **Políticas,** selecione **fluxos de utilizador**.
 
-2. Selecione o seu **Fluxo de Utilizador**previamente criado.
+2. Selecione o seu **Fluxo de Utilizador** previamente criado.
 
 3. Selecione **Executar o fluxo do utilizador** e selecione as definições:
 
@@ -145,5 +145,4 @@ Para obter informações adicionais, reveja os seguintes artigos:
 
 - [Políticas personalizadas no Azure AD B2C](custom-policy-overview.md)
 
-- [Começar com políticas personalizadas em Azure AD B2C](custom-policy-get-started.md?tabs=applications) 
-
+- [Começar com políticas personalizadas em Azure AD B2C](custom-policy-get-started.md?tabs=applications)

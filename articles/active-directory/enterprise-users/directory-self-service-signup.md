@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0edd85ea4478ac95ea854b73717056d52a9098b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f7f6d643586897924c5efaddd7d1f229ba8d85dc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647567"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952459"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>O que é inscrição de self-service para o Azure Ative Directory?
 
@@ -77,9 +77,15 @@ O fluxograma que se segue explica as diferentes combinações para estes parâme
 
 ![fluxograma de controlos de inscrição de autosserviço](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
+Os detalhes desta definição podem ser recuperados pelo seguinte cmdlet powershell Get-MsolCompanyInformation . Para obter mais informações sobre este , consulte [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation?view=azureadps-1.0)
+
+```powershell
+    Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
+```
+
 Para obter mais informações e exemplos de como utilizar estes parâmetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Adicionar um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
 * [Como instalar e configurar o Azure PowerShell](/powershell/azure/)

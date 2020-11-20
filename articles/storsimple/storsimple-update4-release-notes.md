@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 060a52b61dcd43fe0d05b2a8ef594c0ab9f2cc9e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847287"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954057"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>StorSimple 8000 Series Update 4 notas de lançamento
 
@@ -47,7 +47,7 @@ As seguintes melhorias chave e correções de erros foram feitas no Update 4.
 
     Uma nova funcionalidade é implementada no Update 4 que rastreia dados frequentemente acedidos para criar um mapa de calor quando o dispositivo está em uso antes de DR (a maioria dos pedaços de dados usados têm calor elevado, enquanto os pedaços menos utilizados têm baixo calor). Depois de DR, storSimple utiliza o mapa de calor para restaurar e reidratar automaticamente os dados da nuvem. 
 
-    Todos os restauros são agora restauradores à base de mapas de calor. Para obter mais informações sobre como consultar e cancelar trabalhos de restauro e reidratação baseados em mapas térmicos, vá ao [Windows PowerShell para obter referência de cmdlet StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+    Todos os restauros são agora restauradores à base de mapas de calor. Para obter mais informações sobre como consultar e cancelar trabalhos de restauro e reidratação baseados em mapas térmicos, vá ao [Windows PowerShell para obter referência de cmdlet StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 * **StorSimple Diagnostics tool** – In Update 4, está a ser lançada uma ferramenta StorSimple Diagnostics para permitir um fácil diagnóstico e resolução de problemas de problemas relacionados com a saúde do sistema, rede, desempenho e componente de hardware. Esta ferramenta é executada através do Windows PowerShell para StorSimple. Para obter mais informações, aceda à [resolução de problemas utilizando a ferramenta StorSimple Diagnostics](storsimple-8000-diagnostics.md).
 
@@ -59,7 +59,7 @@ As seguintes melhorias chave e correções de erros foram feitas no Update 4.
 
 * **Alerta para falhas no disco** - Um novo alerta que avisa o utilizador de falhas iminentes do disco é adicionado nesta versão. Se encontrar este alerta, contacte o Microsoft Support para enviar um disco de substituição. Para mais informações, aceda aos [alertas de hardware no seu dispositivo StorSimple](storsimple-8000-manage-alerts.md#hardware-alerts).
 
-* **Alterações de substituição do controlador** - Um cmdlet que permite ao utilizador consultar o estado do processo de substituição do controlador é adicionado nesta versão. Para obter mais informações, aceda ao [cmdlet para consultar](https://technet.microsoft.com/library/dn688168.aspx)o estado de substituição do controlador .
+* **Alterações de substituição do controlador** - Um cmdlet que permite ao utilizador consultar o estado do processo de substituição do controlador é adicionado nesta versão. Para obter mais informações, aceda ao [cmdlet para consultar](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps)o estado de substituição do controlador .
 
 
 ## <a name="issues-fixed-in-update-4"></a>Problemas corrigidos na Atualização 4
@@ -68,12 +68,12 @@ A tabela seguinte fornece um resumo das questões que foram corrigidas na Atuali
 
 | No | Destaque | Problema | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
 | --- | --- | --- | --- | --- |
-| 1 |Ativação pós-falha |No lançamento anterior, após a falha, houve um problema relacionado com a limpeza observada no site do cliente. Esta questão é corrigida nesta versão. |Sim |Sim |
-| 2 |volumes afixados localmente |No lançamento anterior, havia uma questão de criação de volume relacionado para volumes fixados localmente que resultaria em falhas de criação de volume. Esta questão foi causada por raízes e corrigida nesta versão. |Sim |Não |
-| 3 |Pacote de apoio |Em versão anterior, existiam questões relacionadas com o pacote de suporte que resultariam numa exceção System.OutOfMemory ou outros erros que resultaram numa falha de criação de pacotes de suporte. Estes insetos estão fixos nesta versão. |Sim |Sim |
-| 4 |Monitorização |No lançamento anterior, existe uma questão relacionada com os gráficos de monitorização dos volumes fixados localmente, onde o consumo foi demonstrado em EB. Este bug é resolvido nesta versão. |Sim |Sim |
-| 5 |Migração |Em versão anterior, houve várias questões relacionadas com a fiabilidade da migração de 5000-7000 para 8000 dispositivos da série. Estas questões foram abordadas nesta versão. |Sim |Sim |
-| 6 |Atualizar |Em versões anteriores, caso houvesse uma falha de atualização, os controladores entrariam em modo de recuperação e, por isso, o utilizador não poderia prosseguir com a atualização e teria de entrar em contacto com o Microsoft Support. <br> Este comportamento foi alterado nesta libertação. Se o utilizador tiver uma falha de atualização depois de ambos os controladores estarem a executar a mesma versão (Atualização 4), os controladores não entram em modo de recuperação. Se o utilizador encontrar esta falha, recomendamos que aguardem um pouco e, em seguida, refaçam a atualização. A repetição pode ter sucesso. Se a repetição falhar, devem contactar o Microsoft Support. |Sim |Sim |
+| 1 |Ativação pós-falha |No lançamento anterior, após a falha, houve um problema relacionado com a limpeza observada no site do cliente. Esta questão é corrigida nesta versão. |Yes |Yes |
+| 2 |volumes afixados localmente |No lançamento anterior, havia uma questão de criação de volume relacionado para volumes fixados localmente que resultaria em falhas de criação de volume. Esta questão foi causada por raízes e corrigida nesta versão. |Yes |No |
+| 3 |Pacote de apoio |Em versão anterior, existiam questões relacionadas com o pacote de suporte que resultariam numa exceção System.OutOfMemory ou outros erros que resultaram numa falha de criação de pacotes de suporte. Estes insetos estão fixos nesta versão. |Yes |Yes |
+| 4 |Monitorização |No lançamento anterior, existe uma questão relacionada com os gráficos de monitorização dos volumes fixados localmente, onde o consumo foi demonstrado em EB. Este bug é resolvido nesta versão. |Yes |Yes |
+| 5 |Migração |Em versão anterior, houve várias questões relacionadas com a fiabilidade da migração de 5000-7000 para 8000 dispositivos da série. Estas questões foram abordadas nesta versão. |Yes |Yes |
+| 6 |Atualizar |Em versões anteriores, caso houvesse uma falha de atualização, os controladores entrariam em modo de recuperação e, por isso, o utilizador não poderia prosseguir com a atualização e teria de entrar em contacto com o Microsoft Support. <br> Este comportamento foi alterado nesta libertação. Se o utilizador tiver uma falha de atualização depois de ambos os controladores estarem a executar a mesma versão (Atualização 4), os controladores não entram em modo de recuperação. Se o utilizador encontrar esta falha, recomendamos que aguardem um pouco e, em seguida, refaçam a atualização. A repetição pode ter sucesso. Se a repetição falhar, devem contactar o Microsoft Support. |Yes |Yes |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Problemas conhecidos na Atualização 4 de lançamentos anteriores
@@ -82,7 +82,7 @@ Não existem novos problemas conhecidos no Update 4. Para obter uma lista de pro
 
 ## <a name="serial-attached-scsi-sas-controller-and-firmware-updates-in-update-4"></a>Atualizações de controlador e firmware SCSI (SAS) anexadas em série na Atualização 4
 
-Esta versão tem o controlador SAS e as atualizações do controlador LSI e do firmware. Para obter mais informações sobre como instalar estas atualizações, consulte [a instalação do Update 4](storsimple-install-update-4.md) no seu dispositivo StorSimple.
+Esta versão tem o controlador SAS e as atualizações do controlador LSI e do firmware. Para obter mais informações sobre como instalar estas atualizações, consulte [a instalação do Update 4](./storsimple-8000-install-update-4.md) no seu dispositivo StorSimple.
 
 ## <a name="virtual-device-updates-in-update-4"></a>Atualizações de dispositivos virtuais no Update 4
 
@@ -90,5 +90,4 @@ Esta atualização não pode ser aplicada ao StorSimple Cloud Appliance (também
 
 ## <a name="next-step"></a>Passo seguinte
 
-Saiba como instalar o [Update 4](storsimple-install-update-4.md) no seu dispositivo StorSimple.
-
+Saiba como instalar o [Update 4](./storsimple-8000-install-update-4.md) no seu dispositivo StorSimple.

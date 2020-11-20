@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 151d5f083fe0e945b330d65095c908be93e3330f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 369c7dab174f0269797b10635882a6821ade8311
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316401"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952952"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: criar registos DNS num domínio personalizado para uma aplicação Web 
 
@@ -29,7 +29,7 @@ Para tal, terá de criar três registos:
 
 Tenha em atenção que, se criar um registo para uma aplicação Web no Azure, o registo A tem de ser atualizado manualmente se o endereço IP subjacente à aplicação Web for alterado.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um registo A e um registo TXT para o seu domínio personalizado
@@ -49,7 +49,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * Crie uma zona DNS no DNS do Azure e delegue a zona na sua entidade de registo ao DNS do Azure.
 
-   1. Para criar uma zona DNS, siga os passos em [Criar uma zona DNS](dns-getstarted-create-dnszone.md).
+   1. Para criar uma zona DNS, siga os passos em [Criar uma zona DNS](./dns-getstarted-powershell.md).
    2. Para delegar a zona ao DNS do Azure, siga os passos em [Delegação de domínio DNS](dns-delegate-domain-azure-dns.md).
 
 Depois de criar uma zona e delegá-la ao DNS do Azure, pode criar registos para o seu domínio personalizado.

@@ -12,12 +12,12 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d38f10e5a4f2562825ed2374317602b0640894ae
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 84a3ef7b41b17e85c594213246211d45911ac56a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275873"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953054"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutorial: Registar uma aplicação web no Azure Ative Directory B2C
 
@@ -37,17 +37,17 @@ Se ainda não criou o seu próprio [Inquilino Azure AD B2C,](tutorial-create-ten
 
 ## <a name="register-a-web-application"></a>Registar uma aplicação Web
 
-Para registar uma aplicação web no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legado).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregtraining)
+Para registar uma aplicação web no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legado).** [Saiba mais sobre a nova experiência.](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **de Inscrição + Diretório** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No portal Azure, procure e selecione **Azure AD B2C**.
-1. Selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
+1. Selecione **as inscrições da App** e, em seguida, selecione Novo **registo**.
 1. Insira um **Nome** para a inscrição. Por exemplo, *webapp1*.
 1. Nos **tipos de conta suportado**, selecione Contas em qualquer fornecedor de identidade ou **diretório organizacional (para autenticar utilizadores com fluxos de utilizador)**.
-1. Em **URI de redirecionamento,** selecione **Web**e, em seguida, `https://jwt.ms` introduza na caixa de texto URL.
+1. Em **URI de redirecionamento,** selecione **Web** e, em seguida, `https://jwt.ms` introduza na caixa de texto URL.
 
     O redirect URI é o ponto final para o qual o utilizador é enviado pelo servidor de autorização (Azure AD B2C, neste caso) após completar a sua interação com o utilizador, e para o qual é enviado um token de acesso ou código de autorização mediante autorização bem sucedida. Numa aplicação de produção, é tipicamente um ponto final acessível ao público onde a sua aplicação está a funcionar, como `https://contoso.com/auth-response` . Para testes como este tutorial, pode `https://jwt.ms` defini-lo para , uma aplicação web de propriedade da Microsoft que exibe o conteúdo descodificado de um símbolo (o conteúdo do token nunca sai do seu navegador). Durante o desenvolvimento da aplicação, pode adicionar o ponto final onde a sua aplicação ouve localmente, como `https://localhost:5000` . Pode adicionar e modificar URIs redirecionando as suas aplicações registadas a qualquer momento.
 
@@ -89,7 +89,7 @@ Para uma aplicação web, você precisa criar um segredo de aplicação. Este se
 1. Selecione **Novo segredo do cliente**.
 1. Insira uma descrição para o segredo do cliente na caixa **Descrição.** Por exemplo, *o segredo de clientes1*.
 1. Em **Expira**, selecione uma duração para a qual o segredo é válido e, em seguida, selecione **Adicionar**.
-1. Registar o **valor**do segredo. Utiliza este valor como segredo de aplicação no código da sua aplicação.
+1. Registar o **valor** do segredo. Utiliza este valor como segredo de aplicação no código da sua aplicação.
 
 #### <a name="applications-legacy"></a>[Candidaturas (Legado)](#tab/applications-legacy/)
 

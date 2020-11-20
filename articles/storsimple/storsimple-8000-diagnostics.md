@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300450"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954074"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utilize a Ferramenta de Diagnóstico StorSimple para resolver problemas de dispositivos da série 8000
 
@@ -332,7 +332,7 @@ Aqui está uma amostra de saída do dispositivo 8100. Pode ver na saída que:
 * Os DADOS 2 - 5 não estão ativados no portal.
 * A configuração do servidor DNS é válida e o dispositivo pode ligar-se através do servidor DNS.
 * A conectividade do servidor NTP também está bem.
-* Os portos 80 e 443 estão abertos. No entanto, a porta 9354 está bloqueada. Com base nos requisitos da rede de [sistema,](storsimple-system-requirements.md)é necessário abrir esta porta para a comunicação de autocarros de serviço.
+* Os portos 80 e 443 estão abertos. No entanto, a porta 9354 está bloqueada. Com base nos requisitos da rede de [sistema,](./storsimple-8000-system-requirements.md)é necessário abrir esta porta para a comunicação de autocarros de serviço.
 * A certificação TLS/SSL é válida.
 * O dispositivo pode ligar-se à conta de armazenamento: _myss8000storageacct_.
 * A conectividade para atualizar servidores é válida.
@@ -388,7 +388,7 @@ Para utilizar esta ferramenta, execute os seguintes passos:
 
     Se as latências de leitura-escrita relatadas pela ferramenta de diagnóstico forem elevadas:
 
-    1. Configure o Storage Analytics para serviços blob e analise a saída para entender as latências da conta de armazenamento Azure. Para obter instruções detalhadas, vá para [ativar e configurar o Storage Analytics](../storage/common/storage-enable-and-view-metrics.md). Se essas latências também forem elevadas e comparáveis aos números que recebeu da ferramenta StorSimple Diagnostics, então precisa de registar um pedido de serviço com armazenamento Azure.
+    1. Configure o Storage Analytics para serviços blob e analise a saída para entender as latências da conta de armazenamento Azure. Para obter instruções detalhadas, vá para [ativar e configurar o Storage Analytics](../storage/blobs/monitor-blob-storage.md). Se essas latências também forem elevadas e comparáveis aos números que recebeu da ferramenta StorSimple Diagnostics, então precisa de registar um pedido de serviço com armazenamento Azure.
 
     2. Se as latências da conta de armazenamento forem baixas, contacte o administrador da rede para investigar quaisquer problemas de latência na sua rede.
 
@@ -418,7 +418,7 @@ Aqui está uma tabela que descreve para que os vários parâmetros do Windows Po
 |-------------------------|------------------|
 | ID da Instância             | Cada controlador tem um identificador único ou um GUID associado a ele.|
 | Nome                    | O nome amigável do dispositivo configurado através do portal Azure durante a implementação do dispositivo. O nome padrão amigável é o número de série do dispositivo. |
-| Modelo                   | O modelo do seu dispositivo da série StorSimple 8000. O modelo pode ser 8100 ou 8600.|
+| Modelação                   | O modelo do seu dispositivo da série StorSimple 8000. O modelo pode ser 8100 ou 8600.|
 | SerialNumber            | O número de série do dispositivo é atribuído na fábrica e tem 15 caracteres de comprimento. Por exemplo, 8600-SHX0991003G44HT indica:<br> 8600 - É o modelo do dispositivo.<br>SHX – É o local de fabrico.<br> 0991003 - É um produto específico. <br> G44HT- os últimos 5 dígitos são incrementados para criar números de série únicos. Isto pode não ser um conjunto sequencial.|
 | TimeZone                | O fuso horário do dispositivo configurado no portal Azure durante a implantação do dispositivo.|
 | CurrentController       | O controlador a que está ligado através da interface Windows PowerShell do seu dispositivo StorSimple.|
@@ -440,6 +440,6 @@ Aqui está uma tabela que descreve para que os vários parâmetros do Windows Po
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Aprenda a [sintaxe do Invoke-HcsDiagnostics cmdlet](https://technet.microsoft.com/library/mt795371.aspx).
+* Aprenda a [sintaxe do Invoke-HcsDiagnostics cmdlet](/previous-versions/windows/powershell-scripting/mt795371(v=wps.630)).
 
-* Saiba mais sobre como [resolver problemas](storsimple-troubleshoot-deployment.md) de implementação no seu dispositivo StorSimple.
+* Saiba mais sobre como [resolver problemas](./storsimple-8000-troubleshoot-deployment.md) de implementação no seu dispositivo StorSimple.

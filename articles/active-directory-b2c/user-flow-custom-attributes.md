@@ -11,12 +11,12 @@ ms.date: 11/30/2018
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1d631c47225fac7d8a95541313593333a1399e07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2233dbd7b0e669c23397b4bc6a84f2bfdc208391
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115953"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952816"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Defina atributos personalizados no Azure Ative Directory B2C
 
@@ -36,13 +36,13 @@ ms.locfileid: "87115953"
     ![Inquilino B2C em destaque no diretório e filtro de assinatura](./media/user-flow-custom-attributes/select-directory.PNG)
 
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
-4. Selecione **os atributos do Utilizador**e, em seguida, selecione **Adicionar**.
+4. Selecione **os atributos do Utilizador** e, em seguida, selecione **Adicionar**.
 5. Fornecer um **Nome** para o atributo personalizado (por exemplo, "ShoeSize")
-6. Escolha um **tipo de dados.** Apenas **String,** **Boolean**e **Int** estão disponíveis.
+6. Escolha um **tipo de dados.** Apenas **String,** **Boolean** e **Int** estão disponíveis.
 7. Opcionalmente, introduza uma **Descrição** para fins informativos.
 8. Clique em **Criar**.
 
-O atributo personalizado está agora disponível na lista de **atributos** do Utilizador e para utilização nos fluxos do seu utilizador. Um atributo personalizado só é criado na primeira vez que é utilizado em qualquer fluxo de utilizador, e não quando o adiciona à lista de **atributos**do Utilizador .
+O atributo personalizado está agora disponível na lista de **atributos** do Utilizador e para utilização nos fluxos do seu utilizador. Um atributo personalizado só é criado na primeira vez que é utilizado em qualquer fluxo de utilizador, e não quando o adiciona à lista de **atributos** do Utilizador .
 
 ## <a name="use-a-custom-attribute-in-your-user-flow"></a>Use um atributo personalizado no fluxo do seu utilizador
 
@@ -52,4 +52,4 @@ O atributo personalizado está agora disponível na lista de **atributos** do Ut
 1. Selecione **as reclamações de aplicação** e, em seguida, selecione o atributo personalizado.
 1. Clique em **Guardar**.
 
-Uma vez criado um novo utilizador utilizando um fluxo de utilizador que utiliza o atributo personalizado recém-criado, o objeto pode ser consultado no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Em alternativa, pode utilizar a função [de fluxo do utilizador Run](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) no fluxo do utilizador para verificar a experiência do cliente. Deverá agora ver **o ShoeSize** na lista de atributos recolhidos durante a jornada de inscrição e vê-lo no token enviado de volta para a sua aplicação.
+Uma vez criado um novo utilizador utilizando um fluxo de utilizador que utiliza o atributo personalizado recém-criado, o objeto pode ser consultado no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Em alternativa, pode utilizar a função [de fluxo do utilizador Run](./tutorial-create-user-flows.md) no fluxo do utilizador para verificar a experiência do cliente. Deverá agora ver **o ShoeSize** na lista de atributos recolhidos durante a jornada de inscrição e vê-lo no token enviado de volta para a sua aplicação.

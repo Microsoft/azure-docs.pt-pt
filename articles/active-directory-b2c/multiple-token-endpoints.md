@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5528607b0559dad246262748c83c9d359ee2144e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c362ce256259606c85af0a7e13ccde1715bb012b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385744"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953938"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrar uma API web baseada em OWIN para b2clogin.com
 
@@ -87,8 +87,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 Nesta secção, atualiza o código para especificar que ambos os pontos finais do emitente são válidos.
 
-1. Abra a solução **B2C-WebAPI-DotNet.sln** em Visual Studio
-1. No projeto **TaskService,** abra o ficheiro *TaskService \\ App_Start \\ **Startup.Auth.cs*** no seu editor
+1. Abra a solução **B2C-WebAPI-DotNet.sln** em Estúdio Visual
+1. No projeto **TaskService,** abra o ficheiro *TaskService \\ App_Start \\ **Startup.Auth.cs** _ no seu editor
 1. Adicione a seguinte `using` diretiva ao topo do processo:
 
     `using System.Collections.Generic;`
@@ -107,7 +107,7 @@ Nesta secção, atualiza o código para especificar que ambos os pontos finais d
     };
     ```
 
-`TokenValidationParameters` é fornecido por MSAL.NET e é consumido pelo middleware OWIN na próxima secção de código em *Startup.Auth.cs*. Com vários emitentes válidos especificados, o pipeline de aplicação OWIN é dado conhecimento de que ambos os pontos finais simbólicos são emitentes válidos.
+`TokenValidationParameters` é fornecido por MSAL.NET e é consumido pelo middleware OWIN na próxima secção de código em _Startup.Auth.cs*. Com vários emitentes válidos especificados, o pipeline de aplicação OWIN é dado conhecimento de que ambos os pontos finais simbólicos são emitentes válidos.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -123,7 +123,7 @@ Como mencionado anteriormente, outras bibliotecas OWIN normalmente fornecem uma 
 
 Com ambos os URIs agora suportados pela sua API web, precisa agora de atualizar a sua aplicação web para que recupere fichas do ponto final b2clogin.com.
 
-Por exemplo, pode configurar a aplicação web da amostra para utilizar o novo ponto final modificando o `ida:AadInstance` valor no ficheiro *TaskWebApp \\ **Web.config*** do projeto **TaskWebApp.**
+Por exemplo, pode configurar a aplicação web da amostra para utilizar o novo ponto final modificando o `ida:AadInstance` valor no *ficheiro TaskWebApp \\ **Web.config** _ do* projeto _ TaskWebApp***.
 
 Altere o `ida:AadInstance` valor na *Web.config* do TaskWebApp para que se `{your-b2c-tenant-name}.b2clogin.com` refira em vez de `login.microsoftonline.com` .
 
@@ -154,6 +154,6 @@ Para obter mais informações sobre os diferentes tipos de fichas de segurança 
 [sample-repo]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi
 
 <!-- LINKS - Internal -->
-[katana]: https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/
-[validissuers]: https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters.validissuers
-[tokenvalidationparameters]: https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters
+[katana]: /aspnet/aspnet/overview/owin-and-katana/
+[validissuers]: /dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters.validissuers
+[tokenvalidationparameters]: /dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 273e9f7ce65cdd15000b1cc4ac7c19cde5992992
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af671996722524de9af1a90ae8dfde27f814c8c2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396778"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951643"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorar gateways VPN com resolução de problemas do Observador de Rede
 
@@ -36,7 +36,7 @@ Este cenário:
 - Criar um livro de bordo chamando o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet para o estado de ligação de resolução de problemas
 - Ligue um horário ao livro de corridas
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Antes de iniciar este cenário, deve ter os seguintes pré-requisitos:
 
@@ -51,7 +51,7 @@ Antes de iniciar este cenário, deve ter os seguintes pré-requisitos:
 
 ### <a name="create-the-runbook"></a>Criar o livro de execução
 
-O primeiro passo para configurar o exemplo é criar o livro de recortes. Este exemplo utiliza uma conta executada. Para saber sobre contas corram como resultados, visite [Authenticate Runbooks com a conta Azure Run As](../automation/automation-create-runas-account.md)
+O primeiro passo para configurar o exemplo é criar o livro de recortes. Este exemplo utiliza uma conta executada. Para saber sobre contas corram como resultados, visite [Authenticate Runbooks com a conta Azure Run As](../automation/manage-runas-account.md)
 
 ### <a name="step-1"></a>Passo 1
 

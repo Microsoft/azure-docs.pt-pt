@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f99c5b9362380690badce832c3dd540137d35ac
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 07897823a3ba3b83e240e8e8dc005ea13b036fce
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215409"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952051"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicação que podem ser usados no Ative Directory B2C
  
@@ -141,7 +141,7 @@ As aplicações que contenham processos de longa duração ou que funcionem sem 
 
 Embora o fluxo de concessão de credenciais de cliente OAuth 2.0 não seja suportado diretamente pelo serviço de autenticação Azure AD B2C, pode configurar o fluxo de credencial do cliente utilizando a Azure AD e a plataforma de identidade da Microsoft/ponto final simbólico para uma aplicação no seu inquilino Azure AD B2C. Um inquilino Azure AD B2C partilha alguma funcionalidade com inquilinos da AZure AD.
 
-Para configurar o fluxo de credencial do cliente, consulte [o Azure Ative Directory v2.0 e o fluxo de credenciais de clientes OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Uma autenticação bem sucedida resulta na receção de um token formatado para que possa ser utilizado pela Azure AD, conforme descrito na [referência simbólica Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Para configurar o fluxo de credencial do cliente, consulte [o Azure Ative Directory v2.0 e o fluxo de credenciais de clientes OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Uma autenticação bem sucedida resulta na receção de um token formatado para que possa ser utilizado pela Azure AD, conforme descrito na [referência simbólica Azure AD](../active-directory/develop/id-tokens.md).
 
 Para obter instruções sobre o registo de uma aplicação de gestão, consulte [Manage Azure AD B2C com o Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -155,7 +155,7 @@ Este cenário de API web em cadeia pode ser suportado utilizando a concessão de
 
 Não edite as aplicações Azure AD B2C desta forma:
 
-- Em outros portais de gestão de aplicações, como o Portal de [Registo de Candidaturas.](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
+- Noutros portais de gestão de aplicações, como o [Portal de Registo da Aplicação](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
 - Utilizando API de Gráfico ou PowerShell.
 
 Se editar a aplicação Azure AD B2C fora do portal Azure, torna-se uma aplicação defeituosa e já não é utilizável com Azure AD B2C. Elimine a aplicação e crie-a novamente.

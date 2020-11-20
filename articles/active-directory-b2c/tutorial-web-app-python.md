@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.custom: devx-track-python
-ms.openlocfilehash: 6a113b3a3df475853f3690a0e932378bc0e2ab02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4455f21ae7243ab7a15e8d746d6674289f9fdb5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844631"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953025"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>Tutorial: Ativar a autenticação numa aplicação web Python com Azure AD B2C
 
@@ -49,7 +49,7 @@ Além disso, precisa do seguinte no seu ambiente de desenvolvimento local:
 
 No segundo tutorial que completou como parte dos pré-requisitos, registou uma aplicação web em Azure AD B2C. Para permitir a comunicação com a amostra de código neste tutorial, adicione um URL de resposta (também chamado de URI redirecionado) ao registo de pedidos.
 
-Para atualizar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregtraining)
+Para atualizar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/)
 
@@ -90,7 +90,7 @@ No diretório de raiz do projeto:
 1. Mude o nome do ficheiro *app_config.py* para *app_config.py.OLD*
 1. Mude o nome da *app_config_b2c.py* para *app_config.py*
 
-Atualize o recém-renomeado *app_config.py* com valores para o seu inquilino Azure AD B2C e registo de inscrição que criou como parte dos pré-requisitos.
+Atualize o recém-renomeado *app_config.py* com valores para o seu inquilino AZure AD B2C e registo de inscrição que criou como parte dos pré-requisitos.
 
 1. Abra o ficheiro *app_config.py* no seu editor.
 1. Atualize o `b2c_tenant` valor com o nome do seu inquilino Azure AD B2C, por exemplo *contosob2c*.
@@ -98,7 +98,7 @@ Atualize o recém-renomeado *app_config.py* com valores para o seu inquilino Azu
 1. Atualizar o `CLIENT_ID` valor com o **ID da Aplicação (cliente)** da aplicação web que registou como parte dos pré-requisitos.
 1. Atualize o `CLIENT_SECRET` valor com o valor do segredo de **cliente** que criou nos pré-requisitos. Para uma maior segurança, considere guardá-la em vez de uma **variável ambiental** como recomendado nos comentários.
 
-A secção superior de *app_config.py* deve agora ser semelhante ao seguinte corte de código:
+A parte superior da *app_config.py* deve agora ser semelhante ao seguinte corte de código:
 
 ```python
 import os
@@ -162,13 +162,13 @@ Esta aplicação de amostra suporta a inscrição, o início e o reset da palavr
 
     Utilize um endereço de e-mail válido e valide com o código de verificação. Defina uma palavra-passe. Introduza os valores para os atributos solicitados.
 
-    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Web browser mostrando aplicação web Python Flask executando localmente":::
+    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Inscreva-se na página exibida pelo fluxo de utilizador Azure AD B2C":::
 
 1. Selecione **Criar** para criar uma conta local no diretório Azure AD B2C.
 
 Quando seleciona **Criar,** a aplicação mostra o nome do utilizador assinado.
 
-:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Web browser mostrando aplicação web Python Flask executando localmente":::
+:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="Navegador web mostrando aplicação web Python Flask com registrado no utilizador":::
 
 Se quiser testar o início de sação, selecione o link **Logout,** então selecione **Iniciar sôm entrada** e faça o sôm com o endereço de e-mail e a palavra-passe que inseriu quando se inscreveu.
 

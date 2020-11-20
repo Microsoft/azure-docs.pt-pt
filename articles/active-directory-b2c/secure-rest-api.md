@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: adb9bf48800062d2cc6976a88ec48c1993858dec
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 18979ba8cbc4e68bf79275059c6c1c976578c407
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089541"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953377"
 ---
 # <a name="secure-your-restful-services"></a>Proteja os seus serviços RESTful 
 
@@ -47,7 +47,7 @@ Para configurar um perfil técnico da API REST com a autenticação básica HTTP
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro **de subscrição Diretório +** no menu superior e escolha o seu diretório Azure AD B2C.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Na página 'Visão Geral', selecione **Identity Experience Framework**.
-1. Selecione **as teclas de**política e, em seguida, selecione **Adicionar**.
+1. Selecione **as teclas de** política e, em seguida, selecione **Adicionar**.
 1. Para **opções**, selecione **Manual**.
 1. Para **nome,** **escreva RestApiUsername**.
     O prefixo *B2C_1A_* pode ser adicionado automaticamente.
@@ -111,7 +111,7 @@ A autenticação do certificado de cliente é uma autenticação baseada em cert
 
 ### <a name="prepare-a-self-signed-certificate-optional"></a>Preparar um certificado auto-assinado (opcional)
 
-Para ambientes não produtivos, se ainda não tiver um certificado, pode utilizar um certificado auto-assinado. No Windows, pode utilizar o cmdlet [New-SelfSignedCertificate da PowerShell](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) para gerar um certificado.
+Para ambientes não produtivos, se ainda não tiver um certificado, pode utilizar um certificado auto-assinado. No Windows, pode utilizar o cmdlet [New-SelfSignedCertificate da PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate) para gerar um certificado.
 
 1. Execute este comando PowerShell para gerar um certificado auto-assinado. Modifique o `-Subject` argumento conforme apropriado para a sua aplicação e nome de inquilino Azure AD B2C. Também pode ajustar a `-NotAfter` data para especificar uma validade diferente para o certificado.
     ```powershell
@@ -124,7 +124,7 @@ Para ambientes não produtivos, se ainda não tiver um certificado, pode utiliza
         -NotAfter (Get-Date).AddMonths(12) `
         -CertStoreLocation "Cert:\CurrentUser\My"
     ```    
-1. Abra **os certificados de utilizador**De corrente yourappname.yourtenant.onmicrosoft.com de  >  **Current User**  >  certificados**pessoais**  >  **Certificates**  >  *do*utilizador.
+1. Abra **os certificados de utilizador** De corrente yourappname.yourtenant.onmicrosoft.com de  >  **Current User**  >  certificados **pessoais**  >  **Certificates**  >  *do* utilizador.
 1. Selecione o certificado > **Action**  >  **All Tasks**  >  **Export**.
 1. Selecione **Yes**  >  **Next**  >  **Yes, exporte a chave privada**  >  **Next**.
 1. Aceite os predefinidos do **formato de ficheiro de exportação.**
@@ -136,7 +136,7 @@ Para ambientes não produtivos, se ainda não tiver um certificado, pode utiliza
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro **de subscrição Diretório +** no menu superior e escolha o seu diretório Azure AD B2C.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Na página 'Visão Geral', selecione **Identity Experience Framework**.
-1. Selecione **as teclas de**política e, em seguida, selecione **Adicionar**.
+1. Selecione **as teclas de** política e, em seguida, selecione **Adicionar**.
 1. Na caixa **Opções,** **selecione Upload**.
 1. Na caixa **Nome,** **escreva RestApiClientCertificate**.
     O prefixo *B2C_1A_* é adicionado automaticamente.
@@ -230,9 +230,9 @@ Uma reclamação fornece armazenamento temporário de dados durante uma execuç�
 
 ### <a name="acquiring-an-access-token"></a>Aquisição de um token de acesso 
 
-Pode obter um token de acesso de uma de várias formas: obtendo-o a [partir de um fornecedor de identidade federado,](idp-pass-through-custom.md)chamando uma API DE REST que devolve um token de acesso, utilizando um fluxo [ROPC,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc)ou utilizando o [fluxo de credenciais](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)do cliente.  
+Pode obter um token de acesso de uma de várias formas: obtendo-o a [partir de um fornecedor de identidade federado,](idp-pass-through-custom.md)chamando uma API DE REST que devolve um token de acesso, utilizando um fluxo [ROPC,](../active-directory/develop/v2-oauth-ropc.md)ou utilizando o [fluxo de credenciais](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)do cliente.  
 
-O exemplo a seguir utiliza um perfil técnico da API REST para fazer um pedido ao ponto final da Azure AD usando as credenciais do cliente passadas como autenticação básica HTTP. Para configurar isto em AD Azure, consulte [a plataforma de identidade da Microsoft e o fluxo de credenciais de cliente OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). Poderá ser necessário modificá-lo para interagir com o seu Fornecedor de Identidade. 
+O exemplo a seguir utiliza um perfil técnico da API REST para fazer um pedido ao ponto final da Azure AD usando as credenciais do cliente passadas como autenticação básica HTTP. Para configurar isto em AD Azure, consulte [a plataforma de identidade da Microsoft e o fluxo de credenciais de cliente OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Poderá ser necessário modificá-lo para interagir com o seu Fornecedor de Identidade. 
 
 Para o ServiceUrl, substitua o seu nome de inquilino pelo nome do seu inquilino Azure AD. Consulte a referência [de perfil técnico RESTful](restful-technical-profile.md) para todas as opções disponíveis.
 
@@ -318,7 +318,7 @@ Para configurar um perfil técnico da API REST com um token portador de OAuth2, 
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro **de subscrição Diretório +** no menu superior e escolha o seu diretório Azure AD B2C.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Na página 'Visão Geral', selecione **Identity Experience Framework**.
-1. Selecione **as teclas de**política e, em seguida, selecione **Adicionar**.
+1. Selecione **as teclas de** política e, em seguida, selecione **Adicionar**.
 1. Para **Opções,** escolha `Manual` .
 1. Insira um **Nome** para a chave de política. Por exemplo, `RestApiBearerToken`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 1. Em **Segredo,** insira o segredo do seu cliente que gravou anteriormente.
@@ -367,4 +367,4 @@ Segue-se um exemplo de um perfil técnico RESTful configurado com autenticação
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o elemento [de perfil técnico do Restful](restful-technical-profile.md) na referência IEF. 
+- Saiba mais sobre o elemento [de perfil técnico do Restful](restful-technical-profile.md) na referência IEF.

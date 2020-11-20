@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4dd9f98f174144cef455157162694a470aa1065f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363934"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951768"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implementar políticas personalizadas com gasodutos Azure
 
@@ -29,7 +29,7 @@ Existem três passos primários necessários para permitir que os gasodutos Azur
 1. Configure um Gasoduto Azure
 
 > [!IMPORTANT]
-> Gerir as políticas personalizadas Azure AD B2C com um Gasoduto Azure utiliza atualmente operações **de pré-visualização** disponíveis no ponto final da Microsoft Graph API. `/beta` A utilização destas APIs em aplicações de produção não é suportada. Para obter mais informações, consulte a [referência do ponto final beta API do Microsoft Graph REST](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
+> Gerir as políticas personalizadas Azure AD B2C com um Gasoduto Azure utiliza atualmente operações **de pré-visualização** disponíveis no ponto final da Microsoft Graph API. `/beta` A utilização destas APIs em aplicações de produção não é suportada. Para obter mais informações, consulte a [referência do ponto final beta API do Microsoft Graph REST](/graph/api/overview?toc=.%252fref%252ftoc.json&view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Existem três passos primários necessários para permitir que os gasodutos Azur
 
 ## <a name="client-credentials-grant-flow"></a>Fluxo de concessão de credenciais de cliente
 
-O cenário aqui descrito faz uso de chamadas de serviço-a-serviço entre a Azure Pipelines e a Azure AD B2C utilizando o fluxo de concessão de [credenciais](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md)de cliente OAuth 2.0 . Este fluxo de subvenção permite que um serviço web como a Azure Pipelines (o cliente confidencial) utilize as suas próprias credenciais em vez de se fazer passar por um utilizador para autenticar quando liga para outro serviço web (a Microsoft Graph API, neste caso). A Azure Pipelines obtém um símbolo não interativo e, em seguida, faz pedidos para a Microsoft Graph API.
+O cenário aqui descrito faz uso de chamadas de serviço-a-serviço entre a Azure Pipelines e a Azure AD B2C utilizando o fluxo de concessão de [credenciais](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)de cliente OAuth 2.0 . Este fluxo de subvenção permite que um serviço web como a Azure Pipelines (o cliente confidencial) utilize as suas próprias credenciais em vez de se fazer passar por um utilizador para autenticar quando liga para outro serviço web (a Microsoft Graph API, neste caso). A Azure Pipelines obtém um símbolo não interativo e, em seguida, faz pedidos para a Microsoft Graph API.
 
 ## <a name="register-an-application-for-management-tasks"></a>Registar um pedido de tarefas de gestão
 
@@ -60,7 +60,7 @@ Com uma aplicação de gestão registada, está pronto para configurar um reposi
 1. Criar uma pasta chamada *B2CAssets*. Nomeie o ficheiro de espaço reservado necessário *README.md* e **comprometa** o ficheiro. Pode remover este ficheiro mais tarde, se quiser.
 1. Adicione os ficheiros de política Azure AD B2C à pasta *B2CAssets.* Isto inclui o *TrustFrameworkBase.xml*, *TrustFrameWorkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*, e quaisquer outras políticas que tenha criado. Grave o nome de cada ficheiro de cada ficheiro Ad B2C Azure para utilização num passo posterior (são usados como argumentos de script PowerShell).
 1. Crie uma pasta chamada *Scripts* no diretório de raiz do repositório, nomeie o ficheiro de espaço reservado *DeployToB2c.ps1*. Não cometa o ficheiro neste momento, vai fazê-lo mais tarde.
-1. Cole o seguinte script PowerShell em *DeployToB2c.ps1*e, em seguida, **comprometa** o ficheiro. O script adquire um símbolo da Azure AD e chama a Microsoft Graph API para carregar as políticas dentro da pasta *B2CAssets* para o seu inquilino Azure AD B2C.
+1. Cole o seguinte script PowerShell em *DeployToB2c.ps1* e, em seguida, **comprometa** o ficheiro. O script adquire um símbolo da Azure AD e chama a Microsoft Graph API para carregar as políticas dentro da pasta *B2CAssets* para o seu inquilino Azure AD B2C.
 
     ```PowerShell
     [Cmdletbinding()]
@@ -131,7 +131,7 @@ Com o seu repositório inicializado e povoado com os seus ficheiros de política
 1. Selecione o separador **Variáveis.**
 1. Adicione as seguintes variáveis sob **variáveis pipeline** e desa estalem os seus valores conforme especificado:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | `clientId` | **Identificação do pedido (cliente)** do pedido que registou anteriormente. |
     | `clientSecret` | O valor do segredo do **cliente** que criou anteriormente. <br /> Altere o tipo variável para **segredo** (selecione o ícone de bloqueio). |
@@ -154,7 +154,7 @@ Em seguida, adicione uma tarefa para implementar um ficheiro de política.
     * **Caminho do guião**: Selecione a elipse (**_..._* _), navegue para a pasta _Scripts* e, em seguida, selecione o ficheiro *DeployToB2C.ps1.*
     * **Argumentos:**
 
-        Introduza os seguintes **valores**para Argumentos . `{alias-name}`Substitua-o pelo pseudónimo especificado na secção anterior.
+        Introduza os seguintes **valores** para Argumentos . `{alias-name}`Substitua-o pelo pseudónimo especificado na secção anterior.
 
         ```PowerShell
         # Before
@@ -203,7 +203,7 @@ Para testar o seu oleoduto de libertação:
 
 1. Selecione **Pipelines** e, em seguida, **desbloqueia**.
 1. Selecione o pipeline que criou anteriormente, por *exemplo, Implementar Políticas*.
-1. **Selecione Criar verção**e, em seguida, selecione **Criar** para fazer fila no lançamento.
+1. **Selecione Criar verção** e, em seguida, selecione **Criar** para fazer fila no lançamento.
 
 Deve ver um banner de notificação que diz que uma versão foi em fila. Para visualizar o seu estado, selecione o link no banner de notificação ou selecione-o na lista no separador **Versões.**
 
@@ -211,10 +211,10 @@ Deve ver um banner de notificação que diz que uma versão foi em fila. Para vi
 
 Saiba mais sobre:
 
-* [Chamadas de serviço para serviço usando credenciais de cliente](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
-* [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
+* [Chamadas de serviço para serviço usando credenciais de cliente](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)
+* [Azure DevOps Services](/azure/devops/user-guide/?view=azure-devops)
 
 <!-- LINKS - External -->
-[devops]: https://docs.microsoft.com/azure/devops/?view=azure-devops
-[devops-create-project]:  https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops
-[devops-pipelines]: https://docs.microsoft.com/azure/devops/pipelines
+[devops]: /azure/devops/?view=azure-devops
+[devops-create-project]:  /azure/devops/organizations/projects/create-project?view=azure-devops
+[devops-pipelines]: /azure/devops/pipelines

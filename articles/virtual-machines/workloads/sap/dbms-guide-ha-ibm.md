@@ -3,16 +3,17 @@ title: Configurar IBM Db2 HADR em máquinas virtuais Azure (VMs) Microsoft Docs
 description: Estabelecer uma elevada disponibilidade de IBM Db2 LUW em máquinas virtuais Azure (VMs).
 author: msjuergent
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 88a84cd90efb42ea096cad647d75f1c3736426f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0cd1458c90970e219f2929e26423e455ba647a28
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146429"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951320"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidade de IBM Db2 LUW em VMs Azure no SUSE Linux Enterprise Server com Pacemaker
 
@@ -100,7 +101,7 @@ Complete o processo de planeamento antes de executar a implementação. O planea
 | Nome de anfitrião virtual e IP virtual para base de dados IBM Db2| O ip virtual ou o nome do anfitrião que é usado para a ligação de servidores de aplicações SAP. **db-virt-hostname,** **db-virt-ip**. |
 | Esgrima azul | Esgrima azul ou esgrima SBD (altamente recomendado). Método para evitar situações cerebrais divididas. |
 | SBD VM | Tamanho da máquina virtual SBD, armazenamento, rede. |
-| Azure Load Balancer | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
+| Balanceador de Carga do Azure | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
 | Resolução de nomes| Como funciona a resolução de nomes no ambiente. O serviço DNS é altamente recomendado. O ficheiro de anfitriões locais pode ser usado. |
     
 Para obter mais informações sobre o Pacemaker Linux em Azure, consulte [Configurar o Pacemaker no SUSE Linux Enterprise Server em Azure](./high-availability-guide-suse-pacemaker.md).
@@ -131,7 +132,7 @@ Certifique-se de que o sistema operativo selecionado é suportado pela IBM/SAP p
 
 ## <a name="create-the-pacemaker-cluster"></a>Criar o cluster Pacemaker
     
-Para criar um cluster pacemaker básico para este servidor IBM Db2, consulte [Configurar o Pacemaker no SUSE Linux Enterprise Server em Azure][sles-pacemaker]. 
+Para criar um cluster pacemaker básico para este servidor IBM Db2, consulte [Configurar o Pacemaker no SUSE Linux Enterprise Server em Azure][sles-pacemaker]. 
 
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>Instale o ambiente IBM Db2 LUW e SAP
 
@@ -167,7 +168,7 @@ Para configurar a primeira instância da base de dados IBM Db2 LUW:
 
 Para configurar o servidor de base de dados Standby utilizando o procedimento de cópia homogénea do sistema SAP, execute estas etapas:
 
-1. Selecione a opção **de cópia do Sistema** > instância de base de **dados**distribuída por sistemas  >  **Distributed**  >  **Database instance**alvo.
+1. Selecione a opção **de cópia do Sistema** > instância de base de **dados** distribuída por sistemas  >  **Distributed**  >  **Database instance** alvo.
 1. Como método de cópia, selecione **Homogeneous System** para que possa utilizar a cópia de segurança para restaurar uma cópia de segurança na instância do servidor de espera.
 1. Quando chegar ao passo de saída para restaurar a base de dados para cópia homogénea do sistema, saia do instalador. Restaurar a base de dados a partir de uma cópia de segurança do hospedeiro principal. Todas as fases de instalação subsequentes já foram executadas no servidor de base de dados primário.
 1. Configurar HADR para a IBM Db2.
@@ -399,7 +400,7 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
 
 1. Criar um pool IP frontal:
 
-   a. No portal Azure, abra o Balançador de Carga Azure, selecione **o pool IP frontend**e, em seguida, selecione **Add**.
+   a. No portal Azure, abra o Balançador de Carga Azure, selecione **o pool IP frontend** e, em seguida, selecione **Add**.
 
    b. Introduza o nome do novo pool IP frontal (por exemplo, **ligação Db2**).
 
@@ -411,7 +412,7 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
 
 1. Criar uma piscina traseira:
 
-   a. No portal Azure, abra o Balançador de Carga Azure, selecione **piscinas de backend**e, em seguida, selecione **Add**.
+   a. No portal Azure, abra o Balançador de Carga Azure, selecione **piscinas de backend** e, em seguida, selecione **Add**.
 
    b. Insira o nome da nova piscina traseira (por exemplo, **Db2-backend**).
 
@@ -425,7 +426,7 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
 
 1. Criar uma sonda de saúde:
 
-   a. No portal Azure, abra o Balançador de Carga Azure, selecione **sondas de saúde**e selecione **Add**.
+   a. No portal Azure, abra o Balançador de Carga Azure, selecione **sondas de saúde** e selecione **Add**.
 
    b. Insira o nome da nova sonda de saúde (por exemplo, **Db2-hp).**
 
@@ -435,7 +436,7 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
 
 1. Criar as regras de equilíbrio de carga:
 
-   a. No portal Azure, abra o Balançador de Carga Azure, selecione **regras de equilíbrio de carga**e, em seguida, selecione **Adicionar**.
+   a. No portal Azure, abra o Balançador de Carga Azure, selecione **regras de equilíbrio de carga** e, em seguida, selecione **Adicionar**.
 
    b. Introduza o nome da nova regra do Balanceador de Carga (por exemplo, **Db2-SID**).
 
@@ -572,8 +573,8 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 - **migração de recursos \<res_name> \<host> crm:** Cria restrições de localização e pode causar problemas com a aquisição
-- **crm recursos \<res_name> claros **: Limpa as restrições de localização
-- **limpeza \<res_name> de recursos CRM **: Limpa todos os erros do recurso
+- **crm recursos \<res_name> claros**: Limpa as restrições de localização
+- **limpeza \<res_name> de recursos CRM**: Limpa todos os erros do recurso
 
 ### <a name="test-the-fencing-agent"></a>Teste o agente de esgrima
 

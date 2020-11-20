@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7b76c81a78bfd3eb57a54f1d23ba1b154b09b3e6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: bcf5f75cf5cabe42f530a6a179c2cafd43b5520d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660156"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952544"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Utilizar a identidade do Azure Active Directory com o serviço Web de aprendizagem automática no Azure Kubernetes Service
 
@@ -32,13 +32,13 @@ Neste modo de como, aprende a atribuir uma identidade do Azure Ative Directory (
 
 ## <a name="create-and-install-an-azure-identity"></a>Criar e instalar uma Identidade Azure
 
-1. Para determinar se o seu cluster AKS está ativado no RBAC, utilize o seguinte comando:
+1. Para determinar se o seu cluster AKS está ativado por Kubernetes RBAC, utilize o seguinte comando:
 
     ```azurecli-interactive
     az aks show --name <AKS cluster name> --resource-group <resource group name> --subscription <subscription id> --query enableRbac
     ```
 
-    Este comando devolve um valor `true` de se o RBAC estiver ativado. Este valor determina o comando a utilizar no passo seguinte.
+    Este comando devolve um valor de `true` se o RBAC de Kubernetes estiver ativado. Este valor determina o comando a utilizar no passo seguinte.
 
 1. Instale [a identidade do pod AD Azure](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/) no seu cluster AKS.
 
@@ -148,7 +148,7 @@ blob_data = blob_client.download_blob()
 blob_data.readall()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre como usar a biblioteca de clientes Python Azure Identity, consulte o [repositório](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-python) no GitHub.
 * Para obter um guia detalhado sobre a implementação de modelos para os clusters de serviços Azure Kubernetes, consulte o [como fazer](how-to-deploy-azure-kubernetes-service.md).

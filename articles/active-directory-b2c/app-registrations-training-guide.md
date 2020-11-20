@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 16b5814835ec5cad6b66087fee37676155196339
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214928"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952085"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>A nova experiência de registos de aplicações para o Azure Ative Directory B2C
 
@@ -98,7 +98,7 @@ Na nova experiência, em vez de **Keys,** usa a lâmina **de segredos & certific
 As seguintes capacidades de registo de aplicações AD AD não são aplicáveis ou disponíveis em inquilinos Azure AD B2C:
 - **Funções e administradores** - Não disponível para Azure AD B2C.
 - **Branding** - A personalização UI/UX está configurada na experiência **de marca da Empresa** ou como parte de um fluxo de utilizador. Aprenda a [personalizar a interface do utilizador no Azure Ative Directory B2C](customize-ui-overview.md).
-- **Verificação de domínio de** editor - A sua aplicação está registada em *.onmicrosoft.com*, o que não é um domínio verificado. Além disso, o domínio da editora é usado principalmente para conceder o consentimento do utilizador, o que não se aplica às aplicações AZURE AD B2C para a autenticação do utilizador. [Saiba mais sobre o domínio da editora.](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain)
+- **Verificação de domínio de** editor - A sua aplicação está registada em *.onmicrosoft.com*, o que não é um domínio verificado. Além disso, o domínio da editora é usado principalmente para conceder o consentimento do utilizador, o que não se aplica às aplicações AZURE AD B2C para a autenticação do utilizador. [Saiba mais sobre o domínio da editora.](../active-directory/develop/howto-configure-publisher-domain.md)
 - **Configuração token** - O token é configurado como parte de um fluxo de utilizador em vez de uma aplicação.
 - A experiência **Quickstarts** não está atualmente disponível para inquilinos Azure AD B2C.
 <!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->

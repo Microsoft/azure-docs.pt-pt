@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 384f178481f7a6ff202d5363ba09c242b1fc366d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054768"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951796"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -37,7 +37,7 @@ O Azure AD B2C não pode ser utilizado para autenticar os utilizadores para o Mi
 
 Num inquilino da AD Azure, os utilizadores que pertencem ao inquilino assinam com um endereço de e-mail do `<xyz>@<tenant domain>` formulário. É `<tenant domain>` um dos domínios verificados no arrendatário ou no `<...>.onmicrosoft.com` domínio inicial. Este tipo de conta é uma conta de trabalho ou escola.
 
-Num inquilino Azure AD B2C, a maioria das aplicações pretende que o utilizador entre em sposição com qualquer endereço de e-mail arbitrário (por exemplo, joe@comcast.net bob@gmail.com , ou sarah@contoso.com jim@live.com . Este tipo de conta é uma conta local. Também apoiamos nomes de utilizadores arbitrários como contas locais (por exemplo, joe, bob, sarah ou jim). Pode escolher um destes dois tipos de conta locais ao configurar fornecedores de identidade para Azure AD B2C no portal Azure. No seu inquilino Azure AD B2C, selecione **fornecedores de identidade,** selecione **Conta Local**e, em seguida, selecione **Username**.
+Num inquilino Azure AD B2C, a maioria das aplicações pretende que o utilizador entre em sposição com qualquer endereço de e-mail arbitrário (por exemplo, joe@comcast.net bob@gmail.com , ou sarah@contoso.com jim@live.com . Este tipo de conta é uma conta local. Também apoiamos nomes de utilizadores arbitrários como contas locais (por exemplo, joe, bob, sarah ou jim). Pode escolher um destes dois tipos de conta locais ao configurar fornecedores de identidade para Azure AD B2C no portal Azure. No seu inquilino Azure AD B2C, selecione **fornecedores de identidade,** selecione **Conta Local** e, em seguida, selecione **Username**.
 
 As contas dos utilizadores para aplicações podem ser criadas através de um fluxo de utilizador de inscrição, de inscrição ou de fluxo de utilizador de inscrição, da API do Microsoft Graph ou do portal Azure.
 
@@ -90,7 +90,7 @@ Pode utilizar a API do Microsoft Graph para escrever a sua ferramenta de migraç
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Que fluxo de utilizador de palavra-passe é utilizado para contas locais em Azure AD B2C?
 
-O fluxo de utilizadores de passwordS Azure AD B2C para contas locais baseia-se na política do Azure AD. A inscrição, inscrição ou inscrição do Azure AD B2C e fluxos de utilizador de redefinição de palavra-passe utilizam a força de senha "forte" e não expiram quaisquer palavras-passe. Para mais detalhes, consulte [as políticas e restrições da Palavra-Passe no Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+O fluxo de utilizadores de passwordS Azure AD B2C para contas locais baseia-se na política do Azure AD. A inscrição, inscrição ou inscrição do Azure AD B2C e fluxos de utilizador de redefinição de palavra-passe utilizam a força de senha "forte" e não expiram quaisquer palavras-passe. Para mais detalhes, consulte [as políticas e restrições da Palavra-Passe no Diretório Ativo Azure](../active-directory/authentication/concept-sspr-policy.md).
 
 Para obter informações sobre bloqueios de contas e palavras-passe, consulte [Gerir ameaças a recursos e dados no Azure Ative Directory B2C](threat-management.md).
 
@@ -104,7 +104,7 @@ Não, por razões de segurança, as páginas Azure AD B2C não podem ser abertas
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>O Azure AD B2C funciona com sistemas crm como o Microsoft Dynamics?
 
-A integração com o Portal Microsoft Dynamics 365 está disponível. Consulte [o Portal De Configuração Dinâmica 365 para utilizar o Azure AD B2C para autenticação](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
+A integração com o Portal Microsoft Dynamics 365 está disponível. Consulte [o Portal De Configuração Dinâmica 365 para utilizar o Azure AD B2C para autenticação](/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>O Azure AD B2C trabalha com o SharePoint no local 2016 ou mais cedo?
 
@@ -112,7 +112,7 @@ O Azure AD B2C não se destina ao cenário de partilha externa de parceiros shar
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>Devo utilizar o Azure AD B2C ou o B2B para gerir identidades externas?
 
-Leia [Compare a colaboração B2B e b2C em Azure AD](../active-directory/b2b/compare-with-b2c.md) para saber mais sobre a aplicação das funcionalidades apropriadas aos seus cenários de identidade externa.
+Leia [Compare a colaboração B2B e b2C em Azure AD](../active-directory/external-identities/compare-with-b2c.md) para saber mais sobre a aplicação das funcionalidades apropriadas aos seus cenários de identidade externa.
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Que funcionalidades de reporte e auditoria a Azure AD B2C fornece? São os mesmos que no Azure AD Premium?
 
@@ -134,7 +134,7 @@ Atualmente não. Esta funcionalidade está no nosso roteiro. Verificar o seu dom
 
 Siga estes passos para eliminar o seu inquilino Azure AD B2C.
 
-Você pode usar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência legacy **Applications (Legacy).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregtraining)
+Você pode usar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência legacy **Applications (Legacy).** [Saiba mais sobre a nova experiência.](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/)
 
@@ -142,7 +142,7 @@ Você pode usar a nossa nova experiência de registos de **Aplicações unificad
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
 1. Elimine todos os **fluxos de utilizador (políticas)** no seu inquilino Azure AD B2C.
-1. Selecione **as inscrições da App**e, em seguida, selecione o separador Todas as **aplicações.**
+1. Selecione **as inscrições da App** e, em seguida, selecione o separador Todas as **aplicações.**
 1. Elimine todas as aplicações que registou.
 1. Eliminar a **aplicação de extensões b2c**.
 1. Em **Gerir**, selecione **Utilizadores**.

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 9d183f2da7b916b1547fa1f81aa877b1b5488b41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24f2ca238288854b99160a25c3d4dcedf8ce3368
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308440"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952391"
 ---
 # <a name="azure-private-dns-faq"></a>FAQ do DNS Privado do Azure
 
@@ -30,11 +30,11 @@ Sim. As Zonas Privadas são apoiadas para a resolução de DNS entre redes virtu
 
 ## <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>A conectividade com a internet a partir de redes virtuais é necessária para zonas privadas?
 
-N.º Zonas privadas funcionam juntamente com redes virtuais. Utiliza-os para gerir domínios para máquinas virtuais ou outros recursos dentro e fora das redes virtuais. A conectividade na Internet não é necessária para a resolução de nomes.
+Não. Zonas privadas funcionam juntamente com redes virtuais. Utiliza-os para gerir domínios para máquinas virtuais ou outros recursos dentro e fora das redes virtuais. A conectividade na Internet não é necessária para a resolução de nomes.
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>A mesma zona privada pode ser utilizada para várias redes virtuais para resolução?
 
-Sim. Você pode ligar uma zona privada de DNS com milhares de redes virtuais. Para mais informações, consulte [limites de DNS do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+Sim. Você pode ligar uma zona privada de DNS com milhares de redes virtuais. Para mais informações, consulte [limites de DNS do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Uma rede virtual que pertence a uma subscrição diferente pode estar ligada a uma zona privada?
 
@@ -66,7 +66,7 @@ Sim. Para desvincular uma rede virtual ligada de uma zona privada, atualiza a zo
 
 ## <a name="what-happens-when-we-delete-a-linked-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-linked-virtual-network-from-the-zone"></a>O que acontece quando apagamos uma rede virtual ligada que está ligada a uma zona privada? Temos de atualizar manualmente a zona privada para desvincular a rede virtual como uma rede virtual ligada da zona?
 
-N.º Quando elimina uma rede virtual ligada sem desvincular primeiro de uma zona privada, a sua operação de eliminação tem sucesso e os links para a zona DNS são automaticamente limpos.
+Não. Quando elimina uma rede virtual ligada sem desvincular primeiro de uma zona privada, a sua operação de eliminação tem sucesso e os links para a zona DNS são automaticamente limpos.
 
 ## <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>A resolução do DNS utilizando o FQDN predefinido (internal.cloudapp.net) ainda funciona mesmo quando uma zona privada (por exemplo, private.contoso.com) está ligada a uma rede virtual?
 
@@ -74,12 +74,12 @@ Sim. As Zonas Privadas não substituem a zona de internal.cloudapp.net fornecida
 
 ## <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Será que o sufixo DNS em máquinas virtuais dentro de uma rede virtual ligada será alterado para o da zona privada?
 
-N.º O sufixo DNS nas máquinas virtuais da sua rede virtual ligada permanece como o sufixo padrão fornecido pelo Azure ("*.internal.cloudapp.net"). Pode alterar manualmente este sufixo DNS nas suas máquinas virtuais para o da zona privada.
-Para obter orientações sobre como alterar este sufixo [consulte-se Use DNS dinâmico para registar nomes de anfitriões no seu próprio servidor DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients)
+Não. O sufixo DNS nas máquinas virtuais da sua rede virtual ligada permanece como o sufixo padrão fornecido pelo Azure ("*.internal.cloudapp.net"). Pode alterar manualmente este sufixo DNS nas suas máquinas virtuais para o da zona privada.
+Para obter orientações sobre como alterar este sufixo [consulte-se Use DNS dinâmico para registar nomes de anfitriões no seu próprio servidor DNS](../virtual-network/virtual-networks-name-resolution-ddns.md#windows-clients)
 
 ## <a name="what-are-the-usage-limits-for-azure-dns-private-zones"></a>Quais são os limites de utilização para as zonas privadas Azure DNS?
 
-Consulte os [limites de DNS do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits) para obter mais informações sobre os limites de utilização das zonas privadas Azure DNS.
+Consulte os [limites de DNS do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) para obter mais informações sobre os limites de utilização das zonas privadas Azure DNS.
 
 ## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Porque é que as minhas zonas privadas de DNS não aparecem em novas experiências de portal?
 

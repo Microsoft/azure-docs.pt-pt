@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30273c0103d8a0fde12b1b7c6f66d16dd4ea84cb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 761bc4db7760ef5e84e3fc3c8a5deea5d4508f51
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089524"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951932"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Walkthrough: Integrar as trocas de reclamações da API REST na sua viagem de utilizador Azure AD B2C para validar a entrada do utilizador
 
@@ -65,7 +65,7 @@ Se a validação falhar, a API REST deve devolver um HTTP 409 (Conflito), com o 
 }
 ```
 
-A configuração do ponto final da API REST está fora do âmbito deste artigo. Criámos uma amostra [de Azure Functions.](https://docs.microsoft.com/azure/azure-functions/functions-reference) Pode aceder ao código de função Azure completo no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+A configuração do ponto final da API REST está fora do âmbito deste artigo. Criámos uma amostra [de Azure Functions.](../azure-functions/functions-reference.md) Pode aceder ao código de função Azure completo no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definir reclamações
 
@@ -233,11 +233,11 @@ Para devolver o pedido de código promocional à aplicação do partido, adicion
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **as inscrições da App.**
 1. Selecione **o Quadro de Experiência de Identidade.**
-1. Selecione **Carregar a Política Personalizada**e, em seguida, fazer o upload dos ficheiros de política que alterou: *TrustFrameworkExtensions.xml*e *SignUpOrSignin.xml*. 
+1. Selecione **Carregar a Política Personalizada** e, em seguida, fazer o upload dos ficheiros de política que alterou: *TrustFrameworkExtensions.xml* e *SignUpOrSignin.xml*. 
 1. Selecione a política de inscrição ou de inscrição que fez o upload e clique no botão **Executar agora.**
 1. Deverá inscrever-se através de um endereço de e-mail.
 1. Clique na ligação **de inscrição agora.**
-1. No **ID**de lealdade, tipo 1234, e clique **em Continuar.** Neste momento, deverá receber uma mensagem de erro de validação.
+1. No **ID** de lealdade, tipo 1234, e clique **em Continuar.** Neste momento, deverá receber uma mensagem de erro de validação.
 1. Mude para outro valor e clique em **Continuar.**
 1. O token enviado de volta para o seu pedido inclui a `promoCode` reclamação.
 

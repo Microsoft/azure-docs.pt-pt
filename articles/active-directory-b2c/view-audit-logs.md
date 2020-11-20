@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9485fb09d3ac7684ba91bcd37720a0e55603404b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383942"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952731"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Aceder aos registos de auditoria do Azure AD B2C
 
@@ -84,7 +84,7 @@ Para descarregar a lista de eventos de atividade num ficheiro de valores separad
 
 ## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>Obtenha registos de auditoria com a AZure AD reportando API
 
-Os registos de auditoria são publicados no mesmo oleoduto que outras atividades do Azure Ative Directory, para que possam ser acedidos através do [Azure Ative Directory reportando API](https://docs.microsoft.com/graph/api/directoryaudit-list). Para obter mais informações, consulte [Começar com o Diretório Ativo Azure reportando API](../active-directory/reports-monitoring/concept-reporting-api.md).
+Os registos de auditoria são publicados no mesmo oleoduto que outras atividades do Azure Ative Directory, para que possam ser acedidos através do [Azure Ative Directory reportando API](/graph/api/directoryaudit-list). Para obter mais informações, consulte [Começar com o Diretório Ativo Azure reportando API](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 ### <a name="enable-reporting-api-access"></a>Permitir reportar acesso a API
 

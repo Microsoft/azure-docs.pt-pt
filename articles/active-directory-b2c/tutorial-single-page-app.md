@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6daf2da5b5bac051ac110ff15ed2c44971300a30
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 705df6ddc6b665ac3d0d62ec3dad93e38f5e513e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421044"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953105"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutorial: Ativar a autenticação numa aplicação de uma página com Azure AD B2C
 
@@ -53,16 +53,16 @@ Além disso, precisa do seguinte no seu ambiente de desenvolvimento local:
 
 No [segundo tutorial](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa) que completou como parte dos pré-requisitos, registou uma aplicação de uma página em Azure AD B2C. Para permitir a comunicação com a amostra de código neste tutorial, adicione um URL de resposta (também chamado de URI redirecionado) ao registo de pedidos.
 
-Para atualizar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregtraining)
+Para atualizar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations-auth-code-flow"></a>[Registos de aplicativos (fluxo de código auth)](#tab/app-reg-auth/)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
-1. Selecione **as inscrições da App** , selecione o **separador de aplicações Próprias** e, em seguida, selecione a aplicação *spaapp1.*
-1. No **Aplicativo de página única** , selecione o link Add **URI** e, em seguida, introduza `http://localhost:6420` .
-1. Selecione **Save** (Guardar).
+1. Selecione **as inscrições da App**, selecione o **separador de aplicações Próprias** e, em seguida, selecione a aplicação *spaapp1.*
+1. No **Aplicativo de página única**, selecione o link Add **URI** e, em seguida, introduza `http://localhost:6420` .
+1. Selecione **Guardar**.
 1. Selecione **Descrição geral**.
 1. Grave o **ID da Aplicação (cliente)** para utilização num passo posterior quando atualizar o código na aplicação web de uma página única.
 
@@ -71,9 +71,9 @@ Para atualizar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a no
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
-1. Selecione **as inscrições da App** , selecione o **separador de aplicações Próprias** e, em seguida, selecione a aplicação *spaapp1.*
-1. No **Aplicativo de página única** , selecione o link Add **URI** e, em seguida, introduza `http://localhost:6420` .
-1. Em **Implicit Grant** , selecione as caixas de verificação para **Tokens de acesso** e **tokens de ID** se ainda não estiver selecionado e, em seguida, selecione **Save**.
+1. Selecione **as inscrições da App**, selecione o **separador de aplicações Próprias** e, em seguida, selecione a aplicação *spaapp1.*
+1. No **Aplicativo de página única**, selecione o link Add **URI** e, em seguida, introduza `http://localhost:6420` .
+1. Em **Implicit Grant**, selecione as caixas de verificação para **Tokens de acesso** e **tokens de ID** se ainda não estiver selecionado e, em seguida, selecione **Save**.
 1. Selecione **Descrição geral**.
 1. Grave o **ID da Aplicação (cliente)** para utilização num passo posterior quando atualizar o código na aplicação web de uma página única.
 
@@ -83,8 +83,8 @@ Para atualizar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a no
 1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
 1. Selecione **Todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Selecione **Aplicações (Legado)** e, em seguida, selecione a aplicação *spaapp1.*
-1. Em **URL de resposta** , adicione `http://localhost:6420` .
-1. Selecione **Save** (Guardar).
+1. Em **URL de resposta**, adicione `http://localhost:6420` .
+1. Selecione **Guardar**.
 1. Na página de propriedades, grave o **ID da aplicação.** Utilize o ID da aplicação num passo posterior quando atualiza o código na aplicação web de uma página única.
 
 * * *

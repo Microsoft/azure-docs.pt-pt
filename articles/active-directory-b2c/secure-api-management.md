@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60b7bb33dfbf29b7e448887ce992d03009133b2e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87482843"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953496"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Garantir uma API de Gestão AZURE com Azure AD B2C
 
@@ -35,14 +35,14 @@ Precisa dos seguintes recursos antes de continuar com os passos deste artigo:
 
 Quando você assegura uma API em Azure API Management com Azure AD B2C, você precisa de vários valores para a [política de entrada](../api-management/api-management-howto-policies.md) que você cria na APIM. Primeiro, grave o ID de aplicação de uma aplicação que criou anteriormente no seu inquilino Azure AD B2C. Se estiver a utilizar a aplicação que criou nos pré-requisitos, utilize o ID da aplicação para *webbapp1*.
 
-Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregtraining)
+Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
-1. Selecione **as inscrições da App**e, em seguida, selecione o **separador aplicações Possuídas.**
+1. Selecione **as inscrições da App** e, em seguida, selecione o **separador aplicações Possuídas.**
 1. Registe o valor na coluna **de ID de Aplicação (cliente)** para *webapp1* ou outra aplicação que tenha criado anteriormente.
 
 #### <a name="applications-legacy"></a>[Candidaturas (Legado)](#tab/applications-legacy/)
