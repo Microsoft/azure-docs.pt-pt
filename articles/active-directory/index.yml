@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 10/22/2020
-  ms.openlocfilehash: e0b1c8946c1bdd8acfe1c7a21458fee456b2b84f
-  ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+  ms.openlocfilehash: 10b16a6319f0bc458b5bae98edee39133e66acb4
+  ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/29/2020
-  ms.locfileid: "92926823"
+  ms.lasthandoff: 11/18/2020
+  ms.locfileid: "94835633"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -78,7 +78,7 @@ conceptualContent:
       text: Ativar a reposição de palavras-passe self-service
     - url: ./authentication/tutorial-enable-azure-mfa.md
       itemType: tutorial
-      text: Ativar a Multi-Factor Authentication do Azure
+      text: Ativar o Multi-Factor Authentication do Azure AD
     footerLink:
       url: ./authentication/index.yml
       text: Ver mais

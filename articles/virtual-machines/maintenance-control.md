@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 4d126d1e6bb92d2079ac3c0d95f754cb9aab3c21
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4b9dec0fe684e002fadbac2db375c354db2b6d01
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978616"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981175"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Gerir atualizações da plataforma com o Controlo de Manutenção 
 
@@ -23,12 +23,13 @@ O controlo de manutenção permite-lhe decidir quando aplicar atualizações aos
 Com o controlo de manutenção, pode:
 - Atualizações de lote num pacote de atualização.
 - Aguarde até 35 dias para aplicar atualizações. 
-- Automatizar as atualizações da plataforma para a sua janela de manutenção utilizando [funções Azure](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
+- Automatizar as atualizações da plataforma configurando um calendário de manutenção ou utilizando [funções Azure](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 - As configurações de manutenção funcionam em assinaturas e grupos de recursos. 
 
 ## <a name="limitations"></a>Limitações
 
 - Os VMs devem estar num [hospedeiro dedicado,](./dedicated-hosts.md)ou ser criados com um [tamanho VM isolado](isolation.md).
+- Se um horário de manutenção for declarado, deve ser pelo menos 2 horas.
 - Após 35 dias, uma atualização será automaticamente aplicada.
 - O utilizador deve ter acesso **ao Contribuinte de Recursos.**
 

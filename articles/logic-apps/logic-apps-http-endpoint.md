@@ -5,13 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/27/2020
-ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/19/2020
+ms.openlocfilehash: b345168dad63b1846d46c12721587eaffb5f887e
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331979"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981209"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Aplicações lógicas de chamada, gatilho ou ninho utilizando pontos finais HTTPS em Azure Logic Apps
 
@@ -104,7 +104,7 @@ Para mais informações sobre segurança, autorização e encriptação para cha
 
    * À direita da caixa **URL HTTP POST,** selecione **Copy Url** (ícone de ficheiros de cópia).
 
-   * Faça esta chamada POST:
+   * Faça esta chamada utilizando o método que o gatilho do Pedido espera. Este exemplo utiliza o `POST` método:
 
      `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
@@ -116,7 +116,7 @@ Para mais informações sobre segurança, autorização e encriptação para cha
 
         ![Obtenha URL de ponto final do portal Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-     1. Em **url callback [POST]** , copiar o URL:
+     1. Em **url callback [POST]**, copiar o URL:
 
         ![Cópia URL de ponto final do portal Azure](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
@@ -124,7 +124,7 @@ Para mais informações sobre segurança, autorização e encriptação para cha
 
 ## <a name="select-expected-request-method"></a>Selecione o método de pedido esperado
 
-Por predefinição, o gatilho 'Pedido' espera um pedido DEM. Pode especificar um método diferente de esperar, mas apenas um único método.
+Por predefinição, o gatilho Do Pedido espera um `POST` pedido. No entanto, pode especificar um método diferente que o chamador deve usar, mas apenas um único método.
 
 1. No gatilho 'Pedido', abra a nova lista **de parâmetros e** selecione **Método,** que adiciona esta propriedade ao gatilho.
 
@@ -262,7 +262,7 @@ Quando pretende aceitar valores de parâmetros através do URL do ponto final, t
 
 ## <a name="call-logic-app-through-endpoint-url"></a>App lógica de chamada através de URL de ponto final
 
-Depois de criar o ponto final, pode desencadear a aplicação lógica enviando um pedido HTTPS `POST` para o URL completo do ponto final. As aplicações lógicas têm suporte integrado para pontos finais de acesso direto.
+Depois de criar o ponto final, pode desencadear a aplicação lógica enviando um pedido HTTPS para o URL completo do ponto final. As aplicações lógicas têm suporte integrado para pontos finais de acesso direto.
 
 <a name="generated-tokens"></a>
 
@@ -306,7 +306,7 @@ Pode nidificar fluxos de trabalho na sua aplicação lógica adicionando outras 
 
 1. Sob o passo em que pretende chamar outra aplicação lógica, selecione **Novo passo** Adicione  >  **uma ação**.
 
-1. Em **Escolha uma ação** , selecione **Built-in**. Na caixa de pesquisa, introduza `logic apps` como filtro. A partir da lista de ações, **selecione Escolha um fluxo de trabalho de Apps Lógicas.**
+1. Em **Escolha uma ação**, selecione **Built-in**. Na caixa de pesquisa, introduza `logic apps` como filtro. A partir da lista de ações, **selecione Escolha um fluxo de trabalho de Apps Lógicas.**
 
    ![App lógica ninho dentro da app lógica atual](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
@@ -384,7 +384,7 @@ Para ver a definição JSON para a ação Resposta e a definição completa de J
 
 #### <a name="q-what-about-url-security"></a>P: E a segurança da URL?
 
-**A** : Azure gera de forma segura URLs de callback de aplicações lógicas utilizando [a Assinatura de Acesso Partilhado (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Esta assinatura passa como parâmetro de consulta e deve ser validada antes que a sua aplicação lógica possa ser executada. O Azure gera a assinatura usando uma combinação única de uma chave secreta por aplicação lógica, o nome do gatilho e a operação que é realizada. Portanto, a menos que alguém tenha acesso à chave de aplicações lógicas secretas, não pode gerar uma assinatura válida.
+**A**: Azure gera de forma segura URLs de callback de aplicações lógicas utilizando [a Assinatura de Acesso Partilhado (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Esta assinatura passa como parâmetro de consulta e deve ser validada antes que a sua aplicação lógica possa ser executada. O Azure gera a assinatura usando uma combinação única de uma chave secreta por aplicação lógica, o nome do gatilho e a operação que é realizada. Portanto, a menos que alguém tenha acesso à chave de aplicações lógicas secretas, não pode gerar uma assinatura válida.
 
 > [!IMPORTANT]
 > Para a produção e sistemas de segurança mais elevados, aconselhamos veementemente que não chame a sua aplicação lógica diretamente do navegador por estas razões:

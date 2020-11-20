@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.date: 11/17/2020
+ms.openlocfilehash: 14809cb28870e88cfa584c4f02360d50beabf901
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410560"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981056"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com ou sem estado no Visual Studio Code com a extensão do Azure Logic Apps (Pré-visualização)
 
@@ -66,7 +66,7 @@ A extensão Azure Logic Apps (Preview) traz muitas capacidades de Aplicações L
 
 ## <a name="stateful-versus-stateless-logic-apps"></a>Aplicativos de lógica stateful versus apátrida
 
-* *Imponente*
+* *Com monitorização de estado*
 
   Crie aplicações lógicas estatals quando necessitar de guardar, rever ou referenciar dados de eventos anteriores. Estas aplicações lógicas mantêm a entrada e saída para cada ação e os seus estados de fluxo de trabalho em armazenamento externo, o que torna possível rever os detalhes de execução e o histórico após cada execução terminar. Aplicações lógicas imponentes fornecem alta resiliência se ou quando as interrupções acontecem. Após a restauração dos serviços e sistemas, é possível reconstruir a aplicação lógica interrompida que vai desde o estado guardado e refazer as aplicações lógicas até à conclusão. Fluxos de trabalho imponentes podem continuar a funcionar até um ano.
 
@@ -206,7 +206,7 @@ Para esta pré-visualização pública, estas capacidades não estão disponíve
 
    1. No **separador Utilizador,** aceda a **>** **Extensões** **>** **Azure Logic Apps (Preview)**.
 
-   1. No **âmbito das Azure Logic Apps V2: Modo painel** , confirme que o modo de painel **Enable** está selecionado. Em **Azure Logic Apps V2: Project Runtime** , defina a versão para **~3** ou **~2** , com base na [versão Azure Functions Core Tools](#prerequisites) que instalou anteriormente.
+   1. No **âmbito das Azure Logic Apps V2: Modo painel**, confirme que o modo de painel **Enable** está selecionado. Em **Azure Logic Apps V2: Project Runtime**, defina a versão para **~3** ou **~2**, com base na [versão Azure Functions Core Tools](#prerequisites) que instalou anteriormente.
 
       > [!IMPORTANT]
       > Se pretender utilizar a ação [ **Código Inline**](../logic-apps/logic-apps-add-run-inline-code.md) para executar o código JavaScript, certifique-se de que utiliza a versão 3 do Project Runtime porque a ação não suporta a versão 2. Além disso, esta ação não é suportada nos sistemas operativos Linux.
@@ -221,7 +221,7 @@ Para esta pré-visualização pública, estas capacidades não estão disponíve
 
    ![Screenshot que mostra barra de ferramentas Visual Studio Code e ícone Azure selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
 
-1. No painel Azure, em **Azure: Logic Apps (Preview)** , selecione **Iniciar sedura no Azure**. Quando aparecer a página de autenticação do Código do Estúdio Visual, inscreva-se na sua conta Azure.
+1. No painel Azure, em **Azure: Logic Apps (Preview)**, selecione **Iniciar sedura no Azure**. Quando aparecer a página de autenticação do Código do Estúdio Visual, inscreva-se na sua conta Azure.
 
    ![Screenshot que mostra painel Azure e link selecionado para o sinal de Azure.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
@@ -247,7 +247,7 @@ Antes de poder criar a sua aplicação lógica, crie um projeto local para que p
 
 1. No Código do Estúdio Visual, feche todas as pastas abertas.
 
-1. No painel Azure, ao lado de **Azure: Logic Apps (Preview)** , selecione **Create New Project** (ícone que mostra uma pasta e um relâmpago).
+1. No painel Azure, ao lado de **Azure: Logic Apps (Preview)**, selecione **Create New Project** (ícone que mostra uma pasta e um relâmpago).
 
    ![Screenshot que mostra a barra de ferramentas do painel Azure com "Create New Project" selecionada.](./media/create-stateful-stateless-workflows-visual-studio-code/create-new-project-folder.png)
 
@@ -324,7 +324,7 @@ Antes de poder criar a sua aplicação lógica, crie um projeto local para que p
       Host shutdown completed.
       ```
 
-      Este erro pode ocorrer se já tentou abrir o designer e, em seguida, descontinuar ou apagar o seu projeto. Para resolver este erro, elimine a pasta **ExtensionBundles** neste **local...\Utilizadores \\ {seu nome de utilizador}\AppData\Local\Temp\Funções\ExtensionBundles** , e reprete a abertura do **workflow.jsno** ficheiro no designer.
+      Este erro pode ocorrer se já tentou abrir o designer e, em seguida, descontinuar ou apagar o seu projeto. Para resolver este erro, elimine a pasta **ExtensionBundles** neste **local...\Utilizadores \\ {seu nome de utilizador}\AppData\Local\Temp\Funções\ExtensionBundles**, e reprete a abertura do **workflow.jsno** ficheiro no designer.
 
 1. A partir dos **conectores Ativar na lista Azure,** selecione **Utilize conectores da Azure,** que se aplica a todos os conectores geridos que estão disponíveis e implantados no Azure, e não apenas conectores para serviços Azure.
 
@@ -367,7 +367,7 @@ Depois de abrir o Design de Aplicações Lógicas do seu **workflow.jsno** menu 
 
 O fluxo de trabalho de aplicações lógicas neste exemplo utiliza este gatilho e estas ações:
 
-* O gatilho [de pedido](../connectors/connectors-native-reqres.md)incorporado , **Quando é recebido um pedido HTTP** , que recebe chamadas ou pedidos de entrada e cria um ponto final que outros serviços ou aplicações lógicas podem ligar.
+* O gatilho [de pedido](../connectors/connectors-native-reqres.md)incorporado , **Quando é recebido um pedido HTTP**, que recebe chamadas ou pedidos de entrada e cria um ponto final que outros serviços ou aplicações lógicas podem ligar.
 
 * A [ação Do Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), Enviar um **e-mail**.
 
@@ -392,9 +392,9 @@ O fluxo de trabalho de aplicações lógicas neste exemplo utiliza este gatilho 
 
    1. No designer, selecione o item, que abre o painel de detalhes do item para o lado direito.
 
-   1. Expanda a janela visual Studio Code suficientemente para que, ao lado do gatilho ou nome de ação, o botão elipses **(...** ) apareça no canto superior direito. 
+   1. Expanda a janela visual Studio Code suficientemente para que, ao lado do gatilho ou nome de ação, o botão elipses **(...**) apareça no canto superior direito. 
 
-   1. Abra o menu de elipses **(...** ) e selecione **Delete**. Para confirmar a eliminação, selecione **OK**.
+   1. Abra o menu de elipses **(...**) e selecione **Delete**. Para confirmar a eliminação, selecione **OK**.
 
       ![Screenshot que mostra item selecionado no designer com painel de detalhes abertos e com botão de elipses selecionado e opção "Excluir".](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 
@@ -452,7 +452,7 @@ O fluxo de trabalho de aplicações lógicas neste exemplo utiliza este gatilho 
    ||||
 
    > [!NOTE]
-   > Se pretender escoar quaisquer alterações no painel de detalhes no painel **de definições** , **executar depois** ou no separador **Resultado Estático,** certifique-se de que seleciona **Feito** para escoar essas alterações antes de mudar de separador ou alterar o foco para o designer. Caso contrário, o Código do Estúdio Visual não manterá as alterações. Para mais informações, reveja a [página GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)da extensão de pré-visualização .
+   > Se pretender escoar quaisquer alterações no painel de detalhes no painel **de definições**, **executar depois** ou no separador **Resultado Estático,** certifique-se de que seleciona **Feito** para escoar essas alterações antes de mudar de separador ou alterar o foco para o designer. Caso contrário, o Código do Estúdio Visual não manterá as alterações. Para mais informações, reveja a [página GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)da extensão de pré-visualização .
 
 1. No designer, **selecione Save**.
 
@@ -496,9 +496,9 @@ Para testar a sua aplicação lógica, siga estes passos para iniciar uma sessã
 
    1. Na janela **Pedido de Salvamento,** no **nome Pedido,** forneça um nome para o pedido, por exemplo, `Test workflow trigger` .
 
-   1. Em **Seleção de uma coleção ou pasta para guardar para** , selecione Create **Collection**.
+   1. Em **Seleção de uma coleção ou pasta para guardar para**, selecione Create **Collection**.
 
-   1. Em **Todas as Coleções,** forneça um nome para a coleção para a organização dos seus pedidos, prima Enter e selecione **Save to < *nome* > de coleção**. Este exemplo usa `Logic Apps requests` como nome de coleção.
+   1. Em **Todas as Coleções,** forneça um nome para a coleção para a organização dos seus pedidos, prima Enter e selecione **Save to <*nome* > de coleção**. Este exemplo usa `Logic Apps requests` como nome de coleção.
 
       O painel de pedido do carteiro abre para que possa enviar um pedido para o URL de retorno para o gatilho do pedido.
 
@@ -523,18 +523,18 @@ Para testar a sua aplicação lógica, siga estes passos para iniciar uma sessã
 
    ![Screenshot que mostra a página geral do fluxo de trabalho com estado de execução e histórico](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | Estado de execução | Description |
+   | Estado de execução | Descrição |
    |------------|-------------|
    | **Abortada** | A execução parou ou não terminou devido a problemas externos, por exemplo, uma falha do sistema ou subscrição do Azure caducado. |
    | **Cancelado** | A corrida foi desencadeada e iniciada, mas recebeu um pedido de cancelamento. |
    | **Com falhas** | Pelo menos uma ação na corrida falhou. Não foram criadas ações subsequentes no fluxo de trabalho para lidar com a falha. |
-   | **Em Execução** | A corrida foi desencadeada e está em curso, mas este estatuto também pode aparecer para uma corrida que é acelerada devido a [limites](logic-apps-limits-and-config.md) de ação ou ao [atual plano de preços.](https://azure.microsoft.com/pricing/details/logic-apps/) <p><p>**Dica** : Se configurar [o registo de diagnósticos,](monitor-logic-apps-log-analytics.md)pode obter informações sobre quaisquer eventos de aceleração que ocorram. |
+   | **Em Execução** | A corrida foi desencadeada e está em curso, mas este estatuto também pode aparecer para uma corrida que é acelerada devido a [limites](logic-apps-limits-and-config.md) de ação ou ao [atual plano de preços.](https://azure.microsoft.com/pricing/details/logic-apps/) <p><p>**Dica**: Se configurar [o registo de diagnósticos,](monitor-logic-apps-log-analytics.md)pode obter informações sobre quaisquer eventos de aceleração que ocorram. |
    | **Com êxito** | A corrida conseguiu. Se alguma ação falhou, uma ação subsequente no fluxo de trabalho tratou dessa falha. |
-   | **Esgotado** | O tempo de execução foi esgotado porque a duração atual excedeu o limite de duração de execução, que é controlado pela [ **retenção**](logic-apps-limits-and-config.md#run-duration-retention-limits)do histórico run em dias de fixação . A duração de uma corrida é calculada utilizando o tempo de início da execução e o limite de duração da execução nessa hora de início. <p><p>**Nota:** Se a duração da execução também exceder o limite atual de retenção do histórico de *execução* , que também é controlado pela [ **retenção**](logic-apps-limits-and-config.md#run-duration-retention-limits)do histórico run em dias de fixação , a execução é limpa do histórico de execuções por um trabalho de limpeza diário. Quer os tempos de funcionação se esgotam ou completem, o período de retenção é sempre calculado utilizando o tempo de início da execução e o limite de retenção *atual.* Então, se reduzir o limite de duração para uma corrida de voo, o tempo de execução se esgota. No entanto, a execução permanece ou é retirada do histórico de corridas com base no facto de a duração da corrida ter excedido o limite de retenção. |
+   | **Esgotado** | O tempo de execução foi esgotado porque a duração atual excedeu o limite de duração de execução, que é controlado pela [ **retenção**](logic-apps-limits-and-config.md#run-duration-retention-limits)do histórico run em dias de fixação . A duração de uma corrida é calculada utilizando o tempo de início da execução e o limite de duração da execução nessa hora de início. <p><p>**Nota:** Se a duração da execução também exceder o limite atual de retenção do histórico de *execução*, que também é controlado pela [ **retenção**](logic-apps-limits-and-config.md#run-duration-retention-limits)do histórico run em dias de fixação , a execução é limpa do histórico de execuções por um trabalho de limpeza diário. Quer os tempos de funcionação se esgotam ou completem, o período de retenção é sempre calculado utilizando o tempo de início da execução e o limite de retenção *atual.* Então, se reduzir o limite de duração para uma corrida de voo, o tempo de execução se esgota. No entanto, a execução permanece ou é retirada do histórico de corridas com base no facto de a duração da corrida ter excedido o limite de retenção. |
    | **Em espera** | A execução não começou ou está interrompida, por exemplo, devido a uma instância de fluxo de trabalho anterior que ainda está em funcionamento. |
    |||
 
-1. Para rever os estatutos de cada passo numa corrida específica e as entradas e saídas do passo, selecione o botão elipses **(...** ) para essa execução e selecione **Show Run**.
+1. Para rever os estatutos de cada passo numa corrida específica e as entradas e saídas do passo, selecione o botão elipses **(...**) para essa execução e selecione **Show Run**.
 
    ![Screenshot que mostra a linha de histórico de execução do seu fluxo de trabalho com botão de elipses e "Show Run" selecionado](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
 
@@ -542,9 +542,12 @@ Para testar a sua aplicação lógica, siga estes passos para iniciar uma sessã
 
    ![Screenshot que mostra cada passo na execução do fluxo de trabalho e o seu estado](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
 
+   > [!NOTE]
+   > Se uma execução falhou e um passo na visão de monitorização mostra o `400 Bad Request` erro, este problema pode resultar de um nome de gatilho mais longo ou nome de ação que faz com que o identificador de recursos uniformes subjacente (URI) exceda o limite de caracteres padrão. Para mais informações, consulte ["400 Mau Pedido".](#400-bad-request)
+
    Aqui estão os possíveis estatutos que cada passo no fluxo de trabalho pode ter:
 
-   | Estado de ação | Ícone | Description |
+   | Estado de ação | Ícone | Descrição |
    |---------------|------|-------------|
    | Abortada | ![Ícone para estado de ação "abortado"][aborted-icon] | A ação parou ou não terminou devido a problemas externos, por exemplo, uma falha no sistema ou subscrição do Azure caducado. |
    | Cancelada | ![Ícone para estado de ação "cancelado"][cancelled-icon] | A ação estava em andamento, mas recebeu um pedido de cancelamento. |
@@ -621,7 +624,7 @@ Depois de fazer atualizações para a sua aplicação lógica, pode realizar out
 
 1. No Carteiro ou na sua ferramenta para criar e enviar pedidos, envie outro pedido para desencadear o seu fluxo de trabalho.
 
-1. Se criou um fluxo de trabalho imponente, na página geral do fluxo de trabalho, verifique o estado da execução mais recente. Para visualizar o estado, entradas e saídas para cada passo nessa corrida, selecione o botão elipses **(...** ) para essa execução e selecione **Show Run**.
+1. Se criou um fluxo de trabalho imponente, na página geral do fluxo de trabalho, verifique o estado da execução mais recente. Para visualizar o estado, entradas e saídas para cada passo nessa corrida, selecione o botão elipses **(...**) para essa execução e selecione **Show Run**.
 
    Por exemplo, aqui está o estado passo a passo para uma corrida após o fluxo de trabalho da amostra ter sido atualizado com a ação resposta.
 
@@ -750,7 +753,7 @@ No Código do Estúdio Visual, pode ver todas as aplicações lógicas implement
 
 1. Para ver todos os fluxos de trabalho na aplicação lógica, expanda a sua aplicação lógica e, em seguida, expanda o nó **workflows.**
 
-1. Para visualizar um fluxo de trabalho específico, abra o menu de atalho do fluxo de trabalho e selecione **Open in Designer** , que abre o fluxo de trabalho no modo apenas de leitura.
+1. Para visualizar um fluxo de trabalho específico, abra o menu de atalho do fluxo de trabalho e selecione **Open in Designer**, que abre o fluxo de trabalho no modo apenas de leitura.
 
    Para editar o fluxo de trabalho, tem estas opções:
 
@@ -774,7 +777,7 @@ No Código do Estúdio Visual, pode ver todas as aplicações lógicas implement
 
 No portal Azure, é possível visualizar todas as aplicações lógicas implementadas que se encontrem na sua subscrição Azure, sejam elas o tipo original de recursos **de Aplicações Lógicas** ou o tipo de recurso **Logic App (Preview).** Atualmente, cada tipo de recurso é organizado e gerido como categorias separadas em Azure. Para encontrar aplicações lógicas que tenham o tipo de recurso **Logic App (Preview),** siga estes passos:
 
-1. Na caixa de pesquisa do portal Azure, insira `logic app preview` . Quando a lista de resultados aparecer, em **Serviços** , selecione **Logic App (Preview)**.
+1. Na caixa de pesquisa do portal Azure, insira `logic app preview` . Quando a lista de resultados aparecer, em **Serviços**, selecione **Logic App (Preview)**.
 
    ![Screenshot que mostra a caixa de pesquisa do portal Azure com o texto de pesquisa de "pré-visualização de aplicações lógicas".](./media/create-stateful-stateless-workflows-visual-studio-code/portal-find-logic-app-preview-resource.png)
 
@@ -957,7 +960,7 @@ Ao utilizar a [ferramenta de interface de linha de comando .NET Core (CLI),](/do
 
    `POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
 
-   O valor *de* > de <é definido na conta de armazenamento Azure que definiu `AzureWebJobsStorage` no ficheiro, **azure-webjobs-secrets/{deployment-name}/host.jsem** , onde pode encontrar o valor nesta secção:
+   O valor *de*> de <é definido na conta de armazenamento Azure que definiu `AzureWebJobsStorage` no ficheiro, **azure-webjobs-secrets/{deployment-name}/host.jsem**, onde pode encontrar o valor nesta secção:
 
    ```json
    {
@@ -1014,6 +1017,47 @@ Embora [muitos limites existentes para apps Azure Logic](../logic-apps/logic-app
   * O limite nos caracteres de código aumenta de 1.024 caracteres para 100.000 caracteres.
 
   * O limite de tempo para executar o código aumenta de 5 segundos para 15 segundos.
+
+<a name="troubleshooting"></a>
+
+## <a name="troubleshoot-errors-and-problems"></a>Erros e problemas de resolução de problemas
+
+<a name="400-bad-request"></a>
+
+### <a name="400-bad-request"></a>"400 Mau Pedido"
+
+Quando uma execução falha e inspeciona a execução na visualização de monitorização, este erro pode aparecer num gatilho ou ação com um nome mais longo, o que faz com que o identificador de recursos uniformes subjacente (URI) exceda o limite de caracteres predefinido.
+
+Para resolver este problema e ajustar para o URI mais longo, edite as `UrlSegmentMaxCount` `UrlSegmentMaxLength` teclas e registo no seu computador seguindo os passos abaixo. Os valores predefinidos desta chave são descritos neste tópico, [Http.sys definições de registo para o Windows](/troubleshoot/iis/httpsys-registry-windows).
+
+> [!IMPORTANT]
+> Antes de começar, certifique-se de salvar o seu trabalho. Esta solução requer que reinicie o computador depois de ter terminado para que as alterações possam produzir efeitos.
+
+1. No seu computador, abra a janela **Run** e execute o `regedit` comando, que abre o editor de registo.
+
+1. Na caixa **de Controlo da Conta de Utilizador,** selecione **Sim** para permitir as alterações no seu computador.
+
+1. No painel esquerdo, sob **computador,** expanda os nós ao longo do caminho, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters,** e, em seguida, selecione **Parâmetros**.
+
+1. No painel direito, encontre as `UrlSegmentMaxCount` chaves e as chaves do `UrlSegmentMaxLength` registo.
+
+1. Aumente estes valores-chave o suficiente para que os URIs possam acomodar os nomes que pretende utilizar. Se estas teclas não existirem, adicione-as à pasta **Parâmetros** seguindo estes passos:
+
+   1. A partir do menu de atalhos **parâmetros,** selecione **Novo**  >  **DWORD (32-bit) Valor**.
+
+   1. Na caixa de edição que aparece, introduza `UrlSegmentMaxCount` como o novo nome-chave.
+
+   1. Abra o menu de atalho da nova chave e selecione **Modificar**.
+
+   1. Na caixa **de cadeia de edição** que aparece, introduza o valor chave de **dados de valor** que deseja em formato hexadecimal ou decimal. Por exemplo, `400` no hexadecimal é equivalente `1024` ao decimal.
+
+   1. Para adicionar o valor da `UrlSegmentMaxLength` chave, repita estes passos.
+
+   Depois de aumentar ou adicionar estes valores-chave, o editor de registo parece este exemplo:
+
+   ![Screenshot que mostra o editor de registo.](media/create-stateful-stateless-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
+
+1. Quando estiver pronto, reinicie o computador para que as alterações possam produzir efeitos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

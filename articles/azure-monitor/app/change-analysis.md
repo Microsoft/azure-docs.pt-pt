@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: ed29bfc099ce401288c07db863207a1d989a5e0d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 36e73ceddaa5e3f9cbbf4a41f76a4ba6d70eed0f
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168278"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979968"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilizar a Análise de Alteração de Aplicações (pré-visualização) no Monitor Azure
 
@@ -183,6 +183,7 @@ Se for a primeira vez que vê o histórico change após a sua integração com a
     ```
 
 - **Falhou no registo do fornecedor de recursos Microsoft.ChangeAnalysis**. Esta mensagem significa que algo falhou imediatamente, pois a UI enviou um pedido de registo do fornecedor de recursos, e não está relacionado com a questão da permissão. É provável que seja um problema temporário de conectividade na Internet. Tente refrescar a página e verifique a sua ligação à Internet. Se o erro persistir, contacte changeanalysishelp@microsoft.com
+- Não tendo consultado o fornecedor de **recursos microsoft.ChangeAnalysis** com a *subscrição do farol Azure não é suportado, as alterações só estão disponíveis no inquilino da subscrição*. Existe neste momento uma limitação para que o fornecedor de recursos change analysis seja registado através da subscrição do Azure Lighthouse para utilizadores que não estejam no arrendatário doméstico. Esperamos que esta limitação seja abordada num futuro próximo. Se esta é uma questão de bloqueio para si, existe uma solução alternativa que envolve a criação de um principal de serviço e a atribuição explícita do papel para permitir o acesso.  Contacto changeanalysishelp@microsoft.com para saber mais sobre isso.
 
 - **Isto está a demorar mais do que o esperado.** Esta mensagem significa que o registo está a demorar mais de 2 minutos. Isto é invulgar, mas não significa necessariamente que algo correu mal. Pode ir a **Subscrições Fornecedor de recursos** para verificar o estado de registo do fornecedor de recursos **Microsoft.ChangeAnalysis.** Pode tentar utilizar a UI para não registar, reregistar ou refrescar para ver se ajuda. Se o problema persistir, contacte changeanalysishelp@microsoft.com para apoio.
     ![Registo de RP de resolução de problemas demorando muito tempo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)

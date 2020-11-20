@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: c15750a7a63293994ff7c6b68cb85a5066acee90
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592452"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981141"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -65,7 +65,7 @@ Uma piscina SQL dedicada consome recursos faturados desde que esteja ativo. Pode
 
 A piscina Spark diz ao Azure Synapse quantos recursos de faíscas usar. Paga apenas os recursos que utilizar. Quando deixa de utilizar ativamente a piscina, os recursos são automaticamente eliminados e são reciclados.
 
-## <a name="the-serverless-sql-pool"></a>A piscina SQL sem servidor
+## <a name="the-built-in-serverless-sql-pool"></a>A piscina SQL sem servidor incorporada
 
 Cada espaço de trabalho vem com uma piscina pré-construída chamada **Built-in.** Esta piscina não pode ser apagada. A piscina SQL sem servidor permite-lhe trabalhar com o SQL sem ter de criar ou pensar em gerir uma piscina SQL sem servidor em Azure Synapse. Ao contrário das piscinas SQL dedicadas, a faturação de um pool SQL sem servidor baseia-se na quantidade de dados digitalizados para executar a consulta, e não no número de recursos utilizados para executar a consulta.
 

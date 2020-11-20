@@ -9,12 +9,12 @@ metadata:
   author: dikamath
   ms.author: dikamath
   ms.date: 10/19/2020
-  ms.openlocfilehash: b72ec69edaae7681cd3310c66bcd209b3eae1a4e
-  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+  ms.openlocfilehash: 223d0cdbe95bf2ec24a7f460d2f92a0a50f08d0d
+  ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/10/2020
-  ms.locfileid: "94412583"
+  ms.lasthandoff: 11/19/2020
+  ms.locfileid: "94888305"
 landingContent:
 - title: Acerca do Azure VMware Solution
   linkLists:
@@ -32,8 +32,10 @@ landingContent:
       url: concepts-storage.md
     - text: Acesso e identidade para clouds privadas
       url: concepts-identity.md
-    - text: Controlo de acesso baseado em funções
+    - text: Controlo de acesso baseado em funções do vSphere
       url: concepts-role-based-access-control.md
+    - text: Monitorizar e reparar clouds privadas
+      url: concepts-monitor-repair-private-cloud.md
     - text: Atualizações da cloud privada
       url: concepts-upgrades.md
 - title: Introdução

@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: 11145abb06fb84f533ee6d556cafe1e943579131
-  ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+  ms.openlocfilehash: 665692e1d902dfed8cdab535d0639f356f4e709c
+  ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92890229"
+  ms.lasthandoff: 11/19/2020
+  ms.locfileid: "94885925"
 landingContent:
 - title: Introdução
   linkLists:
@@ -78,6 +78,20 @@ landingContent:
       url: tutorial-routing-config-message-routing-rm-template.md
     - text: Executar e ver resultados de encaminhamento
       url: tutorial-routing-view-message-routing-results.md
+- title: Hub IoT no Azure Stack Hub (pré-visualização)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral para operadores
+      url: /azure-stack/operator/iot-hub-rp-overview
+    - text: Descrição geral para utilizadores
+      url: /azure-stack/user/iot-hub-overview
+  - linkListType: how-to-guide
+    links:
+    - text: Pré-requisitos de instalação
+      url: /azure-stack/operator/iot-hub-rp-prerequisites
+    - text: Como instalar o Hub IoT no Azure Stack Hub
+      url: /azure-stack/operator/iot-hub-rp-install
 - title: Utilizar o IoT Hub Tools
   linkLists:
   - linkListType: how-to-guide

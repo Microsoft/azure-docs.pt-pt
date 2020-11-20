@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 73fa295c0c0d30cb0797820baaf2a4b03a1b7c99
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 96e6b7a672e2967403626cb9ba7db87fc4dd795c
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783458"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980206"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Use pontos finais privados para armazenamento Azure
 
@@ -33,13 +33,13 @@ A utilização de pontos finais privados para a sua conta de armazenamento permi
 
 Um ponto final privado é uma interface de rede especial para um serviço Azure na sua [Rede Virtual](../../virtual-network/virtual-networks-overview.md) (VNet). Quando cria um ponto final privado para a sua conta de armazenamento, ele fornece conectividade segura entre os clientes no seu VNet e o seu armazenamento. O ponto final privado é atribuído um endereço IP a partir do intervalo de endereço IP do seu VNet. A ligação entre o ponto final privado e o serviço de armazenamento utiliza uma ligação privada segura.
 
-As aplicações no VNet podem ligar-se ao serviço de armazenamento através do ponto final privado sem **problemas, utilizando as mesmas cordas de ligação e mecanismos de autorização que utilizariam de outra forma** . Os pontos finais privados podem ser utilizados com todos os protocolos suportados pela conta de armazenamento, incluindo REST e SMB.
+As aplicações no VNet podem ligar-se ao serviço de armazenamento através do ponto final privado sem **problemas, utilizando as mesmas cordas de ligação e mecanismos de autorização que utilizariam de outra forma**. Os pontos finais privados podem ser utilizados com todos os protocolos suportados pela conta de armazenamento, incluindo REST e SMB.
 
 Os pontos finais privados podem ser criados em sub-redes que utilizam [pontos finais de serviço](../../virtual-network/virtual-network-service-endpoints-overview.md). Os clientes numa sub-rede podem assim ligar-se a uma conta de armazenamento utilizando o ponto final privado, enquanto utilizam pontos finais de serviço para aceder a outros.
 
 Quando cria um ponto final privado para um serviço de armazenamento na VNet, é enviado um pedido de consentimento para aprovação ao proprietário da conta de armazenamento. Se o utilizador que solicita a criação do ponto final privado for também proprietário da conta de armazenamento, este pedido de consentimento é automaticamente aprovado.
 
-Os proprietários de conta de armazenamento podem gerir os pedidos de consentimento e os pontos finais privados, através do separador ' *Pontos finais Privados'* para a conta de armazenamento no [portal Azure.](https://portal.azure.com)
+Os proprietários de conta de armazenamento podem gerir os pedidos de consentimento e os pontos finais privados, através do separador '*Pontos finais Privados'* para a conta de armazenamento no [portal Azure.](https://portal.azure.com)
 
 > [!TIP]
 > Se pretender restringir o acesso à sua conta de armazenamento apenas através do ponto final privado, configunja a firewall de armazenamento para negar ou controlar o acesso através do ponto final público.
@@ -52,8 +52,9 @@ Ao criar o ponto final privado, deve especificar a conta de armazenamento e o se
 
 > [!TIP]
 > Crie um ponto final privado separado para a instância secundária do serviço de armazenamento para um melhor desempenho nas contas RA-GRS.
+> Certifique-se de criar uma conta de armazenamento v2 (Standard ou Premium) para fins gerais .
 
-Para ler o acesso à região secundária com uma conta de armazenamento configurada para armazenamento geo-redundante, precisa de pontos finais privados separados para as instâncias primárias e secundárias do serviço. Não é necessário criar um ponto final privado para a instância secundária para **o failover** . O ponto final privado liga-se automaticamente à nova instância primária após a falha. Para obter mais informações sobre as opções de despedimento de armazenamento, consulte [a redundância do Azure Storage](storage-redundancy.md).
+Para ler o acesso à região secundária com uma conta de armazenamento configurada para armazenamento geo-redundante, precisa de pontos finais privados separados para as instâncias primárias e secundárias do serviço. Não é necessário criar um ponto final privado para a instância secundária para **o failover**. O ponto final privado liga-se automaticamente à nova instância primária após a falha. Para obter mais informações sobre as opções de despedimento de armazenamento, consulte [a redundância do Azure Storage](storage-redundancy.md).
 
 Para obter informações mais detalhadas sobre a criação de um ponto final privado para a sua conta de armazenamento, consulte os seguintes artigos:
 
@@ -67,13 +68,13 @@ Para obter informações mais detalhadas sobre a criação de um ponto final pri
 Os clientes de um VNet que utilizem o ponto final privado devem utilizar a mesma cadeia de ligação para a conta de armazenamento, uma vez que os clientes que se ligam ao ponto final público. Contamos com a resolução do DNS para encaminhar automaticamente as ligações do VNet para a conta de armazenamento por um link privado.
 
 > [!IMPORTANT]
-> Utilize o mesmo fio de ligação para ligar à conta de armazenamento utilizando pontos finais privados, como utilizaria de outra forma. Por favor, não se conecte à conta de armazenamento usando o seu URL de subdomínio ' *privatelink* ' .
+> Utilize o mesmo fio de ligação para ligar à conta de armazenamento utilizando pontos finais privados, como utilizaria de outra forma. Por favor, não se conecte à conta de armazenamento usando o seu URL de subdomínio '*privatelink*' .
 
 Criamos uma [zona de DNS privada](../../dns/private-dns-overview.md) anexada ao VNet com as atualizações necessárias para os pontos finais privados, por padrão. No entanto, se estiver a utilizar o seu próprio servidor DNS, poderá ter de es fazer alterações adicionais na sua configuração DNS. A secção sobre [as alterações do DNS](#dns-changes-for-private-endpoints) abaixo descreve as atualizações necessárias para os pontos finais privados.
 
 ## <a name="dns-changes-for-private-endpoints"></a>DNS alterações para pontos finais privados
 
-Quando cria um ponto final privado, o registo de recursos DNS CNAME para a conta de armazenamento é atualizado para um pseudónimo num subdomínio com o prefixo ' *privatelink* '. Por padrão, também criamos uma [zona privada de DNS,](../../dns/private-dns-overview.md)correspondente ao subdomínio ' *privatelink* ', com os registos de recursos DNS A para os pontos finais privados.
+Quando cria um ponto final privado, o registo de recursos DNS CNAME para a conta de armazenamento é atualizado para um pseudónimo num subdomínio com o prefixo '*privatelink*'. Por padrão, também criamos uma [zona privada de DNS,](../../dns/private-dns-overview.md)correspondente ao subdomínio '*privatelink*', com os registos de recursos DNS A para os pontos finais privados.
 
 Quando resolve o URL do ponto final de armazenamento de fora do VNet com o ponto final privado, ele resolve-se para o ponto final público do serviço de armazenamento. Quando resolvido a partir do VNet que hospeda o ponto final privado, o URL do ponto final de armazenamento resolve-se para o endereço IP do ponto final privado.
 
@@ -96,7 +97,7 @@ Os registos de recursos DNS para StorageAccountA, quando resolvidos por um clien
 
 Esta abordagem permite o acesso à conta de armazenamento **utilizando a mesma cadeia de ligação** para clientes no VNet que hospeda os pontos finais privados, bem como clientes fora do VNet.
 
-Se estiver a utilizar um servidor DNS personalizado na sua rede, os clientes devem ser capazes de resolver o FQDN para o ponto final da conta de armazenamento para o endereço IP do ponto final privado. Deverá configurar o seu servidor DNS para delegar o seu subdomínio de ligação privada para a zona privada de DNS para o VNet, ou configurar os registos A para ' *StorageAccountA.privatelink.blob.core.windows.net* ' com o endereço IP do ponto final privado.
+Se estiver a utilizar um servidor DNS personalizado na sua rede, os clientes devem ser capazes de resolver o FQDN para o ponto final da conta de armazenamento para o endereço IP do ponto final privado. Deverá configurar o seu servidor DNS para delegar o seu subdomínio de ligação privada para a zona privada de DNS para o VNet, ou configurar os registos A para '*StorageAccountA.privatelink.blob.core.windows.net*' com o endereço IP do ponto final privado.
 
 > [!TIP]
 > Ao utilizar um servidor DNS personalizado ou no local, deverá configurar o seu servidor DNS para resolver o nome da conta de armazenamento no subdomínio 'privatelink' para o endereço IP do ponto final privado. Pode fazê-lo delegando o subdomínio 'privatelink' para a zona privada de DNS do VNet, ou configurando a zona DNS no seu servidor DNS e adicionando os registos DNS A.

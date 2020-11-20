@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4cb57eb8d3396667e6c9cb40b7e41b1e97622ed
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306944"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981192"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Atualizações de controlo com Controlo de Manutenção e Azure PowerShell
 
@@ -67,13 +67,7 @@ Pode consultar as configurações de manutenção disponíveis utilizando [a Con
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>Criar uma configuração de manutenção com janela programada (em pré-visualização)
-
-
-> [!IMPORTANT]
-> A funcionalidade de janela agendada encontra-se atualmente em Visualização Pública.
-> Esta versão de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Criar uma configuração de manutenção com janela programada
 
 Utilize New-AzMaintenanceConfiguration para criar uma configuração de manutenção com uma janela programada quando o Azure aplicar as atualizações dos seus recursos. Este exemplo cria uma configuração de manutenção chamada myConfig com uma janela programada de 5 horas na quarta segunda-feira de cada mês. Uma vez que crie uma janela programada, já não terá de aplicar as atualizações manualmente.
 
@@ -91,8 +85,13 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > A **duração da** manutenção deve ser *de 2 horas* ou mais. A **recorrência** da manutenção deve ser definida pelo menos uma vez em 35 dias.
 
-A **recorrência da** manutenção pode ser expressa como horários diários, semanais ou mensais. Os exemplos de horário diário são recurevery: Day, recurevery: 3Days. Os exemplos de horário semanal são recurEvery: 3Weeks, recurevery: Week Saturday,Sunday. Os exemplos mensais de horários repetem-se Todos os dias: Mês dia23,dia24, recurento: Mês Passado domingo, recurcurTodos: Mês Quarta-feira.
-
+A **recorrência da manutenção** pode ser expressa como:
+ | Valor | Exemplo |
+      |-------|-------------|
+      | diariamente | recurTodos: Dia **ou** recurTodosTos: 3Days | 
+      | weekly | recurEvery: 3Weeks **ou** recurEvery: Week Saturday,Sunday | 
+      | mensalmente | recurTodos: Mês dia23,dia24 **ou** recurTodos: Mês passado domingo **ou** recurento: Mês Quarta Segunda-feira | 
+      
 
 ## <a name="assign-the-configuration"></a>Atribuir a configuração
 

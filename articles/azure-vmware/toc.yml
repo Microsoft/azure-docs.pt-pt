@@ -42,7 +42,7 @@
       href: concepts-storage.md
     - name: Acesso e identidade para clouds privadas
       href: concepts-identity.md
-    - name: Controlo de acesso baseado em funções
+    - name: Controlo de acesso baseado em funções do vSphere
       href: concepts-role-based-access-control.md
     - name: Monitorizar e reparar clouds privadas
       href: concepts-monitor-repair-private-cloud.md

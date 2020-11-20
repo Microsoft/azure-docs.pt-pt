@@ -16,12 +16,12 @@ ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4778ce5efcd6145447c194eaab34bc230bcbe34c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d74a243ab10d0fffca960dc5149999560a7b54cd
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371550"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980591"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Aprovar ou negar pedidos de funções de Azure AD na Gestão de Identidade Privilegiada
 
@@ -38,9 +38,9 @@ A partir de novembro de 2019, a parte de funções da AZure AD da Gestão de Ide
 
 Siga os passos deste artigo para aprovar ou negar pedidos de funções Azure AD.
 
-# <a name="new-version"></a>[Nova versão](#tab/new)
+## <a name="new-version"></a>[Nova versão](#tab/new)
 
-## <a name="view-pending-requests"></a>Ver pedidos pendentes
+### <a name="view-pending-requests"></a>Ver pedidos pendentes
 
 Como aprovador delegado, receberá uma notificação por e-mail quando um pedido de função AD Azure estiver pendente da sua aprovação. Pode ver estes pedidos pendentes na Gestão de Identidade Privilegiada.
 
@@ -54,7 +54,7 @@ Como aprovador delegado, receberá uma notificação por e-mail quando um pedido
 
     Na secção **Pedidos de Ativação de Funções,** verá uma lista de pedidos enquanto se aguarda a sua aprovação.
 
-## <a name="approve-requests"></a>Aprovar pedidos
+### <a name="approve-requests"></a>Aprovar pedidos
 
 1. Encontre e selecione o pedido que pretende aprovar. Aparece uma página de aprovação ou negação.
 
@@ -66,7 +66,7 @@ Como aprovador delegado, receberá uma notificação por e-mail quando um pedido
 
     ![Aprovação de notificação mostrando pedido foi aprovado](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
 
-## <a name="deny-requests"></a>Negar pedidos
+### <a name="deny-requests"></a>Negar pedidos
 
 1. Encontre e selecione o pedido que pretende negar. Aparece uma página de aprovação ou negação.
 
@@ -76,7 +76,7 @@ Como aprovador delegado, receberá uma notificação por e-mail quando um pedido
 
 1. **Selecione Deny**. Uma notificação aparece com a sua negação.
 
-## <a name="workflow-notifications"></a>Notificações de fluxo de trabalho
+### <a name="workflow-notifications"></a>Notificações de fluxo de trabalho
 
 Aqui estão algumas informações sobre notificações de fluxo de trabalho:
 
@@ -88,9 +88,9 @@ Aqui estão algumas informações sobre notificações de fluxo de trabalho:
 >[!NOTE]
 >Um administrador global ou administrador privilegiado que acredita que um utilizador aprovado não deve estar ativo pode remover a atribuição de papel ativo na Gestão de Identidade Privilegiada. Embora os administradores não sejam notificados dos pedidos pendentes a menos que sejam um aprovador, podem visualizar e cancelar quaisquer pedidos pendentes para todos os utilizadores, visualizando pedidos pendentes na Gestão de Identidade Privilegiada.
 
-# <a name="previous-version"></a>[Versão anterior](#tab/previous)
+## <a name="previous-version"></a>[Versão anterior](#tab/previous)
 
-## <a name="view-pending-requests"></a>Ver pedidos pendentes
+### <a name="view-pending-requests"></a>Ver pedidos pendentes
 
 Como aprovador delegado, receberá uma notificação por e-mail quando um pedido de função AD Azure estiver pendente da sua aprovação. Pode ver estes pedidos pendentes na Gestão de Identidade Privilegiada.
 
@@ -106,7 +106,7 @@ Como aprovador delegado, receberá uma notificação por e-mail quando um pedido
 
     Verá uma lista de pedidos enquanto aguarda a sua aprovação.
 
-## <a name="approve-requests"></a>Aprovar pedidos
+### <a name="approve-requests"></a>Aprovar pedidos
 
 1. Selecione os pedidos que pretende aprovar e, em seguida, clique em **Aprovar** para abrir o painel de pedidos selecionados.
 
@@ -122,7 +122,7 @@ Como aprovador delegado, receberá uma notificação por e-mail quando um pedido
 
     ![Aprovar painel de pedidos selecionados após aprovação botão clicado](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
-## <a name="deny-requests"></a>Negar pedidos
+### <a name="deny-requests"></a>Negar pedidos
 
 1. Selecione os pedidos que pretende negar e, em seguida, clique em **Negar** para abrir o painel de pedidos selecionados Deny.
 

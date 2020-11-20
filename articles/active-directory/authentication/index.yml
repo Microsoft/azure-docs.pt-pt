@@ -12,12 +12,12 @@ metadata:
   ms.author: joflore
   ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 17775be39e534d0825596973452dabc13054ee8d
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.openlocfilehash: d484600da9be9d84b6af7ad31754ea86bf6b6873
+  ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91968230"
+  ms.lasthandoff: 11/18/2020
+  ms.locfileid: "94838056"
 landingContent:
 - title: Acerca da autenticação
   linkLists:
@@ -51,21 +51,21 @@ landingContent:
       url: howto-sspr-deployment.md
     - text: Ativar a reposição de palavra-passe no ecrã de início de sessão do Windows
       url: howto-sspr-windows.md
-- title: Ativar a Multi-Factor Authentication do Azure
+- title: Ativar o Multi-Factor Authentication do Azure AD
   linkLists:
   - linkListType: concept
     links:
-    - text: Como funciona o Multi-Factor Authentication do Azure
+    - text: Como funciona o Multi-Factor Authentication do Azure AD
       url: concept-mfa-howitworks.md
   - linkListType: tutorial
     links:
-    - text: Ativar a Multi-Factor Authentication do Azure
+    - text: Ativar o Multi-Factor Authentication do Azure AD
       url: tutorial-enable-azure-mfa.md
-    - text: Ativar o Multi-Factor Authentication baseado no risco
+    - text: Ativar o Multi-Factor Authentication do Azure AD baseado no risco
       url: tutorial-risk-based-sspr-mfa.md
   - linkListType: deploy
     links:
-    - text: Guia de implementação para o Multi-Factor Authentication do Azure
+    - text: Guia de implementação do Multi-Factor Authentication do Azure AD
       url: howto-mfa-getstarted.md
     - text: Utilizar a extensão NPS para integrar aplicações no local
       url: howto-mfa-nps-extension.md

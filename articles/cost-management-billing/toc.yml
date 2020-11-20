@@ -184,9 +184,15 @@
               href: manage/pay-by-invoice.md
             - name: Criar subscrições adicionais
               href: manage/create-subscription.md
-            - name: Criar subscrições através de programação com a API mais recente
-              href: manage/programmatically-create-subscription.md
-            - name: Criar subscrições através de programação com a API de pré-visualização
+            - name: Criar subscrições do EA através de programação com a API mais recente
+              href: manage/programmatically-create-subscription-enterprise-agreement.md
+            - name: Criar subscrições do MCA através de programação com a API mais recente
+              href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+            - name: Criar subscrições do MPA através de programação com a API mais recente
+              href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
+            - name: Criar subscrições através de programação com um modelo do ARM
+              href: manage/create-subscription-template.md
+            - name: Criar subscrições através de programação com a API de pré-visualização antiga
               href: manage/programmatically-create-subscription-preview.md
             - name: Conceder acesso para criar subscrições de EA
               href: manage/grant-access-to-create-subscription.md

@@ -32,14 +32,14 @@ Se a página do browser encravar, tente cada um dos passos a seguir até que con
 - Utilize um browser diferente.
 - Utilize o modo de navegação privada do browser.
 
-   - **Edge:** abra as **Definições** (os três pontos junto à imagem do seu perfil), selecione **Nova janela InPrivate** e navegue e inicie sessão no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions). 
-   - **Chrome:** escolha o modo de navegação **anónima** .
-   - **Safari:** escolha **Ficheiro** e **Nova janela privada** .
+   - **Microsoft Edge:** abra as **Definições** (os três pontos junto à imagem do seu perfil), selecione **Nova janela InPrivate** e navegue e inicie sessão no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions). 
+   - **Chrome:** escolha o modo de navegação **anónima**.
+   - **Safari:** escolha **Ficheiro** e **Nova janela privada**.
 
 - Limpe a cache e elimine os cookies da Internet:
 
-   - **Edge:** abra as **Definições** e selecione **Privacidade e serviços** . Siga os passos em **Limpar dados de navegação** . Confirme que as caixas de verificação de **Histórico de navegação** , **Histórico de descarregamentos** e **Imagens e ficheiros em cache** estão selecionadas e escolha **Eliminar** .
-   - **Chrome:** escolha **Definições** e selecione **Limpar dados de navegação** em **Privacidade e segurança** .
+   - **Microsoft Edge:** abra as **Definições** e selecione **Privacidade e serviços**. Siga os passos em **Limpar dados de navegação**. Confirme que as caixas de verificação de **Histórico de navegação**, **Histórico de descarregamentos** e **Imagens e ficheiros em cache** estão selecionadas e escolha **Eliminar**.
+   - **Chrome:** escolha **Definições** e selecione **Limpar dados de navegação** em **Privacidade e segurança**.
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Inicia sessão automaticamente como um utilizador diferente
 
@@ -49,13 +49,13 @@ Para resolver o problema, experimente um dos métodos seguintes:
 
 - Limpe a cache e elimine os cookies da Internet.
 
-   - **Edge:** abra as **Definições** e selecione **Privacidade e serviços** . Siga os passos em **Limpar dados de navegação** . Confirme que as caixas de verificação de **Histórico de navegação** , **Histórico de descarregamentos** , **Cookies** e **Imagens e ficheiros em cache** estão selecionadas e escolha **Eliminar** .
-   - **Chrome:** escolha **Definições** e selecione **Limpar dados de navegação** em **Privacidade e segurança** .
+   - **Microsoft Edge:** abra as **Definições** e selecione **Privacidade e serviços**. Siga os passos em **Limpar dados de navegação**. Confirme que as caixas de verificação de **Histórico de navegação**, **Histórico de descarregamentos**, **Cookies** e **Imagens e ficheiros em cache** estão selecionadas e escolha **Eliminar**.
+   - **Chrome:** escolha **Definições** e selecione **Limpar dados de navegação** em **Privacidade e segurança**.
 - Reponha as predefinições do browser.
 - Utilize o modo de navegação privada do browser. 
-   - **Edge:** abra as **Definições** (os três pontos junto à imagem do seu perfil), selecione **Nova janela InPrivate** e navegue e inicie sessão no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions). 
-   - **Chrome:** escolha o modo de navegação **anónima** .
-   - **Safari:** escolha **Ficheiro** e **Nova janela privada** .
+   - **Microsoft Edge:** abra as **Definições** (os três pontos junto à imagem do seu perfil), selecione **Nova janela InPrivate** e navegue e inicie sessão no [portal do Azure](https://portal.azure.com/) ou no [centro de contas do Azure](https://account.azure.com/Subscriptions). 
+   - **Chrome:** escolha o modo de navegação **anónima**.
+   - **Safari:** escolha **Ficheiro** e **Nova janela privada**.
 
 ## <a name="i-can-sign-in-but-i-see-the-error-no-subscriptions-found"></a>Consigo iniciar sessão, mas vejo o erro "Nenhuma subscrição encontrada"
 
@@ -73,8 +73,8 @@ Para resolver este problema:
 Verifique se a conta que utilizou é do Administrador de Conta. Para verificar quem é o Administrador de Conta, siga estes passos:
 
 1.  Inicie sessão na [vista Subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1.  Selecione a subscrição que pretende verificar e selecione **Definições** .
-1.  Selecione **Propriedades** . O administrador de conta da subscrição é apresentado na caixa **Administrador de Conta** .
+1.  Selecione a subscrição que pretende verificar e selecione **Definições**.
+1.  Selecione **Propriedades**. O administrador de conta da subscrição é apresentado na caixa **Administrador de Conta**.
 
 ## <a name="additional-help-resources"></a>Recursos de ajuda adicionais
 

@@ -9,7 +9,7 @@
   items:
     - name: Ativar a reposição de palavras-passe self-service
       href: tutorial-enable-sspr.md
-    - name: Ativar a Multi-Factor Authentication do Azure
+    - name: Ativar o Multi-Factor Authentication do Azure AD
       href: tutorial-enable-azure-mfa.md
     - name: Ativar a repetição de escrita de palavras-passe no local
       href: tutorial-enable-sspr-writeback.md
@@ -80,7 +80,7 @@
           href: howto-sspr-authenticationdata.md
         - name: SSPR para clientes Windows
           href: howto-sspr-windows.md
-    - name: Multi-Factor Authentication do Azure
+    - name: Multi-Factor Authentication do Azure AD
       items:
         - name: Guia de implementação
           href: howto-mfa-getstarted.md
@@ -108,7 +108,7 @@
               href: howto-mfa-nps-extension.md
             - name: Configuração avançada para a extensão NPS
               href: howto-mfa-nps-extension-advanced.md
-            - name: VPN do Azure e MFA do Azure
+            - name: VPN do Azure e MFA do Azure AD
               href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
             - name: Gateway de Ambiente de Trabalho Remoto
               href: howto-mfa-nps-extension-rdg.md

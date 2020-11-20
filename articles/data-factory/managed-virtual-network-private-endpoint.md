@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317068"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980383"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Rede Virtual Gerida (pré-visualização)
 
@@ -72,6 +72,11 @@ Se o proprietário aprovar a ligação, o link privado é estabelecido. Caso con
 ![Aprovar ponto final privado gerido](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
 
 Apenas um ponto final privado gerido num estado aprovado pode enviar tráfego para um determinado recurso de ligação privada.
+
+## <a name="interactive-authoring"></a>Autoria Interativa
+As capacidades de autoria interativa são utilizadas para funcionalidades como a ligação ao teste, a lista de pastas de navegação e a lista de tabelas, obter esquemas e dados de pré-visualização. Pode ativar a autoria interativa ao criar ou editar um Tempo de Execução de Integração Azure que se encontra na rede virtual gerida pela ADF. O serviço backend irá pré-alocar o cálculo para funcionalidades de autoria interativa. Caso contrário, o cálculo será atribuído sempre que for realizada qualquer operação interativa, o que levará mais tempo. O Tempo Para Viver (TTL) para a autoria interativa é de 60 minutos, o que significa que ficará automaticamente desativado após 60 minutos da última operação de autoria interativa.
+
+![Autoria interativa](./media/managed-vnet/interactive-authoring.png)
 
 ## <a name="limitations-and-known-issues"></a>Problemas e limitações conhecidos
 ### <a name="supported-data-sources"></a>Origens de Dados Suportadas

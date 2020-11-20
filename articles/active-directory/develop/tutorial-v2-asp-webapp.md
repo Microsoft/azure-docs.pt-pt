@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627963"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979917"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicione o sôs-in à Microsoft a uma aplicação web ASP.NET
 
-Este guia demonstra como implementar o início de sção na Microsoft através de uma solução de MVC ASP.NET utilizando uma aplicação tradicional baseada no navegador web e OpenID Connect.
+Neste tutorial, você constrói uma aplicação web MVC ASP.NET que assina nos utilizadores utilizando o middleware Open Web Interface para .NET (OWIN) e a plataforma de identidade microsoft.
 
 Quando tiver concluído este guia, a sua candidatura poderá aceitar inscrições de contas pessoais de outlook.com e live.com. Além disso, contas de trabalho e escola de qualquer empresa ou organização que esteja integrada com a plataforma de identidade da Microsoft poderão iniciar scontabilidade na sua app.
 
@@ -65,11 +65,11 @@ Esta secção descreve como instalar e configurar o gasoduto de autenticação a
 1. In Visual Studio: Go to **File**  >  **New**  >  **Project**.
 2. Em **Visual C#\Web**,selecione **Aplicação Web ASP.NET (.NET Framework)**.
 3. Dê um nome à aplicação e selecione **OK**.
-4. Selecione **Empty**e, em seguida, selecione a caixa de verificação para adicionar referências **MVC.**
+4. Selecione **Empty** e, em seguida, selecione a caixa de verificação para adicionar referências **MVC.**
 
 ## <a name="add-authentication-components"></a>Adicionar componentes de autenticação
 
-1. In Visual Studio: Vá para **ferramentas**  >  **NuGet Package Manager**Package Manager  >  **Consola**.
+1. In Visual Studio: Vá para **ferramentas**  >  **NuGet Package Manager** Package Manager  >  **Consola**.
 2. Adicione *Pacotes NuGet de middleware OWIN*, escrevendo o seguinte na janela da Consola do Gestor de Pacotes:
 
     ```powershell
@@ -87,7 +87,7 @@ Os seguintes passos são usados para criar uma classe de startup de middleware O
 
 > [!TIP]
 > Se o projeto não tiver um ficheiro `Startup.cs` na pasta raiz:
-> 1. Clique com o botão direito na pasta raiz do projeto e, em seguida, **selecione Adicionar**a classe Startup Add New  >  **Item**  >  **OWIN**.<br/>
+> 1. Clique com o botão direito na pasta raiz do projeto e, em seguida, **selecione Adicionar** a classe Startup Add New  >  **Item**  >  **OWIN**.<br/>
 > 2. **Diga-lhe Startup.cs.**
 >
 >> Certifique-se de que a classe selecionada é uma classe OWIN Startup e não uma classe C# padrão. Confirme-o verificando se vê [montagem: OwinStartup(typeof({NameSpace}. Startup))] acima do espaço de nomes.
@@ -185,7 +185,7 @@ Os parâmetros que fornece nas *Opções OpenIDConnectAuthentication* servem com
 
 Para criar um novo controlador para expor métodos de inscrição e de assinatura, siga estes passos:
 
-1.  Clique com o botão direito **Add**na pasta **controladores** e selecione  >  **Add Controller**.
+1.  Clique com o botão direito **Add** na pasta **controladores** e selecione  >  **Add Controller**.
 2.  Selecione **Controlador MVC (versão .NET) – Vazio**.
 3.  Selecione **Adicionar**.
 4.  Nomeie-o **HomeController** e, em seguida, **selecione Adicionar**.
@@ -230,7 +230,7 @@ Para criar um novo controlador para expor métodos de inscrição e de assinatur
 No Visual Studio, crie uma nova visão para adicionar o botão de iniciar sessão e para exibir as informações do utilizador após a autenticação:
 
 1.  Clique com o botão direito do rato na pasta **Vistas\Início** e selecione **Adicionar Vista**.
-2.  Nomeie o **novo índice de**vista .
+2.  Nomeie o **novo índice de** vista .
 3.  Adicione o seguinte HTML, que inclui o botão de início de sessão, ao ficheiro:
 
     ```html
@@ -320,7 +320,7 @@ Devido à utilização do `[Authorize]` atributo, todos os métodos deste contro
 No Visual Studio, crie uma nova vista para apresentar as afirmações do utilizador numa página Web:
 
 1.  Clique à direita na pasta **'Visualizações',** e, em seguida, **selecione Add View**.
-2.  Nomeie o **novo índice de**vista .
+2.  Nomeie o **novo índice de** vista .
 3.  Adicione o seguinte HTML ao ficheiro:
 
     ```html
@@ -372,7 +372,7 @@ Para registar a sua aplicação e adicionar as informações de registo da aplic
 1. Estúdio Visual Aberto, e depois:
    1. no Solution Explorer, selecione o projeto e veja a janela Propriedades (se não vir uma janela do Properties, prima F4).
    1. Alterar SSL Habilitado a `True` .
-   1. Clique com o botão direito no projeto no Estúdio Visual, selecione **Propriedades**e, em seguida, selecione o separador **Web.** Na secção **Servidores,** altere a definição **de Url de projeto** para o URL **SSL**.
+   1. Clique com o botão direito no projeto no Estúdio Visual, selecione **Propriedades** e, em seguida, selecione o separador **Web.** Na secção **Servidores,** altere a definição **de Url de projeto** para o URL **SSL**.
    1. Copie o URL SSL. Irá adicionar este URL à lista de URLs de redirecionamento na lista de URLs de redirecionamento do portal de redireccionamento no passo seguinte.<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola, ou utilizando uma conta pessoal da Microsoft.
 1. Se a sua conta lhe der acesso a mais do que um inquilino, selecione a sua conta no canto superior direito e desembite a sua sessão de portal para o inquilino AD AZure que deseja.
@@ -415,7 +415,7 @@ Para obter mais informações, consulte [permissões e consentimento no ponto fi
 
 ### <a name="view-application-results"></a>Ver resultados da aplicação
 
-Depois de iniciar seduada, o utilizador é redirecionado para a página inicial do seu website. A página inicial é o URL HTTPS especificado na informação de registo da sua aplicação no Portal de Registo de Aplicações da Microsoft. A página inicial inclui uma mensagem de boas-vindas * \<user> "Olá",* um link para assinar e um link para visualizar as reclamações do utilizador. O link para as reclamações do utilizador liga-se ao controlador Claims que criou anteriormente.
+Depois de iniciar seduada, o utilizador é redirecionado para a página inicial do seu website. A página inicial é o URL HTTPS especificado na informação de registo da sua aplicação no Portal de Registo de Aplicações da Microsoft. A página inicial inclui uma mensagem de boas-vindas *\<user> "Olá",* um link para assinar e um link para visualizar as reclamações do utilizador. O link para as reclamações do utilizador liga-se ao controlador Claims que criou anteriormente.
 
 ### <a name="view-the-users-claims"></a>Ver as reclamações do utilizador
 

@@ -12,17 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 01169f3e73fb1d6ddf0ecaf4958c6121cb21c295
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 6b8a9cbfd3e7057f0d85d5f4e19fea3aa4fbe90b
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216135"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980223"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA) usando fluxo de código auth
 
-Este tutorial mostra-lhe como criar uma aplicação de página única JavaScript (SPA) que utiliza a Biblioteca de Autenticação do Microsoft (MSAL) para JavaScript v2.0 para:
+Neste tutorial, você constrói uma aplicação de página única JavaScript (SPA) que assina nos utilizadores e chama o Microsoft Graph usando o fluxo de código de autorização com PKCE. O SPA que constrói utiliza a Biblioteca de Autenticação da Microsoft (MSAL) para JavaScript v2.0.
 
+Neste tutorial:
 > [!div class="checklist"]
 > * Executar o fluxo de código de autorização OAuth 2.0 com PKCE
 > * Assine nas contas pessoais da Microsoft, bem como contas de trabalho e escola
@@ -58,7 +59,7 @@ Para continuar com o tutorial e construir a aplicação por si mesmo, passe para
 
 ## <a name="create-your-project"></a>Criar o seu projeto
 
-Uma vez instalada [Node.js, ](https://nodejs.org/en/download/) crie uma pasta para hospedar a sua aplicação, por *exemplo, msal-spa-tutorial*.
+Uma vez instalada [Node.js,](https://nodejs.org/en/download/) crie uma pasta para hospedar a sua aplicação, por *exemplo, msal-spa-tutorial*.
 
 Em seguida, implemente um pequeno servidor web [Express](https://expressjs.com/) para servir o seu *ficheiroindex.html.*
 
@@ -118,13 +119,13 @@ Você agora tem um pequeno webserver para servir o seu SPA. Após completar o re
 ```
 msal-spa-tutorial/
 ├── app
-│   ├── authConfig.js
-│   ├── authPopup.js
-│   ├── authRedirect.js
-│   ├── graphConfig.js
-│   ├── graph.js
-│   ├── index.html
-│   └── ui.js
+│   ├── authConfig.js
+│   ├── authPopup.js
+│   ├── authRedirect.js
+│   ├── graphConfig.js
+│   ├── graph.js
+│   ├── index.html
+│   └── ui.js
 └── server.js
 ```
 
@@ -132,7 +133,7 @@ msal-spa-tutorial/
 
 1. Crie uma pasta de *aplicativos* no seu diretório de projetos e nele crie um ficheiro *index.html* para o seu JavaScript SPA. Este ficheiro implementa um UI construído com o **Quadro Bootstrap 4** e importa ficheiros de script para configuração, autenticação e chamadas API.
 
-    No * ficheiroindex.html,* adicione o seguinte código:
+    No *ficheiroindex.html,* adicione o seguinte código:
 
     ```html
     <!DOCTYPE html>
@@ -619,23 +620,23 @@ Concluiu a criação da aplicação e está agora pronto para lançar o Node.js 
 
 Depois de o navegador carregar o ficheiro *index.html,* selecione **Iniciar Sôs.** É-lhe pedido que assine com o ponto final da plataforma de identidade da Microsoft:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagrama mostrando o fluxo de código de autorização numa aplicação de uma página":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Web browser exibindo diálogo de insusimento":::
 
 ### <a name="provide-consent-for-application-access"></a>Fornecer consentimento para acesso à aplicação
 
 A primeira vez que iniciar sessão na sua candidatura, é-lhe pedido que lhe conceda acesso ao seu perfil e o inscreva:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagrama mostrando o fluxo de código de autorização numa aplicação de uma página":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diálogo de conteúdo exibido no navegador web":::
 
 Se consentir com as permissões solicitadas, as aplicações web exibem o seu nome de utilizador, o que significa um login bem sucedido:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagrama mostrando o fluxo de código de autorização numa aplicação de uma página":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Resultados de um sucesso de sind in no navegador web":::
 
 ### <a name="call-the-graph-api"></a>Ligue para a API do Gráfico
 
 Depois de iniciar sessão, selecione **Ver Perfil** para visualizar as informações do perfil do utilizador devolvidas na resposta da chamada para a API do Gráfico da Microsoft:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagrama mostrando o fluxo de código de autorização numa aplicação de uma página":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Informações de perfil do Microsoft Graph exibidas no navegador":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre âmbitos e permissões delegadas
 

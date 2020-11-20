@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: c0e8743d78c8eeafb5bdeb6ade783d5e75991f91
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330993"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981005"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos HTTPS de entrada em Azure Logic Apps
 
@@ -56,8 +56,8 @@ A sua aplicação lógica mantém um pedido de entrada aberto apenas por um [tem
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **HTTP POST URL** | {nenhum} | Sim | O URL de ponto final que é gerado depois de salvar a aplicação lógica e é usado para chamar a sua app lógica |
-   | **Pedido corpo JSON Schema** | `schema` | Não | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
+   | **HTTP POST URL** | {nenhum} | Yes | O URL de ponto final que é gerado depois de salvar a aplicação lógica e é usado para chamar a sua app lógica |
+   | **Pedido corpo JSON Schema** | `schema` | No | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
    |||||
 
 1. Na caixa **de esquema JSON do Corpo de Pedido,** insira opcionalmente um esquema JSON que descreve o corpo no pedido de entrada, por exemplo:
@@ -153,7 +153,7 @@ A sua aplicação lógica mantém um pedido de entrada aberto apenas por um [tem
 
 1. Para verificar se a chamada de entrada tem um corpo de pedido que corresponde ao seu esquema especificado, siga estes passos:
 
-   1. Na barra de título do pedido, selecione o botão elipses **(...** ).
+   1. Na barra de título do pedido, selecione o botão elipses **(...**).
 
    1. Nas definições do gatilho, ligue **a Validação de Schema** e selecione **'Fazer'**
 
@@ -163,8 +163,8 @@ A sua aplicação lógica mantém um pedido de entrada aberto apenas por um [tem
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **Método** | `method` | Não | O método que o pedido de entrada deve usar para ligar para a aplicação lógica |
-   | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que o URL de ponta da aplicação lógica pode aceitar |
+   | **Método** | `method` | No | O método que o pedido de entrada deve usar para ligar para a aplicação lógica |
+   | **Caminho relativo** | `relativePath` | No | O caminho relativo para o parâmetro que o URL de ponta da aplicação lógica pode aceitar |
    |||||
 
    Este exemplo adiciona a propriedade **Method:**
@@ -190,9 +190,9 @@ A sua aplicação lógica mantém um pedido de entrada aberto apenas por um [tem
    > [!NOTE]
    > Se pretender incluir o símbolo de haxixe ou libra **#** () no URI ao escoar uma chamada para o gatilho Pedido, utilize esta versão codificada: `%25%23`
 
-1. Para ativar a sua aplicação lógica, envie um HTTP POST para o URL gerado.
+1. Para testar a sua aplicação lógica, envie um pedido HTTP para o URL gerado.
 
-   Por exemplo, pode utilizar uma ferramenta como [o Carteiro](https://www.getpostman.com/) para enviar o HTTP POST. Para obter mais informações sobre a definição de JSON subjacente do gatilho e como chamar este gatilho, consulte estes tópicos, [Solicite tipo de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Chamada, gatilho ou fluxos de trabalho de ninho com pontos finais HTTP em Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+   Por exemplo, pode utilizar uma ferramenta como [o Carteiro](https://www.getpostman.com/) para enviar o pedido HTTP. Para obter mais informações sobre a definição de JSON subjacente do gatilho e como chamar este gatilho, consulte estes tópicos, [Solicite tipo de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Chamada, gatilho ou fluxos de trabalho de ninho com pontos finais HTTP em Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 Para mais informações sobre segurança, autorização e encriptação para chamadas de entrada para a sua aplicação lógica, como [a Transport Layer Security (TLS),](https://en.wikipedia.org/wiki/Transport_Layer_Security)anteriormente conhecida como Secure Sockets Layer (SSL), [Azure Ative Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), expondo a sua aplicação lógica com a Azure API Management, ou restringindo os endereços IP que originam chamadas de entrada, ver acesso seguro e dados - Acesso a chamadas de [entrada para pedidos baseados em gatilhos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
@@ -255,9 +255,9 @@ Quando utilizar o gatilho 'Pedido' para lidar com pedidos de entrada, pode model
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **Código de Estado** | `statusCode` | Sim | O código de estado para devolver na resposta |
-   | **Cabeçalhos** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
-   | **Corpo** | `body` | Não | O corpo de resposta |
+   | **Código de Estado** | `statusCode` | Yes | O código de estado para devolver na resposta |
+   | **Cabeçalhos** | `headers` | No | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
+   | **Corpo** | `body` | No | O corpo de resposta |
    |||||
 
 1. Para especificar propriedades adicionais, como um esquema JSON para o corpo de resposta, abra a nova lista **de parâmetros add** e selecione os parâmetros que pretende adicionar.

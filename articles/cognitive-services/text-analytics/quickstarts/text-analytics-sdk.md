@@ -13,12 +13,12 @@ ms.author: aahi
 keywords: mineração de texto, análise de sentimento, análise de texto
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 6d69c47c4833247ac259f9dcc166d7ab2696c117
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5a0856df71f87e49c1a7d627ba92419352c796d5
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977824"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980952"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Quickstart: Use a biblioteca de clientes Text Analytics
 
@@ -38,6 +38,7 @@ Utilize a biblioteca de clientes Text Analytics para realizar:
 > * A versão mais recente estável da API text Analytics é `3.0` .
 >    * Certifique-se de que só segue as instruções da versão que está a utilizar.
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Para cenários de produção, recomendamos a utilização dos métodos assíncronos em lote para desempenho e escalabilidade. Consulte a documentação de referência abaixo.
+> * Se quiser utilizar o Text Analytics para operações de saúde ou assíncronas, consulte os exemplos no Github para [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) ou [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
@@ -50,6 +51,7 @@ Utilize a biblioteca de clientes Text Analytics para realizar:
 > [!IMPORTANT]
 > * A versão mais recente estável da API text Analytics é `3.0` .
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Para cenários de produção, recomendamos a utilização dos métodos assíncronos em lote para desempenho e escalabilidade. Consulte a documentação de referência abaixo.
+Se quiser utilizar o Text Analytics para operações de saúde ou assíncronas, consulte os exemplos no Github para [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) ou [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
@@ -72,7 +74,7 @@ Utilize a biblioteca de clientes Text Analytics para realizar:
 > [!IMPORTANT]
 > * A versão mais recente estável da API text Analytics é `3.0` .
 >    * Certifique-se de que só segue as instruções da versão que está a utilizar.
-> * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Para cenários de produção, recomendamos a utilização dos métodos assíncronos em lote para desempenho e escalabilidade. Consulte a documentação de referência abaixo. 
+> * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Para cenários de produção, recomendamos a utilização dos métodos assíncronos em lote para desempenho e escalabilidade. Consulte a documentação de referência abaixo. Se quiser utilizar o Text Analytics para operações de saúde ou assíncronas, consulte os exemplos no Github para [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) ou [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 [!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
@@ -84,14 +86,14 @@ Utilize a biblioteca de clientes Text Analytics para realizar:
 
 Se clicou neste separador, provavelmente não viu um arranque rápido na sua linguagem de programação favorita. Não se preocupe, temos mais rapidez disponíveis. Utilize a tabela para encontrar a amostra certa para a sua linguagem de programação.
 
-| Linguagem | Versão disponível | 
+| Idioma | Versão disponível | 
 |----------|------------------------|
 | Ruby     | [Versão 2.1](ruby-sdk.md) | 
 | Ir       | [Versão 2.1](go-sdk.md) | 
 
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
@@ -104,7 +106,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 > [Explore uma solução](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
 * [Descrição geral da Análise de Texto](../overview.md)
-* [Análise de sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Análise de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Reconhecimento de entidades](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Detetar linguagem](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Reconhecimento linguístico](../how-tos/text-analytics-how-to-language-detection.md)

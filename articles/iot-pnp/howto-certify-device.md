@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7aa84336a3d71349c127ad15a90af98ffe2133fe
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748475"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980240"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Como certificar dispositivos IoT Plug and Play
 
@@ -44,6 +44,10 @@ Para satisfazer os requisitos de certificação, o seu dispositivo deve:
 - Publique o modelo, e todas as interfaces necessárias, no [Repositório de Modelo Público Azure IoT](https://devicemodels.azureiotsolutions.com/)
 - Envie o ID do modelo durante o [registo DPS](concepts-developer-guide-device-csharp.md#dps-payload) na carga útil de provisionamento DPS.
 - Anuncie o ID do modelo durante a [ligação MQTT](concepts-developer-guide-device-csharp.md#model-id-announcement).
+- Todos os modelos do dispositivo devem ser compatíveis com [a Azure IoT Central](https://aka.ms/pnp-iotc-getstarted).
+
+> [!NOTE]
+> Atualmente, a Azure IoT Central não suporta totalmente os tipos de dados **Array** e **Geospatial** DTDL.
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Testar com a CLI da Extensão do Azure IoT
 

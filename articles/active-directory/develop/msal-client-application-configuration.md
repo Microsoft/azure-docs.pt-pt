@@ -9,51 +9,55 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/27/2019
+ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 910007109e4751cf2fd509d1d568c66ae2a22cd2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9ec8a5fe5de751e40ebaa17629ff72c5f6b2adca
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200836"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979992"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicações
 
-No seu código, inicializa uma nova aplicação de cliente público ou confidencial (ou user-agent para MSAL.js) para autenticar e adquirir fichas. Pode definir uma série de opções de configuração quando rubricar a aplicação do cliente na Microsoft Authentication Library (MSAL). Estas opções enquadram-se em dois grupos:
+Para autenticar e adquirir fichas, inicializa uma nova aplicação de cliente pública ou confidencial no seu código. Pode definir várias opções de configuração quando rubricar a aplicação do cliente na Biblioteca de Autenticação do Microsoft (MSAL). Estas opções enquadram-se em dois grupos:
 
 - Opções de inscrição, incluindo:
-    - [Autoridade](#authority) (composta pela [instância](#cloud-instance) do fornecedor de identidade e [público](#application-audience) de inscrição para a app, e possivelmente a identificação do inquilino).
-    - [Identificação do cliente.](#client-id)
-    - [Redirecionar URI](#redirect-uri).
-    - [Segredo do cliente](#client-secret) (para aplicações confidenciais de clientes).
-- [Opções de registo](#logging), incluindo o nível de registo, o controlo de dados pessoais e o nome do componente utilizando a biblioteca.
+  - [Autoridade](#authority) (composta pela [instância](#cloud-instance) do fornecedor de identidade e [público](#application-audience) de inscrição para a app, e possivelmente a identificação do inquilino)
+  - [ID do cliente](#client-id)
+  - [URI de Redirecionamento](#redirect-uri)
+  - [Segredo do cliente](#client-secret) (para aplicações confidenciais de clientes)
+- [Opções de registo](#logging), incluindo o nível de registo, o controlo de dados pessoais e o nome do componente que utiliza a biblioteca
 
 ## <a name="authority"></a>Autoridade
 
-A autoridade é uma URL que indica um diretório do qual a MSAL pode solicitar fichas. As autoridades comuns são:
+A autoridade é uma URL que indica um diretório do qual a MSAL pode solicitar fichas.
 
-- https \: //login.microsoftonline.com/ \<tenant\> /, onde &lt; o inquilino é o inquilino &gt; ID do inquilino Azure Ative Directory (Azure AD) ou um domínio associado a este inquilino AD Azure. Usado apenas para assinar em utilizadores de uma organização específica.
-- https \: //login.microsoftonline.com/common/. Costumava assinar em utilizadores com contas de trabalho e escola ou contas pessoais da Microsoft.
-- https \: //login.microsoftonline.com/organizations/. Costumava assinar em utilizadores com contas de trabalho e escola.
-- https \: //login.microsoftonline.com/consumers/. Usado para assinar em utilizadores apenas com contas pessoais da Microsoft (anteriormente conhecidas como contas de ID do Windows Live).
+As autoridades comuns são:
 
-A definição de autoridade tem de ser consistente com o que está declarado no portal de registo de candidaturas.
+| URLs de autoridade comum | Quando utilizar |
+|--|--|
+| `https://login.microsoftonline.com/<tenant>/` | Inscreva-se apenas nos utilizadores de uma organização específica. O `<tenant>` url é o iD do inquilino do Azure Ative Directory (Azure AD) inquilino (um GUID), ou seu domínio de inquilino. |
+| `https://login.microsoftonline.com/common/` | Inscreva-se em utilizadores com contas de trabalho e escola ou contas pessoais da Microsoft. |
+| `https://login.microsoftonline.com/organizations/` | Inscreva-se nos utilizadores com contas de trabalho e escola. |
+| `https://login.microsoftonline.com/consumers/` | Inscreva-se em utilizadores apenas com contas pessoais da Microsoft (MSA). |
 
-A URL da autoridade é composta pelo exemplo e pelo público.
+A autoridade que especifica no seu código tem de ser consistente com os **tipos de conta suportado** que especificou para a aplicação nos **registos** da App no portal Azure.
 
 A autoridade pode ser:
+
 - Uma autoridade de nuvem Azure.
 - Uma autoridade Azure AD B2C. Consulte [as especificidades do B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
 - Uma autoridade de Serviços da Federação de Diretórios Ativos (AD FS). Consulte [o suporte da AD FS](https://aka.ms/msal-net-adfs-support).
 
 As autoridades da nuvem AZure AD têm duas partes:
+
 - A instância do fornecedor *de* identidade
 - O *público* de inscrição para a app
 
-O caso e o público podem ser concatenados e fornecidos como URL de autoridade. Em versões de MSAL.NET mais cedo que o MSAL 3. *x,* você tinha que compor a autoridade por si mesmo, com base na nuvem que queria atingir e o público de inscrição.  Este diagrama mostra como o URL da autoridade é composto:
+O caso e o público podem ser concatenados e fornecidos como URL de autoridade. Este diagrama mostra como o URL da autoridade é composto:
 
 ![Como a URL de autoridade é composta](media/msal-client-application-configuration/authority.png)
 
@@ -68,20 +72,22 @@ Se não especificar um caso, a sua aplicação terá como alvo a instância de n
 ## <a name="application-audience"></a>Público de candidaturas
 
 O público de inscrição depende das necessidades do negócio para a sua aplicação:
+
 - Se você é um desenvolvedor de linha de negócios (LOB), você provavelmente irá produzir uma aplicação de inquilino único que será usada apenas na sua organização. Nesse caso, você precisa especificar a organização, quer pelo seu ID de inquilino (o ID do seu exemplo AD Azure) ou por um nome de domínio associado à instância AD Azure.
 - Se você é um ISV, você pode querer assinar em utilizadores com o seu trabalho e contas escolares em qualquer organização ou em algumas organizações (app multitenant). Mas também pode querer que os utilizadores entrem com as suas contas pessoais da Microsoft.
 
 ### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Como especificar o público no seu código/configuração
 
 Utilizando o MSAL no seu código, especifique o público utilizando um dos seguintes valores:
+
 - A enumeração do público da autoridade AD do Azure
 - A iD do inquilino, que pode ser:
   - Um GUID (o ID do seu exemplo AD Azure), para aplicações de inquilino único
   - Um nome de domínio associado à sua instância AD Azure (também para aplicações de inquilino único)
 - Um desses espaços reservados como um inquilino ID no lugar da lista de audiências da autoridade AD Azure:
-    - `organizations` para uma aplicação multitenant
-    - `consumers` para assinar nos utilizadores apenas com as suas contas pessoais
-    - `common` para assinar nos utilizadores com o seu trabalho e contas escolares ou as suas contas pessoais da Microsoft
+  - `organizations` para uma aplicação multitenant
+  - `consumers` para assinar nos utilizadores apenas com as suas contas pessoais
+  - `common` para assinar nos utilizadores com o seu trabalho e contas escolares ou as suas contas pessoais da Microsoft
 
 A MSAL lançará uma exceção significativa se especificar tanto o público da autoridade AD AZure como o ID do inquilino.
 
@@ -92,6 +98,7 @@ Se não especificar um público, a sua aplicação terá como alvo a Azure AD e 
 O público eficaz para a sua aplicação será o mínimo (se houver um cruzamento) do público que definiu na sua app e do público especificado no registo da aplicação. De facto, a experiência de [registos](https://aka.ms/appregistrations) da App permite especificar o público (os tipos de conta suportados) para a aplicação. Para obter mais informações, consulte [Quickstart: Registe uma aplicação com a plataforma de identidade microsoft](quickstart-register-app.md).
 
 Atualmente, a única maneira de obter uma aplicação para assinar em utilizadores apenas com contas pessoais da Microsoft é configurar ambas as definições:
+
 - Desaprote o público de registo de aplicações para `Work and school accounts and personal accounts` .
 - Desa estade o público no seu código/configuração para `AadAuthorityAudience.PersonalMicrosoftAccount` (ou `TenantID` ="consumidores").
 
@@ -106,13 +113,14 @@ O URI redirecionado é o URI para o qual o fornecedor de identidade enviará os 
 ### <a name="redirect-uri-for-public-client-apps"></a>Redirecionar URI para aplicações de clientes públicos
 
 Se você é um desenvolvedor de aplicativos de cliente público que está usando MSAL:
+
 - Você gostaria de usar `.WithDefaultRedirectUri()` em aplicações de desktop ou UWP (MSAL.NET 4.1+). Este método definirá a propriedade uri redirecionado da aplicação do cliente público para o uri recomendado padrão para aplicações de cliente público.
 
-  Plataforma  | URI de Redirecionamento
-  ---------  | --------------
-  Aplicativo de ambiente de trabalho (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
-  UWP | valor de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` . Isto permite ao SSO com o navegador, definindo o valor para o resultado do WebAuthenticationBroker.GetCurrentApplicationCallbackUri() que precisa de registar
-  .NET Core | `https://localhost`. Isto permite ao utilizador utilizar o navegador do sistema para autenticação interativa uma vez que .NET Core não tem um UI para a vista web incorporada no momento.
+  | Plataforma | URI de Redirecionamento |
+  |--|--|
+  | Aplicativo de ambiente de trabalho (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` |
+  | UWP | valor de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` . Isto permite ao SSO com o navegador, definindo o valor para o resultado do WebAuthenticationBroker.GetCurrentApplicationCallbackUri() que precisa de registar |
+  | .NET Core | `https://localhost`. Isto permite ao utilizador utilizar o navegador do sistema para autenticação interativa uma vez que .NET Core não tem um UI para a vista web incorporada no momento. |
 
 - Não precisa de adicionar um URI de redirecionamento se estiver a construir uma aplicação Xamarin Android e iOS que não suporta corretor (o URI de redirecionamento está automaticamente definido `msal{ClientId}://auth` para Xamarin Android e iOS
 
@@ -130,7 +138,7 @@ Para mais detalhes do Android, consulte [o auth Brokered no Android.](msal-andro
 
 ### <a name="redirect-uri-for-confidential-client-apps"></a>Redirecionar URI para aplicações confidenciais de clientes
 
-Para aplicações web, o URI de redirecionamento (ou resposta URI) é o URI que a Azure AD utilizará para enviar o símbolo de volta para a aplicação. Este URI pode ser o URL da aplicação web/web API se a aplicação confidencial for uma delas. O URI de redirecionamento precisa de ser registado no registo de aplicações. Este registo é especialmente importante quando implementa uma aplicação que inicialmente testou localmente. Em seguida, é necessário adicionar o URL de resposta da aplicação implementada no portal de registo de aplicações.
+Para aplicações web, o URI de redirecionamento (ou URL de resposta) é o URI que a Azure AD utilizará para enviar o símbolo de volta para a aplicação. Este URI pode ser o URL da aplicação web/web API se a aplicação confidencial for uma delas. O URI de redirecionamento precisa de ser registado no registo de aplicações. Este registo é especialmente importante quando implementa uma aplicação que inicialmente testou localmente. Em seguida, é necessário adicionar o URL de resposta da aplicação implementada no portal de registo de aplicações.
 
 Para aplicações daemon, você não precisa especificar um URI redirecionado.
 
@@ -144,5 +152,4 @@ As outras opções de configuração permitem registar e resolver problemas. Con
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [instantânear as aplicações do cliente utilizando MSAL.NET](msal-net-initializing-client-applications.md).
-Saiba como [instantânear as aplicações do cliente utilizando MSAL.js](msal-js-initializing-client-applications.md).
+Saiba como [instantânear as aplicações do cliente utilizando aplicações de MSAL.NET](msal-net-initializing-client-applications.md) e [instantaneamente do cliente utilizando MSAL.js](msal-js-initializing-client-applications.md).

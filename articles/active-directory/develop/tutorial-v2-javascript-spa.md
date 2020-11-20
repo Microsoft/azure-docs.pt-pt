@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ded54628a307f3cf4441e804f7f1025a0e943b51
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825907"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979951"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
-Neste tutorial, você constrói uma aplicação de uma página (SPA) no JavaScript que pode iniciar sôs em utilizadores com contas pessoais da Microsoft ou contas de trabalho e escola, e depois adquirir um token de acesso para ligar para a API do Gráfico microsoft.
+Neste tutorial, você constrói uma aplicação de página única JavaScript (SPA) que assina nos utilizadores e chama o Microsoft Graph usando o fluxo implícito. O SPA que constrói utiliza a Biblioteca de Autenticação da Microsoft (MSAL) para JavaScript v1.0.
 
 Neste tutorial:
 
@@ -72,7 +72,7 @@ Certifique-se de que [ temNode.js](https://nodejs.org/en/download/) instalada e,
    npm install morgan --save
    ```
 
-1. Agora, crie um ficheiro .js nomeado `server.js` e, em seguida, adicione o seguinte código:
+1. Agora, crie um ficheiro .js nomeado `server.js` , e adicione o seguinte código:
 
    ```JavaScript
    const express = require('express');
@@ -291,7 +291,7 @@ Antes de prosseguir com a autenticação, registe o seu pedido no **Diretório A
 
 ### <a name="configure-your-javascript-spa"></a>Configure o seu JavaScript SPA
 
-Crie um novo ficheiro .js `authConfig.js` nomeado, que conterá os seus parâmetros de configuração para autenticação, e adicione o seguinte código:
+Crie um novo ficheiro .js nomeado `authConfig.js` , que conterá os seus parâmetros de configuração para autenticação, e adicione o seguinte código:
 
 ```javascript
   const msalConfig = {
@@ -317,7 +317,7 @@ Crie um novo ficheiro .js `authConfig.js` nomeado, que conterá os seus parâmet
   };
 ```
 
- Em que:
+ Onde:
  - *\<Enter_the_Application_Id_Here>* é o **ID de Aplicação (cliente)** para a aplicação que registou.
  - *\<Enter_the_Cloud_Instance_Id_Here>* é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, basta *https://login.microsoftonline.com* entrar. Para nuvens **nacionais** (por exemplo, China), ver [nuvens nacionais.](./authentication-national-cloud.md)
  - *\<Enter_the_Tenant_info_here>* é definida como uma das seguintes opções:
@@ -412,7 +412,7 @@ O SPA gerado por este guia chama `acquireTokenSilent` e/ou `acquireTokenPopup` p
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Após a iniciação inicial, não pretende pedir aos utilizadores que reauttenenássem sempre que precisam de pedir um token para aceder a um recurso. Assim, *adquirir oTokenSilent* deve ser usado na maior parte do tempo para adquirir fichas. Existem situações, no entanto, em que é necessário forçar os utilizadores a interagirem com o ponto final da plataforma de identidade da Microsoft. Alguns exemplos:
+Após a iniciação inicial, não pretende pedir aos utilizadores que reauttenenássem sempre que precisam de pedir um token para aceder a um recurso. Assim, *adquirir oTokenSilent* deve ser usado na maior parte do tempo para adquirir fichas. Existem situações, no entanto, em que é necessário forçar os utilizadores a interagirem com o ponto final da plataforma de identidade da Microsoft. Os exemplos incluem:
 
 - Os utilizadores precisam de reentrar nas suas credenciais porque a palavra-passe expirou.
 - A sua aplicação está a solicitar o acesso a um recurso e precisa do consentimento do utilizador.
@@ -433,7 +433,7 @@ O `acquireTokenSilent` método lida com a aquisição e renovação de símbolos
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-acquired"></a>Ligue para a Microsoft Graph API usando o token que acabou de adquirir
 
-1. Em primeiro lugar, crie um ficheiro .js chamado `graphConfig.js` , que irá armazenar os seus pontos finais REST. Adicione o seguinte código:
+1. Em primeiro lugar, crie um ficheiro .js denominado `graphConfig.js` , que irá armazenar os seus pontos finais REST. Adicione o seguinte código:
 
    ```JavaScript
       const graphConfig = {
@@ -442,7 +442,7 @@ O `acquireTokenSilent` método lida com a aquisição e renovação de símbolos
       };
    ```
 
-   Em que:
+   Onde:
    - *\<Enter_the_Graph_Endpoint_Here>* é o caso da MS Graph API. Para o ponto final global da MS Graph API, basta substituir esta cadeia por `https://graph.microsoft.com` . Para implementações em nuvem nacional, consulte a [Documentação da API do Gráfico.](/graph/deployments)
 
 1. Em seguida, crie um ficheiro .js nomeado `graph.js` , que fará uma chamada REST para a Microsoft Graph API, e adicione o seguinte código:
@@ -513,4 +513,3 @@ Aprofundar o desenvolvimento de aplicações de uma página única (SPA) na plat
 
 > [!div class="nextstepaction"]
 > [Cenário: Aplicação de página única](scenario-spa-overview.md)
-

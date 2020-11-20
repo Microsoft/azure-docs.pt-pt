@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: c93704130e150a7ca26144d4895e82756657fae2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: c4c7d021c7c3a5a32d537a50fa45449fdee7e817
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096254"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979934"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de página única angular
 
-Este tutorial acompanha-o através da construção de uma aplicação de página única angular (SPA) que pode assinar em utilizadores com contas pessoais da Microsoft e contas de trabalho ou escola e ligar para a Microsoft Graph API em seu nome.
+Neste tutorial, você constrói uma aplicação angular de uma página única (SPA) que assina nos utilizadores e chama a API do Microsoft Graph.
 
 Neste tutorial:
 
@@ -49,7 +49,7 @@ Neste cenário, após a indicação de um utilizador, é solicitado um token de 
 
 Este tutorial utiliza a seguinte biblioteca:
 
-|Biblioteca|Description|
+|Biblioteca|Descrição|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticação da Microsoft para invólucro angular JavaScript|
 

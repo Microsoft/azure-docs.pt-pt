@@ -3,18 +3,21 @@ title: Entrega e reagem à grelha de eventos Azure
 description: Descreve como a Azure Event Grid fornece eventos e como lida com mensagens não entregues.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042960"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981107"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e redação de mensagem da Grelha de Eventos
 
 Este artigo descreve como a Azure Event Grid lida com eventos quando a entrega não é reconhecida.
 
-A Grade de Eventos proporciona uma entrega duradoura. Entrega cada mensagem pelo menos uma vez por cada subscrição. Os eventos são enviados para o ponto final registado de cada subscrição imediatamente. Se um ponto final não reconhecer a receção de um evento, a Event Grid retira a entrega do evento.
+A Grade de Eventos proporciona uma entrega duradoura. Entrega cada mensagem **pelo menos uma vez** por cada subscrição. Os eventos são enviados para o ponto final registado de cada subscrição imediatamente. Se um ponto final não reconhecer a receção de um evento, a Event Grid retira a entrega do evento.
+
+> [!NOTE]
+> A Grade de Eventos não garante a encomenda para entrega de eventos, pelo que o assinante pode recebê-los fora de encomenda. 
 
 ## <a name="batched-event-delivery"></a>Entrega de eventos em lote
 
