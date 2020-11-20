@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 93d230656fd7ef34e76a143fb3186d23f8d3afed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34bbf4d723e46663efe77560245db74d9dea1fc4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766253"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957916"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Utilize o resumo do dispositivo no serviço StorSimple Device Manager
 
@@ -78,10 +78,10 @@ A área essencial captura algumas das propriedades importantes, tais como, o est
 
      Neste gráfico, pode visualizar métricas para o armazenamento primário total (a quantidade de dados escritos pelos anfitriões do seu dispositivo) e o armazenamento total de nuvem consumido pelo seu dispositivo durante um período de tempo.
   
-     Neste contexto, o *armazenamento primário* refere-se à quantidade total de dados escritos pelo hospedeiro, e pode ser discriminado por tipo de volume: o armazenamento *primário hierárquico* inclui dados armazenados localmente e dados hierárquicos na nuvem. *O armazenamento primário localmente fixado* inclui apenas dados armazenados localmente. *O armazenamento*em nuvem , por outro lado, é uma medição da quantidade total de dados armazenados na nuvem. Este armazenamento inclui dados hierárquicos e cópias de segurança. Os dados armazenados na nuvem são desduplicados e comprimidos, enquanto o armazenamento primário indica a quantidade de armazenamento utilizada antes de os dados serem desativados e comprimidos. (Pode comparar estes dois números para ter uma ideia da taxa de compressão.) Para o armazenamento primário e em nuvem, as quantidades mostradas baseiam-se na frequência de rastreio que configura. Por exemplo, se escolher uma frequência de uma semana, o gráfico mostra dados para cada dia na semana anterior.
+     Neste contexto, o *armazenamento primário* refere-se à quantidade total de dados escritos pelo hospedeiro, e pode ser discriminado por tipo de volume: o armazenamento *primário hierárquico* inclui dados armazenados localmente e dados hierárquicos na nuvem. *O armazenamento primário localmente fixado* inclui apenas dados armazenados localmente. *O armazenamento* em nuvem , por outro lado, é uma medição da quantidade total de dados armazenados na nuvem. Este armazenamento inclui dados hierárquicos e cópias de segurança. Os dados armazenados na nuvem são desduplicados e comprimidos, enquanto o armazenamento primário indica a quantidade de armazenamento utilizada antes de os dados serem desativados e comprimidos. (Pode comparar estes dois números para ter uma ideia da taxa de compressão.) Para o armazenamento primário e em nuvem, as quantidades mostradas baseiam-se na frequência de rastreio que configura. Por exemplo, se escolher uma frequência de uma semana, o gráfico mostra dados para cada dia na semana anterior.
 
      Para ver a quantidade de armazenamento em nuvem consumida ao longo do tempo, selecione a opção **CLOUD STORAGE USED.** Para ver o armazenamento total que foi escrito pelo anfitrião, selecione as opções **DE ARMAZENAMENTO TIERED PRIMÁRIO UTILIZADAs** e **DE ARMAZENAMENTO PRIMÁRIO FIXADO LOCALMENTE USADO.** 
-     Para obter mais informações, consulte [o serviço StorSimple Device Manager para monitorizar o seu dispositivo StorSimple](storsimple-monitor-device.md).
+     Para obter mais informações, consulte [o serviço StorSimple Device Manager para monitorizar o seu dispositivo StorSimple](./storsimple-8000-monitor-device.md).
 
 
 * O azulejo **da Capacidade** exibe o armazenamento primário que é a provisionado e permanece em todo o dispositivo em relação ao armazenamento total disponível para o mesmo. **O Provisionado** refere-se à quantidade de armazenamento preparada e alocada para utilização, **o Restante** refere-se à capacidade remanescente que pode ser alocado em todo este dispositivo. 
@@ -96,4 +96,3 @@ A área essencial captura algumas das propriedades importantes, tais como, o est
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre a lâmina de resumo do [serviço StorSimple](storsimple-8000-service-dashboard.md).
 * Saiba mais sobre [a utilização do serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

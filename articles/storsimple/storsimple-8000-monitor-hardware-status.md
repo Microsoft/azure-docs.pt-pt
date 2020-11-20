@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 8faf4ca8e27b280a60750d5f349ab0282ed593bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b750659bf22e856ee8ad7368e3fea64dd7245df
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999501"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960364"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Utilize o serviço StorSimple Device Manager para monitorizar os componentes e o estado do hardware
 
@@ -62,11 +62,11 @@ Execute os seguintes passos para visualizar o estado de hardware de um component
    * **Exclamação vermelha** – Denota um componente falhado que tem um estado **de Falha.**
    * **Branco com texto preto** – Denota um componente que não está presente.
    
-   A imagem que se segue mostra um dispositivo que tem componentes no estado **OK,** **Warning**e **Fail.**
+   A imagem que se segue mostra um dispositivo que tem componentes no estado **OK,** **Warning** e **Fail.**
        
    ![Screenshot mostrando três componentes na secção de componentes de hardware: um em estado de boa saúde, um em estado de falha e outro em estado de aviso.](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
 
-   Expandindo a lista de **componentes partilhados, podemos**ver que o NVRAM e o cluster estão degradados.
+   Expandindo a lista de **componentes partilhados, podemos** ver que o NVRAM e o cluster estão degradados.
 
    ![Screenshot mostrando o item de Componentes Partilhados selecionado. Na lâmina adjacente, o N V R A M e o cluster estão em estado de alerta.](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
 
@@ -74,25 +74,25 @@ Execute os seguintes passos para visualizar o estado de hardware de um component
 
    ![Screenshot mostrando o item de controlador 1 componentes selecionados. Na lâmina adjacente, o nó do cluster está em estado de falha.](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
 
-4. Se encontrar um componente que não esteja em estado **saudável,** contacte o Microsoft Support. Se os alertas estiverem ativados no seu dispositivo, receberá um alerta de e-mail. Se precisar de substituir um componente de hardware falhado, consulte a [substituição do componente de hardware StorSimple](storsimple-hardware-component-replacement.md).
+4. Se encontrar um componente que não esteja em estado **saudável,** contacte o Microsoft Support. Se os alertas estiverem ativados no seu dispositivo, receberá um alerta de e-mail. Se precisar de substituir um componente de hardware falhado, consulte a [substituição do componente de hardware StorSimple](./storsimple-8000-hardware-component-replacement.md).
 
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Lista de componentes para o recinto primário do dispositivo StorSimple
 A tabela que se segue descreve os componentes físicos e lógicos contidos no recinto primário (presentes em 8100 e 8600) do seu dispositivo StorSimple no local.
 
 | Componente | Módulo | Tipo | Localização | Unidade substituível de campo (FRU)? | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| Unidade na ranhura [0-11] |Unidades de disco |Físico |Partilhado |Sim |Uma linha é apresentada para cada uma das unidades SSD ou HDD no recinto primário. |
-| Sensor de temperatura ambiente |Recinto |Físico |Partilhado |Não |Mede a temperatura dentro do chassis. |
-| Sensor de temperatura do meio do plano |Recinto |Físico |Partilhado |Não |Mede a temperatura do meio do avião. |
-| Alarme audível |Recinto |Físico |Partilhado |Não |Indica se o subsistema de alarme sonoro dentro do chassis está funcional. |
-| Recinto |Recinto |Físico |Partilhado |Sim |Indica a presença de um chassis. |
-| Definições de recinto |Recinto |Físico |Partilhado |Não |Refere-se ao painel frontal do chassis. |
-| Sensores de tensão de linha |PCM |Físico |Partilhado |Não |Vários sensores de tensão de linha têm o seu estado apresentado, o que indica se a tensão medida está dentro da tolerância. |
-| Sensores de corrente de linha |PCM |Físico |Partilhado |Não |Numerosos sensores de corrente de linha têm o seu estado apresentado, o que indica se a corrente medida está dentro da tolerância. |
-| Sensores de temperatura no PCM |PCM |Físico |Partilhado |Não |Numerosos sensores de temperatura, como os sensores de entrada e hotspot, têm o seu estado apresentado, indicando se a temperatura medida está dentro da tolerância. |
-| Fonte de alimentação [0-1] |PCM |Físico |Partilhado |Sim |É apresentada uma linha para cada uma das fontes de alimentação dos dois PCMs localizados na parte de trás do dispositivo. |
-| Arrefecimento [0-1] |PCM |Físico |Partilhado |Sim |É apresentada uma linha para cada um dos quatro ventiladores de arrefecimento que residem nos dois PCMs. |
-| Bateria [0-1] |PCM |Físico |Partilhado |Sim |É apresentada uma linha para cada um dos módulos de bateria de reserva que estão sentados no PCM. |
+| Unidade na ranhura [0-11] |Unidades de disco |Físico |Partilhado |Yes |Uma linha é apresentada para cada uma das unidades SSD ou HDD no recinto primário. |
+| Sensor de temperatura ambiente |Recinto |Físico |Partilhado |No |Mede a temperatura dentro do chassis. |
+| Sensor de temperatura do meio do plano |Recinto |Físico |Partilhado |No |Mede a temperatura do meio do avião. |
+| Alarme audível |Recinto |Físico |Partilhado |No |Indica se o subsistema de alarme sonoro dentro do chassis está funcional. |
+| Recinto |Recinto |Físico |Partilhado |Yes |Indica a presença de um chassis. |
+| Definições de recinto |Recinto |Físico |Partilhado |No |Refere-se ao painel frontal do chassis. |
+| Sensores de tensão de linha |PCM |Físico |Partilhado |No |Vários sensores de tensão de linha têm o seu estado apresentado, o que indica se a tensão medida está dentro da tolerância. |
+| Sensores de corrente de linha |PCM |Físico |Partilhado |No |Numerosos sensores de corrente de linha têm o seu estado apresentado, o que indica se a corrente medida está dentro da tolerância. |
+| Sensores de temperatura no PCM |PCM |Físico |Partilhado |No |Numerosos sensores de temperatura, como os sensores de entrada e hotspot, têm o seu estado apresentado, indicando se a temperatura medida está dentro da tolerância. |
+| Fonte de alimentação [0-1] |PCM |Físico |Partilhado |Yes |É apresentada uma linha para cada uma das fontes de alimentação dos dois PCMs localizados na parte de trás do dispositivo. |
+| Arrefecimento [0-1] |PCM |Físico |Partilhado |Yes |É apresentada uma linha para cada um dos quatro ventiladores de arrefecimento que residem nos dois PCMs. |
+| Bateria [0-1] |PCM |Físico |Partilhado |Yes |É apresentada uma linha para cada um dos módulos de bateria de reserva que estão sentados no PCM. |
 | Metis |N/D |Lógico |Partilhado |N/D |Exibe o estado das pilhas: se precisam de ser carregadas e estão a aproximar-se do fim da vida. |
 | Cluster |N/D |Lógico |Partilhado |N/D |Exibe o estado do cluster que é criado entre os dois módulos controladores integrados. |
 | Nó de cluster |N/D |Lógico |Partilhado |N/D |Indica o estado do controlador como parte do aglomerado. |
@@ -105,47 +105,46 @@ A tabela que se segue descreve os componentes físicos e lógicos contidos no re
 | Espaço SSD NVRAM |N/D |Lógico |Partilhado |N/D |O espaço de armazenamento na piscina de armazenamento SSD que é dedicado à lógica NVRAM. |
 | Piscina de armazenamento HDD |N/D |Lógico |Partilhado |N/D |Exibe o estado da piscina de armazenamento lógica que é criada a partir de HDDs do dispositivo. |
 | Piscina de armazenamento SSD |N/D |Lógico |Partilhado |N/D |Exibe o estado da piscina de armazenamento lógica que é criada a partir de SSDs do dispositivo. |
-| Controlador [0-1] [estado] |I/O |Físico |Controlador |Sim |Exibe o estado do controlador e se está em modo ativo ou em modo de espera dentro do chassis. |
-| Sensores de temperatura no controlador |I/O |Físico |Controlador |Não |Numerosos sensores de temperatura, tais como módulo de E/S, temperatura CPU, sensores DIMM e PCIE têm o seu estado apresentado, o que indica se a temperatura encontrada está ou não dentro da tolerância. |
-| Expansor SAS |I/O |Físico |Controlador |Não |Indica o estado do expansor SCSI (SAS) em série, que é utilizado para ligar o armazenamento integrado ao controlador. |
-| Conector SAS [0-1] |I/O |Físico |Controlador |Não |Indica o estado de cada conector SAS, que é utilizado para ligar o armazenamento integrado ao expansor SAS. |
-| Interligação do plano médio SBB |I/O |Físico |Controlador |Não |Indica o estado do conector do plano médio, que é utilizado para ligar cada controlador ao plano médio. |
-| Núcleo do processador |I/O |Físico |Controlador |Não |Indica o estado dos núcleos do processador dentro de cada controlador. |
-| Poder eletrónico do recinto |I/O |Físico |Controlador |Não |Indica o estado do sistema de alimentação utilizado pelo recinto. |
-| Diagnósticos eletrónicos do recinto |I/O |Físico |Controlador |Não |Indica o estado dos subsistemas de diagnóstico fornecidos pelo controlador. |
-| Controlador BMC |I/O |Físico |Controlador |Não |Indica o estado do controlador de gestão do rodapé (BMC), que é um processador de serviço especializado que monitoriza o dispositivo de hardware através de sensores e comunica com o administrador do sistema através de uma ligação independente. |
-| Ethernet |I/O |Físico |Controlador |Não |Indica o estado de cada uma das interfaces de rede, ou seja, as portas de gestão e dados fornecidas no controlador. |
-| NVRAM |I/O |Físico |Controlador |Não |Indica o estado da NVRAM, uma memória de acesso aleatório não volátil apoiada pela bateria que serve para reter informações críticas de aplicação em caso de falha de energia. |
+| Controlador [0-1] [estado] |I/O |Físico |Controlador |Yes |Exibe o estado do controlador e se está em modo ativo ou em modo de espera dentro do chassis. |
+| Sensores de temperatura no controlador |I/O |Físico |Controlador |No |Numerosos sensores de temperatura, tais como módulo de E/S, temperatura CPU, sensores DIMM e PCIE têm o seu estado apresentado, o que indica se a temperatura encontrada está ou não dentro da tolerância. |
+| Expansor SAS |I/O |Físico |Controlador |No |Indica o estado do expansor SCSI (SAS) em série, que é utilizado para ligar o armazenamento integrado ao controlador. |
+| Conector SAS [0-1] |I/O |Físico |Controlador |No |Indica o estado de cada conector SAS, que é utilizado para ligar o armazenamento integrado ao expansor SAS. |
+| Interligação do plano médio SBB |I/O |Físico |Controlador |No |Indica o estado do conector do plano médio, que é utilizado para ligar cada controlador ao plano médio. |
+| Núcleo do processador |I/O |Físico |Controlador |No |Indica o estado dos núcleos do processador dentro de cada controlador. |
+| Poder eletrónico do recinto |I/O |Físico |Controlador |No |Indica o estado do sistema de alimentação utilizado pelo recinto. |
+| Diagnósticos eletrónicos do recinto |I/O |Físico |Controlador |No |Indica o estado dos subsistemas de diagnóstico fornecidos pelo controlador. |
+| Controlador BMC |I/O |Físico |Controlador |No |Indica o estado do controlador de gestão do rodapé (BMC), que é um processador de serviço especializado que monitoriza o dispositivo de hardware através de sensores e comunica com o administrador do sistema através de uma ligação independente. |
+| Ethernet |I/O |Físico |Controlador |No |Indica o estado de cada uma das interfaces de rede, ou seja, as portas de gestão e dados fornecidas no controlador. |
+| NVRAM |I/O |Físico |Controlador |No |Indica o estado da NVRAM, uma memória de acesso aleatório não volátil apoiada pela bateria que serve para reter informações críticas de aplicação em caso de falha de energia. |
 
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Lista de componentes para o recinto EBOD do dispositivo StorSimple
 O quadro que se segue descreve os componentes físicos e lógicos contidos no recinto EBOD (apenas presente no modelo 8600) do seu dispositivo StorSimple no local.
 
 | Componente | Módulo | Tipo | Localização | O FRU? | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| Unidade na ranhura [0-11] |Unidades de disco |Físico |Partilhado |Sim |Uma linha é apresentada para cada uma das unidades HDD na parte da frente do recinto EBOD. |
-| Sensor de temperatura ambiente |Recinto |Físico |Partilhado |Não |Mede a temperatura dentro do chassis. |
-| Sensor de temperatura do meio do plano |Recinto |Físico |Partilhado |Não |Mede a temperatura do meio do avião. |
-| Alarme audível |Recinto |Físico |Partilhado |Não |Indica se o subsistema de alarme sonoro dentro do chassis está funcional. |
-| Recinto |Recinto |Físico |Partilhado |Sim |Indica a presença de um chassis. |
-| Definições de recinto |Recinto |Físico |Partilhado |Não |Consulte o OPS ou o painel frontal do chassis. |
-| Sensores de tensão de linha |PCM |Físico |Partilhado |Não |Vários sensores de tensão de linha têm o seu estado apresentado, o que indica se a tensão medida está dentro da tolerância. |
-| Sensores de corrente de linha |PCM |Físico |Partilhado |Não |Numerosos sensores de corrente de linha têm o seu estado apresentado, o que indica se a corrente medida está dentro da tolerância. |
-| Sensores de temperatura no PCM |PCM |Físico |Partilhado |Não |Numerosos sensores de temperatura, como os sensores de entrada e hotspot, têm o seu estado apresentado, o que indica se a temperatura medida está dentro da tolerância. |
-| Fonte de alimentação [0-1] |PCM |Físico |Partilhado |Sim |É apresentada uma linha para cada uma das fontes de alimentação dos dois PCMs localizados na parte de trás do dispositivo. |
-| Arrefecimento [0-1] |PCM |Físico |Partilhado |Sim |É apresentada uma linha para cada um dos quatro ventiladores de arrefecimento que residem nos dois PCMs. |
+| Unidade na ranhura [0-11] |Unidades de disco |Físico |Partilhado |Yes |Uma linha é apresentada para cada uma das unidades HDD na parte da frente do recinto EBOD. |
+| Sensor de temperatura ambiente |Recinto |Físico |Partilhado |No |Mede a temperatura dentro do chassis. |
+| Sensor de temperatura do meio do plano |Recinto |Físico |Partilhado |No |Mede a temperatura do meio do avião. |
+| Alarme audível |Recinto |Físico |Partilhado |No |Indica se o subsistema de alarme sonoro dentro do chassis está funcional. |
+| Recinto |Recinto |Físico |Partilhado |Yes |Indica a presença de um chassis. |
+| Definições de recinto |Recinto |Físico |Partilhado |No |Consulte o OPS ou o painel frontal do chassis. |
+| Sensores de tensão de linha |PCM |Físico |Partilhado |No |Vários sensores de tensão de linha têm o seu estado apresentado, o que indica se a tensão medida está dentro da tolerância. |
+| Sensores de corrente de linha |PCM |Físico |Partilhado |No |Numerosos sensores de corrente de linha têm o seu estado apresentado, o que indica se a corrente medida está dentro da tolerância. |
+| Sensores de temperatura no PCM |PCM |Físico |Partilhado |No |Numerosos sensores de temperatura, como os sensores de entrada e hotspot, têm o seu estado apresentado, o que indica se a temperatura medida está dentro da tolerância. |
+| Fonte de alimentação [0-1] |PCM |Físico |Partilhado |Yes |É apresentada uma linha para cada uma das fontes de alimentação dos dois PCMs localizados na parte de trás do dispositivo. |
+| Arrefecimento [0-1] |PCM |Físico |Partilhado |Yes |É apresentada uma linha para cada um dos quatro ventiladores de arrefecimento que residem nos dois PCMs. |
 | Armazenamento local [HDD] |N/D |Lógico |Partilhado |N/D |Exibe o estado da piscina de armazenamento lógica que é criada a partir de HDDs do dispositivo. |
-| Controlador [0-1] [estado] |I/O |Físico |Controlador |Sim |Exibe o estado dos controladores no módulo EBOD. |
-| Sensores de temperatura em EBOD |I/O |Físico |Controlador |Não |Numerosos sensores de temperatura de cada controlador têm o seu estado apresentado, o que indica se a temperatura encontrada está dentro da tolerância. |
-| Expansor SAS |I/O |Físico |Controlador |Não |Indica o estado do expansor SAS, que é utilizado para ligar o armazenamento integrado ao controlador. |
-| Conector SAS [0-2] |I/O |Físico |Controlador |Não |Indica o estado de cada conector SAS, que é utilizado para ligar o armazenamento integrado ao expansor SAS. |
-| Interligação do plano médio SBB |I/O |Físico |Controlador |Não |Indica o estado do conector do plano médio, que é utilizado para ligar cada controlador ao plano médio. |
-| Poder eletrónico do recinto |I/O |Físico |Controlador |Não |Indica o estado do sistema de alimentação utilizado pelo recinto. |
-| Diagnósticos eletrónicos do recinto |I/O |Físico |Controlador |Não |Indica o estado dos subsistemas de diagnóstico fornecidos pelo controlador. |
-| Ligação ao controlador do dispositivo |I/O |Físico |Controlador |Não |Indica o estado da ligação entre o módulo EBOD I/O e o controlador do dispositivo. |
+| Controlador [0-1] [estado] |I/O |Físico |Controlador |Yes |Exibe o estado dos controladores no módulo EBOD. |
+| Sensores de temperatura em EBOD |I/O |Físico |Controlador |No |Numerosos sensores de temperatura de cada controlador têm o seu estado apresentado, o que indica se a temperatura encontrada está dentro da tolerância. |
+| Expansor SAS |I/O |Físico |Controlador |No |Indica o estado do expansor SAS, que é utilizado para ligar o armazenamento integrado ao controlador. |
+| Conector SAS [0-2] |I/O |Físico |Controlador |No |Indica o estado de cada conector SAS, que é utilizado para ligar o armazenamento integrado ao expansor SAS. |
+| Interligação do plano médio SBB |I/O |Físico |Controlador |No |Indica o estado do conector do plano médio, que é utilizado para ligar cada controlador ao plano médio. |
+| Poder eletrónico do recinto |I/O |Físico |Controlador |No |Indica o estado do sistema de alimentação utilizado pelo recinto. |
+| Diagnósticos eletrónicos do recinto |I/O |Físico |Controlador |No |Indica o estado dos subsistemas de diagnóstico fornecidos pelo controlador. |
+| Ligação ao controlador do dispositivo |I/O |Físico |Controlador |No |Indica o estado da ligação entre o módulo EBOD I/O e o controlador do dispositivo. |
 
 ## <a name="next-steps"></a>Passos seguintes
 * Para utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo, vá [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 * Se necessitar de resolver um componente do dispositivo com um estado degradado ou falhado, consulte os [indicadores de monitorização StorSimple](storsimple-monitoring-indicators.md).
-* Para substituir um componente de hardware falhado, consulte a [substituição do componente de hardware StorSimple](storsimple-hardware-component-replacement.md).
+* Para substituir um componente de hardware falhado, consulte a [substituição do componente de hardware StorSimple](./storsimple-8000-hardware-component-replacement.md).
 * Se continuar a experimentar problemas com o dispositivo, [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md).
-

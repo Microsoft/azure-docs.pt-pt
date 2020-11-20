@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 1dc97f92e6139475d0d5ac5ea1201d6ff6b8d470
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45a2b7a64006ab6963290be3ac86a3a5d1e4916d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532329"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959888"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerir as inscrições de dispositivos com SDKs de serviço de fornecimento de dispositivos Azure
 Uma *inscrição de dispositivo* cria um registo de um único dispositivo ou de um grupo de dispositivos que podem em algum momento registar-se com o Serviço de Provisionamento de Dispositivos. O registo de inscrição contém a configuração inicial desejada para o(s) dispositivo(s) como parte dessa inscrição, incluindo o hub IoT desejado. Este artigo mostra-lhe como gerir as inscrições do dispositivo para o seu serviço de fornecimento programáticamente usando os SDKs do Serviço de Provisionamento Azure IoT.  Os SDKs estão disponíveis no GitHub no mesmo repositório que os SDKs Azure IoT.
@@ -21,12 +21,12 @@ Uma *inscrição de dispositivo* cria um registo de um único dispositivo ou de 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Obtenha a cadeia de ligação a partir da sua instância de Serviço de Provisionamento de Dispositivos.
 * Obtenha os artefactos de segurança do dispositivo para o [mecanismo de atestado](concepts-service.md#attestation-mechanism) utilizado:
-    * [**Módulo de plataforma fidedigno (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
+    * [**Módulo de plataforma fidedigno (TPM)**](./concepts-tpm-attestation.md):
         * Inscrição individual: ID de inscrição e chave de endosso TPM a partir de um dispositivo físico ou de TPM Simulator.
         * O grupo de inscrições não se aplica ao atestado de TPM.
-    * [**X.509:**](/azure/iot-dps/concepts-security)
-        * Inscrição individual: O [certificado Leaf](/azure/iot-dps/concepts-security) do dispositivo físico ou do Emulador SDK [DICE.](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)
-        * Grupo de inscrição: O [certificado CA/raiz](/azure/iot-dps/concepts-security#root-certificate) ou o [certificado intermédio,](/azure/iot-dps/concepts-security#intermediate-certificate)utilizado para produzir certificado de dispositivo num dispositivo físico.  Também pode ser gerado a partir do emulador SDK DICE.
+    * [**X.509:**](./concepts-service.md#attestation-mechanism)
+        * Inscrição individual: O [certificado Leaf](./concepts-service.md#attestation-mechanism) do dispositivo físico ou do Emulador SDK [DICE.](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)
+        * Grupo de inscrição: O [certificado CA/raiz](./concepts-x509-attestation.md#root-certificate) ou o [certificado intermédio,](./concepts-x509-attestation.md#intermediate-certificate)utilizado para produzir certificado de dispositivo num dispositivo físico.  Também pode ser gerado a partir do emulador SDK DICE.
 * Chamadas API exatas podem ser diferentes devido a diferenças linguísticas. Por favor, reveja as amostras fornecidas no GitHub para mais detalhes:
    * [Amostras de clientes de serviço de fornecimento de Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Node.js Amostras de Cliente de Serviço de Prestação de Serviços](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
@@ -35,7 +35,7 @@ Uma *inscrição de dispositivo* cria um registo de um único dispositivo ou de 
 ## <a name="create-a-device-enrollment"></a>Criar uma inscrição de dispositivo
 Existem duas formas de inscrever os seus dispositivos com o serviço de fornecimento:
 
-* Um **grupo de inscrições** é uma entrada para um grupo de dispositivos que partilham um mecanismo comum de atestado de certificados X.509, assinado pelo [certificado raiz](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) ou pelo certificado [intermédio](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Recomendamos a utilização de um grupo de inscrições para um grande número de dispositivos que partilham uma configuração inicial desejada, ou para dispositivos que vão todos para o mesmo inquilino. Note que só pode inscrever dispositivos que utilizem o mecanismo de atestado X.509 como *grupos de inscrição*. 
+* Um **grupo de inscrições** é uma entrada para um grupo de dispositivos que partilham um mecanismo comum de atestado de certificados X.509, assinado pelo [certificado raiz](./concepts-x509-attestation.md#root-certificate) ou pelo certificado [intermédio](./concepts-x509-attestation.md#intermediate-certificate). Recomendamos a utilização de um grupo de inscrições para um grande número de dispositivos que partilham uma configuração inicial desejada, ou para dispositivos que vão todos para o mesmo inquilino. Note que só pode inscrever dispositivos que utilizem o mecanismo de atestado X.509 como *grupos de inscrição*. 
 
     Pode criar um grupo de inscrições com os SDKs seguindo este fluxo de trabalho:
 

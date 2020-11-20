@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 63adf2b1ca7ae795e35e8245440093fe0f6e6c49
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 508fff16f96d0dfddb77b219bb545fb8580b4048
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486179"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958902"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP
 
@@ -156,7 +157,7 @@ Você pode usar um dos modelos de arranque rápido no GitHub para implementar to
    9. Nome de utilizador admin e senha de administração  
       É criado um novo utilizador que pode ser utilizado para iniciar sessão na máquina.
    10. ID da sub-rede  
-   Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente parece /subscrições/** &lt; subscrição &gt; ID**/resourceGroups/** &lt; &gt; nome do grupo de recursos**/fornecedores/Microsoft.Network/virtualNetworks/ virtual** &lt; Network/virtual Network name &gt; **/subnets/** &lt; subnets/ subnet name &gt; **
+   Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente parece /subscrições/**&lt; subscrição &gt; ID**/resourceGroups/**&lt; &gt; nome do grupo de recursos**/fornecedores/Microsoft.Network/virtualNetworks/ virtual **&lt; Network/virtual Network name &gt;**/subnets/**&lt; subnets/ subnet name &gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementar o Linux manualmente através do portal Azure
 
@@ -193,13 +194,13 @@ Primeiro, é necessário criar as máquinas virtuais para este cluster NFS. Em s
       1. Selecione as máquinas virtuais do cluster (A)SCS e os seus endereços IP.
       1. Clique em Adicionar
    1. Criar as sondas de saúde
-      1. Porto 620**00** para ASCS
+      1. Porto 620 **00** para ASCS
          1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
          1. Insira o nome da nova sonda de saúde (por **exemplo, nw1-ascs-hp)**
-         1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limiar insalubre 2
+         1. Selecione TCP como protocolo, porta 620 **00**, mantenha o Intervalo 5 e o limiar insalubre 2
          1. Clique em OK
-      1. Porto 621**02** para ASCS ERS
-         * Repita os passos acima para criar uma sonda de saúde para o ERS (por exemplo 621**02** e **nw1-aers-hp)**
+      1. Porto 621 **02** para ASCS ERS
+         * Repita os passos acima para criar uma sonda de saúde para o ERS (por exemplo 621 **02** e **nw1-aers-hp)**
    1. Regras de equilíbrio de carga
       1. Regras de equilíbrio de carga para asCS
          1. Abra o balançador de carga, selecione regras de equilíbrio de carga e clique em Adicionar
@@ -227,15 +228,15 @@ Primeiro, é necessário criar as máquinas virtuais para este cluster NFS. Em s
       1. Selecione as máquinas virtuais do cluster (A)SCS
       1. Clique em OK
    1. Criar as sondas de saúde
-      1. Porto 620**00** para ASCS
+      1. Porto 620 **00** para ASCS
          1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
          1. Insira o nome da nova sonda de saúde (por **exemplo, nw1-ascs-hp)**
-         1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limiar insalubre 2
+         1. Selecione TCP como protocolo, porta 620 **00**, mantenha o Intervalo 5 e o limiar insalubre 2
          1. Clique em OK
-      1. Porto 621**02** para ASCS ERS
-         * Repita os passos acima para criar uma sonda de saúde para o ERS (por exemplo 621**02** e **nw1-aers-hp)**
+      1. Porto 621 **02** para ASCS ERS
+         * Repita os passos acima para criar uma sonda de saúde para o ERS (por exemplo 621 **02** e **nw1-aers-hp)**
    1. Regras de equilíbrio de carga
-      1. 32**00** TCP para ASCS
+      1. 32 **00** TCP para ASCS
          1. Abra o balançador de carga, selecione regras de equilíbrio de carga e clique em Adicionar
          1. Introduza o nome da nova regra do balançador de carga (por **exemplo, nw1-lb-3200**)
          1. Selecione o endereço IP frontend, o backend pool e a sonda de saúde que criou anteriormente (por **exemplo, nw1-ascs-frontend**)
@@ -244,9 +245,9 @@ Primeiro, é necessário criar as máquinas virtuais para este cluster NFS. Em s
          1. **Certifique-se de ativar o IP flutuante**
          1. Clique em OK
       1. Portas adicionais para o ASCS
-         * Repita os passos acima para as portas 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP para o ASCS
+         * Repita os passos acima para as portas 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00** 14, 5 **00** 16 e TCP para o ASCS
       1. Portos adicionais para o ASCS ERS
-         * Repita os passos acima para as portas 33**02**, 5**02**13, 5**02**14, 5**02**16 e TCP para o ASCS ERS
+         * Repita os passos acima para as portas 33 **02**, 5 **02** 13, 5 **02** 14, 5 **02** 16 e TCP para o ASCS ERS
 
 > [!IMPORTANT]
 > O IP flutuante não é suportado numa configuração IP secundária do NIC em cenários de equilíbrio de carga. Para mais detalhes consulte [as limitações do balançador de carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se precisar de um endereço IP adicional para o VM, implante um segundo NIC.  
@@ -450,7 +451,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   Se a instalação não criar uma sub-dobradeira em /usr/seiva/**NW1**/ASCS**00,** tente configurar o proprietário e o grupo da pasta ASCS**00** e retentou novamente.
+   Se a instalação não criar uma sub-dobradeira em /usr/seiva/**NW1**/ASCS **00,** tente configurar o proprietário e o grupo da pasta ASCS **00** e retentou novamente.
 
    <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
@@ -507,7 +508,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    > [!NOTE]
    > Utilize SWPM SP 20 PL 05 ou superior. As versões inferiores não definem corretamente as permissões e a instalação falhará.
 
-   Se a instalação não criar uma sub-dobradura em /usr/seiva/**NW1**/ERS**02,** tente configurar o proprietário e o grupo da pasta ERS**02** e retentou novamente.
+   Se a instalação não criar uma sub-dobradura em /usr/seiva/**NW1**/ERS **02,** tente configurar o proprietário e o grupo da pasta ERS **02** e retentou novamente.
 
    <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>

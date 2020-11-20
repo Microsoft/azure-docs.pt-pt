@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: be7cfef5c7121d918c375dae216d293d9d56526b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e3f541e28f47bb6456b441811d23baa9e020fde7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890484"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959157"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para o Azure
 
@@ -138,7 +139,7 @@ Abra o site da SAP LaMa e navegue para infraestrutura. Vá a guiar gestores de n
 * Porta de procuração: porta TCP do representante
 * Alterar tipo de armazenamento para economizar custos: Ative esta definição se o Adaptador Azure alterar o tipo de armazenamento dos Discos Geridos para economizar custos quando os discos não estiverem a ser utilizados. Para os discos de dados que são referenciados numa configuração de instância SAP, o adaptador alterará o tipo de disco para Standard Storage durante um caso de desprepare e volta ao tipo de armazenamento original durante uma preparação de exemplo. Se parar uma máquina virtual em SAP LaMa, o adaptador alterará o tipo de armazenamento de todos os discos anexos, incluindo o disco DE para o Armazenamento Padrão. Se iniciar uma máquina virtual no SAP LaMa, o adaptador mudará o tipo de armazenamento de volta para o tipo de armazenamento original.
 
-Clique na Configuração de Teste para validar a sua entrada. Deveria ver.
+Clique na Configuração de Teste para validar a sua entrada. Deverá ver
 
 A ligação foi bem sucedida: A ligação à nuvem da Microsoft foi bem sucedida. 7 grupos de recursos encontrados (apenas 10 grupos solicitados)
 
@@ -274,7 +275,7 @@ Antes de iniciar o GESTOR DE Provisionamento de Software SAP (SWPM), tem de mont
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-ascs -n 255.255.255.128
 ```
 
-Executar SWPM e usar *ah1-ascs* para o *nome de anfitrião ascs instance* .
+Executar SWPM e usar *ah1-ascs* para o *nome de anfitrião ascs instance*.
 
 ![Logotipo linux.][Logo_Linux] Linux  
 Adicione o seguinte parâmetro de perfil ao perfil do Agente anfitrião SAP, que está localizado em /usr/seiva/hostctrl/exe/host_profile. Para mais informações, consulte a Nota [SAP 2628497].
@@ -319,7 +320,7 @@ Dentro da conta NetApp, o pool de capacidade especifica o tamanho e o tipo de di
 
 ![SAP LaMa NetApp capacity pool criado ](media/lama/sap-lama-capacitypool-list.png)
 
-Os volumes NFS podem agora ser definidos. Uma vez que haverá volumes para vários sistemas numa só piscina, deve ser escolhido um esquema de nomeação autoexplicada. A adição do SID ajuda a agrupar volumes relacionados. Para o ASCS e para a instância AS são necessários os seguintes suportes: *\<SID\> /sapmnt/* , */usr/seiva/ \<SID\>* e */home/ \<sid\> adm* . Opcionalmente, */usr/seiva/trans* é necessário para o diretório de transporte central, que é pelo menos utilizado por todos os sistemas de uma paisagem.
+Os volumes NFS podem agora ser definidos. Uma vez que haverá volumes para vários sistemas numa só piscina, deve ser escolhido um esquema de nomeação autoexplicada. A adição do SID ajuda a agrupar volumes relacionados. Para o ASCS e para a instância AS são necessários os seguintes suportes: *\<SID\> /sapmnt/*, */usr/seiva/ \<SID\>* e */home/ \<sid\> adm*. Opcionalmente, */usr/seiva/trans* é necessário para o diretório de transporte central, que é pelo menos utilizado por todos os sistemas de uma paisagem.
 
 > [!NOTE]
 > Durante a fase BETA, o nome dos volumes deve ser único dentro da subscrição.
@@ -417,7 +418,7 @@ Se o configurar manualmente, também precisa de criar novas entradas na loja de 
 /usr/sap/AH1/hdbclient/hdbuserstore SET DEFAULT ah1-db:35041@AH1 SAPABAP1 <password>
 ```
 
-Utilize *ah1-di-0* para o *nome do anfitrião* da instância PAS em *identificação do servidor de aplicação primária* .
+Utilize *ah1-di-0* para o *nome do anfitrião* da instância PAS em *identificação do servidor de aplicação primária*.
 
 #### <a name="post-installation-steps-for-sap-hana"></a>Passos de pós-instalação para SAP HANA
 
@@ -436,7 +437,7 @@ Antes de iniciar o GESTOR DE Provisionamento de Software SAP (SWPM), tem de mont
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-ascs -n 255.255.255.128
 ```
 
-Executar SWPM e usar *as1-ascs* para o *nome de anfitrião ascs instance* .
+Executar SWPM e usar *as1-ascs* para o *nome de anfitrião ascs instance*.
 
 #### <a name="install-sql-server"></a>Instalar o SQL Server
 
@@ -447,9 +448,9 @@ Executar SWPM e usar *as1-ascs* para o *nome de anfitrião ascs instance* .
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Executar a instalação de instância de dados de SWPM na máquina virtual do servidor SQL. Utilize SAPINST_USE_HOSTNAME= *as1-db* para substituir o nome de anfitrião utilizado para ligar ao SQL Server. Se implementou a máquina virtual utilizando o modelo Azure Resource Manager, certifique-se de definir o diretório utilizado para os ficheiros de dados da base de dados para *C:\sql\data* e ficheiro de registo de base de dados para *C:\sql\log* .
+Executar a instalação de instância de dados de SWPM na máquina virtual do servidor SQL. Utilize SAPINST_USE_HOSTNAME=*as1-db* para substituir o nome de anfitrião utilizado para ligar ao SQL Server. Se implementou a máquina virtual utilizando o modelo Azure Resource Manager, certifique-se de definir o diretório utilizado para os ficheiros de dados da base de dados para *C:\sql\data* e ficheiro de registo de base de dados para *C:\sql\log*.
 
-Certifique-se de que o *utilizador NT AUTHORITY\SYSTEM* tem acesso ao SQL Server e tem a função de servidor *sysadmin* . Para mais informações, consulte a Nota SAP [1877727] e [2562184].
+Certifique-se de que o *utilizador NT AUTHORITY\SYSTEM* tem acesso ao SQL Server e tem a função de servidor *sysadmin*. Para mais informações, consulte a Nota SAP [1877727] e [2562184].
 
 #### <a name="install-sap-netweaver-application-server"></a>Instalar o servidor de aplicações SAP NetWeaver
 
@@ -460,7 +461,7 @@ Antes de iniciar o GESTOR DE Provisionamento de Software SAP (SWPM), tem de mont
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di-0 -n 255.255.255.128
 ```
 
-Utilize *o as1-di-0* para o *nome do anfitrião* da instância PAS em *identificação do servidor de aplicação primária* .
+Utilize *o as1-di-0* para o *nome do anfitrião* da instância PAS em *identificação do servidor de aplicação primária*.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -555,7 +556,7 @@ Utilize *o as1-di-0* para o *nome do anfitrião* da instância PAS em *identific
     Certifique-se de que o controlador Microsoft ODBC para SQL Server está instalado na máquina virtual na qual pretende instalar o servidor de aplicações
 
 * Erro de execução do passo SAPinst: copyScripts
-  * Último erro relatado pelo passo: A chamada do sistema falhou. DETALHES: Erro 13 (0x00000000d) (Permissão negada) na execução da chamada de sistema 'fopenU' com parâmetro \\ (\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), linha (494) em ficheiro (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcstrm2.cpp), traço de pilha:  
+  * Último erro relatado pelo passo: A chamada do sistema falhou. DETALHES: Erro 13 (0x00000000d) (Permissão negada) na execução da chamada de sistema 'fopenU' com parâmetro \\ (\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), linha (494) em ficheiro (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), traço de pilha:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
@@ -565,15 +566,15 @@ Utilize *o as1-di-0* para o *nome do anfitrião* da instância PAS em *identific
   iaxxcfile.cpp: 1849: iastring CIaOsFileConnect::newFileStream (args_t const& _args)  
   iaxxbfile.cpp: 773: CIaOsFile::newFileStream_impl(4)  
   syxxcfile.cpp: 233: CSyFileImpl::openStream(ISyFile::eFileOpenMode)  
-  syxxcstrm.cpp: 29: CSyFileStreamImpl::CSyFileStreamImpl(CSyFileStream*,iastring,ISyFile::eFileOpenMode)  
-  syxxcstrm.cpp: 265: CSyFileStreamImpl::open()  
+  syxxcfstrm.cpp: 29: CSyFileStreamImpl::CSyFileStreamImpl (CSyFileStream*,iastring,ISyFile::eFileOpenMode)  
+  syxxcfstrm.cpp: 265: CSyFileStreamImpl::open()  
   syxxcstrm2.cpp: 58: CSyFileStream2Impl:::CSyFileStream2Impl (const CSyPath & \\ \aw1-ascs/sapmnt/AW1/SYS/exe/uc/NTAMD64/strdbs.cmd, 0x4)  
-  syxxcstrm2.cpp: 456: CSyFileStream2Impl::open()
+  syxxcfstrm2.cpp: 456: CSyFileStream2Impl::open()
   * Solução  
     Certifique-se de que o SWPM está a funcionar com um utilizador que tenha acesso ao perfil. Este utilizador pode ser configurado no assistente de instalação do servidor de aplicações
 
 * Erro na execução do passo SAPinst: askPasswords
-  * Último erro relatado pelo passo: A chamada do sistema falhou. DETALHES: Erro 5 (0x000000000) (Acesso é negado.) na execução da chamada de sistema 'NetValidatePasswordPolicy' com parâmetro (...), linha (359) em ficheiro (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp),  
+  * Último erro relatado pelo passo: A chamada do sistema falhou. DETALHES: Erro 5 (0x000000000) (Acesso é negado.) na execução da chamada de sistema 'NetValidatePasswordPolicy' com parâmetro (...), linha (359) em ficheiro (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcacccc.cpp), stack: tracet/traceinst/src/syslib/account/synxcaccmg.cpp pilha:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  

@@ -3,16 +3,17 @@ title: Desdobre SAP S/4HANA ou BW/4HANA num Azure VM / Microsoft Docs
 description: Implementar SAP S/4HANA ou BW/4HANA num Azure VM
 author: hermanndms
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.reviewer: cynthn
-ms.openlocfilehash: 116de28501b77262ef126ed420982d853376da4e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6492e770479042a5a1b4da6f61917832adad4873
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993405"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959293"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implementar SAP S/4HANA ou BW/4HANA em Azure
 Este artigo descreve como implantar S/4HANA no Azure utilizando a Sap Cloud Appliance Library (SAP CAL) 3.0. Para implementar outras soluções baseadas em SAP HANA, como bW/4HANA, siga os mesmos passos.
@@ -107,7 +108,7 @@ Demonstramos o caminho básico para a implantação aqui.
 
     b. Insira um nome **de exemplo**.
 
-    c. Selecione uma **Região**Azure . A SAP CAL sugere uma região. Se precisar de outra região de Azure e não tiver uma subscrição SAP CAL, precisa de encomendar uma assinatura CAL com SAP.
+    c. Selecione uma **Região** Azure . A SAP CAL sugere uma região. Se precisar de outra região de Azure e não tiver uma subscrição SAP CAL, precisa de encomendar uma assinatura CAL com SAP.
 
     d. Introduza uma **palavra-passe** principal para a solução de oito ou nove caracteres. A palavra-passe é utilizada para os administradores dos diferentes componentes.
 

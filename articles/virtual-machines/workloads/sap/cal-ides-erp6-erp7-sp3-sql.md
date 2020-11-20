@@ -3,16 +3,17 @@ title: Implementar SAP IDES EHP7 SP3 para SAP ERP 6.0 em Azure / Microsoft Docs
 description: Implementar SAP IDES EHP7 SP3 para SAP ERP 6.0 em Azure
 author: hermanndms
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.reviewer: cynthn
-ms.openlocfilehash: 2e1c20ba5549a1d9660b6e30fafa040d545a6a37
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dc0c1744c2943d33d516de4ed9d28893541773ad
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993444"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957882"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implementar SAP IDES EHP7 SP3 para SAP ERP 6.0 em Azure
 Este artigo descreve como implementar um sistema SAP IDES em funcionamento com o SQL Server e o sistema operativo Windows em Azure através da Sap Cloud Appliance Library (SAP CAL) 3.0. As imagens mostram o processo passo a passo. Para implementar uma solução diferente, siga os mesmos passos.
@@ -85,13 +86,13 @@ Criou com sucesso uma conta SAP CAL que é capaz de:
 > Antes de poder implementar a solução SAP IDES com base no Windows e SQL Server, poderá ter de se inscrever para uma subscrição SAP CAL. Caso contrário, a solução pode aparecer como **bloqueado** na página geral.
 
 ### <a name="deploy-a-solution"></a>Implementar uma solução
-1. Depois de configurar uma conta SAP CAL, selecione **a solução SAP IDES na** solução Windows e SQL Server. Clique **em Criar Instância**e confirme as condições de utilização e termos. 
+1. Depois de configurar uma conta SAP CAL, selecione **a solução SAP IDES na** solução Windows e SQL Server. Clique **em Criar Instância** e confirme as condições de utilização e termos. 
 
 1. No **modo básico: Criar página de exemplo,** precisa:
 
     a. Insira um nome **de exemplo**.
 
-    b. Selecione uma **Região**Azure . Você pode precisar de uma assinatura SAP CAL para obter várias regiões Azure oferecidas.
+    b. Selecione uma **Região** Azure . Você pode precisar de uma assinatura SAP CAL para obter várias regiões Azure oferecidas.
 
     c.  Introduza a **palavra-passe** principal para a solução, como mostrado:
 

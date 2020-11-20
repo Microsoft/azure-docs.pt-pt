@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 520a7649942fc5186d32020853b98297ef8b34d7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 36c101acc9e272ca0860649aad1a5e18fb5000a5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152108"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957338"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Alta disponibilidade do sistema de escala SAP HANA no Red Hat Enterprise Linux 
 
@@ -150,7 +151,7 @@ Para a configuração apresentada neste documento, desloque sete máquinas virtu
 
     c. No **painel de visão** geral, selecione **Stop** para negociar a máquina virtual.  
 
-    d. Selecione **Networking**e, em seguida, anexe a interface de rede. Na lista de drop-down da interface de **rede Attach,** selecione as interfaces de rede já criadas para as `inter` `hsr` sub-redes e sub-redes.  
+    d. Selecione **Networking** e, em seguida, anexe a interface de rede. Na lista de drop-down da interface de **rede Attach,** selecione as interfaces de rede já criadas para as `inter` `hsr` sub-redes e sub-redes.  
     
     e. Selecione **Guardar**. 
  
@@ -187,7 +188,7 @@ Para a configuração apresentada neste documento, desloque sete máquinas virtu
 1. Recomendamos a utilização do balanceador de carga padrão. Siga estes passos de configuração para implementar o balanceador de carga padrão:
    1. Primeiro, crie um pool IP frontal:
 
-      1. Abra o balançador de carga, selecione **o pool IP frontend**e selecione **Adicionar**.
+      1. Abra o balançador de carga, selecione **o pool IP frontend** e selecione **Adicionar**.
       1. Insira o nome do novo pool IP frontal (por exemplo, **hana-frontend).**
       1. Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.23.0.18**). **Static**
       1. Selecione **OK**.
@@ -195,7 +196,7 @@ Para a configuração apresentada neste documento, desloque sete máquinas virtu
 
    1. Em seguida, crie uma piscina traseira e adicione todos os VMs de cluster à piscina de backend:
 
-      1. Abra o balançador de carga, selecione **piscinas de backend**e selecione **Adicionar**.
+      1. Abra o balançador de carga, selecione **piscinas de backend** e selecione **Adicionar**.
       1. Insira o nome da nova piscina traseira (por exemplo, **hana-backend).**
       1. **Selecione Adicionar uma máquina virtual**.
       1. Selecione **Máquina virtual**.
@@ -204,14 +205,14 @@ Para a configuração apresentada neste documento, desloque sete máquinas virtu
 
    1. Em seguida, criar uma sonda de saúde:
 
-      1. Abra o equilibrador de carga, selecione **sondas de saúde**e selecione **Adicionar**.
+      1. Abra o equilibrador de carga, selecione **sondas de saúde** e selecione **Adicionar**.
       1. Insira o nome da nova sonda de saúde (por exemplo, **hana-hp).**
-      1. Selecione **TCP** como protocolo e porta 625**03**. Mantenha o valor **de intervalo** definido para 5, e o valor do **limiar insalubre** definido para 2.
+      1. Selecione **TCP** como protocolo e porta 625 **03**. Mantenha o valor **de intervalo** definido para 5, e o valor do **limiar insalubre** definido para 2.
       1. Selecione **OK**.
 
    1. Em seguida, crie as regras de equilíbrio de carga:
    
-      1. Abra o balançador de carga, selecione **as regras de equilíbrio de carga**e selecione **Adicionar**.
+      1. Abra o balançador de carga, selecione **as regras de equilíbrio de carga** e selecione **Adicionar**.
       1. Introduza o nome da nova regra do balançador de carga (por exemplo, **hana-lb**).
       1. Selecione o endereço IP frontal, o pool traseiro e a sonda de saúde que criou anteriormente (por exemplo, **hana-frontend,** **hana-backend** e **hana-hp).**
       1. Selecione **portas HA**.
@@ -352,7 +353,7 @@ Neste exemplo, os sistemas de ficheiros HANA partilhados são implantados em Fic
     ```
 
 
-10. **[AH]** Verifique se os `/hana/shared/` sistemas de ficheiros correspondentes estão montados em todos os VMs HANA DB com a versão **NFSv4**do protocolo NFS .  
+10. **[AH]** Verifique se os `/hana/shared/` sistemas de ficheiros correspondentes estão montados em todos os VMs HANA DB com a versão **NFSv4** do protocolo NFS .  
 
     ```
     sudo nfsstat -m
@@ -599,7 +600,7 @@ Neste exemplo para implantar o SAP HANA na configuração de escala com HSR em V
 
 1. **[1]** Configurar a replicação do sistema no LOCAL 1:
 
-   Ressou as bases de dados como **hn1**adm:
+   Ressou as bases de dados como **hn1** adm:
 
     ```
     hdbsql -d SYSTEMDB -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupSYS')"
@@ -936,7 +937,7 @@ Inclua todas as máquinas virtuais, incluindo o fabricante maioritário no clust
 
    3. Em seguida, crie o recurso de instância HANA.  
       > [!NOTE]
-      > Este artigo contém referências ao termo *escravo*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.  
+      > Este artigo contém referências ao termo *escravo*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.  
  
       Se construir o cluster RHEL **7.x,** utilize os seguintes comandos:    
       ```

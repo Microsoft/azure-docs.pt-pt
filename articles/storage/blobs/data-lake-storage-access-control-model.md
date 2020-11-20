@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: a5cdeba654440e666bc79df361b3f90db8a73b0a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 3ddcbe57112251a428e11d6c164cdb1224553f98
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578653"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959208"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modelo de controlo de acesso em Azure Data Lake Storage Gen2
 
@@ -53,16 +53,16 @@ Os ACLs dão-lhe a capacidade de aplicar o nível de acesso "mais fino" a diret�
 
 Durante a autorização principal de segurança, as permissões são avaliadas na seguinte ordem.
 
-:um: &nbsp; &nbsp; As atribuições de funções do Azure RBAC são avaliadas em primeiro lugar e têm prioridade sobre quaisquer atribuições da ACL.
+:um: &nbsp; &nbsp; As atribuições de funções Azure são avaliadas em primeiro lugar e têm prioridade sobre quaisquer atribuições da ACL.
 
-:2: &nbsp; &nbsp; Se a operação for totalmente autorizada com base na atribuição de funções do Azure RBAC, então os ACLs não são avaliados de todo.
+:2: &nbsp; &nbsp; Se a operação for totalmente autorizada com base na atribuição de funções Azure, então os ACLs não são avaliados de todo.
 
 :três: &nbsp; &nbsp; Se a operação não estiver totalmente autorizada, então os ACLs são avaliados.
 
 > [!div class="mx-imgBorder"]
 > ![fluxo de permissão de armazenamento de lago de dados](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-Devido à forma como as permissões de acesso são avaliadas pelo sistema, **não é possível** utilizar um ACL para **restringir** o acesso que já foi concedido por uma atribuição de funções. Isto porque o sistema avalia primeiro as atribuições de funções do Azure RBAC, e se a atribuição conceder permissão de acesso suficiente, os ACLs são ignorados. 
+Devido à forma como as permissões de acesso são avaliadas pelo sistema, **não é possível** utilizar um ACL para **restringir** o acesso que já foi concedido por uma atribuição de funções. Isto porque o sistema avalia primeiro as atribuições de funções do Azure, e se a atribuição conceder permissão de acesso suficiente, os ACLs são ignorados. 
 
 O diagrama a seguir mostra o fluxo de permissão para três operações comuns: listar conteúdos de diretórios, ler um ficheiro e escrever um ficheiro.
 
@@ -71,7 +71,7 @@ O diagrama a seguir mostra o fluxo de permissão para três operações comuns: 
 
 ## <a name="permissions-table-combining-azure-rbac-and-acl"></a>Tabela de permissões: Combinação de Azure RBAC e ACL
 
-A tabela que se segue mostra-lhe como combinar as funções do Azure RBAC e as entradas ACL para que um diretor de segurança possa executar as operações listadas na coluna **Operação.** Esta tabela mostra uma coluna que representa cada nível de uma hierarquia fictícia do diretório. Há uma coluna para o diretório de raiz do contentor , `/` um subdiretório chamado **Oregon** , um subdiretório do diretório do Oregon chamado **Portland,** e um ficheiro de texto no diretório de Portland chamado **Data.txt**. Aparecendo nessas colunas são representações de [forma curta](data-lake-storage-access-control.md#short-forms-for-permissions) da entrada ACL necessárias para conceder permissões. **N/A** ( _Não aplicável_ ) aparece na coluna se não for necessária uma entrada ACL para realizar a operação.
+A tabela que se segue mostra-lhe como combinar funções Azure e entradas ACL para que um diretor de segurança possa executar as operações listadas na coluna **Operação.** Esta tabela mostra uma coluna que representa cada nível de uma hierarquia fictícia do diretório. Há uma coluna para o diretório de raiz do contentor , `/` um subdiretório chamado **Oregon**, um subdiretório do diretório do Oregon chamado **Portland,** e um ficheiro de texto no diretório de Portland chamado **Data.txt**. Aparecendo nessas colunas são representações de [forma curta](data-lake-storage-access-control.md#short-forms-for-permissions) da entrada ACL necessárias para conceder permissões. **N/A** (_Não aplicável_) aparece na coluna se não for necessária uma entrada ACL para realizar a operação.
 
 |    Operação             | Papel RBAC atribuído               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
@@ -112,7 +112,7 @@ A tabela que se segue mostra-lhe como combinar as funções do Azure RBAC e as e
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)]
 
-## <a name="limits-on-azure-rbac-role-assignments-and-acl-entries"></a>Limites para atribuições de funções Azure RBAC e entradas ACL
+## <a name="limits-on-azure-role-assignments-and-acl-entries"></a>Limites nas atribuições de funções Azure e entradas da ACL
 
 Ao utilizar grupos, é menos provável que exceda o número máximo de atribuições de funções por subscrição e o número máximo de entradas ACL por ficheiro ou diretório. A tabela a seguir descreve estes limites.
 

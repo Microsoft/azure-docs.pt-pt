@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 7cdd70a44a090b03a3f11626805565469c7c04e7
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: df4d777ad78240b3ca84c51152b37861c4ccc486
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554670"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960007"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Use o estúdio Azure Machine Learning numa rede virtual Azure
 
@@ -36,7 +36,7 @@ Veja os outros artigos desta série:
 
 
 > [!IMPORTANT]
-> Se o seu espaço de trabalho estiver numa __nuvem soberana__ , como o Governo Azure ou o Azure China 21Vianet, os cadernos integrados _não suportam_ o armazenamento que se encontra numa rede virtual. Em alternativa, pode utilizar os blocos de notas do Jupyter Notebook de uma instância de computação. Para mais informações, consulte os dados do Access numa secção [de cadernos De cálculo.](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook)
+> Se o seu espaço de trabalho estiver numa __nuvem soberana__, como o Governo Azure ou o Azure China 21Vianet, os cadernos integrados _não suportam_ o armazenamento que se encontra numa rede virtual. Em alternativa, pode utilizar os blocos de notas do Jupyter Notebook de uma instância de computação. Para mais informações, consulte os dados do Access numa secção [de cadernos De cálculo.](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -90,7 +90,7 @@ A Azure Machine Learning utiliza [datastores](concept-data.md#datastores) para s
 1. Nas definições da datastore, selecione __Sim__ para  __permitir o serviço de aprendizagem automática Azure para aceder ao armazenamento utilizando identidade gerida pelo espaço de trabalho__.
 
 
-Estes passos adicionam a identidade gerida pelo espaço de trabalho como __leitor__ ao serviço de armazenamento utilizando o controlo de acesso baseado em recursos Azure (Azure RBAC). __O__ acesso ao leitor permite que o espaço de trabalho recupere as definições de firewall e certifique-se de que os dados não saem da rede virtual.
+Estes passos adicionam a identidade gerida pelo espaço de trabalho como __leitor__ ao serviço de armazenamento utilizando o controlo de acesso baseado em funções Azure (Azure RBAC). __O__ acesso ao leitor permite que o espaço de trabalho recupere as definições de firewall e certifique-se de que os dados não saem da rede virtual.
 
 > [!NOTE]
 > Estas alterações podem demorar até 10 minutos a produzir efeitos.

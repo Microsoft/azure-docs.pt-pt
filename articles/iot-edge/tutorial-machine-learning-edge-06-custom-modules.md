@@ -9,17 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a2087c83ec48b0b732ce1cb954f78fad9b46fef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 199da0586a061bccdf8a6ff8a1f53df2f703512f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857440"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959446"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Criar e implementar módulos IoT Edge personalizados
-
-> [!NOTE]
-> Este artigo faz parte de uma série para um tutorial sobre a utilização de Azure Machine Learning em IoT Edge. Se você chegou a este artigo diretamente, nós o encorajamos a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para os melhores resultados.
 
 Neste artigo, criamos três módulos IoT Edge que recebem mensagens de dispositivos IoT de folhas, executam os dados através do seu modelo de aprendizagem automática e, em seguida, encaminhamos insights para o IoT Hub.
 
@@ -54,6 +51,10 @@ O diagrama a seguir mostra os módulos, entradas, saídas e as rotas IoT Edge Hu
 ![Diagrama de arquitetura IoT Edge de três módulos](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
 Os passos deste artigo são normalmente realizados por um desenvolvedor de nuvem.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Este artigo faz parte de uma série para um tutorial sobre a utilização de Azure Machine Learning em IoT Edge. Cada artigo da série baseia-se no trabalho no artigo anterior. Se já chegou a este artigo diretamente, visite o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série.
 
 ## <a name="create-a-new-iot-edge-solution"></a>Criar uma nova solução IoT Edge
 
@@ -160,7 +161,7 @@ O módulo Router é uma peça importante da solução que garante que as mensage
 
 1. Nomeie o módulo **turbofanRouter**.
 
-1. Quando solicitado para o seu Repositório de Imagem Docker, utilize o registo do espaço de trabalho de aprendizagem automática (pode encontrar o registo no nó de registos do seu *deployment.template.jsno* ficheiro). Este valor é o endereço totalmente qualificado para o registo, como ** \<your registry\> .azurecr.io/turbofanrouter**.
+1. Quando solicitado para o seu Repositório de Imagem Docker, utilize o registo do espaço de trabalho de aprendizagem automática (pode encontrar o registo no nó de registos do seu *deployment.template.jsno* ficheiro). Este valor é o endereço totalmente qualificado para o registo, como **\<your registry\> .azurecr.io/turbofanrouter**.
 
     > [!NOTE]
     > Neste artigo, utilizamos o Registo de Contentores Azure que foi criado pelo espaço de trabalho Azure Machine Learning. Isto é puramente por conveniência. Podíamos ter criado um novo registo de contentores e publicado lá os nossos módulos.
@@ -210,7 +211,7 @@ O módulo Router é uma peça importante da solução que garante que as mensage
 
 1. Salve e feche tasks.js.
 
-1. Executar a construção com `Ctrl + Shift + B` ou a Tarefa de Construção de **Terminal**  >  **Execução**terminal .
+1. Executar a construção com `Ctrl + Shift + B` ou a Tarefa de Construção de **Terminal**  >  **Execução** terminal .
 
 ### <a name="set-up-module-routes"></a>Configurar rotas de módulos
 
@@ -589,7 +590,7 @@ Com o router e o classificador no lugar, esperamos receber mensagens regulares c
 
 1. **Selecione Escolha um recipiente**.
 
-1. Na página **de contas de Armazenamento,** encontre a conta de armazenamento que está a usar ao longo deste tutorial, que é nomeado como **iotedgeandml \<unique suffix\> **.
+1. Na página **de contas de Armazenamento,** encontre a conta de armazenamento que está a usar ao longo deste tutorial, que é nomeado como **iotedgeandml \<unique suffix\>**.
 
 1. Selecione o recipiente **ruldata** e clique **em Selecionar**.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b5db19a6549e7e4675213973554ff18bf46dda1e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3e0dce10d582006ab8c1dabf6d4b3efc82d8f39f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92915427"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957117"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Solicite dados meteorológicos em tempo real e previstos utilizando os serviços meteorológicos Azure Maps
 
@@ -27,6 +27,12 @@ Neste artigo você vai aprender, como:
 * Solicite previsões diárias utilizando a [API get daily forecast](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview).
 * Solicite previsões horárias utilizando a [API de Previsão Horária.](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview)
 * Solicite previsões minuto a minuto utilizando a [API de Previsão de Minutos](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview).
+
+Este vídeo fornece uma visão geral dos serviços meteorológicos no Azure Maps com exemplos de chamadas REST.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="Serviços Azure Maps Weather para programadores - Microsoft Channel 9 Video"></iframe>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,9 +50,9 @@ A [API das Condições Correntes](https://docs.microsoft.com/rest/api/maps/weath
 
 Neste exemplo, você usará a [API get condições atuais](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) para recuperar as condições meteorológicas atuais nas coordenadas localizadas em Seattle, WA.
 
-1. Abra a aplicação do Carteiro. Perto do topo da aplicação Postman, selecione **New** . Na janela **Criar Nova,** selecione **Coleção** .  Nomeie a coleção e selecione o botão **Criar.** Você usará esta coleção para o resto dos exemplos neste documento.
+1. Abra a aplicação do Carteiro. Perto do topo da aplicação Postman, selecione **New**. Na janela **Criar Nova,** selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar.** Você usará esta coleção para o resto dos exemplos neste documento.
 
-2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção criada no passo anterior e, em seguida, **selecione Guardar** .
+2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção criada no passo anterior e, em seguida, **selecione Guardar**.
 
 3. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL. Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária.
 
@@ -236,7 +242,7 @@ Neste exemplo, você usará a [API de Alertas de Mau Tempo](https://docs.microso
 >[!NOTE]
 >Este exemplo recupera alertas meteorológicos severos no momento desta escrita. É provável que não haja mais alertas meteorológicos severos no local solicitado. Para recuperar dados de alerta severos ao executar este exemplo, terá de recuperar dados num local diferente de coordenadas.
 
-1. Abra a aplicação Carteiro, clique em **Novo** e selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na secção anterior ou crie uma nova e, em seguida, **selecione Guardar** .
+1. Abra a aplicação Carteiro, clique em **Novo** e selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na secção anterior ou crie uma nova e, em seguida, **selecione Guardar**.
 
 2. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL. Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária.
 
@@ -288,7 +294,7 @@ A [API get daily forecast](https://docs.microsoft.com/rest/api/maps/weather/getd
 
 Neste exemplo, você usará a [API Get Daily Forecast](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) para recuperar a previsão meteorológica de cinco dias para as coordenadas localizadas em Seattle, WA.
 
-1. Abra a aplicação Carteiro, clique em **Novo** e selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na secção anterior ou crie uma nova e, em seguida, **selecione Guardar** .
+1. Abra a aplicação Carteiro, clique em **Novo** e selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na secção anterior ou crie uma nova e, em seguida, **selecione Guardar**.
 
 2. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL. Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária.
 
@@ -536,7 +542,7 @@ A [API de Previsão De Hora](https://docs.microsoft.com/rest/api/maps/weather/ge
 
 Neste exemplo, você usará a [API get hourly previsão](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) para recuperar a previsão do tempo para as próximas 12 horas nas coordenadas localizadas em Seattle, WA.
 
-1. Abra a aplicação Carteiro, clique em **Novo** e selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na secção anterior ou crie uma nova e, em seguida, **selecione Guardar** .
+1. Abra a aplicação Carteiro, clique em **Novo** e selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na secção anterior ou crie uma nova e, em seguida, **selecione Guardar**.
 
 2. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL. Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária.
 
@@ -643,7 +649,7 @@ Neste exemplo, você usará a [API get hourly previsão](https://docs.microsoft.
 
 Neste exemplo, você usará a [API get minute previsão](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) para recuperar a previsão meteorológica minuto a minuto nas coordenadas localizadas em Seattle, WA. A previsão meteorológica é de 120 minutos. A nossa consulta solicita que a previsão seja dada em intervalos de 15 minutos, mas pode ajustar o parâmetro para ser de 1 ou 5 minutos.
 
-1. Abra a aplicação Carteiro, clique em **Novo** e selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na secção anterior ou crie uma nova e, em seguida, **selecione Guardar** .
+1. Abra a aplicação Carteiro, clique em **Novo** e selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção criada na secção anterior ou crie uma nova e, em seguida, **selecione Guardar**.
 
 2. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL. Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária.
 

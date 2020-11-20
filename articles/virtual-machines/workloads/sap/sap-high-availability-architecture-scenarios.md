@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c837a4020ab1aaad1798d6b19e72e09edafea1f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b409254abbde1c1f6156052c49a07e6cc09a4dfd
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360357"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958783"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura e cenários de alta disponibilidade para SAP NetWeaver
 
@@ -310,7 +311,7 @@ Dois tipos de eventos da plataforma Azure podem afetar a disponibilidade das sua
 
 Para obter mais informações, consulte [Gerir a disponibilidade de máquinas virtuais do Windows no Azure.][azure-virtual-machines-manage-availability]
 
-### <a name="azure-storage-redundancy"></a>Redundância de armazenamento Azure
+### <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 Os dados na sua conta de armazenamento são sempre replicados para garantir a durabilidade e alta disponibilidade, atendendo ao SLA de Armazenamento Azure mesmo face a falhas de hardware transitórios.
 
 Como o Azure Storage mantém três imagens dos dados por padrão, a utilização do RAID 5 ou RAID 1 em vários discos Azure é desnecessária.

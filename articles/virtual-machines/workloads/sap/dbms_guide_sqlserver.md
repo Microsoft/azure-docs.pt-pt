@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: Azure, SQL Server, SAP, AlwaysOn
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76bc3273177e94c7619d69293c1e79546d96662c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ef00f33040d30795ae5374b74d0d7a6e9b6e2156
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977311"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957678"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Sql Server Azure Virtual Machines DBMS implantação para SAP NetWeaver
 
@@ -360,7 +361,7 @@ Para o Azure M-Series VM, a escrita de latência no registo de transações pode
 ### <a name="formatting-the-disks"></a>Formatar os discos
 Para o SQL Server, o tamanho do bloco NTFS para discos que contenham dados do SQL Server e ficheiros de registo deve ser de 64 KB. Não há necessidade de formatar o D:\ Conduzir. Esta unidade vem pré-formatada.
 
-Para garantir que a restauração ou criação de bases de dados não esteja a inicializar os ficheiros de dados através da produção do conteúdo dos ficheiros, deve certificar-se de que o contexto do utilizador em que o serviço SQL Server está a funcionar tem uma certa permissão. Normalmente, os utilizadores do grupo de administrador do Windows têm estas permissões. Se o serviço SQL Server for executado no contexto do utilizador do administrador não Windows, tem de atribuir a esse utilizador as **tarefas**de manutenção do volume do Utilizador Right Perform .  Consulte os detalhes deste artigo base de conhecimento da Microsoft: <https://support.microsoft.com/kb/2574695>
+Para garantir que a restauração ou criação de bases de dados não esteja a inicializar os ficheiros de dados através da produção do conteúdo dos ficheiros, deve certificar-se de que o contexto do utilizador em que o serviço SQL Server está a funcionar tem uma certa permissão. Normalmente, os utilizadores do grupo de administrador do Windows têm estas permissões. Se o serviço SQL Server for executado no contexto do utilizador do administrador não Windows, tem de atribuir a esse utilizador as **tarefas** de manutenção do volume do Utilizador Right Perform .  Consulte os detalhes deste artigo base de conhecimento da Microsoft: <https://support.microsoft.com/kb/2574695>
 
 ### <a name="impact-of-database-compression"></a>Impacto da compressão da base de dados
 Em configurações onde a largura de banda de I/S pode tornar-se um fator limitativo, cada medida, que reduz o IOPS pode ajudar a esticar a carga de trabalho que se pode correr num cenário iaaS como o Azure. Portanto, se ainda não for feito, a aplicação da compressão SQL Server PAGE é recomendada tanto pela SAP como pela Microsoft antes de enviar uma base de dados SAP existente para o Azure.

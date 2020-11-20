@@ -8,17 +8,14 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c40f7d988f2b5f206f42eae787efcdce786948a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef6e86bbb55a2c51779f2dcf60f802ce549516cb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857083"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959684"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: Gerar dados simulados do dispositivo
-
-> [!NOTE]
-> Este artigo faz parte de uma série para um tutorial sobre a utilização de Azure Machine Learning em IoT Edge. Se você chegou a este artigo diretamente, nós o encorajamos a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para os melhores resultados.
 
 Neste artigo, usamos dados de treinamento de machine learning para simular um dispositivo que envia telemetria para Azure IoT Hub. Tal como indicado na introdução, este tutorial utiliza o [conjunto de dados](https://c3.nasa.gov/dashlink/resources/139/) de simulação de degradação do motor Turbofan para simular dados de um conjunto de motores de avião para treino e teste.
 
@@ -46,6 +43,10 @@ As tarefas descritas neste artigo devem demorar cerca de 20 minutos a ser conclu
 
 O equivalente real ao trabalho neste passo seria provavelmente realizado por desenvolvedores de dispositivos e desenvolvedores de nuvem.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Este artigo faz parte de uma série para um tutorial sobre a utilização de Azure Machine Learning em IoT Edge. Cada artigo da série baseia-se no trabalho no artigo anterior. Se já chegou a este artigo diretamente, visite o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série.
+
 ## <a name="configure-visual-studio-code-and-build-deviceharness-project"></a>Configure código de estúdio visual e construa o projeto DeviceHarness
 
 1. Abra uma sessão de desktop remota para o seu VM de desenvolvimento.
@@ -69,7 +70,7 @@ O equivalente real ao trabalho neste passo seria provavelmente realizado por des
 
    Se não receber estas notificações, feche o Código do Estúdio Visual, elimine o caixote do lixo e os diretórios do OBJ `C:\source\IoTEdgeAndMlSample\DeviceHarness` em , abra o Código do Estúdio Visual e reabra a pasta DeviceHarness.
 
-1. Valide que o seu ambiente está devidamente configurado desencadeando uma construção, **ctrl**  +  **shift**  +  **B,** ou **Terminal**Run  >  **Build Task**.
+1. Valide que o seu ambiente está devidamente configurado desencadeando uma construção, **ctrl**  +  **shift**  +  **B,** ou **Terminal** Run  >  **Build Task**.
 
 1. É-lhe pedido que selecione a tarefa de construção a executar. Selecione **Build**.
 
@@ -85,7 +86,7 @@ Agora que temos o edifício do projeto, ligue-se ao seu hub IoT para aceder à c
 
 ### <a name="sign-in-to-azure-in-visual-studio-code"></a>Inscreva-se no Azure em Código de Estúdio Visual
 
-1. Inscreva-se na sua subscrição Azure no Código do Estúdio Visual abrindo a paleta de comando `Ctrl + Shift + P` ou **ver**paleta  >  **de comando**.
+1. Inscreva-se na sua subscrição Azure no Código do Estúdio Visual abrindo a paleta de comando `Ctrl + Shift + P` ou **ver** paleta  >  **de comando**.
 
 1. Procure o **Azure: Inscreva-se no** comando.
 

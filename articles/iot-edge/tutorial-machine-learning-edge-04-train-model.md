@@ -8,17 +8,14 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cfb778a1a632dc17a9f50c7ea05debed0edb4fb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9a29e890553d15d19853ec836f8c4296869e143
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88660252"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959633"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Treine e implemente um modelo de aprendizagem automática Azure
-
-> [!NOTE]
-> Este artigo faz parte de uma série para um tutorial sobre a utilização de Azure Machine Learning em IoT Edge. Se você chegou a este artigo diretamente, nós o encorajamos a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para os melhores resultados.
 
 Neste artigo, fazemos as seguintes tarefas:
 
@@ -29,6 +26,10 @@ Neste artigo, fazemos as seguintes tarefas:
 Os Cadernos Azure aproveitam um espaço de trabalho Azure Machine Learning, um bloco fundamental usado para experimentar, treinar e implementar modelos de aprendizagem automática.
 
 Os passos neste artigo podem ser normalmente realizados por cientistas de dados.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Este artigo faz parte de uma série para um tutorial sobre a utilização de Azure Machine Learning em IoT Edge. Cada artigo da série baseia-se no trabalho no artigo anterior. Se já chegou a este artigo diretamente, visite o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série.
 
 ## <a name="set-up-azure-notebooks"></a>Configurar cadernos Azure
 
@@ -168,7 +169,7 @@ Para verificar se os cadernos foram concluídos com sucesso, verifique se foram 
     | Recurso do Azure | Nome |
     | --- | --- |
     | Espaço de trabalho de aprendizagem automática | turborfanDemo |
-    | Registo de Contentor | turbofandemoxxxxxxxxxxxxx |
+    | Container Registry | turbofandemoxxxxxxxxxxxxx |
     | Insights de Aplicações | turbofaninsightxxxxxxxxxxxxx |
     | Cofre de Chaves | turbofankeyvaultbxxxxxxxxxxxxxxx |
     | Armazenamento | turbofanstoragexxxxxxxxxxxxxxx |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2018
 ms.author: alkohli
-ms.openlocfilehash: 55103d6307614f8796c41c35d6345e1fc3aca261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df4722a4232686b0d981c190bdc154f0d1bec62e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60789642"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960209"
 ---
 # <a name="storsimple-virtual-array-update-11-release-notes"></a>StorSimple Virtual Array Update 1.1 notas de lançamento
 
@@ -48,7 +48,7 @@ Esta atualização contém as seguintes correções de melhoria e de erros:
 
 O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
-| N.º | Funcionalidade | Problema |
+| Não. | Funcionalidade | Problema |
 | --- | --- | --- |
 | 1 |Cópias de segurança| Esta versão contém alterações que melhoraram as falhas de backup, aumentando a resiliência às falhas na nuvem e ao uso elevado do CPU.|
 | 2 |Registo| Esta versão contém alterações na gravação enquanto o dispositivo se encontra na sessão de Suporte no modo verbose.|
@@ -58,7 +58,7 @@ O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
 A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Virtual Array e inclui os problemas de lançamento anotados a partir das versões anteriores.
 
-| N.º | Funcionalidade | Problema | Soluções/comentários |
+| Não. | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 | **1.** |Atualizações |As matrizes virtuais criadas na versão de pré-visualização não podem ser atualizadas para uma versão suportada da Disponibilidade Geral. |Estes conjuntos virtuais devem ser falhados para a libertação de Disponibilidade Geral utilizando um fluxo de trabalho de recuperação de desastres (DR). |
 | **2.** |Disco de dados provisionado |Uma vez que tenha fornecedo um disco de dados de um determinado tamanho especificado e criado o conjunto virtual StorSimple correspondente, não deve expandir ou encolher o disco de dados. Tentar fazer resulta numa perda de todos os dados nos níveis locais do dispositivo. | |
@@ -91,4 +91,4 @@ A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Vi
 * [StorSimple Virtual Array Update 0.4 Notas de lançamento](storsimple-virtual-array-update-04-release-notes.md)
 * [StorSimple Virtual Array Update 0.3 Notas de lançamento](storsimple-ova-update-03-release-notes.md)
 * [StorSimple Virtual Array Update 0.1 e 0.2 Notas de lançamento](storsimple-ova-update-01-release-notes.md)
-* [StorSimple Notas de lançamento de disponibilidade geral de matriz virtual](storsimple-ova-pp-release-notes.md)
+* [StorSimple Notas de lançamento de disponibilidade geral de matriz virtual](./storsimple-virtual-array-update-06-release-notes.md)

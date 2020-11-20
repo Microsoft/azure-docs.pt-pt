@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 6d61bd2c45cc1ba9cd9494750b793d7321288224
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57c6caea2de9063b133d4d5d643629184e412dad
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797751"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957695"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server em Azure
 
@@ -442,7 +443,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    >Pode verificar a extensão, executando extensões ---list do SUSEConnect.  
    >Para alcançar os tempos de execução mais rápidos com o Agente da Cerca de Azure:
    > - no SLES 12 SP4 ou SLES 12 SP5 instalar a versão **4.6.2** ou superior ao pacote python-azure-mgmt-compute  
-   > - no SLES 15 instalar a versão **4.6.2** ou superior do pacote python**3**-azure-mgmt-compute 
+   > - no SLES 15 instalar a versão **4.6.2** ou superior do pacote python **3**-azure-mgmt-compute 
 
 1. **[A]** Resolução do nome do anfitrião da configuração
 

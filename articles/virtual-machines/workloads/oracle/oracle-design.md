@@ -3,16 +3,17 @@ title: Conceber e implementar uma base de dados da Oracle no Azure Microsoft Doc
 description: Desenhe e implemente uma base de dados Oracle no seu ambiente Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 9bfd2330f71b9690e2864968cf51cb438bb23676
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b7c280d9ff5f4d8a3c35eb11e080bf2f9f287c0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534078"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959174"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceça e implemente uma base de dados oracle em Azure
 
@@ -39,7 +40,7 @@ O quadro que se segue enumera algumas das diferenças entre uma implementação 
 
 |  | Implementação no local | Implementação do Azure |
 | --- | --- | --- |
-| **Redes** |LAN/WAN  |SDN (rede definida por software)|
+| **Rede** |LAN/WAN  |SDN (rede definida por software)|
 | **Grupo de segurança** |Ferramentas de restrição IP/porta |[Grupo de Segurança de Rede (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 | **Resiliência** |MTBF (tempo médio entre falhas) |MTTR (tempo médio para a recuperação)|
 | **Manutenção planeada** |Remendos/upgrades|[Conjuntos de disponibilidade](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (patching/upgrades geridos pelo Azure) |
@@ -143,13 +144,13 @@ Com base nos requisitos de largura de banda da sua rede, existem vários tipos d
 
 ### <a name="disk-types-and-configurations"></a>Tipos e configurações de discos
 
-- *Discos de OS predefinidos* : Estes tipos de disco oferecem dados persistentes e cacheing. São otimizados para acesso ao SISTEMA no arranque, e não são projetados para cargas de trabalho transacionais ou de data warehouse (analítico).
+- *Discos de OS predefinidos*: Estes tipos de disco oferecem dados persistentes e cacheing. São otimizados para acesso ao SISTEMA no arranque, e não são projetados para cargas de trabalho transacionais ou de data warehouse (analítico).
 
-- *Discos não geridos* : Com estes tipos de discos, gere as contas de armazenamento que armazenam os ficheiros de disco rígido virtual (VHD) que correspondem aos seus discos VM. Os ficheiros VHD são armazenados como bolhas de página nas contas de armazenamento Azure.
+- *Discos não geridos*: Com estes tipos de discos, gere as contas de armazenamento que armazenam os ficheiros de disco rígido virtual (VHD) que correspondem aos seus discos VM. Os ficheiros VHD são armazenados como bolhas de página nas contas de armazenamento Azure.
 
-- *Discos geridos* : O Azure gere as contas de armazenamento que utiliza para os discos VM. Especifica o tipo de disco (premium ou standard) e o tamanho do disco de que necessita. O Azure cria e gere o disco para si.
+- *Discos geridos*: O Azure gere as contas de armazenamento que utiliza para os discos VM. Especifica o tipo de disco (premium ou standard) e o tamanho do disco de que necessita. O Azure cria e gere o disco para si.
 
-- *Discos de armazenamento premium* : Estes tipos de disco são os mais adequados para cargas de trabalho de produção. O armazenamento premium suporta discos VM que podem ser ligados a VMs específicos da série de tamanho, tais como DS, DSv2, GS e VMs sérieS F. O disco premium vem com diferentes tamanhos, e você pode escolher entre discos que variam de 32 GB a 4,096 GB. Cada tamanho do disco tem as suas próprias especificações de desempenho. Dependendo dos requisitos da sua aplicação, pode anexar um ou mais discos ao seu VM.
+- *Discos de armazenamento premium*: Estes tipos de disco são os mais adequados para cargas de trabalho de produção. O armazenamento premium suporta discos VM que podem ser ligados a VMs específicos da série de tamanho, tais como DS, DSv2, GS e VMs sérieS F. O disco premium vem com diferentes tamanhos, e você pode escolher entre discos que variam de 32 GB a 4,096 GB. Cada tamanho do disco tem as suas próprias especificações de desempenho. Dependendo dos requisitos da sua aplicação, pode anexar um ou mais discos ao seu VM.
 
 Quando criar um novo disco gerido a partir do portal, pode escolher o **tipo de Conta** para o tipo de disco que pretende utilizar. Tenha em mente que nem todos os discos disponíveis são mostrados no menu suspenso. Depois de escolher um determinado tamanho VM, o menu mostra apenas os SKUs de armazenamento premium disponíveis que são baseados nesse tamanho VM.
 
@@ -208,9 +209,9 @@ Depois de a definição do disco de dados ser guardada, não pode alterar a defi
 
 Depois de configurar e configurar o seu ambiente Azure, o próximo passo é proteger a sua rede. Aqui estão algumas recomendações:
 
-- *Política NSG* : O NSG pode ser definido por uma sub-rede ou NIC. É mais simples controlar o acesso ao nível da sub-rede, tanto para segurança como para encaminhamento de forças para coisas como firewalls de aplicações.
+- *Política NSG*: O NSG pode ser definido por uma sub-rede ou NIC. É mais simples controlar o acesso ao nível da sub-rede, tanto para segurança como para encaminhamento de forças para coisas como firewalls de aplicações.
 
-- *Jumpbox* : Para um acesso mais seguro, os administradores não devem ligar-se diretamente ao serviço de aplicações ou à base de dados. Uma caixa de salto é usada como um meio de comunicação entre a máquina de administrador e os recursos Azure.
+- *Jumpbox*: Para um acesso mais seguro, os administradores não devem ligar-se diretamente ao serviço de aplicações ou à base de dados. Uma caixa de salto é usada como um meio de comunicação entre a máquina de administrador e os recursos Azure.
 ![Screenshot da página de topologia jumpbox](./media/oracle-design/jumpbox.png)
 
     A máquina de administrador deve oferecer acesso restrito a IP apenas à caixa de salto. A caixa de salto deve ter acesso à aplicação e à base de dados.

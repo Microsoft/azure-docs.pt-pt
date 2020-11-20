@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4693af9c29a36aad60b7b525fec024509a4d586
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893175"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958756"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Implementar um sistema de escala SAP HANA com nó de espera em VMs Azure utilizando ficheiros Azure NetApp no Red Hat Enterprise Linux 
 
@@ -237,7 +238,7 @@ As próximas instruções pressupõem que já criou o grupo de recursos, a rede 
 
    Quando implementa as máquinas virtuais, o nome da interface de rede é gerado automaticamente. Nestas instruções de simplicidade, referimo-nos às interfaces de rede geradas automaticamente, que estão ligadas à sub-rede virtual Azure cliente, como **cliente hanadb1- cliente,** **hanadb2-cliente,** e **hanadb3-cliente.** 
 
-3. Crie três interfaces de rede, uma para cada máquina virtual, para a `storage` sub-rede de rede virtual (neste exemplo, **armazenamento hanadb1,** **armazenamento de hanadb2**e **armazenamento de hanadb3).**  
+3. Crie três interfaces de rede, uma para cada máquina virtual, para a `storage` sub-rede de rede virtual (neste exemplo, **armazenamento hanadb1,** **armazenamento de hanadb2** e **armazenamento de hanadb3).**  
 
 4. Crie três interfaces de rede, uma para cada máquina virtual, para a `hana` sub-rede de rede virtual (neste exemplo, **hanadb1-hana,** **hanadb2-hana**, e **hanadb3-hana).**  
 
@@ -249,7 +250,7 @@ As próximas instruções pressupõem que já criou o grupo de recursos, a rede 
 
     c. No **painel de visão** geral, selecione **Stop** para negociar a máquina virtual.  
 
-    d. Selecione **Networking**e, em seguida, anexe a interface de rede. Na lista de drop-down da interface de **rede Attach,** selecione as interfaces de rede já criadas para as `storage` `hana` sub-redes e sub-redes.  
+    d. Selecione **Networking** e, em seguida, anexe a interface de rede. Na lista de drop-down da interface de **rede Attach,** selecione as interfaces de rede já criadas para as `storage` `hana` sub-redes e sub-redes.  
     
     e. Selecione **Guardar**. 
  
@@ -531,7 +532,7 @@ Neste exemplo para implantar o SAP HANA em configuração de escala com nó de e
     yum install libgcc_s1 libstdc++6 compat-sap-c++-7 libatomic1 
     </code></pre>
 
-4. **[2], [3]** Mude a propriedade da SAP HANA `data` e `log` dos diretórios para **hn1**adm.   
+4. **[2], [3]** Mude a propriedade da SAP HANA `data` e `log` dos diretórios para **hn1** adm.   
 
     <pre><code>
     # Execute as root
@@ -730,7 +731,7 @@ Neste exemplo para implantar o SAP HANA em configuração de escala com nó de e
 
 1. Simular um nó num nó de trabalhadores da SAP HANA. Faça o seguinte: 
 
-   a. Antes de simular a queda do nó, executar os seguintes comandos como **hn1**adm para capturar o estado do ambiente:  
+   a. Antes de simular a queda do nó, executar os seguintes comandos como **hn1** adm para capturar o estado do ambiente:  
 
    <pre><code>
     # Check the landscape status
@@ -786,7 +787,7 @@ Neste exemplo para implantar o SAP HANA em configuração de escala com nó de e
 
 2. Desligue o servidor de nomes fazendo o seguinte:
 
-   a. Antes do teste, verifique o estado do ambiente executando os seguintes comandos como **hn1**adm:  
+   a. Antes do teste, verifique o estado do ambiente executando os seguintes comandos como **hn1** adm:  
 
    <pre><code>
     #Landscape status 
@@ -808,7 +809,7 @@ Neste exemplo para implantar o SAP HANA em configuração de escala com nó de e
     hanadb1, 3, 50313, 50314, 0.3, HDB|HDB_WORKER, GREEN
    </code></pre>
 
-   b. Executar os seguintes comandos como **hn1**adm no nó mestre ativo, que é **hanadb1** neste caso:  
+   b. Executar os seguintes comandos como **hn1** adm no nó mestre ativo, que é **hanadb1** neste caso:  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill

@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7e9d73fa94acd2f31452de05ef3caee92d5cf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2214f085c30419cefb3f6f84139d5592873173f7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055508"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960126"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Uma introdução ao StorSimple Snapshot Manager
 
@@ -79,7 +79,7 @@ Com o StorSimple Snapshot Manager, cria-se volumes e, em seguida, configura-os e
 
 O StorSimple Snapshot Manager utiliza grupos de volume para criar cópias de backup que são consistentes com aplicações. A consistência da aplicação existe quando todos os ficheiros e bases de dados relacionados são sincronizados e representam o verdadeiro estado de uma aplicação num determinado momento. Os grupos de volume (que também são conhecidos como *grupos de consistência*) formam a base de um trabalho de backup ou restauro.
 
-Os grupos de volume não são os mesmos que os recipientes de volume. Um recipiente de volume contém um ou mais volumes que partilham uma conta de armazenamento em nuvem e outros atributos, tais como encriptação e consumo de largura de banda. Um único recipiente de volume pode conter até 256 volumes StorSimple pouco abastetados. Para obter mais informações sobre recipientes de volume, vá ao [Gerir os seus recipientes de volume](storsimple-manage-volume-containers.md). Os grupos de volume são coleções de volumes que configura para facilitar as operações de backup. Se selecionar dois volumes pertencentes a diferentes recipientes de volume, colocá-los num único grupo de volume e, em seguida, criar uma política de backup para esse grupo de volume, cada volume será apoiado no recipiente de volume apropriado, utilizando a conta de armazenamento apropriada.
+Os grupos de volume não são os mesmos que os recipientes de volume. Um recipiente de volume contém um ou mais volumes que partilham uma conta de armazenamento em nuvem e outros atributos, tais como encriptação e consumo de largura de banda. Um único recipiente de volume pode conter até 256 volumes StorSimple pouco abastetados. Para obter mais informações sobre recipientes de volume, vá ao [Gerir os seus recipientes de volume](./storsimple-8000-manage-volume-containers.md). Os grupos de volume são coleções de volumes que configura para facilitar as operações de backup. Se selecionar dois volumes pertencentes a diferentes recipientes de volume, colocá-los num único grupo de volume e, em seguida, criar uma política de backup para esse grupo de volume, cada volume será apoiado no recipiente de volume apropriado, utilizando a conta de armazenamento apropriada.
 
 > [!NOTE]
 > Todos os volumes de um grupo de volume devem ser provenientes de um único fornecedor de serviços em nuvem.
@@ -140,4 +140,3 @@ Para obter informações sobre a monitorização de trabalhos de backup, vá ao 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [a utilização do StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 * Baixar [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
-

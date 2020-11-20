@@ -3,16 +3,17 @@ title: Suporte de Ciclo de Vida Alargado do Red Hat Enterprise Linux
 description: Saiba mais sobre a adição de suporte de ciclo de vida prolongado da Red Hat Enterprise
 author: mathapli
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: 124ff65087887a437e0b82fbd7b1e4c72e4f7b4c
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 71ff00dbf32ef32ead85be60cdbe53f23c8e35c7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684360"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957576"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Red Hat Enterprise Linux (RHEL) Extended Lifecycle Support
 Este artigo fornece informações sobre suporte de ciclo de vida prolongado para as imagens da Red Hat Enterprise:
@@ -42,7 +43,7 @@ A partir de 30 de novembro de 2020, a Red Hat Enterprise Linux 6 chegará ao fim
 
 O processo final de inscrição para o ELS estará disponível em breve aqui (o mais tardar até 30 de novembro de 2020).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para ver a lista completa de imagens RHEL em Azure, consulte [as imagens red hat enterprise Linux (RHEL) disponíveis em Azure](./redhat-imagelist.md).
 * Para saber mais sobre a Infraestrutura de Atualização do Chapéu Vermelho Azure, consulte [a Infraestrutura red hat update para VMs RHEL a pedido em Azure](./redhat-rhui.md).

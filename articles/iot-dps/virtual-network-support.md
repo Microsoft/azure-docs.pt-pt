@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998583"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959786"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Suporte do Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) para redes virtuais
 
@@ -38,7 +38,7 @@ Por várias razões, os clientes podem querer restringir a conectividade aos rec
 
 As abordagens comuns para restringir a conectividade incluem [regras de filtro IP DPS](./iot-dps-ip-filtering.md) e rede virtual (VNET) com [pontos finais privados](../private-link/private-endpoint-overview.md). O objetivo deste artigo é descrever a abordagem VNET para DPS utilizando pontos finais privados. 
 
-Os dispositivos que operam em redes no local podem utilizar [rede privada virtual (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou um espremiamento privado [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para ligar a um VNET em Azure e aceder a recursos DPS através de pontos finais privados. 
+Os dispositivos que operam em redes no local podem utilizar [rede privada virtual (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou um espremiamento privado [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para ligar a um VNET em Azure e aceder a recursos DPS através de pontos finais privados. 
 
 Um ponto final privado é um endereço IP privado atribuído dentro de um VNET propriedade do cliente pelo qual um recurso Azure é acessível. Ao ter um ponto final privado para o seu recurso DPS, poderá permitir que os dispositivos que operam dentro do seu VNET solicitem o fornecimento pelo seu recurso DPS sem permitir o tráfego para o ponto final público.
 
@@ -51,7 +51,7 @@ Antes de proceder, assegure-se de que sejam cumpridos os seguintes requisitos:
 
 * Você alocou um Azure VNET com uma sub-rede na qual o ponto final privado será criado. Para obter mais informações, consulte, [crie uma rede virtual utilizando o Azure CLI](../virtual-network/quick-create-cli.md).
 
-* Para dispositivos que operam dentro de redes no local, crie [a Rede Privada Virtual (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou a [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privada espreitando para o seu Azure VNET.
+* Para dispositivos que operam dentro de redes no local, crie [a Rede Privada Virtual (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou a [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privada espreitando para o seu Azure VNET.
 
 ## <a name="private-endpoint-limitations"></a>Limitações de pontos finais privados
 
@@ -81,7 +81,7 @@ Para configurar um ponto final privado, siga estes passos:
     | :---- | :-----|
     | **Subscrição** | Escolha a subscrição Azure desejada para conter o ponto final privado.  |
     | **Grupo de recursos** | Escolha ou crie um grupo de recursos para conter o ponto final privado |
-    | **Nome**       | Insira um nome para o seu ponto final privado |
+    | **Name**       | Insira um nome para o seu ponto final privado |
     | **Região**     | A região escolhida deve ser a mesma que a região que contém o VNET, mas não tem de ser igual ao recurso DPS. |
 
     Clique **em seguida : Recurso** para configurar o recurso que o ponto final privado irá apontar.
@@ -154,5 +154,5 @@ Para obter detalhes sobre os preços, consulte [os preços do Azure Private Link
 
 Use os links abaixo para saber mais sobre as funcionalidades de segurança DPS:
 
-* [Segurança](concepts-security.md)
+* [Segurança](./concepts-service.md#attestation-mechanism)
 * [Suporte TLS 1.2](tls-support.md)

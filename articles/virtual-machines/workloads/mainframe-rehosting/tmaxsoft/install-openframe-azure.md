@@ -8,12 +8,13 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 9189be5f2f513cd27fe8783d6a1825aac016522c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.subservice: workloads
+ms.openlocfilehash: ad3dbd8cdc6fff7eca8c24bb6e5258022d52cb9b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677747"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959463"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalar o TmaxSoft OpenFrame no Azure
 
@@ -118,15 +119,15 @@ Pode configurar o ambiente OpenFrame utilizando vários padrões de implementaç
 
 1. Vá ao portal Azure <https://portal.azure.com> e inscreva-se na sua conta.
 
-2. Clique em **Máquinas virtuais** .
+2. Clique em **Máquinas virtuais**.
 
     ![Lista de recursos no portal Azure](media/vm-01.png)
 
-3. Clique em **Adicionar** .
+3. Clique em **Adicionar**.
 
     ![Adicionar opção no portal Azure](media/vm-02.png)
 
-4. À direita dos **Sistemas Operativos,** clique em **Mais** .
+4. À direita dos **Sistemas Operativos,** clique em **Mais**.
 
      ![Mais opção no portal Azure](media/vm-03.png)
 
@@ -134,9 +135,9 @@ Pode configurar o ambiente OpenFrame utilizando vários padrões de implementaç
 
      ![Opções do Sistema Operativo no portal Azure](media/vm-04.png)
 
-6. Nas **definições básicas,** introduza o **Nome** , **Nome de Utilizador** , Tipo de **Autenticação** , **Assinatura** (Pay-As-You-Go é o estilo de pagamento AWS) e grupo **de Recursos** (utilize um grupo TmaxSoft existente).
+6. Nas **definições básicas,** introduza o **Nome**, **Nome de Utilizador**, Tipo de **Autenticação**, **Assinatura** (Pay-As-You-Go é o estilo de pagamento AWS) e grupo **de Recursos** (utilize um grupo TmaxSoft existente).
 
-7. Quando estiver concluído (incluindo o par de chaves público/privado para **tipo de autenticação),** clique **em Enviar por isso** .
+7. Quando estiver concluído (incluindo o par de chaves público/privado para **tipo de autenticação),** clique **em Enviar por isso**.
 
 > [!NOTE]
 > Se utilizar uma chave pública SSH para o **tipo de autenticação,** consulte os passos na secção seguinte para gerar o par de chaves público/privado e, em seguida, retome os passos aqui.
@@ -189,17 +190,17 @@ Ao dar acesso a novos indivíduos ao VM:
 
 6. Abra o PuTTY.
 
-7. Para **o Nome do Anfitrião,** escreva o seu nome de utilizador e o endereço IP público que copiou. Por exemplo, **o nome de utilizador \@ publicip** .
+7. Para **o Nome do Anfitrião,** escreva o seu nome de utilizador e o endereço IP público que copiou. Por exemplo, **o nome de utilizador \@ publicip**.
 
     ![Screenshot que mostra a caixa de diálogo de configuração PuTTY e realça o campo Nome do Anfitrião (ou endereço IP).](media/putty-01.png)
 
-8. Na caixa **Categoria,** clique em **Connection \> SSH \> Auth** . Forneça o caminho para o seu ficheiro **chave privado.**
+8. Na caixa **Categoria,** clique em **Connection \> SSH \> Auth**. Forneça o caminho para o seu ficheiro **chave privado.**
 
     ![Caixa de diálogo de configuração PuTTY](media/putty-02.png)
 
 9. Clique **em Abrir** para lançar a janela PuTTY. Se for bem sucedido, está ligado ao seu novo CentOS VM em execução no Azure.
 
-10. Para iniciar sessão como utilizador de raiz, **escreva sudo bash** .
+10. Para iniciar sessão como utilizador de raiz, **escreva sudo bash**.
 
     ![Início de síman do utilizador raiz na janela de comando](media/putty-03.png)
 
@@ -440,7 +441,7 @@ As aplicações no OpenFrame comunicam com a base de dados tibero utilizando a A
 
 Para instalar o ODBC:
 
-1. Verifique se o ficheiro instalador unixODBC-2.3.4.tar.gz está presente ou utilize o `wget unixODBC-2.3.4.tar.gz` comando. Por exemplo:
+1. Verifique se o ficheiro do instalador unixODBC-2.3.4.tar.gz está presente ou utilize o `wget unixODBC-2.3.4.tar.gz` comando. Por exemplo:
 
      ```
      [oframe7@ofdemo ~]$ wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz
@@ -543,7 +544,7 @@ O servidor de aplicações Base é instalado antes dos serviços individuais que
 
 **Para instalar a Base OpenFrame**
 
-1. Certifique-se de que a instalação tibero foi bem sucedida e, em seguida, verifique se \_ estão presentes os seguintes ficheiros de instalação OpenFrame Base7 \_ 0 \_ Linux \_ \_ x86 64.bin e ficheiro de configuração base.properties.
+1. Certifique-se de que a instalação tibero foi bem sucedida e, em seguida, verifique se \_ estão presentes os seguintes ficheiros de configuração do instalador OpenFrame Base7 \_ \_ 0 Linux \_ \_ 0 86 64.bin instalador e ficheiro de configuração base.properties.
 
 2. Atualize o perfil de bash com as seguintes informações tibero específicas:
 
@@ -677,7 +678,7 @@ O OpenFrame Batch é composto por vários componentes que simulam ambientes de l
 
 **Para instalar o Lote**
 
-1. Certifique-se de que a instalação base foi bem sucedida e, em seguida, verifique se o ficheiro de configuração do OpenFrame \_ Batch7 \_ 0 \_ Fix2 \_ MVS \_ Linux \_ \_ x86 64.bin instalador e o ficheiro de configuração lote.properties estão presentes:
+1. Certifique-se de que a instalação base foi bem sucedida e, em seguida, verifique se o Ficheiro de configuração do OpenFrame \_ Batch7 \_ 0 \_ Fix2 \_ MVS \_ Linux \_ \_ x86 64.bin instalador e ficheiro de configuração de lote.properties estão presentes:
 
 2. Na solicitação de comando, `vi batch.properties` escreva para editar o ficheiro lote.propriedades utilizando vi.
 
@@ -765,7 +766,7 @@ O TACF Manager é um módulo de serviço OpenFrame que controla o acesso do util
 
 **Para instalar o TACF**
 
-1. Verifique se o ficheiro de configuração do instalador OpenFrame \_ Tacf7 \_ 0 \_ \_ Fix2 Linux \_ \_ x86 64.bin e o ficheiro de configuração tacf.properties estão presentes.
+1. Verifique se o ficheiro de configuração openFrame \_ Tacf7 \_ 0 \_ Fix2 \_ Linux \_ x86 \_ 64.bin instalador e o ficheiro de configuração tacf.properties estão presentes.
 2. Certifique-se de que a instalação do Lote foi bem sucedida e, em seguida, utilize vi para abrir o ficheiro tacf.properties ( `vi tacf.properties` ).
 3. Modificar os parâmetros TACF:
 
@@ -909,7 +910,7 @@ ProSort é um utilitário utilizado em transações de lotes para triagem de dad
 
 **Para instalar o ProSort**
 
-1. Certifique-se de que a instalação do Lote foi bem sucedida e, em seguida, verifique se o ficheiro de instalação **prosort-bin-prosort \_ 2sp3-linux64-2123-opt.tar.gz** está presente.
+1. Certifique-se de que a instalação do Lote foi bem sucedida e, em seguida, verifique se o ficheiro de instalação **prosort-bin-prosort \_ 2sp3-linux64-2123-opt.tar.gz.**
 
 2. Execute o instalador utilizando o ficheiro de propriedades. Na linha de comandos, escreva:
 
@@ -983,7 +984,7 @@ OFCOBOL é o compilador OpenFrame que interpreta os programas COBOL do computado
 
 **Para instalar a OFCOBOL**
 
-1. Certifique-se de que a instalação Batch/Online foi bem sucedida e, em seguida, verifique se o ficheiro instalador OpenFrame \_ COBOL3 \_ \_ 0 40 \_ Linux \_ \_ x86 64.bin está presente.
+1. Certifique-se de que a instalação Batch/Online foi bem sucedida e, em seguida, verifique se o ficheiro do instalador OpenFrame \_ COBOL3 \_ 0 \_ 40 \_ Linux \_ \_ x86 64.bin.
 
 2. Para executar o instalador OFCOBOL, na origem do comando, escreva:
 
@@ -1043,7 +1044,7 @@ OFCOBOL é o compilador OpenFrame que interpreta os programas COBOL do computado
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bin LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${COBDIR}/lib:/ usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib :${ODBC_HOME}/lib 
      :${OFCOB_HOME}/lib
      ```
-9. Reveja o ficheiro OpenFrame \_ COBOL \_ InstallLog.log in vi e verifique se não existem erros. Por exemplo:
+9. Reveja o OpenFrame \_ COBOL \_ InstallLog.log ficheiro vi e verifique se não existem erros. Por exemplo:
      ```
      [oframe7@ofdemo ~]$ vi $OFCOB_HOME/UninstallerData/log/OpenFrame_COBOL_InstallLog.log 
      …….. 
@@ -1071,7 +1072,7 @@ OFASM é o compilador OpenFrame que interpreta os programas de montagem do compu
 
 **Para instalar o OFASM**
 
-1. Certifique-se de que a instalação Batch/Online foi bem sucedida e, em seguida, verifique se o ficheiro instalador OpenFrame \_ ASM3 \_ 0 \_ Linux \_ \_ x86 64.bin está presente.
+1. Certifique-se de que a instalação Batch/Online foi bem sucedida e, em seguida, verifique se o ficheiro instalador OpenFrame \_ ASM3 \_ 0 \_ Linux \_ \_ x86 64.bin instalador está presente.
 
 2. Execute o instalador. Por exemplo:
 
@@ -1117,7 +1118,7 @@ OFASM é o compilador OpenFrame que interpreta os programas de montagem do compu
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib:${OFASM_HOME}/lib
      ```
 
-7. Abra o ficheiro OpenFrame \_ ASM \_ InstallLog.log in vi e verifique se não existem erros. Por exemplo:
+7. Abra o OpenFrame \_ ASM \_ InstallLog.log ficheiro in vi e verifique se não existem erros. Por exemplo:
 
      ```
      [oframe7@ofdemo ~]$ vi 
@@ -1152,7 +1153,7 @@ O OSC é o ambiente OpenFrame semelhante ao IBM CICS que suporta transações OL
 
 **Para instalar o OSC**
 
-1. Certifique-se de que a instalação base foi bem sucedida e, em seguida, verifique se o ficheiro de configuração do Instalador OpenFrame \_ OSC7 \_ 0 \_ \_ Linux \_ \_ x86 64.bin e o ficheiro de configuração osc.properties estão presentes.
+1. Certifique-se de que a instalação base foi bem sucedida e, em seguida, verifique se o Ficheiro de configuração do OpenFrame \_ OSC7 \_ 0 \_ \_ Fix2 Linux \_ \_ x86 64.bin instalador e o ficheiro de configuração osc.properties estão presentes.
 2. Editar os seguintes parâmetros no ficheiro osc.properties:
      ```
      OPENFRAME_HOME=/opt/tmaxapp/OpenFrame OSC_SYS_OSC_NCS_PATH=/opt/tmaxapp/OpenFrame/temp/OSC_NCS OSC_APP_OSC_TC_PATH=/opt/tmaxapp/OpenFrame/temp/OSC_TC
@@ -1167,7 +1168,7 @@ O OSC é o ambiente OpenFrame semelhante ao IBM CICS que suporta transações OL
      Quando terminada, é visualizada a mensagem "Instalação Completa".
 
 4. Verifique se o perfil de bash é atualizado com variáveis OSC.
-5. Reveja o ficheiro OpenFrame \_ OSC7 \_ 0 \_ \_ InstallLog.log. Deve ter um aspeto semelhante a:
+5. Reveja o ficheiro OpenFrame \_ OSC7 \_ 0 \_ \_ Fix2 InstallLog.log. Deve ter um aspeto semelhante a:
 
      ```
      Summary 
@@ -1389,11 +1390,11 @@ Antes de instalar o JEUS, instale o pacote Apache Ant, que fornece as biblioteca
      > [!NOTE]
      > Se tiver algum problema com a segurança do porto, abra a porta 9736 ou desative a firewall `systemctl stop firewall` ().
 
-14. Para alterar o nome de anfitrião para o servidor1, clique em **Bloquear & Editar** e, em seguida, clique no **servidor1** . Na janela do Servidor, mude o nome de anfitrião da seguinte forma:
+14. Para alterar o nome de anfitrião para o servidor1, clique em **Bloquear & Editar** e, em seguida, clique no **servidor1**. Na janela do Servidor, mude o nome de anfitrião da seguinte forma:
 
-    1.  Mude **Nodename** para **ofdemo** .
+    1.  Mude **Nodename** para **ofdemo**.
     2.  Clique **em OK** no lado direito da janela.
-    3.  Clique **Em Aplicar alterações** no lado inferior esquerdo da janela e, para descrição, insira *a alteração do nome anfitrião* .
+    3.  Clique **Em Aplicar alterações** no lado inferior esquerdo da janela e, para descrição, insira *a alteração do nome anfitrião*.
 
     ![Ecrã JEUS WebAdmin](media/jeus-02.png)
 
@@ -1413,7 +1414,7 @@ OFGW É o gateway OpenFrame que suporta a comunicação entre o emulador termina
 
 **Para instalar a OFGW**
 
-1. Certifique-se de que a JEUS foi instalada com sucesso e, em seguida, verifique se o ficheiro instalador GENÉRICO DE OFGW7 \_ \_ 0 1 \_ Genérico está presente.
+1. Certifique-se de que a JEUS foi instalada com sucesso e, em seguida, verifique se o ficheiro de instalação .bin GENÉRICO OFGW7 \_ \_ 0 1 \_ está presente.
 2. Execute o instalador. Por exemplo:
 
      ```
@@ -1447,7 +1448,7 @@ OfManager fornece funções de operação e gestão para OpenFrame no ambiente w
 
 **Para instalar o OFManager**
 
-1. Verifique se o ficheiro do instalador genérico.bin ofManager7 \_ está presente.
+1. Verifique se o \_ ficheiro do instalador genérico .bin OFManager7 está presente.
 2. Execute o instalador. Por exemplo:
 
      ```

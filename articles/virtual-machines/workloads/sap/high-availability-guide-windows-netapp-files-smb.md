@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
-ms.openlocfilehash: cd974377637f535383c4e099ac408bea88f887a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90b0ab4fdabd40e803d1f85a640e4cb387e40c44
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88853117"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958953"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no Windows com Ficheiros Azure NetApp (SMB) para aplicações SAP
 
@@ -143,10 +144,10 @@ Precisa do seguinte software da SAP:
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Instale uma instância ASCS/SCS no primeiro nó de cluster ASCS/SCS
 
-1. Instale uma instância SAP ASCS/SCS no primeiro nó de cluster. Inicie a ferramenta de instalação SAP **Product**SWPM e, em seguida, navegue para:  >  **DBMS** > Instalação > Servidor de Aplicação ABAP (ou Java) > High-Availability Sistema > instância ASCS/SCS > primeiro nó de cluster.  
+1. Instale uma instância SAP ASCS/SCS no primeiro nó de cluster. Inicie a ferramenta de instalação SAP **Product** SWPM e, em seguida, navegue para:  >  **DBMS** > Instalação > Servidor de Aplicação ABAP (ou Java) > High-Availability Sistema > instância ASCS/SCS > primeiro nó de cluster.  
 
 2. Selecione **o Cluster de Partilha de Ficheiros** como a Configuração de partilha de cluster em SWPM.  
-3. Quando solicitado no passo OS Parâmetros de Cluster do Sistema SAP , **insira**o nome de anfitrião para a partilha de ficheiros Azure NetApp que já criou como **Nome do Anfitrião da Partilha de Ficheiros**.  Neste exemplo, o nome de anfitrião da SMB é **anfsmb-9562**. 
+3. Quando solicitado no passo OS Parâmetros de Cluster do Sistema SAP , **insira** o nome de anfitrião para a partilha de ficheiros Azure NetApp que já criou como **Nome do Anfitrião da Partilha de Ficheiros**.  Neste exemplo, o nome de anfitrião da SMB é **anfsmb-9562**. 
 
    > [!IMPORTANT]
    > Se o check-in pré-requisito Resultados em SWPM mostrar a condição de funcionalidade de disponibilidade contínua não cumprida, pode ser endereçada seguindo as instruções na [mensagem de erro retardada quando tenta aceder a uma pasta partilhada que já não existe no Windows](https://support.microsoft.com/help/2820470/delayed-error-message-when-you-try-to-access-a-shared-folder-that-no-l).  

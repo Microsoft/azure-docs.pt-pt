@@ -1,103 +1,183 @@
 ---
-title: Utilize o portal Azure para configurar chaves geridas pelo cliente para a Azure Data Box
-description: Aprenda a usar o portal Azure para configurar chaves geridas pelo cliente com cofre de chave Azure para Azure Data Box. As teclas geridas pelo cliente permitem criar, rodar, desativar e revogar os controlos de acesso.
+title: Utilize o portal Azure para gerir as chaves geridas pelo cliente para a Azure Data Box
+description: Aprenda a usar o portal Azure para criar e gerir chaves geridas pelo cliente com o Azure Key Vault para uma Caixa de Dados Azure. As teclas geridas pelo cliente permitem criar, rodar, desativar e revogar os controlos de acesso.
 services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 40b777342c2c565efc5b40d361a259c98eae693c
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: cd9f4ad6b6831b2b15c09b37edc569b3f2d247f7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337729"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958208"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Utilize chaves geridas pelo cliente no Cofre da Chave Azure para a Azure Data Box
 
-A Azure Data Box protege a chave de desbloqueio do dispositivo (também conhecida como palavra-passe do dispositivo) que é usada para bloquear o dispositivo através de uma chave de encriptação. Por predefinição, a chave de desbloqueio do dispositivo para uma ordem de Caixa de Dados é encriptada com uma chave gerida pela Microsoft. Para um controlo adicional sobre a chave de desbloqueio do dispositivo, também pode fornecer uma chave gerida pelo cliente. 
+A Azure Data Box protege a chave de desbloqueio do dispositivo (também conhecida como palavra-passe do dispositivo), que é usada para bloquear um dispositivo, através de uma chave de encriptação. Por padrão, esta chave de encriptação é uma chave gerida pela Microsoft. Para controlo adicional, pode utilizar uma chave gerida pelo cliente.
 
-As chaves geridas pelo cliente devem ser criadas e armazenadas num Cofre de Chaves Azure. Para mais informações sobre o Azure Key Vault, veja [o que é Azure Key Vault?](../key-vault/general/overview.md)
+A utilização de uma chave gerida pelo cliente não afeta a forma como os dados do dispositivo são encriptados. Só afeta a forma como a chave de desbloqueio do dispositivo é encriptada.
 
-Este artigo mostra como utilizar as chaves geridas pelo cliente com a Azure Data Box no [portal Azure](https://portal.azure.com/). Este artigo aplica-se tanto aos dispositivos Azure Data Box como aos dispositivos Azure Data Box Heavy.
+Para manter este nível de controlo durante todo o processo de encomenda, utilize uma chave gerida pelo cliente quando criar a sua encomenda. Para mais informações, consulte [Tutorial: Encomende caixa de dados Azure](data-box-deploy-ordered.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+Este artigo mostra como ativar uma chave gerida pelo cliente para a sua encomenda de Caixa de Dados existente no [portal Azure](https://portal.azure.com/). Você vai descobrir como alterar o cofre chave, chave, versão ou identidade para a sua chave gerida pelo cliente atual, ou voltar a usar uma chave gerida pela Microsoft.
 
-Antes de começar, confirme que:
+Este artigo aplica-se a dispositivos Azure Data Box e Azure Data Box Heavy.
 
-1. Criou uma encomenda Azure Data Box de acordo com as instruções em [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+## <a name="requirements"></a>Requisitos
 
-2. Tem um Cofre de Chaves Azure existente com uma chave que pode usar para proteger a chave de desbloqueio do seu dispositivo. Para aprender a criar um cofre-chave utilizando o portal Azure, consulte [Quickstart: set and retrieve a secret from Azure Key Vault using the Azure Portal](../key-vault/secrets/quick-create-portal.md).
+A chave gerida pelo cliente para uma encomenda de Caixa de Dados deve satisfazer os seguintes requisitos:
 
-    - **Apagou suavemente** e **não expurgará** o cofre da chave existente. Estas propriedades não são ativadas por padrão. Para ativar estas propriedades, consulte as secções intituladas **Permitir a eliminação suave** e a **proteção da purga ativada** num dos seguintes artigos:
+- A chave deve ser criada e armazenada num Cofre de Chave Azure que tenha **exclusão suave** e **não purgue** ativado. Para obter mais informações, veja [O que é o Azure Key Vault?](../key-vault/general/overview.md) Pode criar um cofre e uma chave chave enquanto cria ou atualiza o seu pedido.
 
-        - [Como utilizar o soft-delete com PowerShell](../key-vault/general/soft-delete-powershell.md).
-        - [Como utilizar o soft-delete com CLI](../key-vault/general/soft-delete-cli.md).
-    - O cofre-chave existente deve ter uma chave RSA de tamanho igual ou superior a 2048. Para obter mais informações sobre as teclas, consulte [as teclas do Cofre da Chave Azure](../key-vault/keys/about-keys.md).
-    - O cofre-chave deve estar na mesma região que as contas de armazenamento utilizadas para os seus dados. Várias contas de armazenamento podem ser ligadas com o seu recurso Azure Data Box.
-    - Se não tiver um cofre de chaves existente, também pode criá-lo em linha, conforme descrito na secção seguinte.
+- A chave deve ser uma chave RSA de tamanho igual ou superior a 2048.
 
-## <a name="enable-keys"></a>Ativar chaves
+## <a name="enable-key"></a>Ativar a chave
 
-Configurar a chave gerida pelo cliente para a sua Caixa de Dados Azure é opcional. Por predefinição, a Data Box utiliza uma chave gerida pela Microsoft para proteger a sua tecla BitLocker. Para ativar uma chave gerida pelo cliente no portal Azure, siga estes passos:
+Para ativar uma chave gerida pelo cliente para a sua encomenda de Caixa de Dados existente no portal Azure, siga estes passos:
 
-1. Aceda à lâmina **de visão geral** para a sua encomenda de Caixa de Dados.
+1. Aceda ao ecrã **de visão geral** para a sua encomenda caixa de dados.
 
-    ![Folha geral da encomenda da Caixa de Dados](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
+    ![Ecrã geral de uma encomenda de Caixa de Dados - 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
 
-2. Ir para **Definições > Encriptação**. No **tipo de encriptação,** pode escolher como pretende proteger a tecla de desbloqueio do seu dispositivo. Por predefinição, uma chave gerida pela Microsoft é utilizada para proteger a palavra-passe do seu dispositivo. 
+2. Vá a **Definições > Encriptação** e selecione **a tecla gerida pelo Cliente**. Em seguida, **selecione selecione uma chave e um cofre de chaves**.
 
-    ![Escolha a opção de encriptação](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)
+    ![Selecione a opção de encriptação de chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
-3. Selecione o tipo de encriptação como **a chave gerida pelo Cliente**. Depois de ter selecionado a chave gerida pelo cliente, **selecione um cofre e uma chave de teclas**.
+   Na **tecla Select do ecrã Azure Key Vault,** a sua subscrição é automaticamente povoada.
 
-    ![Selecione a chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
+ 3. Para **o cofre key**, pode selecionar um cofre de teclas existente na lista de dropdown ou selecionar Criar **novo** e criar um novo cofre de chaves.
 
-4. Na **tecla Select da lâmina Azure Key Vault,** a subscrição é automaticamente povoada. Para **o cofre key,** pode selecionar um cofre de chaves existente na lista de dropdown.
+     ![Opções de cofre chave ao selecionar uma chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
-    ![Selecione o cofre de chaves Azure existente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
+     Para criar um novo cofre de chaves, insira a subscrição, grupo de recursos, nome do cofre chave e outras informações no novo ecrã do **cofre da chave Create.** Nas **opções de recuperação,** certifique-se de que a proteção **de eliminação** e **purga** macia está ativada. Em seguida, selecione **Review + Create**.
 
-    Também pode selecionar **Criar novo** para criar um novo cofre de chaves. Na lâmina do **cofre da chave Create,** insira o grupo de recursos e o nome do cofre da chave. Certifique-se de que a proteção **para eliminar** e **purgar** suavemente está ativada. Aceite todos os outros incumprimentos. Selecione **Review + Criar**.
+      ![Reveja e crie o Cofre da Chave Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-    ![Reveja e crie o Cofre da Chave Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+      Reveja as informações para o seu cofre chave e selecione **Criar**. Espere alguns minutos para a criação do cofre para completar.
 
-5. Reveja as informações associadas ao cofre de chaves e selecione **Criar**. Espere alguns minutos para a criação do cofre de chaves para completar.
+       ![Crie o Cofre de Chaves Azure com as suas definições](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
-    ![Crie o Cofre de Chaves Azure com as suas definições](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
-
-6. Na **tecla Select a partir do Azure Key Vault,** pode selecionar uma chave no cofre de chaves existente.
+4. Na **tecla Select a partir do ecrã Azure Key Vault,** pode selecionar uma chave existente a partir do cofre de teclas ou criar uma nova.
 
     ![Selecione a chave do Cofre da Chave Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-7. Se quiser criar uma nova chave, selecione **Criar nova** para criar uma chave. O tamanho da chave RSA pode ser 2048 ou maior.
+   Se pretender criar uma nova chave, **selecione Criar nova**. Tem de usar uma chave RSA. O tamanho pode ser 2048 ou maior.
 
     ![Criar nova chave no Cofre da Chave Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-8. Forneça o nome da sua chave, aceite as outras predefinições e selecione **Criar**.
+    Introduza um nome para a sua nova tecla, aceite as outras predefinições e selecione **Criar**. Será notificado de que foi criada uma chave no seu cofre.
 
     ![Nomeie nova chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
-
-9. Foi-lhe notificada que uma chave foi criada no seu cofre. Selecione a **versão** e, em seguida, escolha **Selecione**.
+5. Para **a versão**, pode selecionar uma versão chave existente na lista de drop-down.
 
     ![Selecione versão para nova chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
-10. No painel **do tipo encriptação,** pode ver o cofre da chave e a chave selecionada para a chave gerida pelo cliente.
+    Se pretender gerar uma nova versão chave, selecione **Criar novo**.
 
-    ![Chave e cofre chave para chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+    ![Abra uma caixa de diálogo para criar uma nova versão chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-a.png)
 
-11. Guarde a chave. 
+    Escolha as definições para a nova versão chave e selecione **Criar**.
 
-    ![Salvar a chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
+    ![Criar uma nova versão chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-b.png)
+
+6. Quando tiver selecionado um cofre, chave e versão chave, escolha **Select**.
+
+    ![Uma chave em um cofre de chave Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-c.png)
+
+    As definições **do tipo Encriptação** mostram o cofre e a chave que escolheu.
+
+    ![Chave e cofre chave para uma chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+
+7. Selecione o tipo de identidade a utilizar para gerir a chave gerida pelo cliente para este recurso. Pode utilizar a identidade atribuída ao **sistema** que foi gerada durante a criação da encomenda ou escolher uma identidade atribuída ao utilizador.
+
+    Uma identidade atribuída ao utilizador é um recurso independente que pode usar para gerir o acesso aos recursos. Para obter mais informações, consulte [os tipos de identidade geridos.](/azure/active-directory/managed-identities-azure-resources/overview)
+
+    ![Selecione o tipo de identidade](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)
+
+    Para atribuir uma identidade de utilizador, selecione **Utilizador designado**. Em seguida, **selecione Selecione uma identidade de utilizador** e selecione a identidade gerida que pretende utilizar.
+
+    ![Selecione uma identidade para usar](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
+
+    Não pode criar uma nova identidade de utilizador aqui. Para saber como criar um, consulte [Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+
+    A identidade do utilizador selecionada é mostrada nas definições do **tipo encriptação.**
+
+    ![Uma identidade de utilizador selecionada mostrada nas definições do tipo de encriptação](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
+
+ 9. **Selecione Guardar** para guardar as definições atualizadas **do tipo de encriptação.**
+
+     ![Guarde a sua chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 
     O URL-chave é apresentado sob **o tipo de encriptação**.
 
-    ![URL chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)
+    ![URL chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)<!--Probably need new screen from recent order. Can you provide one? I can't create an order using CMK with the subscription I'm using.-->
 
-> [!IMPORTANT]
-> Pode desativar a chave gerida pela Microsoft e passar para a chave gerida pelo cliente em qualquer fase da encomenda data box. No entanto, uma vez criada a chave gerida pelo cliente, não pode voltar a ser gerida pela Microsoft.
+## <a name="change-key"></a>Alterar chave
+
+Para alterar o cofre, chave e/ou versão chave para a chave gerida pelo cliente que está a utilizar, siga estes passos:
+
+1. No **ecrã de visão geral** para a sua encomenda de Caixa de **Dados,** aceda à encriptação de Definições  >  **Encryption** e clique na **tecla 'Alterar'.**
+
+    ![Ecrã geral de uma encomenda de Caixa de Dados com chave gerida pelo cliente - 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-16.png)
+
+2. Escolha **Selecione um cofre e uma chave diferentes.**
+
+    ![Ecrã geral de uma encomenda de Caixa de Dados, Selecione uma chave diferente e opção de cofre chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-16-a.png)
+
+3. A **tecla Select do** ecrã do cofre de chaves mostra a subscrição, mas nenhuma chave, chave ou versão chave. Pode es fazer qualquer uma das seguintes alterações:
+
+   - Selecione uma chave diferente do mesmo cofre de chaves. Terá de selecionar o cofre de chaves antes de selecionar a chave e a versão.
+
+   - Selecione um cofre de chave diferente e atribua uma nova chave.
+
+   - Altere a versão para a tecla atual.
+   
+    Quando terminar as alterações, escolha **Select**.
+
+    ![Escolha a opção de encriptação - 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17.png)
+
+4. Selecione **Guardar**.
+
+    ![Guardar definições de encriptação atualizadas - 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
+
+## <a name="change-identity"></a>Alterar identidade
+
+Para alterar a identidade utilizada para gerir o acesso à chave gerida pelo cliente para esta encomenda, siga estes passos:
+
+1. No ecrã **de visão geral** para a sua encomenda de Caixa de Dados concluída, aceda à encriptação **de Definições**  >  **Encryption**.
+
+2. Faça uma das seguintes alterações:
+
+     - Para alterar para uma identidade de utilizador diferente, clique em **Selecionar uma identidade de utilizador diferente**. Em seguida, selecione uma identidade diferente no painel do lado direito do ecrã e escolha **Selecione**.
+
+       ![Opção para alterar a identidade atribuída ao utilizador para uma chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-18.png)
+
+   - Para mudar para a identidade atribuída ao sistema gerada durante a criação de encomendas, selecione **Sistema atribuído** por Tipo de **identidade Select**.
+
+     ![Opção para alterar para um sistema atribuído a uma chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-19.png)
+
+3. Selecione **Guardar**.
+
+    ![Guardar definições de encriptação atualizadas - 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
+
+## <a name="use-microsoft-managed-key"></a>Utilize a chave gerida pela Microsoft
+
+Para mudar de usar uma chave gerida pelo cliente para a chave gerida pela Microsoft para a sua encomenda, siga estes passos:
+
+1. No ecrã **de visão geral** para a sua encomenda de Caixa de Dados concluída, aceda à encriptação **de Definições**  >  **Encryption**.
+
+2. Por **Seleção do tipo**, selecione a **tecla gerida pela Microsoft**.
+
+    ![Ecrã geral de uma encomenda de Caixa de Dados - 5](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-20.png)
+
+3. Selecione **Guardar**.
+
+    ![Guarde as definições de encriptação atualizadas para uma chave gerida pela Microsoft](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-21.png)
 
 ## <a name="troubleshoot-errors"></a>Resolver erros
 
@@ -108,12 +188,18 @@ Se receber quaisquer erros relacionados com a sua chave gerida pelo cliente, uti
 | SsemUserErrorEncryptionKeyDisabled| Não foi possível obter a chave-passe, uma vez que a chave gerida pelo cliente está desativada.| Sim, ativando a versão chave.|
 | SsemUserErrorEncryptionKeyExpired| Não foi possível ir buscar a chave-passe, uma vez que a chave gerida pelo cliente expirou.| Sim, ativando a versão chave.|
 | SsemUserErrorKeyDetailsNotFound| Não foi possível ir buscar a chave de passagem, uma vez que a chave gerida pelo cliente não foi encontrada.| Se apagou o cofre da chave, não poderá recuperar a chave gerida pelo cliente.  Se você emigrou o cofre chave para um inquilino diferente, consulte [Change a key vault iD após um movimento de subscrição](../key-vault/general/move-subscription.md). Se apagar o cofre da chave:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos da [Recuperar um cofre de chaves.](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault)</li><li>Não, se for para além da duração da proteção da purga.</li></ol><br>Caso contrário, se o cofre-chave sofreu uma migração de inquilinos, sim, pode ser recuperado usando um dos passos abaixo: <ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Desa `Identity = None` parte e, em seguida, reesuse o valor para `Identity = SystemAssigned` . Isto elimina e recria a identidade uma vez criada a nova identidade. Ativar `Get` `Wrap` , e `Unwrap` permissões para a nova identidade na política de acesso do cofre-chave.</li></ol> |
-| SsemUserErrorKeyVaultBadRequestExcepção| Não foi possível obter a chave de acesso à chave, uma vez que o acesso à chave gerida pelo cliente é revogado.| Sim, verifique se: <ol><li>O cofre ainda tem o MSI na política de acesso.</li><li>A política de acesso fornece permissões para Obter, Embrulhar, Desembrulhar.</li><li>Se o cofre de chaves estiver num vNet atrás da firewall, verifique se **o Microsoft Trust Services** está ativado.</li></ol>|
+| SsemUserErrorKeyVaultBadRequestExcepção | Aplicou uma chave gerida pelo cliente, mas o acesso à chave não foi concedido ou foi revogado, ou não foi possível aceder ao cofre de chaves devido à ativação da firewall. | Adicione a identidade selecionada no cofre de chaves para permitir o acesso à chave gerida pelo cliente. Se o cofre-chave tiver a firewall ativada, mude para uma identidade atribuída ao sistema e adicione uma chave gerida pelo cliente. Para mais informações, consulte como [ativar a chave.](#enable-key) |
 | SsemUserErrorKeyVaultDetailsNotFound| Não foi possível ir buscar a chave-chave, uma vez que o cofre-chave associado para a chave gerida pelo cliente não foi encontrado. | Se apagou o cofre da chave, não poderá recuperar a chave gerida pelo cliente.  Se você emigrou o cofre chave para um inquilino diferente, consulte [Change a key vault iD após um movimento de subscrição](../key-vault/general/move-subscription.md). Se apagar o cofre da chave:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos da [Recuperar um cofre de chaves.](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault)</li><li>Não, se for para além da duração da proteção da purga.</li></ol><br>Caso contrário, se o cofre-chave sofreu uma migração de inquilinos, sim, pode ser recuperado usando um dos passos abaixo: <ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Desa `Identity = None` parte e, em seguida, reesuse o valor para `Identity = SystemAssigned` . Isto elimina e recria a identidade uma vez criada a nova identidade. Ativar `Get` `Wrap` , e `Unwrap` permissões para a nova identidade na política de acesso do cofre-chave.</li></ol> |
 | SsemUserErrorSystemAssignedIdentityAbsent  | Não foi possível ir buscar a chave de passagem, uma vez que a chave gerida pelo cliente não foi encontrada.| Sim, verifique se: <ol><li>O cofre ainda tem o MSI na política de acesso.</li><li>A identidade é do tipo sistema atribuído.</li><li>Ativar permissões de Obter, Embrulhar e Desembrulhar a identidade na política de acesso do cofre-chave.</li></ol>|
+| SsemUserErrorUserAssignedLimitEdReached | A adição de uma nova Identidade Atribuída ao Utilizador falhou uma vez que atingiu o limite do número total de identidades atribuídas pelo utilizador que podem ser adicionadas. | Por favor, relemisse a operação com menos identidades de utilizador ou remova algumas identidades atribuídas pelo utilizador do recurso antes de voltar a tentar. |
+| SsemUserErrorCrossTenantIdentityAccessForbidden | A operação de acesso à identidade gerida falhou. <br> Nota: Isto é para o cenário em que a subscrição é transferida para um inquilino diferente. O cliente tem de mover manualmente a identidade para novo inquilino. Correio de PFA para mais detalhes. | Por favor, mova a identidade selecionada para o novo inquilino sob o qual a subscrição está presente. Para mais informações, consulte como [ativar a chave.](#enable-key) |
+| SsemUserErrorKekUserIdentityNotFound | Aplicou uma chave gerida pelo cliente, mas a identidade atribuída pelo utilizador que tem acesso à chave não foi encontrada no diretório ativo. <br> Nota: Isto acontece quando a identidade do utilizador é eliminada do Azure.| Por favor, tente adicionar uma identidade diferente atribuída ao utilizador selecionado para o seu cofre chave para permitir o acesso à chave gerida pelo cliente. Para mais informações, consulte como [ativar a chave.](#enable-key) |
+| SsemUserErrorUserAssignedIdentityAbsent | Não foi possível ir buscar a chave de passagem, uma vez que a chave gerida pelo cliente não foi encontrada. | Não consegui aceder à chave gerida pelo cliente. Ou a Identidade Atribuída ao Utilizador (UAI) associada à chave é eliminada ou o tipo de UAI mudou. |
+| SsemUserErrorCrossTenantIdentityAccessForbidden | A operação de acesso à identidade gerida falhou. <br> Nota: Isto é para o cenário em que a subscrição é transferida para um inquilino diferente. O cliente tem de mover manualmente a identidade para novo inquilino. Correio de PFA para mais detalhes. | Por favor, tente adicionar uma identidade diferente atribuída ao utilizador selecionado para o seu cofre chave para permitir o acesso à chave gerida pelo cliente. Para mais informações, consulte como [ativar a chave.](#enable-key)|
+| SsemUserErrorKeyVaultBadRequestExcepção | Aplicou uma chave gerida pelo cliente, mas o acesso à chave não foi concedido ou foi revogado, ou não foi possível aceder ao cofre de chaves devido à ativação da firewall. | Adicione a identidade selecionada no cofre de chaves para permitir o acesso à chave gerida pelo cliente. Se o cofre-chave tiver a firewall ativada, mude para uma identidade atribuída ao sistema e adicione uma chave gerida pelo cliente. Para mais informações, consulte como [ativar a chave.](#enable-key) |
 | Erro genérico  | Não consegui pegar a chave.| Isto é um erro genérico. Contacte o Microsoft Support para resolver o erro e determinar os próximos passos.|
-
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é Azure Key Vault?](../key-vault/general/overview.md)
+- [O que é o Azure Key Vault?](../key-vault/general/overview.md)
+- [Início Rápido: Definir e obter um segredo do Azure Key Vault com o portal do Azure](../key-vault/secrets/quick-create-portal.md)

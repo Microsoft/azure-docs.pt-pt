@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 03117b9f0c3cbaea22f36703f689264549b851e8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320475"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959140"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listas de controlo de acesso (ACLs) em Azure Data Lake Storage Gen2
 
@@ -34,7 +34,7 @@ Para definir permissões de nível de arquivo e diretório, consulte qualquer um
 
 | Ambiente | Artigo |
 |--------|-----------|
-|Explorador do Storage do Azure |[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access) (Utilizar o Explorador de Armazenamento do Azure para gerir diretórios, ficheiros e ACLs no Azure Data Lake Storage Gen2)|
+|Explorador de Armazenamento do Azure |[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access) (Utilizar o Explorador de Armazenamento do Azure para gerir diretórios, ficheiros e ACLs no Azure Data Lake Storage Gen2)|
 |.NET |[Utilize .NET para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
 |Java|[Use a Java para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
 |Python|[Use python para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
@@ -60,7 +60,7 @@ Tanto acls de acesso como ACLs predefinidos têm a mesma estrutura.
 
 ## <a name="levels-of-permission"></a>Níveis de permissão
 
-As permissões num objeto de contentor são **Ler,** **Escrever**e **Executar,** e podem ser utilizadas em ficheiros e diretórios, como mostrado na tabela seguinte:
+As permissões num objeto de contentor são **Ler,** **Escrever** e **Executar,** e podem ser utilizadas em ficheiros e diretórios, como mostrado na tabela seguinte:
 
 |            |    Ficheiro     |   Diretório |
 |------------|-------------|----------|
@@ -92,7 +92,7 @@ A tabela que se segue mostra-lhe as entradas ACL necessárias para permitir que 
 
 Esta tabela mostra uma coluna que representa cada nível de uma hierarquia fictícia do diretório. Há uma coluna para o diretório de raiz do contentor , `\` um subdiretório chamado **Oregon**, um subdiretório do diretório do Oregon chamado **Portland,** e um ficheiro de texto no diretório de Portland chamado **Data.txt**. 
 
-> [! IMPORANT] Esta tabela pressupõe que está a utilizar **apenas** ACLs sem quaisquer atribuições de funções Azure RBAC. Para ver uma tabela semelhante que combina Azure RBAC juntamente com ACLs, consulte [tabela permissões: Combinando Azure RBAC e ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> [! IMPORANT] Esta tabela pressupõe que está a utilizar **apenas** ACLs sem atribuições de funções Azure. Para ver uma tabela semelhante que combina Azure RBAC juntamente com ACLs, consulte [tabela permissões: Combinando Azure RBAC e ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Operação             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -270,7 +270,7 @@ Se o HNS for desligado, as regras de autorização do Azure Azure RBAC ainda se 
 
 Para saber como o sistema avalia a Azure RBAC e ACLs em conjunto para tomar decisões de autorização para recursos de conta de armazenamento, consulte [como as permissões são avaliadas.](data-lake-storage-access-control-model.md#how-permissions-are-evaluated)
 
-### <a name="what-are-the-limits-for-azure-rbac-role-assignments-and-acl-entries"></a>Quais são os limites para atribuições de funções do Azure RBAC e entradas ACL?
+### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Quais são os limites para atribuições de funções Azure e entradas ACL?
 
 O quadro seguinte fornece uma visão resumo dos limites a considerar ao utilizar o Azure RBAC para gerir permissões de grãos grossos (permissões aplicáveis a contas de armazenamento ou contentores) e utilização de ACLs para gerir permissões de grãos finos (permissões aplicáveis a ficheiros e diretórios). Utilize grupos de segurança para missões ACL. Ao utilizar grupos, é menos provável que exceda o número máximo de atribuições de funções por subscrição e o número máximo de entradas de ACl por ficheiro ou diretório. 
 

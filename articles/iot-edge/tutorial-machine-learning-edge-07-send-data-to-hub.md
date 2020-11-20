@@ -9,23 +9,24 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0695af6922182aa8be7acfb4b0a931bed35ef7d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857253"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959310"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Enviar dados via gateway transparente
-
-> [!NOTE]
-> Este artigo faz parte de uma série para um tutorial sobre a utilização de Azure Machine Learning em IoT Edge. Se você chegou a este artigo diretamente, nós o encorajamos a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para os melhores resultados.
 
 Neste artigo, mais uma vez usamos o VM de desenvolvimento como um dispositivo simulado. No entanto, em vez de enviar dados diretamente para o IoT Hub, o dispositivo envia dados para o dispositivo IoT Edge configurados como um gateway transparente.
 
 Monitorizamos o funcionamento do dispositivo IoT Edge enquanto o dispositivo simulado está a enviar dados. Uma vez que o dispositivo esteja terminado de funcionar, olhamos para os dados na nossa conta de armazenamento para validar tudo o que funciona como esperado.
 
 Este passo é normalmente realizado por um desenvolvedor de nuvem ou dispositivo.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Este artigo faz parte de uma série para um tutorial sobre a utilização de Azure Machine Learning em IoT Edge. Cada artigo da série baseia-se no trabalho no artigo anterior. Se já chegou a este artigo diretamente, visite o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série.
 
 ## <a name="review-device-harness"></a>Arnês do dispositivo de revisão
 
@@ -110,7 +111,7 @@ A saída do módulo avroFileWriter pode ser facilmente observada olhando para o 
 
 1. Uma vez decorridos os 10 minutos, o módulo deve carregar os ficheiros. Se o upload for bem sucedido, elimina os ficheiros do disco.
 
-### <a name="azure-storage"></a>Storage do Azure
+### <a name="azure-storage"></a>Armazenamento do Azure
 
 Podemos observar os resultados do nosso dispositivo de folha enviando dados olhando para as contas de armazenamento onde esperamos que os dados sejam encaminhados.
 
@@ -134,7 +135,7 @@ Podemos observar os resultados do nosso dispositivo de folha enviando dados olha
 
 Incluímos um simples utilitário de linha de comando para ler um ficheiro Avro e devolver uma sequência JSON das mensagens no ficheiro. Nesta secção, vamos instalá-lo e executá-lo.
 
-1. Abra um terminal em**Terminal**Visual Studio Code  >  **(Terminal Novo terminal).**
+1. Abra um terminal em **Terminal** Visual Studio Code  >  **(Terminal Novo terminal).**
 
 1. Instalar o hubavroreader:
 

@@ -8,19 +8,20 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 99a0805239ee2437ad6ec9ceb40cf45496a07850
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3a3518ba68c9474fc4a34390e6fd9a7d1e88f6c6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047663"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959599"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Criar um ambiente para aprendizagem automática em IoT Edge
 
-> [!NOTE]
-> Este artigo faz parte de uma série para um tutorial sobre a utilização de Azure Machine Learning em IoT Edge. Se você chegou a este artigo diretamente, nós o encorajamos a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para os melhores resultados.
-
 Este artigo ajuda-o a preparar o seu ambiente para o desenvolvimento e implantação. Primeiro, crie uma máquina de desenvolvimento com todas as ferramentas necessárias. Em seguida, crie os recursos de nuvem necessários em Azure.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Este artigo faz parte de uma série para um tutorial sobre a utilização de Azure Machine Learning em IoT Edge. Cada artigo da série baseia-se no trabalho no artigo anterior. Se já chegou a este artigo diretamente, visite o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série.
 
 ## <a name="set-up-the-development-vm"></a>Configurar o VM de desenvolvimento
 
@@ -36,7 +37,7 @@ O desenvolvimento VM será criado com:
 * [Git para Windows](https://gitforwindows.org/)
 * [Git Credential Manager para Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
 * [SDK .NET Core](https://dotnet.microsoft.com/)
-* [Python 3](https://www.python.org/)
+* [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure PowerShell](/powershell/azure/?view=azps-1.1.0)
 * [Extensões de código VS](https://marketplace.visualstudio.com/search?target=VSCode)
@@ -114,7 +115,7 @@ Agora que criámos um VM precisamos de terminar a instalação do software neces
 
 1. Forneça a senha do administrador que forneceu para criar o VM e clique **em OK**.
 
-1. Será solicitado que aceite o certificado para o VM. Selecione **Sim**.
+1. Será solicitado que aceite o certificado para o VM. Selecione **Yes** (Sim).
 
 ## <a name="install-visual-studio-code-extensions"></a>Instalar extensões do Visual Studio Code
 
