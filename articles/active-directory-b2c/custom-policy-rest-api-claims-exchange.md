@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b34d5cdd95f44082d05153390209de5145e56d3f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089575"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949501"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Walkthrough: Add REST API reclama trocas de trocas para políticas personalizadas no Azure Ative Directory B2C
 
@@ -53,7 +53,7 @@ Uma vez que a API REST valida os dados, deve devolver um HTTP 200 (Ok), com os s
 }
 ```
 
-A configuração do ponto final da API REST está fora do âmbito deste artigo. Criámos uma amostra [de Azure Functions.](https://docs.microsoft.com/azure/azure-functions/functions-reference) Pode aceder ao código de função Azure completo no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+A configuração do ponto final da API REST está fora do âmbito deste artigo. Criámos uma amostra [de Azure Functions.](../azure-functions/functions-reference.md) Pode aceder ao código de função Azure completo no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definir reclamações
 
@@ -185,7 +185,7 @@ Para devolver o `balance` pedido de retorno ao pedido do partido, adicione um pe
 
 Repita este passo para o **ProfileEdit.xml**, e **PasswordReset.xml** viagens de utilizador.
 
-Guarde os ficheiros que alterou: *TrustFrameworkBase.xml*, e *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*e *PasswordReset.xml*. 
+Guarde os ficheiros que alterou: *TrustFrameworkBase.xml*, e *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* e *PasswordReset.xml*. 
 
 ## <a name="test-the-custom-policy"></a>Teste a política personalizada
 
@@ -193,7 +193,7 @@ Guarde os ficheiros que alterou: *TrustFrameworkBase.xml*, e *TrustFrameworkExte
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **as inscrições da App.**
 1. Selecione **o Quadro de Experiência de Identidade.**
-1. Selecione **Carregar a Política Personalizada**e, em seguida, fazer o upload dos ficheiros de política que alterou: *TrustFrameworkBase.xml*, e *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, e *PasswordReset.xml*. 
+1. Selecione **Carregar a Política Personalizada** e, em seguida, fazer o upload dos ficheiros de política que alterou: *TrustFrameworkBase.xml*, e *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, e *PasswordReset.xml*. 
 1. Selecione a política de inscrição ou de inscrição que fez o upload e clique no botão **Executar agora.**
 1. Deverá poder inscrever-se através de um endereço de e-mail ou de uma conta no Facebook.
 1. O token enviado de volta para o seu pedido inclui a `balance` reclamação.

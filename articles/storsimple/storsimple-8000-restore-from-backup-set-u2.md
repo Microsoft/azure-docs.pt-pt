@@ -10,16 +10,16 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff70df225b5ed27960c96889d409d7005f0fbcc4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972021"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950739"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar um volume StorSimple a partir de um conjunto de cópias de segurança
 
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição geral
 
 Este tutorial descreve a operação de restauro realizada num dispositivo da série StorSimple 8000 utilizando um conjunto de backup existente. Utilize a lâmina **do catálogo Backup** para restaurar um volume a partir de uma cópia de segurança local ou na nuvem. A lâmina **do catálogo de cópias de segurança** exibe todos os conjuntos de backup que são criados quando são recolhidas cópias de segurança manuais ou automatizadas. A operação de restauro a partir de um conjunto de backup traz o volume on-line imediatamente enquanto os dados são descarregados em segundo plano.
 
@@ -63,7 +63,7 @@ No Update 4, os cmdlets Windows PowerShell podem ser usados para consultar traba
 
 * `Set-HcsRehydrationJob` - Este cmdlet permite-lhe parar, parar, retomar o trabalho de reidratação, quando a reidratação estiver em curso.
 
-Para obter mais informações sobre os cmdlets de reidratação, consulte a [referência cmdlet do Windows PowerShell para storSimple](https://technet.microsoft.com/library/dn688168.aspx).
+Para obter mais informações sobre os cmdlets de reidratação, consulte a [referência cmdlet do Windows PowerShell para storSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 Com a reidratação automática, espera-se um desempenho de leitura transitório tipicamente mais elevado. A magnitude real das melhorias depende de vários fatores, tais como o padrão de acesso, o churn de dados e o tipo de dados. 
 
@@ -137,4 +137,3 @@ Para completar a operação de restauro, desative o volume do hospedeiro e redo�
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba como [gerir os volumes StorSimple](storsimple-8000-manage-volumes-u2.md).
 * Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

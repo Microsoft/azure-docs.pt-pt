@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532346"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951082"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como desinsurar um dispositivo do Serviço de Provisionamento de Dispositivos Azure IoT Hub
 
@@ -32,7 +32,7 @@ Para não permitir temporariamente o dispositivo, desativando a sua entrada de i
 
 1. Inscreva-se no portal Azure e selecione **Todos os recursos** do menu esquerdo.
 2. Na lista de recursos, selecione o serviço de fornecimento de que pretende não permitir o seu dispositivo.
-3. No seu serviço de fornecimento, **selecione Gerir as inscrições**e, em seguida, selecione o **separador Inscrições Individuais.**
+3. No seu serviço de fornecimento, **selecione Gerir as inscrições** e, em seguida, selecione o **separador Inscrições Individuais.**
 4. Selecione a entrada de inscrição para o dispositivo que pretende não permitir. 
 
     ![Selecione a sua inscrição individual](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
@@ -45,7 +45,7 @@ Não permitir permanentemente o dispositivo, eliminando a sua entrada de inscri�
 
 1. Inscreva-se no portal Azure e selecione **Todos os recursos** do menu esquerdo.
 2. Na lista de recursos, selecione o serviço de fornecimento de que pretende não permitir o seu dispositivo.
-3. No seu serviço de fornecimento, **selecione Gerir as inscrições**e, em seguida, selecione o **separador Inscrições Individuais.**
+3. No seu serviço de fornecimento, **selecione Gerir as inscrições** e, em seguida, selecione o **separador Inscrições Individuais.**
 4. Selecione a caixa de verificação ao lado da entrada de inscrição para o dispositivo que pretende não permitir. 
 5. Selecione **Eliminar** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que deseja remover a inscrição. 
 
@@ -56,7 +56,7 @@ Depois de terminar o procedimento, deverá ver a sua entrada removida da lista d
 
 ## <a name="disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Desativar um certificado de CA intermédio ou raiz X.509 utilizando um grupo de inscrição
 
-Os certificados X.509 são normalmente organizados numa cadeia de certificados de confiança. Se um certificado em qualquer fase de uma cadeia ficar comprometido, a confiança é quebrada. O certificado deve ser proibido para impedir que o Serviço de Provisionamento de Dispositivos provisa a jusante em qualquer cadeia que contenha esse certificado. Para saber mais sobre os certificados X.509 e como são utilizados com o serviço de fornecimento, consulte [os certificados X.509](./concepts-security.md#x509-certificates). 
+Os certificados X.509 são normalmente organizados numa cadeia de certificados de confiança. Se um certificado em qualquer fase de uma cadeia ficar comprometido, a confiança é quebrada. O certificado deve ser proibido para impedir que o Serviço de Provisionamento de Dispositivos provisa a jusante em qualquer cadeia que contenha esse certificado. Para saber mais sobre os certificados X.509 e como são utilizados com o serviço de fornecimento, consulte [os certificados X.509](./concepts-x509-attestation.md#x509-certificates). 
 
 Um grupo de inscrições é uma entrada para dispositivos que partilham um mecanismo comum de atestado de certificados X.509 assinados pela mesma AC intermédia ou raiz. A entrada do grupo de inscrição está configurada com o certificado X.509 associado à AC intermédia ou raiz. A entrada é também configurada com quaisquer valores de configuração, como o twin state e a ligação do hub IoT, que são partilhados por dispositivos com esse certificado na sua cadeia de certificados. Para não permitir o certificado, pode desativar ou eliminar o seu grupo de inscrição.
 
@@ -64,7 +64,7 @@ Não permitir temporariamente o certificado, desativando o seu grupo de matrícu
 
 1. Inscreva-se no portal Azure e selecione **Todos os recursos** do menu esquerdo.
 2. Na lista de recursos, selecione o serviço de fornecimento que pretende não permitir o certificado de assinatura.
-3. No seu serviço de fornecimento, **selecione Gerir as inscrições**e, em seguida, selecione o **separador Grupos de Inscrição.**
+3. No seu serviço de fornecimento, **selecione Gerir as inscrições** e, em seguida, selecione o **separador Grupos de Inscrição.**
 4. Selecione o grupo de inscrição usando o certificado que pretende não permitir.
 5. Selecione **Desativar** o interruptor **de entrada Ativa** e, em seguida, selecione **Guardar**.  
 
@@ -75,7 +75,7 @@ Não permitir permanentemente o certificado, eliminando o seu grupo de matrícul
 
 1. Inscreva-se no portal Azure e selecione **Todos os recursos** do menu esquerdo.
 2. Na lista de recursos, selecione o serviço de fornecimento de que pretende não permitir o seu dispositivo.
-3. No seu serviço de fornecimento, **selecione Gerir as inscrições**e, em seguida, selecione o **separador Grupos de Inscrição.**
+3. No seu serviço de fornecimento, **selecione Gerir as inscrições** e, em seguida, selecione o **separador Grupos de Inscrição.**
 4. Selecione a caixa de verificação ao lado do grupo de inscrição para o certificado que pretende não permitir. 
 5. Selecione **Eliminar** na parte superior da janela e, em seguida, selecione **Sim** para confirmar que pretende remover o grupo de inscrição. 
 
@@ -94,7 +94,7 @@ Para não permitir um dispositivo individual num grupo de inscrição, siga este
 
 1. Inscreva-se no portal Azure e selecione **Todos os recursos** do menu esquerdo.
 2. A partir da lista de recursos, selecione o serviço de fornecimento que contém o grupo de inscrição para o dispositivo que pretende não permitir.
-3. No seu serviço de fornecimento, **selecione Gerir as inscrições**e, em seguida, selecione o **separador Inscrições Individuais.**
+3. No seu serviço de fornecimento, **selecione Gerir as inscrições** e, em seguida, selecione o **separador Inscrições Individuais.**
 4. Selecione o botão **de inscrição individual Adicionar** na parte superior. 
 5. Na página **'Adicionar Inscrição',** selecione **X.509** como Mecanismo **de** Atestação para o dispositivo.
 
@@ -110,4 +110,4 @@ Quando criar com sucesso a sua inscrição, deverá ver a inscrição do disposi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O desinscrição também faz parte do processo de desprovisionamento maior. A desprovisionação de um dispositivo inclui tanto o desinscrição do serviço de fornecimento como a desregistação do hub IoT. Para conhecer todo o processo, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md) 
+O desinscrição também faz parte do processo de desprovisionamento maior. A desprovisionação de um dispositivo inclui tanto o desinscrição do serviço de fornecimento como a desregistação do hub IoT. Para conhecer todo o processo, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md)

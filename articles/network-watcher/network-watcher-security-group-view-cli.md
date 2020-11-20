@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 854fe3ab8ad20e13f864b9fb5419628664985dd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3aa963c4da7802a9db714f25e7b544b3a132d4b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87022672"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948651"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analise a segurança da sua máquina virtual com vista do grupo de segurança usando o Azure CLI
 
@@ -27,14 +27,14 @@ ms.locfileid: "87022672"
 > - [API REST](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
-> A API do Grupo de Segurança já não está a ser mantida e será depreciada em breve. Utilize a [funcionalidade Regras de Segurança Eficazes](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) que fornece a mesma funcionalidade.
+> A API do Grupo de Segurança já não está a ser mantida e será depreciada em breve. Utilize a [funcionalidade Regras de Segurança Eficazes](./network-watcher-security-group-view-overview.md) que fornece a mesma funcionalidade.
 
 
 A visão do grupo de segurança devolve regras de segurança configuradas e eficazes de segurança de rede que são aplicadas a uma máquina virtual. Esta capacidade é útil para auditar e diagnosticar grupos de segurança de rede e regras que são configuradas num VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos-lhe como recuperar as regras de segurança configuradas e eficazes para uma máquina virtual usando O Azure CLI
 
 Para executar os passos neste artigo, é necessário [instalar a interface de linha de comando Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este cenário pressupõe que já seguiu os passos na [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
 
@@ -66,7 +66,7 @@ az network watcher show-security-group-view --resource-group resourceGroupName -
 
 ## <a name="viewing-the-results"></a>Visualização dos resultados
 
-O exemplo a seguir é uma resposta mais reduzida dos resultados devolvidos. Os resultados mostram todas as regras de segurança eficazes e aplicadas na máquina virtual avariadas em grupos de **Regras de Segurança de Rede, Regras** **de Segurança Padrão**e **Regras de Segurança Eficaz.**
+O exemplo a seguir é uma resposta mais reduzida dos resultados devolvidos. Os resultados mostram todas as regras de segurança eficazes e aplicadas na máquina virtual avariadas em grupos de **Regras de Segurança de Rede, Regras** **de Segurança Padrão** e **Regras de Segurança Eficaz.**
 
 ```json
 {

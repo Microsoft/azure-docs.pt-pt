@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309776"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949773"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Configurar proteção de identidade e acesso condicional em Azure AD B2C
 
@@ -26,7 +26,7 @@ A Proteção de Identidade fornece uma deteção contínua de riscos para o seu 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - O seu inquilino Azure AD B2C deve estar [ligado a uma subscrição da AD Azure.](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription)
-- O Azure AD B2C Premium P2 é obrigado a utilizar o acesso condicional baseado no risco do utilizador. Se necessário, [altere o seu nível de preços Azure AD B2C para Premium P2](https://aka.ms/exid-pricing-tier). 
+- O Azure AD B2C Premium P2 é obrigado a utilizar o acesso condicional baseado no risco do utilizador. Se necessário, [altere o seu nível de preços Azure AD B2C para Premium P2](./billing.md). 
 - Para gerir a Proteção de Identidade e o Acesso Condicional no seu inquilino B2C, precisará de uma conta que seja atribuída à função de Administrador Global ou ao cargo de administrador de Segurança.
 - Para utilizar estas funcionalidades no seu inquilino, primeiro tem de mudar para o nível de preços Azure AD B2C Premium P2.
 
@@ -76,7 +76,7 @@ Para adicionar uma política de acesso condicional baseada nas deteções de ris
 
 3. No portal Azure, procure e selecione **O Diretório Ativo Azure**.
 
-4. Selecione **Propriedades**e, em seguida, **selecione Gerir as predefinições de Segurança**.
+4. Selecione **Propriedades** e, em seguida, **selecione Gerir as predefinições de Segurança**.
 
    ![Desativar os incumprimentos de segurança](media/conditional-access-identity-protection-setup/disable-security-defaults.png)
 
@@ -106,8 +106,8 @@ Para adicionar uma política de acesso condicional baseada nas deteções de ris
 1. Criar uma política de acesso condicional, conforme referido acima, com as seguintes definições:
    
    - Para **Utilizadores e grupos,** selecione o utilizador de teste. Não selecione **Todos os utilizadores** ou irá impedir-se de iniciar sessão.
-   - Para **aplicações ou ações cloud**, escolha **apps Selecione**e, em seguida, escolha a sua aplicação de partido em gestão.
-   - Para as condições, selecione **o risco de inscrição** e os níveis de risco **elevados,** **médios**e **baixos.**
+   - Para **aplicações ou ações cloud**, escolha **apps Selecione** e, em seguida, escolha a sua aplicação de partido em gestão.
+   - Para as condições, selecione **o risco de inscrição** e os níveis de risco **elevados,** **médios** e **baixos.**
    - Para **Grant,** escolha **o acesso ao Bloco.**
 
       ![Escolha o acesso ao Bloco](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)

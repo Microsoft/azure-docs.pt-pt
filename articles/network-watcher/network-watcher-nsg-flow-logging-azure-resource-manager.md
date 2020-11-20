@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 6d16d878b0cf7a73c87b5d6e9263a24c4dfb4383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8db4d4ae56a5a0ee0c92de5d9822614a3270b1c5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738146"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948685"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurar registos de fluxo NSG de um modelo de gestor de recursos Azure
 
@@ -31,15 +31,15 @@ ms.locfileid: "84738146"
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[O Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) é a forma nativa e poderosa da Azure de gerir a sua [infraestrutura como código.](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)
+[O Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) é a forma nativa e poderosa da Azure de gerir a sua [infraestrutura como código.](/azure/devops/learn/what-is-infrastructure-as-code)
 
-Este artigo mostra como você pode ativar [NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) programáticamente usando um modelo de Gestor de Recursos Azure e Azure PowerShell. Começamos por fornecer uma visão geral das propriedades do objeto NSG Flow Log, seguido de alguns modelos de amostra. Em seguida, nós o modelo de implementação usando uma instância local PowerShell.
+Este artigo mostra como você pode ativar [NSG Flow Logs](./network-watcher-nsg-flow-logging-overview.md) programáticamente usando um modelo de Gestor de Recursos Azure e Azure PowerShell. Começamos por fornecer uma visão geral das propriedades do objeto NSG Flow Log, seguido de alguns modelos de amostra. Em seguida, nós o modelo de implementação usando uma instância local PowerShell.
 
 
 ## <a name="nsg-flow-logs-object"></a>Objeto de registos de fluxo NSG
 
 O objeto NSG Flow Logs com todos os parâmetros é mostrado abaixo.
-Para uma visão geral completa das propriedades, pode ler a referência do [modelo NSG Flow Logs](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
+Para uma visão geral completa das propriedades, pode ler a referência do [modelo NSG Flow Logs](/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
 
 ```json
 {
@@ -76,8 +76,8 @@ Para criar um recurso Microsoft.Network/networkWatchers/flowLogs, adicione o JSO
 
 Se estiver a utilizar os modelos do Azure Resource Manager pela primeira vez, pode saber mais sobre eles utilizando os links abaixo.
 
-* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
-* [Tutorial: Criar e implementar o seu primeiro modelo de Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
+* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Tutorial: Criar e implementar o seu primeiro modelo de Gestor de Recursos Azure](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
 Abaixo estão dois exemplos de modelos completos para configurar registos de fluxo NSG.
@@ -172,14 +172,14 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## <a name="verifying-your-deployment"></a>Verificação da sua implantação
 
-Há algumas maneiras de verificar se a sua implantação foi bem sucedida. A sua consola PowerShell deve mostrar "ProvisioningState" como "Bem sucedido". Além disso, pode visitar a página do [portal NSG Flow Logs](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar as suas alterações. Se houver problemas com a implantação, dê uma olhada nos [erros comuns de implementação do Azure com o Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+Há algumas maneiras de verificar se a sua implantação foi bem sucedida. A sua consola PowerShell deve mostrar "ProvisioningState" como "Bem sucedido". Além disso, pode visitar a página do [portal NSG Flow Logs](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar as suas alterações. Se houver problemas com a implantação, dê uma olhada nos [erros comuns de implementação do Azure com o Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 
 ## <a name="deleting-your-resource"></a>Apagar o seu recurso
-O Azure permite a eliminação de recursos através do modo de implementação "Completo". Para eliminar um recurso Flow Logs, especifique uma implementação no modo Completo sem incluir o recurso que pretende eliminar. Leia mais sobre o [modo de implementação completo](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
+O Azure permite a eliminação de recursos através do modo de implementação "Completo". Para eliminar um recurso Flow Logs, especifique uma implementação no modo Completo sem incluir o recurso que pretende eliminar. Leia mais sobre o [modo de implementação completo](../azure-resource-manager/templates/deployment-modes.md#complete-mode)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba como visualizar os seus dados NSG Flow utilizando:
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 * [Ferramentas de código aberto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-* [Azure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Azure Traffic Analytics](./traffic-analytics.md)

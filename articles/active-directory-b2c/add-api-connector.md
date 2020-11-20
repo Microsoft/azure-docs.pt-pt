@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 47885e64b40db07ca3b4a7380389967a36abbd9e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504116"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949841"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adicione um conector API a um fluxo de utilizador de inscrição (pré-visualização)
 
@@ -42,7 +42,7 @@ Para utilizar um [conector API,](api-connectors-overview.md)primeiro cria o cone
 8. Selecione **Guardar**.
 
 ## <a name="the-request-sent-to-your-api"></a>O pedido enviado à sua API
-Um conector API materializa-se como um pedido **HTTP POST,** enviando atributos do utilizador ('claims') como pares de valor-chave num corpo JSON. Os atributos são serializados de forma semelhante às propriedades do utilizador [do Microsoft Graph.](https://docs.microsoft.com/graph/api/resources/user#properties) 
+Um conector API materializa-se como um pedido **HTTP POST,** enviando atributos do utilizador ('claims') como pares de valor-chave num corpo JSON. Os atributos são serializados de forma semelhante às propriedades do utilizador [do Microsoft Graph.](/graph/api/resources/user#properties) 
 
 **Pedido de exemplo**
 ```http
@@ -75,7 +75,7 @@ Content-type: application/json
 
 Apenas as propriedades do utilizador e os atributos personalizados listados na experiência de atributos do utilizador **Azure AD B2C**  >  **User attributes** estão disponíveis para serem enviados no pedido.
 
-Os atributos personalizados existem no formato ** \<extensions-app-id> extension_ _CustomAttribute**  no diretório. A sua API deverá esperar receber reclamações neste mesmo formato serializado. Para obter mais informações sobre atributos personalizados, consulte [Definir atributos personalizados no Azure Ative Directory B2C](user-flow-custom-attributes.md).
+Os atributos personalizados existem no formato **\<extensions-app-id> extension_ _CustomAttribute**  no diretório. A sua API deverá esperar receber reclamações neste mesmo formato serializado. Para obter mais informações sobre atributos personalizados, consulte [Definir atributos personalizados no Azure Ative Directory B2C](user-flow-custom-attributes.md).
 
 Além disso, a reclamação **UI Locales ('ui_locales')** é enviada por padrão em todos os pedidos. Fornece a localização(s) de um utilizador como configurado no seu dispositivo que pode ser usado pela API para devolver respostas internacionalizadas.
 
@@ -83,7 +83,7 @@ Além disso, a reclamação **UI Locales ('ui_locales')** é enviada por padrão
 > Se uma reclamação não tiver um valor no momento em que o ponto final da API é chamado, a reclamação não será enviada para a API. A sua API deve ser concebida para verificar e lidar explicitamente com o caso em que uma reclamação não está no pedido.
 
 > [!TIP] 
-> [**as identidades ('identidades')**](https://docs.microsoft.com/graph/api/resources/objectidentity) e as reclamações do **Email Address ('email')** podem ser utilizadas pela API para identificar um utilizador antes de terem uma conta no seu inquilino. 
+> [**as identidades ('identidades')**](/graph/api/resources/objectidentity) e as reclamações do **Email Address ('email')** podem ser utilizadas pela API para identificar um utilizador antes de terem uma conta no seu inquilino. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Ativar o conector API num fluxo de utilizador
 
@@ -91,8 +91,8 @@ Siga estes passos para adicionar um conector API a um fluxo de utilizador de ins
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Sob **os serviços Azure**, selecione **Azure AD B2C**.
-4. Selecione **os fluxos do Utilizador**e, em seguida, selecione o fluxo do utilizador a que pretende adicionar o conector API.
-5. Selecione **conectores API**e, em seguida, selecione os pontos finais da API que pretende invocar nos seguintes passos no fluxo do utilizador:
+4. Selecione **os fluxos do Utilizador** e, em seguida, selecione o fluxo do utilizador a que pretende adicionar o conector API.
+5. Selecione **conectores API** e, em seguida, selecione os pontos finais da API que pretende invocar nos seguintes passos no fluxo do utilizador:
 
    - **Depois de iniciar sessão com um fornecedor de identidade**
    - **Antes de criar o utilizador**
@@ -103,7 +103,7 @@ Siga estes passos para adicionar um conector API a um fluxo de utilizador de ins
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de iniciar sessão com um fornecedor de identidade
 
-Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (como Google, Facebook, & Azure AD). Este passo precede a página de*_recolha *atributo_*_, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. Este passo não é invocado se um utilizador estiver a registar-se numa conta local.
+Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (como Google, Facebook, & Azure AD). Este passo precede a página de *_recolha *atributo_* _, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. Este passo não é invocado se um utilizador estiver a registar-se numa conta local.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Pedido de exemplo enviado à API neste passo
 ```http

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 8c4df64334957a78fcf05c11625335214f8e032a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: d652f1eae62270fa8968d64a2bd15a1261dca673
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699377"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949195"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Criar um monitor no Monitor de Ligação utilizando o portal Azure
 
@@ -102,7 +102,7 @@ No portal Azure, para criar um grupo de teste num monitor de ligação, especifi
 
 * **Grupo de teste desativação**: Pode selecionar esta caixa de verificação para desativar a monitorização de todas as fontes e destinos que o grupo de teste especifica. Esta seleção é apurada por defeito.
 * **Nome:** Nomeie o seu grupo de teste.
-* **Fontes**: Pode especificar tanto os VMs Azure como as máquinas no local como fontes se os agentes forem instalados neles. Para saber mais sobre a instalação de um agente para a sua fonte, consulte [os agentes de monitorização da Instalação](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+* **Fontes**: Pode especificar tanto os VMs Azure como as máquinas no local como fontes se os agentes forem instalados neles. Para saber mais sobre a instalação de um agente para a sua fonte, consulte [os agentes de monitorização da Instalação](./connection-monitor-overview.md#install-monitoring-agents).
    * Para escolher agentes Azure, selecione o **separador pontos finais Azure.** Aqui vê apenas VMs que estão ligados à região que especificou quando criou o monitor de ligação. Por padrão, os VMs são agrupados na subscrição a que pertencem. Estes grupos estão em colapso. 
    
        Pode aprofundar do nível de **Subscrição** para outros níveis na hierarquia:
@@ -117,7 +117,7 @@ No portal Azure, para criar um grupo de teste num monitor de ligação, especifi
 
    * Para escolher agentes no local, selecione o **separador pontos finais Non-Azure.** Por defeito, os agentes são agrupados em espaços de trabalho por região. Todos estes espaços de trabalho têm o Monitor de Desempenho de Rede configurado. 
    
-       Se precisar de adicionar monitor de desempenho de rede ao seu espaço de trabalho, obtenha-o no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Para obter informações sobre como adicionar Monitor de Desempenho de Rede, consulte [soluções de monitorização no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+       Se precisar de adicionar monitor de desempenho de rede ao seu espaço de trabalho, obtenha-o no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Para obter informações sobre como adicionar Monitor de Desempenho de Rede, consulte [soluções de monitorização no Azure Monitor](../azure-monitor/insights/solutions.md). 
    
        No **Monitor de Ligação Create**, no separador **Básicos,** a região predefinida é selecionada. Se mudar a região, pode escolher agentes de espaços de trabalho na nova região. Pode selecionar um ou mais agentes ou sub-redes. Na vista **Subnet,** pode selecionar IPs específicos para monitorização. Se adicionar várias sub-redes, será criada uma rede personalizada no local chamada **OnPremises_Network_1.** Também pode alterar o **Grupo por** selecionador para grupo por agentes.
 
@@ -140,7 +140,7 @@ No portal Azure, para criar um grupo de teste num monitor de ligação, especifi
     
     * Para escolher agentes não-Azure como destinos, selecione o **separador pontos finais Non-Azure.** Por defeito, os agentes são agrupados em espaços de trabalho por região. Todos estes espaços de trabalho têm o Monitor de Desempenho da Rede configurado. 
     
-      Se precisar de adicionar Monitor de Desempenho de Rede ao seu espaço de trabalho, obtenha-o no Azure Marketplace. Para obter informações sobre como adicionar Monitor de Desempenho de Rede, consulte [soluções de monitorização no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+      Se precisar de adicionar Monitor de Desempenho de Rede ao seu espaço de trabalho, obtenha-o no Azure Marketplace. Para obter informações sobre como adicionar Monitor de Desempenho de Rede, consulte [soluções de monitorização no Azure Monitor](../azure-monitor/insights/solutions.md). 
 
       No **Monitor de Ligação Create**, no separador **Básicos,** a   região predefinida é selecionada. Se mudar a região, pode escolher agentes de espaços de trabalho na nova região. Pode selecionar um ou mais agentes ou sub-redes. Na vista **Subnet,** pode selecionar IPs específicos para monitorização. Se adicionar várias sub-redes, será criada uma rede personalizada no local chamada **OnPremises_Network_1.**  
 
@@ -182,7 +182,7 @@ No portal Azure, para criar alertas para um monitor de ligação, especifique va
 
 - **Nome da condição**: O alerta é criado na `Test Result(preview)` métrica. Quando o resultado do teste do monitor de ligação for um resultado falhado, a regra de alerta dispara. 
 
-- **Nome do grupo de** ação : Pode introduzir o seu e-mail diretamente ou pode criar alertas através de grupos de ação. Se introduzir o seu e-mail diretamente, será criado um grupo de ação com o nome **NPM Email ActionGroup.** O ID de e-mail é adicionado a esse grupo de ação. Se optar por utilizar grupos de ação, tem de selecionar um grupo de ação previamente criado. Para aprender a criar um grupo de ação, consulte [Criar grupos de ação no portal Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) Após a criação do alerta, pode [gerir os seus alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
+- **Nome do grupo de** ação : Pode introduzir o seu e-mail diretamente ou pode criar alertas através de grupos de ação. Se introduzir o seu e-mail diretamente, será criado um grupo de ação com o nome **NPM Email ActionGroup.** O ID de e-mail é adicionado a esse grupo de ação. Se optar por utilizar grupos de ação, tem de selecionar um grupo de ação previamente criado. Para aprender a criar um grupo de ação, consulte [Criar grupos de ação no portal Azure.](../azure-monitor/platform/action-groups.md) Após a criação do alerta, pode [gerir os seus alertas](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal). 
 
 - **Nome da regra de alerta**: O nome do monitor de ligação.
 
@@ -201,5 +201,5 @@ Os monitores de ligação têm estes limites de escala:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba [como analisar os dados de monitorização e definir alertas.](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
-* Saiba [como diagnosticar problemas na sua rede.](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)
+* Saiba [como analisar os dados de monitorização e definir alertas.](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
+* Saiba [como diagnosticar problemas na sua rede.](./connection-monitor-overview.md#diagnose-issues-in-your-network)

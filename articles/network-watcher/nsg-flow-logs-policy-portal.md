@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: damendo
-ms.openlocfilehash: a603f55bd5bff7b2ed68623e9c712faaf8ac766f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 54b87da73d4427234e65e406d183525d55c6c00d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877032"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948549"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>QuickStart: Implementar e gerir registos de fluxo NSG utilizando a política do Azure 
 
@@ -25,8 +25,8 @@ ms.locfileid: "91877032"
 O Azure Policy ajuda a impor normas organizacionais e a avaliar o cumprimento em escala. Os casos de utilização comum para a Política Azure incluem a implementação da governação para a consistência dos recursos, a conformidade regulamentar, a segurança, os custos e a gestão. Neste artigo, usaremos duas políticas incorporadas disponíveis para os Registos de Fluxo NSG para gerir a configuração dos seus registos de fluxo. A primeira política sinaliza quaisquer NSGs sem registos de fluxo ativados. A segunda política implementa automaticamente os registos de fluxo para NSGs sem registos de fluxo ativados. 
 
 Se estiver a criar uma política Azure pela primeira vez, pode ler: 
-- [Visão geral da política de Azure](https://docs.microsoft.com/azure/governance/policy/overview) 
-- [Tutorial para a criação de política.](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal#create-a-policy-assignment)
+- [Visão geral da política de Azure](../governance/policy/overview.md) 
+- [Tutorial para a criação de política.](../governance/policy/assign-policy-portal.md#create-a-policy-assignment)
 
 
 ## <a name="locate-the-policies"></a>Localizar as políticas
@@ -77,7 +77,7 @@ A política não requer parâmetros. Como está a atribuir uma política de audi
 
 ![Revisão da Política de Auditoria](./media/network-watcher-builtin-policy/5_1_audit-policy-review.png)
 
-### <a name="results"></a>Results
+### <a name="results"></a>Resultados
 
 Para verificar os resultados, abra o separador Conformidade e procure o nome da sua Atribuição.
 Deve ver algo semelhante à imagem que se segue assim que a sua apólice for executado. Caso a sua apólice não tenha funcionando, espere por algum tempo. 
@@ -124,7 +124,7 @@ O serviço Network Watcher é um serviço regional. Estes parâmetros permitem e
 ![Revisão da política da DINE](./media/network-watcher-builtin-policy/5_2_3_dine-review.png) 
 
 
-### <a name="results"></a>Results
+### <a name="results"></a>Resultados
 
 Para verificar os resultados, abra o separador Conformidade e procure o nome da sua Atribuição.
 Devias ver algo como seguir a imagem uma vez que a tua apólice. Caso a sua apólice não tenha funcionando, espere por algum tempo.
@@ -134,5 +134,5 @@ Devias ver algo como seguir a imagem uma vez que a tua apólice. Caso a sua apó
 
 ## <a name="next-steps"></a>Passos seguintes 
 
--   Utilize este [tutorial](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template) Vá mais fundo utilizando modelos ARM para implementar Registos de Fluxo e Análise de Tráfego.
--   Saiba mais sobre [o Network Watcher](https://docs.microsoft.com/azure/network-watcher/)
+-   Utilize este [tutorial](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) Vá mais fundo utilizando modelos ARM para implementar Registos de Fluxo e Análise de Tráfego.
+-   Saiba mais sobre [o Network Watcher](./index.yml)

@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bef78766deb739791720838bb27649586da96152
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76834659"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948799"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais com o portal do Azure
 
-A comunicação com êxito entre uma máquina virtual (VM) e um ponto final, como outra VM, pode ser fundamental para a sua organização. Por vezes, são introduzidas alterações de configuração que podem interromper a comunicação. Neste tutorial, ficará a saber como:
+A comunicação com êxito entre uma máquina virtual (VM) e um ponto final, como outra VM, pode ser fundamental para a sua organização. Por vezes, são introduzidas alterações de configuração que podem interromper a comunicação. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar duas VMs
@@ -129,7 +129,7 @@ Os alertas são criados por regras de alerta no Azure Monitor e podem executar a
 2. Clique em **Selecionar destino** e, em seguida, selecione os recursos que pretende alcançar. Selecione **Subscrição** e defina o **Tipo de recurso** para filtrar o Monitor de Ligação que pretende utilizar.
 
     ![ecrã de alerta com o destino selecionado](./media/connection-monitor/set-alert-rule.png)
-1. Assim que tiver selecionado um recurso de destino, selecione **Adicionar critérios**. O Observador de Rede tem [métricas nas quais pode criar alertas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Defina os **Sinais disponíveis** para as métricas ProbesFailedPercent e AverageRoundtripMs:
+1. Assim que tiver selecionado um recurso de destino, selecione **Adicionar critérios**. O Observador de Rede tem [métricas nas quais pode criar alertas](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Defina os **Sinais disponíveis** para as métricas ProbesFailedPercent e AverageRoundtripMs:
 
     ![página de alerta com sinais selecionados](./media/connection-monitor/set-alert-signals.png)
 1. Preencha os detalhes do alerta, como o nome da regra de alerta, a descrição e a gravidade. Também pode adicionar um grupo de ação ao alerta para automatizar e personalizar a resposta de alerta.

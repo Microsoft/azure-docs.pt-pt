@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 10abd1065fe47556109ed69d36493c165dec1418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 177215775c9e83286aa98872eed0ab211a8f36ff
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738231"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948753"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar a auditoria da NSG com a visão do grupo de segurança do observador da rede Azure
 
 Os clientes são muitas vezes confrontados com o desafio de verificar a postura de segurança da sua infraestrutura. Este desafio não é diferente para os seus VMs em Azure. É importante ter um perfil de segurança semelhante com base nas regras do Grupo de Segurança da Rede (NSG) aplicadas. Utilizando a Vista do Grupo de Segurança, pode agora obter a lista de regras aplicadas a um VM dentro de um NSG. Pode definir um perfil de segurança NSG dourado e iniciar a Vista do Grupo de Segurança numa cadência semanal e comparar a saída com o perfil dourado e criar um relatório. Desta forma pode identificar com facilidade todos os VMs que não estão em conformidade com o perfil de segurança prescrito.
 
-Se não estiver familiarizado com os Grupos de Segurança da Rede, consulte [a Visão Geral de Segurança da Rede](../virtual-network/security-overview.md).
+Se não estiver familiarizado com os Grupos de Segurança da Rede, consulte [a Visão Geral de Segurança da Rede](../virtual-network/network-security-groups-overview.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Neste cenário, compara-se uma boa linha de base conhecida com os resultados de visualização do grupo de segurança devolvidos para uma máquina virtual.
 
@@ -189,16 +189,3 @@ SideIndicator            : <=
 ## <a name="next-steps"></a>Passos seguintes
 
 Se as definições tiverem sido alteradas, consulte [Os Grupos de Segurança da Rede](../virtual-network/manage-network-security-group.md) para localizar o grupo de segurança da rede e as regras de segurança que estão em causa.
-
-
-
-
-
-
-
-
-
-
-
-
-

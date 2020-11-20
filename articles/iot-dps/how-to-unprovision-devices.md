@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5683d40e9565068c6cd79eedb08b036eab2c54cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37099b551e004ebfc702dce37c2a1499aa46ff10
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531394"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950735"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Como desprovisionar dispositivos que foram previamente auto-aprovisionados 
 
@@ -25,7 +25,7 @@ Em geral, a desprovisionamento de um dispositivo envolve dois passos:
    - Para aprender a desinsusar um dispositivo, consulte [como desinsualar um dispositivo do Serviço de Provisionamento de Dispositivos Azure IoT Hub](how-to-revoke-device-access-portal.md).
    - Para aprender a desinsutorar um dispositivo programáticamente utilizando um dos serviços de fornecimento SDKs, consulte Gerir as inscrições dos [dispositivos com SDKs de serviço](how-to-manage-enrollments-sdks.md).
 
-2. Desregralar o dispositivo do seu Hub IoT, para evitar futuras comunicações e transferência de dados. Mais uma vez, pode desativar ou eliminar permanentemente a entrada do dispositivo no registo de identidade do Hub IoT onde foi previsto. Consulte [dispositivos de desativação](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) para saber mais sobre o desactivamento. Consulte "Device Management / IoT Devices" para o seu recurso IoT Hub, no [portal Azure](https://portal.azure.com).
+2. Desregralar o dispositivo do seu Hub IoT, para evitar futuras comunicações e transferência de dados. Mais uma vez, pode desativar ou eliminar permanentemente a entrada do dispositivo no registo de identidade do Hub IoT onde foi previsto. Consulte [dispositivos de desativação](../iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) para saber mais sobre o desactivamento. Consulte "Device Management / IoT Devices" para o seu recurso IoT Hub, no [portal Azure](https://portal.azure.com).
 
 Os passos exatos que toma para desprovisionar um dispositivo dependem do seu mecanismo de atestado e da sua entrada de inscrição aplicável com o seu serviço de fornecimento. As seguintes secções fornecem uma visão geral do processo, com base no tipo de inscrição e atestado.
 
@@ -49,7 +49,7 @@ Para ver uma lista de dispositivos que foram a provisionados através de um grup
 
 1. Faça login no portal Azure e clique em **Todos os recursos** no menu da esquerda.
 2. Clique no seu serviço de provisionamento na lista de recursos.
-3. No seu serviço de a provisionamento, clique em **Gerir as inscrições**e, em seguida, selecione o **separador Grupos de Inscrição.**
+3. No seu serviço de a provisionamento, clique em **Gerir as inscrições** e, em seguida, selecione o **separador Grupos de Inscrição.**
 4. Clique no grupo de inscrições para abri-lo.
 
    ![Ver entrada de grupo de inscrição no portal](./media/how-to-unprovision-devices/view-enrollment-group.png)
@@ -63,4 +63,4 @@ Com os grupos de inscrições, há dois cenários a considerar:
 
 - Para desprovisionar um único dispositivo de um grupo de matrículas:
   1. Crie uma inscrição individual desativada para o seu certificado de folha (dispositivo). Isto revoga o acesso ao serviço de fornecimento para esse dispositivo, permitindo ainda o acesso a outros dispositivos que possuam o certificado de assinatura do grupo de matrícula na sua cadeia. Não elimine a inscrição individual desativada para o aparelho. Ao fazê-lo, o dispositivo irá reinscrevê-lo através do grupo de inscrição. 
-  2. Utilize a lista de dispositivos a provisionados para esse grupo de inscrição para encontrar o hub IoT a que o dispositivo foi a provisionado e desativado ou eliminá-lo do registo de identidade desse centro. 
+  2. Utilize a lista de dispositivos a provisionados para esse grupo de inscrição para encontrar o hub IoT a que o dispositivo foi a provisionado e desativado ou eliminá-lo do registo de identidade desse centro.

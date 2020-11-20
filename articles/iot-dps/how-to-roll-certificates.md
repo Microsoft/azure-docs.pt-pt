@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf8b1e04e11dee4e636826430838a467fe034e3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531411"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951133"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como rolar certificados de dispositivo X.509
 
@@ -51,7 +51,7 @@ Quando um dispositivo é inicialmente a provisionado através de provisões auto
 
 Uma vez que um novo certificado de folha foi enrolado no dispositivo, ele não pode mais ligar-se ao hub IoT porque está usando um novo certificado para ligar. O hub IoT só reconhece o dispositivo com o certificado antigo. O resultado da tentativa de ligação do dispositivo será um erro de ligação "não autorizado". Para resolver este erro, tem de atualizar a entrada de inscrição do dispositivo para ter em conta o novo certificado de folha do dispositivo. Em seguida, o serviço de fornecimento pode atualizar as informações de registo do dispositivo IoT Hub, conforme necessário, quando o dispositivo for reprovisionado. 
 
-Uma possível exceção a esta falha de ligação seria um cenário em que criou um [Grupo de Inscrição](concepts-service.md#enrollment-group) para o seu dispositivo no serviço de fornecimento. Neste caso, se não estiver a rolar os certificados de raiz ou intermédios na cadeia de certificados do dispositivo, então o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de inscrição. Se este cenário surgir como uma reação a uma falha de segurança, deve pelo menos não permitir os certificados específicos do dispositivo no grupo que são considerados violados. Para obter mais informações, consulte [Dispositivos específicos desprovidas de informação num grupo de matrículas.](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group)
+Uma possível exceção a esta falha de ligação seria um cenário em que criou um [Grupo de Inscrição](concepts-service.md#enrollment-group) para o seu dispositivo no serviço de fornecimento. Neste caso, se não estiver a rolar os certificados de raiz ou intermédios na cadeia de certificados do dispositivo, então o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de inscrição. Se este cenário surgir como uma reação a uma falha de segurança, deve pelo menos não permitir os certificados específicos do dispositivo no grupo que são considerados violados. Para obter mais informações, consulte [Dispositivos específicos desprovidas de informação num grupo de matrículas.](./how-to-revoke-device-access-portal.md#disallow-specific-devices-in-an-enrollment-group)
 
 A atualização das inscrições para certificados enrolados é realizada na página **de inscrições de Gestão.** Para aceder a esta página, siga estes passos:
 
@@ -69,7 +69,7 @@ A forma como lida com a atualização da inscrição dependerá se estiver a uti
 
 Se estiver a rolar certificados em resposta a uma falha de segurança, deve utilizar a seguinte abordagem que elimina imediatamente o certificado atual:
 
-1. Clique **em Inscrições Individuais**e clique na inscrição de ID de inscrição na lista. 
+1. Clique **em Inscrições Individuais** e clique na inscrição de ID de inscrição na lista. 
 
 2. Clique no botão **de certificado de exclusão atual** e, em seguida, clique no ícone da pasta para selecionar o novo certificado a carregar para a entrada na inscrição. Clique **em Guardar** quando terminar.
 
@@ -92,7 +92,7 @@ Se estiver a rolar certificados para lidar com expirações de certificados, dev
 Mais tarde, quando o certificado secundário também se aproxima da expiração e precisa de ser enrolado, pode rodar para usar a configuração primária. A rotação entre os certificados primário e secundário reduz assim o tempo de inatividade para os dispositivos que tentam provisão.
 
 
-1. Clique **em Inscrições Individuais**e clique na inscrição de ID de inscrição na lista. 
+1. Clique **em Inscrições Individuais** e clique na inscrição de ID de inscrição na lista. 
 
 2. Clique **em Certificado Secundário** e, em seguida, clique no ícone da pasta para selecionar o novo certificado a carregar para a entrada na inscrição. Clique em **Guardar**.
 
@@ -116,7 +116,7 @@ Para atualizar uma inscrição em grupo em resposta a uma falha de segurança, d
 
 4. Clique no **separador 'Gerir' para** a sua instância de serviço de Provisionamento de Dispositivos e clique na lista **de Grupos de Inscrição.** Clique no nome do grupo de inscrição na lista.
 
-5. Clique em **Certificado CA**e selecione o seu novo certificado de CA raiz. Em seguida, clique em **Guardar**. 
+5. Clique em **Certificado CA** e selecione o seu novo certificado de CA raiz. Em seguida, clique em **Guardar**. 
 
     ![Selecione o novo certificado de CA raiz para um certificado comprometido](./media/how-to-roll-certificates/select-new-root-cert.png)
 
@@ -132,9 +132,9 @@ Para atualizar uma inscrição em grupo em resposta a uma falha de segurança, d
 
 #### <a name="update-compromised-intermediate-certificates"></a>Atualizar certificados intermédios comprometidos
 
-1. Clique **em Grupos de Inscrição**e, em seguida, clique no nome de grupo na lista. 
+1. Clique **em Grupos de Inscrição** e, em seguida, clique no nome de grupo na lista. 
 
-2. Clique **em Certificado Intermédio**e **elimine o certificado atual.** Clique no ícone da pasta para navegar para o novo certificado intermédio a ser carregado para o grupo de inscrição. Clique **em Guardar** quando terminar. Estes passos devem ser concluídos tanto para o certificado primário como para o secundário, se ambos estiverem comprometidos.
+2. Clique **em Certificado Intermédio** e **elimine o certificado atual.** Clique no ícone da pasta para navegar para o novo certificado intermédio a ser carregado para o grupo de inscrição. Clique **em Guardar** quando terminar. Estes passos devem ser concluídos tanto para o certificado primário como para o secundário, se ambos estiverem comprometidos.
 
     Este novo certificado intermédio deve ser assinado por um certificado de CA de raiz verificado que já tenha sido adicionado ao serviço de prestação. Para mais informações, consulte [os certificados X.509.](concepts-x509-attestation.md#x509-certificates)
 
@@ -162,7 +162,7 @@ Mais tarde, quando o certificado secundário também se aproxima da expiração 
 
 2. Clique no **separador 'Gerir' para** a sua instância de serviço de Provisionamento de Dispositivos e clique na lista **de Grupos de Inscrição.** Clique no nome do grupo de inscrição na lista.
 
-3. Clique em **Certificado CA**e selecione o seu novo certificado de CA de raiz sob a configuração do **Certificado Secundário.** Em seguida, clique em **Guardar**. 
+3. Clique em **Certificado CA** e selecione o seu novo certificado de CA de raiz sob a configuração do **Certificado Secundário.** Em seguida, clique em **Guardar**. 
 
     ![Selecione o novo certificado de CA raiz para expiração](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
@@ -175,7 +175,7 @@ Mais tarde, quando o certificado secundário também se aproxima da expiração 
 #### <a name="update-expiring-intermediate-certificates"></a>Atualização de certificados intermédios caducados
 
 
-1. Clique **em Grupos de Inscrição**e clique no nome de grupo na lista. 
+1. Clique **em Grupos de Inscrição** e clique no nome de grupo na lista. 
 
 2. Clique **em Certificado Secundário** e, em seguida, clique no ícone da pasta para selecionar o novo certificado a carregar para a entrada na inscrição. Clique em **Guardar**.
 

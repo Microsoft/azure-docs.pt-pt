@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: ae87771e8a557ad7cb58c9cad9231784606cdd74
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 25f4ae0dbfd7827a36dede6a889c342ea490e273
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426545"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948481"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Traffic Analytics frequentemente fez perguntas
 
@@ -58,7 +58,7 @@ Para verificar as funções atribuídas a um utilizador para uma subscrição:
 
 3. Para listar todas as funções atribuídas a um utilizador especificado, utilize **o Get-AzRoleAssignment -SignInName [e-mail do utilizador] - Inclua os administradores da Classe.** 
 
-Se não estiver a ver nenhuma saída, contacte o respetivo administrador de subscrição para ter acesso à execução dos comandos. Para obter mais detalhes, consulte [Adicionar ou remover atribuições de funções Azure utilizando a Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+Se não estiver a ver nenhuma saída, contacte o respetivo administrador de subscrição para ter acesso à execução dos comandos. Para obter mais detalhes, consulte [Adicionar ou remover atribuições de funções Azure utilizando a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>Em que regiões de Azure está disponível a Traffic Analytics?
@@ -126,7 +126,7 @@ Sim.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Posso usar um espaço de trabalho existente?
 
-Sim. Se selecionar um espaço de trabalho existente, certifique-se de que foi migrado para a nova linguagem de consulta. Se não quiser atualizar o espaço de trabalho, tem de criar um novo. Para obter mais informações sobre o novo idioma de consulta, consulte [o upgrade de registos do Azure Monitor para nova pesquisa de registos](../log-analytics/log-analytics-log-search-upgrade.md).
+Sim. Se selecionar um espaço de trabalho existente, certifique-se de que foi migrado para a nova linguagem de consulta. Se não quiser atualizar o espaço de trabalho, tem de criar um novo. Para obter mais informações sobre o novo idioma de consulta, consulte [o upgrade de registos do Azure Monitor para nova pesquisa de registos](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>A minha Conta de Armazenamento Azure pode estar numa subscrição e o meu espaço de trabalho Log Analytics está numa subscrição diferente?
 
@@ -176,7 +176,7 @@ Está a ver a informação sobre recursos no painel de instrumentos; no entanto,
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Posso configurar análises de tráfego usando o PowerShell ou um modelo ou cliente do Azure Resource Manager?
 
-Pode configurar análises de tráfego utilizando o Windows PowerShell a partir da versão 6.2.1. Para configurar a registo de fluxo e a análise do tráfego para um NSG específico utilizando o cmdlet set, consulte [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obter o estado de registo de fluxo e análise de tráfego para um NSG específico, consulte [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+Pode configurar análises de tráfego utilizando o Windows PowerShell a partir da versão 6.2.1. Para configurar a registo de fluxo e a análise do tráfego para um NSG específico utilizando o cmdlet set, consulte [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obter o estado de registo de fluxo e análise de tráfego para um NSG específico, consulte [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Atualmente, não é possível utilizar um modelo de Gestor de Recursos Azure para configurar análises de tráfego.
 
@@ -250,7 +250,7 @@ Por exemplo, de acordo com o [plano de preços](https://azure.microsoft.com/pric
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Com que frequência o Traffic Analytics processa os dados?
 
-Consulte a [secção de agregação de dados](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) no Esquema de Análise de Tráfego e Documento de Agregação de Dados
+Consulte a [secção de agregação de dados](./traffic-analytics-schema.md#data-aggregation) no Esquema de Análise de Tráfego e Documento de Agregação de Dados
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Como é que a Traffic Analytics decide que um IP é malicioso? 
 
@@ -262,7 +262,7 @@ A Traffic Analytics não tem suporte incorporado para alertas. No entanto, uma v
 - Pode utilizar o shortlink para Log Analytics in Traffic Analytics. 
 - Use o [esquema documentado aqui](traffic-analytics-schema.md) para escrever as suas consultas 
 - Clique em "Nova regra de alerta" para criar o alerta
-- Consulte a [documentação de alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) de registo para criar o alerta
+- Consulte a [documentação de alertas](../azure-monitor/platform/alerts-log.md) de registo para criar o alerta
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Como verifico quais os VMs que estão a receber mais tráfego no local?
 
@@ -345,7 +345,7 @@ A página do mapa geo contém duas secções principais:
         
 ### <a name="keyboard-navigation-on-the-map"></a>Navegação de teclado no mapa
     
-- Depois de ter selecionado qualquer filtro no banner e `Ctrl+F6` pressionado, o foco move-se para um dos nós realçados (Centro de**dados Azure** ou **País/Região)** na vista do mapa.
+- Depois de ter selecionado qualquer filtro no banner e `Ctrl+F6` pressionado, o foco move-se para um dos nós realçados (Centro de **dados Azure** ou **País/Região)** na vista do mapa.
 - Para mover-se para outros nós destacados no mapa, use `Tab` ou a chave para o movimento para a `Right arrow` frente. Utilize `Shift+Tab` ou a chave para `Left arrow` movimentos retrógradas.
 - Para selecionar qualquer nó realçado no mapa, utilize a `Enter` `Down arrow` ou a chave.
 - Na seleção de tais nós, o foco passa para a **Caixa de Ferramentas de Informação** para o nó. Por predefinição, o foco move-se para o botão fechado na **Caixa de Ferramentas de Informação**. Para avançar ainda mais dentro da vista **Caixa,** utilize `Right arrow` e as `Left arrow` teclas para avançar e recuar, respectivamente. A prensagem `Enter` tem o mesmo efeito que selecionar o botão focado na Caixa de **Ferramentas de Informação**.
@@ -400,4 +400,4 @@ A página de topologia de sub-redes virtuais contém duas secções principais:
 - Depois de ter selecionado qualquer filtro no banner e `Ctrl+F6` pressionado, o foco move-se para um dos nós realçados **(Subnet)** na vista topologia.
 - Para passar para outros nós destacados na vista topologia, use a chave para o `Shift+Right arrow` movimento para a frente. 
 - Nos nós realçados, o foco move-se para a **Caixa de Ferramentas de Informação** para o nó. Por predefinição, o foco passa para o botão **Mais detalhes** na **Caixa de Ferramentas de Informação**. Para avançar ainda mais dentro da vista **Caixa,** utilize `Right arrow` e as `Left arrow` teclas para avançar e recuar, respectivamente. A prensagem `Enter` tem o mesmo efeito que selecionar o botão focado na Caixa de **Ferramentas de Informação**.
-- Na seleção de tais nós, pode visitar todas as suas ligações, uma a uma, premindo `Shift+Left arrow` a tecla. O foco desloca-se para a Caixa de Ferramentas de **Informação** dessa ligação. Em qualquer ponto, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.    
+- Na seleção de tais nós, pode visitar todas as suas ligações, uma a uma, premindo `Shift+Left arrow` a tecla. O foco desloca-se para a Caixa de Ferramentas de **Informação** dessa ligação. Em qualquer ponto, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.

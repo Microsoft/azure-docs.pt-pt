@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: bba3666fbce6a8ea591654d1abdad319f1e0857c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65e9657c3948d8ce5883cd33ca8720f501352105
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999522"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950674"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 
@@ -28,7 +28,7 @@ Depois de ler este artigo, poderá:
 * Obtenha ajuda no Windows PowerShell para StorSimple.
 
 > [!NOTE]
-> * O Windows PowerShell para cmdlets StorSimple permite-lhe gerir o seu dispositivo StorSimple a partir de uma consola em série ou remotamente através do remoting Do Windows PowerShell. Para obter mais informações sobre cada um dos cmdlets individuais que podem ser utilizados nesta interface, consulte [o cmdlet para Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+> * O Windows PowerShell para cmdlets StorSimple permite-lhe gerir o seu dispositivo StorSimple a partir de uma consola em série ou remotamente através do remoting Do Windows PowerShell. Para obter mais informações sobre cada um dos cmdlets individuais que podem ser utilizados nesta interface, consulte [o cmdlet para Windows PowerShell para StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 > * Os cmdlets Azure PowerShell StorSimple são uma coleção diferente de cmdlets que permitem automatizar tarefas de nível de serviço e migração StorSimple a partir da linha de comando. Para obter mais informações sobre os cmdlets Azure PowerShell para StorSimple, aceda à [referência cmdlet Azure StorSimple](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
 
 
@@ -50,7 +50,7 @@ Certifique-se de que utiliza as seguintes definições de PuTTY para ligar à in
 1. Na caixa de diálogo de **reconfiguração** PuTTY, no painel **de categorias,** selecione **Teclado**.
 2. Certifique-se de que as seguintes opções são selecionadas (estas são as definições predefinidos quando iniciar uma nova sessão).
    
-   | Item de teclado | Selecione |
+   | Item de teclado | Selecionar |
    | --- | --- |
    | Chave de backspace |Controlo-? (127) |
    | Chaves casa e fim |Standard |
@@ -178,4 +178,3 @@ Pode atualizar facilmente a Ajuda na interface Windows PowerShell. Execute os se
 ## <a name="next-steps"></a>Passos seguintes
 
 Se tiver algum problema com o seu dispositivo StorSimple ao executar um dos fluxos de trabalho acima referidos, consulte [ferramentas para resolver problemas de implementações StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-

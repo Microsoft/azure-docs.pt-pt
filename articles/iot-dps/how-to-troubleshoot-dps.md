@@ -8,16 +8,16 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d68314aab636180ff17e330c49c9859b8851b06
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646477"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950691"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Resolução de problemas com serviço de provisionamento de dispositivos de hub Azure IoT
 
-Problemas de conectividade para dispositivos IoT podem ser difíceis de resolver problemas porque existem muitos pontos possíveis de falhas, tais como falhas no atestado, falhas de registo, etc. Este artigo fornece orientações sobre como detetar e resolver problemas de conectividade do dispositivo através do [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+Problemas de conectividade para dispositivos IoT podem ser difíceis de resolver problemas porque existem muitos pontos possíveis de falhas, tais como falhas no atestado, falhas de registo, etc. Este artigo fornece orientações sobre como detetar e resolver problemas de conectividade do dispositivo através do [Azure Monitor](../azure-monitor/overview.md).
 
 ## <a name="using-azure-monitor-to-view-metrics-and-set-up-alerts"></a>Usando o Monitor Azure para ver métricas e configurar alertas
 
@@ -81,5 +81,5 @@ Use esta tabela para compreender e resolver erros comuns.
 | 401 | O símbolo de autorização não pode ser validado; por exemplo, expira ou não se aplica ao URI do pedido. Este código de erro também é devolvido aos dispositivos como parte do fluxo de atestado TPM. | 401 Não Autorizado|
 | 404 | A instância do Serviço de Provisionamento de Dispositivos, ou um recurso (por exemplo, uma inscrição) não existe. |404 Não Encontrado |
 | 412 | O ETag no pedido não corresponde ao ETag do recurso existente, de acordo com o RFC7232. | 412 Pré-condição falhou |
-| 429 | As operações estão a ser estranguladas pelo serviço. Para limites de serviço específicos, consulte [os limites do Serviço de Provisionamento de Dispositivos IoT Hub](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 Pedidos a mais |
+| 429 | As operações estão a ser estranguladas pelo serviço. Para limites de serviço específicos, consulte [os limites do Serviço de Provisionamento de Dispositivos IoT Hub](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | 429 Pedidos a mais |
 | 500 | Ocorreu um erro interno. | Erro Interno do Servidor 500|

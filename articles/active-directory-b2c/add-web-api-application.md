@@ -10,25 +10,25 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5473730484240f2c813c9ae279e1516ed93a45c5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0eeff0c8c338b09fbe375587db2b955a143138c2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214962"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949824"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adicione uma aplicação web API ao seu inquilino Azure Ative Directory B2C
 
  Registe os recursos da API web no seu inquilino para que possam aceitar e responder aos pedidos de aplicações do cliente que apresentem um token de acesso. Este artigo mostra-lhe como registar uma API web em Azure Ative Directory B2C (Azure AD B2C).
 
-Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregtraining)
+Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](./app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
-1. Selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
+1. Selecione **as inscrições da App** e, em seguida, selecione Novo **registo**.
 1. Insira um **Nome** para a inscrição. Por exemplo, *webapi1*.
 1. Em **Redirect URI**, selecione **Web**, e, em seguida, introduza um ponto final onde a Azure AD B2C deve devolver quaisquer fichas que a sua candidatura solicite. Numa aplicação de produção, pode definir o URI de redirecionamento como `https://localhost:5000` . Durante o desenvolvimento ou teste, pode `https://jwt.ms` defini-lo para , uma aplicação web de propriedade da Microsoft que exibe o conteúdo descodificado de um token (o conteúdo do token nunca sai do seu navegador). Pode adicionar e modificar URIs redirecionando as suas aplicações registadas a qualquer momento.
 1. Selecione **Registar**.

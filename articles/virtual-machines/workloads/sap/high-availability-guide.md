@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efd3f0f19325bdaccf98d10306c90488c78b3de7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b506ada0bc072a4174de6f884d1814a63f1f93ca
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653771"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949365"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure
 
@@ -708,11 +709,11 @@ _**Figura 11:** Definir parâmetros de gestor de recursos Azure de alta disponib
     * Máquinas virtuais de cluster SAP ASCS/SCS: <*SAPSystemSID*>-avset-ascs
     * Máquinas virtuais de cluster DBMS: <*SAPSystemSID*>-avset-db
 
-  * **Equilibrador interno de carga**azul:
+  * **Equilibrador interno de carga** azul:
     * Com todas as portas para a instância ASCS/SCS e endereço IP <*SAPSystemSID*>-lb-ascs
     * Com todas as portas para o DBMS do servidor SQL e endereço IP <*SAPSystemSID*>-lb-db
 
-  * **Grupo de segurança de**rede : <*SAPSystemSID*>-nsg-ascs-0  
+  * **Grupo de segurança de** rede : <*SAPSystemSID*>-nsg-ascs-0  
     * Com uma porta aberta do Protocolo de Ambiente de Trabalho Remoto (RDP) para o <máquina virtual *SAPSystemSID*>-ascs-0
 
 > [!NOTE]
@@ -902,7 +903,7 @@ Pode criar manualmente os outros dois nomes de anfitriões virtuais, **pr1-ascs-
 ### <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Definir endereços IP estáticos para as máquinas virtuais SAP
 Depois de colocar as máquinas virtuais para utilizar no seu cluster, precisa de definir endereços IP estáticos para todas as máquinas virtuais. Faça isto na configuração da Rede Virtual Azure e não no sistema operativo dos hóspedes.
 
-1. No portal Azure, selecione O endereço IP das definições **do**  >  **cartão de rede**de grupo de recursos  >  **Settings**  >  **IP Address**.
+1. No portal Azure, selecione O endereço IP das definições **do**  >  **cartão de rede** de grupo de recursos  >  **Settings**  >  **IP Address**.
 2. Na lâmina dos **endereços IP,** em **Atribuição**, selecione **Estática**. Na caixa **de endereços IP,** insira o endereço IP que pretende utilizar.
 
    > [!NOTE]
@@ -1013,7 +1014,7 @@ Descreva o endereço IP do equilibrador de carga **pr1-lb-dbms** para o endereç
 
 Se pretender utilizar números diferentes para as instâncias SAP ASCS ou SCS, tem de alterar os nomes e valores das suas portas a partir de valores predefinidos.
 
-1. No portal Azure, selecione ** < *SID*>-lb-ascs load Balancer Regras**  >  **de equilíbrio**de carga .
+1. No portal Azure, selecione **< *SID*>-lb-ascs load Balancer Regras**  >  **de equilíbrio** de carga .
 2. Para todas as regras de equilíbrio de carga que pertencem à instância SAP ASCS ou SCS, altere estes valores:
 
    * Nome
@@ -1074,7 +1075,7 @@ A criação de um cluster de clustering de failover do servidor do Windows para 
 #### <a name="collect-the-cluster-nodes-in-a-cluster-configuration"></a><a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Colete os nóns de cluster numa configuração de cluster
 
 1. No Add Role and Features Wizard, adicione o agrupamento de failover a ambos os nós de cluster.
-2. Configurar o cluster de failover utilizando o Failover Cluster Manager. No Failover Cluster Manager, selecione **Create Cluster**e, em seguida, adicione apenas o nome do primeiro cluster, nó A. Não adicione ainda o segundo nó; você vai adicionar o segundo nó em um passo posterior.
+2. Configurar o cluster de failover utilizando o Failover Cluster Manager. No Failover Cluster Manager, selecione **Create Cluster** e, em seguida, adicione apenas o nome do primeiro cluster, nó A. Não adicione ainda o segundo nó; você vai adicionar o segundo nó em um passo posterior.
 
    ![Figura 18: Adicione o servidor ou o nome da máquina virtual do primeiro nó de cluster][sap-ha-guide-figure-3007]
 
@@ -1270,7 +1271,7 @@ Existem duas formas de adicionar o Quadro .NET 3.5:
 
 Instale a SIOS DataKeeper Cluster Edition em cada nó no cluster. Para criar armazenamento partilhado virtual com o SIOS DataKeeper, crie um espelho sincronizado e, em seguida, simular o armazenamento partilhado do cluster.
 
-Antes de instalar o software SIOS, crie o **datakeeperSvc**do utilizador de domínio .
+Antes de instalar o software SIOS, crie o **datakeeperSvc** do utilizador de domínio .
 
 > [!NOTE]
 > Adicione o utilizador **DataKeeperSvc** ao grupo **administrador local** em ambos os nós de cluster.
@@ -1409,7 +1410,7 @@ A instalação do SAP com uma instância ASCS/SCS de alta disponibilidade envolv
 1. No gestor DNS do Windows, crie uma entrada DNS para o nome de anfitrião virtual da instância ASCS/SCS.
 
    > [!IMPORTANT]
-   > O endereço IP que atribui ao nome de anfitrião virtual da instância ASCS/SCS deve ser o mesmo que o endereço IP que atribuiu ao Azure Load Balancer** < *(SID*>-lb-ascs).**  
+   > O endereço IP que atribui ao nome de anfitrião virtual da instância ASCS/SCS deve ser o mesmo que o endereço IP que atribuiu ao Azure Load Balancer **< *(SID*>-lb-ascs).**  
    >
    >
 
@@ -1547,7 +1548,7 @@ Para adicionar uma porta de sonda:
    }
    ```
 
-   Depois de colocar online o papel de cluster **DA SAP <*SID,* > ** verifique se o **ProbePort** está definido para o novo valor.
+   Depois de colocar online o papel de cluster **DA SAP <*SID,* >** verifique se o **ProbePort** está definido para o novo valor.
 
    ```PowerShell
    $SAPSID = "PR1"     # SAP <SID>
@@ -1571,7 +1572,7 @@ Para adicionar uma porta de sonda:
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-O **ProbePort** está programado para **62000**. Agora pode aceder à partilha de ** \\ ficheiros \ascsha-clsap\sapmnt** de outros anfitriões, tais como **de ascsha-dbas**.
+O **ProbePort** está programado para **62000**. Agora pode aceder à partilha de **\\ ficheiros \ascsha-clsap\sapmnt** de outros anfitriões, tais como **de ascsha-dbas**.
 
 ### <a name="install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Instale a instância da base de dados
 

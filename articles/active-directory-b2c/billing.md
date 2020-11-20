@@ -11,16 +11,16 @@ ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 416e2c767b5afd40fea38e6f75fcd3f01440b49a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89255358"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949790"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de faturação para Azure Ative Directory B2C
 
-Os preços do Azure Ative Directory B2C (Azure AD B2C) baseiam-se em utilizadores ativos mensais (MAU), que é a contagem de utilizadores únicos com atividade de autenticação dentro de um mês civil. Este modelo de faturação aplica-se tanto aos inquilinos AZURE AD B2C como à [colaboração do utilizador convidado Azure AD (B2B)](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing). A faturação mau ajuda a reduzir custos oferecendo um nível livre e preços flexíveis e previsíveis. Neste artigo, conheça a faturação mau, ligando os seus inquilinos Azure AD B2C a uma subscrição e alterando o seu nível de preços.
+Os preços do Azure Ative Directory B2C (Azure AD B2C) baseiam-se em utilizadores ativos mensais (MAU), que é a contagem de utilizadores únicos com atividade de autenticação dentro de um mês civil. Este modelo de faturação aplica-se tanto aos inquilinos AZURE AD B2C como à [colaboração do utilizador convidado Azure AD (B2B)](../active-directory/external-identities/external-identities-pricing.md). A faturação mau ajuda a reduzir custos oferecendo um nível livre e preços flexíveis e previsíveis. Neste artigo, conheça a faturação mau, ligando os seus inquilinos Azure AD B2C a uma subscrição e alterando o seu nível de preços.
 
 > [!IMPORTANT]
 > Este artigo não contém detalhes sobre os preços. Para obter as informações mais recentes sobre a faturação e preços de utilização, consulte os preços do [Azure Ative Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
@@ -51,7 +51,7 @@ Uma subscrição ligada a um inquilino Azure AD B2C pode ser usada para a fatura
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* [Assinatura Azure](https://azure.microsoft.com/free/)
+* [Subscrição do Azure](https://azure.microsoft.com/free/)
 * [Inquilino Azure AD B2C](tutorial-create-tenant.md) que pretende ligar a uma subscrição
   * Deve ser um administrador de inquilinos.
   * O inquilino não deve estar ainda ligado a uma assinatura
@@ -65,7 +65,7 @@ Uma subscrição ligada a um inquilino Azure AD B2C pode ser usada para a fatura
 5. Selecione **Link um inquilino Azure AD B2C existente para a minha assinatura Azure**.
 6. Selecione um **Inquilino Azure AD B2C** a partir do dropdown. Apenas inquilinos para os quais você é um administrador global e que ainda não estão ligados a uma subscrição são mostrados. O campo **de nome de recursos Azure AD B2C** é preenchido com o nome de domínio do inquilino Azure AD B2C que seleciona.
 7. Selecione uma **subscrição** ativa do Azure da qual é administrador.
-8. No **grupo de Recursos**, selecione Criar **novos**e, em seguida, especificar a **localização**do grupo de Recursos . As configurações do grupo de recursos aqui não têm impacto na localização, desempenho ou estado de faturação do seu Azure AD B2C.
+8. No **grupo de Recursos**, selecione Criar **novos** e, em seguida, especificar a **localização** do grupo de Recursos . As configurações do grupo de recursos aqui não têm impacto na localização, desempenho ou estado de faturação do seu Azure AD B2C.
 9. Selecione **Criar**.
 
     ![A página de criação de recursos Azure AD B2C no portal Azure](./media/billing/portal-01-create-b2c-resource-page.png)
@@ -78,7 +78,7 @@ Um inquilino deve estar ligado ao nível de preços adequado da Azure com base n
 
 Para alterar o seu nível de preços, siga estes passos.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Selecione o filtro **de subscrição Directory +** no menu superior e, em seguida, selecione o diretório que contém a subscrição Azure a que o seu inquilino Azure B2C está ligado *(não* selecione o inquilino Azure AD B2C em si).
 

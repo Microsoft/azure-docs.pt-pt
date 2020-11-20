@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6f2608dafb77aeba98f188ec04f78649656ef969
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b74de2bdf1f6239f1006c820579a336946939421
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089660"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949586"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificação personalizada de e-mail com Mailjet
 
 Utilize e-mail personalizado no Azure Ative Directory B2C (Azure AD B2C) para enviar e-mails personalizados aos utilizadores que se inscrevam para usar as suas aplicações. Ao utilizar [o DisplayControls](display-controls.md) (atualmente em pré-visualização) e o fornecedor de e-mail de terceiros Mailjet, pode utilizar o seu próprio modelo de e-mail e *de:* endereço e assunto, bem como apoiar a localização e as definições de senha única (OTP) personalizadas.
 
-A verificação personalizada de e-mails requer a utilização de um fornecedor de e-mail de terceiros como [Mailjet,](https://Mailjet.com) [SendGrid,](custom-email.md)ou [SparkPost,](https://sparkpost.com)um API REST personalizado ou qualquer fornecedor de e-mail baseado em HTTP (incluindo o seu próprio). Este artigo descreve a criação de uma solução que utiliza o Mailjet.
+A verificação personalizada de e-mails requer a utilização de um fornecedor de e-mail de terceiros como [Mailjet,](https://Mailjet.com) [SendGrid,](./custom-email-sendgrid.md)ou [SparkPost,](https://sparkpost.com)um API REST personalizado ou qualquer fornecedor de e-mail baseado em HTTP (incluindo o seu próprio). Este artigo descreve a criação de uma solução que utiliza o Mailjet.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -42,7 +42,7 @@ Em seguida, guarde a chave API mailjet numa chave de política Azure AD B2C para
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro **de subscrição Diretório +** no menu superior e escolha o seu diretório Azure AD B2C.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Na página **'Visão Geral',** selecione **Identity Experience Framework**.
-1. Selecione **as teclas de**política e, em seguida, selecione **Adicionar**.
+1. Selecione **as teclas de** política e, em seguida, selecione **Adicionar**.
 1. Para **opções**, escolha **Manual**.
 1. Insira um **Nome** para a chave de política. Por exemplo, `MailjetApiKey`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 1. Em **Segredo,** insira a sua **Chave API Mailjet** que gravou anteriormente.
@@ -60,7 +60,7 @@ Em seguida, guarde a chave API mailjet numa chave de política Azure AD B2C para
 Com uma conta Mailjet criada e a chave API Mailjet armazenada numa chave de política Azure AD B2C, crie um [modelo de transacional dinâmico](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)Mailjet .
 
 1. No site mailjet, abra a página [de modelos de transação](https://app.mailjet.com/templates/transactional) e selecione **Criar um novo modelo**.
-1. **Selecione codificando-o em HTML**e, em seguida, selecione Código do **zero**.
+1. **Selecione codificando-o em HTML** e, em seguida, selecione Código do **zero**.
 1. Introduza um nome de modelo único como `Verification email` , e, em seguida, selecione **Criar**.
 1. No editor HTML, cole o modelo HTML ou use o seu próprio. Os `{{var:otp:""}}` `{{var:email:""}}` parâmetros e parâmetros serão substituídos dinamicamente pelo valor de senha única e pelo endereço de e-mail do utilizador.
 

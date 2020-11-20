@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 13b379fd3b4f788d79cbb6a9bf6d40cb1693eaf9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699241"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949002"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorização da conectividade da rede com monitor de ligação
 
@@ -34,7 +34,7 @@ Aqui estão alguns casos de utilização para o Monitor de Ligação:
 - A sua aplicação híbrida necessita de conectividade para um ponto final de armazenamento Azure. O seu site no local e a sua aplicação Azure ligam-se ao mesmo ponto final de armazenamento Azure. Você quer comparar as latências do local com as latências da aplicação Azure.
 - Pretende verificar a conectividade entre as configurações no local e os VMs Azure que acolhem a sua aplicação em nuvem.
 
-O Connection Monitor combina o melhor de duas funcionalidades: a funcionalidade Network Watcher [Connection Monitor (Classic)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) e o Monitor de Conectividade de Desempenho da Rede (NPM) Monitor de Conectividade de [Serviços,](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity) [Monitorização ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm)e Funcionalidade [de Monitorização de Desempenho.](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor)
+O Connection Monitor combina o melhor de duas funcionalidades: a funcionalidade Network Watcher [Connection Monitor (Classic)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) e o Monitor de Conectividade de Desempenho da Rede (NPM) Monitor de Conectividade de [Serviços,](../azure-monitor/insights/network-performance-monitor-service-connectivity.md) [Monitorização ExpressRoute](../expressroute/how-to-npm.md)e Funcionalidade [de Monitorização de Desempenho.](../azure-monitor/insights/network-performance-monitor-performance-monitor.md)
 
 Aqui estão alguns benefícios do Monitor de Ligação:
 
@@ -65,7 +65,7 @@ O Monitor de Ligação baseia-se em ficheiros leves executáveis para executar v
 
 Para que o Monitor de Ligação reconheça os seus VMs Azure como fontes de monitorização, instale a extensão da máquina virtual do Network Watcher. Esta extensão também é conhecida como a *extensão do Observador de Rede*. As máquinas virtuais Azure requerem a extensão para desencadear a monitorização de ponta a ponta e outras funcionalidades avançadas. 
 
-Pode instalar a extensão do Observador de Rede quando [criar um VM](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm). Também pode instalar, configurar e resolver problemas separadamente a extensão do Observador de Rede para [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) e [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
+Pode instalar a extensão do Observador de Rede quando [criar um VM](./connection-monitor.md#create-the-first-vm). Também pode instalar, configurar e resolver problemas separadamente a extensão do Observador de Rede para [Linux](../virtual-machines/extensions/network-watcher-linux.md) e [Windows](../virtual-machines/extensions/network-watcher-windows.md).
 
 As regras para um grupo de segurança de rede (NSG) ou firewall podem bloquear a comunicação entre a fonte e o destino. O Monitor de Ligação deteta este problema e mostra-o como uma mensagem de diagnóstico na topologia. Para ativar a monitorização da ligação, certifique-se de que as regras de NSG e firewall permitem pacotes sobre TCP ou ICMP entre a fonte e o destino.
 
@@ -73,7 +73,7 @@ As regras para um grupo de segurança de rede (NSG) ou firewall podem bloquear a
 
 Para que o Monitor de Ligação reconheça as suas máquinas no local como fontes de monitorização, instale o agente Log Analytics nas máquinas. Em seguida, ative a solução Monitor de Desempenho da Rede. Estes agentes estão ligados aos espaços de trabalho do Log Analytics, por isso é necessário configurar o ID do espaço de trabalho e a chave primária antes que os agentes possam começar a monitorizar.
 
-Para instalar o agente Log Analytics para máquinas Windows, consulte [a extensão da máquina virtual do Azure Monitor para windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows).
+Para instalar o agente Log Analytics para máquinas Windows, consulte [a extensão da máquina virtual do Azure Monitor para windows](../virtual-machines/extensions/oms-windows.md).
 
 Se o caminho incluir firewalls ou aparelhos virtuais de rede (NVAs), certifique-se de que o destino está acessível.
 
@@ -81,7 +81,7 @@ Se o caminho incluir firewalls ou aparelhos virtuais de rede (NVAs), certifique-
 
 Todas as subscrições que tenham uma rede virtual estão ativadas com o Network Watcher. Quando cria uma rede virtual na sua subscrição, o Network Watcher é automaticamente ativado na região e subscrição da rede virtual. Esta ativação automática não afeta os seus recursos nem incorre numa cobrança. Certifique-se de que o Network Watcher não está explicitamente desativado na sua subscrição. 
 
-Para obter mais informações, consulte [Enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+Para obter mais informações, consulte [Enable Network Watcher](./network-watcher-create.md).
 
 ## <a name="create-a-connection-monitor"></a>Criar um monitor de ligação 
 
@@ -111,7 +111,7 @@ O Monitor de Ligação inclui as seguintes entidades:
 
  ![Diagrama mostrando um monitor de ligação, definindo a relação entre grupos de teste e testes](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Pode criar um monitor de ligação utilizando [o portal Azure](connection-monitor-preview-create-using-portal.md) ou [ARMClient](connection-monitor-preview-create-using-arm-client.md)
+Pode criar um monitor de ligação utilizando [o portal Azure](./connection-monitor-create-using-portal.md) ou [ARMClient](./connection-monitor-create-using-template.md)
 
 Todas as fontes, destinos e configurações de teste que adiciona a um grupo de teste são discriminadas a testes individuais. Aqui está um exemplo de como as fontes e destinos são divididos:
 
@@ -213,7 +213,7 @@ Para mostrar apenas testes falhados no Monitor de Ligação onde o IP de origem 
 Para mostrar apenas testes falhados no Connection Monitor onde o destino é outlook.office365.com:
 1. Alterar a vista para **o Teste**.
 1. Para o filtro estatal, selecione **Fail**.
-1. No campo de pesquisa, *introduza outlook.office365.com*
+1. No campo de pesquisa, *introduza office.live.com*
 1. No **Âmbito do** filtro de nível superior, selecione **Destinos**.
   
   :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Screenshot mostrando uma vista que é filtrada para mostrar apenas testes falhados para o destino Outlook.Office365.com" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
@@ -271,7 +271,7 @@ Nos monitores de ligação que foram criados antes da experiência do Monitor de
 
 Quando utilizar métricas, desenhe o tipo de recurso como Microsoft.Network/networkWatchers/connectionMonitors
 
-| Métrica | Nome a apresentar | Unidade | Tipo de agregação | Description | Dimensões |
+| Métrica | Nome a apresentar | Unidade | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % Sondas Falhadas | Percentagem | Média | A percentagem de sondas de monitorização de conectividade falhou. | Sem dimensões |
 | Médias Desvelundos | Avg. Tempo de ida e volta (ms) | Milissegundos | Média | Rede média RTT para sondas de monitorização de conectividade enviadas entre a fonte e o destino. |             Sem dimensões |
@@ -348,5 +348,5 @@ Para as redes cujas fontes são Azure VMs, podem ser detetadas as seguintes ques
 
 ## <a name="next-steps"></a>Passos Seguintes
     
-   * [Saiba como criar o Monitor de Ligação utilizando o portal Azure](connection-monitor-preview-create-using-portal.md)  
-   * [Saiba como criar o Monitor de Ligação utilizando o ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * [Saiba como criar o Monitor de Ligação utilizando o portal Azure](./connection-monitor-create-using-portal.md)  
+   * [Saiba como criar o Monitor de Ligação utilizando o ARMClient](./connection-monitor-create-using-template.md)

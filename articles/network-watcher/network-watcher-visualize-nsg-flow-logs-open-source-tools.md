@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18ffc5aa9c56451099afc4ddbe8b6ac5bd588974
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986257"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948770"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar registos do fluxo do NSG do Observador de Rede do Azure com ferramentas open-source
 
@@ -41,7 +41,7 @@ Ao ligar os registos de fluxo NSG com a Pilha Elástica, podemos criar um dashbo
 
 #### <a name="install-elasticsearch"></a>Instalar o elástico
 
-1. A Pilha Elástica da versão 5.0 ou superior requer Java 8. Verifique o comando `java -version` para verificar a sua versão. Se não tiver java instalado, consulte a documentação sobre os [JDKs suposos do Azure.](https://aka.ms/azure-jdks)
+1. A Pilha Elástica da versão 5.0 ou superior requer Java 8. Verifique o comando `java -version` para verificar a sua versão. Se não tiver java instalado, consulte a documentação sobre os [JDKs suposos do Azure.](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 2. Descarregue o pacote binário correto para o seu sistema:
 
    ```bash

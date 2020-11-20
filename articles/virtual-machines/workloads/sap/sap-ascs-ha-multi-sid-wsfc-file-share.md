@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a356e96b82e6fbe855d0b474dcb6b1f59c98333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b204aa508370c62aaf33688aeb7ec63d3f8f1b0e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855221"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950623"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>SAP ASCS/SCS exemplo multi-SID alta disponibilidade com Cluster de Falha de Falha do Servidor do Windows e partilha de ficheiros no Azure
 
@@ -71,13 +72,13 @@ O objetivo é instalar vários casos agrupados de aplicação empresarial avanç
 
 _**Figura 2:** Configuração multi-SID SAP em dois clusters_
 
-A instalação de um sistema ** \<SID2> SAP** adicional é idêntica à instalação de um \<SID> sistema. São necessárias duas etapas adicionais de preparação no cluster ASCS/SCS, bem como no cluster SOFS da partilha de ficheiros.
+A instalação de um sistema **\<SID2> SAP** adicional é idêntica à instalação de um \<SID> sistema. São necessárias duas etapas adicionais de preparação no cluster ASCS/SCS, bem como no cluster SOFS da partilha de ficheiros.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Prepare a infraestrutura para um cenário SAP multi-SID
 
 ### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>Preparar a infraestrutura no controlador de domínio
 
-Crie o grupo de domínio ** \<Domain> \SAP_ \<SID2> _GlobalAdmin**, por exemplo, com \<SID2> = PR2. O nome do grupo de domínio é \<Domain> \SAP_PR2_GlobalAdmin.
+Crie o grupo de domínio **\<Domain> \SAP_ \<SID2> _GlobalAdmin**, por exemplo, com \<SID2> = PR2. O nome do grupo de domínio é \<Domain> \SAP_PR2_GlobalAdmin.
 
 ### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>Preparar a infraestrutura no cluster ASCS/SCS
 
@@ -98,7 +99,7 @@ Pode reutilizar o existente e o \<SAPGlobalHost> Volume1 do primeiro \<SID1> sis
 _**Figura 3:** O SOFS multi-SID é o mesmo que o nome do hospedeiro GLOBAL SAP_
 
 > [!IMPORTANT]
->Para o segundo sistema **SAP, \<SID2> ** são utilizados o mesmo Volume1 e o mesmo **\<SAPGlobalHost>** nome de rede.
+>Para o segundo sistema **SAP, \<SID2>** são utilizados o mesmo Volume1 e o mesmo **\<SAPGlobalHost>** nome de rede.
 >Uma vez que já definiu **a SAPMNT** como o nome de partilha de vários sistemas SAP, para reutilizar o nome da **\<SAPGlobalHost>** rede, deve utilizar o mesmo **Volume1**.
 >
 >O caminho do ficheiro para o \<SID2> anfitrião global é C:\ClusterStorage \\ **Volume1**\usr\seiva \<SID2> \SYS\.

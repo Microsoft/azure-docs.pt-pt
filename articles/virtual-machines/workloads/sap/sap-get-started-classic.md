@@ -10,17 +10,18 @@ tags: azure-service-management
 keywords: ''
 ms.assetid: f9cd93dc-71ad-48a4-8778-4e48aec484a6
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-ms.openlocfilehash: 3ceeb20b138307b40fcd6f8c03d614fc3e811473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7cf98a6dc8d872664229fbca05b48b918b4f6d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87035779"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950402"
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Utilização de SAP em máquinas virtuais Linux em Azure
 A Computação na Cloud é um termo utilizado em grande escala que está a ganhar cada vez mais importância no setor de TI, desde as pequenas às grandes empresas e até multinacionais. O Microsoft Azure é a Plataforma de Serviços Cloud da Microsoft que oferece um amplo espetro de novas possibilidades. Agora os clientes podem aprovisionar rapidamente e anular o aprovisionamento de aplicações como Serviços Cloud, para que não estejam limitados a restrições técnicas ou orçamentais. Em vez de investirem tempo e dinheiro na infraestrutura de hardware, as empresas podem concentrar-se na aplicação, nos processos empresariais e nas vantagens para os clientes e utilizadores.

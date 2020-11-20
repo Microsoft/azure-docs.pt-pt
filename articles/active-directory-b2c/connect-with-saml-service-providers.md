@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 80ecd02f9aebbca66169d64d6c6d0302d58ca439
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4426a305d72fdd86ee58b3f4a05153593515d4b5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647669"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949654"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registar um pedido DE SAML em Azure AD B2C
 
@@ -73,7 +73,7 @@ Pode utilizar um certificado emitido por uma autoridade de certificados público
 
 ### <a name="11-prepare-a-self-signed-certificate"></a>1.1 Preparar um certificado auto-assinado
 
-Se ainda não tiver um certificado, pode usar um certificado auto-assinado para este tutorial. No Windows, pode utilizar o cmdlet [New-SelfSignedCertificate da PowerShell](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) para gerar um certificado.
+Se ainda não tiver um certificado, pode usar um certificado auto-assinado para este tutorial. No Windows, pode utilizar o cmdlet [New-SelfSignedCertificate da PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate) para gerar um certificado.
 
 1. Execute este comando PowerShell para gerar um certificado auto-assinado. Modifique o `-Subject` argumento conforme apropriado para a sua aplicação e nome de inquilino Azure AD B2C. Também pode ajustar a `-NotAfter` data para especificar uma validade diferente para o certificado.
 
@@ -457,7 +457,7 @@ Um token SAML é um símbolo de segurança emitido pela Azure AD B2C após uma s
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |Uma referência URI que identifica um público pretendido. Identifica o destinatário pretendido do símbolo. O valor é idêntico ao pedido da `AssertionConsumerServiceURL` SAML.|
 |`<Response>``<Assertion>` `<AttributeStatement>` coleção de`<Attribute>` | | Recolha de afirmações (reclamações), tal como configurado nas alegações [de produção de perfil técnico](relyingparty.md#technicalprofile) do partido. Pode configurar o nome da afirmação definindo a `PartnerClaimType` reclamação de saída. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Pode encontrar mais informações sobre o [protocolo SAML no site da OASIS.](https://www.oasis-open.org/)
 - Obtenha a aplicação web de teste SAML da [Azure AD B2C GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).

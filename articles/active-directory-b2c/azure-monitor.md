@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: 68a7dd1b9a7af9f2667785c8b822b2771510d00e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562826"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949960"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitor Azure AD B2C com Monitor Azure
 
@@ -25,7 +25,7 @@ Utilize o Azure Monitor para encaminhar o Azure Ative Directory B2C (Azure AD B2
 Pode encaminhar eventos de registo para:
 
 * Uma conta [de armazenamento](../storage/blobs/storage-blobs-introduction.md)Azure.
-* Um [espaço de trabalho Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (para analisar dados, criar dashboards e alertar para eventos específicos).
+* Um [espaço de trabalho Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (para analisar dados, criar dashboards e alertar para eventos específicos).
 * Um hub [de eventos](../event-hubs/event-hubs-about.md) Azure (e integrar-se com as suas instâncias Splunk e Sumo Logic).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
@@ -70,7 +70,7 @@ Primeiro, obtenha a **ID** do inquilino do seu diretório Azure AD B2C (também 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione o ícone **de Inscrição + Diretório** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino **Azure AD B2C.**
-1. Selecione **Azure Ative Directory** , selecione **Overview**.
+1. Selecione **Azure Ative Directory**, selecione **Overview**.
 1. Grave a identificação do **inquilino.**
 
 ### <a name="32-select-a-security-group"></a>3.2 Selecione um grupo de segurança
@@ -155,7 +155,7 @@ Para configurar as definições de monitorização dos registos de atividade Azu
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta administrativa Azure AD B2C. Esta conta deve ser um membro do grupo de segurança especificado no [passo de grupo de segurança Select.](#32-select-a-security-group)
 1. Selecione o ícone **de Inscrição + Diretório** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. Selecione **Azure Ative Directory**
-1. Em **Monitorização** , selecione **Definições de diagnóstico**.
+1. Em **Monitorização**, selecione **Definições de diagnóstico**.
 1. Se existirem definições existentes para o recurso, verá uma lista de definições já configuradas. **Selecione Adicionar a definição de diagnóstico** para adicionar uma nova definição ou selecione **Editar** para editar uma definição existente. Cada configuração não pode ter mais do que um dos tipos de destino.
 
     ![Painel de definições de diagnóstico no portal Azure](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
@@ -179,7 +179,7 @@ Agora pode configurar o seu espaço de trabalho Log Analytics para visualizar os
 
 As consultas de registo ajudam-no a aproveitar totalmente o valor dos dados recolhidos nos Registos do Monitor Azure. Uma linguagem de consulta poderosa permite-lhe juntar dados de várias tabelas, agregar grandes conjuntos de dados e realizar operações complexas com código mínimo. Praticamente qualquer pergunta pode ser respondida e a análise realizada desde que os dados de suporte sejam recolhidos, e você entende como construir a consulta correta. Para obter mais informações, consulte [Começar com consultas de registo no Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 
-1. A partir do **espaço de trabalho do Log Analytics** , selecione **Logs**
+1. A partir do **espaço de trabalho do Log Analytics**, selecione **Logs**
 1. No editor de consulta, cole a seguinte consulta [de linguagem de consulta kusto.](https://docs.microsoft.com/azure/data-explorer/kusto/query/) Esta consulta mostra o uso da política por operação nos últimos x dias. A duração por defeito é definida para 90 dias (90d). Note que a consulta se centra apenas na operação em que um token/código é emitido por política.
 
     ```kusto
@@ -239,7 +239,7 @@ Siga as instruções abaixo para criar um novo livro utilizando um modelo de gal
 1. Aplique o gabarito utilizando o botão **Aplicar.**
 1. Selecione O botão **de edição feito** da barra de ferramentas para terminar a edição do livro.
 1. Por fim, guarde o livro utilizando o botão **Guardar** a barra de ferramentas.
-1. Fornecer um **título** , como *Azure AD B2C Dashboard*.
+1. Fornecer um **título**, como *Azure AD B2C Dashboard*.
 1. Selecione **Guardar**.
 
     ![Guarde o livro](./media/azure-monitor/wrkb-title.png)
@@ -261,7 +261,7 @@ Os alertas são criados por regras de alerta no Azure Monitor e podem executar a
 Utilize as seguintes instruções para criar um novo Alerta Azure, que enviará uma [notificação por e-mail](../azure-monitor/platform/action-groups.md#configure-notifications) sempre que houver uma queda de 25% no **Total de Pedidos** comparativamente ao período anterior. O alerta será executado a cada 5 minutos e procurará a queda nas janelas das últimas 24 horas. Os alertas são criados usando a linguagem de consulta Kusto.
 
 
-1. A partir do **espaço de trabalho Log Analytics** , selecione **Logs**. 
+1. A partir do **espaço de trabalho Log Analytics**, selecione **Logs**. 
 1. Crie uma nova **consulta kusto** utilizando a consulta abaixo.
 
     ```kusto

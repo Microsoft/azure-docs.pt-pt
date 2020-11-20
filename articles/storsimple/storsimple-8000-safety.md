@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3adbd292d42fd6fd2a0e149e103c17968a6f084b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514539"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950759"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instale e opere com segurança o seu dispositivo StorSimple
 ![Ícone de aviso ](./media/storsimple-safety/IC740879.png)
@@ -114,7 +114,7 @@ O dispositivo foi concebido para funcionar com dois PCMs. Cada um dos PCMs tem u
 
 Para reduzir a probabilidade de ferimentos, choques elétricos ou morte:
 
-* Não retire as tampas do PCM. Existe o perigo de choque elétrico no interior. Para retornar o PCM e obter uma substituição, [contacte o Microsoft Support](storsimple-contact-microsoft-support.md).
+* Não retire as tampas do PCM. Existe o perigo de choque elétrico no interior. Para retornar o PCM e obter uma substituição, [contacte o Microsoft Support](./storsimple-8000-contact-microsoft-support.md).
 
 ![Aviso de ícone ](./media/storsimple-safety/IC740881.png) **de aviso:**
 

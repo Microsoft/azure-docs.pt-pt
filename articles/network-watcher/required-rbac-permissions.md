@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: 9a5bd6dff05fe39d62e5bf5f897bc61936686bb7
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 548db64bd93dd561f9c69e9f594d01f4c0825db9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887234"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948345"
 ---
 # <a name="azure-role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Permissões de controlo de acesso baseadas em funções Azure necessárias para utilizar as capacidades do Observador de Rede
 
@@ -108,7 +108,7 @@ As capacidades do Network Watcher também requerem as seguintes ações:
 | Microsoft.Autorização/ \* /Ler                                     | Usado para buscar atribuições de funções azure e definições de política          |
 | Microsoft.Resources/subscrições/resourceGroups/Read               | Usado para enumerar todos os grupos de recursos numa subscrição    |
 | Microsoft.Storage/storageAcontas/Ler                              | Usado para obter as propriedades para a conta de armazenamento especificado   |
-| Microsoft.Storage/storageAcounts/listServiceSas/Action, </br> Microsoft.Storage/storageAcounts/listAccountSas/Action, <br> Microsoft.Storage/storageAcontas/listKeys/Action| Usado para obter assinaturas de acesso compartilhado (SAS) permitindo [acesso seguro à conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) e escrever na conta de armazenamento |
+| Microsoft.Storage/storageAcounts/listServiceSas/Action, </br> Microsoft.Storage/storageAcounts/listAccountSas/Action, <br> Microsoft.Storage/storageAcontas/listKeys/Action| Usado para obter assinaturas de acesso compartilhado (SAS) permitindo [acesso seguro à conta de armazenamento](../storage/common/storage-sas-overview.md) e escrever na conta de armazenamento |
 | Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Usado para iniciar sessão no VM, fazer uma captura de pacote e carregá-lo para a conta de armazenamento|
 | Microsoft.Compute/virtualMachines/extensões/Ler </br> Microsoft.Compute/virtualMachines/extensions/Write| Usado para verificar se a extensão do Observador de Rede está presente, e instalar se necessário |
 | Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Usado para aceder a conjuntos de escala de máquina virtual, fazer capturas de pacotes e carregá-los para conta de armazenamento|

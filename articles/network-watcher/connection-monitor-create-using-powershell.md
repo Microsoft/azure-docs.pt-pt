@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 532f045233f26a9a2933a19ae7a0a893195ad33f
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: fa8b2d967a336343d23c5f6aa4477ebcf2396407
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94384131"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949042"
 ---
 # <a name="create-a-connection-monitor-using-powershell"></a>Criar um monitor de ligação utilizando o PowerShell
 
 Saiba como criar o Connection Monitor para monitorizar a comunicação entre os seus recursos utilizando o PowerShell.
 
-## <a name="before-you-begin"></a>Antes de começar 
+## <a name="before-you-begin"></a>Before you begin 
 
 Nos monitores de ligação que cria no Connection Monitor, pode adicionar tanto as máquinas no local como os VMs Azure como fontes. Estes monitores de ligação também podem monitorizar a conectividade com os pontos finais. Os pontos finais podem estar no Azure ou em qualquer outro URL ou IP.
 
@@ -89,7 +89,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 * Grupos de teste
     * nome - Nomeie o seu grupo de teste.
     * configurações de teste - Configurações de teste com base nas quais os pontos finais de origem se ligam aos pontos finais do destino
-    * fontes - Escolha entre pontos finais criados acima. Os pontos finais de origem baseados em Azure precisam de ter a extensão do Azure Network Watcher instalada e os pontos finais não baseados emAzure precisam de ter o agente Doazure Log Analytics instalado. Para instalar um agente para a sua fonte, consulte [os agentes de monitorização da Instalação](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+    * fontes - Escolha entre pontos finais criados acima. Os pontos finais de origem baseados em Azure precisam de ter a extensão do Azure Network Watcher instalada e os pontos finais não baseados emAzure precisam de ter o agente Doazure Log Analytics instalado. Para instalar um agente para a sua fonte, consulte [os agentes de monitorização da Instalação](./connection-monitor-overview.md#install-monitoring-agents).
     * destinos - Escolha entre pontos finais criados acima. Pode monitorizar a conectividade com os VMs Azure ou qualquer ponto final (um IP público, URL ou FQDN) especificando-os como destinos. Num único grupo de teste, pode adicionar VMs Azure, URLs Office 365, Dynamics 365 URLs e pontos finais personalizados.
     * desativação - Utilize este campo para desativar a monitorização de todas as fontes e destinos que o grupo de ensaio especifica.
 
@@ -113,7 +113,7 @@ Os monitores de ligação têm os seguintes limites de escala:
 * Fontes e destinos máximos por monitor de ligação: 100
 * Configurações máximas de teste por monitor de ligação: 20
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba [como analisar dados de monitorização e definir alertas](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
-* Saiba [como diagnosticar problemas na sua rede](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)
+* Saiba [como analisar dados de monitorização e definir alertas](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
+* Saiba [como diagnosticar problemas na sua rede](./connection-monitor-overview.md#diagnose-issues-in-your-network)

@@ -7,17 +7,18 @@ author: rdeltcheva
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f107ba4dd0150e9727183d0bd334c9279de17337
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144189"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950011"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Alta disponibilidade de ESCALA SAP HANA com ficheiros Azure NetApp no Red Hat Enterprise Linux
 
@@ -51,7 +52,7 @@ ms.locfileid: "92144189"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Este artigo descreve como configurar a replicação do sistema SAP HANA na implementação de escala, quando os sistemas de ficheiros HANA são montados através de NFS, utilizando ficheiros Azure NetApp (ANF). Nas configurações e comandos de instalação do exemplo, são utilizados os termos **03**e o ID **HN1** do sistema HANA. A replicação DE SAP HANA consiste num nó primário e pelo menos um nó secundário.
+Este artigo descreve como configurar a replicação do sistema SAP HANA na implementação de escala, quando os sistemas de ficheiros HANA são montados através de NFS, utilizando ficheiros Azure NetApp (ANF). Nas configurações e comandos de instalação do exemplo, são utilizados os termos **03** e o ID **HN1** do sistema HANA. A replicação DE SAP HANA consiste num nó primário e pelo menos um nó secundário.
 
 Quando os passos neste documento são marcados com os seguintes prefixos, o significado é o seguinte:
 
@@ -236,25 +237,25 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Em seguida, faça 
 
 8.  Se utilizar o balanceador de carga padrão, siga estes passos de configuração:
     1.  Primeiro, crie um pool IP frontal:
-        1.  Abra o balançador de carga, selecione **o pool IP frontend**e selecione **Adicionar**.
+        1.  Abra o balançador de carga, selecione **o pool IP frontend** e selecione **Adicionar**.
         1.  Insira o nome do novo pool IP frontal (por exemplo, **hana-frontend).**
         1.  Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.32.0.10**). **Static**
         1.  Selecione **OK**.
         1.  Após a criação do novo pool IP frontal, note o endereço IP do pool.
     1.  Em seguida, crie uma piscina traseira:
-        1.  Abra o balançador de carga, selecione **piscinas de backend**e selecione **Adicionar**.
+        1.  Abra o balançador de carga, selecione **piscinas de backend** e selecione **Adicionar**.
         1.  Insira o nome da nova piscina traseira (por exemplo, **hana-backend).**
         1.  **Selecione Adicionar uma máquina virtual**.
         1.  Selecione ** Máquina virtual**.
         1.  Selecione as máquinas virtuais do cluster SAP HANA e os seus endereços IP.
         1.  Selecione **Adicionar**.
     1.  Em seguida, criar uma sonda de saúde:
-        1.  Abra o equilibrador de carga, selecione **sondas de saúde**e selecione **Adicionar**.
+        1.  Abra o equilibrador de carga, selecione **sondas de saúde** e selecione **Adicionar**.
         1.  Insira o nome da nova sonda de saúde (por exemplo, **hana-hp).**
-        1.  Selecione TCP como protocolo e porta 625**03**. Mantenha o valor **de intervalo** definido para 5, e o valor do **limiar insalubre** definido para 2.
+        1.  Selecione TCP como protocolo e porta 625 **03**. Mantenha o valor **de intervalo** definido para 5, e o valor do **limiar insalubre** definido para 2.
         1.  Selecione **OK**.
     1.  Em seguida, crie as regras de equilíbrio de carga:
-        1.  Abra o balançador de carga, selecione **as regras de equilíbrio de carga**e selecione **Adicionar**.
+        1.  Abra o balançador de carga, selecione **as regras de equilíbrio de carga** e selecione **Adicionar**.
         1.  Introduza o nome da nova regra do balançador de carga (por exemplo, **hana-lb**).
         1.  Selecione o endereço IP frontal, o pool traseiro e a sonda de saúde que criou anteriormente (por exemplo, **hana-frontend,** **hana-backend** e **hana-hp).**
         1.  Selecione **portas HA**.
@@ -265,50 +266,50 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Em seguida, faça 
 
 9. Em alternativa, se o seu cenário ditar a utilização do balanceador de carga básico, siga estes passos de configuração:
     1.  Configure o equilibrador de carga. Primeiro, crie um pool IP frontal:
-        1.  Abra o balançador de carga, selecione **o pool IP frontend**e selecione **Adicionar**.
+        1.  Abra o balançador de carga, selecione **o pool IP frontend** e selecione **Adicionar**.
         1.  Insira o nome do novo pool IP frontal (por exemplo, **hana-frontend).**
         1.  Desaponda a **Estática** e introduza o endereço IP (por exemplo, **10.32.0.10**). **Static**
         1.  Selecione **OK**.
         1.  Após a criação do novo pool IP frontal, note o endereço IP do pool.
     1.  Em seguida, crie uma piscina traseira:
-        1.  Abra o balançador de carga, selecione **piscinas de backend**e selecione **Adicionar**.
+        1.  Abra o balançador de carga, selecione **piscinas de backend** e selecione **Adicionar**.
         1.  Insira o nome da nova piscina traseira (por exemplo, **hana-backend).**
         1.  **Selecione Adicionar uma máquina virtual**.
         1.  Selecione o conjunto de disponibilidade criado no passo 3.
         1.  Selecione as máquinas virtuais do cluster SAP HANA.
         1.  Selecione **OK**.
     1.  Em seguida, criar uma sonda de saúde:
-        1.  Abra o equilibrador de carga, selecione **sondas de saúde**e selecione **Adicionar**.
+        1.  Abra o equilibrador de carga, selecione **sondas de saúde** e selecione **Adicionar**.
         1.  Insira o nome da nova sonda de saúde (por exemplo, **hana-hp).**
-        1.  Selecione **TCP** como protocolo e porta 625**03**. Mantenha o valor **de intervalo** definido para 5, e o valor do **limiar insalubre** definido para 2.
+        1.  Selecione **TCP** como protocolo e porta 625 **03**. Mantenha o valor **de intervalo** definido para 5, e o valor do **limiar insalubre** definido para 2.
         1.  Selecione **OK**.
     1.  Para SAP HANA 1.0, crie as regras de equilíbrio de carga:
-        1.  Abra o balançador de carga, selecione **as regras de equilíbrio de carga**e selecione **Adicionar**.
-        1.  Introduza o nome da nova regra do balançador de carga (por exemplo, hana-lb-3**03**15).
+        1.  Abra o balançador de carga, selecione **as regras de equilíbrio de carga** e selecione **Adicionar**.
+        1.  Introduza o nome da nova regra do balançador de carga (por exemplo, hana-lb-3 **03** 15).
         1.  Selecione o endereço IP frontal, o pool traseiro e a sonda de saúde que criou anteriormente (por exemplo, **hana-frontend**).
-        1.  Mantenha o **Protocolo** definido para **TCP,** e entre na porta**3 03**15.
+        1.  Mantenha o **Protocolo** definido para **TCP,** e entre na porta **3 03** 15.
         1.  Aumente o **tempo de 30** minutos.
         1.  Certifique-se de que ativa o **IP flutuante**.
         1.  Selecione **OK**.
-        1.  Repita estes passos para a porta**3 03**17.
+        1.  Repita estes passos para a porta **3 03** 17.
     1.  Para o SAP HANA 2.0, crie as regras de equilíbrio de carga para a base de dados do sistema:
-        1.  Abra o balançador de carga, selecione **as regras de equilíbrio de carga**e selecione **Adicionar**.
-        1.  Introduza o nome da nova regra do balançador de carga (por exemplo, hana-lb-3**03**13).
+        1.  Abra o balançador de carga, selecione **as regras de equilíbrio de carga** e selecione **Adicionar**.
+        1.  Introduza o nome da nova regra do balançador de carga (por exemplo, hana-lb-3 **03** 13).
         1.  Selecione o endereço IP frontal, o pool traseiro e a sonda de saúde que criou anteriormente (por exemplo, **hana-frontend**).
-        1.  Mantenha o **Protocolo** definido para **TCP,** e entre na porta**3 03**13.
+        1.  Mantenha o **Protocolo** definido para **TCP,** e entre na porta **3 03** 13.
         1.  Aumente o **tempo de 30** minutos.
         1.  Certifique-se de que ativa o **IP flutuante**.
         1.  Selecione **OK**.
-        1.  Repita estes passos para a porta**3 03**14.
+        1.  Repita estes passos para a porta **3 03** 14.
     1.  Para o SAP HANA 2.0, primeiro crie as regras de equilíbrio de carga para a base de dados do arrendatário:
-        1.  Abra o balançador de carga, selecione **as regras de equilíbrio de carga**e selecione **Adicionar**.
-        1.  Introduza o nome da nova regra do balançador de carga (por exemplo, hana-lb-3**03**40).
+        1.  Abra o balançador de carga, selecione **as regras de equilíbrio de carga** e selecione **Adicionar**.
+        1.  Introduza o nome da nova regra do balançador de carga (por exemplo, hana-lb-3 **03** 40).
         1.  Selecione o endereço IP frontend, o backend pool e a sonda de saúde que criou anteriormente (por exemplo, **hana-frontend**).
-        1.  Mantenha o **Protocolo** definido para **TCP,** e entre na porta**3 03**40.
+        1.  Mantenha o **Protocolo** definido para **TCP,** e entre na porta **3 03** 40.
         1.  Aumente o **tempo de 30** minutos.
         1.  Certifique-se de que ativa o **IP flutuante**.
         1.  Selecione **OK**.
-        1.  Repita estes passos para as portas**3 03**41 e 3**03**42.
+        1.  Repita estes passos para as portas **3 03** 41 e 3 **03** 42.
 
 Para obter mais informações sobre as portas necessárias para o SAP HANA, leia o capítulo [Ligações às Bases de Dados de Inquilinos](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [sap hana de bases de dados](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) de inquilinos ou sap Note [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
@@ -563,7 +564,7 @@ Neste exemplo, cada nó de cluster tem os seus próprios sistemas de ficheiros H
 
    Verifique o estado do cluster e todos os recursos
    > [!NOTE]
-   > Este artigo contém referências ao termo *escravo*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
+   > Este artigo contém referências ao termo *escravo*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
    
     ```
     sudo pcs status

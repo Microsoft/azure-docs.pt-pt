@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: c0333f9faeae99ee83beda381f77f4f95b0a9192
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 79dcc645ecff00b3189dc90dcf34e042a78ed318
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636125"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949331"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -445,7 +445,7 @@ Após a deprecação da política de segurança do pod (pré-visualização), te
 Foram melhoradas as seguintes áreas dos e-mails relativos aos alertas de segurança: 
 
 - Acrescentou a capacidade de enviar notificações de email sobre alertas para todos os níveis de gravidade
-- Adicionou a capacidade de notificar utilizadores com diferentes funções de RBAC na subscrição
+- Adicionou a capacidade de notificar os utilizadores com diferentes funções Azure na subscrição
 - Estamos a notificar proativamente os proprietários de subscrições por padrão em alertas de alta gravidade (que têm uma alta probabilidade de serem violações genuínas)
 - Removemos o campo de números de telefone da página de configuração de notificações de e-mail
 
@@ -748,7 +748,7 @@ Foram adicionadas duas novas recomendações para ajudar a implantar o [Agente D
 - **O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)**
 - **O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)**
 
-Estas novas recomendações aparecerão nos mesmos quatro controlos de segurança que a recomendação existente (relacionada), o **agente de monitorização deve ser instalado nas suas máquinas** : remediar as configurações de segurança, aplicar o controlo adaptativo da aplicação de aplicações, aplicar atualizações do sistema e permitir a proteção do ponto final.
+Estas novas recomendações aparecerão nos mesmos quatro controlos de segurança que a recomendação existente (relacionada), o **agente de monitorização deve ser instalado nas suas máquinas**: remediar as configurações de segurança, aplicar o controlo adaptativo da aplicação de aplicações, aplicar atualizações do sistema e permitir a proteção do ponto final.
 
 As recomendações também incluem a capacidade de correção rápida para ajudar a acelerar o processo de implementação. 
 
