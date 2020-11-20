@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: c54c4608f04c8f98e21309ca531452ae0a34fdf2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3ffa781e046a89b2e363d6edc9b9bf99116aac07
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646377"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991983"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -213,7 +213,7 @@ Esta tabela resumiu o suporte para o disco Azure VM OS, disco de dados e disco t
 --- | --- | ---
 Tamanho máximo do disco de SO | 2048 GB | [Saiba mais](../virtual-machines/managed-disks-overview.md) sobre discos VM.
 Disco temporário | Não suportado | O disco temporário está sempre excluído da replicação.<br/><br/> Não guarde dados persistentes no disco temporário. [Saiba mais](../virtual-machines/managed-disks-overview.md).
-Tamanho máximo do disco de dados | 8192 GB para discos geridos<br></br>4095 GB para discos não geridos|
+Tamanho máximo do disco de dados | 32 TB para discos geridos<br></br>4 TB para discos não geridos|
 Tamanho mínimo do disco de dados | Sem restrições para discos não geridos. 2 GB para discos geridos |
 Número máximo do disco de dados | Até 64, de acordo com o suporte para um tamanho Azure VM específico | [Saiba mais](../virtual-machines/sizes.md) sobre os tamanhos de VM.
 Taxa de alteração do disco de dados | Máximo de 20 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco para armazenamento standard. | Se a taxa média de alteração de dados no disco for continuamente superior ao máximo, a replicação não se alcança.<br/><br/>  No entanto, se o máximo for ultrapassado esporadicamente, a replicação pode recuperar, mas poderá ver pontos de recuperação ligeiramente atrasados.

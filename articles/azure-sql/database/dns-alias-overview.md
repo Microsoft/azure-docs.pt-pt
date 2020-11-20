@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 4be3f8c6cd416743c2d1118cf2de01073c3022ff
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 25c2157a8de237d0ec66caa72d59c810d419ac76
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790496"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989127"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Pseudónimo de DNS para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,7 +61,7 @@ As seguintes propriedades aplicam-se a cada pseudónimo DNS para o seu servidor:
   - Quando deixa cair um servidor, o sistema Azure também deixa cair todos os pseudónimos DNS que se referem ao servidor.
 - *Não ligado a nenhuma região:* Os pseudónimos do DNS não estão ligados a uma região. Qualquer pseudónimo dns pode ser atualizado para se referir a um servidor que reside em qualquer região geográfica.
   - No entanto, ao atualizar um pseudónimo para se referir a outro servidor, ambos os servidores devem existir na mesma *subscrição* do Azure .
-- *Permissões:* Para gerir um pseudónimo DNS, o utilizador deve ter permissões *de Colaborador do Servidor,* ou superiores. Para mais informações, consulte [Começar com Role-Based Controlo de Acesso no portal Azure.](../../role-based-access-control/overview.md)
+- *Permissões:* Para gerir um pseudónimo DNS, o utilizador deve ter permissões *de Colaborador do Servidor,* ou superiores. Para obter mais informações, consulte [Começar com o controlo de acesso baseado em funções Azure no portal Azure](../../role-based-access-control/overview.md).
 
 ## <a name="manage-your-dns-aliases"></a>Gerencie os seus pseudónimos DNS
 
@@ -115,6 +115,6 @@ Atualmente, um pseudónimo DNS tem as seguintes limitações:
 - [Referência à API REST do Azure](/rest/api/azure/)
 - [Servidor Dns Aliases API](/rest/api/sql/serverdnsaliases)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [PowerShell para DNS Alias para Azure SQL Database](dns-alias-powershell-create.md)

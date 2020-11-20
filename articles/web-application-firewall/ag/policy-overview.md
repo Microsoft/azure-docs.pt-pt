@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 11/19/2020
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: 9fb8bf689e2767f681994258c4d2c51be41d6c68
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952136"
+ms.locfileid: "94990130"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política do Azure Web Application Firewall (WAF)
 
@@ -43,13 +43,13 @@ Para uma personalização ainda maior até ao nível URI, pode associar uma pol�
 
 Tal como acontece com as políticas de WAF por site, as políticas mais específicas sobrepõem-se às menos específicas. Isto significa que uma política per-URI num mapa de caminhos DE URL substitui qualquer política de WAF por local ou global acima dela.
 
-## <a name="example"></a>Exemplo
+### <a name="example"></a>Exemplo
 
 Digamos que tem três sites: contoso.com, fabrikam.com e adatum.com todos atrás do mesmo portal de aplicações. Você quer um WAF aplicado nos três sites, mas você precisa de segurança adicional com adatum.com porque é onde os clientes visitam, navegam e compram produtos.
 
 Pode aplicar uma política global à WAF, com algumas definições básicas, exclusões ou regras personalizadas, se necessário, para impedir que alguns falsos positivos bloqueiem o tráfego. Neste caso, não há necessidade de ter regras globais de injeção de SQL em funcionamento porque fabrikam.com e contoso.com são páginas estáticas sem backend SQL. Para que possa desativar essas regras na política global.
 
-Esta política global é adequada para contoso.com e fabrikam.com, mas é preciso ter mais cuidado com adatum.com onde o sinal de informação e pagamentos são tratados. Pode aplicar uma política por local ao ouvinte do adatum e deixar as regras SQL em funcionamento. Também assuma que há um cookie bloqueando algum tráfego, para que você possa criar uma exclusão para que o cookie pare o falso positivo. 
+Esta política global é adequada para contoso.com e fabrikam.com, mas é preciso ter mais cuidado com adatum.com onde as informações e pagamentos de entrada são tratados. Pode aplicar uma política por local ao ouvinte do adatum e deixar as regras SQL em funcionamento. Também assuma que há um cookie bloqueando algum tráfego, para que você possa criar uma exclusão para que o cookie pare o falso positivo. 
 
 O adatum.com/payments URI é onde tens de ter cuidado. Por isso, aplique outra política sobre esse URI e deixe todas as regras ativadas, e também remova todas as exclusões.
 
@@ -60,6 +60,6 @@ Neste exemplo, tem uma política global que se aplica a dois sites. Você tem um
 Todas as definições waf da Web Application Firewall (regras personalizadas, configurações de definição de regras geridas, exclusões e assim por diante.) existem numa política da WAF. Se tiver um WAF existente, estas definições ainda podem existir na sua configuração WAF. Para obter mais informações sobre a mudança para a nova política da WAF, [Migrar WAF Config para uma Política da WAF](./migrate-policy.md). 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Crie políticas por local e por URI utilizando a Azure PowerShell](per-site-policies.md).

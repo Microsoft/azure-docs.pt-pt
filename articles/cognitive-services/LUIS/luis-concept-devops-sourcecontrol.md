@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e49b713aca23c0373fa71d772ef7567372abe456
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309511"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990572"
 ---
 # <a name="devops-practices-for-luis"></a>Práticas de DevOps para LUIS
 
@@ -58,7 +58,7 @@ Para guardar uma aplicação LUIS em `.lu` formato e colocá-la sob controlo de 
 
 ### <a name="build-the-luis-app-from-source"></a>Construa a app LUIS a partir de fonte
 
-Para uma aplicação LUIS, construir a partir de meios *de origem* para [criar uma nova versão da app LUIS importando a `.lu` fonte,](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) [para treinar a versão](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e[publicá-la.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) Pode fazê-lo no portal LUIS, ou na linha de comando:
+Para uma aplicação LUIS, construir a partir de meios *de origem* para [criar uma nova versão da app LUIS importando a `.lu` fonte,](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) [para treinar a versão](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [publicá-la.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) Pode fazê-lo no portal LUIS, ou na linha de comando:
 
 - Utilize o portal LUIS para [importar a `.lu` versão](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) da app do controlo de origem e [treine](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [publique](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) a app.
 
@@ -74,7 +74,7 @@ Os seguintes tipos de ficheiros para a sua aplicação LUIS devem ser mantidos s
 
 - [Ficheiros de teste de lote](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (expressões e resultados esperados) utilizados para testes de desempenho
 
-### <a name="credentialsand-keys-are-not-checked-in"></a>Credenciais e chaves não são verificados
+### <a name="credentials-and-keys-are-not-checked-in"></a>Credenciais e chaves não são verificados
 
 Não inclua chaves de subscrição ou valores confidenciais semelhantes em ficheiros que faça check-in no seu repo onde possam ser visíveis a pessoal não autorizado. As teclas e outros valores que deve impedir de fazer o check-in incluem:
 
@@ -110,7 +110,7 @@ Os desenvolvedores podem trabalhar em atualizações numa aplicação LUIS indep
 
 1. Criar um ramo de recurso a partir do ramo principal (dependendo da estratégia do seu ramo, geralmente dominar ou desenvolver).
 
-1. [Criar uma nova aplicação LUIS no portal LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-start-new-app) (a " app*dev branch*") apenas para apoiar o trabalho no ramo de funcionalidades.
+1. [Criar uma nova aplicação LUIS no portal LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-start-new-app) (a " app *dev branch*") apenas para apoiar o trabalho no ramo de funcionalidades.
 
    * Se a fonte para a `.lu` sua solução já existe no seu ramo, porque foi guardada após o trabalho feito noutra sucursal no início do projeto, crie a sua app dev branch LUIS importando o `.lu` ficheiro.
 
@@ -211,7 +211,7 @@ Quando estiver a trabalhar com uma aplicação LUIS 'dev branch' que criou para 
 
 Quando as suas alterações no seu PR são fundidas em mestre, é quando a versão deve ser aplicada, de modo que todas as atualizações para master são versadas de forma independente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais [sobre testes para LUIS DevOps](luis-concept-devops-testing.md)
 * Saiba como [implementar DevOps para LUIS com GitHub](luis-how-to-devops-with-github.md)

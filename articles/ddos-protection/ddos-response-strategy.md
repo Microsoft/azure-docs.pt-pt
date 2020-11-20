@@ -1,5 +1,5 @@
 ---
-title: Componentes de uma estratégia de resposta do DDoS
+title: Componentes de uma estratégia de resposta a DDoS
 description: Saiba o que usar o Azure DDoS Protection Standard para responder aos ataques do DDoS.
 services: ddos-protection
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 23822ce5b311dc479824128d66bc18a15473862d
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a80f03ee82e8d1216353482dc867402adcf7d09
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905318"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992238"
 ---
-# <a name="components-of-a-ddos-response-strategy"></a>Componentes de uma estratégia de resposta do DDoS
+# <a name="components-of-a-ddos-response-strategy"></a>Componentes de uma estratégia de resposta a DDoS
 
 Um ataque DDoS que visa os recursos do Azure geralmente requer uma intervenção mínima do ponto de vista do utilizador. Ainda assim, incorporar a mitigação do DDoS como parte de uma estratégia de resposta a incidentes ajuda a minimizar o impacto na continuidade do negócio.
 
@@ -44,9 +44,9 @@ Além disso, a Unidade de Crimes Digitais da Microsoft (DCU) executa estratégia
 
 - Os meus serviços estão ativos/ativos com falhas em várias regiões?
 
-É essencial que compreenda o comportamento normal de uma aplicação e se prepare para agir se a aplicação não se comportar como esperado durante um ataque DDoS. Tenha monitores configurados para as suas aplicações críticas ao negócio que imitam o comportamento do cliente e notifique-o quando forem detetadas anomalias relevantes. Consulte as [melhores práticas de monitorização e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) para obter informações sobre a saúde da sua aplicação.
+É essencial que compreenda o comportamento normal de uma aplicação e se prepare para agir se a aplicação não se comportar como esperado durante um ataque DDoS. Tenha monitores configurados para as suas aplicações críticas ao negócio que imitam o comportamento do cliente e notifique-o quando forem detetadas anomalias relevantes. Consulte as [melhores práticas de monitorização e diagnóstico](/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) para obter informações sobre a saúde da sua aplicação.
 
-[A azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) é um serviço extensível de gestão de desempenho de aplicações (APM) para desenvolvedores web em várias plataformas. Utilize insights de aplicação para monitorizar a sua aplicação web ao vivo. Deteta automaticamente anomalias de desempenho. Inclui ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os utilizadores fazem com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
+[A azure Application Insights](../azure-monitor/app/app-insights-overview.md) é um serviço extensível de gestão de desempenho de aplicações (APM) para desenvolvedores web em várias plataformas. Utilize insights de aplicação para monitorizar a sua aplicação web ao vivo. Deteta automaticamente anomalias de desempenho. Inclui ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os utilizadores fazem com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
 
 ## <a name="customer-ddos-response-team"></a>Equipa de resposta DDoS do cliente
 
@@ -56,7 +56,7 @@ Recomendamos que utilize exercícios de simulação como parte normal da disponi
 
 ## <a name="alerts-during-an-attack"></a>Alertas durante um ataque
 
-A Azure DDoS Protection Standard identifica e atenua os ataques DDoS sem qualquer intervenção do utilizador. Para ser notificado quando há uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](telemetry-monitoring-alerting.md) sobre a métrica sob o **ataque DDoS ou não** . Pode optar por criar alertas para as outras métricas do DDoS para entender a escala do ataque, o tráfego a ser retirado e outros detalhes.
+A Azure DDoS Protection Standard identifica e atenua os ataques DDoS sem qualquer intervenção do utilizador. Para ser notificado quando há uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](telemetry-monitoring-alerting.md) sobre a métrica sob o **ataque DDoS ou não**. Pode optar por criar alertas para as outras métricas do DDoS para entender a escala do ataque, o tráfego a ser retirado e outros detalhes.
 
 ### <a name="when-to-contact-microsoft-support"></a>Quando entrar em contato com o suporte da Microsoft
 
@@ -74,6 +74,6 @@ Os clientes Azure DDoS Protection Standard têm acesso à equipa DDoS Rapid Resp
 
 Se suspeita que está sob um ataque DDoS, aumente pelos seus canais normais de apoio ao Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [criar um plano de proteção DDoS](manage-ddos-protection.md).

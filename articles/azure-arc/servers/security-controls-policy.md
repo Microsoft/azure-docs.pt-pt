@@ -1,15 +1,15 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para servidores ativados do Azure Arc (pré-visualização)
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para servidores ativados Azure Arc (pré-visualização). Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 24ff0ff7b4f77d938fdb5b7726d273598220957b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e91dbcdd06595694e657e7a627daa56304025289
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699815"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990028"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-enabled-servers"></a>Controlos de conformidade regulamentar da Política Azure para servidores ativados do Azure Arc
 
@@ -19,7 +19,7 @@ ms.locfileid: "94699815"
 
 [!INCLUDE [azure-policy-compliancecontrols-arcservers](../../../includes/policy/standards/byrp/microsoft.hybridcompute.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).

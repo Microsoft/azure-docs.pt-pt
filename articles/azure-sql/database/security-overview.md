@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: 1485f06af2bb3c4912df3e34cb23c409b7db3dc2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 39119f62fa938f5f4f6529539d4ca9a84bdf8fd7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780364"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989195"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral da Base de Dados Azure SQL e capacidades de segurança de instância gerida sql
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -41,12 +41,12 @@ As regras de firewall IP concedem acesso a bases de dados com base no endereço 
 [As regras de rede virtual](vnet-service-endpoint-rule-overview.md) permitem ao Azure SQL Database apenas aceitar comunicações que são enviadas a partir de sub-redes selecionadas dentro de uma rede virtual.
 
 > [!NOTE]
-> Controlar o acesso com regras de firewall *não* se aplica a **SQL Managed Instance** . Para obter mais informações sobre a configuração de rede necessária, consulte [Ligar a uma instância gerida](../managed-instance/connect-application-instance.md)
+> Controlar o acesso com regras de firewall *não* se aplica a **SQL Managed Instance**. Para obter mais informações sobre a configuração de rede necessária, consulte [Ligar a uma instância gerida](../managed-instance/connect-application-instance.md)
 
 ## <a name="access-management"></a>Gestão de acesso
 
 > [!IMPORTANT]
-> A gestão de bases de dados e servidores dentro do Azure é controlada pelas atribuições de funções da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [o controlo de acesso baseado em funções no portal Azure](../../role-based-access-control/overview.md).
+> A gestão de bases de dados e servidores dentro do Azure é controlada pelas atribuições de funções da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [o controlo de acesso baseado em funções do Azure no portal Azure](../../role-based-access-control/overview.md).
 
 ### <a name="authentication"></a>Autenticação
 
@@ -65,7 +65,7 @@ A autenticação é o processo de provar que o utilizador é quem diz ser. Azure
     As opções adicionais de autenticação Azure AD disponíveis são [autenticação universal do Diretório Ativo para](authentication-mfa-ssms-overview.md) ligações sql Server Management Studio, incluindo [autenticação multi-factor](../../active-directory/authentication/concept-mfa-howitworks.md) e [acesso condicional](conditional-access-configure.md).
 
 > [!IMPORTANT]
-> A gestão de bases de dados e servidores dentro do Azure é controlada pelas atribuições de funções da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [o controlo de acesso baseado em funções no portal Azure](../../role-based-access-control/overview.md). Controlar o acesso com regras de firewall *não* se aplica a **SQL Managed Instance** . Consulte o seguinte artigo sobre [a ligação a uma instância gerida](../managed-instance/connect-application-instance.md) para obter mais informações sobre a configuração de rede necessária.
+> A gestão de bases de dados e servidores dentro do Azure é controlada pelas atribuições de funções da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [o controlo de acesso baseado em funções da Azure no portal Azure](../../role-based-access-control/overview.md). Controlar o acesso com regras de firewall *não* se aplica a **SQL Managed Instance**. Consulte o seguinte artigo sobre [a ligação a uma instância gerida](../managed-instance/connect-application-instance.md) para obter mais informações sobre a configuração de rede necessária.
 
 ## <a name="authorization"></a>Autorização
 
@@ -103,7 +103,7 @@ Base de Dados SQL, SQL Managed Instance e Azure Synapse Analytics impõem encrip
 
 Como melhor prática, recomende que na cadeia de ligação utilizada pela aplicação, especifique uma ligação encriptada e _**não**_ confie no certificado do servidor. Isto força a sua aplicação a verificar o certificado do servidor e assim impede que a sua aplicação seja vulnerável ao homem nos ataques do tipo médio.
 
-Por exemplo, ao utilizar o ADO.NET controlador, isto é realizado através do  **Encrypt=True** and **TrustServerCertificate=False** . Se obtiver o fio de ligação a partir do portal Azure, terá as definições corretas.
+Por exemplo, ao utilizar o ADO.NET controlador, isto é realizado através do  **Encrypt=True** and **TrustServerCertificate=False**. Se obtiver o fio de ligação a partir do portal Azure, terá as definições corretas.
 
 > [!IMPORTANT]
 > Note que alguns controladores não Microsoft podem não utilizar OTS por padrão ou confiar numa versão mais antiga do TLS (<1.2) para funcionar. Neste caso, o servidor ainda lhe permite ligar-se à sua base de dados. No entanto, recomendamos que avalie os riscos de segurança de permitir que tais condutores e aplicações se conectem à Base de Dados SQL, especialmente se armazenar dados sensíveis.
@@ -130,7 +130,7 @@ No Azure, todas as bases de dados recentemente criadas são encriptadas por padr
 
 ![Diagrama mostrando máscara de dados dinâmica. Uma aplicação de negócios envia dados para uma base de dados SQL que mascara os dados antes de enviá-los de volta para a aplicação empresarial.](./media/security-overview/azure-database-ddm.png)
 
-A mascaração dinâmica de dados limita a exposição sensível aos dados, mascarando-os a utilizadores não privilegiados. A máscara dinâmica de dados descobre automaticamente dados potencialmente sensíveis na Base de Dados Azure SQL e na SQL Managed Instance e fornece recomendações acccáveis para mascarar estes campos, com o mínimo impacto na camada de aplicação. Funciona ao ofuscar os dados confidenciais no conjunto de resultados de uma consulta em campos de base de dados designados, enquanto os dados na base de dados não são alterados. Para obter mais informações, consulte [Começar com a Base de Dados SQL e a máscara dinâmica de dados da SQL Managed Instance](dynamic-data-masking-overview.md).
+A máscara de dados dinâmicos limita a exposição a dados confidenciais ao mascará-los para utilizadores sem privilégios. A máscara dinâmica de dados descobre automaticamente dados potencialmente sensíveis na Base de Dados Azure SQL e na SQL Managed Instance e fornece recomendações acccáveis para mascarar estes campos, com o mínimo impacto na camada de aplicação. Funciona ao ofuscar os dados confidenciais no conjunto de resultados de uma consulta em campos de base de dados designados, enquanto os dados na base de dados não são alterados. Para obter mais informações, consulte [Começar com a Base de Dados SQL e a máscara dinâmica de dados da SQL Managed Instance](dynamic-data-masking-overview.md).
 
 ## <a name="security-management"></a>Gestão de segurança
 
@@ -152,7 +152,7 @@ Para mais informações, consulte [Começar com a descoberta e classificação d
 
 Além das funcionalidades e funcionalidades acima referidas que podem ajudar a sua aplicação a cumprir vários requisitos de segurança, a Azure SQL Database também participa em auditorias regulares, tendo sido certificada contra uma série de normas de conformidade. Para mais informações, consulte o [Microsoft Azure Trust Center](https://www.microsoft.com/trust-center/compliance/compliance-overview) onde pode encontrar a lista mais atual de certificações de conformidade da Base de Dados SQL.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma discussão sobre a utilização de logins, contas de utilizador, funções de base de dados e permissões na Base de Dados SQL e na SQL Managed Instance, consulte [Gerir logins e contas de utilizador.](logins-create-manage.md)
 - Para uma discussão sobre a auditoria da base de dados, consulte [a auditoria.](../../azure-sql/database/auditing-overview.md)

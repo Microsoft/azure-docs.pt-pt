@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: f4f35aed10465fb06460f2818a876444bf989e01
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2bbf400840c968587de3a0a0951d28c7c35b210f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843966"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990895"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Resolver problemas relacionados com a não apresentação dos dados dos seus dispositivos no Azure IoT Central
 
@@ -135,7 +135,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | Aprovisionado | Não há problema imediatamente reconhecível. | N/D |
 | Registado | O dispositivo ainda não está ligado à IoT Central. | Verifique se os registos do seu dispositivo têm problemas de conectividade. |
 | Bloqueado | O dispositivo está bloqueado da ligação à IoT Central. | O dispositivo está bloqueado da ligação à aplicação IoT Central. Desbloqueie o dispositivo na IoT Central e recomprina. Para saber mais, consulte [dispositivos Block](concepts-get-connected.md#device-status-values). |
-| Não aprovado | O dispositivo não está aprovado. | O dispositivo não está aprovado para ligar à aplicação IoT Central. Aprove o dispositivo na IoT Central e redaça. Para saber mais, consulte [Dispositivos Aprovados](concepts-get-connected.md#connect-without-registering-devices) |
+| Não aprovado | O dispositivo não está aprovado. | O dispositivo não está aprovado para ligar à aplicação IoT Central. Aprove o dispositivo na IoT Central e redaça. Para saber mais, consulte [Dispositivos Aprovados](concepts-get-connected.md#device-registration) |
 | Não associada | O dispositivo não está associado a um modelo de dispositivo. | Associe o dispositivo a um modelo de dispositivo para que o IoT Central saiba analisar os dados. |
 
 Saiba mais sobre [os códigos de estado do dispositivo](concepts-get-connected.md#device-status-values).
@@ -210,7 +210,7 @@ Quando tiver detetado o problema, poderá necessitar de atualizar o firmware do 
 
 Se escolheu criar um novo modelo que modele os dados corretamente, migrar dispositivos do seu modelo antigo para o novo modelo. Para saber mais, consulte [Gerir os dispositivos na sua aplicação Azure IoT Central](howto-manage-devices.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se precisar de mais ajuda, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode arquivar um [bilhete de apoio Azure.](https://portal.azure.com/#create/Microsoft.Support)
 

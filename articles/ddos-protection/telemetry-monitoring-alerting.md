@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: eefb658c689128c1d91858ac906c09e71d05cda6
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 5c80e5e611c275c2a2262963aa0759075fca836b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888951"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989399"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Ver e configurar telemetria de proteção contra DDoS
 
-A padrão de proteção DDoS Azure fornece informações detalhadas sobre ataque e visualização com DDoS Attack Analytics. Os clientes que protegem as suas redes virtuais contra ataques de DDoS têm uma visibilidade detalhada no tráfego de ataques e as ações tomadas para mitigar o ataque através de relatórios de mitigação de ataques & registos de fluxo de mitigação. A telemetria rica é exposta através do Azure Monitor, incluindo métricas detalhadas durante a duração de um ataque DDoS. O alerta pode ser configurado para qualquer uma das métricas do Monitor Azure expostas pela Proteção DDoS. O registo pode ser integrado com [Azure Sentinel,](https://docs.microsoft.com/azure/sentinel/connect-azure-ddos-protection)Splunk (Azure Event Hubs), OMS Log Analytics e Azure Storage para análise avançada através da interface Azure Monitor Diagnostics.
+A padrão de proteção DDoS Azure fornece informações detalhadas sobre ataque e visualização com DDoS Attack Analytics. Os clientes que protegem as suas redes virtuais contra ataques de DDoS têm uma visibilidade detalhada no tráfego de ataques e as ações tomadas para mitigar o ataque através de relatórios de mitigação de ataques & registos de fluxo de mitigação. A telemetria rica é exposta através do Azure Monitor, incluindo métricas detalhadas durante a duração de um ataque DDoS. O alerta pode ser configurado para qualquer uma das métricas do Monitor Azure expostas pela Proteção DDoS. O registo pode ser integrado com [Azure Sentinel,](../sentinel/connect-azure-ddos-protection.md)Splunk (Azure Event Hubs), OMS Log Analytics e Azure Storage para análise avançada através da interface Azure Monitor Diagnostics.
 
 Neste tutorial, irá aprender a:
 
@@ -49,7 +49,7 @@ Pode selecionar qualquer uma das métricas de proteção DDoS disponíveis para 
     |Nome                     | Insira _myDdosAlert_.                                                                                |
     |Subscrição             | Selecione a subscrição que contém o endereço IP público para o quais pretende receber alertas.        |
     |Grupo de recursos           | Selecione o grupo de recursos que contém o endereço IP público para o quais pretende receber alertas.      |
-    |Recurso                 | Selecione o endereço IP público que contém o endereço IP público para o quais pretende receber alertas. O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, tem primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services#services-that-can-be-deployed-into-a-virtual-network), exceto para Azure App Service Environments e Azure VPN Gateway. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)                   |
+    |Recurso                 | Selecione o endereço IP público que contém o endereço IP público para o quais pretende receber alertas. O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, tem primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), exceto para Azure App Service Environments e Azure VPN Gateway. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)                   |
     |Métrica                   | Selecione **sob o ataque DDoS ou não**.                                                                |
     |Limiar                | 1 - **1** significa que estás a ser atacado. **0** significa que não estás a ser atacado.                         |
     |Período                   | Selecione o valor que escolher.                                                                   |
@@ -95,7 +95,7 @@ Os limiares de política são configurados automaticamente através do perfil de
 
 ## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Ver alertas de proteção DDoS no Centro de Segurança Azure
 
-O Azure Security Center fornece uma lista de alertas de [segurança,](/azure/security-center/security-center-managing-and-responding-alerts)com informações para ajudar a investigar e corrigir problemas. Com esta funcionalidade, obtém-se uma visão unificada dos alertas, incluindo alertas relacionados com ataques DDoS e as ações tomadas para mitigar o ataque em pouco tempo.
+O Azure Security Center fornece uma lista de alertas de [segurança,](../security-center/security-center-managing-and-responding-alerts.md)com informações para ajudar a investigar e corrigir problemas. Com esta funcionalidade, obtém-se uma visão unificada dos alertas, incluindo alertas relacionados com ataques DDoS e as ações tomadas para mitigar o ataque em pouco tempo.
 Existem dois alertas específicos que verá para qualquer deteção e mitigação de ataques DDoS:
 
 - **Ataque DDoS detetado para IP Público**: Este alerta é gerado quando o serviço de proteção DDoS deteta que um dos seus endereços IP públicos é alvo de um ataque DDoS.

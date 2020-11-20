@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: da046fd633120944231ee440605367bdb730cbff
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 450d471beebbcc554a6d534fb2d5361778f158bc
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543226"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992323"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -213,7 +213,7 @@ Do lado direito está uma distribuição dos rótulos para as tarefas que estão
 
 ### <a name="data-tab"></a>Separador de dados
 
-No separador **Dados,** pode ver o conjunto de dados e rever os dados rotulados. Se vir dados rotulados incorretamente, selecione-os e escolha **Rejeitar** , que removerá as etiquetas e colocará os dados de volta na fila não identificada.
+No separador **Dados,** pode ver o conjunto de dados e rever os dados rotulados. Se vir dados rotulados incorretamente, selecione-os e escolha **Rejeitar**, que removerá as etiquetas e colocará os dados de volta na fila não identificada.
 
 ### <a name="details-tab"></a>Separador de detalhes
 
@@ -250,13 +250,13 @@ Utilize estes passos para adicionar um ou mais rótulos a um projeto:
 
 ## <a name="export-the-labels"></a>Exportar as etiquetas
 
-Pode exportar os dados do rótulo para a experimentação de Machine Learning a qualquer momento. As etiquetas de imagem podem ser exportadas em [formato COCO](http://cocodataset.org/#format-data) ou como um conjunto de dados de Aprendizagem automática Azure. Utilize o botão **Exportação** na página de detalhes do **Projeto** do seu projeto de rotulagem.
+Pode exportar os dados do rótulo para a experimentação de Machine Learning a qualquer momento. As etiquetas de imagem podem ser exportadas em [formato COCO](http://cocodataset.org/#format-data) ou como um conjunto [de dados de aprendizagem automática Azure com etiquetas.](how-to-use-labeled-dataset.md) Utilize o botão **Exportação** na página de detalhes do **Projeto** do seu projeto de rotulagem.
 
 O ficheiro COCO é criado na loja blob padrão do espaço de trabalho Azure Machine Learning numa pasta dentro *da exportação/coco*. Pode aceder ao conjunto de dados de aprendizagem automática Azure exportado na secção **Datasets** da Machine Learning. A página de detalhes do conjunto de dados também fornece código de amostra para aceder às suas etiquetas a partir de Python.
 
 ![Conjunto de dados exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Tutorial: Crie o seu primeiro projeto de rotulagem de classificação de imagem.](tutorial-labeling.md)
 * Rotular imagens para [classificação de imagem ou deteção de objetos](how-to-label-images.md)

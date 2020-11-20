@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 47733f4b141b0064e966d0c083fd6414405f65f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e2f5528fde977520dc0aa0215a480a40ef8f1e7d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095548"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989620"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Quickstart: Criar e configurar norma de proteção Azure DDoS usando Azure CLI
 
@@ -39,7 +39,7 @@ Se optar por instalar e utilizar o CLI localmente, este arranque rápido requer 
 
 Em Azure, aloca recursos relacionados a um grupo de recursos. Pode utilizar um grupo de recursos existente ou criar um novo.
 
-Para criar um grupo de recursos, utilize [o grupo AZ criar](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true). Neste exemplo, vamos nomear o nosso grupo de recursos _MyResourceGroup_ e usar a localização _dos EUA orientais:_
+Para criar um grupo de recursos, utilize [o grupo AZ criar](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-create). Neste exemplo, vamos nomear o nosso grupo de recursos _MyResourceGroup_ e usar a localização _dos EUA orientais:_
 
 ```azurecli-interactive
 az group create \
@@ -111,7 +111,7 @@ Verifique se o comando devolve os detalhes corretos do seu plano de proteção D
 
 Podes ficar com os teus recursos para o próximo tutorial. Se já não for necessário, elimine o grupo de recursos _MyResourceGroup._ Quando elimina o grupo de recursos, também elimina o plano de proteção DDoS e todos os seus recursos relacionados. 
 
-Para eliminar o grupo de recursos utilize [o grupo Az eliminar:](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true)
+Para eliminar o grupo de recursos utilize [o grupo Az eliminar:](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az_group_delete)
 
 ```azurecli-interactive
 az group delete \
@@ -129,7 +129,7 @@ az network vnet update \
 
 Se pretender eliminar um plano de proteção DDoS, tem primeiro de dissociar todas as redes virtuais do mesmo. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a visualizar e configurar a telemetria para o seu plano de proteção DDoS, continue para os tutoriais.
 

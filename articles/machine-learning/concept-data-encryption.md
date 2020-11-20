@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: a133cdb72e304a254305833b9ae6e8a7ebe30ab3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 211ef9571b5a126686b4583330dc0f80863fd47e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540013"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992051"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Encriptação de dados com Azure Machine Learning
 
@@ -130,6 +130,12 @@ Cada máquina virtual também tem um disco temporário local para operações de
 
 Azure Databricks pode ser usado em gasodutos Azure Machine Learning. Por predefinição, o Databricks File System (DBFS) utilizado pelo Azure Databricks é encriptado utilizando uma chave gerida pela Microsoft. Para configurar a Azure Databricks para utilizar chaves geridas pelo cliente, consulte [as teclas geridas pelo cliente no DBFS (raiz) padrão .](/azure/databricks/security/customer-managed-keys-dbfs)
 
+### <a name="microsoft-generated-data"></a>Dados gerados pela Microsoft
+
+Ao utilizar serviços como Machine Learning Automatizado, a Microsoft pode gerar dados transitórios e pré-processados para a formação de vários modelos. Estes dados são armazenados numa loja de dados no seu espaço de trabalho, o que lhe permite impor controlos de acesso e encriptação adequadamente.
+
+Também pode querer encriptar [as informações de diagnóstico registadas a partir do seu ponto final implantado](how-to-enable-app-insights.md) na sua instância Azure Application Insights.
+
 ## <a name="encryption-in-transit"></a>Encriptação de dados em circulação
 
 A Azure Machine Learning utiliza o TLS para garantir a comunicação interna entre vários microserviços de aprendizagem automática Azure. Todo o acesso a Azure Storage também ocorre sobre um canal seguro.
@@ -158,7 +164,7 @@ As palavras-passe e as chaves do SSH para calcular alvos como Azure HDInsight e 
 
 Cada espaço de trabalho tem uma identidade gerida associada ao sistema que tem o mesmo nome que o espaço de trabalho. Esta identidade gerida tem acesso a todas as chaves, segredos e certificados no cofre das chaves.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Ligue-se ao armazenamento Azure](how-to-access-data.md)
 * [Obter dados a partir de um arquivo de dados](how-to-create-register-datasets.md)

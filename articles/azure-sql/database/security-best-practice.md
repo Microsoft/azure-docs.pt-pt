@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: c7a94a24bd825249859ff699ab82ce4d3ae8fce1
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842248"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992170"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL e Azure SQL Gestão De Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -107,12 +107,12 @@ A gestão central da identidade oferece os seguintes benefícios:
 > [!NOTE]
 >
 > - A autenticação Azure AD é registada em registos de auditoria Azure SQL, mas não em registos de login Azure AD.
-> - As permissões RBAC concedidas no Azure não se aplicam às permissões de Azure SQL Database ou SQL Managed Instance. Tais permissões devem ser criadas/mapeadas manualmente utilizando permissões SQL existentes.
+> - As permissões Azure RBAC concedidas em Azure não se aplicam a permissões de Azure SQL Database ou SQL Managed Instance. Tais permissões devem ser criadas/mapeadas manualmente utilizando permissões SQL existentes.
 > - Do lado do cliente, a autenticação AZure AD necessita de acesso à internet ou via Rota Definida pelo Utilizador (UDR) a uma rede virtual.
 > - O token de acesso Azure AD está em cache no lado do cliente e a sua vida útil depende da configuração simbólica. Veja o artigo, [Configurar vidas simbólicas no Azure Ative Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - Para obter orientações sobre problemas de resolução de problemas Azure AD Authentication, consulte o seguinte blog: [Troubleshooting Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).
 
-### <a name="azure-ad-multi-factor-authentication"></a>Autenticação de vários fatores Azure Ad
+### <a name="azure-ad-multi-factor-authentication"></a>Multi-Factor Authentication do Azure AD
 
 > Mencionado em: Osa Practice #2, ISO Access Control (AC)
 
@@ -800,6 +800,6 @@ A maioria das normas de segurança aborda a disponibilidade de dados em termos d
     - [Alta disponibilidade - Configuração redundante de zona para o nível de serviço de finalidade geral](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
     - [Visão geral da continuidade do negócio](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [uma visão geral das capacidades de segurança da Base de Dados Azure SQL](security-overview.md)

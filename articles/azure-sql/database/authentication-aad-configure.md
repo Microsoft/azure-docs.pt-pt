@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: a9ef15bf595d84613b5f41a73e5526cb0fe79d5b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c5caf48dd4e2860ec5f4815eb38629ad66391a2c
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841415"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990113"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -105,7 +105,7 @@ Para conceder a sua SQL Managed Instance AD ler permissão de leitura usando o p
 
 7. Na página de administração AD AZure, procure um utilizador, selecione o utilizador ou grupo para ser administrador e, em seguida, **selecione Select**.
 
-   A página de administração do Ative Directory mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores da AD Azure. Consulte a lista de administradores suportados em [Funcionalidades e Limitações AD Azure](authentication-aad-overview.md#azure-ad-features-and-limitations). O controlo de acesso baseado em funções (RBAC) aplica-se apenas ao portal Azure e não é propagado à Base de Dados SQL, SQL Managed Instance ou Azure Synapse.
+   A página de administração do Ative Directory mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores da AD Azure. Consulte a lista de administradores suportados em [Funcionalidades e Limitações AD Azure](authentication-aad-overview.md#azure-ad-features-and-limitations). O controlo de acesso baseado em funções (Azure RBAC) aplica-se apenas ao portal Azure e não é propagado à Base de Dados SQL, SQL Managed Instance ou Azure Synapse.
 
     ![Adicionar administrador do Diretório Ativo Azure](./media/authentication-aad-configure/add-azure-active-directory-admin.png)
 
@@ -253,7 +253,7 @@ Os dois procedimentos seguintes mostram-lhe como providenciar um administrador d
 
     ![Servidores SQL definem administrador de Diretório Ativo](./media/authentication-aad-configure/sql-servers-set-active-directory-admin.png)  
 
-5. Na página **de administração Adicionar,** procure um utilizador, selecione o utilizador ou grupo para ser administrador e, em seguida, selecione **Select**. (A página de administração do Ative Directory mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores da AD Azure. (Consulte a lista de administradores suportados na secção **Azure AD Features and Limitations** of [Use Azure Ative Directory Authentication for authentication with SQL Database ou Azure Synapse](authentication-aad-overview.md).) O controlo de acesso baseado em funções (RBAC) aplica-se apenas ao portal e não é propagado ao SQL Server.
+5. Na página **de administração Adicionar,** procure um utilizador, selecione o utilizador ou grupo para ser administrador e, em seguida, selecione **Select**. (A página de administração do Ative Directory mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores da AD Azure. (Consulte a lista de administradores suportados na secção **Azure AD Features and Limitations** of [Use Azure Ative Directory Authentication for authentication with SQL Database ou Azure Synapse](authentication-aad-overview.md).) O controlo de acesso baseado em funções (Azure RBAC) aplica-se apenas ao portal e não é propagado ao SQL Server.
 
     ![Selecione administrador do Diretório Ativo Azure](./media/authentication-aad-configure/select-azure-active-directory-admin.png)  
 
@@ -532,7 +532,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 As orientações sobre problemas de resolução de problemas com a autenticação AZure AD podem ser encontradas no seguinte blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral de logins, utilizadores, funções de base de dados e permissões na Base de Dados SQL, consulte [Logins, utilizadores, funções de base de dados e contas de utilizador.](logins-create-manage.md)
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](/sql/relational-databases/security/authentication-access/principals-database-engine).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: a386ea5149b36a4e82b4c935e2373f505c6c83cf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: db270224a753f815a2d94e6a1fa79ebbedf49278
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789884"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991575"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Backup e restauro para SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -55,23 +55,23 @@ Para restaurar uma base de dados, tem de localizar os ficheiros de cópia de seg
 
 Para obter mais informações sobre como configurar a Cópia de Segurança Automatizada para VMS SQL, consulte um dos seguintes artigos:
 
-- **SQL Server 2016/2017** : [Cópia de segurança automatizada v2 para máquinas virtuais Azure](automated-backup.md)
-- **SQL Server 2014** : [Cópia de segurança automatizada para máquinas virtuais SQL Server 2014](automated-backup-sql-2014.md)
+- **SQL Server 2016/2017**: [Cópia de segurança automatizada v2 para máquinas virtuais Azure](automated-backup.md)
+- **SQL Server 2014**: [Cópia de segurança automatizada para máquinas virtuais SQL Server 2014](automated-backup-sql-2014.md)
 
 ## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a> Backup Azure para VMs SQL
 
 [O Azure Backup](../../../backup/index.yml) fornece uma capacidade de backup da classe Enterprise para O SQL Server em VMs Azure. Todos os backups são armazenados e geridos num cofre dos Serviços de Recuperação. Existem várias vantagens que esta solução proporciona, especialmente para as Empresas:
 
-- **Backup de infraestrutura zero** : Não é preciso gerir servidores de backup ou locais de armazenamento.
-- **Escala** : Proteja muitos SQL VMs e milhares de bases de dados.
-- **Pay-As-You-Go** : Esta capacidade é um serviço separado fornecido pela Azure Backup, mas como em todos os serviços Azure, você só paga pelo que usa.
+- **Backup de infraestrutura zero**: Não é preciso gerir servidores de backup ou locais de armazenamento.
+- **Escala**: Proteja muitos SQL VMs e milhares de bases de dados.
+- **Pay-As-You-Go**: Esta capacidade é um serviço separado fornecido pela Azure Backup, mas como em todos os serviços Azure, você só paga pelo que usa.
 - **Gestão e monitorização** central : Gerencie centralmente todos os seus backups, incluindo outras cargas de trabalho que a Azure Backup suporta, a partir de um único dashboard em Azure.
-- **Backup e retenção orientados por políticas** : Crie políticas de backup padrão para cópias de segurança regulares. Estabeleça políticas de retenção para manter os backups durante anos.
-- **Suporte para SQL Always On** : Detete e proteja um servidor SQL Sempre Na configuração e honre a preferência de backup do Grupo de Disponibilidade.
-- **Objetivo do ponto de recuperação de 15 minutos (RPO)** : Configurar os registos de transações SQL até 15 minutos.
-- **Ponto de restauração do tempo** : Utilize o portal para recuperar bases de dados a um ponto específico no tempo sem ter de restaurar manualmente múltiplas cópias de segurança completas, diferenciais e de registo.
-- **Alertas de e-mail consolidados para falhas** : Configure notificações de email consolidadas para eventuais falhas.
-- **Controlo de acesso baseado em funções** : Determine quem pode gerir as operações de backup e restaurar as operações através do portal.
+- **Backup e retenção orientados por políticas**: Crie políticas de backup padrão para cópias de segurança regulares. Estabeleça políticas de retenção para manter os backups durante anos.
+- **Suporte para SQL Always On**: Detete e proteja um servidor SQL Sempre Na configuração e honre a preferência de backup do Grupo de Disponibilidade.
+- **Objetivo do ponto de recuperação de 15 minutos (RPO)**: Configurar os registos de transações SQL até 15 minutos.
+- **Ponto de restauração do tempo**: Utilize o portal para recuperar bases de dados a um ponto específico no tempo sem ter de restaurar manualmente múltiplas cópias de segurança completas, diferenciais e de registo.
+- **Alertas de e-mail consolidados para falhas**: Configure notificações de email consolidadas para eventuais falhas.
+- **Controlo de acesso baseado em funções Azure**: Determine quem pode gerir as operações de backup e restaurar as operações através do portal.
 
 Para uma visão geral rápida de como funciona juntamente com uma demonstração, veja o seguinte vídeo:
 
@@ -108,9 +108,9 @@ Começando com o SQL Server 2012 SP1 CU2, pode fazer backup e restaurar diretame
 
 Para mais informações, consulte um dos seguintes artigos com base na sua versão do SQL Server:
 
-- **SQL Server 2016/2017** : [Backup do servidor SQL para URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
-- **SQL Server 2014** : [SQL Server 2014 Backup para URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?viewFallbackFrom=sql-server-2014)
-- **SQL Server 2012** : [SQL Server 2012 Backup para URL](/previous-versions/sql/sql-server-2012/jj919148(v=sql.110))
+- **SQL Server 2016/2017**: [Backup do servidor SQL para URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+- **SQL Server 2014**: [SQL Server 2014 Backup para URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?viewFallbackFrom=sql-server-2014)
+- **SQL Server 2012**: [SQL Server 2012 Backup para URL](/previous-versions/sql/sql-server-2012/jj919148(v=sql.110))
 
 ### <a name="managed-backup"></a>Cópia de Segurança Gerida
 
@@ -147,7 +147,7 @@ A tabela seguinte resume as capacidades de cada opção de backup e restauro par
 | Monitorize trabalhos de backup com scripts SSMS ou Transact-SQL | ![Marca verde.](./media/backup-restore/yes.png) | ![Marca verde.](./media/backup-restore/yes.png) | ![Marca verde.](./media/backup-restore/yes.png) |
 | Restaurar bases de dados com scripts SSMS ou Transact-SQL | ![Marca verde.](./media/backup-restore/yes.png) |   | ![Marca verde.](./media/backup-restore/yes.png) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se estiver a planear a sua implantação do SQL Server em Azure VM, pode encontrar orientações de provisionamento no seguinte guia: [Como providenciar uma máquina virtual do Windows SQL Server no portal Azure](create-sql-vm-portal.md).
 

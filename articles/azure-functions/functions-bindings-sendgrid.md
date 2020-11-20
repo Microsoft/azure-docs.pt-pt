@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 32734ff9df2e55d24789742cd49984d8da212a17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3d09ec4c4ab578a87f0d983c0f243bee2a84597
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212194"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991235"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Funções Azure SendGrid
 
@@ -41,6 +41,7 @@ O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) q
 
 ```cs
 using SendGrid.Helpers.Mail;
+using System.Text.Json;
 
 ...
 
@@ -49,7 +50,7 @@ public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
     [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
 {
-var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
 message = new SendGridMessage();
 message.AddTo(emailObject.To);
@@ -71,15 +72,16 @@ public class OutgoingEmail
 
 ```cs
 using SendGrid.Helpers.Mail;
+using System.Text.Json;
 
 ...
 
 [FunctionName("SendEmail")]
-public static async void Run(
+public static async Task Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
  [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector)
 {
- var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+ var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
  var message = new SendGridMessage();
  message.AddTo(emailObject.To);
@@ -189,7 +191,7 @@ Aqui está o código JavaScript:
 ```javascript
 module.exports = function (context, input) {
     var message = {
-         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: { email: "sender@contoso.com" },
         subject: "Azure news",
         content: [{
@@ -357,14 +359,14 @@ A tabela que se segue lista as propriedades de configuração de encadernação 
 
 | *function.jsna* propriedade | Propriedade de atributo/anotação | Descrição | Opcional |
 |--------------------------|-------------------------------|-------------|----------|
-| tipo |n/a| Deve ser definido para `sendGrid` .| Não |
-| direção |n/a| Deve ser definido para `out` .| Não |
-| name |n/a| O nome variável utilizado no código de função para o órgão de pedido ou pedido. Este valor é `$return` quando há apenas um valor de retorno. | Não |
-| apiKey | ApiKey | O nome de uma definição de aplicação que contém a sua chave API. Se não for definido, o nome de definição de aplicação predefinido é *AzureWebJobsSendGridApiKey*.| Não |
-| para| Para | O endereço de e-mail do destinatário. | Sim |
-| De| De | O endereço de e-mail do remetente. |  Sim |
-| Assunto| Assunto | O assunto do e-mail. | Sim |
-| texto| Texto | O conteúdo do e-mail. | Sim |
+| tipo |n/a| Deve ser definido para `sendGrid` .| No |
+| direção |n/a| Deve ser definido para `out` .| No |
+| name |n/a| O nome variável utilizado no código de função para o órgão de pedido ou pedido. Este valor é `$return` quando há apenas um valor de retorno. | No |
+| apiKey | ApiKey | O nome de uma definição de aplicação que contém a sua chave API. Se não for definido, o nome de definição de aplicação predefinido é *AzureWebJobsSendGridApiKey*.| No |
+| para| Para | O endereço de e-mail do destinatário. | Yes |
+| De| De | O endereço de e-mail do remetente. |  Yes |
+| Assunto| Assunto | O assunto do e-mail. | Yes |
+| texto| Texto | O conteúdo do e-mail. | Yes |
 
 As propriedades opcionais podem ter valores predefinidos definidos na ligação e adicionados ou ultrapassados programáticamente.
 
@@ -395,7 +397,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 |De|n/a|O endereço de e-mail do remetente em todas as funções.| 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

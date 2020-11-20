@@ -1,6 +1,6 @@
 ---
 title: Visão geral padrão de proteção Azure DDos
-description: Saiba como o Azure DDoS Protection Standard, quando combinado com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.
+description: Saiba como o Azure DDoS Protection Standard, quando combinado com as melhores práticas de estrutura de dispositivos, fornece proteção contra ataques DDoS.
 services: virtual-network
 documentationcenter: na
 author: yitoh
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: a8d8a41b5d527833ef071275d90cf9102cec47f7
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e3ded2fc286117da1438b0bb28298632532c4329
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905459"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992544"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Descrição geral do Azure DDoS Protection Standard
 
@@ -38,17 +38,17 @@ A proteção Azure DDoS não armazena dados do cliente.
 - **Sintonização adaptativa:** O perfil de tráfego inteligente aprende o tráfego da sua aplicação ao longo do tempo e seleciona e atualiza o perfil que é o mais adequado para o seu serviço. O perfil ajusta-se à medida que o tráfego muda ao longo do tempo.
 - **Proteção em várias camadas:** Fornece proteção DDoS de pilha completa, quando usado com uma firewall de aplicação web.
 - **Escala de mitigação extensiva:** Mais de 60 tipos de ataques diferentes podem ser atenuados, com capacidade global, para proteger contra os maiores ataques DDoS conhecidos.
-- **Análise de ataque:** Obtenha relatórios detalhados em incrementos de cinco minutos durante um ataque, e um resumo completo após o ataque terminar. Os registos de fluxo de mitigação do fluxo de fluxo para [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-ddos-protection) ou um sistema offline de informação de segurança e gestão de eventos (SIEM) para monitorização em tempo real durante um ataque.
+- **Análise de ataque:** Obtenha relatórios detalhados em incrementos de cinco minutos durante um ataque, e um resumo completo após o ataque terminar. Os registos de fluxo de mitigação do fluxo de fluxo para [Azure Sentinel](../sentinel/connect-azure-ddos-protection.md) ou um sistema offline de informação de segurança e gestão de eventos (SIEM) para monitorização em tempo real durante um ataque.
 - **Métricas de ataque:** As métricas resumidas de cada ataque são acessíveis através do Monitor Azure.
 - **Alerta de ataque:** Os alertas podem ser configurados no início e na paragem de um ataque, e durante a duração do ataque, usando métricas de ataque incorporadas. Os alertas integram-se no seu software operacional como os registos do Microsoft Azure Monitor, Splunk, Azure Storage, Email e o portal Azure.
-- **DDoS Rapid Response** : Envolva a equipa de Resposta Rápida de Proteção DDoS (DRR) para ajuda na investigação e análise de ataques. Para saber mais, consulte [dDoS Rapid Response](ddos-rapid-response.md).
+- **DDoS Rapid Response**: Envolva a equipa de Resposta Rápida de Proteção DDoS (DRR) para ajuda na investigação e análise de ataques. Para saber mais, consulte [dDoS Rapid Response](ddos-rapid-response.md).
 - **Garantia de custos:** Créditos de serviço de transferência de dados e de aplicação para ataques DDoS documentados.
 
 ## <a name="pricing"></a>Preços
 
 Para saber mais sobre os preços standard de proteção do Azure DDoS, consulte [os preços standard de proteção do Azure DDoS](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar um Plano de Proteção DDoS](manage-ddos-protection.md)

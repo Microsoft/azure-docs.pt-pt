@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da Política Azure para Azure Cache para Redis
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para Azure Cache para Redis. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: sample
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 01d6567433bed465aee5e3ee63cc0031a7a66fdd
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 7924d82067e74a2055185384ff324c6bd0325efc
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701692"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992306"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cache-for-redis"></a>Controlos de conformidade regulamentar da Política Azure para Azure Cache para Redis
 
@@ -22,7 +22,7 @@ ms.locfileid: "94701692"
 
 [!INCLUDE [azure-policy-compliancecontrols-cache](../../includes/policy/standards/byrp/microsoft.cache.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).

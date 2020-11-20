@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5c5276f11da687f14630bafd007532d172ef3737
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324999"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990810"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utilize pontos finais de serviço de rede virtual e regras para servidores na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -55,7 +55,7 @@ Existe uma separação de funções de segurança na administração dos pontos 
 - **Administração de rede:** &nbsp; Ligue o ponto final.
 - **Administração de base de dados:** &nbsp; Atualize a lista de controlo de acesso (ACL) para adicionar a sub-rede dada ao servidor.
 
-*Alternativa RBAC:*
+*Alternativa Azure RBAC:*
 
 Os papéis de Administração de Rede e Administração de Bases de Dados têm mais capacidades do que as necessárias para gerir as regras de rede virtuais. Apenas um subconjunto das suas capacidades é necessário.
 
@@ -89,7 +89,7 @@ Para a Base de Dados Azure SQL, a funcionalidade de regras de rede virtual tem a
 
 Ao utilizar os pontos finais de serviço para a Base de Dados Azure SQL, reveja as seguintes considerações:
 
-- **Saída para Azure SQL Database Os IPs públicos são necessários** : Os Grupos de Segurança da Rede (NSGs) devem ser abertos ao Azure SQL Database IPs para permitir a conectividade. Pode fazê-lo utilizando [tags de serviço](../../virtual-network/network-security-groups-overview.md#service-tags) NSG para base de dados Azure SQL.
+- **Saída para Azure SQL Database Os IPs públicos são necessários**: Os Grupos de Segurança da Rede (NSGs) devem ser abertos ao Azure SQL Database IPs para permitir a conectividade. Pode fazê-lo utilizando [tags de serviço](../../virtual-network/network-security-groups-overview.md#service-tags) NSG para base de dados Azure SQL.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -149,7 +149,7 @@ A PolyBase e a declaração COPY são comumente usadas para carregar dados em Az
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
 
-   1. Criar credenciais de âmbito de base de dados com **IDENTIDADE = 'Identidade de Serviço Gerido'** :
+   1. Criar credenciais de âmbito de base de dados com **IDENTIDADE = 'Identidade de Serviço Gerido'**:
 
        ```sql
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -192,7 +192,7 @@ O erro de ligação 40914 diz respeito às *regras de rede virtuais,* conforme e
 
 ### <a name="error-40914"></a>Erro 40914
 
-*Texto de mensagem:* Não é possível abrir o servidor *' [nome do servidor]* ' solicitado pelo login. O cliente não está autorizado a aceder ao servidor.
+*Texto de mensagem:* Não é possível abrir o servidor *' [nome do servidor]*' solicitado pelo login. O cliente não está autorizado a aceder ao servidor.
 
 *Descrição do erro:* O cliente está numa sub-rede que tem pontos finais de servidor de rede virtual. Mas o servidor não tem nenhuma regra de rede virtual que conceda à sub-rede o direito de comunicar com a base de dados.
 
@@ -240,7 +240,7 @@ Já deve ter uma sub-rede que está marcada com o nome de *tipo de ponto* final 
 
 1. Inicie sessão no [portal do Azure][http-azure-portal-link-ref-477t].
 
-2. Procure e selecione **servidores SQL** e, em seguida, selecione o seu servidor. Em **Segurança** , selecione **Firewalls e redes virtuais**.
+2. Procure e selecione **servidores SQL** e, em seguida, selecione o seu servidor. Em **Segurança**, selecione **Firewalls e redes virtuais**.
 
 3. Desconfiem do controlo **de serviços Azure** para OFF.
 
@@ -280,7 +280,7 @@ Já deve ter uma sub-rede que está marcada com o nome de *tipo de ponto* final 
 - [Pontos finais de serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Regras de firewall ao nível do servidor e de nível de base de dados][sql-db-firewall-rules-config-715d]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Utilize o PowerShell para criar um ponto final de serviço de rede virtual e, em seguida, uma regra de rede virtual para Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Regras de Rede Virtual: Operações][rest-api-virtual-network-rules-operations-862r] com APIs REST
