@@ -4,16 +4,17 @@ description: Aprenda a instalar e configurar a extensão de segurança Symantec 
 author: roiyz
 tags: azure-service-management
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
-ms.openlocfilehash: a89ec99af02b32d452fba1dffb0387ae6013a7c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e001c85dd960e9d60ff321cfecc8bf8b80de087c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292428"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967946"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Como instalar e configurar a proteção de ponto final Symantec num VM do Windows
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
@@ -56,7 +57,7 @@ Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionNam
 Para verificar se a extensão de segurança Symantec foi instalada e está atualizada:
 
 1. Inicie sessão na máquina virtual. Para obter instruções, consulte [como iniciar sessão num Servidor windows de uma máquina virtual.][Logon]
-2. Para Windows Server 2008 R2, clique em **Iniciar > Proteção de Ponto final Symantec**. Para o Windows Server 2012 ou Windows Server 2012 R2, a partir do ecrã inicial, **escreva Symantec**e, em seguida, clique em **Symantec Endpoint Protection**.
+2. Para Windows Server 2008 R2, clique em **Iniciar > Proteção de Ponto final Symantec**. Para o Windows Server 2012 ou Windows Server 2012 R2, a partir do ecrã inicial, **escreva Symantec** e, em seguida, clique em **Symantec Endpoint Protection**.
 3. A partir do **separador Estado** da janela **Status-Symantec Endpoint Protection,** aplique atualizações ou reinicie se necessário.
 
 ## <a name="additional-resources"></a>Recursos adicionais

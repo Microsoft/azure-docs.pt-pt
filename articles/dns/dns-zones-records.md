@@ -9,12 +9,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
-ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41eb15a38c97532951723f12d1ac74c90c838eb1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85846840"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968201"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Descrição geral de zonas e registos DNS
 
@@ -93,7 +93,7 @@ O número de série da zona no registo SOA não é atualizado automaticamente qu
 [Os registos SRV](https://en.wikipedia.org/wiki/SRV_record) são utilizados por vários serviços para especificar as localizações do servidor. Ao especificar um registo SRV em Azure DNS:
 
 * O *serviço* e *o protocolo* devem ser especificados como parte do nome de conjunto de registos, prefixado com sublinhados.  Por exemplo, \_ 'gole. \_ tcp.name.'  Para um registo no ápice da zona, não há necessidade de especificar \@ ' 'no nome do registo, basta usar o serviço e o protocolo, por exemplo ' \_ gole. \_ tcp'.
-* A *prioridade*, *peso,* *porta*e *alvo* são especificados como parâmetros de cada registo no conjunto de recordes.
+* A *prioridade*, *peso,* *porta* e *alvo* são especificados como parâmetros de cada registo no conjunto de recordes.
 
 ### <a name="txt-records"></a>Registos TXT
 
@@ -143,5 +143,5 @@ Os seguintes limites por defeito aplicam-se quando se utiliza O DNS do Azure:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para começar a utilizar o Azure DNS, aprenda a [criar uma zona DE DNS](dns-getstarted-create-dnszone-portal.md) e crie [registos DNS](dns-getstarted-create-recordset-portal.md).
+* Para começar a utilizar o Azure DNS, aprenda a [criar uma zona DE DNS](./dns-getstarted-portal.md) e crie [registos DNS](./dns-getstarted-portal.md).
 * Para migrar uma zona de DNS existente, aprenda a [importar e exportar um ficheiro de zona DNS](dns-import-export.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotga
-ms.openlocfilehash: f67ed44fffe6bd690d6bd76fcefa19d9ee23e52b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc33dcd2c80b2a6d4a1cc27778e49dc06ac48b34
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90529405"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967317"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Como providenciar dispositivos que utilizem grupos de inscrição chave simétricos
 
@@ -49,7 +49,7 @@ O código do dispositivo demonstrado neste artigo seguirá o mesmo padrão que o
 
 Os seguintes pré-requisitos são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, consulte a secção apropriada no preparar o [seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o ['desenvolvimento do ambiente de trabalho com C++'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o ['desenvolvimento do ambiente de trabalho com C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
 
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
@@ -88,7 +88,7 @@ O SDK inclui o código de amostra para o dispositivo simulado. Esse dispositivo 
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
-    Se `cmake` não encontrar o compilador de C++, poderá obter erros de compilação ao executar o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    Se `cmake` não encontrar o compilador de C++, poderá obter erros de compilação ao executar o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Assim que a compilação for concluída com êxito, as últimas linhas de saída terão um aspeto semelhante ao seguinte:
 
@@ -204,7 +204,7 @@ O seu dispositivo utilizará a chave do dispositivo derivado com o seu ID de reg
 
 ## <a name="create-a-device-image-to-provision"></a>Criar uma imagem do dispositivo para provisão
 
-Nesta secção, irá atualizar uma amostra de provisões denominada ** \_ \_ \_ prov dev cliente** localizada no Azure IoT C SDK que configuraste anteriormente. 
+Nesta secção, irá atualizar uma amostra de provisões denominada **\_ \_ \_ prov dev cliente** localizada no Azure IoT C SDK que configuraste anteriormente. 
 
 Este código de amostra simula uma sequência de arranque do dispositivo que envia o pedido de provisionamento para a sua instância de Serviço de Provisionamento de Dispositivos. A sequência de arranque fará com que o dispositivo seja reconhecido e atribuído ao hub IoT que configuraste no grupo de inscrição.
 
@@ -212,7 +212,7 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
 
     ![Extrair informações de ponto final do Serviço Aprovisionamento de Dispositivos do painel do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. No Visual Studio, abra o ficheiro de solução **azure_iot_sdks.sln** que foi gerado pela execução do CMake anteriormente. O ficheiro de solução deve estar na seguinte localização:
+2. No Visual Studio, abra **o** azure_iot_sdks.sln ficheiro de solução que foi gerado pela execução do CMake anteriormente. O ficheiro de solução deve estar na seguinte localização:
 
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
@@ -235,7 +235,7 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Encontre a chamada para `prov_dev_set_symmetric_key_info()` **a amostra do cliente prov \_ dev \_ \_ ** que é comentada.
+6. Encontre a chamada para a `prov_dev_set_symmetric_key_info()` **amostra do cliente prov \_ \_ dev.c \_** que é comentada.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -290,15 +290,4 @@ Esteja ciente de que isto deixa a chave do dispositivo derivado incluída como p
 
 * Para saber mais Reprovisioning, consulte [conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md) 
 * [Guia de Início Rápido: aprovisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
-* Para saber mais Deprovisionamento, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md) 
-
-
-
-
-
-
-
-
-
-
-
+* Para saber mais Deprovisionamento, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md)

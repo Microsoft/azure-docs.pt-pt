@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75a2762a0937efbceaa168f8a2d6409e2e3a7ae4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73890658"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967232"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados de clientes
 
@@ -62,6 +62,6 @@ Para obter mais informações sobre como gerir as matrículas, consulte [Como ge
 
 ## <a name="links-to-additional-documentation"></a>Links para documentação adicional
 
-A documentação completa para o Serviço de Provisionamento de Dispositivos APIs está localizada em [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps) .
+A documentação completa para o Serviço de Provisionamento de Dispositivos APIs está localizada em [https://docs.microsoft.com/rest/api/iot-dps](/rest/api/iot-dps) .
 
 Funcionalidades de pedido [de dados do cliente](../iot-hub/iot-hub-customer-data-requests.md)Azure IoT Hub .

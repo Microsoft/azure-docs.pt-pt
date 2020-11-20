@@ -4,19 +4,19 @@ description: Resolução de problemas erros de ligação intermitentes e problem
 author: v-miegge
 manager: barbkess
 ms.topic: troubleshooting
-ms.date: 07/24/2020
+ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: 76b4408b2f8c631453281ecf6f214d49318252a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 989f47c0ff60865a8e8be15e089cdcf96ab2550c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785056"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968303"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Resolução de problemas erros de ligação intermitente de saída no Serviço de Aplicações Azure
 
-Este artigo ajuda-o a resolver erros de ligação intermitentes e problemas de desempenho relacionados no [Azure App Service](./overview.md). Este tópico fornecerá mais informações sobre metodologias de resolução de problemas para.exaustão das portas de tradução da rede de endereços de origem (SNAT). Se necessitar de mais ajuda em qualquer ponto deste artigo, contacte os especialistas do Azure nos [fóruns msdn Azure e stack overflow](https://azure.microsoft.com/support/forums/). Em alternativa, apresente um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **Apoio** .
+Este artigo ajuda-o a resolver erros de ligação intermitentes e problemas de desempenho relacionados no [Azure App Service](./overview.md). Este tópico fornecerá mais informações sobre metodologias de resolução de problemas para.exaustão das portas de tradução da rede de endereços de origem (SNAT). Se necessitar de mais ajuda em qualquer ponto deste artigo, contacte os especialistas do Azure nos [fóruns msdn Azure e stack overflow](https://azure.microsoft.com/support/forums/). Em alternativa, apresente um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **Apoio**.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -29,18 +29,29 @@ As aplicações e funções hospedadas no serviço Azure App podem apresentar um
 
 ## <a name="cause"></a>Causa
 
-Uma das principais causas destes sintomas é que a instância de aplicação não é capaz de abrir uma nova ligação ao ponto final externo porque atingiu um dos seguintes limites:
+A principal causa para problemas de ligação intermitentes é atingir um limite enquanto faz novas ligações de saída. Os limites que pode atingir incluem:
 
-* Ligações TCP: Existe um limite para o número de ligações de saída que podem ser feitas. Isto está associado ao tamanho do trabalhador utilizado.
-* Portas SNAT: Como discutido nas [ligações outbound em Azure,](../load-balancer/load-balancer-outbound-connections.md)a Azure utiliza tradução de endereço de rede de origem (SNAT) e um Balancer de Carga (não exposto aos clientes) para comunicar com pontos finais fora de Azure no espaço de endereço IP público, bem como pontos finais internos para a Azure que não estão a tirar partido do serviço/pontos finais privados. Cada instância no serviço Azure App é inicialmente dado um número pré-atribuído de **128** portas SNAT. Este limite afeta a abertura das ligações ao mesmo hospedeiro e à combinação de porta. Se a sua aplicação criar ligações a uma mistura de endereços e combinações de portas, não utilizará as portas SNAT. As portas SNAT são usadas quando tem chamadas repetidas para o mesmo endereço e combinação de portas. Uma vez que uma porta tenha sido liberada, o porto está disponível para reutilização conforme necessário. O equilibrador de carga da Rede Azure recupera a porta SNAT das ligações fechadas apenas após esperar 4 minutos.
+* Ligações TCP: Existe um limite para o número de ligações de saída que podem ser feitas. O limite das ligações de saída está associado ao tamanho do trabalhador utilizado.
+* Portas SNAT: [As ligações de saída em Azure](../load-balancer/load-balancer-outbound-connections.md) descrevem as restrições da porta SNAT e como afetam as ligações de saída. O Azure utiliza tradução de endereços de rede de origem (SNAT) e Balanceadores de Carga (não expostos aos clientes) para comunicar com endereços IP públicos. Cada instância no serviço Azure App é inicialmente dado um número pré-atribuído de **128** portas SNAT. O limite de porta SNAT afeta as ligações de abertura para o mesmo endereço e combinação de porta. Se a sua aplicação criar ligações a uma mistura de endereços e combinações de portas, não utilizará as portas SNAT. As portas SNAT são usadas quando tem chamadas repetidas para o mesmo endereço e combinação de portas. Uma vez que uma porta tenha sido liberada, o porto está disponível para reutilização conforme necessário. O equilibrador de carga da Rede Azure recupera a porta SNAT das ligações fechadas apenas após esperar 4 minutos.
 
-Quando as aplicações ou funções abrem rapidamente uma nova ligação, podem esgotar rapidamente a sua quota pré-atribuída das 128 portas. São então bloqueados até que uma nova porta SNAT fique disponível, quer através da atribuição dinâmica de portas SNAT adicionais, quer através da reutilização de uma porta SNAT recuperada. As aplicações ou funções que estão bloqueadas devido a esta incapacidade de criar novas ligações começarão a experimentar uma ou mais das questões descritas na secção **Sintomas** deste artigo.
+Quando as aplicações ou funções abrem rapidamente uma nova ligação, podem esgotar rapidamente a sua quota pré-atribuída das 128 portas. São então bloqueados até que uma nova porta SNAT fique disponível, quer através da atribuição dinâmica de portas SNAT adicionais, quer através da reutilização de uma porta SNAT recuperada. Se a sua aplicação ficar sem portas SNAT, terá problemas de conectividade de saída intermitentes. 
 
 ## <a name="avoiding-the-problem"></a>Evitando o problema
 
+Existem algumas soluções que permitem evitar limitações portuárias SNAT. Estas incluem:
+
+* piscinas de ligação: Ao reunir as suas ligações, evita abrir novas ligações de rede para chamadas para o mesmo endereço e porta.
+* pontos finais de serviço: Não tem uma restrição de porta SNAT aos serviços protegidos com pontos finais de serviço.
+* pontos finais privados: Não tem uma restrição portuária SNAT a serviços protegidos com pontos finais privados.
+* NAT Gateway: Com um GATEWAY NAT, você tem portas SNAT de saída de 64k que são utilizáveis pelos recursos que enviam tráfego através dele.
+
+Evitar o problema da porta SNAT significa evitar a criação de novas ligações repetidamente ao mesmo hospedeiro e porto. As piscinas de conexão são uma das formas mais óbvias de resolver este problema.
+
 Se o seu destino for um serviço Azure que suporta pontos finais de serviço, pode evitar problemas de exaustão da porta SNAT utilizando pontos finais [regionais de Integração VNet](./web-sites-integrate-with-vnet.md) e serviços ou pontos finais privados. Quando utilizar a Integração Regional vNet e colocar pontos finais de serviço na sub-rede de integração, o tráfego de saída da sua aplicação para esses serviços não terá restrições de saída da porta SNAT. Da mesma forma, se utilizar a Integração Regional de VNet e pontos finais privados, não terá quaisquer problemas de saída da porta SNAT para esse destino. 
 
-Evitar o problema da porta SNAT significa evitar a criação de novas ligações repetidamente ao mesmo hospedeiro e porto.
+Se o seu destino for um ponto final externo fora de Azure, usando um NAT Gateway dá-lhe portas SNAT de saída de 64k. Também lhe dá um endereço de saída dedicado que não partilha com ninguém. 
+
+Se possível, melhore o seu código para utilizar piscinas de ligação e evite toda a situação. Nem sempre é possível mudar o código rápido o suficiente para mitigar esta situação. Para os casos em que não pode alterar o seu código a tempo, aproveite as outras soluções. A melhor solução para o problema é combinar todas as soluções o melhor que puder. Tente utilizar pontos finais de serviço e pontos finais privados para os serviços Azure e o NAT Gateway para o resto. 
 
 As estratégias gerais para mitigar a exaustão do porto SNAT são discutidas na [secção de resolução de problemas](../load-balancer/load-balancer-outbound-connections.md) das ligações de saída da documentação **do Azure.** Destas estratégias, as seguintes aplicam-se a apps e funções hospedadas no serviço Azure App.
 
@@ -110,7 +121,7 @@ Embora o PHP não suporte o agrupamento de ligações, pode tentar utilizar liga
 * Um [teste de carga](/azure/devops/test/load-test/app-service-web-app-performance-test) deve simular dados do mundo real numa velocidade de alimentação constante. Testar aplicações e funções sob o stress do mundo real pode identificar e resolver problemas de exaustão portuária SNAT com antecedência.
 * Certifique-se de que os serviços de back-end podem devolver rapidamente as respostas. Para resolver problemas de desempenho com a Base de Dados Azure SQL, reveja [problemas de desempenho da Base de Dados Azure SQL com Insights Inteligentes](../azure-sql/database/intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow).
 * Dimensione o plano do Serviço de Aplicações para mais instâncias. Para obter mais informações sobre o dimensionamento, consulte [Scale uma aplicação no Azure App Service](./manage-scale-up.md). Cada instância de trabalho num plano de serviço de aplicações é atribuída a uma série de portas SNAT. Se espalhar a sua utilização em mais instâncias, poderá obter a utilização da porta SNAT por exemplo abaixo do limite recomendado de 100 ligações de saída, por ponto final remoto único.
-* Considere mudar-se para [o App Service Environment (ASE),](./environment/using-an-ase.md)onde lhe é atribuído um único endereço IP de saída, e os limites para ligações e portas SNAT são muito mais elevados. Numa ASE, o número de portos SNAT por exemplo baseia-se na [tabela de pré-alocação](../load-balancer/load-balancer-outbound-connections.md#snatporttable) do balançador de carga Azure - por exemplo, um ASE com 1-50 casos de trabalhadores tem 1024 portos pré-locados por exemplo, enquanto um ASE com 51-100 casos de trabalhadores tem 512 portas pré-locadas por instância.
+* Considere mudar-se para [o App Service Environment (ASE),](./environment/using-an-ase.md)onde lhe é atribuído um único endereço IP de saída, e os limites para ligações e portas SNAT são muito mais elevados. Numa ASE, o número de portos SNAT por exemplo baseia-se na [tabela de pré-alocação](../load-balancer/load-balancer-outbound-connections.md#snatporttable) do balançador de carga Azure - por exemplo, um ASE com 1-50 casos de trabalhadores tem 1024 portos pré-locados por exemplo, enquanto um ASE com 51-100 casos de trabalhadores tem 512 portos pré-locados por instância.
 
 Evitar os limites de saída da TCP é mais fácil de resolver, uma vez que os limites são definidos pelo tamanho do seu trabalhador. Pode ver os limites em [Limites Numéricos Cross VM da Sandbox - Conexões TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
@@ -135,7 +146,7 @@ Pode utilizar [o App Service Diagnostics](./overview-diagnostics.md) para encont
 3. Selecione azulejos de exaustão do porto SNAT na lista de azulejos disponíveis na categoria. A prática é mantê-lo abaixo dos 128.
 Se precisar, ainda pode abrir um bilhete de apoio e o engenheiro de suporte receberá a métrica de trás para si.
 
-Note que, uma vez que a utilização da porta SNAT não está disponível como métrica, não é possível fazer uma autoestama com base na utilização da porta SNAT, ou configurar a escala automática com base na métrica de atribuição de portas SNAT.
+Uma vez que a utilização da porta SNAT não está disponível como métrica, não é possível fazer uma autoestaria com base na utilização da porta SNAT, ou configurar a escala automática com base na métrica de atribuição de portas SNAT.
 
 ### <a name="tcp-connections-and-snat-ports"></a>Ligações TCP e Portas SNAT
 

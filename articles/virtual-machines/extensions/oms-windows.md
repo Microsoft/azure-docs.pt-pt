@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 4730f05adc2625ac576f5963f68d8e3ca8ede355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 389842901a4c508015d527c0fd8fd87af57dcd9b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331510"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967929"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics virtual machine extension for Windows (Extensão de máquina virtual do Log Analytics para Windows)
 
@@ -34,7 +35,7 @@ Para obter mais informações sobre os sistemas operativos windows suportados, c
 ### <a name="agent-and-vm-extension-version"></a>Versão de extensão de agente e VM
 A tabela seguinte fornece um mapeamento da versão da extensão VM do Windows Log Analytics e do pacote de agente Log Analytics para cada lançamento. 
 
-| Versão do pacote de agente do Windows do Log Analytics | Versão de extensão do Windows VM do Log Analytics | Data de Lançamento | Notas de Versão |
+| Versão do pacote de agente do Windows do Log Analytics | Versão de extensão do Windows VM do Log Analytics | Data da versão: | Notas de Versão |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18040 | 1.0.18040.2 | Agosto de 2020   | <ul><li>Resolve um problema no Arco Azure</li></ul> |
 | 10.20.18038 | 1.0.18038 | Abril de 2020   | <ul><li>Permite a conectividade sobre o Link Privado utilizando âmbitos de ligação privados do Monitor Azure</li><li>Adiciona estrangulamento de ingestão para evitar um súbito e acidental afluxo na ingestão para um espaço de trabalho</li><li>Adiciona apoio a nuvens e regiões adicionais do Governo de Azure</li><li>Resolve um inseto onde HealthService.exe se despenhou</li></ul> |
@@ -92,7 +93,7 @@ O JSON seguinte mostra o esquema para a extensão do agente Log Analytics. A ext
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
 | tipo | MicrosoftMonitoringAgent |
-| typeHandlerVersion | 1.0 |
+| typeHandlerVersion | 1,0 |
 | workspaceId (por exemplo)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRsGo9TXffbrTahyrwv35W0pOqQAUUQ== |
 

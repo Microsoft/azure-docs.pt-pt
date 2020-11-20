@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.openlocfilehash: c8d8e3b9058b753dc2a6da35878449c94399225e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a36f38cc76693f596b45d4df6e232bc01584d5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85508049"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967980"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Utilize o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple
 
@@ -65,7 +65,7 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 | Sobre registos de controlo de acessos</br>Criar um registo de controlo de acesso</br>Editar um registo de controlo de acesso</br>Apagar um registo de controlo de acesso |[Gerir registos de controlo de acessos](storsimple-8000-manage-acrs.md) |
 | Ver detalhes da tarefa</br>Cancelar um emprego |[Gerir tarefas](storsimple-8000-manage-jobs-u2.md) |
 | Receber notificações de alerta</br>Gerir alertas</br>Consultar alertas |[Ver e gerir alertas StorSimple](storsimple-8000-manage-alerts.md) |
-| Criar gráficos de monitorização |[Monitorize o seu dispositivo StorSimple](storsimple-monitor-device.md) |
+| Criar gráficos de monitorização |[Monitorize o seu dispositivo StorSimple](./storsimple-8000-monitor-device.md) |
 | Adicione um recipiente de volume</br>Modificar um recipiente de volume</br>Apagar um recipiente de volume |[Gerir contentores de volumes](storsimple-8000-manage-volume-containers.md) |
 | Adicione um volume</br>Modificar um volume</br>Desative o volume</br>Apagar um volume</br>Monitorize um volume |[Gerir volumes](storsimple-8000-manage-volumes-u2.md) |
 | Modificar as definições do dispositivo</br>Modificar as definições de tempo</br>Modificar as definições DNS.md</br>Configure interfaces de rede |[Modifique a configuração do dispositivo para o seu dispositivo StorSimple](storsimple-8000-modify-device-config.md) |
@@ -73,7 +73,7 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 | Modificar a palavra-passe do administrador do dispositivo</br>Modificar a palavra-passe do Gestor instantâneo StorSimple |[Alterar palavras-passe StorSimple](storsimple-8000-change-passwords.md) |
 | Configure a gestão remota |[Ligue-se remotamente ao seu dispositivo StorSimple](storsimple-8000-remote-connect.md) |
 | Configurar as definições de alertas |[Ver e gerir alertas StorSimple](storsimple-8000-manage-alerts.md) |
-| Configure CHAP para o seu dispositivo StorSimple |[Configure CHAP para o seu dispositivo StorSimple](storsimple-configure-chap.md) |
+| Configure CHAP para o seu dispositivo StorSimple |[Configure CHAP para o seu dispositivo StorSimple](./storsimple-8000-configure-chap.md) |
 | Adicionar uma política de cópias de segurança</br>Adicionar ou modificar um horário</br>Excluir uma política de backup</br>Pegue uma cópia de segurança manual</br>Crie uma política de backup personalizada com vários volumes e horários |[Gerir políticas de cópia de segurança](storsimple-8000-manage-backup-policies-u2.md) |
 | Parar controladores de dispositivos</br>Reiniciar controladores de dispositivos</br>Desligar controladores de dispositivos</br>Repôs o seu dispositivo em padrão de fábrica</br>(Acima são apenas para dispositivos no local) |[Gerir o controlador de dispositivo storSimple](storsimple-8000-manage-device-controller.md) |
 | Saiba mais sobre os componentes de hardware StorSimple</br>Monitorizar o estado de hardware</br>(Acima são apenas para dispositivos no local) |[Monitorize componentes de hardware](storsimple-8000-monitor-hardware-status.md) |
@@ -88,4 +88,3 @@ Se tiver algum problema com o funcionamento diário do seu dispositivo StorSimpl
 * [Utilizar LED indicadores de monitorização StorSimple](storsimple-monitoring-indicators.md)
 
 Se não conseguir resolver os problemas e necessitar de criar um pedido de serviço, consulte [o Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
-

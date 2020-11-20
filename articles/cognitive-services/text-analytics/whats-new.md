@@ -8,23 +8,40 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: f0204f5b923cf3363d85be9642d2866436df155a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: references_regions
+ms.openlocfilehash: 8743e765a050bfc4a2ba93a1b3e0344a960edb76
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369465"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966892"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 A API text Analytics é atualizada numa base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece-lhe informações sobre novos lançamentos e funcionalidades.
 
+## <a name="november-2020"></a>Novembro de 2020
+
+* Um [novo ponto final](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) com API API de Análise de Texto v3.1-preview.3 para a nova [API de análise](how-tos/text-analytics-how-to-call-api.md?tabs=analyze)assíncrono, que suporta o processamento de lotes para NER, PII e operações de extração de frases-chave.
+* Um [novo ponto final](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) com API API API de Análise de Texto v3.1-preview.3 para o novo Text Analytics assíncrono para a [saúde](how-tos/text-analytics-for-health.md) hospedado API com suporte para processamento de lotes.
+* Ambas as novas funcionalidades acima enumeradas só estão disponíveis nas seguintes regiões: `West US 2` `East US 2` , , e `Central US` `North Europe` `West Europe` regiões.
+* O português (Brasil) `pt-BR` é agora apoiado na Análise de [Sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x, começando pela versão `2020-04-01` modelo. Acrescenta ao apoio existente `pt-PT` ao português.
+* Bibliotecas de clientes atualizadas, que incluem análise assíncronea, e Análise de Texto para operações de saúde. Pode encontrar exemplos no GitHub:
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre text Analytics API v3.1-Preview.3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
+
 ## <a name="october-2020"></a>Outubro de 2020
 
 * Suporte hindi para Análise de Sentimento v3.x, começando com a versão modelo `2020-04-01` . 
-* Verion do modelo `2020-09-01` para o ponto final v3/idiomas, que adiciona melhorias aumentadas na deteção da linguagem e precisão.
+* Versão modelo `2020-09-01` para o ponto final v3/idiomas, que adiciona melhorias aumentadas na deteção da linguagem e precisão.
 * disponibilidade v3 na Índia Central e UAE Norte.
 
 ## <a name="september-2020"></a>Setembro de 2020
@@ -147,7 +164,7 @@ Os nomes das seguintes propriedades na resposta JSON foram alterados, se aplicá
 
 ### <a name="text-analytics-api-v31-public-preview"></a>API API de Análise de Texto v3.1 Visualização pública
    * Novo recurso de Análise de Sentimento - [Mineração de Opinião](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
-   * Novo [filtro de `PII` domínio pessoal para](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) informações de saúde protegidas `PHI` ().
+   * Novo filtro de domínio pessoal `PII` para informações de saúde protegidas `PHI` ().
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a API API v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
@@ -162,7 +179,7 @@ Como parte da versão unificada do [Azure SDK,](https://techcommunity.microsoft.
    * [JavaScript (Node.js)](./quickstarts/text-analytics-sdk.md?pivots=programming-language-javascript&tabs=version-3)
    * [Java](./quickstarts/text-analytics-sdk.md?pivots=programming-language-java&tabs=version-3)
    
-   > [!div class="nextstepaction"]
+> [!div class="nextstepaction"]
 > [Saiba mais sobre Text Analytics API v3 SDK](./quickstarts/text-analytics-sdk.md?tabs=version-3)
 
 ### <a name="named-entity-recognition-v3-public-preview"></a>Nome de Reconhecimento de Entidade v3 visualização pública
@@ -185,9 +202,6 @@ Os tipos de entidades adicionais estão agora disponíveis no serviço de pré-v
     * Número de telefone (apenas NOS)
     * URL
     * Endereço IP
-
-> [!div class="nextstepaction"]
-> [Saiba mais sobre o Reconhecimento de Entidades Nomeadas v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
 
 ### <a name="october-2019"></a>Outubro de 2019
 
@@ -223,7 +237,7 @@ Apoia o inglês ( ( ( ( japonês ), chinês simplificado ( , chinês tradicional
 
 * [O que é a API de Análise de Texto?](overview.md)  
 * [Cenários de utilizador acionáveis](text-analytics-user-scenarios.md)
-* [Análise de sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Deteção de idioma](how-tos/text-analytics-how-to-language-detection.md)
+* [Análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Deteção linguística](how-tos/text-analytics-how-to-language-detection.md)
 * [Reconhecimento de entidades](how-tos/text-analytics-how-to-entity-linking.md)
-* [Extração de expressões-chave](how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Extração de frase-chave](how-tos/text-analytics-how-to-keyword-extraction.md)

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 872d1f43f1e9dc180e41a2bf625ca18b74522b40
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 14f17c6716fe98a11d03e8d1021bcdb1058fe671
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409515"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968116"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Quickstart: Inscreva o dispositivo TPM no Serviço de Provisionamento de Dispositivos IoT Hub utilizando o serviço C# SDK
 
@@ -39,15 +39,15 @@ Este artigo mostra como criar programáticamente uma inscrição individual para
 
 Para o exemplo neste início rápido, precisa da cadeia de ligação para o seu serviço de aprovisionamento.
 
-1. Inscreva-se no portal Azure, selecione **Todos os recursos**e, em seguida, o seu Serviço de Provisionamento de Dispositivos.
+1. Inscreva-se no portal Azure, selecione **Todos os recursos** e, em seguida, o seu Serviço de Provisionamento de Dispositivos.
 
-1. Escolha **políticas de acesso compartilhado**e, em seguida, selecione a política de acesso que pretende utilizar para abrir as suas propriedades. Na **Política de Acesso,** copie e guarde a cadeia de ligação da chave primária.
+1. Escolha **políticas de acesso compartilhado** e, em seguida, selecione a política de acesso que pretende utilizar para abrir as suas propriedades. Na **Política de Acesso,** copie e guarde a cadeia de ligação da chave primária.
 
     ![Obter a cadeia de ligação do serviço de aprovisionamento a partir do portal](media/quick-enroll-device-tpm-csharp/get-service-connection-string-vs2019.png)
 
 ## <a name="create-the-individual-enrollment-sample"></a>Criar o exemplo de inscrição individual
 
-Esta secção mostra como criar uma aplicação de consola .NET Core que adiciona uma inscrição individual para um dispositivo TPM ao seu serviço de fornecimento. Com algumas modificações, também pode seguir estes passos para criar uma aplicação de consola [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) para adicionar à inscrição individual. Para saber mais sobre o desenvolvimento com o IoT Core, consulte a [documentação do desenvolvedor do Windows IoT Core](https://docs.microsoft.com/windows/iot-core/).
+Esta secção mostra como criar uma aplicação de consola .NET Core que adiciona uma inscrição individual para um dispositivo TPM ao seu serviço de fornecimento. Com algumas modificações, também pode seguir estes passos para criar uma aplicação de consola [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) para adicionar à inscrição individual. Para saber mais sobre o desenvolvimento com o IoT Core, consulte a [documentação do desenvolvedor do Windows IoT Core](/windows/iot-core/).
 
 1. Abra o Estúdio Visual e selecione **Criar um novo projeto.** In **Create a new project**, escolha o modelo de projeto da App consola **(.NET Core)** para C# e selecione **Next**.
 
@@ -57,7 +57,7 @@ Esta secção mostra como criar uma aplicação de consola .NET Core que adicion
 
 1. Quando a solução abrir no Visual Studio, no painel **Solution Explorer,** clique com a direita no projeto **CreateTpmEnrollment.** **Selecione Gerir pacotes nuget**.
 
-1. No **NuGet Package Manager**, selecione **Browse**, procure e escolha **Microsoft.Azure.Devices.Provisioning.Service**e, em seguida, prima **Instalar**.
+1. No **NuGet Package Manager**, selecione **Browse**, procure e escolha **Microsoft.Azure.Devices.Provisioning.Service** e, em seguida, prima **Instalar**.
 
    ![Janela Gestor de Pacote NuGet](media//quick-enroll-device-tpm-csharp/add-nuget.png)
 
@@ -155,13 +155,13 @@ Selecione a entrada para verificar a chave de endosso e outras propriedades para
 
 Se tiver seguido os passos no [Create e providenciar um dispositivo TPM simulado utilizando o quickstart do dispositivo C#,](quick-create-simulated-device-tpm-csharp.md) pode continuar com os restantes passos nesse arranque rápido para inscrever o seu dispositivo simulado. Certifique-se de que ignora os passos para criar uma inscrição individual com o portal do Azure.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia explorar a amostra de serviço C#, não limpe os recursos criados neste arranque rápido. Caso contrário, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 
 1. Feche a janela de saída da amostra C# no seu computador.
 
-1. Navegue para o seu serviço de Provisionamento de Dispositivos no portal Azure, **selecione Gerir as inscrições**e, em seguida, selecione o separador **Inscrições Individuais.** Selecione a caixa de verificação ao lado do *ID de registo* para a entrada de inscrição que criou usando este arranque rápido e prima o botão **Eliminar** na parte superior do painel.
+1. Navegue para o seu serviço de Provisionamento de Dispositivos no portal Azure, **selecione Gerir as inscrições** e, em seguida, selecione o separador **Inscrições Individuais.** Selecione a caixa de verificação ao lado do *ID de registo* para a entrada de inscrição que criou usando este arranque rápido e prima o botão **Eliminar** na parte superior do painel.
 
 1. Se seguir os passos na [Criação e providenciar um dispositivo TPM simulado utilizando o dispositivo C# SDK](quick-create-simulated-device-tpm-csharp.md) para criar um dispositivo TPM simulado, faça os seguintes passos:
 

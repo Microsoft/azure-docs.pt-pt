@@ -3,12 +3,12 @@ title: Conceitos - Nuvens privadas e aglomerados
 description: Conheça as principais capacidades dos centros de dados definidos por software Azure VMware Solution e clusters vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 0454ade503ce40de46363f65d36a64340219c0b1
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874020"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967385"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware Solution conceitos de nuvem privada e cluster
 
@@ -38,7 +38,7 @@ Você usa vSphere e NSX-T Manager para gerir a maioria dos outros aspetos da con
 
 ## <a name="hosts"></a>Anfitriões
 
-Azure VMware Solution os aglomerados de nuvem privada utilizam nós de infraestrutura de metal hiperconvernado e desnudado. A tabela seguinte mostra as capacidades de RAM, CPU e disco do hospedeiro. 
+Os clusters de nuvem privada Azure VMware Solution utilizam anfitriões de infraestruturas de metal hiperconversado e de metal nu. A tabela seguinte mostra as capacidades de RAM, CPU e disco do hospedeiro. 
 
 | Tipo de Anfitrião              |             CPU             |   RAM (GB)   |  vSAN NVMe cache Tier (TB, cru)  |  vSAN SSD nível de capacidade (TB, cru)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |

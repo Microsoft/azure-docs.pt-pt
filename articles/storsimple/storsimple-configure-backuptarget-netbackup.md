@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: 23afa82ffda5341242c01cbe024fb71f482345d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f71cf82b675222836a73eec12d68bd8f62a5538
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710928"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967283"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como alvo de backup com NetBackup
 
@@ -79,7 +79,7 @@ A StorSimple oferece estes benefícios:
 
 Embora o StorSimple apresente dois cenários principais de implementação (alvo de backup primário e alvo de backup secundário), fundamentalmente, é um dispositivo de armazenamento simples e bloqueado. StorSimple faz toda a compressão e deduplicação. Envia e recupera dados perfeitamente entre a nuvem e o sistema de aplicação e ficheiro.
 
-Para obter mais informações sobre o StorSimple, consulte [a série StorSimple 8000: Solução híbrida de armazenamento em nuvem](storsimple-overview.md). Além disso, pode rever as especificações técnicas da [série StorSimple 8000](storsimple-technical-specifications-and-compliance.md).
+Para obter mais informações sobre o StorSimple, consulte [a série StorSimple 8000: Solução híbrida de armazenamento em nuvem](storsimple-overview.md). Além disso, pode rever as especificações técnicas da [série StorSimple 8000](./storsimple-8000-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > A utilização de um dispositivo StorSimple como alvo de backup é suportada apenas para versões StorSimple 8000 Update 3 e versões posteriores.
@@ -170,7 +170,7 @@ Para que a solução funcione da melhor forma, recomendamos que siga estas boas 
 
 ### <a name="deploy-storsimple"></a>Implementar StorSimple
 
-Para obter orientação de implementação passo a passo StorSimple, consulte [implementar o seu dispositivo StorSimple no local](storsimple-deployment-walkthrough-u2.md).
+Para obter orientação de implementação passo a passo StorSimple, consulte [implementar o seu dispositivo StorSimple no local](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ### <a name="deploy-netbackup"></a>Implementar NetBackup
 
@@ -185,7 +185,7 @@ Nesta secção, demonstramos alguns exemplos de configuração. Os exemplos e re
 | Tarefas de implantação StorSimple  | Comentários adicionais |
 |---|---|
 | Coloque o dispositivo StorSimple no local. | Versões suportadas: Atualização 3 e versões posteriores. |
-| Liga o alvo de reserva. | Utilize estes comandos para ligar ou desligar o modo alvo de backup e para obter o estado. Para obter mais informações, consulte [Ligar-se remotamente a um dispositivo StorSimple](storsimple-remote-connect.md).</br> Para ligar o modo de backup: `Set-HCSBackupApplianceMode -enable` . </br> Para desligar o modo de backup: `Set-HCSBackupApplianceMode -disable` . </br> Para obter o estado atual das definições do modo de backup: `Get-HCSBackupApplianceMode` . |
+| Liga o alvo de reserva. | Utilize estes comandos para ligar ou desligar o modo alvo de backup e para obter o estado. Para obter mais informações, consulte [Ligar-se remotamente a um dispositivo StorSimple](./storsimple-8000-remote-connect.md).</br> Para ligar o modo de backup: `Set-HCSBackupApplianceMode -enable` . </br> Para desligar o modo de backup: `Set-HCSBackupApplianceMode -disable` . </br> Para obter o estado atual das definições do modo de backup: `Get-HCSBackupApplianceMode` . |
 | Crie um recipiente de volume comum para o seu volume que armazena os dados de backup. Todos os dados num recipiente de volume são desduplicados. | Os recipientes de volume StorSimple definem domínios de desduplicação.  |
 | Criar volumes StorSimple. | Crie volumes com tamanhos o mais próximo possível da utilização prevista, porque o tamanho do volume afeta o tempo de duração do instantâneo em nuvem. Para obter informações sobre como dimensionar um volume, leia sobre [as políticas de retenção.](#retention-policies)</br> </br> Utilize volumes hierárquicos StorSimple e selecione o Use this volume para uma caixa de verificação de **dados de arquivo com menos acesso frequente.** </br> A utilização de apenas volumes fixados localmente não é suportada. |
 | Crie uma política de backup StorSimple única para todos os volumes de backup alvo. | Uma política de backup StorSimple define o grupo de consistência do volume. |
@@ -212,16 +212,16 @@ Desacione a sua solução de acordo com as diretrizes nas seguintes secções.
 - Desativar a desfragmentação do Servidor do Windows nos volumes StorSimple.
 - Desativar a indexação do Servidor do Windows nos volumes StorSimple.
 - Esclipire no hospedeiro de origem (não contra os volumes StorSimple).
-- Desligue a [manutenção](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) padrão do Servidor do Windows no Gestor de Tarefas. Faça-o de uma das seguintes formas:
+- Desligue a [manutenção](/windows/win32/w8cookbook/automatic-maintenance) padrão do Servidor do Windows no Gestor de Tarefas. Faça-o de uma das seguintes formas:
   - Desligue o configurador de manutenção no Programador de Tarefas do Windows.
-  - Descarregue [o PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) a partir de Sysinternals windows. Depois de descarregar o PsExec, executar o Windows PowerShell como administrador e escrever:
+  - Descarregue [o PsExec](/sysinternals/downloads/psexec) a partir de Sysinternals windows. Depois de descarregar o PsExec, executar o Windows PowerShell como administrador e escrever:
     ```powershell
     psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
     ```
 
 ### <a name="storsimple-best-practices"></a>StorSimple boas práticas
 
--   Certifique-se de que o dispositivo StorSimple é atualizado para [a Atualização 3 ou posterior](storsimple-install-update-3.md).
+-   Certifique-se de que o dispositivo StorSimple é atualizado para [a Atualização 3 ou posterior](./index.yml).
 -   Isolar o iSCSI e o tráfego na nuvem. Utilize ligações iSCSI dedicadas para o tráfego entre o StorSimple e o servidor de backup.
 -   Certifique-se de que o seu dispositivo StorSimple é um alvo de reserva dedicado. As cargas de trabalho mistas não são suportadas porque afetam o seu RTO e RPO.
 
@@ -265,7 +265,7 @@ Com base nos pressupostos anteriores, crie um volume hierárquico de 26-TiB Stor
 
 ### <a name="to-set-up-netbackup-storage"></a>Para configurar o armazenamento NetBackup
 
-1.  Na consola de administração NetBackup, selecione Redes de Discos **de Mídia e Dispositivos**de Gestão de  >  **Devices**  >  **Dispositivos**. No Assistente de Configuração da Piscina do Disco, selecione o tipo de servidor de armazenamento **AdvancedDisk**e, em seguida, selecione **Seguinte**.
+1.  Na consola de administração NetBackup, selecione Redes de Discos **de Mídia e Dispositivos** de Gestão de  >  **Devices**  >  **Dispositivos**. No Assistente de Configuração da Piscina do Disco, selecione o tipo de servidor de armazenamento **AdvancedDisk** e, em seguida, selecione **Seguinte**.
 
     ![Consola de administração NetBackup, Assistente de Configuração de Piscina de Disco](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
@@ -277,7 +277,7 @@ Com base nos pressupostos anteriores, crie um volume hierárquico de 26-TiB Stor
 
     ![Consola de administração NetBackup, selecione o disco de volume StorSimple](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
-4.  Introduza um nome para o **Next**alvo de reserva e, em seguida, selecione  >  **Next** para terminar o assistente.
+4.  Introduza um nome para o **Next** alvo de reserva e, em seguida, selecione  >  **Next** para terminar o assistente.
 
 5.  Reveja as definições e, em seguida, **selecione Terminar**.
 
@@ -303,8 +303,8 @@ Aqui está um exemplo de um horário de rotação GFS para quatro semanas, mensa
 | Tipo de frequência/backup | Completa | Incremental (dias 1-5)  |   
 |---|---|---|
 | Semanal (semanas 1-4) | Saturday | Monday-Friday |
-| Mensalmente  | Saturday  |   |
-| Anualmente | Saturday  |   |
+| Mensal  | Saturday  |   |
+| Anual | Saturday  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Atribuir volumes StorSimple a um trabalho de backup netBackup
 
@@ -312,7 +312,7 @@ A seguinte sequência pressupõe que o NetBackup e o anfitrião-alvo estão conf
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-backup-job"></a>Para atribuir volumes StorSimple a um trabalho de backup netBackup
 
-1. Na Consola de Administração NetBackup, selecione **NetBackup Management**, **Right-click Policies**e, em seguida, selecione New **Policy**.
+1. Na Consola de Administração NetBackup, selecione **NetBackup Management**, **Right-click Policies** e, em seguida, selecione New **Policy**.
 
    ![Consola de administração NetBackup, criar uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
@@ -324,7 +324,7 @@ A seguinte sequência pressupõe que o NetBackup e o anfitrião-alvo estão conf
 
    ![Consola de administração NetBackup, selecione o tipo de backup](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
 
-4. Para definir o tipo de apólice, selecione **Standard**e, em seguida, selecione **Seguinte**.
+4. Para definir o tipo de apólice, selecione **Standard** e, em seguida, selecione **Seguinte**.
 
    ![Consola de administração NetBackup, tipo de política selecionado](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
@@ -346,7 +346,7 @@ A seguinte sequência pressupõe que o NetBackup e o anfitrião-alvo estão conf
 
    ![Consola de administração NetBackup, horários para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
 
-10. Clique à direita **Diferencial-Inc,** selecione **Copy para novo**e, em seguida, selecione **OK**.
+10. Clique à direita **Diferencial-Inc,** selecione **Copy para novo** e, em seguida, selecione **OK**.
 
     ![Consola de administração NetBackup, agenda de cópias para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage14.png)
 
@@ -414,8 +414,8 @@ A tabela seguinte mostra como configurar backups para executar nos discos locais
 | Semana 2 | StorSimple semanas 2-4 |   |   |   |   |   |
 | Semana 3 | StorSimple semanas 2-4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2-4 |   |   |   |   |   |
-| Mensalmente | StorSimple mensalmente |   |   |   |   |   |
-| Anualmente | StorSimple anualmente  |   |   |   |   |   |
+| Mensal | StorSimple mensalmente |   |   |   |   |   |
+| Anual | StorSimple anualmente  |   |   |   |   |   |
 
 
 ## <a name="assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Atribuir volumes StorSimple a um trabalho de arquivo e duplicação netBackup
@@ -430,19 +430,19 @@ Depois de definir as piscinas iniciais do disco, precisa definir três política
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Para atribuir volumes StorSimple a um trabalho de arquivo e duplicação netBackup
 
-1. Na consola administração NetBackup, selecione **Storage**  >  **Storage Storage Lifecycle Policies**New Storage  >  **Lifecycle Policy**.
+1. Na consola administração NetBackup, selecione **Storage**  >  **Storage Storage Lifecycle Policies** New Storage  >  **Lifecycle Policy**.
 
    ![Consola de administração NetBackup, nova política de ciclo de vida de armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
 2. Introduza um nome para o instantâneo e, em seguida, **selecione Adicionar**.
 
-3. Na caixa de diálogo **'Nova Operação',** no **separador Propriedades,** para **operação**, selecione **Backup**. Selecione os valores que deseja para **armazenamento de destino,** **tipo de retenção**e **período de retenção.** Selecione **OK**.
+3. Na caixa de diálogo **'Nova Operação',** no **separador Propriedades,** para **operação**, selecione **Backup**. Selecione os valores que deseja para **armazenamento de destino,** **tipo de retenção** e **período de retenção.** Selecione **OK**.
 
    ![Consola de administração NetBackup, nova caixa de diálogo de operação](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
    Isto define a primeira operação de backup e repositório.
 
-4. Selecione para realçar a operação anterior e, em seguida, **selecione Adicionar**. Na caixa de diálogo de **operação de armazenamento de alteração,** selecione os valores que deseja para **o armazenamento do destino,** **tipo de retenção**e **período de retenção**.
+4. Selecione para realçar a operação anterior e, em seguida, **selecione Adicionar**. Na caixa de diálogo de **operação de armazenamento de alteração,** selecione os valores que deseja para **o armazenamento do destino,** **tipo de retenção** e **período de retenção**.
 
    ![Consola de administração NetBackup,Alterar caixa de diálogo de operação de armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
 
@@ -456,7 +456,7 @@ Depois de definir as piscinas iniciais do disco, precisa definir três política
 
 7. Quando terminar de definir a sua política de retenção SLP, no âmbito **da Política,** defina uma política de backup seguindo os passos detalhados na [atribuição de volumes StorSimple a um trabalho de backup netBackup](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
 
-8. Em **Horários**, na caixa de diálogo **de alteração,** clique à direita **Em cheio**e, em seguida, selecione **Alterar**.
+8. Em **Horários**, na caixa de diálogo **de alteração,** clique à direita **Em cheio** e, em seguida, selecione **Alterar**.
 
    ![Consola de administração NetBackup, caixa de diálogo de alteração de horário](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
 
@@ -464,7 +464,7 @@ Depois de definir as piscinas iniciais do disco, precisa definir três política
 
    ![Consola de administração NetBackup, anular a seleção de armazenamento de políticas](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
 
-10. Selecione **OK**e, em seguida, repita para o calendário de backup incremental.
+10. Selecione **OK** e, em seguida, repita para o calendário de backup incremental.
 
     ![Consola de administração NetBackup, caixa de diálogo de alteração de agenda para backups incrementais](./media/storsimple-configure-backup-target-using-netbackup/nbimage28.png)
 
@@ -531,7 +531,7 @@ Um desastre pode ser causado por uma variedade de fatores. A tabela que se segue
 
 | Cenário | Impacto | Como recuperar | Notas |
 |---|---|---|---|
-| Falha do dispositivo StorSimple | As operações de backup e restauro são interrompidas. | Substitua o dispositivo falhado e execute [a storSimple failover e a recuperação de desastres](storsimple-device-failover-disaster-recovery.md). | Se necessitar de efetuar uma restauração após a recuperação do dispositivo, os conjuntos completos de trabalho de dados são recuperados da nuvem para o novo dispositivo. Todas as operações estão a velocidades de nuvem. O processo de rescandisção de índices e catálogos pode fazer com que todos os conjuntos de backup sejam digitalizados e retirados do nível de nuvem para o nível do dispositivo local, o que pode ser um processo demorado. |
+| Falha do dispositivo StorSimple | As operações de backup e restauro são interrompidas. | Substitua o dispositivo falhado e execute [a storSimple failover e a recuperação de desastres](./storsimple-8000-device-failover-disaster-recovery.md). | Se necessitar de efetuar uma restauração após a recuperação do dispositivo, os conjuntos completos de trabalho de dados são recuperados da nuvem para o novo dispositivo. Todas as operações estão a velocidades de nuvem. O processo de rescandisção de índices e catálogos pode fazer com que todos os conjuntos de backup sejam digitalizados e retirados do nível de nuvem para o nível do dispositivo local, o que pode ser um processo demorado. |
 | Falha do servidor NetBackup | As operações de backup e restauro são interrompidas. | Reconstruir o servidor de backup e executar a restauração da base de dados. | Tem de reconstruir ou restaurar o servidor NetBackup no local de recuperação de desastres. Restaurar a base de dados até ao ponto mais recente. Se a base de dados NetBackup restaurada não estiver sincronizada com os seus últimos trabalhos de backup, é necessário indexar e catalogar. Este processo de rescaning de índice e catálogo pode fazer com que todos os conjuntos de backup sejam digitalizados e retirados do nível de nuvem para o nível do dispositivo local. Isto torna-o mais intensivo em tempo. |
 | Falha no site que resulta na perda do servidor de backup e StorSimple | As operações de backup e restauro são interrompidas. | Restaurar o StorSimple primeiro e, em seguida, restaurar o NetBackup. | Restaurar o StorSimple primeiro e, em seguida, restaurar o NetBackup. Se necessitar de efetuar uma restauração após a recuperação do dispositivo, os conjuntos completos de trabalho de dados são recuperados da nuvem para o novo dispositivo. Todas as operações estão a velocidades de nuvem. |
 
@@ -539,12 +539,12 @@ Um desastre pode ser causado por uma variedade de fatores. A tabela que se segue
 
 Para este artigo foram referenciados os seguintes documentos:
 
-- [StorSimple configuração de E/S multipata](storsimple-configure-mpio-windows-server.md)
-- [Cenários de armazenamento: Provisão fina](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Configurar cópias-sombra para pastas partilhadas](https://technet.microsoft.com/library/cc771893.aspx)
+- [StorSimple configuração de E/S multipata](./storsimple-8000-configure-mpio-windows-server.md)
+- [Cenários de armazenamento: Provisão fina](/windows-hardware/drivers/storage/thin-provisioning)
+- [Usando unidades GPT](/previous-versions/windows/hardware/design/dn653580(v=vs.85)#EHD)
+- [Configurar cópias-sombra para pastas partilhadas](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771893(v=ws.11))
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre como restaurar a [partir de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
-- Saiba mais sobre como executar o [failover do dispositivo e a recuperação de desastres](storsimple-device-failover-disaster-recovery.md).
+- Saiba mais sobre como restaurar a [partir de um conjunto de backup](./storsimple-8000-restore-from-backup-set-u2.md).
+- Saiba mais sobre como executar o [failover do dispositivo e a recuperação de desastres](./storsimple-8000-device-failover-disaster-recovery.md).

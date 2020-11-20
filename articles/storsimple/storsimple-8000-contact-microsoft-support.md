@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c288f59b1cb9a85ed4bc978d1c3fba18ba30b572
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960325"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968762"
 ---
 # <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
 
@@ -21,7 +21,7 @@ O Gestor de Dispositivos StorSimple fornece a capacidade de **registar um novo p
 * Como gerir um ciclo de vida de pedido de suporte a partir do portal.
 * Como iniciar uma sessão de suporte na interface Windows PowerShell do seu dispositivo StorSimple.
 
-Reveja as [StorSimple 8000 Series Support SLAs e informações](https://msdn.microsoft.com/library/mt433077.aspx) antes de criar um pedido de suporte.
+Reveja as [StorSimple 8000 Series Support SLAs e informações](./storsimple-8000-support-options.md) antes de criar um pedido de suporte.
 
 ## <a name="create-a-support-request"></a>Criar um pedido de suporte
 
@@ -35,7 +35,7 @@ Dependendo do seu [plano de suporte,](https://azure.microsoft.com/support/plans/
    
 2. Na lâmina de **pedido de novo suporte,** selecione **Basics**. Na lâmina **Basics,** faça os seguintes passos:
    1. A partir da lista de drop-down tipo emissão de **emissão,** selecione **Technical**.
-   2. A **subscrição**atual, o tipo **de serviço** e o **recurso** (serviço StorSimple Device Manager) são automaticamente escolhidos. 
+   2. A **subscrição** atual, o tipo **de serviço** e o **recurso** (serviço StorSimple Device Manager) são automaticamente escolhidos. 
    3. Selecione um plano de **suporte** da lista de drop-down se tiver vários planos associados à sua subscrição. Precisa de um plano de apoio pago para permitir o Apoio Técnico.
    4. Clique em **Seguinte**.
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: db5a1a2994a6202f7bbe95716534bfd68e3e1a7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cfbfe3e3e3ba620d8292767012c9bb866d8a878
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316057"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968099"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Tutorial: Criar e providenciar um dispositivo X.509 simulado utilizando dispositivo e serviço Java SDK e inscrições em grupo para o Serviço de Provisionamento de Dispositivos IoT Hub
 
@@ -25,7 +25,7 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Certifique-se de que tem o [Java SE Development Kit 8](https://aka.ms/azure-jdks) instalado no seu computador.
+1. Certifique-se de que tem o [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) instalado no seu computador.
 
 1. Transfira e instale o [Maven](https://maven.apache.org/install.html).
 
@@ -37,7 +37,7 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
     > Este passo requer [o OpenSSL,](https://www.openssl.org/)que pode ser construído e instalado a partir de fonte ou descarregado e instalado a partir de uma [terceira parte](https://wiki.openssl.org/index.php/Binaries) como [esta.](https://sourceforge.net/projects/openssl/) Se já tiver criado os certificados de _raiz_, _intermédios_ e de _dispositivo_, pode ignorar este passo.
     >
 
-    1. Siga os dois primeiros passos para criar os certificados de _raiz_ e _ intermédio_.
+    1. Siga os dois primeiros passos para criar os certificados de _raiz_ e _intermédio_.
 
     1. Inicie sessão no portal do Azure, clique no botão **Todos os recursos**, no menu do lado esquerdo, e abra o seu serviço de aprovisionamento.
 

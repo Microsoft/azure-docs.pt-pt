@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c7e8d4875a8bf3f53ac536ae95ac7499a74d45c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a8a8157721f34abf7761a85febc7bcea3abb88
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082159"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967844"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Ligue uma rede virtual a grandes instâncias HANA
 
@@ -32,7 +33,7 @@ Depois de criar uma rede virtual Azure, pode ligar essa rede ao SAP HANA em gran
 Se já existe um portal, verifique se é ou não um portal ExpressRoute. Se não for um gateway ExpressRoute, apague o gateway e re-crie-o como porta de entrada ExpressRoute. Se já estiver estabelecido um gateway ExpressRoute, consulte a seguinte secção deste artigo, "Link redes virtuais". 
 
 - Utilize o [portal Azure](https://portal.azure.com/) ou o PowerShell para criar um gateway VPN ExpressRoute ligado à sua rede virtual.
-  - Se utilizar o portal Azure, adicione um novo **Gateway de Rede Virtual**e, em seguida, selecione **ExpressRoute** como o tipo gateway.
+  - Se utilizar o portal Azure, adicione um novo **Gateway de Rede Virtual** e, em seguida, selecione **ExpressRoute** como o tipo gateway.
   - Se utilizar o PowerShell, faça o primeiro download e utilize o mais recente [Azure PowerShell SDK](https://azure.microsoft.com/downloads/). 
  
 Os seguintes comandos criam uma porta de entrada ExpressRoute. Os textos precedidos por um _$_ são variáveis definidas pelo utilizador que devem ser atualizadas com as suas informações específicas.

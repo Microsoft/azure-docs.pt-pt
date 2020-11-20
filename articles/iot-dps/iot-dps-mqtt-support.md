@@ -10,12 +10,12 @@ ms.author: ravokkar
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7683f5d60c5d788707e2f89774cee42e7820db87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a7ec2f4f8fdf631a6bc5096296275291ec41751
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87924211"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967130"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Comunique com o seu DPS utilizando o protocolo MQTT
 
@@ -29,13 +29,13 @@ O DPS não é um corretor MQTT completo e não suporta todos os comportamentos e
 Toda a comunicação do dispositivo com DPS deve ser fixada utilizando TLS/SSL. Portanto, o DPS não suporta ligações não seguras sobre a porta 1883.
 
  > [!NOTE] 
- > Atualmente, o DPS não suporta dispositivos que utilizem [mecanismos de atestado TPM](https://docs.microsoft.com/azure/iot-dps/concepts-device#attestation-mechanism) sobre o protocolo MQTT.
+ > Atualmente, o DPS não suporta dispositivos que utilizem [mecanismos de atestado TPM](./concepts-service.md#attestation-mechanism) sobre o protocolo MQTT.
 
 ## <a name="connecting-to-dps"></a>Ligação ao DPS
 
 Um dispositivo pode utilizar o protocolo MQTT para ligar a um DPS utilizando qualquer uma das seguintes opções.
 
-* Bibliotecas nos [Azure IoT Provisioning SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#microsoft-azure-provisioning-sdks).
+* Bibliotecas nos [Azure IoT Provisioning SDKs](../iot-hub/iot-hub-devguide-sdks.md#microsoft-azure-provisioning-sdks).
 * O protocolo MQTT diretamente.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Utilizando o protocolo MQTT diretamente (como um dispositivo)
@@ -44,7 +44,7 @@ Se um dispositivo não puder utilizar os SDKs do dispositivo, ainda pode ligar-s
 
 * Para o campo **ClientId,** utilize **o registoId.**
 
-* Para o campo **Username,** `{idScope}/registrations/{registration_id}/api-version=2019-03-31` utilize, onde `{idScope}` está o [idScope](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope) do DPS.
+* Para o campo **Username,** `{idScope}/registrations/{registration_id}/api-version=2019-03-31` utilize, onde `{idScope}` está o [idScope](./concepts-service.md#id-scope) do DPS.
 
 * Para o campo **Palavra-Passe,** utilize um token SAS. O formato do token SAS é o mesmo que para os protocolos HTTPS e AMQP:
 
@@ -70,8 +70,8 @@ Para utilizar o protocolo MQTT diretamente, o seu cliente *deve* ligar-se ao TLS
 
 Para registar um dispositivo através de DPS, um dispositivo deve subscrever `$dps/registrations/res/#` usando como **Filtro de Tópicos**. O wildcard de vários níveis `#` no Filtro Tópico é utilizado apenas para permitir que o dispositivo receba propriedades adicionais no nome do tópico. O DPS não permite a utilização dos `#` `?` ou wildcards para filtragem de subtópicos. Uma vez que o DPS não é um corretor de mensagens pub-sub de uso geral, apenas suporta os nomes de tópicos documentados e filtros tópicos.
 
-O dispositivo deve publicar uma mensagem de registo para DPS utilizando `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` como **Nome tópico**. A carga útil deve conter o objeto [de registo](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) do dispositivo no formato JSON.
-Num cenário bem sucedido, o dispositivo receberá uma resposta sobre o `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` nome do tópico onde x é o valor de retrip-after em segundos. A carga útil da resposta conterá o objeto [RegistrationOperationStatus](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) no formato JSON.
+O dispositivo deve publicar uma mensagem de registo para DPS utilizando `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` como **Nome tópico**. A carga útil deve conter o objeto [de registo](/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) do dispositivo no formato JSON.
+Num cenário bem sucedido, o dispositivo receberá uma resposta sobre o `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` nome do tópico onde x é o valor de retrip-after em segundos. A carga útil da resposta conterá o objeto [RegistrationOperationStatus](/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) no formato JSON.
 
 ## <a name="polling-for-registration-operation-status"></a>Sondagem para o estado da operação de registo
 

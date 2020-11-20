@@ -3,16 +3,17 @@ title: Criar uma base de dados Oráculo num VM Azure Microsoft Docs
 description: Obtenha rapidamente uma base de dados Oracle Database 12c em funcionamento no seu ambiente Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 557091652702a6cc313456ed2468d9620e02abf8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6468acb598cee26c46b62d64c748f0e393f27271
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996210"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967963"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar uma Base de Dados Oráculo num VM Azure
 
@@ -343,7 +344,7 @@ Pode iniciar sessão utilizando a conta **SYS** e verificar como caixa de verifi
 
 ![Screenshot da página de login do Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Uma vez terminada a exploração da sua primeira base de dados Oracle em Azure e o VM já não é necessário, pode utilizar o comando de eliminação do [grupo AZ](/cli/azure/group) para remover o grupo de recursos, VM e todos os recursos relacionados.
 

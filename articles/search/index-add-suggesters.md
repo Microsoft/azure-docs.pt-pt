@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e90c1d1cfa02f63a2b5115124dee2a9da68e2f3f
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 9122d6716aa94a7e0164c9c7774c7c8d85be814a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917278"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968014"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Crie um sugestivo para permitir resultados autocompletos e sugeridos numa consulta
 
@@ -40,9 +40,11 @@ Um sugestivo é uma estrutura de dados interna que suporta comportamentos de pes
 
 Para criar um sugestivo, adicione um a uma [definição de índice](/rest/api/searchservice/create-index). Um sugestivo obtém um nome e uma coleção de campos sobre os quais a experiência typeahead está ativada. e [definir cada propriedade](#property-reference). A melhor altura para criar um sugestivo é quando também está a definir o campo que o utilizará.
 
-+ Use apenas campos de cordas
++ Use apenas campos de cordas.
 
-+ Utilize o analisador padrão padrão Lucene `"analyzer": null` () ou um [analisador de idioma](index-add-language-analyzers.md) (por exemplo, `"analyzer": "en.Microsoft"` ) no campo
++ Se o campo de cordas fizer parte de um tipo complexo (por exemplo, um campo City dentro do Address), inclua o progenitor no campo: `"Address/City"` (REST e C# e Python), ou `["Address"]["City"]` (JavaScript).
+
++ Utilize o analisador padrão padrão Lucene `"analyzer": null` () ou um [analisador de idioma](index-add-language-analyzers.md) (por exemplo, `"analyzer": "en.Microsoft"` ) no campo.
 
 Se tentar criar um sugestivo utilizando campos pré-existentes, a API não o permitirá. Os prefixos são gerados durante a indexação, quando os termos parciais em duas ou mais combinações de caracteres são tokenizados ao lado de termos inteiros. Dado que os campos existentes já estão tokenizados, terá de reconstruir o índice se quiser adicioná-los a um sugestivo. Para obter mais informações, consulte [Como reconstruir um índice de Pesquisa Cognitiva Azure.](search-howto-reindex.md)
 

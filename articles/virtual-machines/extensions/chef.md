@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: 9391bb4867717b6780b50cf90b998254227d2310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8977563c6b19754eda53686baf85f840a7583e77
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082618"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968371"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão do Chef VM para Linux e Windows
 
@@ -78,15 +79,15 @@ O JSON seguinte mostra o esquema para a extensão do Chef VM. A extensão requer
 
 | Nome | Valor / Exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ----
-| definições/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | cadeia (url) | S |
-| definições/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
-| definições/lista de corredores | `recipe[mycookbook::default]` | string | S |
+| definições/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | cadeia (url) | Y |
+| definições/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
+| definições/lista de corredores | `recipe[mycookbook::default]` | string | Y |
 
 ### <a name="protected-settings"></a>Configurações protegidas
 
 | Nome | Exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
 
 <!--
 ### Linux-specific settings

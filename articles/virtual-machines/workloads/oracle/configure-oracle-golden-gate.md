@@ -3,16 +3,17 @@ title: Implementar o Portão Dourado do Oracle num Azure Linux VM Microsoft Docs
 description: Rapidamente coloque um Oracle Golden Gate a funcionar no seu ambiente Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c480de6da0427b8eda212e02e08c7b3f5426941c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3fff58c240341776a3bb99c059c179cc4f9d96e9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534146"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966875"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar o Portão Dourado do Oráculo num VM Azure Linux 
 
@@ -24,7 +25,7 @@ Antes de começar, certifique-se de que a CLI do Azure foi instalada. Para obter
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 
-Para realizar a instalação Oracle Golden Gate, é necessário criar dois VMs Azure no mesmo conjunto de disponibilidade. A imagem do Marketplace que utiliza para criar os VMs é **Oracle:Oracle-Database-Ee:12.1.0.2:last** .
+Para realizar a instalação Oracle Golden Gate, é necessário criar dois VMs Azure no mesmo conjunto de disponibilidade. A imagem do Marketplace que utiliza para criar os VMs é **Oracle:Oracle-Database-Ee:12.1.0.2:last**.
 
 Você também precisa estar familiarizado com o editor Unix vi e ter uma compreensão básica de x11 (X Windows).
 
@@ -347,9 +348,9 @@ SQL> EXIT;
 ### <a name="download-golden-gate-software"></a>Descarregue o software Golden Gate
 Para descarregar e preparar o software Oracle Golden Gate, complete os seguintes passos:
 
-1. Descarregue o ficheiro **fbo_ggs_Linux_x64_shiphome.zip** da página de [descarregamento](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html)do Oracle Golden Gate . Sob o título de download **Oracle GoldenGate 12.x.x.x.x para Oracle Linux x86-64,** deve haver um conjunto de ficheiros .zip para descarregar.
+1. Descarregue o ficheiro **fbo_ggs_Linux_x64_shiphome.zip** da página de [descarregamento](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html)do Oracle Golden Gate . Sob o título de download **Oracle GoldenGate 12.x.x.x.x para Oracle Linux x86-64**, deve haver um conjunto de ficheiros .zip para descarregar.
 
-2. Depois de transferir os ficheiros .zip para o seu computador cliente, utilize o Secure Copy Protocol (SCP) para copiar os ficheiros para o seu VM:
+2. Depois de transferir os ficheiros .zip para o computador do seu cliente, utilize o Secure Copy Protocol (SCP) para copiar os ficheiros para o seu VM:
 
    ```bash
    $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
@@ -391,7 +392,7 @@ Este passo é opcional. Pode saltar este passo se estiver a utilizar um cliente 
    - Para gerar uma tecla, selecione o botão **Gerar.**
    - Copiar o conteúdo da chave **(Ctrl+C).**
    - Selecione o botão **de tecla privada Save.**
-   - Ignore o aviso que aparece e, em seguida, selecione **OK** .
+   - Ignore o aviso que aparece e, em seguida, selecione **OK**.
 
    ![Screenshot da página do gerador de chaves PuTTY](./media/oracle-golden-gate/puttykeygen.png)
 
@@ -403,21 +404,21 @@ Este passo é opcional. Pode saltar este passo se estiver a utilizar um cliente 
    $ cd .ssh
    ```
 
-5. Crie um ficheiro chamado **authorized_keys** . Cole o conteúdo da chave neste ficheiro e, em seguida, guarde o ficheiro.
+5. Crie um ficheiro chamado **authorized_keys**. Cole o conteúdo da chave neste ficheiro e, em seguida, guarde o ficheiro.
 
    > [!NOTE]
    > A chave deve conter a `ssh-rsa` corda. Além disso, o conteúdo da chave deve ser uma única linha de texto.
    >  
 
-6. Inicie o PuTTY. No painel **de categorias,** selecione **Connection**  >  **SSH**  >  **Auth** . No ficheiro chave Privado para a caixa **de autenticação,** consulte a chave que gerou anteriormente.
+6. Inicie o PuTTY. No painel **de categorias,** selecione **Connection**  >  **SSH**  >  **Auth**. No ficheiro chave Privado para a caixa **de autenticação,** consulte a chave que gerou anteriormente.
 
    ![Screenshot da página de chave privada set](./media/oracle-golden-gate/setprivatekey.png)
 
-7. No painel **de categorias,** selecione **Connection**  >  **SSH**  >  **X11** . Em seguida, selecione a caixa **de reencaminhamento Enable X11.**
+7. No painel **de categorias,** selecione **Connection**  >  **SSH**  >  **X11**. Em seguida, selecione a caixa **de reencaminhamento Enable X11.**
 
    ![Screenshot da página Enable X11](./media/oracle-golden-gate/enablex11.png)
 
-8. No painel **de categorias,** vá à **Sessão.** Introduza as informações do anfitrião e, em seguida, **selecione Abrir** .
+8. No painel **de categorias,** vá à **Sessão.** Introduza as informações do anfitrião e, em seguida, **selecione Abrir**.
 
    ![Screenshot da página da sessão](./media/oracle-golden-gate/puttysession.png)
 

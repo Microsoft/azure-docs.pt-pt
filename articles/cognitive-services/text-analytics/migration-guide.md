@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: 056009c34aec97a8c5c45aea4b93ba41977fa7a6
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 31cba884cff490d43341a4c52f24c32b1e253e42
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518197"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967334"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrar para a versão 3.x da API text Analytics
 
 [!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
-Se estiver a utilizar a versão 2.1 da API text Analytics, este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 3.x. A versão 3.0 está geralmente disponível e introduz novas funcionalidades, como o reconhecimento de entidades nomeadas expandidas [(NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) e [a versão de modelo.](concepts/model-versioning.md) Está também disponível uma versão de pré-visualização do v3.1 (v3.1-preview.x), que adiciona funcionalidades como [a mineração de opinião.](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) Os modelos utilizados na V2 não receberão futuras atualizações. 
+Se estiver a utilizar a versão 2.1 da API text Analytics, este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 3.x. A versão 3.0 está geralmente disponível e introduz novas funcionalidades, como o reconhecimento de entidades nomeadas expandidas [(NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) e [a versão de modelo.](concepts/model-versioning.md) Está também disponível uma versão de pré-visualização do v3.1 (v3.1-preview.x), que adiciona funcionalidades como [a mineração de opinião.](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) Os modelos utilizados na V2 não receberão futuras atualizações. 
 
-#### <a name="sentiment-analysis"></a>[Análise de sentimentos](#tab/sentiment-analysis)
+#### <a name="sentiment-analysis"></a>[Análise de sentimento](#tab/sentiment-analysis)
 
 ## <a name="feature-changes"></a>Alterações de recursos 
 
@@ -38,7 +38,7 @@ Se a sua aplicação utilizar a API REST, atualize o seu ponto final de pedido p
 Consulte a documentação de referência para exemplos da resposta do JSON.
 * [Versão 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 * [Versão 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
-* [Versão 3.1-pré-visualização](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
+* [Versão 3.1-pré-visualização](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
 ### <a name="client-libraries"></a>Bibliotecas de cliente
 
@@ -70,14 +70,14 @@ Também terá de atualizar a sua aplicação para utilizar as [categorias de ent
 Consulte a documentação de referência para exemplos da resposta do JSON.
 * [Versão 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 * [Versão 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
-* [Versão 3.1-pré-visualização](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/EntitiesRecognitionGeneral)
+* [Versão 3.1-pré-visualização](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/EntitiesRecognitionGeneral)
 
 ### <a name="client-libraries"></a>Bibliotecas de cliente
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 
-#### <a name="language-detection"></a>[Deteção de idioma](#tab/language-detection)
+#### <a name="language-detection"></a>[Deteção linguística](#tab/language-detection)
 
 ## <a name="feature-changes"></a>Alterações de recursos 
 
@@ -92,14 +92,14 @@ Se a sua aplicação utilizar a API REST, atualize o seu ponto final de pedido p
 Consulte a documentação de referência para exemplos da resposta do JSON.
 * [Versão 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 * [Versão 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
-* [Versão 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Languages)
+* [Versão 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 
 ### <a name="client-libraries"></a>Bibliotecas de cliente
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 
-#### <a name="key-phrase-extraction"></a>[Extração de expressões-chave](#tab/key-phrase-extraction)
+#### <a name="key-phrase-extraction"></a>[Extração de frase-chave](#tab/key-phrase-extraction)
 
 ## <a name="feature-changes"></a>Alterações de recursos 
 

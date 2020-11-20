@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d78051c1a5af82a986152c8244d25b68dd65d552
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87021380"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968847"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementar e gerir uma StorSimple Cloud Appliance no Azure (Atualização 3 e posterior)
 
@@ -47,7 +47,7 @@ O StorSimple Cloud Appliance está disponível em dois modelos, um 8010 convenci
 | **Capacidade máxima** |30 TB |64 TB |
 | **VM do Azure** |Standard_A3 (4 núcleos, 7 GB de memória)| Standard_DS3 (4 núcleos, 14 GB de memória)|
 | **Disponibilidade de região** |Todas as regiões do Azure |As regiões do Azure que suportam o Armazenamento Premium e VMs DS3 do Azure<br></br>Utilize [esta lista](https://azure.microsoft.com/regions/services/) para ver se ambas as **Máquinas Virtuais > série DS** e o **Armazenamento > Armazenamento em Disco** estão disponíveis na sua região. |
-| **Tipo de armazenamento** |Utiliza o armazenamento padrão do Azure para discos locais<br></br> Saiba como [criar uma conta do Storage padrão](../storage/common/storage-create-storage-account.md) |Utiliza armazenamento Azure Premium para discos locais<sup>2</sup> <br></br> |
+| **Tipo de armazenamento** |Utiliza o armazenamento padrão do Azure para discos locais<br></br> Saiba como [criar uma conta do Storage padrão](../storage/common/storage-account-create.md) |Utiliza armazenamento Azure Premium para discos locais<sup>2</sup> <br></br> |
 | **Orientações para a carga de trabalho** |Obtenção ao nível de item dos ficheiros a partir de cópias de segurança |Cenários de desenvolvimento e teste da cloud <br></br>Baixa latência e cargas de trabalho de desempenho superior<br></br>Dispositivo secundário para a recuperação após desastre |
 
 <sup>1</sup> *Anteriormente conhecido como o 1100*.
@@ -96,7 +96,7 @@ Antes de aprovisionar a aplicação da cloud, terá de efetuar os seguintes prep
 Efetue as seguintes atualizações no serviço Gestor de Dispositivos do StorSimple antes de criar uma aplicação da cloud:
 
 * Adicionar [registos de controlo de acesso](storsimple-8000-manage-acrs.md) para as VMs que serão servidores de anfitrião para a aplicação da cloud.
-* Utilizar uma [conta de armazenamento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) na mesma região da aplicação da cloud. As contas do Storage em regiões diferentes poderão ter um fraco desempenho. Pode utilizar uma conta de armazenamento Standard ou Premium com a aplicação da cloud. Mais informações sobre como criar uma [conta standard de Armazenamento.](../storage/common/storage-create-storage-account.md)
+* Utilizar uma [conta de armazenamento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) na mesma região da aplicação da cloud. As contas do Storage em regiões diferentes poderão ter um fraco desempenho. Pode utilizar uma conta de armazenamento Standard ou Premium com a aplicação da cloud. Mais informações sobre como criar uma [conta standard de Armazenamento.](../storage/common/storage-account-create.md)
 * Utilize uma conta de armazenamento diferente para a criação da aplicação da cloud a partir da conta utilizada para os seus dados. Com a mesma conta do Storage, poderá obter um fraco desempenho.
 
 Certifique-se de que tem as seguintes informações antes de começar:
@@ -267,7 +267,7 @@ Para parar todos os encargos, tem de eliminar a aplicação da cloud. Para elimi
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Resolver problemas relacionados com falhas de conectividade Internet
 Durante a criação de uma aplicação da cloud, se não existir conectividade à Internet, o passo de criação falha. Para resolver falhas de conectividade da Internet, execute os seguintes passos no portal do Azure:
 
-1. [Criar uma máquina virtual do Windows no portal do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Esta máquina virtual deve utilizar a mesma conta de armazenamento, a mesma VNet e a mesma sub-rede que a aplicação da cloud utiliza. Se já tiver um anfitrião do Windows Server existente no Azure que utilize a mesma conta de armazenamento, VNet e sub-rede, também pode utilizá-lo para resolver problemas relacionados com a conectividade Internet.
+1. [Criar uma máquina virtual do Windows no portal do Azure](../virtual-machines/windows/quick-create-portal.md). Esta máquina virtual deve utilizar a mesma conta de armazenamento, a mesma VNet e a mesma sub-rede que a aplicação da cloud utiliza. Se já tiver um anfitrião do Windows Server existente no Azure que utilize a mesma conta de armazenamento, VNet e sub-rede, também pode utilizá-lo para resolver problemas relacionados com a conectividade Internet.
 2. Registe remotamente na máquina virtual criada no passo anterior.
 3. Abra uma janela de comando dentro da máquina virtual (Win + R e em seguida, escreva `cmd`).
 4. Na linha de comandos, escreva o comando seguinte.

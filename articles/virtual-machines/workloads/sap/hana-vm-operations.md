@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19abb3f12dc1a0fd2a3dff548ecdc9e7fff47659
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 2ce9ab371c0ed1e81cf1dfb53fca7e359e1aeb35
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927673"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967504"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientações para configurar a infraestrutura Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas do Azure (VMs). O documento também inclui informações de configuração para a escala SAP HANA para o M128s VM SKU. Este documento não se destina a substituir a documentação padrão SAP, que inclui o seguinte conteúdo:
@@ -187,7 +188,7 @@ Para além das certificações SAP HANA em VMs da série Azure M, o SAP HANA Dyn
 SAP HANA Dynamic Tiering 2.0 não é suportado por SAP BW ou S4HANA. Os principais casos de uso neste momento são aplicações HANA nativas.
 
 
-### <a name="overview"></a>Descrição Geral
+### <a name="overview"></a>Descrição geral
 
 A imagem abaixo dá uma visão geral sobre o suporte DT 2.0 no Microsoft Azure. Existe um conjunto de requisitos obrigatórios, que devem ser seguidos para cumprir a certificação oficial:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 12e5a6db7257678b3d4d14d7583a1a30da0d3a87
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371074"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967147"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorizar a identidade e o acesso
 
@@ -30,7 +30,7 @@ Ao monitorizar as atividades e configurações relacionadas com a identidade, po
 
 O Azure Security Center dispõe de dois controlos de segurança dedicados para garantir que está a cumprir os requisitos de identidade e segurança da sua organização: 
 
- - **Gerir acessos e permissões** - Encorajamo-lo a adotar o [modelo de acesso menos privilegiado](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e garantir que concede aos seus utilizadores apenas o acesso necessário para que eles façam o seu trabalho. Este controlo também inclui recomendações para implementar [o controlo de acesso baseado em papéis (RBAC)](../role-based-access-control/overview.md) para controlar o acesso aos seus recursos.
+ - **Gerir acessos e permissões** - Encorajamo-lo a adotar o [modelo de acesso menos privilegiado](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e garantir que concede aos seus utilizadores apenas o acesso necessário para que eles façam o seu trabalho. Este controlo também inclui recomendações para implementar o [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md) para controlar o acesso aos seus recursos.
  
  - **Ativar MFA** - Com [O MFA](https://www.microsoft.com/security/business/identity/mfa) ativado, as suas contas são mais seguras, e os utilizadores ainda podem autenticar para quase qualquer aplicação com um único sent-on.
 

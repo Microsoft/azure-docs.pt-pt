@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: d68522d92409cfcba38abeb86f2db7c4b78869e6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 51b7f6e814a9fad286a934466daeb1ffced225c1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045606"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968065"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver um módulo Java IoT Edge para dispositivos Linux
 
@@ -34,7 +34,7 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura qu
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Âmbito de solução
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial demonstra como desenvolver um módulo em **Java** usando **o Código do Estúdio Visual,** e como implantá-lo num **dispositivo Linux**. O IoT Edge não suporta módulos Java para dispositivos Windows.
 
@@ -44,8 +44,6 @@ Utilize a seguinte tabela para compreender as suas opções de desenvolvimento e
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Utilize o Código VS para módulos Java no Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Utilize o Código VS para módulos Java no Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
-
-## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente de desenvolvimento para o desenvolvimento de recipientes Linux: [Desenvolver módulos IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao completar qualquer um desses tutoriais, deverá ter os seguintes pré-requisitos no lugar:
 
@@ -90,10 +88,10 @@ Crie um modelo de solução Java que pode personalizar com o seu próprio códig
 Se for a sua primeira vez a criar o módulo Java, pode levar vários minutos para descarregar os pacotes maven. Quando a solução estiver pronta, a janela vs Code carrega o seu espaço de trabalho de solução IoT Edge. O espaço de trabalho da solução contém cinco componentes de alto nível:
 
 * A pasta **de módulos** contém o código Java para o seu módulo e os ficheiros Docker para construir o seu módulo como imagem de recipiente.
-* O ficheiro ** \. env** armazena as suas credenciais de registo de contentores.
+* O ficheiro **\. env** armazena as suas credenciais de registo de contentores.
 * O ficheiro **deployment.template.json** contém as informações que o runtime do IoT Edge utiliza para implementar módulos num dispositivo.
 * O **deployment.debug.template.jsem** recipientes de arquivo a versão depurg dos módulos.
-* Não editará a pasta ** \. vscode** ou o ficheiro ** \. gitignore** neste tutorial.
+* Não editará a pasta **\. vscode** ou o ficheiro **\. gitignore** neste tutorial.
 
 Se não tiver especificado um registo de contentor ao criar a sua solução, mas aceitou o valor do localhost:5000 predefinido, não terá um ficheiro \.env.
 
@@ -113,7 +111,7 @@ Atualmente, o Visual Studio Code pode desenvolver módulos Java para dispositivo
 
 1. Abra a paleta de comando e procure **por Azure IoT Edge: Definir Plataforma-alvo padrão para solução de borda**, ou selecione o ícone de atalho na barra lateral na parte inferior da janela.
 
-2. Na paleta de comando, selecione a arquitetura-alvo da lista de opções. Para este tutorial, estamos a usar uma máquina virtual Ubuntu como dispositivo IoT Edge, por isso manteremos o **amd64**padrão.
+2. Na paleta de comando, selecione a arquitetura-alvo da lista de opções. Para este tutorial, estamos a usar uma máquina virtual Ubuntu como dispositivo IoT Edge, por isso manteremos o **amd64** padrão.
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
@@ -218,7 +216,7 @@ Atualmente, o Visual Studio Code pode desenvolver módulos Java para dispositivo
     client.getTwin();
     ```
 
-7. Guarde o ficheiro App.java.
+7. Guarde o ficheiro .java App.
 
 8. No explorador de código VS, abra o **deployment.template.jsno** ficheiro no seu espaço de trabalho de solução IoT Edge.
 
@@ -250,7 +248,7 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao **Java
 
    Pode receber um aviso de segurança recomendando a utilização de `--password-stdin` . Embora essa melhor prática seja recomendada para cenários de produção, está fora do âmbito deste tutorial. Para mais informações, consulte a referência de login do [estivador.](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
 
-3. No explorador de código VS, clique com o botão direito ** no ficheirodeployment.template.js** e selecione a **Solução de Borda De Construção e Pressão IoT**.
+3. No explorador de código VS, clique com o botão direito **no ficheirodeployment.template.js** e selecione a **Solução de Borda De Construção e Pressão IoT**.
 
    O comando de construção e pressão inicia três operações. Em primeiro lugar, cria uma nova pasta na solução chamada **config** que detém o manifesto de implantação completo, que é construído a partir de informações no modelo de implementação e outros ficheiros de solução. Em segundo lugar, funciona `docker build` para construir a imagem do contentor com base no arquivo apropriado para a arquitetura do seu alvo. Em seguida, corre `docker push` para empurrar o repositório de imagem para o seu registo de contentores.
 
@@ -296,7 +294,7 @@ Usamos o módulo JavaModule twin no manifesto de implantação para definir o li
 
 6. Monitorize as mensagens de entrada de dispositivo para nuvem. Deve ver as mensagens paradas até que o novo limiar de temperatura seja atingido.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

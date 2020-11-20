@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: radeltch
-ms.openlocfilehash: 4c444cb84f215ba4f42c14eb64f1d2f441e4280d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e906e6c86d615852191e2fd65a2b1a58695ed34
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598300"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968558"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuração do Pacemaker na Red Hat Enterprise Linux em Azure
 
@@ -122,7 +123,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    </code></pre>
 
    > [!IMPORTANT]
-   > Se precisar de atualizar o agente da Cerca Azure e, se utilizar a função personalizada, certifique-se de atualizar a função personalizada para incluir o **powerOff de**ação . Para mais detalhes, [crie um papel personalizado para o agente da cerca.](#1-create-a-custom-role-for-the-fence-agent)  
+   > Se precisar de atualizar o agente da Cerca Azure e, se utilizar a função personalizada, certifique-se de atualizar a função personalizada para incluir o **powerOff de** ação . Para mais detalhes, [crie um papel personalizado para o agente da cerca.](#1-create-a-custom-role-for-the-fence-agent)  
 
 1. **[A]** Resolução do nome do anfitrião da configuração
 

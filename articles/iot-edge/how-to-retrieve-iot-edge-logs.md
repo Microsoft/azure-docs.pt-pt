@@ -4,18 +4,18 @@ description: Recuperação de registo de registo de módulos IoT Edge e upload p
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 97cdc4ad0b1d5e7dfb6642fa0163f810be5d7171
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171917"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966926"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperar registos de implementações IoT Edge
 
@@ -141,6 +141,14 @@ az iot hub invoke-module-method \
 
 Utilize o método direto **UploadModuleLogs** para enviar os registos solicitados para um recipiente de armazenamento Azure Blob especificado.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Se desejar fazer o upload de registos de um dispositivo por detrás de um dispositivo gateway, terá de ter os [módulos de armazenamento de procuração e blob da API](how-to-configure-api-proxy-module.md) configurados no dispositivo de camada superior. Estes módulos encaminham os registos do seu dispositivo de camada inferior através do seu dispositivo gateway para o seu armazenamento na nuvem.
+
+::: moniker-end
+
 Este método aceita uma carga útil JSON semelhante à **GetModuleLogs,** com a adição da tecla "sasUrl":
 
 ```json
@@ -260,6 +268,14 @@ No portal Azure, invoque o método com o nome do método `UploadModuleLogs` e a 
 ## <a name="upload-support-bundle-diagnostics"></a>Upload de diagnósticos de pacote de suporte
 
 Utilize o método direto **uploadSupportBundle** para embalar e carregar um ficheiro zip de registos de módulos IoT Edge para um recipiente de armazenamento Azure Blob disponível. Este método direto executa o [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) comando no seu dispositivo IoT Edge para obter os registos.
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Se desejar fazer o upload de registos de um dispositivo por detrás de um dispositivo gateway, terá de ter os [módulos de armazenamento de procuração e blob da API](how-to-configure-api-proxy-module.md) configurados no dispositivo de camada superior. Estes módulos encaminham os registos do seu dispositivo de camada inferior através do seu dispositivo gateway para o seu armazenamento na nuvem.
+
+::: moniker-end
 
 Este método aceita uma carga JSON com o seguinte esquema:
 

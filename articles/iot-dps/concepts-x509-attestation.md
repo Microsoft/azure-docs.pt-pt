@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 3e06c79b9cbd5643d119974a4ed8628ea1b1cd4f
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 9eee315aac28847710662b463add7d6e68d8d505
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096764"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967300"
 ---
 # <a name="x509-certificate-attestation"></a>Atestado de certificado X.509
 
@@ -26,7 +26,7 @@ Os certificados X.509 podem ser armazenados num módulo de segurança de hardwar
 
 ## <a name="x509-certificates"></a>Certificados X.509
 
-A utilização de certificados X.509 como mecanismo de atestado é uma excelente forma de escalar a produção e simplificar o fornecimento de dispositivos. Os certificados X.509 são normalmente dispostos numa cadeia de certificados de confiança em que cada certificado da cadeia é assinado pela chave privada do certificado superior seguinte, e assim por diante, terminando num certificado de raiz auto-assinado. Este acordo estabelece uma cadeia de confiança delegada a partir do certificado de raiz gerado por uma autoridade de certificados de raiz fidedigna (CA) através de cada CA intermédia até ao certificado "folha" da entidade final instalado num dispositivo. Para saber mais, consulte [a autenticação do dispositivo utilizando certificados X.509 CA](/azure/iot-hub/iot-hub-x509ca-overview). 
+A utilização de certificados X.509 como mecanismo de atestado é uma excelente forma de escalar a produção e simplificar o fornecimento de dispositivos. Os certificados X.509 são normalmente dispostos numa cadeia de certificados de confiança em que cada certificado da cadeia é assinado pela chave privada do certificado superior seguinte, e assim por diante, terminando num certificado de raiz auto-assinado. Este acordo estabelece uma cadeia de confiança delegada a partir do certificado de raiz gerado por uma autoridade de certificados de raiz fidedigna (CA) através de cada CA intermédia até ao certificado "folha" da entidade final instalado num dispositivo. Para saber mais, consulte [a autenticação do dispositivo utilizando certificados X.509 CA](../iot-hub/iot-hub-x509ca-overview.md). 
 
 Muitas vezes, a cadeia de certificados representa alguma hierarquia lógica ou física associada aos dispositivos. Por exemplo, um fabricante pode:
 - emitir um certificado de CA raiz auto-assinado
@@ -34,11 +34,11 @@ Muitas vezes, a cadeia de certificados representa alguma hierarquia lógica ou f
 - utilizar o certificado de cada fábrica para gerar um certificado de CA intermédio único para cada linha de produção na fábrica
 - e, finalmente, utilizar o certificado da linha de produção, para gerar um certificado único de dispositivo (entidade final) para cada dispositivo fabricado na linha. 
 
-Para saber mais, consulte [a compreensão conceptual dos certificados X.509 CA na indústria IoT.](/azure/iot-hub/iot-hub-x509ca-concept) 
+Para saber mais, consulte [a compreensão conceptual dos certificados X.509 CA na indústria IoT.](../iot-hub/iot-hub-x509ca-concept.md) 
 
 ### <a name="root-certificate"></a>Certificado de raiz
 
-Um certificado de raiz é um certificado X.509 auto-assinado que representa uma autoridade de certificados (CA). É o terminus, ou âncora de confiança, da cadeia de certificados. Os certificados de raiz podem ser emitidos por uma organização ou adquiridos a uma autoridade de certificados de raiz. Para saber mais, [consulte os certificados DE S.X.509](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates)CA . O certificado de raiz também pode ser referido como um certificado de CA raiz.
+Um certificado de raiz é um certificado X.509 auto-assinado que representa uma autoridade de certificados (CA). É o terminus, ou âncora de confiança, da cadeia de certificados. Os certificados de raiz podem ser emitidos por uma organização ou adquiridos a uma autoridade de certificados de raiz. Para saber mais, [consulte os certificados DE S.X.509](../iot-hub/iot-hub-security-x509-get-started.md#get-x509-ca-certificates)CA . O certificado de raiz também pode ser referido como um certificado de CA raiz.
 
 ### <a name="intermediate-certificate"></a>Certificado intermédio
 
@@ -56,7 +56,7 @@ O certificado de folha, ou certificado de entidade final, identifica o titular d
 
 Os certificados folha utilizados com uma [inscrição individual](./concepts-service.md#individual-enrollment) têm a obrigação de que o **Nome do Sujeito** deve ser definido para o ID de inscrição individual. Os certificados de folha utilizados com uma entrada [de grupo de inscrição](./concepts-service.md#enrollment-group) devem ter o **Nome de Sujeito** definido para o ID do dispositivo pretendido que será mostrado nos **Registos** de Registo para o dispositivo autenticado no grupo de inscrição.
 
-Para saber mais, consulte [dispositivos autenticadores assinados com certificados X.509 CA](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Para saber mais, consulte [dispositivos autenticadores assinados com certificados X.509 CA](../iot-hub/iot-hub-x509ca-overview.md#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Controlo do acesso do dispositivo ao serviço de fornecimento com certificados X.509
 

@@ -7,18 +7,19 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89da6935d85628b5ce4ff762ad31d3f280682921
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7f0782738a8aa57b2bc0b87e1378972e3fa5d31c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424249"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967861"
 ---
 # <a name="disaster-recovery-principles"></a>Princípios de recuperação de desastres
 
@@ -77,7 +78,7 @@ A equipa de operações estabelece a relação de replicação entre os volumes 
 
 Em seguida, configurar ou ajustar o horário de backup do instantâneo de armazenamento para chegar ao seu RTO e RPO no caso do desastre. Para minimizar o objetivo do ponto de recuperação, desaponte os seguintes intervalos de replicação no serviço HANA Large Instance:
 - Para os volumes cobertos pelo instantâneo combinado (snapshot type **hana),** definido para replicar a cada 15 minutos os alvos equivalentes do volume de armazenamento no local de recuperação de desastres.
-- Para o volume de backup de registo de transações **(registos**de tipo snapshot), desaplicou a cada 3 minutos os alvos equivalentes do volume de armazenamento no local de recuperação de desastres.
+- Para o volume de backup de registo de transações **(registos** de tipo snapshot), desaplicou a cada 3 minutos os alvos equivalentes do volume de armazenamento no local de recuperação de desastres.
 
 Para minimizar o objetivo do ponto de recuperação, estabeleça o seguinte:
 - Execute uma imagem de armazenamento do tipo **hana** (ver "Passo 7: Execute instantâneos") a cada 30 minutos a 1 hora.

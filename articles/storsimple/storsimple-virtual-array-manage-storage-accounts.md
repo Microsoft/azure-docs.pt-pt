@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 8267a678f35d01119ae3e7d89a07c789dc969614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70b6231829173059ffee675105bacbe1bd1532f2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507505"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967113"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Use o Gestor de Dispositivos StorSimple para gerir credenciais de conta de armazenamento para StorSimple Virtual Array
 
@@ -31,7 +31,7 @@ A secção de **Configuração** da lâmina de serviço StorSimple Device Manage
   
   ![Painel de atendimento do gestor de dispositivos](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
 
-Este tutorial explica como pode adicionar, editar ou apagar credenciais de conta de armazenamento para o seu StorSimple Virtual Array. A informação neste tutorial aplica-se apenas ao StorSimple Virtual Array. Para obter informações sobre como gerir contas de armazenamento em série 8000, consulte [utilizar o serviço StorSimple Manager para gerir a sua conta de armazenamento](storsimple-manage-storage-accounts.md).
+Este tutorial explica como pode adicionar, editar ou apagar credenciais de conta de armazenamento para o seu StorSimple Virtual Array. A informação neste tutorial aplica-se apenas ao StorSimple Virtual Array. Para obter informações sobre como gerir contas de armazenamento em série 8000, consulte [utilizar o serviço StorSimple Manager para gerir a sua conta de armazenamento](./storsimple-8000-manage-storage-accounts.md).
 
 As credenciais de conta de armazenamento contêm as credenciais que o dispositivo utiliza para aceder à sua conta de armazenamento com o seu fornecedor de serviços na nuvem. Para as contas de armazenamento do Microsoft Azure, estas são credenciais como o nome da conta e a chave de acesso primário.
 
@@ -52,7 +52,7 @@ As tarefas mais comuns relacionadas com credenciais de conta de armazenamento qu
 Existem três tipos de credenciais de conta de armazenamento que podem ser usadas com o seu dispositivo StorSimple.
 
 * **Credenciais de conta de armazenamento geradas automaticamente** – Como o nome sugere, este tipo de credencial de conta de armazenamento é gerado automaticamente quando o serviço é criado pela primeira vez. Para saber mais sobre como esta credencial de conta de armazenamento é criada, consulte [Criar um novo serviço.](storsimple-virtual-array-manage-service.md#create-a-service)
-* **credenciais de conta de armazenamento na subscrição do serviço** – Estas são as credenciais de conta de armazenamento Azure que estão associadas à mesma subscrição que a do serviço. Para saber mais sobre como estas credenciais de conta de armazenamento são [criadas, consulte As Contas de Armazenamento do Azure.](../storage/common/storage-create-storage-account.md)
+* **credenciais de conta de armazenamento na subscrição do serviço** – Estas são as credenciais de conta de armazenamento Azure que estão associadas à mesma subscrição que a do serviço. Para saber mais sobre como estas credenciais de conta de armazenamento são [criadas, consulte As Contas de Armazenamento do Azure.](../storage/common/storage-account-create.md)
 * **credenciais de conta de armazenamento fora da subscrição do serviço** – Estas são as credenciais de conta de armazenamento Azure que não estão associadas ao seu serviço e provavelmente existiram antes da criação do serviço.
 
 ## <a name="add-a-storage-account-credential"></a>Adicionar uma credencial da conta de armazenamento
@@ -142,7 +142,7 @@ Para informar o serviço StorSimple Device Manager da alteração, é necessári
 2. Na lâmina de credenciais de **conta de Armazenamento,** na lista de credenciais de conta de Armazenamento, selecione a credencial da conta de armazenamento cujas chaves pretende sincronizar.
 3. Na lâmina **Propriedades** para a credencial de conta de armazenamento selecionada, faça o seguinte:
    
-    1. Clique **em Mais**e, em seguida, clique na **tecla de acesso Sync**.
+    1. Clique **em Mais** e, em seguida, clique na **tecla de acesso Sync**.
    
     2. Quando solicitado para confirmação, clique na **tecla Sync** para completar a sincronização.
     
@@ -152,4 +152,3 @@ Para informar o serviço StorSimple Device Manager da alteração, é necessári
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba como [administrar o seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

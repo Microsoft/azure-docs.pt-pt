@@ -3,17 +3,18 @@ title: Visão geral do agente Azure Linux VM
 description: Aprenda a instalar e configurar o Agente Linux (waagent) para gerir a interação da sua máquina virtual com o Controlador de TecidoS Azure.
 author: axayjo
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19b9259b55332d9f31fdefd166f0509e5443628d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a4a391e52f80ec171d48718a18764f0f88f34133
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965816"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968456"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreensão e utilização do Agente Azure Linux
 
@@ -35,7 +36,7 @@ O Agente Linux (waagent) da Microsoft Azure gere o fornecimento de & Livre e a i
   * Gestão de Discos de Recursos
   * Formatação e montagem do disco de recursos
   * Espaço de troca de configuração
-* **Redes**
+* **Rede**
   
   * Gere rotas para melhorar a compatibilidade com os servidores DHCP da plataforma
   * Garante a estabilidade do nome da interface de rede
@@ -286,7 +287,7 @@ O tamanho do ficheiro de troca em megabytes.
 Type: Boolean  
 Default: n
 ```
-Se estiver definido, a verbosidade do log é reforçada. Os registos Waagent para /var/log/waagent.log e utilizam a funcionalidade logrotate do sistema para rodar registos.
+Se estiver definido, a verbosidade do log é reforçada. Os registos Waagent para /var/log/waagent.log e utiliza a funcionalidade logrotate do sistema para rodar registos.
 
 **OS. Ativar oRDMA**  
 ```txt

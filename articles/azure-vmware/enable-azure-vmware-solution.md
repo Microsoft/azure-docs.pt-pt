@@ -1,17 +1,17 @@
 ---
 title: Como ativar o seu recurso Azure VMware Solution
-description: Saiba como submeter um pedido de suporte para ativar o seu recurso Azure VMware Solution. Também pode solicitar mais nós na sua nuvem privada Azure VMware Solution.
+description: Saiba como submeter um pedido de suporte para ativar o seu recurso Azure VMware Solution. Também pode solicitar mais anfitriões na sua nuvem privada Azure VMware Solution.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 8e1b891559cb2d01adc9fdf834ef3c9714fe1233
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: cd58611f77c2f2fb1694597fc9ef049420093ccc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888441"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967368"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Como ativar o recurso Azure VMware Solution
-Saiba como submeter um pedido de suporte para ativar o seu recurso [Azure VMware Solution.](introduction.md) Também pode solicitar mais nós na sua nuvem privada Azure VMware Solution.
+Saiba como submeter um pedido de suporte para ativar o seu recurso [Azure VMware Solution.](introduction.md) Também pode solicitar mais anfitriões na sua nuvem privada Azure VMware Solution.
 
 ## <a name="eligibility-criteria"></a>Critérios de elegibilidade
 
@@ -22,7 +22,7 @@ Você precisará de uma conta Azure numa subscrição do Azure. A subscrição d
 
 
 ## <a name="enable-azure-vmware-solution-for-ea-customers"></a>Ativar a Solução VMware Azure para clientes EA
-Antes de criar o seu recurso Azure VMware Solution, terá de submeter um bilhete de apoio para que os seus nós tenham os seus nós atribuídos. Uma vez que a equipa de apoio recebe o seu pedido, leva até cinco dias úteis para confirmar o seu pedido e alocar os seus nós. Se tiver uma nuvem privada Azure VMware Solution e quiser mais nós atribuídos, passará pelo mesmo processo.
+Antes de criar o seu recurso Azure VMware Solution, terá de submeter um bilhete de apoio para que os seus anfitriões tenham sido atribuídos. Uma vez que a equipa de apoio recebe o seu pedido, leva até cinco dias úteis para confirmar o seu pedido e alocar os seus anfitriões. Se tiver uma nuvem privada Azure VMware Solution e quiser mais anfitriões, passará pelo mesmo processo.
 
 
 1. No seu portal Azure, no âmbito **da Ajuda + Suporte,** crie um **[novo pedido de suporte](https://rc.portal.azure.com/#create/Microsoft.Support)** e forneça as seguintes informações para o bilhete:
@@ -38,20 +38,20 @@ Antes de criar o seu recurso Azure VMware Solution, terá de submeter um bilhete
 
    - POC ou Produção 
    - Nome da Região
-   - Número de nós
+   - Número de anfitriões
    - Quaisquer outros detalhes
 
    >[!NOTE]
-   >A Azure VMware Solution recomenda um mínimo de três nós para girar a sua nuvem privada e para os nós N+1 de redundância. 
+   >A Azure VMware Solution recomenda um mínimo de três anfitriões para girar a sua nuvem privada e para anfitriões N+1 de redundância. 
 
 1. Selecione **Review + Criar** para submeter o pedido.
 
    Levará até cinco dias úteis para um representante de apoio confirmar o seu pedido.
 
    >[!IMPORTANT] 
-   >Se já tem uma Solução Azure VMware existente, e está a solicitar nóns adicionais, por favor, note que precisamos de cinco dias úteis para alocar os nós. 
+   >Se já tem uma Solução Azure VMware existente, e está a solicitar anfitriões adicionais, por favor, note que precisamos de cinco dias úteis para alocar os anfitriões. 
 
-1. Antes de poder aprovisionar os seus nós, certifique-se de que regista o fornecedor de recursos **Microsoft.AVS** no portal Azure.  
+1. Antes de poder aprovisionar os seus anfitriões, certifique-se de que regista o fornecedor de recursos **Microsoft.AVS** no portal Azure.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
@@ -99,21 +99,21 @@ Depois de configurar o plano Azure e as permissões de RBAC necessárias em vSph
 
    - POC ou Produção 
    - Nome da Região
-   - Número de nós
+   - Número de anfitriões
    - Quaisquer outros detalhes
    - Pretende-se hospedar vários clientes?
 
    >[!NOTE]
-   >A Azure VMware Solution recomenda um mínimo de três nós para girar a sua nuvem privada e para os nós N+1 de redundância. 
+   >A Azure VMware Solution recomenda um mínimo de três anfitriões para girar a sua nuvem privada e para anfitriões N+1 de redundância. 
 
 1. Selecione **Review + Criar** para submeter o pedido.
 
    Levará até cinco dias úteis para um representante de apoio confirmar o seu pedido.
 
    >[!IMPORTANT] 
-   >Se já tem uma Solução Azure VMware existente, e está a solicitar nóns adicionais, por favor, note que precisamos de cinco dias úteis para alocar os nós. 
+   >Se já tem uma Solução Azure VMware existente, e está a solicitar anfitriões adicionais, por favor, note que precisamos de cinco dias úteis para alocar os anfitriões. 
 
-1. Uma vez adicionado ao plano Azure, e com quota ativada, o cliente ou o administrador parceiro pode implementar uma Nuvem Privada Azure VMware através do portal Azure. Antes de poder aprovisionar os seus nós, certifique-se de que regista o fornecedor de recursos **Microsoft.AVS** no portal Azure.  
+1. Uma vez adicionado ao plano Azure, e com quota ativada, o cliente ou o administrador parceiro pode implementar uma Nuvem Privada Azure VMware através do portal Azure. Antes de poder aprovisionar os seus anfitriões, certifique-se de que regista o fornecedor de recursos **Microsoft.AVS** no portal Azure.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>

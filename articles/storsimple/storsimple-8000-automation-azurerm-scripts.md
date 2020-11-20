@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4a53dd803b22899b7dd15db0aa1ff411641a11dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3339f883d177366a64187e0c090752527802c8d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88183263"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968779"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Utilize scripts baseados em SDK para gerir dispositivos StorSimple do Azure Resource Manager para gerir dispositivos StorSimple
 
@@ -57,7 +57,7 @@ Antes de começar, certifique-se de que tem:
     * Num ambiente Windows, siga os passos na [Instalação e configuure Azure PowerShell](/powershell/azure/install-az-ps). Pode instalar o Azure PowerShell no seu anfitrião Windows Server para o seu StorSimple se utilizar um.
     * Num ambiente Linux ou MacOS, siga os passos na [Instalação e configuure Azure PowerShell no MacOS ou Linux](/powershell/azure/install-az-ps).
 
-Para obter mais informações sobre a utilização do Azure PowerShell, vá a [Começar a utilizar a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Para obter mais informações sobre a utilização do Azure PowerShell, vá a [Começar a utilizar a Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ### <a name="run-azure-powershell-script"></a>Executar script Azure PowerShell
 
@@ -69,7 +69,7 @@ O script utilizado neste exemplo lista todos os trabalhos num dispositivo StorSi
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [Descarregue o NuGet CLI](https://www.nuget.org/downloads) sob a pasta criada no passo anterior. Existem várias versões de _nuget.exe. _ Escolha a versão correspondente ao seu SDK. Cada link de descarregamento aponta diretamente para um ficheiro _.exe._ Certifique-se de clicar à direita e guardar o ficheiro para o seu computador em vez de executá-lo a partir do navegador.
+2. [Descarregue o NuGet CLI](https://www.nuget.org/downloads) sob a pasta criada no passo anterior. Existem várias versões de _nuget.exe._ Escolha a versão correspondente ao seu SDK. Cada link de descarregamento aponta diretamente para um ficheiro _.exe._ Certifique-se de clicar à direita e guardar o ficheiro para o seu computador em vez de executá-lo a partir do navegador.
 
     Também pode executar o seguinte comando para descarregar e armazenar o script na mesma pasta que criou anteriormente.
     

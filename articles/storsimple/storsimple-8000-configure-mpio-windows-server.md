@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: cc88d5b7a458c3666cdb4469d7021917d27115f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d44fada1eddf2d3f80bec085d8a5bf751197eb1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514337"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968813"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configure o Multipato I/O para o seu dispositivo StorSimple
 
 Este tutorial descreve os passos que deve seguir para instalar e utilizar a função Multipath I/O (MPIO) num anfitrião que executa o Windows Server 2012 R2 e ligado a um dispositivo físico StorSimple. A orientação deste artigo aplica-se apenas aos dispositivos físicos da série StorSimple 8000. Atualmente, o MPIO não é suportado num aparelho de nuvem StorSimple.
 
-A Microsoft construiu suporte para a funcionalidade Multipath I/O (MPIO) no Windows Server para ajudar a construir configurações de rede iSCSI altamente disponíveis e tolerantes a falhas. O MPIO utiliza componentes de trajetória física redundantes — adaptadores, cabos e interruptores — para criar caminhos lógicos entre o servidor e o dispositivo de armazenamento. Se houver uma falha de componente, causando um caminho lógico para falhar, a lógica multipatar usa um caminho alternativo para a E/S para que as aplicações ainda possam aceder aos seus dados. Além disso, dependendo da sua configuração, o MPIO também pode melhorar o desempenho reequilibrando a carga em todos estes caminhos. Para mais informações, consulte [a visão geral do MPIO.](https://technet.microsoft.com/library/cc725907.aspx "Visão geral do MPIO e características")
+A Microsoft construiu suporte para a funcionalidade Multipath I/O (MPIO) no Windows Server para ajudar a construir configurações de rede iSCSI altamente disponíveis e tolerantes a falhas. O MPIO utiliza componentes de trajetória física redundantes — adaptadores, cabos e interruptores — para criar caminhos lógicos entre o servidor e o dispositivo de armazenamento. Se houver uma falha de componente, causando um caminho lógico para falhar, a lógica multipatar usa um caminho alternativo para a E/S para que as aplicações ainda possam aceder aos seus dados. Além disso, dependendo da sua configuração, o MPIO também pode melhorar o desempenho reequilibrando a carga em todos estes caminhos. Para mais informações, consulte [a visão geral do MPIO.](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725907(v=ws.11) "Visão geral do MPIO e características")
 
 Para a elevada disponibilidade da sua solução StorSimple, o MPIO deve ser configurado no seu dispositivo StorSimple. Quando o MPIO é instalado nos servidores anfitriões que executam o Windows Server 2012 R2, os servidores podem então tolerar uma falha de ligação, rede ou interface.
 
@@ -63,7 +63,7 @@ Para instalar esta função no anfitrião do Windows Server, preencha o seguinte
        ![Adicionar papéis e funcionalidades Assistente 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
    3. Na página **do servidor de destino Select,** escolha **Selecionar um servidor a partir da piscina do servidor**. O servidor anfitrião deve ser descoberto automaticamente. Clique em **Seguinte**.
    4. Na página **Selecionar papeis de servidor**, clique em **Seguinte**.
-   5. Na página **'Selecione',** selecione **Multipath I/O**e clique em **Seguinte**.
+   5. Na página **'Selecione',** selecione **Multipath I/O** e clique em **Seguinte**.
    
        ![Adicionar papéis e funcionalidades Assistente 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
    6. Na página **de seleções de instalação Confirmar,** confirme a seleção e, em seguida, selecione **Reinicie automaticamente o servidor de destino, se necessário,** como mostrado abaixo. Clique em **Install** (Instalar).
@@ -81,7 +81,7 @@ O MPIO deve ser configurado para identificar volumes StorSimple. Para configurar
 
 1. Abra a **configuração MPIO**. Clique **em > Do Gestor do Servidor > Ferramentas > MPIO**.
 2. Na caixa de diálogo **MPIO Properties,** selecione o **separador Discover Multi-Paths.**
-3. **Selecione Adicionar suporte para dispositivos iSCSI**e, em seguida, clique em **Adicionar**.  
+3. **Selecione Adicionar suporte para dispositivos iSCSI** e, em seguida, clique em **Adicionar**.  
    ![Propriedades MPIO Descubram vários caminhos](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. Reinicie o servidor quando solicitado.
 5. Na caixa de diálogo **MPIO Properties,** clique no separador **dispositivos MPIO.** Clique em **Adicionar**.
@@ -191,4 +191,3 @@ O procedimento a seguir descreve como adicionar sessões quando um dispositivo S
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a utilização do serviço StorSimple Device Manager para modificar a configuração do dispositivo StorSimple](storsimple-8000-modify-device-config.md).
-

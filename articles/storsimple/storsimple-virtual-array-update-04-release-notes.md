@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 06a3469507631d032535bce62b01d964e99dc603
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 392e930dcb69392b6f9425abba0efa516d5c82b8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60334799"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967062"
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>StorSimple Virtual Array Update 0.4 notas de lançamento
 
@@ -53,7 +53,7 @@ A atualização 0.4 é principalmente uma construção de correção de erros ju
 
 O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
-| N.º | Funcionalidade | Problema |
+| Não. | Funcionalidade | Problema |
 | --- | --- | --- |
 | 1 |Desempenho de backup|Nos lançamentos anteriores, as cópias de segurança que envolvem um grande número de ficheiros demorariam muito tempo a ser concluídas (na ordem dos dias). Nesta versão, tanto os backups completos como incrementais vêem uma redução significativa no tempo de conclusão. |
 | 2 |Pacote de apoio|As estatísticas de disco, CPU, memória, rede e nuvem estão agora registadas nos registos de Suporte, tornando os pacotes de Suporte muito eficazes na resolução de problemas de qualquer problema do dispositivo.|
@@ -65,7 +65,7 @@ O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
 A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Virtual Array e inclui os problemas de lançamento anotados a partir das versões anteriores. 
 
-| N.º | Funcionalidade | Problema | Soluções/comentários |
+| Não. | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 | **1.** |Atualizações |Os dispositivos virtuais criados na versão de pré-visualização não podem ser atualizados para uma versão suportada da Disponibilidade Geral. |Estes dispositivos virtuais devem ser falhados para a libertação de Disponibilidade Geral utilizando um fluxo de trabalho de recuperação de desastres (DR). |
 | **2.** |Disco de dados provisionado |Uma vez que tenha fornecedo um disco de dados de um determinado tamanho especificado e criado o dispositivo virtual StorSimple correspondente, não deve expandir ou encolher o disco de dados. Tentar fazer resulta numa perda de todos os dados nos níveis locais do dispositivo. | |
@@ -92,5 +92,4 @@ A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Vi
 
 * [StorSimple Virtual Array Update 0.3 Notas de lançamento](storsimple-ova-update-03-release-notes.md)
 * [StorSimple Virtual Array Update 0.1 e 0.2 Notas de lançamento](storsimple-ova-update-01-release-notes.md)
-* [StorSimple Notas de lançamento de disponibilidade geral de matriz virtual](storsimple-ova-pp-release-notes.md)
-
+* [StorSimple Notas de lançamento de disponibilidade geral de matriz virtual](./storsimple-virtual-array-update-06-release-notes.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: d7c7cf335336cc552adaf5d9490bc58d64b0cdc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2395e3c6f2026bc1024de38122bc20959fdcf9b7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515436"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967096"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Utilize o serviço StorSimple Device Manager para administrar o seu StorSimple Virtual Array
 ![fluxo de processo de configuração](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -34,7 +34,7 @@ Depois de ler este artigo, saberá como:
 * Administrar o seu StorSimple Virtual Array através do serviço StorSimple Device Manager
 
 > [!NOTE]
-> Para visualizar as opções de gestão disponíveis para o dispositivo da série StorSimple 8000, consulte [o serviço StorSimple Manager para administrar o seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+> Para visualizar as opções de gestão disponíveis para o dispositivo da série StorSimple 8000, consulte [o serviço StorSimple Manager para administrar o seu dispositivo StorSimple](./storsimple-8000-manager-service-administration.md).
 > 
 > 
 
@@ -78,4 +78,3 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter informações sobre a UI web e como usá-lo, vá ao [Uso da UI web StorSimple para administrar o seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

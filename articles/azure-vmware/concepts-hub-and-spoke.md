@@ -3,12 +3,12 @@ title: Conceito - Integre uma implementação de Solução VMware Azure num hub 
 description: Saiba como integrar uma implementação de Azure VMware Solution num hub e falar arquitetura em Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: da4a5f5ec6fa2b0a2733e8d1bf0243ec75f38d55
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 788ef9886e0d102a549e84cd01c658e9e4131c63
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577724"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967453"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integre a Solução Azure VMware num hub e falou arquitetura
 
@@ -38,7 +38,7 @@ A arquitetura tem os seguintes componentes principais:
 
 - **Local:** Centro de dados do cliente no local ligado ao Azure através de uma ligação ExpressRoute.
 
-- **Nuvem privada Azure VMware Solution:** Azure VMware Solution SDDC formado por um ou mais aglomerados vSphere, cada um com um máximo de 16 nós.
+- **Nuvem privada Azure VMware Solution:** Azure VMware Solution SDDC formado por um ou mais clusters vSphere, cada um com um máximo de 16 anfitriões.
 
 - **Gateway ExpressRoute:** Permite a comunicação entre a nuvem privada Azure VMware Solution, serviços partilhados na rede virtual Hub e cargas de trabalho em execução em redes virtuais Spoke.
 
