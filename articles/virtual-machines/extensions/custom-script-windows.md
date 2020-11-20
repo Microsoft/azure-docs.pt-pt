@@ -5,17 +5,18 @@ services: virtual-machines-windows
 manager: carmonm
 author: bobbytreed
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: 0bb1e4cb9b24c9b46f623e1604930367b82a47eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8d11ff6eaab8ed6a13c3c2aa1b712cc57e7825ea
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973823"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960976"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script Personalizado para o Windows
 
@@ -125,14 +126,14 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 | Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | data |
-| publicador | Microsoft.Compute | cadeia |
-| tipo | CustomScriptExtension | cadeia |
+| publicador | Microsoft.Compute | string |
+| tipo | CustomScriptExtension | string |
 | typeHandlerVersion | 1.10 | int |
 | fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matriz |
 | timetamp (por exemplo) | 123456789 | Inteiro de 32 bits |
-| commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | cadeia |
-| armazenamentoSame de número de armazenamento (por exemplo) | exemplostorageacct | cadeia |
-| armazenamentoSColho (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia |
+| commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
+| armazenamentoSame de número de armazenamento (por exemplo) | exemplostorageacct | string |
+| armazenamentoSColho (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 | entidade geridaId (por exemplo) | { } ou { "clientId": "31b403a-c364-4240-a7ff-d85fb6cd7232" } ou {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | objeto json |
 
 >[!NOTE]

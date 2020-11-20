@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 156da7504a1a5e2a704e52a783fcd3e437a59867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2efd3e9c9ca97ea3d94b03bd5e440cd24d5da5da
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986265"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960609"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analise a segurança da sua máquina virtual com vista de grupo de segurança usando a API REST
 
@@ -27,14 +27,14 @@ ms.locfileid: "90986265"
 > - [API REST](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
-> A API do Grupo de Segurança já não está a ser mantida e será depreciada em breve. Utilize a [funcionalidade Regras de Segurança Eficazes](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) que fornece a mesma funcionalidade. 
+> A API do Grupo de Segurança já não está a ser mantida e será depreciada em breve. Utilize a [funcionalidade Regras de Segurança Eficazes](./network-watcher-security-group-view-overview.md) que fornece a mesma funcionalidade. 
 
 A visão do grupo de segurança devolve regras de segurança configuradas e eficazes de segurança de rede que são aplicadas a uma máquina virtual. Esta capacidade é útil para auditar e diagnosticar grupos de segurança de rede e regras que são configuradas num VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos como recuperar as regras de segurança eficazes e aplicadas a uma máquina virtual usando REST API
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Neste cenário, ligue para a API do Observador de Rede para obter a visão do grupo de segurança para uma máquina virtual. A ARMclient é utilizada para chamar a API REST usando o PowerShell. ARMClient é encontrado em chocolate no [ARMClient em Chocolatey](https://chocolatey.org/packages/ARMClient)
 
@@ -115,7 +115,7 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 
 ## <a name="view-the-response"></a>Ver a resposta
 
-A amostra a seguir é a resposta devolvida do comando anterior. Os resultados mostram todas as regras de segurança eficazes e aplicadas na máquina virtual avariadas em grupos de **Regras de Segurança de Rede, Regras** **de Segurança Padrão**e **Regras de Segurança Eficaz.**
+A amostra a seguir é a resposta devolvida do comando anterior. Os resultados mostram todas as regras de segurança eficazes e aplicadas na máquina virtual avariadas em grupos de **Regras de Segurança de Rede, Regras** **de Segurança Padrão** e **Regras de Segurança Eficaz.**
 
 ```json
 
@@ -186,5 +186,3 @@ A amostra a seguir é a resposta devolvida do comando anterior. Os resultados mo
 ## <a name="next-steps"></a>Passos seguintes
 
 Visite [grupos de segurança de rede de auditoria (NSG) com o Observador de Rede](network-watcher-security-group-view-powershell.md) para aprender a automatizar a validação de Grupos de Segurança da Rede.
-
-

@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 3c3dac8c8798b9c56b746a2e4e232f43ef967ebe
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 24d1992db5f1826045fdb47397e44dc2e2fbdaf9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960308"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962166"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utilizar a Versão 2 da Extensão de Script Personalizado do Azure com as máquinas virtuais do Linux
 A versão de extensão de scripts personalizada 2 descarrega e executa scripts em máquinas virtuais Azure. Esta extensão é útil para configuração pós-implantação, instalação de software ou qualquer outra tarefa de configuração/gestão. Você pode baixar scripts a partir de Azure Storage ou outro local de internet acessível, ou você pode fornecer-lhes para o tempo de execução da extensão. 
@@ -115,16 +116,16 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 | Nome | Valor / Exemplo | Tipo de Dados | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | data |
-| publicador | Microsoft.Compute.Extensions | cadeia |
-| tipo | PersonalScript | cadeia |
+| publicador | Microsoft.Compute.Extensions | string |
+| tipo | PersonalScript | string |
 | typeHandlerVersion | 2.1 | int |
 | fileUris (por exemplo) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matriz |
-| commandToExecute (por exemplo) | MyPythonScript.py pitão \<my-param1> | cadeia |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | cadeia |
+| commandToExecute (por exemplo) | MyPythonScript.py pitão \<my-param1> | string |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (por exemplo) | false | boolean |
 | timetamp (por exemplo) | 123456789 | Inteiro de 32 bits |
-| armazenamentoSame de número de armazenamento (por exemplo) | exemplostorageacct | cadeia |
-| armazenamentoSColho (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia |
+| armazenamentoSame de número de armazenamento (por exemplo) | exemplostorageacct | string |
+| armazenamentoSColho (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 | entidade geridaId (por exemplo) | { } ou { "clientId": "31b403a-c364-4240-a7ff-d85fb6cd7232" } ou {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | objeto json |
 
 ### <a name="property-value-details"></a>Detalhes do valor da propriedade
@@ -208,7 +209,7 @@ O CustomScript utiliza o seguinte algoritmo para executar um script.
  1. base64 descodificar o valor do script
  1. _tentativa_ de gunzip o valor descodificado base64
  1. escrever o valor descodificado (e opcionalmente descomprimido) para o disco (/var/lib/waagent/custom-script/#/script.sh)
- 1. execute o script usando _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh.
+ 1. execute o script utilizando _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh.
 
 ####  <a name="property-managedidentity"></a>Propriedade: managedIdentity
 > [!NOTE]

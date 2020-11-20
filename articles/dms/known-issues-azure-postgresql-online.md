@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 14722f46f06351504583da7231179d206f7a3c26
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: db2f6e95153610e0a1b79cf5d30cea3c917333d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893735"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962574"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Questões conhecidas/limitações de migração com migrações on-line de PostgreSQL a Azure DB para PostgreSQL
 
@@ -96,13 +96,13 @@ Quando tentar efetuar uma migração on-line de AWS RDSQL para Azure Database fo
 - **Erro**: O Valor predefinido de coluna '{column}' na tabela '{table}' na base de dados '{database}' é diferente nos servidores de origem e de destino. É '{value on source}' na origem e '{value on target}' no destino.
 
   **Limitação:** Este erro ocorre quando o valor predefinido num esquema de coluna é diferente entre as bases de dados de origem e alvo.
-  **Solução alternativa**: Certifique-se de que o esquema no esquema do alvo corresponde ao esquema da fonte. Para obter detalhes sobre o esquema migratório, consulte a [documentação de migração online Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Solução alternativa**: Certifique-se de que o esquema no esquema do alvo corresponde ao esquema da fonte. Para obter detalhes sobre o esquema migratório, consulte a [documentação de migração online Azure PostgreSQL](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Erro**: A base de dados de destino '{database}' tem '{number of tables}' tabelas, ao passo que a base de dados de origem '{database}' tem '{number of tables}' tabelas. O número de tabelas nas bases de dados de origem e de destino deve coincidir.
 
   **Limitação:** Este erro ocorre quando o número de tabelas é diferente entre as bases de dados de origem e alvo.
 
-  **Solução alternativa**: Certifique-se de que o esquema no esquema do alvo corresponde ao esquema da fonte. Para obter detalhes sobre o esquema migratório, consulte a [documentação de migração online Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Solução alternativa**: Certifique-se de que o esquema no esquema do alvo corresponde ao esquema da fonte. Para obter detalhes sobre o esquema migratório, consulte a [documentação de migração online Azure PostgreSQL](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Erro:** A base de dados de origem {base de dados} está vazia.
 
@@ -113,7 +113,7 @@ Quando tentar efetuar uma migração on-line de AWS RDSQL para Azure Database fo
 - **Erro:** A base de dados-alvo {base de dados} está vazia. Migre o esquema.
 
   **Limitação:** Este erro ocorre quando não há esquema na base de dados-alvo. Certifique-se de que o esquema no alvo corresponde ao esquema da fonte.
-  **Solução alternativa**: Certifique-se de que o esquema no esquema do alvo corresponde ao esquema da fonte. Para obter detalhes sobre o esquema migratório, consulte a [documentação de migração online Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Solução alternativa**: Certifique-se de que o esquema no esquema do alvo corresponde ao esquema da fonte. Para obter detalhes sobre o esquema migratório, consulte a [documentação de migração online Azure PostgreSQL](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 ## <a name="other-limitations"></a>Outras limitações
 

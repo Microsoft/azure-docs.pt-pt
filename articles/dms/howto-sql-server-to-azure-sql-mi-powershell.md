@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: c82acb66266fd36e5b7155adbfa5bd5ade1b765c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1c45b99138a05ef78976b90f65f57304e676ff
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291992"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962778"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>Migrar o SqL Server para o SQL Gerenciado Instância com PowerShell & Serviço de Migração de Bases de Dados Azure
 
@@ -40,30 +40,30 @@ Este artigo inclui detalhes sobre como realizar migrações online e offline.
 Para completar estes passos, você precisa:
 
 * [SQL Server 2016 ou superior](https://www.microsoft.com/sql-server/sql-server-downloads) (qualquer edição).
-* Uma cópia local da base de dados **AdventureWorks2016,** que está disponível para download [aqui.](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017)
-* Para ativar o protocolo TCP/IP, que é desativado por predefinição com a instalação SQL Server Express. Ativar o protocolo TCP/IP seguindo o artigo [Ative ou desative um Protocolo de Rede de Servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-* Para configurar o seu [Windows Firewall para acesso ao motor de base de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* Uma cópia local da base de dados **AdventureWorks2016,** que está disponível para download [aqui.](/sql/samples/adventureworks-install-configure?view=sql-server-2017)
+* Para ativar o protocolo TCP/IP, que é desativado por predefinição com a instalação SQL Server Express. Ativar o protocolo TCP/IP seguindo o artigo [Ative ou desative um Protocolo de Rede de Servidor](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+* Para configurar o seu [Windows Firewall para acesso ao motor de base de dados](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Um SQL Managed Instance. Pode criar uma SqL Managed Instance seguindo os detalhes do artigo [Criar uma Instância Gerida ASQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
+* Um SQL Managed Instance. Pode criar uma SqL Managed Instance seguindo os detalhes do artigo [Criar uma Instância Gerida ASQL](../azure-sql/managed-instance/instance-create-quickstart.md).
 * Para descarregar e instalar [o Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 ou posterior.
-* Uma Rede Virtual Microsoft Azure criada utilizando o modelo de implementação do Gestor de Recursos Azure, que fornece ao Serviço de Migração de Bases de Dados Azure conectividade site-to-site aos seus servidores de origem no local, utilizando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [o VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Uma avaliação completa da sua base de dados no local e migração de esquemas utilizando o Data Migration Assistant, conforme descrito no artigo [Realizando uma avaliação de migração do SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
-* Para descarregar e instalar o `Az.DataMigration` módulo (versão 0.7.2 ou posterior) da Galeria PowerShell utilizando o [cmdlet De instalação-Módulo PowerShell](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
-* Para garantir que as credenciais utilizadas para ligar à origem SQL Server têm a permissão [do SERVIDOR DE CONTROLO.](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql)
+* Uma Rede Virtual Microsoft Azure criada utilizando o modelo de implementação do Gestor de Recursos Azure, que fornece ao Serviço de Migração de Bases de Dados Azure conectividade site-to-site aos seus servidores de origem no local, utilizando o [ExpressRoute](../expressroute/expressroute-introduction.md) ou [o VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* Uma avaliação completa da sua base de dados no local e migração de esquemas utilizando o Data Migration Assistant, conforme descrito no artigo [Realizando uma avaliação de migração do SQL Server](/sql/dma/dma-assesssqlonprem).
+* Para descarregar e instalar o `Az.DataMigration` módulo (versão 0.7.2 ou posterior) da Galeria PowerShell utilizando o [cmdlet De instalação-Módulo PowerShell](/powershell/module/powershellget/Install-Module?view=powershell-5.1).
+* Para garantir que as credenciais utilizadas para ligar à origem SQL Server têm a permissão [do SERVIDOR DE CONTROLO.](/sql/t-sql/statements/grant-server-permissions-transact-sql)
 * Para garantir que as credenciais utilizadas para se ligar ao exemplo gerido do SQL têm a permissão de BASE DE DADOS DE CONTROLO nas bases de dados de casos geridos sql alvo.
 
     > [!IMPORTANT]
-    > Para migrações on-line, já deve ter configurado as suas credenciais de Diretório Ativo Azure. Para mais informações, consulte o artigo [Utilize o portal para criar uma aplicação AD AZure e um responsável de serviço que possa aceder aos recursos.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+    > Para migrações on-line, já deve ter configurado as suas credenciais de Diretório Ativo Azure. Para mais informações, consulte o artigo [Utilize o portal para criar uma aplicação AD AZure e um responsável de serviço que possa aceder aos recursos.](../active-directory/develop/howto-create-service-principal-portal.md)
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Inscreva-se na subscrição do Microsoft Azure
 
-Inscreva-se na sua subscrição Azure utilizando o PowerShell. Para mais informações, consulte o artigo [Iniciar sação com a Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+Inscreva-se na sua subscrição Azure utilizando o PowerShell. Para mais informações, consulte o artigo [Iniciar sação com a Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos Azure é um recipiente lógico no qual os recursos da Azure são implantados e geridos.
 
-Criar um grupo de recursos utilizando o [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) comando.
+Criar um grupo de recursos utilizando o [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup) comando.
 
 O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na região *leste dos EUA.*
 
@@ -76,11 +76,11 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 Pode criar uma nova instância do Serviço de Migração da Base de Dados Azure utilizando o `New-AzDataMigrationService` cmdlet.
 Este cmdlet espera os seguintes parâmetros necessários:
 
-* *Nome do Grupo de Recursos Azure*. Pode utilizar [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) o comando para criar um grupo de Recursos Azure, como anteriormente mostrado e fornecer o seu nome como parâmetro.
+* *Nome do Grupo de Recursos Azure*. Pode utilizar [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup) o comando para criar um grupo de Recursos Azure, como anteriormente mostrado e fornecer o seu nome como parâmetro.
 * *Nome de serviço*. Cadeia que corresponde ao nome de serviço único desejado para O Serviço de Migração de Bases de Dados Azure.
 * *Localização*. Especifica a localização do serviço. Especifique uma localização do centro de dados Azure, como o Oeste dos EUA ou o Sudeste Asiático.
 * *Sku.* Este parâmetro corresponde ao nome DMS Sku. Os nomes Sku atualmente apoiados são *Basic_1vCore*, *Basic_2vCores,* *GeneralPurpose_4vCores*.
-* *Identificador de sub-rede virtual.* Pode utilizar o cmdlet [`New-AzVirtualNetworkSubnetConfig`](https://docs.microsoft.com//powershell/module/az.network/new-azvirtualnetworksubnetconfig) para criar uma sub-rede.
+* *Identificador de sub-rede virtual.* Pode utilizar o cmdlet [`New-AzVirtualNetworkSubnetConfig`](//powershell/module/az.network/new-azvirtualnetworksubnetconfig) para criar uma sub-rede.
 
 O exemplo a seguir cria um serviço chamado *MyDMS* no grupo de recursos *MyDMSResourceGroup* localizado na região *leste dos EUA* usando uma rede virtual chamada *MyVNET* e uma sub-rede chamada *MySubnet*.
 
@@ -161,7 +161,7 @@ Em seguida, crie e inicie uma tarefa do Serviço de Migração da Base de Dados 
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Criar parâmetros de credencial para a origem e o alvo
 
-Crie credenciais de segurança de ligação como um objeto [PSCredential.](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0)
+Crie credenciais de segurança de ligação como um objeto [PSCredential.](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0)
 
 O exemplo a seguir mostra a criação de objetos *PSCredential* para as ligações de origem e alvo, fornecendo palavras-passe como variáveis de cordas *$sourcePassword* e *$targetPassword*.
 
@@ -226,7 +226,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 ```
 
 > [!NOTE]
-> O Serviço de Migração de Bases de Dados Azure não suporta a utilização de um token SAS de nível de conta. Deve utilizar um SAS URI para o recipiente da conta de armazenamento. Veja [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) (Saiba como obter o URI da SAS para o contentor de blobs).
+> O Serviço de Migração de Bases de Dados Azure não suporta a utilização de um token SAS de nível de conta. Deve utilizar um SAS URI para o recipiente da conta de armazenamento. Veja [Learn how to get the SAS URI for blob container](../vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container) (Saiba como obter o URI da SAS para o contentor de blobs).
 
 ### <a name="additional-configuration-requirements"></a>Requisitos adicionais de configuração
 
@@ -290,8 +290,8 @@ Independentemente de estar a realizar uma migração offline ou online, o `New-A
 * *Nome de tarefas*. Nome da tarefa a ser criada. 
 * *FonteConnection*. Objeto AzDmsConnInfo que representa a ligação do Servidor SQL de origem.
 * *TargetConnection*. Objeto AzDmsConnInfo que representa a ligação target Azure SQL Managed Instance.
-* *SourceCred*. [Objeto PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) para ligar ao servidor de origem.
-* *TargetCred*. [Objeto PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) para ligar ao servidor alvo.
+* *SourceCred*. [Objeto PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) para ligar ao servidor de origem.
+* *TargetCred*. [Objeto PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) para ligar ao servidor alvo.
 * *Database selecionada*. AzDataMigrationSelectedDB objeto que representa o mapeamento da base de dados de origem e alvo.
 * *BackupFileShare*. O objeto FileShare que representa a partilha de rede local para a ações da Azure Database Migration Service pode levar as cópias de dados de origem.
 * *BackupBlobSasUri*. O SAS URI que fornece ao Serviço de Migração da Base de Dados Azure acesso ao contentor da conta de armazenamento para o qual o serviço envia os ficheiros de backup. Veja Learn how to get the SAS URI for blob container (Saiba como obter o URI da SAS para o contentor de blobs).
@@ -422,4 +422,4 @@ Para obter informações sobre cenários migratórios adicionais (pares de orige
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o Serviço de Migração da Base de Dados Azure no artigo [O que é o Serviço de Migração de Bases de Dados Azure?](https://docs.microsoft.com/azure/dms/dms-overview)
+Saiba mais sobre o Serviço de Migração da Base de Dados Azure no artigo [O que é o Serviço de Migração de Bases de Dados Azure?](./dms-overview.md)

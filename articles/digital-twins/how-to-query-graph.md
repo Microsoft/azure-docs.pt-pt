@@ -4,29 +4,27 @@ titleSuffix: Azure Digital Twins
 description: Veja como consultar o gráfico gémeo Azure Digital Twins para obter informações.
 author: baanders
 ms.author: baanders
-ms.date: 3/26/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 57b6bac49f0142b008a21accfffb614453cc6aec
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.custom: contperfq2
+ms.openlocfilehash: 6533cbde10dfc924bd982357def859229eb1714a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358155"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963169"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
 
-Este artigo oferece exemplos e mais detalhes para usar a [linguagem de consulta Azure Digital Twins](concepts-query-language.md) para consultar o gráfico [gémeo](concepts-twins-graph.md) para obter informações. Execute consultas no gráfico utilizando as [**APIs de Consulta**](/rest/api/digital-twins/dataplane/query)de Gémeos Digitais Azure .
+Este artigo oferece exemplos de consulta e instruções mais detalhadas para usar a **linguagem de consulta Azure Digital Twins** para consultar o seu gráfico [gémeo](concepts-twins-graph.md) para obter informações. (Para uma introdução à linguagem de consulta e uma lista completa das suas [*características, consulte Conceitos: Linguagem de consulta*](concepts-query-language.md).)
 
-[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
+Este artigo começa com consultas de amostra que ilustram a estrutura linguística de consulta e operações de consulta comuns para gémeos digitais. Em seguida, descreve como executar as suas consultas depois de as ter escrito, utilizando a [API](/rest/api/digital-twins/dataplane/query) de Consulta de Gémeos Digitais Azure ou um [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
-O resto deste artigo fornece exemplos de como utilizar estas operações.
+> [!TIP]
+> Se estiver a executar as consultas de amostra abaixo com uma chamada API ou SDK, terá de condensar o texto de consulta numa única linha.
 
-## <a name="query-syntax"></a>Sintaxe de consulta
-
-Esta secção contém consultas de amostra que ilustram a estrutura linguística de consulta e realizam possíveis operações de consulta em [gémeos digitais.](concepts-twins-graph.md)
-
-### <a name="show-all-existing-digital-twins"></a>Mostrar todos os gémeos digitais existentes
+## <a name="show-all-digital-twins"></a>Mostre todos os gémeos digitais
 
 Aqui está a consulta básica que devolverá uma lista de todos os gémeos digitais no caso:
 
@@ -35,108 +33,7 @@ SELECT *
 FROM DIGITALTWINS
 ```
 
-### <a name="select-top-items"></a>Selecione itens de topo
-
-Pode selecionar os vários itens "top" numa consulta utilizando a `Select TOP` cláusula.
-
-```sql
-SELECT TOP (5)
-FROM DIGITALTWINS
-WHERE ...
-```
-
-### <a name="count-items"></a>Contar itens
-
-Pode contar o número de itens num conjunto de resultados utilizando a `Select COUNT` cláusula:
-
-```sql
-SELECT COUNT()
-FROM DIGITALTWINS
-```
-
-Adicione uma `WHERE` cláusula para contar o número de itens que satisfazem determinados critérios. Aqui estão alguns exemplos de contagem com um filtro aplicado baseado no tipo de modelo gémeo (para mais informações sobre esta sintaxe, ver [*Consulta por modelo*](#query-by-model) abaixo):
-
-```sql
-SELECT COUNT()
-FROM DIGITALTWINS
-WHERE IS_OF_MODEL('dtmi:sample:Room;1')
-
-SELECT COUNT()
-FROM DIGITALTWINS c
-WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
-```
-
-Também pode usar `COUNT` juntamente com a `JOIN` cláusula. Aqui está uma consulta que conta todas as lâmpadas contidas nos painéis luminosos das salas 1 e 2:
-
-```sql
-SELECT COUNT()  
-FROM DIGITALTWINS Room  
-JOIN LightPanel RELATED Room.contains  
-JOIN LightBulb RELATED LightPanel.contains  
-WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
-AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
-AND Room.$dtId IN ['room1', 'room2']
-```
-
-### <a name="specify-return-set-with-projections"></a>Especificar o conjunto de retorno com as projeções
-
-Utilizando projeções, pode escolher quais as colunas que uma consulta irá devolver.
-
->[!NOTE]
->Neste momento, propriedades complexas não são suportadas. Para garantir que as propriedades de projeção são válidas, combine as projeções com uma `IS_PRIMITIVE` verificação.
-
-Aqui está um exemplo de uma consulta que usa a projeção para devolver gémeos e relacionamentos. A seguinte consulta projeta o *Consumidor,* *Fábrica* e *Borda* a partir de um cenário em que uma Fábrica com uma *Identificação* de *ABC* está relacionada com o *Consumidor* através de uma relação de *Factory.customer,* e essa relação é apresentada como a *Borda.*
-
-```sql
-SELECT Consumer, Factory, Edge
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-```
-
-Você também pode usar a projeção para devolver uma propriedade de um gémeo. A seguinte consulta projeta o *nome* propriedade dos *Consumidores* que estão relacionados com a *Fábrica* com uma identificação de *ABC* através de uma relação de *Factory.customer*.
-
-```sql
-SELECT Consumer.name
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Consumer.name)
-```
-
-Você também pode usar a projeção para devolver uma propriedade de uma relação. Tal como no exemplo anterior, a seguinte consulta projeta o Nome do *Imóvel* dos *Consumidores* relacionado com a *Fábrica* com uma Identificação de *ABC* através de uma relação de *Factory.customer;* mas agora também devolve duas propriedades dessa relação, *prop1* e *prop2.* Fá-lo nomeando a relação *Edge* e reunindo as suas propriedades.  
-
-```sql
-SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
-```
-
-Também pode usar pseudónimos para simplificar consultas com projeção.
-
-A seguinte consulta faz as mesmas operações que o exemplo anterior, mas alia os nomes dos imóveis para `consumerName` `first` , e `second` `factoryArea` .
-
-```sql
-SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)"
-```
-
-Aqui está uma consulta semelhante que consulta o mesmo conjunto que acima, mas projeta apenas a *propriedade Consumer.name* como , e projeta `consumerName` a *Fábrica* completa como um gémeo.
-
-```sql
-SELECT Consumer.name AS consumerName, Factory
-FROM DIGITALTWINS Factory
-JOIN Consumer RELATED Factory.customer Edge
-WHERE Factory.$dtId = 'ABC'
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name)
-```
-
-### <a name="query-by-property"></a>Consulta por propriedade
+## <a name="query-by-property"></a>Consulta por propriedade
 
 Obtenha gémeos digitais por **propriedades** (incluindo ID e metadados):
 
@@ -169,7 +66,7 @@ Você também pode obter gémeos com base no **tipo de propriedade.** Aqui está
 SELECT * FROM DIGITALTWINS T WHERE IS_NUMBER(T.Temperature)
 ```
 
-### <a name="query-by-model"></a>Consulta por modelo
+## <a name="query-by-model"></a>Consulta por modelo
 
 O `IS_OF_MODEL` operador pode ser utilizado para filtrar com base no [**modelo**](concepts-models.md)do gémeo.
 
@@ -210,7 +107,7 @@ Aqui está um exemplo de consulta especificando um valor para os três parâmetr
 SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
 ```
 
-### <a name="query-based-on-relationships"></a>Consulta baseada em relacionamentos
+## <a name="query-by-relationship"></a>Consulta por relacionamento
 
 Ao consultar com base nas **relações** dos gémeos digitais, a linguagem de consulta Azure Digital Twins tem uma sintaxe especial.
 
@@ -224,7 +121,7 @@ A secção seguinte dá vários exemplos do que isto parece.
 > [!TIP]
 > Conceptualmente, esta funcionalidade imita a funcionalidade centrada no documento do CosmosDB, onde `JOIN` pode ser realizada em objetos infantis dentro de um documento. CosmosDB usa a `IN` palavra-chave para indicar que se `JOIN` destina a iterar sobre elementos de matriz dentro do documento de contexto atual.
 
-#### <a name="relationship-based-query-examples"></a>Exemplos de consulta baseados em relacionamentos
+### <a name="relationship-based-query-examples"></a>Exemplos de consulta baseados em relacionamentos
 
 Para obter um conjunto de dados que inclua relacionamentos, use uma única `FROM` declaração seguida de `JOIN` declarações N, onde as `JOIN` declarações expressam relações sobre o resultado de um `FROM` anterior ou `JOIN` declaração.
 
@@ -237,10 +134,10 @@ JOIN CT RELATED T.contains
 WHERE T.$dtId = 'ABC'
 ```
 
->[!NOTE]
+> [!NOTE]
 > O desenvolvedor não precisa de correlacionar isto `JOIN` com um valor chave na cláusula `WHERE` (ou especificar um valor chave em linha com a `JOIN` definição). Esta correlação é calculada automaticamente pelo sistema, uma vez que as propriedades da própria relação identificam a entidade-alvo.
 
-#### <a name="query-the-properties-of-a-relationship"></a>Consultar as propriedades de uma relação
+### <a name="query-the-properties-of-a-relationship"></a>Consultar as propriedades de uma relação
 
 Da mesma forma que os gémeos digitais têm propriedades descritas via DTDL, as relações também podem ter propriedades. Pode consultar gémeos **com base nas propriedades das suas relações.**
 A linguagem de consulta Azure Digital Twins permite filtrar e projeção de relacionamentos, atribuindo um pseudónimo à relação dentro da `JOIN` cláusula.
@@ -273,140 +170,198 @@ AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')
 AND Room.$dtId IN ['room1', 'room2']
 ```
 
-### <a name="other-compound-query-examples"></a>Outros exemplos de consulta composta
+## <a name="count-items"></a>Contar itens
+
+Pode contar o número de itens num conjunto de resultados utilizando a `Select COUNT` cláusula:
+
+```sql
+SELECT COUNT()
+FROM DIGITALTWINS
+```
+
+Adicione uma `WHERE` cláusula para contar o número de itens que satisfazem determinados critérios. Aqui estão alguns exemplos de contagem com um filtro aplicado baseado no tipo de modelo gémeo (para mais informações sobre esta sintaxe, ver [*Consulta por modelo*](#query-by-model) abaixo):
+
+```sql
+SELECT COUNT()
+FROM DIGITALTWINS
+WHERE IS_OF_MODEL('dtmi:sample:Room;1')
+
+SELECT COUNT()
+FROM DIGITALTWINS c
+WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
+```
+
+Também pode usar `COUNT` juntamente com a `JOIN` cláusula. Aqui está uma consulta que conta todas as lâmpadas contidas nos painéis luminosos das salas 1 e 2:
+
+```sql
+SELECT COUNT()  
+FROM DIGITALTWINS Room  
+JOIN LightPanel RELATED Room.contains  
+JOIN LightBulb RELATED LightPanel.contains  
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
+AND Room.$dtId IN ['room1', 'room2']
+```
+
+## <a name="filter-results-select-top-items"></a>Resultados do filtro: selecione itens de topo
+
+Pode selecionar os vários itens "top" numa consulta utilizando a `Select TOP` cláusula.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE ...
+```
+
+## <a name="filter-results-specify-return-set-with-projections"></a>Resultados do filtro: especifique o conjunto de retorno com as projeções
+
+Ao utilizar projeções na `SELECT` declaração, pode escolher quais as colunas que uma consulta irá devolver.
+
+>[!NOTE]
+>Neste momento, propriedades complexas não são suportadas. Para garantir que as propriedades de projeção são válidas, combine as projeções com uma `IS_PRIMITIVE` verificação.
+
+Aqui está um exemplo de uma consulta que usa a projeção para devolver gémeos e relacionamentos. A seguinte consulta projeta o *Consumidor,* *Fábrica* e *Borda* a partir de um cenário em que uma Fábrica com uma *Identificação* de *ABC* está relacionada com o *Consumidor* através de uma relação de *Factory.customer,* e essa relação é apresentada como a *Borda.*
+
+```sql
+SELECT Consumer, Factory, Edge
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
+```
+
+Você também pode usar a projeção para devolver uma propriedade de um gémeo. A seguinte consulta projeta o *nome* propriedade dos *Consumidores* que estão relacionados com a *Fábrica* com uma identificação de *ABC* através de uma relação de *Factory.customer*.
+
+```sql
+SELECT Consumer.name
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
+AND IS_PRIMITIVE(Consumer.name)
+```
+
+Você também pode usar a projeção para devolver uma propriedade de uma relação. Tal como no exemplo anterior, a seguinte consulta projeta o Nome do *Imóvel* dos *Consumidores* relacionado com a *Fábrica* com uma Identificação de *ABC* através de uma relação de *Factory.customer;* mas agora também devolve duas propriedades dessa relação, *prop1* e *prop2.* Fá-lo nomeando a relação *Edge* e reunindo as suas propriedades.  
+
+```sql
+SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
+```
+
+Também pode usar pseudónimos para simplificar consultas com projeção.
+
+A seguinte consulta faz as mesmas operações que o exemplo anterior, mas alia os nomes dos imóveis `consumerName` `first` para, `second` e `factoryArea` .
+
+```sql
+SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)"
+```
+
+Aqui está uma consulta semelhante que consulta o mesmo conjunto que acima, mas projeta apenas a *propriedade Consumer.name* como , e projeta `consumerName` a *Fábrica* completa como um gémeo.
+
+```sql
+SELECT Consumer.name AS consumerName, Factory
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name)
+```
+
+## <a name="build-efficient-queries-with-the-in-operator"></a>Construa consultas eficientes com o operador IN
+
+Você pode reduzir significativamente o número de consultas que você precisa construindo uma variedade de gémeos e consultando com o `IN` operador. 
+
+Por exemplo, considere um cenário em que *os edifícios* contenham *Pisos* e Pisos contenham *Quartos.* *Rooms* Para procurar quartos dentro de um edifício que são quentes, uma maneira é seguir estes passos.
+
+1. Encontre pisos no edifício com base na `contains` relação
+
+    ```sql
+    SELECT Floor
+    FROM DIGITALTWINS Building
+    JOIN Floor RELATED Building.contains
+    WHERE Building.$dtId = @buildingId
+    ```
+
+2. Para encontrar quartos, em vez de considerar os pisos um a um e executar uma `JOIN` consulta para encontrar os quartos para cada um, você pode consultar com uma coleção dos pisos do edifício (chamado *Floor* na consulta abaixo).
+
+    Na aplicação do cliente:
+    
+    ```csharp
+    var floors = "['floor1','floor2', ..'floorn']"; 
+    ```
+    
+    Em consulta:
+    
+    ```sql
+    
+    SELECT Room
+    FROM DIGITALTWINS Floor
+    JOIN Room RELATED Floor.contains
+    WHERE Floor.$dtId IN ['floor1','floor2', ..'floorn']
+    AND Room. Temperature > 72
+    AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
+    
+    ```
+
+## <a name="other-compound-query-examples"></a>Outros exemplos de consulta composta
 
 Pode **combinar** qualquer um dos tipos de consulta acima, utilizando operadores de combinação para incluir mais detalhes numa única consulta. Aqui estão alguns exemplos adicionais de consultas compostas que consultam mais de um tipo de descritor gémeo ao mesmo tempo.
 
 | Descrição | Consulta |
 | --- | --- |
-| Fora dos dispositivos que a *Sala 123* tem, devolva os dispositivos MxChip que servem o papel de Operador | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
+| Fora dos dispositivos que a *Sala 123* tem, devolva os dispositivos MxChip que servem o papel de Operador | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contoso:com:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | Arranja gémeos que têm uma relação chamada *Contém* com outro gémeo que tem uma ID de *id1* | `SELECT Room`<br>`FROM DIGITALTWINS Room`<br>`JOIN Thermostat RELATED Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
-| Obtenha todos os quartos deste modelo de quarto que são contidos pelo *piso 11* | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')` |
+| Obtenha todos os quartos deste modelo de quarto que são contidos pelo *piso 11* | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contoso:com:DigitalTwins:Room;1')` |
 
-## <a name="reference-expressions-and-conditions"></a>Referência: Expressões e condições
+## <a name="run-queries-with-the-api"></a>Executar consultas com a API
 
-Esta secção contém referência para os operadores e funções disponíveis ao escrever consultas Azure Digital Twins.
+Uma vez decidido uma cadeia de consulta, executa-a fazendo uma chamada para a [**API de Consulta**](/rest/api/digital-twins/dataplane/query).
 
-### <a name="operators"></a>Operadores
+Pode ligar diretamente para a API ou utilizar um dos [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) disponíveis para a Azure Digital Twins.
 
-São apoiados os seguintes operadores:
-
-| Família | Operadores |
-| --- | --- |
-| Lógico |E, OU, NÃO |
-| Comparação |=, !=, <, >, <=, >= |
-| Contains | IN, NIN |
-
-### <a name="functions"></a>Funções
-
-São suportadas as seguintes funções de verificação e fundição:
-
-| Função | Descrição |
-| -------- | ----------- |
-| IS_DEFINED | Devolve um Boolean indicando se a propriedade foi atribuída um valor. Isto só é suportado quando o valor é um tipo primitivo. Os tipos primitivos incluem cordas, booleanos, numéricos, ou `null` . DataTime, os tipos de objetos e as matrizes não são suportados. |
-| IS_OF_MODEL | Devolve um valor Boolean que indica se o gémeo especificado corresponde ao tipo de modelo especificado |
-| IS_BOOL | Devolve um valor Boolean que indica se o tipo de expressão especificada é um Boolean. |
-| IS_NUMBER | Devolve um valor Boolean que indica se o tipo de expressão especificada é um número. |
-| IS_STRING | Devolve um valor Boolean que indica se o tipo de expressão especificada é uma corda. |
-| IS_NULL | Devolve um valor Boolean que indica se o tipo de expressão especificada é nulo. |
-| IS_PRIMITIVE | Devolve um valor Boolean que indica se o tipo de expressão especificada é primitivo (corda, booleana, numérico ou `null` . |
-| IS_OBJECT | Devolve um valor Boolean que indica se o tipo de expressão especificada é um objeto JSON. |
-
-As seguintes funções de corda são suportadas:
-
-| Função | Descrição |
-| -------- | ----------- |
-| STARTWITH (x, y) | Devolve um Boolean indicando se a primeira expressão de corda começa com a segunda. |
-| ENDSWITH (x, y) | Devolve um Boolean indicando se a primeira expressão de corda termina com a segunda. |
-
-## <a name="run-queries-with-an-api-call"></a>Executar consultas com uma chamada de API
-
-Uma vez decidido uma cadeia de consulta, executa-a fazendo uma chamada para a **API de Consulta**.
-O seguinte código snippet ilustra esta chamada da aplicação do cliente:
+O seguinte código snippet ilustra a chamada [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) de uma aplicação do cliente:
 
 ```csharp
+    string adtInstanceEndpoint = "https://<your-instance-hostname>";
 
-var adtInstanceEndpoint = new Uri(your-Azure-Digital-Twins-instance-URL>);
-var tokenCredential = new DefaultAzureCredential();
+    var credential = new DefaultAzureCredential();
+    DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceEndpoint), credential);
 
-var client = new DigitalTwinsClient(adtInstanceEndpoint, tokenCredential);
-
-string query = "SELECT * FROM digitaltwins";
-AsyncPageable<string> result = await client.QueryAsync<string>(query);
+    // Run a query for all twins   
+    string query = "SELECT * FROM DIGITALTWINS";
+    AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
 ```
 
-Esta consulta de retorna de chamada resulta na forma de um objeto de corda.
+Esta consulta de retorna de chamada resulta na forma de um objeto [BasicDigitalTwin.](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true)
 
 Consulta chama de suporte de paging. Aqui está um exemplo completo usando `BasicDigitalTwin` como tipo de resultado de consulta com manipulação de erros e paging:
 
 ```csharp
-string query = "SELECT * FROM digitaltwins";
 try
 {
-    AsyncPageable<BasicDigitalTwin> qresult = client.QueryAsync<BasicDigitalTwin>(query);
-    await foreach (BasicDigitalTwin item in qresult)
-    {
-        // Do something with each result
-    }
+    await foreach(BasicDigitalTwin twin in result)
+        {
+            // You can include your own logic to print the result
+            // The logic below prints the twin's ID and contents
+            Console.WriteLine($"Twin ID: {twin.Id} \nTwin data");
+            IDictionary<string, object> contents = twin.Contents;
+            foreach (KeyValuePair<string, object> kvp in contents)
+            {
+                Console.WriteLine($"{kvp.Key}  {kvp.Value}");
+            }
+        }
 }
 catch (RequestFailedException e)
 {
-    Log.Error($"Error {e.Status}: {e.Message}");
+    Console.WriteLine($"Error {e.Status}: {e.Message}");
     throw;
 }
 ```
 
-## <a name="query-limitations"></a>Limitações de consulta
+## <a name="next-steps"></a>Passos seguintes
 
-Pode haver um atraso de até 10 segundos antes que as alterações no seu caso sejam refletidas em consultas. Por exemplo, se completar uma operação como criar ou eliminar gémeos com a API DigitalTwins, o resultado pode não ser imediatamente refletido nos pedidos da API de Consulta. Esperar por um curto período deve ser suficiente para ser resolvido.
-
-Existem limitações adicionais na `JOIN` utilização.
-
-* Não há subqueries suportados dentro da `FROM` declaração.
-* `OUTER JOIN` a semântica não é suportada, o que significa que se a relação tem uma classificação de zero, então toda a "linha" é eliminada do conjunto de resultados de saída.
-* A profundidade transversal de gráficos é restrita a cinco `JOIN` níveis por consulta.
-* A fonte de `JOIN` operações é restrita: a consulta deve declarar os gémeos onde a consulta começa.
-
-## <a name="query-best-practices"></a>Melhores práticas de consulta
-
-Abaixo estão algumas dicas para consulta com Azure Digital Twins.
-
-* Considere o padrão de consulta durante a fase de conceção do modelo. Tente garantir que as relações que precisam de ser respondidas numa única consulta são modeladas como uma relação de nível único.
-* Desenhe propriedades de forma a evitar grandes conjuntos de resultados do graf traversal.
-* Você pode reduzir significativamente o número de consultas que você precisa construindo uma variedade de gémeos e consultando com o `IN` operador. Por exemplo, considere um cenário em que *os edifícios* contenham *Pisos* e Pisos contenham *Quartos.* *Rooms* Para procurar quartos dentro de um edifício que são quentes, você pode:
-
-    1. Encontre pisos no edifício com base na `contains` relação
-
-        ```sql
-        SELECT Floor
-        FROM DIGITALTWINS Building
-        JOIN Floor RELATED Building.contains
-        WHERE Building.$dtId = @buildingId
-        ```
-
-    2. Para encontrar quartos, em vez de considerar os pisos um a um e executar uma `JOIN` consulta para encontrar os quartos para cada um, você pode consultar com uma coleção dos pisos do edifício (chamado *Floor* na consulta abaixo).
-
-        Na aplicação do cliente:
-
-        ```csharp
-        var floors = "['floor1','floor2', ..'floorn']"; 
-        ```
-
-        Em consulta:
-
-        ```sql
-
-        SELECT Room
-        FROM DIGITALTWINS Floor
-        JOIN Room RELATED Floor.contains
-        WHERE Floor.$dtId IN ['floor1','floor2', ..'floorn']
-        AND Room. Temperature > 72
-        AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
-
-        ```
-
-* Os nomes e valores dos imóveis são sensíveis ao caso, por isso tenha cuidado para usar os nomes exatos definidos nos modelos. Se os nomes dos imóveis estiverem mal escritos ou mal arquivados, o conjunto de resultados está vazio sem erros devolvidos.
-
-## <a name="next-steps"></a>Próximos passos
-
-Saiba mais sobre as [APIs e SDKs das Gémeas Digitais Azure,](how-to-use-apis-sdks.md)incluindo a API de Consulta, que é usada para executar as consultas deste artigo.
+Saiba mais sobre as [APIs e SDKs das Gémeas Digitais Azure,](how-to-use-apis-sdks.md)incluindo a API de Consulta que é usada para executar as consultas deste artigo.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.openlocfilehash: fbbb298dd9e5b568e6a1dc2c4ef731b8521f8308
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d736c09fc1c9490f79dfc526895970e01b8b45cc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85556020"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963186"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Coloque o seu dispositivo StorSimple no portal do Governo
 
@@ -153,7 +153,7 @@ Execute estes passos no anfitrião do Windows Server.
 
 > [!IMPORTANT]
 > * Para uma maior disponibilidade da solução StorSimple, recomendamos que configure o MPIO nos servidores de anfitrião (opcionais) antes de configurar o iSCSI. A configuração do MPIO nos servidores de anfitrião irá garantir que os servidores podem tolerar falhas de ligação, da rede ou da interface.
-> * Para obter as instruções de configuração e instalação do MPIO e do iSCSI no anfitrião do Windows Server, consulte [Configurar o MPIO para o dispositivo StorSimple](storsimple-configure-mpio-windows-server.md). Estas instruções também incluem os passos para montar, inicializar e formatar os volumes do StorSimple.
+> * Para obter as instruções de configuração e instalação do MPIO e do iSCSI no anfitrião do Windows Server, consulte [Configurar o MPIO para o dispositivo StorSimple](./storsimple-8000-configure-mpio-windows-server.md). Estas instruções também incluem os passos para montar, inicializar e formatar os volumes do StorSimple.
 > * Para obter as instruções de configuração e instalação do MPIO e do iSCSI no anfitrião do Linux, consulte [Configurar o MPIO para o anfitrião Linux do StorSimple](storsimple-configure-mpio-on-linux.md).
 
 Se decidir não configurar o MPIO, execute os seguintes passos para montar, inicializar e formatar os volumes do StorSimple num anfitrião do Windows Server.
@@ -172,7 +172,7 @@ Pode efetuar uma cópia de segurança manual em qualquer altura. Para obter os p
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configurar uma nova conta do Storage para o serviço
 Este passo é opcional e só precisa de o executar se não tiver ativado a criação automática de uma conta do Storage com o serviço. É obrigatória uma conta do Storage do Microsoft Azure para criar um contentor de volume do StorSimple.
 
-Se precisar de criar uma conta do Storage do Azure numa região diferente, consulte [Acerca das Contas do Storage do Azure](../storage/common/storage-create-storage-account.md) para obter instruções passo-a-passo.
+Se precisar de criar uma conta do Storage do Azure numa região diferente, consulte [Acerca das Contas do Storage do Azure](../storage/common/storage-account-create.md) para obter instruções passo-a-passo.
 
 Execute os seguintes passos no portal do Governo, na página **de serviço StorSimple Device Manager.**
 
@@ -199,4 +199,3 @@ Execute os seguintes passos no portal do Governo para criar uma cópia de segura
 ## <a name="next-steps"></a>Passos seguintes
 * Configurar um [dispositivo virtual](storsimple-8000-cloud-appliance-u2.md).
 * Utilizar o [serviço Gestor de Dispositivos do StorSimple](storsimple-8000-manager-service-administration.md) para gerir o dispositivo StorSimple.
-

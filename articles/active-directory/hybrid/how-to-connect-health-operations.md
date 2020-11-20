@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a83d1a4bdc2496f874a963b8858192273260cc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91b7bd6d05ee0b992ee166b9acb13aff2e605a2c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89276274"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961010"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Ative Directory Connect Health operações
 Este tópico descreve as várias operações que pode realizar utilizando o Azure Ative Directory (Azure AD) Connect Health.
@@ -137,7 +137,7 @@ Para permitir o acesso do utilizador a *todos os casos* de serviço dentro da Az
 3. No **painel de funções Select,** selecione uma função (por exemplo, **Proprietário).**<br>
    ![Screenshot do menu de configuração Azure AD Connect Health e Azure RBAC](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Digite o nome ou identificador do utilizador ou grupo visado. Pode selecionar um ou mais utilizadores ou grupos ao mesmo tempo. Clique em **Selecionar**.
-   ![Screenshot da lista de funções Azure AD Connect Health e Azure RBAC](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Screenshot da lista de funções Azure AD Connect Health e Azure](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Selecione **OK**.<br>
 6. Após a atribuição da função estar concluída, os utilizadores e grupos aparecem na lista.<br>
    ![Screenshot do Azure AD Connect Health e Azure RBAC e novos utilizadores em destaque](./media/how-to-connect-health-operations/RBAC_user_list.png)

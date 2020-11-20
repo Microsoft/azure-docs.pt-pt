@@ -6,12 +6,12 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 03bb7b786280dfcbb64190adac51b8d001d59c18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d06ad2f740394a4959f3665c5d6311e71841241
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79126600"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960840"
 ---
 # <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Visão geral do Serviço Azure Kubernetes (pré-visualização)
 
@@ -82,5 +82,7 @@ A Gestão de Identidade e Segurança deteta erros de autenticação e autorizaç
 ## <a name="next-steps"></a>Passos seguintes
 
 Colete registos para ajudá-lo a resolver ainda mais os seus problemas de cluster utilizando [o Periscope AKS](https://aka.ms/aksperiscope).
+
+Leia a secção de práticas de [triagem](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices) do guia de operações do dia-2 da AKS.
 
 Publique as suas perguntas ou feedback no [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) adicionando "[Diag]" no título.

@@ -3,18 +3,18 @@ title: Utilize etiquetas de índice blob para gerir e encontrar dados no Azure B
 description: Veja exemplos de como usar tags de índice de bolhas para categorizar, gerir e consultar objetos blob.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 159252cf850fd59f40d1b59e592153f50d7cb813
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2e3e16b71d52edd9ab4eaf55651567b95e334b84
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371975"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961792"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utilize tags de índice blob (pré-visualização) para gerir e encontrar dados sobre o Armazenamento Azure Blob
 
@@ -56,7 +56,7 @@ Uma vez que o índice blob está em pré-visualização, o pacote de armazenamen
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>Faça upload de uma nova bolha com etiquetas de índice
 
-O upload de uma nova bolha com etiquetas de índice pode ser realizado pelo Proprietário de [Dados blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Além disso, os utilizadores com a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` permissão [de controlo de acesso baseada em funções](/azure/role-based-access-control/overview) podem realizar esta operação.
+Esta tarefa pode ser executada por um [Proprietário de Dados Blob de Armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) ou um principal de segurança que tenha sido autorizado a operar o fornecedor de recursos `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) através de uma função Azure personalizada.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -114,9 +114,9 @@ static async Task BlobIndexTagsOnCreate()
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Obtenha, marque e atualize as etiquetas do índice blob
 
-Obter etiquetas de índice blob pode ser realizada pelo Proprietário de [Dados de Blob de Armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Além disso, os utilizadores com a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` permissão [de controlo de acesso baseada em funções](/azure/role-based-access-control/overview) podem realizar esta operação.
+Obter etiquetas de índice blob pode ser realizada por um [Proprietário de Dados blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) ou um principal de segurança que foi autorizado a operar o fornecedor de recursos `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) através de uma função Azure personalizada.
 
-A definição e atualização das etiquetas do índice blob podem ser realizadas pelo Proprietário de [Dados de Blob de Armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Além disso, os utilizadores com a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` permissão [de controlo de acesso baseada em funções](/azure/role-based-access-control/overview) podem realizar esta operação.
+A definição e atualização das etiquetas do índice blob podem ser executadas por um [Proprietário de Dados blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) ou um principal de segurança que tenha sido autorizado a operar o fornecedor de recursos `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) através de uma função Azure personalizada.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -132,7 +132,7 @@ A definição e atualização das etiquetas do índice blob podem ser realizadas
 
 6. Selecione o botão **Guardar** para confirmar quaisquer atualizações para a sua bolha
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Screenshot do portal Azure mostrando como carregar uma bolha com etiquetas de índice.":::
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Screenshot do portal Azure mostrando como obter, definir, atualizar e apagar tags de índice em bolhas.":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -193,7 +193,7 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrar e encontrar dados com etiquetas de índice blob
 
-A pesquisa e filtragem por etiquetas de índice blob podem ser realizadas pelo Proprietário de [Dados blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Além disso, os utilizadores com a `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` permissão [de controlo de acesso baseada em funções](/azure/role-based-access-control/overview) podem realizar esta operação.
+Esta tarefa pode ser executada por um [Proprietário de Dados Blob de Armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) ou um principal de segurança que tenha sido autorizado a operar o fornecedor de recursos `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) através de uma função Azure personalizada.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -209,7 +209,7 @@ Dentro do portal Azure, o filtro de etiquetas de índice blob aplica automaticam
 
 5. Selecione o botão **de filtro blob Index para** adicionar filtros de etiquetas adicionais (até 10)
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Screenshot do portal Azure mostrando como carregar uma bolha com etiquetas de índice.":::
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Screenshot do portal Azure mostrando como filtrar e encontrar bolhas marcadas usando etiquetas de índice":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -303,11 +303,11 @@ static async Task FindBlobsByTagsExample()
 
 4. Selecione **conjunto de filtro** para adicionar filtro opcional para correspondência de prefixo e correspondência de índice de bolha
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Screenshot do portal Azure mostrando como carregar uma bolha com etiquetas de índice.":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Screenshot do portal Azure mostrando como adicionar etiquetas de índice para gestão de ciclo de vida.":::
 
 5. Selecione **Review + adicionar** para rever as definições de regras
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Screenshot do portal Azure mostrando como carregar uma bolha com etiquetas de índice.":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Screenshot do portal Azure mostrando uma regra de gestão do ciclo de vida com exemplo de filtro de etiquetas de índice blob":::
 
 6. **Selecione Adicionar** para aplicar a nova regra à política de gestão do ciclo de vida
 

@@ -11,19 +11,19 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: dd8eff01cd52f8d80eb56f3a1ebe924763c8b70c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6cd4bbec89e955c398f7cb6e37ba5c3dcc6427ea
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441704"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961231"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 
 Neste artigo, aprende-se a gerir o acesso (autorização) a um espaço de trabalho de Aprendizagem automática Azure. [O controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/overview.md) é utilizado para gerir o acesso aos recursos Azure, como a capacidade de criar novos recursos ou usar os existentes. Os utilizadores do seu Diretório Ativo Azure (Azure AD) são atribuídos a funções específicas, que concedem acesso a recursos. O Azure fornece papéis incorporados e a capacidade de criar papéis personalizados.
 
 > [!TIP]
-> Enquanto este artigo se centra no Azure Machine Learning, os serviços individuais que a Azure ML conta em fornecer as suas próprias configurações de RBAC. Por exemplo, usando as informações deste artigo, pode configurar quem pode submeter pedidos de pontuação a um modelo implantado como serviço web no Serviço Azure Kubernetes. Mas o Azure Kubernetes Service fornece o seu próprio conjunto de funções Azure RBAC. Para obter informações específicas do RBAC de serviço que possam ser úteis com a Azure Machine Learning, consulte os seguintes links:
+> Enquanto este artigo se centra no Azure Machine Learning, os serviços individuais que a Azure ML conta em fornecer as suas próprias configurações de RBAC. Por exemplo, usando as informações deste artigo, pode configurar quem pode submeter pedidos de pontuação a um modelo implantado como serviço web no Serviço Azure Kubernetes. Mas o Azure Kubernetes Service fornece o seu próprio conjunto de papéis Azure. Para obter informações específicas do RBAC de serviço que possam ser úteis com a Azure Machine Learning, consulte os seguintes links:
 >
 > * [Controle o acesso aos recursos de cluster Azure Kubernetes](../aks/azure-ad-rbac.md)
 > * [Use a Azure RBAC para a autorização de Kubernetes](../aks/manage-azure-rbac.md)
@@ -449,7 +449,7 @@ Permite definir uma função apenas para rotular dados:
 }
 ```
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 Eis algumas coisas a ter em conta enquanto utiliza o controlo de acesso baseado em funções Azure (Azure RBAC):
 

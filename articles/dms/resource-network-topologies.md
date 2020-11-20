@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: reference
 ms.date: 01/08/2020
-ms.openlocfilehash: 5839de1fde8e4a4d5e661d232ae91099a9483bcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae036b7d893eb268ea55026054bf364dad0b610e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291576"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961554"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologias de rede para migrações de instância gerida Azure SQL utilizando o Serviço de Migração da Base de Dados Azure
 
@@ -32,7 +32,7 @@ Utilize esta topologia se o seu Azure SQL Managed Instance estiver ligado à sua
 **Requisitos**
 
 - Neste cenário, o SQL Managed Instance e o Azure Database Migration Service são criados na mesma Rede Virtual Microsoft Azure, mas utilizam sub-redes diferentes.  
-- A rede virtual utilizada neste cenário também está ligada à rede de instalações utilizando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [o VPN.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- A rede virtual utilizada neste cenário também está ligada à rede de instalações utilizando o [ExpressRoute](../expressroute/expressroute-introduction.md) ou [o VPN.](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ## <a name="sql-managed-instance-isolated-from-the-on-premises-network"></a>SQL Gestão de Instância isolada da rede de instalações
 
@@ -46,8 +46,8 @@ Utilize esta topologia da rede se o seu ambiente necessitar de um ou mais dos se
 
 **Requisitos**
 
-- A rede virtual que o Azure Database Migration Service utiliza para este cenário também deve ser ligada à rede no local através da utilização de qualquer um https://docs.microsoft.com/azure/expressroute/expressroute-introduction) (ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Confiúdo [da rede VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a rede virtual utilizada para o SQL Managed Instance e o Azure Database Migration Service.
+- A rede virtual que o Azure Database Migration Service utiliza para este cenário também deve ser ligada à rede no local através da utilização de qualquer um https://docs.microsoft.com/azure/expressroute/expressroute-introduction) (ou [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- Confiúdo [da rede VNet](../virtual-network/virtual-network-peering-overview.md) entre a rede virtual utilizada para o SQL Managed Instance e o Azure Database Migration Service.
 
 ## <a name="cloud-to-cloud-migrations-shared-virtual-network"></a>Migrações em nuvem: Rede virtual partilhada
 
@@ -71,7 +71,7 @@ Utilize esta topologia da rede se o seu ambiente necessitar de um ou mais dos se
 
 **Requisitos**
 
-- Confiúdo [da rede VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a rede virtual utilizada para o SQL Managed Instance e o Azure Database Migration Service.
+- Confiúdo [da rede VNet](../virtual-network/virtual-network-peering-overview.md) entre a rede virtual utilizada para o SQL Managed Instance e o Azure Database Migration Service.
 
 ## <a name="inbound-security-rules"></a>Regras de segurança de entrada
 
@@ -90,11 +90,11 @@ Utilize esta topologia da rede se o seu ambiente necessitar de um ou mais dos se
 | Participação do SMB                 | 445                                                   | TCP          | Qualquer        | Espaço de endereços no local | Permitir      | Partilha de rede SMB para DMS para armazenar ficheiros de backup de bases de dados para migrações para Azure SQL Database MI e SQL Servers em Azure VM <br/>(Se tiver conectividade site-to-site, pode não precisar desta regra). |
 | DMS_subnet                | Qualquer                                                   | Qualquer          | Qualquer        | DMS_Subnet                | Permitir      |                                                                                                                                                                                                  |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-- [Migrar o SqL Server para o SQL Gerenciado Instância](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
-- [Visão geral dos pré-requisitos para a utilização do Serviço de Migração da Base de Dados Azure](https://docs.microsoft.com/azure/dms/pre-reqs)
-- [Criar uma rede virtual com o portal do Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Migrar o SqL Server para o SQL Gerenciado Instância](./tutorial-sql-server-to-managed-instance.md)
+- [Visão geral dos pré-requisitos para a utilização do Serviço de Migração da Base de Dados Azure](./pre-reqs.md)
+- [Criar uma rede virtual com o portal do Azure](../virtual-network/quick-create-portal.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

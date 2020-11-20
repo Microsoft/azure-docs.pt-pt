@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 8b2099a6a48c9393b6e9e8b983a4acac2933bf06
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: afce76c8f5330f7d73ff58cc9b9307af2b8832f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973840"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962132"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Utilize a versão 1 da extensão de script personalizada Azure com máquinas virtuais Linux
 
@@ -121,14 +122,14 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 | Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | data |
-| publicador | Microsoft.OSTCExtensions | cadeia |
-| tipo | ScriptEs PersonalizadosForLinux | cadeia |
+| publicador | Microsoft.OSTCExtensions | string |
+| tipo | ScriptEs PersonalizadosForLinux | string |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (por exemplo) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matriz |
-| commandToExecute (por exemplo) | MyPythonScript.py pitão \<my-param1\> | cadeia |
+| commandToExecute (por exemplo) | MyPythonScript.py pitão \<my-param1\> | string |
 | ativarInternalDNSCheck | true | boolean |
-| armazenamentoSame de número de armazenamento (por exemplo) | exemplostorageacct | cadeia |
-| armazenamentoSColho (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia |
+| armazenamentoSame de número de armazenamento (por exemplo) | exemplostorageacct | string |
+| armazenamentoSColho (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Detalhes do valor da propriedade
 

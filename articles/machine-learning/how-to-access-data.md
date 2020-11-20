@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 30ece529b141f3a50191c532d85265d8e9555b34
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3c8e18a3a216240a624b3b14f5e2e397d6c06012
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538602"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961333"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Conecte-se aos serviços de armazenamento em Azure
 
@@ -24,7 +24,7 @@ Neste artigo, aprenda a **ligar-se aos serviços de armazenamento no Azure via A
 
 Se preferir criar e gerir as datastores utilizando a extensão do Código VS de Aprendizagem de Máquinas Azure; visite a [gestão de recursos do Código VS como orientar](how-to-manage-resources-vscode.md#datastores) para saber mais.
 
-Pode criar datastores a partir [destas soluções de armazenamento Azure](#matrix). **Para soluções de armazenamento não suportadas** , e para poupar o custo da saída de dados durante as experiências de ML, [mova os seus dados](#move) para uma solução de armazenamento Azure suportada.  
+Pode criar datastores a partir [destas soluções de armazenamento Azure](#matrix). **Para soluções de armazenamento não suportadas**, e para poupar o custo da saída de dados durante as experiências de ML, [mova os seus dados](#move) para uma solução de armazenamento Azure suportada.  
 
 Para entender onde as datas-tores se encaixam no fluxo de trabalho global de acesso a dados da Azure Machine Learning, consulte o artigo [de dados de acesso seguro.](concept-data.md#data-workflow)
 
@@ -180,7 +180,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 Para uma data-loja de dados Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilize [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registar uma loja de dados credenciais ligada a um armazenamento Azure DataLake Gen 2 com [permissões principais](../active-directory/develop/howto-create-service-principal-portal.md)de serviço.  
 
-Para utilizar o seu principal serviço, é necessário registar a [sua aplicação](../active-directory/develop/app-objects-and-service-principals.md) e conceder o acesso aos dados principais do serviço através do controlo de acesso baseado em funções (Azure RBAC) ou das listas de controlo de acesso (ACL). Saiba mais sobre [o controlo de acesso configurado para a ADLS Gen 2](../storage/blobs/data-lake-storage-access-control-model.md). 
+Para utilizar o seu principal serviço, precisa de registar a [sua aplicação](../active-directory/develop/app-objects-and-service-principals.md) e conceder ao serviço o acesso principal aos dados através do controlo de acesso baseado em funções (Azure RBAC) ou das listas de controlo de acesso (ACL). Saiba mais sobre [o controlo de acesso configurado para a ADLS Gen 2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
 O código a seguir cria e regista a `adlsgen2_datastore_name` datastore para o `ws` espaço de trabalho. Esta loja de dados acede ao sistema de ficheiros `test` na `account_name` conta de armazenamento, utilizando as credenciais principais do serviço fornecido. Reveja a secção [de permissões de acesso ao armazenamento &](#storage-access-and-permissions) para obter orientação sobre cenários de rede virtuais e onde encontrar as credenciais de autenticação necessárias. 
 
@@ -251,7 +251,7 @@ Também pode alterar a loja de dados predefinido com o seguinte código. Esta ca
 
 A Azure Machine Learning fornece várias formas de usar os seus modelos para pontuar. Alguns destes métodos não fornecem acesso a datastores. Utilize a seguinte tabela para entender quais os métodos que lhe permitem aceder às datastores durante a pontuação:
 
-| Método | Acesso à loja de dados | Description |
+| Método | Acesso à loja de dados | Descrição |
 | ----- | :-----: | ----- |
 | [Predição de lote](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Faça previsões sobre grandes quantidades de dados assíncroneamente. |
 | [Serviço web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |

@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 78ac7e849a3a8f1742701006638a2cb72299bad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4839f8211e678f5fc2fb3572c7eaa545fbee6c6c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055780"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961197"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Opções para migrar dados da série StorSimple 8000
 
@@ -31,7 +31,7 @@ Os clientes que usam a série StorSimple 8000 têm opções Azure ou de terceiro
 
 Esta nova opção de migração permite que os clientes armazenem as ações de ficheiros da sua organização nos Ficheiros Azure. Estas partilhas de ficheiros são então centralizadas para acesso no local utilizando o Azure File Sync (AFS). O AFS pode ser implantado num anfitrião do Windows Server. A migração de dados real é então realizada como uma cópia hospedeira ou utilizando a ferramenta de migração.
 
-Para obter mais informações sobre como migrar dados para Azure File Sync, vá à [migração StorSimple 8100 e 8600 para Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000).
+Para obter mais informações sobre como migrar dados para Azure File Sync, vá à [migração StorSimple 8100 e 8600 para Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
 ### <a name="third-party-options"></a>Opções de terceiros
 
@@ -111,4 +111,4 @@ A. O tempo para migrar dados depende da quantidade dos dados e da opção de upg
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Migrar dados de uma série StorSimple 8000 para Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000)
+* [Migrar dados de uma série StorSimple 8000 para Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: e6002bb7995be1cfd1b2812b765835ff7af924e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6438fb1c21ce248f6e1b766e7e10cc79043db9f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308542"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961588"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Descrição geral dos pré-requisitos para utilizar o Azure Database Migration Service
 
@@ -28,11 +28,11 @@ Os pré-requisitos associados à utilização do Serviço de Migração da Base 
 
 Os pré-requisitos do Serviço de Migração da Base de Dados Azure que são comuns em todos os cenários de migração suportados incluem a necessidade de:
 
-* Crie uma Rede Virtual Microsoft Azure para o Serviço de Migração de Bases de Dados Azure utilizando o modelo de implementação do Gestor de Recursos Azure, que fornece conectividade site-to-site aos seus servidores de origem no local, utilizando [expressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Certifique-se de que as regras do Grupo de Segurança da Rede virtual (NSG) não bloqueiam as seguintes portas de comunicação 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG da rede virtual, consulte o artigo Filtrar o [tráfego da rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Crie uma Rede Virtual Microsoft Azure para o Serviço de Migração de Bases de Dados Azure utilizando o modelo de implementação do Gestor de Recursos Azure, que fornece conectividade site-to-site aos seus servidores de origem no local, utilizando [expressRoute](../expressroute/expressroute-introduction.md) ou [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* Certifique-se de que as regras do Grupo de Segurança da Rede virtual (NSG) não bloqueiam as seguintes portas de comunicação 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG da rede virtual, consulte o artigo Filtrar o [tráfego da rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Ao utilizar um aparelho de firewall em frente à sua base de dados de origem, poderá ter de adicionar regras de firewall para permitir que o Azure Database Migration Service aceda à base de dados de origem para migração.
-* Configurar a sua [Firewall do Windows para acesso ao motor de bases de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Ativar o protocolo TCP/IP, que está desativado por predefinição durante a instalação do SQL Server Express, através das instruções no artigo [Enable or Disable a Server Network Protocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure) (Ativar ou desativar um Protocolo de Rede de Servidor).
+* Configurar a sua [Firewall do Windows para acesso ao motor de bases de dados](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* Ativar o protocolo TCP/IP, que está desativado por predefinição durante a instalação do SQL Server Express, através das instruções no artigo [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure) (Ativar ou desativar um Protocolo de Rede de Servidor).
 
     > [!IMPORTANT]
     > A criação de um caso de Serviço de Migração de Bases de Dados Azure requer acesso a configurações de rede virtuais que normalmente não estão dentro do mesmo grupo de recursos. Como resultado, o utilizador que cria uma instância de DMS requer permissão a nível de subscrição. Para criar as funções necessárias, que pode atribuir conforme necessário, execute o seguinte script:
@@ -113,21 +113,21 @@ Além dos pré-requisitos do Serviço de Migração da Base de Dados Azure que s
 
 Ao utilizar o Serviço de Migração da Base de Dados Azure para realizar migrações de bases de dados SQL para Azure SQL Database, para além dos pré-requisitos comuns a todos os cenários de migração, certifique-se de que aborda os seguintes pré-requisitos adicionais:
 
-* Crie uma instância de exemplo da caixa de dados Azure SQL Database, o que faz seguindo os detalhes do artigo [Criar uma base de dados na Base de Dados Azure SQL no portal Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* Crie uma instância de exemplo da caixa de dados Azure SQL Database, o que faz seguindo os detalhes do artigo [Criar uma base de dados na Base de Dados Azure SQL no portal Azure](../azure-sql/database/single-database-create-quickstart.md).
 * Transferir e instalar o [Assistente de Migração de Dados](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 ou posterior.
 * Abrir a Firewall do Windows para permitir ao Azure Database Migration Service aceder ao SQL Server de origem, que, por predefinição, é a porta TCP 1433.
 * Se estiver a executar várias instâncias nomeadas do SQL Server em portas dinâmicas, poderá ser útil ativar o SQL Browser Service e permitir o acesso à porta UDP 1434 através das suas firewalls, de modo a que o Azure Database Migration Service se possa ligar a uma instância nomeada no servidor de origem.
-* Crie uma regra de [firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) ao nível do servidor para a Base de Dados SQL para permitir o acesso do Serviço de Migração da Base de Dados Azure às bases de dados-alvo. Forneça a gama de sub-redes da rede virtual utilizada para o Serviço de Migração da Base de Dados Azure.
-* Confirmar que as credenciais utilizadas para ligar à instância de origem do SQL Server têm permissões [CONTROLAR SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
+* Crie uma regra de [firewall](../azure-sql/database/firewall-configure.md) ao nível do servidor para a Base de Dados SQL para permitir o acesso do Serviço de Migração da Base de Dados Azure às bases de dados-alvo. Forneça a gama de sub-redes da rede virtual utilizada para o Serviço de Migração da Base de Dados Azure.
+* Confirmar que as credenciais utilizadas para ligar à instância de origem do SQL Server têm permissões [CONTROLAR SERVIDOR](/sql/t-sql/statements/grant-server-permissions-transact-sql).
 * Certifique-se de que as credenciais utilizadas para ligar à base de dados-alvo têm permissão de BASE DE DADOS DE CONTROLO na base de dados-alvo.
 
    > [!NOTE]
-   > Para obter uma listagem completa dos pré-requisitos necessários para utilizar o Serviço de Migração da Base de Dados Azure para efetuar migrações do SQL Server para a Base de Dados Azure SQL, consulte o [tutorial Migrate SQL Server para Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).
+   > Para obter uma listagem completa dos pré-requisitos necessários para utilizar o Serviço de Migração da Base de Dados Azure para efetuar migrações do SQL Server para a Base de Dados Azure SQL, consulte o [tutorial Migrate SQL Server para Azure SQL Database](./tutorial-sql-server-to-azure-sql.md).
    >
 
 ## <a name="prerequisites-for-migrating-sql-server-to-azure-sql-managed-instance"></a>Pré-requisitos para migrar o SQL Server para Azure SQL Gerenciado Instância
 
-* Crie uma SqL Managed Instance seguindo os detalhes do artigo [Crie uma Instância Gerida Azure SQL no portal Azure](https://aka.ms/sqldbmi).
+* Crie uma SqL Managed Instance seguindo os detalhes do artigo [Crie uma Instância Gerida Azure SQL no portal Azure](../azure-sql/managed-instance/instance-create-quickstart.md).
 * Abra as suas firewalls para permitir o tráfego SMB na porta 445 para o endereço IP do Serviço de Migração da Base de Dados Azure ou para a gama de sub-redes.
 * Abrir a Firewall do Windows para permitir ao Azure Database Migration Service aceder ao SQL Server de origem, que, por predefinição, é a porta TCP 1433.
 * Se estiver a executar várias instâncias nomeadas do SQL Server em portas dinâmicas, poderá ser útil ativar o SQL Browser Service e permitir o acesso à porta UDP 1434 através das suas firewalls, de modo a que o Azure Database Migration Service se possa ligar a uma instância nomeada no servidor de origem.
@@ -135,10 +135,10 @@ Ao utilizar o Serviço de Migração da Base de Dados Azure para realizar migra�
 * Crie uma partilha de rede que o Azure Database Migration Service possa utilizar para criar uma cópia de segurança da base de dados de origem.
 * Confirme que a conta de serviço em execução na instância do SQL Server de origem tem privilégios de escrita na partilha de rede que criou e que a conta do computador do servidor de origem tem acesso de leitura/escrita à mesma partilha.
 * Tome nota de um utilizador do Windows (e da palavra-passe) que tenha privilégio de controlo total na partilha de rede que criou anteriormente. O Serviço de Migração da Base de Dados Azure personifica a credencial do utilizador para enviar os ficheiros de cópia de segurança para o contentor de armazenamento Azure para restaurar o funcionamento.
-* Crie um recipiente blob e recupere o seu SAS URI utilizando os passos do artigo [Gerencie os recursos de armazenamento Azure Blob com o Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Certifique-se de que seleciona todas as permissões (Ler, Escrever, Eliminar, Lista) na janela de política enquanto cria o SAS URI.
+* Crie um recipiente blob e recupere o seu SAS URI utilizando os passos do artigo [Gerencie os recursos de armazenamento Azure Blob com o Storage Explorer](../vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container). Certifique-se de que seleciona todas as permissões (Ler, Escrever, Eliminar, Lista) na janela de política enquanto cria o SAS URI.
 
    > [!NOTE]
-   > Para obter uma listagem completa dos pré-requisitos necessários para utilizar o Serviço de Migração da Base de Dados Azure para efetuar migrações do SQL Server para SQL Managed Instance, consulte o [tutorial Migrate SQL Server para SQL Managed Instance](https://aka.ms/migratetomiusingdms).
+   > Para obter uma listagem completa dos pré-requisitos necessários para utilizar o Serviço de Migração da Base de Dados Azure para efetuar migrações do SQL Server para SQL Managed Instance, consulte o [tutorial Migrate SQL Server para SQL Managed Instance](./tutorial-sql-server-to-managed-instance.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

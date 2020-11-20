@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d121430452e0ed445af19f9b1ac89cfdfccdcdae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 05bcb0aebd44dee60fa3f323e1f109e4c0761ec8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167326"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961962"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server
 
@@ -51,7 +52,7 @@ ms.locfileid: "92167326"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 Este artigo descreve como implantar as máquinas virtuais, configurar as máquinas virtuais, instalar a estrutura do cluster e instalar um servidor NFS altamente disponível que pode ser usado para armazenar os dados partilhados de um sistema SAP altamente disponível.
-Este guia descreve como configurar um servidor NFS altamente disponível que é utilizado por dois sistemas SAP, NW1 e NW2. Os nomes dos recursos (por exemplo, máquinas virtuais, redes virtuais) no exemplo assumem que utilizou o modelo do [servidor de ficheiros SAP][template-file-server] com **prefixo**de recursos .
+Este guia descreve como configurar um servidor NFS altamente disponível que é utilizado por dois sistemas SAP, NW1 e NW2. Os nomes dos recursos (por exemplo, máquinas virtuais, redes virtuais) no exemplo assumem que utilizou o modelo do [servidor de ficheiros SAP][template-file-server] com **prefixo** de recursos .
 
 Leia primeiro as seguintes notas e artigos SAP
 
@@ -120,7 +121,7 @@ Você pode usar um dos modelos de arranque rápido no GitHub para implementar to
    4. Nome de utilizador admin e senha de administração  
       É criado um novo utilizador que pode ser utilizado para iniciar sessão na máquina.
    5. ID da sub-rede  
-      Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente parece /subscrições/** &lt; subscrição &gt; ID**/resourceGroups/** &lt; &gt; nome do grupo de recursos**/fornecedores/Microsoft.Network/virtualNetworks/ virtual** &lt; Network/virtual Network name &gt; **/subnets/** &lt; subnets/ subnet name &gt; **
+      Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente parece /subscrições/**&lt; subscrição &gt; ID**/resourceGroups/**&lt; &gt; nome do grupo de recursos**/fornecedores/Microsoft.Network/virtualNetworks/ virtual **&lt; Network/virtual Network name &gt;**/subnets/**&lt; subnets/ subnet name &gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementar o Linux manualmente através do portal Azure
 
@@ -158,14 +159,14 @@ Primeiro, é necessário criar as máquinas virtuais para este cluster NFS. Em s
          1. Porto 61000 para NW1
             1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
             1. Insira o nome da nova sonda de saúde (por **exemplo, nw1-hp)**
-            1. Selecione TCP como protocolo, porta 610**00**, mantenha o Intervalo 5 e o limiar insalubre 2
+            1. Selecione TCP como protocolo, porta 610 **00**, mantenha o Intervalo 5 e o limiar insalubre 2
             1. Clique em OK
          1. Porto 61001 para NW2
             * Repita os passos acima para criar uma sonda de saúde para NW2
       1. Regras de equilíbrio de carga
          1. Abra o balançador de carga, selecione regras de equilíbrio de carga e clique em Adicionar
          1. Introduza o nome da nova regra do balançador de carga (por **exemplo, nw1-lb)**
-         1. Selecione o endereço IP frontend, o backend pool e a sonda de saúde que criou anteriormente (por **exemplo, o frontend de 1**frente . **nw-backend** e **nw1-hp**)
+         1. Selecione o endereço IP frontend, o backend pool e a sonda de saúde que criou anteriormente (por **exemplo, o frontend de 1** frente . **nw-backend** e **nw1-hp**)
          1. Selecione **portas HA**.
          1. Aumente o tempo de inatividade para 30 minutos
          1. **Certifique-se de ativar o IP flutuante**
@@ -192,7 +193,7 @@ Primeiro, é necessário criar as máquinas virtuais para este cluster NFS. Em s
          1. Porto 61000 para NW1
             1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
             1. Insira o nome da nova sonda de saúde (por **exemplo, nw1-hp)**
-            1. Selecione TCP como protocolo, porta 610**00**, mantenha o Intervalo 5 e o limiar insalubre 2
+            1. Selecione TCP como protocolo, porta 610 **00**, mantenha o Intervalo 5 e o limiar insalubre 2
             1. Clique em OK
          1. Porto 61001 para NW2
             * Repita os passos acima para criar uma sonda de saúde para NW2
@@ -200,7 +201,7 @@ Primeiro, é necessário criar as máquinas virtuais para este cluster NFS. Em s
          1. TCP de 2049 para NW1
             1. Abra o equilibrador de carga, selecione regras de equilíbrio de carga e clique em Adicionar
             1. Insira o nome da nova regra do balançador de carga (por **exemplo, nw1-lb-2049)**
-            1. Selecione o endereço IP frontend, o backend pool e a sonda de saúde que criou anteriormente (por **exemplo, o frontend de 1**frente)
+            1. Selecione o endereço IP frontend, o backend pool e a sonda de saúde que criou anteriormente (por **exemplo, o frontend de 1** frente)
             1. Manter o protocolo **TCP,** entrar na porta **2049**
             1. Aumente o tempo de inatividade para 30 minutos
             1. **Certifique-se de ativar o IP flutuante**

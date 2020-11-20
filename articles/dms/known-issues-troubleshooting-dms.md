@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f0ec9d2a3794ea910339b4d329bb28f23c5a76b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4baca7f261aa7544b54992a5e1ddf620794774f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297363"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962285"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Resolução de problemas problemas comuns problemas do Serviço de Migração de Bases de Dados de Azure
 
@@ -54,7 +54,7 @@ Quando migra do MySQL para a Base de Dados Azure para o MySQL utilizando o Azure
 
 | Causa         | Resolução |
 | ------------- | ------------- |
-| Este erro pode ocorrer quando o utilizador que faz a migração faltar a função e/ou privilégios de REPLICATION CLIENT, REPLICATION REPLICATION e SUPER (versões mais cedo do que o MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Certifique-se de que os [privilégios pré-requisitos](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) para a conta de utilizador estão configurados com precisão na Base de Dados Azure para a instância MySQL. Por exemplo, podem ser seguidos os seguintes passos para criar um utilizador chamado "migrador" com privilégios necessários:<br>1. CRIAR MIGRATEUSER@'%» DO UTILIZADOR IDENTIFICADO POR «segredo»; <br>2. Conceder todos os privilégios em db_name.* a 'migrateuser'@'%' identificado por 'segredo'; repetir este passo para conceder acesso em mais bases de dados <br>3. Conceder a réplica do escravo em *.* a 'migrateuser'@'%» identificado por 'segredo';<br>4. Conceder cliente de replicação em *.* a 'migrateuser'@'%» identificado por 'segredo';<br>5. Privilégios de descarga; |
+| Este erro pode ocorrer quando o utilizador que faz a migração faltar a função e/ou privilégios de REPLICATION CLIENT, REPLICATION REPLICATION e SUPER (versões mais cedo do que o MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Certifique-se de que os [privilégios pré-requisitos](./tutorial-mysql-azure-mysql-online.md#prerequisites) para a conta de utilizador estão configurados com precisão na Base de Dados Azure para a instância MySQL. Por exemplo, podem ser seguidos os seguintes passos para criar um utilizador chamado "migrador" com privilégios necessários:<br>1. CRIAR MIGRATEUSER@'%» DO UTILIZADOR IDENTIFICADO POR «segredo»; <br>2. Conceder todos os privilégios em db_name.* a 'migrateuser'@'%' identificado por 'segredo'; repetir este passo para conceder acesso em mais bases de dados <br>3. Conceder a réplica do escravo em *.* a 'migrateuser'@'%» identificado por 'segredo';<br>4. Conceder cliente de replicação em *.* a 'migrateuser'@'%» identificado por 'segredo';<br>5. Privilégios de descarga; |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Erro ao tentar parar o Serviço de Migração da Base de Dados de Azure
 
@@ -84,7 +84,7 @@ Quando realiza uma migração on-line do SQL Server para Azure SQL Managed Insta
 
 | Causa         | Resolução    |
 | ------------- | ------------- |
-| Este erro indica que o principal da aplicação utilizado para a migração on-line do SQL Server para o SQL Managed Instance não tem permissão para a subscrição. Algumas chamadas da API com Instância Gerida neste momento requerem esta permissão na subscrição para a operação de restauro. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Utilize o `Get-AzureADServicePrincipal` cmdlet PowerShell com `-ObjectId` a mensagem de erro disponível para listar o nome de visualização do ID da aplicação que está a ser utilizado.<br><br> Validar as permissões a esta aplicação e garantir que tem a [função de contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) ao nível da subscrição. <br><br> A Equipa de Engenharia de Serviços de Migração da Azure Database está a trabalhar para restringir o acesso necessário à função de contribuição atual na subscrição. Se tiver um requisito de negócio que não permita o uso de papel de contribuição, contacte o suporte da Azure para obter ajuda adicional. |
+| Este erro indica que o principal da aplicação utilizado para a migração on-line do SQL Server para o SQL Managed Instance não tem permissão para a subscrição. Algumas chamadas da API com Instância Gerida neste momento requerem esta permissão na subscrição para a operação de restauro. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Utilize o `Get-AzureADServicePrincipal` cmdlet PowerShell com `-ObjectId` a mensagem de erro disponível para listar o nome de visualização do ID da aplicação que está a ser utilizado.<br><br> Validar as permissões a esta aplicação e garantir que tem a [função de contribuinte](../role-based-access-control/built-in-roles.md#contributor) ao nível da subscrição. <br><br> A Equipa de Engenharia de Serviços de Migração da Azure Database está a trabalhar para restringir o acesso necessário à função de contribuição atual na subscrição. Se tiver um requisito de negócio que não permita o uso de papel de contribuição, contacte o suporte da Azure para obter ajuda adicional. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Erro ao eliminar o NIC associado ao Serviço de Migração da Base de Dados Azure
 
@@ -102,7 +102,7 @@ Quando tenta ligar à origem no assistente de projeto do serviço de Migração 
 
 | Causa         | Resolução    |
 | ------------- | ------------- |
-| Ao utilizar o [ExpressRoute](https://azure.microsoft.com/services/expressroute/), o Serviço de Migração da Base de [Dados](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) Azure requer a prestação de três pontos finais de serviço na sub-rede de Rede Virtual associada ao serviço:<br> -- Ponto final do autocarro de serviço<br> -- Ponto final de armazenamento<br> -- Ponto final da base de dados-alvo (por exemplo, ponto final SQL, ponto final cosmos DB)<br><br><br><br><br> | [Ativar](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) os pontos finais de serviço necessários para a conectividade ExpressRoute entre a fonte e o Serviço de Migração da Base de Dados Azure. <br><br><br><br><br><br><br><br> |
+| Ao utilizar o [ExpressRoute](https://azure.microsoft.com/services/expressroute/), o Serviço de Migração da Base de [Dados](./tutorial-sql-server-azure-sql-online.md) Azure requer a prestação de três pontos finais de serviço na sub-rede de Rede Virtual associada ao serviço:<br> -- Ponto final do autocarro de serviço<br> -- Ponto final de armazenamento<br> -- Ponto final da base de dados-alvo (por exemplo.SQL ponto final, ponto final cosmos DB)<br><br><br><br><br> | [Ativar](./tutorial-sql-server-azure-sql-online.md) os pontos finais de serviço necessários para a conectividade ExpressRoute entre a fonte e o Serviço de Migração da Base de Dados Azure. <br><br><br><br><br><br><br><br> |
 
 ## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Bloqueie o erro de tempo de espera ao migrar uma base de dados MySQL para Azure DB para o MySQL
 
@@ -126,13 +126,13 @@ Quando tenta ligar o Serviço de Migração da Base de Dados Azure à fonte do S
 
 ## <a name="additional-known-issues"></a>Questões adicionais conhecidas
 
-* [Questões conhecidas/limitações de migração com migrações online para Azure SQL Database](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
-* [Questões conhecidas/limitações de migração com migrações on-line para Azure Database for MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
-* [Questões conhecidas/limitações de migração com migrações on-line para Azure Database for PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
+* [Questões conhecidas/limitações de migração com migrações online para Azure SQL Database](./known-issues-azure-sql-online.md)
+* [Questões conhecidas/limitações de migração com migrações on-line para Azure Database for MySQL](./known-issues-azure-mysql-online.md)
+* [Questões conhecidas/limitações de migração com migrações on-line para Azure Database for PostgreSQL](./known-issues-azure-postgresql-online.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Ver o artigo [Serviço de Migração de Bases de Dados Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
-* Ver o artigo [Como configurar os parâmetros do servidor na Base de Dados Azure para o MySQL utilizando o portal Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
-* Ver o artigo [Visão geral dos pré-requisitos para a utilização do Serviço de Migração da Base de Dados Azure](https://docs.microsoft.com/azure/dms/pre-reqs).
-* Consulte as FAQ sobre a [utilização do Serviço de Migração da Base de Dados Azure.](https://docs.microsoft.com/azure/dms/faq)
+* Ver o artigo [Serviço de Migração de Bases de Dados Azure PowerShell](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Ver o artigo [Como configurar os parâmetros do servidor na Base de Dados Azure para o MySQL utilizando o portal Azure](../mysql/howto-server-parameters.md).
+* Ver o artigo [Visão geral dos pré-requisitos para a utilização do Serviço de Migração da Base de Dados Azure](./pre-reqs.md).
+* Consulte as FAQ sobre a [utilização do Serviço de Migração da Base de Dados Azure.](./faq.md)

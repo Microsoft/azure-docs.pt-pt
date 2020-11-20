@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 181f5433de6653c8b6a2cda085f04e21c64082b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 316b513f761aa422f87c83658e6c50efec25efb4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514659"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961146"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Options to migrate data from StorSimple 5000-7000 series (Opções para migrar dados das séries 5000-7000 do StorSimple) 
 
@@ -43,7 +43,7 @@ Para obter mais informações sobre como migrar dados utilizando uma série Stor
 
 Esta nova opção de migração permite que os clientes armazenem as ações de ficheiros da sua organização nos Ficheiros Azure. Estas partilhas de ficheiros são então centralizadas para acesso no local utilizando o Azure File Sync (AFS). O AFS pode ser implantado num anfitrião do Windows Server. A migração de dados real é então realizada como uma cópia hospedeira ou utilizando a ferramenta de migração.
 
-Para obter mais informações sobre como migrar dados para Azure File Sync, vá a [migrar dados da série StorSimple 5000-7000 para Azure File Sync](storsimple-5000-7000-afs-migration.md).
+Para obter mais informações sobre como migrar dados para Azure File Sync, vá a [migrar dados da série StorSimple 5000-7000 para Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
 ### <a name="third-party-options"></a>Opções de terceiros
 
@@ -127,4 +127,4 @@ A. A data de fim de suporte para a série StorSimple 8000 é publicada [aqui.](h
 
 ## <a name="next-steps"></a>Passos seguintes
  - [Migrar dados de uma série StorSimple 5000-7000 para um dispositivo de série 8000](storsimple-8000-migrate-from-5000-7000.md).
- - [Migrar dados de uma série StorSimple 5000-7000 para Azure File Sync](storsimple-5000-7000-afs-migration.md)
+ - [Migrar dados de uma série StorSimple 5000-7000 para Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 1461f7f9811145553da6c200111d4db1f013060e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c394eeef746db978360e4434295520536833558
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738690"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960534"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Resolução de problemas Gateway de rede virtual e conexões usando Azure Network Watcher PowerShell
 
@@ -32,7 +32,7 @@ O Network Watcher fornece muitas capacidades no que diz respeito à compreensão
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este cenário pressupõe que já seguiu os passos na [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
 
@@ -85,7 +85,7 @@ Uma vez executado o cmdlet, o Network Watcher revê o recurso para verificar a s
 
 O texto de ação fornece orientações gerais sobre como resolver a questão. Se for possível tomar uma ação para esta questão, é fornecida uma ligação com orientações adicionais. No caso de não existir orientação adicional, a resposta fornece a url para abrir um caso de apoio.  Para mais informações sobre as propriedades da resposta e o que está incluído, visite [a visão geral da resolução de problemas do Observador de Rede](network-watcher-troubleshoot-overview.md)
 
-Para obter instruções sobre o descarregamento de ficheiros a partir de contas de armazenamento azul, consulte para [começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Storage Explorer. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
+Para obter instruções sobre o descarregamento de ficheiros a partir de contas de armazenamento azul, consulte para [começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Outra ferramenta que pode ser usada é o Storage Explorer. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Passos seguintes
 
