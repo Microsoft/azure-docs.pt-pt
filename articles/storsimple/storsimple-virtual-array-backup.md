@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c7f4ab92e4cce3937a933fec97008c281a0eae
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742252"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954125"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Retorquir ações ou volumes no seu StorSimple Virtual Array
 
@@ -28,7 +28,7 @@ ms.locfileid: "91742252"
 
 O StorSimple Virtual Array é um dispositivo virtual de armazenamento em nuvem híbrido no local que pode ser configurado como um servidor de ficheiros ou um servidor iSCSI. A matriz virtual permite ao utilizador criar cópias de segurança programadas e manuais de todas as partilhas ou volumes do dispositivo. Quando configurado como um servidor de ficheiros, também permite a recuperação do nível de item. Este tutorial descreve como criar cópias de segurança programadas e manuais e realizar recuperação ao nível do item para restaurar um ficheiro eliminado na sua matriz virtual.
 
-Este tutorial aplica-se apenas às Matrizes Virtuais StorSimple. Para obter informações sobre a série 8000, vá para [criar uma cópia de segurança para dispositivo da série 8000](storsimple-manage-backup-policies-u2.md)
+Este tutorial aplica-se apenas às Matrizes Virtuais StorSimple. Para obter informações sobre a série 8000, vá para [criar uma cópia de segurança para dispositivo da série 8000](./storsimple-8000-manage-backup-policies-u2.md)
 
 ## <a name="back-up-shares-and-volumes"></a>Apoio de ações e volumes
 
@@ -100,7 +100,7 @@ Para visualizar as cópias de segurança existentes, execute os seguintes passos
     ![Navegue para catálogo de backup](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. Especificar os seguintes critérios a utilizar para filtragem:
    
-   - **Intervalo de tempo** – pode ser **passado 1 hora,** **Últimas 24 horas,** **Passados 7 dias,** **Passados 30 dias,** **Último ano**e **Data Personalizada**.
+   - **Intervalo de tempo** – pode ser **passado 1 hora,** **Últimas 24 horas,** **Passados 7 dias,** **Passados 30 dias,** **Último ano** e **Data Personalizada**.
     
    - **Dispositivos** – selecione a partir da lista de servidores de ficheiros ou servidores iSCSI registados no seu serviço StorSimple Device Manager.
    
@@ -115,4 +115,3 @@ Para visualizar as cópias de segurança existentes, execute os seguintes passos
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a administração do seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

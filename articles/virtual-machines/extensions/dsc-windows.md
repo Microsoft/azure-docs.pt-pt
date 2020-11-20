@@ -8,17 +8,18 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fe788677a084575d41f2f28154b74b28ea9d3d8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689491"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955740"
 ---
 # <a name="powershell-dsc-extension"></a>Extensão DSC powershell
 
@@ -36,7 +37,7 @@ Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-A extensão DSC para o Windows requer que a máquina virtual alvo seja capaz de comunicar com o Azure e a localização do pacote de configuração (.ficheiro zip) se for armazenado num local fora de Azure. 
+A extensão DSC para o Windows requer que a máquina virtual alvo seja capaz de comunicar com o Azure e a localização do pacote de configuração (.zip ficheiro) se for armazenado num local fora do Azure. 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -99,7 +100,7 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão DSC n
 
 | Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2018-10-01 | date |
+| apiVersion | 2018-10-01 | data |
 | publicador | Microsoft.Powershell.DSC | string |
 | tipo | DSC | string |
 | typeHandlerVersion | 2.77 | int |

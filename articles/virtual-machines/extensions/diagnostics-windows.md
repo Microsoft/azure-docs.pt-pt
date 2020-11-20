@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: mimckitt
-ms.openlocfilehash: 3b46ae07d4bbbcd02b9880a394b72c790553f95c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9561f96dafd936244831cff2ed05cda4d915d27d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837028"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955978"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utilize o PowerShell para permitir o Azure Diagnostics numa máquina virtual que executa o Windows
 
@@ -97,7 +98,7 @@ A configuração tem de ser atualizada para incluir o seguinte:
 
 * O *atributoid* de recursos do elemento **Métricas** precisa de ser atualizado com o ID de recurso para o VM.
   
-  * O ID de recursos pode ser construído utilizando o seguinte padrão: "/subscrições/{*ID de subscrição para a subscrição com o VM*}/resourceGroups/{*O nome do grupo de recursos para o VM*}/fornecedores/Microsoft.Compute/virtualMachines/{ O Nome*VM*}".
+  * O ID de recursos pode ser construído utilizando o seguinte padrão: "/subscrições/{*ID de subscrição para a subscrição com o VM*}/resourceGroups/{*O nome do grupo de recursos para o VM*}/fornecedores/Microsoft.Compute/virtualMachines/{ O Nome *VM*}".
   * Por exemplo, se o ID de subscrição para a subscrição em execução for **111111111-1111-1111-1111-111111111111111111,** o nome do grupo de recursos para o grupo de recursos é **MyResourceGroup,** e o Nome VM é **MyWindowsVM,** então o valor para *o recursoID* seria:
     
       ```xml

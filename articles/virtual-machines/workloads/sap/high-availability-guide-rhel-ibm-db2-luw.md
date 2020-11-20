@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: d613da4d9abdfe22fc20f1b74da41e4a65cbff33
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: be455de2a1f8aebc7327af4741e0652a4be76665
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151577"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956437"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Elevada disponibilidade do IBM DB2 LUW nas VMs do Azure no Red Hat Enterprise Linux Server
 
@@ -113,7 +114,7 @@ Complete o processo de planeamento antes de executar a implementação. O planea
 | Máquinas virtuais que hospedam IBM Db2 LUW | Tamanho VM, armazenamento, rede, endereço IP. |
 | Nome de anfitrião virtual e IP virtual para base de dados IBM Db2| O ip virtual ou o nome do anfitrião que é usado para a ligação de servidores de aplicações SAP. **db-virt-hostname,** **db-virt-ip**. |
 | Esgrima azul | O método para evitar situações cerebrais divididas é evitado. |
-| Azure Load Balancer | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
+| Balanceador de Carga do Azure | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
 | Resolução de nomes| Como funciona a resolução de nomes no ambiente. O serviço DNS é altamente recomendado. O ficheiro de anfitriões locais pode ser usado. |
     
 Para obter mais informações sobre o Linux Pacemaker em Azure, consulte [configurar o Pacemaker no Red Hat Enterprise Linux em Azure][rhel-pcs-azr].
@@ -144,7 +145,7 @@ Certifique-se de que o sistema operativo selecionado é suportado pela IBM/SAP p
 
 ## <a name="create-the-pacemaker-cluster"></a>Criar o cluster Pacemaker
     
-Para criar um cluster pacemaker básico para este servidor IBM Db2, consulte [configurar o Pacemaker no Red Hat Enterprise Linux em Azure][rhel-pcs-azr]. 
+Para criar um cluster pacemaker básico para este servidor IBM Db2, consulte [configurar o Pacemaker no Red Hat Enterprise Linux em Azure][rhel-pcs-azr]. 
 
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>Instale o ambiente IBM Db2 LUW e SAP
 
@@ -205,7 +206,7 @@ Recomendamos os parâmetros anteriores baseados em testes iniciais de failover/t
 
 Para configurar o servidor de base de dados Standby utilizando o procedimento de cópia homogénea do sistema SAP, execute estas etapas:
 
-1. Selecione a opção **de cópia do Sistema** > instância de base de **dados**distribuída por sistemas  >  **Distributed**  >  **Database instance**alvo.
+1. Selecione a opção **de cópia do Sistema** > instância de base de **dados** distribuída por sistemas  >  **Distributed**  >  **Database instance** alvo.
 1. Como método de cópia, selecione **Homogeneous System** para que possa utilizar a cópia de segurança para restaurar uma cópia de segurança na instância do servidor de espera.
 1. Quando chegar ao passo de saída para restaurar a base de dados para cópia homogénea do sistema, saia do instalador. Restaurar a base de dados a partir de uma cópia de segurança do hospedeiro principal. Todas as fases de instalação subsequentes já foram executadas no servidor de base de dados primário.
 
@@ -409,7 +410,7 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
 
 1. Criar um pool IP frontal:
 
-   a. No portal Azure, abra o Balançador de Carga Azure, selecione **o pool IP frontend**e, em seguida, selecione **Add**.
+   a. No portal Azure, abra o Balançador de Carga Azure, selecione **o pool IP frontend** e, em seguida, selecione **Add**.
 
    b. Introduza o nome do novo pool IP frontal (por exemplo, **ligação Db2**).
 
@@ -421,7 +422,7 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
 
 1. Criar uma piscina traseira:
 
-   a. No portal Azure, abra o Balançador de Carga Azure, selecione **piscinas de backend**e, em seguida, selecione **Add**.
+   a. No portal Azure, abra o Balançador de Carga Azure, selecione **piscinas de backend** e, em seguida, selecione **Add**.
 
    b. Insira o nome da nova piscina traseira (por exemplo, **Db2-backend**).
 
@@ -435,7 +436,7 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
 
 1. Criar uma sonda de saúde:
 
-   a. No portal Azure, abra o Balançador de Carga Azure, selecione **sondas de saúde**e selecione **Add**.
+   a. No portal Azure, abra o Balançador de Carga Azure, selecione **sondas de saúde** e selecione **Add**.
 
    b. Insira o nome da nova sonda de saúde (por exemplo, **Db2-hp).**
 
@@ -445,7 +446,7 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
 
 1. Criar as regras de equilíbrio de carga:
 
-   a. No portal Azure, abra o Balançador de Carga Azure, selecione **regras de equilíbrio de carga**e, em seguida, selecione **Adicionar**.
+   a. No portal Azure, abra o Balançador de Carga Azure, selecione **regras de equilíbrio de carga** e, em seguida, selecione **Adicionar**.
 
    b. Introduza o nome da nova regra do Balanceador de Carga (por exemplo, **Db2-SID**).
 
@@ -616,8 +617,8 @@ sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 </code></pre>
 
 - **movimento de recursos pcs \<res_name> <host> :** Cria restrições de localização e pode causar problemas com a aquisição
-- **recursos pcs \<res_name> claros **: Limpa as restrições de localização
-- **limpeza \<res_name> de recursos pcs **: Limpa todos os erros do recurso
+- **recursos pcs \<res_name> claros**: Limpa as restrições de localização
+- **limpeza \<res_name> de recursos pcs**: Limpa todos os erros do recurso
 
 ### <a name="test-a-manual-takeover"></a>Teste uma aquisição manual
 

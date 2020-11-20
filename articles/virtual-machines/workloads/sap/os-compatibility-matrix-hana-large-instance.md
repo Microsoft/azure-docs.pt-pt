@@ -7,18 +7,19 @@ author: sasarava
 manager: hrushib
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/21/2020
 ms.author: sasarava
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 14cfd1aef3a49baa11050293fc216256f33cee7a
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6d9ae1f7b8741da1116c6591ee672e4073cfc5af
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376668"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955553"
 ---
 # <a name="compatible-operating-systems-for-hana-large-instances"></a>Sistemas operativos compatíveis para grandes instâncias HANA
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 42ec826ab95363c2599be541fe451473be5ca08d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f65fb37a4cc6640bc998af1c56e7852cccaba234
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441958"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955527"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial - Personalize o fornecimento de produtos de fornecimento de utilizadores para aplicações SaaS no Azure Ative Directory
 
@@ -90,7 +90,7 @@ Um número selecionado de aplicações, tais como ServiceNow, Box e G Suite, sup
 
 ![Exemplo mostra ServiceNow com objetos do Grupo e do Utilizador a provisionados](./media/customize-application-attributes/24.png)
 
-O provisionamento em grupo pode ser opcionalmente ativado ou desativado selecionando o mapeamento de grupo em **Mapeamentos** , e definição **Ativada** à opção desejada no ecrã **de mapeamento** do atributo.
+O provisionamento em grupo pode ser opcionalmente ativado ou desativado selecionando o mapeamento de grupo em **Mapeamentos**, e definição **Ativada** à opção desejada no ecrã **de mapeamento** do atributo.
 
 Os atributos previstos como parte dos objetos do Grupo podem ser personalizados da mesma forma que os objetos do Utilizador, descritos anteriormente. 
 
@@ -202,7 +202,7 @@ Utilize os passos abaixo para as funções de provisão para um utilizador à su
   - **Coisas a considerar**
     - Certifique-se de que várias funções não são atribuídas a um utilizador. Não podemos garantir que papel será aussitado.
     
-  - **Saída de exemplo** 
+  - **Pedido de exemplo (POST)** 
 
    ```json
     {
@@ -226,6 +226,21 @@ Utilize os passos abaixo para as funções de provisão para um utilizador à su
    }
    ```
   
+  - **Saída de exemplo (PATCH)** 
+    
+   ```
+   "Operations": [
+   {
+   "op": "Add",
+   "path": "roles",
+   "value": [
+   {
+   "value": "{\"id\":\"06b07648-ecfe-589f-9d2f-6325724a46ee\",\"value\":\"25\",\"displayName\":\"Role1234\"}"
+   }
+   ]
+   ```  
+O formato de pedido no PATCH e POST difere. Para garantir que o POST e o PATCH são enviados no mesmo formato, pode utilizar a bandeira de [características aqui](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior)descrita. 
+
 - **AppRoleAssignmentsComplex** 
   - **Quando usar:** Utilize a expressão AppRoleAssignmentsComplex para obter múltiplas funções para um utilizador. 
   - **Como configurar:** Editar a lista de atributos suportados como descrito acima para incluir um novo atributo para funções: 

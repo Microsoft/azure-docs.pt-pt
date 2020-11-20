@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92041be4d3d5ef4d980c17fa0a5870b740c1784a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744139"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956114"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implementar o serviço StorSimple Device Manager para StorSimple Virtual Array
 
@@ -36,7 +36,7 @@ As tarefas comuns relacionadas com um serviço StorSimple Device Manager são:
 * Obter a chave de registo do serviço
 * Regenerar a chave de registo de serviço
 
-Este tutorial descreve como executar cada uma das tarefas anteriores. As informações contidas neste artigo aplicam-se apenas às Matrizes Virtuais StorSimple. Para obter mais informações sobre a série StorSimple 8000, vá [implementar um serviço StorSimple Manager](storsimple-manage-service.md).
+Este tutorial descreve como executar cada uma das tarefas anteriores. As informações contidas neste artigo aplicam-se apenas às Matrizes Virtuais StorSimple. Para obter mais informações sobre a série StorSimple 8000, vá [implementar um serviço StorSimple Manager](./storsimple-8000-manage-service.md).
 
 ## <a name="create-a-service"></a>Criar um serviço
 
@@ -89,12 +89,12 @@ A lista de serviços será atualizada.
  ![Lista atualizada de serviços](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
 
 ## <a name="get-the-service-registration-key"></a>Obter a chave de registo do serviço
-Depois de ter criado um serviço com sucesso, terá de registar o seu dispositivo StorSimple com o serviço. Para registar o seu primeiro dispositivo StorSimple, necessitará da chave de registo de serviço. Para registar dispositivos adicionais com um serviço StorSimple existente, necessitará tanto da chave de registo como da chave de encriptação de dados de serviço (que é gerada no primeiro dispositivo durante o registo). Para obter mais informações sobre a chave de encriptação de dados de serviço, consulte [a segurança StorSimple](storsimple-security.md). Pode obter a chave de registo acedendo à lâmina **Keys** para o seu serviço.
+Depois de ter criado um serviço com sucesso, terá de registar o seu dispositivo StorSimple com o serviço. Para registar o seu primeiro dispositivo StorSimple, necessitará da chave de registo de serviço. Para registar dispositivos adicionais com um serviço StorSimple existente, necessitará tanto da chave de registo como da chave de encriptação de dados de serviço (que é gerada no primeiro dispositivo durante o registo). Para obter mais informações sobre a chave de encriptação de dados de serviço, consulte [a segurança StorSimple](./storsimple-8000-security.md). Pode obter a chave de registo acedendo à lâmina **Keys** para o seu serviço.
 
 Execute os seguintes passos para obter a chave de registo de serviço.
 
 #### <a name="to-get-the-service-registration-key"></a>Para obter a chave de registo de serviço
-1. Na lâmina **StorSimple Device Manager,** aceda às **Teclas** **de Gestão &gt; ** .
+1. Na lâmina **StorSimple Device Manager,** aceda às **Teclas** **de Gestão &gt;** .
    
    ![Painel de chaves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Na lâmina **Keys,** aparece uma chave de registo de serviço. Copie a chave de registo utilizando o ícone de cópia. 
@@ -107,7 +107,7 @@ Terá de regenerar uma chave de registo de serviço se for obrigado a efetuar a 
 Execute os seguintes passos para regenerar uma chave de registo de serviço.
 
 #### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registo de serviço
-1. Na lâmina **StorSimple Device Manager,** aceda às **Teclas** **de Gestão &gt; ** .
+1. Na lâmina **StorSimple Device Manager,** aceda às **Teclas** **de Gestão &gt;** .
    
    ![Lâmina de teclas novamente](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Na lâmina **Keys,** clique em **Regenerar.**
@@ -125,4 +125,3 @@ Execute os seguintes passos para regenerar uma chave de registo de serviço.
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba como [começar](storsimple-virtual-array-deploy1-portal-prep.md) com uma Matriz Virtual StorSimple.
 * Saiba como [administrar o seu dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
-

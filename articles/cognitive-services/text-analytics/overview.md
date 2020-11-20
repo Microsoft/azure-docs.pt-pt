@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 ms.author: aahi
 keywords: mineração de texto, análise de sentimento, análise de texto
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6d10161609abda321ed1be9dfda0acabf2030c9e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a91be0798dc67bfb751807b385d638343b89562b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365300"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957049"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -50,6 +50,10 @@ O Nome De Reconhecimento de Entidade (NER) pode [identificar e categorizar entid
 ## <a name="use-containers"></a>Utilizar contentores
 
 [Utilize os recipientes Text Analytics](how-tos/text-analytics-how-to-install-containers.md) como solução no local para o texto de mineração e para a utilização da API. Estes recipientes Docker permitem-lhe extrair frases-chave, detetar linguagem e analisar o sentimento mais próximo dos seus dados.
+
+## <a name="asynchronous-operations"></a>Operações assíncronas
+
+O `/analyze` ponto final permite-lhe utilizar as funcionalidades selecionadas da API API de [texto,](how-tos/text-analytics-how-to-call-api.md)como a extração de NER e frase-chave.
 
 ## <a name="typical-workflow"></a>Fluxo de trabalho típico
 

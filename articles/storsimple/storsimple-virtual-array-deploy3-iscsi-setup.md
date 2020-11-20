@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 81799e6ec366c7429fdb29b85b4ff65d353a8fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6289f335234c9b7efec02a18e12b40a1140c1b3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742422"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956556"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementar StorSimple Virtual Array – Configurar como um servidor iSCSI através do portal Azure
 
@@ -37,7 +37,7 @@ Os procedimentos aqui descritos demoram aproximadamente 30 minutos a 1 hora para
 
 Antes de configurar e configurar o seu StorSimple Virtual Array, certifique-se de que:
 
-* Forneceste uma matriz virtual e ligaste-lhe como descrito no [Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Deploy StorSimple Virtual Array - Provision a virtual array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+* Forneceste uma matriz virtual e ligaste-lhe como descrito no [Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V](./storsimple-virtual-array-deploy2-provision-hyperv.md) ou [Deploy StorSimple Virtual Array - Provision a virtual array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
 * Tem a chave de registo de serviço do serviço StorSimple Device Manager que criou para gerir as suas Matrizes Virtuais StorSimple. Para mais informações, consulte **o Passo 2: Obtenha a chave de registo de serviço** em Implementar [StorSimple Virtual Array - Prepare o portal](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 * Se esta for a segunda matriz virtual ou subsequente que está a registar com um serviço de Gestor de Dispositivos StorSimple existente, deverá ter a chave de encriptação de dados de serviço. Esta chave foi gerada quando o primeiro dispositivo foi registado com sucesso com este serviço. Se perdeu esta chave, consulte **Obter a chave de encriptação de dados de serviço** em Utilizar o [UI web para administrar o seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
@@ -64,7 +64,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
 2. Inscreva-se na UI web do seu dispositivo virtual como **StorSimpleAdmin**. Introduza a palavra-passe do administrador do dispositivo que alterou no Passo 3: Inicie o dispositivo virtual no [Conjunto Virtual StorSimple de implementação - Provisione um dispositivo virtual em Hiper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) ou [implementar StorSimple Virtual Array - Provisionar um dispositivo virtual em VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
     ![Página de inscrição](./media/storsimple-virtual-array-deploy3-iscsi-setup/image4.png)
-3. Serão levados para a página **inicial.** Esta página descreve as várias definições necessárias para configurar e registar o dispositivo virtual com o serviço StorSimple Device Manager. Note que as **definições de Rede,** **configurações de procuração web**e **definições de tempo** são opcionais. As únicas definições necessárias são **as definições do Dispositivo** e as **definições de Cloud**.
+3. Serão levados para a página **inicial.** Esta página descreve as várias definições necessárias para configurar e registar o dispositivo virtual com o serviço StorSimple Device Manager. Note que as **definições de Rede,** **configurações de procuração web** e **definições de tempo** são opcionais. As únicas definições necessárias são **as definições do Dispositivo** e as **definições de Cloud**.
    
     ![Página de boas-vindas](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
 4. Na página **de definições de Rede** nas **interfaces da Rede,** o DATA 0 será automaticamente configurado para si. Cada interface de rede é definida por padrão para obter um endereço IP automaticamente (DHCP). Portanto, um endereço IP, sub-rede e gateway será automaticamente atribuído (tanto para IPv4 como IPv6).
@@ -84,7 +84,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
    2. Clique no ícone do servidor **iSCSI** ![ para o tipo de dispositivo que está a ](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) criar. **Type** Um servidor iSCSI permitir-lhe-á providenciar armazenamento de blocos.
    3. Especifique se pretende que este dispositivo seja unido ao domínio. Se o seu dispositivo for um servidor iSCSI, então juntar o domínio é opcional. Se decidir não juntar o servidor iSCSI a um domínio, clique em **Aplicar,** aguarde que as definições sejam aplicadas e, em seguida, salte para o passo seguinte.
       
-       Se quiser juntar o dispositivo a um domínio. Introduza um **nome de domínio**e, em seguida, clique em **Aplicar**.
+       Se quiser juntar o dispositivo a um domínio. Introduza um **nome de domínio** e, em seguida, clique em **Aplicar**.
       
       > [!NOTE]
       > Se juntar o seu servidor iSCSI a um domínio, certifique-se de que o seu conjunto virtual está na sua própria unidade organizacional (OU) para o Microsoft Azure Ative Directory e não são aplicados objetos de política de grupo (GPO).
@@ -245,7 +245,4 @@ Execute os passos seguintes para obter o Nome Qualificado do iSCSI (IQN) de um a
 3. Guarde esta cadeia.
 
 <!--Reference link-->
-[1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
-
-
-
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

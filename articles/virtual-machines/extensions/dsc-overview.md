@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 900273ec48c71e6f88d28bccff6f1e2abd412c1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17ada83f6fa1b57f8dd72d591b6625f25e9a2388
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079579"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955859"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao processador da extensão Desired State Configuration do Azure
 
@@ -60,7 +61,7 @@ Quando a extensão é chamada pela primeira vez, instala uma versão do WMF util
 - Se a propriedade **wmfVersion** for especificada, esta versão do WMF é instalada, a menos que essa versão seja incompatível com o SISTEMA do VM.
 - Se não for especificada nenhuma propriedade **wmfVersion,** a versão mais recente aplicável do WMF é instalada.
 
-A instalação do WMF requer um reinício. Após reiniciar, a extensão descarrega o ficheiro .zip especificado na propriedade **modulesUrl,** se fornecido. Se esta localização estiver no armazenamento do Azure Blob, pode especificar um token SAS na propriedade **sasToken** para aceder ao ficheiro. Depois de o .zip ser descarregado e desembalado, a função de configuração definida na **configuraçãoFunction** funciona para gerar um ficheiro .mof[(Formato de Objeto Gerido).](/windows/win32/wmisdk/managed-object-format--mof-) A extensão é então executado `Start-DscConfiguration -Force` utilizando o ficheiro .mof gerado. A extensão captura a saída e escreve-a para o canal de estado do Azure.
+A instalação do WMF requer um reinício. Após reiniciar, a extensão descarrega o ficheiro .zip especificado na propriedade **modulesUrl,** se fornecido. Se esta localização estiver no armazenamento do Azure Blob, pode especificar um token SAS na propriedade **sasToken** para aceder ao ficheiro. Após o .zip ser descarregado e desembalado, a função de configuração definida na **configuraçãoFunction** executa para gerar um ficheiro .mof [(Formato de Objeto Gerido).](/windows/win32/wmisdk/managed-object-format--mof-) A extensão é então executado `Start-DscConfiguration -Force` utilizando o ficheiro .mof gerado. A extensão captura a saída e escreve-a para o canal de estado do Azure.
 
 ### <a name="default-configuration-script"></a>Script de configuração padrão
 
@@ -108,7 +109,7 @@ O **cmdlet Remove-AzVMDscExtension** remove o manipulador de extensão de um VM 
 Informações importantes sobre cmdlets de extensão DSC gestor de recursos:
 
 - Os cmdlets do Azure Resource Manager são sincronizados.
-- São necessários os parâmetros *ResourceGroupName*, *VMName,* *ArchiveStorageAccountName*, *Versão*e *Localização.*
+- São necessários os parâmetros *ResourceGroupName*, *VMName,* *ArchiveStorageAccountName*, *Versão* e *Localização.*
 - *ArchiveResourceGroupName* é um parâmetro opcional. Pode especificar este parâmetro quando a sua conta de armazenamento pertence a um grupo de recursos diferente daquele em que o VM é criado.
 - Utilize o interruptor **AutoUpdate** para atualizar automaticamente o controlador de extensão para a versão mais recente quando estiver disponível. Este parâmetro tem o potencial de provocar o reinício no VM quando uma nova versão do WMF é lançada.
 
@@ -178,12 +179,12 @@ Para configurar o DSC no portal:
 
 1. Vai a um VM.
 2. Em **Definições**, selecione **Extensões**.
-3. Na nova página criada, selecione **+ Adicionar**e, em seguida, selecione **PowerShell Desired State Configuration**.
+3. Na nova página criada, selecione **+ Adicionar** e, em seguida, selecione **PowerShell Desired State Configuration**.
 4. Clique em **Criar** na parte inferior da página de informações de extensão.
 
 O portal recolhe a seguinte entrada:
 
-- **Módulos de configuração ou Script**: Este campo é obrigatório (o formulário não foi atualizado para o [script de configuração predefinido).](#default-configuration-script) Os módulos de configuração e scripts requerem um ficheiro .ps1 que tenha um script de configuração ou um ficheiro .zip com um script de configuração .ps1 na raiz. Se utilizar um ficheiro .zip, todos os recursos dependentes devem ser incluídos nas pastas do módulo no .zip. Pode criar o ficheiro .zip utilizando a **Publish-AzureVMDscConfiguration -OutputArchivePath** cmdlet que está incluído no Azure PowerShell SDK. O ficheiro .zip é carregado para o armazenamento de bolhas do utilizador e protegido por um token SAS.
+- **Módulos de configuração ou Script**: Este campo é obrigatório (o formulário não foi atualizado para o [script de configuração predefinido).](#default-configuration-script) Os módulos de configuração e scripts requerem um ficheiro .ps1 que tenha um script de configuração ou um ficheiro .zip com um script de configuração .ps1 na raiz. Se utilizar um ficheiro .zip, todos os recursos dependentes devem ser incluídos nas pastas do módulo no .zip. Pode criar o ficheiro .zip utilizando o **cmdlet Publish-AzureVMDscConfiguration -OutputArchivePath** cmdlet que está incluído no Azure PowerShell SDK. O ficheiro .zip é carregado para o armazenamento de bolhas do utilizador e protegido por um token SAS.
 
 - **Nome de configuração qualificado por módulos**: Pode incluir múltiplas funções de configuração num ficheiro .ps1. Introduza o nome da configuração .escrita ps1 seguida \\ e o nome da função de configuração. Por exemplo, se o seu script .ps1 tiver o nome configuration.ps1 e a configuração for **IisInstall**, insira **configuration.ps1\IisInstall**.
 

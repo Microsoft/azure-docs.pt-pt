@@ -5,16 +5,17 @@ services: virtual-machines-linux
 author: axayjo
 manager: gwallace
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 0ae6366acf270d762b1c15563bfec1b2eb2a1b8d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ffbafb76fd2c6dd06a88bfd79746557889039cd6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421078"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956029"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Using Linux Diagnostic Extension to monitor metrics and logs (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos)
 
@@ -228,7 +229,7 @@ Este conjunto de informações de configuração contém informações sensívei
 }
 ```
 
-Name | Valor
+Nome | Valor
 ---- | -----
 storageAccountName | O nome da conta de armazenamento em que os dados são escritos pela extensão.
 armazenamentoAccountEndPoint | (opcional) O ponto final identificando a nuvem em que a conta de armazenamento existe. Se esta definição estiver ausente, o LAD desrescume da nuvem pública Azure, `https://core.windows.net` . Para utilizar uma conta de armazenamento na Alemanha Azure, no Governo Azure ou na Azure China, decidiu esse valor em conformidade.
@@ -812,7 +813,7 @@ Os dados enviados para as pias JsonBlob são armazenados em bolhas na conta de a
 Além disso, pode utilizar estas ferramentas de UI para aceder aos dados no Azure Storage:
 
 * Explorador visual do servidor do estúdio.
-* [A screenshot mostra contentores e mesas no Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Explorador do Storage do Azure")
+* [A screenshot mostra contentores e mesas no Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Explorador de Armazenamento do Azure")
 
 Esta imagem de uma sessão do Microsoft Azure Storage Explorer mostra as mesas e recipientes de armazenamento Azure gerados a partir de uma extensão LAD 3.0 corretamente configurada num VM de teste. A imagem não corresponde exatamente à [configuração lad 3.0](#an-example-lad-30-configuration)da amostra .
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: b13d82780a01771c6bb8e87091a7808ea22ca111
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b90fe6b7e0937a9ac3b300e904085122610d5645
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371190"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957083"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte linguístico API v3 de API de análise de texto 
 
@@ -24,7 +24,7 @@ ms.locfileid: "92371190"
 
 #### <a name="sentiment-analysis"></a>[Análise de Sentimentos](#tab/sentiment-analysis)
 
-| Linguagem              | Código do idioma | v2 apoio | v3 suporte | Versão do modelo V3 inicial: |              Notas |
+| Idioma              | Código do idioma | v2 apoio | v3 suporte | Versão do modelo V3 inicial: |              Notas |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
 | Chinese-Simplified    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` também aceitou |
 | Chinese-Traditional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
@@ -35,12 +35,13 @@ ms.locfileid: "92371190"
 | Francês                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Alemão                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Grego                 |     `el`      |     ✓      |            |                            |                    |
-| Hindi                 |     `hi`      |           |      ✓      |          2020-04-01                  |                    |
+| Hindi                 |     `hi`      |            |      ✓     |          2020-04-01        |                    |
 | Italiano               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Japonês              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Coreano                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
-| Norueguês (Bokmål)   |     `no`      |     ✓      |     ✓       |        2020-07-01         |                    |
+| Norueguês (Bokmål)   |     `no`      |     ✓      |     ✓      |         2020-07-01         |                    |
 | Polaco                |     `pl`      |     ✓      |            |                            |                    |
+| Português (Brasil)   |    `pt-BR`    |            |     ✓      |         2020-04-01         |                    |
 | Português (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` também aceitou |
 | Russo               |     `ru`      |     ✓      |            |                            |                    |
 | Espanhol               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
@@ -49,7 +50,7 @@ ms.locfileid: "92371190"
 
 ### <a name="opinion-mining-v31-preview-only"></a>Mineração de opinião (apenas v3.1-pré-visualização)
 
-| Linguagem              | Código do idioma | Começando com a versão do modelo V3: |              Notas |
+| Idioma              | Código do idioma | Começando com a versão do modelo V3: |              Notas |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | Inglês               |     `en`      |              2020-04-01              |                    |
 
@@ -60,7 +61,7 @@ ms.locfileid: "92371190"
 > * O NER v3 suporta atualmente apenas línguas inglesa e espanhola. Se ligar para o NER v3 com um idioma diferente, a API devolverá os resultados v2.1, desde que o idioma seja suportado na versão 2.1.
 > * v2.1 apenas devolve o conjunto completo de entidades disponíveis para as línguas inglesa, chinesa-simplificada, francesa, alemã e espanhola.  As entidades "Pessoa", "Localização" e "Organização" são devolvidas para as outras línguas apoiadas.
 
-| Linguagem               | Código do idioma | v2.1 apoio | v3 suporte | Começando com a versão do modelo V3: |       Notas        |
+| Idioma               | Código do idioma | v2.1 apoio | v3 suporte | Começando com a versão do modelo V3: |       Notas        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Árabe                |     `ar`      |     ✓      |            |                                 |                    |
 | Checo                 |     `cs`      |     ✓      |            |                                 |                    |
@@ -91,7 +92,7 @@ ms.locfileid: "92371190"
 > [!NOTE]
 > As versões de modelo de Extração de Frase-Chave antes de 2020-07-01 têm um limite de caracteres de 64. Este limite não está presente nas versões posteriores do modelo.
 
-| Linguagem              | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: |       Notas        |
+| Idioma              | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: |       Notas        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Neerlandês                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Inglês               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -111,7 +112,7 @@ ms.locfileid: "92371190"
 
 #### <a name="entity-linking"></a>[Ligação de entidades](#tab/entity-linking)
 
-| Linguagem | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: | Notas |
+| Idioma | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: | Notas |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
 | Inglês  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | Espanhol  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
@@ -122,7 +123,7 @@ A API text Analytics pode detetar uma vasta gama de línguas, variantes, dialeto
 
 Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção de Idiomas para ver se devolve um código. A resposta para línguas que não podem ser detetadas é `unknown` .
 
-| Linguagem | Código do Idioma |  v3 suporte | Disponível a partir da versão do modelo V3: |
+| Idioma | Código do Idioma |  v3 suporte | Disponível a partir da versão do modelo V3: |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|
 |Afrikaans|`af`|✓|    |
 |Albanês|`sq`|✓|    |

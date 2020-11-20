@@ -8,17 +8,18 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e38fcd069fa6a3e8582dcd96b2bd0b4074986de7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511165"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955808"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado desejada com modelos de gestor de recursos Azure
 
@@ -180,8 +181,8 @@ Para obter uma lista dos argumentos disponíveis para o script de configuração
 | Nome da propriedade | Tipo | Descrição |
 | --- | --- | --- |
 | definições.wmfVersion |string |Especifica a versão do Quadro de Gestão do Windows (WMF) que deve ser instalada no seu VM. Definir esta propriedade para as **mais recentes** instala a versão mais recente do WMF. Atualmente, os únicos valores possíveis para esta propriedade são **4.0,** **5.0**, **5.1,** e **os mais recentes.** Estes valores possíveis estão sujeitos a atualizações. O valor predefinido é **o mais recente**. |
-| settings.configuration.url |string |Especifica a localização do URL a partir do qual descarrega o seu ficheiro DSC de configuração .zip. Se o URL fornecido necessitar de um token SAS para acesso, desacorra a ** propriedade urationUrlSasTokenprotectedSettings.config** o valor do seu token SAS. Esta propriedade é necessária se **settings.configuration.script** ou **settings.configuration.fun** forem definidos. Se não for dado qualquer valor para estas propriedades, a extensão chama o script de configuração padrão para definir metadados do Gestor de Configuração de Localização (LCM) e os argumentos devem ser fornecidos. |
-| settings.configuration.script |string |Especifica o nome do ficheiro do script que contém a definição da sua configuração DSC. Este script deve estar na pasta raiz do ficheiro .zip que é descarregado a partir do URL especificado pela **propriedade uration.urlsettings.config.** Esta propriedade é necessária se **settings.configuration.url** ou **settings.configuration.script** forem definidos. Se não for dado qualquer valor para estas propriedades, a extensão chama o script de configuração padrão para definir metadados LCM, e os argumentos devem ser fornecidos. |
+| settings.configuration.url |string |Especifica a localização do URL a partir do qual descarregar a sua configuração DSC .zip ficheiro. Se o URL fornecido necessitar de um token SAS para acesso, desacorra a **propriedade urationUrlSasTokenprotectedSettings.config** o valor do seu token SAS. Esta propriedade é necessária se **settings.configuration.script** ou **settings.configuration.fun** forem definidos. Se não for dado qualquer valor para estas propriedades, a extensão chama o script de configuração padrão para definir metadados do Gestor de Configuração de Localização (LCM) e os argumentos devem ser fornecidos. |
+| settings.configuration.script |string |Especifica o nome do ficheiro do script que contém a definição da sua configuração DSC. Este script deve estar na pasta raiz do ficheiro .zip que é descarregado a partir do URL especificado pela propriedade **uration.urlsettings.config.** Esta propriedade é necessária se **settings.configuration.url** ou **settings.configuration.script** forem definidos. Se não for dado qualquer valor para estas propriedades, a extensão chama o script de configuração padrão para definir metadados LCM, e os argumentos devem ser fornecidos. |
 | settings.configuration.function |string |Especifica o nome da sua configuração DSC. A configuração que é nomeada deve ser incluída no script que **settings.configuration.script** define. Esta propriedade é necessária se **settings.configuration.url** ou **settings.configuration.fun** forem definidos. Se não for dado qualquer valor para estas propriedades, a extensão chama o script de configuração padrão para definir metadados LCM, e os argumentos devem ser fornecidos. |
 | settings.configurationArments |Coleção |Define quaisquer parâmetros que pretenda passar para a sua configuração DSC. Esta propriedade não está encriptada. |
 | settings.configurationData.url |string |Especifica o URL a partir do qual descarregar o ficheiro de dados de configuração (.psd1) para utilizar como entrada para a sua configuração DSC. Se o URL fornecido necessitar de um token SAS para acesso, desacorra a propriedade **protectedSettings.configurationDataUrlSasToken** para o valor do seu token SAS. |
@@ -255,8 +256,8 @@ Os argumentos de configuração são passados para o script de configuração pa
 
 O exemplo a seguir é da visão geral do [controlador de extensão DSC](dsc-overview.md).
 Este exemplo utiliza modelos de Gestor de Recursos em vez de cmdlets para implementar a extensão.
-Guarde a configuração IisInstall.ps1, coloque-a num ficheiro .zip (exemplo: `iisinstall.zip` ) e, em seguida, carregue o ficheiro num URL acessível.
-Este exemplo utiliza o armazenamento Azure Blob, mas pode descarregar ficheiros .zip a partir de qualquer local arbitrário.
+Guarde a configuração IisInstall.ps1, coloque-a num ficheiro .zip (exemplo: `iisinstall.zip` ), e, em seguida, carregue o ficheiro num URL acessível.
+Este exemplo utiliza o armazenamento do Azure Blob, mas pode descarregar ficheiros .zip de qualquer localização arbitrária.
 
 No modelo de Gestor de Recursos, o seguinte código instrui o VM a descarregar o ficheiro correto e, em seguida, executar a função PowerShell apropriada:
 
@@ -294,7 +295,7 @@ O exemplo a seguir obtém o **RegistrationUrl** and **RegistrationKey,** referin
 
 ## <a name="update-from-a-previous-format"></a>Atualização a partir de um formato anterior
 
-Quaisquer configurações num formato anterior da extensão (e que tenham as propriedades públicas **ModulesUrl**, **ModuleSource**, **ModuleVersion**, **ConfigurationFunction,** **SasToken**ou **Properties**) adaptam-se automaticamente ao formato atual da extensão.
+Quaisquer configurações num formato anterior da extensão (e que tenham as propriedades públicas **ModulesUrl**, **ModuleSource**, **ModuleVersion**, **ConfigurationFunction,** **SasToken** ou **Properties**) adaptam-se automaticamente ao formato atual da extensão.
 Correm como antes.
 
 O esquema que se segue mostra como era o esquema de definições anteriores:

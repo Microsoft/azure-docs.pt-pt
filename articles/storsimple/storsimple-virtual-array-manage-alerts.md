@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a24890f42b795bb4b9a7d187f74ceb9a4f8557f5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 12fcc9996697f3bbba35826d79bec238bfb0f8b3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539231"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956216"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utilize o Gestor de Dispositivos StorSimple para gerir alertas para o StorSimple Virtual Array
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A funcionalidade de alertas no serviço StorSimple Device Manager fornece uma forma de rever e limpar alertas relacionados com as Matrizes Virtuais StorSimple em tempo real. Pode utilizar os alertas na lâmina **de resumo** do Serviço para monitorizar centralmente os problemas de saúde das suas Matrizes Virtuais StorSimple e da solução geral microsoft Azure StorSimple.
 
@@ -72,7 +72,7 @@ Depois de ativar a notificação por e-mail para um conjunto virtual, os membros
 
 O seu StorSimple Virtual Array gera alertas em resposta a uma variedade de condições. Seguem-se os tipos mais comuns de condições de alerta:
 
-* **Problemas de conectividade** – Estes alertas ocorrem quando há dificuldade em transferir dados. Problemas de comunicação podem ocorrer durante a transferência de dados de e para a conta de armazenamento Azure ou devido à falta de conectividade entre os dispositivos virtuais e o serviço StorSimple Device Manager. As questões de comunicação são algumas das mais difíceis de corrigir, porque há tantos pontos de falha. Deve verificar-se sempre primeiro se a conectividade da rede e o acesso à Internet estão disponíveis antes de continuar a uma resolução de problemas mais avançada. Para obter informações sobre portas e configurações de firewall, aceda aos [requisitos do sistema StorSimple Virtual Array](storsimple-ova-system-requirements.md). Para obter ajuda na resolução de problemas, vá à [resolução de problemas com o Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
+* **Problemas de conectividade** – Estes alertas ocorrem quando há dificuldade em transferir dados. Problemas de comunicação podem ocorrer durante a transferência de dados de e para a conta de armazenamento Azure ou devido à falta de conectividade entre os dispositivos virtuais e o serviço StorSimple Device Manager. As questões de comunicação são algumas das mais difíceis de corrigir, porque há tantos pontos de falha. Deve verificar-se sempre primeiro se a conectividade da rede e o acesso à Internet estão disponíveis antes de continuar a uma resolução de problemas mais avançada. Para obter informações sobre portas e configurações de firewall, aceda aos [requisitos do sistema StorSimple Virtual Array](storsimple-ova-system-requirements.md). Para obter ajuda na resolução de problemas, vá à [resolução de problemas com o Test-Connection cmdlet](./storsimple-8000-troubleshoot-deployment.md).
 * **Problemas de desempenho** – Estes alertas são causados quando o seu sistema não está a funcionar da melhor forma, como quando está sob uma carga pesada.
 
 Além disso, poderá ver alertas relacionados com segurança, atualizações ou falhas de emprego.
@@ -137,7 +137,7 @@ As tabelas que se seguem listam alguns dos alertas StorSimple que poderá encont
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Configuração do dispositivo virtual no local sem suporte. |Desempenho lento. |A configuração atual pode resultar na degradação do desempenho. Certifique-se de que o seu servidor cumpre os requisitos mínimos de configuração. Para mais informações, aceda aos [requisitos de matriz virtual StorSimple.](storsimple-ova-system-requirements.md) |
-| Está a ficar sem espaço de disco previsto < *nome do dispositivo.* \> |Aviso de espaço em disco. |Estás a ficar sem espaço em disco. Para libertar o espaço, considere mover cargas de trabalho para outro volume ou partilhar ou eliminar dados. |
+| Está a ficar sem espaço de disco previsto <*nome do dispositivo.* \> |Aviso de espaço em disco. |Estás a ficar sem espaço em disco. Para libertar o espaço, considere mover cargas de trabalho para outro volume ou partilhar ou eliminar dados. |
 
 ### <a name="job-failure-alerts"></a>Alertas de insuficiência de emprego
 
@@ -157,13 +157,13 @@ As tabelas que se seguem listam alguns dos alertas StorSimple que poderá encont
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Está a registar atrasos inesperados na transferência de dados. |Transferência lenta de dados. |Os erros de estrangulamento ocorrem quando excede os objetivos de escalabilidade de um serviço de armazenamento. O serviço de armazenamento faz isso para garantir que nenhum cliente ou inquilino possa usar o serviço em detrimento de outros. Para obter mais informações sobre a resolução de problemas da sua conta de armazenamento Azure, vá ao [Monitor, diagnostice e resolva problemas do Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
-| Está a ficar sem espaço no disco de reservas local < *nome do dispositivo.* \> |Tempo de resposta lento. |10% do tamanho total previsto para <nome do *dispositivo* \> é reservado no dispositivo local e está agora a esgotar-se no espaço reservado. A carga de trabalho no nome < *dispositivo* \> está a gerar uma taxa mais elevada de churn ou pode ter migrado recentemente uma grande quantidade de dados. Isto pode resultar num desempenho reduzido. Considere uma das seguintes ações para resolver isto:<ul><li>Aumente a largura de banda da nuvem para este dispositivo.</li><li>Reduza ou mova cargas de trabalho para outro volume ou partilha.</li></ul> |
+| Está a ficar sem espaço no disco de reservas local <*nome do dispositivo.* \> |Tempo de resposta lento. |10% do tamanho total previsto para <nome do *dispositivo* \> é reservado no dispositivo local e está agora a esgotar-se no espaço reservado. A carga de trabalho no nome <*dispositivo* \> está a gerar uma taxa mais elevada de churn ou pode ter migrado recentemente uma grande quantidade de dados. Isto pode resultar num desempenho reduzido. Considere uma das seguintes ações para resolver isto:<ul><li>Aumente a largura de banda da nuvem para este dispositivo.</li><li>Reduza ou mova cargas de trabalho para outro volume ou partilha.</li></ul> |
 
 ### <a name="security-alerts"></a>Alertas de segurança
 
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
-| A palavra-passe para < *nome do dispositivo* \> expirará em <dias de *número.* \> |Aviso de senha. |A sua palavra-passe expirará em *number* \> <dias. Considere mudar a sua senha. Para obter mais informações, aceda à [palavra-passe do administrador do dispositivo StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
+| A palavra-passe para <*nome do dispositivo* \> expirará em <dias de *número.* \> |Aviso de senha. |A sua palavra-passe expirará em *number* \> <dias. Considere mudar a sua senha. Para obter mais informações, aceda à [palavra-passe do administrador do dispositivo StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
 
 ## <a name="next-steps"></a>Passos seguintes
 

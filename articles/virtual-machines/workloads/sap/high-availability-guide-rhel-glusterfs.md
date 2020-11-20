@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
-ms.openlocfilehash: e6b8708edeeb4b3b69dab82265d13db2a4c22e08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41699625b7062daa005e6908ce9e4249dd86f1fa
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87051649"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956403"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver
 
@@ -43,7 +44,7 @@ ms.locfileid: "87051649"
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 
 Este artigo descreve como implantar as máquinas virtuais, configurar as máquinas virtuais e instalar um cluster GlusterFS que pode ser usado para armazenar os dados partilhados de um sistema SAP altamente disponível.
-Este guia descreve como configurar glusterfS que é usado por dois sistemas SAP, NW1 e NW2. Os nomes dos recursos (por exemplo, máquinas virtuais, redes virtuais) no exemplo assumem que utilizou o modelo do [servidor de ficheiros SAP][template-file-server] com **glust**prefixo de recursos .
+Este guia descreve como configurar glusterfS que é usado por dois sistemas SAP, NW1 e NW2. Os nomes dos recursos (por exemplo, máquinas virtuais, redes virtuais) no exemplo assumem que utilizou o modelo do [servidor de ficheiros SAP][template-file-server] com **glust** prefixo de recursos .
 
 Leia primeiro as seguintes notas e artigos SAP
 
@@ -98,7 +99,7 @@ Você pode usar um dos modelos de arranque rápido no github para implementar to
    4. Nome de utilizador Admin, Palavra-passe de Administrador ou chave SSH  
       É criado um novo utilizador que pode ser utilizado para iniciar sessão na máquina.
    5. ID da sub-rede  
-      Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente parece /subscrições/** &lt; subscrição &gt; ID**/resourceGroups/** &lt; &gt; nome do grupo de recursos**/fornecedores/Microsoft.Network/virtualNetworks/ virtual** &lt; Network/virtual Network name &gt; **/subnets/** &lt; subnets/ subnet name &gt; **
+      Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente parece /subscrições/**&lt; subscrição &gt; ID**/resourceGroups/**&lt; &gt; nome do grupo de recursos**/fornecedores/Microsoft.Network/virtualNetworks/ virtual **&lt; Network/virtual Network name &gt;**/subnets/**&lt; subnets/ subnet name &gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementar o Linux manualmente através do portal Azure
 

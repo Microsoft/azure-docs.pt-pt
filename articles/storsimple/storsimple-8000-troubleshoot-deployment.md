@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5806266955eafab8c3c8c99695ff82736de92e9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 600934e2d46c1a84a83fa1290db13b3d0d1508f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187069"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956896"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Problemas de resolução de problemas Problemas de implementação de dispositivos StorSimple
 ## <a name="overview"></a>Descrição geral
@@ -46,12 +46,12 @@ As seguintes secções podem ajudá-lo a resolver problemas que encontra quando 
 ## <a name="first-time-setup-wizard-process"></a>Processo de assistente de configuração pela primeira vez
 Os passos seguintes resumem o processo de assistente de configuração. Para obter informações detalhadas sobre a configuração, consulte [implementar o seu dispositivo StorSimple no local.](storsimple-8000-deployment-walkthrough-u2.md)
 
-1. Executar o cmdlet [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) para iniciar o assistente de configuração que irá guiá-lo através dos passos restantes. 
+1. Executar o cmdlet [Invoke-HcsSetupWizard](/previous-versions/windows/powershell-scripting/dn688135(v=wps.630)) para iniciar o assistente de configuração que irá guiá-lo através dos passos restantes. 
 2. Configure a rede: o assistente de configuração permite configurar as definições de rede para a interface de rede DATA 0 no seu dispositivo StorSimple. Estas definições incluem o seguinte:
-   * IP virtual (VIP), máscara de sub-rede e gateway – O [cmdlet Set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) é executado em segundo plano. Configura o endereço IP, a máscara de sub-rede e o gateway para a interface de rede DATA 0 no seu dispositivo StorSimple.
-   * Servidor PRIMÁRIO DNS – O [cmdlet Set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) é executado em segundo plano. Configura as definições de DNS para a sua solução StorSimple.
-   * Servidor NTP – O [cmdlet Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) é executado em segundo plano. Configura as definições do servidor NTP para a sua solução StorSimple.
-   * Procuração web opcional – O [cmdlet Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) é executado em segundo plano. Define e permite a configuração de procuração web para a sua solução StorSimple.
+   * IP virtual (VIP), máscara de sub-rede e gateway – O [cmdlet Set-HcsNetInterface](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)) é executado em segundo plano. Configura o endereço IP, a máscara de sub-rede e o gateway para a interface de rede DATA 0 no seu dispositivo StorSimple.
+   * Servidor PRIMÁRIO DNS – O [cmdlet Set-HcsDnsClientServerAddress](/previous-versions/windows/powershell-scripting/dn688172(v=wps.630)) é executado em segundo plano. Configura as definições de DNS para a sua solução StorSimple.
+   * Servidor NTP – O [cmdlet Set-HcsNtpClientServerAddress](/previous-versions/windows/powershell-scripting/dn688138(v=wps.630)) é executado em segundo plano. Configura as definições do servidor NTP para a sua solução StorSimple.
+   * Procuração web opcional – O [cmdlet Set-HcsWebProxy](/previous-versions/windows/powershell-scripting/dn688154(v=wps.630)) é executado em segundo plano. Define e permite a configuração de procuração web para a sua solução StorSimple.
 3. Configurar a palavra-passe: o próximo passo é configurar a palavra-passe do administrador do dispositivo.
    A palavra-passe do administrador do dispositivo é utilizada para iniciar sessão no seu dispositivo. A palavra-passe predefinida do dispositivo é **Password1**.
         
@@ -69,7 +69,7 @@ As tabelas que se seguem listam os erros comuns que poderá encontrar quando:
 * Registe o dispositivo.
 
 ## <a name="errors-during-the-required-network-settings"></a>Erros durante as definições de rede necessárias
-| N.º | Mensagem de erro | Possíveis causas | Ação recomendada |
+| Não. | Mensagem de erro | Possíveis causas | Ação recomendada |
 | --- | --- | --- | --- |
 | 1 |Invocar-HcsSetupWizard: Este comando só pode ser executado no controlador ativo. |A configuração estava a ser realizada no controlador passivo. |Executar este comando a partir do controlador ativo. Para obter mais informações, consulte [Identificar um controlador ativo no seu dispositivo.](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device) |
 | 2 |Invocar-hcsSetupWizard: Dispositivo não está pronto. |Existem problemas com a conectividade da rede no DATA 0. |Verifique a conectividade da rede física no DATA 0. |
@@ -80,7 +80,7 @@ As tabelas que se seguem listam os erros comuns que poderá encontrar quando:
 | 7 |Invoke-HcsSetupWizard: Não existem mais pontos finais disponíveis a partir do mapper do ponto final. (Exceção da HRESULT: 0x800706D9) |A funcionalidade do cluster não está a funcionar. |[Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para os próximos passos. |
 
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Erros durante as definições opcionais de procuração web
-| N.º | Mensagem de erro | Possíveis causas | Ação recomendada |
+| Não. | Mensagem de erro | Possíveis causas | Ação recomendada |
 | --- | --- | --- | --- |
 | 1 |Invoke-HcsSetupWizard: Parâmetro inválido (Exceção de HRESULT: 0x80070057) |Um dos parâmetros previstos para as definições de procuração não é válido. |O URI não é fornecido no formato correto. Utilize o seguinte formato: *\<IP address or FQDN of the web proxy server>* http://:*\<TCP port number>* |
 | 2 |Invoke-HcsSetupWizard: servidor RPC não disponível (Exceção de HRESULT: 0x800706ba) |A causa principal é uma das seguintes:<ol><li>O aglomerado não está de pé.</li><li>O controlador passivo não pode comunicar com o controlador ativo, e o comando é executado a partir do controlador passivo.</li></ol> |Dependendo da causa raiz:<ol><li>[Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para se certificar de que o cluster está em cima.</li><li>Executar o comando a partir do controlador ativo. Se pretender executar o comando a partir do controlador passivo, terá de se certificar de que o controlador passivo pode comunicar com o controlador ativo. Terá de [contactar](storsimple-8000-contact-microsoft-support.md) o Microsoft Support se esta conectividade estiver quebrada.</li></ol> |
@@ -103,7 +103,7 @@ Para obter mais informações sobre a palavra-passe do administrador do disposit
 
 Pode encontrar um ou mais dos seguintes erros ao configurar o administrador do dispositivo e as palavras-passe do StorSimple Snapshot Manager.
 
-| N.º | Mensagem de erro | Ação recomendada |
+| Não. | Mensagem de erro | Ação recomendada |
 | --- | --- | --- |
 | 1 |A palavra-passe excede o comprimento máximo. |A palavra-passe do administrador do dispositivo deve ter entre 8 e 15 caracteres de comprimento. |
 | 2 |A palavra-passe não corresponde ao comprimento exigido. |A palavra-passe do administrador do dispositivo deve ter entre 8 e 15 caracteres de comprimento.|
@@ -126,7 +126,7 @@ Pode redefinir a palavra-passe no portal Azure através do serviço StorSimple D
 ## <a name="errors-during-device-registration"></a>Errors during device registration (Erros durante o registo de dispositivos)
 Utilize o serviço StorSimple Device Manager em execução no Microsoft Azure para registar o dispositivo. Pode encontrar um ou mais dos seguintes problemas durante o registo do dispositivo.
 
-| N.º | Mensagem de erro | Possíveis causas | Ação recomendada |
+| Não. | Mensagem de erro | Possíveis causas | Ação recomendada |
 | --- | --- | --- | --- |
 | 1 |Erro 350027: Não registou o dispositivo com o Gestor de Dispositivos StorSimple. | |Aguarde alguns minutos e tente a operação novamente. Se o problema persistir, contacte o [Microsoft Support](storsimple-8000-contact-microsoft-support.md). |
 | 2 |Erro 350013: Ocorreu um erro no registo do dispositivo. Isto pode dever-se a uma chave de registo de serviço incorreta. | |Registe novamente o aparelho com a chave de registo de serviço correta. Para mais informações, consulte [obter a chave de registo do serviço.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
@@ -139,7 +139,7 @@ Utilize o serviço StorSimple Device Manager em execução no Microsoft Azure pa
 | 9 |Aviso: Não foi possível ativar o dispositivo. O administrador do seu dispositivo e as palavras-passe do StorSimple Snapshot Manager não foram alteradas. |Se o registo falhar, o administrador do dispositivo e as palavras-passe do StorSimple Snapshot Manager não serão alteradas. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Tools for troubleshooting StorSimple deployments (Ferramentas para resolver problemas de implementações do StorSimple)
-O StorSimple inclui várias ferramentas que pode utilizar para resolver problemas na sua solução StorSimple. Estes incluem:
+O StorSimple inclui várias ferramentas que pode utilizar para resolver problemas na sua solução StorSimple. Estas incluem:
 
 * Suporte pacotes e registos de dispositivos.
 * Cmdlets especificamente concebidos para a resolução de problemas.
@@ -157,7 +157,7 @@ Um pacote de suporte contém todos os registos relevantes que podem ajudar a equ
    2. No painel **de Ações,** clique em **Abrir RegistoS Guardados** e aponte para os ficheiros de registo no formato etvx/etw (o pacote de suporte). Agora pode ver o ficheiro. Depois de abrir o ficheiro, pode clicar à direita e guardar o ficheiro como texto.
       
       > [!IMPORTANT]
-      > Também pode utilizar o **cmdlet Get-WinEvent** para abrir estes ficheiros no Windows PowerShell. Para obter mais informações, consulte [o Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) na documentação de referência do Cmdlet Windows PowerShell.
+      > Também pode utilizar o **cmdlet Get-WinEvent** para abrir estes ficheiros no Windows PowerShell. Para obter mais informações, consulte [o Get-WinEvent](/powershell/module/microsoft.powershell.diagnostics/get-winevent) na documentação de referência do Cmdlet Windows PowerShell.
      
 5. Quando os registos abrirem no Visualizador de Eventos, procure os seguintes registos que contenham problemas relacionados com a configuração do dispositivo:
    
@@ -189,7 +189,7 @@ Quando configurar interfaces de rede para uma primeira implementação de dispos
    * Se a interface for saudável mas não ativada, o estado **ifIndex** é apresentado como **NotPresent**.
    * Se a interface não existir, não aparece nesta lista. O UI do gestor de dispositivos StorSimple continuará a mostrar esta interface num estado falhado.
 
-Para obter mais informações sobre como utilizar este cmdlet, aceda ao [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) na referência cmdlet Windows PowerShell.
+Para obter mais informações sobre como utilizar este cmdlet, aceda ao [Get-NetAdapter](/powershell/module/netadapter/get-netadapter?view=win10-ps) na referência cmdlet Windows PowerShell.
 
 As secções seguintes mostram amostras de saída do `Get-NetAdapter` cmdlet.
 
@@ -284,7 +284,7 @@ Utilize o `Test-HcsmConnection` cmdlet para um dispositivo que já está ligado 
    * ErrorCode.CiSDeviceDecommissioned – isto indica que o dispositivo está desativado.
    * ErrorCode.DeviceNotReady – isto indica que o dispositivo está em modo de manutenção.
    * ErrorCode.DeviceNotReady – isto indica que o dispositivo não está online.
-3. Verifique se o serviço StorSimple Device Manager está em funcionamento (utilize o cmdlet [Get-ClusterResource).](https://technet.microsoft.com/library/ee461004.aspx) Se o serviço não estiver a funcionar, poderá ver os seguintes erros:
+3. Verifique se o serviço StorSimple Device Manager está em funcionamento (utilize o cmdlet [Get-ClusterResource).](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10)) Se o serviço não estiver a funcionar, poderá ver os seguintes erros:
    
    * ErrorCode.cisApplianceagentNotOnline
    * ErrorCode.CisPowershellScriptHcsError – isto indica que houve uma exceção quando executou o Get-ClusterResource.
@@ -308,7 +308,7 @@ Utilize o `Test-HcsmConnection` cmdlet para um dispositivo que já está ligado 
 
 Os ficheiros de registo CiSCommandletLog0Curr.errlog e CiSAgentsvc0Curr.errlog terão mais informações, tais como detalhes de exceção.
 
-Para obter mais informações sobre como utilizar o cmdlet, aceda ao [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) na documentação de referência do Windows PowerShell.
+Para obter mais informações sobre como utilizar o cmdlet, aceda ao [Test-HcsmConnection](/previous-versions/windows/powershell-scripting/dn715782(v=wps.630)) na documentação de referência do Windows PowerShell.
 
 > [!IMPORTANT]
 > Pode executar este cmdlet tanto para o controlador ativo como para o controlador passivo.
@@ -553,5 +553,5 @@ O erro pode ser causado por qualquer um dos seguintes:
 
 <!--Link references-->
 
-[1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
-[2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx 
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379547(v=ws.10)
+[2]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd392266(v=ws.10)

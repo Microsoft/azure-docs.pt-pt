@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 12eed6aeccffe854810e9c2ddc8a5c4e59b8c312
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0a38f9b8135fed08a95df68f108e44c34fec6325
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337938"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955332"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
 
@@ -144,10 +144,10 @@ Os campos do modelo são:
 | `@type` | Identifica o tipo de informação que está a ser descrita. Para uma interface, o tipo é *Interface.* |
 | `@context` | Define o [contexto](https://niem.github.io/json/reference/json-ld/context/) para o documento JSON. Os modelos devem ser `dtmi:dtdl:context;2` utilizados. |
 | `displayName` | [opcional] Permite-lhe dar ao modelo um nome amigável, se desejar. |
-| `contents` | Todos os dados restantes da interface são colocados aqui, como uma variedade de definições de atributos. Cada atributo deve fornecer a `@type` ( *Propriedade* , *Telemetria,* *Comando,* *Relacionamento,* *Ou Componente* ) para identificar o tipo de informação de interface que descreve, e, em seguida, um conjunto de propriedades que definem o atributo real (por exemplo, e para definir `name` um `schema` *Imóvel).* |
+| `contents` | Todos os dados restantes da interface são colocados aqui, como uma variedade de definições de atributos. Cada atributo deve fornecer a `@type` (*Propriedade*, *Telemetria,* *Comando,* *Relacionamento,* *Ou Componente*) para identificar o tipo de informação de interface que descreve, e, em seguida, um conjunto de propriedades que definem o atributo real (por exemplo, e para definir `name` um `schema` *Imóvel).* |
 
 > [!NOTE]
-> Note que a interface do componente *(Cratera* neste exemplo) é definida na mesma matriz que a interface que a utiliza ( *Planeta).* Os componentes devem ser definidos desta forma nas chamadas API para que a interface seja encontrada.
+> Note que a interface do componente *(Cratera* neste exemplo) é definida na mesma matriz que a interface que a utiliza (*Planeta).* Os componentes devem ser definidos desta forma nas chamadas API para que a interface seja encontrada.
 
 ### <a name="possible-schemas"></a>Possíveis esquemas
 
@@ -222,9 +222,13 @@ Neste exemplo, *a CelestialBody* contribui com um nome, uma massa e uma temperat
 
 Uma vez aplicada a herança, a interface de extensão expõe todas as propriedades de toda a cadeia de heranças.
 
-A interface de extensão não pode alterar nenhuma das definições das interfaces-mãe; só pode adicioná-los. Também não pode redefinir uma capacidade já definida em nenhuma das suas interfaces-mãe (mesmo que as capacidades sejam definidas como as mesmas). Por exemplo, se uma interface-mãe define uma `double` *massa* de propriedade, a interface de extensão não pode conter uma declaração de *massa* , mesmo que seja também uma `double` .
+A interface de extensão não pode alterar nenhuma das definições das interfaces-mãe; só pode adicioná-los. Também não pode redefinir uma capacidade já definida em nenhuma das suas interfaces-mãe (mesmo que as capacidades sejam definidas como as mesmas). Por exemplo, se uma interface-mãe define uma `double` *massa* de propriedade, a interface de extensão não pode conter uma declaração de *massa*, mesmo que seja também uma `double` .
 
-## <a name="validating-models"></a>Modelos de validação
+## <a name="best-practices-for-designing-models"></a>Melhores práticas para desenhar modelos
+
+Ao desenhar modelos para refletir as entidades no seu ambiente, pode ser útil olhar para o futuro e considerar as implicações de [consulta](concepts-query-language.md) do seu design. Pode querer projetar propriedades de uma forma que evite grandes conjuntos de resultados de graf traversal. Você também pode querer modelar relações que serão respondidas numa única consulta como relacionamentos de nível único.
+
+### <a name="validating-models"></a>Modelos de validação
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 3201870d2d738a867f89166904d668b5596cbcdf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: dff98a5c54d2fee350e2b35dc00148c19ea233b8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149080"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956505"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL no Serviço de Aplicações do Azure
 
@@ -105,6 +105,8 @@ Se já tem um certificado de Serviço de Aplicações em funcionamento, pode:
 
 - [Importe o certificado no Serviço de Aplicações.](#import-certificate-into-app-service)
 - [Gerir o certificado](#manage-app-service-certificates), como renovar, rekey e exportá-lo.
+> [!NOTE]
+> Os Certificados de Serviço de Aplicações não são suportados em Nuvens Nacionais Azure neste momento.
 
 ### <a name="start-certificate-order"></a>Iniciar pedido de certificado
 
@@ -164,7 +166,7 @@ Selecione **a verificação do serviço de aplicações.** Uma vez que já mapeo
 > - **Serviço de Aplicações** - A opção mais conveniente quando o domínio já está mapeado para uma aplicação do Serviço de Aplicações na mesma subscrição. Aproveita o facto de a app App Service já ter verificado a propriedade do domínio.
 > - **Domínio** - Verifique um [domínio de Serviço de Aplicações que adquiriu ao Azure](manage-custom-dns-buy-domain.md). O Azure adiciona automaticamente o registo TXT de verificação para si e completa o processo.
 > - **Correio** - Verifique o domínio enviando um e-mail ao administrador de domínio. As instruções são fornecidas quando seleciona a opção.
-> - **Manual** - Verifique o domínio utilizando uma página HTML (certificado**padrão** apenas) ou um registo DNS TXT. As instruções são fornecidas quando seleciona a opção.
+> - **Manual** - Verifique o domínio utilizando uma página HTML (certificado **padrão** apenas) ou um registo DNS TXT. As instruções são fornecidas quando seleciona a opção.
 
 ### <a name="import-certificate-into-app-service"></a>Certificado de importação para o Serviço de Aplicações
 
@@ -254,7 +256,7 @@ Crie um ficheiro para o certificado intercalado, denominado _mergedcertificate.c
 
 Exporte o seu certificado TLS/SSL fundido com a chave privada com a qual o seu pedido de certificado foi gerado.
 
-Se tiver gerado o pedido de certificado com OpenSSL, significa que criou um ficheiro de chave privada. Para exportar o certificado para PFX, execute o seguinte comando. Substitua os espaços reservados>de _ &lt; ficheiros de chave privada_ e>de ficheiro de certificado _ &lt; fundido_ pelos caminhos da sua chave privada e do seu ficheiro de certificado fundido.
+Se tiver gerado o pedido de certificado com OpenSSL, significa que criou um ficheiro de chave privada. Para exportar o certificado para PFX, execute o seguinte comando. Substitua os espaços reservados>de _&lt; ficheiros de chave privada_ e>de ficheiro de certificado _&lt; fundido_ pelos caminhos da sua chave privada e do seu ficheiro de certificado fundido.
 
 ```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
@@ -378,11 +380,11 @@ Agora pode apagar o certificado de Serviço de Aplicações. A partir da navega�
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Mais recursos
 

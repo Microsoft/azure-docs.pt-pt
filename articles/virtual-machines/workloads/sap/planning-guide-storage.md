@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1cd6f5f7865d18461ac7a635530e9aabfde380a6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540931"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955417"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Armazenamento do Azure para a carga de trabalho SAP
 O Azure tem inúmeros tipos de armazenamento que diferem muito em capacidades, produção, latência e preços. Alguns dos tipos de armazenamento não são, ou de usutilizável limitado para cenários SAP. Enquanto que vários tipos de armazenamento Azure são bem adequados ou otimizados para cenários específicos de carga de trabalho SAP. Especialmente para o SAP HANA, alguns tipos de armazenamento Azure foram certificados para o uso com SAP HANA. Neste documento, estamos a analisar os diferentes tipos de armazenamento e a descrever a sua capacidade e usabilidade com cargas de trabalho SAP e componentes SAP.
@@ -273,7 +274,7 @@ Funcionalidade adicional incorporada do armazenamento da ANF:
 - Clonagem de volumes ANF a partir de instantâneos
 - Restaurar volumes a partir de instantâneos (snap-revert)
 
-**Resumo** : Azure NetApp Files é um armazenamento de baixa latência certificado pela HANA que permite implantar volumes ou ações de NFS e SMB. O armazenamento vem com três diferentes níveis de serviço que fornecem diferentes níveis de produção e IOPS de forma linear por gib capacidade do volume. O armazenamento ANF está a permitir implantar cenários de escala SAP HANA com um nó de espera. O armazenamento é adequado para fornecer ações de ficheiros conforme necessário para o diretório de transportes global /sapmnt ou SAP. O armazenamento DAF vem com a disponibilidade de funcionalidade que está disponível como funcionalidade nativa do NetApp.  
+**Resumo**: Azure NetApp Files é um armazenamento de baixa latência certificado pela HANA que permite implantar volumes ou ações de NFS e SMB. O armazenamento vem com três diferentes níveis de serviço que fornecem diferentes níveis de produção e IOPS de forma linear por gib capacidade do volume. O armazenamento ANF está a permitir implantar cenários de escala SAP HANA com um nó de espera. O armazenamento é adequado para fornecer ações de ficheiros conforme necessário para o diretório de transportes global /sapmnt ou SAP. O armazenamento DAF vem com a disponibilidade de funcionalidade que está disponível como funcionalidade nativa do NetApp.  
 
 
 

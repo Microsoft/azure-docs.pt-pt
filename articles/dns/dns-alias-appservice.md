@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
-ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72adb2732eb0832589cbc25fb7e4288eb1899214
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710546"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954516"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedar aplicativos web Azure equilibrados na zona apex
 
@@ -58,7 +58,7 @@ Crie duas aplicações web, uma em cada plano de Serviço de Aplicações.
 4. Selecione **Criar**.
 5. Aceite os predefinidos e use a seguinte tabela para configurar as duas aplicações web:
 
-   |Nome<br>(deve ser único dentro de .azurewebsites.net)|Grupo de Recursos |Pilha de tempo de execução|Region|Plano de Serviço de Aplicações/Localização
+   |Nome<br>(deve ser único dentro de .azurewebsites.net)|Grupo de Recursos |Pilha de runtime|Região|Plano de Serviço de Aplicações/Localização
    |---------|---------|-|-|-------|
    |App-01|Utilizar existente<br>Selecione o seu grupo de recursos|.NET Core 2.2|E.U.A. Leste|ASP-01(D1)|
    |App-02|Utilizar existente<br>Selecione o seu grupo de recursos|.NET Core 2.2|E.U.A. Central|ASP-02(D1)|
@@ -134,7 +134,7 @@ Agora adicione um recorde de pseudónimo para o ápice da zona.
 
    |Nome  |Tipo  |Conjunto de registos de alias  |Tipo de alias  |Recurso do Azure|
    |---------|---------|---------|---------|-----|
-   |@     |A|Sim|Recurso do Azure|Gestor de Tráfego - o seu perfil|
+   |@     |A|Yes|Recurso do Azure|Gestor de Tráfego - o seu perfil|
 
 
 ## <a name="test-your-web-apps"></a>Teste as suas aplicações web
@@ -158,6 +158,6 @@ Para saber mais sobre os registos de pseudónimos, consulte os seguintes artigos
 
 - [Tutorial: Configurar um registo de pseudónimo para se referir a um endereço IP público azul](tutorial-alias-pip.md)
 - [Tutorial: Configurar um registo de alias para suportar os nomes de domínio apex com o Gestor de Tráfego](tutorial-alias-tm.md)
-- [FAQ sobre DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
+- [FAQ sobre DNS](./dns-faq.md#alias-records)
 
 Para aprender a migrar um nome DNS ativo, consulte [Migrar um nome DNS ativo para o Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).

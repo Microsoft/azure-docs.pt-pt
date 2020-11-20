@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 06c355b913d5b786455cae20d1a57eb8c63c3ee1
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6ec146a05df1b896f8ca594d29cf13341b70765a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842967"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954567"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerir as inscrições de dispositivos com o portal Azure
 
@@ -91,5 +91,3 @@ Nos casos em que o(s) dispositivo(s) não necessite de ser a provisionado em qua
 1. Assim que a ação estiver concluída, verá a sua entrada removida da lista de inscrições do dispositivo. 
  
     ![Remover inscrição no portal](./media/how-to-manage-enrollments/remove-enrollment.png)
-
-

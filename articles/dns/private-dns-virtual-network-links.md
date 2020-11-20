@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9181ef93dfedbc28b297bef48a0bc37ba6d69798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e43ad35cdaad89d5b9f43007bad8782f358c1a6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646766"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954346"
 ---
 # <a name="what-is-a-virtual-network-link"></a>O que é uma ligação de rede virtual?
 
@@ -23,7 +23,7 @@ Pode ligar uma rede virtual a uma zona privada de DNS como uma rede virtual de r
 
 ## <a name="registration-virtual-network"></a>Rede virtual de registo
 
-Quando [cria uma ligação](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) entre uma zona privada de DNS e uma rede virtual, tem a opção de ligar [o registo automático](./private-dns-autoregistration.md) dos registos DNS para máquinas virtuais. Se escolher esta opção, a rede virtual torna-se uma rede virtual de registo para a zona privada de DNS. Um registo DNS é automaticamente criado para as máquinas virtuais que implementa na rede. Os registos DNS são criados para as máquinas virtuais que já implementou na rede virtual. Do ponto de vista da rede virtual, a zona privada de DNS torna-se a zona de registo daquela rede virtual.
+Quando [cria uma ligação](./private-dns-getstarted-portal.md#link-the-virtual-network) entre uma zona privada de DNS e uma rede virtual, tem a opção de ligar [o registo automático](./private-dns-autoregistration.md) dos registos DNS para máquinas virtuais. Se escolher esta opção, a rede virtual torna-se uma rede virtual de registo para a zona privada de DNS. Um registo DNS é automaticamente criado para as máquinas virtuais que implementa na rede. Os registos DNS são criados para as máquinas virtuais que já implementou na rede virtual. Do ponto de vista da rede virtual, a zona privada de DNS torna-se a zona de registo daquela rede virtual.
 Uma zona privada de DNS pode ter múltiplas redes virtuais de registo, no entanto cada rede virtual pode ter exatamente uma zona de registo associada a ela.
 
 ## <a name="resolution-virtual-network"></a>Rede virtual de resolução
@@ -33,7 +33,7 @@ Uma zona privada de DNS pode ter redes virtuais de resolução múltiplas e uma 
 
 ## <a name="limits"></a>Limites
 
-Para entender quantas redes de registo e resolução, pode ligar-se a zonas privadas de DNS ver [Limites DNS do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+Para entender quantas redes de registo e resolução, pode ligar-se a zonas privadas de DNS ver [Limites DNS do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="other-considerations"></a>Outras considerações
 
@@ -49,7 +49,7 @@ Para entender quantas redes de registo e resolução, pode ligar-se a zonas priv
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como ligar uma rede virtual a uma zona privada de DNS utilizando [o portal Azure](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+* Saiba como ligar uma rede virtual a uma zona privada de DNS utilizando [o portal Azure](./private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Saiba como criar uma zona privada em Azure DNS utilizando [a Azure PowerShell](./private-dns-getstarted-powershell.md) ou [Azure CLI](./private-dns-getstarted-cli.md).
 

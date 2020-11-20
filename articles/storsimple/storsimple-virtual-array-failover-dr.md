@@ -15,19 +15,19 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24eb03069689d6dc89d8e237e0e65c71af6c6173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 509a3ac383cebd91821e9c4b872c253ab3b0a947
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184725"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956199"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperação após desastre e ativação pós-falha do dispositivo para a Matriz Virtual do StorSimple através do portal do Azure
 
 ## <a name="overview"></a>Descrição geral
 Este artigo descreve a recuperação de desastres para o seu Microsoft Azure StorSimple Virtual Array, incluindo os passos detalhados para falhar em outra matriz virtual. Uma falha permite-lhe mover os seus dados de um dispositivo de *origem* no datacenter para um dispositivo *alvo.* O dispositivo-alvo pode estar localizado na mesma localização geográfica ou numa localização geográfica diferente. A falha do dispositivo é para todo o dispositivo. Durante o failover, os dados da nuvem do dispositivo de origem alteram a propriedade do dispositivo alvo.
 
-Este artigo é aplicável apenas a Arrays Virtuais StorSimple. Para falhar mais de um dispositivo da série 8000, vá ao dispositivo de failover e à [recuperação de desastres do seu dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
+Este artigo é aplicável apenas a Arrays Virtuais StorSimple. Para falhar mais de um dispositivo da série 8000, vá ao dispositivo de failover e à [recuperação de desastres do seu dispositivo StorSimple](./storsimple-8000-device-failover-disaster-recovery.md).
 
 ## <a name="what-is-disaster-recovery-and-device-failover"></a>O que é a recuperação de desastres e o fracasso do dispositivo?
 
@@ -181,4 +181,3 @@ Se existirem dispositivos StorSimple que foram registados pouco antes de ocorrer
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [administrar o seu StorSimple Virtual Array utilizando a UI web local.](storsimple-ova-web-ui-admin.md)
-

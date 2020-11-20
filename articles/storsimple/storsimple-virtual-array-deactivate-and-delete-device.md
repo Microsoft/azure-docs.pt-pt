@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: c787df901fc33c2dcd2c8a901202c72ea6de45d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84fd1a2d3d0dc4ce6960469ea3212b8ca1d4d07c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513605"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956777"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Desativar e eliminar um StorSimple Virtual Array
 
@@ -30,7 +30,7 @@ Quando desativa um Conjunto Virtual StorSimple, quebra a ligação entre o dispo
 * Desativar um dispositivo 
 * Eliminar um dispositivo desativado
 
-As informações neste artigo aplicam-se apenas a Matrizes Virtuais StorSimple. Para obter informações sobre a série 8000, aceda à forma [de desativar ou eliminar um dispositivo](storsimple-deactivate-and-delete-device.md).
+As informações neste artigo aplicam-se apenas a Matrizes Virtuais StorSimple. Para obter informações sobre a série 8000, aceda à forma [de desativar ou eliminar um dispositivo](./storsimple-8000-deactivate-and-delete-device.md).
 
 ## <a name="when-to-deactivate"></a>Quando desativar?
 
@@ -90,5 +90,4 @@ Para eliminar o aparelho, execute os seguintes passos.
 
 * Para obter informações sobre como falhar, vá ao Failover e à [recuperação de desastres do seu StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md).
 
-* Para saber mais sobre como utilizar o serviço StorSimple Device Manager, vá utilizar [o serviço StorSimple Device Manager para administrar o seu StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md). 
-
+* Para saber mais sobre como utilizar o serviço StorSimple Device Manager, vá utilizar [o serviço StorSimple Device Manager para administrar o seu StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md).

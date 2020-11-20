@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977583"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956828"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementar StorSimple Virtual Array - Configurar como servidor de ficheiros através do portal Azure
 ![Diagrama mostrando os passos necessários para implantar uma matriz virtual. A primeira parte do terceiro passo é rotulada Configurar como servidor de ficheiros e é realçada.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -31,7 +31,7 @@ ms.locfileid: "91977583"
 
 Este artigo descreve como executar a configuração inicial, registar o seu servidor de ficheiroSSimple, completar a configuração do dispositivo e criar e ligar-se às ações do SMB. Este é o último artigo da série de tutoriais de implementação necessários para implementar completamente o seu array virtual como um servidor de ficheiros ou um servidor iSCSI.
 
-O processo de configuração e configuração pode demorar cerca de 10 minutos a ser concluído. As informações neste artigo aplicam-se apenas à implantação do Array Virtual StorSimple. Para a implementação de dispositivos da série StorSimple 8000, vá para: [Implemente o seu dispositivo da série StorSimple 8000 em execução Update 2](storsimple-deployment-walkthrough-u2.md).
+O processo de configuração e configuração pode demorar cerca de 10 minutos a ser concluído. As informações neste artigo aplicam-se apenas à implantação do Array Virtual StorSimple. Para a implementação de dispositivos da série StorSimple 8000, vá para: [Implemente o seu dispositivo da série StorSimple 8000 em execução Update 2](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ## <a name="setup-prerequisites"></a>Pré-requisitos de configuração
 Antes de configurar e configurar o seu StorSimple Virtual Array, certifique-se de que:
@@ -55,7 +55,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
 2. Inscreva-se na UI web da sua matriz virtual como **StorSimpleAdmin**. Introduza a palavra-passe do administrador do dispositivo que alterou no Passo 3: Inicie a matriz virtual em [Provision a StorSimple Virtual Array em Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) ou em [Provision a StorSimple Virtual Array em VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
    ![Screenshot da página de storSimple de sinsutor. O nome de utilizador StorSimpleAdmin é visível e uma caixa de palavra-passe é preenchida com caracteres indeterminados.](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
-3. Foi levado para a página **inicial.** Esta página descreve as várias definições necessárias para configurar e registar a matriz virtual com o serviço StorSimple Device Manager. As **definições de Rede,** **as definições de procuração web**e as **definições de tempo** são opcionais. As únicas definições necessárias são **as definições do Dispositivo** e as **definições de Cloud**.
+3. Foi levado para a página **inicial.** Esta página descreve as várias definições necessárias para configurar e registar a matriz virtual com o serviço StorSimple Device Manager. As **definições de Rede,** **as definições de procuração web** e as **definições de tempo** são opcionais. As únicas definições necessárias são **as definições do Dispositivo** e as **definições de Cloud**.
    
    ![Screenshot da página inicial. O texto indica que o dispositivo não está configurado. São visíveis ligações a vários tipos diferentes de configurações.](./media/storsimple-virtual-array-deploy3-fs-setup/image4.png)
 4. Na página **de definições de Rede** nas **interfaces da Rede,** o DATA 0 será automaticamente configurado para si. Cada interface de rede é definida por padrão para obter o endereço IP automaticamente (DHCP). Assim, um endereço IP, sub-rede e gateway são automaticamente atribuídos (tanto para IPv4 como IPv6).
@@ -90,7 +90,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
    
    Na página **de procuração** da Web:
    
-   1. Forneça o **URL de procuração web** neste formato: http:// endereço DE * &lt; ANFITRIÃO-IP ou &gt; número de :P ort da FQDN*. Note que os URLs HTTPS não são suportados.
+   1. Forneça o **URL de procuração web** neste formato: http:// endereço DE *&lt; ANFITRIÃO-IP ou &gt; número de :P ort da FQDN*. Note que os URLs HTTPS não são suportados.
    2. Especificar **a autenticação** como **Base** ou **Nenhuma**.
    3. Se utilizar a autenticação, também terá de fornecer um nome de **utilizador** e **uma palavra-passe.**
    4. Clique em **Aplicar**. Isto validará e aplicará as definições configuradas de procuração web.
@@ -138,7 +138,7 @@ Execute os seguintes passos no [portal Azure](https://portal.azure.com/) para co
     
    3. Uma chave AES de 256 bits é utilizada com a chave definida pelo utilizador para encriptação. Especifique uma chave de 32 caracteres e, em seguida, reentre na chave para confirmá-la. Grave a chave numa aplicação de gestão chave para referência futura.
     
-   4. Clique **em Configurar as definições necessárias** para especificar as credenciais de conta de armazenamento a serem usadas com o seu dispositivo. Clique **em Adicionar novos** se não houver credenciais de conta de armazenamento configuradas. **Certifique-se de que a conta de armazenamento que utiliza suporta bolhas de bloco. As bolhas de página não são suportadas.** Mais informações sobre [blocos blobs e bolhas de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Clique **em Configurar as definições necessárias** para especificar as credenciais de conta de armazenamento a serem usadas com o seu dispositivo. Clique **em Adicionar novos** se não houver credenciais de conta de armazenamento configuradas. **Certifique-se de que a conta de armazenamento que utiliza suporta bolhas de bloco. As bolhas de página não são suportadas.** Mais informações sobre [blocos blobs e bolhas de página](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
       ![Configure um servidor de ficheiros 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Na lâmina de credenciais de **conta de armazenamento Adicionar,** faça o seguinte: 
@@ -203,7 +203,7 @@ Execute os seguintes passos no [portal do Azure](https://portal.azure.com/) para
 Terá agora de se ligar a uma ou mais ações que criou no passo anterior. Execute estes passos no seu anfitrião do Windows Server ligado ao seu StorSimple Virtual Array.
 
 #### <a name="to-connect-to-the-share"></a>Para ligar à parte
-1. Prima :::image type="icon" source="./media/storsimple-virtual-array-deploy3-fs-setup/image22.png"::: + R. Na janela Executar, especifique o * &lt; &gt; nome do servidor de ficheiros&#92;&#92;* como o caminho, substituindo o nome do *servidor de ficheiros* pelo nome do dispositivo que atribuiu ao seu servidor de ficheiros. Clique em **OK**.
+1. Prima :::image type="icon" source="./media/storsimple-virtual-array-deploy3-fs-setup/image22.png"::: + R. Na janela Executar, especifique o *&lt; &gt; nome do servidor de ficheiros&#92;&#92;* como o caminho, substituindo o nome do *servidor de ficheiros* pelo nome do dispositivo que atribuiu ao seu servidor de ficheiros. Clique em **OK**.
    
    ![Screenshot da caixa de diálogo Run. A caixa Open é preenchida com um caminho que conduz ao servidor de ficheiros.](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. Isto abre o File Explorer. Agora deve conseguir ver as partilhas que criou como pastas. Selecione e faça duplo clique numa partilha (pasta) para ver o conteúdo.
@@ -213,4 +213,3 @@ Terá agora de se ligar a uma ou mais ações que criou no passo anterior. Execu
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba como utilizar a UI web local para [administrar o seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
