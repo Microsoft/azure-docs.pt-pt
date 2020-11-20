@@ -112,11 +112,11 @@
         - name: Guia de Migração de Base de Dados do Azure
           href: 'https://aka.ms/datamigration'
         - name: Assistente de Migração de Dados
-          href: 'https://aka.ms/dma'
+          href: /sql/dma/dma-overview
         - name: Assistente de Migração do SQL Server
-          href: 'https://aka.ms/ssma'
+          href: /sql/ssma/sql-server-migration-assistant
         - name: Assistente de Experimentação de Bases de Dados
-          href: 'https://aka.ms/dea-docs'
+          href: /sql/dea/database-experimentation-assistant-overview
         - name: Toolkit de Migração do Acesso aos Dados
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit'
     - name: Resolução de problemas e problemas conhecidos

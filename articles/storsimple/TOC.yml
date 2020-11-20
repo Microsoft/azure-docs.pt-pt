@@ -352,19 +352,19 @@
             - name: "Atualização\_1"
               href: storsimple-update1-release-notes.md
             - name: Atualização 0.3
-              href: storsimple-february-2015-release-notes.md
+              href: ./index.yml
             - name: Atualização 0.2
-              href: storsimple-january-2015-release-notes.md
+              href: ./index.yml
             - name: Atualização 0.1
-              href: storsimple-october-2014-release-notes.md
+              href: ./index.yml
             - name: Versão - GA
-              href: storsimple-july-2014-release-notes.md
+              href: ./index.yml
     - name: Referência
       items:
         - name: API REST
-          href: 'https://docs.microsoft.com/rest/api/storsimple'
+          href: /rest/api/storsimple
         - name: Cmdlets do Windows PowerShell para StorSimple
-          href: 'https://technet.microsoft.com/library/dn688168.aspx'
+          href: /powershell/module/hcs/?viewFallbackFrom=winserverr2-ps
         - name: Modelo do Resource Manager
           href: /azure/templates/microsoft.storsimple/allversions
 - name: StorSimple Data Manager
@@ -398,7 +398,7 @@
     - name: Notas de versão
       items:
         - name: Notas de versão do StorSimple
-          href: 'https://aka.ms/storsimple-virtual-array-latest-relnote'
+          href: ./storsimple-virtual-array-update-04-release-notes.md
         - name: Notas de versão do CSP
           href: 'https://partner.microsoft.com/Support/whats-new'
         - name: 'StorSimple para CSP: FAQ'
@@ -412,13 +412,13 @@
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blogue de marketing
-      href: 'https://blogs.technet.com/b/cis/'
+      href: /archive/blogs/cis/
     - name: Marketing
       href: 'https://azure.microsoft.com/services/storsimple/'
     - name: Opções de Suporte do StorSimple
       href: storsimple-8000-support-options.md
     - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-storsimple.html'
+      href: /answers/topics/azure-storsimple.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/storsimple/'
     - name: Calculadora de preços
@@ -426,7 +426,7 @@
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=storsimple'
     - name: Blogue de suporte
-      href: 'https://docs.microsoft.com/archive/blogs/storsimple/'
+      href: /archive/blogs/storsimple/
     - name: Notificações de terceiros
       href: 'https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip'
     - name: Vídeos

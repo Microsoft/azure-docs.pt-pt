@@ -11,8 +11,6 @@
       href: quickstart-template.md
     - name: PowerShell
       href: quickstart-powershell.md
-    - name: CLI do Azure
-      href: quickstart-azure-cli.md
 - name: Tutoriais
   items:
     - name: Criar uma política de atestado
@@ -45,10 +43,6 @@
       href: /rest/api/attestation/
     - name: Azure PowerShell
       href: /powershell/module/az.attestation/?view=azps-5.0.0#attestation
-    - name: CLI do Azure
-      href: /cli/azure/ext/attestation/attestation?view=azure-cli-latest
-    - name: Terraform
-      href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/attestation'
     - name: Biblioteca DCAP do Azure para Windows
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Biblioteca DCAP do Azure para Linux

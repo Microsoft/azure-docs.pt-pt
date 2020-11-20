@@ -106,8 +106,6 @@
       items:
         - name: CLI do Azure
           href: sample-scripts-azure-cli.md
-        - name: Incorporações do Azure Policy
-          href: ./policy-reference.md
     - name: Conceitos
       items:
         - name: Servidores
@@ -147,6 +145,9 @@
             - name: Encriptação dupla de infraestrutura
               href: concepts-infrastructure-double-encryption.md
               displayName: 'security, infrastructure encryption'
+            - name: Controlos de segurança do Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Linha de base de segurança
               href: security-baseline.md
         - name: Redes
@@ -638,6 +639,9 @@
       href: /rest/api/postgresql
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn

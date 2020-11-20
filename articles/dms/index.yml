@@ -10,12 +10,12 @@ metadata:
   ms.service: dms
   ms.topic: landing-page
   ms.custom: seo-azure-migrate
-  ms.openlocfilehash: 05780a5628f920b8fb4f0c73794046f23e895c58
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: c2461fa9eb2c326141d244fbc576355226f891dd
+  ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89182246"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94962710"
 landingContent:
 - title: Acerca do Azure Database Migration Service
   linkLists:
@@ -124,11 +124,11 @@ landingContent:
     - text: Guia de Migração de Bases de Dados
       url: https://datamigration.microsoft.com/
     - text: Assistente de Migração de Dados
-      url: https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017
+      url: /sql/dma/dma-overview?view=sql-server-2017
     - text: Assistente de Migração do SQL Server
-      url: https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017
+      url: /sql/ssma/sql-server-migration-assistant?view=sql-server-2017
     - text: Assistente de Experimentação de Bases de Dados
-      url: https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview?view=sql-server-2017
+      url: /sql/dea/database-experimentation-assistant-overview?view=sql-server-2017
     - text: Toolkit de Migração do Acesso aos Dados
       url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
 - title: Migrar o Oracle para o Azure
