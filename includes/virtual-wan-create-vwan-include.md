@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/09/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 62d466e81309765540bcbd52714733b97d241ebc
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5915830e4521399ad322dd4a6f3926428d811455
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93354115"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94942550"
 ---
-Num browser, navegue para o Portal do Azure e inicie sessão com a sua conta do Azure.
+Num browser, navegue para o [Portal do Azure](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
 
-1. Navegue para a página Virtual WAN. No portal, clique em **Criar um recurso**. Digite **WAN virtual** na caixa de pesquisa e selecione **Enter**.
+1. No portal, selecione **+ Criar um recurso.** Digite **WAN virtual** na caixa de pesquisa e selecione **Enter**.
 1. Selecione **VIRTUAL WAN** a partir dos resultados. Na página VIRTUAL WAN, selecione **Criar** para abrir a página Create WAN.
 1. Na página **Create WAN,** no separador **Básicos,** preencha os seguintes campos:
 
