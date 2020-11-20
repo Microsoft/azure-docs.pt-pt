@@ -3,18 +3,17 @@ title: Quickstart - Monitorize os seus dispositivos na Azure IoT Central
 description: Quickstart - Como operador, aprenda a utilizar a sua aplicação Azure IoT Central para monitorizar os seus dispositivos.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: philmea
-ms.openlocfilehash: af5683bf253e26ab928e46059f9af9d2ab8af3bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e4485e4f8e873b1b49dc3d6df72eb04a1cbe8c17
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987352"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992781"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Quickstart: Utilize a Azure IoT Central para monitorizar os seus dispositivos
 
@@ -28,31 +27,31 @@ Antes de começar, deverá completar os três quickstarts anteriores [Criar uma 
 
 ## <a name="receive-a-notification"></a>Receber uma notificação
 
-O Azure IoT Central envia notificações sobre os dispositivos como mensagens de e-mail. O construtor adicionou uma regra para enviar uma notificação quando a temperatura num sensor de dispositivo conectado excedeu um limiar. Verifique os e-mails enviados para a conta que o construtor escolheu para receber notificações.
+O Azure IoT Central envia notificações sobre os dispositivos como mensagens de e-mail. Como construtor, adicionou uma regra para enviar uma notificação a um operador quando a humidade de um sensor de dispositivo ligado excedeu um limiar. Como operador, verifique os seus e-mails para obter notificações.
 
 Abra a mensagem de e-mail que recebeu no final das [regras e ações do Configure para o seu dispositivo](quick-configure-rules.md) de arranque rápido. No e-mail, selecione o link para o dispositivo:
 
-![E-mail de notificação de alerta](media/quick-monitor-devices/email.png)
+:::image type="content" source="media/quick-monitor-devices/email.png" alt-text="Screenshot que mostra e-mail de notificação":::
 
 A **vista geral** para o dispositivo simulado que criou nos quickstarts anteriores abre no seu navegador:
 
-![Dispositivo que acionou a mensagem de e-mail de notificação](media/quick-monitor-devices/dashboard.png)
+:::image type="content" source="media/quick-monitor-devices/dashboard.png" alt-text="Screenshot que mostra visão geral do dispositivo que desencadeou a notificação":::
 
 ## <a name="investigate-an-issue"></a>Investigar um problema
 
-Como operador, pode visualizar informações sobre o dispositivo no **resumo**, **sobre**e **visualizações de comandos.** O construtor criou uma visão **do dispositivo Manage** para que possa editar informações do dispositivo e definir as propriedades do dispositivo.
+Como operador, pode visualizar informações sobre o dispositivo no **resumo**, **sobre** e **visualizações de comandos.** O construtor criou uma visão **do dispositivo Manage** para que possa editar informações do dispositivo e definir as propriedades do dispositivo.
 
-O gráfico no dashboard mostra um desenho da temperatura do dispositivo. Decide que a temperatura do dispositivo é muito alta.
+O gráfico no painel mostra um enredo da humidade do dispositivo. Você decide que a humidade do dispositivo é muito alta.
 
 ## <a name="remediate-an-issue"></a>Resolver um problema
 
 Para escoar uma alteração no dispositivo, utilize a página **do dispositivo Manage.**
 
-Mude a **velocidade do ventilador** para 500 para arrefecer o aparelho. Escolha **Guardar** para atualizar o dispositivo. Quando o dispositivo confirma a alteração das definições, o estado da propriedade muda para **sincronizado:**
+Mude **a temperatura do alvo** para 80 para aquecer o dispositivo e reduzir a humidade. Escolha **Guardar** para atualizar o dispositivo. Quando o dispositivo confirma a alteração das definições, o estado da propriedade muda para **sincronizado:**
 
-![Atualizar definições](media/quick-monitor-devices/change-settings.png)
+:::image type="content" source="media/quick-monitor-devices/change-settings.png" alt-text="Screenshot que mostra a definição atualizada da temperatura do alvo para o dispositivo":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, aprendeu a:
 

@@ -3,17 +3,17 @@ title: Quickstart - Adicione um dispositivo simulado ao Azure IoT Central
 description: Este quickstart mostra como criar um modelo de dispositivo e adicionar um dispositivo simulado à sua aplicação IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/07/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 1c37742b7ed31d8253f7908c3adac35ca0b4d5d8
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: f8d366554634444db16eb3292f100540f3808e8a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376558"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992926"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Quickstart: Adicione um dispositivo simulado à sua aplicação IoT Central
 
@@ -21,61 +21,67 @@ ms.locfileid: "94376558"
 
 Um modelo de dispositivo define as capacidades de um dispositivo que se conecta à sua aplicação IoT Central. As capacidades incluem telemetria que o dispositivo envia, propriedades do dispositivo, e os comandos a que um dispositivo responde. A partir de um modelo de dispositivo, um construtor ou operador pode adicionar dispositivos reais e simulados a uma aplicação. Os dispositivos simulados são úteis para testar o comportamento da sua aplicação IoT Central antes de ligar dispositivos reais.
 
-Neste arranque rápido, adicione um modelo de dispositivo para uma placa [ *MXChip IoT DevKit* (DevKit)](https://aka.ms/iot-devkit-purchase) e crie um dispositivo simulado. Para completar este arranque rápido não precisa de um dispositivo real, trabalha com uma simulação do dispositivo. Um dispositivo DevKit:
+Neste arranque rápido, adicione um modelo de dispositivo para uma placa de desenvolvimento IoT Kit ESP32-Azure e crie um dispositivo simulado. Para completar este arranque rápido não precisa de um dispositivo real, trabalha com uma simulação do dispositivo. Um dispositivo ESP32:
 
 * Envia telemetria como temperatura.
-* Relata propriedades específicas do dispositivo, tais como o nível de luminosidade.
-* Responde a comandos como ligar e desligar.
+* Relata propriedades específicas do dispositivo, tais como a temperatura máxima desde que o dispositivo foi reiniciado.
+* Responde a comandos como reiniciar.
 * Relata propriedades genéricas do dispositivo, como a versão do firmware e o número de série.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Complete o quickstart [da aplicação Create azure IoT Central](./quick-deploy-iot-central.md) para criar uma aplicação IoT Central utilizando o modelo **de aplicação Custom > Custom.**
 
-## <a name="create-a-template"></a>Criar um modelo
+## <a name="create-a-device-template"></a>Criar um modelo de dispositivo
 
 Como construtor, pode criar e editar modelos de dispositivos na sua aplicação IoT Central. Depois de publicar um modelo de dispositivo, pode gerar dispositivo simulado ou ligar dispositivos reais a partir do modelo do dispositivo. Os dispositivos simulados permitem testar o comportamento da sua aplicação antes de ligar um dispositivo real.
 
 Para adicionar um novo modelo de dispositivo à sua aplicação, selecione o **separador Modelos de Dispositivo** no painel esquerdo.
 
-![Página de modelos de dispositivo](./media/quick-create-simulated-device/device-definitions.png)
+:::image type="content" source="media/quick-create-simulated-device/device-definitions.png" alt-text="Screenshot mostrando lista vazia de modelos de dispositivo":::
 
-Um modelo de dispositivo inclui um modelo de capacidade do dispositivo que define a telemetria que o dispositivo envia, propriedades do dispositivo e os comandos a que o dispositivo responde.
+Um modelo de dispositivo inclui um modelo de dispositivo que define:
 
-### <a name="add-a-device-capability-model"></a>Adicione um modelo de capacidade do dispositivo
+* A telemetria que o dispositivo envia.
+* Propriedades do dispositivo.
+* O comando a que o dispositivo responde.
 
-Existem várias opções para adicionar um modelo de capacidade do dispositivo à sua aplicação IoT Central. Pode criar um modelo de raiz, importar um modelo a partir de um ficheiro ou selecionar um dispositivo do catálogo do dispositivo. A IoT Central também suporta uma abordagem *de primeiro dispositivo* onde importa automaticamente um modelo de um repositório quando um dispositivo se conecta pela primeira vez. Neste arranque rápido, você escolhe um dispositivo do catálogo do dispositivo para importar o seu modelo de capacidade de dispositivo.
+### <a name="add-a-device-template"></a>Adicionar um modelo de dispositivo
 
-Os passos a seguir mostram como utilizar o catálogo de dispositivos para importar o modelo de capacidade para um dispositivo **MXChip IoT DevKit.** Estes dispositivos enviam telemetria, como temperatura, para a sua aplicação:
+Existem várias opções para adicionar um modelo de dispositivo à sua aplicação IoT Central. Pode criar um modelo de raiz, importar um modelo a partir de um ficheiro ou selecionar um dispositivo do catálogo do dispositivo. A IoT Central também suporta uma abordagem *de primeiro dispositivo* onde a aplicação importa automaticamente um modelo de um repositório quando um dispositivo real se conecta pela primeira vez.
 
-1. Para adicionar um novo modelo de dispositivo, selecione **+** na página **de modelos do dispositivo.**
+Neste arranque rápido, você escolhe um dispositivo do catálogo do dispositivo para criar um modelo de dispositivo.
 
-1. Na página de **tipo de modelo Select,** desloque-se para baixo até encontrar o azulejo **MXChip IoT DevKit.**
+Os passos a seguir mostram-lhe como utilizar o catálogo do dispositivo para importar o modelo para um dispositivo **ESP32.** Estes dispositivos enviam telemetria, como temperatura, para a sua aplicação:
 
-1. Selecione o azulejo **MXChip IoT DevKit** e, em seguida, **selecione Seguinte: Personalize**.
+1. Para adicionar um novo modelo de dispositivo, selecione **+ Novo** na página **de modelos do dispositivo.**
+
+1. Na página **de tipo Select,** desloque-se para baixo até encontrar o **azulejo DO KIT IoT ESP32-Azure** na secção Utilizar uma secção **de modelo de dispositivo pré-configurado.**
+
+1. Selecione o **azulejo do Kit IoT ESP32-Azure** e, em seguida, selecione **Seguinte: Revisão**.
 
 1. Na página **'Revisão',** **selecione Criar**.
 
 1. Após alguns segundos, pode ver o seu novo modelo de dispositivo:
 
-    ![Modelo de dispositivo MXChip IoT DevKit](./media/quick-create-simulated-device/devkit-template.png)
+    :::image type="content" source="media/quick-create-simulated-device/devkit-template.png" alt-text="Screenshot mostrando o modelo do dispositivo para dispositivo ESP32":::
 
-    O modelo de capacidade MXChip IoT DevKit inclui interfaces como **mxchip_sensor** , **mxchip_settings** e **Informações sobre Dispositivos**. As interfaces definem as capacidades de um dispositivo MXChip IoT DevKit. As capacidades incluem a telemetria que um dispositivo envia, as propriedades que um dispositivo relata e os comandos a que um dispositivo responde.
+    O nome do modelo é **Controlador de Sensores.** O modelo inclui componentes como **o Controlador de Sensores,** **SensorTemp** e **interface de informação do dispositivo.** Os componentes definem as capacidades de um dispositivo ESP32. As capacidades incluem a telemetria, propriedades e comandos.
 
 ### <a name="add-cloud-properties"></a>Adicionar propriedades da cloud
 
-Um modelo de dispositivo pode incluir propriedades na nuvem. As propriedades em nuvem só existem na aplicação IoT Central e nunca são enviadas para, ou recebidas de um dispositivo. Para adicionar uma propriedade em nuvem:
+Um modelo de dispositivo pode incluir propriedades na nuvem. As propriedades em nuvem só existem na aplicação IoT Central e nunca são enviadas para, ou recebidas de um dispositivo. Para adicionar duas propriedades em nuvem:
 
 1. Selecione **Cloud Properties** e, em seguida, **+ Adicionar propriedade em nuvem**. Utilize as informações na tabela seguinte para adicionar duas propriedades de nuvem ao modelo do seu dispositivo:
 
     | Nome a Apresentar      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhum          | Data   |
+    | Data da Última Assistência | Nenhum          | Date   |
     | Nome do Cliente     | Nenhum          | String |
 
 1. **Selecione Guardar** para guardar as suas alterações:
 
-    ![Propriedades da cloud](media/quick-create-simulated-device/cloud-properties.png)
+    :::image type="content" source="media/quick-create-simulated-device/cloud-properties.png" alt-text="Screenshot mostrando duas propriedades de nuvem":::
 
 ## <a name="views"></a>Vistas
 
@@ -100,9 +106,9 @@ Para adicionar um novo **dispositivo Manage** que um operador pode usar para ger
 
 1. Altere o nome do formulário para **Gerir o dispositivo**.
 
-1. Selecione as propriedades de nuvem **de nome do cliente** e última data de **serviço** e a propriedade Velocidade do **Ventilador.** Em seguida, **selecione Secção adicionar** :
+1. Selecione as propriedades de nuvem **de nome do cliente** e última data de **serviço** e a propriedade **Temperatura Alvo.** Em seguida, **selecione Secção adicionar**:
 
-    ![Criar nova forma](media/quick-create-simulated-device/new-form.png)
+    :::image type="content" source="media/quick-create-simulated-device/new-form.png" alt-text="Screenshot mostrando novo formulário adicionado ao modelo do dispositivo":::
 
 1. **Selecione Guardar** para guardar o seu novo formulário.
 
@@ -112,25 +118,25 @@ Antes de criar um dispositivo simulado, ou ligar um dispositivo real, tem de pub
 
 Para publicar um modelo de dispositivo:
 
-1. Aceda ao modelo do dispositivo a partir da página **modelos do dispositivo.**
+1. Navegue para o modelo do dispositivo **do controlador** de sensor a partir da página **de modelos do dispositivo.**
 
 1. Selecione **Publicar:**
 
-    ![Modelo publicado](media/quick-create-simulated-device/published-model.png)
+    :::image type="content" source="media/quick-create-simulated-device/published-model.png" alt-text="Screenshot mostrando a localização do ícone de publicação":::
 
-1. No modelo publicar este dispositivo para o diálogo **da aplicação,** selecione **Publicar**. 
+1. No modelo publicar este dispositivo para o diálogo **da aplicação,** selecione **Publicar**.
 
-Depois de publicar um modelo de dispositivo, é visível na página **dispositivos.** Num modelo de dispositivo publicado, não é possível editar um modelo de capacidade do dispositivo sem criar uma nova versão. No entanto, pode fazer atualizações para propriedades na nuvem, personalizações e vistas, num modelo de dispositivo publicado sem ver versão. Depois de escoar quaisquer alterações, **selecione Publicar**  para empurrar essas alterações para fora para o seu operador.
+Depois de publicar um modelo de dispositivo, é visível na página **dispositivos.** Num modelo de dispositivo publicado, não é possível editar um modelo de dispositivo sem criar uma nova versão. No entanto, pode modificar propriedades em nuvem, personalizações e vistas num modelo de dispositivo publicado sem ver versão. Depois de escoar quaisquer alterações, **selecione Publicar**  para empurrar essas alterações para fora para o seu operador.
 
 ## <a name="add-a-simulated-device"></a>Adicionar um dispositivo simulado
 
-Para adicionar um dispositivo simulado à sua aplicação, utilize o modelo de dispositivo **MXChip IoT DevKit** que criou.
+Para adicionar um dispositivo simulado à sua aplicação, utilize o modelo de dispositivo **ESP32** que criou.
 
-1. Para adicionar um novo dispositivo como operador, escolha **dispositivos** no painel esquerdo. O separador **Dispositivos** mostra **todos os dispositivos** e o modelo do dispositivo **MXChip IoT DevKit.** Selecione **MXChip IoT DevKit**.
+1. Para adicionar um novo dispositivo como operador, escolha **dispositivos** no painel esquerdo. O separador **Dispositivos** mostra **todos os dispositivos** e o modelo do dispositivo **do controlador de sensores** para o dispositivo ESP32. Selecione **o controlador de sensores**.
 
-1. Para adicionar um dispositivo DevKit simulado, selecione **+** . Utilize o **ID do dispositivo** sugerido ou introduza o seu próprio. Um ID do dispositivo pode conter letras, números e `-` o caráter. Também pode introduzir um nome para o seu novo dispositivo. Certifique-se de que o toggle **simulado** está **ligado** e, em seguida, selecione **Criar**.
+1. Para adicionar um dispositivo DevKit simulado, selecione **+ Novo**. Utilize o **ID do dispositivo** sugerido ou introduza o seu próprio. Um ID do dispositivo pode conter letras, números e `-` o caráter. Também pode introduzir um nome para o seu novo dispositivo. Certifique-se de que **este dispositivo** está definido para **Sim** e, em seguida, selecione **Criar**.
 
-    ![Dispositivo simulado](./media/quick-create-simulated-device/simulated-device.png)
+    :::image type="content" source="media/quick-create-simulated-device/simulated-device.png" alt-text="Screenshot que mostra o dispositivo simulado do Controlador de Sensor":::
 
 Agora pode interagir com as vistas que foram criadas pelo construtor para o modelo do dispositivo usando dados simulados:
 
@@ -138,11 +144,11 @@ Agora pode interagir com as vistas que foram criadas pelo construtor para o mode
 
     * A **vista geral** mostra um enredo da telemetria simulada:
 
-        ![Vista geral](./media/quick-create-simulated-device/simulated-telemetry.png)
+        :::image type="content" source="media/quick-create-simulated-device/simulated-telemetry.png" alt-text="Screenshot mostrando página geral para dispositivo simulado":::
 
-    * A vista **Sobre** mostra valores de propriedade, incluindo as propriedades de nuvem que adicionou à vista.
+    * A vista **Sobre** mostra valores de propriedade.
 
-    * A visão **de Comandos** permite executar comandos, como **piscar** no dispositivo.
+    * A visualização **de Comandos** permite executar comandos, tais como **reiniciar** o dispositivo.
 
     * A visão **de dispositivos Manage** é o formulário que criou para o operador gerir o dispositivo.
 
@@ -152,17 +158,17 @@ Agora pode interagir com as vistas que foram criadas pelo construtor para o mode
 
 Depois de criar um novo dispositivo simulado, o construtor pode usar este dispositivo para continuar a melhorar e construir as vistas para o modelo do dispositivo.
 
-1. Escolha **os modelos** do Dispositivo no painel esquerdo e selecione o modelo **MXChip IoT DevKit.**
+1. Escolha **os modelos** do Dispositivo no painel esquerdo e selecione o modelo **do controlador de sensor.**
 
-1. Selecione qualquer uma das vistas que pretende editar ou crie uma nova vista. Selecione **o dispositivo de pré-visualização** configurar e, em seguida, **selecione a partir de um dispositivo de execução**. Aqui pode optar por não ter nenhum dispositivo de pré-visualização, um dispositivo real configurado para testes, ou um dispositivo existente que adicionou à IoT Central.
+1. Selecione qualquer uma das vistas que pretende editar como **Overview**, ou criar uma nova vista. Selecione **o dispositivo de pré-visualização** configurar e, em seguida, **selecione a partir de um dispositivo de execução**. Aqui pode optar por não ter nenhum dispositivo de pré-visualização, um dispositivo real configurado para testes, ou um dispositivo existente que adicionou à IoT Central.
 
 1. Escolha o seu dispositivo simulado na lista. Em seguida, selecione **Aplicar**. Agora você pode ver o mesmo dispositivo simulado no seu modelo de dispositivo vista experiência de construção. Esta vista é útil para gráficos e outras visualizações.
 
-    ![Dispositivo de pré-visualização de configuração](./media/quick-create-simulated-device/configure-preview.png)
+    :::image type="content" source="media/quick-create-simulated-device/configure-preview.png" alt-text="Screenshot mostrando um dispositivo de pré-visualização configurado":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, aprendeu a criar um modelo de dispositivo **MXChip IoT DevKit** e a adicionar um dispositivo simulado à sua aplicação.
+Neste arranque rápido, aprendeu a criar um modelo de dispositivo **do Controlador de Sensor** para um dispositivo ESP32 e adicionou um dispositivo simulado à sua aplicação.
 
 Para saber mais sobre dispositivos de monitorização ligados à sua aplicação, continue a iniciar rapidamente:
 
