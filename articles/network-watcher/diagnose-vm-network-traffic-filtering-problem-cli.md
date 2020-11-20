@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0a483bc6097c4dd76ed67e93e4313ad8c25cbc08
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: be6c815994a88c459045d246a8064306d7ff33ea
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542359"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966127"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual - CLI do Azure
 
@@ -173,7 +173,7 @@ O resultado devolvido inclui o seguinte texto para a regra **AllowInternetOutbou
 },
 ```
 
-No resultado anterior, pode ver que **destinationAddressPrefix** é **Internet**. No entanto, não é claro de que forma 13.107.21.200 se relaciona com **Internet**. Você vê vários prefixos de endereço listados no **âmbito do ExpandedDestinationAddressPrefix**. Um dos prefixos na lista é **12.0.0.0/6** , que abrange o intervalo 12.0.0.1-15.255.255.254 de endereços IP. Uma vez que 13.107.21.200 está dentro desse intervalo de endereços, a regra **AllowInternetOutBound** permite o tráfego de saída. Além disso, não existem regras com prioridade superior (número inferior) apresentadas no resultado anterior que substituam esta regra. Para recusar comunicações de saída para um endereço IP, pode adicionar uma regra de segurança com uma prioridade mais elevada, que recusa a saída da porta 80 para o endereço IP.
+No resultado anterior, pode ver que **destinationAddressPrefix** é **Internet**. No entanto, não é claro de que forma 13.107.21.200 se relaciona com **Internet**. Você vê vários prefixos de endereço listados no **âmbito do ExpandedDestinationAddressPrefix**. Um dos prefixos na lista é **12.0.0.0/6**, que abrange o intervalo 12.0.0.1-15.255.255.254 de endereços IP. Uma vez que 13.107.21.200 está dentro desse intervalo de endereços, a regra **AllowInternetOutBound** permite o tráfego de saída. Além disso, não existem regras com prioridade superior (número inferior) apresentadas no resultado anterior que substituam esta regra. Para recusar comunicações de saída para um endereço IP, pode adicionar uma regra de segurança com uma prioridade mais elevada, que recusa a saída da porta 80 para o endereço IP.
 
 Quando executou o comando `az network watcher test-ip-flow` para testar a comunicação de saída para 172.131.0.100 em [Utilizar a verificação do fluxo IP](#use-ip-flow-verify), o resultado informou-o de que a regra **DefaultOutboundDenyAll** recusou a comunicação. A regra **DefaultOutboundDenyAll** equivale à regra **DenyAllOutBound** apresentada no resultado seguinte do comando `az network nic list-effective-nsg`:
 
@@ -243,7 +243,7 @@ A regra **DenyAllInBound** é aplicada porque, conforme apresentado no resultado
 
 As verificações neste guia de início rápido testaram a configuração do Azure. Se as verificações devolverem os resultados esperados e continuar a ter problemas de rede, certifique-se de que não tem uma firewall entre a VM e o ponto final com o qual está a comunicar e que o sistema operativo na VM não tem uma firewall que esteja a permitir ou a recusar a comunicação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que contém:
 
@@ -253,6 +253,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, criou uma VM e diagnosticou filtros de tráfego de rede de entrada e saída. Aprendeu que as regras do grupo de segurança de rede permitem ou recusam tráfego de e para uma VM. Saiba mais sobre [regras de segurança](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar regras de segurança](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
+Neste guia de início rápido, criou uma VM e diagnosticou filtros de tráfego de rede de entrada e saída. Aprendeu que as regras do grupo de segurança de rede permitem ou recusam tráfego de e para uma VM. Saiba mais sobre [regras de segurança](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json) e como [criar regras de segurança](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
 Mesmo com os filtros de tráfego de rede adequados ativados, a comunicação para uma VM ainda pode falhar, devido à configuração de encaminhamento. Para saber como diagnosticar problemas de encaminhamento de rede de VM, veja [Diagnosticar problemas de encaminhamento de VM](diagnose-vm-network-routing-problem-cli.md) ou, para diagnosticar problemas de encaminhamento de saída, latência e filtro de tráfego, com uma ferramenta, veja [Resolver problemas de ligação](network-watcher-connectivity-cli.md).

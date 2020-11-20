@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: e1e34bacb905bf48fc5f7cd44e66cf4a4326de91
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d6bc11f4f468b784b957ded954dc9a1720e89bfd
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044654"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964444"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo C# IoT Edge para dispositivos Windows
 
@@ -33,7 +33,7 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura qu
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Âmbito de solução
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial demonstra como desenvolver um módulo em **C#** utilizando **o Visual Studio 2019** e implantá-lo num **dispositivo Windows**. Se estiver a desenvolver módulos para dispositivos Linux, vá ao [Develop a C# IoT Edge module para dispositivos Linux.](tutorial-csharp-module.md)
 
@@ -43,8 +43,6 @@ Utilize a seguinte tabela para compreender as suas opções de desenvolvimento e
 | -- | ------------------ | ------------------ |
 | **Windows AMD64 desenvolver** | ![Desenvolver módulos C# para WinAMD64 em Código VS](./media/tutorial-c-module/green-check.png) | ![Desenvolver módulos C# para WinAMD64 em Estúdio Visual](./media/tutorial-c-module/green-check.png) |
 | **Depurar Windows AMD64** |   | ![Módulos Debug C# para WinAMD64 em Visual Studio](./media/tutorial-c-module/green-check.png) |
-
-## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente de desenvolvimento, [desenvolver um módulo IoT Edge para um dispositivo Windows](tutorial-develop-for-windows.md). Depois de completar este tutorial, já deve ter os seguintes pré-requisitos:
 
@@ -131,7 +129,7 @@ O código do módulo predefinido recebe mensagens numa fila de entrada e transmi
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-4. Adicione as classes **MessageBody,** **Machine**e **Ambiente** à classe **Programa** após as declarações variáveis. Estas classes definem o esquema esperado para o corpo das mensagens a receber.
+4. Adicione as classes **MessageBody,** **Machine** e **Ambiente** à classe **Programa** após as declarações variáveis. Estas classes definem o esquema esperado para o corpo das mensagens a receber.
 
     ```csharp
     class MessageBody
@@ -303,7 +301,7 @@ Na secção anterior, criou uma solução do IoT Edge e adicionou código ao **C
 
 2. No explorador de soluções Visual Studio, clique com o botão direito no nome do projeto que pretende construir. O nome padrão é **AzureIotEdgeApp1** e uma vez que está a construir um módulo Windows, a extensão deve ser **Windows.Amd64**.
 
-3. Selecione **Módulos de Borda IoT**de construção e push .
+3. Selecione **Módulos de Borda IoT** de construção e push .
 
    O comando de construção e pressão inicia três operações. Em primeiro lugar, cria uma nova pasta na solução chamada **config** que detém o manifesto de implantação completo, construído a partir de informações no modelo de implementação e outros ficheiros de solução. Em segundo lugar, funciona `docker build` para construir a imagem do contentor com base no arquivo apropriado para a arquitetura do seu alvo. Em seguida, corre `docker push` para empurrar o repositório de imagem para o seu registo de contentores.
 
@@ -353,7 +351,7 @@ Usamos o módulo CSharpModule twin para definir o limiar de temperatura em 25 gr
 
 5. Monitorize as mensagens de entrada de dispositivo para nuvem. Deve ver as mensagens paradas até que o novo limiar de temperatura seja atingido.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

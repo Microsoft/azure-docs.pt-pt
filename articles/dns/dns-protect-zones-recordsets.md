@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 52cb1f144608202739dc46f2053950b38d810631
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8163fcb3b349e298bc89f06523e3e784bdc4ed49
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330160"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965679"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Como proteger os registos e as zonas DNS
 
@@ -34,7 +34,7 @@ O grupo de recursos *myResourceGroup* contém cinco zonas para a Contoso Corpora
 
 A forma mais simples de atribuir permissões Azure RBAC é [através do portal Azure](../role-based-access-control/role-assignments-portal.md).  
 
-Controlo **de acesso aberto (IAM)** para o grupo de recursos e, em seguida, selecione **Adicionar**e, em seguida, selecione a função contribuinte da zona **de DNS.** Selecione os utilizadores ou grupos necessários para conceder permissões.
+Controlo **de acesso aberto (IAM)** para o grupo de recursos e, em seguida, selecione **Adicionar** e, em seguida, selecione a função contribuinte da zona **de DNS.** Selecione os utilizadores ou grupos necessários para conceder permissões.
 
 ![Nível de grupo de recursos Azure RBAC através do portal Azure](./media/dns-protect-zones-recordsets/rbac1.png)
 
@@ -198,11 +198,11 @@ Existem dois tipos de bloqueio de recursos: **CanNotDelete** e **ReadOnly**. Est
 
 Para evitar alterações, aplique um bloqueio ReadOnly na zona. Esta fechadura impede a criação de novos conjuntos de discos e os conjuntos de registos existentes sejam modificados ou eliminados.
 
-As fechaduras de recursos de nível de zona podem ser criadas através do portal Azure.  Na página da zona DNS, selecione **Fechaduras**e, em seguida, selecione **+Adicionar**:
+As fechaduras de recursos de nível de zona podem ser criadas através do portal Azure.  Na página da zona DNS, selecione **Fechaduras** e, em seguida, selecione **+Adicionar**:
 
 ![Bloqueios de recursos de nível de zona através do portal Azure](./media/dns-protect-zones-recordsets/locks1.png)
 
-Os bloqueios de recursos ao nível da zona também podem ser criados através do [Azure PowerShell:](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock?view=latest)
+Os bloqueios de recursos ao nível da zona também podem ser criados através do [Azure PowerShell:](/powershell/module/az.resources/new-azresourcelock?view=latest)
 
 ```azurepowershell
 # Lock a DNS zone
@@ -216,7 +216,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-O comando equivalente também está [disponível através do Azure CLI:](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create)
+O comando equivalente também está [disponível através do Azure CLI:](/cli/azure/lock?view=azure-cli-latest#az-lock-create)
 
 ```azurecli
 # Lock a DNS zone

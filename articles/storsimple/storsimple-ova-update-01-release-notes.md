@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 95386f36340aca470769c920e40bbb70e09d34fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67d3fafb9b4b93ae52bdb09d673bf65cad30b816
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80397868"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966161"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple Virtual Array Update 0.2 e 0.1 notas de lançamento
 ## <a name="overview"></a>Descrição geral
@@ -46,7 +46,7 @@ A atualização 0.1 contém as seguintes correções e melhorias de erros.
 
 * **Resiliência melhorada para interrupções na nuvem**: Este lançamento tem várias correções de bugs em torno da recuperação de desastres, backup, restauro e tiering em caso de perturbação da conectividade na nuvem. 
 * **Melhor desempenho do restauro**: Esta versão tem correções de bugs que reduziram significativamente o tempo de conclusão dos trabalhos de restauro.
-* **Otimização automatizada**da recuperação do espaço : Quando os dados são eliminados em volumes pouco aprovisionados, os blocos de armazenamento não reutilizados precisam de ser recuperados. Este lançamento melhorou o processo de recuperação do espaço a partir da nuvem, resultando no espaço não reutilizado a tornar-se mais rapidamente disponível em comparação com as versões anteriores.
+* **Otimização automatizada** da recuperação do espaço : Quando os dados são eliminados em volumes pouco aprovisionados, os blocos de armazenamento não reutilizados precisam de ser recuperados. Este lançamento melhorou o processo de recuperação do espaço a partir da nuvem, resultando no espaço não reutilizado a tornar-se mais rapidamente disponível em comparação com as versões anteriores.
 * **Novas imagens de disco virtual**: Novos VHD, VHDX e VMDK estão agora disponíveis através do portal clássico Azure. Pode descarregar estas imagens para obter novos dispositivos Update 0.1.
 * **Melhorar a exatidão do estado do emprego no portal**: Na versão anterior do software, o relatório do estado do trabalho no portal não era granular. Esta questão é resolvida nesta versão.
 * **Experiência de adesão de domínios**: Correções de erros relacionadas com a junção de domínios e renomeação do dispositivo.
@@ -54,7 +54,7 @@ A atualização 0.1 contém as seguintes correções e melhorias de erros.
 ## <a name="issues-fixed-in-the-update-01"></a>Problemas corrigidos na Atualização 0.1
 O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
-| N.º | Funcionalidade | Problema |
+| Não. | Funcionalidade | Problema |
 | --- | --- | --- |
 | 1 |VMDK |Em algumas versões VMware, o disco DE foi visto como escasso causando alertas e interrompendo as operações normais. Isto foi corrigido neste comunicado. |
 | 2 |servidor iSCSI |Na última versão, o utilizador foi obrigado a especificar um gateway para cada interface de rede ativada do seu dispositivo virtual StorSimple. Este comportamento é alterado nesta versão para que o utilizador tenha de configurar pelo menos um portal para todas as interfaces de rede ativadas. |
@@ -65,7 +65,7 @@ O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 ## <a name="known-issues-in-the-update-01"></a>Emissões conhecidas na Atualização 0.1
 A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Virtual Array e inclui os problemas de lançamento anotados a partir das versões anteriores. **Os problemas lançados nesta versão são marcados com um asterisco. Quase todos os problemas desta lista foram levados a partir do lançamento da AG do StorSimple Virtual Array.**
 
-| N.º | Funcionalidade | Problema | Soluções/comentários |
+| Não. | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 | **1.** |Atualizações |Os dispositivos virtuais criados na versão de pré-visualização não podem ser atualizados para uma versão suportada da Disponibilidade Geral. |Estes dispositivos virtuais devem ser falhados para a libertação de Disponibilidade Geral utilizando um fluxo de trabalho de recuperação de desastres (DR). |
 | **2.** |Disco de dados provisionado |Uma vez que tenha fornecedo um disco de dados de um determinado tamanho especificado e criado o dispositivo virtual StorSimple correspondente, não deve expandir ou encolher o disco de dados. Tentar fazê-lo resultará na perda de todos os dados nos níveis locais do dispositivo. | |
@@ -83,5 +83,4 @@ A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Vi
 | **14.** |Servidor de ficheiros* |Se um ficheiro numa pasta tiver um Fluxo de Dados Alternativo (ADS) associado a ele, o ADS não é apoiado ou restaurado através da recuperação de desastres, clone e recuperação do nível de item. | |
 
 ## <a name="next-step"></a>Passo seguinte
-[Instale atualizações](storsimple-ova-install-update-01.md) no seu Conjunto Virtual StorSimple.
-
+[Instale atualizações](./storsimple-virtual-array-install-update-06.md) no seu Conjunto Virtual StorSimple.

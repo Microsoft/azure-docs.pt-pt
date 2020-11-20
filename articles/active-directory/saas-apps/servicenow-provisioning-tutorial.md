@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d6213d49c98f5e09f22e7310183315800d0c6f6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: fe2d09315dcb2a0958f8a1b8efe7532c64c111d8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359787"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966552"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configure ServiceNow para o fornecimento automático de utilizadores
 
@@ -56,13 +56,6 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
    ![Função de administração ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
-3. Verifique se as seguintes definições estão **desativadas** no ServiceNow:
-
-   1. Selecione **System Security**  >  **definições de segurança de segurança do** sistema  >  **Requerem autenticação básica para pedidos de SCHEMA de entrada**.
-   2. Selecione **System Properties**  >  **Web Services** Require basic authorization for incoming SOAP  >  **requests**.
-     
-   > [!IMPORTANT]
-   > Se estas definições *estiverem ativadas,* o motor de a provisionamento deixará de comunicar com o ServiceNow.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>Passo 3. Adicionar ServiçoNow da galeria de aplicações AZure AD
 
@@ -103,7 +96,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![A screenshot mostra a página de Fornecimento de Serviço, onde pode introduzir Credenciais de Administrador.](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

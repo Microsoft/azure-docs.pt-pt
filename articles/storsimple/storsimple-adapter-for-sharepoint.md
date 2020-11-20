@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.openlocfilehash: a33e01d68a31585e216faa51ac8af193d86c6123
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053281"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966297"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instale e configuure o Adaptador StorSimple para SharePoint
 ## <a name="overview"></a>Descrição geral
@@ -53,7 +53,7 @@ A implementação do Microsoft Azure StorSimple do RBS proporciona os seguintes 
 Mover o conteúdo BLOB para o sistema de ficheiros pode proporcionar outras economias de custos e benefícios. Por exemplo, a utilização do RBS pode reduzir a necessidade de armazenamento caro do Tier 1 e, como diminui a base de dados de conteúdos, o RBS pode reduzir o número de bases de dados necessárias na fazenda de servidores SharePoint. No entanto, outros fatores, como os limites de tamanho da base de dados e a quantidade de conteúdo não-RBS, também podem afetar os requisitos de armazenamento. Para obter mais informações sobre os custos e benefícios da utilização do RBS, consulte [Plano para o RBS (SharePoint Foundation 2010)][4] e decidir utilizar o RBS no [SharePoint 2013][5].
 
 ### <a name="capacity-and-performance-limits"></a>Limites de capacidade e desempenho
-Antes de considerar a utilização do RBS na sua solução SharePoint, deve estar ciente dos limites de desempenho e capacidade testados do SharePoint Server 2010 e sharePoint Server 2013, e de como estes limites se relacionam com um desempenho aceitável. Para mais informações, consulte [Limites e Limites de Software para SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
+Antes de considerar a utilização do RBS na sua solução SharePoint, deve estar ciente dos limites de desempenho e capacidade testados do SharePoint Server 2010 e sharePoint Server 2013, e de como estes limites se relacionam com um desempenho aceitável. Para mais informações, consulte [Limites e Limites de Software para SharePoint 2013](/SharePoint/install/software-boundaries-and-limits-0).
 
 Reveja o seguinte antes de configurar RBS:
 
@@ -208,7 +208,7 @@ Os seguintes procedimentos descrevem como mover os BLOBs de volta para as bases 
 > Tem de deslocar os BLOBs de volta para as bases de dados de conteúdos antes de desinstalar o software do adaptador.
 
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 Recolher as seguintes informações antes de transferir os dados para as bases de dados de conteúdos do SQL Server e iniciar o processo de remoção do adaptador:
 
 * Os nomes de todas as bases de dados para as quais o RBS está habilitado
@@ -226,7 +226,7 @@ Antes de desinstalar o Adaptador StorSimple para o software SharePoint, tem de m
 4. Na página **Configure StorSimple Adapter,** clique no botão **Desativar** abaixo de cada uma das bases de dados de conteúdo que pretende remover do armazenamento externo blob. 
 5. Elimine os objetos do SharePoint e, em seguida, faça o upload novamente.
 
-Em alternativa, pode utilizar o `RBS Migrate()` cmdlet Microsoft PowerShell incluído no SharePoint. Para obter mais informações, consulte [o conteúdo da Migração dentro ou fora do RBS](https://technet.microsoft.com/library/ff628255.aspx).
+Em alternativa, pode utilizar o `RBS Migrate()` cmdlet Microsoft PowerShell incluído no SharePoint. Para obter mais informações, consulte [o conteúdo da Migração dentro ou fora do RBS](/previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)).
 
 Depois de deslocar os BLOBs de volta para a base de dados de conteúdos, vá para o passo seguinte: [Desinstalar o adaptador](#uninstall-the-adapter).
 
@@ -251,15 +251,15 @@ Depois de transferir os BLOBs para as bases de dados de conteúdos do SQL Server
 
 #### <a name="to-use-the-control-panel-to-uninstall-the-adapter"></a>Para utilizar o Painel de Controlo para desinstalar o adaptador
 1. Abra o Painel de Controlo e, em seguida, clique em **Programas e Funcionalidades**.
-2. Selecione **Adaptador StorSimple para SharePoint**e, em seguida, clique em **Desinstalar**.
+2. Selecione **Adaptador StorSimple para SharePoint** e, em seguida, clique em **Desinstalar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre o StorSimple.](storsimple-overview.md)
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
-[2]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
-[4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
-[5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/library/ff943565.aspx
+[2]: /SharePoint/administration/rbs-planning
+[3]: /previous-versions/office/sharepoint-server-2010/ff628583(v=office.14)
+[4]: /previous-versions/office/sharepoint-foundation-2010/ff628569(v=office.14)
+[5]: /SharePoint/administration/rbs-planning
+[8]: /SharePoint/administration/maintain-rbs

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 119436cbe03e619b0d09df30ab2c5dc34126b0ce
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 20d44fd3150f9da31e9c242017e597d4f46e4d5d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629398"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963934"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Desencadear uma corrida de um pipeline de Machine Learning a partir de uma App Lógica
 
@@ -96,11 +96,11 @@ Uma vez que a sua App Lógica tenha sido aprovisionada, utilize estes passos par
 1. **Selecione Save** e a sua agenda está agora pronta.
 
 > [!IMPORTANT]
-> Se estiver a utilizar o controlo de acesso baseado em funções (RBAC) para gerir o acesso ao seu oleoduto, [desajei as permissões para o seu cenário de pipeline (treino ou pontuação)](how-to-assign-roles.md#common-scenarios).
+> Se estiver a utilizar o controlo de acesso baseado em funções (Azure RBAC) para gerir o acesso ao seu pipeline, [desajeitar as permissões para o seu cenário de pipeline (treino ou pontuação)](how-to-assign-roles.md#common-scenarios).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 > [!div class="nextstepaction"]
 > [Utilize gasodutos de aprendizagem de máquinas Azure para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md)

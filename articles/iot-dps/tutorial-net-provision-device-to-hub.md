@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 55195949cfaa741389f38deaea69806c568c0ce6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9a14ee6ee3e10b36d64ec11fc23807efe2bfaf2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008272"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966569"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Tutorial: Inscreva o dispositivo num hub IoT utilizando o Cliente de Serviço de Provisionamento Azure IoT Hub (.NET)
 
@@ -42,12 +42,12 @@ Este tutorial simula o período durante ou imediatamente após o processo de fab
 Este passo envolve a adição dos artefactos de segurança exclusiva do dispositivo ao Serviço de Aprovisionamento de Dispositivos. Estes artefactos de segurança são os seguintes:
 
 - Para dispositivos baseados em TPM:
-    - A *Chave de Endossamento* única para cada chip ou simulação de TPM. Leia [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) (Compreender a Chave de Endossamento de TPM) para obter mais informações.
+    - A *Chave de Endossamento* única para cada chip ou simulação de TPM. Leia [Understand TPM Endorsement Key](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770443(v=ws.11)) (Compreender a Chave de Endossamento de TPM) para obter mais informações.
     - Do *ID de Registo* que é utilizado para identificar exclusivamente um dispositivo no espaço de nomes/âmbito. Este pode ou não ser o mesmo que o ID de dispositivo. O ID é obrigatório para todos os dispositivos. Para os dispositivos baseados em TPM, o ID de registo pode derivar do próprio TPM, como, por exemplo, um hash SHA-256 da Chave de Endossamento de TPM.
 
 - Para dispositivos baseados em X.509:
-    - O [certificado X.509 emitido para o dispositivo](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), sob a forma de ficheiro *.pem* ou *.cer*. Para inscrição individual, tem de utilizar o *certificado de folha* para o seu sistema X.509, ao passo que, para grupos de inscrição, tem de utilizar o *certificado de arranque* ou um *certificado de signatário* equivalente.
-    - Do *ID de Registo* que é utilizado para identificar exclusivamente um dispositivo no espaço de nomes/âmbito. Este pode ou não ser o mesmo que o ID de dispositivo. O ID é obrigatório para todos os dispositivos. Para dispositivos baseados em X.509, o ID de registo é derivado do nome comum do certificado (CN). Para obter mais informações sobre estes requisitos, veja os [Conceitos de dispositivo](https://docs.microsoft.com/azure/iot-dps/concepts-device).
+    - O [certificado X.509 emitido para o dispositivo](/windows/win32/seccertenroll/about-x-509-public-key-certificates), sob a forma de ficheiro *.pem* ou *.cer*. Para inscrição individual, tem de utilizar o *certificado de folha* para o seu sistema X.509, ao passo que, para grupos de inscrição, tem de utilizar o *certificado de arranque* ou um *certificado de signatário* equivalente.
+    - Do *ID de Registo* que é utilizado para identificar exclusivamente um dispositivo no espaço de nomes/âmbito. Este pode ou não ser o mesmo que o ID de dispositivo. O ID é obrigatório para todos os dispositivos. Para dispositivos baseados em X.509, o ID de registo é derivado do nome comum do certificado (CN). Para obter mais informações sobre estes requisitos, veja os [Conceitos de dispositivo](./concepts-service.md).
 
 Existem duas formas de inscrever o dispositivo no Serviço Aprovisionamento de Dispositivos:
 
@@ -129,7 +129,7 @@ Existem duas formas de inscrever o dispositivo no Serviço Aprovisionamento de D
     Console.ReadLine();
     ```
         
-1. No Visual Studio Solution Explorer, clique com o botão direito na sua solução e, em seguida, clique em **Definir Projetos startUp...**. Selecione **o projeto de arranque único**e, em seguida, selecione o projeto **DeviceProvisioning** no menu suspenso.  
+1. No Visual Studio Solution Explorer, clique com o botão direito na sua solução e, em seguida, clique em **Definir Projetos startUp...**. Selecione **o projeto de arranque único** e, em seguida, selecione o projeto **DeviceProvisioning** no menu suspenso.  
 
 1. Execute a aplicação de dispositivo .NET **DeviceProvisiong**. Deve configurar o aprovisionamento para o dispositivo: 
 
@@ -235,7 +235,7 @@ Após o arranque do dispositivo, devem ocorrer as ações seguintes. Veja o [Exe
 2. Relativamente aos dispositivos TPM, o Serviço Aprovisionamento de Dispositivos devolve um desafio de registo, ao qual o seu dispositivo vai responder. 
 3. Após o registo bem-sucedido, o Serviço Aprovisionamento de Dispositivos reenvia o URI do hub IoT, o ID do dispositivo e a chave de encriptação para o dispositivo. 
 4. Em seguida, a aplicação cliente do Hub IoT no dispositivo liga-se ao seu hub. 
-5. Quando a ligação ao hub for estabelecida com êxito, deverá ver o dispositivo apresentado no **Device Explorer**do hub IoT. 
+5. Quando a ligação ao hub for estabelecida com êxito, deverá ver o dispositivo apresentado no **Device Explorer** do hub IoT. 
 
     ![Ligação com êxito ao hub no portal](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5aa6906f7f06e109342d81db6171773a68642e0c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 76695d4d8dbc3e3a6b04b89b8f34e41b83a92963
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342285"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965192"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -46,7 +46,7 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 
 1. No painel do **Centro de Segurança,** selecione **a política de segurança.**
 
-    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="A página de gestão de políticas&quot;:::
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="A página de gestão de políticas":::
 
    No ecrã de gestão de **políticas,** pode ver o número de grupos de gestão, subscrições e espaços de trabalho, bem como a estrutura do seu grupo de gestão.
 
@@ -57,7 +57,7 @@ Para ver as suas políticas de segurança no Centro de Segurança:
    ![página de política](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Se houver um rótulo &quot;MG Herdado" ao lado da sua política de incumprimento, significa que a apólice foi atribuída a um grupo de gestão e herdada pela subscrição que está a ver.
+    > Se houver um rótulo "MG Herdado" ao lado da sua política de incumprimento, significa que a apólice foi atribuída a um grupo de gestão e herdada pela subscrição que está a ver.
 
 
 1. Escolha entre as opções disponíveis nesta página:
@@ -68,18 +68,7 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 
     1. Para visualizar e editar a política predefinitiva, **selecione Ver política eficaz** e proceda como descrito abaixo. 
 
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="A página de gestão de políticas&quot;:::
-
-   No ecrã de gestão de **políticas,** pode ver o número de grupos de gestão, subscrições e espaços de trabalho, bem como a estrutura do seu grupo de gestão.
-
-1. Selecione o grupo de subscrição ou gestão cujas políticas pretende ver.
-
-1. Aparece a página de política de segurança para esse grupo de subscrição ou gestão. Mostra as políticas disponíveis e atribuídas.
-
-   ![página de política](./media/tutorial-security-policy/security-policy-page.png)
-
-    > [!NOTE]
-    > Se houver um rótulo &quot;MG Herdado":::
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Tela de política eficaz":::
 
        Este ecrã **de política de segurança** reflete as ações tomadas pelas políticas atribuídas no grupo de subscrição ou gestão que selecionou.
        
@@ -97,7 +86,7 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 
 Pode editar políticas de segurança através do portal Azure Policy, através da REST API ou utilizando o Windows PowerShell.
 
-O Security Center utiliza Role-Based Access Control (RBAC), que fornece funções incorporadas que pode atribuir a utilizadores, grupos e serviços do Azure. Quando os utilizadores abrem o Centro de Segurança, vêem apenas informações relacionadas com os recursos a que podem aceder. O que significa que os utilizadores são atribuídos ao papel de *proprietário,* *contribuinte*ou *leitor* à subscrição do recurso. Há também duas funções específicas do Centro de Segurança:
+O Security Center utiliza o controlo de acesso baseado em funções Azure (Azure RBAC), que fornece funções incorporadas que pode atribuir aos utilizadores, grupos e serviços da Azure. Quando os utilizadores abrem o Centro de Segurança, vêem apenas informações relacionadas com os recursos a que podem aceder. O que significa que os utilizadores são atribuídos ao papel de *proprietário,* *contribuinte* ou *leitor* à subscrição do recurso. Há também duas funções específicas do Centro de Segurança:
 
 - **Leitor de segurança**: Tem direito a visualizar itens do Centro de Segurança, tais como recomendações, alertas, política e saúde. Não posso fazer mudanças.
 - **Administrador de segurança**: Tem os mesmos direitos de visão que *o leitor de segurança.* Também pode atualizar a política de segurança e dispensar alertas.

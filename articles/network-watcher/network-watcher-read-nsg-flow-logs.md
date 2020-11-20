@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: 18023f5a5b36dd971080d7a62fdd44698a205bb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9b9e91cda93a986fdaaf0f53d8987544e783a2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272540"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966467"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler registos do fluxo do NSG
 
 Saiba como ler entradas de registos de fluxo NSG com PowerShell.
 
-Os registos de fluxo NSG são armazenados numa conta de armazenamento em [blocos.](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) As bolhas de bloco são compostas por blocos menores. Cada tronco é uma bolha de bloco separada que é gerada a cada hora. Novos registos são gerados a cada hora, os registos são atualizados com novas entradas a cada poucos minutos com os dados mais recentes. Neste artigo aprende-se a ler partes dos registos de fluxo.
+Os registos de fluxo NSG são armazenados numa conta de armazenamento em [blocos.](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) As bolhas de bloco são compostas por blocos menores. Cada tronco é uma bolha de bloco separada que é gerada a cada hora. Novos registos são gerados a cada hora, os registos são atualizados com novas entradas a cada poucos minutos com os dados mais recentes. Neste artigo aprende-se a ler partes dos registos de fluxo.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -37,7 +37,7 @@ Antes de começar, tem de ter o Fluxo de Fluxo de Rede ativado em um ou em muito
 
 ## <a name="retrieve-the-block-list"></a>Recupere a lista de blocos
 
-O PowerShell seguinte configura as variáveis necessárias para consultar a bolha de registo de fluxo NSG e listar os blocos dentro da bolha do bloco [CloudBlockBlob.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) Atualize o script para conter valores válidos para o seu ambiente.
+O PowerShell seguinte configura as variáveis necessárias para consultar a bolha de registo de fluxo NSG e listar os blocos dentro da bolha do bloco [CloudBlockBlob.](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) Atualize o script para conter valores válidos para o seu ambiente.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -189,6 +189,6 @@ Este cenário é um exemplo de como ler entradas em registos de fluxo NSG sem te
 
 Visite [Use Elástico Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), Use [Grafana](network-watcher-nsg-grafana.md)e [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre formas de ver os registos de fluxo NSG. Uma abordagem da Função Open Source Azure para consumir as bolhas diretamente e emitir para vários consumidores de análise de registo pode ser encontrada aqui: [Azure Network Watcher NSG Flow Logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Você pode usar [a Azure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) para obter informações sobre os seus fluxos de tráfego. Traffic Analytics utiliza [o Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) para tornar o seu fluxo de tráfego questionável.
+Você pode usar [a Azure Traffic Analytics](./traffic-analytics.md) para obter informações sobre os seus fluxos de tráfego. Traffic Analytics utiliza [o Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) para tornar o seu fluxo de tráfego questionável.
 
 Para saber mais sobre as bolhas de armazenamento visite: [Azure Functions Blob encadernações de armazenamento](../azure-functions/functions-bindings-storage-blob.md)

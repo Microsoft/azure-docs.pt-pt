@@ -3,16 +3,17 @@ title: Conecte a Azure ExpressRoute com a Oracle Cloud Infrastructure Microsoft 
 description: Conecte o Azure ExpressRoute com a Oracle Cloud Infrastructure (OCI) FastConnect para permitir soluções de aplicação oracle em nuvem cruzada
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
 ms.reviewer: cynthn
-ms.openlocfilehash: e932bf7381e1246f4b489e7d564cf5486c3ec635
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2717ba307cac82465e0c5df996ef3b668af5e7d4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996228"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963713"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Criar uma interligação direta entre a Infraestrutura Azure e a Oracle Cloud  
 
@@ -43,7 +44,7 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
     * Um circuito Azure ExpressRoute oferece opções de largura de banda granular, enquanto o FastConnect suporta 1, 2, 5 ou 10 Gbps. Por isso, recomenda-se escolher uma destas opções de largura de banda correspondentes ao abrigo do ExpressRoute.
 
     ![Criar circuito ExpressRoute](media/configure-azure-oci-networking/exr-create-new.png)
-1. Note a sua **chave de Serviço**ExpressRoute . Tem de fornecer a chave enquanto configura o circuito FastConnect.
+1. Note a sua **chave de Serviço** ExpressRoute . Tem de fornecer a chave enquanto configura o circuito FastConnect.
 
     ![Chave de serviço ExpressRoute](media/configure-azure-oci-networking/exr-service-key.png)
 

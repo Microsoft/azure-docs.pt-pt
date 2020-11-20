@@ -5,15 +5,16 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 503d3d5ed9b099e01a88ee40ef80e88105beb340
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 11/19/2020
+ms.openlocfilehash: f1a7ffc8225ea20b48df4e1d9a049655ca4776a4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917737"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964665"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
+
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Este artigo fornece uma descrição geral das quotas predefinidas oferecidas a diferentes recursos no Azure Cosmos DB.
@@ -194,8 +195,8 @@ A Azure Cosmos DB mantém metadados do sistema para cada conta. Estes metadados 
 
 | Recurso | Limite predefinido |
 | --- | --- |
-|A taxa máxima de recolha cria uma taxa por minuto|    5|
-|Base de dados máxima criar taxa por minuto|    5|
+|A taxa máxima de recolha cria uma taxa por minuto|    100|
+|Base de dados máxima criar taxa por minuto|    100|
 |Taxa máxima de atualização de produção prevista por minuto|    5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limites para a produção de autoescala prevista

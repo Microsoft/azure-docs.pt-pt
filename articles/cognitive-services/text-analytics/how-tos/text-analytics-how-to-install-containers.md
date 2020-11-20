@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: no local, Docker, contentor, análise de sentimento, processamento de linguagem natural
-ms.openlocfilehash: 43684e814dd0049a08eacdce50ca6eef17fb7f97
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 088cf407320dcf8ef6705c57d86836531d9bdfe6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363940"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965171"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores da Análise de Texto
 
@@ -46,7 +46,7 @@ Deve encontrar os seguintes pré-requisitos antes de utilizar os recipientes tex
 |--|--|
 |Motor do Docker| Precisa do Motor Docker instalado num [computador anfitrião.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contentores se conectem e enviem dados de faturação para a Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar recipientes Linux.<br><br>|
 |Familiaridade com Docker | Você deve ter uma compreensão básica de conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos.| 
-|Recurso de análise de texto |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure [Text Analytics](../../cognitive-services-apis-create-account.md) para obter a chave API associada e ponto final URI. Ambos os valores estão disponíveis nas páginas de Análise de Texto e Chaves do portal Azure e são obrigados a iniciar o contentor.<br><br>**{API_KEY}** : Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}** : O ponto final, conforme fornecido na página **'Vista Geral',**|
+|Recurso de análise de texto |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure [Text Analytics](../../cognitive-services-apis-create-account.md) para obter a chave API associada e ponto final URI. Ambos os valores estão disponíveis nas páginas de Análise de Texto e Chaves do portal Azure e são obrigados a iniciar o contentor.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final, conforme fornecido na página **'Vista Geral',**|
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -167,7 +167,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
    * *Análise de Sentimentos*
    * *Extração de frases-chave (pré-visualização)* 
    * *Deteção de Idiomas (pré-visualização)*
-   * *Análise de Texto para Saúde (pré-visualização)*
+   * *Análise de texto para saúde (pré-visualização)*
 * As imagens do contentor são descarregadas a partir do Registo de Contentores da Microsoft (MCR) ou do repositório de contentores de pré-visualização.
 * Imagens de contentores correm em Docker.
 * Pode utilizar a API REST ou a SDK para ligar para operações em recipientes Text Analytics especificando o hospedeiro URI do recipiente.

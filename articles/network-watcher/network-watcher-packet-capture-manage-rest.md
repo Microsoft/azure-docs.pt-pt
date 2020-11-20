@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 38d55c14690a838e853c873a066eae6534d49c6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97b20eae4c6b7d4ee81066638e46f1e9a760d3ec
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84725074"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966484"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gerir capturas de pacotes com O Observador de Rede Azure usando AZure REST API
 
@@ -40,13 +40,13 @@ Este artigo leva-o através das diferentes tarefas de gestão que estão atualme
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Neste cenário, ligue para a API de Repouso do Observador de Rede para executar a Verificação do Fluxo IP. A ARMclient é utilizada para chamar a API REST usando o PowerShell. ARMClient é encontrado em chocolate no [ARMClient em Chocolatey](https://chocolatey.org/packages/ARMClient)
 
 Este cenário pressupõe que já seguiu os passos na [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
 
-> A captura de pacotes requer uma extensão virtual da `AzureNetworkWatcherExtension` máquina. Para instalar a extensão num Windows VM visite [a extensão da máquina virtual do Observador de Redes Azure para windows](../virtual-machines/windows/extensions-nwa.md) e para Linux VM visite a [extensão virtual do Agente de Observadores de Rede Azure para o Linux](../virtual-machines/linux/extensions-nwa.md).
+> A captura de pacotes requer uma extensão virtual da `AzureNetworkWatcherExtension` máquina. Para instalar a extensão num Windows VM visite [a extensão da máquina virtual do Observador de Redes Azure para windows](../virtual-machines/extensions/network-watcher-windows.md) e para Linux VM visite a [extensão virtual do Agente de Observadores de Rede Azure para o Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
 ## <a name="log-in-with-armclient"></a>Iniciar sessão com ARMClient
 
@@ -301,19 +301,6 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter instruções sobre o descarregamento de ficheiros a partir de contas de armazenamento azul, consulte para [começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Storage Explorer. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
+Para obter instruções sobre o descarregamento de ficheiros a partir de contas de armazenamento azul, consulte para [começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Outra ferramenta que pode ser usada é o Storage Explorer. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
 
 Saiba como automatizar capturas de pacotes com alertas de máquina virtual ao visualizar [Criar uma captura de pacotes desencadeados por alerta](network-watcher-alert-triggered-packet-capture.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6a7b4d8c3d2e2b33d8e2a9936670992b1c922b6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a07957a75bfe82d8ce350675f0d29b2f03e069
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737364"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966144"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realize deteção de intrusão de rede com o Network Watcher e ferramentas open source
 
@@ -69,7 +69,7 @@ Para processar capturas de pacotes usando Suricata, executar o seguinte comando:
 ```
 sudo suricata -c /etc/suricata/suricata.yaml -r <location_of_pcapfile>
 ```
-Para verificar os alertas resultantes, leia o ficheiro fast.log:
+Para verificar os alertas resultantes, leia o ficheiro .log rápido:
 ```
 tail -f /var/log/suricata/fast.log
 ```
@@ -80,7 +80,7 @@ Embora os registos que a Suricata produz contenham informações valiosas sobre 
 
 #### <a name="install-elasticsearch"></a>Instalar o elástico
 
-1. A Pilha Elástica da versão 5.0 ou superior requer Java 8. Verifique o comando `java -version` para verificar a sua versão. Se não tiver java instalado, consulte a documentação sobre os [JDKs suposos do Azure.](https://aka.ms/azure-jdks)
+1. A Pilha Elástica da versão 5.0 ou superior requer Java 8. Verifique o comando `java -version` para verificar a sua versão. Se não tiver java instalado, consulte a documentação sobre os [JDKs suposos do Azure.](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 1. Descarregue o pacote binário correto para o seu sistema:
 

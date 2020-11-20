@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 040220bfac2a3ac1ef54965ba9be35755b9b787b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0c5ebd3f7989458a0966fdc792cd3a8a9ea94acc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487624"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965277"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Azure Virtual Machines alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP
 
@@ -195,13 +196,13 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Desdobre os VMs. E
       1. Selecione as máquinas virtuais do cluster (A)SCS e os seus endereços IP.
       1. Clique em Adicionar
    1. Criar as sondas de saúde
-      1. Porto 620**00** para ASCS
+      1. Porto 620 **00** para ASCS
          1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
          1. Insira o nome da nova sonda de saúde (por **exemplo, saúde. O QAS. ASCS**)
-         1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limiar insalubre 2
+         1. Selecione TCP como protocolo, porta 620 **00**, mantenha o Intervalo 5 e o limiar insalubre 2
          1. Clique em OK
-      1. Porto 621**01** para ASCS ERS
-            * Repita os passos acima em "c" para criar uma sonda de saúde para o ERS (por exemplo 621**01** e **saúde. O QAS. ERS**)
+      1. Porto 621 **01** para ASCS ERS
+            * Repita os passos acima em "c" para criar uma sonda de saúde para o ERS (por exemplo 621 **01** e **saúde. O QAS. ERS**)
    1. Regras de equilíbrio de carga
       1. Regras de equilíbrio de carga para asCS
          1. Abra o equilibrador de carga, selecione regras de equilíbrio de carga e clique em Adicionar
@@ -229,15 +230,15 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Desdobre os VMs. E
       1. Selecione as máquinas virtuais do cluster (A)SCS
       1. Clique em OK
    1. Criar as sondas de saúde
-      1. Porto 620**00** para ASCS
+      1. Porto 620 **00** para ASCS
          1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
          1. Insira o nome da nova sonda de saúde (por **exemplo, saúde. O QAS. ASCS**)
-         1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limiar insalubre 2
+         1. Selecione TCP como protocolo, porta 620 **00**, mantenha o Intervalo 5 e o limiar insalubre 2
          1. Clique em OK
-      1. Porto 621**01** para ASCS ERS
-            * Repita os passos acima em "c" para criar uma sonda de saúde para o ERS (por exemplo 621**01** e **saúde. O QAS. ERS**)
+      1. Porto 621 **01** para ASCS ERS
+            * Repita os passos acima em "c" para criar uma sonda de saúde para o ERS (por exemplo 621 **01** e **saúde. O QAS. ERS**)
    1. Regras de equilíbrio de carga
-      1. 32**00** TCP para ASCS
+      1. 32 **00** TCP para ASCS
          1. Abra o equilibrador de carga, selecione regras de equilíbrio de carga e clique em Adicionar
          1. Insira o nome da nova regra do balançador de carga (por exemplo **lb. O QAS. ASCS.3200**)
          1. Selecione o endereço IP frontend para ASCS, backend pool e sonda de saúde que criou anteriormente (por **exemplo, frontend. O QAS. ASCS**)
@@ -246,9 +247,9 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Desdobre os VMs. E
          1. **Certifique-se de ativar o IP flutuante**
          1. Clique em OK
       1. Portas adicionais para o ASCS
-         * Repita os passos acima em "d" para as portas 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14,**5 00**16 e TCP para o ASCS
+         * Repita os passos acima em "d" para as portas 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00** 14,**5 00** 16 e TCP para o ASCS
       1. Portos adicionais para o ASCS ERS
-         * Repita os passos acima em "d" para as portas 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 e TCP para o ASCS ERS
+         * Repita os passos acima em "d" para as portas 32 **01**, 33 **01**, 5 **01** 13, 5 **01** 14, 5 **01** 16 e TCP para o ASCS ERS
 
       > [!IMPORTANT]
       > O IP flutuante não é suportado numa configuração IP secundária do NIC em cenários de equilíbrio de carga. Para mais detalhes consulte [as limitações do balançador de carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se precisar de um endereço IP adicional para o VM, implante um segundo NIC.  
@@ -507,7 +508,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<virtual_hostname>
    ```
 
-   Se a instalação não criar uma sub-dobragem em /usr/seiva/**QAS**/ASCS**00,** tente definir o proprietário e o grupo da pasta ASCS**00** e retentou novamente.
+   Se a instalação não criar uma sub-dobragem em /usr/seiva/**QAS**/ASCS **00,** tente definir o proprietário e o grupo da pasta ASCS **00** e retentou novamente.
 
    ```
    sudo chown qasadm /usr/sap/QAS/ASCS00
@@ -574,7 +575,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<virtual_hostname>
    ```
 
-   Se a instalação não criar uma sub-dobradura em /usr/seiva/**QAS**/ERS**01,** tente configurar o proprietário e o grupo da pasta ERS**01** e retentou novamente.
+   Se a instalação não criar uma sub-dobradura em /usr/seiva/**QAS**/ERS **01,** tente configurar o proprietário e o grupo da pasta ERS **01** e retentou novamente.
 
    ```
    sudo chown qaadm /usr/sap/QAS/ERS01

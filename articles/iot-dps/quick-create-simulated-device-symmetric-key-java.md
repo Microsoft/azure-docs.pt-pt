@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: fa1354c471cf23d85b3c2b0b563ed0463f5e19b2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a32811b439a569a8f8f82fcc046e0f4b89e47a38
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90528436"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966705"
 ---
 # <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Quickstart: Fornecimento de um dispositivo simulado ao IoT Hub com teclas simétricas
 
@@ -34,7 +34,7 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Certifique-se de que tem [o Kit de Desenvolvimento Java SE 8](https://aka.ms/azure-jdks) ou mais tarde instalado na sua máquina.
+* Certifique-se de que tem [o Kit de Desenvolvimento Java SE 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) ou mais tarde instalado na sua máquina.
 
 * Transfira e instale o [Maven](https://maven.apache.org/install.html).
 
@@ -141,7 +141,7 @@ Nesta secção, atualizará o código de amostra do dispositivo para enviar a se
 >
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositivo, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 

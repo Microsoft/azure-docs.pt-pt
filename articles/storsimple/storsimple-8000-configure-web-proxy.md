@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48671e7558ea1bd613d33372c96fa3c563407e81
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514278"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966229"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configure o proxy web para o seu dispositivo StorSimple
 
@@ -154,6 +154,5 @@ Se as definições de procuração web estiverem configuradas incorretamente, as
 > * Erros relacionados com as definições de procuração web não serão apresentados no portal Azure no seu serviço StorSimple Device Manager. Se houver um problema com o proxy da web após a configuração ser concluída, o estado do dispositivo mudará para **Offline** no portal clássico./
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Se sentir algum problema durante a implementação do seu dispositivo ou configurar as definições de procuração web, consulte a [resolução de problemas da implementação do seu dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
+* Se sentir algum problema durante a implementação do seu dispositivo ou configurar as definições de procuração web, consulte a [resolução de problemas da implementação do seu dispositivo StorSimple](./storsimple-8000-troubleshoot-deployment.md).
 * Para aprender a utilizar o serviço StorSimple Device Manager, vá utilizar [o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

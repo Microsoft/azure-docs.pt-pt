@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 11/19/2020
 ms.author: alkohli
-ms.openlocfilehash: a73005580c9b7ddeae17e3e0490aa586bd9b0fbb
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: e1dca046177634842de25b255dd1bb22c5d2c5a5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335835"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964217"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
-O Azure Data Box é uma solução híbrida que permite importar os dados no local para o Azure, de forma rápida, fácil e fiável. Transfira os seus dados para um dispositivo de armazenamento de 80 TB fornecido pela Microsoft (capacidade utilizável) e, em seguida, envie novamente o dispositivo. Estes dados são então carregados para o Azure.
+O Azure Data Box é uma solução híbrida que permite importar os dados no local para o Azure, de forma rápida, fácil e fiável. Transfira os seus dados para um dispositivo de armazenamento de 80 TB (capacidade utilizável) fornecido pela Microsoft e, em seguida, envie o dispositivo de volta. Estes dados são então carregados para o Azure.
 
 Este tutorial descreve como pode encomendar um Azure Data Box. Neste tutorial, ficará a saber mais sobre:
 
@@ -57,7 +57,7 @@ Antes de começar, certifique-se de que:
 
 * Instale a versão [Azure CLI](/cli/azure/install-azure-cli) 2.0.67 ou posterior. Em alternativa, pode [instalar-se utilizando o MSI.](https://aka.ms/installazurecliwindows)
 
-**Iniciar sessão no Azure**
+**Inscreva-se em Azure**
 
 Abra uma janela de comando Windows PowerShell e inicie sessão no Azure com o comando [de login az:](/cli/azure/reference-index#az-login)
 
@@ -231,7 +231,7 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
     |País/região de origem    |    Selecione o país/região onde os dados residem atualmente.         |
     |Região do Azure de destino     |     Selecione a região do Azure para onde pretende transferir os dados. <br> Para obter mais informações, aceda a [Disponibilidade de região](data-box-overview.md#region-availability).            |
 
-    [![Iniciar uma ordem de importação da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
+    [![Iniciar uma ordem de importação da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
 
 5. Selecione **Data Box**. A capacidade máxima utilizável para uma única encomenda é de 80 TB. Pode criar várias encomendas para tamanhos de dados maiores.
 
@@ -245,17 +245,15 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
     |Grupo de recursos    | O grupo de recursos que selecionou anteriormente. |
     |Nome da ordem de importação | Forneça um nome amigável para controlar a encomenda. <br> O nome pode ter entre 3 e 24 carateres que podem ser letras, números e hífenes. <br> O nome tem de começar e terminar com uma letra ou um número.    |
 
-    ![Data Box import Assistente de encomenda, ecrã básico, com informação correta preenchida](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Data Box import Assistente de encomenda, ecrã básico, com informação correta preenchida](media/data-box-deploy-ordered/select-data-box-import-06.png)<!--Generic subscription. Cut note. Box command.-->
 
-    Por predefinição, a palavra-passe desbloqueada do dispositivo é encriptada utilizando uma chave gerida pela Microsoft. Depois de completar a encomenda, pode adicionar uma chave gerida pelo cliente. Uma chave gerida pelo cliente permite-lhe utilizar a sua própria chave a partir de uma chave de cofre Azure Key para proteger o seu dispositivo desbloquear a palavra-passe. Para obter mais informações, consulte [as teclas geridas pelo cliente no Cofre de Chaves Azure para a Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
+7. No ecrã de **destino data,** selecione o **destino Data** - contas de armazenamento ou discos geridos.
 
-7. No separador **data destination,** selecione **Data destination**.
-
-    Se utilizar **a conta de armazenamento** como destino de armazenamento, vê a seguinte imagem:
+    Se utilizar **a conta de armazenamento** como destino de armazenamento, consulte o seguinte ecrã:
 
     ![Data Box importe assistente de encomenda, ecrã de destino de dados, com contas de armazenamento selecionadas](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    Com base na região do Azure especificada, selecione uma ou mais contas de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser associado a um máximo de 10 contas de armazenamento. Também pode criar uma nova conta de **Fins gerais v1** , **Fins gerais v2** ou **Conta de armazenamento de blobs**.
+    Com base na região do Azure especificada, selecione uma ou mais contas de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser associado a um máximo de 10 contas de armazenamento. Também pode criar uma nova conta de **Fins gerais v1**, **Fins gerais v2** ou **Conta de armazenamento de blobs**.
 
     As contas de armazenamento com redes virtuais são suportadas. Para permitir que o serviço Data Box funcione com contas de armazenamento protegidas, ative os serviços fidedignos nas definições de firewall de rede da conta de armazenamento. Para mais informações, consulte como [adicionar a Azure Data Box como um serviço de confiança](../storage/common/storage-network-security.md#exceptions).
 
@@ -263,39 +261,106 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
     |Definição  |Valor  |
     |---------|---------|
-    |Grupos de recursos     | Crie novos grupos de recursos se quiser criar discos geridos a partir dos VHDs no local. Só pode utilizar um grupo de recursos existente se o grupo de recursos tiver sido criado anteriormente ao criar uma encomenda de Caixa de Dados para o disco gerido pelo serviço Data Box. <br> Especifique vários grupos de recursos separados por ponto e vírgula. É suportado um máximo de 10 grupos de recursos.|
+    |Grupos de recursos     | Crie novos grupos de recursos se quiser criar discos geridos a partir dos VHDs no local. Só pode utilizar um grupo de recursos existente se o grupo de recursos tiver sido criado anteriormente ao criar uma encomenda de Caixa de Dados para discos geridos pelo serviço Data Box. <br> Especifique vários grupos de recursos separados por ponto e vírgula. É suportado um máximo de 10 grupos de recursos.|
 
-    ![Assistente de encomenda de importação de caixa de dados, ecrã de destino de dados, com Discos Geridos selecionados](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Assistente de encomenda de importação de caixa de dados, ecrã de destino de dados, com Discos Geridos selecionados](media/data-box-deploy-ordered/select-data-box-import-07-b.png)
 
     A conta de armazenamento especificada para os discos geridos é utilizada como uma conta de armazenamento de teste. O serviço Data Box carrega os VHDs como blobs de páginas na conta de armazenamento de teste antes de os converter em discos geridos e de os mover para os grupos de recursos. Para obter mais informações, veja [Verificar o carregamento de dados no Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+
    > [!NOTE]
    > Se uma bolha de página não for convertida com sucesso para um disco gerido, fica na conta de armazenamento e é cobrado para armazenamento.
 
-    Selecione **Seguinte: Segurança** para continuar.
+8. Selecione **Seguinte: Segurança** para continuar.
 
-    O ecrã **de Segurança** permite-lhe usar o seu próprio dispositivo e partilhar senhas e optar por utilizar a dupla encriptação. 
+    O ecrã **de Segurança** permite-lhe usar a sua própria chave de encriptação e o seu próprio dispositivo e partilhar senhas, e optar por usar encriptação dupla.
 
     Todas as definições no ecrã **de Segurança** são opcionais. Se não alterar quaisquer definições, aplicar-se-ão as definições predefinidas.
 
     ![Tela de segurança do assistente de encomenda de importação de caixa de dados](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
 
-8. Se não quiser utilizar as palavras-passe geradas pelo sistema que a Azure Data Box utiliza por padrão, **expanda a sua própria palavra-passe**.
+9. Se pretender utilizar a sua própria chave gerida pelo cliente para proteger a chave de desbloqueio para o seu novo recurso, expanda o **tipo de encriptação**.
 
-   As palavras-passe geradas pelo sistema são seguras e são recomendadas a menos que a sua organização exija o contrário.
+    Configurar uma chave gerida pelo cliente para a sua Caixa de Dados Azure é opcional. Por predefinição, a Data Box utiliza uma chave gerida pela Microsoft para proteger a chave de desbloqueio.
 
-   ![Expandido Traga as suas próprias opções de senha no ecrã de Segurança para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-02.png)
+    Uma chave gerida pelo cliente não afeta a forma como os dados do dispositivo são encriptados. A chave é usada apenas para encriptar a chave de desbloqueio do dispositivo.
 
-   - Para utilizar a sua própria palavra-passe para o seu novo dispositivo, por **definição de preferência para a palavra-passe do dispositivo** , selecione **Use a sua própria palavra-passe** e escreva uma palavra-passe que satisfaça os requisitos de segurança.
+    Se não quiser utilizar uma chave gerida pelo cliente, salte para o passo 15.
+
+   ![Ecrã de segurança mostrando definições do tipo de encriptação](./media/data-box-deploy-ordered/customer-managed-key-01.png)
+
+10. Selecione **a chave gerida pelo Cliente** como o tipo chave. Em seguida, **selecione selecione um cofre e uma chave de teclas**.
+   
+    ![Ecrã de segurança, definições para uma chave gerida pelo cliente](./media/data-box-deploy-ordered/customer-managed-key-02.png)
+
+11. Na **tecla Select da lâmina Azure Key Vault,** a subscrição é automaticamente povoada.
+
+    - Para **o cofre key,** pode selecionar um cofre de chaves existente na lista de dropdown.
+
+      ![Selecione a chave do ecrã Azure Key Vault](./media/data-box-deploy-ordered/customer-managed-key-03.png)
+
+    - Também pode selecionar **Criar novo** para criar um novo cofre de chaves. No ecrã do **cofre da chave Create,** insira o grupo de recursos e um nome de cofre chave. Certifique-se de que a proteção **para eliminar** e **purgar** suavemente está ativada. Aceite todos os outros incumprimentos e selecione **Review + Create**.
+
+      ![Criar uma nova definição de Azure Key Vault](./media/data-box-deploy-ordered/customer-managed-key-04.png)
+
+      Reveja as informações para o seu cofre chave e selecione **Criar**. Espere alguns minutos para a criação do cofre para completar.
+
+      ![Novo ecrã de revisão do Azure Key Vault](./media/data-box-deploy-ordered/customer-managed-key-05.png)
+
+12. Na **tecla Select from Azure Key Vault,** pode selecionar uma chave existente no cofre da chave.
+
+    ![Selecione a chave existente a partir do Cofre de Chaves Azure](./media/data-box-deploy-ordered/customer-managed-key-06.png)
+
+    Se pretender criar uma nova chave, **selecione Criar nova**. Tem de usar uma chave RSA. O tamanho pode ser 2048 ou maior. Introduza um nome para a sua nova tecla, aceite as outras predefinições e selecione **Criar**.
+
+      ![Criar uma nova opção chave](./media/data-box-deploy-ordered/customer-managed-key-07.png)
+
+      Será notificado quando a chave for criada no seu cofre.
+
+13. Selecione a **versão** da chave a utilizar e, em seguida, escolha **Selecione**.
+
+      ![Nova chave criada no cofre chave](./media/data-box-deploy-ordered/customer-managed-key-08.png)
+
+    Se pretender criar uma nova versão chave, selecione **Criar novo**.
+
+    ![Abra uma caixa de diálogo para criar uma nova versão chave](./media/data-box-deploy-ordered/customer-managed-key-08-a.png)
+
+    Escolha as definições para a nova versão chave e selecione **Criar**.
+
+    ![Criar uma nova versão chave](./media/data-box-deploy-ordered/customer-managed-key-08-b.png)
+
+    As definições **do tipo encriptação** no ecrã **de Segurança** mostram o cofre e a chave da chave.
+
+    ![Chave e cofre chave para uma chave gerida pelo cliente](./media/data-box-deploy-ordered/customer-managed-key-09.png)
+
+14. Selecione uma identidade de utilizador que utilizará para gerir o acesso a este recurso. Escolha **Selecionar uma identidade de utilizador.** No painel à direita, selecione a subscrição e a identidade gerida para utilizar. Em seguida, escolha **Selecionar**.
+
+    Uma identidade gerida atribuída pelo utilizador é um recurso autónomo do Azure que pode ser usado para gerir múltiplos recursos. Para obter mais informações, consulte [os tipos de identidade geridos.](/azure/active-directory/managed-identities-azure-resources/overview)  
+
+    Se precisar de criar uma nova identidade gerida, siga as orientações em [Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    
+    ![Selecione uma identidade de utilizador](./media/data-box-deploy-ordered/customer-managed-key-10.png)
+
+    A identidade do utilizador é mostrada nas definições **do tipo encriptação.**
+
+    ![Uma identidade de utilizador selecionada mostrada nas definições do tipo de encriptação](./media/data-box-deploy-ordered/customer-managed-key-11.png)
+
+15. Se não quiser utilizar as palavras-passe geradas pelo sistema que a Azure Data Box utiliza por padrão, **expanda a sua própria palavra-passe** no ecrã **de Segurança.**
+
+    As palavras-passe geradas pelo sistema são seguras e são recomendadas a menos que a sua organização exija o contrário.
+
+    ![Expandido Traga as suas próprias opções de senha para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+
+   - Para utilizar a sua própria palavra-passe para o seu novo dispositivo, por **definição de preferência para a palavra-passe do dispositivo**, selecione **Use a sua própria palavra-passe** e escreva uma palavra-passe que satisfaça os requisitos de segurança.
    
      ![Opções para usar a palavra-passe do seu próprio dispositivo no ecrã de Segurança para uma ordem de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
-   - Para utilizar as suas próprias palavras-passe para ações:
+ - Para utilizar as suas próprias palavras-passe para ações:
 
-     1. Por **Definir a preferência por palavras-passe de partilha** , selecione Use as suas **próprias palavras-passe** e, em seguida, **selecione palavras-passe para as ações**.
+   - Por **Definir a preferência por palavras-passe de partilha**, selecione Use as suas **próprias palavras-passe** e, em seguida, **selecione palavras-passe para as ações**.
      
         ![Opções para usar as suas próprias palavras-passe no ecrã de Segurança para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-     1. Digite uma palavra-passe para cada conta de armazenamento na encomenda. A palavra-passe será usada em todas as ações para a conta de armazenamento.
+    - Digite uma palavra-passe para cada conta de armazenamento na encomenda. A palavra-passe será usada em todas as ações para a conta de armazenamento.
      
         Para utilizar a mesma palavra-passe para todas as contas de armazenamento, selecione **Copy to all**. Quando terminar, **selecione Save**.
      
@@ -303,38 +368,38 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
        No ecrã **'Segurança',** pode utilizar **ver ou alterar palavras-passe** para alterar as palavras-passe.
 
-9. Em **Segurança** , se pretender ativar a dupla encriptação baseada em software, expanda a **encriptação dupla (para ambientes altamente seguros)** e selecione **Ative a dupla encriptação para a encomenda**.
+16. Em **Segurança**, se pretender ativar a dupla encriptação baseada em software, expanda a **encriptação dupla (para ambientes altamente seguros)** e selecione **Ative a dupla encriptação para a encomenda**.
 
-   ![Opções para permitir encriptação baseada em software no ecrã de Segurança para uma ordem de importação de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
+    ![Ecrã de segurança para importação de Data Box, permitindo encriptação baseada em software para uma encomenda de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
-   A encriptação baseada em software é realizada para além da encriptação bit AES-256 dos dados na Caixa de Dados.
+    A encriptação baseada em software é realizada para além da encriptação bit AES-256 dos dados na Caixa de Dados.
 
-   > [!NOTE]
-   > Permitir esta opção poderia fazer com que o processamento de encomendas e a cópia de dados demorasse mais tempo. Não pode alterar esta opção depois de criar o seu pedido.
+    > [!NOTE]
+    > Permitir esta opção poderia fazer com que o processamento de encomendas e a cópia de dados demorasse mais tempo. Não pode alterar esta opção depois de criar o seu pedido.
 
-   Selecione **Seguinte: Contacte os dados** para continuar.
+    Selecione **Seguinte: Contacte os dados** para continuar.
 
-10. Em **detalhes de contato** , selecione **+ Adicionar endereço de envio**.
+17. Em **detalhes de contato**, selecione **+ Adicionar endereço de envio**.
 
-    ![A partir do ecrã de detalhes de contato, adicione endereços de envio à sua encomenda de importação da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![A partir do ecrã de detalhes de contato, adicione endereços de envio à sua encomenda de importação da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-08-a.png)
 
-11. No **endereço de Envio,** forneça o seu primeiro e último nome, o nome e endereço postal da empresa, e um número de telefone válido. Em seguida, **selecione O endereço validado**. O serviço verifica a disponibilidade de serviço para o endereço. Se o serviço estiver disponível para o endereço de envio, receberá uma notificação nesse sentido.
+18. No separador **Endereço para envio**, forneça o seu nome próprio e apelido, o nome e o endereço postal da empresa e um número de telefone válido. Selecione **Validar endereço**. O serviço valida o endereço de envio relativamente à disponibilidade do serviço. Se o serviço estiver disponível para o endereço de envio especificado, receberá uma notificação para o efeito.
 
-     ![Adicione a caixa de diálogo do endereço de envio, com o Navio usando opções e a opção de endereço de envio Adicionar chamado](media/data-box-deploy-ordered/select-data-box-import-10.png)
+    ![Screenshot da caixa de diálogo do endereço de envio de envio com o Navio usando opções e a opção de endereço de envio Adicionar chamada.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
     Se selecionar o envio auto-gerido, receberá uma notificação de e-mail após a encomenda ser feita com sucesso. Para obter mais informações sobre o transporte auto-gerido, consulte [use o envio auto-gerido](data-box-portal-customer-managed-shipping.md).
 
-12. Selecione **Adicionar Endereço de Envio** assim que os dados de envio tenham sido validados com sucesso. Regressará ao separador **Dados de Contacto.**
+19. Selecione **Adicionar Endereço de Envio** assim que os dados de envio tenham sido validados com sucesso. Regressará ao separador **Dados de Contacto.**
 
-13. Depois de voltar aos **dados de Contato,** adicione um ou mais endereços de e-mail. O serviço envia notificações por e-mail relativamente a todas as atualizações do estado da encomenda para os endereços de e-mail especificados.
+20. Depois de voltar aos **dados de Contato,** adicione um ou mais endereços de e-mail. O serviço envia notificações por e-mail relativamente a todas as atualizações do estado da encomenda para os endereços de e-mail especificados.
 
     Recomendamos que utilize um e-mail de grupo para continuar a receber notificações se um administrador sair do grupo.
 
-    ![Secção de email de dados de contacto no assistente da Ordem](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Secção de email de dados de contacto no assistente da Ordem](media/data-box-deploy-ordered/select-data-box-import-08-c.png)
 
-12. Reveja as informações em **Review + Order** relacionadas com os termos de encomenda, contacto, notificação e privacidade. Selecione a caixa correspondente ao contrato de termos de privacidade.
+21. Reveja as informações em **Review + Order** relacionadas com os termos de encomenda, contacto, notificação e privacidade. Selecione a caixa correspondente ao contrato de termos de privacidade.
 
-13. Selecione **Encomendar**. A encomenda demora alguns minutos a ser criada.
+22. Selecione **Encomendar**. A encomenda demora alguns minutos a ser criada.
 
     ![Rever e encomendar tela do assistente da Ordem](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
@@ -344,7 +409,7 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
 
 1. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando CLI para criar a ordem Caixa de Dados. A tabela a seguir mostra as definições de parâmetros utilizadas `az databox job create` para:
 
-   | Definição (parâmetro) | Description |  Valor da amostra |
+   | Definição (parâmetro) | Descrição |  Valor da amostra |
    |---|---|---|
    |resource-group| Utilize um grupo de recursos existente ou crie um novo. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |name| O nome da ordem que está a criar. | "mydataboxorder"|
@@ -463,7 +528,7 @@ Faça os seguintes passos utilizando a Azure PowerShell para encomendar um dispo
 
 2. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando PowerShell para criar a ordem Caixa de Dados. A tabela seguinte mostra as definições de parâmetros utilizadas para [o New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob).
 
-    | Definição (parâmetro) | Description |  Valor da amostra |
+    | Definição (parâmetro) | Descrição |  Valor da amostra |
     |---|---|---|
     |Nome do Grupo de Recursos [Obrigatório]| Utilize um grupo de recursos existente. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
     |Nome [Obrigatório]| O nome da ordem que está a criar. | "mydataboxorder"|

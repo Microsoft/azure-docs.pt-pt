@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: devx-track-azurecli
 services: iot-dps
-ms.openlocfilehash: 237ca1f0041283bb86b24ad456ab781dc13eeb86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 020b0dbc937885923b26c115f91147437b7a0f9b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980519"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964733"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Como utilizar o Azure CLI e a extensão IoT para gerir o serviço de provisionamento de dispositivos IoT Hub
 
-[O Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de plataforma cruzada de código aberto para gerir recursos Azure, como o IoT Edge. O Azure CLI está disponível em Windows, Linux e macOS. O Azure CLI permite-lhe gerir os recursos do Azure IoT Hub, as instâncias de serviço de Provisionamento de Dispositivos e os centros ligados para fora da caixa.
+[O Azure CLI](/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de plataforma cruzada de código aberto para gerir recursos Azure, como o IoT Edge. O Azure CLI está disponível em Windows, Linux e macOS. O Azure CLI permite-lhe gerir os recursos do Azure IoT Hub, as instâncias de serviço de Provisionamento de Dispositivos e os centros ligados para fora da caixa.
 
 A extensão IoT enriquece o CLI Azure com funcionalidades como a gestão do dispositivo e a capacidade completa do IoT Edge.
 
@@ -33,7 +33,7 @@ Neste tutorial, primeiro completa os passos para configurar o Azure CLI e a exte
 
 ### <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 
-Siga as [instruções de instalação](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para configurar o Azure CLI no seu ambiente. No mínimo, a sua versão Azure CLI deve ser de 2.0.70 ou superior. Utilize `az –version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack. Uma forma simples de instalar no Windows é transferir e instalar o [MSI](https://aka.ms/InstallAzureCliWindows).
+Siga as [instruções de instalação](/cli/azure/install-azure-cli?view=azure-cli-latest) para configurar o Azure CLI no seu ambiente. No mínimo, a sua versão Azure CLI deve ser de 2.0.70 ou superior. Utilize `az –version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack. Uma forma simples de instalar no Windows é transferir e instalar o [MSI](https://aka.ms/InstallAzureCliWindows).
 
 ### <a name="install-iot-extension"></a>Instalar extensão IoT
 

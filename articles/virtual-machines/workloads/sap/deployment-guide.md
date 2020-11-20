@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed30c271e4c2458a33784cbcfc682001b542f2b6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359618"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964954"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais Azure para SAP NetWeaver
 
@@ -422,7 +423,7 @@ O seguinte fluxograma mostra a sequência específica do SAP de passos para a im
 A forma mais fácil de criar uma nova máquina virtual com uma imagem do Azure Marketplace é utilizando o portal Azure.
 
 1.  Aceda a <https://portal.azure.com/#create/hub>.  Ou, no menu do portal Azure, selecione **+ Novo**.
-1.  **Selecione Compute**e, em seguida, selecione o tipo de sistema operativo que pretende implementar. Por exemplo, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7.2 (RHEL 7.2) ou Oracle Linux 7.2. A vista de lista padrão não mostra todos os sistemas operativos suportados. Selecione **ver tudo** para obter uma lista completa. Para obter mais informações sobre sistemas operativos suportados para a implementação de software SAP, consulte a Nota SAP [1928533].
+1.  **Selecione Compute** e, em seguida, selecione o tipo de sistema operativo que pretende implementar. Por exemplo, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7.2 (RHEL 7.2) ou Oracle Linux 7.2. A vista de lista padrão não mostra todos os sistemas operativos suportados. Selecione **ver tudo** para obter uma lista completa. Para obter mais informações sobre sistemas operativos suportados para a implementação de software SAP, consulte a Nota SAP [1928533].
 1.  Na página seguinte, rever os termos e condições.
 1.  Na **caixa de modelo de implementação Selecione,** selecione **Resource Manager**.
 1.  Selecione **Criar**.
@@ -685,7 +686,7 @@ Para obter mais informações sobre o Agente Azure VM, consulte os seguintes rec
 ---
 > ![Logotipo do Windows.][Logo_Windows] Windows
 >
-> [Descrição geral do Agente da Máquina Virtual do Azure][virtual-machines-windows-agent-user-guide]
+> [Visão geral do agente de máquinas virtuais Azure][virtual-machines-windows-agent-user-guide]
 >
 > ![Logotipo linux.][Logo_Linux] Linux
 >
@@ -854,9 +855,9 @@ Os passos que toma para configurar o proxy no Windows são diferentes da forma c
 
 As configurações proxy devem ser configurada corretamente para que a conta do Sistema Local aceda à Internet. Se as definições de procuração não forem definidas pela Política de Grupo, pode configurar as definições para a conta do Sistema Local.
 
-1. Ir para **iniciar,** inserir **gpedit.msc**e, em seguida, selecionar **Enter**.
-1. Selecione **Computer Configuration**  >  **modelos administrativos de**configuração do computador Windows  >  **Components**Internet  >  **Explorer**. Certifique-se de que a definição **Faça as definições de procuração por máquina (em vez de por utilizador)** estar desativadas ou não configuradas.
-1. No **Painel de Controlo,** aceda às **Network and Sharing Center**  >  **opções de Internet**do Network and Sharing Center .
+1. Ir para **iniciar,** inserir **gpedit.msc** e, em seguida, selecionar **Enter**.
+1. Selecione **Computer Configuration**  >  **modelos administrativos de** configuração do computador Windows  >  **Components** Internet  >  **Explorer**. Certifique-se de que a definição **Faça as definições de procuração por máquina (em vez de por utilizador)** estar desativadas ou não configuradas.
+1. No **Painel de Controlo,** aceda às **Network and Sharing Center**  >  **opções de Internet** do Network and Sharing Center .
 1. No separador **'Ligações',** selecione o botão **de definições LAN.**
 1. Desmarque a caixa de verificação **Detetar definições automaticamente**.
 1. Selecione o **servidor proxy para a sua** caixa de verificação LAN e, em seguida, insira o endereço de procuração e a porta.
@@ -893,7 +894,7 @@ As definições de procuração em \\ etc \\ waagent.conf também se aplicam às
 
 * **SLES**
 
-  Também precisa adicionar rotas para os endereços IP listados em \\ etc \\ regionserverclnt.cfg. A seguinte figura mostra um exemplo:
+  Também precisa adicionar rotas para os endereços IP listados em \\ etc \\ regiãoserverclnt.cfg. A seguinte figura mostra um exemplo:
 
   ![Túnel forçado][deployment-guide-figure-50]
 
@@ -1497,7 +1498,7 @@ Se os erros não desaparecerem, [contacte o suporte][deployment-guide-contact-su
 
 #### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Contactar o Suporte
 
-Erro inesperado ou não há solução conhecida. Colete o ficheiro AzureEnhancedMonitoring_service.log localizado na pasta C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \drop (Windows) ou /var/log/azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorforLinux (Linux) e contacte o suporte DA SAP para mais assistência.
+Erro inesperado ou não há solução conhecida. Recolha o ficheiro AzureEnhancedMonitoring_service.log localizado na pasta C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \drop (Windows) ou /var/log/azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux (Linux) e contacte o suporte DA SAP para mais assistência.
 
 #### <a name="redeploy-after-sysprep"></a><a name="2cd61f22-187d-42ed-bb8c-def0c983d756"></a>Recolocação após sysprep
 

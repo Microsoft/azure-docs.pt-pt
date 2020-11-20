@@ -5,15 +5,16 @@ services: virtual-machines-windows
 author: msmbaldwin
 tags: keyvault
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c5c536b95360c536998a5de87e9307918b15630
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c02b6bcb6587313f84c4b900fba49df540d12c07
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685992"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966365"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual key Vault para Windows
 
@@ -87,7 +88,7 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor / Exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | data |
 | publicador | Microsoft.Azure.KeyVault | string |

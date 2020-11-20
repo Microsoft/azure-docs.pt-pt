@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 59656db2bbb8a6898ae08a168dbbc7e0a6a82aec
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d9cffcadcb95b6c8c61205d458610f402fa7286d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044722"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964597"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo C IoT Edge para dispositivos Windows
 
@@ -33,7 +33,7 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura qu
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Âmbito de solução
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial demonstra como desenvolver um módulo em **C** utilizando **o Visual Studio 2019** e implantá-lo num **dispositivo Windows**. Se estiver a desenvolver módulos para dispositivos Linux, vá ao [Develop a C IoT Edge module para dispositivos Linux.](tutorial-c-module.md)
 
@@ -42,8 +42,6 @@ Utilize a seguinte tabela para compreender as suas opções de desenvolvimento e
 | C | Visual Studio Code | Estúdio Visual 2017/2019 |
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Desenvolver módulos C para WinAMD64 em Estúdio Visual](./media/tutorial-c-module/green-check.png) |
-
-## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente de desenvolvimento para o desenvolvimento de contentores Windows: [Desenvolver módulos IoT Edge para dispositivos Windows](tutorial-develop-for-windows.md). Depois de completar este tutorial, deverá ter os seguintes pré-requisitos no lugar:
 
@@ -125,7 +123,7 @@ O código do módulo predefinido recebe mensagens numa fila de entrada e transmi
 
 1. Os dados do sensor neste cenário estão no formato JSON. Para filtrar mensagens no formato JSON, importe uma biblioteca JSON para C. Este tutorial utiliza o Parson.
 
-   1. Descarregue o [repositório Do Pároco GitHub.](https://github.com/kgabis/parson) Copie os ficheiros **parson.c** e **parson.h** no projeto **CModule.**
+   1. Descarregue o [repositório Do Pároco GitHub.](https://github.com/kgabis/parson) Copie os ficheiros **parson.c** e **pároco.h** no projeto **CModule.**
 
    2. No Visual Studio, abra o ficheiro **CMakeLists.txt** da pasta do projeto CModule. Na parte superior do ficheiro, importe os ficheiros do Parson como uma biblioteca chamada **my_parson**.
 
@@ -140,19 +138,19 @@ O código do módulo predefinido recebe mensagens numa fila de entrada e transmi
 
    4. Guarde o ficheiro **CMakeLists.txt**.
 
-   5. Open **CModule**  >  **main.c**. Na parte inferior da lista de declarações incluem-se, adicione uma nova para incluir `parson.h` para o suporte JSON:
+   5. Abra **o CModule**  >  **principal.c**. Na parte inferior da lista de declarações incluem-se, adicione uma nova para incluir `parson.h` para o suporte JSON:
 
       ```c
       #include "parson.h"
       ```
 
-2. No ficheiro **main.c,** adicione uma variável global chamada `temperatureThreshold` ao lado da variável MessagesReceivedByInput1Queue. Esta variável define o valor que a temperatura medida deve exceder, para que os dados sejam enviados para o Hub IoT.
+2. No ficheiro **.c principal,** adicione uma variável global chamada `temperatureThreshold` ao lado da variável MessagesReceivedByInput1Queue. Esta variável define o valor que a temperatura medida deve exceder, para que os dados sejam enviados para o Hub IoT.
 
     ```c
     static double temperatureThreshold = 25;
     ```
 
-3. Encontre a `CreateMessageInstance` função em main.c. Substitua a declaração interna por outro código que adiciona algumas linhas de funcionalidade:
+3. Encontre a `CreateMessageInstance` função na .c principal. Substitua a declaração interna por outro código que adiciona algumas linhas de funcionalidade:
 
    ```c
    if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
@@ -336,7 +334,7 @@ A sua máquina de desenvolvimento tem agora acesso ao seu registo de contentores
 
 1. No explorador de soluções Visual Studio, clique com o botão direito no nome do projeto que pretende construir. O nome padrão é **AzureIotEdgeApp1**. Para este tutorial, foi escolhido o nome **CTutorialApp.** Uma vez que está a construir um módulo Windows, a extensão deve ser **Windows.Amd64**.
 
-2. Selecione **Módulos de Borda IoT**de construção e push .
+2. Selecione **Módulos de Borda IoT** de construção e push .
 
    O comando de construção e pressão inicia três operações. Em primeiro lugar, cria uma nova pasta na solução chamada **config** que detém o manifesto de implantação completo, construído a partir de informações no modelo de implementação e outros ficheiros de solução. Em segundo lugar, funciona `docker build` para construir a imagem do contentor com base no arquivo apropriado para a arquitetura do seu alvo. Em seguida, corre `docker push` para empurrar o repositório de imagem para o seu registo de contentores.
 
@@ -387,7 +385,7 @@ Usamos o módulo CModule twin para definir o limiar de temperatura em 25 graus. 
 
 5. Monitorize as mensagens de entrada de dispositivo para nuvem. Deve ver as mensagens paradas até que o novo limiar de temperatura seja atingido.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 89258b05831170ff502cde80577f3a6851659bf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 385d43e46cd3f9465c0fbf9a02eeae356f48fac4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986316"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966535"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar o tráfego de rede de/para uma máquina virtual através do portal do Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "90986316"
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
-Um grupo de segurança de rede (NSG) permite filtrar o tráfego de entrada e o tráfego de saída numa máquina virtual (VM). Pode registar o tráfego de rede que passa através de um NSG com a capacidade dos registos de fluxo do NSG do Observador de Rede. Neste tutorial, ficará a saber como:
+Um grupo de segurança de rede (NSG) permite filtrar o tráfego de entrada e o tráfego de saída numa máquina virtual (VM). Pode registar o tráfego de rede que passa através de um NSG com a capacidade dos registos de fluxo do NSG do Observador de Rede. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma VM com um grupo de segurança de rede
@@ -45,7 +45,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="create-a-vm"></a>Criar uma VM
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
-2. **Selecione Compute**e, em seguida, selecione **o Centro de Dados do Windows Server 2016** ou uma versão do **Ubuntu Server**.
+2. **Selecione Compute** e, em seguida, selecione **o Centro de Dados do Windows Server 2016** ou uma versão do **Ubuntu Server**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK**:
 
     |Definição|Valor|
@@ -95,7 +95,7 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
     | ---            | ---   |
     | Nome           | 3 a 24 carateres de comprimento, só pode conter letras minúsculas e números e tem de ser exclusivo em todas as contas de Armazenamento do Microsoft Azure.                                                               |
     | Localização       | Selecione **E.U.A. Leste**.                                           |
-    | Grupo de recursos | Selecione **Utilizar a utilização existente**e, em seguida, selecione **myResourceGroup** |
+    | Grupo de recursos | Selecione **Utilizar a utilização existente** e, em seguida, selecione **myResourceGroup** |
 
     A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada. Em todos os casos, a conta de armazenamento deve estar na mesma região que o NSG.
 4. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados de pesquisa, selecione-o.
@@ -111,7 +111,7 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 
 9. Selecione a conta de armazenamento que criou no passo 3.
    > [!NOTE]
-   > Os Registos de Fluxo NSG não funcionam com contas de armazenamento que tenham [espaço hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) habilitado.
+   > Os Registos de Fluxo NSG não funcionam com contas de armazenamento que tenham [espaço hierárquico](../storage/blobs/data-lake-storage-namespace.md) habilitado.
 1. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados de pesquisa, selecione-o.
 10. Defina **Retenção (dias)** como 5 e, em seguida, selecione **Guardar**.
 
@@ -123,7 +123,7 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
    ![Transferir os registos de fluxo](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Selecione a conta de armazenamento que configurou no passo 2 da secção [Ativar o registo de fluxo do NSG](#enable-nsg-flow-log).
-4. Sob **o serviço Blob**, selecione **Containers**e, em seguida, selecione o recipiente de **fluxofluevent de insights-logs-networksecurity.**
+4. Sob **o serviço Blob**, selecione **Containers** e, em seguida, selecione o recipiente de **fluxofluevent de insights-logs-networksecurity.**
 5. No recipiente, navegue na hierarquia da pasta até chegar a um PT1H.jsem arquivo, como mostra a imagem que se segue. Os ficheiros de registo são escritos para uma hierarquia de pasta que segue a seguinte convenção de nomeação: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupGroup Name}/FORNECEDORES/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
    ![Registo do fluxo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)

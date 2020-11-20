@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 7c5aa7e5189b4c89636fdb38e8fd365208148900
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fb6f9f598ef68911a9017dde504a032672dc55a3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094647"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966586"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com Java
 
@@ -47,23 +47,23 @@ Os passos seguintes mostram como adicionar os detalhes de aprovisionamento do se
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-2. No código fonte transferido, navegue até à pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** . Abra o ficheiro **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** num editor à sua escolha e adicione os seguintes detalhes:
+2. No código fonte transferido, navegue até à pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Abra o ficheiro **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** num editor à sua escolha e adicione os seguintes detalhes:
 
     1. Adicione `[Provisioning Connection String]` para o seu serviço de aprovisionamento, a partir do portal da seguinte forma:
         1. Navegue para o seu serviço de prestação no [portal Azure](https://portal.azure.com). 
-        2. Abra as **Políticas de acesso partilhado** e selecione uma política que tenha a permissão *EnrollmentWrite* .
-        3. Copie a **Cadeia de ligação da chave primária** . 
+        2. Abra as **Políticas de acesso partilhado** e selecione uma política que tenha a permissão *EnrollmentWrite*.
+        3. Copie a **Cadeia de ligação da chave primária**. 
 
             ![Obter a cadeia de ligação de aprovisionamento a partir do portal](./media/quick-enroll-device-x509-java/provisioning-string.png)  
 
-        4. No ficheiro de código de exemplo **_ServiceEnrollmentGroupSample.java_** , substitua a cadeia `[Provisioning Connection String]` pela **Cadeia de ligação da chave primária** .
+        4. No ficheiro de código de exemplo **_ServiceEnrollmentGroupSample.java_**, substitua a cadeia `[Provisioning Connection String]` pela **Cadeia de ligação da chave primária**.
 
             ```Java
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
     2. Adicione o certificado de raiz para o grupo de dispositivos. Se precisar de um certificado de raiz de exemplo, utilize a ferramenta _X.509 certificate generator_ da seguinte forma:
-        1. Numa janela de comando, navegue até à pasta **_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_** .
+        1. Numa janela de comando, navegue até à pasta **_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_**.
         2. Compile a ferramenta através da execução do seguinte comando:
 
             ```cmd\sh
@@ -78,9 +78,9 @@ Os passos seguintes mostram como adicionar os detalhes de aprovisionamento do se
             ```
 
         5. Quando lhe for pedido, pode introduzir opcionalmente um _Nome Comum_ para os certificados.
-        6. A ferramenta gera localmente um **Certificado de Cliente** , a **Chave Privada do Certificado de Cliente** e o **Certificado de Raiz** .
-        7. Copie o **Certificado de Raiz** , incluindo as linhas **_-----BEGIN CERTIFICATE-----_** e **_-----END CERTIFICATE-----_** . 
-        8. Atribua o valor do **Certificado de Raiz** ao parâmetro **PUBLIC_KEY_CERTIFICATE_STRING** , conforme apresentado abaixo:
+        6. A ferramenta gera localmente um **Certificado de Cliente**, a **Chave Privada do Certificado de Cliente** e o **Certificado de Raiz**.
+        7. Copie o **Certificado de Raiz**, incluindo as linhas **_-----BEGIN CERTIFICATE-----_** e **_-----END CERTIFICATE-----_**. 
+        8. Atribua o valor do **Certificado de Raiz** ao parâmetro **PUBLIC_KEY_CERTIFICATE_STRING**, conforme apresentado abaixo:
 
             ```Java
             private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -98,25 +98,25 @@ Os passos seguintes mostram como adicionar os detalhes de aprovisionamento do se
             "-----END CERTIFICATE-----\n";
             ```
 
-        9. Feche a janela de comando ou introduza **n** quando lhe for pedido um *Código de Verificação* . 
+        9. Feche a janela de comando ou introduza **n** quando lhe for pedido um *Código de Verificação*. 
  
     3. Opcionalmente, pode configurar o seu serviço de aprovisionamento através do código de exemplo:
         - Para adicionar esta configuração ao exemplo, siga estes passos:
-            1. Navegue até ao hub IoT ligado ao seu serviço de aprovisionamento no [portal do Azure](https://portal.azure.com). Abra o separador **Descrição geral** para o hub e copie o **Hostname** . Atribua este **Hostname** ao parâmetro *IOTHUB_HOST_NAME* .
+            1. Navegue até ao hub IoT ligado ao seu serviço de aprovisionamento no [portal do Azure](https://portal.azure.com). Abra o separador **Descrição geral** para o hub e copie o **Hostname**. Atribua este **Hostname** ao parâmetro *IOTHUB_HOST_NAME*.
 
                 ```Java
                 private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
                 ```
             2. Atribua um nome amigável ao parâmetro *DEVICE_ID* e mantenha o *PROVISIONING_STATUS* como o valor *ATIVADO* predefinido. 
 
-        - OU, se optar por não configurar o serviço de aprovisionamento, certifique-se de que comenta ou elimina as seguintes instruções no ficheiro _ServiceEnrollmentGroupSample.java_ :
+        - OU, se optar por não configurar o serviço de aprovisionamento, certifique-se de que comenta ou elimina as seguintes instruções no ficheiro _ServiceEnrollmentGroupSample.java_:
 
             ```Java
             enrollmentGroup.setIotHubHostName(IOTHUB_HOST_NAME);                // Optional parameter.
             enrollmentGroup.setProvisioningStatus(ProvisioningStatus.ENABLED);  // Optional parameter.
             ```
 
-    4. Estude o código de exemplo. Este cria, atualiza, consulta e elimina uma inscrição de grupo para dispositivos X.509. Para verificar a inscrição com êxito no portal, comente temporariamente as seguintes linhas de código no final do ficheiro _ServiceEnrollmentGroupSample.java_ :
+    4. Estude o código de exemplo. Este cria, atualiza, consulta e elimina uma inscrição de grupo para dispositivos X.509. Para verificar a inscrição com êxito no portal, comente temporariamente as seguintes linhas de código no final do ficheiro _ServiceEnrollmentGroupSample.java_:
 
         ```Java
         // ************************************** Delete info of enrollmentGroup ***************************************
@@ -124,7 +124,7 @@ Os passos seguintes mostram como adicionar os detalhes de aprovisionamento do se
         provisioningServiceClient.deleteEnrollmentGroup(enrollmentGroupId);
         ```
 
-    5. Guarde o ficheiro _ServiceEnrollmentGroupSample.java_ . 
+    5. Guarde o ficheiro _ServiceEnrollmentGroupSample.java_. 
  
 
 <a id="runjavasample"></a>
@@ -138,7 +138,7 @@ O Serviço Aprovisionamento de Dispositivos no IoT do Azure suporta dois tipos d
 
 Este procedimento utiliza um grupo de inscrições. A secção seguinte usa uma inscrição individual.
 
-1. Abra uma janela de comando e navegue até à pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** .
+1. Abra uma janela de comando e navegue até à pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
 
 2. Compile o código de exemplo, utilizando este comando:
 
@@ -157,7 +157,7 @@ Este procedimento utiliza um grupo de inscrições. A secção seguinte usa uma 
 
 4. Observe a janela de saída para ver se a inscrição foi executada com êxito.
 
-5. Navegue até ao serviço de aprovisionamento no portal do Azure. Clique em **Gerir inscrições** . Note que o seu grupo de dispositivos X.509 aparece no separador **Grupos de Inscrição,** com um *nome de grupo* autogerado . 
+5. Navegue até ao serviço de aprovisionamento no portal do Azure. Clique em **Gerir inscrições**. Note que o seu grupo de dispositivos X.509 aparece no separador **Grupos de Inscrição,** com um *nome de grupo* autogerado . 
 
     ![Verificar a inscrição do X.509 com êxito no portal](./media/quick-enroll-device-x509-java/verify-x509-enrollment.png)  
 
@@ -165,14 +165,14 @@ Este procedimento utiliza um grupo de inscrições. A secção seguinte usa uma 
 
 Para inscrever um dispositivo X.509 único, modifique o código de exemplo de *inscrição individual* utilizado em [Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT com o SDK do serviço Java](quick-enroll-device-tpm-java.md#javasample) da seguinte forma:
 
-1. Copie o *Nome Comum* do seu certificado de cliente X.509 para a área de transferência. Se pretender utilizar a ferramenta _X.509 certificate generator_ conforme apresentado na [secção do código de exemplo anterior](#javasample), introduza um _Nome Comum_ para o seu certificado ou utilize o **microsoftriotcore** predefinido. Utilize este **Nome Comum** como o valor para a variável *REGISTRATION_ID* . 
+1. Copie o *Nome Comum* do seu certificado de cliente X.509 para a área de transferência. Se pretender utilizar a ferramenta _X.509 certificate generator_ conforme apresentado na [secção do código de exemplo anterior](#javasample), introduza um _Nome Comum_ para o seu certificado ou utilize o **microsoftriotcore** predefinido. Utilize este **Nome Comum** como o valor para a variável *REGISTRATION_ID*. 
 
     ```Java
     // Use common name of your X.509 client certificate
     private static final String REGISTRATION_ID = "[RegistrationId]";
     ```
 
-2. Mude o nome da variável *TPM_ENDORSEMENT_KEY* para *PUBLIC_KEY_CERTIFICATE_STRING* . Copie o certificado de cliente ou o **Client Cert** da saída da ferramenta _X.509 certificate generator_ , como o valor para a variável *PUBLIC_KEY_CERTIFICATE_STRING* . 
+2. Mude o nome da variável *TPM_ENDORSEMENT_KEY* para *PUBLIC_KEY_CERTIFICATE_STRING*. Copie o certificado de cliente ou o **Client Cert** da saída da ferramenta _X.509 certificate generator_, como o valor para a variável *PUBLIC_KEY_CERTIFICATE_STRING*. 
 
     ```Java
     // Rename the variable *TPM_ENDORSEMENT_KEY* as *PUBLIC_KEY_CERTIFICATE_STRING*
@@ -190,7 +190,7 @@ Para inscrever um dispositivo X.509 único, modifique o código de exemplo de *i
             "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
             "-----END CERTIFICATE-----\n";
     ```
-3. Na função **principal** , substitua a linha `Attestation attestation = new TpmAttestation(TPM_ENDORSEMENT_KEY);` pelo seguinte para utilizar o certificado de cliente X.509:
+3. Na função **principal**, substitua a linha `Attestation attestation = new TpmAttestation(TPM_ENDORSEMENT_KEY);` pelo seguinte para utilizar o certificado de cliente X.509:
     ```Java
     Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
     ```
@@ -198,7 +198,7 @@ Para inscrever um dispositivo X.509 único, modifique o código de exemplo de *i
 4. Guarde, construa e execute o ficheiro de amostra *de inscrição individual,* utilizando os passos na secção [Construir e executar o código de amostra para inscrição individual](quick-enroll-device-tpm-java.md#runjavasample).
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se planeia explorar a amostra de serviço java, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 
 1. Feche a janela da saída do exemplo de Java no seu computador.

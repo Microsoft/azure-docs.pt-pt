@@ -8,18 +8,19 @@ manager: juergent
 editor: ''
 keywords: HLI, HANA, SKUs, S896, S224, S448, S672, Optane, SAP
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08872b95c4cff3c261a545f117cc4e6bf24e15a5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: fd979f553ff03d8373948d73c416a96bb140b544
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411478"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964767"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>SKUs disponíveis para grandes instâncias HANA
 
@@ -104,9 +105,9 @@ Duas classes diferentes de hardware dividem os SKUs em:
 
 Um carimbo completo de HANA Large Instance não é atribuído exclusivamente para um único cliente&#39;uso. Este facto aplica-se aos racks de recursos de computação e armazenamento ligados através de um tecido de rede implantado também no Azure. A infraestrutura HANA Large Instance, tal como a Azure, implanta diferentes &quot; inquilinos de clientes &quot; que estão isolados uns dos outros nos seguintes três níveis:
 
-- **Rede** : Isolamento através de redes virtuais dentro do carimbo HANA Large Instance.
-- **Armazenamento** : Isolamento através de máquinas virtuais de armazenamento que tenham volumes de armazenamento atribuídos e isole volumes de armazenamento entre inquilinos.
-- **Cálculo** : Atribuição dedicada de unidades de servidor a um único inquilino. Nenhuma divisão dura ou suave de unidades de servidor. Nenhuma partilha de um único servidor ou unidade de anfitrião entre inquilinos. 
+- **Rede**: Isolamento através de redes virtuais dentro do carimbo HANA Large Instance.
+- **Armazenamento**: Isolamento através de máquinas virtuais de armazenamento que tenham volumes de armazenamento atribuídos e isole volumes de armazenamento entre inquilinos.
+- **Cálculo**: Atribuição dedicada de unidades de servidor a um único inquilino. Nenhuma divisão dura ou suave de unidades de servidor. Nenhuma partilha de um único servidor ou unidade de anfitrião entre inquilinos. 
 
 As implantações de unidades de grande instância HANA entre diferentes inquilinos não são visíveis entre si. As unidades de grande instância HANA implantadas em diferentes inquilinos não podem comunicar diretamente uns com os outros no nível de selo HANA Large Instance. Apenas unidades de HANA Large Instance dentro de um inquilino podem comunicar entre si no nível de selo HANA Large Instance.
 

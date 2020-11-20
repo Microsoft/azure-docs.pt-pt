@@ -4,16 +4,17 @@ description: Este artigo descreve como instalar e configurar a segurança Trend 
 author: axayjo
 tags: azure-service-management
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: bed1d567aa48a11c01ae952e6a4a2028e260e6e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d6d80287d05517933f066d5e49fa31e78a48943
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288518"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966384"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Como instalar e configurar a Trend Micro Deep Security como um serviço num VM do Windows
 
@@ -36,7 +37,7 @@ A utilização de uma entrada no **Marketplace** abre um assistente que o ajuda 
 
 Quando chegar à lâmina **de Definições** do assistente, faça os seguintes passos:
 
-1. Clique **em Extensões**e clique em **Adicionar extensão** no painel seguinte.
+1. Clique **em Extensões** e clique em **Adicionar extensão** no painel seguinte.
 
    ![Comece a adicionar a extensão][1]
 

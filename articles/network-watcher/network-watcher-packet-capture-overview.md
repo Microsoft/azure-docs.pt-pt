@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c458508dbf8d98349ec8549af32e3dd48bbd09b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76840813"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966433"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introdução à captura de pacotes variáveis no Observador da Rede Azure
 
@@ -25,7 +25,7 @@ A captura de pacotes variáveis do Network Watcher permite-lhe criar sessões de
 A captura de pacotes é uma extensão de máquina virtual que é iniciada remotamente através do Network Watcher. Esta capacidade alivia o fardo de executar uma captura de pacote manualmente na máquina virtual desejada, o que poupa tempo valioso. A captura de pacotes pode ser desencadeada através do portal, PowerShell, CLI ou REST API. Um exemplo de como a captura de pacotes pode ser desencadeada é com alertas de Máquina Virtual. Os filtros são fornecidos para a sessão de captura para garantir que captura o tráfego que pretende monitorizar. Os filtros baseiam-se em informações de 5 tuple (protocolo, endereço IP local, endereço IP remoto, porta local e porta remota). Os dados capturados são armazenados no disco local ou numa bolha de armazenamento. Existe um limite de 10 sessões de captura de pacotes por região por subscrição. Este limite aplica-se apenas às sessões e não se aplica aos ficheiros de captura de pacotes guardados, quer localmente, no VM, quer numa conta de armazenamento.
 
 > [!IMPORTANT]
-> A captura de pacotes requer uma extensão virtual da `AzureNetworkWatcherExtension` máquina. Para instalar a extensão num Windows VM visite [a extensão da máquina virtual do Observador de Redes Azure para windows](../virtual-machines/windows/extensions-nwa.md) e para Linux VM visite a [extensão virtual do Agente de Observadores de Rede Azure para o Linux](../virtual-machines/linux/extensions-nwa.md).
+> A captura de pacotes requer uma extensão virtual da `AzureNetworkWatcherExtension` máquina. Para instalar a extensão num Windows VM visite [a extensão da máquina virtual do Observador de Redes Azure para windows](../virtual-machines/extensions/network-watcher-windows.md) e para Linux VM visite a [extensão virtual do Agente de Observadores de Rede Azure para o Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
 Para reduzir a informação que captura apenas para as informações que deseja, as seguintes opções estão disponíveis para uma sessão de captura de pacotes:
 
@@ -55,16 +55,3 @@ Saiba como criar capturas de pacotes proactivos com base em alertas de máquinas
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png
-
-
-
-
-
-
-
-
-
-
-
-
-

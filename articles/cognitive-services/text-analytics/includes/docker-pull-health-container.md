@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 519625f6468372ec7ace523dae7648212f4f3203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b2c9548f9c1289ae0abd61a72d7146a3bbca29
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779161"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965156"
 ---
-Preencha e envie o formulário de [pedido de solicitação dos recipientes dos Serviços Cognitivos](https://aka.ms/csgate) para solicitar o acesso ao contentor.
+Preencha e envie o formulário de [pedido de Serviços Cognitivos](https://aka.ms/csgate) para solicitar o acesso ao Texto Analytics para pré-visualização do público em saúde.  Esta aplicação aplica-se tanto ao contentor como à pré-visualização pública da API web acolhida.
 O formulário solicita informações sobre si, sobre a sua empresa e sobre o cenário de utilizador para o qual utilizará o recipiente. Depois de ter apresentado o formulário, a equipa dos Serviços Cognitivos do Azure revê-o para garantir que cumpre os critérios de acesso ao registo privado de contentores.
 
 > [!IMPORTANT]
@@ -25,7 +25,7 @@ O formulário solicita informações sobre si, sobre a sua empresa e sobre o cen
 > * O recurso Azure que utiliza para executar o contentor deve ter sido criado com o ID de assinatura Azure aprovado. 
 > * Consulte o seu e-mail (pastas de caixa de entrada e lixo) para obter atualizações sobre o estado da sua aplicação da Microsoft.
 
-Utilize o comando de login do estivador com credenciais fornecidas no seu email de embarque para ligar ao nosso registo privado de contentores para recipientes de Serviços Cognitivos.
+Uma vez aprovado, será enviado um e-mail com as credenciais para aceder ao registo privado do contentor.  Utilize o comando de login do estivador com credenciais fornecidas no seu email de embarque para ligar ao nosso registo privado de contentores para recipientes de Serviços Cognitivos.
 
 
 ```Docker

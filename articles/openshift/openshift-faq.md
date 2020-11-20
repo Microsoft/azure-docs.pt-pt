@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: c09f741b37e06010a0bfbab40317980793240e29
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3a474228776c689dbbd6f15ddd926f29383400ce
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683510"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964716"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -21,7 +21,7 @@ Este artigo responde a perguntas frequentes (PERGUNTAS Frequentes) sobre o Micro
 
 ### <a name="which-azure-regions-are-supported"></a>Quais as regiões de Azure que são apoiadas?
 
-Para obter uma lista de regiões apoiadas para O Chapéu Vermelho Azure OpenShift 4.x, consulte [as regiões disponíveis.](https://docs.openshift.com/aro/4/welcome/index.html#available-regions)
+Para obter uma lista de regiões apoiadas para O Chapéu Vermelho Azure OpenShift 4.x, consulte [as regiões disponíveis.](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all)
 
 Para obter uma lista de regiões apoiadas para o Azure Red Hat OpenShift 3.11, consulte [os produtos disponíveis por região.](supported-resources.md#azure-regions)
 
@@ -127,7 +127,7 @@ Para agrupamentos de 4.x, é necessário expor um registo seguro e configurar a 
 
 Para 3.11 clusters, o registo de imagem docker está disponível. O registo do Docker está disponível a partir de `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` . Também pode utilizar o Registo do Contentor Azure.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 ### <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Posso colocar um cluster numa rede virtual existente?
 

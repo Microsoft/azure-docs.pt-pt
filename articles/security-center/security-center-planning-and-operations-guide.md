@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 36c15907c0f45befacf35389652f6d91c0ab1958
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1f5db17549c2b95d5dd0dd2f866ca1d1c0e7d8aa
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787912"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965124"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planeamento e operações
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que planeiam usar o Azure Security Center.
@@ -71,12 +71,12 @@ O Centro de Segurança permite que estes indivíduos cumpram estas variadas resp
 
 O Security Center utiliza [o controlo de acesso baseado em funções Azure (Azure RBAC),](../role-based-access-control/role-assignments-portal.md)que fornece [funções incorporadas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços em Azure. Quando um utilizador abre o Centro de Segurança, vê apenas informações relacionadas com os recursos a que tem acesso. Isso significa que é atribuído ao utilizador a função de Proprietário, Contribuinte ou Leitor para a subscrição ou grupo de recursos a que pertence um recurso. Além destas funções, há duas funções específicas do Centro de Segurança:
 
-- **Leitor de segurança** : os utilizadores que pertencem a esta função só conseguem ver as configurações do Centro de Segurança, que incluem recomendações, alertas, políticas e estado de funcionamento, mas não podem fazer alterações.
-- **Administrador de segurança** : igual ao leitor de segurança, mas também pode atualizar a política de segurança, bem como ignorar recomendações e alertas.
+- **Leitor de segurança**: os utilizadores que pertencem a esta função só conseguem ver as configurações do Centro de Segurança, que incluem recomendações, alertas, políticas e estado de funcionamento, mas não podem fazer alterações.
+- **Administrador de segurança**: igual ao leitor de segurança, mas também pode atualizar a política de segurança, bem como ignorar recomendações e alertas.
 
 As funções do Centro de Segurança descritas acima não têm acesso a outras áreas de serviço do Azure como o Armazenamento, Web e Móvel ou a Internet das Coisas.
 
-Utilizando as pessoas fidedignas explicadas no diagrama anterior, é necessário o seguinte RBAC:
+Utilizando as personas explicadas no diagrama anterior, seria necessário o seguinte Azure RBAC:
 
 **Jorge (Proprietário de Carga de Trabalho)**
 
@@ -106,7 +106,7 @@ Mais algumas informações importantes a considerar:
 * Apenas os Proprietários/Contribuintes e os Administradores de Segurança das subscrições podem editar uma política de segurança.
 * Apenas os Proprietários e os Contribuintes do grupo de recursos e da subscrição podem aplicar recomendações de segurança a um recurso
 
-Quando planear o controlo de acesso através do RBAC para o Centro de Segurança, certifique-se de que compreende quem na sua organização vai utilizar o Centro de Segurança. Além disso, os tipos de tarefas que vão executar e, em seguida, configura o RBAC em conformidade.
+Ao planear o controlo de acesso usando o Azure RBAC para o Security Center, não se esqueça de quem na sua organização estará a usar o Security Center. Além disso, que tipos de tarefas irão realizar e, em seguida, configurar a Azure RBAC em conformidade.
 
 > [!NOTE]
 > Recomendamos que atribua a função menos permissiva necessária para que os utilizadores concluam as respetivas tarefas. Por exemplo, os utilizadores que apenas necessitam de ver informações acerca do estado de segurança dos recursos, mas não têm de tomar medidas, como aplicar as recomendações ou editar políticas, também devem ter atribuída a função de Leitor.
@@ -207,9 +207,9 @@ Embora este artigo não tenha a intenção de ajudá-lo a criar o seu próprio p
 
 Pode utilizar Alertas do Centro de Segurança durante as seguintes fases:
 
-* **Detetar** : identifique uma atividade suspeita num ou mais recursos.
-* **Avaliar** : efetue a avaliação inicial para obter mais informações sobre a atividade suspeita.
-* **Diagnosticar** : utilize os passos de remediação para realizar o procedimento técnico para resolver o problema.
+* **Detetar**: identifique uma atividade suspeita num ou mais recursos.
+* **Avaliar**: efetue a avaliação inicial para obter mais informações sobre a atividade suspeita.
+* **Diagnosticar**: utilize os passos de remediação para realizar o procedimento técnico para resolver o problema.
 
 Cada Alerta de Segurança faculta informações que podem ser utilizadas para compreender melhor a natureza do ataque e sugerir possíveis mitigações. Alguns alertas também fornecem ligações para mais informações ou para outras fontes de informação no Azure. Pode utilizar as informações fornecidas para uma pesquisa aprofundada e começar a mitigação, e também pode pesquisar os dados relacionados com a segurança que estejam armazenados na área de trabalho.
 

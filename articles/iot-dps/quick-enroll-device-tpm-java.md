@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 6c6282f487d6a20de4654118df94c8bfac8a441d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cda36539e4a24bbb017873dafd2c12356a785e55
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075930"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966603"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Quickstart: Inscreva o dispositivo TPM no Serviço de Provisionamento de Dispositivos IoT Hub utilizando o Serviço Java SDK
 
@@ -35,9 +35,9 @@ Neste arranque rápido, cria programaticamente uma inscrição individual para u
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento 
 
-1. Certifique-se de que tem o [Java SE Development Kit 8](https://aka.ms/azure-jdks) instalado no seu computador. 
+1. Certifique-se de que tem o [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) instalado no seu computador. 
 
-2. Configure variáveis de ambiente para a sua instalação de Java. A variável `PATH` deve incluir o caminho completo para o diretório *jdk1.8.x\bin* . Se esta for a primeira instalação de Java do seu computador, crie uma nova variável de ambiente com o nome `JAVA_HOME` e aponte-a para o caminho completo para o diretório *jdk1.8.x* . Num computador Windows, este diretório encontra-se na pasta *C:\\Programas\\Java\\* e pode criar ou editar variáveis de ambiente, procurando **Editar as variáveis de ambiente do sistema** no **Painel de controlo** do seu computador Windows. 
+2. Configure variáveis de ambiente para a sua instalação de Java. A variável `PATH` deve incluir o caminho completo para o diretório *jdk1.8.x\bin*. Se esta for a primeira instalação de Java do seu computador, crie uma nova variável de ambiente com o nome `JAVA_HOME` e aponte-a para o caminho completo para o diretório *jdk1.8.x*. Num computador Windows, este diretório encontra-se na pasta *C:\\Programas\\Java\\* e pode criar ou editar variáveis de ambiente, procurando **Editar as variáveis de ambiente do sistema** no **Painel de controlo** do seu computador Windows. 
 
    Para verificar se Java está configurado com êxito no seu computador, execute o seguinte comando na janela de comando:
 
@@ -68,16 +68,16 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-2. No código fonte transferido, navegue até à pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_** . Abra o ficheiro **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** num editor à sua escolha e adicione os seguintes detalhes:
+2. No código fonte transferido, navegue até à pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**. Abra o ficheiro **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** num editor à sua escolha e adicione os seguintes detalhes:
 
    1. Adicione `[Provisioning Connection String]` para o seu serviço de aprovisionamento, a partir do portal da seguinte forma:
        1. Navegue para o seu serviço de prestação no [portal Azure](https://portal.azure.com). 
-       2. Abra as **Políticas de acesso partilhado** e selecione uma política que tenha a permissão *EnrollmentWrite* .
-       3. Copie a **Cadeia de ligação da chave primária** . 
+       2. Abra as **Políticas de acesso partilhado** e selecione uma política que tenha a permissão *EnrollmentWrite*.
+       3. Copie a **Cadeia de ligação da chave primária**. 
 
            ![Obter a cadeia de ligação de aprovisionamento a partir do portal](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
 
-       4. No ficheiro de código de exemplo **_ServiceEnrollmentSample.java_** , substitua a cadeia `[Provisioning Connection String]` pela **Cadeia de ligação da chave primária** .
+       4. No ficheiro de código de exemplo **_ServiceEnrollmentSample.java_**, substitua a cadeia `[Provisioning Connection String]` pela **Cadeia de ligação da chave primária**.
     
            ```Java
            private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
@@ -85,7 +85,7 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
 
    2. Adicione os detalhes do dispositivo TPM:
        1. Obtenha o *ID de Registo* e a *chave de endossamento de TPM* para uma simulação de dispositivo TPM, seguindo os passos que levam à secção [Simular dispositivo TPM](quick-create-simulated-device.md#simulatetpm).
-       2. Utilize o **_ID de Registo_** e a **_Chave de endossamento_** da saída do passo anterior, para substituir o `[RegistrationId]` e `[TPM Endorsement Key]` no ficheiro de código de exemplo **_ServiceEnrollmentSample.java_** :
+       2. Utilize o **_ID de Registo_** e a **_Chave de endossamento_** da saída do passo anterior, para substituir o `[RegistrationId]` e `[TPM Endorsement Key]` no ficheiro de código de exemplo **_ServiceEnrollmentSample.java_**:
         
            ```Java
            private static final String REGISTRATION_ID = "[RegistrationId]";
@@ -94,13 +94,13 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
 
    3. Opcionalmente, pode configurar o seu serviço de aprovisionamento através do código de exemplo:
       - Para adicionar esta configuração ao exemplo, siga estes passos:
-        1. Navegue até ao hub IoT ligado ao seu serviço de aprovisionamento no [portal do Azure](https://portal.azure.com). Abra o separador **Descrição geral** para o hub e copie o **Hostname** . Atribua este **Hostname** ao parâmetro *IOTHUB_HOST_NAME* .
+        1. Navegue até ao hub IoT ligado ao seu serviço de aprovisionamento no [portal do Azure](https://portal.azure.com). Abra o separador **Descrição geral** para o hub e copie o **Hostname**. Atribua este **Hostname** ao parâmetro *IOTHUB_HOST_NAME*.
             ```Java
             private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
             ```
         2. Atribua um nome amigável ao parâmetro *DEVICE_ID* e mantenha o *PROVISIONING_STATUS* como o valor *ATIVADO* predefinido. 
     
-      - OU, se optar por não configurar o serviço de aprovisionamento, certifique-se de que comenta ou elimina as seguintes instruções no ficheiro _ServiceEnrollmentSample.java_ :
+      - OU, se optar por não configurar o serviço de aprovisionamento, certifique-se de que comenta ou elimina as seguintes instruções no ficheiro _ServiceEnrollmentSample.java_:
           ```Java
           // The following parameters are optional. Remove it if you don't need.
           individualEnrollment.setDeviceId(DEVICE_ID);
@@ -108,7 +108,7 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
           individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
           ```
 
-   4. Estude o código de exemplo. Esta cria, atualiza, consulta e elimina uma inscrição de dispositivo TPM individual. Para verificar a inscrição com êxito no portal, comente temporariamente as seguintes linhas de código no final do ficheiro _ServiceEnrollmentSample.java_ :
+   4. Estude o código de exemplo. Esta cria, atualiza, consulta e elimina uma inscrição de dispositivo TPM individual. Para verificar a inscrição com êxito no portal, comente temporariamente as seguintes linhas de código no final do ficheiro _ServiceEnrollmentSample.java_:
     
        ```Java
        // *********************************** Delete info of individualEnrollment ************************************
@@ -116,13 +116,13 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
        provisioningServiceClient.deleteIndividualEnrollment(REGISTRATION_ID);
        ```
 
-   5. Guarde o ficheiro _ServiceEnrollmentSample.java_ .
+   5. Guarde o ficheiro _ServiceEnrollmentSample.java_.
 
 <a id="runjavasample"></a>
 
 ## <a name="build-and-run-the-java-sample-code"></a>Compilar e executar o código de exemplo de Java
 
-1. Abra uma janela de comando e navegue até à pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_** .
+1. Abra uma janela de comando e navegue até à pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**.
 
 2. Compile o código de exemplo, utilizando este comando:
 
@@ -145,7 +145,7 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
 
     ![Verificar a inscrição do TPM com êxito no portal](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se planeia explorar a amostra de serviço java, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 
 1. Feche a janela da saída do exemplo de Java no seu computador.

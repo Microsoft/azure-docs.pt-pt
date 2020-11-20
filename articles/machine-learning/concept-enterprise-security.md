@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a9ad018980784a1f809ad28a77dacf9f0328fffa
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 4e2bcb683c9d4c5248315549bf6d6ee26b2a51ac
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873901"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965039"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Segurança e governação da empresa para a Azure Machine Learning
 
@@ -28,7 +28,7 @@ Quando se utiliza um serviço de cloud, a melhor prática é restringir o acesso
 
 ## <a name="authentication--authorization"></a>Autenticação & autorização
 
-A maioria dos recursos de autenticação para a Azure Machine Learning utilizam o Azure Ative Directory (Azure AD) para autenticação e controlo de acesso baseado em funções (Azure RBAC) para autorização. As exceções a isto são:
+A maioria dos recursos de autenticação para a Azure Machine Learning utilizam o Azure Ative Directory (Azure AD) para autenticação, e o controlo de acesso baseado em funções Azure (Azure RBAC) para autorização. As exceções a isto são:
 
 * __SSH__: Pode permitir o acesso do SSH a alguns recursos de computação, tais como a instância computacional Azure Machine Learning. O acesso SSH utiliza a autenticação baseada em chaves. Para obter mais informações sobre a criação de teclas SSH, consulte [criar e gerir as teclas SSH](../virtual-machines/linux/create-ssh-keys-detailed.md). Para obter informações sobre como permitir o acesso ao SSH, consulte [criar e gerir a instância de cálculo Azure Machine Learning](how-to-create-manage-compute-instance.md).
 * __Modelos implementados como serviços web__: As implementações de serviço web podem utilizar o controlo de acesso baseado em __chaves__ ou __símbolos.__ As chaves são cordas estáticas. As fichas são recuperadas utilizando uma conta AZure AD. Para obter mais informações, consulte a [autenticação configurar para modelos implementados como serviço web.](how-to-authenticate-web-service.md)
@@ -49,7 +49,7 @@ Para obter mais informações, consulte [o espaço de trabalho autenticação pa
 
 ### <a name="azure-rbac"></a>RBAC do Azure
 
-Você pode criar vários espaços de trabalho, e cada espaço de trabalho pode ser compartilhado por várias pessoas. Pode controlar quais as funcionalidades ou operações a que os utilizadores do espaço de trabalho podem aceder atribuindo a sua conta AD AD a funções de Azure RBAC. Seguem-se os papéis incorporados:
+Você pode criar vários espaços de trabalho, e cada espaço de trabalho pode ser compartilhado por várias pessoas. Pode controlar quais as funcionalidades ou operações a que os utilizadores do espaço de trabalho podem aceder atribuindo a sua conta AD AZure às funções Azure. Seguem-se os papéis incorporados:
 
 * Proprietário
 * Contribuinte

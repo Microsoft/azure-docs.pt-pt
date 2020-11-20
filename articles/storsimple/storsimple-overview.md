@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
-ms.openlocfilehash: 64f91263154f7e65238acdcef9d97e5f2d09aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9c7a2df83e9d630ce2b4635a830fb941180c758
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006029"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965005"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série StorSimple 8000: uma solução híbrida de armazenamento em nuvem
 
@@ -48,7 +48,7 @@ A tabela seguinte descreve alguns dos principais benefícios que o Microsoft Azu
 | Mobilidade de dados |Os dados enviados para os serviços de cloud do Microsoft Azure podem ser acedidos a partir de outros sites para fins de recuperação e migração. Além disso, pode utilizar o StorSimple para configurar aparelhos de nuvem StorSimple em máquinas virtuais (VMs) em funcionamento no Microsoft Azure. Os VMs podem então utilizar dispositivos virtuais para aceder a dados armazenados para fins de teste ou recuperação. |
 | Continuidade do negócio |Permite que os utilizadores da série StorSimple 5000-7000 migram os seus dados para um dispositivo da série StorSimple 8000. |
 | Disponibilidade no Portal do Governo azul |StorSimple está disponível no Portal do Governo de Azure. Para mais informações, consulte [implementar o seu dispositivo StorSimple no portal do Governo.](storsimple-8000-deployment-walkthrough-gov-u2.md) |
-| Proteção e disponibilidade de dados |A série StorSimple 8000 suporta o armazenamento redundante da zona (ZRS), além do armazenamento localmente redundante (LRS) e do armazenamento geo-redundante (GRS). Consulte [este artigo sobre as opções de redundância do Azure Storage](https://azure.microsoft.com/documentation/articles/storage-redundancy/) para detalhes do ZRS. |
+| Proteção e disponibilidade de dados |A série StorSimple 8000 suporta o armazenamento redundante da zona (ZRS), além do armazenamento localmente redundante (LRS) e do armazenamento geo-redundante (GRS). Consulte [este artigo sobre as opções de redundância do Azure Storage](../storage/common/storage-redundancy.md) para detalhes do ZRS. |
 | Apoio a aplicações críticas |O StorSimple permite identificar volumes apropriados como fixados localmente, o que, por sua vez, garante que os dados exigidos por aplicações críticas não são hierárquicos na nuvem. Os volumes fixados localmente não estão sujeitos a latências em nuvem ou problemas de conectividade. Para obter mais informações sobre volumes fixados localmente, consulte [utilize o serviço StorSimple Device Manager para gerir volumes](storsimple-8000-manage-volumes-u2.md). |
 | Baixa latência e alto desempenho |Pode criar aparelhos em nuvem que tirem partido das características de alta performance e baixa latência do armazenamento premium Azure. Para obter mais informações sobre os aparelhos de nuvem premium StorSimple, consulte [implementar e gerir um aparelho de nuvem StorSimple em Azure](storsimple-8000-cloud-appliance-u2.md). |
 
@@ -210,10 +210,10 @@ Um resumo das cargas de trabalho StorSimple suportadas é tabulado abaixo.
 
 | Cenário | Carga de trabalho | Suportado | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Colaboração |Partilha de ficheiros |Sim | |Todas as versões |
-| Colaboração |Partilha de ficheiros distribuídos |Sim | |Todas as versões |
+| Colaboração |Partilha de ficheiros |Yes | |Todas as versões |
+| Colaboração |Partilha de ficheiros distribuídos |Yes | |Todas as versões |
 | Colaboração |SharePoint |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
-| Arquivo |Arquivo simples de ficheiros |Sim | |Todas as versões |
+| Arquivo |Arquivo simples de ficheiros |Yes | |Todas as versões |
 | Virtualização |Máquinas virtuais |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
 | Base de Dados |SQL |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
 | Videovigilância |Videovigilância |Sim* |Suportado quando o dispositivo StorSimple é dedicado apenas a esta carga de trabalho |Atualização 2 e mais tarde |
@@ -237,7 +237,7 @@ Segue-se uma lista dos componentes de infraestrutura suportados StorSimple.
 
 | Cenário | Carga de trabalho | Suportado | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Geral |ExpressRoute |Sim | |Todas as versões |
+| Geral |ExpressRoute |Yes | |Todas as versões |
 | Geral |DataCore FC |Sim* |Suportado com DataCore SANsymphony |Todas as versões |
 | Geral |DFSR |Sim* |Suportado apenas com volumes fixados localmente |Todas as versões |
 | Geral |Indexação |Sim* |Para volumes hierárquicos, apenas a indexação de metadados é suportada (sem dados).<br>Para volumes fixados localmente, a indexação completa é suportada. |Todas as versões |
@@ -315,4 +315,3 @@ Antes de implementar a sua solução Microsoft Azure StorSimple, recomendamos qu
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a segurança StorSimple](storsimple-8000-security.md).
-

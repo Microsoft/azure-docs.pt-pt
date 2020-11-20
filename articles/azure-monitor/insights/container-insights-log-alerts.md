@@ -3,12 +3,12 @@ title: Alertas de registo do Azure Monitor para contentores Microsoft Docs
 description: Este artigo descreve como criar alertas de registo personalizados para memória e utilização de CPU do Azure Monitor para recipientes.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: ddf898978bdaf51cb81a95c3209855c51212280f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e9b0e01ca4c0ccb24d0d1b04a4d17ec06db253b6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995257"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966256"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Como criar alertas de registo do Azure Monitor para contentores
 
@@ -17,7 +17,7 @@ O Azure Monitor para contentores monitoriza o desempenho das cargas de trabalho 
 - Quando a utilização do CPU ou da memória nos nos nóns de cluster excede um limiar
 - Quando a utilização da CPU ou da memória em qualquer recipiente dentro de um controlador excede um limiar em comparação com um limite fixado no recurso correspondente
 - *NotReady* status node conta
-- *Falhado,* *pendente*, *desconhecido,* *execução*ou *contagem de* fase de pod bem sucedida
+- *Falhado,* *pendente*, *desconhecido,* *execução* ou *contagem de* fase de pod bem sucedida
 - Quando o espaço livre do disco nos nos nos acenos de cluster excede um limiar
 
 Para alertar para uma utilização elevada do CPU ou da memória, ou para um baixo espaço de disco livre nos nós do cluster, utilize as consultas fornecidas para criar um alerta métrico ou um alerta de medição métrica. Embora os alertas métricos tenham uma latência mais baixa do que os alertas de log, os alertas de log fornecem consulta avançada e maior sofisticação. As consultas de alerta de registo comparam uma data com a presente, utilizando o operador *agora* e recuando uma hora. (Monitor azul para contentores armazena todas as datas no formato Tempo Universal Coordenado (UTC).)
@@ -207,14 +207,14 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-A seguinte consulta devolve as contagens da fase do pod com base em todas as fases: *Falhado,* *Pendente*, *Desconhecido,* *Funcionamento*ou *Bem Sucedido*.  
+A seguinte consulta devolve as contagens da fase do pod com base em todas as fases: *Falhado,* *Pendente*, *Desconhecido,* *Funcionamento* ou *Bem Sucedido*.  
 
 ```kusto
-let endDateTime = now();
-    let startDateTime = ago(1h);
-    let trendBinSize = 1m;
-    let clusterName = '<your-cluster-name>';
-    KubePodInventory
+let endDateTime = now(); 
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubePodInventory
     | where TimeGenerated < endDateTime
     | where TimeGenerated >= startDateTime
     | where ClusterName == clusterName
@@ -224,13 +224,13 @@ let endDateTime = now();
         KubePodInventory
         | where TimeGenerated < endDateTime
         | where TimeGenerated >= startDateTime
-        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterId
         | summarize TotalCount = count(),
                     PendingCount = sumif(1, PodStatus =~ 'Pending'),
                     RunningCount = sumif(1, PodStatus =~ 'Running'),
                     SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
                     FailedCount = sumif(1, PodStatus =~ 'Failed')
-                 by ClusterName, bin(TimeGenerated, trendBinSize)
+                by ClusterName, bin(TimeGenerated, trendBinSize)
     ) on ClusterName, TimeGenerated
     | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
     | project TimeGenerated,
@@ -287,7 +287,7 @@ Esta secção percorre a criação de uma regra de alerta de medição métrica 
 4. No painel do lado esquerdo, selecione **Logs** para abrir a página de registos do Monitor Azure. Utilize esta página para escrever e executar consultas de registo Azure.
 5. Na página **'Registares',** cole uma das [consultas fornecidas](#resource-utilization-log-search-queries) anteriormente no campo **de consulta de Pesquisa** e, em seguida, selecione **Executar** para validar os resultados. Se não realizar este passo, a opção **+Novo alerta** não está disponível para selecionar.
 6. Selecione **+Novo alerta** para criar um alerta de registo.
-7. Na secção **Condição,** selecione a **procura de registo personalizado sempre que a procura \<logic undefined> ** de registo personalizado for pré-definida. O tipo de sinal **de pesquisa de registo personalizado** é selecionado automaticamente porque estamos a criar uma regra de alerta diretamente a partir da página de registos do Azure Monitor.  
+7. Na secção **Condição,** selecione a **procura de registo personalizado sempre que a procura \<logic undefined>** de registo personalizado for pré-definida. O tipo de sinal **de pesquisa de registo personalizado** é selecionado automaticamente porque estamos a criar uma regra de alerta diretamente a partir da página de registos do Azure Monitor.  
 8. Cole uma das [consultas fornecidas](#resource-utilization-log-search-queries) anteriormente no campo **de consulta de pesquisa.**
 9. Configure o alerta da seguinte forma:
 

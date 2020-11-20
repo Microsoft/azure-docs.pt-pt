@@ -3,16 +3,17 @@ title: Visão geral da série HC VM - Azure Virtual Machines / Microsoft Docs
 description: Saiba mais sobre o suporte de pré-visualização para o tamanho VM da série HC em Azure.
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 97e0ae9ea4914cda5d92f5180199a740c02ecdf4
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 672175d5bb92c8ab6dc347ece5ad6b14d8232ef4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994375"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965447"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Visão geral da máquina virtual da série HC
 

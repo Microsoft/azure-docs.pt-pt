@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 358399426798ac20897d207c93a8874357e8b781
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96dcc2bae03b1bd05fb3d1512dba757f180eed8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88182005"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964920"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>O que é StorSimple para o Programa de Fornecedores de Soluções em Nuvem?
 
@@ -30,7 +30,7 @@ O Microsoft Azure StorSimple é uma abordagem única ao armazenamento empresaria
 
 O StorSimple Virtual Array for Cloud Solutions Provider (CSP) permite aos parceiros capitalizar esta oportunidade. Os parceiros possuem o ciclo de vida do cliente de ponta a ponta com fornecimento direto, faturação e suporte aos serviços na nuvem da Microsoft. Em suma, os parceiros podem agora transacionar o StorSimple juntamente com os seus serviços aos clientes.
 
-Para mais informações sobre storSimple para CSP, visite a página geral do [Azure CSP.](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)
+Para mais informações sobre storSimple para CSP, visite a página geral do [Azure CSP.](/azure/cloud-solution-provider/overview/azure-csp-overview)
 
 Para obter mais informações sobre faturação, preços, incentivos e obter apoio na CSP, vá ao [StorSimple em CSP: FAQ](storsimple-partner-csp-faq.md). 
 

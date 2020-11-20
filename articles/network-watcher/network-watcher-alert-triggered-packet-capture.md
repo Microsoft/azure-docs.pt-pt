@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975071"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965682"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utilize a captura de pacotes para monitorização proativa da rede com alertas e funções Azure
 
@@ -39,7 +39,7 @@ Ao utilizar o Network Watcher, alertando e funcionando dentro do ecossistema Azu
 
 * A versão mais recente do [Azure PowerShell.](/powershell/azure/install-Az-ps)
 * Um caso existente de Network Watcher. Se ainda não tiver um, [crie um exemplo de Network Watcher](network-watcher-create.md).
-* Uma máquina virtual existente na mesma região que o Network Watcher com a [extensão do Windows](../virtual-machines/windows/extensions-nwa.md) ou [a extensão da máquina virtual Linux.](../virtual-machines/linux/extensions-nwa.md)
+* Uma máquina virtual existente na mesma região que o Network Watcher com a [extensão do Windows](../virtual-machines/extensions/network-watcher-windows.md) ou [a extensão da máquina virtual Linux.](../virtual-machines/extensions/network-watcher-linux.md)
 
 ## <a name="scenario"></a>Cenário
 
@@ -68,7 +68,7 @@ Este cenário faz o seguinte:
 
 O primeiro passo é criar uma função Azure para processar o alerta e criar uma captura de pacotes.
 
-1. No [portal Azure,](https://portal.azure.com)selecione **Criar uma**App  >  de Função**Computacional**de recursos  >  **Function App**.
+1. No [portal Azure,](https://portal.azure.com)selecione **Criar uma** App  >  de Função **Computacional** de recursos  >  **Function App**.
 
     ![Criar uma aplicação de funções][1-1]
 
@@ -85,7 +85,7 @@ O primeiro passo é criar uma função Azure para processar o alerta e criar uma
 
 3. Na lâmina **de Apps de Função PacketCaptureExample,** selecione **Funções**  >  **Personalizadas**  > **+** .
 
-4. Selecione **HttpTrigger-Powershell**e, em seguida, introduza as restantes informações. Finalmente, para criar a função, **selecione Criar**.
+4. Selecione **HttpTrigger-Powershell** e, em seguida, introduza as restantes informações. Finalmente, para criar a função, **selecione Criar**.
 
     |**Definição** | **Valor** | **Detalhes** |
     |---|---|---|
@@ -264,7 +264,7 @@ Está na hora de fazer chamadas para o Network Watcher a partir da função Azur
 4. Captura de pacotes de sondagens periodicamente até estar completo.
 5. Notifique o utilizador de que a sessão de captura do pacote está completa.
 
-O exemplo a seguir é o código PowerShell que pode ser utilizado na função. Existem valores que precisam de ser substituídos por **subscriçãoId,** **resourceGroupName**e **storageAccountName**.
+O exemplo a seguir é o código PowerShell que pode ser utilizado na função. Existem valores que precisam de ser substituídos por **subscriçãoId,** **resourceGroupName** e **storageAccountName**.
 
 ```powershell
             #Import Azure PowerShell modules required to make calls to Network Watcher
@@ -340,20 +340,20 @@ Os alertas podem ser configurados para notificar os indivíduos quando uma métr
 
 ### <a name="create-the-alert-rule"></a>Criar a regra de alerta
 
-Vá a uma máquina virtual existente e, em seguida, adicione uma regra de alerta. Documentação mais detalhada sobre a configuração de alertas pode ser encontrada [no Create alerts in Azure Monitor for Azure services - Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Introduza os seguintes valores na lâmina de **regra de alerta** e, em seguida, selecione **OK**.
+Vá a uma máquina virtual existente e, em seguida, adicione uma regra de alerta. Documentação mais detalhada sobre a configuração de alertas pode ser encontrada [no Create alerts in Azure Monitor for Azure services - Azure portal](../azure-monitor/platform/alerts-classic-portal.md). Introduza os seguintes valores na lâmina de **regra de alerta** e, em seguida, selecione **OK**.
 
   |**Definição** | **Valor** | **Detalhes** |
   |---|---|---|
-  |**Nome**|TCP_Segments_Sent_Exceeded|O nome da regra de alerta.|
+  |**Name**|TCP_Segments_Sent_Exceeded|O nome da regra de alerta.|
   |**Descrição**|Segmentos TCP enviados limiar ultrapassado|A descrição da regra de alerta.|
   |**Métrica**|Segmentos TCP enviados| A métrica para usar para acionar o alerta. |
-  |**Condition**|Maior do que| A condição a utilizar ao avaliar a métrica.|
+  |**Condition**|Maior que| A condição a utilizar ao avaliar a métrica.|
   |**Limiar**|100| O valor da métrica que desencadeia o alerta. Este valor deve ser definido para um valor válido para o seu ambiente.|
   |**Período**|Nos últimos cinco minutos| Determina o período em que se procura o limiar da métrica.|
   |**Webhook**|[WEBHOOK URL da aplicação de função]| O URL webhook a partir da aplicação de função que foi criado nos passos anteriores.|
 
 > [!NOTE]
-> A métrica dos segmentos TCP não é ativada por defeito. Saiba mais sobre como permitir métricas adicionais visitando [Ative a monitorização e diagnósticos](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> A métrica dos segmentos TCP não é ativada por defeito. Saiba mais sobre como permitir métricas adicionais visitando [Ative a monitorização e diagnósticos](../azure-monitor/overview.md).
 
 ## <a name="review-the-results"></a>Rever os resultados
 
@@ -363,11 +363,11 @@ Após os critérios para os disparadores de alerta, é criada uma captura de pac
 
 Se o ficheiro de captura for armazenado localmente, pode recuperá-lo insacando-o na máquina virtual.
 
-Para obter instruções sobre o descarregamento de ficheiros a partir de contas de armazenamento Azure, consulte [Começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode utilizar é [o Storage Explorer.](https://storageexplorer.com/)
+Para obter instruções sobre o descarregamento de ficheiros a partir de contas de armazenamento Azure, consulte [Começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Outra ferramenta que pode utilizar é [o Storage Explorer.](https://storageexplorer.com/)
 
 Depois de a sua captura ter sido descarregada, pode vê-la utilizando qualquer ferramenta que possa ler um ficheiro **.cap.** Seguem-se links para duas destas ferramentas:
 
-- [Analisador de mensagens da Microsoft](https://technet.microsoft.com/library/jj649776.aspx)
+- [Analisador de mensagens da Microsoft](/message-analyzer/microsoft-message-analyzer-operating-guide)
 - [ArameShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>Passos seguintes

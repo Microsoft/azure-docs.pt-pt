@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dcaa83980210a1f5449e8a2e0982cb8e39ff03d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80297714"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966195"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de série StorSimple 8000, alta disponibilidade e requisitos de networking
 
@@ -65,14 +65,14 @@ O seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, as portas 
 
 | Porto nº<sup>1,2</sup> | Dentro ou fora | Âmbito portuário | Necessário | Notas |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Saída |WAN |Não |<ul><li>A porta de saída é utilizada para o acesso à Internet para recuperar atualizações.</li><li>O representante da web de saída é configurável pelo utilizador.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o controlador de IPs fixos.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |Saída |WAN |Sim |<ul><li>A porta de saída é utilizada para aceder a dados na nuvem.</li><li>O representante da web de saída é configurável pelo utilizador.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o controlador de IPs fixos.</li><li>Esta porta também é usada em ambos os controladores para recolha de lixo.</li></ul> |
+| TCP 80 (HTTP)<sup>3</sup> |Saída |WAN |No |<ul><li>A porta de saída é utilizada para o acesso à Internet para recuperar atualizações.</li><li>O representante da web de saída é configurável pelo utilizador.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o controlador de IPs fixos.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |Saída |WAN |Yes |<ul><li>A porta de saída é utilizada para aceder a dados na nuvem.</li><li>O representante da web de saída é configurável pelo utilizador.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o controlador de IPs fixos.</li><li>Esta porta também é usada em ambos os controladores para recolha de lixo.</li></ul> |
 | UDP 53 (DNS) |Saída |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor DNS baseado na Internet. |
 | UDP 123 (NTP) |Saída |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor NTP baseado na Internet. |
-| TCP 9354 |Saída |WAN |Sim |A porta de saída é utilizada pelo dispositivo StorSimple para comunicar com o serviço StorSimple Device Manager. |
-| 3260 (iSCSI) |Em |LAN |Não |Esta porta é utilizada para aceder a dados sobre o iSCSI. |
-| 5985 |Em |LAN |Não |A porta de entrada é utilizada pelo StorSimple Snapshot Manager para comunicar com o dispositivo StorSimple.<br>Esta porta também é utilizada quando liga remotamente ao Windows PowerShell para StorSimple em HTTP. |
-| 5986 |Em |LAN |Não |Esta porta é utilizada quando liga remotamente ao Windows PowerShell para StorSimple em HTTPS. |
+| TCP 9354 |Saída |WAN |Yes |A porta de saída é utilizada pelo dispositivo StorSimple para comunicar com o serviço StorSimple Device Manager. |
+| 3260 (iSCSI) |Em |LAN |No |Esta porta é utilizada para aceder a dados sobre o iSCSI. |
+| 5985 |Em |LAN |No |A porta de entrada é utilizada pelo StorSimple Snapshot Manager para comunicar com o dispositivo StorSimple.<br>Esta porta também é utilizada quando liga remotamente ao Windows PowerShell para StorSimple em HTTP. |
+| 5986 |Em |LAN |No |Esta porta é utilizada quando liga remotamente ao Windows PowerShell para StorSimple em HTTPS. |
 
 <sup>1</sup> Não é necessário abrir portas de entrada na Internet pública.
 
@@ -98,7 +98,7 @@ Recomendamos que estabeleça as suas regras de firewall para tráfego de saída,
 
 | Padrão url | Componente/Funcionalidade | IPs do dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acessos<br>Service Bus do Azure<br>Serviço de Autenticação |Interfaces de rede ativadas pela nuvem |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acessos<br>Azure Service Bus<br>Serviço de Autenticação |Interfaces de rede ativadas pela nuvem |
 | `https://*.backup.windowsazure.com` |Registo de dispositivo |APENAS DADOS 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação do certificado |Interfaces de rede ativadas pela nuvem |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento Azure e monitorização |Interfaces de rede ativadas pela nuvem |
@@ -110,7 +110,7 @@ Recomendamos que estabeleça as suas regras de firewall para tráfego de saída,
 
 | Padrão url | Componente/Funcionalidade | IPs do dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acessos<br>Service Bus do Azure<br>Serviço de Autenticação |Interfaces de rede ativadas pela nuvem |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acessos<br>Azure Service Bus<br>Serviço de Autenticação |Interfaces de rede ativadas pela nuvem |
 | `https://*.backup.windowsazure.us` |Registo de dispositivo |APENAS DADOS 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação do certificado |Interfaces de rede ativadas pela nuvem |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento Azure e monitorização |Interfaces de rede ativadas pela nuvem |
@@ -122,7 +122,7 @@ Recomendamos que estabeleça as suas regras de firewall para tráfego de saída,
 
 Uma métrica de encaminhamento está associada com as interfaces e o gateway que encaminham os dados para as redes especificadas. A métrica de encaminhamento é usada pelo protocolo de encaminhamento para calcular o melhor caminho para um determinado destino, se aprender que existem vários caminhos para o mesmo destino. Quanto mais baixa for a métrica de encaminhamento, maior a preferência.
 
-No contexto do StorSimple, se várias interfaces de rede e gateways estiverem configurados para canalizar o tráfego, as métricas de encaminhamento entrarão em jogo para determinar a ordem relativa em que as interfaces serão utilizadas. As métricas de encaminhamento não podem ser alteradas pelo utilizador. No entanto, pode utilizar o `Get-HcsRoutingTable` cmdlet para imprimir a tabela de encaminhamento (e métricas) no seu dispositivo StorSimple. Mais informações sobre Get-HcsRoutingTable cmdlet na [resolução de problemas da implementação StorSimple](storsimple-troubleshoot-deployment.md).
+No contexto do StorSimple, se várias interfaces de rede e gateways estiverem configurados para canalizar o tráfego, as métricas de encaminhamento entrarão em jogo para determinar a ordem relativa em que as interfaces serão utilizadas. As métricas de encaminhamento não podem ser alteradas pelo utilizador. No entanto, pode utilizar o `Get-HcsRoutingTable` cmdlet para imprimir a tabela de encaminhamento (e métricas) no seu dispositivo StorSimple. Mais informações sobre Get-HcsRoutingTable cmdlet na [resolução de problemas da implementação StorSimple](./storsimple-8000-troubleshoot-deployment.md).
 
 O algoritmo métrico de encaminhamento utilizado para a atualização 2 e versões posteriores pode ser explicado da seguinte forma.
 
@@ -233,7 +233,7 @@ O modelo de dispositivo StorSimple 8600 inclui um invólucro de discos estendido
 * Certifique-se de que ambos os módulos controladores de caixa EBOD, ambos os cabos SAS e todos os discos rígidos estão sempre instalados.
 * Se um módulo de controlador de recinto EBOD falhar, solicite uma substituição imediatamente.
 * Se um módulo de controlador de recinto EBOD falhar, certifique-se de que o outro módulo do controlador está ativo antes de substituir o módulo falhado. Para verificar se um controlador está ativo, vá [identificar o controlador ativo no seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Durante a substituição de um módulo controlador EBOD, monitorize continuamente o estado **Monitor**do componente no serviço StorSimple Device Manager acedendo à saúde do  >  **Hardware**do Monitor .
+* Durante a substituição de um módulo controlador EBOD, monitorize continuamente o estado **Monitor** do componente no serviço StorSimple Device Manager acedendo à saúde do  >  **Hardware** do Monitor .
 * Se um cabo SAS falhar ou necessitar de substituição (o Microsoft Support deve estar envolvido para fazer tal determinação), certifique-se de que remove apenas o cabo SAS que necessita de substituição.
 * Não remova simultaneamente ambos os cabos SAS do sistema em nenhum momento.
 
@@ -250,4 +250,4 @@ Reveja cuidadosamente estas boas práticas para garantir a elevada disponibilida
 * [Saiba como implementar a sua solução StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 
 <!--Reference links-->
-[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731844(v=ws.10)

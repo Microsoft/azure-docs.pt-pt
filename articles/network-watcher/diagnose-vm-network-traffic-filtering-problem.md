@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: b88a855f1f486a94bb591e3d2a72b49a9a8500db
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f05f9900fcb97deca984bf460fecc45b7068c6f0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84709220"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965821"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guia de Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual com o portal do Azure
 
@@ -37,7 +37,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 ## <a name="create-a-vm"></a>Criar uma VM
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
-2. **Selecione Compute**e, em seguida, selecione **o Centro de Dados do Windows Server 2016** ou uma versão do **Ubuntu Server**.
+2. **Selecione Compute** e, em seguida, selecione **o Centro de Dados do Windows Server 2016** ou uma versão do **Ubuntu Server**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK**:
 
     |Definição|Valor|
@@ -72,7 +72,7 @@ Se já tiver um observador de rede ativado em pelo menos uma região, salte para
 
 Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, por predefinição. Mais tarde, poderá substituir as predefinições do Azure, ao permitir ou recusar tipos adicionais de tráfego.
 
-1. No portal, selecione **Todos os serviços**. Na caixa **Todos os serviços, ** *Filtro*, introduza *Observador de Rede*. Quando **o Observador de Rede** aparecer nos resultados, selecione-o.
+1. No portal, selecione **Todos os serviços**. Na caixa **Todos os serviços,** *Filtro*, introduza *Observador de Rede*. Quando **o Observador de Rede** aparecer nos resultados, selecione-o.
 2. Selecione **Verificação do fluxo de IP**, em **FERRAMENTAS DE DIAGNÓSTICO DE REDE**.
 3. Selecione a sua subscrição, introduza ou selecione os seguintes valores e, em seguida, selecione **Verificar**, conforme apresentado na imagem que se segue:
 
@@ -114,7 +114,7 @@ Agora que sabe quais as regras de segurança que estão a permitir ou a recusar 
 
 As verificações neste guia de início rápido testaram a configuração do Azure. Se as verificações devolverem os resultados esperados e continuar a ter problemas de rede, certifique-se de que não tem uma firewall entre a VM e o ponto final com o qual está a comunicar e que o sistema operativo na VM não tem uma firewall que esteja a permitir ou a recusar a comunicação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
@@ -124,6 +124,6 @@ Quando já não for necessário, elimine o grupo de recursos e todos os recursos
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, criou uma VM e diagnosticou filtros de tráfego de rede de entrada e saída. Aprendeu que as regras do grupo de segurança de rede permitem ou recusam tráfego de e para uma VM. Saiba mais sobre [regras de segurança](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar regras de segurança](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
+Neste guia de início rápido, criou uma VM e diagnosticou filtros de tráfego de rede de entrada e saída. Aprendeu que as regras do grupo de segurança de rede permitem ou recusam tráfego de e para uma VM. Saiba mais sobre [regras de segurança](../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json) e como [criar regras de segurança](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
 Mesmo com os filtros de tráfego de rede adequados ativados, a comunicação para uma VM ainda pode falhar, devido à configuração de encaminhamento. Para saber como diagnosticar problemas de encaminhamento de rede de VM, veja [Diagnosticar problemas de encaminhamento de VM](diagnose-vm-network-routing-problem.md) ou, para diagnosticar problemas de encaminhamento de saída, latência e filtro de tráfego, com uma ferramenta, veja [Resolver problemas de ligação](network-watcher-connectivity-portal.md).

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 44e81286ffa5930b802df3b3bfe657091175f391
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 68da6a134f2410ca81ae16b8e00c40d0a9c8f22c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363648"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965022"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: Como extrair frases-chave usando a Análise de Texto
 
@@ -26,7 +26,8 @@ Esta funcionalidade é útil se precisar de identificar rapidamente os pontos pr
 Para obter mais informações, veja os [Idiomas suportados](../language-support.md).
 
 > [!TIP]
-> O Text Analytics também fornece uma imagem de recipiente Docker baseada em Linux para a extração de frases-chave, para que possa [instalar e executar o recipiente Text Analytics](text-analytics-how-to-install-containers.md) perto dos seus dados.
+> * O Text Analytics também fornece uma imagem de recipiente Docker baseada em Linux para a extração de frases-chave, para que possa [instalar e executar o recipiente Text Analytics](text-analytics-how-to-install-containers.md) perto dos seus dados.
+> * Também pode utilizar esta funcionalidade [com assincronizadousando](text-analytics-how-to-call-api.md) o `/analyze` ponto final.
 
 ## <a name="preparation"></a>Preparação
 

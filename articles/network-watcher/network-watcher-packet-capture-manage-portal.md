@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
-ms.openlocfilehash: 28d5ae1451b97c19576baa3f9760b8f784db3175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 099ead37b8d6b46b767ef59ff24a7e7ff9dc9e3c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84736735"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966450"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerir capturas de pacotes com o Azure Network Watcher usando o portal
 
@@ -25,7 +25,7 @@ A captura de pacotes do Network Watcher permite-lhe criar sessões de captura pa
 
 Neste artigo, aprende-se a começar, parar, descarregar e apagar uma captura de pacotes. 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 A captura de pacotes requer a seguinte conectividade TCP de saída:
 - para a conta de armazenamento escolhida sobre a porta 443
@@ -40,13 +40,13 @@ Se um grupo de segurança de rede estiver associado à interface de rede, ou sub
 
 ## <a name="start-a-packet-capture"></a>Inicie uma captura de pacotes
 
-1. No seu navegador, navegue no [portal Azure](https://portal.azure.com) e selecione **Todos os serviços**e, em seguida, selecione **Network Watcher** na **secção Networking**.
+1. No seu navegador, navegue no [portal Azure](https://portal.azure.com) e selecione **Todos os serviços** e, em seguida, selecione **Network Watcher** na **secção Networking**.
 2. Selecione **a captura de pacotes** em **ferramentas de diagnóstico de rede**. Quaisquer capturas de pacotes existentes estão listadas, independentemente do seu estado.
 3. **Selecione Adicionar** para criar uma captura de pacote. Pode selecionar valores para as seguintes propriedades:
    - **Subscrição**: A subscrição para a qual a máquina virtual para a qual pretende criar a captura do pacote está dentro.
    - **Grupo de recursos**: O grupo de recursos da máquina virtual.
    - **Máquina virtual de destino**: A máquina virtual para a que pretende criar a captura de pacotes.
-   - **Nome de captura de**pacote: Um nome para a captura do pacote.
+   - **Nome de captura de** pacote: Um nome para a captura do pacote.
    - **Conta de armazenamento ou ficheiro**: Selecione a conta de **armazenamento,** **ficheiro,** ou ambos. Se selecionar **Ficheiro,** a captura é escrita para um caminho dentro da máquina virtual.
    - **Caminho do ficheiro local**: O caminho local na máquina virtual onde a captura do pacote será guardada (válida apenas quando *o Ficheiro* for selecionado). O caminho deve ser um caminho válido. Se estiver a utilizar uma máquina virtual Linux, o caminho deve começar com */var/captures*.
    - **Contas de armazenamento**: Selecione uma conta de armazenamento existente, se selecionar *a conta de Armazenamento*. Esta opção só está disponível se selecionar **o Storage.**
@@ -74,12 +74,12 @@ Após o prazo fixado na captura do pacote ter expirado, a captura do pacote é i
 > [!NOTE]
 > O portal automaticamente:
 >  * Cria um observador de rede na mesma região da região onde existe a máquina virtual em que selecionou, se a região ainda não tiver um observador de rede.
->  * Adiciona a extensão virtual do *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) ou da máquina virtual [do Windows](../virtual-machines/windows/extensions-nwa.md) à máquina virtual, se ainda não estiver instalada.
+>  * Adiciona a extensão virtual do *AzureNetworkWatcherExtension* [Linux](../virtual-machines/extensions/network-watcher-linux.md) ou da máquina virtual [do Windows](../virtual-machines/extensions/network-watcher-windows.md) à máquina virtual, se ainda não estiver instalada.
 
 ## <a name="delete-a-packet-capture"></a>Excluir uma captura de pacotes
 
 1. Na vista de captura do pacote, selecione... no lado direito da captura do pacote, ou clique com o botão direito numa captura de pacote existente e selecione **Delete**. **...**
-2. É-lhe pedido que confirme que pretende eliminar a captura do pacote. Selecione **Sim**.
+2. É-lhe pedido que confirme que pretende eliminar a captura do pacote. Selecione **Yes** (Sim).
 
 > [!NOTE]
 > A eliminação de uma captura de pacote não apaga o ficheiro de captura na conta de armazenamento ou na máquina virtual.

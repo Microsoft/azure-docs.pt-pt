@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 11/18/2020
 ms.author: cherylmc
-ms.openlocfilehash: 64a4eb1b473c8944dadea4e1ee4323dfe4e9bcde
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9d962d3a4757b4c7b2d217f91aaf73d6ad4164d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94661125"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964852"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configure uma ligação ponto-a-local a um VNet utilizando a autenticação RADIUS: PowerShell
 
@@ -224,7 +224,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-   Para especificar **dois** servidores RADIUS **(Pré-visualização)** utilize a seguinte sintaxe. Modifique o valor **-VpnClientProtocol conforme** necessário
+   Para especificar **dois** servidores RADIUS, utilize a seguinte sintaxe. Modifique o valor **-VpnClientProtocol conforme** necessário
 
     ```azurepowershell-interactive
     $radiusServer1 = New-AzRadiusServer -RadiusServerAddress 10.1.0.15 -RadiusServerSecret $radiuspd -RadiusServerScore 30
@@ -290,6 +290,6 @@ Este FAQ aplica-se a P2S usando a autenticação RADIUS
 
 [!INCLUDE [Point-to-Site RADIUS FAQ](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](../index.yml). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/network-overview.md).

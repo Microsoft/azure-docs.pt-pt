@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: 4491171062e582db8388c3eff380d67ea1a0c51c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82ed1d57d72a4479005d8bfd2234c124a97096ee
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085661"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965991"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão do controlador gpu da NVIDIA para windows
 
@@ -73,7 +74,7 @@ O JSON seguinte mostra o esquema para a extensão.
 
 | Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.HpcCompute | string |
 | tipo | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.3 | int |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9ed6a57dadb70daed9cdf02421b91d310b4b0f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4523319c04703c04a293471124329512e31a265
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631465"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964682"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Linha de segurança Azure para Azure Traffic Manager
 
@@ -270,7 +270,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 No Gestor de Recursos, os pontos finais de qualquer subscrição podem ser adicionados ao Gestor de Tráfego, desde que a pessoa que configura o perfil do Gestor de Tráfego tenha lido o acesso ao ponto final.
 
-O Azure Traffic Manager tem uma função pré-indefinida do Azure RBAC chamada "Azure Traffic Manager Contributor", que pode ser atribuída aos utilizadores.
+O Azure Traffic Manager tem uma função Azure predefinida chamada "Colaboradora do Gestor de Tráfego", que pode ser atribuída aos utilizadores.
 
 - [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 
@@ -494,7 +494,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Utilizar etiquetas para organizar os seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

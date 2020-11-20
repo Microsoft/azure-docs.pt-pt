@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 9da94f80f9a9c1b3cba7b8e3ac4fef7e717918c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e976199730ec74f9e76b9f4199e90e192916474
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88042756"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966722"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Qual é a característica de auto-registo das zonas privadas Azure DNS
 
@@ -29,7 +29,7 @@ Pode ativar o registo automático selecionando a opção "Ativar o registo autom
 
 * O autoregistration funciona apenas para máquinas virtuais. Para todos os outros recursos, como os equilibradores de carga internos, etc., pode criar registos DNS manualmente na zona privada de DNS ligada à rede virtual.
 * Os registos DNS são criados automaticamente apenas para a máquina virtual primária NIC . Se as suas máquinas virtuais tiverem mais do que um NIC, pode criar manualmente os registos DNS para outras interfaces de rede.
-* Os registos DNS são criados automaticamente apenas se a máquina virtual primária NIC estiver a utilizar o DHCP. Se os endereços IP estáticos estiverem configurados (por exemplo, para utilizar [vários endereços IP em Azure),](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-portal#os-config)a auto-registo não cria registos para essa máquina virtual.
+* Os registos DNS são criados automaticamente apenas se a máquina virtual primária NIC estiver a utilizar o DHCP. Se os endereços IP estáticos estiverem configurados (por exemplo, para utilizar [vários endereços IP em Azure),](../virtual-network/virtual-network-multiple-ip-addresses-portal.md#os-config)a auto-registo não cria registos para essa máquina virtual.
 * O registo automático do IPv6 (registos AAAA) não é suportado.
 
 ## <a name="next-steps"></a>Passos seguintes

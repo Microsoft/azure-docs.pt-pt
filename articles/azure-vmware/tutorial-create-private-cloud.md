@@ -1,14 +1,14 @@
 ---
 title: Tutorial - Implantar o cluster vSphere em Azure
-description: Aprenda a implementar um cluster vSphere em Azure usando Azure VMWare Solution
+description: Saiba como implementar um cluster vSphere em Azure usando a Solução VMware Azure
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/19/2020
+ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952289"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966314"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Implementar uma nuvem privada Azure VMware Solution em Azure
 
@@ -16,7 +16,7 @@ A Azure VMware Solution dá-lhe a capacidade de implantar um cluster vSphere em 
 
 Como a Azure VMware Solution não lhe permite gerir a sua nuvem privada com o vCenter no local no lançamento, é necessária uma configuração adicional. Estes procedimentos e pré-requisitos conexos estão abrangidos por este tutorial.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, irá aprender a:
 
 > [!div class="checklist"]
 > * Criar uma nuvem privada Azure VMware Solution
@@ -43,7 +43,7 @@ Pode criar uma nuvem privada Azure VMware Solution utilizando o [portal Azure](#
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Em vez do portal Azure para criar uma nuvem privada Azure VMware Solution, pode utilizar o Azure CLI utilizando a Azure Cloud Shell.  Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure Vmware](/cli/azure/ext/vmware/vmware).
+Em vez do portal Azure para criar uma nuvem privada Azure VMware Solution, pode utilizar o Azure CLI utilizando a Azure Cloud Shell.  Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure VMware](/cli/azure/ext/vmware/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Abrir o Azure Cloud Shell
 
@@ -51,7 +51,7 @@ Selecione **Experimente-o** no canto superior direito de um bloco de código. Ta
 
 #### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
+Crie um grupo de recursos com o comando `[az group create](/cli/azure/group)`. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
 
 ```azurecli-interactive
 
@@ -77,7 +77,7 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 
 ## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Elimine uma nuvem privada Azure VMware Solution
 
-Se tiver uma nuvem privada Azure VMware Solution de que já não precisa, pode eliminá-la. Uma nuvem privada Azure VMware Solution inclui um domínio de rede isolado, um ou mais clusters vSphere ateados em nós de servidores dedicados e tipicamente muitas máquinas virtuais. Quando uma nuvem privada é eliminada, todas as máquinas virtuais, os seus dados e aglomerados são eliminados. Os nós dedicados de metal nu são limpos e devolvidos à piscina gratuita. O domínio de rede previsto para o cliente é eliminado.  
+Se tiver uma nuvem privada Azure VMware Solution de que já não precisa, pode eliminá-la. Uma nuvem privada Azure VMware Solution inclui um domínio de rede isolado, um ou mais aglomerados de vSphere a provisionados em anfitriões de servidores dedicados e várias máquinas virtuais. Quando uma nuvem privada é eliminada, todas as máquinas virtuais, os seus dados e aglomerados são eliminados. Os anfitriões dedicados de metal nu são limpos e devolvidos à piscina gratuita. O domínio de rede previsto para o cliente é eliminado.  
 
 > [!CAUTION]
 > Apagar a nuvem privada é uma operação irreversível. Uma vez eliminada a nuvem privada, os dados não podem ser recuperados, uma vez que encerra todas as cargas de trabalho e componentes em execução e destrói todos os dados e configurações de nuvem privada, incluindo endereços IP públicos.
@@ -92,11 +92,11 @@ Uma vez que uma nuvem privada é eliminada, não há como recuperar as máquinas
 
 2. Selecione a nuvem privada a eliminar.
  
-3. Insira o nome da nuvem privada e selecione **Sim**. Em poucas horas, o processo de supressão estará concluído.  
+3. Insira o nome da nuvem privada e selecione **Sim**. Em poucas horas, o processo de eliminação termina.  
 
 ## <a name="azure-vmware-commands"></a>Comandos Azure VMware
 
-Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure Vmware](/cli/azure/ext/vmware/vmware).
+Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure VMware](/cli/azure/ext/vmware/vmware).
 
 ## <a name="next-steps"></a>Passos seguintes
 

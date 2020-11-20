@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 31832c13ddee848864dcfe0d796deb7fcdcd8359
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7a0e15ac3c08f55e817eb6a6300d58ab4af6029c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90526549"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966663"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo TPM simulado utilizando o dispositivo Java SDK para o serviço de provisionamento de dispositivos Azure IoT Hub
 
@@ -27,7 +27,7 @@ Neste arranque rápido, cria-se um dispositivo IoT simulado num computador Windo
 - Familiarizado com [conceitos de provisionamento.](about-iot-dps.md#provisioning-process)
 - Conclusão do Serviço de Provisionamento de [Dispositivos IoT Hub com o portal Azure](./quick-setup-auto-provision.md).
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Kit de Desenvolvimento Java SE 8](https://aka.ms/azure-jdks).
+- [Kit de Desenvolvimento Java SE 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 - [Maven.](https://maven.apache.org/install.html)
 - [Git.](https://git-scm.com/download/)
 
@@ -35,7 +35,7 @@ Neste arranque rápido, cria-se um dispositivo IoT simulado num computador Windo
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente 
 
-1. Certifique-se de que tem o [Java SE Development Kit 8](https://aka.ms/azure-jdks) instalado no seu computador.
+1. Certifique-se de que tem o [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) instalado no seu computador.
 
 1. Transfira e instale o [Maven](https://maven.apache.org/install.html).
 
@@ -47,7 +47,7 @@ Neste arranque rápido, cria-se um dispositivo IoT simulado num computador Windo
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. Executar o simulador [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) para ser o [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para o dispositivo simulado. Clique em **Permitir acesso** para permitir que as alterações às definições da _Firewall do Windows_. O simulador escuta através de um socket nas portas 2321 e 2322. Não feche esta janela; tem de manter este simulador em funcionamento até ao final deste guia de arranque rápido. 
+1. Executar o simulador [TPM](/windows/device-security/tpm/trusted-platform-module-overview) para ser o [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para o dispositivo simulado. Clique em **Permitir acesso** para permitir que as alterações às definições da _Firewall do Windows_. O simulador escuta através de um socket nas portas 2321 e 2322. Não feche esta janela; tem de manter este simulador em funcionamento até ao final deste guia de arranque rápido. 
 
     ```cmd/sh
     .\azure-iot-sdk-java\provisioning\provisioning-tools\tpm-simulator\Simulator.exe
@@ -112,7 +112,7 @@ Este artigo demonstra inscrições individuais.
    - Introduza a chave *de ID* de Registo e *Endosso* para o seu dispositivo TPM a partir dos valores que registou anteriormente.
    - Selecione um hub IoT ligado ao seu serviço de aprovisionamento.
    - Opcionalmente, pode fornecer as seguintes informações:
-       - Introduza um *ID de dispositivo*único. Certifique-se de que evita dados confidenciais quando der o nome ao seu dispositivo. Se optar por não fornecer um, o ID de registo será usado para identificar o dispositivo.
+       - Introduza um *ID de dispositivo* único. Certifique-se de que evita dados confidenciais quando der o nome ao seu dispositivo. Se optar por não fornecer um, o ID de registo será usado para identificar o dispositivo.
        - Atualize o **estado inicial do dispositivo duplo** com a configuração inicial pretendida para o dispositivo.
    - Uma vez concluído, prima o botão **Guardar.** 
 
@@ -134,7 +134,7 @@ Este artigo demonstra inscrições individuais.
     Se tiver alterado o *estado inicial do dispositivo duplo* face ao valor predefinido na entrada de inscrição do seu dispositivo, este pode extrair o estado pretendido do dispositivo duplo a partir do hub e agir em conformidade. Para obter mais informações, consulte [Compreender e utilizar gémeos do dispositivo no IoT Hub.](../iot-hub/iot-hub-devguide-device-twins.md)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositivo, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 

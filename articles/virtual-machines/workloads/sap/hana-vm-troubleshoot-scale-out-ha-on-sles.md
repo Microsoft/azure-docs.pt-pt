@@ -7,17 +7,18 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088313"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965430"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifique e resolução de problemas INSTALAÇÃO DE ALTA Disponibilidade DA ESCALA SAP HANA em SLES 12 SP3 
 
@@ -550,7 +551,7 @@ Last change: Wed Sep 12 07:46:54 2018 by root via cibadmin on hso-hana-vm-s2-1
 7 nodes configured
 17 resources configured
 
-              *** Resource management is DISABLED ***
+              **_ Resource management is DISABLED _*_
   The cluster will not attempt to start, stop or recover services
 
 Online: [ hso-hana-dm hso-hana-vm-s1-0 hso-hana-vm-s1-1 hso-hana-vm-s1-2 hso-hana-vm-s2-0 hso-hana-vm-s2-1 hso-hana-vm-s2-2 ]
@@ -586,7 +587,7 @@ crm configure property maintenance-mode=false
 </code></pre>
 
 
-Outro comando **crm** coloca a configuração completa do cluster num editor, para que possa editá-la. Depois de salvar as alterações, o cluster inicia as ações apropriadas:
+Outro comando _ *crm** coloca a configuração completa do cluster num editor, para que possa editá-la. Depois de salvar as alterações, o cluster inicia as ações apropriadas:
 
 <pre><code>
 crm configure edit
@@ -682,7 +683,7 @@ Também ajuda a olhar para o estado da paisagem SAP HANA vindo de um script SAP 
 
 Há algumas retrações para evitar falhas desnecessárias. O cluster só reage se o estado mudar de **Ok,** valor de retorno **4**, para **erro,** valor de retorno **1**. Portanto, é correto se a saída do **SAPHanaSR-showAttr** mostrar um VM com o estado **offline**. Mas ainda não há atividade para mudar de primária e secundária. Nenhuma atividade de cluster é desencadeada desde que a SAP HANA não devolva um erro.
 
-Pode monitorizar o estado de saúde da paisagem SAP HANA como ** \<HANA SID\> anúncio de** utilizador, chamando o script SAP Python da seguinte forma. Talvez tenha que adaptar o caminho:
+Pode monitorizar o estado de saúde da paisagem SAP HANA como **\<HANA SID\> anúncio de** utilizador, chamando o script SAP Python da seguinte forma. Talvez tenha que adaptar o caminho:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -860,7 +861,7 @@ drwxr-xr-x 3 root root   4096 Sep 13 09:01 hso-hana-vm-s2-2
 </code></pre>
 
 
-Dentro do intervalo de tempo especificado, o atual nó mestre **hso-hana-vm-s1-0** foi morto. Pode encontrar entradas relacionadas com este evento no **diário.log**:
+Dentro do intervalo de tempo especificado, o atual nó mestre **hso-hana-vm-s1-0** foi morto. Pode encontrar entradas relacionadas com este evento no **diário.log:**
 
 <pre><code>
 2018-09-13T07:38:01+0000 hso-hana-vm-s2-1 su[93494]: (to hsoadm) root on none
@@ -945,7 +946,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>Falcão
 
 A solução cluster fornece uma interface de navegador que oferece um GUI para utilizadores que preferem menus e gráficos a ter todos os comandos ao nível da concha.
-Para utilizar a interface do navegador, **\<node\>** substitua-a por um nó SAP HANA real no seguinte URL. Em seguida, insira as credenciais do cluster **(cluster**de utilizadores):
+Para utilizar a interface do navegador, **\<node\>** substitua-a por um nó SAP HANA real no seguinte URL. Em seguida, insira as credenciais do cluster **(cluster** de utilizadores):
 
 <pre><code>
 https://&ltnode&gt:7630

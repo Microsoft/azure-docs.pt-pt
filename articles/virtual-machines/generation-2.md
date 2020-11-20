@@ -8,14 +8,14 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 7234c02d387e2fbf21a7f6002e44f84deb851133
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0aedcc3be4cb319dc24990507d85756bd77777e4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977600"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963832"
 ---
-# <a name="support-for-generation-2-vms-on-azure"></a>Suporte para geração 2 VMs em Azure
+# <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
 O suporte para máquinas virtuais de geração 2 (VMs) já está disponível no Azure. Não podes mudar a geração de uma máquina virtual depois de a criares, por isso revê as considerações desta página antes de escolheres uma geração.
 
@@ -101,11 +101,12 @@ A Azure não suporta atualmente algumas das funcionalidades que o Hyper-V suport
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Cópia de segurança/restauro                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria de imagens partilhada              | :heavy_check_mark: | :heavy_check_mark: |
-| Encriptação do disco Azure             | :heavy_check_mark: | :x:                |
+| [Encriptação do disco Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Encriptação do lado do servidor](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>Criar uma geração 2 VM
 
-### <a name="marketplace-image"></a>Imagem de mercado
+### <a name="marketplace-image"></a>Imagem do Marketplace
 
 No portal Azure ou no Azure CLI, pode criar geração 2 VMs a partir de uma imagem marketplace que suporta a bota UEFI.
 
@@ -163,7 +164,7 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 * **A geração 2 VMs está disponível em todas as regiões de Azure?**  
-    Yes. Mas nem todos os [tamanhos de geração 2 VM](#generation-2-vm-sizes) estão disponíveis em todas as regiões. A disponibilidade da geração 2 VM depende da disponibilidade do tamanho VM.
+    Sim. Mas nem todos os [tamanhos de geração 2 VM](#generation-2-vm-sizes) estão disponíveis em todas as regiões. A disponibilidade da geração 2 VM depende da disponibilidade do tamanho VM.
 
 * **Existe uma diferença de preço entre a geração 1 e a geração 2 VMs?**  
    Não.
@@ -192,13 +193,13 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
   1. No portal Azure, aceda à página de propriedades VM.
   1. Para desligar e negociar o VM, selecione o botão **Stop.**
   1. Na secção **Discos,** selecione o disco SO que pretende aumentar.
-  1. Na secção **Discos,** selecione **Configuração**e atualize o **Tamanho** para o valor que pretende.
+  1. Na secção **Discos,** selecione **Configuração** e atualize o **Tamanho** para o valor que pretende.
   1. Volte para a página de propriedades VM e **inicie** o VM.
   
   Pode ver um aviso para discos de SO maiores que 2 TiB. O aviso não se aplica à geração 2 VMs. No entanto, os tamanhos do disco DEL superior a 4 TiB não são suportados.
 
 * **A geração 2 VMs suporta rede acelerada?**  
-    Yes. Para obter mais informações, consulte [Criar um VM com rede acelerada.](../virtual-network/create-vm-accelerated-networking-cli.md)
+    Sim. Para obter mais informações, consulte [Criar um VM com rede acelerada.](../virtual-network/create-vm-accelerated-networking-cli.md)
 
 * **A geração 2 VMs suporta Secure Boot ou vTPM em Azure?**
     Tanto a geração 1 como a geração 2 VMs em Azure não suportam o Secure Boot ou o vTPM. 
@@ -207,7 +208,7 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
     Não, a geração 2 VMs suporta apenas VHD.
 
 * **A geração 2 VMs suporta o armazenamento do disco Azure Ultra?**  
-    Yes.
+    Sim.
 
 * **Posso migrar um VM da geração 1 para a geração 2?**  
     Não, não podes mudar a geração de um VM depois de o criares. Se precisar de alternar entre gerações VM, crie um novo VM de uma geração diferente.

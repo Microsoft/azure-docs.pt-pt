@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71b018da6b54ebf2b45a261378ea521a397159e5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81460652"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964988"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas da Matriz Virtual do StorSimple
 
@@ -119,7 +119,7 @@ Se a sua matriz virtual estiver unida ao domínio, os GPOs podem ser aplicados a
 Por isso, recomendamos que:
 
 * Certifique-se de que a sua matriz virtual está na sua própria unidade organizacional (OU) para o Ative Directory.
-* Certifique-se de que nenhum objeto de política de grupo (GPOs) é aplicado na sua matriz virtual. Pode bloquear a herança para garantir que a matriz virtual (nó de criança) não herda automaticamente quaisquer GPOs do progenitor. Para mais informações, vá para bloquear a [herança.](https://technet.microsoft.com/library/cc731076.aspx)
+* Certifique-se de que nenhum objeto de política de grupo (GPOs) é aplicado na sua matriz virtual. Pode bloquear a herança para garantir que a matriz virtual (nó de criança) não herda automaticamente quaisquer GPOs do progenitor. Para mais informações, vá para bloquear a [herança.](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11))
 
 ### <a name="networking"></a>Redes
 A configuração de rede para a sua matriz virtual é feita através da UI web local. Uma interface de rede virtual é ativada através do hipervisor no qual a matriz virtual é a provisionada. Utilize a página [Definições de Rede](storsimple-virtual-array-deploy3-fs-setup.md) para configurar o endereço IP, sub-rede e gateway de interface de rede virtual.  Também pode configurar o servidor dSNS primário e secundário, as definições de tempo e as definições de procuração opcionais para o seu dispositivo. A maior parte da configuração da rede é uma configuração única. Reveja os [requisitos de rede StorSimple](storsimple-ova-system-requirements.md#networking-requirements) antes de implementar o array virtual.
@@ -137,7 +137,7 @@ Ao implementar a sua matriz virtual, recomendamos que siga estas boas práticas:
   * Configure endereços IP estáticos. Tem de configurar um servidor primário e secundário de DNS.
   * Se definir várias interfaces de rede no seu array virtual, apenas a primeira interface de rede (por padrão, esta interface é **Ethernet)** pode chegar à nuvem. Para controlar o tipo de tráfego, pode criar múltiplas interfaces de rede virtuais na sua matriz virtual (configurada como servidor iSCSI) e ligar essas interfaces a diferentes sub-redes.
 * Para acelerar apenas a largura de banda da nuvem (utilizada pela matriz virtual), configurar o estrangulamento no router ou na firewall. Se definir o estrangulamento no seu hipervisor, irá acelerar todos os protocolos, incluindo iSCSI e SMB, em vez de apenas a largura de banda em nuvem.
-* Certifique-se de que a sincronização temporal dos hipervisores está ativada. Se utilizar o Hyper-V, selecione a sua matriz virtual no Hyper-V Manager, vá aos Serviços de ** &gt; Integração de Definições**e certifique-se de que a **sincronização** do tempo é verificada.
+* Certifique-se de que a sincronização temporal dos hipervisores está ativada. Se utilizar o Hyper-V, selecione a sua matriz virtual no Hyper-V Manager, vá aos Serviços de **&gt; Integração de Definições** e certifique-se de que a **sincronização** do tempo é verificada.
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 O StorSimple Virtual Array pode ser associado a uma única conta de armazenamento. Esta conta de armazenamento pode ser uma conta de armazenamento gerada automaticamente, uma conta na mesma subscrição que o serviço, ou uma conta de armazenamento relacionada com outra subscrição. Para obter mais informações, consulte como [gerir as contas de armazenamento da sua matriz virtual.](storsimple-virtual-array-manage-storage-accounts.md)
@@ -287,6 +287,5 @@ Podem ser necessários vários conjuntos virtuais para dar conta de um conjunto 
 * Se implementar várias matrizes virtuais, recomendamos que, do ponto de vista do equilíbrio de carga, distribua a matriz por diferentes anfitriões hipervisores.
 * Várias matrizes virtuais (quando configuradas como um servidor de ficheiros ou um servidor iSCSI) podem ser implantadas num espaço de nome do sistema de ficheiros distribuído. Para etapas detalhadas, aceda à [solução de espaço de nome do sistema de ficheiros distribuído com o Guia de Implementação de Armazenamento em Nuvem Híbrida](https://www.microsoft.com/download/details.aspx?id=45507). A replicação distribuída do sistema de ficheiros não é recomendada para utilização com a matriz virtual. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 Saiba como [administrar o seu StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) através do serviço StorSimple Manager.
-

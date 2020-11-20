@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e3fce15cdeb1792749224299167b52fc2311d04e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b33b866a10ad4a44cef14f3c86d8ca1f40c4750
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318284"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965379"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprovisionar dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
 O Microsoft Azure fornece um conjunto avançado de serviços de cloud pública integrada para todas as suas necessidades de solução IoT. O IoT Hub Device Provisioning Service (DPS) é um serviço de ajuda para o IoT Hub que permite o fornecimento de zero toques, just-in-time, para o centro IoT certo sem necessidade de intervenção humana. O DPS permite o fornecimento de milhões de dispositivos de forma segura e escalável.
@@ -81,7 +81,7 @@ O DPS tem muitas funcionalidades, tornando-o ideal para dispositivos de provisio
 
 * Suporte de **atestado seguro** para identidades baseadas em X.509 e TPM.
 * **Lista de inscrição** que contém o registo completo de dispositivos/grupos de dispositivos que podem ser registados em qualquer momento. A lista de inscrição contém informações sobre a configuração pretendida do dispositivo, depois de ser registado, e pode ser atualizada em qualquer altura.
-* **Políticas de alocação múltiplas** para controlar a forma como o DPS atribui dispositivos a centros IoT em apoio aos seus cenários: Latência mais baixa, distribuição uniformemente ponderada (padrão) e configuração estática através da lista de inscrições. A latência é determinada utilizando o mesmo método que o [Gestor de Tráfego.](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance)
+* **Políticas de alocação múltiplas** para controlar a forma como o DPS atribui dispositivos a centros IoT em apoio aos seus cenários: Latência mais baixa, distribuição uniformemente ponderada (padrão) e configuração estática através da lista de inscrições. A latência é determinada utilizando o mesmo método que o [Gestor de Tráfego.](../traffic-manager/traffic-manager-routing-methods.md#performance)
 * **Monitorização e registo de diagnóstico** para garantir que tudo está a funcionar corretamente.
 * **O suporte multi-hub** permite que o DPS atribua dispositivos a mais de um hub IoT. O DPS pode falar com os hubs através de várias subscrições do Azure.
 * **O suporte inter-região** permite que o DPS atribua dispositivos a centros IoT noutras regiões.
@@ -119,7 +119,7 @@ Para obter mais detalhes sobre os limites de quotas:
 * [Limites do Serviço das Subscrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Componentes do Azure relacionados
-A DPS automatiza o fornecimento de dispositivos com o Azure IoT Hub. Saiba mais sobre [o IoT Hub.](https://docs.microsoft.com/azure/iot-hub/)
+A DPS automatiza o fornecimento de dispositivos com o Azure IoT Hub. Saiba mais sobre [o IoT Hub.](../iot-hub/index.yml)
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora já tem uma descrição geral do aprovisionamento de dispositivos IoT no Azure. O passo seguinte é experimentar um cenário de IoT ponto a ponto.

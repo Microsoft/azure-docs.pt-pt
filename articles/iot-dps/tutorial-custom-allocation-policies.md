@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e20183356655668750cb1450338d4c8af1ee2d8c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4cab1765a387bbae61c9c242a8e7a1ca881ea1f5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951711"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966671"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Tutorial: Utilize políticas de atribuição personalizada com serviço de fornecimento de dispositivos (DPS)
 
@@ -46,7 +46,7 @@ Neste tutorial fará o seguinte:
 
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
-* Para um ambiente de desenvolvimento do Windows, é necessário o [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o desenvolvimento do 'Desktop com carga de trabalho [C++'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) ativado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
+* Para um ambiente de desenvolvimento do Windows, é necessário o [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com o desenvolvimento do 'Desktop com carga de trabalho [C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) ativado. Visual Studio 2015 e Visual Studio 2017 também são suportados.
 
 * Para Linux ou macOS, consulte a secção apropriada em Preparar o [seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação [Azure IoT C SDK.](https://github.com/Azure/azure-iot-sdk-c)
 
@@ -55,11 +55,11 @@ Neste tutorial fará o seguinte:
 
 ## <a name="create-the-custom-allocation-function"></a>Criar a função de atribuição personalizada
 
-Nesta secção, cria-se uma função Azure que implementa a sua política de atribuição personalizada. Esta função decide se um dispositivo deve ser registado no seu IoT Hub com base no facto de o seu ID de registo conter a **torradeira de prefixo de**cordas .
+Nesta secção, cria-se uma função Azure que implementa a sua política de atribuição personalizada. Esta função decide se um dispositivo deve ser registado no seu IoT Hub com base no facto de o seu ID de registo conter a **torradeira de prefixo de** cordas .
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Na sua página inicial, selecione **+ Criar um recurso.**
 
-2. Na caixa de pesquisa *do Marketplace,* escreva "App de função". A partir da lista de drop-down selecione **App de função**e, em seguida, selecione **Criar**.
+2. Na caixa de pesquisa *do Marketplace,* escreva "App de função". A partir da lista de drop-down selecione **App de função** e, em seguida, selecione **Criar**.
 
 3. Na **página de criação da App de Função,** no separador **Básicos,** introduza as seguintes definições para a sua nova aplicação de função e selecione Review **+ create**:
 
@@ -71,7 +71,7 @@ Nesta secção, cria-se uma função Azure que implementa a sua política de atr
 
     **Publicar:** Verifique se o **Código** está selecionado.
 
-    **Pilha de tempo de**execução : Selecione **.NET Core** a partir do drop-down.
+    **Pilha de tempo de** execução : Selecione **.NET Core** a partir do drop-down.
 
     **Região**: Selecione a mesma região que o seu grupo de recursos. Este exemplo usa **o Oeste dos EUA.**
 
@@ -296,7 +296,7 @@ Esta secção é orientada para uma estação de trabalho baseada no Windows. Pa
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    Se `cmake` não encontrar o seu compilador C++, poderá obter erros de construção durante a execução do comando. Se isso acontecer, tente executar o comando no [comando do Estúdio Visual.](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)
+    Se `cmake` não encontrar o seu compilador C++, poderá obter erros de construção durante a execução do comando. Se isso acontecer, tente executar o comando no [comando do Estúdio Visual.](/dotnet/framework/tools/developer-command-prompt-for-vs)
 
     Assim que a compilação for concluída com êxito, as últimas linhas de saída terão um aspeto semelhante ao seguinte:
 
@@ -324,7 +324,7 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
 
     ![Extrair informações de ponto final do Serviço Aprovisionamento de Dispositivos do painel do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. No Visual Studio, abra o ficheiro de solução **azure_iot_sdks.sln** que foi gerado pela execução do CMake anteriormente. O ficheiro de solução deve estar na seguinte localização:
+2. No Visual Studio, abra **o** azure_iot_sdks.sln ficheiro de solução que foi gerado pela execução do CMake anteriormente. O ficheiro de solução deve estar na seguinte localização:
 
     ```
     azure-iot-sdk-c\cmake\azure_iot_sdks.sln
@@ -347,7 +347,7 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Na `main()` função, encontre a chamada para `Prov_Device_Register_Device()` . Antes dessa chamada, adicione as seguintes linhas de código que usam [`Prov_Device_Set_Provisioning_Payload()`](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) para passar uma carga personalizada do JSON durante o provisionamento. Isto pode ser usado para fornecer mais informações às suas funções de atribuição personalizada. Isto também poderia ser usado para passar o tipo de dispositivo em vez de examinar o ID de registo.
+6. Na `main()` função, encontre a chamada para `Prov_Device_Register_Device()` . Antes dessa chamada, adicione as seguintes linhas de código que usam [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) para passar uma carga personalizada do JSON durante o provisionamento. Isto pode ser usado para fornecer mais informações às suas funções de atribuição personalizada. Isto também poderia ser usado para passar o tipo de dispositivo em vez de examinar o ID de registo.
 
     ```c
     // An example custom payload
@@ -364,7 +364,7 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
 
 ### <a name="simulate-the-contoso-toaster-device"></a>Simular o dispositivo de torradeira Contoso
 
-1. Para simular o dispositivo de torradeira, encontre a chamada para `prov_dev_set_symmetric_key_info()` **a amostra do cliente prov \_ dev \_ \_ ** que é comentada.
+1. Para simular o dispositivo da torradeira, encontre a chamada na `prov_dev_set_symmetric_key_info()` **amostra do cliente prov \_ \_ dev.c \_** que é comentada.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -416,7 +416,7 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
 
 ### <a name="simulate-the-contoso-heat-pump-device"></a>Simular o dispositivo de bomba de calor Contoso
 
-1. Para simular o dispositivo da bomba de calor, atualize a chamada para `prov_dev_set_symmetric_key_info()` a amostra do cliente **prov \_ dev novamente \_ \_ com** o ID de registo da bomba de calor e a chave do dispositivo derivado que gerou anteriormente. O valor-chave **6uejA9PfkQgmYlj8Zerp3kcbeVrGZ172YLa7VSnJzg=** mostrado abaixo também é dado como exemplo.
+1. Para simular o dispositivo da bomba de calor, atualize a chamada para a `prov_dev_set_symmetric_key_info()` **amostra do cliente prov \_ \_ dev.c \_** novamente com o ID de registo da bomba de calor e a chave do dispositivo derivado que gerou anteriormente. O valor-chave **6uejA9PfkQgmYlj8Zerp3kcbeVrGZ172YLa7VSnJzg=** mostrado abaixo também é dado como exemplo.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -461,7 +461,7 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
     Press enter key to exit:    
     ```
     
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender continuar a trabalhar com os recursos criados neste artigo, pode deixá-los. Se não pretender continuar a utilizar os recursos, use os seguintes passos para eliminar todos os recursos criados neste artigo para evitar encargos desnecessários.
 

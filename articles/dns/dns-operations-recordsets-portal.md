@@ -7,22 +7,22 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
-ms.openlocfilehash: 111d94db1cbec658daabfb1a4c38c8160d6f50b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696836"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965736"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerir registos de DNS e recordes utilizando o portal Azure
 
 Este artigo mostra-lhe como gerir conjuntos de registos e registos para a sua zona de DNS utilizando o portal Azure.
 
-É importante entender a diferença entre os recordes de DNS e os registos individuais de DNS. Um conjunto de recordes é uma coleção de discos numa zona que tem o mesmo nome e são do mesmo tipo. Para obter mais informações, consulte [Configurar discos e registos DNS utilizando o portal Azure](dns-getstarted-create-recordset-portal.md).
+É importante entender a diferença entre os recordes de DNS e os registos individuais de DNS. Um conjunto de recordes é uma coleção de discos numa zona que tem o mesmo nome e são do mesmo tipo. Para obter mais informações, consulte [Configurar discos e registos DNS utilizando o portal Azure](./dns-getstarted-portal.md).
 
 ## <a name="create-a-new-record-set-and-record"></a>Crie um novo recorde e recorde
 
-Para criar um recorde estabelecido no portal Azure, consulte [os registos Create DNS utilizando o portal Azure](dns-getstarted-create-recordset-portal.md).
+Para criar um recorde estabelecido no portal Azure, consulte [os registos Create DNS utilizando o portal Azure](./dns-getstarted-portal.md).
 
 ## <a name="view-a-record-set"></a>Ver um conjunto de recordes
 

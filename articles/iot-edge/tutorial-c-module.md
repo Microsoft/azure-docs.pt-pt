@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4c2505f210b1a2b52b64c25b4ffa0c26bb30d7ee
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 470f82026cc27431555336570ef6f41063442c1e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044688"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964546"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver um módulo de borda C IoT para dispositivos Linux
 
@@ -33,7 +33,7 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura ge
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Âmbito de solução
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial demonstra como desenvolver um módulo em **C** utilizando **o Código do Estúdio Visual,** e como implantá-lo num **dispositivo Linux**. Se estiver a desenvolver módulos para dispositivos Windows, vá ao [Develop a C IoT Edge module para dispositivos Windows.](tutorial-c-module-windows.md)
 
@@ -43,8 +43,6 @@ Utilize a seguinte tabela para compreender as suas opções de desenvolvimento e
 | - | ------------------ | ------------- |
 | **Linux AMD64** | ![Utilize o Código VS para módulos C no Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Utilizar VS para módulos C no Linux AMD64](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![Utilize o Código VS para módulos C no Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Utilizar VS para módulos C no Linux ARM32](./media/tutorial-c-module/green-check.png) |
-
-## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente de desenvolvimento para o desenvolvimento de recipientes Linux: [Desenvolver módulos IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao completar este tutorial, deverá ter os seguintes pré-requisitos no lugar:
 
@@ -100,7 +98,7 @@ Atualmente, o Visual Studio Code pode desenvolver módulos C para dispositivos L
 
 1. Abra a paleta de comando e procure **por Azure IoT Edge: Definir Plataforma-alvo padrão para solução de borda**, ou selecione o ícone de atalho na barra lateral na parte inferior da janela.
 
-2. Na paleta de comando, selecione a arquitetura-alvo da lista de opções. Para este tutorial, estamos a usar uma máquina virtual Ubuntu como dispositivo IoT Edge, por isso manteremos o **amd64**padrão.
+2. Na paleta de comando, selecione a arquitetura-alvo da lista de opções. Para este tutorial, estamos a usar uma máquina virtual Ubuntu como dispositivo IoT Edge, por isso manteremos o **amd64** padrão.
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
@@ -123,7 +121,7 @@ O código do módulo predefinido recebe mensagens numa fila de entrada e transmi
 
    4. Guarde o ficheiro **CMakeLists.txt**.
 
-   5. Abra **os módulos**  >  **CModule**  >  **main.c**. Na parte inferior da lista de declarações incluem-se, adicione uma nova para incluir `parson.h` para o suporte JSON:
+   5. Abra **os módulos**  >  **CModule**  >  **principal.c**. Na parte inferior da lista de declarações incluem-se, adicione uma nova para incluir `parson.h` para o suporte JSON:
 
       ```c
       #include "parson.h"
@@ -135,7 +133,7 @@ O código do módulo predefinido recebe mensagens numa fila de entrada e transmi
     static double temperatureThreshold = 25;
     ```
 
-1. Encontre a `CreateMessageInstance` função em main.c. Substitua a declaração interna por outro código que adiciona algumas linhas de funcionalidade:
+1. Encontre a `CreateMessageInstance` função na .c principal. Substitua a declaração interna por outro código que adiciona algumas linhas de funcionalidade:
 
    ```c
        if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
@@ -306,7 +304,7 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao CModul
 
    Pode receber um aviso de segurança recomendando a utilização de `--password-stdin` . Embora essa melhor prática seja recomendada para cenários de produção, está fora do âmbito deste tutorial. Para mais informações, consulte a referência de login do [estivador.](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
 
-3. No explorador de código VS, clique com o botão direito ** no ficheirodeployment.template.js** e selecione a **Solução de Borda De Construção e Pressão IoT**.
+3. No explorador de código VS, clique com o botão direito **no ficheirodeployment.template.js** e selecione a **Solução de Borda De Construção e Pressão IoT**.
 
    O comando de construção e pressão inicia três operações. Em primeiro lugar, cria uma nova pasta na solução chamada **config** que detém o manifesto de implantação completo, construído a partir de informações no modelo de implementação e outros ficheiros de solução. Em segundo lugar, funciona `docker build` para construir a imagem do contentor com base no arquivo apropriado para a arquitetura do seu alvo. Em seguida, corre `docker push` para empurrar o repositório de imagem para o seu registo de contentores.
 
@@ -354,7 +352,7 @@ Usamos o módulo CModule twin no manifesto de implantação para definir o limia
 
 6. Monitorize as mensagens de entrada de dispositivo para nuvem. Deve ver as mensagens paradas até que o novo limiar de temperatura seja atingido.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

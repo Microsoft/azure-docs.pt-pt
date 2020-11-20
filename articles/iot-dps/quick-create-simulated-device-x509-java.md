@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 0198a32800f364f921a2b9f64048166c48a14f7e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ed458ee0267a65bb7551940fc522509dc310311
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323894"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966620"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo X.509 simulado utilizando o dispositivo Java SDK para serviço de provisionamento de dispositivos IoT Hub
 
@@ -27,13 +27,13 @@ Neste arranque rápido, cria-se um dispositivo X.509 simulado num computador Win
 - Familiarizado com [conceitos de provisionamento.](about-iot-dps.md#provisioning-process)
 - Conclusão do Serviço de Provisionamento de [Dispositivos IoT Hub com o portal Azure](./quick-setup-auto-provision.md).
 - Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Kit de Desenvolvimento Java SE 8](https://aka.ms/azure-jdks).
+- [Kit de Desenvolvimento Java SE 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 - [Maven.](https://maven.apache.org/install.html)
 - [Git.](https://git-scm.com/download/)
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente 
 
-1. Certifique-se de que tem o [Java SE Development Kit 8](https://aka.ms/azure-jdks) instalado no seu computador.
+1. Certifique-se de que tem o [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) instalado no seu computador.
 
 2. Transfira e instale o [Maven](https://maven.apache.org/install.html).
 
@@ -73,7 +73,7 @@ O Serviço Aprovisionamento de Dispositivos no IoT do Azure suporta dois tipos d
 
 Este artigo demonstra inscrições individuais.
 
-1. Utilizando o pedido de comando dos passos anteriores, navegue para a `target` pasta e, em seguida, execute o ficheiro .jar criado no passo anterior.
+1. Utilizando o pedido de comando dos passos anteriores, navegue para a `target` pasta e execute o ficheiro .jar criado no passo anterior.
 
     ```cmd/sh
     cd target
@@ -94,7 +94,7 @@ Este artigo demonstra inscrições individuais.
 
 7. No painel **de inscrição adicionar,** insira as seguintes informações:
    - Selecione **X.509** como o *Mecanismo* de atestado de identidades.
-   - Sob o *certificado Primário .pem ou .cer file*, escolha *Selecionar um ficheiro* para selecionar o ficheiro de certificado **X509individual.pem** criado nos passos anteriores.  
+   - Sob o *certificado Primário .pem ou .cer ficheiro*, escolha *Selecionar um ficheiro* para selecionar o ficheiro de certificado **X509individual.pem** criado nos passos anteriores.  
    - Opcionalmente, pode fornecer as seguintes informações:
      - Selecione um hub IoT ligado ao seu serviço de aprovisionamento.
      - Introduza um ID de dispositivo exclusivo. Certifique-se de que evita dados confidenciais quando der o nome ao seu dispositivo. 
@@ -148,7 +148,7 @@ Este artigo demonstra inscrições individuais.
             "-----END PRIVATE KEY-----\n";
       ```
 
-4. Compile o exemplo. Navegue para a `target` pasta e execute o ficheiro .jar criado.
+4. Compile o exemplo. Navegue na `target` pasta e execute o ficheiro .jar criado.
 
     ```cmd/sh
     mvn clean install
@@ -165,7 +165,7 @@ Este artigo demonstra inscrições individuais.
 >
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositivo, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 

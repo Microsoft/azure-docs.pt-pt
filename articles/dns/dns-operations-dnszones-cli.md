@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ff1abd48282a4ec9278d7182fea286178b5bd3ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 469fdbced4601c6ffb4b6aa35e8f943bcb5dde1b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495918"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965787"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Como gerir as Zonas DNS em Azure DNS usando o Azure CLI
 
@@ -37,17 +37,17 @@ Este guia trata especificamente das zonas públicas de DNS. Para obter informaç
 
 ## <a name="set-up-azure-cli-for-azure-dns"></a>Configurar CLI do Azure para o Azure DNS
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 
 Antes de iniciar a configuração, verifique se tem os seguintes itens.
 
 * Uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-* Instalar a versão mais recente da CLI do Azure, disponível para Windows, Linux ou Mac. Existem mais informações disponíveis em [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2).
+* Instalar a versão mais recente da CLI do Azure, disponível para Windows, Linux ou Mac. Existem mais informações disponíveis em [Instalar a CLI do Azure](/cli/azure/install-az-cli2).
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicie sessão na sua conta do Azure
 
-Abra uma janela de consola e autentique com as suas credenciais. Para mais informações, consulte [Iniciar sessão no Azure a partir do Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Abra uma janela de consola e autentique com as suas credenciais. Para mais informações, consulte [Iniciar sessão no Azure a partir do Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -193,7 +193,6 @@ az network dns zone delete --resource-group myresourcegroup --name contoso.com
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [gerir recordes e registos](dns-getstarted-create-recordset-cli.md) na sua zona de DNS.
+Saiba como [gerir recordes e registos](./dns-getstarted-cli.md) na sua zona de DNS.
 
 Saiba como [delegar o seu domínio no Azure DNS](dns-domain-delegation.md).
-

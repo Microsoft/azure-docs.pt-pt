@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5970e82619667a47ba160c84df2cdeb145b0dab8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80298811"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966178"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos de sistema da Matriz Virtual StorSimple
 
@@ -29,7 +29,7 @@ Os requisitos do sistema incluem:
 
 O sistema StorSimple exige informações publicadas neste artigo apenas para StorSimple Virtual Arrays.
 
-* Para dispositivos da série 8000, aceda aos [requisitos do Sistema para o seu dispositivo da série StorSimple 8000](storsimple-system-requirements.md).
+* Para dispositivos da série 8000, aceda aos [requisitos do Sistema para o seu dispositivo da série StorSimple 8000](./storsimple-8000-system-requirements.md).
 * Para dispositivos da série 7000, aceda aos [requisitos do Sistema para o seu dispositivo da série StorSimple 5000-7000](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
 ## <a name="software-requirements"></a>Requisitos de software
@@ -84,20 +84,20 @@ Os seguintes requisitos de software são para os clientes SMB que acedem ao seu 
 
 
 ### <a name="supported-storage-format"></a>Formato de armazenamento suportado
-Apenas o armazenamento do bloco Azure é suportado. As bolhas de página não são suportadas. Mais informações [sobre bolhas de blocos e bolhas de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+Apenas o armazenamento do bloco Azure é suportado. As bolhas de página não são suportadas. Mais informações [sobre bolhas de blocos e bolhas de página](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="networking-requirements"></a>Requisitos de rede
 A tabela que se segue lista as portas que precisam de ser abertas na sua firewall para permitir o tráfego iSCSI, SMB, nuvem ou gestão. Nesta tabela, *dentro* ou *entrada* refere-se à direção a partir da qual o cliente que entra solicita o acesso ao seu dispositivo. *Para fora* ou *para fora* refere-se à direção em que o seu dispositivo StorSimple envia dados externamente, para além da implementação: por exemplo, saída para a Internet.
 
-| **Porto nº<sup>1</sup>** | **Dentro ou fora** | **Âmbito portuário** | **Necessário** | **Notas** |
+| **Porto nº <sup>1</sup>** | **Dentro ou fora** | **Âmbito portuário** | **Obrigatório** | **Notas** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Saída |WAN |Não |A porta de saída é utilizada para o acesso à Internet para recuperar atualizações. <br></br>O representante da web de saída é configurável pelo utilizador. |
-| TCP 443 (HTTPS) |Saída |WAN |Sim |A porta de saída é utilizada para aceder a dados na nuvem. <br></br>O representante da web de saída é configurável pelo utilizador. |
+| TCP 80 (HTTP) |Saída |WAN |No |A porta de saída é utilizada para o acesso à Internet para recuperar atualizações. <br></br>O representante da web de saída é configurável pelo utilizador. |
+| TCP 443 (HTTPS) |Saída |WAN |Yes |A porta de saída é utilizada para aceder a dados na nuvem. <br></br>O representante da web de saída é configurável pelo utilizador. |
 | UDP 53 (DNS) |Saída |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor DNS baseado na Internet. <br></br> Note que se implementar um servidor de ficheiros, recomendamos a utilização do servidor DNS local. |
 | UDP 123 (NTP) |Saída |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor NTP baseado na Internet.<br></br> Note que se implementar um servidor de ficheiros, recomendamos sincronizar o tempo com os seus controladores de domínio ative directory. |
-| TCP 80 (HTTP) |Em |LAN |Sim |Este é o porto de entrada para ui local no dispositivo StorSimple para gestão local. <br></br> Note que aceder ao UI local sobre HTTP irá redirecionar automaticamente para HTTPS. |
-| TCP 443 (HTTPS) |Em |LAN |Sim |Este é o porto de entrada para ui local no dispositivo StorSimple para gestão local. |
-| TCP 3260 (iSCSI) |Em |LAN |Não |Esta porta é utilizada para aceder a dados sobre o iSCSI. |
+| TCP 80 (HTTP) |Em |LAN |Yes |Este é o porto de entrada para ui local no dispositivo StorSimple para gestão local. <br></br> Note que aceder ao UI local sobre HTTP irá redirecionar automaticamente para HTTPS. |
+| TCP 443 (HTTPS) |Em |LAN |Yes |Este é o porto de entrada para ui local no dispositivo StorSimple para gestão local. |
+| TCP 3260 (iSCSI) |Em |LAN |No |Esta porta é utilizada para aceder a dados sobre o iSCSI. |
 
 <sup>1</sup> Não é necessário abrir portas de entrada na Internet pública.
 
@@ -120,7 +120,7 @@ Recomendamos que estabeleça as suas regras de firewall para tráfego de saída,
 
 | Padrão url | Componente/Funcionalidade |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acessos<br>Service Bus do Azure<br>Serviço de Autenticação|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acessos<br>Azure Service Bus<br>Serviço de Autenticação|
 | `http://*.backup.windowsazure.com` |Registo de dispositivo |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação do certificado |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento Azure e monitorização |

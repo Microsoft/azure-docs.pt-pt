@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 100a8ed1987b2edbc0aea1708c8a60b48bf391b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9a7af7575fcdd19d83e5a4f38ef03ef8948b8c0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737925"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963492"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gerir capturas de pacotes com O Observador de Rede Azure usando o PowerShell
 
@@ -39,7 +39,7 @@ Este artigo leva-o através das diferentes tarefas de gestão que estão atualme
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo pressupõe que tem os seguintes recursos:
 
@@ -48,7 +48,7 @@ Este artigo pressupõe que tem os seguintes recursos:
 * Uma máquina virtual com a extensão de captura do pacote ativada.
 
 > [!IMPORTANT]
-> A captura de pacotes requer uma extensão virtual da `AzureNetworkWatcherExtension` máquina. Para instalar a extensão num Windows VM visite [a extensão da máquina virtual do Observador de Redes Azure para windows](../virtual-machines/windows/extensions-nwa.md) e para Linux VM visite a [extensão virtual do Agente de Observadores de Rede Azure para o Linux](../virtual-machines/linux/extensions-nwa.md).
+> A captura de pacotes requer uma extensão virtual da `AzureNetworkWatcherExtension` máquina. Para instalar a extensão num Windows VM visite [a extensão da máquina virtual do Observador de Redes Azure para windows](../virtual-machines/extensions/network-watcher-windows.md) e para Linux VM visite a [extensão virtual do Agente de Observadores de Rede Azure para o Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
 ## <a name="install-vm-extension"></a>Instalar a extensão de VM
 
@@ -281,17 +281,3 @@ Saiba como automatizar capturas de pacotes com alertas de máquina virtual ao vi
 Descubra se determinado tráfego é permitido dentro ou fora do seu VM visitando [verificar o fluxo IP](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -7,17 +7,18 @@ author: vermagit
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: ccc9df8078bb7fec8be7d72b0ae18ed416bb10ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0ec18ae4a7d6020299660adbeba6f993cd4eeca
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87097834"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966025"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>Extensão do controlador infiniband para windows
 
@@ -71,7 +72,7 @@ O JSON seguinte mostra o esquema para a extensão.
 
 | Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.HpcCompute | string |
 | tipo | InfiniBandDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |

@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 1ba6a19b271943c7ecbe2254ef2544a5f576ad3d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3827fa7a98cef9358db0ee102925586bce97fae6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167428"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965243"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP multi-SID guide
 
@@ -96,7 +97,7 @@ Para obter uma elevada disponibilidade, o SAP NetWeaver requer ações NFS altam
 ![Visão geral de alta disponibilidade do SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
-> O suporte para o agrupamento multi-SID do SAP ASCS/ERS com o SUSE Linux como sistema operativo convidado em VMs Azure está limitado a **cinco** SIDs SAP no mesmo cluster. Cada novo SID aumenta a complexidade. Não é **suportada**uma mistura de Servidor de Replicação de Enqueue SAP 1 e Do Servidor de Replicação enqueue 2 no mesmo cluster . O agrupamento multi-SID descreve a instalação de múltiplos casos SAP ASCS/ERS com diferentes SIDs num cluster pacemaker. Atualmente, o clustering multi-SID só é suportado para ASCS/ERS.  
+> O suporte para o agrupamento multi-SID do SAP ASCS/ERS com o SUSE Linux como sistema operativo convidado em VMs Azure está limitado a **cinco** SIDs SAP no mesmo cluster. Cada novo SID aumenta a complexidade. Não é **suportada** uma mistura de Servidor de Replicação de Enqueue SAP 1 e Do Servidor de Replicação enqueue 2 no mesmo cluster . O agrupamento multi-SID descreve a instalação de múltiplos casos SAP ASCS/ERS com diferentes SIDs num cluster pacemaker. Atualmente, o clustering multi-SID só é suportado para ASCS/ERS.  
 
 > [!TIP]
 > O agrupamento multi-SID do SAP ASCS/ERS é uma solução com maior complexidade. É mais complexo de implementar. Envolve também um maior esforço administrativo, na execução de atividades de manutenção (como remendos de SO). Antes de iniciar a implementação real, desloque-se para planear cuidadosamente a implementação e todos os componentes envolvidos como VMs, suportes NFS, VIPs, configurações do balançador de carga e assim por diante.  
@@ -112,7 +113,7 @@ A lista a seguir mostra a configuração do balançador de carga (A)SCS e ERS pa
   * Endereço IP para NW2: 10.3.1.16
   * Endereço IP para NW3: 10.3.1.13
 * Portas de sonda
-  * Porto 620<strong> &lt; nr &gt; </strong>, portanto para as portas de sonda NW1, NW2 e NW3 620**00**, 620**10** e 620**20**
+  * Porto 620 <strong> &lt; nr &gt;</strong>, portanto para as portas de sonda NW1, NW2 e NW3 620 **00**, 620 **10** e 620 **20**
 * Regras de equilíbrio de carga - 
 * criar um para cada instância, isto é, NW1/ASCS, NW2/ASCS e NW3/ASCS.
   * Se utilizar o Balanceador de Carga Padrão, selecione **portas HA**
@@ -132,7 +133,7 @@ A lista a seguir mostra a configuração do balançador de carga (A)SCS e ERS pa
   * Endereço IP para NW2 10.3.1.17
   * Endereço IP para NW3 10.3.1.19
 * Porto de Sonda
-  * Porta 621<strong> &lt; nr &gt; </strong>, portanto para as portas de sonda NW1, NW2 e N# 621**02**, 621**12** e 621**22**
+  * Porta 621 <strong> &lt; nr &gt;</strong>, portanto para as portas de sonda NW1, NW2 e N# 621 **02**, 621 **12** e 621 **22**
 * Regras de equilíbrio de carga - crie uma para cada instância, isto é, NW1/ERS, NW2/ERS e NW3/ERS.
   * Se utilizar o Balanceador de Carga Padrão, selecione **portas HA**
   * Se utilizar o Balanceador de Carga Básica, crie regras de equilíbrio de carga para as seguintes portas
@@ -298,7 +299,7 @@ Esta documentação pressupõe que:
       sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
      ```
 
-   Se a instalação não criar uma sub-dobradeira em /usr/seiva/**SID**/ASCS**Instance#**, tente configurar o proprietário para **sid**adm e grupo para sapsys da**ASCS Instance#** e re-tentar.
+   Se a instalação não criar uma sub-dobradeira em /usr/seiva/**SID**/ASCS **Instance#**, tente configurar o proprietário para **sid** adm e grupo para sapsys da **ASCS Instance#** e re-tentar.
 
 3. **[1]** Crie um cluster virtual de IP e sonda de saúde para a instância ERS do sistema SAP adicional que está a implantar no cluster. O exemplo mostrado aqui é para **NW2** e **NW3** ERS, usando servidor NFS altamente disponível. 
 
@@ -351,7 +352,7 @@ Esta documentação pressupõe que:
    > [!NOTE]
    > Utilize SWPM SP 20 PL 05 ou superior. As versões inferiores não definem corretamente as permissões e a instalação falhará.
 
-   Se a instalação não criar uma sub-dobragem em /usr/seiva/**NW2**/ERS**Instance#**, tente configurar o proprietário **para**sid adm e o grupo para sapsys da pasta ERS**Instance#** e re-tentar.
+   Se a instalação não criar uma sub-dobragem em /usr/seiva/**NW2**/ERS **Instance#**, tente configurar o proprietário **para** sid adm e o grupo para sapsys da pasta ERS **Instance#** e re-tentar.
 
    Se foi necessário migrar o grupo ERS do recém-implantado sistema SAP para um nó de cluster diferente, não se esqueça de remover a restrição de localização para o grupo ERS. Pode remover a restrição executando o seguinte comando (o exemplo é dado para os sistemas SAP **NW2** e **NW3).**  
 
@@ -469,7 +470,7 @@ Esta documentação pressupõe que:
     ```
 
    A SAP introduziu suporte para o servidor 2, incluindo a replicação, a partir de SAP NW 7.52. A partir da Plataforma ABAP 1809, o servidor 2 do enqueue é instalado por padrão. Consulte a nota [SAP 2630416](https://launchpad.support.sap.com/#/notes/2630416) para obter suporte ao servidor 2.
-   Se utilizar a arquitetura do servidor 2 do enqueue[(ENSA2),](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)defina os recursos para os sistemas SAP **NW2** e **NW3** da seguinte forma:
+   Se utilizar a arquitetura do servidor 2 do enqueue [(ENSA2),](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)defina os recursos para os sistemas SAP **NW2** e **NW3** da seguinte forma:
 
     ```
      sudo crm configure property maintenance-mode="true"
@@ -772,7 +773,7 @@ Os testes apresentados estão num cluster multi-SID de dois nó, com três siste
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   Executar os seguintes comandos como **adm nw2**para migrar a instância NW2 ASCS.
+   Executar os seguintes comandos como **adm nw2** para migrar a instância NW2 ASCS.
 
    ```
     slesmsscl2:nw2adm 53> sapcontrol -nr 10 -host msnw2ascs -user nw2adm password -function HAFailoverToNode ""

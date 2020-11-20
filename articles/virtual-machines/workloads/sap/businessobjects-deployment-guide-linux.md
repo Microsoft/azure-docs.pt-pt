@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 17b978d3f4faebd3870868bceeea4572288ecb07
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427467"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965362"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implementação da plataforma de BI SAP BusinessObjects para Linux no Azure
 
@@ -113,7 +114,7 @@ Enquanto está a criar os seus Ficheiros Azure NetApp para o Servidor de Reposit
 
 Os passos desta secção utilizam os seguintes prefixos:
 
-**[A]** : O passo aplica-se a todos os anfitriões
+**[A]**: O passo aplica-se a todos os anfitriões
 
 ### <a name="format-and-mount-sap-file-system"></a>Formato e suporte sistema de ficheiros SAP
 
@@ -395,7 +396,7 @@ Para o servidor de aplicação SAP BOBI aceder à base de dados, requer cliente/
 
 Os passos desta secção utilizam os seguintes prefixos:
 
-**[A]** : O passo aplica-se a todos os anfitriões.
+**[A]**: O passo aplica-se a todos os anfitriões.
 
 1. **[A]** Com base no sabor do Linux (SLES ou RHEL), é necessário definir parâmetros de kernel e instalar bibliotecas necessárias. Consulte a secção **de requisitos do Sistema** no Guia de [Instalação da Plataforma de Inteligência Empresarial para Unix](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US).
 

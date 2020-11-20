@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92509ff96af0ed2a7d77799edca8447ff6839ab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e116096afbd01af4914be49d5675881724d5069
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019662"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965600"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Criar zonas dns e conjuntos de recordes usando o .NET SDK
 
@@ -33,7 +33,7 @@ Normalmente, o acesso programático aos recursos Azure é concedido através de 
 1. Siga [estas instruções](../active-directory/develop/howto-authenticate-service-principal-powershell.md) para criar uma conta principal de serviço (o projeto de amostra Azure DNS SDK assume a autenticação baseada em palavra-passe.)
 2. Criar um grupo de recursos[(eis como).](../azure-resource-manager/templates/deploy-portal.md)
 3. Use o Azure RBAC para conceder ao grupo de recursos as permissões da conta principal do serviço 'DNS Zone Contributor'[(eis como](../role-based-access-control/role-assignments-portal.md).)
-4. Se utilizar o projeto de amostra Azure DNS SDK, edite o ficheiro 'program.cs' da seguinte forma:
+4. Se utilizar o projeto de amostra Azure DNS SDK, edite o ficheiro 'programa.cs' da seguinte forma:
 
    * Insira os valores corretos para o `tenantId` , `clientId` (também conhecido como ID de conta), `secret` (senha de conta principal de serviço) e `subscriptionId` como usado no passo 1.
    * Introduza o nome do grupo de recursos escolhido no passo 2.
@@ -79,7 +79,7 @@ Para realmente criar ou atualizar a zona em Azure DNS, o objeto de zona que cont
 > [!NOTE]
 > DnsManagementClient suporta três modos de funcionamento: sincronizado ('CreateOrUpdate'), assíncrona ('CreateOrUpdateAsync'), ou assíncrona com acesso à resposta HTTP ('CreateOrUpdateWithHttpMessagesAsync').  Pode escolher qualquer um destes modos, dependendo das necessidades da sua aplicação.
 
-O Azure DNS apoia a concordância otimista, chamada [Etags.](dns-getstarted-create-dnszone.md) Neste exemplo, especificar "*" para o cabeçalho 'Se-Nenhum-Match' diz ao Azure DNS para criar uma zona DE DNS se já não existir.  A chamada falha se uma zona com o nome próprio já existir no grupo de recursos dado.
+O Azure DNS apoia a concordância otimista, chamada [Etags.](./dns-getstarted-powershell.md) Neste exemplo, especificar "*" para o cabeçalho 'Se-Nenhum-Match' diz ao Azure DNS para criar uma zona DE DNS se já não existir.  A chamada falha se uma zona com o nome próprio já existir no grupo de recursos dado.
 
 ```cs
 // Create zone parameters

@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 9302e922d509f3145fd7913835ce896a6da860fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63bd1d01adf66f33a8ee5349f35063473429b007
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84699469"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964784"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Azure DNS zonas privadas do legado migratório para novo modelo de recursos
 
@@ -107,10 +107,10 @@ Este passo irá apagar as zonas de DNS antigas e só deverá ser executado depoi
 ## <a name="update-your-automation"></a>Atualize a sua automatização
 
 Se estiver a utilizar a automatização, incluindo modelos, scripts PowerShell ou código personalizado desenvolvido através do SDK, tem de atualizar a sua automatização para utilizar o novo modelo de recursos para as zonas privadas de DNS. Abaixo estão os links para a nova documentação privada do DNS CLI/PS/SDK.
-* [Zonas privadas Azure DNS REST API](https://docs.microsoft.com/rest/api/dns/privatedns/privatezones)
-* [Zonas privadas Azure DNS CLI](https://docs.microsoft.com/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
-* [Zonas privadas Azure DNS PowerShell](https://docs.microsoft.com/powershell/module/az.privatedns/?view=azps-2.3.2)
-* [Zonas privadas Azure DNS SDK](https://docs.microsoft.com/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
+* [Zonas privadas Azure DNS REST API](/rest/api/dns/privatedns/privatezones)
+* [Zonas privadas Azure DNS CLI](/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
+* [Zonas privadas Azure DNS PowerShell](/powershell/module/az.privatedns/?view=azps-2.3.2)
+* [Zonas privadas Azure DNS SDK](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 
 ## <a name="need-further-help"></a>Precisa de mais ajuda.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
-ms.openlocfilehash: 79a239def70f0455f63c18d86397ec8d927f244c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054912"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964971"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Use StorSimple Snapshot Manager para visualizar e gerir volumes
 ## <a name="overview"></a>Descrição geral
@@ -45,7 +45,7 @@ Este tutorial explica como pode montar, inicializar e formatos volumes e, em seg
 > 
 
 ## <a name="mount-volumes"></a>Volumes de montagem
-Utilize o seguinte procedimento para montar, inicializar e formatar volumes StorSimple. Este procedimento utiliza a Disk Management, uma utilidade do sistema para gerir discos rígidos e os volumes ou divisórias correspondentes. Para obter mais informações sobre a Gestão de Discos, aceda à [Gestão de Discos](https://technet.microsoft.com/library/cc770943.aspx) no website da Microsoft TechNet.
+Utilize o seguinte procedimento para montar, inicializar e formatar volumes StorSimple. Este procedimento utiliza a Disk Management, uma utilidade do sistema para gerir discos rígidos e os volumes ou divisórias correspondentes. Para obter mais informações sobre a Gestão de Discos, aceda à [Gestão de Discos](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) no website da Microsoft TechNet.
 
 #### <a name="to-mount-volumes"></a>Para montar volumes
 1. No seu computador anfitrião, inicie o iniciador Microsoft iSCSI.
@@ -62,7 +62,7 @@ Utilize o seguinte procedimento para montar, inicializar e formatar volumes Stor
      > 
 4. Leve o volume(s) on-line:
    
-   1. Na Gestão do Disco, clique com o botão direito em qualquer volume **marcado**offline .
+   1. Na Gestão do Disco, clique com o botão direito em qualquer volume **marcado** offline .
    2. Clique **em Disco Reativado**. O disco deve ser marcado **online** depois de o disco ser reativado.
 5. Inicializar o volume:
    
@@ -80,14 +80,14 @@ Utilize o seguinte procedimento para montar, inicializar e formatar volumes Stor
       * Selecione o sistema de ficheiros NTFS.
       * Especifique um tamanho de unidade de alocação de 64 KB.
       * Efetue uma formatação rápida.
-7. Formato de volumes de múltiplas divisórias. Para obter instruções, aceda à secção "Partições e Volumes" na [Implementação da Gestão do Disco](https://msdn.microsoft.com/library/dd163556.aspx).
+7. Formato de volumes de múltiplas divisórias. Para obter instruções, aceda à secção "Partições e Volumes" na [Implementação da Gestão do Disco](/previous-versions/tn-archive/dd163556(v=technet.10)).
 
 ## <a name="view-information-about-your-volumes"></a>Ver informações sobre os seus volumes
 Utilize o seguinte procedimento para visualizar informações sobre volumes locais e Azure StorSimple.
 
 #### <a name="to-view-volume-information"></a>Para ver informações de volume
 1. Clique no ícone do ambiente de trabalho para iniciar o StorSimple Snapshot Manager. 
-2. No painel **Scope,** clique no nó **Volumes.** Uma lista de volumes locais e montados, incluindo todos os volumes Azure StorSimple, aparece no painel **de resultados.** As colunas no painel **de resultados** são configuráveis. (Clique no nó **volumes,** selecione **Ver**e, em seguida, selecione **Adicionar/Remover Colunas**.)
+2. No painel **Scope,** clique no nó **Volumes.** Uma lista de volumes locais e montados, incluindo todos os volumes Azure StorSimple, aparece no painel **de resultados.** As colunas no painel **de resultados** são configuráveis. (Clique no nó **volumes,** selecione **Ver** e, em seguida, selecione **Adicionar/Remover Colunas**.)
    
     ![Configure as colunas](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
@@ -121,7 +121,7 @@ Utilize o seguinte procedimento para rescanar os volumes ligados ao StorSimple S
 
 #### <a name="to-rescan-the-volumes"></a>Para rescanar os volumes
 1. Clique no ícone do ambiente de trabalho para iniciar o StorSimple Snapshot Manager.
-2. No painel **Scope,** clique à direita **Volumes**e, em seguida, clique nos **volumes de Rescan**.
+2. No painel **Scope,** clique à direita **Volumes** e, em seguida, clique nos **volumes de Rescan**.
    
     ![Volumes de rescan](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
    
@@ -133,7 +133,7 @@ Utilize o seguinte procedimento para configurar uma cópia de segurança de um v
 ### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar:
 
-* Certifique-se de que o dispositivo StorSimple e o computador anfitrião estão configurados corretamente. Para mais informações, aceda ao [dispositivo StorSimple no local.](storsimple-deployment-walkthrough-u2.md)
+* Certifique-se de que o dispositivo StorSimple e o computador anfitrião estão configurados corretamente. Para mais informações, aceda ao [dispositivo StorSimple no local.](./storsimple-8000-deployment-walkthrough-u2.md)
 * Instale e configuure o StorSimple Snapshot Manager. Para mais informações, aceda ao [Gestor de Instantâneos Implementar StorSimple](storsimple-snapshot-manager-deployment.md).
 
 #### <a name="to-configure-backup-of-a-basic-volume"></a>Para configurar a cópia de segurança de um volume básico
@@ -166,12 +166,12 @@ Antes de começar:
 * Configure dois volumes no dispositivo StorSimple. (Nos exemplos, os volumes disponíveis são **disco 1** e **disco 2**.) 
 
 ### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Passo 1: Utilizar a Gestão do Disco para criar um volume dinâmico espelhado
-A Disk Management é uma utilidade do sistema para gerir discos rígidos e os volumes ou divisórias que contêm. Para obter mais informações sobre a Gestão de Discos, aceda à [Gestão de Discos](https://technet.microsoft.com/library/cc770943.aspx) no website da Microsoft TechNet.
+A Disk Management é uma utilidade do sistema para gerir discos rígidos e os volumes ou divisórias que contêm. Para obter mais informações sobre a Gestão de Discos, aceda à [Gestão de Discos](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) no website da Microsoft TechNet.
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>Para criar um volume dinâmico espelhado
 1. Utilize qualquer uma das seguintes opções para iniciar a Gestão do Disco: 
    
-   * Abra a caixa **de Executar,** **escreva Diskmgmt.msc**e prima Enter.
+   * Abra a caixa **de Executar,** **escreva Diskmgmt.msc** e prima Enter.
    * Iniciar o Gestor do Servidor, expandir o nó **de armazenamento** e, em seguida, selecionar **Gestão do Disco**. 
    * Iniciar **Ferramentas Administrativas,** expandir o nó **de Gestão** de Computadores e, em seguida, selecionar **Gestão de Discos**. 
 2. Certifique-se de que dispõe de dois volumes disponíveis no dispositivo StorSimple. (No exemplo, os volumes disponíveis são **disco 1** e **disco 2**.) 
@@ -179,7 +179,7 @@ A Disk Management é uma utilidade do sistema para gerir discos rígidos e os vo
    
     ![Novo volume espelhado](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png) 
 4. Na página do assistente de **novo volume espelhado,** clique em **Seguinte**.
-5. Na página **'Selecionar Discos',** selecione **Disco 2** no painel **Selecionado,** clique em **Adicionar**e, em seguida, clique em **Seguinte**. 
+5. Na página **'Selecionar Discos',** selecione **Disco 2** no painel **Selecionado,** clique em **Adicionar** e, em seguida, clique em **Seguinte**. 
 6. Na página **'Atribuir a letra de unidade ou o caminho',** aceite as predefinições e, em seguida, clique em **Seguinte**. 
 7. Na página **volume de formato,** na caixa de tamanho da unidade de **atribuição,** selecione **64K**. Selecione a caixa de verificação **de formato rápido** e, em seguida, clique em **Seguinte**. 
 8. Na página 'Completar a página **Novo Volume Espelhado',** reveja as definições e, em seguida, clique em **Terminar**. 
@@ -210,4 +210,4 @@ Utilize o seguinte procedimento para configurar um volume dinâmico espelhado e,
 * Saiba como [utilizar o StorSimple Snapshot Manager para criar e gerir grupos de volume](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
-[1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

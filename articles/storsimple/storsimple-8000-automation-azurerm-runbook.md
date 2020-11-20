@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 8b74e23147e4dcc6f786c1c08b8a03bd07dd0b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5f2a86fb7c776436ea707ef293a66c033014c33
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744037"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966331"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Utilize os runbooks da Azure Automation para gerir dispositivos StorSimple
 
@@ -41,7 +41,7 @@ Para criar um módulo de automatização para a gestão de dispositivos da séri
         cd C:\scripts\StorSimpleSDKTools
     ```
 
-2. [Descarregue o NuGet CLI](https://www.nuget.org/downloads) sob a pasta criada no passo anterior. Existem várias versões de _nuget.exe. _ Escolha a versão correspondente ao seu SDK. Cada link de descarregamento aponta diretamente para um ficheiro _.exe._ Certifique-se de clicar à direita e guardar o ficheiro para o seu computador em vez de executá-lo a partir do navegador.
+2. [Descarregue o NuGet CLI](https://www.nuget.org/downloads) sob a pasta criada no passo anterior. Existem várias versões de _nuget.exe._ Escolha a versão correspondente ao seu SDK. Cada link de descarregamento aponta diretamente para um ficheiro _.exe._ Certifique-se de clicar à direita e guardar o ficheiro para o seu computador em vez de executá-lo a partir do navegador.
 
     Também pode executar o seguinte comando para descarregar e armazenar o script na mesma pasta que criou anteriormente.
 
@@ -186,7 +186,7 @@ Para criar um módulo de automatização para a gestão de dispositivos da séri
 
        ![Screenshot mostra o painel de conta de automação adicionar com valores para subscrição, criar Azure Run como conta e Criar 2](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-      Depois de a conta de automação ter sido criada com sucesso, é notificado. Para obter mais informações sobre como criar uma conta Demôm automação, vá a [Criar uma conta Run As](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+      Depois de a conta de automação ter sido criada com sucesso, é notificado. Para obter mais informações sobre como criar uma conta Demôm automação, vá a [Criar uma conta Run As](../automation/manage-runas-account.md).
 
 3. Para garantir que a conta de automação criada pode aceder ao serviço StorSimple Device Manager, é necessário atribuir permissões adequadas à conta de automação. Aceda ao **controlo de acesso** no seu serviço StorSimple Device Manager. Clique **+ Adicione** e forneça o nome da sua Conta de Automação Azure. **Guarde** as definições.
 
@@ -206,7 +206,7 @@ Para criar um módulo de automatização para a gestão de dispositivos da séri
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Edite o runbook e clique no **painel de teste**. Forneça os parâmetros como o nome do seu serviço StorSimple Device Manager, o nome do dispositivo StorSimple e a subscrição. **Começa** o teste. O relatório é gerado quando a execução está completa. Para mais informações, aceda a [como testar um livro de recortes.](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook)
+8. Edite o runbook e clique no **painel de teste**. Forneça os parâmetros como o nome do seu serviço StorSimple Device Manager, o nome do dispositivo StorSimple e a subscrição. **Começa** o teste. O relatório é gerado quando a execução está completa. Para mais informações, aceda a [como testar um livro de recortes.](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook)
 
     ![A screenshot mostra a panela de teste onde pode fazer valores de parâmetros e iniciar um teste](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 

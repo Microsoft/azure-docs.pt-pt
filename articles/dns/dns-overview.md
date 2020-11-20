@@ -6,18 +6,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: rohink
-ms.openlocfilehash: d59f166897674e9dcff8086b8f5c906605155ee3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5df2c2f686a1993dcd25d5391d5b553f2b42d937
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87924279"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965651"
 ---
 # <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
 O DNS do Azure é um serviço de alojamento para domínios DNS que fornece resolução de nomes através da infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure.
 
-Não pode utilizar o DNS do Azure para comprar um nome de domínio. Por uma taxa anual, pode comprar um nome de domínio utilizando [domínios do Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) ou um registrador de nome de domínio de terceiros. Os domínios podem, então, ser alojados no DNS do Azure para a gestão de registos. Para obter mais informações, consulte [delegado de um domínio para Azure DNS](dns-domain-delegation.md).
+Não pode utilizar o DNS do Azure para comprar um nome de domínio. Por uma taxa anual, pode comprar um nome de domínio utilizando [domínios do Serviço de Aplicações](../app-service/manage-custom-dns-buy-domain.md#buy-the-domain) ou um registrador de nome de domínio de terceiros. Os domínios podem, então, ser alojados no DNS do Azure para a gestão de registos. Para obter mais informações, consulte [delegado de um domínio para Azure DNS](dns-domain-delegation.md).
 
 As seguintes funcionalidades estão incluídas com o DNS do Azure.
 
@@ -29,11 +29,11 @@ Os domínios DNS no DNS do Azure estão alojados na rede global do Azure de serv
 
  O DNS do Azure baseia-se no Azure Resource Manager, que disponibiliza funcionalidades como:
 
-* [Azure controlo de acesso baseado em funções (Azure RBAC)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para controlar quem tem acesso a ações específicas para a sua organização.
+* [Azure controlo de acesso baseado em funções (Azure RBAC)](../azure-resource-manager/management/overview.md) para controlar quem tem acesso a ações específicas para a sua organização.
 
-* [Registos de atividades](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para monitorizar a forma como um utilizador na sua organização alterou um recurso ou encontrar um erro quando resolver um problema.
+* [Registos de atividades](../azure-resource-manager/management/overview.md) para monitorizar a forma como um utilizador na sua organização alterou um recurso ou encontrar um erro quando resolver um problema.
 
-* [Bloqueio de recurso](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) para bloquear uma subscrição, grupo de recursos ou recurso. O bloqueio impede que outros utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos críticos.
+* [Bloqueio de recurso](../azure-resource-manager/management/lock-resources.md) para bloquear uma subscrição, grupo de recursos ou recurso. O bloqueio impede que outros utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos críticos.
 
 Para obter mais informações, veja [Como proteger zonas DNS e registos](dns-protect-zones-recordsets.md). 
 
@@ -67,6 +67,6 @@ Para obter mais informações, consulte [Descrição geral do registo de alias d
 
 * Para saber mais sobre zonas DNS e registos, veja [Descrição geral das zonas DNS e registos](dns-zones-records.md).
 
-* Para saber como criar uma zona no DNS do Azure, veja [Criar uma zona DNS](./dns-getstarted-create-dnszone-portal.md).
+* Para saber como criar uma zona no DNS do Azure, veja [Criar uma zona DNS](./dns-getstarted-portal.md).
 
 * Para ver as perguntas mais frequentes sobre o DNS do Azure, veja [FAQ sobre DNS do Azure](dns-faq.md).
