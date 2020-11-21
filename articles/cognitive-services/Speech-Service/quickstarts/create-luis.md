@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: trbye
-ms.openlocfilehash: c4195ff1b81097a3620f68939f32147a26e16d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f547b353091cc81816f0974fced8d4dc836d22b2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391609"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023825"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Quickstart: Obter uma chave de ponta LUIS
 
@@ -37,7 +37,7 @@ LUIS usa três tipos de chaves:
 |Inicial|Permite testar a sua aplicação LUIS apenas com texto|
 |Ponto final |Autoriza o acesso a uma determinada aplicação LUIS|
 
-Para este tutorial, precisa do tipo chave de ponta. O tutorial usa o exemplo da aplicação Home Automation LUIS, que pode criar seguindo o quickstart da [app de domótica Utilização.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) Se criou uma aplicação PRÓPRIA LUIS, pode usá-la em vez disso.
+Para este tutorial, precisa do tipo chave de ponta. O tutorial usa o exemplo da aplicação Home Automation LUIS, que pode criar seguindo o quickstart da [app de domótica Utilização.](../../luis/luis-get-started-create-app.md) Se criou uma aplicação PRÓPRIA LUIS, pode usá-la em vez disso.
 
 Quando cria uma aplicação LUIS, o LUIS gera automaticamente uma chave de arranque para que possa testar a aplicação utilizando consultas de texto. Esta chave não permite a integração do serviço de fala e não funcionará com este tutorial. Crie um recurso LUIS no painel Azure e atribua-o à app LUIS. Para este tutorial, pode utilizar o escalão de subscrição.
 
@@ -61,7 +61,7 @@ Na página **de definições de Chaves e Ponto final:**
 ![Chaves de subscrição da aplicação LUIS](~/articles/cognitive-services/Speech-Service/media/sdk/luis-keys-assigned.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Reconhecer Intenções](~/articles/cognitive-services/Speech-Service/quickstarts/intent-recognition.md)

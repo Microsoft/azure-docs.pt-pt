@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: a1d86ac354524cb4d7bf9f9776b8605f244d92f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fe5a5669173733e3d0cf1b56b9997d15a3ff138
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83592513"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021308"
 ---
 # <a name="translator-30-dictionary-examples"></a>Tradutor 3.0: Exemplos do Dicionário
 
@@ -43,7 +43,7 @@ Os cabeçalhos de pedido incluem:
 
 | Cabeçalhos  | Descrição |
 | ------ | ----------- |
-| Cabeçalho de autenticação <img width=200/>  | **Cabeçalho de pedido necessário**.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a> |
+| Cabeçalho de autenticação <img width=200/>  | **Cabeçalho de pedido necessário**.<br/>Consulte <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a> |
 | Content-Type | **Cabeçalho de pedido necessário**.<br/>Especifica o tipo de conteúdo da carga útil. Os valores possíveis são: `application/json` . |
 | Comprimento do conteúdo   | **Cabeçalho de pedido necessário**.<br/>O comprimento do corpo do pedido. |
 | X-ClientTraceId   | **Opcional.**<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de traço na cadeia de consulta utilizando um parâmetro de consulta denominado `ClientTraceId` . |

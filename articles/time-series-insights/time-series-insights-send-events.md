@@ -11,23 +11,23 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2b83433a135fec486701b4538793f0c3e0a6fa6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a9115b5400cc6d6c1ecc5740af796d831f5dee3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611831"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023263"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Envie eventos para um ambiente Azure Time Series Insights Gen1 usando um centro de eventos
 
 > [!CAUTION]
 > Este é um artigo da Gen1.
 
-Este artigo explica como criar e configurar um centro de eventos em Azure Event Hubs. Também descreve como executar uma aplicação de amostra para empurrar eventos para Azure Time Series Insights de Event Hubs. Se tiver um centro de eventos existente com eventos em formato JSON, ignore este tutorial e veja o seu ambiente em [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+Este artigo explica como criar e configurar um centro de eventos em Azure Event Hubs. Também descreve como executar uma aplicação de amostra para empurrar eventos para Azure Time Series Insights de Event Hubs. Se tiver um centro de eventos existente com eventos em formato JSON, ignore este tutorial e veja o seu ambiente em [Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Configurar um hub de eventos
 
-1. Para aprender a criar um centro de eventos, leia a documentação do [Event Hubs.](https://docs.microsoft.com/azure/event-hubs/)
+1. Para aprender a criar um centro de eventos, leia a documentação do [Event Hubs.](../event-hubs/index.yml)
 1. Na caixa de pesquisa, procure por **Centros de Eventos.** Na lista de devoluções, selecione **Event Hubs**.
 1. Selecione o seu centro de eventos.
 1. Quando crias um centro de eventos, estás a criar um espaço de nomes de centros de eventos. Se ainda não criou um centro de eventos dentro do espaço de nomes, no menu, em Entidades, crie um centro de **eventos.**  
@@ -37,7 +37,7 @@ Este artigo explica como criar e configurar um centro de eventos em Azure Event 
 1. Depois de criar um centro de eventos, selecione-o na lista de centros de eventos.
 1. No menu, em **Entidades,** selecione **Event Hubs**.
 1. Selecione o nome do centro de eventos para configurá-lo.
-1. Sob **visão geral**, selecione **grupos de consumidores**e, em seguida, selecione **Consumer Group**.
+1. Sob **visão geral**, selecione **grupos de consumidores** e, em seguida, selecione **Consumer Group**.
 
     [![Criar um grupo de consumidores](media/send-events/add-event-hub-consumer-group.png)](media/send-events/add-event-hub-consumer-group.png#lightbox)
 
@@ -46,7 +46,7 @@ Este artigo explica como criar e configurar um centro de eventos em Azure Event 
     > [!IMPORTANT]
     > Certifique-se de que este grupo de consumidores não é utilizado por nenhum outro serviço, como um trabalho Azure Stream Analytics ou outro ambiente Azure Time Series Insights. Se o grupo de consumidores for utilizado pelos outros serviços, as operações de leitura são negativamente afetadas tanto para este ambiente como para outros serviços. Se utilizar **$Default** como grupo de consumidores, outros leitores poderão potencialmente reutilizar o seu grupo de consumidores.
 
-1. No menu, em **Definições**, selecione **Políticas de acesso partilhado**e, em seguida, selecione **Adicionar**.
+1. No menu, em **Definições**, selecione **Políticas de acesso partilhado** e, em seguida, selecione **Adicionar**.
 
     [![Selecione políticas de acesso compartilhado e, em seguida, selecione o botão Adicionar](media/send-events/add-shared-access-policy.png)](media/send-events/add-shared-access-policy.png#lightbox)
 
@@ -62,7 +62,7 @@ No Azure Time Series Insights Gen2, pode adicionar dados contextuais à telemetr
 
 ### <a name="create-an-azure-time-series-insights-event-source"></a>Criar uma fonte de eventos Azure Time Series Insights
 
-1. Se não criou uma fonte de evento, complete os passos para [criar uma fonte de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+1. Se não criou uma fonte de evento, complete os passos para [criar uma fonte de eventos](./how-to-ingest-data-event-hub.md).
 
 1. Desa fixar um valor para `timeSeriesId` . Para saber mais sobre **o ID da Série de Tempo,** leia [modelos de séries de tempo](./concepts-model-overview.md).
 
@@ -84,7 +84,7 @@ No Azure Time Series Insights Gen2, pode adicionar dados contextuais à telemetr
 1. Selecione **Clique para iniciar**.
 
     > [!TIP]
-    > O simulador de moinho de vento também cria JSON que pode usar como uma carga útil com as APIs de [Consulta de Consultas Azure Time Series Insights GA](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+    > O simulador de moinho de vento também cria JSON que pode usar como uma carga útil com as APIs de [Consulta de Consultas Azure Time Series Insights GA](/rest/api/time-series-insights/gen1-query).
 
     > [!NOTE]
     > O simulador continuará a enviar dados até que o separador do navegador esteja fechado.
@@ -204,8 +204,8 @@ No Azure Time Series Insights Gen2, pode adicionar dados contextuais à telemetr
     |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressão|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Veja o seu ambiente](https://insights.timeseries.azure.com) no Azure Time Series Insights Explorer.
 
-* Leia mais sobre [mensagens de dispositivo IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+* Leia mais sobre [mensagens de dispositivo IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md)

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0fe9b3ddaee41802ced30e1898b46cefa2566771
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322058"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023195"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop?
 
@@ -71,7 +71,7 @@ Apoiamos os seguintes sistemas operativos, por isso certifique-se de que tem as 
 
 A sua infraestrutura necessita das seguintes coisas para suportar o Windows Virtual Desktop:
 
-* Um [Diretório Ativo Azure](/azure/active-directory/).
+* Um [Diretório Ativo Azure](../active-directory/index.yml).
 * Um Diretório Ativo do Servidor do Windows em sincronização com o Azure Ative Directory. Pode configurar isto utilizando o Azure AD Connect (para organizações híbridas) ou serviços de domínio AD AD (para organizações híbridas ou em nuvem).
   * Um AD do Servidor do Windows em sincronização com o Azure Ative Directory. O utilizador é obtido a partir do Windows Server AD e o Windows Virtual Desktop VM é aderido ao domínio AD do Windows Server.
   * Um AD do Servidor do Windows em sincronização com o Azure Ative Directory. O utilizador é obtido a partir do Windows Server AD e o Windows Virtual Desktop VM é associado ao domínio dos Serviços de Domínio AD Azure.
@@ -85,7 +85,7 @@ Requisitos do utilizador para ligar ao Windows Virtual Desktop:
 
 As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ser:
 
-* [AD de domínio padrão](../active-directory-domain-services/active-directory-ds-comparison.md) ou [híbrido.](../active-directory/devices/hybrid-azuread-join-plan.md) Máquinas virtuais não podem ser adá-la a Azure.
+* [AD de domínio padrão](../active-directory-domain-services/compare-identity-solutions.md) ou [híbrido.](../active-directory/devices/hybrid-azuread-join-plan.md) Máquinas virtuais não podem ser adá-la a Azure.
 * Executando uma das [seguintes imagens de SO suportadas.](#supported-virtual-machine-os-images)
 
 >[!NOTE]
@@ -101,7 +101,7 @@ Para um melhor desempenho, certifique-se de que a sua rede cumpre os seguintes r
 * O tráfego de rede pode fluir fora das fronteiras país/região quando os VMs que acolhem desktops e aplicações se ligam ao serviço de gestão.
 * Para otimizar o desempenho da rede, recomendamos que os VM do anfitrião da sessão sejam collocados na mesma região de Azure que o serviço de gestão.
 
-Você pode ver uma configuração arquitetônica típica do Windows Virtual Desktop para a empresa na nossa [documenation de arquitetura.](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+Você pode ver uma configuração arquitetônica típica do Windows Virtual Desktop para a empresa na nossa [documenation de arquitetura.](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 
 ## <a name="supported-remote-desktop-clients"></a>Clientes de desktop remoto suportados
 
@@ -136,14 +136,14 @@ As opções de automação e implantação disponíveis dependem do sistema oper
 
 |Sistema operativo|Galeria de Imagens Azure|Implantação manual de VM|Integração do modelo do Gestor de Recursos Azure|Provisão de piscinas de acolhimento no Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 Enterprise (multi-sessão), versão 2004|Sim|Sim|Sim|Sim|
-|Windows 10 Enterprise (multi-sessão), versão 1909|Sim|Sim|Sim|Sim|
-|Windows 10 Enterprise (multi-sessão), versão 1903|Sim|Sim|Não|Não|
-|Windows 10 Enterprise (multi-sessão), versão 1809|Sim|Sim|Não|Não|
-|Windows 7 Enterprise|Sim|Sim|Não|Não|
-|Windows Server 2019|Sim|Sim|Não|Não|
-|Windows Server 2016|Sim|Sim|Sim|Sim|
-|Windows Server 2012 R2|Sim|Sim|Não|Não|
+|Windows 10 Enterprise (multi-sessão), versão 2004|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise (multi-sessão), versão 1909|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise (multi-sessão), versão 1903|Yes|Yes|No|No|
+|Windows 10 Enterprise (multi-sessão), versão 1809|Yes|Yes|No|No|
+|Windows 7 Enterprise|Yes|Yes|No|No|
+|Windows Server 2019|Yes|Yes|No|No|
+|Windows Server 2016|Yes|Yes|Yes|Yes|
+|Windows Server 2012 R2|Yes|Yes|No|Não|
 
 ## <a name="next-steps"></a>Próximos passos
 

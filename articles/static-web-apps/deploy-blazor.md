@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 60e62228e33d2d86bb407e45802f5c0621a94049
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80a48a948c70db7344ac9cbc20474177309bd909
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761095"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024233"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Tutorial: Construção de uma aplicação web estática com Blazor em Azure Static Web Apps
 
@@ -33,7 +33,7 @@ As Aplicações Web Estáticas Azure permitem criar aplicações web estáticas 
 
 A aplicação apresentada neste tutorial é composta por três projetos diferentes do Estúdio Visual:
 
-- **Api**: A aplicação C# Azure Functions que implementa o ponto final da API que fornece informações meteorológicas para a aplicação estática. O [`WeatherForecastFunction`](https://github.com/ssdeepak/blazor/blob/main/Api/WeatherForecastFunction.cs) devolve uma série de `WeatherForecast` objetos.
+- **Api**: A aplicação C# Azure Functions que implementa o ponto final da API que fornece informações meteorológicas para a aplicação estática. O **WeatherForecastFunction** devolve uma série de `WeatherForecast` objetos.
 
 - **Cliente**: O projeto de montagem web blazor frontal. É implementada [uma rota de retorno](#fallback-route) para garantir que todas as rotas são servidasindex.htmficheiro _l._
 
@@ -43,7 +43,7 @@ Juntos, estes projetos compõem as peças necessárias para criar uma aplicaçã
 
 ## <a name="fallback-route"></a>Rota do recuo
 
-A aplicação expõe URLs como _/counter_ e _/fetchdata_ que mapeiam para rotas específicas da aplicação. Uma vez que esta aplicação é implementada como uma aplicação de uma única página, cada rota é servidaindex.htmficheiro _l._ Para garantir que o pedido de retorno de caminho _index.html_ é implementada uma rota [de retorno](./routes.md#fallback-routes) naroutes.js_ em_ ficheiro encontrado na pasta _wwwroot_ do projeto Cliente.
+A aplicação expõe URLs como _/counter_ e _/fetchdata_ que mapeiam para rotas específicas da aplicação. Uma vez que esta aplicação é implementada como uma aplicação de uma única página, cada rota é servidaindex.htmficheiro _l._ Para garantir que o pedido de retorno de caminho _index.html_ é implementada uma rota [de retorno](./routes.md#fallback-routes) naroutes.js _em_ ficheiro encontrado na pasta _wwwroot_ do projeto Cliente.
 
 ```json
 {
@@ -79,7 +79,7 @@ Agora que o repositório é criado, crie uma aplicação web estática a partir 
 
 Na secção _Basics,_ comece por configurar a sua nova app e ligá-la a um repositório GitHub.
 
-:::image type="content" source="media/deploy-blazor/basics.png" alt-text="App Completa blazor":::
+:::image type="content" source="media/deploy-blazor/basics.png" alt-text="Separador básico":::
 
 1. Selecione a sua _subscrição Azure_
 1. Selecione ou crie um novo _Grupo de Recursos_
@@ -91,7 +91,7 @@ Na secção _Basics,_ comece por configurar a sua nova app e ligá-la a um repos
 
 Depois de assinar com o GitHub, insira a informação do repositório.
 
-:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="App Completa blazor":::
+:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="Detalhes do repositório":::
 
 1. Selecione a sua _Organização_ Preferida
 1. Selecione **a minha primeira-estática-blazor-app** a partir do _repositório_ drop-down
@@ -105,15 +105,15 @@ Depois de assinar com o GitHub, insira a informação do repositório.
 
 1. Selecione **Rever + criar**.
 
-    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="App Completa blazor":::
+    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Rever criar botão":::
 
 1. Selecione **Criar**.
 
-    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="App Completa blazor":::
+    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Botão Criar":::
 
 1. Selecione **Ir para recurso**.
 
-    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="App Completa blazor":::
+    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="Botão Ir para recurso":::
 
 ## <a name="view-the-website"></a>Ver o site
 
@@ -123,13 +123,13 @@ Antes de navegar para o seu novo site estático, a construção de implantação
 
 A janela de visão geral das Aplicações Web Estáticas exibe uma série de links que o ajudam a interagir com a sua aplicação web.
 
-:::image type="content" source="./media/deploy-blazor/overview-window.png" alt-text="App Completa blazor":::
+:::image type="content" source="./media/deploy-blazor/overview-window.png" alt-text="Janela de visão geral":::
 
 1. Clicando no banner que diz, _clique aqui para verificar o estado das suas ações gitHub_ leva-o às Ações GitHub em execução contra o seu repositório. Assim que verificar que o trabalho de implantação está concluído, poderá navegar para o seu website através do URL gerado.
 
 2. Assim que o fluxo de trabalho das Ações GitHub estiver concluído, pode selecionar o link _URL_ para abrir o website em novo separador.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não continuar a utilizar esta aplicação, pode eliminar a instância Azure Static Web Apps através dos seguintes passos:
 
@@ -139,7 +139,7 @@ Se não continuar a utilizar esta aplicação, pode eliminar a instância Azure 
 1. Selecione no botão **Eliminar**
 1. Selecione **Sim** para confirmar a ação de eliminação
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Autenticação e autorização](./authentication-authorization.md)

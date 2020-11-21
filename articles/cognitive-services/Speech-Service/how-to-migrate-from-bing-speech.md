@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 81c4c26f252cdd9eb302a7f8f362c8bf52e48629
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b7950759914724234ec89e6eaee13b48e735ec9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825588"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024318"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar do Discurso de Bing para o serviço de fala
 
@@ -28,7 +28,7 @@ Uma única chave de subscrição de serviço de discurso dá acesso às seguinte
 * [Conversão de voz em texto](speech-to-text.md)
 * [Conversão de voz em texto personalizada](https://cris.ai)
 * [Conversão de texto em voz](text-to-speech.md)
-* [Vozes personalizadas para conversão de texto em voz](how-to-customize-voice-font.md)
+* [Vozes personalizadas para conversão de texto em voz](./how-to-custom-voice-create-voice.md)
 * [Tradução de Voz](speech-translation.md) (não inclui [Tradução de texto](../translator/translator-info-overview.md))
 
 O [Speech SDK](speech-sdk.md) é um substituto funcional para as bibliotecas de clientes Bing Speech, mas usa uma API diferente.
@@ -63,7 +63,7 @@ O serviço Speech utiliza um modelo de preços baseado no tempo (em vez de um mo
 
 Se você ou a sua organização tiver aplicações em desenvolvimento ou produção que utilizem uma API de Discurso Bing, deve atualizá-las para usar o serviço Desempiração o mais rapidamente possível. Consulte a [documentação](index.yml) do serviço de discurso para SDKs disponíveis, amostras de código e tutoriais.
 
-As [APIs](rest-apis.md) do serviço de voz REST são compatíveis com as APIs de discurso de Bing. Se estiver a utilizar as APIs de DESCANSO de Discurso de Bing, só precisa de alterar o ponto final REST e mudar para uma chave de subscrição de serviço de discurso.
+As [APIs](./overview.md#reference-docs) do serviço de voz REST são compatíveis com as APIs de discurso de Bing. Se estiver a utilizar as APIs de DESCANSO de Discurso de Bing, só precisa de alterar o ponto final REST e mudar para uma chave de subscrição de serviço de discurso.
 
 Se estiver a utilizar uma biblioteca de clientes Bing Speech para uma linguagem de programação específica, migrar para o [SDK do Discurso](speech-sdk.md) requer alterações na sua aplicação, porque a API é diferente. O Speech SDK pode tornar o seu código mais simples, ao mesmo tempo que lhe dá acesso a novas funcionalidades. O Speech SDK está disponível numa grande variedade de linguagens de programação. As APIs em todas as plataformas são semelhantes, facilitando o desenvolvimento de várias plataformas.
 
@@ -72,22 +72,22 @@ O serviço de discurso não oferece um ponto final global. Determine se a sua ap
 Para começar com o Discurso SDK:
 
 1. Descarregue o [Speech SDK](speech-sdk.md).
-1. Trabalhe através dos guias e [tutoriais](how-to-recognize-intents-from-speech-csharp.md)do serviço [speech.](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) Consulte também as [amostras](samples.md) de código para obter experiência com as novas APIs.
+1. Trabalhe através dos guias e [tutoriais](how-to-recognize-intents-from-speech-csharp.md)do serviço [speech.](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) Consulte também as [amostras](./speech-sdk.md#sample-source-code) de código para obter experiência com as novas APIs.
 1. Atualize a sua aplicação para utilizar o serviço Desemaçamento.
 
 ## <a name="support"></a>Suporte
 
 Os clientes da Bing Speech devem contactar o apoio ao cliente abrindo um [bilhete de apoio](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Também pode contactar-nos caso a sua necessidade de suporte exija um [plano de suporte técnico.](https://azure.microsoft.com/support/plans/)
 
-Para o serviço de fala, suporte SDK e API, visite a [página de suporte](support.md)do serviço speech .
+Para o serviço de fala, suporte SDK e API, visite a [página de suporte](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)do serviço speech .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Experimente o serviço de fala gratuitamente](overview.md#try-the-speech-service-for-free)
 * [Introdução à conversão de voz em texto](get-started-speech-to-text.md)
 * [Introdução à conversão de texto em voz](get-started-text-to-speech.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Notas de lançamento do serviço de fala](releasenotes.md)
 * [O que é o serviço de fala](overview.md)

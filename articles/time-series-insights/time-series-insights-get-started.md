@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 401d22ee68ba0652eb684b03b06fddf0b0fe3d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61af7922318514a7b86a349d1970c59d4d168d85
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569452"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023331"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>Criar um novo ambiente Azure Time Series Insights Gen1 no portal Azure
 
@@ -60,17 +60,17 @@ Siga estes passos para criar um ambiente:
 
    [![Assista às notificações](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
 
-1. No **resumo**do recurso, verifique as definições de configuração da sua implementação.
+1. No **resumo** do recurso, verifique as definições de configuração da sua implementação.
 
    [![Crie o pin da Série de Tempo Azure para painel de instrumentos](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
 
 1. **(Opcional)** Selecione o **ícone pino** no canto superior direito para aceder facilmente ao ambiente Azure Time Series Insights no futuro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Defina políticas de acesso](time-series-insights-data-access.md) a dados para proteger o seu ambiente.
+* [Defina políticas de acesso](./concepts-access-policies.md) a dados para proteger o seu ambiente.
 
-* [Adicione uma fonte de eventos do Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md) ao ambiente Azure Time Series Insights.
+* [Adicione uma fonte de eventos do Event Hub](./how-to-ingest-data-event-hub.md) ao ambiente Azure Time Series Insights.
 
 * [Envie eventos](time-series-insights-send-events.md) para a fonte do evento.
 

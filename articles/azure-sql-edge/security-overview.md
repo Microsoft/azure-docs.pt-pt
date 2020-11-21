@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: cb673efb3e5d14e72e945bcf8c23d57495823720
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 56d5eb981aa02d9da83973d49e8df79fcd9c7e9c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394956"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021019"
 ---
 # <a name="securing-azure-sql-edge"></a>Segurança Azure SQL Edge
 
@@ -34,7 +34,7 @@ A implementação da segurança da plataforma começa por manter os utilizadores
 - Especificar e restringir portas hospedeiras que estão a usar para Azure SQL Edge
 - Garantindo que o controlo adequado do acesso é aplicado a todos os volumes de dados que acolhem dados do Azure SQL Edge. 
 
-Para obter mais informações sobre os protocolos de rede Azure SQL Edge e pontos finais TDS consulte, [Protocolos de Rede e Pontos Finais TDS](//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
+Para obter mais informações sobre os protocolos de rede Azure SQL Edge e pontos finais TDS consulte, [Protocolos de Rede e Pontos Finais TDS](/previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
 
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização 
 
@@ -107,7 +107,7 @@ As informações de segurança são expostas em várias vistas e funções otimi
 O Azure SQL Edge fornece os mesmos mecanismos de auditoria que o SQL Server. Para obter mais informações, consulte [a Auditoria do Servidor SQL (Motor de Base de Dados)](/sql/relational-databases/security/auditing/sql-server-audit-database-engine).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Começar com funcionalidades de segurança](/sql/linux/sql-server-linux-security-get-started)
 - [Executando Azure SQL Edge como um utilizador sem raízes](configure.md#run-azure-sql-edge-as-non-root-user)

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e4cb4fe8a701600290d24c055e2be5187a711c5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433709"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023399"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
@@ -114,7 +114,7 @@ Para redirecionar os fusos horários:
 1. No servidor Ative Directory, abra a **Consola de Gestão de Políticas de Grupo**.
 2. Expanda o seu domínio e objetos de política de grupo.
 3. Clique com o botão direito no **Objeto de Política de Grupo** que criou para as definições de política de grupo e selecione **Editar**.
-4. No Editor de **Gestão de Políticas**de Grupo , navegue para políticas **de configuração de computador**  >  **Policies**  >  **Modelos administrativos**Windows Componentes  >  **Componentes**  >  **Remotos Desktop**Session  >  **Host**Device e  >  **Reorientação de Recursos**.
+4. No Editor de **Gestão de Políticas** de Grupo , navegue para políticas **de configuração de computador**  >  **Policies**  >  **Modelos administrativos** Windows Componentes  >  **Componentes**  >  **Remotos Desktop** Session  >  **Host** Device e  >  **Reorientação de Recursos**.
 5. Ativar a **definição de reorientação do fuso horário** Desemitamento.
 
 Também pode executar este comando na imagem principal para redirecionar fusos horários:
@@ -138,7 +138,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>Incluir suporte linguístico adicional
 
-Este artigo não abrange como configurar a linguagem e o apoio regional. Para obter mais informações, veja os artigos seguintes:
+Este artigo não abrange como configurar a linguagem e o apoio regional. Para obter mais informações, veja os seguintes artigos:
 
 - [Adicionar idiomas às imagens do Windows](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
 - [Características a pedido](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)
@@ -189,7 +189,7 @@ As seguintes instruções dir-lhe-ão como enviar a sua imagem principal para um
 
 1. Converta a imagem VM (VHD) em Fixed se ainda não o fez. Se não converter a imagem em Fixed, não poderá criar a imagem com sucesso.
 
-2. Faça o upload do VHD para um recipiente de bolhas na sua conta de armazenamento. Pode fazer o upload rapidamente com a [ferramenta Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Para saber mais sobre a ferramenta Storage Explorer, consulte [este artigo.](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)
+2. Faça o upload do VHD para um recipiente de bolhas na sua conta de armazenamento. Pode fazer o upload rapidamente com a [ferramenta Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Para saber mais sobre a ferramenta Storage Explorer, consulte [este artigo.](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
 
     > [!div class="mx-imgBorder"]
     > ![Uma imagem da janela de pesquisa da Ferramenta do Explorador de Armazenamento microsoft Azure. É selecionada a caixa de verificação "Upload .vhd ou vhdx como bolhas de página (recomendadas)".](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
@@ -204,7 +204,7 @@ As seguintes instruções dir-lhe-ão como enviar a sua imagem principal para um
     > [!div class="mx-imgBorder"]
     > ![Uma imagem da notificação "imagem criada com sucesso".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que tem uma imagem, pode criar ou atualizar piscinas de anfitriões. Para saber mais sobre como criar e atualizar piscinas de anfitriões, consulte os seguintes artigos:
 

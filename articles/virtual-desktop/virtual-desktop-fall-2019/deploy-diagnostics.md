@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 729e22f8ad94d2119d0f3f3e9fc474cc83a493a8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691416"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023076"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico virtual do Windows Desktop (clássico)
 
@@ -95,7 +95,7 @@ Para executar o script PowerShell:
 3. Introduza os seguintes valores para os parâmetros:
 
     - Para **o Conjunto de Recursos,** insira o nome do grupo de recursos.
-    - Para **LogAnalyticsWorkspaceName, insira**um nome único para o seu espaço de trabalho Log Analytics.
+    - Para **LogAnalyticsWorkspaceName, insira** um nome único para o seu espaço de trabalho Log Analytics.
     - Para **localização,** insira a região Azure que está a usar.
     - Introduza o **ID de subscrição Azure,** que pode encontrar no portal Azure em **Subscrições**.
 
@@ -113,7 +113,7 @@ Eis como configurar manualmente os contadores de desempenho recomendados:
 1. Abra o seu navegador de Internet e inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta administrativa.
 2. Em seguida, vá aos **espaços de trabalho do Log Analytics** para rever os contadores de desempenho do Windows configurados.
 3. Na secção **Definições,** selecione  **Definições Avançadas**.
-4. Depois disso, **Data**navegue nos  >  **Contadores de Desempenho do Windows de dados** e adicione os seguintes contadores:
+4. Depois disso, **Data** navegue nos  >  **Contadores de Desempenho do Windows de dados** e adicione os seguintes contadores:
 
     -   LogicalDisk, \* \\ %Espaço Livre
     -   LogicalDisk(C:) \\ Avg. Comprimento da fila do disco
@@ -121,7 +121,7 @@ Eis como configurar manualmente os contadores de desempenho recomendados:
     -   Tempo de \* processador de informação do \\ processador
     -   Atraso de entrada do utilizador por \* sessão. \\
 
-Saiba mais sobre os contadores de desempenho no [Windows e nas fontes de dados de desempenho do Linux no Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
+Saiba mais sobre os contadores de desempenho no [Windows e nas fontes de dados de desempenho do Linux no Azure Monitor](../../azure-monitor/platform/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Quaisquer contadores adicionais que configurar não aparecerão na própria ferramenta de diagnóstico. Para que apareça na ferramenta de diagnóstico, é necessário configurar o ficheiro config da ferramenta. As instruções para como fazê-lo com administração avançada estarão disponíveis no GitHub mais tarde.
@@ -145,7 +145,7 @@ Para se certificar de que o seu espaço de trabalho Log Analytics tem os contado
 
 1. No [portal Azure,](https://portal.azure.com/)vá aos **espaços de trabalho do Log Analytics** para rever os contadores de desempenho do Windows configurados.
 2. Em **Definições**, selecione **Definições Avançadas**.
-3. Depois disso, **Data**aceda aos  >  **contadores de desempenho do Data Windows**.
+3. Depois disso, **Data** aceda aos  >  **contadores de desempenho do Data Windows**.
 4. Certifique-se de que os seguintes contadores estão pré-configurados:
 
    - Por \* \\ %Free Space: Exibe em percentagem a quantidade de espaço livre do espaço total utilizável do espaço utilizável total do disco.
@@ -162,7 +162,7 @@ Para poder ver a saúde dos VMs, terá de ativar a ligação Log Analytics. Siga
 2. Vá ao seu log analytics workspace.
 3. No painel esquerdo, em Fontes de Dados do Espaço de Trabalho, selecione **máquinas virtuais.**
 4. Selecione o nome do VM a que pretende ligar.
-5. Selecione **Ligar**.
+5. Selecione **Connect** (Ligar).
 
 ## <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
@@ -204,7 +204,7 @@ Para definir o URI de redirecionamento:
 
 Antes de disponibilizar a ferramenta de diagnóstico aos seus utilizadores, certifique-se de que dispõem das seguintes permissões:
 
-- Os utilizadores precisam de ler o acesso para análise de registos. Para mais informações, consulte [Começar com papéis, permissões e segurança com o Azure Monitor.](/azure/azure-monitor/platform/roles-permissions-security)
+- Os utilizadores precisam de ler o acesso para análise de registos. Para mais informações, consulte [Começar com papéis, permissões e segurança com o Azure Monitor.](../../azure-monitor/platform/roles-permissions-security.md)
 -  Os utilizadores também precisam de acesso lido para o inquilino virtual do Windows Desktop (função RDS Reader). Para obter mais informações, consulte [o acesso delegado no Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 Também precisa de dar aos seus utilizadores as seguintes informações:
@@ -264,7 +264,7 @@ Também pode interagir com os utilizadores no anfitrião da sessão:
 
     - Limiar: Mais de 2000 ms é marcado como insalubre.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como monitorizar os registos de atividade no [Use diagnostics com Log Analytics](diagnostics-log-analytics-2019.md).
 - Leia sobre cenários de erro comuns e como corrigi-los em [Identificar e diagnosticar problemas](diagnostics-role-service-2019.md).

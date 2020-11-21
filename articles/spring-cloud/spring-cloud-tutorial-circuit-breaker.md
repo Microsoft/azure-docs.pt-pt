@@ -7,18 +7,17 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 0edcdbfec07c032f095cc03eb91be8cf0785b58a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 53884c2f6d9f2e8cbb5676e9ac10e8fb15ed919e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844851"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024284"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Use o painel de disjuntores com a nuvem de mola Azure
 
 **Este artigo aplica-se a:** ✔️ Java
 
-::: zone pivot="programming-language-java"
 A [Turbina Netflix](https://github.com/Netflix/Turbine) da Cloud Spring é amplamente utilizada para agregar várias métricas [Hystrix](https://github.com/Netflix/Hystrix) para que os streams possam ser monitorizados numa única vista usando o painel Hystrix. Este tutorial demonstra como usá-los na Nuvem de primavera de Azure.
 > [!NOTE]
 > O Netflix Hystrix é amplamente utilizado em muitas aplicações da Spring Cloud existentes, mas já não está em desenvolvimento ativo. Se estiver a desenvolver um novo projeto, utilize implementações de Disjuntores de Nuvens de primavera como [a resiliência4j](https://github.com/resilience4j/resilience4j). Diferente da Turbina mostrada neste tutorial, a nova estrutura de disjuntor de molas de nuvem unifica todas as implementações do seu pipeline de dados métricas em Micrometro. Ainda estamos a trabalhar no apoio ao micrometro na Nuvem de primavera de Azure, pelo que não será coberto por este tutorial.
@@ -81,7 +80,7 @@ As métricas hystrix também são acessíveis a partir de `test-endpoint` . Como
 
 Como uma aplicação web, o painel Hystrix deve estar a trabalhar `test-endpoint` em . Se não estiver a funcionar corretamente, pode haver duas razões: primeiro, utilizar `test-endpoint` o URL base de , `/ to /<APP-NAME>/<DEPLOYMENT-NAME>` ou, em segundo lugar, a aplicação web está a usar o caminho absoluto para o recurso estático. Para que `test-endpoint` funcione, poderá ter de editar manualmente os <base> ficheiros frontais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Prestação de uma instância de serviço no CLI Azure](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
 * [Prepare uma aplicação java spring para implantação em Azure Spring Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
-::: zone-end
+

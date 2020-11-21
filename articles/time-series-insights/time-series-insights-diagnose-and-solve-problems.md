@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f2ff5aaa1d731c13125d0a3ab4ac32acb9276c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530141"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023280"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnosticar e resolver problemas no seu ambiente Azure Time Series Insights Gen1
 
@@ -37,7 +37,7 @@ Se não houver dados no [explorador Azure Time Series Insights,](https://insight
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Causa A: Os dados de origem do evento não estão no formato JSON
 
-A azure Time Series Insights suporta apenas dados JSON. Para as amostras JSON, consulte [as formas JSON suportadas.](./how-to-shape-query-json.md)
+A azure Time Series Insights suporta apenas dados JSON. Para as amostras JSON, consulte [as formas JSON suportadas.](./concepts-json-flattening-escaping-rules.md)
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: Falta uma permissão necessária para a chave de origem do evento
 
@@ -85,7 +85,7 @@ Imagine um ambiente que ingere mensagens de um centro de eventos. Tem uma taxa d
 
 Um ambiente S1 SKU com capacidade para 3 pode entrar apenas 2.100 eventos por minuto (1 milhão de eventos por dia = 700 eventos por minuto em três unidades = 2.100 eventos por minuto).
 
-Para obter uma compreensão de alto nível de como a lógica de achatamento funciona, consulte [as formas JSON suportadas.](./how-to-shape-query-json.md)
+Para obter uma compreensão de alto nível de como a lógica de achatamento funciona, consulte [as formas JSON suportadas.](./concepts-json-flattening-escaping-rules.md)
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Resoluções recomendadas para estrangulamento excessivo
 
@@ -131,11 +131,11 @@ O primeiro cabeçalho da coluna deve ser o nome da propriedade do seu tempotando
 
 Os seguintes valores não serão apresentados:
 
-* *Indica*que a Azure Time Series Insights está a ler os valores de dados como cordas.
+* *Indica* que a Azure Time Series Insights está a ler os valores de dados como cordas.
 * *Ícone do calendário*: Indica que o Azure Time Series Insights está a ler os valores dos dados como valores de data.
 * *#*: Indica que a Azure Time Series Insights está a ler os valores de dados como inteiros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Leia sobre [como mitigar a latência em Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 

@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 680b3c5a9548fa06d0139bd441b5583c27427a77
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653779"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020781"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualizar dados da Azure Time Series Insights em Power BI
 
@@ -32,11 +32,11 @@ Certifique-se de se inscrever para uma [subscrição gratuita do Azure](https://
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Descarregue e instale a versão mais recente do [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Ter ou criar um [ambiente Azure Time Series Insights Gen2](time-series-insights-update-how-to-manage.md)
+* Ter ou criar um [ambiente Azure Time Series Insights Gen2](./how-to-provision-manage.md)
 
 > [!IMPORTANT]
 >
-> * O conector é atualmente suportado em ambientes Azure Time Series Insights Gen2 configurados **apenas**com Warm Store .
+> * O conector é atualmente suportado em ambientes Azure Time Series Insights Gen2 configurados **apenas** com Warm Store .
 > * Se tiver acesso ao ambiente Azure Time Series Insights Gen2 a partir de outro Inquilino AD Azure, não poderá aceder ao conector. Leia sobre as políticas de acesso ao [ambiente.](./concepts-access-policies.md)
 
 ## <a name="connect-data-from-azure-time-series-insights-to-power-bi"></a>Conecte os dados da Azure Time Series Insights ao Power BI
@@ -130,7 +130,7 @@ Uma vez criado o seu relatório, pode publicá-lo nos Serviços de Reporte do Po
 
 ## <a name="advanced-editing"></a>Edição avançada
 
-Se já carregou um conjunto de dados no Power BI mas gostaria de modificar a consulta (como os parâmetros de data/hora ou ID do ambiente), pode fazê-lo através da funcionalidade De Redação Avançada do Power BI. Consulte a [documentação power BI](https://docs.microsoft.com/power-bi/desktop-query-overview) para saber mais.
+Se já carregou um conjunto de dados no Power BI mas gostaria de modificar a consulta (como os parâmetros de data/hora ou ID do ambiente), pode fazê-lo através da funcionalidade De Redação Avançada do Power BI. Consulte a [documentação power BI](/power-bi/desktop-query-overview) para saber mais.
 
 Como uma visão geral:
 
@@ -146,6 +146,6 @@ A interface irá agora refletir as alterações desejadas que aplicou.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Leia sobre [os conceitos de conector Power BI](https://docs.microsoft.com/power-bi/desktop-query-overview) para Azure Time Series Insights.
+* Leia sobre [os conceitos de conector Power BI](/power-bi/desktop-query-overview) para Azure Time Series Insights.
 
-* Saiba mais sobre [o ambiente de trabalho Power BI](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Saiba mais sobre [o ambiente de trabalho Power BI](/power-bi/desktop-query-overview).

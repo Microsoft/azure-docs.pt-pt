@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9fbf4eab55ec2cf8e4f0e27969ca4a22eb1f27ad
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 753c7ff48960711cbedbf6b5d8644a26502dd413
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578622"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023747"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Utilize .NET para Apache Spark com Azure Synapse Analytics
 
@@ -74,9 +74,11 @@ O caderno .NET Spark baseia-se nas experiências [interativas .NET](https://gith
 
 ### <a name="install-nuget-packages-in-notebooks"></a>Instalar pacotes NuGet em cadernos
 
-Pode instalar pacotes NuGet à sua escolha no seu caderno utilizando o `#r` símbolo antes do nome do pacote NuGet. O seguinte diagrama mostra um exemplo:
+Pode instalar pacotes NuGet à sua escolha no seu caderno utilizando o `#r nuget` comando mágico antes do nome do pacote NuGet. O seguinte diagrama mostra um exemplo:
 
 ![Screenshot que mostra usar #r para instalar um pacote NuGet de portátil Spark .NET](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
+
+Para saber mais sobre como trabalhar com pacotes NuGet em cadernos, consulte a [Documentação Interativa .NET](https://github.com/dotnet/interactive/blob/main/docs/nuget-overview.md).
 
 ### <a name="net-for-apache-spark-c-kernel-features"></a>.NET para apache spark c# recursos de kernel
 
@@ -92,7 +94,7 @@ As seguintes funcionalidades estão disponíveis quando utiliza .NET para Apache
 * Suporte para visualizar a produção dos seus trabalhos spark usando diferentes gráficos (como linha, bar ou histograma) e layouts (como simples, sobreposto, e assim por diante) usando a `XPlot.Plotly` biblioteca.
 * Capacidade de incluir pacotes NuGet no seu caderno C#.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [.NET para documentação Apache Spark](/dotnet/spark/)
 * [.NET para guias Apache Spark Interactive](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue)

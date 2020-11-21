@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842639"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023161"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -62,7 +62,7 @@ Para saber mais, consulte [a bordo da sua assinatura Azure para o Security Cente
 
 ### <a name="improve-your-secure-score"></a>Melhorar a Classificação de Segurança
 
-A Secure Score fornece recomendações e conselhos de boas práticas para melhorar a sua segurança global. Estas recomendações são priorizadas para ajudá-lo a escolher quais são mais importantes, e as opções Quick Fix ajudam-no a lidar rapidamente com potenciais vulnerabilidades. Estas recomendações também atualizam ao longo do tempo, mantendo-o atualizado sobre as melhores formas de manter a segurança do seu ambiente. Para saber mais, consulte [Melhorar a sua pontuação segura no Centro de Segurança Azure](../security-center/security-center-secure-score.md).
+A Secure Score fornece recomendações e conselhos de boas práticas para melhorar a sua segurança global. Estas recomendações são priorizadas para ajudá-lo a escolher quais são mais importantes, e as opções Quick Fix ajudam-no a lidar rapidamente com potenciais vulnerabilidades. Estas recomendações também atualizam ao longo do tempo, mantendo-o atualizado sobre as melhores formas de manter a segurança do seu ambiente. Para saber mais, consulte [Melhorar a sua pontuação segura no Centro de Segurança Azure](../security-center/secure-score-security-controls.md).
 
 ## <a name="windows-virtual-desktop-security-best-practices"></a>As melhores práticas de segurança do Windows Virtual Desktop
 
@@ -74,13 +74,13 @@ Exigir a autenticação de vários fatores para todos os utilizadores e administ
 
 ### <a name="enable-conditional-access"></a>Ativar o acesso condicional
 
-Ativar [o Acesso Condicional](../active-directory/conditional-access/best-practices.md) permite-lhe gerir riscos antes de conceder aos utilizadores acesso ao seu ambiente de trabalho virtual do Windows. Ao decidir a que utilizadores devem conceder acesso, recomendamos que considere também quem é o utilizador, como se insinuem e que dispositivo estão a utilizar.
+Ativar [o Acesso Condicional](../active-directory/conditional-access/overview.md) permite-lhe gerir riscos antes de conceder aos utilizadores acesso ao seu ambiente de trabalho virtual do Windows. Ao decidir a que utilizadores devem conceder acesso, recomendamos que considere também quem é o utilizador, como se insinuem e que dispositivo estão a utilizar.
 
 ### <a name="collect-audit-logs"></a>Recolher registos de auditoria
 
 Ativar a recolha de registos de auditoria permite-lhe visualizar a atividade de utilizador e administração relacionada com o Windows Virtual Desktop. Alguns exemplos de registos de auditoria chave são:
 
--   [Registo de Atividades do Azure](../azure-monitor/platform/activity-log-collect.md)
+-   [Registo de Atividades do Azure](../azure-monitor/platform/activity-log.md)
 -   [Registo de atividade do diretório ativo Azure](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Anfitriões de sessão](../azure-monitor/platform/agent-windows.md)
@@ -93,7 +93,7 @@ Ao escolher um modelo de implementação, pode fornecer aos utilizadores remotos
 
 ### <a name="monitor-usage-with-azure-monitor"></a>Monitorize a utilização com o Azure Monitor
 
-Monitorize a utilização e disponibilidade do seu serviço virtual de ambiente de trabalho do Windows com [o Azure Monitor.](https://azure.microsoft.com/services/monitor/) Considere criar alertas de [saúde](../service-health/alerts-activity-log-service-notifications.md) de serviço para o serviço de desktop virtual do Windows para receber notificações sempre que houver um evento com impacto de serviço.
+Monitorize a utilização e disponibilidade do seu serviço virtual de ambiente de trabalho do Windows com [o Azure Monitor.](https://azure.microsoft.com/services/monitor/) Considere criar alertas de [saúde](../service-health/alerts-activity-log-service-notifications-portal.md) de serviço para o serviço de desktop virtual do Windows para receber notificações sempre que houver um evento com impacto de serviço.
 
 ## <a name="session-host-security-best-practices"></a>Sessão anfitrião de boas práticas de segurança
 
@@ -151,6 +151,6 @@ Ao restringir as capacidades do sistema operativo, pode reforçar a segurança d
 
 - Evite que o software indesejado esteja a funcionar em anfitriões de sessão. Pode ativar o App Locker para obter segurança adicional nos anfitriões da sessão, garantindo que apenas as aplicações que permite podem ser executadas no anfitrião.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a ativar a autenticação de vários fatores, consulte [Configurar a autenticação de vários fatores.](set-up-mfa.md)

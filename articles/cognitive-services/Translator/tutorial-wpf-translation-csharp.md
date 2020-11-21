@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ef5384abd63dcd9aeb4789dc4955f4b80068d330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d239b89aaf0bc140916d38583f4263f7bf660f1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88921244"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023621"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar uma aplicação de tradução com o WPF
 
-Neste tutorial, você vai construir uma aplicação [da Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019) que utiliza os Serviços Cognitivos Azure para tradução de texto, deteção de idiomas e verificação ortográfica com uma única chave de subscrição. Especificamente, a sua aplicação irá ligar para APIs do Tradutor e [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+Neste tutorial, você vai construir uma aplicação [da Windows Presentation Foundation (WPF)](/visualstudio/designers/getting-started-with-wpf?view=vs-2019) que utiliza os Serviços Cognitivos Azure para tradução de texto, deteção de idiomas e verificação ortográfica com uma única chave de subscrição. Especificamente, a sua aplicação irá ligar para APIs do Tradutor e [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 O que é WPF? É uma estrutura de UI que cria aplicações de clientes de desktop. A plataforma de desenvolvimento WPF suporta um vasto conjunto de funcionalidades de desenvolvimento de aplicações, incluindo um modelo de aplicações, recursos, controlos, gráficos, layout, ligação de dados, documentos e segurança. É um subconjunto do Quadro .NET, por isso, se já construiu aplicações com o Quadro .NET utilizando ASP.NET ou Formas do Windows, a experiência de programação deve ser familiar. O WPF utiliza a aplicação extensível Markup Language (XAML) para fornecer um modelo declarativo para a programação de aplicações, que iremos rever nas próximas secções.
 
@@ -40,16 +40,16 @@ Esta lista inclui os Serviços Cognitivos utilizados neste tutorial. Siga o link
 
 | Serviço | Funcionalidade | Descrição |
 |---------|---------|-------------|
-| Tradutor | [Obter Línguas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Recupere uma lista completa de idiomas suportados para tradução de texto. |
-| Tradutor | [Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduza o texto em mais de 70 línguas. |
-| Tradutor | [Detetar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detetar a linguagem do texto de entrada. Inclui pontuação de confiança para deteção. |
-| Verificação Ortográfica do Bing | [Verificação ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Erros ortográficos corretos para melhorar a precisão da tradução. |
+| Tradutor | [Obter Línguas](./reference/v3-0-languages.md) | Recupere uma lista completa de idiomas suportados para tradução de texto. |
+| Tradutor | [Traduzir](./reference/v3-0-translate.md) | Traduza o texto em mais de 70 línguas. |
+| Tradutor | [Detetar](./reference/v3-0-detect.md) | Detetar a linguagem do texto de entrada. Inclui pontuação de confiança para deteção. |
+| Verificação Ortográfica do Bing | [Verificação ortográfica](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Erros ortográficos corretos para melhorar a precisão da tradução. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de continuarmos, vai precisar do seguinte:
 
-* Uma assinatura dos Serviços Cognitivos Azure. [Obtenha uma chave de Serviços Cognitivos.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#create-a-new-azure-cognitive-services-resource)
+* Uma assinatura dos Serviços Cognitivos Azure. [Obtenha uma chave de Serviços Cognitivos.](../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource)
 * Uma máquina Windows
 * [Visual Studio 2019](https://www.visualstudio.com/downloads/) - Comunidade ou Empresa
 
@@ -62,7 +62,7 @@ A primeira coisa a fazer é criar o nosso projeto no Estúdio Visual.
 
 1. Abra o Visual Studio. **Selecione Criar um novo projeto.**
 1. Na **Criação de um novo projeto,** localizar e selecionar **a Aplicação WPF (.NET Framework)**. Pode selecionar C# do **Idioma** para reduzir as opções.
-1. Selecione **Next**e, em seguida, nomeie o seu projeto `MSTranslatorDemo` .
+1. Selecione **Next** e, em seguida, nomeie o seu projeto `MSTranslatorDemo` .
 1. Desa esta versão-quadro para **.NET Framework 4.7.2** ou posterior, e selecione **Criar**.
    ![Insira o nome e a versão quadro no Visual Studio](media/name-wpf-project-visual-studio.png)
 
@@ -83,14 +83,14 @@ Vamos adicionar conjuntos ao nosso projeto para serializar e deserizar objetos, 
 1. O separador **Assemblies** lista todas as assembleias-quadro .NET que estão disponíveis para referência. Utilize a barra de pesquisa no canto superior direito para procurar referências.
    ![Adicionar referências de montagem](media/add-assemblies-2019.png)
 1. Selecione as seguintes referências para o seu projeto:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Runtime.Serialization](/dotnet/api/system.runtime.serialization)
+   * [System.Web](/dotnet/api/system.web)
    * System.Web.Extensions
-   * [Sistema.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
+   * [Sistema.Windows](/dotnet/api/system.windows)
 1. Depois de adicionar estas referências ao seu projeto, pode clicar **em OK** para fechar **o Reference Manager**.
 
 > [!NOTE]
-> Se quiser saber mais sobre referências de montagem, consulte [Como: Adicionar ou remover referências utilizando o Gestor de Referência](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
+> Se quiser saber mais sobre referências de montagem, consulte [Como: Adicionar ou remover referências utilizando o Gestor de Referência](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
 
 ### <a name="install-newtonsoftjson"></a>Instale NewtonSoft.Jsem
 
@@ -269,7 +269,7 @@ O Tradutor suporta atualmente mais de 70 línguas. Uma vez que o novo suporte li
 Nesta secção, vamos criar um `GET` pedido ao recurso Idiomas, especificando que queremos uma lista de idiomas disponíveis para tradução.
 
 > [!NOTE]
-> O recurso Languages permite filtrar o suporte linguístico com os seguintes parâmetros de consulta: transliteração, dicionário e tradução. Para mais informações, consulte [a referência API.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages)
+> O recurso Languages permite filtrar o suporte linguístico com os seguintes parâmetros de consulta: transliteração, dicionário e tradução. Para mais informações, consulte [a referência API.](./reference/v3-0-languages.md)
 
 Antes de irmos mais longe, vamos dar uma olhada na saída da amostra para uma chamada para o recurso Languages:
 
@@ -578,7 +578,7 @@ O código-fonte para este projeto está disponível no GitHub.
 
 * [Explore o código fonte](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp-Tutorial)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Referência do Tradutor da Microsoft](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+> [Referência do Tradutor da Microsoft](./reference/v3-0-reference.md)

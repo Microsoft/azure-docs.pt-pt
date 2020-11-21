@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 1effb62619f9767cc90c99e037445e7a95981460
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3aedbef079ba62f42ea79afdcd9995d7ee23d9fa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078243"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020730"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrando para novas versões Azure Time Series Insights Gen2 API
 
@@ -24,9 +24,9 @@ ms.locfileid: "92078243"
 Se criou um ambiente Azure Time Series Insights Gen2 quando esteve em Visualização Pública (antes de 16 de julho de 2020), por favor atualize o seu ambiente de TSI para utilizar as novas versões geralmente disponíveis de APIs seguindo os passos descritos neste artigo. Esta alteração não afeta nenhum utilizadores que estejam a utilizar a versão Gen1 do Azure Time Series Insights.
 
 > [!IMPORTANT]
-> As atualizações descritas neste artigo apenas atualizarão as versões API utilizadas pelo seu ambiente TSI. Esta mudança não está relacionada com as novas [regras de achatamento e fuga da JSON](https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules) introduzidas para os ambientes da Gen2.
+> As atualizações descritas neste artigo apenas atualizarão as versões API utilizadas pelo seu ambiente TSI. Esta mudança não está relacionada com as novas [regras de achatamento e fuga da JSON](./concepts-json-flattening-escaping-rules.md) introduzidas para os ambientes da Gen2.
 
-A nova versão API é `2020-07-31` e utiliza uma [sintaxe](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)de expressão de série sonora atualizada.
+A nova versão API é `2020-07-31` e utiliza uma [sintaxe](/rest/api/time-series-insights/reference-time-series-expression-syntax)de expressão de série sonora atualizada.
 
 Os utilizadores devem migrar as variáveis modelos de [séries de tempo](./concepts-variables.md)do seu ambiente, consultas guardadas, consultas de Power BI e quaisquer ferramentas personalizadas que estivam chamadas para os pontos finais da API. Se tiver alguma dúvida ou preocupação sobre o processo de migração, envie um bilhete de apoio através do portal Azure e mencione este documento.
 
@@ -42,7 +42,7 @@ Para ajudar os utilizadores a migrar as suas [variáveis de Modelo de Séries de
 
 1. O Explorer irá solicitar que atualize a sintaxe utilizada pelas variáveis do Modelo série de tempo e que guarde as consultas.
 
-    [![Solicitação](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
+    [![Prompt](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
 
     Se fechar acidentalmente a notificação, pode ser encontrada no painel de notificação.
 
@@ -63,7 +63,7 @@ Para ajudar os utilizadores a migrar as suas [variáveis de Modelo de Séries de
 
     [![Atualizar consultas guardadas](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. Clique em **Done** (Concluído).
+1. Clique em **Concluído**.
 
     [![Migração concluída](media/api-migration/ux-migration-tool-updated-saved-queries.png)](media/v2-update-overview/overview-one.png#lightbox)
 
@@ -84,28 +84,28 @@ Se a sua aplicação personalizada estiver a fazer chamadas para os seguintes po
 
 - APIs modelo série de tempo
   - APIs de Configurações de Modelos
-    - [Obter](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
-    - [Atualizar](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
+    - [Obter](/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
+    - [Atualizar](/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
   - APIs de instância
-    - [Todas as operações do lote](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
-    - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
-    - [Pesquisa](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
-    - [Sugerir](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
+    - [Todas as operações do lote](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
+    - [Lista](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
+    - [Pesquisa](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
+    - [Sugerir](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
   - APIs da hierarquia
-    - [Todas as operações do lote](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
-    - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
+    - [Todas as operações do lote](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
+    - [Lista](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
   - Tipos APIs
-    - [Excluir, obter operações](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
-    - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
+    - [Excluir, obter operações](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
+    - [Lista](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-Para os seguintes pontos finais REST, deve atualizar a versão API para `2020-07-31` o URI e certificar-se de que todas as ocorrências da `tsx` propriedade utilizam a [sintaxe](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)de expressão de série sonora atualizada .
+Para os seguintes pontos finais REST, deve atualizar a versão API para `2020-07-31` o URI e certificar-se de que todas as ocorrências da `tsx` propriedade utilizam a [sintaxe](/rest/api/time-series-insights/reference-time-series-expression-syntax)de expressão de série sonora atualizada .
 
 - Tipos APIs
-  - [Colocar operação](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
+  - [Colocar operação](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
 - APIs de Consulta
-  - [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
-  - [GetSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
-  - [GetAggregateseries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
+  - [GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
+  - [GetSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
+  - [GetAggregateseries](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
 ### <a name="examples"></a>Exemplos
 
@@ -358,7 +358,7 @@ Em alternativa, o `value` pode também `coalesce($event['Temp'].Double, toDouble
 
 #### <a name="invalidinput"></a>Inválido
 
-Se vir o seguinte erro, está a utilizar a nova versão API `2020-07-31` (), mas a sintaxe TSX não foi atualizada. Por favor, reveja a [Sintaxe de Expressão de Séries Temporais](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) e os exemplos de migração acima. Certifique-se de que todas as `tsx` propriedades estão corretamente atualizadas antes de voltar a enviar o pedido da API.
+Se vir o seguinte erro, está a utilizar a nova versão API `2020-07-31` (), mas a sintaxe TSX não foi atualizada. Por favor, reveja a [Sintaxe de Expressão de Séries Temporais](/rest/api/time-series-insights/reference-time-series-expression-syntax) e os exemplos de migração acima. Certifique-se de que todas as `tsx` propriedades estão corretamente atualizadas antes de voltar a enviar o pedido da API.
 
 ```JSON
 {

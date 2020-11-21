@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: ee37ab90910058378172223a3435047346f5fe7c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6ffe631dc237e7efaf1d6bfd9ac79ab7431c7371
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701792"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023144"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows Virtual Desktop RDP Shortpath (pré-visualização)
 
@@ -36,7 +36,7 @@ O RDP Shortpath está a alargar as capacidades de transporte multi-transport RDP
 
 A porta UDP 3390 é utilizada apenas para o tráfego de shortpath que é autenticado sobre o transporte de ligação inversa. O ouvinte do RDP Shortpath ignora todas as tentativas de ligação ao ouvinte, a menos que correspondam à sessão de ligação inversa.
 
-O RDP Shortpath utiliza uma ligação TLS entre o cliente e o anfitrião da sessão utilizando os certificados do anfitrião da sessão. Por predefinição, o certificado utilizado para a encriptação RDP é autogerido pelo SO durante a implementação. Se desejar, os clientes podem utilizar certificados geridos centralmente emitidos pela autoridade de certificação da empresa. Para obter mais informações sobre as configurações do certificado, consulte [a documentação do Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations.md).
+O RDP Shortpath utiliza uma ligação TLS entre o cliente e o anfitrião da sessão utilizando os certificados do anfitrião da sessão. Por predefinição, o certificado utilizado para a encriptação RDP é autogerido pelo SO durante a implementação. Se desejar, os clientes podem utilizar certificados geridos centralmente emitidos pela autoridade de certificação da empresa. Para obter mais informações sobre as configurações do certificado, consulte [a documentação do Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 
 ## <a name="rdp-shortpath-connection-sequence"></a>Sequência de ligação RDP Shortpath
 
@@ -187,7 +187,7 @@ Os valores possíveis são:
 * **0** - a ligação do utilizador não está a utilizar o Caminho-Curto RDP
 * **1** - a ligação do utilizador está a utilizar o Caminho-Curto RDP
   
-A seguinte lista de consultas permite-lhe rever as informações de ligação. Pode executar esta consulta no [editor de consulta do Log Analytics.](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries) Para cada consulta, `userupn` substitua-a pela UPN do utilizador que pretende procurar.
+A seguinte lista de consultas permite-lhe rever as informações de ligação. Pode executar esta consulta no [editor de consulta do Log Analytics.](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query) Para cada consulta, `userupn` substitua-a pela UPN do utilizador que pretende procurar.
 
 ```kusto
 let Events = WVDConnections | where UserName == "userupn" ;
@@ -252,7 +252,7 @@ Para desativar o Caminho Curto RDP para um anfitrião de sessão específica, po
 Gostaríamos de ouvir sobre as suas experiências com esta pré-estreia pública!
 * Para perguntas, pedidos, comentários e outros comentários, [utilize este formulário de feedback](https://aka.ms/RDPShortpathFeedback).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a conectividade da rede virtual do Windows Desktop, consulte [a conectividade da rede virtual de desktop do Windows.](network-connectivity.md)
 * Para começar com a Qualidade de Serviço (QoS) para o Windows Virtual Desktop, consulte [implementar qualidade de serviço (QoS) para Windows Virtual Desktop](rdp-quality-of-service-qos.md).

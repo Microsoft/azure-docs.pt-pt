@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f89dd6b7926baf6c1c64cff81e8b613461a3e925
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b9ed43019e7af0cb810c3e0fc849281a458a43e1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345504"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023638"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como utilizar a transcrição do lote
 
@@ -46,7 +46,7 @@ Tal como acontece com todas as funcionalidades do serviço Speech, cria uma chav
 >[!NOTE]
 > É necessária uma subscrição padrão (S0) para o serviço de fala para a transcrição do lote. As teclas de subscrição gratuitas (F0) não funcionam. Para mais informações, consulte [os preços e os limites.](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 
-Se pretende personalizar modelos, siga os passos na [personalização acústica](how-to-customize-acoustic-models.md) e [personalização linguística.](how-to-customize-language-model.md) Para utilizar os modelos criados na transcrição do lote, precisa da localização do modelo. Pode recuperar a localização do modelo quando inspeciona os detalhes do modelo `self` (propriedade). Um ponto final personalizado não é *necessário* para o serviço de transcrição do lote.
+Se pretende personalizar modelos, siga os passos na [personalização acústica](./how-to-custom-speech-train-model.md) e [personalização linguística.](./how-to-custom-speech-train-model.md) Para utilizar os modelos criados na transcrição do lote, precisa da localização do modelo. Pode recuperar a localização do modelo quando inspeciona os detalhes do modelo `self` (propriedade). Um ponto final personalizado não é *necessário* para o serviço de transcrição do lote.
 
 >[!NOTE]
 > Como parte da API REST, a Transcrição do Lote tem um conjunto de [quotas e limites](speech-services-quotas-and-limits.md#batch-transcription), que encorajamos a rever. Para tirar o máximo partido da capacidade de transcrição do lote para transcrever eficientemente um grande número de ficheiros áudio, recomendamos sempre o envio de vários ficheiros por pedido ou apontando para um recipiente de Armazenamento Blob com os ficheiros de áudio para transcrever. O serviço transcreverá os ficheiros simultaneamente reduzindo o tempo de reviravolta. A utilização de vários ficheiros num único pedido é muito simples e simples - consulte a secção [de Configuração.](#configuration) 
@@ -182,7 +182,7 @@ Utilize estas propriedades opcionais para configurar a transcrição:
 
 ### <a name="storage"></a>Armazenamento
 
-A transcrição do lote pode ler áudio a partir de um URI de internet visível pelo público, e pode ler áudio ou escrever transcrições usando um SAS URI com [armazenamento Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+A transcrição do lote pode ler áudio a partir de um URI de internet visível pelo público, e pode ler áudio ou escrever transcrições usando um SAS URI com [armazenamento Azure Blob](../../storage/blobs/storage-blobs-overview.md).
 
 ## <a name="batch-transcription-result"></a>Resultado da transcrição do lote
 

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 211ad590ab01d0be26d799064e1227accc619585
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 2c143c299cec1d48dd5438d5350c818d5cc93800
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497367"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023723"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,7 @@ Algumas diretrizes gerais para ajudá-lo a escolher o nível de serviço certo e
 Pode escolher recursos de computação e armazenamento durante a implementação e, em seguida, alterá-los depois de usar o [portal Azure](../../database/scale-resources.md) sem incorrer em tempo de inatividade para a sua aplicação. 
 
 > [!IMPORTANT]
-> Qualquer discrepância nos [requisitos de rede virtuais geridos](/../../managed-instance/connectivity-architecture-overview.md#network-requirements) pode impedi-lo de criar novos casos ou usar os existentes. Saiba mais sobre [a criação](/../../managed-instance/virtual-network-subnet-create-arm-template?branch=release-ignite-arc-data)de redes novas   e [configuradas.](/../../managed-instance/vnet-existing-add-subnet?branch=release-ignite-arc-data)   
+> Qualquer discrepância nos [requisitos de rede virtuais geridos](/azure/azure-sql/managed-instance/connectivity-architecture-overview#network-requirements) pode impedi-lo de criar novos casos ou usar os existentes. Saiba mais sobre [a criação](/azure/azure-sql/managed-instance/virtual-network-subnet-create-arm-template?branch=release-ignite-arc-data)de redes novas   e [configuradas.](/azure/azure-sql/managed-instance/vnet-existing-add-subnet?branch=release-ignite-arc-data)   
 
 ### <a name="sql-server-vm-alternative"></a>Alternativa SQL Server VM
 
@@ -89,7 +89,7 @@ O quadro que se segue lista as ferramentas de migração recomendadas:
 |Tecnologia | Descrição|
 |---------|---------|
 |[Azure Database Migration Service (DMS)](/azure/dms/tutorial-sql-server-to-managed-instance)  | Primeiro serviço Azure que suporta a migração no modo offline para aplicações que podem pagar tempo de inatividade durante o processo de migração. Ao contrário da migração contínua no modo on-line, a migração em modo offline executa uma única vez a restauração de uma cópia de segurança completa da base de dados da fonte para o alvo. | 
-|[Backup nativo e restauro](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance suporta o RESTORE de backups nativos da base de dados do SQL Server (.ficheiros bak), tornando-se a opção de migração mais fácil para clientes que podem fornecer cópias de dados completas para armazenamento Azure. Cópias de segurança completas e diferenciais também são apoiadas e documentadas na [secção de ativos de migração](#migration-assets) mais tarde neste artigo.| 
+|[Backup nativo e restauro](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance suporta o RESTORE de backups nativos da base de dados do SQL Server (.bak ficheiros), tornando-se a opção de migração mais fácil para clientes que podem fornecer cópias de dados completas para armazenamento Azure. Cópias de segurança completas e diferenciais também são apoiadas e documentadas na [secção de ativos de migração](#migration-assets) mais tarde neste artigo.| 
 | | |
 
 ### <a name="alternative-tools"></a>Ferramentas alternativas
@@ -99,7 +99,7 @@ O quadro que se segue lista os instrumentos alternativos de migração:
 |Tecnologia |Descrição  |
 |---------|---------|
 |[Replicação transacional](../../managed-instance/replication-transactional-overview.md) | Replicar dados da tabela de base de dados do SQL Server de origem para a SQL Managed Instance, fornecendo uma opção de migração tipo de assinante-editor, mantendo a consistência transacional. |  |
-|[Cópia a granel](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| O [programa de cópias em massa (bcp) copia](/sql/tools/bcp-utility) dados de uma instância do SQL Server num ficheiro de dados. Utilize o utilitário BCP para exportar os dados da sua fonte e importe o ficheiro de dados para o exemplo alvo da SQL Managed Instance.</br></br> Para operações de cópia a granel de alta velocidade para mover dados para Azure SQL Database, a [ferramenta Smart Bulk Copy](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) pode ser utilizada para maximizar as velocidades de transferência, aproveitando tarefas paralelas de cópia. | 
+|[Cópia em massa](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| O [programa de cópias em massa (bcp) copia](/sql/tools/bcp-utility) dados de uma instância do SQL Server num ficheiro de dados. Utilize o utilitário BCP para exportar os dados da sua fonte e importe o ficheiro de dados para o exemplo alvo da SQL Managed Instance.</br></br> Para operações de cópia a granel de alta velocidade para mover dados para Azure SQL Database, a [ferramenta Smart Bulk Copy](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) pode ser utilizada para maximizar as velocidades de transferência, aproveitando tarefas paralelas de cópia. | 
 |[Assistente de Exportação de Importações / BACPAC](/azure/azure-sql/database/database-import?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) é um ficheiro Windows com uma `.bacpac` extensão que encapsula o esquema e os dados de uma base de dados. O BACPAC pode ser utilizado tanto para exportar dados de um servidor SQL de origem como para importar o ficheiro de volta para Azure SQL Managed Instance.  |  
 |[Fábrica de Dados Azure (ADF)](/azure/data-factory/connector-azure-sql-managed-instance)| A [atividade copy](/azure/data-factory/copy-activity-overview) in Azure Data Factory migra dados da base de dados(s) do SQL Server para a SQL Managed Instance utilizando conectores incorporados e um tempo de [execução de integração](/azure/data-factory/concepts-integration-runtime).</br> </br> A ADF suporta uma vasta gama de [conectores](/azure/data-factory/connector-overview) para mover dados de fontes do SQL Server para SQL Managed Instance. |
 | | |
@@ -125,7 +125,7 @@ O quadro a seguir compara as opções alternativas de migração:
 |Método / tecnologia |Quando utilizar |Considerações  |
 |---------|---------|---------|
 |[Replicação transacional](../../managed-instance/replication-transactional-overview.md) | - Migrar publicando continuamente alterações das tabelas de bases de dados de origem para as tabelas de base de dados de casos geridos sql. </br> - Migrações completas ou parciais de bases de dados de tabelas selecionadas (subconjunto de base de dados).  </br> </br> Fontes apoiadas: </br> - SQL Server (2012 - 2019) com algumas limitações </br> - AWS EC2  </br> - GCP Compute SQL Server VM | </br> - A configuração é relativamente complexa em comparação com outras opções de migração.   </br> - Fornece uma opção de replicação contínua para migrar dados (sem tirar as bases de dados offline).</br> - A replicação transacional tem uma série de limitações a ter em conta na configuração do Editor no Servidor SQL de origem. Consulte [as limitações dos objetos de publicação](/sql/relational-databases/replication/publish/publish-data-and-database-objects#limitations-on-publishing-objects) para saber mais.  </br> - Está disponível a capacidade de monitorizar a [atividade de replicação.](/sql/relational-databases/replication/monitor/monitoring-replication)    |
-|[Cópia a granel](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| - Migração total ou parcial de migração de dados. </br> - Pode acomodar o tempo de inatividade. </br> </br> Fontes apoiadas: </br> - SQL Server (2005 - 2019) no local ou Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM   | - Requer tempo de inatividade para exportar dados provenientes da fonte e importar para o alvo. </br> - Os formatos de ficheiros e os tipos de dados utilizados na exportação/importação devem ser consistentes com os esquemas de tabela. |
+|[Cópia em massa](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| - Migração total ou parcial de migração de dados. </br> - Pode acomodar o tempo de inatividade. </br> </br> Fontes apoiadas: </br> - SQL Server (2005 - 2019) no local ou Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM   | - Requer tempo de inatividade para exportar dados provenientes da fonte e importar para o alvo. </br> - Os formatos de ficheiros e os tipos de dados utilizados na exportação/importação devem ser consistentes com os esquemas de tabela. |
 |[Assistente de Exportação de Importações / BACPAC](/azure/azure-sql/database/database-import)| - Migrar a base de dados de aplicações individuais da Linha das Empresas. </br>- Adequado para bases de dados mais pequenas.  </br>  Não requer um serviço ou ferramenta de migração separado. </br> </br> Fontes apoiadas: </br> - SQL Server (2005 - 2019) no local ou Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM  |   </br> - Requer tempo de inatividade, uma vez que os dados devem ser exportados na fonte e importados no destino.   </br> - Os formatos de ficheiros e os tipos de dados utilizados na exportação/importação devem ser consistentes com esquemas de tabela para evitar erros de incompatibilidade entre truncações/tipos de dados. </br> - O tempo necessário para exportar uma base de dados com um grande número de objetos pode ser significativamente maior. |
 |[Fábrica de Dados Azure (ADF)](/azure/data-factory/connector-azure-sql-managed-instance)| - Migrar e/ou transformar dados a partir da base de dados do SQL Server de origem.</br> - Fusão de dados de múltiplas fontes de dados para Azure SQL Gestd Instance tipicamente para cargas de trabalho de Business Intelligence (BI).   </br> - Requer a criação de oleodutos de movimento de dados na ADF para mover dados de origem para destino.   </br> - [O custo](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) é uma consideração importante e baseia-se nos gatilhos do gasoduto, nas operações, na duração do movimento dos dados, etc. |
 | | | |
@@ -203,7 +203,7 @@ Algumas funcionalidades só estão disponíveis quando o [nível de compatibilid
 
 Para assistência adicional, consulte os seguintes recursos que foram desenvolvidos para projetos de migração no mundo real.
 
-|Recurso  |Description  |
+|Recurso  |Descrição  |
 |---------|---------|
 |[Modelo e ferramenta de avaliação da carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta ferramenta fornece plataformas-alvo sugeridas "melhor ajuste", prontidão na nuvem e nível de remediação de aplicações/bases de dados para uma determinada carga de trabalho. Oferece um cálculo simples e de um clique e uma geração de relatórios que ajuda a acelerar as grandes avaliações imobiliárias, fornecendo e automatizada e uniforme processo de decisão da plataforma-alvo.|
 |[Utilidade DBLoader](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|O DBLoader pode ser usado para carregar dados de ficheiros de texto delimitados para o SQL Server. Este utilitário de consola Windows utiliza a interface de volume de pessoal do cliente nativo do SQL Server, que funciona em todas as versões do SQL Server, incluindo O SQL MI.|
@@ -214,7 +214,7 @@ Para assistência adicional, consulte os seguintes recursos que foram desenvolvi
 Estes recursos foram desenvolvidos como parte do Programa Ninja Data SQL, que é patrocinado pela equipa de engenharia do Azure Data Group. A carta principal do programa Data SQL Ninja é desbloquear e acelerar a modernização complexa e competir oportunidades de migração da plataforma de dados para a plataforma de dados Azure Data da Microsoft. Se acha que a sua organização estaria interessada em participar no programa Data SQL Ninja, contacte a sua equipa de conta e peça-lhes que apresentem uma nomeação.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a migrar o seu SqL Server para Azure SQL Managed Instance, consulte o [guia de migração SQL Server para SQL Managed Instance](sql-server-to-managed-instance-guide.md).
 

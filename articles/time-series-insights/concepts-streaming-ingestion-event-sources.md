@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 6bc238389ac470e6127a582eb174ec7bc438e36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e83cca79a4dc99533ab17cca7e96e1ac802d598
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650873"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020798"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 Event Sources
 
@@ -27,7 +27,7 @@ Os eventos devem ser enviados como UTF-8 codificado JSON.
 
 ## <a name="create-or-edit-event-sources"></a>Criar ou editar fontes de eventos
 
-Os recursos de origem do evento podem viver na mesma subscrição Azure que o ambiente Azure Time Series Insights Gen2 ou uma subscrição diferente. Pode utilizar o [portal Azure](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [Azure CLI,](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights) [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md)e a [API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para criar, editar ou remover as fontes de eventos do seu ambiente.
+Os recursos de origem do evento podem viver na mesma subscrição Azure que o ambiente Azure Time Series Insights Gen2 ou uma subscrição diferente. Pode utilizar o [portal Azure](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI,](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights) [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md)e a [API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) para criar, editar ou remover as fontes de eventos do seu ambiente.
 
 Quando ligar uma fonte de evento, o seu ambiente Azure Time Series Insights Gen2 irá ler todos os eventos atualmente armazenados no seu Iot ou Event Hub, a começar pelo evento mais antigo.
 
@@ -45,7 +45,7 @@ Quando ligar uma fonte de evento, o seu ambiente Azure Time Series Insights Gen2
 
 - Não ultrapasse o limite de [taxa de produção](./concepts-streaming-ingress-throughput-limits.md) do seu ambiente ou por limite de partição.
 
-- Configure um [alerta](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) de lag para ser notificado se o seu ambiente estiver a passar por problemas de processamento de dados.
+- Configure um [alerta](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) de lag para ser notificado se o seu ambiente estiver a passar por problemas de processamento de dados.
 
 - Utilize a ingestão de streaming apenas em tempo real e dados recentes, o streaming de dados históricos não é suportado.
 
@@ -64,7 +64,7 @@ A utilização do gasoduto de streaming para importar dados históricos não é 
 
 ## <a name="event-source-timestamp"></a>Data de tempo de fonte de evento
 
-Ao configurar uma fonte de evento, será solicitado que forneça uma propriedade de identificação de hora. A propriedade de relógios é usada para rastrear eventos ao longo do tempo, este é o tempo que será usado como o $event.$ts nas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) e para traçar séries no Azure Time Series Insights Explorer. Se nenhuma propriedade for fornecida no momento da criação, ou se a propriedade do relógio faltar de um evento, então o tempo de IoT Hub ou Eventos do evento será usado como padrão. Os valores de propriedade do timetamp são armazenados na UTC.
+Ao configurar uma fonte de evento, será solicitado que forneça uma propriedade de identificação de hora. A propriedade de relógios é usada para rastrear eventos ao longo do tempo, este é o tempo que será usado como o $event.$ts nas [APIs de Consulta](/rest/api/time-series-insights/dataaccessgen2/query/execute) e para traçar séries no Azure Time Series Insights Explorer. Se nenhuma propriedade for fornecida no momento da criação, ou se a propriedade do relógio faltar de um evento, então o tempo de IoT Hub ou Eventos do evento será usado como padrão. Os valores de propriedade do timetamp são armazenados na UTC.
 
 Em geral, os utilizadores optarão por personalizar a propriedade do timetamp e utilizar o tempo em que o sensor ou tag gerou a leitura em vez de usar o tempo padrão do hub. Isto é particularmente necessário quando os dispositivos têm perda de conectividade intermitente e um lote de mensagens atrasadas são reencaminhadas para Azure Time Series Insights Gen2.
 
@@ -80,7 +80,7 @@ A compensação do fuso horário deve ser formatada como uma das seguintes:
 ±HH:MM</br>
 ±HH:MMZ</br>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia as [Regras de Achatamento e Fuga](./concepts-json-flattening-escaping-rules.md) do JSON para entender como os eventos serão armazenados.
 

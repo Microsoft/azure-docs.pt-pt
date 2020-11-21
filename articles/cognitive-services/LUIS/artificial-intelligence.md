@@ -6,12 +6,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 2586bf2d31ef28c662ad88bde3718541bb21a31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39f73dd002091451ae832516d525499eae98564d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327209"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021376"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>Inteligência artificial na Compreensão da Linguagem (LUIS)
 
@@ -38,7 +38,7 @@ O processamento de linguagem natural está disponível para a sua aplicação LU
 * Aspetos de NLP configuráveis em LUIS:
     * [Tokenização](luis-language-support.md#tokenization)
     * Morfologia através de diacríticos, pontuação e palavra forma [configurações de API](luis-reference-application-settings.md)
-* Pré-processamento ou pós-processamento da expressão de consulta fornecida por outros [Serviços Cognitivos,](../Welcome.md) tais como:
+* Pré-processamento ou pós-processamento da expressão de consulta fornecida por outros [Serviços Cognitivos,](../what-are-cognitive-services.md) tais como:
     * [Tradução](../translator/translator-info-overview.md)
 
 ## <a name="natural-language-understanding-nlu"></a>Compreensão da linguagem natural (NLU)
@@ -55,6 +55,6 @@ A LUIS tem pouco ou nenhum conhecimento dos aspetos mais amplos do _PNL,_ como a
 * compra
 * comprado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Conheça o [ciclo de vida de desenvolvimento de](luis-concept-app-iteration.md) uma app LUIS

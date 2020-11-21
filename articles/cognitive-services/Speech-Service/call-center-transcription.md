@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630156"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021971"
 ---
 # <a name="speech-service-for-telephony-data"></a>Serviço de fala para dados de telefonia
 
@@ -60,7 +60,7 @@ Não é incomum que 35% de um apelo de apoio seja o que chamamos de tempo de nã
 
 ### <a name="translation"></a>Tradução
 
-Algumas empresas estão a experimentar o fornecimento de transcrições traduzidas de chamadas de suporte de línguas estrangeiras para que os gestores de entregas possam compreender a experiência mundial dos seus clientes. As nossas capacidades de [tradução](/azure/cognitive-services/speech-service/speech-translation) são insuperáveis. Podemos traduzir áudio-a-áudio ou áudio-a-texto para um grande número de locais.
+Algumas empresas estão a experimentar o fornecimento de transcrições traduzidas de chamadas de suporte de línguas estrangeiras para que os gestores de entregas possam compreender a experiência mundial dos seus clientes. As nossas capacidades de [tradução](./speech-translation.md) são insuperáveis. Podemos traduzir áudio-a-áudio ou áudio-a-texto para um grande número de locais.
 
 ### <a name="text-to-speech"></a>Conversão de Texto em Voz
 
@@ -94,7 +94,7 @@ Uma solução típica utiliza estes serviços:
 
 - O serviço de discurso é utilizado para transcrever o discurso-a-texto. É necessária uma subscrição padrão (S0) para o serviço Speech para utilizar a API de Transcrição de Lote. As subscrições gratuitas (F0) não funcionarão.
 - [O Azure Storage](https://azure.microsoft.com/services/storage/) é utilizado para armazenar dados de telefonia, e as transcrições devolvidas pela API de Transcrição de Lote. Esta conta de armazenamento deve utilizar notificações, especificamente para quando novos ficheiros são adicionados. Estas notificações são usadas para desencadear o processo de transcrição.
-- [As Funções Azure](https://docs.microsoft.com/azure/azure-functions/) são utilizadas para criar as assinaturas de acesso partilhado (SAS) URI para cada gravação e acionar o pedido HTTP POST para iniciar uma transcrição. Além disso, as Funções Azure são usadas para criar pedidos para recuperar e apagar transcrições usando a API de Transcrição de Lote.
+- [As Funções Azure](../../azure-functions/index.yml) são utilizadas para criar as assinaturas de acesso partilhado (SAS) URI para cada gravação e acionar o pedido HTTP POST para iniciar uma transcrição. Além disso, as Funções Azure são usadas para criar pedidos para recuperar e apagar transcrições usando a API de Transcrição de Lote.
 
 Internamente, estamos a utilizar as tecnologias acima para suportar chamadas de clientes da Microsoft no modo Batch.
 :::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Tecnologias utilizadas para suportar chamadas de clientes da Microsoft no modo Batch.":::
@@ -111,7 +111,7 @@ Internamente, estamos a usar as tecnologias acima para analisar em tempo real ch
 
 ## <a name="a-word-on-ivrs"></a>Uma palavra sobre IVRs
 
-O serviço Speech pode ser facilmente integrado em qualquer solução utilizando o [SDK](speech-sdk.md) de discurso ou a [API REST](rest-apis.md). No entanto, a transcrição do call center pode requerer tecnologias adicionais. Normalmente, é necessária uma ligação entre um sistema IVR e Azure. Embora não ofereçamos tais componentes, aqui está uma descrição do que uma ligação a um IVR implica.
+O serviço Speech pode ser facilmente integrado em qualquer solução utilizando o [SDK](speech-sdk.md) de discurso ou a [API REST](./overview.md#reference-docs). No entanto, a transcrição do call center pode requerer tecnologias adicionais. Normalmente, é necessária uma ligação entre um sistema IVR e Azure. Embora não ofereçamos tais componentes, aqui está uma descrição do que uma ligação a um IVR implica.
 
 Vários produtos de serviço IVR ou de telefonia (como genesys ou AudioCodes) oferecem capacidades de integração que podem ser alavancadas para permitir a entrada e saída de áudio para um serviço Azure. Basicamente, um serviço Azure personalizado pode fornecer uma interface específica para definir sessões de chamadas telefónicas (como Call Start ou Call End) e expor uma API webSocket para receber áudio de entrada que é usado com o serviço de Fala. As respostas de saída, como a transcrição de conversas ou ligações com o Quadro Bot, podem ser sintetizadas com o serviço de texto-a-voz da Microsoft e devolvidas ao IVR para reprodução.
 
@@ -121,12 +121,12 @@ Outro cenário é a integração direta com o Protocolo de Iniciação da Sessã
 
  O serviço Speech funciona bem com modelos embutidos. No entanto, é melhor personalizar e afinar ainda mais a experiência para o seu produto ou ambiente. As opções de personalização vão desde a sintonização de modelos acústicos a fontes de voz únicas para a sua marca. Depois de ter construído um modelo personalizado, pode usá-lo com qualquer uma das funcionalidades do serviço Speech em tempo real ou em modo de lote.
 
-| Serviço de voz | Modelo | Descrição |
+| Serviço de voz | Modelação | Descrição |
 | -------------- | ----- | ----------- |
-| Conversão de voz em texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Crie um modelo acústico personalizado para aplicações, ferramentas ou dispositivos que sejam utilizados em ambientes particulares, como num carro ou num piso de fábrica, cada um com condições de gravação específicas. Exemplos incluem discurso acentuado, ruídos de fundo específicos, ou usar um microfone específico para a gravação. |
-|                | [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e gramática específicos da indústria, como terminologia médica, ou jargão de TI. |
-|                | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizado, pode definir a forma fonética e exibir por uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou siglas. Tudo o que precisa para começar é um ficheiro de pronúncia, que é um `.txt` ficheiro simples. |
-| Conversão de texto em voz | [Tipo de voz](how-to-customize-voice-font.md) | As fontes de voz personalizadas permitem-lhe criar uma voz única e reconhecível para a sua marca. Só é preciso uma pequena quantidade de dados para começar. Quanto mais dados fornecer, mais natural e humano soará a sua fonte de voz. |
+| Conversão de voz em texto | [Modelo acústico](./how-to-custom-speech-train-model.md) | Crie um modelo acústico personalizado para aplicações, ferramentas ou dispositivos que sejam utilizados em ambientes particulares, como num carro ou num piso de fábrica, cada um com condições de gravação específicas. Exemplos incluem discurso acentuado, ruídos de fundo específicos, ou usar um microfone específico para a gravação. |
+|                | [Modelo de linguagem](./how-to-custom-speech-train-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e gramática específicos da indústria, como terminologia médica, ou jargão de TI. |
+|                | [Modelo de pronúncia](./how-to-custom-speech-train-model.md) | Com um modelo de pronúncia personalizado, pode definir a forma fonética e exibir por uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou siglas. Tudo o que precisa para começar é um ficheiro de pronúncia, que é um `.txt` ficheiro simples. |
+| Conversão de texto em voz | [Tipo de voz](./how-to-custom-voice-create-voice.md) | As fontes de voz personalizadas permitem-lhe criar uma voz única e reconhecível para a sua marca. Só é preciso uma pequena quantidade de dados para começar. Quanto mais dados fornecer, mais natural e humano soará a sua fonte de voz. |
 
 ## <a name="sample-code"></a>Código de exemplo
 
@@ -138,13 +138,13 @@ O código de amostra está disponível no GitHub para cada uma das funcionalidad
 
 ## <a name="reference-docs"></a>Documentos de referência
 
-- [API de Voz](speech-sdk-reference.md)
+- [API de Voz](./speech-sdk.md)
 - [SDK de Dispositivos de Voz](speech-devices-sdk.md)
 - [REST API: Discurso-a-texto](rest-speech-to-text.md)
 - [REST API: Texto-a-discurso](rest-text-to-speech.md)
 - [REST API: Transcrição e personalização do lote](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)

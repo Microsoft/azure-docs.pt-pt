@@ -9,19 +9,19 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: d504cbe9c2ac9046a34187d4a5576385b1f73bbe
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 982ca04237d16979d65260a040f5aed783822ac7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518114"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023229"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Criar um ambiente Azure Time Series Insights Gen1
 
 > [!CAUTION]
 > Este é um artigo da Gen1.
 
-Este tutorial guia-o através do processo de criação de um ambiente Azure Time Series Insights que é preenchido com dados de dispositivos simulados. Neste tutorial, ficará a saber como:
+Este tutorial guia-o através do processo de criação de um ambiente Azure Time Series Insights que é preenchido com dados de dispositivos simulados. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -101,7 +101,7 @@ Em segundo lugar, crie um ambiente Azure Time Series Insights na sua subscriçã
 
    Parâmetro|Descrição
    ---|---
-   **Nome do ambiente** | Escolha um nome único para o ambiente Azure Time Series Insights. Os nomes são utilizados pelo Azure Time Series Insights Explorer e pelas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
+   **Nome do ambiente** | Escolha um nome único para o ambiente Azure Time Series Insights. Os nomes são utilizados pelo Azure Time Series Insights Explorer e pelas [APIs de Consulta](/rest/api/time-series-insights/gen1-query).
    **Subscrição** | As subscrições são contentores de recursos do Azure. Escolha uma subscrição para criar o ambiente Azure Time Series Insights.
    **Grupo de recursos** | Um grupo de recursos é um contentor de recursos do Azure. Escolha um grupo de recursos existente ou crie um novo para o recurso ambiente Azure Time Series Insights.
    **Localização** | Escolha uma região de data center para o seu ambiente Azure Time Series Insights. Para evitar latência adicional, crie o ambiente Azure Time Series Insights na mesma região que outros recursos IoT.
@@ -178,7 +178,7 @@ Nesta secção final, verifique se os dados da telemetria foram gerados e armaze
 
    [![Azure Time Series Insights Explorer tempo range visualização filtrada e eventos](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este tutorial cria vários serviços Azure em execução para suportar o ambiente Azure Time Series Insights ambiente e solução de simulação de dispositivos. Para removê-los, navegue de volta para o portal Azure.
 

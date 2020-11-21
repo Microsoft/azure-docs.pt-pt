@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8867e680be0aba187daf83bc538dd47c582c71fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5353cf841663d70f2fce6662964358b7828610d8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618510"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020900"
 ---
 # <a name="media-reserved-units"></a>Unidades reservadas de multimédia
 
@@ -52,12 +52,12 @@ A tabela a seguir ajuda-o a tomar uma decisão ao escolher entre diferentes velo
 
 Para obter informações sobre quotas e limitações e como abrir um bilhete de apoio, consulte [Quotas e limitações.](media-services-quotas-and-limitations.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente o processamento de mídia de escala com uma destas tecnologias:
 
 [.NET](media-services-dotnet-encoding-units.md) 
  [Portal](media-services-portal-scale-media-processing.md) 
  [DESCANSE](/rest/api/media/operations/encodingreservedunittype) 
- [Rio Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples) 
+ [Rio Java](https://github.com/rnrneverdies/azure-sdk-for-media-services-java-samples) 
  [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)

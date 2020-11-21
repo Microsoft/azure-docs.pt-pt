@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: b2d111f22b8ef36b20b93b65ff1ea6f7b52ea8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ada9c06f0befbea4b9aa85f95651e96dec595b7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83584744"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021291"
 ---
 # <a name="translator-30-dictionary-lookup"></a>Tradutor 3.0: Observatório do Dicionário
 
@@ -44,7 +44,7 @@ Os cabeçalhos de pedido incluem:
 
 | Cabeçalhos  | Descrição |
 | ------ | ----------- |
-| Cabeçalho de autenticação <img width=200/>  | **Cabeçalho de pedido necessário**.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a> |
+| Cabeçalho de autenticação <img width=200/>  | **Cabeçalho de pedido necessário**.<br/>Consulte <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a> |
 | Content-Type | **Cabeçalho de pedido necessário**.<br/>Especifica o tipo de conteúdo da carga útil. Os valores possíveis são: `application/json` . |
 | Comprimento do conteúdo   | **Cabeçalho de pedido necessário**.<br/>O comprimento do corpo do pedido. |
 | X-ClientTraceId   | **Opcional.**<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de traço na cadeia de consulta utilizando um parâmetro de consulta denominado `ClientTraceId` . |
@@ -91,7 +91,7 @@ Uma resposta bem sucedida é uma matriz JSON com um resultado para cada cadeia n
         | PREP     | Preposições |
         | PRON     | Pronomes     |
         | VERBO     | Verbos        |
-        | OUTROS    | Outro        |
+        | OUTROS    | Outros        |
 
         Como nota de implementação, estas tags foram determinadas por marcação parcial do lado inglês e, em seguida, tomando a etiqueta mais frequente para cada par de origem/alvo. Assim, se as pessoas frequentemente traduzem uma palavra espanhola para uma etiqueta de parte diferente do discurso em inglês, as etiquetas podem acabar por estar erradas (no que diz respeito à palavra espanhola).
 

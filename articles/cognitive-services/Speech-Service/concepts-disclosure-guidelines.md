@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: bae801ac64950b0b0e9fe45585a3411477ebf12b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2276e66fa47b1c125a8c30f3c73a7c948f65a35d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150859"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021937"
 ---
 # <a name="disclosure-design-guidelines"></a>Diretrizes de conceção de divulgação
 Aprenda a construir e manter a confiança com os clientes, sendo transparente sobre a natureza sintética da sua experiência de voz.
@@ -76,10 +76,10 @@ Utilize o seguinte diagrama para determinar se a sua experiência de voz sintét
 
 ## <a name="reference-docs"></a>Documentos de referência
 
-* [Divulgação de Talento de Voz](https://aka.ms/disclosure-voice-talent)
+* [Divulgação de Talento de Voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Orientações para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Visão geral de Gating](concepts-gating-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Padrões de conceção de divulgação](concepts-disclosure-patterns.md)

@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.openlocfilehash: a1f633548ed36320f40e485f540923c8e3045a99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0839d2c734418824952f37cb177490e56e1133c5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460871"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023314"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>Simplificação, Escape e Processamento de Matriz do JSON
 
@@ -22,18 +22,18 @@ O seu ambiente Azure Time Series Insights Gen2 criará dinamicamente as colunas 
 
 > [!IMPORTANT]
 >
-> * Reveja as regras abaixo antes de selecionar uma [propriedade de ID da Série De Tempo](time-series-insights-update-how-to-id.md) e/ou o seu timetamp de origem de [eventos(ies)](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). Se o seu ID TS ou o timetamp estiverem dentro de um objeto aninhado ou tiver um ou mais caracteres especiais abaixo, é importante garantir que o nome da propriedade que fornece corresponde ao nome da coluna *após* a aplicação das regras de ingestão. Veja o exemplo [B](concepts-json-flattening-escaping-rules.md#example-b) abaixo.
+> * Reveja as regras abaixo antes de selecionar uma [propriedade de ID da Série De Tempo](./how-to-select-tsid.md) e/ou o seu timetamp de origem de [eventos(ies)](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). Se o seu ID TS ou o timetamp estiverem dentro de um objeto aninhado ou tiver um ou mais caracteres especiais abaixo, é importante garantir que o nome da propriedade que fornece corresponde ao nome da coluna *após* a aplicação das regras de ingestão. Veja o exemplo [B](concepts-json-flattening-escaping-rules.md#example-b) abaixo.
 
-| Regra | Exemplo JSON | [Sintaxe de expressão de série de tempo](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nome da coluna de propriedade em Parquet
+| Regra | Exemplo JSON | [Sintaxe de expressão de série de tempo](/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nome da coluna de propriedade em Parquet
 |---|---|---|---|
 | O tipo de dados Azure Time Series Insights Gen2 é anexado ao final do seu nome de coluna como "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | `$event.type.String` |`type_string` |
 | A [propriedade de timetamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) de fonte de evento será guardada em Azure Time Series Insights Gen2 como "timetamp" em armazenamento, e o valor armazenado na UTC. Pode personalizar a propriedade de marca de tempo de fonte de evento para atender às necessidades da sua solução, mas o nome da coluna em armazenamento quente e frio é "timetamp". Outras propriedades JSON de data que não sejam o ponto de tempo de origem do evento serão guardadas com "_datetime" no nome da coluna, conforme mencionado na regra acima.  | ```"ts": "2020-03-19 14:40:38.318"``` |  `$event.$ts` | `timestamp` |
 | Nomes de propriedade JSON que incluem os caracteres especiais. [ \ e ' são escapadas usando [' e ']  |  ```"id.wasp": "6A3090FD337DE6B"``` |  `$event['id.wasp'].String` | `['id.wasp']_string` |
 | Dentro de [' e '] há escapatória adicional de citações individuais e backslashes. Uma única citação será escrita como \' e um backslash será escrito como \\\ | ```"Foo's Law Value": "17.139999389648"``` | `$event['Foo\'s Law Value'].Double` | `['Foo\'s Law Value']_double` |
 | Os objetos JSON aninhados são achatados com um período como separador. A nidificação até 10 níveis é suportada. |  ```"series": {"value" : 316 }``` | `$event.series.value.Long`, `$event['series']['value'].Long` ou `$event.series['value'].Long` |  `series.value_long` |
-| Matrizes de tipos primitivos são armazenados como o tipo Dinâmico |  ```"values": [154, 149, 147]``` | Os tipos dinâmicos só podem ser recuperados através da [API GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
+| Matrizes de tipos primitivos são armazenados como o tipo Dinâmico |  ```"values": [154, 149, 147]``` | Os tipos dinâmicos só podem ser recuperados através da [API GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
 | As matrizes que contêm objetos têm dois comportamentos dependendo do conteúdo do objeto: Se a propriedade de TS ID ou timetamp(ies) estiver dentro dos objetos de uma matriz, a matriz será desenrolada de modo a que a carga útil inicial do JSON produza múltiplos eventos. Isto permite-lhe aloisar vários eventos numa estrutura JSON. Quaisquer propriedades de alto nível que sejam pares para a matriz serão guardadas com cada objeto desenrolado. Se o seu(s) TS ID(s) e a sua estampada não *estiverem* dentro da matriz, será guardado inteiro como o tipo Dinâmico. | Veja os exemplos [A,](concepts-json-flattening-escaping-rules.md#example-a) [B](concepts-json-flattening-escaping-rules.md#example-b)e [C](concepts-json-flattening-escaping-rules.md#example-c) abaixo
-| As matrizes que contêm elementos mistos não são achatadas. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Os tipos dinâmicos só podem ser recuperados através da [API GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
+| As matrizes que contêm elementos mistos não são achatadas. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Os tipos dinâmicos só podem ser recuperados através da [API GetEvents](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
 | 512 caracteres é o limite de nome de propriedade JSON. Se o nome exceder 512 caracteres, será truncado para 512 e '_<'hashCode'>' é anexado. **Note** que isto também se aplica a nomes de propriedade que foram concatenados a partir de objeto achatado, denotando um caminho de objeto aninhado. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>Compreender o duplo comportamento para matrizes
@@ -44,7 +44,7 @@ No entanto, em alguns casos, as matrizes que contêm objetos só têm significad
 
 ### <a name="how-to-know-if-my-array-of-objects-will-produce-multiple-events"></a>Como saber se a minha variedade de objetos produzirá vários eventos
 
-Se um ou mais dos seus iDs de série de tempo estiver aninhado dentro de objetos numa matriz, *ou* se a propriedade do timetamp de fonte de evento estiver aninhada, o motor de ingestão irá dividi-lo para criar múltiplos eventos. Os nomes de propriedade que forneceu para o seu(s) TS ID(s) e/ou timetamp devem seguir as regras de achatamento acima, e, portanto, indicará a forma do seu JSON. Veja os exemplos abaixo e consulte o guia sobre como [selecionar uma propriedade de ID da Série De Tempo.](time-series-insights-update-how-to-id.md)
+Se um ou mais dos seus iDs de série de tempo estiver aninhado dentro de objetos numa matriz, *ou* se a propriedade do timetamp de fonte de evento estiver aninhada, o motor de ingestão irá dividi-lo para criar múltiplos eventos. Os nomes de propriedade que forneceu para o seu(s) TS ID(s) e/ou timetamp devem seguir as regras de achatamento acima, e, portanto, indicará a forma do seu JSON. Veja os exemplos abaixo e consulte o guia sobre como [selecionar uma propriedade de ID da Série De Tempo.](./how-to-select-tsid.md)
 
 ### <a name="example-a"></a>Exemplo A
 
@@ -182,6 +182,6 @@ A configuração e carga útil acima produzirá três colunas e um evento
 | ---- | ---- | ---- |
 | `2020-11-01T10:00:00.000Z` | `800500054755`| ``[{"value": 120},{"value":124}]`` |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Compreenda as [limitações](./concepts-streaming-ingress-throughput-limits.md) de produção do seu ambiente

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6dcd2005971927de30ca96173cb2bdb063e46663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8578f8aef779ff80f3965fc21b24b785f11226d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397440"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024148"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Reencaminhar dados de tarefa da Automatização do Azure para os registos do Azure Monitor
 
@@ -177,7 +177,7 @@ AzureDiagnostics
 
 ### <a name="filter-job-status-output-converted-into-a-json-object"></a>Saída do estado do trabalho do filtro convertido num objeto JSON
 
-Recentemente, alterámos o comportamento de como os dados de registo da Automatização são escritos para a `AzureDiagnostics` tabela no serviço Log Analytics, onde já não decompõe as propriedades JSON em campos separados. Se configurar o seu runbook para formatar objetos no fluxo de saída no formato JSON como colunas separadas, é necessário reconfigurar as suas consultas para analisar esse campo a um objeto JSON para aceder a essas propriedades. Isto é realizado usando [parsejson](../azure-monitor/log-query/json-data-structures.md#parsejson) para aceder a um elemento JSON específico em um caminho conhecido.
+Recentemente, alterámos o comportamento de como os dados de registo da Automatização são escritos para a `AzureDiagnostics` tabela no serviço Log Analytics, onde já não decompõe as propriedades JSON em campos separados. Se configurar o seu runbook para formatar objetos no fluxo de saída no formato JSON como colunas separadas, é necessário reconfigurar as suas consultas para analisar esse campo a um objeto JSON para aceder a essas propriedades. Isto é realizado usando [parsejson](https://docs.microsoft.com/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#parsejson) para aceder a um elemento JSON específico em um caminho conhecido.
 
 Por exemplo, um runbook forma a propriedade *ResultadoDscription* no fluxo de saída no formato JSON com vários campos. Para procurar o estado dos seus trabalhos que se encontrem num estado de falha, conforme especificado num campo chamado **Status,** utilize esta consulta de exemplo para pesquisar o *ResultadoDiscrição* com um estado de **Falha**:
 
@@ -190,7 +190,7 @@ AzureDiagnostics
 
 ![Log Analytics Histórico Fluxo de Emprego JSON formato](media/automation-manage-send-joblogs-log-analytics/job-status-format-json.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a construir consultas de pesquisa e rever os registos de trabalho da Automação com registos do Azure Monitor, consulte [as pesquisas de Registo nos registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Para compreender a criação e recuperação de mensagens de saída e erro a partir de runbooks, consulte [a saída do livro de execução do Monitor](automation-runbook-output-and-messages.md).

@@ -12,12 +12,12 @@ ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 2d15da55c0bab42571d2a9660156a780c5d27881
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49ac70b6881085f48c8bc3a12e31e4a1aa220c6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305897"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021954"
 ---
 # <a name="get-started-with-custom-keyword"></a>Introdução à Palavra-passe Personalizada
 
@@ -39,7 +39,7 @@ Antes de utilizar uma palavra-chave personalizada, tem de criar uma palavra-chav
 
 1. Na página [De Palavras-Chave Personalizadas,](https://aka.ms/sdsdk-wakewordportal) crie um **novo projeto.** 
 
-1. Introduza um **Nome** , uma **Descrição** opcional, e selecione o idioma. Você precisa de um projeto por idioma, e o apoio está atualmente limitado à `en-US` língua.
+1. Introduza um **Nome**, uma **Descrição** opcional, e selecione o idioma. Você precisa de um projeto por idioma, e o apoio está atualmente limitado à `en-US` língua.
 
     ![Descreva o seu projeto de palavra-chave](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -49,7 +49,7 @@ Antes de utilizar uma palavra-chave personalizada, tem de criar uma palavra-chav
 
 1. Para criar um novo modelo de palavra-chave, clique no **modelo Train**.
 
-1. Introduza um **Nome** para o modelo, uma **descrição** opcional, e a **palavra-chave** à sua escolha, em seguida, clique em **Seguinte**. Consulte as [diretrizes](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) sobre a escolha de uma palavra-chave eficaz.
+1. Introduza um **Nome** para o modelo, uma **descrição** opcional, e a **palavra-chave** à sua escolha, em seguida, clique em **Seguinte**. Consulte as [diretrizes](./custom-keyword-overview.md#choose-an-effective-keyword) sobre a escolha de uma palavra-chave eficaz.
 
     ![Insira a sua palavra-chave](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -77,6 +77,6 @@ Antes de utilizar uma palavra-chave personalizada, tem de criar uma palavra-chav
 [!INCLUDE [ObjectiveC/Swift Basics include](includes/how-to/keyword-recognition/keyword-basics-objc.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Teste a sua palavra-chave personalizada com os [dispositivos de fala SDK Quickstart](https://aka.ms/sdsdk-quickstart).
+Teste a sua palavra-chave personalizada com os [dispositivos de fala SDK Quickstart](./speech-devices-sdk-quickstart.md?pivots=platform-android).

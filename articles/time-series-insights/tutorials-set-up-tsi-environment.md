@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 58da5c73ea2674bbbd1536a163e163aa0ff31d96
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: eeb3de2fc3f0e3e0be9c98002f11e470eaf04f8c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521293"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020934"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Tutorial: Criar um ambiente Azure Time Series Insights Gen2
 
 Este tutorial guia-o através do processo de criação de um ambiente Azure Time Series Insights Gen2 *pay-as-you-go* (PAYG).
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -91,8 +91,8 @@ Esta secção descreve como criar um ambiente Azure Time Series Insights Gen2 e 
     | **Grupo de recursos** | Selecione um grupo de recursos existente ou crie um novo grupo de recursos para o recurso ambiente Azure Time Series Insights Gen2. Um grupo de recursos é um contentor de recursos do Azure. Uma boa prática é utilizar o mesmo grupo de recursos que os outros recursos IoT que são criados pelo simulador do dispositivo. |
     | **Localização** | Selecione uma região de data center para o seu ambiente Azure Time Series Insights Gen2. Para evitar latência adicional, o melhor é criar o seu ambiente Azure Time Series Insights Gen2 na mesma região que o seu hub IoT criado pelo simulador de dispositivos. |
     | **Escalão de serviço** |  Selecione **Gen2(L1)**. Este é o SKU para o produto Azure Time Series Insights Gen2. |
-    | **Nome de propriedade de ID série de tempo** | Insira um nome de uma propriedade que contenha valores que identifiquem exclusivamente as suas instâncias de séries horárias. O valor que introduz na caixa **de nomes da Propriedade** como ID da Série De Tempo não pode ser alterado mais tarde. Para este tutorial,*_insira * iothub-connection-device-id_*_. Para saber mais sobre o ID da Série De Tempo, incluindo o ID composto da Série De Tempo, leia [as melhores práticas para escolher um ID da Série De Tempo](./time-series-insights-update-how-to-id.md). |
-    | _*Nome da conta de armazenamento** | Insira um nome globalmente único para uma nova conta de armazenamento.|
+    | **Nome de propriedade de ID série de tempo** | Insira um nome de uma propriedade que contenha valores que identifiquem exclusivamente as suas instâncias de séries horárias. O valor que introduz na caixa **de nomes da Propriedade** como ID da Série De Tempo não pode ser alterado mais tarde. Para este tutorial,*_insira * iothub-connection-device-id_* _. Para saber mais sobre o ID da Série De Tempo, incluindo o ID composto da Série De Tempo, leia [as melhores práticas para escolher um ID da Série De Tempo](./how-to-select-tsid.md). |
+    | _ *Nome da conta de armazenamento** | Insira um nome globalmente único para uma nova conta de armazenamento.|
     | **Tipo de conta de armazenamento** | Selecione o tipo de armazenamento para uma nova conta de armazenamento. Recomendamos armazenamentoV2|
     | **Replicação da conta de armazenamento** | Selecione o tipo de armazenamento para uma nova conta de armazenamento. Com base na sua seleção de localização, pode escolher entre LRS, GRS e ZRS. Para este tutorial, pode selecionar LRS|
     | **Espaço hierárquico de nomes** |Esta opção é selecionável, uma vez que selecione o tipo de armazenamento para ser StorageV2. Por predefinição, está desativado. Para este tutorial, pode deixá-lo no seu estado de *desativação* padrão|
@@ -109,8 +109,8 @@ Esta secção descreve como criar um ambiente Azure Time Series Insights Gen2 e 
 
    | Parâmetro | Ação |
    | --- | --- |
-   | **Criar uma fonte de evento?** | Selecione **Sim**.|
-   | **Nome** | Insira um valor único para o nome de origem do evento. |
+   | **Criar uma fonte de evento?** | Selecione **Yes** (Sim).|
+   | **Name** | Insira um valor único para o nome de origem do evento. |
    | **Tipo de origem** | **Selecione IoT Hub**. |
    | **Selecione um hub** | Escolha **Selecionar a existência.** |
    | **Subscrição** | Selecione a subscrição que utilizou para o simulador do dispositivo. |
@@ -143,7 +143,7 @@ Esta secção descreve como criar um ambiente Azure Time Series Insights Gen2 e 
 
    1. Verifique se as suas credenciais estão listadas:
 
-      Se as suas credenciais não estiverem listadas, deve conceder-se permissão para aceder ao ambiente selecionando Add e procurando as suas credenciais. Para saber mais sobre a definição de permissões, leia [o acesso aos dados do Grant](./time-series-insights-data-access.md).
+      Se as suas credenciais não estiverem listadas, deve conceder-se permissão para aceder ao ambiente selecionando Add e procurando as suas credenciais. Para saber mais sobre a definição de permissões, leia [o acesso aos dados do Grant](./concepts-access-policies.md).
 
 ## <a name="stream-data"></a>Dados de transmissão em fluxo
 
@@ -163,7 +163,7 @@ Agora que implementou o seu ambiente Azure Time Series Insights Gen2, comece a t
 
         | Parâmetro | Ação |
         | --- | --- |
-        | **Nome** | Insira um nome único para um simulador. |
+        | **Name** | Insira um nome único para um simulador. |
         | **Descrição** | Insira uma definição. |
         | **Duração da simulação** | Definir para **executar indefinidamente**. |
         | **Modelo do dispositivo** | Clique + **Adicionar um tipo de dispositivo** <br />**Nome**: Enter **Elevator**. <br />**Quantidade**: Inserir **3**. <br /> Deixe os valores predefinidos restantes |
@@ -177,7 +177,7 @@ Agora que implementou o seu ambiente Azure Time Series Insights Gen2, comece a t
 
 ## <a name="analyze-data"></a>Analisar dados
 
-Nesta secção, executa análises básicas nos dados da série de tempo utilizando o [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
+Nesta secção, executa análises básicas nos dados da série de tempo utilizando o [Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md).
 
 1. Aceda ao seu Azure Time Series Insights Gen2 Explorer selecionando o URL a partir da página de recursos no [portal Azure](https://portal.azure.com/).
 
@@ -219,7 +219,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
     | Parâmetro | Ação |
     | --- | ---|
-    | **Nome** | Entrar **elevador** |
+    | **Name** | Entrar **elevador** |
     | **Descrição** | Insira **Esta é uma definição tipo para Elevador** |
 
 1. Em seguida, selecione o **separador Variáveis.**
@@ -228,7 +228,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
         | Parâmetro | Ação |
         | --- | --- |
-        | **Nome** | Insira **a temperatura de Avg**. |
+        | **Name** | Insira **a temperatura de Avg**. |
         | **Tipo** | Selecione **numérico** |
         | **Valor** | Selecione a partir da pré-sintonia: Selecione **a temperatura (Duplo)**. <br /> Nota: Pode levar alguns minutos para **que o Valor** seja automaticamente povoado após o Azure Time Series Insights Gen2 começar a receber eventos.|
         | **Operação agregação** | Expandir **Opções Avançadas**. <br /> Selecione **AVG**. |
@@ -237,7 +237,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
         | Parâmetro | Ação |
         | --- | --- |
-        | **Nome** | Insira **a Vibração Avg**. |
+        | **Name** | Insira **a Vibração Avg**. |
         | **Tipo** | Selecione **numérico** |
         | **Valor** | Selecione a partir da pré-sintonia: Selecione **vibração (Duplo)**. <br /> Nota: Pode levar alguns minutos para **que o Valor** seja automaticamente povoado após o Azure Time Series Insights Gen2 começar a receber eventos.|
         | **Operação agregação** | Expandir **Opções Avançadas**. <br /> Selecione **AVG**. |
@@ -246,7 +246,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
         | Parâmetro | Ação |
         | --- | --- |
-        | **Nome** | Entrar **no piso**. |
+        | **Name** | Entrar **no piso**. |
         | **Tipo** | Selecione **Categórico** |
         | **Valor** | Selecione a partir da pré-sintonia: **Select Floor (Duplo)**. <br /> Nota: Pode levar alguns minutos para **que o Valor** seja automaticamente povoado após o Azure Time Series Insights Gen2 começar a receber eventos.|
         | **Categorias** | <span style="text-decoration: underline">Etiqueta</span>   -  <span style="text-decoration: underline">Valores</span> <br /> Menor: 1,2,3,4 <br /> Meio: 5,6,7,8,9 <br /> Superior: 10,11,12,13,14,15 |
@@ -265,7 +265,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
         | Parâmetro | Ação |
         | --- | ---|
-        | **Nome** | Insira **a Hierarquia de Localização**. |
+        | **Name** | Insira **a Hierarquia de Localização**. |
         |**Níveis**| Entre **no País** como o nome do primeiro nível <br /> Selecione **+ Adicionar Nível** <br /> Insira **o City** para o segundo nível e, em seguida, selecione **+ Adicionar Nível** <br /> **Insira o Edifício** como o nome do terceiro e último nível |
 
    1. Selecione **Guardar**.
@@ -279,7 +279,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
         | Parâmetro | Ação |
         | --- | --- |
         | **Tipo** | Selecione **Elevador**. |
-        | **Nome** | Insira **elevador 1**|
+        | **Name** | Insira **elevador 1**|
         | **Descrição** | **Insira a instância para o elevador 1** |
 
     1. Navegue em **Campos de Instância** e introduza os seguintes valores:
@@ -287,8 +287,8 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
         | Parâmetro | Ação |
         | --- | --- |
         | **Hierarquias** | Selecione **hierarquia de localização** |
-        | **Country** | Entrar **nos EUA** |
-        | **City** | Entrar em **Seattle** |
+        | **País** | Entrar **nos EUA** |
+        | **Cidade** | Entrar em **Seattle** |
         | **Edifício** | Entrar **na agulha do espaço** |
 
     1. Selecione **Guardar**.
@@ -300,11 +300,11 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
     | Parâmetro | Ação |
     | --- | --- |
     | **Tipo** | Selecione **Elevador**. |
-    | **Nome** | Entrar **elevador 2**|
+    | **Name** | Entrar **elevador 2**|
     | **Descrição** | **Insira a instância para o elevador 2** |
     | **Hierarquias** | Selecione **hierarquia de localização** |
-    | **Country** | Entrar **nos EUA** |
-    | **City** | Entrar em **Seattle** |
+    | **País** | Entrar **nos EUA** |
+    | **Cidade** | Entrar em **Seattle** |
     | **Edifício** | Insira **o Centro de Ciência do Pacífico** |
 
     **Para elevador 3:**
@@ -312,11 +312,11 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
     | Parâmetro | Ação |
     | --- | --- |
     | **Tipo** | Selecione **Elevador**. |
-    | **Nome** | Entrar **elevador 3**|
+    | **Name** | Entrar **elevador 3**|
     | **Descrição** | **Insira a instância para o elevador 3** |
     | **Hierarquias** | Selecione **hierarquia de localização** |
-    | **Country** | Entrar **nos EUA** |
-    | **City** | Entra em **Nova Iorque** |
+    | **País** | Entrar **nos EUA** |
+    | **Cidade** | Entra em **Nova Iorque** |
     | **Edifício** | Entrar no **Empire State Building** |
 
     [![Ver as instâncias atualizadas.](media/v2-update-provision/iot-solution-accelerator-instances.png)](media/v2-update-provision/iot-solution-accelerator-instances.png#lightbox)
@@ -325,7 +325,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
     [![Veja todas as hierarquias na vista de gráficos.](media/v2-update-provision/iot-solution-accelerator-view-hierarchies.png)](media/v2-update-provision/iot-solution-accelerator-view-hierarchies.png#lightbox)
 
-1. No **Centro de Ciência do Pacífico,** selecione o Elevador de Instância de Séries **Hortemístos 2**e, em seguida, selecione **Mostrar Temperatura Média**.
+1. No **Centro de Ciência do Pacífico,** selecione o Elevador de Instância de Séries **Hortemístos 2** e, em seguida, selecione **Mostrar Temperatura Média**.
 
 1. No mesmo caso, **Elevador 2**, selecione **Show Floor**.
 
@@ -333,7 +333,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
     [![Visualizar o Elevador 2 com hierarquia e dados.](media/v2-update-provision/iot-solution-accelerator-elevator-two.png)](media/v2-update-provision/iot-solution-accelerator-elevator-two.png#lightbox)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Agora que completou o tutorial, limpe os recursos que criou:
 

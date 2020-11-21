@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 126a8e48a8db1c41299a7cb7a34f172342110667
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084418"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023127"
 ---
 # <a name="host-pool-creation"></a>Criação de conjuntos de anfitriões
 
@@ -26,7 +26,7 @@ Visite a [Comunidade Virtual desktop tech do Windows](https://techcommunity.micr
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Aquisição da imagem multi-sessão do Windows 10 Enterprise
 
-Para utilizar a imagem multi-sessão empresarial do Windows 10, vá ao Azure Marketplace, **selecione Get Start**Microsoft Windows  >  **10** > e Windows [10 Enterprise multi-sessão, Versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Para utilizar a imagem multi-sessão empresarial do Windows 10, vá ao Azure Marketplace, **selecione Get Start** Microsoft Windows  >  **10** > e Windows [10 Enterprise multi-sessão, Versão 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ## <a name="issues-with-using-the-azure-portal-to-create-host-pools"></a>Problemas com a utilização do portal Azure para criar piscinas hospedeiras
 
@@ -57,9 +57,9 @@ Correção: Terá de reatribuir os utilizadores a grupos de aplicações.
 
 Siga estas instruções para resolver implementações infrutíferas dos modelos do Gestor de Recursos Azure e do PowerShell DSC.
 
-1. Rever erros na implementação utilizando [operações de implementação do View com o Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md).
-2. Se não houver erros na implementação, reveja os erros no registo de atividades utilizando [registos de atividades do View para auditar ações sobre recursos](../azure-resource-manager/resource-group-audit.md).
-3. Assim que o erro for identificado, utilize a mensagem de erro e os recursos em [erros comuns de implementação do Azure com o Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) para resolver o problema.
+1. Rever erros na implementação utilizando [operações de implementação do View com o Azure Resource Manager](../azure-resource-manager/templates/deployment-history.md).
+2. Se não houver erros na implementação, reveja os erros no registo de atividades utilizando [registos de atividades do View para auditar ações sobre recursos](../azure-resource-manager/management/view-activity-logs.md).
+3. Assim que o erro for identificado, utilize a mensagem de erro e os recursos em [erros comuns de implementação do Azure com o Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md) para resolver o problema.
 4. Elimine quaisquer recursos criados durante a implementação anterior e volte a tentar implementar o modelo novamente.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erro: A sua implantação falhou.... \<hostname> /joindomain
@@ -265,7 +265,7 @@ the VM.\\\"
 
 **Correção:** Coloque o anfitrião da sessão no modo de drenagem, inscreva todos os utilizadores do anfitrião da sessão e, em seguida, elimine o anfitrião.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview.md).
 - Para resolver problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração da máquina virtual do anfitrião da Sessão](troubleshoot-vm-configuration.md).

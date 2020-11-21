@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fcbcaab7b5cd050e072aaded3e2c09a94a451072
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: bf314510a8569a825ccd309ec855e3ff186bba86
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578540"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023382"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de desktop virtual do Windows
 
@@ -350,7 +350,7 @@ O SSH2 é um fornecedor de serviços de valor acrescentado virtual do Windows De
 appCURE captura detalhes da aplicação de execução de aplicações para garantir que todos os pontos que possam ter impacto nas aplicações do seu utilizador final são entendidos. appCURE atualiza e entrega-as no seu novo Windows Virtual Desktop. Ao capturar todos os pontos de integração de aplicações no seu ambiente atual, o appCURE fornece a velocidade para otimizar os recursos de TI e planear as suas migrações melhor e mais rápido do que nunca, permitindo que as organizações entrem na produção mais rapidamente.
 
 - [Consulte o resumo da solução comum](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
-- [Vá à página do parceiro.](/azure/virtual-desktop/partners#ssh2)
+- [Vá à página do parceiro.](#ssh2)
 
 ## <a name="thinprint"></a>ThinPrint
 
@@ -406,7 +406,7 @@ O Workspot alarga o valor do Windows Virtual Desktop simplificando o processo de
 - [Consulte o resumo da solução comum](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P).
 - [Vá ao site do parceiro.](https://www.workspot.com/wvd)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais sobre o Windows Virtual Desktop](overview.md).
 - [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

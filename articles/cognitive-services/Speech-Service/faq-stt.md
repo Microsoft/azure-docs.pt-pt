@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c0b399f84e793d9e762c89dbbd1901bb5a95f26
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397764"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024335"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Discurso ao Texto frequentemente feito perguntas
 
-Se não conseguir encontrar respostas para as suas perguntas nestas PERGUNTAS, consulte [outras opções de suporte.](support.md)
+Se não conseguir encontrar respostas para as suas perguntas nestas PERGUNTAS, consulte [outras opções de suporte.](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)
 
 ## <a name="general"></a>Geral
 
@@ -29,7 +29,7 @@ Se não conseguir encontrar respostas para as suas perguntas nestas PERGUNTAS, c
 
 **P: Por onde começo se quero usar um modelo de base?**
 
-**R**: Primeiro, obtenha uma [chave de subscrição](overview.md#try-the-speech-service-for-free). Se pretender fazer chamadas REST para os modelos de base pré-deplorados, consulte as [APIs REST](rest-apis.md). Se quiser utilizar webSockets, [descarregue o SDK](speech-sdk.md).
+**R**: Primeiro, obtenha uma [chave de subscrição](overview.md#try-the-speech-service-for-free). Se pretender fazer chamadas REST para os modelos de base pré-deplorados, consulte as [APIs REST](./overview.md#reference-docs). Se quiser utilizar webSockets, [descarregue o SDK](speech-sdk.md).
 
 **P: Preciso sempre de construir um modelo de fala personalizado?**
 
@@ -164,7 +164,7 @@ Ver [Quotas e Limites de Serviços de Fala.](speech-services-quotas-and-limits.m
 
 As experiências de fala incorporadas na Microsoft 365, tais como O Ditado e a Legendagem de PowerPoint, não são alteradas quando cria um Modelo de Inquilino para as suas aplicações de serviço de Discurso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Resolução de problemas](troubleshooting.md)
 - [Notas de versão](releasenotes.md)

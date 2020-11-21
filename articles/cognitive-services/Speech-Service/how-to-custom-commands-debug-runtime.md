@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023028"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021801"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Depurar erros ao executar uma aplicação de Comandos Personalizados
 
@@ -92,7 +92,7 @@ A Compreensão linguística (LUIS) tem limites na utilização de recursos. Norm
 
     Se estiver com um recurso de previsão de F0, tem um limite de 10 mil/mês, 5 consultas/segundo.
 
-Para obter mais detalhes sobre os limites de recursos da LUIS, consulte a [utilização do recurso de compreensão linguística e limite](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits#resource-usage-and-limits)
+Para obter mais detalhes sobre os limites de recursos da LUIS, consulte a [utilização do recurso de compreensão linguística e limite](../luis/luis-limits.md#resource-usage-and-limits)
 
 ### <a name="connection-to-the-recognizer-failed"></a>A ligação ao reconhecimento falhou
 Geralmente significa falha de ligação transitória para o reconhecimento da compreensão da linguagem (LUIS). Tente de novo e a questão deve ser resolvida.
@@ -123,7 +123,7 @@ Respostas inesperadas podem ser causadas por várias coisas. Alguns cheques para
 
     A precisão do reconhecimento LUIS pode ser afetada quando dois comandos partilham intenções e frases de exemplo semelhantes. Pode tentar tornar a funcionalidade de comandos e exemplos de frases o mais distintas possível.
 
-    Para melhores práticas de melhorar a precisão do reconhecimento, consulte [as melhores práticas do LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+    Para melhores práticas de melhorar a precisão do reconhecimento, consulte [as melhores práticas do LUIS](../luis/luis-concept-best-practices.md).
 
 - O diálogo está cancelado.
     
@@ -135,7 +135,7 @@ Um parâmetro indefinido é usado na resposta da fala.
 ### <a name="object-reference-not-set-to-an-instance-of-an-object"></a>Referência do objeto não definida para uma instância de um objeto
 Tem um parâmetro vazio na carga útil JSON definida na **ação enviar atividade para o cliente.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ver amostras no GitHub](https://aka.ms/speech/cc-samples)

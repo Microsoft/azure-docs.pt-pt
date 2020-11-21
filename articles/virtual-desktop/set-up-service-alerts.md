@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0391102683ebafba63c429072c8afa9f24223955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66617afee11b02eae0ba5e36d9ff91cbdf21911f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009431"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023110"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Tutorial: Configurar alertas de serviço
 
@@ -25,7 +25,7 @@ Neste tutorial, irá aprender a:
 > [!div class="checklist"]
 > * Criar e configurar alertas de serviço.
 
-Para saber mais sobre a Azure Service Health, consulte a [Documentação da Saúde do Azure.](https://docs.microsoft.com/azure/service-health/)
+Para saber mais sobre a Azure Service Health, consulte a [Documentação da Saúde do Azure.](../service-health/index.yml)
 
 ## <a name="create-service-alerts"></a>Criar alertas de serviço
 
@@ -46,9 +46,9 @@ Para configurar alertas de serviço:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Saúde de Serviço.**
-3. Siga as instruções no [Criar alertas de registo de atividades nas notificações de serviço](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) para configurar os seus alertas e notificações.
+3. Siga as instruções no [Criar alertas de registo de atividades nas notificações de serviço](../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json) para configurar os seus alertas e notificações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a configurar e utilizar o Azure Service Health para monitorizar problemas de serviço e avisos de saúde para o Windows Virtual Desktop. Para saber como iniciar sôm no Windows Virtual Desktop, continue a ligar ao Windows Virtual Desktop Como-tos.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c5e3474d3992108ef61d34e745bc63c1f7a713
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85307830"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020951"
 ---
 # <a name="add-language-generation-templates-for-speech-responses"></a>Adicionar modelos de geração de linguagem para respostas de voz
 
@@ -34,7 +34,7 @@ Deve ter completado os passos nos seguintes artigos:
 
 ## <a name="language-generation-templates-overview"></a>Visão geral dos modelos de geração de linguagem
 
-Os modelos de comandos personalizados são baseados nos [modelos LG](https://aka.ms/speech/cc-lg-format)do BotFramework. Uma vez que os Comandos Personalizados criam um novo modelo LG quando necessário (isto é, para respostas de fala em parâmetros ou ações) não tem de especificar o nome do modelo LG. Então, em vez de definir o seu modelo como:
+Os modelos de comandos personalizados são baseados nos [modelos LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates)do BotFramework. Uma vez que os Comandos Personalizados criam um novo modelo LG quando necessário (isto é, para respostas de fala em parâmetros ou ações) não tem de especificar o nome do modelo LG. Então, em vez de definir o seu modelo como:
 
  ```
     # CompletionAction
@@ -51,7 +51,7 @@ Basta definir o corpo do modelo sem o nome, da seguinte forma.
 
 Esta alteração introduz variação nas respostas de fala enviadas ao cliente. Assim, para a mesma expressão, a resposta de discurso correspondente seria escolhida aleatoriamente das opções fornecidas.
 
-Tirar partido dos modelos LG também permite definir respostas complexas de fala para comandos usando expressões adaptativas. Pode consultar o [formato dos modelos LG](https://aka.ms/speech/cc-lg-format) para mais detalhes. Os Comandos Personalizados por predefinição suportam todas as capacidades com as seguintes diferenças menores:
+Tirar partido dos modelos LG também permite definir respostas complexas de fala para comandos usando expressões adaptativas. Pode consultar o [formato dos modelos LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) para mais detalhes. Os Comandos Personalizados por predefinição suportam todas as capacidades com as seguintes diferenças menores:
 
 * Nas entidades de modelos LG as entidades são representadas como ${entityName}. Em Comandos Personalizados não usamos entidades, mas os parâmetros podem ser usados como variáveis com qualquer uma destas representações ${parâmetroName} ou {parâmetroName}
 * A composição e expansão do modelo não são suportadas em Comandos Personalizados. Isto porque nunca edita o `.lg` ficheiro diretamente, mas apenas as respostas dos modelos criados automaticamente.
@@ -110,12 +110,12 @@ Outra forma de personalizar as respostas de Comandos Personalizados é seleciona
 > ![Frases de amostra com parâmetros](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - Para **vozes públicas,** **os tipos neurais** só estão disponíveis para regiões específicas. Para verificar a disponibilidade, consulte [vozes padrão e neurais por região/ponto final.](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
+> - Para **vozes públicas,** **os tipos neurais** só estão disponíveis para regiões específicas. Para verificar a disponibilidade, consulte [vozes padrão e neurais por região/ponto final.](./regions.md#standard-and-neural-voices)
 > - Para **vozes personalizadas,** podem ser criadas a partir da página do projeto Custom Voice. Ver [Começar com Voz Personalizada.](./how-to-custom-voice.md)
 
 Agora a aplicação responderá na voz selecionada, em vez da voz predefinido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Integre os seus Comandos Personalizados utilizando o SDK de fala](./how-to-custom-commands-setup-speech-sdk.md).

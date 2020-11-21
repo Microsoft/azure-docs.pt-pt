@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8c7e21b0784aacc85bd02e3c1702e1a710e76ab
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357646"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021886"
 ---
 # <a name="what-is-direct-line-speech"></a>O que é a Voz do Direct Line?
 
@@ -37,9 +37,9 @@ Também oferecemos quickstarts projetados para que você executa o código e apr
 
 | Início Rápido | Plataforma | Referência da API |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Procurar](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Procurar](https://aka.ms/csspeech/javaref) |
+| C#, UWP | Windows | [Procurar](/dotnet/api/microsoft.cognitiveservices.speech) |
+| Java | Windows, macOS, Linux | [Procurar](/java/api/com.microsoft.cognitiveservices.speech) |
+| Java | Android | [Procurar](/java/api/com.microsoft.cognitiveservices.speech) |
 
 ## <a name="sample-code"></a>Código de exemplo
 
@@ -50,21 +50,21 @@ O código de amostra para criar um assistente de voz está disponível no GitHub
 
 ## <a name="customization"></a>Personalização
 
-Os assistentes de voz construídos através do serviço speech podem utilizar toda a gama de opções de personalização disponíveis para [discurso-a-texto,](speech-to-text.md) [texto-a-voz](text-to-speech.md)e [seleção de palavras-chave personalizadas](speech-devices-sdk-create-kws.md).
+Os assistentes de voz construídos através do serviço speech podem utilizar toda a gama de opções de personalização disponíveis para [discurso-a-texto,](speech-to-text.md) [texto-a-voz](text-to-speech.md)e [seleção de palavras-chave personalizadas](./custom-keyword-basics.md).
 
 > [!NOTE]
-> As opções de personalização variam de acordo com o idioma/local (ver [idiomas suportados).](supported-languages.md)
+> As opções de personalização variam de acordo com o idioma/local (ver [idiomas suportados).](./language-support.md)
 
-O Discurso de Linha Direta e a sua funcionalidade associada para assistentes de voz são um suplemento ideal para a [Solução de Assistente Virtual e Modelo de Empresa.](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) Embora o Direct Line Speech possa trabalhar com qualquer bot compatível, estes recursos fornecem uma linha de base reutilizável para experiências de conversação de alta qualidade, bem como habilidades e modelos de suporte comuns para começar rapidamente.
+O Discurso de Linha Direta e a sua funcionalidade associada para assistentes de voz são um suplemento ideal para a [Solução de Assistente Virtual e Modelo de Empresa.](/azure/bot-service/bot-builder-enterprise-template-overview) Embora o Direct Line Speech possa trabalhar com qualquer bot compatível, estes recursos fornecem uma linha de base reutilizável para experiências de conversação de alta qualidade, bem como habilidades e modelos de suporte comuns para começar rapidamente.
 
 ## <a name="reference-docs"></a>Documentos de referência
 
-* [API de Voz](speech-sdk-reference.md)
-* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [API de Voz](./speech-sdk.md)
+* [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)
 * [Obtenha o Discurso SDK](speech-sdk.md)
-* [Criar e implementar um bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Criar e implementar um bot básico](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Obtenha a solução de assistente virtual e o modelo de empresa](https://github.com/Microsoft/AI)

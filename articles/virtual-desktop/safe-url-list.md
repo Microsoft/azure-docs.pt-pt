@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90db861a4ef4fc951844d3ae82a51d20cf9dc8c5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3d19a60fd6a22eb9245722c6ff69d3b39c05d29e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875109"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023178"
 ---
 # <a name="safe-url-list"></a>Lista de URLs seguros
 
@@ -34,7 +34,7 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 |mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações da pilha de agente e SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Suporte ao portal Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Ponto final do serviço de metadados Azure Instance](../virtual-machines/windows/instance-metadata-service.md) | N/D |
-| 168.63.129.16 | 80 | [Monitorização de sessão de saúde anfitrião](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
+| 168.63.129.16 | 80 | [Monitorização de sessão de saúde anfitrião](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/D |
 
 >[!IMPORTANT]
 >O Windows Virtual Desktop suporta agora a tag FQDN. Para obter mais informações, consulte [o Azure Firewall para proteger as implementações do Ambiente de Trabalho Virtual da Janela](../firewall/protect-windows-virtual-desktop.md).
@@ -56,7 +56,7 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 |mrsglobalstugviffx.core.usgovcloudapi.net|443|Atualizações da pilha de agente e SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Suporte ao portal Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Ponto final do serviço de metadados Azure Instance](../virtual-machines/windows/instance-metadata-service.md) | N/D |
-| 168.63.129.16 | 80 | [Monitorização de sessão de saúde anfitrião](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
+| 168.63.129.16 | 80 | [Monitorização de sessão de saúde anfitrião](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/D |
 
 A tabela que se segue lista URLs opcionais aos que as suas máquinas virtuais Azure podem ter acesso:
 

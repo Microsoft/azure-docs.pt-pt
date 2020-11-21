@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b512a80fcfc26efbe5c008884509aebfd86ed3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460833"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020849"
 ---
 # <a name="data-storage"></a>Armazenamento de Dados
 
@@ -27,7 +27,7 @@ Quando cria um ambiente Azure Time Series Insights Gen2, tem as seguintes opçõ
 
 * Armazenamento de dados frios:
   * Crie um novo recurso de Armazenamento Azure na subscrição e região que escolheu para o seu ambiente.
-  * Anexar uma conta de Armazenamento Azure pré-existente. Esta opção só está disponível através de um [modelo](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)de Gestor de Recursos Azure , e não está visível no portal Azure.
+  * Anexar uma conta de Armazenamento Azure pré-existente. Esta opção só está disponível através de um [modelo](/azure/templates/microsoft.timeseriesinsights/allversions)de Gestor de Recursos Azure , e não está visível no portal Azure.
 * Armazenamento de dados quente:
   * Uma loja quente é opcional e pode ser ativada ou desativada durante ou após o tempo de provisão. Se decidir ativar a loja quente mais tarde e já existirem dados na sua loja de colde, reveja [esta](concepts-storage.md#warm-store-behavior) secção abaixo para entender o comportamento esperado. O tempo de retenção de dados de armazenamento quente pode ser configurado durante 7 a 31 dias, o que também pode ser ajustado conforme necessário.
 
@@ -40,14 +40,14 @@ Quando um evento é ingerido, é indexado tanto em loja quente (se ativado) como
 
 ## <a name="data-availability"></a>Disponibilidade de dados
 
-Azure Time Series Insights Gen2 partitions and indexes datas para o melhor desempenho da consulta. Os dados ficam disponíveis para consulta a partir de quente (se ativado) e de cold store após a sua indexação. A quantidade de dados que estão a ser ingeridos e a taxa de produção por partição podem afetar a disponibilidade. Reveja as limitações de produção de [eventos](./concepts-streaming-ingress-throughput-limits.md) e [as melhores práticas](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) para melhor desempenho. Também pode configurar um [alerta](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) de lag para ser notificado se o seu ambiente estiver a ter problemas de processamento de dados.
+Azure Time Series Insights Gen2 partitions and indexes datas para o melhor desempenho da consulta. Os dados ficam disponíveis para consulta a partir de quente (se ativado) e de cold store após a sua indexação. A quantidade de dados que estão a ser ingeridos e a taxa de produção por partição podem afetar a disponibilidade. Reveja as limitações de produção de [eventos](./concepts-streaming-ingress-throughput-limits.md) e [as melhores práticas](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) para melhor desempenho. Também pode configurar um [alerta](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) de lag para ser notificado se o seu ambiente estiver a ter problemas de processamento de dados.
 
 > [!IMPORTANT]
 > Pode experimentar um período de até 60 segundos antes de os dados se tornarem disponíveis. Se sentir uma latência significativa para além de 60 segundos, por favor envie um bilhete de apoio através do portal Azure.
 
 ## <a name="warm-store"></a>Loja quente
 
-Os dados na sua loja quente só estão disponíveis através das [APIs de Consulta de Séries Temporais,](./time-series-insights-update-tsq.md)do [Azure Time Series Insights TSI Explorer,](./time-series-insights-update-explorer.md)ou do [Conector Power BI](./how-to-connect-power-bi.md). As consultas de loja quente são gratuitas e não há quota, mas há um [limite de 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) pedidos simultâneos.
+Os dados na sua loja quente só estão disponíveis através das [APIs de Consulta de Séries Temporais,](./concepts-query-overview.md)do [Azure Time Series Insights TSI Explorer,](./concepts-ux-panels.md)ou do [Conector Power BI](./how-to-connect-power-bi.md). As consultas de loja quente são gratuitas e não há quota, mas há um [limite de 30](/rest/api/time-series-insights/reference-api-limits#query-apis---limits) pedidos simultâneos.
 
 ### <a name="warm-store-behavior"></a>Comportamento quente da loja
 
@@ -77,9 +77,9 @@ Para garantir o desempenho da consulta e a disponibilidade de dados, não edite 
 
 #### <a name="accessing-cold-store-data"></a>Acesso aos dados do cold store
 
-Além de aceder aos seus dados a partir do [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) e da Time Series Consultas [APIs,](./time-series-insights-update-tsq.md)também pode querer aceder aos seus dados diretamente a partir dos ficheiros Parquet armazenados no cold store. Por exemplo, pode ler, transformar e limpar dados num caderno Jupyter e depois usá-lo para treinar o seu modelo de Aprendizagem automática Azure no mesmo fluxo de trabalho spark.
+Além de aceder aos seus dados a partir do [Azure Time Series Insights Explorer](./concepts-ux-panels.md) e da Time Series Consultas [APIs,](./concepts-query-overview.md)também pode querer aceder aos seus dados diretamente a partir dos ficheiros Parquet armazenados no cold store. Por exemplo, pode ler, transformar e limpar dados num caderno Jupyter e depois usá-lo para treinar o seu modelo de Aprendizagem automática Azure no mesmo fluxo de trabalho spark.
 
-Para aceder aos dados diretamente da sua conta de Armazenamento Azure, precisa de ler o acesso à conta utilizada para armazenar os seus dados Azure Time Series Insights Gen2. Pode então ler dados selecionados com base no tempo de criação do ficheiro Parquet localizado na `PT=Time` pasta descrita abaixo na secção [de formato de ficheiro Parquet.](#parquet-file-format-and-folder-structure)  Para obter mais informações sobre como permitir o acesso à sua conta de armazenamento, consulte [Gerir o acesso aos recursos da sua conta de armazenamento.](../storage/blobs/storage-manage-access-to-resources.md)
+Para aceder aos dados diretamente da sua conta de Armazenamento Azure, precisa de ler o acesso à conta utilizada para armazenar os seus dados Azure Time Series Insights Gen2. Pode então ler dados selecionados com base no tempo de criação do ficheiro Parquet localizado na `PT=Time` pasta descrita abaixo na secção [de formato de ficheiro Parquet.](#parquet-file-format-and-folder-structure)  Para obter mais informações sobre como permitir o acesso à sua conta de armazenamento, consulte [Gerir o acesso aos recursos da sua conta de armazenamento.](../storage/blobs/anonymous-read-access-configure.md)
 
 #### <a name="data-deletion"></a>Eliminação de dados
 
@@ -121,8 +121,8 @@ Os eventos da Azure Time Series Insights Gen2 estão mapeados para os conteúdos
 * Todas as outras propriedades enviadas como dados de telemetria são mapeadas para nomes de colunas que terminam com `_bool` (boolean), `_datetime` (carimbo de `_long` tempo), `_double` (longo), `_string` (duplo), (cadeia) ou `dynamic` (dinâmico), dependendo do tipo de propriedade.  Para mais informações, leia sobre [os tipos de dados suportados.](./concepts-supported-data-types.md)
 * Este esquema de mapeamento aplica-se à primeira versão do formato de ficheiro, referenciada como **V=1** e armazenada na pasta base com o mesmo nome. À medida que esta funcionalidade evolui, este esquema de mapeamento pode mudar e o nome de referência incrementado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Leia sobre [modelação de dados.](./time-series-insights-update-tsm.md)
+* Leia sobre [modelação de dados.](./concepts-model-overview.md)
 
-* Planeie o seu [ambiente Azure Time Series Insights Gen2](./time-series-insights-update-plan.md).
+* Planeie o seu [ambiente Azure Time Series Insights Gen2](./how-to-plan-your-environment.md).
