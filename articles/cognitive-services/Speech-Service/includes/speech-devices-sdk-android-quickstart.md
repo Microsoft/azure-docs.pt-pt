@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 5e83650bc9861f982c4905e26fbb674abbd4de97
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c341ba20ece26e15255faf086e5bd2904fbaa797
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135953"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096897"
 ---
-Neste arranque rápido, você vai aprender a usar o SDK de Dispositivos de Fala para Android para construir um produto ativado por discurso ou usá-lo como um dispositivo [de transcrição de conversação.](../conversation-transcription-service.md)
+Neste arranque rápido, você vai aprender a usar o SDK de Dispositivos de Fala para Android para construir um produto ativado por discurso ou usá-lo como um dispositivo [de transcrição de conversação.](../conversation-transcription.md)
 
-Este guia requer uma conta [Azure Cognitive Services](../get-started.md) com um recurso de serviço de fala.
+Este guia requer uma conta [Azure Cognitive Services](../overview.md#try-the-speech-service-for-free) com um recurso de serviço de fala.
 
 O código-fonte da aplicação da amostra está incluído no SDK dos Dispositivos de Fala. Também está [disponível no GitHub.](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
 
@@ -24,18 +24,18 @@ Antes de começar a usar o SDK dos Dispositivos de Fala, terá de:
 
 - Siga as instruções fornecidas com o seu [kit de desenvolvimento](../get-speech-devices-sdk.md) para ligar o aparelho.
 
-- Descarregue a versão mais recente do [Speech Devices SDK](https://aka.ms/sdsdk-download)e extraia o .zip para o seu diretório de trabalho.
+- Descarregue a versão mais recente do [Speech Devices SDK](../speech-devices-sdk.md)e extraia o .zip para o seu diretório de trabalho.
 
   > [!NOTE]
   > Este quickstart assume que a aplicação é extraída para C:\SDSDK\Android-Sample-Release
 
-- Para obter uma [chave de subscrição Azure para o serviço speech](../get-started.md)
+- Para obter uma [chave de subscrição Azure para o serviço speech](../overview.md#try-the-speech-service-for-free)
 
 - Se pretender utilizar a Transcrição de Conversação, deve utilizar um [dispositivo de microfone circular](../get-speech-devices-sdk.md) e esta funcionalidade só está disponível para "en-US" e "zh-CN" em regiões, "central" e "eastasia". Deve ter uma chave de discurso numa dessas regiões para usar a Transcrição de Conversação.
 
-- Se planeia utilizar o serviço Desemação para identificar intenções (ou ações) de declarações de utilizadores, precisará de uma subscrição do [Serviço de Compreensão de Línguas (LUIS).](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) Para saber mais sobre o LUIS e o reconhecimento de intenções, consulte [Reconhecer as intenções da fala com LUIS, C.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
+- Se planeia utilizar o serviço Desemação para identificar intenções (ou ações) de declarações de utilizadores, precisará de uma subscrição do [Serviço de Compreensão de Línguas (LUIS).](../../luis/luis-how-to-azure-subscription.md) Para saber mais sobre o LUIS e o reconhecimento de intenções, consulte [Reconhecer as intenções da fala com LUIS, C.](../how-to-recognize-intents-from-speech-csharp.md).
 
-  Pode [criar um modelo LUIS simples](https://docs.microsoft.com/azure/cognitive-services/luis/) ou utilizar o modelo LUIS de amostra, LUIS-example.js. O modelo LUIS da amostra está disponível no site de [descarregamento SDK dos Dispositivos de Fala.](https://aka.ms/sdsdk-luis) Para fazer o upload do ficheiro JSON do seu modelo para o [portal LUIS](https://www.luis.ai/home), selecione Import **new app** e, em seguida, selecione o ficheiro JSON.
+  Pode [criar um modelo LUIS simples](../../luis/index.yml) ou utilizar o modelo LUIS de amostra, LUIS-example.js. O modelo LUIS da amostra está disponível no site de [descarregamento SDK dos Dispositivos de Fala.](https://aka.ms/sdsdk-luis) Para fazer o upload do ficheiro JSON do seu modelo para o [portal LUIS](https://www.luis.ai/home), selecione Import **new app** e, em seguida, selecione o ficheiro JSON.
 
 - Instale [o Android Studio](https://developer.android.com/studio/) e o [Vysor](https://vysor.io/download/) no seu PC.
 
@@ -45,9 +45,9 @@ Antes de começar a usar o SDK dos Dispositivos de Fala, terá de:
 
    ![Vysor](../media/speech-devices-sdk/qsg-3.png)
 
-1. O seu dispositivo deve ser listado em **Escolha um dispositivo** . Selecione o botão **Ver** ao lado do dispositivo.
+1. O seu dispositivo deve ser listado em **Escolha um dispositivo**. Selecione o botão **Ver** ao lado do dispositivo.
 
-1. Ligue à sua rede sem fios selecionando o ícone da pasta e, em seguida, selecione **Definições**  >  **WLAN** .
+1. Ligue à sua rede sem fios selecionando o ícone da pasta e, em seguida, selecione **Definições**  >  **WLAN**.
 
    ![Vysor WLAN](../media/speech-devices-sdk/qsg-4.png)
 
@@ -58,7 +58,7 @@ Antes de começar a usar o SDK dos Dispositivos de Fala, terá de:
    >
    > ![Pasta de ficheiro Vysor](../media/speech-devices-sdk/qsg-10.png)
    >
-   > Selecione **Definições** . Procure por "endereço mac", e, em seguida, selecione **o endereço Mac** Advanced  >  **WLAN** . Anote o endereço MAC que aparece perto da parte inferior da caixa de diálogo.
+   > Selecione **Definições**. Procure por "endereço mac", e, em seguida, selecione **o endereço Mac** Advanced  >  **WLAN**. Anote o endereço MAC que aparece perto da parte inferior da caixa de diálogo.
    >
    > ![Endereço Vysor MAC](../media/speech-devices-sdk/qsg-11.png)
    >
@@ -78,7 +78,7 @@ Para validar a configuração do seu kit de desenvolvimento, construa e instale 
 
 1. Configurar gradle para referência ao Discurso SDK. Os seguintes ficheiros podem ser encontrados nos **Scripts Gradle** no Android Studio.
 
-    Atualize o **build.gradle (Project:exemplo)** , o bloco de todos os projetos deve coincidir abaixo, adicionando as linhas maven.
+    Atualize o **build.gradle (Project:exemplo)**, o bloco de todos os projetos deve coincidir abaixo, adicionando as linhas maven.
 
     ```xml
     allprojects {
@@ -101,7 +101,7 @@ Para validar a configuração do seu kit de desenvolvimento, construa e instale 
     
 1. Adicione a chave de subscrição de discurso ao código fonte. Se quiser tentar o reconhecimento de intenções, adicione também a chave de subscrição do [serviço de Compreensão linguística](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) e o ID da aplicação.
 
-   Para a fala e para o LUIS, a sua informação vai para MainActivity.java:
+   Para a fala e o LUIS, a sua informação vai para a .java MainActivity:
 
    ```java
     // Subscription
@@ -112,7 +112,7 @@ Para validar a configuração do seu kit de desenvolvimento, construa e instale 
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-   Se estiver a usar a transcrição da conversa, a sua chave de discurso e informação da região também são necessárias em conversa.java:
+   Se estiver a utilizar a transcrição da conversa, a sua chave de discurso e informação da região também são necessárias na conversa.java:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -122,7 +122,7 @@ Para validar a configuração do seu kit de desenvolvimento, construa e instale 
 1. A palavra-chave predefinida é "Computador". Também pode experimentar uma das outras palavras-chave fornecidas, como "Máquina" ou "Assistente". Os ficheiros de recursos para estas palavras-chave alternativas encontram-se na SDK dos Dispositivos de Fala, na pasta de palavras-chave. Por exemplo, C:\SDSDK\Android-Sample-Release\palavra-chave\Computer contém os ficheiros utilizados para a palavra-chave "Computador".
 
    > [!TIP]
-   > Também pode [criar uma palavra-chave personalizada.](../speech-devices-sdk-create-kws.md)
+   > Também pode [criar uma palavra-chave personalizada.](../custom-keyword-basics.md)
 
    Para utilizar uma nova palavra-chave, atualize as duas linhas seguintes e `MainActivity.java` copie o pacote de palavras-chave para a sua aplicação. Por exemplo, utilizar a palavra-chave 'Máquina' a partir do pacote de palavras-chave kws-machine.zip:
 
@@ -162,7 +162,7 @@ Para validar a configuração do seu kit de desenvolvimento, construa e instale 
 
    ![Aplicação e opções de exemplo de dispositivos de fala de amostra SDK](../media/speech-devices-sdk/qsg-8.png)
 
-1. Experimente a nova demonstração de Transcrição de Conversação. Comece a transcrever com 'Start Session'. Por defeito, todos são convidados. No entanto, se tiver as assinaturas de voz dos participantes, podem ser colocadas num ficheiro `/video/participants.properties` no dispositivo. Para gerar a assinatura de voz, veja [as conversas transcrever (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Experimente a nova demonstração de Transcrição de Conversação. Comece a transcrever com 'Start Session'. Por defeito, todos são convidados. No entanto, se tiver as assinaturas de voz dos participantes, podem ser colocadas num ficheiro `/video/participants.properties` no dispositivo. Para gerar a assinatura de voz, veja [as conversas transcrever (SDK)](../how-to-use-conversation-transcription.md).
 
    ![Pedido de transcrição de conversação de demonstração](../media/speech-devices-sdk/qsg-15.png)
 

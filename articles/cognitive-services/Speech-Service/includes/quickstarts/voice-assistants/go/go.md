@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: b05e63dc549fdf1fec4485e27086bb32251b41d8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c37637ba1cb5154bbd56f7fd22bbbca62b8c3438
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135921"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95095457"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -18,7 +18,7 @@ Antes de começar:
 > [!div class="checklist"]
 > * [Criar um recurso de fala azul](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md)
-> * Criar um bot ligado ao [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Criar um bot ligado ao [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 >
   > [!NOTE]
@@ -108,7 +108,7 @@ Substitua os `YOUR_SUBSCRIPTION_KEY` valores e `YOUR_BOT_REGION` valores reais d
    > Por favor, consulte [a lista de regiões apoiadas para assistentes de voz](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) e certifique-se de que os seus recursos são utilizados numa dessas regiões.
 
    > [!NOTE]
-   > Para obter informações sobre a configuração do seu bot, consulte a documentação do Quadro bot para [o canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Para obter informações sobre a configuração do seu bot, consulte a documentação do Quadro bot para [o canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="code-explanation"></a>Explicação de código
 A chave e região de subscrição do Discurso são necessárias para criar um objeto de configuração da fala. O objeto de configuração é necessário para instantaneaizar um objeto de reconhecimento de fala.
@@ -124,6 +124,6 @@ Está agora preparado para construir o seu projeto e testar o seu assistente de 
 > [!NOTE]
 > O SDK de discurso não reconhecerá a utilização do linguístico para a língua, consulte especificar a [língua de origem para falar para texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [footer](./footer.md)]

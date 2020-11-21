@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: fbfc6bf9c50257c2683522913503bf9b29450d94
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bc27c73fbf9e827ce9a95c8aaaddc82ffb0aec53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86226394"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95098488"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de discurso azul](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Criar um recurso de discurso azul](../../../../overview.md#try-the-speech-service-for-free)
 > * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
-> * Criar um bot ligado ao [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Criar um bot ligado ao [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 
   > [!NOTE]
@@ -269,7 +269,6 @@ Assim que a aplicação e a sua atividade tiverem sido lançadas, clique no bot�
 
 ![Captura de ecrã da aplicação Android](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-completed-turn.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [footer](./footer.md)]
-

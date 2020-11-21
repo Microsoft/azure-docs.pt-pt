@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 38e6bae69710dc9e1dbc8789ee9ccb636193c7f7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ee14b94977b3152e0aab853fa3919a739d0dfdd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80671682"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096173"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de discurso azul](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Criar um recurso de discurso azul](../../../../overview.md#try-the-speech-service-for-free)
 > * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
-> * Criar um bot ligado ao [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Criar um bot ligado ao [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 
   > [!NOTE]
@@ -115,7 +115,7 @@ Além disso, para permitir a exploração madeireira, atualizar o ficheiro _pom.
 
 1. No `main` método, configura-se primeiro `DialogServiceConfig` e utiliza-se para criar um `DialogServiceConnector` exemplo. Este caso liga-se ao canal Direct Line Speech para interagir com o seu bot. Um `AudioConfig` caso também é usado para especificar a fonte para a entrada de áudio. Neste exemplo, o microfone predefinido é utilizado com `AudioConfig.fromDefaultMicrophoneInput()` .
 
-   - Substitua a cadeia `YourSubscriptionKey` pela chave de subscrição, que pode obter [deste website.](~/articles/cognitive-services/speech-service/get-started.md)
+   - Substitua a cadeia `YourSubscriptionKey` pela chave de subscrição, que pode obter [deste website.](../../../../overview.md#try-the-speech-service-for-free)
    - Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/speech-service/regions.md) associada à sua subscrição.
 
    > [!NOTE]
@@ -440,6 +440,6 @@ Neste ponto, diga uma frase ou frase em inglês que o seu bot possa entender. O 
 
 ![Captura de ecrã da saída da consola após o reconhecimento bem-sucedido](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-08-console-output.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [footer](./footer.md)]

@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: fcfefb2b6cd5c23e9b77d7d27413d1ff6d775bfe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7b691dc408c65b2152c60276dbea826042ecb0d8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321624"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097557"
 ---
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices)  |  [Pacote (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices)  |  [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
+[Documentação de referência](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices)  |  [Pacote (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices)  |  [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -116,9 +116,9 @@ Em seguida, na janela da consola, execute a aplicação com o `node` comando.
 node index.js
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [Documentação de referência da Azure Management SDK](https://docs.microsoft.com/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
-* [O que são os Serviços Cognitivos Azure?](../../Welcome.md)
+* [Documentação de referência da Azure Management SDK](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
+* [O que são os Serviços Cognitivos Azure?](../../what-are-cognitive-services.md)
 * [Autenticar pedidos aos Serviços Cognitivos da Azure](../../authentication.md)
 * [Criar um novo recurso utilizando o portal do Azure](../../cognitive-services-apis-create-account.md)

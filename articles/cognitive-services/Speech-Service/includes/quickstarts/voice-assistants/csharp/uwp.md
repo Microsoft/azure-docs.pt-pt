@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e2d43290946969643b10d2ecad2f076df208a5d0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea7ea08fc07a895bc038b27701d7038a5f76c26f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88925439"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096590"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de discurso azul](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Criar um recurso de discurso azul](../../../../overview.md#try-the-speech-service-for-free)
 > * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
-> * Criar um bot ligado ao [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Criar um bot ligado ao [canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 > 
   > [!NOTE]
@@ -277,7 +277,7 @@ A vista Design é atualizada para mostrar a interface de utilizador da aplicaç�
    > Por favor, consulte [a lista de regiões apoiadas para assistentes de voz](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) e certifique-se de que os seus recursos são utilizados numa dessas regiões.
 
    > [!NOTE]
-   > Para obter informações sobre a configuração do seu bot, consulte a documentação do Quadro bot para [o canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Para obter informações sobre a configuração do seu bot, consulte a documentação do Quadro bot para [o canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 1. Substitua as cordas `YourSpeechSubscriptionKey` e `YourServiceRegion` pelos seus próprios valores para a subscrição da sua fala e [região](~/articles/cognitive-services/speech-service/regions.md).
 
@@ -379,8 +379,8 @@ Agora está pronto para construir a sua aplicação e testar o seu assistente de
 
    ![Pedido de permissão de acesso ao microfone](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. **Selecione Fale com o seu bot**e fale uma frase ou frase em inglês no microfone do seu dispositivo. O seu discurso é transmitido para o canal Direct Line Speech e transcrito para texto, que aparece na janela.
+1. **Selecione Fale com o seu bot** e fale uma frase ou frase em inglês no microfone do seu dispositivo. O seu discurso é transmitido para o canal Direct Line Speech e transcrito para texto, que aparece na janela.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [footer](./footer.md)]

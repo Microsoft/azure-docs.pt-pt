@@ -8,18 +8,18 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 33efca9ab3c24ebd0a3d1c76924f2c1f4ee89581
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5ece29b7189f31654056ec357f522b59ccb16587
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91534667"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097672"
 ---
 [Documentação de referência](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)  |  [Amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-model-with-rest/Model.java)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [JDK SE](https://aka.ms/azure-jdks) (Kit de Desenvolvimento do Java, Edição Standard)
+* [JDK SE](/azure/developer/java/fundamentals/java-jdk-long-term-support) (Kit de Desenvolvimento do Java, Edição Standard)
 * [Código visual do estúdio](https://code.visualstudio.com/) ou o seu IDE favorito
 
 ## <a name="example-utterances-json-file"></a>Ficheiro JSON de expressões de exemplo
@@ -32,7 +32,7 @@ ms.locfileid: "91534667"
 
 1. Faça um subdiretório nomeado `lib` e copie nas seguintes libs java no `lib` subdiretório:
 
-    * [commons-logging-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
+    * [registo de commons-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
     * [httpclient-4.5.3.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)
     * [httpcore-4.4.6.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
 
@@ -155,7 +155,7 @@ ms.locfileid: "91534667"
 
 Quando terminar este arranque rápido, elimine a pasta do projeto do sistema de ficheiros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Melhores práticas para uma aplicação](../luis-concept-best-practices.md)

@@ -7,18 +7,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
-ms.openlocfilehash: 0212ad8aad4d9eb9603869e6a83302534509752b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 785d0afa666534c0b6dc0a8d93efbef4a6d1d9f5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91544927"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097600"
 ---
 [Documentação de referência](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)  |  [Amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-predict-with-rest/Predict.java)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [JDK SE](https://aka.ms/azure-jdks) (Kit de Desenvolvimento do Java, Edição Standard)
+* [JDK SE](/azure/developer/java/fundamentals/java-jdk-long-term-support) (Kit de Desenvolvimento do Java, Edição Standard)
 * [Código visual do estúdio](https://code.visualstudio.com/) ou o seu IDE favorito
 
 ## <a name="create-pizza-app"></a>Criar aplicativo Pizza
@@ -33,7 +33,7 @@ Use Java para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) 
 
 1. Faça um subdiretório nomeado `lib` e copie nas seguintes libs java no `lib` subdiretório:
 
-    * [commons-logging-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
+    * [registo de commons-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
     * [httpclient-4.5.3.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)
     * [httpcore-4.4.6.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
 
@@ -231,7 +231,7 @@ Use Java para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) 
 
 Quando terminar este arranque rápido, elimine a pasta do projeto do sistema de ficheiros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Adicione expressões e treine com Java](../get-started-get-model-rest-apis.md)

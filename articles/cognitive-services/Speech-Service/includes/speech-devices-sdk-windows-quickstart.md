@@ -5,18 +5,18 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 0fae0172467bb4499c2710c49553d9134a32fa9b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c9ed54f11cade20af67a1c9bfe948b03e9d7b0d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136227"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95095781"
 ---
-Neste arranque rápido, aprenderá a usar o SDK de Dispositivos de Fala para o Windows para construir um produto ativado por discurso ou usá-lo como dispositivo [de transcrição de conversação.](../conversation-transcription-service.md) Para a Transcrição de Conversação apenas o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) é suportado. Para outros suportes de microfone linear de uso de fala que fornecem uma geometria da matriz do microfone são suportados.
+Neste arranque rápido, aprenderá a usar o SDK de Dispositivos de Fala para o Windows para construir um produto ativado por discurso ou usá-lo como dispositivo [de transcrição de conversação.](../conversation-transcription.md) Para a Transcrição de Conversação apenas o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) é suportado. Para outros suportes de microfone linear de uso de fala que fornecem uma geometria da matriz do microfone são suportados.
 
 A aplicação é construída com o pacote Speech SDK e o Eclipse Java IDE (v4) em Windows de 64 bits. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
 
-Este guia requer uma conta [Azure Cognitive Services](../get-started.md) com um recurso de serviço de fala.
+Este guia requer uma conta [Azure Cognitive Services](../overview.md#try-the-speech-service-for-free) com um recurso de serviço de fala.
 
 O código-fonte da [aplicação](https://aka.ms/sdsdk-download-JRE) da amostra está incluído no SDK dos Dispositivos de Fala. Também está [disponível no GitHub.](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
 
@@ -29,20 +29,20 @@ Este início rápido requer:
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Só java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8.](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-* Uma chave de subscrição Azure para o serviço Speech. [Arranja um de graça.](../get-started.md)
+* Uma chave de subscrição Azure para o serviço Speech. [Arranja um de graça.](../overview.md#try-the-speech-service-for-free)
 * Descarregue a versão mais recente do [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) para Java e extraia o .zip para o seu diretório de trabalho.
    > [!NOTE]
    > Este quickstart assume que a aplicação é extraída para C:\SDSDK\JRE-Sample-Release
 
 A transcrição da conversa está atualmente disponível apenas para as regiões "en-US" e "zh-CN", nas regiões "central" e "eastasia". Deve ter uma chave de discurso numa dessas regiões para usar a Transcrição de Conversação.
 
-Se pretender utilizar as intenções, precisará de uma subscrição do [Serviço de Compreensão de Línguas (LUIS).](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) Para saber mais sobre o LUIS e o reconhecimento de intenções, consulte [Reconhecer as intenções da fala com LUIS, C.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). Para esta aplicação está disponível uma [amostra de modelo LUIS.](https://aka.ms/sdsdk-luis)
+Se pretender utilizar as intenções, precisará de uma subscrição do [Serviço de Compreensão de Línguas (LUIS).](../../luis/luis-how-to-azure-subscription.md) Para saber mais sobre o LUIS e o reconhecimento de intenções, consulte [Reconhecer as intenções da fala com LUIS, C.](../how-to-recognize-intents-from-speech-csharp.md). Para esta aplicação está disponível uma [amostra de modelo LUIS.](https://aka.ms/sdsdk-luis)
 
 ## <a name="create-and-configure-the-project"></a>Criar e configurar o projeto
 
 1. Inicie o Eclipse.
 
-1. No **Eclipse IDE Launcher,** no campo **Workspace,** insira o nome de um novo diretório de espaço de trabalho. Em seguida, selecione **Iniciar** .
+1. No **Eclipse IDE Launcher,** no campo **Workspace,** insira o nome de um novo diretório de espaço de trabalho. Em seguida, selecione **Iniciar**.
 
    ![Screenshot que mostra o Launcher Eclipse onde você inserem o nome do diretório do espaço de trabalho.](../media/speech-devices-sdk/eclipse-launcher.png)
 
@@ -50,11 +50,11 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
 
 1. A partir da barra de menus Eclipse, crie um novo projeto escolhendo **File**  >  **New**  >  **Java Project.** Se não estiver disponível, escolha **o Projeto** e, em seguida, o **Projeto Java.**
 
-1. O novo assistente **do Projeto Java** começa. **Procure** a localização do projeto da amostra. Selecione **Concluir** .
+1. O novo assistente **do Projeto Java** começa. **Procure** a localização do projeto da amostra. Selecione **Concluir**.
 
    ![Screenshot que mostra o assistente do Projeto New Java.](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
-1. No **explorador do Pacote,** clique com o botão direito do seu projeto. Escolha **Configurar**  >  **Converter para Projeto Maven** a partir do menu de contexto. Selecione **Concluir** .
+1. No **explorador do Pacote,** clique com o botão direito do seu projeto. Escolha **Configurar**  >  **Converter para Projeto Maven** a partir do menu de contexto. Selecione **Concluir**.
 
    ![Captura de ecrã do Explorador de pacotes](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
@@ -108,7 +108,7 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
 1. A palavra-chave predefinida (palavra-chave) é "Computador". Também pode experimentar uma das outras palavras-chave fornecidas, como "Máquina" ou "Assistente". Os ficheiros de recursos para estas palavras-chave alternativas encontram-se na SDK dos Dispositivos de Fala, na pasta de palavras-chave. Por exemplo, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contém os ficheiros utilizados para a palavra-chave "Computador".
 
     > [!TIP]
-    > Também pode [criar uma palavra-chave personalizada.](../speech-devices-sdk-create-kws.md)
+    > Também pode [criar uma palavra-chave personalizada.](../custom-keyword-basics.md)
 
     Para utilizar uma nova palavra-chave, atualize a seguinte linha em `FunctionsList.java` , e copie a palavra-chave para a sua aplicação. Por exemplo, para utilizar a palavra-chave 'Máquina' a partir do pacote de palavras-chave `machine.zip` :
 
@@ -121,7 +121,7 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Executar a aplicação da amostra a partir de Eclipse
 
-1. A partir da **Run** barra de menus Eclipse,  >  **corra como**  >  **aplicação java** . Em seguida, selecione **FunctionsList** e **OK** .
+1. A partir da **Run** barra de menus Eclipse,  >  **corra como**  >  **aplicação java**. Em seguida, selecione **FunctionsList** e **OK**.
 
    ![Screenshot da aplicação Select Java](../media/speech-devices-sdk/eclipse-run-sample.png)
 
@@ -129,7 +129,7 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
 
    ![Screenshot de uma aplicação e opções SDK de dispositivos de fala de amostra.](../media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Experimente a nova demonstração de **Transcrição** de Conversação. Comece a transcrever com **início de sessão**  >  **Start** . Por defeito, todos são convidados. No entanto, se tiver as assinaturas de voz dos participantes, podem ser colocadas num ficheiro `participants.properties` no **alvo/classes** da pasta do projeto . Para gerar a assinatura de voz, veja [as conversas transcrever (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Experimente a nova demonstração de **Transcrição** de Conversação. Comece a transcrever com **início de sessão**  >  **Start**. Por defeito, todos são convidados. No entanto, se tiver as assinaturas de voz dos participantes, podem ser colocadas num ficheiro `participants.properties` no **alvo/classes** da pasta do projeto . Para gerar a assinatura de voz, veja [as conversas transcrever (SDK)](../how-to-use-conversation-transcription.md).
 
    ![Screenshot de uma aplicação de transcrição de conversação de demonstração.](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
@@ -137,11 +137,11 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
 
 1. No **explorador do Pacote,** clique com o botão direito do seu projeto. Escolha **exportação.**
 
-1. Aparece a janela **de exportação.** Expanda **o Java** e selecione **o ficheiro RUNNable JAR** e, em seguida, selecione **Next** .
+1. Aparece a janela **de exportação.** Expanda **o Java** e selecione **o ficheiro RUNNable JAR** e, em seguida, selecione **Next**.
 
    ![Screenshot que mostra a janela Exportação onde seleciona o ficheiro JAR runnable.](../media/speech-devices-sdk/eclipse-export-windows.png)
 
-1. Aparece a janela **runnable JAR File Export.** Escolha um **destino de exportação** para a aplicação e, em seguida, selecione **Acabamento** .
+1. Aparece a janela **runnable JAR File Export.** Escolha um **destino de exportação** para a aplicação e, em seguida, selecione **Acabamento**.
 
    ![Screenshot que mostra a janela runnable JAR File Export onde você escolhe o destino de exportação.](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
 

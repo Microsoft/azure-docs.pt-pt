@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: d8da5fcffa6ff02bed76973021b8a69c6c250821
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1b50fbfa0ec4116f7d0b5988e5be70d0db086732
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321633"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95096388"
 ---
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/)  |  [Amostras](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
+[Documentação de referência](/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/)  |  [Amostras](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -122,9 +122,9 @@ Executar o pedido do seu diretório de candidaturas com o `dotnet run` comando.
 dotnet run
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [Documentação de referência da Azure Management SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)
-* [O que são os Serviços Cognitivos Azure?](../../Welcome.md)
+* [Documentação de referência da Azure Management SDK](/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)
+* [O que são os Serviços Cognitivos Azure?](../../what-are-cognitive-services.md)
 * [Autenticar pedidos aos Serviços Cognitivos da Azure](../../authentication.md)
 * [Criar um novo recurso utilizando o portal do Azure](../../cognitive-services-apis-create-account.md)
