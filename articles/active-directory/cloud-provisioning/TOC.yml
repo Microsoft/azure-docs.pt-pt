@@ -19,7 +19,7 @@
 - name: Conceitos
   items:
     - name: O que é a sincronização de hash de palavra-passe?
-      href: ../hybrid/whatis-phs.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
+      href: ../hybrid/whatis-phs.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
     - name: 'Compreender o esquema, atributos e expressões do Azure AD'
       href: concept-attributes.md
     - name: Escrever Expressões para Mapeamentos de Atributos no Azure Active Directory
@@ -63,10 +63,10 @@
 - name: Referência
   items:
     - name: Histórico de versões do agente do aprovisionamento na cloud do Azure AD Connect
-      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: FAQ do aprovisionamento na cloud do Azure AD Connect
       href: reference-cloud-provisioning-faq.md
     - name: Atributos que são sincronizados
-      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Ambiente do Active Directory e do Azure AD Básicos
       href: tutorial-basic-ad-azure.md

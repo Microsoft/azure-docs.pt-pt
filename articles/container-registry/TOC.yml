@@ -126,7 +126,7 @@
             - name: Confiança de conteúdo
               href: container-registry-content-trust.md
             - name: Análise de imagens com o Centro de Segurança
-              href: ../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json
+              href: ../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json
         - name: Registos e outros serviços do Azure
           expanded: false
           items:

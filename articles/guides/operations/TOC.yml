@@ -32,24 +32,24 @@
               href: ../../site-recovery/azure-to-azure-quickstart.md
     - name: Tutoriais
       items:
-        - name: Virtual Machines
+        - name: Máquinas Virtuais
           items:
             - name: Criar e gerir uma VM do Windows
               href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Criar e gerir VMs do Linux
               href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Pipeline CI/CD do Jenkins
-              href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%252fazure%252fguides%252foperations%252ftoc.json
+              href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Balanceamento de carga de VMs
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Criar modelos do Azure Resource Manager
-              href: ../../azure-resource-manager/templates/template-syntax.md?toc=%252fazure%252fguides%252foperations%252ftoc.json
+              href: ../../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Cópia de segurança de VMs em Dimensionamento
               href: ../../backup/tutorial-backup-vm-at-scale.md
     - name: Guias de Procedimentos
       items:
         - name: Como transferir a fatura e os dados de utilização diária do Azure
-          href: ../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md?toc=%252fazure%252fguides%252foperations%252ftoc.json
+          href: ../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
     - name: Recursos
       items:
         - name: Catálogo de Produtos do Azure

@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 03/05/2020
-  ms.openlocfilehash: 6bd43c0aff79003cc998dc132a13ba4c52281ff3
-  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+  ms.openlocfilehash: a7cbc96775b512828d7b3a741834c00942ac2980
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2020
-  ms.locfileid: "93309815"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94984639"
 landingContent:
 - title: Introdução ao Studio (clássico)
   linkLists:
@@ -50,4 +50,4 @@ landingContent:
     - text: Máquina Virtual de Ciência de Dados
       url: ../data-science-virtual-machine/index.yml
     - text: Comparar os nossos produtos de ML
-      url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context
+      url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure%2fmachine-learning%2fstudio%2fcontext%2fml-context

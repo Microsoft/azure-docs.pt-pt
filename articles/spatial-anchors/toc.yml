@@ -14,33 +14,44 @@
           href: unity-overview.md
         - name: HoloLens
           href: quickstarts/get-started-unity-hololens.md
+          displayName: 'Azure CLI, az spatial-anchors-account'
         - name: Android
           href: quickstarts/get-started-unity-android.md
+          displayName: 'Azure CLI, az spatial-anchors-account'
         - name: iOS
           href: quickstarts/get-started-unity-ios.md
+          displayName: 'Azure CLI, az spatial-anchors-account'
     - name: Criar aplicação de HoloLens
       href: quickstarts/get-started-hololens.md
+      displayName: 'Azure CLI, az spatial-anchors-account'
     - name: Criar aplicação de Android
       href: quickstarts/get-started-android.md
+      displayName: 'Azure CLI, az spatial-anchors-account'
     - name: Criar aplicação de iOS
       href: quickstarts/get-started-ios.md
+      displayName: 'Azure CLI, az spatial-anchors-account'
     - name: Criar aplicação Xamarin
       items:
         - name: Android
           href: quickstarts/get-started-xamarin-android.md
+          displayName: 'Azure CLI, az spatial-anchors-account'
         - name: iOS
           href: quickstarts/get-started-xamarin-ios.md
+          displayName: 'Azure CLI, az spatial-anchors-account'
 - name: Tutoriais
   items:
     - name: Partilhar entre sessões e dispositivos
       href: tutorials/tutorial-share-anchors-across-devices.md
+      displayName: 'Azure CLI, az spatial-anchors-account'
       items:
         - name: Partilha persistente com o Azure Cosmos DB
           href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
     - name: Iniciar uma nova aplicação do Unity HoloLens
       href: tutorials/tutorial-new-unity-hololens-app.md
+      displayName: 'Azure CLI, az spatial-anchors-account'
     - name: Começar uma nova aplicação Android
       href: tutorials/tutorial-new-android-app.md
+      displayName: 'Azure CLI, az spatial-anchors-account'
 - name: Procedimentos
   items:
     - name: Criar e localizar âncoras

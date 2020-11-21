@@ -201,7 +201,7 @@
             - name: Integrar com o Proxy de Aplicações com PingAccess
               href: application-proxy-ping-access-publishing-guide.md
             - name: Integrar com o Azure AD Domain Services
-              href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
+              href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
             - name: Integrar no Power BI
               href: application-proxy-integrate-with-power-bi.md
             - name: Integrar com o Cloud App Security
@@ -281,7 +281,7 @@
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda para programadores
-      href: ../develop/developer-support-help-options.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
+      href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
     - name: Fórum de comentários do Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft

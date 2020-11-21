@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: 57d59798d9bcfaf4b540bf2889a2167cd451e391
-  ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+  ms.openlocfilehash: 61372ede98bcd39ba3ad667dffc549783f67b035
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/08/2020
-  ms.locfileid: "94369312"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94990827"
 landingContent:
 - title: Acerca da API de Análise de Texto
   linkLists:
@@ -55,7 +55,7 @@ landingContent:
     - text: Integrar o Power BI para analisar os sentimentos dos clientes
       url: tutorials/tutorial-power-bi-key-phrases.md
     - text: Utilize o Flask para traduzir texto, analisar sentimentos e sintetizar fala
-      url: ../translator/tutorial-build-flask-app-translation-synthesis.md?bc=https%253a%252f%252fdocs.microsoft.com%252fen-us%252fazure%252fbread%252ftoc.json&toc=https%253a%252f%252fdocs.microsoft.com%252fen-us%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json
+      url: ../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json
   - linkListType: how-to-guide
     links:
     - text: Análise de sentimentos

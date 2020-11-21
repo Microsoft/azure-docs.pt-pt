@@ -65,7 +65,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=dsvm'
     - name: Guia para programadores de R
-      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
+      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=%2fazure/machine-learning/data-science-virtual-machine/context/ml-context
 - name: Referência
   items:
     - name: Máquina Virtual de Ciência de Dados do Ubuntu

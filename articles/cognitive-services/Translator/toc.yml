@@ -23,7 +23,7 @@
     - name: Guias de procedimentos
       items:
         - name: Inscrever-se no Tradutor
-          href: translator-text-how-to-signup.md
+          href: ./translator-how-to-signup.md
         - name: Migrar para a API de Texto V3
           href: migrate-to-v3.md
         - name: Adicionar filtragem de linguagem obscena

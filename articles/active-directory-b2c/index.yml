@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: c2ba84c640a8b6666d0829436b552f95289c3816
-  ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+  ms.openlocfilehash: 06fc0bebb926450d10815344abcdefb4bd56470c
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 11/20/2020
-  ms.locfileid: "94951609"
+  ms.locfileid: "94984792"
 landingContent:
 - title: Azure AD B2C
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
     - text: O que é o Azure AD B2C?
       url: overview.md
     - text: Comparar soluções para Identidades Externas
-      url: ../active-directory/external-identities/compare-with-b2c.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
+      url: ../active-directory/external-identities/compare-with-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: Introdução ao Azure AD B2C
       url: tutorial-create-tenant.md
     - text: Descrição geral técnica e das funcionalidades
@@ -38,13 +38,13 @@ landingContent:
   - linkListType: learn
     links:
     - text: Autenticação e autorização
-      url: ../active-directory/develop/authentication-vs-authorization.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
+      url: ../active-directory/develop/authentication-vs-authorization.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: Tokens
-      url: ../active-directory/develop/security-tokens.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
+      url: ../active-directory/develop/security-tokens.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: Protocolos
-      url: ../active-directory/develop/v2-app-types.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
+      url: ../active-directory/develop/v2-app-types.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: Biblioteca de autenticação
-      url: ../active-directory/develop/msal-overview.md?bc=%252fazure%252factive-directory-b2c%252fbread%252ftoc.json&toc=%252fazure%252factive-directory-b2c%252fTOC.json
+      url: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - text: 'Criar um site: HTML, CSS, JavaScript'
       url: /learn/modules/build-simple-website/
 - title: Casos de utilização comuns

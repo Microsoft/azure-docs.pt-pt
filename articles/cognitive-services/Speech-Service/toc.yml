@@ -259,7 +259,7 @@
         - name: Serviço LUIS
           items:
             - name: Recursos para programadores do LUIS
-              href: 'https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource'
+              href: ../luis/developer-reference-resource.md
     - name: Recursos
       items:
         - name: Suporte de idiomas
@@ -275,7 +275,7 @@
     - name: Referência
       items:
         - name: API REST do Reconhecimento de Orador
-          href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+          href: /rest/api/speakerrecognition/
 - name: Palavra-chave personalizada
   items:
     - name: Descrição geral de palavra-chave personalizada
@@ -493,7 +493,7 @@
         - name: Descrição geral do Speech Studio
           href: 'https://speech.microsoft.com'
         - name: Criar uma aplicação de Comandos Personalizados com o Speech Studio
-          href: quickstart-custom-speech-commands-create-new.md
+          href: ./quickstart-custom-commands-application.md
 - name: Implementação
   items:
     - name: Ativar registo

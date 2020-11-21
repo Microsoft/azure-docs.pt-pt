@@ -21,6 +21,10 @@
       href: work-remotely-support.md
     - name: Bastion e VNET Peering
       href: vnet-peering.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Guias de procedimentos
   items:
     - name: Criar um anfitrião

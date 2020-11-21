@@ -78,7 +78,7 @@
     - name: DNS pendente e aquisição de subdomínio
       href: subdomain-takeover.md
     - name: Arquitetura de rede híbrida segura
-      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
 - name: Segurança de IaaS
   items:
     - name: Microsoft Antimalware
@@ -118,7 +118,7 @@
         - name: Lista de verificação de segurança
           href: database-security-checklist.md
     - name: Guia da segurança do armazenamento
-      href: ../../storage/blobs/security-recommendations.md?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
+      href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
     - name: Sistema de Proteção de Dados do Cliente
       href: customer-lockbox-overview.md
     - name: Linha de base de segurança do Sistema de Proteção de Dados do Cliente

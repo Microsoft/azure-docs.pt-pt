@@ -10,12 +10,12 @@ metadata:
   author: cjgronlund
   ms.author: cgronlun
   ms.date: 11/04/2019
-  ms.openlocfilehash: fbf28ea4ef4ba45696df631a65dcb848f8616f94
-  ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+  ms.openlocfilehash: 29a87a9977c647af7f93e62e48bc493f579a1959
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/17/2020
-  ms.locfileid: "94654835"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94986237"
 landingContent:
 - title: Acerca do Open Datasets
   linkLists:
@@ -30,9 +30,9 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Criar um modelo de regressão com aprendizagem automática automatizada
-      url: ../machine-learning/tutorial-auto-train-models.md?context=azure%252fopen-datasets%252fcontext%252fopen-datasets-context
+      url: ../machine-learning/tutorial-auto-train-models.md?context=%2fazure%2fopen-datasets%2fcontext%2fopen-datasets-context
     - text: Enriquecer um modelo de classificação de imagens no Azure Machine Learning
-      url: ../machine-learning/tutorial-train-models-with-aml.md?context=azure%252fopen-datasets%252fcontext%252fopen-datasets-context
+      url: ../machine-learning/tutorial-train-models-with-aml.md?context=%2fazure%2fopen-datasets%2fcontext%2fopen-datasets-context
 - title: Explorar conteúdo de referência
   linkLists:
   - linkListType: reference

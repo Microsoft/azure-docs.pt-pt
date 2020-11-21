@@ -49,7 +49,7 @@
         - name: Exportar e importar a configuração
           href: export-import-provisioning-configuration.md
         - name: Aprovisionar os relatórios
-          href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+          href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Automatizar a configuração com o MS Graph
       href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
     - name: Resolver problemas de aprovisionamento de aplicações
@@ -65,7 +65,7 @@
         - name: Atributo de origem em falta
           href: user-provisioning-sync-attributes-for-mapping.md
         - name: Registos de aprovisionamento
-          href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+          href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
 - name: Referência
   items:
     - name: Conformidade do protocolo SCIM 2.0

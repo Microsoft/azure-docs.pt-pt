@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentação do Criador de FAQ
   description: O Criador de FAQ é um serviço de API com base na cloud, que cria uma camada de conversação, perguntas e respostas com os seus dados. O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos. O serviço Criador de FAQ responde às perguntas em linguagem natural dos seus utilizadores, correspondendo-as à melhor resposta possível de FAQ da sua Base de Dados de Conhecimento.
-  ms.openlocfilehash: d82dcd03ce64c76a84811b5789ee5460ba089641
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 487e783aa0c3ac5ad294c34f8522ee54fbfd6aea
+  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92372077"
+  ms.lasthandoff: 11/21/2020
+  ms.locfileid: "95021342"
 landingContent:
 - title: Acerca do Criador de FAQ
   linkLists:
@@ -111,7 +111,7 @@ landingContent:
     - text: APIs de Criação
       url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
     - text: Gerar APIs de Resposta
-      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime
+      url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/Runtime
     - text: Documentação de referência do SDK de .Net
       url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
     - text: Azure PowerShell
