@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d43a72db385d282ee189c179254cfc270929dbbf
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8b3b6a41da6e3100739da920472d582711d1e9b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207194"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024386"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de registos no Azure Monitor
 
@@ -242,9 +242,9 @@ Para tornar a saída mais clara, seleciona para exibi-la como um gráfico tempor
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre a utilização de dados de cadeias numa consulta de log com [Trabalho com cordas em consultas de registo do Azure Monitor](string-operations.md).
-- Saiba mais sobre agregação de dados numa consulta de log com [agregações avançadas em consultas de registo do Azure Monitor](advanced-aggregations.md).
-- Saiba como juntar dados de várias tabelas com [se juntas em consultas de registo do Azure Monitor](joins.md).
+- Saiba mais sobre a utilização de dados de cadeias numa consulta de log com [Trabalho com cordas em consultas de registo do Azure Monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations).
+- Saiba mais sobre agregação de dados numa consulta de log com [agregações avançadas em consultas de registo do Azure Monitor](/azure/data-explorer/write-queries#advanced-aggregations).
+- Saiba como juntar dados de várias tabelas com [se juntas em consultas de registo do Azure Monitor](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).
 - Obtenha documentação sobre toda a língua de consulta kusto na [referência linguística KQL](/azure/kusto/query/).

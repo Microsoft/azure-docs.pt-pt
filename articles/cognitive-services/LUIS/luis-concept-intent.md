@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536108"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025913"
 ---
 # <a name="intents-in-your-luis-app"></a>Intenções na sua app LUIS
 
@@ -32,7 +32,7 @@ Intenções de aplicativo de viagem   |   Expressões de exemplo   |
 Todas as aplicações vêm com a intenção predefinida, "[Nenhuma](#none-intent)", que é a intenção de recuo.
 
 ## <a name="prebuilt-domains-provide-intents"></a>Domínios pré-construídos fornecem intenções
-Além das intenções que define, pode utilizar intenções pré-construídas a partir de um dos [domínios pré-construídos.](luis-how-to-use-prebuilt-domains.md)
+Além das intenções que define, pode utilizar intenções pré-construídas a partir de um dos [domínios pré-construídos.](./howto-add-prebuilt-models.md)
 
 ## <a name="return-all-intents-scores"></a>Devolva todas as pontuações de intenções
 Atribua uma expressão a uma única intenção. Quando LUIS recebe uma expressão no ponto final, por defeito, devolve a intenção superior para essa expressão.
@@ -59,7 +59,7 @@ Crie uma intenção quando a _intenção_ do utilizador desencadearia uma ação
 
 ## <a name="prebuilt-domain-intents"></a>Intenções de domínio pré-construídas
 
-[Domínios pré-construídos](luis-how-to-use-prebuilt-domains.md) fornecem intenções com expressões.
+[Domínios pré-construídos](./howto-add-prebuilt-models.md) fornecem intenções com expressões.
 
 ## <a name="none-intent"></a>Intenção None (Nenhuma)
 
@@ -98,7 +98,7 @@ Saiba mais sobre a combinação de apps de fabricantes LUIS e QnA com o [modelo 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Pedir ajuda para apps com número significativo de intenções
 Se reduzir o número de intenções ou dividir as suas intenções em várias aplicações não funcionar para si, contacte o suporte. Se a sua subscrição Azure incluir serviços de suporte, contacte [o suporte técnico da Azure.](https://azure.microsoft.com/support/options/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [as entidades,](luis-concept-entity-types.md)que são palavras importantes relevantes para as intenções
 * Saiba como [adicionar e gerir intenções](luis-how-to-add-intents.md) na sua app LUIS.

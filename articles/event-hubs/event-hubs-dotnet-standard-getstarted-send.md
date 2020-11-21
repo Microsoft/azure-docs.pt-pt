@@ -4,12 +4,12 @@ description: Este artigo fornece uma passagem para criar uma aplicação .NET Co
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1c0f5a5fb45ee45cb9b7e399dc39ad29406b15dc
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7962e28ecdc7e2c04fefeb0faf6feb5b730d979c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578999"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024539"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Enviar eventos para e receber eventos dos Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando a biblioteca **Azure.Messaging.EventHubs** .NET. 
@@ -33,9 +33,9 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
 
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
-1. Inicie o Visual Studio 2019. 
+1. Inicie o Visual Studio 2019. 
 1. **Selecione Criar um novo projeto.** 
-1. Na caixa de diálogo do **projeto,** faça os seguintes passos: Se não vir esta caixa de diálogo, selecione **Ficheiro** no menu, selecione **Novo** , e, em seguida, selecione **Project**. 
+1. Na caixa de diálogo do **projeto,** faça os seguintes passos: Se não vir esta caixa de diálogo, selecione **Ficheiro** no menu, selecione **Novo**, e, em seguida, selecione **Project**. 
     1. Selecione **C#** para a linguagem de programação.
     1. Selecione **Consola** para o tipo de aplicação. 
     1. Selecione **App de Consola (.NET Core)** da lista de resultados. 
@@ -113,7 +113,7 @@ Esta secção mostra como escrever uma aplicação de consola .NET Core que rece
 > [!WARNING]
 > Se executar este código no Azure Stack Hub, sofrerá erros de tempo de execução a menos que tenha como alvo uma versão API de armazenamento específica. Isto porque o Event Hubs SDK utiliza a mais recente API de Armazenamento Azure disponível disponível no Azure que pode não estar disponível na sua plataforma Azure Stack Hub. O Azure Stack Hub pode suportar uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure. Se estiver a utilizar o Azure Blog Storage como uma loja de checkpoint, verifique a [versão API suportada do Azure Storage para a sua construção do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e direcione essa versão no seu código. 
 >
-> Por exemplo, Se estiver a executar a versão Azure Stack Hub 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de clientes Event Hubs SDK utiliza a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar o serviço de armazenamento API versão 2019-02-02. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte [esta amostra no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> Por exemplo, Se estiver a executar a versão Azure Stack Hub 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de clientes Event Hubs SDK utiliza a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar o serviço de armazenamento API versão 2019-02-02. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte [esta amostra no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
  
 
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Criar um armazenamento Azure e um recipiente blob
@@ -218,7 +218,7 @@ Neste arranque rápido, utiliza-se o Azure Storage como loja de pontos de verifi
 1. Construa o projeto e garanta que não há erros.
 
     > [!NOTE]
-    > Para obter o código fonte completo com mais comentários informativos, consulte [este ficheiro no GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.cs).
+    > Para obter o código fonte completo com mais comentários informativos, consulte [este ficheiro no GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.md).
 6. Executar a aplicação do recetor. 
 1. Deve ver uma mensagem de que o evento foi recebido. 
 
@@ -227,7 +227,7 @@ Neste arranque rápido, utiliza-se o Azure Storage como loja de pontos de verifi
     Estes eventos são os três eventos que enviou para o centro de eventos mais cedo, executando o programa remetente. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Vê as amostras do GitHub. 
 
 - [Amostras de Centros de Eventos no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)

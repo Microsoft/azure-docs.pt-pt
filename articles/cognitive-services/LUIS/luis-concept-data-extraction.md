@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9bcc3d08fa29109cf4178f8eb0c3efe661323ef0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541786"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025998"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados do texto de expressão com intenções e entidades
 O LUIS dá-lhe a capacidade de obter informações a partir das expressões de linguagem natural de um utilizador. A informação é extraída de forma a que possa ser usada por um programa, aplicação ou chat bot para tomar medidas. Nas secções seguintes, saiba quais os dados devolvidos de intenções e entidades com exemplos de JSON.
@@ -33,7 +33,7 @@ A `appID` página de **Definições** da sua app LUIS, bem como parte do URL (de
 A **resposta HTTPS** contém todas as informações de intenção e entidade que a LUIS pode determinar com base no modelo atual publicado, quer da encenação quer do ponto final de produção. O URL de ponto final encontra-se no site da [LUIS,](luis-reference-regions.md) na secção **Manage,** na página **Chaves e pontos finais.**
 
 ## <a name="data-from-intents"></a>Dados de intenções
-Os dados primários são o **nome de intenção**de pontuação superior. A resposta do ponto final é:
+Os dados primários são o **nome de intenção** de pontuação superior. A resposta do ponto final é:
 
 #### <a name="v2-prediction-endpoint-response"></a>[Resposta do ponto final da previsão V2](#tab/V2)
 
@@ -72,7 +72,7 @@ Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
 |Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
 |--|--|--|--|
-|Intenção|Cadeia|topScoringIntent.intent|"GetStoreInfo"|
+|Intenção|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Se o seu chatbot ou app LUIS-call tomar uma decisão com base em mais de uma pontuação de intenção, devolva todas as pontuações das intenções.
 
@@ -134,8 +134,8 @@ As intenções são ordenadas da pontuação mais alta para a menor.
 
 |Objeto de dados|Tipo de Dados|Localização de Dados|Valor|Resultado|
 |--|--|--|--|:--|
-|Intenção|Cadeia|intenções[0].intenção|"GetStoreInfo"|0.984749258|
-|Intenção|Cadeia|intenções[1].intenção|"Nenhum"|0.0168218873|
+|Intenção|String|intenções[0].intenção|"GetStoreInfo"|0.984749258|
+|Intenção|String|intenções[1].intenção|"Nenhum"|0.0168218873|
 
 Se adicionar domínios pré-construídos, o nome de intenção indica o domínio, tais como `Utilties` ou bem como a `Communication` intenção:
 
@@ -195,9 +195,9 @@ Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
 |Domínio|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
 |--|--|--|--|--|
-|Utilitários|Intenção|Cadeia|intenções[0].intenção|"<b>Utilities</b>. ShowNext"|
-|Comunicação|Intenção|Cadeia|intenções[1].intenção|<b>Comunicação</b>. StartOver"|
-||Intenção|Cadeia|intenções[2].intenção|"Nenhum"|
+|Utilitários|Intenção|String|intenções[0].intenção|"<b>Utilities</b>. ShowNext"|
+|Comunicação|Intenção|String|intenções[1].intenção|<b>Comunicação</b>. StartOver"|
+||Intenção|String|intenções[2].intenção|"Nenhum"|
 
 
 ## <a name="data-from-entities"></a>Dados de entidades
@@ -232,9 +232,9 @@ Obter nomes de uma expressão é difícil porque um nome pode ser quase qualquer
 
 ### <a name="names-of-people"></a>Nomes de pessoas
 
-O nome das pessoas pode ter um pequeno formato dependendo da linguagem e da cultura. Utilize uma pessoa pré-construída **[Entidade nome](luis-reference-prebuilt-person.md)** ou uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** com [funções](luis-concept-roles.md) de primeiro e último nome.
+O nome das pessoas pode ter um pequeno formato dependendo da linguagem e da cultura. Utilize uma pessoa pré-construída **[Entidade nome](luis-reference-prebuilt-person.md)** ou uma **[entidade simples](luis-concept-entity-types.md)** com funções de primeiro e último nome.
 
-Se utilizar a entidade simples, certifique-se de dar exemplos que usam o primeiro e o último nome em diferentes partes da expressão, em expressões de diferentes comprimentos, e expressões em todas as intenções, incluindo a intenção de Zero. [Reveja](luis-how-to-review-endoint-utt.md) as declarações de ponto final regularmente para rotular quaisquer nomes que não foram previstos corretamente.
+Se utilizar a entidade simples, certifique-se de dar exemplos que usam o primeiro e o último nome em diferentes partes da expressão, em expressões de diferentes comprimentos, e expressões em todas as intenções, incluindo a intenção de Zero. [Reveja](./luis-how-to-review-endpoint-utterances.md) as declarações de ponto final regularmente para rotular quaisquer nomes que não foram previstos corretamente.
 
 ### <a name="names-of-places"></a>Nomes de lugares
 
@@ -242,17 +242,17 @@ Os nomes de localização são definidos e conhecidos como cidades, condados, es
 
 ### <a name="new-and-emerging-names"></a>Nomes novos e emergentes
 
-Algumas aplicações precisam de ser capazes de encontrar nomes novos e emergentes, como produtos ou empresas. Este tipo de nomes são o tipo mais difícil de extração de dados. Comece com uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** e adicione uma lista [de frases](luis-concept-feature.md). [Reveja](luis-how-to-review-endoint-utt.md) as declarações de ponto final regularmente para rotular quaisquer nomes que não foram previstos corretamente.
+Algumas aplicações precisam de ser capazes de encontrar nomes novos e emergentes, como produtos ou empresas. Este tipo de nomes são o tipo mais difícil de extração de dados. Comece com uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** e adicione uma lista [de frases](luis-concept-feature.md). [Reveja](./luis-how-to-review-endpoint-utterances.md) as declarações de ponto final regularmente para rotular quaisquer nomes que não foram previstos corretamente.
 
 ## <a name="patternany-entity-data"></a>Padrão.quaisquer dados de entidade
 
 [Padrão.qualquer](reference-entity-pattern-any.md) um é um espaço reservado de comprimento variável usado apenas na expressão do modelo de um padrão para marcar onde a entidade começa e termina. A entidade utilizada no padrão deve ser encontrada para que o padrão seja aplicado.
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
-Se a análise do sentimento estiver configurada durante [a publicação, a](luis-how-to-publish-app.md#sentiment-analysis)resposta do JSON LUIS inclui a análise do sentimento. Saiba mais sobre a análise de sentimento na documentação [text Analytics.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)
+Se a análise do sentimento estiver configurada durante [a publicação, a](luis-how-to-publish-app.md#sentiment-analysis)resposta do JSON LUIS inclui a análise do sentimento. Saiba mais sobre a análise de sentimento na documentação [text Analytics.](../text-analytics/index.yml)
 
 ## <a name="key-phrase-extraction-entity-data"></a>Dados da entidade de extração de frases-chave
-A [entidade de extração de frases-chave](luis-reference-prebuilt-keyphrase.md) devolve frases-chave na expressão, fornecidas pela [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+A [entidade de extração de frases-chave](luis-reference-prebuilt-keyphrase.md) devolve frases-chave na expressão, fornecidas pela [Text Analytics](../text-analytics/index.yml).
 
 ## <a name="data-matching-multiple-entities"></a>Dados que combinam com várias entidades
 
@@ -264,6 +264,6 @@ Se uma palavra ou frase corresponder a mais de uma entidade de lista, a consulta
 
 Para a consulta `when is the best time to go to red rock?` , e a app tem a palavra em mais de uma `red` lista, a LUIS reconhece todas as entidades e devolve um conjunto de entidades como parte da resposta do ponto final da JSON.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [entidades Add](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua app LUIS.

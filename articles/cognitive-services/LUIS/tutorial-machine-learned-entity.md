@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: 1f85ba0c64db23e156f384fadcc5ca7bf84a58d4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: aa2783abe86b90a907510dec8d7eb40162820ad5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130773"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025264"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados da expressão do utilizador com entidades de aprendizagem automática em Compreensão linguística (LUIS)
 
@@ -18,7 +18,7 @@ Neste tutorial, extrair dados estruturados de uma expressão utilizando a entida
 
 A entidade de machine-learning suporta o [conceito de decomposição](luis-concept-model.md#v3-authoring-model-decomposition) do modelo, fornecendo funcionalidades às entidades sub-entidades. [features](luis-concept-feature.md)
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
 > * App de exemplo de importação
@@ -79,11 +79,11 @@ Para extrair detalhes sobre uma encomenda de pizza, crie uma entidade de alto n�
     > [!NOTE]
     > Uma entidade não será sempre toda a expressão. Neste caso específico, `pickup` indica como a ordem deve ser recebida. Do ponto de vista conceptual, `pickup` deve fazer parte da entidade rotulada para a encomenda.
 
-1. Na **caixa de tipo de entidade,** selecione **Add Structure** e selecione **Seguinte** . A estrutura é necessária para adicionar subentidades como o tamanho e a quantidade.
+1. Na **caixa de tipo de entidade,** selecione **Add Structure** e selecione **Seguinte**. A estrutura é necessária para adicionar subentidades como o tamanho e a quantidade.
 
     ![Screenshot mostra a janela Escolher uma janela tipo de entidade com a opção de estrutura Add verificada.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
-1. Na caixa **de subentidades adicionar (opcional),** selecione **+** na `Order` linha, adicione e como `Size` `Quantity` subentidades, em seguida, **selecione Criar** .
+1. Na caixa **de subentidades adicionar (opcional),** selecione **+** na `Order` linha, adicione e como `Size` `Quantity` subentidades, em seguida, **selecione Criar**.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot mostra a janela de subentências adicionar (opcional) com subentências realçadas.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
@@ -96,7 +96,7 @@ Os passos anteriores criam a entidade e a sub-entidade. Para melhorar a extraç�
 
 1. Selecione **Entidades** do menu esquerdo e, em seguida, selecione **Entidade de Encomenda.**
 
-1. No **separador Schema e funcionalidades,** selecione a sub-entidade **'Tamanho'** e, em seguida, selecione **+ Adicionar a função** .
+1. No **separador Schema e funcionalidades,** selecione a sub-entidade **'Tamanho'** e, em seguida, selecione **+ Adicionar a função**.
 
 1. Selecione Crie uma nova lista de **frases** a partir do menu suspenso.
 
@@ -108,7 +108,7 @@ Os passos anteriores criam a entidade e a sub-entidade. Para melhorar a extraç�
 
 Adicionar uma lista de tamanhos conhecidos que a aplicação do cliente reconhece também ajudará a extração.
 
-1. Selecione **Entidades** do menu esquerdo e, em seguida, selecione **+ Criar** .
+1. Selecione **Entidades** do menu esquerdo e, em seguida, selecione **+ Criar**.
 
 1. Desaver o nome da entidade como `SizeListentity` e desaver o Tipo de **Lista** de modo a que seja fácil de identificar quando comparado com o `SizePhraselist` criado na secção anterior.
 
@@ -131,7 +131,7 @@ Adicionar uma lista de tamanhos conhecidos que a aplicação do cliente reconhec
 
 1. Selecione **Ordem** da lista de entidades.
 
-1. No **separador Schema e funcionalidades,** selecione a entidade **Size** e, em seguida, selecione **+ Adicionar função** .
+1. No **separador Schema e funcionalidades,** selecione a entidade **Size** e, em seguida, selecione **+ Adicionar função**.
 
 1. Selecione **@ SizeListentity** da lista de drop-down.
 
@@ -143,7 +143,7 @@ A adição de uma entidade numeram pré-construída também ajudará a extraçã
 
 1. Selecione **Entidades** do menu esquerdo e, em seguida, **selecione Adicionar entidade pré-construída.**
 
-1. Selecione **Número** da lista e, em seguida, selecione **Feito** .
+1. Selecione **Número** da lista e, em seguida, selecione **Feito**.
 
 1. Selecione **Entidades** do menu esquerdo para voltar à lista de entidades.
 
@@ -151,7 +151,7 @@ A adição de uma entidade numeram pré-construída também ajudará a extraçã
 
 1. Selecione **Ordem** da lista de entidades.
 
-1. No **separador Schema e funcionalidades,** selecione a entidade **Quantity** e, em seguida, selecione **+ Adicionar função** .
+1. No **separador Schema e funcionalidades,** selecione a entidade **Quantity** e, em seguida, selecione **+ Adicionar função**.
 
 1. **Selecione @ número** da lista de drop-down.
 
@@ -182,7 +182,7 @@ A entidade aprendida com a máquina é criada e as subentidades têm caracterís
 
 ## <a name="train-the-app"></a>Preparar a aplicação
 
-Para treinar a aplicação, selecione **Train** . A formação aplica as alterações, como as novas entidades e as proclamações rotuladas, ao modelo ativo.
+Para treinar a aplicação, selecione **Train**. A formação aplica as alterações, como as novas entidades e as proclamações rotuladas, ao modelo ativo.
 
 ## <a name="add-a-new-example-utterance"></a>Adicione um novo exemplo de expressão
 
@@ -241,7 +241,7 @@ Para obter uma predição do LUIS num chatbot ou noutra aplicação-cliente, tem
     > [!div class="mx-imgBorder"]
     > ![Screenshot da publicação de LUIS para o ponto final](./media/tutorial-machine-learned-entity/publish-with-sentiment-analysis.png)
 
-1. Selecione o link **URLs do ponto final** no link 'Access' na notificação para aceder à página Recursos **Azure.** Os URLs de ponto final estão listados como **a Consulta exemplo** .
+1. Selecione o link **URLs do ponto final** no link 'Access' na notificação para aceder à página Recursos **Azure.** Os URLs de ponto final estão listados como **a Consulta exemplo**.
 
 ## <a name="get-intent-and-entity-prediction-from-http-endpoint"></a>Obtenha a previsão de intenção e entidade do ponto final http
 
@@ -297,16 +297,16 @@ Para obter uma predição do LUIS num chatbot ou noutra aplicação-cliente, tem
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Tutorial - intenções](luis-quickstart-intents-only.md)
+* [Tutorial - intenções](./tutorial-intents-only.md)
 * [Conceito - entidades](luis-concept-entity-types.md) informação conceptual
 * [Conceito - apresenta](luis-concept-feature.md) informação conceptual
 * [Como treinar](luis-how-to-train.md)
 * [Como publicar](luis-how-to-publish-app.md)
 * [Como testar no portal LUIS](luis-interactive-test.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, a aplicação utiliza uma entidade de aprendizagem automática para encontrar a intenção da expressão de um utilizador e extrair detalhes dessa expressão. A utilização da entidade de aprendizagem automática permite-lhe decompor os detalhes da entidade.
 
 > [!div class="nextstepaction"]
-> [Adicionar uma entidade keyphrase criada previamente](luis-quickstart-intent-and-key-phrase.md)
+> [Adicionar uma entidade keyphrase criada previamente](./luis-reference-prebuilt-keyphrase.md)

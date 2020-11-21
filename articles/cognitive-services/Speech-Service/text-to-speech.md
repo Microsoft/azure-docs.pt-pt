@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto para a fala
-ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357459"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024522"
 ---
 # <a name="what-is-text-to-speech"></a>O que é a conversão de texto em voz?
 
@@ -31,7 +31,7 @@ Nesta visão geral, você aprende sobre os benefícios e capacidades do serviço
 
 ## <a name="core-features"></a>Características do núcleo
 
-* Síntese de fala - Utilize a [API](rest-text-to-speech.md) [de Discurso SDK](quickstarts/text-to-speech-audio-file.md) ou REST para converter texto-a-voz usando vozes padrão, neurais ou personalizadas.
+* Síntese de fala - Utilize a [API](rest-text-to-speech.md) [de Discurso SDK](./get-started-text-to-speech.md) ou REST para converter texto-a-voz usando vozes padrão, neurais ou personalizadas.
 
 * Síntese assíncrono de áudio longo - Utilize a [API de áudio longo](long-audio-api.md) para sintetizar assíncrono ficheiros de texto para voz com mais de 10 minutos (por exemplo, livros áudio ou palestras). Ao contrário da síntese realizada utilizando o Speech SDK ou a API rest de expressão-para-texto, as respostas não são devolvidas em tempo real. A expectativa é que os pedidos sejam enviados assíncronos, as respostas são sondadas e que o áudio sintetizado seja descarregado quando disponibilizado a partir do serviço. Apenas vozes neurais personalizadas são suportadas.
 
@@ -75,7 +75,7 @@ Para obter informações detalhadas, consulte [a fixação de preços.](https://
 - [API de Voz](speech-sdk.md)
 - [REST API: Texto-a-discurso](rest-text-to-speech.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Obtenha uma subscrição de serviço de voz gratuita](overview.md#try-the-speech-service-for-free)
 - [Obtenha o Discurso SDK](speech-sdk.md)

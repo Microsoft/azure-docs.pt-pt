@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9e9eca3bb230bbfc969a5a429f664e602ad0d78b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 6d6a392d25aa96ab9b4dbb7763b37c1021db71aa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888322"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026289"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Linha de segurança Azure para Azure Front Door
 
@@ -202,7 +202,7 @@ Recomenda-se que o cliente crie um processo para capturar as alterações de atr
 
 ## <a name="logging-and-threat-detection"></a>Registo e Deteção de Ameaças
 
-*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Registo e Deteção de Ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Registo e Deteção de Ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Permitir o registo de atividades da rede Azure
 
@@ -338,7 +338,7 @@ Além disso, marque recursos usando tags e crie um sistema de nomeação para id
 
 ## <a name="posture-and-vulnerability-management"></a>Gestão de Postura e Vulnerabilidade
 
-*Para mais informações, consulte o [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Para mais informações, consulte o [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
 ### <a name="pv-3-establish-secure-configurations-for-compute-resources"></a>PV-3: Estabelecer configurações seguras para recursos computacional
 
@@ -409,7 +409,7 @@ Mais informações estão disponíveis nos links referenciados.
 
 - [Fundamentos de Segurança Azure - Segurança de dados Azure, encriptação e armazenamento](../security/fundamentals/encryption-overview.md)
 
-- [Benchmark de segurança Azure - Proteção de Dados](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Benchmark de segurança Azure - Proteção de Dados](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -437,7 +437,7 @@ Certifique-se de que a estratégia de segmentação é implementada de forma con
 
 **Orientação:** Medir e mitigar continuamente os riscos para os seus ativos individuais e para o ambiente em que estão hospedados. Priorize ativos de alto valor e superfícies de ataque altamente expostas, tais como aplicações publicadas, entradas de rede e pontos de saída, pontos finais de utilizador e administrador, e assim por diante.
 
-- [Azure Security Benchmark - Postura e gestão de vulnerabilidades](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - Postura e gestão de vulnerabilidades](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -479,7 +479,7 @@ Mais informações estão disponíveis nos links referenciados.
 
 - [Azure Security Best Practice 11 - Arquitetura. Estratégia de segurança unificada única](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Benchmark de segurança Azure - Segurança de rede](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Benchmark de segurança Azure - Segurança de rede](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Visão geral da segurança da rede Azure](../security/fundamentals/network-overview.md)
 
@@ -505,9 +505,9 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 Para mais informações, consulte as seguintes referências:
 
-- [Azure Security Benchmark - Gestão de identidade](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark - Gestão de identidade](/azure/security/benchmarks/security-controls-v2-identity-management)
 
-- [Benchmark de Segurança Azure - Acesso privilegiado](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Benchmark de Segurança Azure - Acesso privilegiado](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
 - [Azure Security Best Practice 11 - Arquitetura. Estratégia de segurança unificada única](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -539,9 +539,9 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 Mais informações estão disponíveis nos links referenciados.
 
-- [Azure Security Benchmark - Registo e deteção de ameaças](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark - Registo e deteção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - Resposta a incidentes](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - Resposta a incidentes](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Azure Security Best Practice 4 - Processo. Atualizar processos de resposta a incidentes para cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -551,7 +551,7 @@ Mais informações estão disponíveis nos links referenciados.
 
 **Responsabilidade**: Cliente
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

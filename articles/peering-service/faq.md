@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 55c5e6c5b718dc2de295b9b4418ddc8607a69f8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95ce90dbbf47ffe527fe6f25704d9cd28b834ea9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84872051"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026700"
 ---
 # <a name="peering-service-faq"></a>Serviço de Observação FAQ
 
@@ -36,7 +36,7 @@ A. Sim, os clientes podem fazê-lo. Selecione o parceiro ISP por região que se 
 
 **Q. O que é um Microsoft Edge PoP?**
 
-A. É um local físico onde a Microsoft se interliga com outras redes. Na localização Microsoft Edge PoP, estão hospedados serviços como Azure Front Door e Azure CDN. Para mais informações, consulte [a Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-features).
+A. É um local físico onde a Microsoft se interliga com outras redes. Na localização Microsoft Edge PoP, estão hospedados serviços como Azure Front Door e Azure CDN. Para mais informações, consulte [a Azure CDN](../cdn/cdn-features.md).
 
 ## <a name="peering-service-unique-characteristics"></a>Serviço de Observação: Características únicas
 
@@ -48,7 +48,7 @@ A. Os parceiros que se registaram no Microsoft Peering Service estão a trabalha
 
 A. Azure ExpressRoute é uma ligação privada e dedicada a partir de um ou vários locais de clientes. Embora o Peering Service ofereça conectividade pública otimizada e não suporte qualquer conectividade privada, também oferece conectividade otimizada para fugas de internet locais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre o Serviço de Peering, consulte [a visão geral do Serviço de Peering](about.md).
 - Para encontrar um prestador de serviços, consulte [parceiros e locais do Serviço de Observação.](location-partners.md)

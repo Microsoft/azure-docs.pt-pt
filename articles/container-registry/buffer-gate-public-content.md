@@ -4,13 +4,13 @@ description: Práticas e fluxos de trabalho no Registo de Contentores de Azure p
 author: dlepow
 ms.topic: article
 ms.author: danlep
-ms.date: 10/29/2020
-ms.openlocfilehash: def1c3a9b8a1086f453c7e71d766ab0dd89b0c2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 11/20/2020
+ms.openlocfilehash: 0c92899528d417f9c91f8f8930ca4932dc74e850
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347527"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024743"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Gerir conteúdos públicos com registo de contentores Azure
 
@@ -26,6 +26,8 @@ Sem controlos adequados, ter dependências de conteúdos de registo público pod
 ## <a name="authenticate-with-docker-hub"></a>Autenticar com Docker Hub
 
 Como primeiro passo, se atualmente retirar imagens públicas do Docker Hub como parte de um fluxo de trabalho de construção ou implantação, recomendamos que [autente usando uma conta Docker Hub](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) em vez de fazer um pedido de atração anónimo.
+
+Ao fazer pedidos de chamadas anónimas frequentes, poderá ver erros do Docker semelhantes `ERROR: toomanyrequests: Too Many Requests.` ou `You have reached your pull rate limit.` autenticar o Docker Hub para evitar estes erros.
 
 > [!NOTE]
 > A partir de 2 de novembro de 2020, [os limites de taxa de descarregamento](https://docs.docker.com/docker-hub/download-rate-limit) aplicam-se a pedidos anónimos e autenticados ao Docker Hub a partir de contas Docker Free Plan e são aplicados por endereço IP e Estiva, respectivamente. 
@@ -46,8 +48,8 @@ Vários serviços Azure, incluindo o App Service e o Azure Container Instances, 
 
 **Serviço de Aplicações**
 
-* **Fonte de imagem** : Docker Hub
-* **Acesso ao repositório** : Privado
+* **Fonte de imagem**: Docker Hub
+* **Acesso ao repositório**: Privado
 * **Início de sessão:**\<Docker Hub username>
 * **Senha:**\<Docker Hub token>
 
@@ -55,8 +57,8 @@ Para mais informações, consulte [os pulls autenticados do Docker Hub no Servi�
 
 **Azure Container Instances**
 
-* **Fonte de imagem** : Docker Hub ou outro registo
-* **Tipo de imagem** : Privado
+* **Fonte de imagem**: Docker Hub ou outro registo
+* **Tipo de imagem**: Privado
 * **Servidor de login do registo de** imagem : docker.io
 * **Nome do utilizador do registo de imagem:**\<Docker Hub username>
 * **Senha de registo de imagem:**\<Docker Hub token>

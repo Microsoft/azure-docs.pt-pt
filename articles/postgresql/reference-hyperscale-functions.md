@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250336"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026238"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funções na Hiperescala (Citus) SQL API
 
@@ -32,15 +32,15 @@ Esta função substitui o uso do mestre \_ criar \_ tabela \_ distribuída() seg
 
 #### <a name="arguments"></a>Argumentos
 
-nome da ** \_ tabela:** Nome da tabela que precisa de ser distribuída.
+nome da **\_ tabela:** Nome da tabela que precisa de ser distribuída.
 
-** \_ coluna de distribuição:** A coluna sobre a qual a tabela deve ser distribuída.
+**\_ coluna de distribuição:** A coluna sobre a qual a tabela deve ser distribuída.
 
-** \_ tipo de distribuição:** (Opcional) O método segundo o qual a tabela deve ser distribuída. Os valores admissíveis são anexas ou haxixe, com um valor padrão de 'haxixe'.
+**\_ tipo de distribuição:** (Opcional) O método segundo o qual a tabela deve ser distribuída. Os valores admissíveis são anexas ou haxixe, com um valor padrão de 'haxixe'.
 
 **O lugar \_ com:** (Opcional) inclui tabela atual no grupo de colocação de outra tabela. Por predefinição, as tabelas são estassedadas quando são distribuídas por colunas do mesmo tipo, têm a mesma contagem de fragmentos e têm o mesmo fator de replicação. Os valores possíveis para `colocate_with` `default` são, `none` para iniciar um novo grupo de colocação, ou o nome de outra tabela para apresentar com essa tabela.  (Ver [colocação de mesa](concepts-hyperscale-colocation.md).)
 
-Tenha em mente que o valor padrão de `colocate_with` colocação implícita. [A colocação](concepts-hyperscale-colocation.md) pode ser uma grande coisa quando as mesas estão relacionadas ou serão unidas.  No entanto, quando duas tabelas não estão relacionadas, mas que por acaso utilizam o mesmo tipo de dados para as suas colunas de distribuição, a sua colocação acidental pode diminuir o desempenho durante [o reequilíbrio do fragmento](howto-hyperscale-scaling.md#rebalance-shards).  Os fragmentos de mesa serão movidos juntos desnecessariamente numa \" cascata.\"
+Tenha em mente que o valor padrão de `colocate_with` colocação implícita. [A colocação](concepts-hyperscale-colocation.md) pode ser uma grande coisa quando as mesas estão relacionadas ou serão unidas.  No entanto, quando duas tabelas não estão relacionadas, mas que por acaso utilizam o mesmo tipo de dados para as suas colunas de distribuição, a sua colocação acidental pode diminuir o desempenho durante [o reequilíbrio do fragmento](howto-hyperscale-scale-rebalance.md).  Os fragmentos de mesa serão movidos juntos desnecessariamente numa \" cascata.\"
 
 Se uma nova tabela distribuída não estiver relacionada com outras tabelas, o melhor é `colocate_with => 'none'` especificar.
 
@@ -66,7 +66,7 @@ A \_ função de tabela de referência de \_ criação é utilizada para definir
 
 #### <a name="arguments"></a>Argumentos
 
-nome da ** \_ tabela:** Nome da pequena dimensão ou mesa de referência que precisa de ser distribuída.
+nome da **\_ tabela:** Nome da pequena dimensão ou mesa de referência que precisa de ser distribuída.
 
 #### <a name="return-value"></a>Devolver Valor
 
@@ -86,7 +86,7 @@ A função de upgrade \_ para \_ tabela de \_ referência() requer uma tabela di
 
 #### <a name="arguments"></a>Argumentos
 
-nome da ** \_ tabela:** Nome da tabela distribuída (tendo contagem de fragmentos = 1) que será distribuída como tabela de referência.
+nome da **\_ tabela:** Nome da tabela distribuída (tendo contagem de fragmentos = 1) que será distribuída como tabela de referência.
 
 #### <a name="return-value"></a>Devolver Valor
 
@@ -144,7 +144,7 @@ O caminho de pesquisa postgres não é propagado do coordenador para os trabalha
 
 #### <a name="arguments"></a>Argumentos
 
-nome da ** \_ função:** Nome da função a distribuir. O nome deve incluir os tipos de parâmetros da função em parênteses, porque várias funções podem ter o mesmo nome em PostgreSQL. Por exemplo, `'foo(int)'` é diferente de `'foo(int, text)'` .
+nome da **\_ função:** Nome da função a distribuir. O nome deve incluir os tipos de parâmetros da função em parênteses, porque várias funções podem ter o mesmo nome em PostgreSQL. Por exemplo, `'foo(int)'` é diferente de `'foo(int, text)'` .
 
 **distribuição \_ arg \_ nome:** (Opcional) O nome do argumento para distribuir. Por conveniência (ou se os argumentos de função não tiverem nomes), é permitido um espaço reservado de posição, tais como `'$1'` . Se este parâmetro não for especificado, então a função nomeada `function_name` é apenas criada nos trabalhadores. Se os nós dos trabalhadores forem adicionados no futuro, a função será automaticamente criada lá também.
 
@@ -186,25 +186,25 @@ A \_ função master get \_ \_ metadados de tabela() pode ser usada para devolve
 
 #### <a name="arguments"></a>Argumentos
 
-nome da ** \_ tabela:** Nome da tabela distribuída para a qual pretende obter metadados.
+nome da **\_ tabela:** Nome da tabela distribuída para a qual pretende obter metadados.
 
 #### <a name="return-value"></a>Devolver Valor
 
 Uma tuple contendo as seguintes informações:
 
-** \_ relídeo lógico:** Oid da tabela distribuída. Refere a coluna relfilenode na tabela do \_ catálogo do sistema pg.
+**\_ relídeo lógico:** Oid da tabela distribuída. Refere a coluna relfilenode na tabela do \_ catálogo do sistema pg.
 
-** \_ tipo de armazenamento de \_ parte:** Tipo de armazenamento utilizado para a mesa. Pode ser 't' (tabela padrão), 'f' (mesa estrangeira) ou 'c' (tabela colunaar).
+**\_ tipo de armazenamento de \_ parte:** Tipo de armazenamento utilizado para a mesa. Pode ser 't' (tabela padrão), 'f' (mesa estrangeira) ou 'c' (tabela colunaar).
 
-** \_ método de parte:** Método de distribuição utilizado para a tabela. Pode ser 'a' (apêndice), ou 'h' (haxixe).
+**\_ método de parte:** Método de distribuição utilizado para a tabela. Pode ser 'a' (apêndice), ou 'h' (haxixe).
 
-** \_ chave de parte:** Coluna de distribuição para a tabela.
+**\_ chave de parte:** Coluna de distribuição para a tabela.
 
-** \_ contagem \_ de réplicas de parte:** Contagem de replicação de fragmentos de corrente.
+**\_ contagem \_ de réplicas de parte:** Contagem de replicação de fragmentos de corrente.
 
-tamanho máximo da ** \_ \_ parte:** Tamanho máximo de fragmentos em bytes.
+tamanho máximo da **\_ \_ parte:** Tamanho máximo de fragmentos em bytes.
 
-** \_ política de colocação de \_ partes:** Política de colocação de fragmentos utilizado para a colocação dos fragmentos da mesa. Pode ser 1 (local-nó-primeiro) ou 2 (rodada-robin).
+**\_ política de colocação de \_ partes:** Política de colocação de fragmentos utilizado para a colocação dos fragmentos da mesa. Pode ser 1 (local-nó-primeiro) ou 2 (rodada-robin).
 
 #### <a name="example"></a>Exemplo
 
@@ -224,7 +224,7 @@ A Hiperescala (Citus) atribui cada linha de uma tabela distribuída a um fragmen
 
 #### <a name="arguments"></a>Argumentos
 
-** \_ nome da tabela:** A tabela distribuída.
+**\_ nome da tabela:** A tabela distribuída.
 
 **valor de \_ distribuição:** O valor da coluna de distribuição.
 
@@ -251,9 +251,9 @@ Para uma discussão mais detalhada, consulte [a escolha de uma coluna de distrib
 
 #### <a name="arguments"></a>Argumentos
 
-** \_ nome da tabela:** A tabela distribuída.
+**\_ nome da tabela:** A tabela distribuída.
 
-** \_ texto var \_ coluna:** O valor da `partkey` `pg_dist_partition` tabela.
+**\_ texto var \_ coluna:** O valor da `partkey` `pg_dist_partition` tabela.
 
 #### <a name="return-value"></a>Devolver Valor
 
@@ -377,13 +377,13 @@ Para reparar um fragmento, a função primeiro deixa cair a colocação de fragm
 
 **identificação do \_ fragmento:** ID do fragmento a ser reparado.
 
-**nome do nó de origem: \_ \_ ** nome DNS do nó no qual está presente a colocação saudável do fragmento \" (nó de \" origem).
+**nome do nó de origem: \_ \_** nome DNS do nó no qual está presente a colocação saudável do fragmento \" (nó de \" origem).
 
 **porta \_ de nó de \_ origem:** A porta no nó do trabalhador de origem no qual o servidor da base de dados está a ouvir.
 
-** \_ nome do nó-alvo: \_ ** nome DNS do nó no qual está presente a colocação inválida do fragmento \" \" (nó-alvo).
+**\_ nome do nó-alvo: \_** nome DNS do nó no qual está presente a colocação inválida do fragmento \" \" (nó-alvo).
 
-**porta \_ de nó-alvo: \_ ** A porta no nó do trabalhador-alvo no qual o servidor de base de dados está a ouvir.
+**porta \_ de nó-alvo: \_** A porta no nó do trabalhador-alvo no qual o servidor de base de dados está a ouvir.
 
 #### <a name="return-value"></a>Devolver Valor
 
@@ -411,13 +411,13 @@ Após uma operação de movimento bem sucedida, os fragmentos no nó de origem s
 
 **identificação de \_ fragmento:** ID do fragmento a ser movido.
 
-**nome do nó de origem: \_ \_ ** nome DNS do nó no qual está presente a colocação saudável do fragmento \" (nó de \" origem).
+**nome do nó de origem: \_ \_** nome DNS do nó no qual está presente a colocação saudável do fragmento \" (nó de \" origem).
 
 **porta \_ de nó de \_ origem:** A porta no nó do trabalhador de origem no qual o servidor da base de dados está a ouvir.
 
-** \_ nome do nó-alvo: \_ ** nome DNS do nó no qual está presente a colocação inválida do fragmento \" \" (nó-alvo).
+**\_ nome do nó-alvo: \_** nome DNS do nó no qual está presente a colocação inválida do fragmento \" \" (nó-alvo).
 
-**porta \_ de nó-alvo: \_ ** A porta no nó do trabalhador-alvo no qual o servidor de base de dados está a ouvir.
+**porta \_ de nó-alvo: \_** A porta no nó do trabalhador-alvo no qual o servidor de base de dados está a ouvir.
 
 **modo de transferência de \_ \_ fragmentos:** (Opcional) Especifique o método de replicação, quer utilize a replicação lógica postgreSQL ou um comando COPY de trabalhadores cruzados. Os valores possíveis são:
 
@@ -454,7 +454,7 @@ Se algum destes pressupostos não se mantiver, então o reequilíbrio padrão po
 
 #### <a name="arguments"></a>Argumentos
 
-** \_ nome da tabela:** (Opcional) O nome da tabela cujos fragmentos precisam de ser reequilibridos. Se o NU, reequilibra então todos os grupos de colocação existentes.
+**\_ nome da tabela:** (Opcional) O nome da tabela cujos fragmentos precisam de ser reequilibridos. Se o NU, reequilibra então todos os grupos de colocação existentes.
 
 **limiar:** (Opcional) Um número de boia entre 0,0 e 1.0 que indica a relação de diferença máxima de utilização do nó da utilização média. Por exemplo, especificar 0.1 fará com que o reequilíbrio de fragmentos tente equilibrar todos os nós para manter o mesmo número de fragmentos ±10%.
 Especificamente, o reequilíbrio de fragmentos tentará convergir a utilização de todos os nós dos trabalhadores para a \* utilização média (1 - limiar). \_ \. (1
@@ -470,9 +470,9 @@ Especificamente, o reequilíbrio de fragmentos tentará convergir a utilização
 > -   `force_logical`: Utilize a replicação lógica mesmo que a tabela não tenha uma identidade de réplica. Qualquer atualização/eliminação simultânea de declarações para a tabela falhará durante a replicação.
 > -   `block_writes`: Utilize COPY (escritas de bloqueio) para tabelas sem chave primária ou identidade de réplica.
 
-** \_ drenagem:** (Opcional) Quando for verdade, mova os fragmentos dos nós dos trabalhadores que `shouldhaveshards` se tenham definido como falsos em [pg_dist_node;](reference-hyperscale-metadata.md#worker-node-table)não mova outros fragmentos.
+**\_ drenagem:** (Opcional) Quando for verdade, mova os fragmentos dos nós dos trabalhadores que `shouldhaveshards` se tenham definido como falsos em [pg_dist_node;](reference-hyperscale-metadata.md#worker-node-table)não mova outros fragmentos.
 
-**estratégia de reequilíbrio: \_ ** (Opcional) o nome de uma estratégia em [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
+**estratégia de reequilíbrio: \_** (Opcional) o nome de uma estratégia em [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
 Se este argumento for omitido, a função escolhe a estratégia de predefinição, conforme indicado na tabela.
 
 #### <a name="return-value"></a>Devolver Valor
@@ -506,9 +506,9 @@ Os mesmos argumentos que os fragmentos de mesa de reequilíbrio: \_ \_ relação
 
 Tuples contendo estas colunas:
 
--   ** \_ nome de mesa**: A mesa cujos fragmentos se moveriam
+-   **\_ nome de mesa**: A mesa cujos fragmentos se moveriam
 -   **shardid**: O fragmento em questão
--   ** \_ tamanho do fragmento**: Tamanho em bytes
+-   **\_ tamanho do fragmento**: Tamanho em bytes
 -   **nome de fonte**: Nome de anfitrião do nó de origem
 -   **fonte:** Porto do nó de origem
 -   **nome alvo**: Nome de anfitrião do nó de destino
@@ -527,9 +527,9 @@ N/D
 Tuples contendo estas colunas:
 
 -   **sessionid**: Postgres PID do monitor de reequilíbrio
--   ** \_ nome da mesa**: A mesa cujos fragmentos estão se movendo
+-   **\_ nome da mesa**: A mesa cujos fragmentos estão se movendo
 -   **shardid**: O fragmento em questão
--   ** \_ tamanho do fragmento**: Tamanho em bytes
+-   **\_ tamanho do fragmento**: Tamanho em bytes
 -   **nome de fonte**: Nome de anfitrião do nó de origem
 -   **fonte:** Porto do nó de origem
 -   **nome alvo**: Nome de anfitrião do nó de destino
@@ -563,15 +563,15 @@ Para mais informações sobre estes argumentos, consulte os valores corresponden
 
 **nome:** identificador para a nova estratégia
 
-** \_ \_ função custo de fragmento:** identifica a função utilizada para determinar o \" custo de cada \" fragmento
+**\_ \_ função custo de fragmento:** identifica a função utilizada para determinar o \" custo de cada \" fragmento
 
-** \_ função de capacidade do \_ nó:** identifica a função de medir a capacidade do nó
+**\_ função de capacidade do \_ nó:** identifica a função de medir a capacidade do nó
 
 **fragmento \_ permitido \_ na \_ \_ função nódoa:** identifica a função que determina quais os fragmentos que podem ser colocados nos quais os nóns
 
-** \_ limiar de incumprimento:** um limiar de ponto flutuante que afina a precisão do custo acumulado do fragmento deve ser equilibrado entre nós
+**\_ limiar de incumprimento:** um limiar de ponto flutuante que afina a precisão do custo acumulado do fragmento deve ser equilibrado entre nós
 
-** \_ limiar mínimo:** (Opcional) uma coluna de salvaguarda que detém o valor mínimo permitido para o argumento limiar dos fragmentos de mesa de reequilíbrio(). \_ \_ O seu valor predefinido é 0
+**\_ limiar mínimo:** (Opcional) uma coluna de salvaguarda que detém o valor mínimo permitido para o argumento limiar dos fragmentos de mesa de reequilíbrio(). \_ \_ O seu valor predefinido é 0
 
 #### <a name="return-value"></a>Devolver Valor
 
@@ -632,7 +632,7 @@ A \_ função do nó de drenagem \_ principal() move fragmentos do nó designado
 > -   `force_logical`: Utilize a replicação lógica mesmo que a tabela não tenha uma identidade de réplica. Qualquer atualização/eliminação simultânea de declarações para a tabela falhará durante a replicação.
 > -   `block_writes`: Utilize COPY (escritas de bloqueio) para tabelas sem chave primária ou identidade de réplica.
 
-**estratégia de reequilíbrio: \_ ** (Opcional) o nome de uma estratégia em [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
+**estratégia de reequilíbrio: \_** (Opcional) o nome de uma estratégia em [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
 Se este argumento for omitido, a função escolhe a estratégia de predefinição, conforme indicado na tabela.
 
 #### <a name="return-value"></a>Devolver Valor
@@ -677,7 +677,7 @@ A \_ \_ função de fragmentos de mesa replicados() replica os fragmentos sub-re
 
 #### <a name="arguments"></a>Argumentos
 
-** \_ nome da mesa:** O nome da tabela cujos fragmentos precisam de ser replicados.
+**\_ nome da mesa:** O nome da tabela cujos fragmentos precisam de ser replicados.
 
 **fator de replicação de \_ \_ fragmentos:** (Opcional) O fator de replicação desejado para alcançar para cada fragmento.
 
@@ -709,11 +709,11 @@ Esta função cria um novo fragmento para manter linhas com um único valor espe
 
 #### <a name="arguments"></a>Argumentos
 
-nome da ** \_ mesa:** O nome da mesa para obter um novo fragmento.
+nome da **\_ mesa:** O nome da mesa para obter um novo fragmento.
 
 **id \_ inquilino:** O valor da coluna de distribuição que será atribuída ao novo fragmento.
 
-** \_ opção cascata:** (Opcional) Quando definido para \" CASCADE, \" também isola um fragmento de todas as mesas do [grupo de colocação](concepts-hyperscale-colocation.md)da tabela atual.
+**\_ opção cascata:** (Opcional) Quando definido para \" CASCADE, \" também isola um fragmento de todas as mesas do [grupo de colocação](concepts-hyperscale-colocation.md)da tabela atual.
 
 #### <a name="return-value"></a>Devolver Valor
 
@@ -735,7 +735,7 @@ SELECT isolate_tenant_to_new_shard('lineitem', 135);
 └─────────────────────────────┘
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Muitas das funções neste artigo modificam [tabelas de metadados do](reference-hyperscale-metadata.md) sistema
 * [Os parâmetros do servidor](reference-hyperscale-parameters.md) personalizam o comportamento de algumas funções

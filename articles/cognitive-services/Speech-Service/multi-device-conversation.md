@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921423"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025179"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>O que é Conversa multi-dispositivo (Pré-visualização)?
 
@@ -72,7 +72,7 @@ Cada cliente pode enviar mensagens áudio ou instantâneas. O serviço utilizar�
 
 ## <a name="overview-of-conversation-host-and-participant"></a>Visão geral da Conversa, Anfitrião e Participante
 
-Uma **conversa** é uma sessão que um utilizador começa para os outros utilizadores participantes se juntarem. Todos os clientes se ligam à conversa usando o código de **conversação**de cinco letras.
+Uma **conversa** é uma sessão que um utilizador começa para os outros utilizadores participantes se juntarem. Todos os clientes se ligam à conversa usando o código de **conversação** de cinco letras.
 
 Cada conversa cria metadados que incluem:
 -    Tempos de quando a conversa começou e terminou
@@ -105,7 +105,7 @@ Ao criar ou juntar uma conversa, cada utilizador deve escolher um **idioma prim�
 Existem dois tipos de línguas: **discurso-a-texto** e **texto- apenas:**
 - Se o utilizador escolher uma linguagem **fala-a-texto** como língua principal, então poderá utilizar a entrada de fala e texto na conversa.
 
-- Se o utilizador escolher um **idioma apenas de texto,** só poderá utilizar a entrada de texto e enviar mensagens instantâneas na conversação. As línguas apenas de texto são as línguas que são apoiadas para a tradução de texto, mas não de voz para texto. Pode ver os idiomas disponíveis na página de suporte ao [idioma.](supported-languages.md)
+- Se o utilizador escolher um **idioma apenas de texto,** só poderá utilizar a entrada de texto e enviar mensagens instantâneas na conversação. As línguas apenas de texto são as línguas que são apoiadas para a tradução de texto, mas não de voz para texto. Pode ver os idiomas disponíveis na página de suporte ao [idioma.](./language-support.md)
 
 Além da sua linguagem primária, cada participante também pode especificar idiomas adicionais para traduzir a conversa.
 
@@ -119,11 +119,11 @@ Abaixo está um resumo do que o utilizador será capaz de fazer numa conversa mu
 | Traduzir a conversa | ✔️ | ✔️ |
 
 > [!NOTE]
-> Para listas de línguas de tradução de texto e texto disponíveis, consulte [as línguas apoiadas.](supported-languages.md)
+> Para listas de línguas de tradução de texto e texto disponíveis, consulte [as línguas apoiadas.](./language-support.md)
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Traduzir conversas em tempo real](quickstarts/multi-device-conversation.md)

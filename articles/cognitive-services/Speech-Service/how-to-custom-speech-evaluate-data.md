@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: affbf57fcda5ff9fb56e148c2fa8769e7aa775e6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b8b3a0aa6d9790dbb5900eac2d79074f44a749d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555809"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025655"
 ---
-# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Avaliar e melhorar a precisão da fala personalizada
+# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Avaliar e melhorar a precisão da Voz Personalizada
 
 Neste artigo, aprende-se a medir quantitativamente e a melhorar a precisão dos modelos de fala-a-texto da Microsoft ou dos seus próprios modelos personalizados. Os dados de transcrição áudio + humanos são necessários para testar a precisão e devem ser fornecidos 30 minutos a 5 horas de áudio representativo.
 
@@ -130,11 +130,11 @@ A tabela que se segue mostra cenários de reconhecimento de voz e lista materiai
 | Ditado               | entrada escrita, como mensagens instantâneas ou e-mails | semelhante a acima | semelhante a acima |
 | Legendas fechadas em vídeo | Scripts de séries de TV, filmes, conteúdos de marketing, resumos de vídeo | transcrições exatas de vídeos | semelhante a acima |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Preparar e implementar um modelo](how-to-custom-speech-train-model.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Prepare e teste os seus dados](how-to-custom-speech-test-data.md)
+* [Prepare e teste os seus dados](./how-to-custom-speech-test-and-train.md)
 * [Fiscalizar os seus dados](how-to-custom-speech-inspect-data.md)

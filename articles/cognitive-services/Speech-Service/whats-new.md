@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: 87832057e955f8408b369e2f55096a713780e965
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5c4f02eff06c08f1829f9f1c74d1dcb09ee57905
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410781"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024794"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Serviço de fala: as novidades nos docs
 
@@ -38,17 +38,17 @@ Se quiser aprender sobre as atualizações ao serviço de fala, SDK de fala, dis
 
 * [Sobre o fluxo de entrada de áudio SDK do Discurso API](how-to-use-audio-input-streams.md) - Amostras permitidas atualizadas por segundo.
 * [Deteção automática de linguagem para discurso-a-texto](how-to-automatic-language-detection.md) - Instruções objectiva-C adicionadas à documentação.
-* [Escolha um modo de reconhecimento de voz](how-to-choose-recognition-mode.md) - Adicione instruções javaScript à documentação.
+* [Escolha um modo de reconhecimento de voz](./get-started-speech-to-text.md) - Adicione instruções javaScript à documentação.
 * [Configure RHEL/CentOS 7 para Discurso SDK](how-to-configure-rhel-centos-7.md) - Instruções de configuração melhoradas.
-* [Listas de frases para discurso-a-texto](how-to-phrase-lists.md) - Instruções javaScript adicionadas à documentação.
-* [Quickstart: Síntese assíncronea para áudio de forma longa em Python (Preview)](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) - Atualizado com suporte para vozes neurais públicas e parâmetros associados.
-* [Quickstart: Reconheça a fala a partir de um ficheiro áudio](quickstarts/speech-to-text-from-file.md) - Adicione instruções javaScript à documentação.
-* [Quickstart: Reconheça a fala a partir de um microfone](quickstarts/speech-to-text-from-microphone.md ) - Instruções de Go e JavaScript adicionadas à documentação.
+* [Listas de frases para discurso-a-texto](./get-started-speech-to-text.md) - Instruções javaScript adicionadas à documentação.
+* [Quickstart: Síntese assíncronea para áudio de forma longa em Python (Preview)](./long-audio-api.md) - Atualizado com suporte para vozes neurais públicas e parâmetros associados.
+* [Quickstart: Reconheça a fala a partir de um ficheiro áudio](./get-started-speech-to-text.md) - Adicione instruções javaScript à documentação.
+* [Quickstart: Reconheça a fala a partir de um microfone](./get-started-speech-to-text.md) - Instruções de Go e JavaScript adicionadas à documentação.
 * [Quickstart: Reconheça a fala armazenada no armazenamento de bolhas](quickstarts/from-blob.md) - Adicione instruções javaScript à documentação.
 * [Quickstart: Reconhecer a fala, as intenções e as entidades com Compreensão linguística (LUIS)](quickstarts/intent-recognition.md)
 * [Quickstart: Ambiente de desenvolvimento de configuração](quickstarts/setup-platform.md) - Adicionou instruções javaScript à documentação.
-* [Quickstart: Sintetizar a fala num ficheiro áudio](quickstarts/text-to-speech-audio-file.md) - Adicione instruções javaScript à documentação.
-* [Quickstart: Sintetizar o discurso a um altifalante](quickstarts/text-to-speech.md) - Adicionar instruções javaScript à documentação.
+* [Quickstart: Sintetizar a fala num ficheiro áudio](./get-started-text-to-speech.md) - Adicione instruções javaScript à documentação.
+* [Quickstart: Sintetizar o discurso a um altifalante](./get-started-text-to-speech.md) - Adicionar instruções javaScript à documentação.
 * [O que é uma palavra-chave?](custom-keyword-overview.md) - Atualizado começar conteúdo e links.
 * [Especifique a linguagem de origem para a fala-a-texto](how-to-specify-source-language.md) - Acrescente instruções javaScript e Objective-C à documentação.
 
@@ -58,7 +58,7 @@ Estas questões foram abertas em maio. Esta tabela lista o utilizador que abriu 
 
 Esta tabela é atualizada mensalmente e apenas reflete as questões abertas em maio.  
 
-|ID|Utilizador|Description|Inaugurado|Estado|Tipo|
+|ID|Utilizador|Descrição|Inaugurado|Estado|Tipo|
 | :--- | :--- | :--- | :--- | :--- | :--- |
 |[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|A atividade caiu porque o ponto final do bot está desaparecido.|2020-05-31|Fechado|Problema|
 |[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Passos de bot de publicação erradas|2020-05-31|Abrir|Problema|

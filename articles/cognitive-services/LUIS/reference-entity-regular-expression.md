@@ -5,18 +5,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 0c8d4a5013f23a805c22dc5c44444de6b10ab369
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e44ec43e1169aa054e6e5b4591ccd8611a7f4d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316244"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025230"
 ---
 # <a name="regular-expression-entity"></a>Entidade de expressão regular
 
 Uma entidade de expressão regular extrai uma entidade com base num padrão de expressão regular que fornece.
 
-Uma expressão regular é melhor para texto de expressão crua. Ignora o caso e ignora a variante cultural.  A correspondência regular da expressão é aplicada após alterações de verificação ortográfica ao nível do carácter, não ao nível do símbolo. Se a expressão regular for demasiado complexa, como utilizar muitos suportes, não é capaz de adicionar a expressão ao modelo. Utiliza parte, mas não toda a biblioteca [.NET Regex.](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions)
+Uma expressão regular é melhor para texto de expressão crua. Ignora o caso e ignora a variante cultural.  A correspondência regular da expressão é aplicada após alterações de verificação ortográfica ao nível do carácter, não ao nível do símbolo. Se a expressão regular for demasiado complexa, como utilizar muitos suportes, não é capaz de adicionar a expressão ao modelo. Utiliza parte, mas não toda a biblioteca [.NET Regex.](/dotnet/standard/base-types/regular-expressions)
 
 **A entidade é um bom ajuste quando:**
 
@@ -99,7 +99,7 @@ Este é o JSON se `verbose=true` for definido na cadeia de consulta:
 
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as entidades:
 

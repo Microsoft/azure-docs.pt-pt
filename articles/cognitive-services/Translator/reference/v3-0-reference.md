@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121022"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024505"
 ---
 # <a name="translator-v30"></a>Tradutor v3.0
 
@@ -147,7 +147,7 @@ Um sinal de autenticação é válido por 10 minutos. O token deve ser reutiliza
 
 ## <a name="virtual-network-support"></a>Suporte de Rede Virtual
 
-O serviço Tradutor está agora disponível com capacidades de Rede Virtual (VNET) em todas as regiões da nuvem pública Azure. Para ativar a Rede Virtual, consulte [as Redes Virtuais de Serviços Cognitivos Azure.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal) 
+O serviço Tradutor está agora disponível com capacidades de Rede Virtual (VNET) em todas as regiões da nuvem pública Azure. Para ativar a Rede Virtual, consulte [as Redes Virtuais de Serviços Cognitivos Azure.](../../cognitive-services-virtual-networks.md?tabs=portal) 
 
 Assim que ligar esta capacidade, deve utilizar o ponto final personalizado para ligar para o Tradutor. Não é possível utilizar o ponto final do tradutor global ("api.cognitive.microsofttranslator.com") e não pode autenticar com um token de acesso.
 
@@ -230,7 +230,7 @@ O código de erro é um número de 6 dígitos que combina o código de estado HT
 | 503000| O serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, reporte-o com data/hora de erro, solicite o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente do cabeçalho de pedido X-ClientTraceId.|
 
 ## <a name="metrics"></a>Métricas 
-As métricas permitem visualizar a utilização do tradutor e a informação de disponibilidade no portal Azure, na secção métrica, como mostrado na imagem abaixo. Para obter mais informações, consulte [datas e métricas da plataforma.](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)
+As métricas permitem visualizar a utilização do tradutor e a informação de disponibilidade no portal Azure, na secção métrica, como mostrado na imagem abaixo. Para obter mais informações, consulte [datas e métricas da plataforma.](../../../azure-monitor/platform/data-platform-metrics.md)
 
 ![Métricas do Tradutor](../media/translatormetrics.png)
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 1fbdae2480caef5bf1d190124ca3be6c5b97a2f9
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 40d3ff736194c4634b949af52ee7b09db20dd06d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576364"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026136"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>Criar um disco gerido a partir de uma versão de imagem
 
@@ -33,7 +33,7 @@ az sig image-version list \
    -o table
 ```
 
-Desa `source` estarindo a variável para o ID da versão de imagem e, em seguida, use [o disco az criar](//cli/azure/disk#az_disk_create) para criar o disco gerido. 
+Desa `source` estarindo a variável para o ID da versão de imagem e, em seguida, use [o disco az criar](/cli/azure/disk?view=azure-cli-latest#az_disk_create) para criar o disco gerido. 
 
 Neste exemplo, exportamos o disco OS da versão de imagem para criar um disco gerido chamado *myManagedOSDisk,* na região *eastus,* num grupo de recursos chamado *myResourceGroup*. 
 
@@ -115,7 +115,7 @@ New-AzDisk -Disk $diskConfig `
    -DiskName myManagedDataDisk
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Também pode criar uma versão de imagem a partir de um disco gerido utilizando o [Azure CLI](image-version-managed-image-cli.md) ou [o PowerShell](image-version-managed-image-powershell.md).
 

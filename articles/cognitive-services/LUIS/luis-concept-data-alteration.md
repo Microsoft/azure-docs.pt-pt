@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3eb30662cae5f117942db6322b27491670abb1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 621a41f743b751a8c24bf6f6ad8497fb5c79775c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324846"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026015"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de expressão antes ou durante a previsão
 LUIS fornece formas de manipular a expressão antes ou durante a previsão. Estes incluem [a fixação de ortografia](luis-tutorial-bing-spellcheck.md)e a fixação de problemas de aso desaporo para datas pré-construídasV2 . [datetimeV2](luis-reference-prebuilt-datetimev2.md)
@@ -98,7 +98,7 @@ Remover 60 minutos:
 
 #### <a name="v2-prediction-c-code-determines-correct-value-of-parameter"></a>Código de previsão V2 C# determina o valor correto do parâmetro
 
-O seguinte código C# utiliza o método [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) da classe [TimeZone](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) Para determinar o valor correto de compensação com base no tempo do sistema:
+O seguinte código C# utiliza o método [FindSystemTimeZoneById](/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) da classe [TimeZone](/dotnet/api/system.timezoneinfo) Para determinar o valor correto de compensação com base no tempo do sistema:
 
 ```csharp
 // Get CST zone id
@@ -114,7 +114,7 @@ DateTime cstDatetime = TimeZoneInfo.ConvertTimeFromUtc(utcDatetime, targetZone);
 int offset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Erros ortográficos corretos com este tutorial](luis-tutorial-bing-spellcheck.md)

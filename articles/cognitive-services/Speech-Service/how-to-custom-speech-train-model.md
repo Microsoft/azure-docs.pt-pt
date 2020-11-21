@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 34c0703ee7c335ca904a21bcce6ed44abc6dc13f
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 9193da2f3841bb94aa395399c31d7fe826c395e0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555792"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025604"
 ---
-# <a name="train-and-deploy-a-custom-speech-model"></a>Treine e implemente um modelo de discurso personalizado
+# <a name="train-and-deploy-a-custom-speech-model"></a>Preparar e implementar um modelo de Voz Personalizada
 
 Neste artigo, você aprende a treinar e implementar modelos de Discurso Personalizado. A formação de um modelo de voz para texto pode melhorar a precisão de reconhecimento para o modelo de base da Microsoft. Um modelo é treinado usando transcrições com rótulo humano e texto relacionado. Estes conjuntos de dados, juntamente com dados áudio previamente carregados, são usados para refinar e treinar o modelo de fala-a-texto.
 
@@ -33,7 +33,7 @@ Se estiver a encontrar problemas de reconhecimento com um modelo base, usar tran
 
 ## <a name="train-and-evaluate-a-model"></a>Treine e avalie um modelo
 
-O primeiro passo para treinar um modelo é carregar dados de treino. Utilize [prepare e teste os seus dados](how-to-custom-speech-test-data.md) para obter instruções passo a passo para preparar transcrições com rótulo humano e texto relacionado (expressões e pronúncias). Depois de ter carregado os dados de treino, siga estas instruções para começar a treinar o seu modelo:
+O primeiro passo para treinar um modelo é carregar dados de treino. Utilize [prepare e teste os seus dados](./how-to-custom-speech-test-and-train.md) para obter instruções passo a passo para preparar transcrições com rótulo humano e texto relacionado (expressões e pronúncias). Depois de ter carregado os dados de treino, siga estas instruções para começar a treinar o seu modelo:
 
 1. Inscreva-se no [portal de Discurso Personalizado](https://speech.microsoft.com/customspeech).
 2. Navegue **para discurso-a-texto > discurso personalizado > [nome do projeto] > Training**.
@@ -71,12 +71,12 @@ Os dados de registo estão disponíveis para download em **Detalhes > Endpoint**
 > [!NOTE]
 >Os dados de registo estão disponíveis durante 30 dias no armazenamento da Microsoft e serão removidos posteriormente. Caso uma conta de armazenamento detida por um cliente esteja ligada à subscrição de serviços cognitivos, os dados de registo não serão automaticamente eliminados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba [como utilizar o seu modelo personalizado.](how-to-specify-source-language.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Prepare e teste os seus dados](how-to-custom-speech-test-data.md)
+- [Prepare e teste os seus dados](./how-to-custom-speech-test-and-train.md)
 - [Fiscalizar os seus dados](how-to-custom-speech-inspect-data.md)
 - [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 30a07957a75bfe82d8ce350675f0d29b2f03e069
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6834f9cc8202f49f53c20f3941945bba4a4b2efd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966144"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026751"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realize deteção de intrusão de rede com o Network Watcher e ferramentas open source
 
@@ -246,7 +246,7 @@ Para este artigo, fornecemos um painel de amostras para que possa ver tendência
 
 1. Sob o **separador Gestão** de Kibana, navegue para **Objetos Guardados** e importe os três ficheiros. Em seguida, a partir do **separador Dashboard** pode abrir e carregar o painel de amostras.
 
-Também pode criar as suas próprias visualizações e dashboards adaptados para métricas do seu próprio interesse. Leia mais sobre a criação de visualizações de Kibana a partir da [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html)de Kibana .
+Também pode criar as suas próprias visualizações e dashboards adaptados para métricas do seu próprio interesse. Leia mais sobre a criação de visualizações de Kibana a partir da [documentação oficial](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm)de Kibana .
 
 ![painel kibana][2]
 
@@ -280,7 +280,7 @@ Para obter mais documentação sobre a criação de visualizações personalizad
 
 Ao combinar capturas de pacotes fornecidas pelo Network Watcher e ferramentas IDS de código aberto, como a Suricata, pode realizar a deteção de intrusões de rede para uma ampla gama de ameaças. Estes dashboards permitem identificar rapidamente tendências e anomalias dentro da sua rede, bem como pesquisar os dados para descobrir as causas de alertas como agentes de utilizadores maliciosos ou portas vulneráveis. Com estes dados extraídos, pode tomar decisões informadas sobre como reagir e proteger a sua rede de quaisquer tentativas de intrusão prejudiciais e criar regras para evitar futuras intrusões na sua rede.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como desencadear capturas de pacotes com base em alertas visitando a captura de [pacotes de uso para fazer monitorização proativa da rede com funções Azure](network-watcher-alert-triggered-packet-capture.md)
 

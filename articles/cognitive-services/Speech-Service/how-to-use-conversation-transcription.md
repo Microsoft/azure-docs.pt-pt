@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: trbye
 zone_pivot_groups: acs-js-csharp
-ms.openlocfilehash: 6cb338e8b7baa45e1c84f59a5730a9a500e71a79
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ae3d7b329c55ce0be101cee73e1fc7674a2d75aa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486800"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026544"
 ---
 # <a name="get-started-with-real-time-conversation-transcription"></a>Começar com transcrição de conversação em tempo real
 
@@ -25,7 +25,7 @@ A API de **ConversationTranscriber** da Speech SDK permite-lhe transcrever reuni
 ## <a name="limitations"></a>Limitações
 
 * Disponível apenas nas seguintes regiões de subscrição: `centralus` `eastasia` , `eastus` , `westeurope`
-* Requer uma matriz circular de microfone de 7 microfones com um fluxo de referência de reprodução. A matriz do microfone deve cumprir as [nossas especificações.](https://aka.ms/sdsdk-microphone)
+* Requer uma matriz circular de microfone de 7 microfones com um fluxo de referência de reprodução. A matriz do microfone deve cumprir as [nossas especificações.](./speech-devices-sdk-microphone.md)
 * O [Speech Devices SDK](speech-devices-sdk.md) fornece dispositivos adequados e uma aplicação de amostra que demonstra a transcrição de conversação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -40,7 +40,7 @@ Este artigo pressupõe que tem uma conta Azure e subscrição do serviço de fal
 [!INCLUDE [C# Basics include](includes/how-to/conversation-transcription/real-time-csharp.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > Transcrição de [conversa assíncronea](how-to-async-conversation-transcription.md) 

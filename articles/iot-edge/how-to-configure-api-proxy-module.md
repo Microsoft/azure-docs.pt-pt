@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: f7536034eeac8548304f6a7f861910a99cd72a27
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 894398d63e326db3c6ee9de9bebc426a6e621600
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447961"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024675"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Configurar o módulo de procuração API para o seu cenário de hierarquia gateway (Pré-visualização)
 
@@ -50,7 +50,7 @@ O módulo de procuração API vem com uma configuração padrão que suporta cen
 
 Atualmente, as variáveis de ambiente padrão incluem:
 
-| Variável de ambiente | Description |
+| Variável de ambiente | Descrição |
 | -------------------- | ----------- |
 | `PROXY_CONFIG_ENV_VAR_LIST` | Enumere todas as variáveis que pretende atualizar numa lista separada por vírgula. Este passo evita modificar acidentalmente as definições de configuração erradas.
 | `NGINX_DEFAULT_PORT` | Muda a porta que o proxy nginx ouve. Se atualizar esta variável de ambiente, certifique-se de que a porta selecionada também está exposta no ficheiro de estiva do módulo e declarada como uma ligação de porta no manifesto de implantação.<br><br>O padrão é 443.<br><br>Quando implantado a partir do Azure Marketplace, a porta padrão é atualizada para 8000, para evitar conflitos com o módulo EdgeHub. Para mais informações, consulte [As portas abertas.](#minimize-open-ports) |
@@ -121,7 +121,7 @@ Configure os seguintes módulos na **camada superior:**
 * Um módulo de procuração API
   * Configure as seguintes variáveis ambientais:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | `DOCKER_REQUEST_ROUTE_ADDRESS` | O nome do módulo de registo e a porta aberta. Por exemplo, `registry:5000`. |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy nginx ouve para pedidos de dispositivos a jusante. Por exemplo, `8000`. |
@@ -147,7 +147,7 @@ Configure o seguinte módulo em qualquer **camada inferior** para este cenário:
 * Um módulo de procuração API
   * Configure as seguintes variáveis ambientais:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy nginx ouve para pedidos de dispositivos a jusante. Por exemplo, `8000`. |
 
@@ -179,7 +179,7 @@ Configure os seguintes módulos na **camada superior:**
 * Um módulo de procuração API
   * Configure as seguintes variáveis ambientais:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | `BLOB_UPLOAD_ROUTE_ADDRESS` | O nome do módulo de armazenamento blob e porta aberta. Por exemplo, `azureblobstorageoniotedge:1102`. |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy nginx ouve para pedidos de dispositivos a jusante. Por exemplo, `8000`. |
@@ -205,7 +205,7 @@ Configure o seguinte módulo em qualquer **camada inferior** para este cenário:
 * Um módulo de procuração API
   * Configure as seguintes variáveis ambientais:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy nginx ouve para pedidos de dispositivos a jusante. Por exemplo, `8000`. |
 
@@ -263,12 +263,12 @@ Quando o módulo de procuração API analisa uma configuração de procuração,
 
 Para atualizar a configuração proxy de forma dinâmica, utilize os seguintes passos:
 
-1. Escreva o seu ficheiro de configuração. Pode utilizar este modelo padrão como referência: [nginx_default_config.conf](hhttps://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
+1. Escreva o seu ficheiro de configuração. Pode utilizar este modelo padrão como referência: [nginx_default_config.conf](https://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
 1. Copie o texto do ficheiro de configuração e converta-o na base64.
 1. Cole o ficheiro de configuração codificado como o valor da `proxy_config` propriedade desejada no módulo twin.
 
    ![Pasta codificada ficheiro config como valor de proxy_config propriedade](./media/how-to-configure-api-proxy-module/change-config.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize o módulo de procuração API para [ligar um dispositivo IoT Edge a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md).

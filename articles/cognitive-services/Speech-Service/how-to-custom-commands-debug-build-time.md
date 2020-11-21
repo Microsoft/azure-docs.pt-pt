@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023130"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025706"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Depurar erros ao autorizar uma aplicação de Comandos Personalizados
 
@@ -24,7 +24,7 @@ Este artigo descreve como depurar quando vê erros ao construir a aplicação Co
 ## <a name="errors-when-creating-an-application"></a>Erros ao criar uma aplicação
 Os Comandos Personalizados também criam uma aplicação no [LUIS](https://www.luis.ai/) ao criar uma aplicação de Comandos Personalizados. 
 
-[O LUIS limita 500 aplicações por recurso de autoria.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits) A criação da aplicação LUIS poderá falhar se estiver a utilizar um recurso de autoria que já conta com 500 aplicações. 
+[O LUIS limita 500 aplicações por recurso de autoria.](../luis/luis-limits.md) A criação da aplicação LUIS poderá falhar se estiver a utilizar um recurso de autoria que já conta com 500 aplicações. 
 
 Certifique-se de que o recurso de autoria LUIS selecionado tem menos de 500 aplicações. Caso contrário, pode criar um novo recurso de autoria LUIS, mudar para outro, ou tentar limpar as suas aplicações LUIS.  
 
@@ -53,15 +53,15 @@ LUIS tem intençãos incorporadas Sim/Sem intenções. Tendo frases de amostra c
 
 | Palavra-chave | Variações | 
 | ------- | --------- | 
-| Sim | Claro, ok. |
-| Não | Não, não. | 
+| Yes | Claro, ok. |
+| No | Não, não. | 
 
 ### <a name="common-sample-sentences"></a>Frases-amostra comuns
 Os Comandos Personalizados não permitem frases comuns de amostra partilhadas entre diferentes comandos. O treino de uma aplicação pode falhar se algumas frases de amostra de um comando já estiverem definidas noutro comando. 
 
 Certifique-se de que não tem frases comuns partilhadas entre diferentes comandos. 
 
-Para obter as melhores práticas de equilibrar as suas frases de amostra em diferentes comandos, consulte [as melhores práticas do LUIS.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)
+Para obter as melhores práticas de equilibrar as suas frases de amostra em diferentes comandos, consulte [as melhores práticas do LUIS.](../luis/luis-concept-best-practices.md)
 
 ### <a name="empty-sample-sentences"></a>Frases de amostra vazias
 Precisa de pelo menos uma amostra de uma frase para cada Comando.
@@ -82,7 +82,7 @@ Por exemplo, pode definir um parâmetro {veículo} para as frases de exemplo aba
 | Reserve um voo | Reserve um {veículo} |
 | Reserve um táxi | Reserve um {veículo} |
 
-Para as melhores práticas de treino do LUIS, consulte [as melhores práticas de LUIS.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices)
+Para as melhores práticas de treino do LUIS, consulte [as melhores práticas de LUIS.](../luis/luis-concept-best-practices.md)
 
 ## <a name="cant-update-luis-key"></a>Não é possível atualizar a chave LUIS
 ### <a name="reassign-to-e0-authoring-resource"></a>Reatribuir ao recurso de autoria E0
@@ -95,7 +95,7 @@ Para exportar rapidamente uma aplicação existente e importá-la para uma nova 
 ### <a name="save-button-is-disabled"></a>O botão de poupança está desativado
 Se nunca atribuir um recurso de previsão LUIS à sua aplicação, o botão Guardar será desativado quando tentar alterar o seu recurso de autoria sem adicionar um recurso de previsão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ver amostras no GitHub](https://aka.ms/speech/cc-samples)

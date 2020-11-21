@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
 ms.custom: devx-track-js
-ms.openlocfilehash: 0e67d0ae4d875699b26fdcd30093b0c2bf373458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48316d571eac835dd5d4ec7d225048f4fdcdf237
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282991"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026612"
 ---
 # <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Como: Selecione um dispositivo de entrada de áudio com o SDK de fala
 
@@ -385,12 +385,12 @@ permite a utilização de um auricular Bluetooth para uma aplicação ativada pe
 
 Em JavaScript o método [MediaDevices.enumeradedevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) pode ser usado para enumerar os dispositivos de mídia e encontrar um ID do dispositivo para passar `fromMicrophone(...)` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Explore as nossas amostras no GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-- [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalizar modelos de idioma](how-to-customize-language-model.md)
+- [Personalizar modelos acústicos](./how-to-custom-speech-train-model.md)
+- [Personalizar modelos de idioma](./how-to-custom-speech-train-model.md)

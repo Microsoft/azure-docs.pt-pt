@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: c41e9fe1f197334bce27241ab9f28309c92f7e0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3017d0dec5acd3494600c42bef410ed346fead1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316550"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025947"
 ---
 # <a name="testing-for-luis-devops"></a>Teste para LUIS DevOps
 
@@ -25,10 +25,10 @@ Os testes são uma parte crítica dos fluxos de [trabalho ci/CD](luis-concept-de
 Existem dois tipos diferentes de testes para uma aplicação LUIS que você precisa realizar em fluxos de trabalho de integração contínua:
 
 - **Testes de unidade** - Testes relativamente simples que verificam a funcionalidade chave da sua aplicação LUIS. Um teste de unidade passa quando a intenção esperada e as entidades esperadas são devolvidas para uma determinada declaração de teste. Todos os testes de unidade devem passar para que o teste termine com sucesso.  
-Este tipo de testes é semelhante aos [testes interativos](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test) que pode fazer no [portal LUIS.](https://www.luis.ai/)
+Este tipo de testes é semelhante aos [testes interativos](./luis-concept-test.md) que pode fazer no [portal LUIS.](https://www.luis.ai/)
 
 - **Testes em** lote - O teste de lote é um teste abrangente no seu modelo treinado atual para medir o seu desempenho. Ao contrário dos testes de unidade, os testes de lote não são testes de falha. A expectativa com os testes de lote não é que todos os testes devolvam as intenções esperadas e as entidades esperadas. Em vez disso, um teste de lote ajuda-o a ver a precisão de cada intenção e entidade na sua aplicação e ajuda-o a comparar com o tempo à medida que faz melhorias.  
-Este tipo de teste é o mesmo que o [teste batch](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) que você pode realizar interativamente no portal LUIS.
+Este tipo de teste é o mesmo que o [teste batch](./luis-concept-batch-test.md) que você pode realizar interativamente no portal LUIS.
 
 Pode utilizar testes unitários desde o início do seu projeto. O teste de lote só é realmente de valor depois de ter desenvolvido o esquema da sua app LUIS e estiver a trabalhar para melhorar a sua precisão.
 
@@ -42,7 +42,7 @@ Quando escreve um conjunto de testes, para cada teste é necessário definir:
 * Intenção esperada
 * Entidades esperadas.
 
-Utilize a [sintaxe do ficheiro de lote](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-syntax-template-for-intents-with-entities) LUIS para definir um grupo de testes num ficheiro com formato JSON. Por exemplo:
+Utilize a [sintaxe do ficheiro de lote](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) LUIS para definir um grupo de testes num ficheiro com formato JSON. Por exemplo:
 
 ```JSON
 [
@@ -76,7 +76,7 @@ Em cada teste de unidade, para uma determinada expressão de teste, pode:
 
 * Teste que a intenção correta é devolvida
 * Teste que as entidades 'chave' - aquelas que são fundamentais para a sua solução - estão a ser devolvidas.
-* Teste que a [pontuação de previsão](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score) para intenção e entidades excede um limiar que você define. Por exemplo, pode decidir que só considerará que um teste passou se a pontuação de previsão para a intenção e para as suas entidades-chave exceder 0,75.
+* Teste que a [pontuação de previsão](./luis-concept-prediction-score.md) para intenção e entidades excede um limiar que você define. Por exemplo, pode decidir que só considerará que um teste passou se a pontuação de previsão para a intenção e para as suas entidades-chave exceder 0,75.
 
 Nos testes unitários, é uma boa ideia testar que as suas entidades-chave foram devolvidas na resposta de previsão, mas para ignorar quaisquer falsos positivos. *Falsos positivos* são entidades que se encontram na resposta de previsão mas que não estão definidas nos resultados esperados para o seu teste. Ao ignorar falsos positivos, torna-se menos onerosa para os testes de unidade de autor, permitindo-lhe ainda focar-se em testar que os dados que são fundamentais para a sua solução estão a ser devolvidos numa resposta de previsão.
 
@@ -85,15 +85,15 @@ Nos testes unitários, é uma boa ideia testar que as suas entidades-chave foram
 
 #### <a name="designing-batch-tests"></a>Conceber testes de lote
 
-Os conjuntos de testes de lote devem conter um grande número de casos de teste, projetados para testar em todas as intenções e todas as entidades na sua app LUIS. Consulte [os testes de lote no portal LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) para obter informações sobre a definição de um conjunto de testes de lote.
+Os conjuntos de testes de lote devem conter um grande número de casos de teste, projetados para testar em todas as intenções e todas as entidades na sua app LUIS. Consulte [os testes de lote no portal LUIS](./luis-concept-batch-test.md) para obter informações sobre a definição de um conjunto de testes de lote.
 
 ### <a name="running-tests"></a>Testes de execução
 
 O portal LUIS oferece funcionalidades para ajudar nos testes interativos:
 
-* [**O teste interativo**](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test) permite-lhe submeter uma amostra de expressão e obter uma resposta de intenções e entidades reconhecidas pela LUIS. Verifique o sucesso do teste através de uma inspeção visual.
+* [**O teste interativo**](./luis-concept-test.md) permite-lhe submeter uma amostra de expressão e obter uma resposta de intenções e entidades reconhecidas pela LUIS. Verifique o sucesso do teste através de uma inspeção visual.
 
-* [**O teste do lote**](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test) utiliza um ficheiro de teste de lote como entrada para validar a sua versão ativa treinada para medir a sua precisão de previsão. Um teste de lote ajuda-o a ver a precisão de cada intenção e entidade na sua versão ativa, apresentando resultados com um gráfico.
+* [**O teste do lote**](./luis-concept-batch-test.md) utiliza um ficheiro de teste de lote como entrada para validar a sua versão ativa treinada para medir a sua precisão de previsão. Um teste de lote ajuda-o a ver a precisão de cada intenção e entidade na sua versão ativa, apresentando resultados com um gráfico.
 
 #### <a name="running-tests-in-an-automated-build-workflow"></a>Executando testes num fluxo de trabalho de construção automatizada
 
@@ -109,7 +109,7 @@ As capacidades de teste que estão disponíveis no portal LUIS não requerem um 
 
 > [!TIP]
 > * Se estiver a implementar a sua própria solução de teste e código de escrita para enviar declarações de teste para um ponto final, lembre-se que se estiver a utilizar a chave de autoria LUIS, a taxa de transação permitida está limitada a 5TPS. Ou acelera a taxa de envio ou usa uma chave de previsão.
-> * Ao enviar consultas de teste para um ponto final, lembre-se de utilizar `log=false` na sequência de consulta do seu pedido de previsão. Isto garante que as suas declarações de teste não são registadas pela LUIS e acabam na lista de comentários de comentários de ponto final apresentada pela funcionalidade de [aprendizagem ativa](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) LUIS e, consequentemente, adicionadas acidentalmente às declarações de treino da sua app.
+> * Ao enviar consultas de teste para um ponto final, lembre-se de utilizar `log=false` na sequência de consulta do seu pedido de previsão. Isto garante que as suas declarações de teste não são registadas pela LUIS e acabam na lista de comentários de comentários de ponto final apresentada pela funcionalidade de [aprendizagem ativa](./luis-concept-review-endpoint-utterances.md) LUIS e, consequentemente, adicionadas acidentalmente às declarações de treino da sua app.
 
 #### <a name="running-unit-tests-at-the-command-line-and-in-cicd-workflows"></a>Testes de unidade de execução na linha de comando e em fluxos de trabalho CI/CD
 
@@ -123,17 +123,17 @@ Podes usar a [NLU. Pacote DevOps](https://github.com/microsoft/NLU.DevOps) para 
 Também pode usar o NLU. Pacote DevOps para fazer testes de lote na linha de comando.
 
 * Usa a NLU. DevOps [comando de teste](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) para submeter testes de um ficheiro de teste para um ponto final e para capturar os resultados reais da previsão em um ficheiro, tal como nos testes de unidade.
-* Usa a NLU. DevOps [comparam comando](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) no [modo de teste](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) de desempenho para medir o desempenho da sua app Também pode comparar o desempenho da sua aplicação com um benchmark de desempenho de base, por exemplo, os resultados do mais recente compromisso com o master ou o lançamento atual. No modo de teste de desempenho, o `compare` comando gera resultados de teste nUnit e [de teste](https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#batch-test) de lote no formato JSON.
+* Usa a NLU. DevOps [comparam comando](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) no [modo de teste](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) de desempenho para medir o desempenho da sua app Também pode comparar o desempenho da sua aplicação com um benchmark de desempenho de base, por exemplo, os resultados do mais recente compromisso com o master ou o lançamento atual. No modo de teste de desempenho, o `compare` comando gera resultados de teste nUnit e [de teste](./luis-glossary.md#batch-test) de lote no formato JSON.
 
 ## <a name="luis-non-deterministic-training-and-the-effect-on-testing"></a>Luis formação não determinística e o efeito nos testes
 
 Quando a LUIS está a formar um modelo, como uma intenção, precisa de dados positivos - as expressões de formação etiquetadas que forneceu para treinar a app para o modelo - e dados negativos - dados que *não* são exemplos válidos da utilização desse modelo. Durante o treino, a LUIS constrói os dados negativos de um modelo a partir de todos os dados positivos que forneceu para os outros modelos, mas em alguns casos que podem produzir um desequilíbrio de dados. Para evitar este desequilíbrio, a LUIS analisa um subconjunto dos dados negativos de forma não determinística para otimizar para um conjunto de treino mais equilibrado, melhor desempenho do modelo e tempo de treino mais rápido.
 
-O resultado desta formação não determinística é que você pode obter uma resposta de previsão ligeiramente [diferente entre diferentes sessões de treino](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score), geralmente para intenções e/ou entidades onde a [pontuação](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score) de previsão não é alta.
+O resultado desta formação não determinística é que você pode obter uma resposta de previsão ligeiramente [diferente entre diferentes sessões de treino](./luis-concept-prediction-score.md), geralmente para intenções e/ou entidades onde a [pontuação](./luis-concept-prediction-score.md) de previsão não é alta.
 
 Se pretender desativar a formação não determinística para as versões de aplicações LUIS que está a construir para efeitos de teste, utilize as [definições de versão API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com a `UseAllTrainingData` definição definida para `true` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [a implementação de fluxos de trabalho ci/CD](luis-concept-devops-automation.md)
 * Saiba como [implementar DevOps para LUIS com GitHub](luis-how-to-devops-with-github.md)

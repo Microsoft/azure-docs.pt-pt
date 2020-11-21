@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4c5000adb2339d3fd0f828781a60f75c75894b5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168601"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024420"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -25,7 +25,7 @@ Quando as contagens métricas são apresentadas no portal, são renormalizadas p
 * A amostragem de taxa fixa está disponível nas versões recentes dos SDKs application insights para ASP.NET, ASP.NET Core, Java (tanto o agente como o SDK) e Python.
 * A amostragem de ingestão funciona no ponto final do serviço Application Insights. Só se aplica quando não existe outra amostragem. Se o SDK provar a sua telemetria, a amostragem de ingestão é desativada.
 * Para aplicações web, se registar eventos personalizados e precisar de garantir que um conjunto de eventos é mantido ou descartado em conjunto, os eventos devem ter o mesmo `OperationId` valor.
-* Se escrever consultas de Analytics, deve [ter em conta a amostragem.](../log-query/aggregations.md) Em particular, em vez de simplesmente contar registos, deve usar `summarize sum(itemCount)` .
+* Se escrever consultas de Analytics, deve [ter em conta a amostragem.](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations) Em particular, em vez de simplesmente contar registos, deve usar `summarize sum(itemCount)` .
 * Alguns tipos de telemetria, incluindo métricas de desempenho e métricas personalizadas, são sempre mantidos independentemente de a amostragem estar ativada ou não.
 
 O quadro que se segue resume os tipos de amostragem disponíveis para cada SDK e tipo de aplicação:
@@ -34,11 +34,11 @@ O quadro que se segue resume os tipos de amostragem disponíveis para cada SDK e
 |-|-|-|-|
 | ASP.NET | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-applications) | Só se nenhuma outra amostragem estiver em vigor |
 | Núcleo de ASP.NET | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Funções do Azure | [Sim (on on by default)](#configuring-adaptive-sampling-for-azure-functions) | Não | Só se nenhuma outra amostragem estiver em vigor |
-| Java | Não | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Node.JS | Não | [Sim](./nodejs.md#sampling) | Só se nenhuma outra amostragem estiver em vigor
-| Python | Não | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Todos os outros | Não | Não | [Sim](#ingestion-sampling) |
+| Funções do Azure | [Sim (on on by default)](#configuring-adaptive-sampling-for-azure-functions) | No | Só se nenhuma outra amostragem estiver em vigor |
+| Java | No | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| Node.JS | No | [Sim](./nodejs.md#sampling) | Só se nenhuma outra amostragem estiver em vigor
+| Python | No | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| Todos os outros | No | No | [Sim](#ingestion-sampling) |
 
 > [!NOTE]
 > A informação sobre a maior parte desta página aplica-se às versões atuais dos SDKs application insights. Para obter informações sobre versões mais antigas dos SDKs, [consulte a secção abaixo](#older-sdk-versions).
@@ -586,7 +586,7 @@ A amostragem de taxa fixa é uma característica do SDK em ASP.NET versões a pa
 
 Antes de v2.5.0-beta2 do ASP.NET SDK, e v2.2.0-beta3 de ASP.NET Core SDK, a decisão de amostragem baseou-se no haxixe do ID do utilizador para aplicações que definem "utilizador" (isto é, aplicações web mais típicas). Para os tipos de aplicações que não definiram os utilizadores (como os serviços web) a decisão de amostragem baseou-se na operação ID do pedido. Versões recentes do ASP.NET e ASP.NET Os SDKs core utilizam o ID de operação para a decisão de amostragem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [A filtragem](./api-filtering-sampling.md) pode fornecer um controlo mais rigoroso do que o seu SDK envia.
 * Leia o artigo da Rede de [Desenvolvedores Otimize a Telemetria com Insights de Aplicação](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights).

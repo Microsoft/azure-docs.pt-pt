@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e22eaacd73bb15ddf43f416831ff5ff42923b6e0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8d70a7b44893ba9c9a0cc2d1d01c65e8e1584e0f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393392"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024487"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registar uma aplicação de recursos no Azure Ative Directory
 
@@ -37,75 +37,9 @@ az ad sp create --id 4f6778d8-5aef-43dc-a1ff-b073724b9495
 
 ## <a name="fhir-server-for-azure"></a>Servidor FHIR para Azure
 
-Se estiver a utilizar o FHIR Server de código aberto para o Azure, siga os passos abaixo para registar uma aplicação de recurso.
+Se estiver a utilizar o FHIR Server de código aberto para o Azure, siga os passos do [repo GitHub](https://github.com/microsoft/fhir-server/blob/master/docs/Register-Resource-Application.md) para registar uma aplicação de recursos. 
 
-### <a name="app-registrations-in-azure-portal"></a>Inscrições de aplicativos no portal Azure
-
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação do lado esquerdo, clique em **Azure Active Directory**.
-
-2. No **Azure Ative Directory** blade clique nos **registos da App:**
-
-    ![Portal Azure. Novo Registo de Aplicações.](media/how-to-aad/portal-aad-new-app-registration.png)
-
-3. Clique no **Novo Registo.**
-
-### <a name="add-a-new-application-registration"></a>Adicionar um novo registo de candidatura
-
-Preencha os detalhes da nova aplicação. Não existem requisitos específicos para o nome do visor, mas defini-lo no URI do servidor FHIR facilita a sua posição:
-
-![Novo registo de aplicação](media/how-to-aad/portal-aad-register-new-app-registration-NAME.png)
-
-### <a name="set-identifier-uri-and-define-scopes"></a>Definir identificador URI e definir âmbitos
-
-Uma aplicação de recurso tem um identificador URI (Application ID URI), que os clientes podem usar ao solicitar o acesso ao recurso. Este valor irá povoar a `aud` reivindicação do token de acesso. Recomenda-se que este URI seja o URI do seu servidor FHIR. Para smart em aplicações FHIR, presume-se que o *público* é o URI do servidor FHIR.
-
-1. Clique **em Expor uma API**
-
-2. Clique **em Conjunto** ao lado do *ID URI da aplicação.*
-
-3. Introduza o identificador URI e clique em **Guardar**. Um bom identificador URI seria o URI do seu servidor FHIR.
-
-4. Clique **em Adicionar um âmbito** e adicionar quaisquer âmbitos que gostaria de definir para a sua API. É-lhe exigido que adicione pelo menos um âmbito para conceder permissões à sua aplicação de recursos no futuro. Se não tiver quaisquer âmbitos específicos que queira adicionar, pode adicionar user_impersonation como âmbito.
-
-![Público e âmbito](media/how-to-aad/portal-aad-register-new-app-registration-AUD-SCOPE.png)
-
-### <a name="define-application-roles"></a>Definir funções de aplicação
-
-A Azure API para fHIR e o SERVIDOR OSS FHIR para Azure utilizam [funções de aplicação do Azure Ative Directory](/azure/architecture/multitenant-identity/app-roles) para controlo de acesso baseado em funções. Para definir quais as funções que devem estar disponíveis para o seu FHIR Server API, abra o [manifesto](/azure/active-directory/active-directory-application-manifest/)da aplicação de recursos:
-
-1. Clique **em Manifesto:**
-
-    ![Funções de Candidatura](media/how-to-aad/portal-aad-register-new-app-registration-APP-ROLES.png)
-
-2. Na `appRoles` propriedade, adicione as funções que gostaria que os utilizadores ou aplicações tivessem:
-
-    ```json
-    "appRoles": [
-      {
-        "allowedMemberTypes": [
-          "User",
-          "Application"
-        ],
-        "description": "FHIR Server Administrators",
-        "displayName": "admin",
-        "id": "1b4f816e-5eaf-48b9-8613-7923830595ad",
-        "isEnabled": true,
-        "value": "admin"
-      },
-      {
-        "allowedMemberTypes": [
-          "User"
-        ],
-        "description": "Users who can read",
-        "displayName": "reader",
-        "id": "c20e145e-5459-4a6c-a074-b942bbd4cfe1",
-        "isEnabled": true,
-        "value": "reader"
-      }
-    ],
-    ```
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a registar uma aplicação de recursos no Azure Ative Directory. Em seguida, registe a sua aplicação confidencial de cliente.
  

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5c3ac14af6eb863daa9eadd32727f4fb53d2185f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46e9ece70d9f980065c719ee1205eb46591b45c0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322862"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025247"
 ---
 # <a name="upgrade-composite-entity-to-machine-learning-entity"></a>Atualizar a entidade composta para a entidade de aprendizagem automática
 
@@ -29,7 +29,7 @@ O processo de atualização:
     * Se a entidade infantil for utilizada em compósitos _e_ como entidade separada (rotulada por palavras de exemplo), será adicionada à versão como entidade e como entidade de aprendizagem automática.
     * Se a entidade infantil utilizar um papel, cada função será convertida numa sub-entidade com o mesmo nome.
     * Se a entidade infantil for uma entidade que não é máquina de aprendizagem (expressão regular, entidade de lista ou entidade pré-construída), uma nova entidade é criada com o mesmo nome, e a nova entidade tem uma funcionalidade utilizando a entidade de não aprendizagem automática com a funcionalidade necessária adicionada.
-* Os nomes são retidos, mas devem ser únicos ao mesmo nível de entidade/irmão. Consulte [os limites de nomeação únicos.](luis-boundaries.md#name-uniqueness)
+* Os nomes são retidos, mas devem ser únicos ao mesmo nível de entidade/irmão. Consulte [os limites de nomeação únicos.](./luis-limits.md#name-uniqueness)
 * As etiquetas, por exemplo, são mudadas para nova entidade de aprendizagem automática com subentências.
 
 Use o seguinte gráfico para entender como o seu modelo muda:
@@ -72,6 +72,6 @@ Antes de atualizar, certifique-se de:
 
 1. Na página da lista de Entidades, as novas entidades são marcadas com **NOVA** junto ao nome do tipo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Autores e colaboradores](luis-how-to-collaborate.md)

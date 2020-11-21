@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: dpalled
-ms.openlocfilehash: 2cf86ed4fd4305a37d27bf7a88e8493821ef085c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3460cd8a88733ede041f6c0635ba40797675ed03
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629102"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025332"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Adicionar suporte para um longo tipo de dados em Azure Time Series Insights Gen2
 
@@ -42,11 +42,11 @@ Dependendo da sua solução e restrições IoT, pode não ter visibilidade nos d
 - Pode fazer preventivamente as alterações recomendadas para todas as etiquetas numéricas.
 - Você pode temporariamente encaminhar um subconjunto de eventos para armazenamento para entender melhor e explorar o seu esquema.
 
-Para armazenar eventos, ligue a captura de [eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) para Azure Event Hubs ou [vá](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) desde o seu IoT Hub até ao armazenamento Azure Blob.
+Para armazenar eventos, ligue a captura de [eventos](../event-hubs/event-hubs-capture-overview.md) para Azure Event Hubs ou [vá](../iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint) desde o seu IoT Hub até ao armazenamento Azure Blob.
 
-Os dados também podem ser observados através do [Event Hub Explorer,](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)ou utilizando o [Anfitrião do Processador de Eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events).
+Os dados também podem ser observados através do [Event Hub Explorer,](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)ou utilizando o [Anfitrião do Processador de Eventos](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md#receive-events).
 
-Se utilizar o IoT Hub, vá a [ler mensagens dispositivo-a-nuvem a partir do ponto final incorporado](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) para saber como aceder ao ponto final incorporado.
+Se utilizar o IoT Hub, vá a [ler mensagens dispositivo-a-nuvem a partir do ponto final incorporado](../iot-hub/iot-hub-devguide-messages-read-builtin.md) para saber como aceder ao ponto final incorporado.
 
 > [!NOTE]
 > Pode sofrer uma perturbação se não fizer as alterações recomendadas. Por exemplo, as variáveis Time Series Insights afetadas que são acedidas através da consulta APIs ou Time Series Insights explorer retornarão **nulas** (isto é, não mostram nenhum dado no explorador).
@@ -66,7 +66,7 @@ Se enviar atualmente dados inteiros de telemetria, os seus dados serão dividido
 
 Os seus dados inteiros escrevem para **propertyValue_long**. Dados numéricos previamente ingeridos (e ingeridos no futuro) em **propertyValue_double** não são copiados.
 
-Se quiser consultar dados através destas duas colunas para a **propriedadeValue,** precisa de utilizar a função de escalar de **coalesce** no seu TSX. A função aceita argumentos do mesmo **DataType** e devolve o primeiro valor não nulo na lista de argumentos. Para obter mais informações, consulte os [conceitos de acesso a dados da Azure Time Series Insights Gen2](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
+Se quiser consultar dados através destas duas colunas para a **propriedadeValue,** precisa de utilizar a função de escalar de **coalesce** no seu TSX. A função aceita argumentos do mesmo **DataType** e devolve o primeiro valor não nulo na lista de argumentos. Para obter mais informações, consulte os [conceitos de acesso a dados da Azure Time Series Insights Gen2](/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
 
 #### <a name="variable-definition-in-tsx---numeric"></a>Definição variável em TSX - numérico
 
@@ -78,7 +78,7 @@ Se quiser consultar dados através destas duas colunas para a **propriedadeValue
 
 [![A screenshot mostra a adicionar uma nova caixa de diálogo variável para a Variável PropertyValue com um valor personalizado, numérico.](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-Também pode utilizar **coalesce ($event.propertyValue.Double, toDouble ($event.propertyValue.Long))** como expressão de [série sonora](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada .
+Também pode utilizar **coalesce ($event.propertyValue.Double, toDouble ($event.propertyValue.Long))** como expressão de [série sonora](/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada .
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Definição variável inline usando APIs de consulta TSX - numérico
 
@@ -126,7 +126,7 @@ Também pode utilizar **coalesce ($event.propertyValue.Double, toDouble ($event.
 }
 ```
 
-Também pode utilizar **coalesce ($event.propertyValue.Double, toDouble ($event.propertyValue.Long))** como expressão de [série sonora](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada .
+Também pode utilizar **coalesce ($event.propertyValue.Double, toDouble ($event.propertyValue.Long))** como expressão de [série sonora](/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada .
 
 > [!NOTE]
 > Recomendamos que atualize estas variáveis em todos os locais onde possam ser utilizadas. Estes locais incluem Modelo de Séries de Tempo, consultas guardadas e consultas de conector Power BI.
@@ -145,9 +145,9 @@ Se atualmente utilizar variáveis categóricas que mapeiam valores inteiros para
 
 [![A screenshot mostra a adicionar uma nova caixa de diálogo variável para a Variável PropertyValue com um valor personalizado, categórico.](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
-Também pode utilizar **coalesce ($event.propertyValue.Double, toDouble ($event.propertyValue.Long))** como expressão de [série sonora](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizada .
+Também pode utilizar **coalesce ($event.propertyValue.Double, toDouble ($event.propertyValue.Long))** como expressão de [série sonora](/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizada .
 
-As variáveis categóricas ainda requerem que o valor seja de um tipo inteiro. O **DataType** de todos os argumentos no **coalesce()** deve ser do tipo **Longo** na expressão de [série de tempo personalizada.](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)
+As variáveis categóricas ainda requerem que o valor seja de um tipo inteiro. O **DataType** de todos os argumentos no **coalesce()** deve ser do tipo **Longo** na expressão de [série de tempo personalizada.](/rest/api/time-series-insights/reference-time-series-expression-syntax)
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Definição variável inline usando APIs de consulta TSX - categórico
 
@@ -227,7 +227,7 @@ As variáveis categóricas ainda requerem que o valor seja de um tipo inteiro. O
 }
 ```
 
-As variáveis categóricas ainda requerem que o valor seja de um tipo inteiro. O **DataType** de todos os argumentos na **coalesce()** deve ser do tipo **Longo** na expressão de [série de tempo](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada .
+As variáveis categóricas ainda requerem que o valor seja de um tipo inteiro. O **DataType** de todos os argumentos na **coalesce()** deve ser do tipo **Longo** na expressão de [série de tempo](/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada .
 
 > [!NOTE]
 > Recomendamos que atualize estas variáveis em todos os locais onde possam ser utilizadas. Estes locais incluem Modelo de Séries de Tempo, consultas guardadas e consultas de conector Power BI.
@@ -240,6 +240,6 @@ Se for afetado pelos casos 1 a 3 e construir aplicações personalizadas, tem de
 
 Se você é um utilizador da Warm Store com um grande número de propriedades e acredita que esta mudança iria empurrar o seu ambiente sobre o limite de 1.000 propriedade Warm Store, envie um bilhete de apoio através do portal Azure e mencione esta comunicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Veja a lista completa dos tipos de [dados suportados.](concepts-supported-data-types.md)

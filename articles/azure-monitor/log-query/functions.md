@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
-ms.openlocfilehash: 155f27b9f04db74955640aad8f582fdf05539368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 678a6f0dc19d966f3d15e713008c19c8fbb96f5e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87511943"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024369"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Utilização de funções em consultas de registo do Monitor de Azure
 
@@ -53,13 +53,13 @@ Crie outra consulta e refira a função _security_updates_last_day_ para procura
 security_updates_last_day | where Title contains "SQL"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte outras lições para escrever consultas de registo do Azure Monitor:
 
-- [Operações de cadeia](string-operations.md)
-- [Operações de data e hora](datetime-operations.md)
-- [Funções de agregação](aggregations.md)
-- [Agregações avançadas](advanced-aggregations.md)
-- [Estruturas de dados e JSON](json-data-structures.md)
-- [Associações](joins.md)
-- [Gráficos](charts.md)
+- [Operações de cadeia](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#string-operations)
+- [Operações de data e hora](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#date-and-time-operations)
+- [Funções de agregação](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations)
+- [Agregações avançadas](/azure/data-explorer/write-queries#advanced-aggregations)
+- [Estruturas de dados e JSON](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#json-and-data-structures)
+- [Associações](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins)
+- [Gráficos](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#charts)

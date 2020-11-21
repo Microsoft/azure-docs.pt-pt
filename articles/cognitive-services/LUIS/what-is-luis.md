@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 09/02/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 242d131e79966ebdb286a20f75d20f91f5fa7406
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b4034f9b7a5a9ec856134e27b422736e2c98f04a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334655"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025196"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é o Language Understanding (LUIS)?
 
@@ -50,7 +50,7 @@ A aplicação LUIS proporciona inteligência para que a aplicação cliente poss
 
 A sua aplicação LUIS contém um modelo de linguagem natural específico do domínio. Pode iniciar as aplicações LUIS com um modelo de domínio pré-criado, criar o seu próprio modelo ou misturar partes de um domínio pré-criado com as suas informações personalizadas.
 
-* **Modelo pré-criado** O LUIS tem muitos modelos de domínio pré-criados, incluindo intenções, expressões e entidades pré-criadas. Pode utilizar as entidades pré-criadas sem utilizar as intenções e as expressões do modelo pré-criado. Os [modelos de domínio pré-criados](luis-how-to-use-prebuilt-domains.md "Modelos de domínio pré-construídos") incluem todo o design para si e são uma excelente forma de começar a utilizar o LUIS rapidamente.
+* **Modelo pré-criado** O LUIS tem muitos modelos de domínio pré-criados, incluindo intenções, expressões e entidades pré-criadas. Pode utilizar as entidades pré-criadas sem utilizar as intenções e as expressões do modelo pré-criado. Os [modelos de domínio pré-criados](./howto-add-prebuilt-models.md "Modelos de domínio pré-construídos") incluem todo o design para si e são uma excelente forma de começar a utilizar o LUIS rapidamente.
 
 * **Modelo personalizado** A LUIS dá-lhe várias formas de identificar os seus próprios modelos personalizados, incluindo intenções e entidades. As entidades incluem entidades de aprendizagem automática, entidades específicas ou literais, e uma combinação de aprendizagem automática e literal.
 
@@ -116,7 +116,7 @@ Ferramentas para utilizar o LUIS de forma rápida e fácil com um bot:
 
 ## <a name="integrate-with-a-bot"></a>Integre-se com um bot
 
-Utilize o [serviço Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0 "Serviço Azure Bot") com o [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") para construir e implementar um chat bot. Desenhe e desenvolva com a ferramenta de interface gráfica, [Compositor,](https://docs.microsoft.com/composer/ "Compositor")ou [amostras de bot de trabalho projetadas](https://github.com/microsoft/BotBuilder-Samples "amostras de bot de trabalho") para cenários de bot de topo.
+Utilize o [serviço Azure Bot](/azure/bot-service/?view=azure-bot-service-4.0 "Serviço Azure Bot") com o [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") para construir e implementar um chat bot. Desenhe e desenvolva com a ferramenta de interface gráfica, [Compositor,](/composer/ "Compositor")ou [amostras de bot de trabalho projetadas](https://github.com/microsoft/BotBuilder-Samples "amostras de bot de trabalho") para cenários de bot de topo.
 
 ## <a name="integrate-with-other-cognitive-services"></a>Integrar-se com outros Serviços Cognitivos
 
@@ -131,15 +131,15 @@ A LUIS fornece funcionalidade a partir de Text Analytics como parte dos seus rec
 Saiba mais sobre o LUIS com quickstarts práticos utilizando o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes SDK.](azure-sdk-quickstart.md "Bibliotecas de clientes SDK")
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Novidades](whats-new.md "Novidades") com o serviço e documentação
 * [Planeie a sua app](luis-how-plan-your-app.md "Planear a sua aplicação") com [intenções](luis-concept-intent.md "intenções") e [entidades.](luis-concept-entity-types.md "entidades")
 * [Consulta o ponto final da previsão.](luis-get-started-get-intent-from-browser.md "Consultar o ponto final da previsão")
 * [Recursos de desenvolvimento](developer-reference-resource.md "Recursos para programadores") para o LUIS.
 
-[bot-framework]: https://docs.microsoft.com/bot-framework/
-[flow]: https://docs.microsoft.com/connectors/luis/
+[bot-framework]: /bot-framework/
+[flow]: /connectors/luis/
 [authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
 [endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

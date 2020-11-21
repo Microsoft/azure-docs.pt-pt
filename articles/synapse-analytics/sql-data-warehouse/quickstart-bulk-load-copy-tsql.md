@@ -7,20 +7,20 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
-ms.date: 06/18/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: f82bedc6ef638714b2641003e8274c2024a86c2e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 83b5804888379316b855c36f803f646cec102d9e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85213011"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024590"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Quickstart: Dados de carga a granel utilizando a declaração COPY
 
-Neste arranque rápido, irá carregar em massa dados de carga na sua piscina SQL utilizando a [declaração](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) copy simples e flexível para ingestão de dados de alto rendimento. A declaração COPY é o utilitário de carregamento recomendado, pois permite-lhe carregar de forma perfeita e flexível os dados fornecendo a funcionalidade para:
+Neste arranque rápido, você irá amontoa dados de carga na sua piscina de SQL dedicada usando a [declaração](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) copy simples e flexível para ingestão de dados de alto rendimento. A declaração COPY é o utilitário de carregamento recomendado, pois permite-lhe carregar de forma perfeita e flexível os dados fornecendo a funcionalidade para:
 
 - Permitir que utilizadores privilegiados mais baixos carreguem sem precisar de permissões rígidas do CONTROL no armazém de dados
 - Aproveite apenas uma única declaração T-SQL sem ter que criar quaisquer objetos de base de dados adicionais
@@ -34,7 +34,7 @@ Neste arranque rápido, irá carregar em massa dados de carga na sua piscina SQL
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este quickstart assume que já tem uma piscina SQL. Se não tiver sido criada uma piscina SQL, utilize o arranque rápido do [portal Create and Connect](create-data-warehouse-portal.md) - portal.
+Este quickstart assume que já tem uma piscina SQL dedicada. Se não tiver sido criada uma piscina SQL dedicada, utilize o arranque rápido do [portal Create and Connect](create-data-warehouse-portal.md) - portal.
 
 ## <a name="set-up-the-required-permissions"></a>Configurar as permissões necessárias
 
@@ -136,7 +136,7 @@ GROUP BY r.[request_id]
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter as melhores práticas de carregamento de dados, consulte [as Melhores Práticas para Carregar Dados.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)
 - Para obter informações sobre como gerir os recursos para as suas cargas de dados, consulte [o Isolamento da Carga de Trabalho.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) 

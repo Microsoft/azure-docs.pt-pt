@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 4863ccff5807420315f04b1b454b4ed78e5c8ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f044596cf084e68b6c9ca10e3da4fbdf4c8c2062
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282889"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026527"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Ativar o registo no SDK de discurso
 
@@ -68,7 +68,7 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-Mais sobre a permissão de acesso a ficheiros para aplicações UWP está disponível [aqui.](https://docs.microsoft.com/windows/uwp/files/file-access-permissions)
+Mais sobre a permissão de acesso a ficheiros para aplicações UWP está disponível [aqui.](/windows/uwp/files/file-access-permissions)
 
 ### <a name="android"></a>Android
 
@@ -116,7 +116,7 @@ Para aceder a um ficheiro criado, adicione as propriedades abaixo à `Info.plist
 
 Mais sobre o sistema de ficheiros iOS está disponível [aqui.](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Explore as nossas amostras no GitHub](https://aka.ms/csspeech/samples)

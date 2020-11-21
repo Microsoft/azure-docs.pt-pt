@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: 5bbfca4d890440574ee6717ca910969226fc781a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e680bc601b7f230314c1063523a003e95a849c0a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987070"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024403"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implementar o modelo de solução de consórcio de prova de autoridade do Ethereum no Azure
 
@@ -48,7 +48,9 @@ Cada destacamento de membro do consórcio inclui:
 * Monitor Azure para agregação de registos e estatísticas de desempenho
 * VNet Gateway (opcional) para permitir ligações VPN em VNets privados
 
-Por padrão, os pontos finais de RPC e peering são acessíveis através do IP público para permitir a conectividade simplificada entre subscrições e nuvens. Para controlos de acesso ao nível de aplicação, pode utilizar os contratos de permissão da Parity. As redes implementadas atrás de VPNs, que alavancam os gateways VNet para a conectividade de subscrição cruzada são suportadas. Uma vez que as implementações de VPN e VNet são mais complexas, é melhor começar com um modelo IP público ao prototipar uma solução.
+Por padrão, os pontos finais de RPC e peering são acessíveis através do IP público para permitir a conectividade simplificada através
+
+assinaturas e nuvens. Para controlos de acesso ao nível de aplicação, pode utilizar [os contratos de permissão da Parity.](https://openethereum.github.io/Permissioning.html) As redes implementadas atrás de VPNs, que alavancam os gateways VNet para a conectividade de subscrição cruzada são suportadas. Uma vez que as implementações de VPN e VNet são mais complexas, é melhor começar com um modelo IP público ao prototipar uma solução.
 
 Os recipientes estivadores são utilizados para a fiabilidade e modularidade. O Registo de Contentores Azure é utilizado para hospedar e servir imagens versadas como parte de cada implantação. As imagens do contentor consistem em:
 
@@ -685,7 +687,7 @@ Agora que o seu contrato inteligente está implementado, pode enviar uma transa�
 
 ## <a name="webassembly-wasm-support"></a>Suporte webAssembly (WASM)
 
-O suporte webAssembly já está ativado para si em redes PoA recém-implantadas. Permite o desenvolvimento de contratos inteligentes em qualquer idioma que transpile para Web-Assembly (Rust, C, C++). Para mais informações, consulte [Tutorial da Parity Tech.](https://github.com/paritytech/pwasm-tutorial)
+O suporte webAssembly já está ativado para si em redes PoA recém-implantadas. Permite o desenvolvimento de contratos inteligentes em qualquer idioma que transpile para Web-Assembly (Rust, C, C++). Para mais informações, consulte: [Parity Overview of WebAssembly](https://openethereum.github.io/WebAssembly-Home.html) e [Tutorial da Parity Tech](https://github.com/paritytech/pwasm-tutorial)
 
 ## <a name="faq"></a>FAQ
 

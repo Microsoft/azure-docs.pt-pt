@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91c7c19fddab2a4372f183c90532b24e774277d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24d27859aad7642392a5702ab7ddbb727b538d51
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008054"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025015"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ de multissessões do Windows 10 Enterprise
 
@@ -80,8 +80,8 @@ Isto acontece porque está a utilizar várias sessões do Windows 10 Enterprise 
 A maioria dos ambientes virtualizados são configurados por padrão para impedir que os utilizadores instalem aplicações adicionais nos seus perfis. Se quiser certificar-se de que uma aplicação não desaparece quando o utilizador assina fora do Windows Virtual Desktop, tem de providenciar essa aplicação para todos os perfis de utilizador no seu ambiente. Para obter mais informações sobre o provisionamento de apps, confira estes recursos:
 
 - [Publicar aplicativos incorporados no Windows Virtual Desktop](publish-apps.md)
-- [Opções de linha de comando de pacote de aplicativos DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [Pacote de pacotes adicionais](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [Opções de linha de comando de pacote de aplicativos DISM](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Pacote de pacotes adicionais](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
 
 ## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Como posso garantir que os utilizadores não descarreguem e instalem aplicações a partir da Microsoft Store?
 
@@ -90,13 +90,13 @@ Pode desativar a aplicação da Microsoft Store para garantir que os utilizadore
 Para desativar a aplicação Store:
 
 1. Criar uma nova Política de Grupo.
-2. Selecione **Computer Configuration**  >  **modelos administrativos de**configuração do computador  >  **Componentes do Windows**.
+2. Selecione **Computer Configuration**  >  **modelos administrativos de** configuração do computador  >  **Componentes do Windows**.
 3. Selecione **Loja**.
 4. Selecione **a aplicação da loja**.
-5. Selecione **Desativado**e, em seguida, selecione **OK**.
+5. Selecione **Desativado** e, em seguida, selecione **OK**.
 6. Selecione **Aplicar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Windows Virtual Desktop e o Windows 10 Enterprise multi-sessão:
 

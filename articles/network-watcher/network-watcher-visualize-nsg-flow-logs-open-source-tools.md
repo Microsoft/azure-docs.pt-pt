@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 18ffc5aa9c56451099afc4ddbe8b6ac5bd588974
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: aca8c75f262e472cbc770c052b86d6e760ee449a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948770"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026476"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar registos do fluxo do NSG do Observador de Rede do Azure com ferramentas open-source
 
@@ -207,7 +207,7 @@ Descarregue o [ficheiro do dashboard,](https://aka.ms/networkwatchernsgflowlogda
 
 Sob o **separador Gestão** de Kibana, navegue para **Objetos Guardados** e importe os três ficheiros. Em seguida, a partir do **separador Dashboard** pode abrir e carregar o painel de amostras.
 
-Também pode criar as suas próprias visualizações e dashboards adaptados para métricas do seu próprio interesse. Leia mais sobre a criação de visualizações de Kibana a partir da [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html)de Kibana .
+Também pode criar as suas próprias visualizações e dashboards adaptados para métricas do seu próprio interesse. Leia mais sobre a criação de visualizações de Kibana a partir da [documentação oficial](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm)de Kibana .
 
 ### <a name="visualize-nsg-flow-logs"></a>Visualizar registos de fluxo NSG
 
@@ -243,7 +243,7 @@ Utilizando a barra de consulta na parte superior do painel de instrumentos, pode
 
 Ao combinar os registos de fluxo do Grupo de Segurança de Rede com a Pilha Elástica, criámos uma forma poderosa e personalizável de visualizar o tráfego da nossa rede. Estes dashboards permitem-lhe obter e partilhar rapidamente informações sobre o tráfego da sua rede, bem como filtrar e investigar quaisquer anomalias potenciais. Usando Kibana, você pode personalizar estes dashboards e criar visualizações específicas para atender a quaisquer necessidades de segurança, auditoria e conformidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como visualizar os seus registos de fluxo NSG com Power BI visitando [registos de fluxos NSG do Visualize com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

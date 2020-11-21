@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: 5d95525c7dfecd44758c86903ca4a96c2290df52
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487789"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024998"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>O que é Transcrição de Conversa nas reuniões (Pré-visualização)?
 
@@ -54,7 +54,7 @@ Esta é uma visão geral de alto nível de como a Transcrição de Conversa func
 
 ## <a name="expected-inputs"></a>Entradas esperadas
 
-- **Fluxo de áudio multicanal** - Para obter detalhes de especificação e design, consulte [o microfone SDK do Dispositivo de Fala do Microsoft](https://aka.ms/cts/microphone). Para saber mais ou comprar um kit de desenvolvimento, consulte [Get Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
+- **Fluxo de áudio multicanal** - Para obter detalhes de especificação e design, consulte [o microfone SDK do Dispositivo de Fala do Microsoft](./speech-devices-sdk-microphone.md). Para saber mais ou comprar um kit de desenvolvimento, consulte [Get Microsoft Speech Device SDK](./get-speech-devices-sdk.md).
 - **Amostras de voz do utilizador** – A Transcrição de Conversação necessita de perfis de utilizador antes da conversação. Terá de recolher gravações áudio de cada utilizador e, em seguida, enviar as gravações para o [Serviço de Geração de Assinaturas](https://aka.ms/cts/signaturegenservice) para validar o áudio e gerar perfis de utilizador.
 
 > [!NOTE]
@@ -81,7 +81,7 @@ Os dados áudio são processados ao vivo para devolver o identificador de altifa
 
 Atualmente, a Transcrição de Conversação apoia [todas as línguas de expressão para texto](language-support.md#speech-to-text) nas seguintes regiões: . . . . .  `centralus` `eastasia` `eastus` `westeurope` . Se necessitar de apoio local adicional, contacte a Equipa de [Recurso de Transcrição de Conversação](mailto:CTSFeatureCrew@microsoft.com).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Transcreva conversas em tempo real](how-to-use-conversation-transcription.md)

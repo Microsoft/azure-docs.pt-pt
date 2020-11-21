@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 446731e084084ca301b350f6fec0c4065485a40f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564570"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026629"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Melhores práticas de configuração do cluster (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Utilize um único NIC por servidor (nó de cluster) e uma única sub-rede. O net
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Afinação dos limiares da rede de cluster de falhas
 
-Ao executar os nós do Cluster Failover do Windows em Azure Vms com SQL Server AlwaysOn, recomenda-se alterar a definição do cluster para um estado de monitorização mais descontraído.  Isto tornará o cluster muito mais estável e fiável.  Para mais informações sobre este assunto, consulte [IaaS com SQL AlwaysOn - Afinação dos limiares da rede de clusters](/windows-server/troubleshoot/iaas-sql-failover-cluser)de falhas.
+Ao executar os nós do Cluster Failover do Windows em Azure Vms com SQL Server AlwaysOn, recomenda-se alterar a definição do cluster para um estado de monitorização mais descontraído.  Isto tornará o cluster muito mais estável e fiável.  Para mais informações sobre este assunto, consulte [IaaS com SQL AlwaysOn - Afinação dos limiares da rede de clusters](/windows-server/troubleshoot/iaas-sql-failover-cluster)de falhas.
 
 ## <a name="quorum"></a>Quórum
 
@@ -60,7 +60,7 @@ Configure um disco partilhado do Azure como testemunha do disco.
 Para começar, consulte [a Configure uma testemunha de disco.](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)
 
 
-**Os suportados** : Todos   
+**Os suportados**: Todos   
 
 
 ### <a name="cloud-witness"></a>Testemunha de cloud
@@ -70,19 +70,19 @@ Uma testemunha em nuvem é um tipo de testemunha de quórum de cluster que usa o
 Para começar, consulte [Configure uma testemunha em nuvem.](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp)
 
 
-**SISTEMA Suportado** : Windows Server 2016 e posteriormente   
+**SISTEMA Suportado**: Windows Server 2016 e posteriormente   
 
 
 ### <a name="file-share-witness"></a>Testemunho de partilha de ficheiros
 
-Uma testemunha de partilha de ficheiros é uma partilha de ficheiros SMB que é tipicamente configurada num servidor de ficheiros que executa o Windows Server. Mantém informações de agrupamento num ficheiro witness.log, mas não armazena uma cópia da base de dados do cluster. Em Azure, pode configurar uma [partilha de ficheiros Azure](../../../storage/files/storage-how-to-create-file-share.md) para usar como testemunha de partilha de ficheiros, ou pode usar uma partilha de ficheiros numa máquina virtual separada.
+Uma testemunha de partilha de ficheiros é uma partilha de ficheiros SMB que é tipicamente configurada num servidor de ficheiros que executa o Windows Server. Mantém informações de agrupamento num ficheiro .log testemunhas, mas não guarda uma cópia da base de dados do cluster. Em Azure, pode configurar uma [partilha de ficheiros Azure](../../../storage/files/storage-how-to-create-file-share.md) para usar como testemunha de partilha de ficheiros, ou pode usar uma partilha de ficheiros numa máquina virtual separada.
 
 Se vai utilizar uma partilha de ficheiros Azure, pode montá-la com o mesmo processo usado para [montar a partilha de ficheiros Premium.](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share) 
 
 Para começar, consulte [a Configure uma testemunha de partilha de ficheiros.](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)
 
 
-**SISTEMA Suportado** : Windows Server 2012 e posteriormente   
+**SISTEMA Suportado**: Windows Server 2012 e posteriormente   
 
 ## <a name="connectivity"></a>Conectividade
 
@@ -108,9 +108,9 @@ Há um ligeiro atraso de incumprimento quando se está a usar o equilibrador de 
 
 Para começar, aprenda a configurar o Azure Load Balancer para [uma instância de cluster de failover](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou um grupo de [disponibilidade](availability-group-vnn-azure-load-balancer-configure.md)
 
-**Os suportados** : Todos   
-**Versão SQL suportada** : Todos   
-**Solução HADR suportada** : Instância de cluster de failover e grupo de disponibilidade   
+**Os suportados**: Todos   
+**Versão SQL suportada**: Todos   
+**Solução HADR suportada**: Instância de cluster de failover e grupo de disponibilidade   
 
 
 ### <a name="distributed-network-name-dnn"></a>Nome de Rede Distribuída (DNN)
@@ -128,9 +128,9 @@ A maioria das funcionalidades do SQL Server funcionam de forma transparente com 
 
 Para começar, aprenda a configurar um recurso de nome de rede distribuído para uma instância de cluster de [failover](failover-cluster-instance-distributed-network-name-dnn-configure.md) ou um [grupo de disponibilidade](availability-group-distributed-network-name-dnn-listener-configure.md)
 
-**SISTEMA Suportado** : Windows Server 2016 e posteriormente   
-**Versão SQL suportada** : SQL Server 2019 CU2 (FCI) e SQL Server 2019 CU8 (AG)   
-**Solução HADR suportada** : Instância de cluster de failover e grupo de disponibilidade   
+**SISTEMA Suportado**: Windows Server 2016 e posteriormente   
+**Versão SQL suportada**: SQL Server 2019 CU2 (FCI) e SQL Server 2019 CU8 (AG)   
+**Solução HADR suportada**: Instância de cluster de failover e grupo de disponibilidade   
 
 
 ## <a name="limitations"></a>Limitações
@@ -147,6 +147,6 @@ Nas Máquinas Virtuais Azure, o MSDTC não é suportado para Windows Server 2016
 - O equilibrador de carga básico não lida com portas RPC.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de ter determinado as melhores práticas adequadas para a sua solução, inicie [a preparação do seu SQL Server VM para a FCI](failover-cluster-instance-prepare-vm.md) ou criando o seu grupo de disponibilidade utilizando o [portal Azure](availability-group-azure-portal-configure.md), o [Azure CLI / PowerShell,](./availability-group-az-commandline-configure.md)ou [os modelos de arranque rápido Azure](availability-group-quickstart-template-configure.md).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: c9f7168bc0524b483413ade9792af18ff9cfebfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40736764cf9cec6f652e0147eb25d83f15c5bee2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358547"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024947"
 ---
 # <a name="what-is-custom-commands"></a>O que são Comandos Personalizados?
 
@@ -28,7 +28,7 @@ Os Comandos Personalizados são mais adequados para a conclusão de tarefas ou c
 > [!TIP]
 > Veja as nossas demonstrações de amostra na nossa página de aterragem [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands) em.
 
-Se estiver interessado em construir aplicações de conversação complexas, é encorajado a experimentar a Estrutura bot usando a [Solução Assistente Virtual.](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) Pode adicionar voz a qualquer bot de estrutura de bot usando Direct Line Speech.
+Se estiver interessado em construir aplicações de conversação complexas, é encorajado a experimentar a Estrutura bot usando a [Solução Assistente Virtual.](/azure/bot-service/bot-builder-enterprise-template-overview) Pode adicionar voz a qualquer bot de estrutura de bot usando Direct Line Speech.
 
 Os bons candidatos a Comandos Personalizados têm um vocabulário fixo com conjuntos bem definidos de variáveis. Por exemplo, as tarefas de domótica, como controlar um termóstato, são ideais.
 
@@ -50,7 +50,7 @@ Assim que terminar o quickstart, explore os nossos guias de como fazer para obte
 ## <a name="building-voice-assistants-with-custom-commands"></a>Construindo assistentes de voz com comandos personalizados
 > [!VIDEO https://www.youtube.com/embed/1zr0umHGFyc]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)
 * [Veja os nossos Assistentes de Voz repo no GitHub para amostras](https://aka.ms/speech/cc-samples)

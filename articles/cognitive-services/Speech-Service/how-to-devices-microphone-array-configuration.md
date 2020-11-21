@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
-ms.openlocfilehash: a2652bed6c8e7dec0a6fe8f9471793c3873646bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf0580c96f5bf78f0444b2bb39088f2a417fd658
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82781759"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025066"
 ---
 # <a name="how-to-configure-a-microphone-array"></a>Como configurar uma Matriz do Microfone
 
-Neste artigo, aprende-se a configurar uma [matriz de microfone](https://aka.ms/sdsdk-microphone). Inclui a definição do ângulo de trabalho e como selecionar o microfone utilizado para os Dispositivos de Fala SDK.
+Neste artigo, aprende-se a configurar uma [matriz de microfone](./speech-devices-sdk-microphone.md). Inclui a definição do ângulo de trabalho e como selecionar o microfone utilizado para os Dispositivos de Fala SDK.
 
-O Speech Devices SDK funciona melhor com uma matriz de microfone que foi desenhada de acordo com [as nossas diretrizes.](https://aka.ms/sdsdk-microphone) A configuração da matriz do microfone pode ser fornecida pelo Sistema Operativo ou fornecida através de um dos seguintes métodos.
+O Speech Devices SDK funciona melhor com uma matriz de microfone que foi desenhada de acordo com [as nossas diretrizes.](./speech-devices-sdk-microphone.md) A configuração da matriz do microfone pode ser fornecida pelo Sistema Operativo ou fornecida através de um dos seguintes métodos.
 
 Os dispositivos de fala SDK inicialmente suportavam as matrizes de microfone selecionando a partir de um conjunto fixo de configurações.
 
@@ -49,7 +49,7 @@ Se for especificada uma matriz de `AudioConfig::FromMicrophoneInput` microfone, 
 A Microsoft Audio Stack nos Dispositivos de Fala SDK só suporta a amostra para taxas de amostra que são múltiplos integrais de 16 KHz. Além disso, os seguintes formatos são suportados: 32 bits IEEE little endian float, 32-bit pequeno endian assinado int, 24-bit pequeno endian assinado int, 16-bit pouco endian assinado int, e 8-bit assinado int.
 
 ## <a name="android"></a>Android
-Atualmente apenas [Roobo v1](speech-devices-sdk-android-quickstart.md) é suportado pelo Speech Devices SDK. O comportamento é o mesmo que as versões anteriores, exceto agora `MicArrayGeometryConfigFile` que a propriedade pode ser usada para especificar o ficheiro JSON que contém alcance de formação de feixes.
+Atualmente apenas [Roobo v1](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android) é suportado pelo Speech Devices SDK. O comportamento é o mesmo que as versões anteriores, exceto agora `MicArrayGeometryConfigFile` que a propriedade pode ser usada para especificar o ficheiro JSON que contém alcance de formação de feixes.
 
 ## <a name="microphone-array-configuration-json"></a>Configuração da matriz do microfone JSON
 
@@ -109,7 +109,7 @@ Ou
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Escolha o seu dispositivo de fala](get-speech-devices-sdk.md)

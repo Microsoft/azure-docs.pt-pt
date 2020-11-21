@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 2f7132ffa1fa55d1dfd8043677bf9695a589b7af
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 43b57d0b58c9268482ca27fd51040c7152ecdc25
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043019"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026056"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster Azure Kubernetes Service (AKS) que utiliza zonas de disponibilidade
 
@@ -20,7 +20,7 @@ Ao definir piscinas de nó em um cluster para abranger várias zonas, os nós em
 
 Este artigo mostra-lhe como criar um cluster AKS e distribuir os componentes do nó através de zonas de disponibilidade.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Precisa da versão 2.0.76 do Azure CLI ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
@@ -31,11 +31,14 @@ Os clusters AKS podem ser criados atualmente utilizando zonas de disponibilidade
 * Leste da Austrália
 * Canadá Central
 * E.U.A. Central
+* E.U.A. Leste 
 * E.U.A. Leste 2
-* E.U.A. Leste
 * França Central
+* Alemanha Centro-Oeste
 * Leste do Japão
 * Europa do Norte
+* Norte da África do Sul
+* E.U.A. Centro-Sul
 * Sudeste Asiático
 * Sul do Reino Unido
 * Europa Ocidental
@@ -60,7 +63,7 @@ As zonas de disponibilidade são uma oferta de alta disponibilidade que protege 
 
 Para mais informações, veja [quais são as zonas de disponibilidade em Azure?][az-overview]
 
-Os clusters AKS que são implantados usando zonas de disponibilidade podem distribuir nós em várias zonas dentro de uma única região. Por exemplo, um cluster na região  *leste dos EUA 2*   pode criar nós nas três zonas de disponibilidade no *Leste dos EUA 2* . Esta distribuição de recursos de cluster AKS melhora a disponibilidade do cluster, uma vez que são resistentes ao fracasso de uma zona específica.
+Os clusters AKS que são implantados usando zonas de disponibilidade podem distribuir nós em várias zonas dentro de uma única região. Por exemplo, um cluster na região  *leste dos EUA 2*   pode criar nós nas três zonas de disponibilidade no *Leste dos EUA 2*. Esta distribuição de recursos de cluster AKS melhora a disponibilidade do cluster, uma vez que são resistentes ao fracasso de uma zona específica.
 
 ![Distribuição de nó AKS em zonas de disponibilidade](media/availability-zones/aks-availability-zones.png)
 
@@ -72,7 +75,7 @@ Quando cria um cluster utilizando as [az aks criar][az-aks-create] comando, o `-
 
 Se não definir nenhuma zona para o conjunto de agentes predefinidos quando criar um cluster AKS, os componentes do plano de controlo não são garantidos para se espalharem por zonas de disponibilidade. Pode adicionar piscinas de nó adicionais utilizando o [nodepool az aks adicionar][az-aks-nodepool-add] comando e especificar `--zones` para novos nós, mas não altera a forma como o plano de controlo foi espalhado por zonas. As definições da zona de disponibilidade só podem ser definidas no intervalo ou node pool-tempo.
 
-O exemplo a seguir cria um cluster AKS chamado *myAKSCluster* no grupo de recursos chamado *myResourceGroup* . Um total de *3* nós são criados - um agente na zona *1* , um em *2* , e depois um em *cada 3* .
+O exemplo a seguir cria um cluster AKS chamado *myAKSCluster* no grupo de recursos chamado *myResourceGroup*. Um total de *3* nós são criados - um agente na zona *1*, um em *2*, e depois um em *cada 3*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -181,7 +184,7 @@ Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 
 Como pode ver na saída anterior, a primeira cápsula está a funcionar no nó 0, que está localizado na zona de `eastus2-1` disponibilidade. A segunda cápsula está a funcionar no nó 2, que corresponde a `eastus2-3` , e a terceira no nó 4, em `eastus2-2` . Sem qualquer configuração adicional, a Kubernetes está a espalhar corretamente as cápsulas pelas três zonas de disponibilidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo detalhou como criar um cluster AKS que utiliza zonas de disponibilidade. Para obter mais considerações sobre clusters altamente disponíveis, consulte [as melhores práticas para a continuidade do negócio e recuperação de desastres em AKS][best-practices-bc-dr].
 

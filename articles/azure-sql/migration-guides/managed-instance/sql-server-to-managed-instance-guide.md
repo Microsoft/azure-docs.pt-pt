@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 0aba809fd18dfd74a344a32b2335aba9426c9845
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5c20fbbe25b51160f42f233d30c39ccaec0f5cac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496993"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026066"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guia de migração: SQL Server para SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -99,10 +99,10 @@ Se precisar de comparar o desempenho da sua carga de trabalho numa SqL Managed I
 
 ### <a name="create-sql-managed-instance"></a>Criar Instância Gerida do SQL 
 
-Com base nas informações na fase de descoberta e avaliação, crie um alvo de tamanho adequado SQL Managed Instance. Pode fazê-lo utilizando o [portal Azure,](../../managed-instance/instance-create-quickstart.md) [o PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)ou um [Modelo Azure Resource Manager (ARM).](/../../managed-instance/create-template-quickstart.md) 
+Com base nas informações na fase de descoberta e avaliação, crie um alvo de tamanho adequado SQL Managed Instance. Pode fazê-lo utilizando o [portal Azure,](../../managed-instance/instance-create-quickstart.md) [o PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)ou um [Modelo Azure Resource Manager (ARM).](/azure/azure-sql/managed-instance/create-template-quickstart) 
 
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrar
 
 Depois de ter concluído as tarefas associadas à fase de pré-migração, está pronto para executar o esquema e a migração de dados. 
 
@@ -142,7 +142,7 @@ O diagrama a seguir fornece uma visão geral de alto nível do processo:
 
 Para migrar usando cópia de segurança e restaurar, siga estes passos: 
 
-1. Resquim a base de dados para o armazenamento de bolhas Azure. Por exemplo, use [backup para url](/sql/relational-databases/backup-restore/sql-server-backup-to-url) no [SQL Server Management Studio](/ssms/download-sql-server-management-studio-ssms). Utilize a [Ferramenta Microsoft Azure](https://go.microsoft.com/fwlink/?LinkID=324399) para suportar bases de dados mais cedo do que o SQL Server 2012 SP1 CU2. 
+1. Resquim a base de dados para o armazenamento de bolhas Azure. Por exemplo, use [backup para url](/sql/relational-databases/backup-restore/sql-server-backup-to-url) no [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Utilize a [Ferramenta Microsoft Azure](https://go.microsoft.com/fwlink/?LinkID=324399) para suportar bases de dados mais cedo do que o SQL Server 2012 SP1 CU2. 
 1. Conecte-se ao seu Azure SQL Managed Instance usando o SQL Server Management Studio. 
 1. Crie uma credencial utilizando uma Assinatura de Acesso Partilhado para aceder à sua conta de armazenamento Azure Blob com as cópias de segurança da sua base de dados. Por exemplo:
 
@@ -191,10 +191,10 @@ Após a migração dos dados para o ambiente alvo, todas as aplicações que ant
 
 A abordagem de ensaio para a migração de bases de dados consiste nas seguintes atividades:
 
-1. **Desenvolver testes de validação** : Para testar a migração da base de dados, é necessário utilizar consultas SQL. Tem de criar as consultas de validação para correr contra a fonte e as bases de dados-alvo. As suas consultas de validação devem abranger o âmbito que definiu.
-1. **Configurar ambiente de teste** : O ambiente de ensaio deve conter uma cópia da base de dados de origem e da base de dados-alvo. Certifique-se de isolar o ambiente de teste.
-1. **Executar testes de validação** : Escada os testes de validação contra a fonte e o alvo e, em seguida, analise os resultados.
-1. **Executar testes de desempenho** : Executar teste de desempenho contra a fonte e o alvo e, em seguida, analisar e comparar os resultados.
+1. **Desenvolver testes de validação**: Para testar a migração da base de dados, é necessário utilizar consultas SQL. Tem de criar as consultas de validação para correr contra a fonte e as bases de dados-alvo. As suas consultas de validação devem abranger o âmbito que definiu.
+1. **Configurar ambiente de teste**: O ambiente de ensaio deve conter uma cópia da base de dados de origem e da base de dados-alvo. Certifique-se de isolar o ambiente de teste.
+1. **Executar testes de validação**: Escada os testes de validação contra a fonte e o alvo e, em seguida, analise os resultados.
+1. **Executar testes de desempenho**: Executar teste de desempenho contra a fonte e o alvo e, em seguida, analisar e comparar os resultados.
 
    > [!NOTE]
    > Para obter assistência para desenvolver e executar testes de validação pós-migração, considere a Solução de Qualidade de Dados disponível a partir do parceiro [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
@@ -210,7 +210,7 @@ Certifique-se de aproveitar as funcionalidades avançadas baseadas na nuvem ofer
 Algumas funcionalidades do SQL Server só estão disponíveis quando o [nível de compatibilidade](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) da base de dados for alterado para o nível de compatibilidade mais recente (150). 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma matriz dos serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para o ajudar com vários cenários de base de dados e migração de dados, bem como tarefas especiais, consulte [o Serviço e ferramentas para a migração de dados.](../../../dms/dms-tools-matrix.md)
 

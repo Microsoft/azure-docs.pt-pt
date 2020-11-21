@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: a4670da5f5e89a4e020e26d1d704f172b8ab0864
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 99a3c9a9c26eebe8dfdf11baf718fd13f7539607
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968320"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025281"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Permitir o início de sessão de diagnóstico de apps no Azure App Service
 ## <a name="overview"></a>Descrição geral
@@ -192,9 +192,11 @@ A tabela a seguir mostra os tipos e descrições de registos suportados:
 | AppServiceEnvironmentPlatformLogs | Yes | N/D | Sim | Yes | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
 | AppServiceAuditLogs | Yes | Yes | Yes | Yes | Atividade de login via FTP e Kudu |
 | AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | Alterações de ficheiros es feitas no conteúdo do site; apenas disponível para nível Premium e acima |
-| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Imagens Abençoadas | Java SE & Tomcat Imagens Abençoadas | Registos de aplicações |
+| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Imagens Abençoadas <sup>1</sup> | Java SE & Tomcat Imagens Abençoadas <sup>1</sup> | Registos de aplicações |
 | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Pedidos de Regras de IP |
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Troncos de operação de contentores |
+
+<sup>1</sup> Para aplicações Java SE, adicione "$WEBSITE_AZMON_PREVIEW_ENABLED" às definições da aplicação e defina-a para 1 ou para verdadeiro.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximos passos
 * [Registos de consulta com monitor Azure](../azure-monitor/log-query/log-query-overview.md)

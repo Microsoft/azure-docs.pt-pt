@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 198ba23920179e71e095e498ee2173d7f0111d42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400184"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026734"
 ---
 # <a name="azure-peering-service-overview"></a>Visão geral do serviço de peering Azure
 
@@ -45,7 +45,7 @@ O Serviço de Observação é:
 O Serviço de Observação não é um produto de conectividade privada como o Azure ExpressRoute ou um produto VPN.
 
 > [!NOTE]
-> Para mais informações sobre o ExpressRoute, consulte a [documentação ExpressRoute](https://docs.microsoft.com/azure/expressroute/).
+> Para mais informações sobre o ExpressRoute, consulte a [documentação ExpressRoute](../expressroute/index.yml).
 >
 
 ## <a name="background"></a>Fundo
@@ -57,7 +57,7 @@ A Microsoft e os fornecedores de serviços de parceiros asseguram que o tráfego
 ![Rede Microsoft e conectividade pública](./media/peering-service-about/peering-service-background-final.png)
 
 > [!NOTE]
-> Para obter mais informações sobre a rede global da Microsoft, consulte a [rede global da Microsoft.](https://docs.microsoft.com/azure/networking/microsoft-global-network)
+> Para obter mais informações sobre a rede global da Microsoft, consulte a [rede global da Microsoft.](../networking/microsoft-global-network.md)
 >
 
 ## <a name="why-use-peering-service"></a>Porquê usar o Serviço de Observação?
@@ -126,7 +126,7 @@ A Microsoft garante a rota do tráfego através de caminhos preferenciais, mesmo
 
 As anomalias da rota BGP são reportadas no portal Azure, se houver.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre as ligações do Serviço de Peering, consulte [as ligações do Serviço de Peering](connection.md).
 - Para saber mais sobre a telemetria de conexão peering Service, consulte [a telemetria de conexão peering service](connection-telemetry.md).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae7b8e0485c1a2456b85e0910f60b2164d4e41c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261589"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026323"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Registar amostras de voz para criar uma voz personalizada
 
@@ -211,13 +211,13 @@ Ouça cada ficheiro com atenção. Nesta fase, pode editar pequenos sons indesej
 
 Converta cada ficheiro em 16 bits e uma taxa de amostra de 16 kHz antes de guardar e, se gravou a conversa do estúdio, remova o segundo canal. Guarde cada ficheiro em formato WAV, nomeando os ficheiros com o número de expressão do seu script.
 
-Por fim, crie a *transcrição* que associa cada ficheiro WAV a uma versão de texto da expressão correspondente. [A criação de fontes de voz personalizadas](how-to-customize-voice-font.md) inclui detalhes do formato requerido. Pode copiar o texto diretamente do seu script. Em seguida, crie um ficheiro Zip dos ficheiros WAV e da transcrição de texto.
+Por fim, crie a *transcrição* que associa cada ficheiro WAV a uma versão de texto da expressão correspondente. [A criação de fontes de voz personalizadas](./how-to-custom-voice-create-voice.md) inclui detalhes do formato requerido. Pode copiar o texto diretamente do seu script. Em seguida, crie um ficheiro Zip dos ficheiros WAV e da transcrição de texto.
 
 Arquive as gravações originais num local seguro, caso precise delas mais tarde. Preserva o teu guião e notas, também.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Está pronto para carregar as suas gravações e criar a sua voz personalizada.
 
 > [!div class="nextstepaction"]
-> [Criar fontes de voz personalizadas](how-to-customize-voice-font.md)
+> [Criar fontes de voz personalizadas](./how-to-custom-voice-create-voice.md)

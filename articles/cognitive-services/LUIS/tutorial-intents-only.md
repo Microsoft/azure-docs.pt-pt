@@ -5,18 +5,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: c4a564834166686e8280f1117269742b489fc62c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 398324099f923a5141b172d61f9fd41a69dbf069
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334757"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025298"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Construa uma app LUIS para determinar as intenções dos utilizadores
 
 Neste tutorial, cria-se uma aplicação personalizada que prevê a intenção de um utilizador com base na expressão (texto).
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
 > * Criar uma nova aplicação
@@ -193,10 +193,10 @@ Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não forn
 * [Como treinar](luis-how-to-train.md)
 * [Como publicar](luis-how-to-publish-app.md)
 * [Como testar no portal LUIS](luis-interactive-test.md)
-* [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Azure Bot](/azure/bot-service/?view=azure-bot-service-4.0)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Adicione uma entidade decomposição a esta aplicação](tutorial-machine-learned-entity.md)

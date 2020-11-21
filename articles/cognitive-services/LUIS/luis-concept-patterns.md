@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 44a7a89740be3d6d502c5d22c79b46582034d88a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cda71c6e825ff27ba9b03e1306ccb287663e8613
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535968"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025964"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Os padrões melhoram a precisão da previsão
 Os padrões são projetados para melhorar a precisão quando várias expressões são muito semelhantes.  Um padrão permite-lhe ganhar mais precisão para uma intenção sem fornecer muitos mais pronunciamentos.
@@ -48,7 +48,7 @@ Um padrão destina-se principalmente a ajudar a previsão de intenções e papé
 Não espere ver uma previsão melhorada da entidade se colapsar várias expressões num único padrão. Para entidades simples dispararem, é necessário adicionar expressões ou utilizar entidades de listas que o seu padrão não dispare.
 
 ## <a name="patterns-use-entity-roles"></a>Os padrões usam funções de entidade
-Se duas ou mais entidades num padrão estiverem contextualização, os padrões utilizam [as funções](luis-concept-roles.md) da entidade para extrair informação contextual sobre entidades.
+Se duas ou mais entidades num padrão estiverem contextualização, os padrões utilizam [as funções](./luis-concept-entity-types.md) da entidade para extrair informação contextual sobre entidades.
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Pontuações de previsão com e sem padrões
 Dado o exemplo suficiente, LUIS seria capaz de aumentar a confiança da previsão sem padrões. Os padrões aumentam a pontuação de confiança sem ter que fornecer tantas expressões.
@@ -70,7 +70,7 @@ Aprenda as [melhores práticas.](luis-concept-best-practices.md)
 
 Aprenda a sintaxe padrão a partir da referência de [sintaxe de padrão](reference-pattern-syntax.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre padrões:
 

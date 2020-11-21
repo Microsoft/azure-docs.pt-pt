@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a6d16b79800043bdcd3f183dd86fa278dd1a9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360128"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026032"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integre com uma aplicação de cliente usando a Speech SDK
 
@@ -35,7 +35,7 @@ Também vai precisar de:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) ou superior. Este guia é baseado no Visual Studio 2019.
 > * Uma chave de subscrição Azure para serviços de fala. [Obtenha um de graça](overview.md#try-the-speech-service-for-free) ou crie-o no [portal Azure](https://portal.azure.com)
-> * [Ativar o seu dispositivo para o desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+> * [Ativar o seu dispositivo para o desenvolvimento](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Passo 1: Publicar aplicação de comandos personalizados
 
@@ -43,7 +43,7 @@ Também vai precisar de:
 1. Ir a **Definições**, selecione **recurso LUIS**
 1. Se **o recurso de previsão** não for atribuído, selecione uma chave de previsão de consulta ou crie uma nova
 
-    A chave de previsão de consulta é sempre necessária antes de publicar uma aplicação. Para mais informações sobre os recursos LUIS, consulte [o Recurso LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+    A chave de previsão de consulta é sempre necessária antes de publicar uma aplicação. Para mais informações sobre os recursos LUIS, consulte [o Recurso LUIS](../luis/luis-how-to-azure-subscription.md)
 
 1. Volte a editar Comandos, **Selecione Publicar**
 
@@ -418,7 +418,7 @@ Adicione a fonte por trás do código da seguinte forma:
 
 1. **Selecione Talk**, e diga uma frase ou frase em inglês no microfone do seu dispositivo. O seu discurso é transmitido para o canal Direct Line Speech e transcrito para texto, que aparece na janela.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Como: enviar atividade para a aplicação do cliente (Pré-visualização)](./how-to-custom-commands-send-activity-to-client.md)

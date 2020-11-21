@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f82ea154d5949f4d229ac76e7a7ce2a89d15ac13
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555826"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025672"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Voz Personalizada
 
 Implementar formação automatizada, teste e gestão de lançamento para permitir a melhoria contínua dos modelos de Discurso Personalizado à medida que aplica atualizações aos dados de treino e teste. Através de uma implementação eficaz dos fluxos de trabalho ci/CD, pode garantir que o ponto final para o modelo de Discurso Personalizado com melhor desempenho está sempre disponível.
 
-[A integração contínua](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) (CI) é a prática de engenharia de frequentemente comprometer atualizações num repositório partilhado, e realizar uma construção automatizada sobre ele. Os fluxos de trabalho da CI para Custom Speech treinam um novo modelo a partir das suas fontes de dados e realizam testes automatizados no novo modelo para garantir que este funciona melhor do que o modelo anterior.
+[A integração contínua](/azure/devops/learn/what-is-continuous-integration) (CI) é a prática de engenharia de frequentemente comprometer atualizações num repositório partilhado, e realizar uma construção automatizada sobre ele. Os fluxos de trabalho da CI para Custom Speech treinam um novo modelo a partir das suas fontes de dados e realizam testes automatizados no novo modelo para garantir que este funciona melhor do que o modelo anterior.
 
-[A entrega contínua](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) retira os modelos do processo de CI e cria um ponto final para cada modelo de Discurso Personalizado melhorado. O CD disponibiliza facilmente pontos finais para serem integrados em soluções.
+[A entrega contínua](/azure/devops/learn/what-is-continuous-delivery) (CD) retira os modelos do processo de CI e cria um ponto final para cada modelo de Discurso Personalizado melhorado. O CD disponibiliza facilmente pontos finais para serem integrados em soluções.
 
 As soluções personalizadas de CI/CD são possíveis, mas para uma solução robusta e pré-construída, utilize o [repositório de modelos DevOps de discurso,](https://github.com/Azure-Samples/Speech-Service-DevOps-Template)que executa fluxos de trabalho CI/CD utilizando as ações do GitHub.
 
@@ -73,7 +73,7 @@ A maioria das equipas requer um processo manual de revisão e aprovação para i
 
 Utilize as seguintes ferramentas para fluxos de trabalho de automatização CI/CD para discursos personalizados:
 
-- [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para criar uma autenticação principal do serviço Azure, consultar subscrições Azure e armazenar resultados de testes em Azure Blob.
+- [Azure CLI](/cli/azure/?view=azure-cli-latest) para criar uma autenticação principal do serviço Azure, consultar subscrições Azure e armazenar resultados de testes em Azure Blob.
 - [Azure Speech CLI](spx-overview.md) para interagir com o Serviço de Fala a partir da linha de comando ou um fluxo de trabalho automatizado.
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>DevOps solução para discurso personalizado usando ações do GitHub
@@ -88,7 +88,7 @@ O [repo do modelo DevOps](https://github.com/Azure-Samples/Speech-Service-DevOps
 - Realize testes de precisão automatizados para estabelecer a Taxa de Erro de [Texto](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) de um modelo. Guarde os resultados dos testes em Azure Blob.
 - Execute o fluxo de trabalho do CD para criar um ponto final quando o WER melhorar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre DevOps com Discurso:
 

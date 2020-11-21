@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330942"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024964"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Melhorar a síntese com a ferramenta de Criação de Conteúdos Áudio
 
@@ -33,13 +33,13 @@ A Criação de Conteúdos Áudio é uma ferramenta gratuita, mas pagará pelo se
 
 ### <a name="step-1---create-an-azure-account"></a>Passo 1 - Criar uma conta Azure
 
-Para trabalhar com a Audio Content Creation, precisa de ter uma [conta Microsoft](https://account.microsoft.com/account) e uma [conta Azure.](https://azure.microsoft.com/free/ai/) Siga estas instruções para [configurar a conta](get-started.md#new-resource). 
+Para trabalhar com a Audio Content Creation, precisa de ter uma [conta Microsoft](https://account.microsoft.com/account) e uma [conta Azure.](https://azure.microsoft.com/free/ai/) Siga estas instruções para [configurar a conta](./overview.md#try-the-speech-service-for-free). 
 
 [O portal Azure](https://portal.azure.com/) é o local centralizado para gerir a sua conta Azure. Pode criar o recurso de fala, gerir o acesso ao produto e monitorizar tudo, desde aplicações web simples até implementações complexas na nuvem. 
 
 ### <a name="step-2---create-a-speech-resource"></a>Passo 2 - Criar um recurso de fala
 
-Depois de se inscrever na conta Azure, precisa de criar um recurso De discurso na sua conta Azure para aceder aos serviços de Discurso. Consulte as instruções de [como criar um recurso de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview#create-the-azure-resource). 
+Depois de se inscrever na conta Azure, precisa de criar um recurso De discurso na sua conta Azure para aceder aos serviços de Discurso. Consulte as instruções de [como criar um recurso de voz](./overview.md#create-the-azure-resource). 
 
 Leva alguns momentos para implementar o seu novo recurso speech. Uma vez concluída a implementação, pode iniciar a jornada de Criação de Conteúdos Áudio. 
 
@@ -63,7 +63,7 @@ Este diagrama mostra os passos que é preciso para afinar as saídas de texto pa
 2. [Crie um ficheiro de afinação de áudio](#create-an-audio-tuning-file) utilizando scripts simples ou SSML. Digite ou faça o upload do seu conteúdo para a Criação de Conteúdos Áudio.
 3. Escolha a voz e o idioma para o seu conteúdo de script. A Criação de Conteúdo sonoro inclui todas as [vozes texto-a-voz](language-support.md#text-to-speech)da Microsoft. Pode usar a voz normal, neural ou personalizada.
    >[!NOTE]
-   > O acesso fechado está disponível para Vozes Neurais Personalizadas, que permitem criar vozes de alta definição semelhantes à fala de som natural. Para mais detalhes, consulte [o processo De Gating.](https://aka.ms/ignite2019/speech/ethics)
+   > O acesso fechado está disponível para Vozes Neurais Personalizadas, que permitem criar vozes de alta definição semelhantes à fala de som natural. Para mais detalhes, consulte [o processo De Gating.](./text-to-speech.md)
 
 4. Clique no ícone **de reprodução** (um triângulo) para visualizar a saída de síntese padrão. Em seguida, melhore a saída ajustando a pronúncia, quebra, tom, taxa, entoação, estilo de voz, e muito mais. Para obter uma lista completa de opções, consulte [a linguagem de marcação de síntese de discursos](speech-synthesis-markup.md). Aqui está um [vídeo](https://www.youtube.com/watch?v=O1wIJ7mts_w) para mostrar como afinar a saída da fala com a Audio Content Creation. 
 5. Guarde e [exporte o seu áudio afinado.](#export-tuned-audio) Quando guardar a faixa de afinação no sistema, pode continuar a trabalhar e iterar na saída. Quando estiver satisfeito com a saída, pode criar uma tarefa de criação de áudio com a funcionalidade de exportação. Pode observar o estado da tarefa de exportação e descarregar a saída para uso com as suas apps e produtos.
@@ -160,9 +160,9 @@ Se pretender que um dos utilizadores dê acesso a outros utilizadores, tem de da
 
 ## <a name="see-also"></a>Ver também
 
-* [API de áudio longo](https://aka.ms/long-audio-api)
+* [API de áudio longo](./long-audio-api.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Speech Studio](https://speech.microsoft.com)

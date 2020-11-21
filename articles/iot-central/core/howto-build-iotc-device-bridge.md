@@ -9,18 +9,18 @@ ms.date: 07/09/2019
 ms.topic: how-to
 manager: peterpr
 ms.custom: device-developer
-ms.openlocfilehash: fb6029a91714ed0229876bbaf6bb0790565be29c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fc8ea41e804344735cfa2400d5d763622d8811c8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427830"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026255"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Construa a ponte do dispositivo IoT Central para ligar outras nuvens IoT à IoT Central
 
 *Este tópico aplica-se aos administradores.*
 
-A ponte de dispositivos IoT Central é uma solução de código aberto que liga o seu Sigfox, Partícula, Rede de Coisas e outras nuvens à sua aplicação IoT Central. Quer esteja a utilizar dispositivos de rastreio de ativos ligados à Rede de Área de Baixa Potência da Sigfox, ou utilizando dispositivos de monitorização da qualidade do ar na Nuvem de Dispositivos de Partículas, ou utilizando dispositivos de monitorização da humidade do solo no TTN, pode aproveitar diretamente a potência da IoT Central utilizando a ponte do dispositivo IoT Central. A ponte do dispositivo liga outras nuvens IoT com a IoT Central, reencaminhando os dados que os seus dispositivos enviam para as outras nuvens através da sua aplicação IoT Central. Na sua aplicação IoT Central, pode construir regras e executar análises sobre esses dados, criar fluxos de trabalho nas aplicações Microsoft Flow e Azure Logic, exportar esses dados e muito mais. Obtenha a ponte de [dispositivos IoT Central](https://aka.ms/iotcentralgithubdevicebridge) do GitHub
+A ponte de dispositivos IoT Central é uma solução de código aberto que liga o seu Sigfox, Partícula, Rede de Coisas e outras nuvens à sua aplicação IoT Central. Quer esteja a utilizar dispositivos de rastreio de ativos ligados à Rede de Área de Baixa Potência da Sigfox, ou utilizando dispositivos de monitorização da qualidade do ar na Nuvem de Dispositivos de Partículas, ou utilizando dispositivos de monitorização da humidade do solo no TTN, pode aproveitar diretamente a potência da IoT Central utilizando a ponte do dispositivo IoT Central. A ponte do dispositivo liga outras nuvens IoT com a IoT Central, reencaminhando os dados que os seus dispositivos enviam para as outras nuvens através da sua aplicação IoT Central. Na sua aplicação IoT Central, pode construir regras e executar análises sobre esses dados, criar fluxos de trabalho em aplicações Power Automamate e Azure Logic, exportar esses dados, e muito mais. Obtenha a ponte de [dispositivos IoT Central](https://aka.ms/iotcentralgithubdevicebridge) do GitHub
 
 ## <a name="what-is-it-and-how-does-it-work"></a>O que é e como funciona?
 A ponte de dispositivos IoT Central é uma solução de código aberto no GitHub. Está pronto para combinar com um botão "Implementar para a Azure" que implementa um modelo personalizado de Gestor de Recursos Azure com vários recursos Azure na sua subscrição Azure. Os recursos incluem:
@@ -42,7 +42,7 @@ As instruções estão listadas em detalhe no ficheiro README no repo GitHub.
 ## <a name="pricing"></a>Preços
 Os recursos Azure serão hospedados na sua subscrição do Azure. Pode saber mais sobre os preços no [ficheiro README.](https://aka.ms/iotcentralgithubdevicebridge)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que aprendeu a construir a ponte do dispositivo IoT Central, aqui está o próximo passo sugerido:
 
 > [!div class="nextstepaction"]

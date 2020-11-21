@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0e2406cd35fb2d4dd99da4f5139a9f0f80697912
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566253"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025896"
 ---
 # <a name="set-up-web-endpoints"></a>Configurar pontos finais Web
 
@@ -49,19 +49,19 @@ Neste artigo, vai aprender a configurar pontos finais Web numa aplicação de Co
    | Cabeçalhos | Chave: aplicação, Valor: escolha os primeiros 8 dígitos do seu applicationId | Os parâmetros do cabeçalho a serem incluídos no cabeçalho do pedido.|
 
     > [!NOTE]
-    > - O ponto final Web de exemplo criado com a [Função do Azure](https://docs.microsoft.com/azure/azure-functions/), que se liga à base de dados que guarda o estado do dispositivo da TV e da ventoinha
+    > - O ponto final Web de exemplo criado com a [Função do Azure](../../azure-functions/index.yml), que se liga à base de dados que guarda o estado do dispositivo da TV e da ventoinha
     > - O cabeçalho sugerido apenas é necessário para o ponto final de exemplo
     > - Para garantir que o valor do cabeçalho é exclusivo no nosso ponto final de exemplo, utilize os 8 primeiros dígitos do seu applicationId
-    > - No mundo real, o ponto final Web pode ser o ponto final para o [Hub IOT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) que gere os seus dispositivos
+    > - No mundo real, o ponto final Web pode ser o ponto final para o [Hub IOT](../../iot-hub/about-iot-hub.md) que gere os seus dispositivos
 
 1. Clique em **Guardar**.
 
 ## <a name="call-web-endpoints"></a>Chamar pontos finais Web
 
-1. Aceda ao comando **TurnOnOff** , selecione **ConfirmationResponse** na regra de conclusão e, em seguida, selecione **Adicionar uma ação**.
-1. Em **Nova Ação-Tipo** , selecione **Chamar ponto final Web**
-1. Em **Editar Ação – Pontos finais** , selecione **UpdateDeviceState** , que é o ponto final Web que criámos.  
-1. Em **Configuração** , coloque os seguintes valores: 
+1. Aceda ao comando **TurnOnOff**, selecione **ConfirmationResponse** na regra de conclusão e, em seguida, selecione **Adicionar uma ação**.
+1. Em **Nova Ação-Tipo**, selecione **Chamar ponto final Web**
+1. Em **Editar Ação – Pontos finais**, selecione **UpdateDeviceState**, que é o ponto final Web que criámos.  
+1. Em **Configuração**, coloque os seguintes valores: 
    > [!div class="mx-imgBorder"]
    > ![Parâmetros de ação para chamar pontos finais Web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -74,9 +74,9 @@ Neste artigo, vai aprender a configurar pontos finais Web numa aplicação de Co
     > [!NOTE]
     > - Os parâmetros da consulta sugerida apenas são necessários para o ponto final de exemplo
 
-1. Em **Em Caso de Êxito – Ação a executar** , selecione **Enviar resposta de voz**.
+1. Em **Em Caso de Êxito – Ação a executar**, selecione **Enviar resposta de voz**.
     
-    No **Editor simples** , introduza `{SubjectDevice} is {OnOff}`.
+    No **Editor simples**, introduza `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
    > ![Screenshot que mostra o On Success - Ação para executar o ecrã.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
@@ -88,9 +88,9 @@ Neste artigo, vai aprender a configurar pontos finais Web numa aplicação de Co
    > [!NOTE]
    > - Também pode aceder diretamente aos campos na resposta http com `{YourWebEndpointName.FieldName}`. Por exemplo: `{UpdateDeviceState.TV}`
 
-1. Em **Em Caso de Falha – Ação a executar** , selecione **Enviar resposta de voz**
+1. Em **Em Caso de Falha – Ação a executar**, selecione **Enviar resposta de voz**
 
-    No **Editor simples** , introduza `Sorry, {WebEndpointErrorMessage}`.
+    No **Editor simples**, introduza `Sorry, {WebEndpointErrorMessage}`.
 
    > [!div class="mx-imgBorder"]
    > ![Ação Chamar pontos finais Web Em Caso de Falha](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
@@ -120,8 +120,8 @@ No entanto, na maioria dos casos, vai querer apenas enviar atividade para a apli
 
 1. Elimine a ação **Enviar atividade para o cliente** que adicionou anteriormente.
 1. Edite o ponto final Web da chamada: 
-    1. Em **Configuração** , confirme que os **Parâmetros de Consulta** são `item={SubjectDevice}&&value={OnOff}`
-    1. Em **Em Caso de Êxito** , altere **Ação a executar** para **Enviar atividade para o cliente**
+    1. Em **Configuração**, confirme que os **Parâmetros de Consulta** são `item={SubjectDevice}&&value={OnOff}`
+    1. Em **Em Caso de Êxito**, altere **Ação a executar** para **Enviar atividade para o cliente**
     1. Copie o JSON abaixo para o **Conteúdo da Atividade**
    ```json
    {

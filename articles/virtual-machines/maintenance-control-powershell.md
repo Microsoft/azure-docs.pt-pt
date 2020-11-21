@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: f33cb7d4d005f15d0a5fcc70d56ebd4698f86694
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 2cc935e81e867609159b5c150b6ee7c346bb9f8e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988226"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026153"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Atualizações de controlo com Controlo de Manutenção e Azure PowerShell
 
-O controlo de manutenção permite-lhe decidir quando aplicar atualizações aos seus VMs isolados e anfitriões dedicados ao Azure. Este tópico abrange as opções Azure PowerShell para o controlo de manutenção. Para obter mais sobre os benefícios da utilização do controlo de manutenção, das suas limitações e outras opções de gestão, consulte [atualizações da plataforma de gestão com o Controlo de Manutenção.](maintenance-control.md)
+O controlo de manutenção permite-lhe decidir quando aplicar atualizações da plataforma à infraestrutura anfitriã dos seus VMs isolados e anfitriões dedicados ao Azure. Este tópico abrange as opções Azure PowerShell para o controlo de manutenção. Para obter mais sobre os benefícios da utilização do controlo de manutenção, das suas limitações e outras opções de gestão, consulte [atualizações da plataforma de gestão com o Controlo de Manutenção.](maintenance-control.md)
  
 ## <a name="enable-the-powershell-module"></a>Ativar o módulo PowerShell
 
@@ -86,9 +86,9 @@ $config = New-AzMaintenanceConfiguration `
 > A **duração da** manutenção deve ser *de 2 horas* ou mais. A **recorrência** da manutenção deve ser definida pelo menos uma vez em 35 dias.
 
 A **recorrência da** manutenção pode ser expressa diariamente, semanal ou mensalmente. Alguns exemplos incluem:
- - diariamente- "recurEvery: Day" **ou** "recurEvery: 3Days" 
- - semanalmente- "recurEvery: 3Weeks" **ou** "recurEvery: Week Saturday,Sunday" 
- - mensal: "recurevery: Month day23,day24" **ou** "recurEvery: Month Last Sunday" **ou** "recurevery: Month Fourth Monday"  
+ - **diariamente**- Recurtodos "Dia" **ou** "3 Dias" 
+ - **semanal -** RecurEvery "3Weeks" **ou** "Week Saturday,Sunday" 
+ - **mensal**- RecuryTodos "Mês dia23,dia24" **ou** "Mês Último Domingo" **ou** "Quarta Segunda-feira do mês"  
       
 
 ## <a name="assign-the-configuration"></a>Atribuir a configuração

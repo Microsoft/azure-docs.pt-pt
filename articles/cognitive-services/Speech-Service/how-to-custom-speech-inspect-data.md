@@ -10,17 +10,17 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ff2a1f92cabb61f58d70b732738e613afa7cd9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319136"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025638"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar dados da Voz Personalizada
 
 > [!NOTE]
-> Esta página assume que leu [Preparar os dados](how-to-custom-speech-test-data.md) do teste para a Fala Personalizada e ter enviado um conjunto de dados para inspeção.
+> Esta página assume que leu [Preparar os dados](./how-to-custom-speech-test-and-train.md) do teste para a Fala Personalizada e ter enviado um conjunto de dados para inspeção.
 
 A Custom Speech fornece ferramentas que permitem inspecionar visualmente a qualidade de reconhecimento de um modelo, comparando os dados áudio com o resultado correspondente do reconhecimento. A partir do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)pode reproduzir áudio carregado e determinar se o resultado do reconhecimento fornecido está correto. Esta ferramenta ajuda-o a inspecionar a qualidade do modelo de linha de base da Microsoft, a inspecionar um modelo personalizado treinado ou a comparar a transcrição por dois modelos.
 
@@ -95,7 +95,7 @@ Para exportar conjuntos de dados de volta para o separador **Dados,** navegue na
 
 Os ficheiros exportados para Dados serão utilizados como um conjunto de dados novinho em folha e não afetarão nenhuma das entidades existentes de dados/formação/teste.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
 - [Preparar o seu modelo](how-to-custom-speech-train-model.md)
@@ -104,4 +104,4 @@ Os ficheiros exportados para Dados serão utilizados como um conjunto de dados n
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Preparar dados de teste para discurso personalizado](how-to-custom-speech-test-data.md)
+- [Preparar dados de teste para discurso personalizado](./how-to-custom-speech-test-and-train.md)

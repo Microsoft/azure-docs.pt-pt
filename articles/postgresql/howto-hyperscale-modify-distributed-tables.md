@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 628944f9763dc79148e0b64c97158064208412bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf9f9ca5b8690a38c6e5aa6f519378c0a2e3a4f2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88137054"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026442"
 ---
 # <a name="distribute-and-modify-tables"></a>Distribuir e modificar tabelas
 
@@ -140,7 +140,7 @@ Quando uma nova tabela não estiver relacionada com outras pessoas do seu grupo 
 SELECT create_distributed_table('A', 'foo', colocate_with => 'none');
 ```
 
-Dividir mesas não relacionadas nos seus próprios grupos de colocação melhorará o desempenho [do reequilíbrio de fragmentos,](howto-hyperscale-scaling.md#rebalance-shards) porque os fragmentos do mesmo grupo têm de ser movidos em conjunto.
+Dividir mesas não relacionadas nos seus próprios grupos de colocação melhorará o desempenho [do reequilíbrio de fragmentos,](howto-hyperscale-scale-rebalance.md) porque os fragmentos do mesmo grupo têm de ser movidos em conjunto.
 
 Quando as tabelas estão efetivamente relacionadas (por exemplo, quando serão aderidas), pode fazer sentido alistá-las explicitamente. Os ganhos de colocação adequados são mais importantes do que qualquer reequilíbrio.
 

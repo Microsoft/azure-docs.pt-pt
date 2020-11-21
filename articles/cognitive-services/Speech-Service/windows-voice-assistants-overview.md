@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997449"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024760"
 ---
 # <a name="voice-assistants-on-windows"></a>Assistentes de voz no Windows
 
@@ -37,7 +37,7 @@ Quando o utilizador fala uma palavra-chave, o spotter de palavras-chave de softw
 
 ### <a name="registration"></a>Registo
 
-A primeira vez que uma aplicação ativada por voz é executada, regista o seu ID de aplicação e informações de palavras-chave através das APIs do ConversationalAgent. A AAR regista todas as configurações no mapeamento global com o spotter de palavras-chave de hardware ou software no sistema, permitindo-lhes detetar a palavra-chave da aplicação. A aplicação também [se regista com o Serviço de Fundo.](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task)
+A primeira vez que uma aplicação ativada por voz é executada, regista o seu ID de aplicação e informações de palavras-chave através das APIs do ConversationalAgent. A AAR regista todas as configurações no mapeamento global com o spotter de palavras-chave de hardware ou software no sistema, permitindo-lhes detetar a palavra-chave da aplicação. A aplicação também [se regista com o Serviço de Fundo.](/windows/uwp/launch-resume/register-a-background-task)
 
 Note que isto significa que uma aplicação não pode ser ativada por voz até que tenha sido executada uma vez e o registo tenha sido autorizado a ser concluído.
 
@@ -53,7 +53,7 @@ A AAR ainda assinala aplicações ativas quando a sua palavra-chave é falada. E
 
 O spotter de palavras-chave que desencadeia a aplicação para iniciar conseguiu um baixo consumo de energia simplificando o modelo de palavras-chave. Isto permite que o spotter de palavras-chave esteja "sempre ligado" sem um impacto de alta potência, mas também significa que o spotter de palavras-chave provavelmente terá um elevado número de "aceitações falsas" onde deteta uma palavra-chave, mesmo que nenhuma palavra-chave tenha sido falada. É por isso que o sistema de ativação por voz lança a aplicação em segundo plano: para dar à aplicação a oportunidade de verificar se a palavra-chave foi falada antes de interromper a sessão atual do utilizador. A AAR guarda o áudio alguns segundos antes da palavra-chave ser detetada e torna-o acessível à aplicação. A aplicação pode usar isto para executar um spotter de palavras-chave mais fiável no mesmo áudio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - **Reveja as diretrizes de design:** As [nossas diretrizes de design](windows-voice-assistants-best-practices.md) estabelecem o trabalho de chave necessário para fornecer as melhores experiências possíveis para a ativação de voz no Windows 10.
 - **Visite a página 'Começar':** Comece [aqui](how-to-windows-voice-assistants-get-started.md) para que os passos comecem a implementar assistentes de voz no Windows, desde definir o seu ambiente de desenvolvimento através de uma introdução ao guia de implementação.

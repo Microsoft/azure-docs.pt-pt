@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 609bd01e8dcb0e9202d1d9dbe1d1fc1a01cac550
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 71097f13fffbbe5cb57a69c98fb0ab272e16af5c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368286"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026306"
 ---
 # <a name="features"></a>Funcionalidades
 
@@ -49,7 +49,7 @@ As versões anteriores também suportadas incluem: `3.0.2`
 | paging                         | Parcial   | Parcial   | Parcial   | `self` e `next` são apoiados                     |
 | intermediários                 | No        | No        | No        |                                                     |
 
-## <a name="search"></a>Pesquisar
+## <a name="search"></a>Pesquisa
 
 Todos os tipos de parâmetros de pesquisa são suportados. 
 
@@ -100,8 +100,8 @@ Todos os tipos de parâmetros de pesquisa são suportados.
 |-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Parcial        | Parcial   | Parcial        |   `_sort=_lastUpdated` é apoiado       |
 | `_count`                | Yes       | Yes       | Yes       | `_count` está limitado a 100 caracteres. Se for fixado para mais de 100, apenas 100 serão devolvidos e um aviso será devolvido no pacote. |
-| `_include`              | No        | Yes       | No        |         |
-| `_revinclude`           | No        | Yes       | No        | Os itens incluídos estão limitados a 100. |
+| `_include`              | Yes       | Yes       | Yes       |Os itens incluídos estão limitados a 100. Incluir no PaaS e o OSS na Cosmos DB não inclui :suporte iterate.|
+| `_revinclude`           | Yes       | Yes       | Yes       | Os itens incluídos estão limitados a 100. Incluir no PaaS e o OSS na Cosmos DB não inclui :suporte iterate.|
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` é apoiado |
 | `_total`                | Parcial   | Parcial   | Parcial   | _total=não e _total=preciso      |
 | `_elements`             | Yes       | Yes       | Yes       |         |
@@ -133,7 +133,28 @@ O Servidor FHIR utiliza [o Azure Ative Directory](https://azure.microsoft.com/se
 
 Atualmente, as ações permitidas para um determinado papel são aplicadas *globalmente* na API.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="service-limits"></a>Limites do serviço
+
+* [**Unidades de Pedido (RUs)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) - Pode configurar até 10.000 RUs no portal da Azure API para FHIR. Você precisará de um mínimo de 400 RUs ou 10 RUs/GB, o que for maior. Se você precisar de mais de 10.000 RUs, você pode colocar um bilhete de apoio para que este aumente. O máximo disponível é de 1.000.000.
+
+* **Conexões e instâncias simultâneas** - Por dafault, tem cinco ligações simultâneas em duas instâncias no cluster (para um total de 10 pedidos simultâneos). **Instances** Se você acredita que precisa de mais pedidos simultâneos, abra um bilhete de apoio com detalhes sobre suas necessidades.
+
+* **Tamanho do pacote** - Cada pacote é limitado a 500 itens.
+
+* **Tamanho dos dados** - Os dados/documentos devem ser ligeiramente inferiores a 2 MB.
+
+## <a name="performance-expectations"></a>Expectativas de desempenho
+
+O desempenho do sistema depende do número de RUs, ligações simultâneas e do tipo de operações que está a realizar (Put, Post, etc.). Abaixo estão algumas gamas gerais do que se pode esperar com base em RUs configurados. Em geral, o desempenho escala linearmente com um aumento de RUs:
+
+| # de RUs | Recursos/seg |
+|----------|---------------|
+| 400      | 5-10          |
+| 1,000    | 100-150       |
+| 10,000   | 225-400       |
+| 100.000  | 2,500-4,000   |
+
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você leu sobre as funcionalidades de FHIR suportadas na Azure API para FHIR. Em seguida, implemente a AZure API para fHIR.
  
