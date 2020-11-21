@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.openlocfilehash: fcc803e87b2efd3e94b90eb17258ab3bb156359f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dd06a7b4c8e6296cda747d17fd3d5be5db0af6b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541442"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018893"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar uma nova app LUIS no portal LUIS
 Há algumas formas de criar uma aplicação LUIS. Pode criar uma aplicação LUIS no portal LUIS, ou através das [APIs](developer-reference-resource.md)de autoria do LUIS.
@@ -24,7 +24,7 @@ Há algumas formas de criar uma aplicação LUIS. Pode criar uma aplicação LUI
 Pode criar uma nova aplicação no portal de várias formas:
 
 * Comece com uma app vazia e crie intenções, expressões e entidades.
-* Comece com uma aplicação vazia e adicione um [domínio pré-construído.](luis-how-to-use-prebuilt-domains.md)
+* Comece com uma aplicação vazia e adicione um [domínio pré-construído.](./howto-add-prebuilt-models.md)
 * Importe uma aplicação LUIS de um `.lu` ou ficheiro que já `.json` contenha intenções, declarações e entidades.
 
 ## <a name="using-the-authoring-apis"></a>Utilizando as APIs de autoria
@@ -43,7 +43,7 @@ Pode criar uma nova aplicação com as APIs de autoria de algumas formas:
 
 ## <a name="create-new-app-in-luis"></a>Criar nova app no LUIS
 
-1. Na página **My Apps,** selecione a sua **Subscrição**e  **o recurso de autoria** e, em **seguida, + Criar**. 
+1. Na página **My Apps,** selecione a sua **Subscrição** e  **o recurso de autoria** e, em **seguida, + Criar**. 
 
 > [!div class="mx-imgBorder"]
 > ![Lista de aplicações LUIS](./media/create-app-in-portal.png)
@@ -73,6 +73,6 @@ A barra de ferramentas de contexto fornece outras ações:
 * Registos de pontos finais de exportação, como um `.csv` , para análise offline
 * Excluir app
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Se o design da sua aplicação incluir deteção de [intenções, crie novas intenções](luis-how-to-add-intents.md)e adicione palavras de exemplo. Se o design da sua aplicação for apenas a extração de dados, adicione palavras de exemplo à intenção de Zero, em seguida, [crie entidades](luis-how-to-add-example-utterances.md), e rotule as expressões de exemplo com essas entidades.
+Se o design da sua aplicação incluir deteção de [intenções, crie novas intenções](luis-how-to-add-intents.md)e adicione palavras de exemplo. Se o design da sua aplicação for apenas a extração de dados, adicione palavras de exemplo à intenção de Zero, em seguida, [crie entidades](./luis-how-to-add-entities.md), e rotule as expressões de exemplo com essas entidades.

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316397"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019080"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Compreenda o que são boas declarações para a sua app LUIS
 
@@ -29,7 +29,7 @@ Colete as expressões que pensa que os utilizadores vão introduzir. Inclua expr
 
 ## <a name="how-to-choose-varied-utterances"></a>Como escolher expressões variadas
 
-Quando começa por [adicionar palavras de exemplo](luis-how-to-add-example-utterances.md) ao seu modelo LUIS, eis alguns princípios a ter em mente.
+Quando começa por [adicionar palavras de exemplo](./luis-how-to-add-entities.md) ao seu modelo LUIS, eis alguns princípios a ter em mente.
 
 ### <a name="utterances-arent-always-well-formed"></a>As expressões nem sempre estão bem formadas.
 
@@ -146,6 +146,5 @@ As seguintes declarações, a palavra `fair` é um homográfico. Escreve-se o me
 Se queria que uma entidade do evento encontrasse todos os dados do evento, rotule a palavra `fair` na primeira expressão, mas não na segunda.
 
 
-## <a name="next-steps"></a>Passos seguintes
-Consulte [as declarações de exemplo](luis-how-to-add-example-utterances.md) para obter informações sobre a formação de uma aplicação LUIS para compreender as declarações dos utilizadores.
-
+## <a name="next-steps"></a>Próximos passos
+Consulte [as declarações de exemplo](./luis-how-to-add-entities.md) para obter informações sobre a formação de uma aplicação LUIS para compreender as declarações dos utilizadores.

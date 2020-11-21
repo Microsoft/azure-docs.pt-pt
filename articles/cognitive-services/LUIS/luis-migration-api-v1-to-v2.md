@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.openlocfilehash: e1e9ac4ceef843712cc2e39f26ff0aca5341e201
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867ae2cc7567077786bb0840cd11c47b786be423
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541327"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018757"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guia de migração da API v1 para v2 Migração para apps LUIS
 O ponto [final da](https://aka.ms/v1-endpoint-api-docs) versão 1 e as APIs [de autoria](https://aka.ms/v1-authoring-api-docs) são depreciadas. Utilize este guia para entender como migrar para a versão [2](https://go.microsoft.com/fwlink/?linkid=2092356) e [autorizar](https://go.microsoft.com/fwlink/?linkid=2092087) APIs.
 
 ## <a name="new-azure-regions"></a>Novas regiões de Azure
-A LUIS tem novas [regiões previstas](https://aka.ms/LUIS-regions) para as APIs luis. O LUIS disponibiliza um portal diferente para grupos regionais. O pedido deve ser da autoria da mesma região que espera consultar. As aplicações não migram automaticamente para as regiões. Exporta a app de uma região e depois importa para outra para que esteja disponível numa nova região.
+A LUIS tem novas [regiões previstas](./luis-reference-regions.md) para as APIs luis. O LUIS disponibiliza um portal diferente para grupos regionais. O pedido deve ser da autoria da mesma região que espera consultar. As aplicações não migram automaticamente para as regiões. Exporta a app de uma região e depois importa para outra para que esteja disponível numa nova região.
 
 ## <a name="authoring-route-changes"></a>Alterações de rota de autoria
 A rota da autoria da API passou de usar a rota **prog** para usar a rota **api.**
@@ -143,7 +143,7 @@ LUIS sugere declarações de [frases](luis-how-to-review-endpoint-utterances.md)
 
 
 ## <a name="create-app-from-prebuilt-domains"></a>Criar aplicativo a partir de domínios pré-construídos
-[Os domínios pré-construídos](luis-how-to-use-prebuilt-domains.md) fornecem um modelo de domínio predefinido. Os domínios pré-construídos permitem-lhe desenvolver rapidamente a sua aplicação LUIS para domínios comuns. Esta API permite criar uma nova aplicação baseada num domínio pré-construído. A resposta é a nova appID.
+[Os domínios pré-construídos](./howto-add-prebuilt-models.md) fornecem um modelo de domínio predefinido. Os domínios pré-construídos permitem-lhe desenvolver rapidamente a sua aplicação LUIS para domínios comuns. Esta API permite criar uma nova aplicação baseada num domínio pré-construído. A resposta é a nova appID.
 
 |v2 rota|verbo|
 |--|--|
@@ -154,7 +154,7 @@ LUIS sugere declarações de [frases](luis-how-to-review-endpoint-utterances.md)
 O JSON da app 1.x exportado tem algumas áreas que precisa de alterar antes de importar para [LUIS][LUIS] 2.0.
 
 ### <a name="prebuilt-entities"></a>Entidades pré-criadas
-As [entidades pré-construídas](luis-prebuilt-entities.md) mudaram. Certifique-se de que está a utilizar as entidades pré-construídas V2. Isto inclui a utilização [do tempo de dataV2,](luis-reference-prebuilt-datetimev2.md)em vez de hora de data.
+As [entidades pré-construídas](./howto-add-prebuilt-models.md) mudaram. Certifique-se de que está a utilizar as entidades pré-construídas V2. Isto inclui a utilização [do tempo de dataV2,](luis-reference-prebuilt-datetimev2.md)em vez de hora de data.
 
 ### <a name="actions"></a>Ações
 A propriedade de ações já não é válida. Deve ser um vazio.
@@ -165,8 +165,8 @@ V1 permitiu que as expressões rotuladas incluíssem espaços no início ou no f
 ## <a name="common-reasons-for-http-response-status-codes"></a>Razões comuns para códigos de estado de resposta HTTP
 Consulte [os códigos de resposta da API LUIS](luis-reference-response-codes.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize a documentação v2 API para atualizar as chamadas REST existentes para [o ponto final](https://go.microsoft.com/fwlink/?linkid=2092356) da LUIS e para as APIs de [autoria.](https://go.microsoft.com/fwlink/?linkid=2092087)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LUIS]: ./luis-reference-regions.md

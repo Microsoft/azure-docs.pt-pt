@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda as melhores práticas do operador do cluster para gerir a segurança do cluster e atualizações no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 9ef019e682511e13af46194d26aec48c1555f70e
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 11/12/2020
+ms.openlocfilehash: ad1f14fc92433e8d9cb31de165645e4a5731f01a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683306"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019471"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Melhores práticas para segurança de clusters e upgrades no Serviço Azure Kubernetes (AKS)
 

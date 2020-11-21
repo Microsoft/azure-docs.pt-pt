@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 340f451080f43fab213a3afc69f2adfae83514d7
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1a08aa4261e8d2546d16bb60394829c83604b4cd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837333"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019964"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -138,6 +138,9 @@ Pode configurar reclamações opcionais para a sua aplicação através do UI ou
 1. Selecione as reclamações opcionais a adicionar.
 1. Selecione **Adicionar**.
 
+> [!NOTE]
+> A lâmina **de configuração token** de opção UI não está disponível para aplicações registadas num inquilino AZURE AD B2C atualmente . Para os pedidos registados num inquilino B2C, os pedidos opcionais podem ser configurados modificando o manifesto de aplicação. Para mais informações consulte [adicionar reclamações e personalizar a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input) 
+
 **Configurar reclamações opcionais através do manifesto de aplicação:**
 
 [![Mostra como configurar reclamações opcionais usando o manifesto da aplicação](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
@@ -175,6 +178,7 @@ Pode configurar reclamações opcionais para a sua aplicação através do UI ou
     ```
 
 2. Quando terminar, **selecione Save**. Agora, as reclamações opcionais especificadas serão incluídas nos tokens para a sua aplicação.
+
 
 ### <a name="optionalclaims-type"></a>Opcional Tipo Desempresa
 
@@ -434,7 +438,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 1. Quando terminar de atualizar o manifesto, **selecione Guardar** para guardar o manifesto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as reclamações padrão fornecidas pela Azure AD.
 

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 5c5276f11da687f14630bafd007532d172ef3737
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 97be3bf0ecec20c4bf2e1633f893c9aa0d9ba49d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990810"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020287"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utilize pontos finais de serviço de rede virtual e regras para servidores na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -80,6 +80,7 @@ Para a Base de Dados Azure SQL, a funcionalidade de regras de rede virtual tem a
 
 - Ligar os pontos finais do serviço de rede virtual ON para a Base de Dados Azure SQL também permite os pontos finais para os serviços MySQL e PostgreSQL Azure. No entanto, com os pontos finais ON, as tentativas de ligação dos pontos finais às suas instâncias MySQL ou PostgreSQL podem falhar.
   - A razão subjacente é que o MySQL e o PostgreSQL provavelmente não têm uma regra de rede virtual configurada. Tem de configurar uma regra de rede virtual para Azure Database para MySQL e PostgreSQL e a ligação terá sucesso.
+  - Para definir as regras de firewall VNet num servidor lógico SQL que já está configurado com pontos finais privados, defina **o acesso da rede pública** ao **Nº**.
 
 - Na firewall, as gamas de endereços IP aplicam-se aos seguintes itens de rede, mas as regras de rede virtuais não:
   - [Rede privada virtual local-a-local (S2S) (VPN)][vpn-gateway-indexmd-608y]

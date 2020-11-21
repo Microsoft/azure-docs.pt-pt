@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541344"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018791"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações no ponto final de previsão para V3
 
@@ -60,7 +60,7 @@ Se não souber que nenhuma das suas aplicações ou integrações do seu cliente
 
 ### <a name="bing-spell-check"></a>Verificação Ortográfica do Bing
 
-Esta API não é suportada no ponto final de previsão V3 - continue a utilizar o ponto final de previsão da API V2 para correções ortográficas. Se precisar de correção ortográfica durante a utilização da API V3, mande o pedido do cliente ligar para a API [de Verificação ortográfica de Bing e](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) alterar o texto para a ortografia correta, antes de enviar o texto para a API LUIS.
+Esta API não é suportada no ponto final de previsão V3 - continue a utilizar o ponto final de previsão da API V2 para correções ortográficas. Se precisar de correção ortográfica durante a utilização da API V3, mande o pedido do cliente ligar para a API [de Verificação ortográfica de Bing e](../bing-spell-check/overview.md) alterar o texto para a ortografia correta, antes de enviar o texto para a API LUIS.
 
 ## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Aplicações de clientes bot framework e azure Bot service
 
@@ -272,6 +272,6 @@ Aprenda [conceitos](schema-change-prediction-runtime.md) sobre como estender a a
 
 A API V2 não será depreciada durante pelo menos 9 meses após a pré-visualização do V3.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize a documentação V3 API para atualizar as chamadas REST existentes para ASP do [ponto final](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) da LUIS.

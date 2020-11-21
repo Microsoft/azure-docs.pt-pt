@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b60a6e53e8fecd71885204690231776ff69fc08f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328884"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018380"
 ---
 # <a name="configure-device-redirections"></a>Configurar redirecionamentos de dispositivo
 
@@ -19,11 +19,11 @@ Configurar as reorientações de dispositivos para o ambiente de ambiente de tra
 
 ## <a name="supported-device-redirections"></a>Redirecionamentos de dispositivos suportados
 
-Cada cliente suporta diferentes redirecionamentos de dispositivos. Confira [os clientes](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) para a lista completa de redirecionamentos de dispositivos suportados para cada cliente.
+Cada cliente suporta diferentes redirecionamentos de dispositivos. Confira [os clientes](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) para a lista completa de redirecionamentos de dispositivos suportados para cada cliente.
 
 ## <a name="customizing-rdp-properties-for-a-host-pool"></a>Personalizar propriedades RDP para uma piscina de anfitriões
 
-Para saber mais sobre a personalização das propriedades RDP para uma piscina de anfitriões utilizando o PowerShell ou o portal Azure, consulte [as propriedades RDP](customize-rdp-properties.md). Para obter a lista completa das propriedades RDP suportadas, consulte [as definições de ficheiros RDP suportados](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context).
+Para saber mais sobre a personalização das propriedades RDP para uma piscina de anfitriões utilizando o PowerShell ou o portal Azure, consulte [as propriedades RDP](customize-rdp-properties.md). Para obter a lista completa das propriedades RDP suportadas, consulte [as definições de ficheiros RDP suportados](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext).
 
 ## <a name="setup-device-redirections"></a>Redirecionamentos de dispositivos de configuração
 
@@ -78,7 +78,7 @@ Em primeiro lugar, desaver a seguinte propriedade RDP para permitir a reorienta�
 
 Em segundo lugar, desa um conjunto da seguinte Política de Grupo no dispositivo local do utilizador:
 
-- Navegue para políticas **de configuração do computador**  >  **Policies** >  **Modelos administrativos**Windows Componentes  >  **Remotos**  >  **serviços de ambiente de trabalho**remoto  >  **ligação de ambiente de trabalho cliente**  >  **RemoteFX USB Redirecionamento de dispositivo**.
+- Navegue para políticas **de configuração do computador**  >  **Policies** >  **Modelos administrativos** Windows Componentes  >  **Remotos**  >  **serviços de ambiente de trabalho** remoto  >  **ligação de ambiente de trabalho cliente**  >  **RemoteFX USB Redirecionamento de dispositivo**.
 - Selecione **Permite a reorientação rdp de outros dispositivos USB RemoteFX suportados a partir deste computador**.
 - Selecione a opção **Ativada** e, em seguida, selecione os Administradores e Utilizadores na caixa **de direitos de acesso à reorientação USB RemoteFX.**
 - Selecione **OK**.

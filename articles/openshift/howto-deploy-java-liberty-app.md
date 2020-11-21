@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jacarta, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: ee4baf8eed26a43728fa52289bce86108c9e8c4a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414874"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018397"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Implemente uma aplicação Java com Open Liberty/WebSphere Liberty num cluster Azure Red Hat OpenShift 4
 
@@ -98,7 +98,7 @@ Depois de criar e ligar ao cluster, instale o Operador da Liberdade Aberta.  A p
 2. Navegue para **o Operador**  >  **OperadorHub** e procure o **Operador de Liberdade Aberta.**
 3. Selecione **o Operador da Liberdade Aberta** a partir dos resultados da pesquisa.
 4. Selecione **Install** (Instalar).
-5. Na subscrição popup **Criar Operador,** verifique **todos os espaços de nomes no cluster (predefinido)** para modo de **instalação,** **beta** para o Canal **de Atualização** e Estratégia **Automática** de **Aprovação** :
+5. Na subscrição popup **Criar Operador,** verifique **todos os espaços de nomes no cluster (predefinido)** para modo de **instalação,** **beta** para o Canal **de Atualização** e Estratégia **Automática** de **Aprovação**:
 
    ![criar subscrição de operador para operador de liberdade aberta](./media/howto-deploy-java-liberty-app/install-operator.png)
 6. **Selecione Subscrever** e aguarde um minuto ou dois até que o Operador da Liberdade Aberta seja apresentado.
@@ -126,7 +126,7 @@ Para executar a aplicação no Open Liberty, é necessário criar um ficheiro de
    [INFO] Source compilation was successful.
    ```
 
-1. Abra [http://localhost:9080/](http://localhost:9080/) no seu navegador para visitar a página inicial da aplicação. A aplicação será semelhante à seguinte imagem:
+1. Abra `http://localhost:9080/` no seu navegador para visitar a página inicial da aplicação. A aplicação será semelhante à seguinte imagem:
 
    ![JavaEE Café Web UI](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
 1. Pressione **o Control-C** para parar a aplicação e o servidor Open Liberty.
@@ -164,7 +164,7 @@ Antes de colocar a aplicação contentorizada num cluster remoto, corra com o se
 
 1. Corre `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0` na tua consola.
 2. Aguarde o arranque do servidor Liberty e a aplicação para implementar com sucesso.
-3. Abra [http://localhost:9080/](http://localhost:9080/) no seu navegador para visitar a página inicial da aplicação.
+3. Abra `http://localhost:9080/` no seu navegador para visitar a página inicial da aplicação.
 4. Pressione **o Control-C** para parar a aplicação e o servidor Liberty.
 
 ### <a name="push-the-image-to-the-container-image-registry"></a>Empurre a imagem para o registo de imagem do contentor
@@ -230,10 +230,10 @@ Agora pode implementar a aplicação Liberty da amostra para o cluster Azure Red
 
 ### <a name="deploy-the-application-from-the-web-console"></a>Implementar a aplicação a partir da consola web
 
-Como utilizamos o Operador da Liberdade Aberta para gerir aplicações liberty, precisamos de criar uma instância da sua Definição de *Recursos Personalizados* , do tipo "OpenLibertyApplication". O Operador cuidará então de todos os aspetos da gestão dos recursos OpenShift necessários para a implantação.
+Como utilizamos o Operador da Liberdade Aberta para gerir aplicações liberty, precisamos de criar uma instância da sua Definição de *Recursos Personalizados*, do tipo "OpenLibertyApplication". O Operador cuidará então de todos os aspetos da gestão dos recursos OpenShift necessários para a implantação.
 
 1. Inscreva-se na consola web OpenShift a partir do seu navegador utilizando as credenciais do utilizador Azure AD.
-1. Expandir **o Lar** , Selecione **Projetos**  >  **open-liberty-demo**.
+1. Expandir **o Lar**, Selecione **Projetos**  >  **open-liberty-demo**.
 1. Navegue **Operators** para  >  **operadores instalados.**
 1. No meio da página, selecione **Open Liberty Operator**.
 1. No meio da página, selecione **Open Liberty Application**.  A navegação de itens na interface do utilizador espelha a hierarquia real de contenção das tecnologias em uso.
@@ -316,7 +316,7 @@ oc delete -f openlibertyapplication.yaml
 
 Elimine o cluster ARO seguindo os passos em [Tutorial: Elimine um aglomerado de chapéu aberto Azure RedShift 4](/azure/openshift/tutorial-delete-cluster)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia, aprendeu a:
 > [!div class="checklist"]

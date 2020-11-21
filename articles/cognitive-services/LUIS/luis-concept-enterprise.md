@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: d8c88883b839ff47ef57a17378f43918e9ecf7e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e2165b81c7cd634fe79ec4438a550ad365f5a30
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536125"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019182"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias empresariais para uma aplicação LUIS
 Reveja estas estratégias de design para a sua aplicação empresarial.
@@ -29,7 +29,7 @@ Se a sua taxa de pedido de aplicação LUIS exceder a taxa de [quota](https://az
 * Crie e [atribua várias chaves](#assign-multiple-luis-keys-to-same-app) à aplicação. 
 
 ### <a name="use-multiple-apps-with-same-app-definition"></a>Use várias aplicações com a mesma definição de aplicativo
-Exporte a app ORIGINAL LUIS e, em seguida, importe a app de volta em aplicações separadas. Cada aplicação tem o seu próprio ID de aplicações. Quando publicar, em vez de usar a mesma chave em todas as aplicações, crie uma chave separada para cada aplicação. Equilibre a carga em todas as aplicações para que nenhuma aplicação seja sobrecarregada. Adicione [Insights de Aplicação](luis-tutorial-bot-csharp-appinsights.md) para monitorizar a utilização. 
+Exporte a app ORIGINAL LUIS e, em seguida, importe a app de volta em aplicações separadas. Cada aplicação tem o seu próprio ID de aplicações. Quando publicar, em vez de usar a mesma chave em todas as aplicações, crie uma chave separada para cada aplicação. Equilibre a carga em todas as aplicações para que nenhuma aplicação seja sobrecarregada. Adicione [Insights de Aplicação](./luis-csharp-tutorial-bf-v4.md) para monitorizar a utilização. 
 
 Para obter a mesma intenção de topo entre todas as aplicações, certifique-se de que a previsão de intenção entre a primeira e a segunda intenção é suficientemente ampla para que o LUIS não esteja confuso, dando resultados diferentes entre apps para pequenas variações nas expressões. 
 
@@ -48,10 +48,10 @@ Se a sua aplicação pretende prever uma grande variedade de declarações de ut
 Agende uma revisão periódica [das expressões de ponto final](luis-how-to-review-endpoint-utterances.md) para a aprendizagem ativa, como de duas em duas semanas, em seguida, retreine e reedita. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Quando é preciso ter mais de 500 intenções
-Suponha que está a desenvolver um assistente de escritório que tem mais de 500 intenções. Se 200 intenções dizem respeito a reuniões de agendamento, 200 são sobre lembretes, 200 são sobre obter informações sobre colegas, e 200 são para enviar e-mails, intenções de grupo para que cada grupo esteja em uma única app, em seguida, criar uma app de alto nível contendo cada intenção. Utilize o [modelo de despacho](#dispatch-tool-and-model) para construir a aplicação de nível superior. Em seguida, mude o seu bot para utilizar a chamada em cascata, como mostra o [tutorial do modelo de despacho](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs). 
+Suponha que está a desenvolver um assistente de escritório que tem mais de 500 intenções. Se 200 intenções dizem respeito a reuniões de agendamento, 200 são sobre lembretes, 200 são sobre obter informações sobre colegas, e 200 são para enviar e-mails, intenções de grupo para que cada grupo esteja em uma única app, em seguida, criar uma app de alto nível contendo cada intenção. Utilize o [modelo de despacho](#dispatch-tool-and-model) para construir a aplicação de nível superior. Em seguida, mude o seu bot para utilizar a chamada em cascata, como mostra o [tutorial do modelo de despacho](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0). 
 
 ## <a name="when-you-need-to-combine-several-luis-and-qna-maker-apps"></a>Quando você precisa combinar várias aplicações de fabricantes LUIS e QnA
-Se tiver várias aplicações de fabricantes LUIS e QnA que precisam responder a um bot, use o [modelo de despacho](#dispatch-tool-and-model) para construir a app de alto nível.  Em seguida, mude o seu bot para utilizar a chamada em cascata, como mostra o [tutorial do modelo de despacho](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs). 
+Se tiver várias aplicações de fabricantes LUIS e QnA que precisam responder a um bot, use o [modelo de despacho](#dispatch-tool-and-model) para construir a app de alto nível.  Em seguida, mude o seu bot para utilizar a chamada em cascata, como mostra o [tutorial do modelo de despacho](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0). 
 
 ## <a name="dispatch-tool-and-model"></a>Ferramenta de despacho e modelo
 Utilize a ferramenta de linha de comando [Despacho,][dispatch-tool] encontrada em [ferramentas BotBuilder](https://github.com/Microsoft/botbuilder-tools) para combinar várias aplicações LUIS e/ou QnA Maker numa aplicação DE LUIS principal. Esta abordagem permite-lhe ter um domínio parental, incluindo todos os assuntos e diferentes domínios de menores em aplicações separadas. 
@@ -62,7 +62,7 @@ O domínio dos pais é notado em LUIS com uma versão nomeada `Dispatch` na list
 
 O bot de chat recebe a expressão e, em seguida, envia para a app de entrada LUIS para previsão. A intenção prevista pela aplicação dos pais determina qual a aplicação para crianças LUIS que é chamada a seguir. O chat bot envia a expressão para a aplicação infantil para uma previsão mais específica.
 
-Entenda como esta hierarquia de chamadas é feita a partir do Bot Builder v4 [dispatcher-application-tutorial](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs).  
+Entenda como esta hierarquia de chamadas é feita a partir do Bot Builder v4 [dispatcher-application-tutorial](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0).  
 
 ### <a name="intent-limits-in-dispatch-model"></a>Limites de intenção no modelo de despacho
 Um pedido de despacho tem 500 fontes de expedição, equivalentes a 500 intenções, como o máximo. 
@@ -70,13 +70,13 @@ Um pedido de despacho tem 500 fontes de expedição, equivalentes a 500 intenç�
 ## <a name="more-information"></a>Mais informações
 
 * [Estrutura bot SDK](https://github.com/Microsoft/botframework)
-* [Tutorial de modelo de despacho](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)
+* [Tutorial de modelo de despacho](/azure/bot-service/bot-builder-tutorial-dispatch?branch=master&tabs=cs&view=azure-bot-service-4.0)
 * [Despacho CLI](https://github.com/Microsoft/botbuilder-tools)
 * Amostra de bot modelo de despacho [-.NET,](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [testar um lote](luis-how-to-batch-test.md)
 
-[dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
+[dispatcher-application-tutorial]: /azure/bot-service/bot-builder-tutorial-dispatch?branch=master
 [dispatch-tool]: https://aka.ms/dispatch-tool

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cebe0e018b4483a9de1771fb3171effbbd5ca59c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91597817"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020066"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>O que é Azure Time Series Insights Gen1?
 
@@ -33,7 +33,7 @@ Azure Time Series Insights tem quatro trabalhos-chave:
 - Azure Time Series Insights fornece visualização fora da caixa através do Azure Time Series Insights Explorer.
 - O Azure Time Series Insights fornece um serviço de consulta, tanto no Azure Time Series Insights Explorer como utilizando APIs que são fáceis de integrar para incorporar os seus dados da série de tempo em aplicações personalizadas.
 
-Se construir uma aplicação para consumo interno ou para clientes externos a utilizar, pode utilizar o Azure Time Series Insights como back-end. Pode usá-lo para indexar, armazenar e agregar dados de séries de tempo. Para construir uma visualização personalizada e experiência de utilizador em cima, utilize o [Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). A azure Time Series Insights também está equipado com várias [APIs de consulta](how-to-shape-query-json.md) para ativar estes cenários personalizados.
+Se construir uma aplicação para consumo interno ou para clientes externos a utilizar, pode utilizar o Azure Time Series Insights como back-end. Pode usá-lo para indexar, armazenar e agregar dados de séries de tempo. Para construir uma visualização personalizada e experiência de utilizador em cima, utilize o [Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). A azure Time Series Insights também está equipado com várias [APIs de consulta](./concepts-json-flattening-escaping-rules.md) para ativar estes cenários personalizados.
 
 Os dados de séries de tempo representam a forma como um recurso ou processo muda ao longo do tempo. Os dados das séries de tempo são indexados por timetamps, e o tempo é o eixo mais significativo ao longo do qual esses dados são organizados. Os dados da série de tempo normalmente chegam em ordem sequencial, por isso é tratado como uma inserção em vez de uma atualização para a sua base de dados.
 
@@ -95,7 +95,7 @@ Ver, analisar e descobrir tendências nos seus dados utilizando o Azure Time Ser
 
 Aprenda a usar o [Azure Time Series Insights Explorer](time-series-insights-explorer.md) e retire insights dos seus dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Explore o [ambiente de demonstração da](./time-series-quickstart.md)Azure Time Series Insights Gen1 .
 

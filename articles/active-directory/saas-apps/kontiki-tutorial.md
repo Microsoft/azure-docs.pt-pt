@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bad9757bb62d5175e725bfe8e005155040dccf36
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9e0b438e0cfa729300099463086248780c69484c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458943"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutorial: Integração do Diretório Ativo Azure com a Kontiki
 
@@ -64,7 +64,7 @@ Para integrar a Kontiki com o Azure AD, tem de adicionar a Kontiki à sua lista 
 
     ![A nova opção de aplicação](common/add-new-app.png)
 
-1. Na caixa de pesquisa, insira **Kontiki.** Nos resultados da pesquisa, selecione **Kontiki**e, em seguida, **selecione Add**.
+1. Na caixa de pesquisa, insira **Kontiki.** Nos resultados da pesquisa, selecione **Kontiki** e, em seguida, **selecione Add**.
 
     ![Kontiki na lista de resultados](common/search-new-app.png)
 
@@ -104,7 +104,7 @@ Nesta secção, você configura Azure AD único sign-on com Kontiki no portal Az
     ![Kontiki Domain e URLs informações únicas de assinatura](common/sp-signonurl.png)
 
     > [!NOTE]
-    > Contacte a [equipa de suporte do Cliente Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html) para obter o valor correto de usar. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Contacte a [equipa de suporte do Cliente Kontiki](https://kollective.com/support/) para obter o valor correto de usar. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Na **configuração single Sign-On com painel SAML,** na secção certificado de assinatura **SAML,** selecione **Descarregue** ao lado **do Metadadata da Federação XML**. Selecione uma opção de descarregamento com base nos seus requisitos. Guarde o certificado no seu computador.
 
@@ -120,7 +120,7 @@ Nesta secção, você configura Azure AD único sign-on com Kontiki no portal Az
 
 ### <a name="configure-kontiki-single-sign-on"></a>Configurar kontiki único sign-on
 
-Para configurar um único sign-on no lado Kontiki, envie o ficheiro XML da Federação descarregada e os URLs relevantes que copiou do portal Azure para a equipa de [suporte kontiki.](https://customersupport.kontiki.com/enterprise/contactsupport.html) A equipa de apoio kontiki utiliza as informações que envia para garantir que a ligação de sinalização única SAML seja corretamente definida em ambos os lados.
+Para configurar um único sign-on no lado Kontiki, envie o ficheiro XML da Federação descarregada e os URLs relevantes que copiou do portal Azure para a equipa de [suporte kontiki.](https://kollective.com/support/) A equipa de apoio kontiki utiliza as informações que envia para garantir que a ligação de sinalização única SAML seja corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -138,7 +138,7 @@ Nesta secção, cria-se um utilizador de teste chamado Britta Simon no portal Az
 
     1. Na caixa **Nome,** **insira BrittaSimon**.
   
-    1. Na caixa **do nome do utilizador,** **introduza brittasimon \@ \<your-company-domain> . \<extension> ** Por exemplo, ** \@ brittasimon contoso.com**.
+    1. Na caixa **do nome do utilizador,** **introduza brittasimon \@ \<your-company-domain> . \<extension>** Por exemplo, **\@ brittasimon contoso.com**.
 
     1. Selecione a caixa **de verificação de senha show.** Anota o valor que é apresentado na **caixa de palavra-passe.**
 
@@ -182,7 +182,7 @@ Nesta secção, testa a configuração de um único sinal de Azure AD utilizando
 
 Depois de configurar um único sôs-on, quando selecionar **Kontiki** no portal My Apps, você é automaticamente inscrito na Kontiki. Para obter mais informações sobre o portal My Apps, consulte [o Access e utilize aplicações no portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, reveja estes artigos:
 

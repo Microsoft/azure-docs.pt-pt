@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.openlocfilehash: a16267b0bc5d9b550c73dc4e1dafee8304ec0237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc4475eb64744688e901d2b37e30632d044b0115
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541826"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019318"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Melhores práticas para a construção de uma app de compreensão linguística (LUIS)
 Utilize o processo de autoria da aplicação para construir a sua aplicação LUIS:
@@ -87,7 +87,7 @@ Conheça as [entidades aprendidas com máquinas eficazes.](luis-concept-entity-t
 
 ## <a name="do-build-your-app-iteratively-with-versions"></a>Construa a sua aplicação iterativamente com versões
 
-Cada ciclo de autoria deve estar dentro de uma nova [versão,](luis-concept-version.md)clonada a partir de uma versão existente.
+Cada ciclo de autoria deve estar dentro de uma nova [versão,](./luis-concept-app-iteration.md)clonada a partir de uma versão existente.
 
 ## <a name="do-build-for-model-decomposition"></a>Construa para decomposição de modelos
 
@@ -193,6 +193,6 @@ Não adicione muitos [padrões.](luis-concept-patterns.md) Luis é para aprender
 
 Adicione 10 ou 15 expressões antes do treino e publicação. Isso permite-lhe ver o impacto na precisão da previsão. Adicionar uma única expressão pode não ter um impacto visível na pontuação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como planear a [sua aplicação](luis-how-plan-your-app.md) na sua aplicação LUIS.

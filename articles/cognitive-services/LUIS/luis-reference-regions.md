@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: a591a8d0df751c071a17b1d77febdb3607a1b53d
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f7c6c3f9c3f468c7b55baf2b0cc45c094d693de5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555775"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018655"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Regiões de autoria e publicação e as chaves associadas
 
@@ -27,7 +27,7 @@ Existem três portais de autoria LUIS, baseados na região. Tem de criar e publi
 |[au.luis.ai][au.luis.ai] |Austrália| `australiaeast`|
 |[eu.luis.ai][eu.luis.ai] |Europa|`westeurope`|
 
-As regiões [autorais emparelharam regiões de insuporte.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+As regiões [autorais emparelharam regiões de insuporte.](../../best-practices-availability-paired-regions.md)
 
 <a name="regions-and-azure-resources"></a>
 
@@ -102,9 +102,9 @@ Saiba mais sobre os [pontos finais de autoria e previsão](developer-reference-r
 
 Cada região tem uma região secundária para não conseguir. A Europa falha dentro da Europa e a Austrália falha dentro da Austrália.
 
-As regiões [autorais emparelharam regiões de insuporte.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+As regiões [autorais emparelharam regiões de insuporte.](../../best-practices-availability-paired-regions.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Referência de entidades pré-construídas](./luis-reference-prebuilt-entities.md)

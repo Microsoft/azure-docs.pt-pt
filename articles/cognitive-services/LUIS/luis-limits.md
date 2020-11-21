@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: 5ef681e335cf49a1759a096766b5ccd70545e60a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c855be6d31a1ee46434ecadbeae7a36dd6a3ff95
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324710"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018808"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o seu modelo e chaves LUIS
 O LUIS tem várias áreas limite. O primeiro é o limite do [modelo](#model-limits), que controla intenções, entidades e características no LUIS. A segunda área são [os limites de quota baseados](#key-limits) no tipo-chave. Uma terceira área de limites é a [combinação](#keyboard-controls) de teclado para controlar o website da LUIS. Uma quarta área é a [região mundial de mapeamento](luis-reference-regions.md) entre o site de autoria LUIS e as APIs [do ponto final](luis-glossary.md#endpoint) luis.
@@ -32,16 +32,16 @@ Se a sua aplicação exceder os limites do modelo LUIS, considere utilizar uma a
 | [Listar entidades](./luis-concept-entity-types.md) | Pai: 50, criança: 20.000 itens. O nome canónico é *padrão de caracteres max. Os valores do synonym não têm restrição de comprimento. |
 | [entidades de aprendizagem automática + funções](./luis-concept-entity-types.md):<br> composto,<br>simples,<br>papel de entidade|Um limite de 100 entidades-mãe ou 330 entidades, qualquer que seja o limite que o utilizador atinge primeiro. Um papel conta como entidade para efeitos deste limite. Um exemplo é um composto com uma entidade simples, que tem 2 funções: 1 composto + 1 simples + 2 funções = 4 das 330 entidades.<br>As subentidades podem ser aninhadas até 5 níveis.|
 |Modelo como recurso| Número máximo de modelos que podem ser usados como uma característica para um modelo específico para ser de 10 modelos. O número máximo de listas de frases utilizadas como recurso para um modelo específico ser de 10 listas de frases.|
-| [Pré-visualização - Entidades de lista dinâmica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~1k por pedido de previsão de consulta|
+| [Pré-visualização - Entidades de lista dinâmica](./luis-migration-api-v3.md)|2 listas de ~1k por pedido de previsão de consulta|
 | [Padrões](luis-concept-patterns.md)|500 padrões por aplicação.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 Padrão.quaisquer entidades por padrão<br>Máximo de 2 textos opcionais aninhados em padrão|
 | [Padrão.qualquer](./luis-concept-entity-types.md)|100 por aplicação, 3 padrão.qualquer entidade por padrão |
 | [Lista de frases][phrase-list]|500 listas de frases. 10 listas de frases globais devido ao modelo como limite de recurso. A lista de frases não permutáveis tem o máximo de 5.000 frases. A lista de frases intercambiáveis tem o máximo de 50.000 frases. Número máximo de frases totais por aplicação de 500.000 frases.|
-| [Entidades pré-criadas](./luis-prebuilt-entities.md) | sem limite|
+| [Entidades pré-criadas](./howto-add-prebuilt-models.md) | sem limite|
 | [Entidades de expressão regular](./luis-concept-entity-types.md)|20 entidades<br>500 caracteres no máximo. por padrão de entidade de expressão regular|
-| [Funções](luis-concept-roles.md)|300 papéis por aplicação. 10 funções por entidade|
+| [Funções](./luis-concept-entity-types.md)|300 papéis por aplicação. 10 funções por entidade|
 | [Expressão][utterances] | 500 caracteres<br><br>Se tiver texto mais longo do que este limite de caracteres, precisa segmentar a expressão antes da entrada para o LUIS e receberá respostas individuais de intenção por segmento. Há pausas óbvias com as qual se pode trabalhar, como marcas de pontuação e longas pausas no discurso.|
 | [Exemplos de expressão][utterances] | 15.000 por pedido - não há limite para o número de declarações por intenção<br><br>Se precisar de treinar a aplicação com mais exemplos, utilize uma abordagem de modelo [de despacho.](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) Treina aplicações INDIVIDUAIS LUIS (conhecidas como aplicações infantis para a aplicação de despacho dos pais) com uma ou mais intenções e, em seguida, treina uma aplicação de despacho que amostra as expressões de cada app LUIS para direcionar o pedido de previsão para a aplicação correta para crianças. |
-| [Versions](luis-concept-version.md) (Versões)| 100 versões por aplicação |
+| [Versions](./luis-concept-app-iteration.md) (Versões)| 100 versões por aplicação |
 | [Nome da versão][luis-how-to-manage-versions] | 128 caracteres |
 
 *O caracteres padrão max é de 50 caracteres.
@@ -116,12 +116,12 @@ Utilize o _tipo_, `LUIS` quando filtrar recursos no portal Azure. O recurso de p
 
 O seu acesso ao sôm-in é de **60 minutos**. Após este período de tempo, terá este erro. Precisa assinar de novo.
 
-[luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test#batch-testing
-[intents]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-intent
-[phrase-list]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
-[utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-utterance
-[luis-how-to-manage-versions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions
+[luis-get-started-create-app]: ./luis-get-started-create-app.md
+[batch-testing]: ./luis-concept-test.md#batch-testing
+[intents]: ./luis-concept-intent.md
+[phrase-list]: ./luis-concept-feature.md
+[utterances]: ./luis-concept-utterance.md
+[luis-how-to-manage-versions]: ./luis-how-to-manage-versions.md
 [pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
 <!-- TBD: fix this link -->
 [speech-to-intent-pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/

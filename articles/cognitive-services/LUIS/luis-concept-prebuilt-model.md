@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 32755ea9dccd2a7d4a0e727c7a006491d5ea3521
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6642e59c2957b298d54bc587853752b9fce74686
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535888"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019148"
 ---
 # <a name="prebuilt-models"></a>Modelos pré-construídos
 
@@ -59,6 +59,6 @@ Quando uma entidade pré-construída está incluída na sua aplicação, as suas
 > [!NOTE]
 > **builtin.datetime** é depreciado. É substituído por [**builtin.datetimeV2,**](luis-reference-prebuilt-datetimev2.md)que proporciona o reconhecimento das faixas de data e hora, bem como o reconhecimento melhorado de datas e horários ambíguos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba como [adicionar entidades pré-construídas](luis-prebuilt-entities.md) à sua aplicação.
+Saiba como [adicionar entidades pré-construídas](./howto-add-prebuilt-models.md) à sua aplicação.

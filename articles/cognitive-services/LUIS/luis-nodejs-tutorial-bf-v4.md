@@ -6,18 +6,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 4d399dc9298c51906d62dabbc36650bf21f94af8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d070a03a81f70cdbf2c721cc67a3bc40c5d731fc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542835"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018740"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutorial: Use um Bot de aplicação web ativado com compreensão de linguagem em Node.js
 
-Use Node.js para construir um chat bot integrado com a compreensão da linguagem (LUIS). O bot é construído com o recurso [bot da app](https://docs.microsoft.com/azure/bot-service/) Azure Web e a versão Bot [Framework](https://github.com/Microsoft/botbuilder-dotnet) V4.
+Use Node.js para construir um chat bot integrado com a compreensão da linguagem (LUIS). O bot é construído com o recurso [bot da app](/azure/bot-service/) Azure Web e a versão Bot [Framework](https://github.com/Microsoft/botbuilder-dotnet) V4.
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
 > * Criar um bot de aplicação Web. Este processo cria uma aplicação LUIS nova.
@@ -91,7 +91,7 @@ O processo de criação de serviços bot também cria uma nova app LUIS com inte
 ## <a name="download-the-web-app-bot-source-code"></a>Descarregue o código fonte bot da aplicação web
 Para poder desenvolver o código de bot de aplicação Web, transfira o código e utilize-o no seu computador local.
 
-1. No portal do Azure, selecione **Compilar** , na secção **Gestão de bot**.
+1. No portal do Azure, selecione **Compilar**, na secção **Gestão de bot**.
 
 1. Selecione **Transferir o código-fonte de Bot**.
 
@@ -390,9 +390,9 @@ Faça uma pergunta ao Bot para a intenção do Voo do Livro.
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja mais [amostras](https://github.com/microsoft/botframework-solutions) com bots de conversação.
 
 > [!div class="nextstepaction"]
-> [Construa uma app de compreensão de linguagem com um domínio de assunto personalizado](luis-quickstart-intents-only.md)
+> [Construa uma app de compreensão de linguagem com um domínio de assunto personalizado](./tutorial-intents-only.md)

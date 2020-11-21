@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.openlocfilehash: 30b4256b37dc3329801a730192e25f7c24a45594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60b100e1100b8a4925a967f8b7265f1612e5beb7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540915"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018910"
 ---
 # <a name="add-contributors-to-your-app"></a>Adicione colaboradores à sua app
 
@@ -66,7 +66,7 @@ Se adicionar colaboradores/colaboradores a uma aplicação LUIS, está a especif
 
 ### <a name="azure-active-directory-resources"></a>Recursos do Diretório Ativo Azure
 
-Se utilizar [o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) na sua organização, a Language Understanding (LUIS) necessita de permissão para a informação sobre o acesso dos seus utilizadores quando pretender utilizar o LUIS. Os recursos que o LUIS exige são mínimos.
+Se utilizar [o Azure Ative Directory](../../active-directory/index.yml) (Azure AD) na sua organização, a Language Understanding (LUIS) necessita de permissão para a informação sobre o acesso dos seus utilizadores quando pretender utilizar o LUIS. Os recursos que o LUIS exige são mínimos.
 
 Você vê a descrição detalhada quando tenta se inscrever com uma conta que tem consentimento administrativo ou não requer consentimento administrativo, como o consentimento do administrador:
 
@@ -87,12 +87,12 @@ O administrador inquilino deve trabalhar diretamente com o utilizador que precis
 
 Se o administrador inquilino apenas quer que certos utilizadores utilizem o LUIS, existem algumas soluções possíveis:
 * Dando o "consentimento administrativo" (consentimento a todos os utilizadores do AD Azure), mas depois definido como "Sim" a "atribuição de utilizador necessária" nas Propriedades da Aplicação da Empresa e, finalmente, atribuir/adicionar apenas os utilizadores desejados à Aplicação. Com este método, o Administrador ainda está a fornecer "consentimento administrativo" à App, no entanto, é possível controlar os utilizadores que possam aceder à sua sê-lo.
-* Uma segunda solução, é utilizar a API de gestão de [identidade AZure e gestão de acessos no Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) para fornecer consentimento a cada utilizador específico.
+* Uma segunda solução, é utilizar a API de gestão de [identidade AZure e gestão de acessos no Microsoft Graph](/graph/azuread-identity-access-management-concept-overview) para fornecer consentimento a cada utilizador específico.
 
 Saiba mais sobre os utilizadores de diretórios ativos da Azure e o consentimento:
 * [Restringir a sua aplicação](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) a um conjunto de utilizadores
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda [a usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida da sua aplicação.
 * Compreenda os conceitos, incluindo o [recurso de autoria](luis-how-to-azure-subscription.md#authoring-key) e [os contribuintes](luis-how-to-azure-subscription.md#contributions-from-other-authors) nesse recurso.

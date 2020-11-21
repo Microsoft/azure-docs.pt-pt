@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: fb0c29fb68d0bcd2405cc031008c1c8e5035476f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6f0e5230fb3c59cab690620e837f476f3392a48
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569394"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020083"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>Gerir dados de referência para um ambiente Azure Time Series Insights Gen 1 utilizando C Sharp
 
 > [!CAUTION]
 > Este é um artigo da Gen1.
 
-Este artigo demonstra como combinar C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet), e Azure Ative Directory para fazer pedidos programáticos de API para a Azure Time Series Insights Gen 1 [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).
+Este artigo demonstra como combinar C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet), e Azure Ative Directory para fazer pedidos programáticos de API para a Azure Time Series Insights Gen 1 [Reference Data Management API](/rest/api/time-series-insights/gen1-reference-data-api).
 
 > [!TIP]
 > Ver amostras de código GA C# em [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample) .
@@ -33,8 +33,8 @@ Este artigo demonstra como combinar C#, [MSAL.NET](https://github.com/AzureAD/mi
 O código de amostra abaixo demonstra as seguintes características:
 
 * Aquisição de um token de acesso utilizando [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-* As operações sequenciais CREATE, READ, UPDATE e DELETE contra a API de [Gestão de Dados de Referência da](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api)Gen 1 .
-* Códigos de resposta comuns, incluindo [códigos de erro comuns.](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling)
+* As operações sequenciais CREATE, READ, UPDATE e DELETE contra a API de [Gestão de Dados de Referência da](/rest/api/time-series-insights/gen1-reference-data-api)Gen 1 .
+* Códigos de resposta comuns, incluindo [códigos de erro comuns.](/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling)
 
     A API de Gestão de Dados de Referência processa cada item individualmente e um erro com um item não impede que os outros completem com sucesso. Por exemplo, se o seu pedido tiver 100 itens e um item tiver um erro, então 99 itens são escritos e um é rejeitado.
 
@@ -42,14 +42,14 @@ O código de amostra abaixo demonstra as seguintes características:
 
 Complete os seguintes passos antes de compilar e executar o código de amostra:
 
-1. [Provisionar um ambiente gen 1 Azure Time Series Insights.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+1. [Provisionar um ambiente gen 1 Azure Time Series Insights.](./time-series-insights-get-started.md
 )
 
 1. [Crie um conjunto de Dados de Referência](time-series-insights-add-reference-data-set.md) dentro do seu ambiente. Utilizar o seguinte esquema de dados de referência:
 
    | Nome da chave | Tipo |
    | --- | --- |
-   | uuid | Cadeia |
+   | uuid | String |
 
 1. Configure o seu ambiente Azure Time Series Insights para o Azure Ative Directory, conforme descrito na [Autenticação e autorização](time-series-insights-authentication-and-authorization.md). Utilizar `http://localhost:8080/` como **URI de redirecionamento**.
 
@@ -61,7 +61,7 @@ Complete os seguintes passos antes de compilar e executar o código de amostra:
 
 ## <a name="project-dependencies"></a>Dependências de projetos
 
-Recomenda-se que utilize a versão mais recente do Visual Studio e **netCore.app:**
+Recomenda-se que utilize a versão mais recente do Visual Studio e **NETCore.app:**
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Versão 16.4.2+
 * [NETCore.app](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) - Versão 2.2.8
@@ -311,6 +311,6 @@ namespace CsharpTsiMsalGaSample
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Leia a documentação de referência da [API de Gestão de Dados de Referência](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) da Gen 1.
+* Leia a documentação de referência da [API de Gestão de Dados de Referência](/rest/api/time-series-insights/gen1-reference-data-api) da Gen 1.

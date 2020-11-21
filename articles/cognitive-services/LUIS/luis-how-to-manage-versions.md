@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 3cf4ce5dc7061065ea501ae1c00cd5b9e5404770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b93e9fd4047ee3731ef6fe4652bb92ce5145987d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540868"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018825"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Use versões para editar e testar sem afetar aplicações de produção ou de produção
 
-As versões permitem-lhe construir e publicar diferentes modelos. Uma boa prática é clonar o atual modelo ativo para uma [versão](luis-concept-version.md) diferente da app antes de fazer alterações no modelo.
+As versões permitem-lhe construir e publicar diferentes modelos. Uma boa prática é clonar o atual modelo ativo para uma [versão](./luis-concept-app-iteration.md) diferente da app antes de fazer alterações no modelo.
 
 A versão ativa é a versão que está a editar na secção **construção** do portal LUIS com intenções, entidades, funcionalidades e padrões. Ao utilizar as APIs de autoria, não precisa de definir a versão ativa porque as chamadas rest API específicas da versão incluem a versão na rota.
 
@@ -66,4 +66,3 @@ Pode importar uma `.json` ou uma versão da sua `.lu` aplicação.
 * Para **eliminar** uma versão, selecione uma versão da lista e, em seguida, selecione **Eliminar** da barra de ferramentas. Selecione **OK**.
 * Para **mudar o nome de** uma versão, selecione uma versão da lista e, em seguida, **selecione Rename da** barra de ferramentas. Introduza novo nome e selecione **Feito**.
 * Para **exportar** uma versão, selecione uma versão da lista e, em seguida, selecione **a aplicação Export** a partir da barra de ferramentas. Escolha json ou LU para exportar para uma cópia de segurança ou para economizar no controlo de origem, escolha **Export for container** para usar esta [aplicação num recipiente LUIS](luis-container-howto.md).
-

@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/01/2020
-ms.openlocfilehash: 7c3c0f603b9e7d83e40f43ab00d31f4ca63f2b4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e8e5a127741625fde7910aaabd421836148fc35
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535377"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018672"
 ---
 # <a name="sentiment-analysis"></a>Análise de sentimentos
-Se a análise do sentimento estiver configurada, a resposta do JSON LUIS inclui a análise do sentimento. Saiba mais sobre a análise de sentimento na documentação [text Analytics.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)
+Se a análise do sentimento estiver configurada, a resposta do JSON LUIS inclui a análise do sentimento. Saiba mais sobre a análise de sentimento na documentação [text Analytics.](../text-analytics/index.yml)
 
 LUIS usa Text Analytics V2. 
 
@@ -47,7 +47,6 @@ Para todas as outras culturas, a resposta é:
 ```
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
-

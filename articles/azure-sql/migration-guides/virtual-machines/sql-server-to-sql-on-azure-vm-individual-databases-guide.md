@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: c7a62bb3ed07ffbd8cfef520e5d504c810d11e5a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 1558c396566b2fcfc098a749407d5e7a28316b6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497302"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019454"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guia de migração: SQL Server para SQL Server em VMs Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ Migrar para o SQL Server em VMs Azure requer o seguinte:
 - [Assistente de Migração de Bases de Dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 - Um [projeto Azure Migrate.](/azure/migrate/create-manage-projects)
 - Um sql server de alvo preparado [no Azure VM](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) que é a mesma versão ou maior do que o sql server de origem.
-- [Conectividade entre Azure e no local.](/architecture/reference-architectures/hybrid-networking)
+- [Conectividade entre Azure e no local.](/azure/architecture/reference-architectures/hybrid-networking)
 - [Escolher uma estratégia de migração adequada.](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)
 
 ## <a name="pre-migration"></a>Pré-migração
@@ -59,7 +59,7 @@ Para obter ferramentas adicionais de descoberta, consulte [serviços e ferrament
 
 ### <a name="assess"></a>Avaliar
 
-Depois de ter descoberto todas as fontes de dados, utilize o [Data Migration Assistant (DMA)](/dma/dma-overview) para avaliar as instâncias do SQL Server no local, migrando para um caso de SQL Server em Azure VM para entender as lacunas entre a origem e os casos-alvo. 
+Depois de ter descoberto todas as fontes de dados, utilize o [Data Migration Assistant (DMA)](/sql/dma/dma-overview) para avaliar as instâncias do SQL Server no local, migrando para um caso de SQL Server em Azure VM para entender as lacunas entre a origem e os casos-alvo. 
 
 
 > [!NOTE]
@@ -109,7 +109,7 @@ Recomenda-se vivamente que todas as correções de DMA sejam escritas e aplicada
 > Nem todas as versões SQL Server suportam todos os modos de compatibilidade. Verifique se a [versão do seu servidor SQL alvo](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) suporta a compatibilidade da base de dados escolhida. Por exemplo, o SQL Server 2019 não suporta bases de dados com compatibilidade de nível 90 (que é SQL Server 2005). Estas bases de dados exigiriam, pelo menos, uma atualização para o nível de compatibilidade 100.
 >
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrar
 
 Depois de ter concluído as etapas de pré-migração, está pronto para migrar as bases de dados e componentes do utilizador. Migrar as suas bases de dados utilizando o seu método de [migração](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)preferido.  
 
@@ -123,7 +123,7 @@ Para realizar uma migração padrão usando backup e restaurar, siga estes passo
 1. Faça uma pausa/pare quaisquer aplicações que utilizem bases de dados destinadas à migração. 
 1. Certifique-se de que a base de dados do utilizador está inativa utilizando [o modo de utilizador único](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
 1. Execute uma cópia de segurança completa da base de dados para um local no local.
-1. Copie os ficheiros de reserva no local para o seu VM utilizando o desktop remoto, [o Azure Data Explorer](/data-explorer/data-explorer-overview)ou o utilitário da linha de comando [AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (> 2 cópias de segurança de TB recomendadas).
+1. Copie os ficheiros de reserva no local para o seu VM utilizando o desktop remoto, [o Azure Data Explorer](/azure/data-explorer/data-explorer-overview)ou o utilitário da linha de comando [AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (> 2 cópias de segurança de TB recomendadas).
 1. Restaurar a cópia de segurança completa da base de dados para o SQL Server em Azure VM.
 
 ### <a name="log-shipping--minimize-downtime"></a>Envio de registo (minimizar tempo de inatividade)
@@ -133,7 +133,7 @@ Para realizar uma migração mínima de tempo de inatividade utilizando backup, 
 1. Confiússe a conectividade para direcionar o SQL Server no Azure VM, com base nos seus requisitos. Consulte [a Ligação a uma máquina virtual do servidor SQL em Azure (Gestor de Recursos)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Certifique-se de que a base de dados do utilizador no local a migrar está em modelo de recuperação completo ou a granel.
 1. Execute uma cópia de segurança completa da base de dados para um local no local e modifique quaisquer trabalhos de backups de bases de dados existentes para usar [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) palavra-chave para preservar a cadeia de registos.
-1. Copie os ficheiros de reserva no local para o seu VM utilizando o desktop remoto, [o Azure Data Explorer](/data-explorer/data-explorer-overview)ou o utilitário da linha de comando [AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (>1 cópias de segurança recomendadas).
+1. Copie os ficheiros de reserva no local para o seu VM utilizando o desktop remoto, [o Azure Data Explorer](/azure/data-explorer/data-explorer-overview)ou o utilitário da linha de comando [AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (>1 cópias de segurança recomendadas).
 1. Restaurar a cópia de segurança completa da base de dados no SqL Server em Azure VM.
 1. Confiúva [de envio](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) de registo entre a base de dados no local e o servidor SQL alvo no Azure VM. Certifique-se de que não reinicia a base de dados, uma vez que esta já foi concluída nos passos anteriores.
 1. **Corte** para o servidor alvo. 
@@ -205,7 +205,7 @@ Para obter mais informações sobre estas questões e medidas específicas para 
 - [Desempenho de sintonização em Máquinas Virtuais Azure SQL](../../virtual-machines/windows/performance-guidelines-best-practices.md).
 - [Centro de otimização de custos Azure](https://azure.microsoft.com/overview/cost-optimization/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para verificar a disponibilidade de serviços aplicáveis ao SQL Server consulte o centro de [infraestruturas Azure Global](https://azure.microsoft.com/global-infrastructure/services/?regions=all&amp;products=synapse-analytics,virtual-machines,sql-database)
 
@@ -213,7 +213,7 @@ Para obter mais informações sobre estas questões e medidas específicas para 
 
 - Para saber mais sobre o Azure SQL consulte:
    - [Opções de implementação](../../azure-sql-iaas-vs-paas-what-is-overview.md)
-   - [Servidor SQL em VMs Azure](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
+   - [SQL Server nas VMs do Azure](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
    - [Custo total da calculadora de propriedade](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 

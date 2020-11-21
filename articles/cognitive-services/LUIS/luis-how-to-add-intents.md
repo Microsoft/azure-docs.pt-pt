@@ -9,18 +9,18 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.service: cognitive-services
-ms.openlocfilehash: c2802f1b41ed2842e12c808a8c380ebd646ffa03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2401c032f0fc90024e0049fad5f696b8a184544
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540936"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018944"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicione intenções para determinar a intenção do utilizador de declarações
 
 Adicione [intenções](luis-concept-intent.md) à sua app LUIS para identificar grupos de perguntas ou comandos que tenham a mesma intenção.
 
-No portal LUIS, as intenções são geridas a partir da **secção** build da barra de navegação superior, e depois a partir das **Intenções**do painel esquerdo .
+No portal LUIS, as intenções são geridas a partir da **secção** build da barra de navegação superior, e depois a partir das **Intenções** do painel esquerdo .
 
 ## <a name="add-an-intent-to-your-app"></a>Adicione uma intenção à sua app
 
@@ -79,6 +79,6 @@ A barra de ferramentas de contexto fornece outras ações:
 
 Depois de adicionar, editar ou remover intenções, [treine](luis-how-to-train.md) e [publique](luis-how-to-publish-app.md) a sua aplicação para que as suas alterações sejam aplicadas em consultas de ponto final. Não treine depois de cada mudança. Treinar depois de um grupo de mudanças.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre a adição [de palavras de exemplo](luis-how-to-add-example-utterances.md) com entidades.
+Saiba mais sobre a adição [de palavras de exemplo](./luis-how-to-add-entities.md) com entidades.

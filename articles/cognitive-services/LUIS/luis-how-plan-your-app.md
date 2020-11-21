@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 69f2048da0b4690d9de72e96e296edbd55c4cd9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66df23466694fe8b9caea4e56565cde6d8fd7416
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309460"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018961"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planeie o seu esquema de aplicações LUIS com domínio sujeito e extração de dados
 
@@ -21,7 +21,7 @@ Um esquema de aplicações LUIS contém [intenções](luis-glossary.md#intent) e
 Uma aplicação LUIS está centrada em torno de um domínio de assunto. Por exemplo, você pode ter uma app de viagem que trata da reserva de bilhetes, voos, hotéis e carros de aluguel. Outra aplicação pode fornecer conteúdo relacionado com exercício, rastreio de esforços de fitness e definição de objetivos. Identificar o domínio ajuda-o a encontrar palavras ou frases relevantes para o seu domínio.
 
 > [!TIP]
-> LUIS oferece [domínios pré-construídos](luis-how-to-use-prebuilt-domains.md) para muitos cenários comuns. Verifique se pode utilizar um domínio pré-construído como ponto de partida para a sua aplicação.
+> LUIS oferece [domínios pré-construídos](./howto-add-prebuilt-models.md) para muitos cenários comuns. Verifique se pode utilizar um domínio pré-construído como ponto de partida para a sua aplicação.
 
 ## <a name="identify-your-intents"></a>Identifique as suas intenções
 
@@ -49,7 +49,7 @@ No exemplo, identifique as entidades que pretende extrair. Para reservar um voo,
 Ao determinar quais as entidades a utilizar na sua app, tenha em mente que existem diferentes tipos de entidades para capturar relações entre tipos de objetos. [As entidades da LUIS](luis-concept-entity-types.md) fornecem mais detalhes sobre os diferentes tipos.
 
 > [!TIP]
-> A LUIS oferece [entidades pré-construídas](luis-prebuilt-entities.md) para cenários comuns e conversadores de utilizadores. Considere usar as entidades pré-construídas como ponto de partida para o desenvolvimento da sua aplicação.
+> A LUIS oferece [entidades pré-construídas](./howto-add-prebuilt-models.md) para cenários comuns e conversadores de utilizadores. Considere usar as entidades pré-construídas como ponto de partida para o desenvolvimento da sua aplicação.
 
 ## <a name="resolution-with-intent-or-entity"></a>Resolução com intenção ou entidade?
 
@@ -75,8 +75,7 @@ A `FlightAction` entidade seria estruturada no pseudo-esquema da entidade e sube
 
 Para ajudar a extração adicione características às subentidades. Escolherá as suas funcionalidades com base no vocabulário que espera ver nas declarações dos utilizadores e nos valores que pretende devolvidos na resposta de previsão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Aprender o ciclo de desenvolvimento LUIS](luis-concept-app-iteration.md)
-

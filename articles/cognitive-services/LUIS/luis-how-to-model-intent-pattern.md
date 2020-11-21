@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 914ca77b18d0469c3ea926848be4c60aab04c9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5e1cc5cdda921e63315c2904d560b7ad3939776
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539109"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018859"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para melhorar a precisão da previsão
-Depois de uma aplicação LUIS receber expressões de ponto final, use um [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para expressões que revelam um padrão na ordem de palavras e na escolha de palavras. Os padrões utilizam [sintaxe](luis-concept-patterns.md#pattern-syntax) específica para indicar a localização de: [entidades,](luis-concept-entity-types.md) [funções](luis-concept-roles.md)de entidade, e texto opcional.
+Depois de uma aplicação LUIS receber expressões de ponto final, use um [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para expressões que revelam um padrão na ordem de palavras e na escolha de palavras. Os padrões utilizam [sintaxe](luis-concept-patterns.md#pattern-syntax) específica para indicar a localização de: [entidades,](luis-concept-entity-types.md) [funções](./luis-concept-entity-types.md)de entidade, e texto opcional.
 
 > [!CAUTION]
 > Os padrões incluem apenas pais de entidades de aprendizagem automática, não subentidades.
@@ -35,7 +35,7 @@ Depois de uma aplicação LUIS receber expressões de ponto final, use um [padr�
     > [!div class="mx-imgBorder"]
     > ![Screenshot da entidade para padrão](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Se a sua entidade incluir uma [função,](luis-concept-roles.md)indique o papel com um único `:` cólon, após o nome da entidade, como `{Location:Origin}` . A lista de funções para as entidades apresenta-se numa lista. Selecione a função e, em seguida, selecione Enter.
+    Se a sua entidade incluir uma [função,](./luis-concept-entity-types.md)indique o papel com um único `:` cólon, após o nome da entidade, como `{Location:Origin}` . A lista de funções para as entidades apresenta-se numa lista. Selecione a função e, em seguida, selecione Enter.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot da entidade com papel](./media/luis-how-to-model-intent-pattern/patterns-4.png)
@@ -109,7 +109,7 @@ A barra de ferramentas contextual acima da lista de padrões permite-lhe:
 * Remover entidade ou filtro de intenção
 * Adicione o padrão da expressão existente na página de intenção ou entidade
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda a [construir um padrão](luis-tutorial-pattern.md) com um padrão.qualquer e papéis com um tutorial.
 * Aprenda a [treinar](luis-how-to-train.md) a sua aplicação.

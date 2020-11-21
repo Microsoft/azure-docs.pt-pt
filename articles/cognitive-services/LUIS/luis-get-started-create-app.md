@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/13/2020
-ms.openlocfilehash: 60151e97c64a3d61044e4b82299573ee59951d46
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128207"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019165"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: utilizar a aplicação Home Automation pré-concebida
 
@@ -33,10 +33,10 @@ Na janela que aparece, insira as seguintes informações:
 |---------|---------|
 |Nome AName     | Um nome para a sua aplicação. Por exemplo, "domótica".        |
 |Cultura     | A linguagem que a sua aplicação compreende e fala.   |
-|Description | Uma descrição para o seu aplicativo.
+|Descrição | Uma descrição para o seu aplicativo.
 |Recurso de previsão | O recurso de previsão que receberá consultas. |
 
-Selecione **Done** (Concluído).
+Selecione **Concluído**.
 
 >[!NOTE]
 >A cultura não pode ser alterada assim que a aplicação for criada.
@@ -44,7 +44,7 @@ Selecione **Done** (Concluído).
 ## <a name="add-prebuilt-domain"></a>Adicionar um domínio pré-concebido
 
 1. Na navegação à esquerda, selecione **domínios pré-construídos.**
-1. Pesquisa rumo **à HomeAutomation** .
+1. Pesquisa rumo **à HomeAutomation**.
 1. **Selecione Adicionar** domínio no cartão HomeAutomation.
 
     > [!div class="mx-imgBorder"]
@@ -59,7 +59,7 @@ Selecione **Done** (Concluído).
     > [!NOTE]
     > **None** (Nenhuma) é uma intenção fornecida por todas as aplicações LUIS. Pode utilizá-la para processar expressões que não correspondem à funcionalidade que a sua aplicação fornece.
 
-1. Selecione a intenção **HomeAutomation.TurnOff** . A intenção contém uma lista de palavras de exemplo que são rotuladas com entidades.
+1. Selecione a intenção **HomeAutomation.TurnOff**. A intenção contém uma lista de palavras de exemplo que são rotuladas com entidades.
 
     > [!div class="mx-imgBorder"]
     > [![Captura de ecrã da intenção HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Captura de ecrã da intenção HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
@@ -79,7 +79,7 @@ Assim que preparar a sua aplicação, pode testá-la.
 
 1. Digite uma expressão de teste como `Turn off the lights` no painel de teste interativo e prima Enter. Por exemplo, *apare as luzes.*
 
-    Neste exemplo, `Turn off the lights` é corretamente identificado como a intenção de pontuação superior da **HomeAutomation.TurnOff** .
+    Neste exemplo, `Turn off the lights` é corretamente identificado como a intenção de pontuação superior da **HomeAutomation.TurnOff**.
 
     ![Captura de ecrã do painel Test (Testar) com expressão realçada](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
@@ -98,12 +98,12 @@ Para receber uma previsão LUIS num chat bot ou outra aplicação de cliente, é
 
 1. Selecione **Publicar** no canto superior direito da janela.
 
-1. Selecione a ranhura **de Produção** e, em seguida, selecione **Fazer** .
+1. Selecione a ranhura **de Produção** e, em seguida, selecione **Fazer**.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot da publicação de LUIS para o ponto final](media/howto-publish/publish-app-popup.png)
 
-1. Selecione o link **URLs do ponto final** no link 'Access' na notificação para aceder à página Recursos **Azure.** Os URLs de ponto final estão listados como **a Consulta exemplo** .
+1. Selecione o link **URLs do ponto final** no link 'Access' na notificação para aceder à página Recursos **Azure.** Os URLs de ponto final estão listados como **a Consulta exemplo**.
 
 <!-- [!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)] -->
 
@@ -218,9 +218,9 @@ Para receber uma previsão LUIS num chat bot ou outra aplicação de cliente, é
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode chamar o ponto final do código:
 
 > [!div class="nextstepaction"]
-> [Chamar um ponto final de LUIS com código](luis-get-started-cs-get-intent.md)
+> [Chamar um ponto final de LUIS com código](./luis-get-started-get-intent-from-rest.md)

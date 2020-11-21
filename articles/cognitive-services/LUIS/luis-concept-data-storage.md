@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 12693fb11556380e62df277be093ce20c02ff372
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fd7499bd5e216f2a625d87ea13996da851a1889e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018037"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019216"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Armazenamento e remoção de dados em Serviços Cognitivos de Compreensão linguística (LUIS)
 A LUIS armazena dados encriptados numa loja de dados Azure correspondente à região especificada pela chave. Estes dados são armazenados por 30 dias. 
@@ -55,7 +55,7 @@ Se não estiver migrado, pode eliminar a sua conta e todas as suas aplicações 
 A eliminação da conta está disponível na página **Definições.** Selecione o nome da sua conta na barra de navegação superior direita para chegar à página **Definições.**
 
 ## <a name="delete-an-authoring-resource"></a>Eliminar um recurso de autoria
-Se tiver [migrado para um recurso de autoria,](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring)eliminando o próprio recurso do portal Azure irá eliminar todas as suas aplicações associadas a esse recurso, juntamente com as suas expressões de exemplo e registos. Os dados são conservados durante 90 dias antes de serem eliminados permanentemente.    
+Se tiver [migrado para um recurso de autoria,](./luis-migration-authoring.md)eliminando o próprio recurso do portal Azure irá eliminar todas as suas aplicações associadas a esse recurso, juntamente com as suas expressões de exemplo e registos. Os dados são conservados durante 90 dias antes de serem eliminados permanentemente.    
 
 Para eliminar o seu recurso, vá ao [portal Azure](https://ms.portal.azure.com/#home) e selecione o seu recurso de autoria LUIS. Vá ao **separador 'Vista Geral'** e clique no botão **Eliminar** na parte superior da página. Em seguida, confirme que o seu recurso foi apagado. 
 
@@ -67,7 +67,7 @@ Para efeitos de retenção e eliminação de dados, uma aplicação LUIS inativa
 * Não tem uma chave atual atribuída.
 * Não teve um sinal de utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre exportação e eliminação de uma app](luis-how-to-start-new-app.md)

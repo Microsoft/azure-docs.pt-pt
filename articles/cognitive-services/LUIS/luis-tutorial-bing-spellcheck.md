@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.openlocfilehash: 120852c3e66594b1cf5cd28bb52ce06634211060
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d2a1702ea131e9b1b4bf5e586f4290db3aff7ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541102"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018774"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Palavras corretas escritas com Bing Spell Check
 
@@ -97,4 +97,4 @@ Duas soluções são:
 A página [de publicação](luis-how-to-publish-app.md) tem uma caixa de verificação **de cheques de cheques de ativação.** Esta é uma conveniência para criar a chave e entender como o URL de ponto final muda. Ainda tem de utilizar os parâmetros corretos do ponto final para que a ortografia seja corrigida para cada expressão.
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre palavras de exemplo](luis-how-to-add-example-utterances.md)
+> [Saiba mais sobre palavras de exemplo](./luis-how-to-add-entities.md)

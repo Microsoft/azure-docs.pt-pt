@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: cac4234d5bd93de8b059ea53a4697dae1bf5c64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89efc1d4f34b250d211f9fd7492588bd2896eb6e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667884"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016858"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Modelação de dados em Azure Time Series Insights Gen2
 
@@ -24,11 +24,11 @@ Este artigo descreve como trabalhar com o Modelo da Série De Tempo em Azure Tim
 > [!TIP]
 >
 > * Leia mais sobre o [Modelo série de tempo.](concepts-model-overview.md)
-> * Saiba mais sobre a navegação do [explorador da Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md).
+> * Saiba mais sobre a navegação do [explorador da Azure Time Series Insights Gen2](./concepts-ux-panels.md).
 
 ## <a name="instances"></a>de Instâncias
 
-O explorador Azure Time Series Insights suporta as operações **Desematada Create**, **READ**, **UPDATE**e **DELETE** dentro do navegador.
+O explorador Azure Time Series Insights suporta as operações **Desematada Create**, **READ**, **UPDATE** e **DELETE** dentro do navegador.
 
 Para começar, selecione a vista **modelo** a partir da vista do explorador Azure Time Series **Insights.**
 
@@ -76,7 +76,7 @@ Para começar, selecione a vista **modelo** a partir da vista do explorador Azur
 
 ## <a name="hierarchies"></a>Hierarquias
 
-O explorador Azure Time Series Insights suporta operações hierárquicas **CREATE,** **READ**, **UPDATE**e **DELETE** dentro do navegador.
+O explorador Azure Time Series Insights suporta operações hierárquicas **CREATE,** **READ**, **UPDATE** e **DELETE** dentro do navegador.
 
 Para começar, selecione a vista **modelo** a partir da vista do explorador Azure Time Series **Insights.**
 
@@ -126,7 +126,7 @@ Para começar, selecione a vista **modelo** a partir da vista do explorador Azur
 
 ## <a name="types"></a>Tipos
 
-O explorador Azure Time Series Insights suporta as operações tipo **CREATE,** **READ**, **UPDATE**e **DELETE** dentro do navegador.
+O explorador Azure Time Series Insights suporta as operações tipo **CREATE,** **READ**, **UPDATE** e **DELETE** dentro do navegador.
 
 Para começar, selecione a vista **modelo** a partir da vista do explorador Azure Time Series **Insights.**
 
@@ -167,10 +167,10 @@ Para começar, selecione a vista **modelo** a partir da vista do explorador Azur
 
 1. Confirme a eliminação selecionando **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre o Modelo série de tempo, leia [modelação de dados](./concepts-model-overview.md).
 
-* Para saber mais sobre a Gen2, leia [visualize dados no explorador da Azure Time Series Insights Gen2](./time-series-insights-update-explorer.md).
+* Para saber mais sobre a Gen2, leia [visualize dados no explorador da Azure Time Series Insights Gen2](./concepts-ux-panels.md).
 
 * Para aprender sobre as formas JSON suportadas, leia [as formas JSON suportadas.](./time-series-insights-send-events.md#supported-json-shapes)

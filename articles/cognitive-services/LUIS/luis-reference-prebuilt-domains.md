@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.openlocfilehash: e93822f4a2992f619b598474082caa56562b6e36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73b279f98011181b329cdb010041022ab0da57f0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538369"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018638"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio pré-incorporada para a sua app LUIS
-Esta referência fornece informações sobre os [domínios pré-construídos,](luis-how-to-use-prebuilt-domains.md)que são coleções pré-construídas de intenções e entidades que a LUIS oferece.
+Esta referência fornece informações sobre os [domínios pré-construídos,](./howto-add-prebuilt-models.md)que são coleções pré-construídas de intenções e entidades que a LUIS oferece.
 
 [Domínios personalizados,](luis-how-to-start-new-app.md)em contraste, começam sem intenções e modelos. Pode adicionar quaisquer intenções e entidades de domínio pré-construído a um modelo personalizado.
 
@@ -45,6 +45,6 @@ Os domínios pré-construídos não são **suportados** em:
 * Hindi
 * Mexicano espanhol
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a [entidade simples.](reference-entity-simple.md)

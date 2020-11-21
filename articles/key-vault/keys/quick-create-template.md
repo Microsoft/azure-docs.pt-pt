@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 0a613ce64d2037fdc7ebad680939893f1faa0639
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: c16fc475e4982724ebc9f4f55301b6fc56dfb7c7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899022"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95017014"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Quickstart: Criar um cofre de chave Azure e uma chave utilizando o modelo ARM (Pré-visualização)
 
@@ -26,10 +26,10 @@ ms.locfileid: "92899022"
 Para completar este artigo:
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
+- O utilizador teria de ter a função de bult-in rbac atribuída, por exemplo. contribuinte. [Saiba mais aqui](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 - O modelo precisa do ID de objeto de utilizador do Azure AD para configurar permissões. O procedimento a seguir obtém o ID do objeto (GUID).
 
-    1. Executar o seguinte comando Azure PowerShell ou Azure CLI selecione **Experimente-o** e, em seguida, cole o script no painel de conchas. Para colar o script, clique com o botão direito da casca e, em seguida, **selecione Pasta** .
+    1. Executar o seguinte comando Azure PowerShell ou Azure CLI selecione **Experimente-o** e, em seguida, cole o script no painel de conchas. Para colar o script, clique com o botão direito da casca e, em seguida, **selecione Pasta**.
 
         # <a name="cli"></a>[CLI](#tab/CLI)
         ```azurecli-interactive
@@ -95,7 +95,7 @@ Para completar este artigo:
     },
     "keySize": {
       "type": "int",
-      "defaultValue": -1,
+      "defaultValue": 2048,
       "metadata": {
         "description": "The size in bits of the key to be created."
       }
@@ -143,7 +143,7 @@ Para completar este artigo:
       "properties": {
         "kty": "[parameters('keyType')]",
         "keyOps": "[parameters('keyOps')]",
-        "keySize": "[if(equals(parameters('keySize'), -1), json('null'), parameters('keySize'))]",
+        "keySize": "[parameters('keySize')]",
         "curveName": "[parameters('curveName')]"
       }
     }

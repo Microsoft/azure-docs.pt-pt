@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.openlocfilehash: 926b79e672c14249ec7c2b053dba7eb3a31443a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 455c7d66748740ae6e2cc11c6a44bbf30c1cbced
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536053"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018842"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de autoria de recursos Azure
 
@@ -40,7 +40,7 @@ A migração tem de ser feita a partir do portal LUIS. Se criar as teclas de aut
 * Os proprietários são solicitados a enviar e-mails aos colaboradores para informá-los da migração.
 * As candidaturas não migrarão consigo se for colaborador na aplicação.
 * Não há como um proprietário saber que os colaboradores migraram.
-* A migração não recolhe automaticamente colaboradores e move-os ou adiciona-os ao recurso de autoria Azure. O dono da aplicação é quem precisa de completar este passo após a migração. Este passo requer [permissões ao recurso de autoria Azure](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate).
+* A migração não recolhe automaticamente colaboradores e move-os ou adiciona-os ao recurso de autoria Azure. O dono da aplicação é quem precisa de completar este passo após a migração. Este passo requer [permissões ao recurso de autoria Azure](./luis-how-to-collaborate.md).
 * Depois de os colaboradores serem atribuídos ao recurso Azure, precisam de migrar para aceder às aplicações. Caso contrário, não terão acesso aos autores das aplicações.
 * Um utilizador migrado não pode ser adicionado como colaborador da aplicação.
 * Se possuir chaves de previsão que são atribuídas a aplicações pertencentes a outro utilizador, isso bloqueará a migração tanto para o proprietário como para os colaboradores. Veja as recomendações mais tarde neste artigo.
@@ -59,7 +59,7 @@ A migração tem de ser feita a partir do portal LUIS. Se criar as teclas de aut
 |Portal|Objetivo|
 |--|--|
 |[Azure](https://azure.microsoft.com/free/cognitive-services)| Criar recursos de previsão e autoria.<br> Atribuir contribuintes em recursos.|
-|[LUIS](https://www.luis.ai)| Migrar para novos recursos de autoria.<br> Criar novos recursos de autoria no fluxo migratório.<br> Atribuir ou atribuir recursos de previsão e autoria de recursos para apps a partir da página **de**recursos Manage  >  **Azure.** <br> Mover aplicações de um recurso de autoria para outro.  |
+|[LUIS](https://www.luis.ai)| Migrar para novos recursos de autoria.<br> Criar novos recursos de autoria no fluxo migratório.<br> Atribuir ou atribuir recursos de previsão e autoria de recursos para apps a partir da página **de** recursos Manage  >  **Azure.** <br> Mover aplicações de um recurso de autoria para outro.  |
 
 > [!Note]
 > A autoria da sua aplicação LUIS é gratuita, conforme indicado no nível F0. Saiba [mais sobre os níveis de preços.](luis-limits.md#key-limits)
@@ -174,7 +174,7 @@ Se pretende editar as suas aplicações programáticamente, precisará dos valor
 
 Saiba [como adicionar colaboradores](luis-how-to-collaborate.md) no seu recurso de autoria. Os contribuintes terão acesso a todas as aplicações ao abrigo desse recurso.
 
-Pode adicionar colaboradores ao recurso de autoria do portal Azure, na página **Access Control (IAM)** para esse recurso. Para mais informações, consulte [adicionar o acesso ao contribuinte.](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource)
+Pode adicionar colaboradores ao recurso de autoria do portal Azure, na página **Access Control (IAM)** para esse recurso. Para obter mais informações, consulte [Adicionar colaboradores à sua aplicação.](luis-how-to-collaborate.md)
 
 > [!Note]
 > Se o proprietário da app LUIS migrar e adicionar o colaborador como colaborador no recurso Azure, o colaborador ainda não terá acesso à app a menos que também migrar.
@@ -217,7 +217,7 @@ Se estiver a colaborar em aplicações e tiver atribuído uma chave de previsão
 * Desatribua os recursos de previsão da página de recursos **do Manage**  >  **Azure.**
 * Submeter-se ao processo de migração.
 * Importar pedidos de volta após a migração.
-* Reatribuir chaves de previsão para as suas aplicações a partir da página **de**recursos Manage  >  **Azure.**
+* Reatribuir chaves de previsão para as suas aplicações a partir da página **de** recursos Manage  >  **Azure.**
 
 > [!Note]
 > Quando importar as suas aplicações depois de migrar, terão diferentes IDs de aplicações. Também serão diferentes dos que estão a ser atingidos na produção. Será agora o proprietário destas aplicações.
@@ -229,7 +229,7 @@ Quando tenta migrar, mas não consegue encontrar a sua subscrição do Azure na 
 * Certifique-se de que está no inquilino adequado associado à sua subscrição válida. Pode trocar os inquilinos do avatar para a esquerda das suas iniciais nesta barra de ferramentas: ![ Toolbar onde pode trocar de inquilinos](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 Se tiver um recurso de autoria existente, mas não o encontrar quando selecionar a opção Utilizar o **recurso de autoria existente:**
-* O seu recurso foi provavelmente criado num local diferente do portal onde está inscrito. Consulte as [regiões e portais de autoria DO LUIS.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions)
+* O seu recurso foi provavelmente criado num local diferente do portal onde está inscrito. Consulte as [regiões e portais de autoria DO LUIS.](./luis-reference-regions.md#luis-authoring-regions)
 * Criar um novo recurso a partir do portal LUIS.
 
 Se selecionar a opção **Criar Novo Recurso de Autoria** e a migração falhar com a mensagem de erro "Falha na recuperação das informações Azure do utilizador, volte a tentar mais tarde":
@@ -243,7 +243,7 @@ Se vir o seguinte erro, verifique os [passos recomendados se é colaborador numa
 ![Erro que mostra que a migração falhou para os colaboradores](./media/migrate-authoring-key/migration-failed-for-collab-2.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja [conceitos sobre a autoria e as teclas de tempo de execução.](luis-how-to-azure-subscription.md)
 * Reveja como [atribuir chaves](luis-how-to-azure-subscription.md) e [adicionar contribuintes](luis-how-to-collaborate.md).

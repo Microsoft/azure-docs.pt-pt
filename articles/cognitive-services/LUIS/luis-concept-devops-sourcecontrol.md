@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: e49b713aca23c0373fa71d772ef7567372abe456
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 9e322ac89d8ecad93c2002aa302c155f895911f4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990572"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019199"
 ---
 # <a name="devops-practices-for-luis"></a>Práticas de DevOps para LUIS
 
@@ -18,7 +18,7 @@ Os engenheiros de software que estão a desenvolver uma aplicação de Compreens
 
 ## <a name="source-control-and-branch-strategies-for-luis"></a>Estratégias de controlo de fontes e de sucursais para o LUIS
 
-Um dos factores-chave de que o sucesso dos DevOps depende é do [controlo de fontes.](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops) Um sistema de controlo de fontes permite que os desenvolvedores colaborem no código e rastreiem as alterações. O uso de sucursais permite que os desenvolvedores alterem entre diferentes versões da base de código, e trabalhem independentemente de outros membros da equipa. Quando os desenvolvedores levantam um pedido de [puxar](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) para propor atualizações de um ramo para outro, ou quando as alterações são fundidas, estas podem ser o gatilho para [construções automatizadas](luis-concept-devops-automation.md) para construir e testar continuamente código.
+Um dos factores-chave de que o sucesso dos DevOps depende é do [controlo de fontes.](/azure/devops/user-guide/source-control?view=azure-devops) Um sistema de controlo de fontes permite que os desenvolvedores colaborem no código e rastreiem as alterações. O uso de sucursais permite que os desenvolvedores alterem entre diferentes versões da base de código, e trabalhem independentemente de outros membros da equipa. Quando os desenvolvedores levantam um pedido de [puxar](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) para propor atualizações de um ramo para outro, ou quando as alterações são fundidas, estas podem ser o gatilho para [construções automatizadas](luis-concept-devops-automation.md) para construir e testar continuamente código.
 
 Ao utilizar os conceitos e orientações descritos neste documento, pode desenvolver uma aplicação LUIS enquanto rastreia alterações num sistema de controlo de fontes e siga estas melhores práticas de engenharia de software:
 
@@ -42,13 +42,13 @@ Ao utilizar os conceitos e orientações descritos neste documento, pode desenvo
 
 ## <a name="source-control"></a>Controlo de código fonte
 
-Para manter a [definição](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) de esquema de aplicação de uma aplicação LUIS num sistema de gestão de código fonte, utilize o [formato LUDown ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  representação da aplicação. `.lu` o formato é preferido para `.json` o formato porque é legível pelo homem, o que facilita a revisão e a revisão de alterações nos PRs.
+Para manter a [definição](./app-schema-definition.md) de esquema de aplicação de uma aplicação LUIS num sistema de gestão de código fonte, utilize o [formato LUDown ( `.lu` )](/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  representação da aplicação. `.lu` o formato é preferido para `.json` o formato porque é legível pelo homem, o que facilita a revisão e a revisão de alterações nos PRs.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Guarde uma aplicação LUIS utilizando o formato LUDown
 
 Para guardar uma aplicação LUIS em `.lu` formato e colocá-la sob controlo de origem:
 
-- TAMBÉM: [Exporte a versão](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#other-actions) da aplicação a partir do portal `.lu` [LUIS](https://www.luis.ai/) e adicione-a ao seu repositório de controlo de origem
+- TAMBÉM: [Exporte a versão](./luis-how-to-manage-versions.md#other-actions) da aplicação a partir do portal `.lu` [LUIS](https://www.luis.ai/) e adicione-a ao seu repositório de controlo de origem
 
 - OR: Use um editor de texto para criar um `.lu` ficheiro para uma aplicação LUIS e adicione-o ao seu repositório de controlo de origem
 
@@ -58,9 +58,9 @@ Para guardar uma aplicação LUIS em `.lu` formato e colocá-la sob controlo de 
 
 ### <a name="build-the-luis-app-from-source"></a>Construa a app LUIS a partir de fonte
 
-Para uma aplicação LUIS, construir a partir de meios *de origem* para [criar uma nova versão da app LUIS importando a `.lu` fonte,](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) [para treinar a versão](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [publicá-la.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) Pode fazê-lo no portal LUIS, ou na linha de comando:
+Para uma aplicação LUIS, construir a partir de meios *de origem* para [criar uma nova versão da app LUIS importando a `.lu` fonte,](./luis-how-to-manage-versions.md#import-version) [para treinar a versão](./luis-how-to-train.md) e [publicá-la.](./luis-how-to-publish-app.md) Pode fazê-lo no portal LUIS, ou na linha de comando:
 
-- Utilize o portal LUIS para [importar a `.lu` versão](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions#import-version) da app do controlo de origem e [treine](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [publique](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-publish-app) a app.
+- Utilize o portal LUIS para [importar a `.lu` versão](./luis-how-to-manage-versions.md#import-version) da app do controlo de origem e [treine](./luis-how-to-train.md) e [publique](./luis-how-to-publish-app.md) a app.
 
 - Utilize a [Interface de Linha de Comando-Quadro bot para LUIS](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) na linha de comando ou num fluxo de trabalho CI/CD para [importar](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisversionimport) a versão da app do controlo `.lu` de origem para uma aplicação LUIS, e [treinar](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luistrainrun) e [publicar](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) a app.
 
@@ -72,7 +72,7 @@ Os seguintes tipos de ficheiros para a sua aplicação LUIS devem ser mantidos s
 
 - [Ficheiros de definição de teste de unidade](luis-concept-devops-testing.md#writing-tests) (expressões e resultados esperados)
 
-- [Ficheiros de teste de lote](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-batch-test#batch-file-format) (expressões e resultados esperados) utilizados para testes de desempenho
+- [Ficheiros de teste de lote](./luis-concept-batch-test.md#batch-file-format) (expressões e resultados esperados) utilizados para testes de desempenho
 
 ### <a name="credentials-and-keys-are-not-checked-in"></a>Credenciais e chaves não são verificados
 
@@ -81,7 +81,7 @@ Não inclua chaves de subscrição ou valores confidenciais semelhantes em fiche
 - Chaves de autoria e previsão da LUIS
 - Pontos finais de autoria e previsão da LUIS
 - Chaves de assinatura Azure
-- Fichas de acesso, como o símbolo de um [diretor de serviço](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) Azure usado para autenticação automação
+- Fichas de acesso, como o símbolo de um [diretor de serviço](/cli/azure/ad/sp?view=azure-cli-latest) Azure usado para autenticação automação
 
 #### <a name="strategies-for-securely-managing-secrets"></a>Estratégias para gerir segredos de forma segura
 
@@ -92,7 +92,7 @@ As estratégias para gerir segredos de forma segura incluem:
 
 ## <a name="branching-and-merging"></a>Ramificação e fusão
 
-Sistemas de controlo de versão distribuídos como o Git dão flexibilidade na forma como os membros da equipa publicam, partilham, revejam e iteram sobre as alterações de código através de agências de desenvolvimento partilhadas com outras. Adote uma [estratégia de ramificação de Git](https://docs.microsoft.com/azure/devops/repos/git/git-branching-guidance) que seja apropriada para a sua equipa.
+Sistemas de controlo de versão distribuídos como o Git dão flexibilidade na forma como os membros da equipa publicam, partilham, revejam e iteram sobre as alterações de código através de agências de desenvolvimento partilhadas com outras. Adote uma [estratégia de ramificação de Git](/azure/devops/repos/git/git-branching-guidance) que seja apropriada para a sua equipa.
 
 Qualquer que seja a estratégia de ramificação que adote, um princípio fundamental de todos eles é que os membros da equipa podem trabalhar na solução dentro de um ramo de *recurso* independentemente do trabalho que está a decorrer noutros ramos.
 
@@ -110,7 +110,7 @@ Os desenvolvedores podem trabalhar em atualizações numa aplicação LUIS indep
 
 1. Criar um ramo de recurso a partir do ramo principal (dependendo da estratégia do seu ramo, geralmente dominar ou desenvolver).
 
-1. [Criar uma nova aplicação LUIS no portal LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-start-new-app) (a " app *dev branch*") apenas para apoiar o trabalho no ramo de funcionalidades.
+1. [Criar uma nova aplicação LUIS no portal LUIS](./luis-how-to-start-new-app.md) (a " app *dev branch*") apenas para apoiar o trabalho no ramo de funcionalidades.
 
    * Se a fonte para a `.lu` sua solução já existe no seu ramo, porque foi guardada após o trabalho feito noutra sucursal no início do projeto, crie a sua app dev branch LUIS importando o `.lu` ficheiro.
 
@@ -120,11 +120,11 @@ Os desenvolvedores podem trabalhar em atualizações numa aplicação LUIS indep
 
 1. Teste as atualizações - consulte [testes para LUIS DevOps](luis-concept-devops-testing.md) para obter detalhes sobre o teste da sua aplicação de filial dev.
 
-1. Exporte a versão ativa da sua aplicação de dev `.lu` a partir da lista de [versões.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions)
+1. Exporte a versão ativa da sua aplicação de dev `.lu` a partir da lista de [versões.](./luis-how-to-manage-versions.md)
 
 1. Faça o check-in das suas atualizações e convide a revisão dos seus comentários. Se estiver a usar o GitHub, vai levantar um [pedido de retirada.](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
 
-1. Quando as alterações forem aprovadas, misture as atualizações no ramo principal. Neste momento, irá criar uma nova [versão](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions) da app *master* LUIS, utilizando a atualizada `.lu` em master. Consulte [a versão](#versioning) para obter considerações sobre a definição do nome da versão.
+1. Quando as alterações forem aprovadas, misture as atualizações no ramo principal. Neste momento, irá criar uma nova [versão](./luis-how-to-manage-versions.md) da app *master* LUIS, utilizando a atualizada `.lu` em master. Consulte [a versão](#versioning) para obter considerações sobre a definição do nome da versão.
 
 1. Quando o ramo de funcionalidades é eliminado, é uma boa ideia apagar a aplicação de dev branch LUIS que criou para o trabalho da filial de funcionalidades.
 
@@ -144,9 +144,9 @@ Pode suportar vários desenvolvedores que trabalham no mesmo ramo de funcionalid
 
 - Se seguir o padrão acima descrito nos [Desenvolvedores pode funcionar a partir de ramos independentes,](#developers-can-work-from-independent-branches)então este ramo usará uma aplicação LUIS única para apoiar o desenvolvimento. Esta aplicação 'dev branch' LUIS será criada pelo primeiro membro da equipa de desenvolvimento que começa a trabalhar no ramo de funcionalidades.
 
-- [Adicione os membros da equipa como contribuintes](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate) para a app dev branch LUIS.
+- [Adicione os membros da equipa como contribuintes](./luis-how-to-collaborate.md) para a app dev branch LUIS.
 
-- Quando o trabalho da sucursal estiver concluído, exporte a versão ativa da aplicação DEV branch LUIS `.lu` a partir da lista de [versões](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions), guarde o ficheiro atualizado `.lu` no repo, e faça o check-in e PR as alterações.
+- Quando o trabalho da sucursal estiver concluído, exporte a versão ativa da aplicação DEV branch LUIS `.lu` a partir da lista de [versões](./luis-how-to-manage-versions.md), guarde o ficheiro atualizado `.lu` no repo, e faça o check-in e PR as alterações.
 
 ### <a name="incorporating-changes-from-one-branch-to-another-with-rebase-or-merge"></a>Incorporação de alterações de um ramo para outro com rebase ou fusão
 
@@ -183,7 +183,7 @@ Uma aplicação LUIS em formato LUDown é legível para o homem, que suporta a c
 
 ## <a name="versioning"></a>Controlo de versões
 
-Uma aplicação consiste em vários componentes que podem incluir coisas como um bot em execução no [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker,](https://www.qnamaker.ai/) [Azure Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview), e muito mais. Para atingir o objetivo de aplicações pouco acopladas, utilize o controlo de [versão](https://docs.microsoft.com/azure/devops/learn/git/what-is-version-control) para que cada componente de uma aplicação seja versão independente, permitindo que os desenvolvedores detetem alterações ou atualizações de rutura apenas olhando para o número da versão. É mais fácil ver a sua app LUIS independentemente de outros componentes se a mantiver no seu próprio repo.
+Uma aplicação consiste em vários componentes que podem incluir coisas como um bot em execução no [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker,](https://www.qnamaker.ai/) [Azure Speech service](../speech-service/overview.md), e muito mais. Para atingir o objetivo de aplicações pouco acopladas, utilize o controlo de [versão](/azure/devops/learn/git/what-is-version-control) para que cada componente de uma aplicação seja versão independente, permitindo que os desenvolvedores detetem alterações ou atualizações de rutura apenas olhando para o número da versão. É mais fácil ver a sua app LUIS independentemente de outros componentes se a mantiver no seu próprio repo.
 
 A aplicação LUIS para o ramo principal deve ter um esquema de versão aplicada. Quando fundir atualizações para `.lu` uma app LUIS em master, irá então importar essa fonte atualizada para uma nova versão na app LUIS para o ramo principal.
 
@@ -195,7 +195,7 @@ Cada atualização o número da versão é incrementado no último dígito.
 
 A versão principal/menor pode ser usada para indicar o âmbito das alterações à funcionalidade da aplicação LUIS:
 
-* Versão Principal: Uma mudança significativa, como o suporte para uma nova [Intenção](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-intent) ou [Entidade](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-entity-types)
+* Versão Principal: Uma mudança significativa, como o suporte para uma nova [Intenção](./luis-concept-intent.md) ou [Entidade](./luis-concept-entity-types.md)
 * Versão menor: Uma pequena alteração compatível com retro-compatível, como após uma nova formação significativa
 * Construir: Nenhuma alteração de funcionalidade, apenas uma construção diferente.
 

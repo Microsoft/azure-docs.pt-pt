@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 639f2ef12d190a56e04a9b48d96ea0a6537d243c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568641"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020117"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Gen1 Explorer
 
@@ -45,8 +45,8 @@ O Azure Time Series Insights é um serviço de análise, armazenamento e visuali
 Antes de poder utilizar o Azure Time Series Insights Explorer, tem de:
 
 - Crie um ambiente Azure Time Series Insights. Para mais informações, leia [Como começar com a Azure Time Series Insights](./time-series-insights-get-started.md).
-- [Fornecer acesso](time-series-insights-data-access.md) à sua conta no ambiente.
-- Adicione-lhe um [hub IoT](time-series-insights-how-to-add-an-event-source-iothub.md) [ou](time-series-insights-how-to-add-an-event-source-eventhub.md) uma fonte de eventos hub.
+- [Fornecer acesso](./concepts-access-policies.md) à sua conta no ambiente.
+- Adicione-lhe um [hub IoT](./how-to-ingest-data-iot-hub.md) [ou](./how-to-ingest-data-event-hub.md) uma fonte de eventos hub.
 
 ## <a name="explore-and-query-data"></a>Explorar e consultar dados
 
@@ -65,7 +65,7 @@ A poucos minutos de ligar a fonte do evento ao ambiente Azure Time Series Insigh
 1. Em seguida, é apresentado um gráfico que mostra uma contagem de todos os eventos durante o período de tempo selecionado. Aqui tem uma série de controlos:
 
     - **Termos Painel editor**: O termo espaço é onde você consulta o seu ambiente. Encontra-se no lado esquerdo do ecrã:
-      - **MEDIDA**: Esta lista de down-down mostra todas as colunas**numéricas (Duplos**).
+      - **MEDIDA**: Esta lista de down-down mostra todas as colunas **numéricas (Duplos**).
       - **SPLIT BY**: Esta lista de drop-down mostra colunas categóricas **(Strings**).
       - Pode ativar a interpolação de passos, mostrar o mínimo e máximo, e ajustar o eixo y do painel de controlo ao lado **do MEASURE**. Também pode ajustar se os dados apresentados são uma contagem, média ou soma dos dados.
       - Pode adicionar até cinco termos para ver no mesmo eixo x. **Selecione Adicionar** para adicionar um novo termo ou usar o botão **Clone deste termo** para adicionar uma cópia de um termo existente.
@@ -126,7 +126,7 @@ A poucos minutos de ligar a fonte do evento ao ambiente Azure Time Series Insigh
 
 Agora que aprendeu sobre as principais funcionalidades, configurações e opções de exibição que estão disponíveis na aplicação web do explorador Azure Time Series Insights.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda a [diagnosticar e a resolver problemas](time-series-insights-diagnose-and-solve-problems.md) no seu ambiente Azure Time Series Insights.
 
