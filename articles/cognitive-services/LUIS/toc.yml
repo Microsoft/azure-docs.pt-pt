@@ -273,9 +273,9 @@
         - name: Esquema da aplicação
           href: app-schema-definition.md
         - name: CLI do Azure
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
+          href: /cli/azure/cognitiveservices#az_cognitiveservices_list
         - name: Azure RM PowerShell
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
+          href: /powershell/module/azurerm.cognitiveservices/#cognitive_services
         - name: APIs REST
           items:
             - name: APIs REST de Criação V3 (Pré-visualização)
@@ -298,7 +298,7 @@
                 - name: NuGet - tempo de execução
                   href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/'
                 - name: Referência
-                  href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet'
+                  href: /dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet
                 - name: Amostras
                   href: 'https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS'
             - name: Ir
@@ -316,7 +316,7 @@
                 - name: Maven - tempo de execução
                   href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime'
                 - name: Referência
-                  href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable'
+                  href: /java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable
                 - name: Amostras
                   href: 'https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding'
             - name: Node.js
@@ -332,7 +332,7 @@
                 - name: SDK de Pip
                   href: 'https://pypi.org/project/azure-cognitiveservices-language-luis/'
                 - name: Referência
-                  href: 'https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python'
+                  href: /python/api/azure-cognitiveservices-language-luis/index?view=azure-python
                 - name: Amostras
                   href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis'
     - name: Privacidade do utilizador
@@ -430,7 +430,7 @@
       maintainContext: true
       href: ../cognitive-services-virtual-networks.md
     - name: Pesquisa
-      href: 'https://docs.microsoft.com/search/index?search=LUIS'
+      href: /search/index?search=LUIS
     - name: Blogue
       href: 'https://blog.botframework.com/category/luis/'
 - name: Portal do LUIS
