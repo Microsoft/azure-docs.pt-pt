@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a80fe998c1ab241e35bee195b927846e264dec59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07f0e66888eaa909dfce14924e9186bcb9b876b4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972356"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014497"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutorial: Criar uma aplicação de monitorização da qualidade da água no Azure IoT Central
 
@@ -56,7 +56,7 @@ Nesta secção, utilize o modelo de **monitorização** da qualidade da água ce
 
     * **Nome da aplicação**: Por padrão, o nome da aplicação é **monitorização da qualidade da água** seguida de uma cadeia de ID única que a Azure IoT Central gera. Se quiser, pode introduzir um nome de exibição ou alterar o nome da aplicação mais tarde.
     * **URL**: Pode introduzir qualquer URL que desejar ou alterar o valor URL mais tarde.
-    * Se tiver uma subscrição Azure, insira valores para **Diretório,** **subscrição Azure**e **Região**. Se não tiver uma subscrição, pode ligar o **teste gratuito de 7 dias** e completar as informações de contacto necessárias.
+    * Se tiver uma subscrição Azure, insira valores para **Diretório,** **subscrição Azure** e **Região**. Se não tiver uma subscrição, pode ligar o **teste gratuito de 7 dias** e completar as informações de contacto necessárias.
 
     Para obter mais informações sobre diretórios e subscrições, consulte o Criar um quickstart de [aplicação.](../core/quick-deploy-iot-central.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
@@ -92,7 +92,7 @@ Todos os dados apresentados no painel de instrumentos baseiam-se em dados simula
 
 O painel inclui os seguintes tipos de azulejos:
 
-* **Azulejo**de imagem de utilidade de água em Mundo Largo : O primeiro azulejo no canto superior esquerdo do tablier é uma imagem que mostra o utilitário fictício chamado Wide World. Pode personalizar o azulejo para usar a sua própria imagem, ou pode remover o azulejo.
+* **Azulejo** de imagem de utilidade de água em Mundo Largo : O primeiro azulejo no canto superior esquerdo do tablier é uma imagem que mostra o utilitário fictício chamado Wide World. Pode personalizar o azulejo para usar a sua própria imagem, ou pode remover o azulejo.
 
 * **Azulejos PH KPI médios**: Azulejos KPI como **o pH médio nos últimos 30 minutos** estão na parte superior do painel de instrumentos. Pode personalizar azulejos KPI e definir cada um para um tipo e intervalo de tempo diferentes.
 
@@ -188,7 +188,7 @@ No **separador Dispositivos,** selecione **+ Novo** para adicionar um novo dispo
 
 ## <a name="explore-and-configure-rules"></a>Explorar e configurar regras
 
-No Azure IoT Central, pode criar regras que monitorizem automaticamente a telemetria do dispositivo. Estas regras desencadeiam uma ação quando qualquer uma das suas condições está reunida. Uma das medidas possíveis é enviar notificações por e-mail. Outras possibilidades incluem uma ação do Microsoft Flow ou uma ação webhook para enviar dados para outros serviços.
+No Azure IoT Central, pode criar regras que monitorizem automaticamente a telemetria do dispositivo. Estas regras desencadeiam uma ação quando qualquer uma das suas condições está reunida. Uma das medidas possíveis é enviar notificações por e-mail. Outras possibilidades incluem uma ação Power Automamate ou uma ação webhook para enviar dados para outros serviços.
 
 A aplicação de monitorização da qualidade da água que criou tem duas regras pré-configuradas.
 
@@ -241,11 +241,11 @@ Como construtor, pode alterar várias definições para personalizar a experiên
 
 ### <a name="update-the-application-image"></a>Atualizar a imagem da aplicação
 
-1. Selecione **Administration**  >  **as definições de Aplicação de**Administração .
+1. Selecione **Administration**  >  **as definições de Aplicação de** Administração .
 
 1. Utilize o botão **de imagem Select** para escolher uma imagem para carregar como imagem de aplicação.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não continuar a utilizar a sua aplicação, elimine a aplicação com os seguintes passos:
 
@@ -254,7 +254,7 @@ Se não continuar a utilizar a sua aplicação, elimine a aplicação com os seg
 
     ![Elimine a sua aplicação](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Mais informações sobre 
 

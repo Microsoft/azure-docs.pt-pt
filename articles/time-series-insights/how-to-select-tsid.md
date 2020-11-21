@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb409673e028375812551ec146b43c27e3755d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595537"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016756"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Melhores práticas para escolher um ID da Série Temporal
 
@@ -32,11 +32,11 @@ A seleção de um ID de série de tempo apropriado é fundamental. Escolher um I
 > * Uma propriedade *imutável:* uma vez criada não pode ser alterada.
 
 > [!TIP]
-> Se a sua fonte de evento for um hub IoT, o seu ID da Série De Tempo será provavelmente ***iothub-connection-device-id***.
+> Se a sua fonte de evento for um hub IoT, o seu ID da Série De Tempo será provavelmente ***iothub-connection-device-id** _.
 
 As melhores práticas a seguir incluem:
 
-* Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, este pode ser o ID do dispositivo, iD do sensor ou identificação de etiqueta no seu JSON.
+_ Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, este pode ser o ID do dispositivo, iD do sensor ou identificação de etiqueta no seu JSON.
 * O ID da Série De Tempo deve ser único ao nível do nó de folha do seu [modelo de séries de tempo.](./concepts-model-overview.md)
 * O limite de caracteres para a cadeia de nomes de propriedade da Série DeTemporal é 128. Para o valor da propriedade do Time Series ID, o limite de caracteres é de 1.024.
 * Se faltar um valor único de propriedade para o ID da Série De Tempo, é tratado como um valor nulo e segue a mesma regra da restrição de singularidade.
@@ -59,9 +59,9 @@ Os seguintes cenários descrevem a seleção de mais de uma propriedade chave co
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>Exemplo 2: ID da Série de Tempo com uma chave composta
 
 * Você precisa que várias propriedades sejam únicas dentro da mesma frota de ativos.
-* És um fabricante de edifícios inteligentes e sensores em todas as salas. Em cada quarto, normalmente tem os mesmos valores para **sensorId**. Exemplos são **sensores1,** **sensor2**e **sensores3**.
+* És um fabricante de edifícios inteligentes e sensores em todas as salas. Em cada quarto, normalmente tem os mesmos valores para **sensorId**. Exemplos são **sensores1,** **sensor2** e **sensores3**.
 * O seu edifício tem números de piso e quarto sobrepostos em locais da propriedade **flrRm**. Estes números têm valores como **1a,** **2b,** e **3a.**
-* Você tem uma propriedade, **localização,** que contém valores como **Redmond,** **Barcelona,** e **Tóquio.** Para criar a singularidade, designa as seguintes três propriedades como as suas teclas de ID da Série De Tempo: **sensorId,** **flrRm**e **localização**.
+* Você tem uma propriedade, **localização,** que contém valores como **Redmond,** **Barcelona,** e **Tóquio.** Para criar a singularidade, designa as seguintes três propriedades como as suas teclas de ID da Série De Tempo: **sensorId,** **flrRm** e **localização**.
 
 Exemplo de evento cru:
 
@@ -82,8 +82,8 @@ No portal Azure, pode então introduzir a tecla composta da seguinte forma:
   > No portal Azure, não introduza nomes separados de vírgula de propriedades numa caixa de texbox, caso contrário, será tratado como um único nome de propriedade que contém vírgulas.
   > Insira cada nome de propriedade na sua própria caixa de texbox.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Leia o [JSON achatando e escapando às regras](./concepts-json-flattening-escaping-rules.md) para entender como os eventos serão armazenados.
 
-* Planeie o seu [ambiente Azure Time Series Insights Gen2](./time-series-insights-update-plan.md).
+* Planeie o seu [ambiente Azure Time Series Insights Gen2](./how-to-plan-your-environment.md).

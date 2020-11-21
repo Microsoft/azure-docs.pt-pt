@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 4b4a1e601a5a0dbf5e56fc1d930e14150f27fee3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: a441d1d22f938e1d1e05aea547929fa3b315d406
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398237"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012903"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Treine um modelo usando uma imagem personalizada do Docker
 
@@ -138,7 +138,7 @@ print(compute_target.get_status().serialize())
 
 ## <a name="configure-your-training-job"></a>Configure o seu trabalho de formação
 
-Para este tutorial, use o script de treino *train.py* no [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/train/fastai/pets-resnet34/train.py). Na prática, você pode pegar qualquer script de treino personalizado e executá-lo, como está, com Azure Machine Learning.
+Para este tutorial, use o script de treino *train.py* no [GitHub](https://github.com/Azure/azureml-examples/blob/main/workflows/train/fastai/pets/src/train.py). Na prática, você pode pegar qualquer script de treino personalizado e executá-lo, como está, com Azure Machine Learning.
 
 Crie um `ScriptRunConfig` recurso para configurar o seu trabalho para executar o [alvo de computação](how-to-set-up-training-targets.md)pretendido .
 
@@ -165,7 +165,7 @@ run.wait_for_completion(show_output=True)
 > [!WARNING]
 > A Azure Machine Learning executa scripts de formação copiando todo o diretório de origem. Se tiver dados sensíveis que não pretende fazer o upload, utilize um [ficheiro .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem. Em vez disso, aceda aos seus dados utilizando uma [loja de dados.](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, treinaste um modelo usando uma imagem personalizada do Docker. Veja estes outros artigos para saber mais sobre Azure Machine Learning:
 * [Métricas de corrida de pista](how-to-track-experiments.md) durante o treino.
 * [Implemente um modelo](how-to-deploy-custom-docker-image.md) utilizando uma imagem personalizada do Docker.

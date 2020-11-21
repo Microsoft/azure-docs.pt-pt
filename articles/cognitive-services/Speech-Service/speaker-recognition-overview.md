@@ -12,12 +12,12 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento de colunas, biometria de voz
-ms.openlocfilehash: 5001ac166b37f3a3852bc14261a5b5d199d778cd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d07a9960c8a586fa137b4b717afbf91740c265d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844577"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015329"
 ---
 # <a name="what-is-speaker-recognition-preview"></a>O que é o Reconhecimento de Oradores (Pré-visualização)?
 
@@ -70,10 +70,10 @@ Tal como acontece com todos os recursos dos Serviços Cognitivos, os desenvolved
 | Que formatos de áudio são suportados? | Mono 16 bit, 16kHz PCM-codificado WAV |
 | **Aceitar** e **Rejeitar** respostas não são precisas, como é que se afina o limiar? | Uma vez que o limiar ideal varia muito com cenários, a API decide se aceita ou "Rejeitar" simplesmente com base num limiar padrão de 0,5. Os utilizadores avançados são aconselhados a anular a decisão por defeito e a afinar o resultado com base no seu próprio cenário. |
 | Pode inscrever um orador várias vezes? | Sim, para verificação dependente de texto, pode inscrever um altifalante até 50 vezes. Para verificação independente de texto ou identificação de altifalantes, pode inscrever-se com até 300 segundos de áudio. |
-| Que dados são armazenados em Azure? | O áudio de inscrição é armazenado no serviço até que o perfil de voz seja [eliminado](speaker-recognition-basics.md#deleting-voice-profile-enrollments). As amostras de áudio de reconhecimento não são retidas ou armazenadas. |
+| Que dados são armazenados em Azure? | O áudio de inscrição é armazenado no serviço até que o perfil de voz seja [eliminado](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments). As amostras de áudio de reconhecimento não são retidas ou armazenadas. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> * Preencha o artigo básico de reconhecimento de [altifalantes](speaker-recognition-basics.md) para um ensaio de padrões de design comuns que pode usar nas suas aplicações.
+> * Preencha o artigo básico de reconhecimento de [altifalantes](./get-started-speaker-recognition.md) para um ensaio de padrões de design comuns que pode usar nas suas aplicações.
 > * Consulte o tutorial de [vídeo](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) para verificar o orador independente de texto.

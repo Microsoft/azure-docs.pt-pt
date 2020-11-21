@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: d6b1085d51d7345b233087986127cbc97c0597e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb03721baa80e77a5fd387600a272e6b1cfc7d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362066"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013643"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar da API do Discurso do Tradutor para o serviço de Discurso
 
@@ -37,9 +37,9 @@ Utilize este artigo para migrar as suas aplicações da API do Discurso do Tradu
 | Várias línguas traduzidas num único pedido | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | SDKs disponíveis                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Consulte a [documentação](index.yml) do serviço de discurso para os SDKs disponíveis.                                                                                                                                                    |
 | Ligações WebSockets                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Idiomas API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | O serviço Discurso suporta a mesma gama de línguas descritas no artigo de [referência de línguas tradutoras.](../translator-speech/languages-reference.md) |
+| Idiomas API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | O serviço Discurso suporta a mesma gama de línguas descritas no artigo de [referência de línguas tradutoras.]() |
 | Filtro e marcador de profanação                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| . WAV/PCM como entrada                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| .WAV/PCM como entrada                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Outros tipos de ficheiros como entrada                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Resultados parciais                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Informação de cronometragem                                       | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                 |
@@ -59,12 +59,12 @@ Se você ou a sua organização tiverem aplicações em desenvolvimento ou produ
 
 * Ao contrário da API de Discurso de Tradutor, o serviço de Fala pode completar traduções em várias línguas num único pedido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Experimente o serviço de fala gratuitamente](overview.md#try-the-speech-service-for-free)
-* [Quickstart: Reconhecer o discurso numa aplicação UWP utilizando o Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Quickstart: Reconhecer o discurso numa aplicação UWP utilizando o Speech SDK](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [O que é o serviço de fala](overview.md)
-* [Serviço de fala e documentação SDK de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [Serviço de fala e documentação SDK de fala](./speech-devices-sdk-quickstart.md?pivots=platform-android)

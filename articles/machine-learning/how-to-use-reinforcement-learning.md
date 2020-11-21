@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: cf4b321425ccaae877c2ff5c9b54f429d95a3515
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b9966d4d9ab0a37f5484ec9eb9b7e2472a6b41dc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312315"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012917"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizagem de reforço (pré-visualização) com Azure Machine Learning
 
@@ -52,7 +52,7 @@ Execute este código em qualquer um dos seguintes ambientes. Recomendamos que ex
     - Instale o [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
     - Instale o [Azure Machine Learning RL SDK:](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py)`pip install --upgrade azureml-contrib-reinforcementlearning`
     - Crie um [ficheiro de configuração do espaço de trabalho.](how-to-configure-environment.md#workspace)
-    - Executar o caderno de [configuração](https://aka.ms/azure-rl-env-setup) de rede virtual para abrir portas de rede utilizadas para a aprendizagem de reforço distribuído.
+    - Executar a rede virtual para abrir portas de rede utilizadas para a aprendizagem de reforço distribuído.
 
 
 ## <a name="how-to-train-a-pong-playing-agent"></a>Como treinar um agente pong-playing
@@ -431,6 +431,6 @@ Se navegar em registos da execução da criança, pode ver os resultados da aval
 
 Em pouco trabalho, aprendeu a configurar múltiplos recursos computacional para formar um agente de aprendizagem de reforço para jogar Pong muito bem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a treinar um agente de aprendizagem de reforço usando um agente de aprendizagem IMPALA. Para ver exemplos adicionais, vá ao [repositório de aprendizagem do GitHub do Azure Machine Learning.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md)

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d1b6e20bf2decfe051e79e073736f71181260fa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628218"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014548"
 ---
 # <a name="spatial-analysis-operations"></a>Operações de análise espacial
 
@@ -39,7 +39,7 @@ Acima das operações estão também disponíveis na `.debug` versão, que têm 
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br> Emite um evento _personLineEvent_ quando a pessoa atravessa a zona e fornece informações direcionais. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Faixas quando as pessoas violam uma regra de distância. <br> Emite uma _pessoaSstevente_ periodicamente com a localização de cada violação à distância. |
 
-A análise espacial também pode ser executada com [o Live Video Analytics](https://aka.ms/lva-spatial-analysis) como o seu módulo de IA de vídeo. 
+A análise espacial também pode ser executada com [o Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) como o seu módulo de IA de vídeo. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
@@ -328,7 +328,7 @@ Prove json para uma saída de evento por esta operação.
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
 | `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | date| Data utc quando a carga de JSON foi emitida|
+| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
 | `width` | int | Largura do quadro de vídeo|
 | `height` | int | Altura do quadro de vídeo|
 | `frameId` | int | Identificador de quadro|
@@ -341,7 +341,7 @@ Prove json para uma saída de evento por esta operação.
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
 | `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | date| Data utc quando a carga de JSON foi emitida|
+| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
 | `width` | int | Largura do quadro de vídeo|
 | `height` | int | Altura do quadro de vídeo|
 | `frameId` | int | Identificador de quadro|
@@ -421,7 +421,7 @@ Amostra JSON para deteção de saída por esta operação.
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
 | `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | date| Data utc quando a carga de JSON foi emitida|
+| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
 | `width` | int | Largura do quadro de vídeo|
 | `height` | int | Altura do quadro de vídeo|
 | `frameId` | int | Identificador de quadro|
@@ -623,7 +623,7 @@ Amostra JSON para deteção de saída por esta operação.
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
 | `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | date| Data utc quando a carga de JSON foi emitida|
+| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
 | `width` | int | Largura do quadro de vídeo|
 | `height` | int | Altura do quadro de vídeo|
 | `frameId` | int | Identificador de quadro|
@@ -638,8 +638,8 @@ Amostra JSON para deteção de saída por esta operação.
 
 Pode querer integrar a deteção de análises espaciais ou eventos na sua aplicação. Aqui estão algumas abordagens a considerar: 
 
-* Utilize o Azure Event Hub SDK para a sua linguagem de programação escolhida para ligar ao ponto final do Azure IoT Hub e receber os eventos. Consulte [as mensagens dispositivo-nuvem do ponto final incorporado](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) para obter mais informações. 
-* Confense o **Encaminhamento de Mensagens** no seu Azure IoT Hub para enviar os eventos para outros pontos finais ou guardar os eventos para o seu armazenamento de dados. Consulte [o Encaminhamento de Mensagens IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) para obter mais informações. 
+* Utilize o Azure Event Hub SDK para a sua linguagem de programação escolhida para ligar ao ponto final do Azure IoT Hub e receber os eventos. Consulte [as mensagens dispositivo-nuvem do ponto final incorporado](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) para obter mais informações. 
+* Confense o **Encaminhamento de Mensagens** no seu Azure IoT Hub para enviar os eventos para outros pontos finais ou guardar os eventos para o seu armazenamento de dados. Consulte [o Encaminhamento de Mensagens IoT Hub](../../iot-hub/iot-hub-devguide-messages-d2c.md) para obter mais informações. 
 * Crie um trabalho Azure Stream Analytics para processar os eventos em tempo real à medida que chegam e criam visualizações. 
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Implantação de operações de análise espacial à escala (múltiplas câmaras)
@@ -729,7 +729,7 @@ Para obter o melhor desempenho e utilização das GPUs, pode implementar quaisqu
 |---------|---------|---------|
 | `batch_size` | int | Indica o número de câmaras que serão usadas na operação. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Implementar uma aplicação web People Counting](spatial-analysis-web-app.md)
 * [Registo e resolução de problemas](spatial-analysis-logging.md)

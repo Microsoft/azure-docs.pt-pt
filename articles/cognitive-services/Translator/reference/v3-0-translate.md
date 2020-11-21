@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 59e064dc2b9d33bda966eb50544c8383b0394dd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f20bab91a4feab056a9f8cd6b012792f036be2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566607"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016552"
 ---
 # <a name="translator-30-translate"></a>Tradutor 3.0: Traduzir
 
@@ -55,7 +55,7 @@ Os parâmetros de pedido passados na cadeia de consulta são:
   <th>Descrição</th>
   <tr>
     <td>De</td>
-    <td><em>Parâmetro opcional.</em><br/>Especifica a linguagem do texto de entrada. Descubra quais línguas estão disponíveis para traduzir a partir da procura de <a href="./v3-0-languages.md">idiomas suportados</a> usando o <code>translation</code> âmbito. Se o <code>from</code> parâmetro não for especificado, a deteção automática da linguagem é aplicada para determinar a língua de origem. <br/><br/>Deve utilizar o <code>from</code> parâmetro em vez de autodetecção quando utilizar a função dinâmica do <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário.</a></td>
+    <td><em>Parâmetro opcional.</em><br/>Especifica a linguagem do texto de entrada. Descubra quais línguas estão disponíveis para traduzir a partir da procura de <a href="./v3-0-languages.md">idiomas suportados</a> usando o <code>translation</code> âmbito. Se o <code>from</code> parâmetro não for especificado, a deteção automática da linguagem é aplicada para determinar a língua de origem. <br/><br/>Deve utilizar o <code>from</code> parâmetro em vez de autodetecção quando utilizar a função dinâmica do <a href="/azure/cognitive-services/translator/dynamic-dictionary">dicionário.</a></td>
   </tr>  
   <tr>
     <td>textoType</td>
@@ -63,7 +63,7 @@ Os parâmetros de pedido passados na cadeia de consulta são:
   </tr>
   <tr>
     <td>categoria</td>
-    <td><em>Parâmetro opcional.</em><br/>Uma cadeia especificando a categoria (domínio) da tradução. Este parâmetro é utilizado para obter traduções de um sistema personalizado construído com <a href="../customization.md">Tradutor Personalizado.</a> Adicione o ID de categoria dos detalhes do seu projeto De <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">Tradutor</a> Personalizado a este parâmetro para utilizar o seu sistema personalizado implantado. O valor predefinido é: <code>general</code> .</td>
+    <td><em>Parâmetro opcional.</em><br/>Uma cadeia especificando a categoria (domínio) da tradução. Este parâmetro é utilizado para obter traduções de um sistema personalizado construído com <a href="../customization.md">Tradutor Personalizado.</a> Adicione o ID de categoria dos detalhes do seu projeto De <a href="/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">Tradutor</a> Personalizado a este parâmetro para utilizar o seu sistema personalizado implantado. O valor predefinido é: <code>general</code> .</td>
   </tr>
   <tr>
     <td>profanidadeAcção</td>
@@ -107,7 +107,7 @@ Os cabeçalhos de pedido incluem:
   <th>Descrição</th>
   <tr>
     <td>Cabeçalho de autenticação</td>
-    <td><em>Cabeçalho de pedido necessário</em>.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a></td>
+    <td><em>Cabeçalho de pedido necessário</em>.<br/>Consulte <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a></td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -234,7 +234,7 @@ Seguem-se os possíveis códigos de estado HTTP que um pedido devolve.
   </tr>
 </table> 
 
-Se ocorrer um erro, o pedido também devolverá uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de estado HTTP de 3 dígitos seguido de um número de 3 dígitos para categorizar ainda mais o erro. Os códigos de erro comuns podem ser encontrados na [página de referência do Tradutor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se ocorrer um erro, o pedido também devolverá uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de estado HTTP de 3 dígitos seguido de um número de 3 dígitos para categorizar ainda mais o erro. Os códigos de erro comuns podem ser encontrados na [página de referência do Tradutor V3](./v3-0-reference.md#errors). 
 
 ## <a name="examples"></a>Exemplos
 

@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 7de78a52482b2f07cb4e5e036509e0f9e402a3f4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: aa85822b433e2d8128df9ae3664411ea3fcddec4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576279"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012931"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para a Azure Machine Learning com Azure CLI
 
@@ -29,6 +29,10 @@ Neste artigo, você aprende a criar um espaço de trabalho Azure Machine Learnin
 * Para utilizar os comandos CLI neste documento a partir do seu **ambiente local,** necessita do [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
     Se utilizar o [Azure Cloud Shell,](https://azure.microsoft.com//features/cloud-shell/)o CLI é acedido através do navegador e vive na nuvem.
+
+## <a name="limitations"></a>Limitações
+
+* Ao criar um novo espaço de trabalho, pode permitir que o espaço de trabalho crie os serviços Azure que necessita automaticamente ou que preste serviços existentes. Ao fornecer serviços existentes, estes serviços devem estar todos na mesma subscrição do Azure que o espaço de trabalho.
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Ligue o CLI à sua subscrição Azure
 
@@ -71,7 +75,7 @@ O espaço de trabalho Azure Machine Learning conta com os seguintes serviços ou
 | Serviço | Parâmetro para especificar uma instância existente |
 | ---- | ---- |
 | **Grupo de recursos Azure** | `-g <resource-group-name>`
-| **Conta de Armazenamento Azure** | `--storage-account <service-id>` |
+| **Conta de Armazenamento do Azure** | `--storage-account <service-id>` |
 | **Azure Application Insights** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
@@ -413,6 +417,6 @@ O espaço de trabalho Azure Machine Learning utiliza o Registo do Contentor Azur
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a extensão do Azure CLI para machine learning, consulte a documentação [az ml.](/cli/azure/ext/azure-cli-ml/ml?preserve-view=true&view=azure-cli-latest)

@@ -14,12 +14,12 @@ ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visão computacional, aplicações de visão computacional, serviço de visão computacional
-ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1603aa05d8bde6d4c3edba2d49120fa3545d3fd0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629755"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014650"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -64,7 +64,7 @@ Gere uma descrição de uma imagem inteira numa linguagem legível por humanos, 
 
 ### <a name="detect-faces"></a>Detetar rostos
 
-Detete rostos numa imagem e forneça informações sobre cada rosto detetado. A Imagem Digitalizada devolve as coordenadas, o retângulo, o sexo e a idade para cada rosto detetado.<br/>A Visão Computacional fornece um subconjunto da funcionalidade do serviço [Face.](/azure/cognitive-services/face/) Pode utilizar o serviço Face para análises mais detalhadas, como identificação facial e deteção de poses. [Detetar rostos](concept-detecting-faces.md)
+Detete rostos numa imagem e forneça informações sobre cada rosto detetado. A Imagem Digitalizada devolve as coordenadas, o retângulo, o sexo e a idade para cada rosto detetado.<br/>A Visão Computacional fornece um subconjunto da funcionalidade do serviço [Face.](../face/index.yml) Pode utilizar o serviço Face para análises mais detalhadas, como identificação facial e deteção de poses. [Detetar rostos](concept-detecting-faces.md)
 
 ### <a name="detect-image-types"></a>Detetar tipos de imagem
 
@@ -111,7 +111,7 @@ A Imagem Digitalizada pode analisar imagens que cumprem os requisitos seguintes:
 
 Tal como acontece com todos os Serviços Cognitivos, os desenvolvedores que usam o serviço de Visão de Computador devem estar cientes das políticas da Microsoft sobre os dados dos clientes. Consulte a [página de Serviços Cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para saber mais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Começa com a Visão De Computador seguindo o guia de arranque rápido na tua linguagem de desenvolvimento preferida:
 

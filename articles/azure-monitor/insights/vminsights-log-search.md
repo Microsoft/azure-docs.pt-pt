@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b3fdf052ce7f0d6a5c3497aa1ac971d9249546a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325190"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015597"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar registos do Azure Monitor para VMs
 
@@ -230,7 +230,7 @@ Os registos com um tipo de *VMProcess* têm dados de inventário para processos 
 |Nome executável | O nome do processo executável | 
 |DisplayName | Nome de exibição de processo |
 |Função | Função de processo: *webserver,* *appServer,* *databaseServer,* *ldapServer,* *smbServer* |
-|Group | Processar nome de grupo. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
+|Grupo | Processar nome de grupo. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
 |StartTime | A hora de início da piscina do processo |
 |FirstPid | O primeiro PID na piscina de processos |
 |Descrição | A descrição do processo |
@@ -471,9 +471,9 @@ Os contadores de desempenho atualmente recolhidos na tabela *InsightsMetrics* es
 | LógicaDisk | BytesPerSecond        | Bytes de disco lógico por segundo             | BytesPerSecond | mountId - ID do monte do dispositivo |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Se é novo a escrever consultas de registo no Azure Monitor, [reveja como utilizar](../log-query/get-started-portal.md) o Log Analytics no portal Azure para escrever consultas de registo.
 
-* Saiba mais sobre [escrever consultas de pesquisa.](../log-query/search-queries.md)
+* Saiba mais sobre [escrever consultas de pesquisa.](/azure/azure-monitor/log-query/get-started-queries)
 

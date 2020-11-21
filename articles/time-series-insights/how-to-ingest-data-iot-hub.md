@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 28a1990155e1406bf9b79572b3e5307cadfb8076
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09ee98bf8bbe0067f9c79ce4767f3cf68b83fb43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665927"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016807"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Adicione uma fonte de evento de hub IoT ao seu ambiente Azure Time Series Insight
 
@@ -27,7 +27,7 @@ Este artigo descreve como usar o portal Azure para adicionar uma fonte de evento
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Criar um [ambiente Azure Time Series Insights](time-series-insights-update-create-environment.md).
+* Criar um [ambiente Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 * Crie um [hub IoT utilizando o portal Azure](../iot-hub/iot-hub-create-through-portal.md).
 * O hub IoT deve ter eventos de mensagens ativos sendo enviados.
 * Crie um grupo de consumidores dedicado no hub IoT para o ambiente Azure Time Series Insight para consumir. Cada fonte de eventos Azure Time Series Insight deve ter o seu próprio grupo de consumidores dedicado que não é partilhado com nenhum outro consumidor. Se vários leitores consumirem eventos do mesmo grupo de consumidores, todos os leitores são suscetíveis de apresentar falhas. Para mais detalhes, leia o guia de desenvolvimento do [Azure IoT Hub](../iot-hub/iot-hub-devguide.md).
@@ -40,7 +40,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
 1. No [portal Azure,](https://portal.azure.com)encontre e abra o seu hub IoT.
 
-1. Em **Definições**, selecione **Pontos finais incorporados**e, em seguida, selecione o ponto final **de Eventos.**
+1. Em **Definições**, selecione **Pontos finais incorporados** e, em seguida, selecione o ponto final **de Eventos.**
 
    [![Na página 'Pontos finais', selecione o botão Eventos](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png#lightbox)
 
@@ -54,11 +54,11 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
 1. No menu do lado esquerdo, selecione **Todos os recursos**. Selecione o seu ambiente Azure Time Series Insight.
 
-1. Em **Definições**, selecione **Fontes de Eventos**e, em seguida, selecione **Adicionar**.
+1. Em **Definições**, selecione **Fontes de Eventos** e, em seguida, selecione **Adicionar**.
 
    [![Selecione Fontes de Evento e, em seguida, selecione o botão Adicionar](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png#lightbox)
 
-1. No **painel de origem** do novo evento, para **o nome de origem**do Evento, insira um nome exclusivo deste ambiente Azure Time Series Insight. Por exemplo, insira **o fluxo de eventos**.
+1. No **painel de origem** do novo evento, para **o nome de origem** do Evento, insira um nome exclusivo deste ambiente Azure Time Series Insight. Por exemplo, insira **o fluxo de eventos**.
 
 1. Para **fonte**, selecione **IoT Hub**.
 
@@ -105,9 +105,9 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
 1. Depois de criar a fonte do evento, o Azure Time Series Insight inicia automaticamente o streaming de dados para o seu ambiente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Defina políticas de acesso](time-series-insights-data-access.md) a dados para proteger os dados.
+* [Defina políticas de acesso](./concepts-access-policies.md) a dados para proteger os dados.
 
 * [Envie eventos](time-series-insights-send-events.md) para a fonte do evento.
 

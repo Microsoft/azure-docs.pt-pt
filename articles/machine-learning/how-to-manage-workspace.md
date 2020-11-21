@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 1a7204fea1a77dbca57ffc7d512f81e46c4d3b5f
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 9524577d40c3b6b65bb3c3c8ff9e257b015ed90d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873398"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012939"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerir espaços de trabalho de aprendizagem automática Azure 
 
@@ -27,6 +27,10 @@ Neste artigo, você vai criar, visualizar e eliminar [**espaços de trabalho de 
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 * Se utilizar o Python SDK, [instale o SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+
+## <a name="limitations"></a>Limitações
+
+* Ao criar um novo espaço de trabalho, pode permitir que o espaço de trabalho crie os serviços Azure que necessita automaticamente ou que preste serviços existentes. Ao fornecer serviços existentes, estes serviços devem estar todos na mesma subscrição do Azure que o espaço de trabalho.
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
@@ -132,7 +136,7 @@ Se tiver problemas em aceder à sua subscrição, consulte [Configurar a autenti
    Grupo de recursos | Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, **usamos docs-aml**. Precisa de *um colaborador* ou de um *papel proprietário* para utilizar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [Gerir o acesso a um espaço de trabalho Azure Machine Learning.](how-to-assign-roles.md)
    Região | Selecione a região Azure mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.
    | Conta de armazenamento | A conta de armazenamento predefinido para o espaço de trabalho. Por padrão, um novo é criado. |
-   | Key Vault | O Cofre da Chave Azure usado pelo espaço de trabalho. Por padrão, um novo é criado. |
+   | Cofre de Chaves | O Cofre da Chave Azure usado pelo espaço de trabalho. Por padrão, um novo é criado. |
    | Application Insights | A aplicação insights exemplo para o espaço de trabalho. Por padrão, um novo é criado. |
    | Container Registry | O Registo do Contentor Azure para o espaço de trabalho. Por padrão, um novo _não_ é inicialmente criado para o espaço de trabalho. Em vez disso, é criado uma vez que você precisa quando se cria uma imagem Docker durante o treino ou implantação. |
 
@@ -151,7 +155,7 @@ Se tiver problemas em aceder à sua subscrição, consulte [Configurar a autenti
  
 ---
 
-### <a name="networking"></a>Rede  
+### <a name="networking"></a>Redes  
 
 > [!IMPORTANT]  
 > Para obter mais informações sobre a utilização de um ponto final privado e rede virtual com o seu espaço de trabalho, consulte [o isolamento e privacidade da Rede.](how-to-network-security-overview.md)
@@ -359,7 +363,7 @@ No [portal Azure,](https://portal.azure.com/) **selecione Delete**  na parte sup
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
@@ -386,6 +390,6 @@ Exemplos de criação de um espaço de trabalho:
 * Use o portal Azure para [criar um espaço de trabalho e uma instância computacional](tutorial-1st-experiment-sdk-setup.md)
 * Use a Python SDK para [criar um espaço de trabalho no seu próprio ambiente](tutorial-1st-experiment-sdk-setup-local.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Uma vez que tenha um espaço de trabalho, aprenda a [treinar e implementar um modelo.](tutorial-train-models-with-aml.md)

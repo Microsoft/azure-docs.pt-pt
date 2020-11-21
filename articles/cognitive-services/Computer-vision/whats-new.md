@@ -10,18 +10,18 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: e4c56700e75eb5bc7e5e7faec073fe7157e5df88
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1ef317ee3917172d0de204adafe5d5bf21a2a9ac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976373"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014514"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 
 Saiba o que há de novo no serviço. Estes itens podem ser notas de lançamento, vídeos, posts de blog e outros tipos de informação. Marque esta página para ficar a par do serviço.
 
-## <a name="october-2020"></a>outubro de 2020
+## <a name="october-2020"></a>Outubro de 2020
 
 ### <a name="computer-vision-api-v31-ga"></a>API de Visão Computacional v3.1 GA
 
@@ -80,7 +80,7 @@ Tem agora a opção de utilizar a versão 3.0 da API de leitura para extrair tex
 * Pontuação de confiança para cada palavra extraída
 * Apoio às línguas espanhola e inglesa com o parâmetro linguístico adicional
 
-Siga um [quickstart de texto extrato](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text?tabs=version-3) para começar a utilizar a API 3.0.
+Siga um [quickstart de texto extrato](./quickstarts/csharp-hand-text.md?tabs=version-3) para começar a utilizar a API 3.0.
 
 ## <a name="cognitive-service-updates"></a>Atualizações do Serviço Cognitivo
 

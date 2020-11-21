@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 87cb0f93201b5111e4d5e954ee62451405436fa0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 46cead6f7b9362dc9b48fda15c0d04b13c2f989c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538735"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013660"
 ---
 # <a name="detect-popular-brands-in-images"></a>Detetar marcas populares em imagens
 
@@ -23,7 +23,7 @@ A deteção de marcas é um modo especializado de deteção de [objetos](concept
 
 O serviço de Visão Computacional deteta se existem logótipos da marca numa determinada imagem; em caso afirmativo, devolve a marca, uma pontuação de confiança, e as coordenadas de uma caixa de delimitação em torno do logotipo.
 
-A base de dados de logotipo incorporada abrange marcas populares em eletrónica de consumo, vestuário e muito mais. Se descobrir que a marca que procura não é detetada pelo serviço de Visão De Computador, poderá ser melhor servido criando e treinando o seu próprio detetor de logotipo utilizando o serviço [Custom Vision.](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/)
+A base de dados de logotipo incorporada abrange marcas populares em eletrónica de consumo, vestuário e muito mais. Se descobrir que a marca que procura não é detetada pelo serviço de Visão De Computador, poderá ser melhor servido criando e treinando o seu próprio detetor de logotipo utilizando o serviço [Custom Vision.](../custom-vision-service/index.yml)
 
 ## <a name="brand-detection-example"></a>Exemplo de deteção de marca
 

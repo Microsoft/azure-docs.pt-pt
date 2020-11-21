@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: dd23bf0528a27f599058271decbf1820084c9a43
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 489514068d83f7b2953732415ba066a2d4555df8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875470"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015518"
 ---
 Neste arranque rápido, você aprende padrões básicos de design para reconhecimento de alto-falante usando o SDK do discurso, incluindo:
 
@@ -47,13 +47,13 @@ Para executar os exemplos neste artigo, adicione as seguintes declarações no t
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de discurso
 
-Para ligar para o serviço de discurso usando o SDK de discurso, precisa de criar um [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) . Esta classe inclui informações sobre a sua subscrição, como a sua chave e região associada, ponto final, anfitrião ou token de autorização.
+Para ligar para o serviço de discurso usando o SDK de discurso, precisa de criar um [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) . Esta classe inclui informações sobre a sua subscrição, como a sua chave e região associada, ponto final, anfitrião ou token de autorização.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="get_speech_config":::
 
 ## <a name="text-dependent-verification"></a>Verificação dependente de texto
 
-A Verificação do Orador é o ato de confirmar que um orador corresponde a uma voz conhecida ou **inscrita.** O primeiro passo é **inscrever** um perfil de voz, para que o serviço tenha algo para comparar futuras amostras de voz com. Neste exemplo, você inscreve o perfil usando uma estratégia dependente de texto, que requer uma **palavra-passe** específica para usar tanto para a inscrição como para a verificação. Consulte os [documentos de referência](https://docs.microsoft.com/rest/api/speakerrecognition/) para obter uma lista de frases-passe suportadas.
+A Verificação do Orador é o ato de confirmar que um orador corresponde a uma voz conhecida ou **inscrita.** O primeiro passo é **inscrever** um perfil de voz, para que o serviço tenha algo para comparar futuras amostras de voz com. Neste exemplo, você inscreve o perfil usando uma estratégia dependente de texto, que requer uma **palavra-passe** específica para usar tanto para a inscrição como para a verificação. Consulte os [documentos de referência](/rest/api/speakerrecognition/) para obter uma lista de frases-passe suportadas.
 
 ### <a name="textdependentverification-function"></a>Função TextDependentVerification
 
@@ -61,7 +61,7 @@ Comece por criar a `TextDependentVerification` função.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="text_dependent_verification":::
 
-Esta função cria um objeto [VoiceProfile](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofile) com o método [CreateProfileAsync.](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#createprofileasync) Note que existem três [tipos](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#enum-voiceprofiletype) `VoiceProfile` de:
+Esta função cria um objeto [VoiceProfile](/cpp/cognitive-services/speech/voiceprofile) com o método [CreateProfileAsync.](/cpp/cognitive-services/speech/voiceprofileclient#createprofileasync) Note que existem três [tipos](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#enum-voiceprofiletype) `VoiceProfile` de:
 
 - Identificação de textos
 - TextDependentVerification
@@ -69,7 +69,7 @@ Esta função cria um objeto [VoiceProfile](https://docs.microsoft.com/cpp/cogni
 
 Neste caso, `VoiceProfileType::TextDependentVerification` passa-se `CreateProfileAsync` para.
 
-Em seguida, ligue para duas funções de ajudante que definirá a seguir, `AddEnrollmentsToTextDependentProfile` e `SpeakerVerify` . Por fim, ligue [para o DeleteProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#deleteprofileasync) para limpar o perfil.
+Em seguida, ligue para duas funções de ajudante que definirá a seguir, `AddEnrollmentsToTextDependentProfile` e `SpeakerVerify` . Por fim, ligue [para o DeleteProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#deleteprofileasync) para limpar o perfil.
 
 ### <a name="addenrollmentstotextdependentprofile-function"></a>Função AddEnrollmentsToTextDependentProfile
 
@@ -77,7 +77,7 @@ Defina a seguinte função para inscrever um perfil de voz.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="add_enrollments_dependent":::
 
-Nesta função, você inscreve amostras de áudio em um `while` loop que rastreia o número de amostras restantes, e necessárias, para inscrição. Em cada iteração, [o EnrollProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#enrollprofileasync) pede-lhe que fale a palavra-passe no microfone e adicione a amostra ao perfil de voz.
+Nesta função, você inscreve amostras de áudio em um `while` loop que rastreia o número de amostras restantes, e necessárias, para inscrição. Em cada iteração, [o EnrollProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#enrollprofileasync) pede-lhe que fale a palavra-passe no microfone e adicione a amostra ao perfil de voz.
 
 ### <a name="speakerverify-function"></a>Função SpeakerVerify
 
@@ -85,9 +85,9 @@ Defina `SpeakerVerify` o seguinte.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="speaker_verify":::
 
-Nesta função, cria-se um objeto [SpeakerVerificationModel](https://docs.microsoft.com/cpp/cognitive-services/speech/speakerverificationmodel) com o método [SpeakerVerificationModel:::FromProfile,](https://docs.microsoft.com/cpp/cognitive-services/speech/speakerverificationmodel#fromprofile) passando no objeto [VoiceProfile](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofile) que criou anteriormente.
+Nesta função, cria-se um objeto [SpeakerVerificationModel](/cpp/cognitive-services/speech/speakerverificationmodel) com o método [SpeakerVerificationModel:::FromProfile,](/cpp/cognitive-services/speech/speakerverificationmodel#fromprofile) passando no objeto [VoiceProfile](/cpp/cognitive-services/speech/voiceprofile) que criou anteriormente.
 
-Em seguida, [SpeechRecognizer::RecogniseOnceAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) pede-lhe que fale a palavra-passe novamente, mas desta vez irá validá-la contra o seu perfil de voz e devolver uma pontuação de semelhança que varia entre 0,0 e 1.0. O objeto [SpeakerRecognitionResult](https://docs.microsoft.com/cpp/cognitive-services/speech/speakerrecognitionresult) também regressa `Accept` `Reject` ou, com base no facto de a palavra-passe corresponder ou não.
+Em seguida, [SpeechRecognizer::RecogniseOnceAsync](/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) pede-lhe que fale a palavra-passe novamente, mas desta vez irá validá-la contra o seu perfil de voz e devolver uma pontuação de semelhança que varia entre 0,0 e 1.0. O objeto [SpeakerRecognitionResult](/cpp/cognitive-services/speech/speakerrecognitionresult) também regressa `Accept` `Reject` ou, com base no facto de a palavra-passe corresponder ou não.
 
 ## <a name="text-independent-verification"></a>Verificação independente de texto
 
@@ -102,11 +102,11 @@ Comece por criar a `TextIndependentVerification` função.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="text_independent_verification":::
 
-Tal como a `TextDependentVerification` função, esta função cria um objeto [VoiceProfile](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofile) com o método [CreateProfileAsync.](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#createprofileasync)
+Tal como a `TextDependentVerification` função, esta função cria um objeto [VoiceProfile](/cpp/cognitive-services/speech/voiceprofile) com o método [CreateProfileAsync.](/cpp/cognitive-services/speech/voiceprofileclient#createprofileasync)
 
 Neste caso, `VoiceProfileType::TextIndependentVerification` passa-se `CreateProfileAsync` para.
 
-Em seguida, chama duas funções de ajudante: `AddEnrollmentsToTextIndependentProfile` que definirá a seguir, e `SpeakerVerify` que já definiu. Por fim, ligue [para o DeleteProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#deleteprofileasync) para limpar o perfil.
+Em seguida, chama duas funções de ajudante: `AddEnrollmentsToTextIndependentProfile` que definirá a seguir, e `SpeakerVerify` que já definiu. Por fim, ligue [para o DeleteProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#deleteprofileasync) para limpar o perfil.
 
 ### <a name="addenrollmentstotextindependentprofile"></a>AddEnrollmentsToTextIndependentProfile
 
@@ -114,7 +114,7 @@ Defina a seguinte função para inscrever um perfil de voz.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="add_enrollments_independent":::
 
-Nesta função, você inscreve amostras de áudio em um `while` loop que rastreia o número de segundos restantes, e necessário, para a inscrição. Em cada iteração, [o EnrollProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#enrollprofileasync) pede-lhe que fale para o microfone e adicione a amostra ao perfil de voz.
+Nesta função, você inscreve amostras de áudio em um `while` loop que rastreia o número de segundos restantes, e necessário, para a inscrição. Em cada iteração, [o EnrollProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#enrollprofileasync) pede-lhe que fale para o microfone e adicione a amostra ao perfil de voz.
 
 ## <a name="speaker-identification"></a>Identificação de orador
 
@@ -126,11 +126,11 @@ Comece por criar a `TextIndependentIdentification` função.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="text_independent_indentification":::
 
-Tal como as `TextDependentVerification` `TextIndependentVerification` funções e funções, esta função cria um objeto [VoiceProfile](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofile) com o método [CreateProfileAsync.](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#createprofileasync)
+Tal como as `TextDependentVerification` `TextIndependentVerification` funções e funções, esta função cria um objeto [VoiceProfile](/cpp/cognitive-services/speech/voiceprofile) com o método [CreateProfileAsync.](/cpp/cognitive-services/speech/voiceprofileclient#createprofileasync)
 
 Neste caso, `VoiceProfileType::TextIndependentIdentification` passa-se `CreateProfileAsync` para.
 
-Em seguida, chama duas funções de ajudante: `AddEnrollmentsToTextIndependentProfile` que já definiu, e `SpeakerIdentify` , que definirá a seguir. Por fim, ligue [para o DeleteProfileAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient#deleteprofileasync) para limpar o perfil.
+Em seguida, chama duas funções de ajudante: `AddEnrollmentsToTextIndependentProfile` que já definiu, e `SpeakerIdentify` , que definirá a seguir. Por fim, ligue [para o DeleteProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#deleteprofileasync) para limpar o perfil.
 
 ### <a name="speakeridentify-function"></a>Função de identificação de altifalantes
 
@@ -138,9 +138,9 @@ Defina a `SpeakerIdentify` função da seguinte forma.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="speaker_identify":::
 
-Nesta função, cria-se um objeto [SpeakerIdentificationModel](https://docs.microsoft.com/cpp/cognitive-services/speech/speakeridentificationmodel) com o método [SpeakerIdentificationModel::FromProfiles](https://docs.microsoft.com/cpp/cognitive-services/speech/speakeridentificationmodel#fromprofiles) method. `SpeakerIdentificationModel::FromProfiles`aceita uma lista de objetos [VoiceProfile.](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofile) Neste caso, passará no objeto `VoiceProfile` que criou anteriormente. No entanto, se quiser, pode passar em `VoiceProfile` vários objetos, cada um matriculado com amostras de áudio de uma voz diferente.
+Nesta função, cria-se um objeto [SpeakerIdentificationModel](/cpp/cognitive-services/speech/speakeridentificationmodel) com o método [SpeakerIdentificationModel::FromProfiles](/cpp/cognitive-services/speech/speakeridentificationmodel#fromprofiles) method. `SpeakerIdentificationModel::FromProfiles`aceita uma lista de objetos [VoiceProfile.](/cpp/cognitive-services/speech/voiceprofile) Neste caso, passará no objeto `VoiceProfile` que criou anteriormente. No entanto, se quiser, pode passar em `VoiceProfile` vários objetos, cada um matriculado com amostras de áudio de uma voz diferente.
 
-Em seguida, [SpeechRecognizer::RecogniseOnceAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) pede-lhe para falar novamente. Desta vez compara a sua voz com os perfis de voz inscritos e devolve o perfil de voz mais semelhante.
+Em seguida, [SpeechRecognizer::RecogniseOnceAsync](/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) pede-lhe para falar novamente. Desta vez compara a sua voz com os perfis de voz inscritos e devolve o perfil de voz mais semelhante.
 
 ## <a name="main-function"></a>Função principal
 
@@ -148,7 +148,7 @@ Finalmente, defina a `main` função da seguinte forma.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="main":::
 
-Esta função simplesmente chama as funções definidas anteriormente. Primeiro, porém, cria um objeto [VoiceProfileClient](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient) e um objeto [SpeakerRecognizer.](https://docs.microsoft.com/cpp/cognitive-services/speech/speakerrecognizer)
+Esta função simplesmente chama as funções definidas anteriormente. Primeiro, porém, cria um objeto [VoiceProfileClient](/cpp/cognitive-services/speech/voiceprofileclient) e um objeto [SpeakerRecognizer.](/cpp/cognitive-services/speech/speakerrecognizer)
 
 ```
 auto speech_config = GetSpeechConfig();
@@ -172,4 +172,4 @@ para:
 auto audio_config = Audio::AudioConfig::FromWavFileInput(path/to/your/file.wav);
 ```
 
-Ou substitua qualquer utilização `audio_config` por [Audio::AudioConfig::FromWavFileInput](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig#fromwavfileinput). Também pode ter entradas mistas, utilizando um microfone para inscrição e ficheiros para verificação, por exemplo.
+Ou substitua qualquer utilização `audio_config` por [Audio::AudioConfig::FromWavFileInput](/cpp/cognitive-services/speech/audio-audioconfig#fromwavfileinput). Também pode ter entradas mistas, utilizando um microfone para inscrição e ficheiros para verificação, por exemplo.

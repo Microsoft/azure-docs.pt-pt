@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7f811991cdc325a3901a696216af21883f02fdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d672da30a4d81ead9115fc6b829c35aeab3ee6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596241"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016824"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Adicione uma fonte de eventos hub de evento ao seu ambiente Azure Time Series Insights
 
@@ -27,7 +27,7 @@ Este artigo descreve como usar o portal Azure para adicionar uma fonte de evento
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Crie um ambiente Azure Time Series Insights, conforme descrito no [Criar um ambiente de Insights de Séries de Tempo Azure](./time-series-insights-update-create-environment.md).
+- Crie um ambiente Azure Time Series Insights, conforme descrito no [Criar um ambiente de Insights de Séries de Tempo Azure](./tutorials-set-up-tsi-environment.md).
 - Crie um hub de eventos. Leia [Criar um espaço de nomes de Centros de Eventos e um centro de eventos utilizando o portal Azure](../event-hubs/event-hubs-create.md).
 - O centro de eventos deve ter eventos de mensagens ativas enviados para ele. Saiba como [enviar eventos para Azure Event Hubs utilizando o quadro .NET](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Crie um grupo de consumidores dedicado no centro de eventos que o ambiente Azure Time Series Insights pode consumir. Cada fonte de eventos Azure Time Series Insights deve ter o seu próprio grupo de consumidores dedicado que não é partilhado com nenhum outro consumidor. Se vários leitores consumirem eventos do mesmo grupo de consumidores, todos os leitores são suscetíveis de apresentar falhas. Há um limite de 20 grupos de consumidores por centro de eventos. Para mais detalhes, leia o guia de programação do [Event Hubs.](../event-hubs/event-hubs-programming-guide.md)
@@ -56,9 +56,9 @@ Para adicionar um novo grupo de consumidores no seu centro de eventos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Localize o ambiente existente da Série de TempoS Azure Insights. No menu esquerdo, selecione **Todos os recursos**e, em seguida, selecione o ambiente Azure Time Series Insights.
+1. Localize o ambiente existente da Série de TempoS Azure Insights. No menu esquerdo, selecione **Todos os recursos** e, em seguida, selecione o ambiente Azure Time Series Insights.
 
-1. Selecione **Fontes de Eventos**e, em seguida, selecione **Adicionar**.
+1. Selecione **Fontes de Eventos** e, em seguida, selecione **Adicionar**.
 
    [![Em Fontes de Evento, selecione o botão Adicionar](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png#lightbox)
 
@@ -111,9 +111,9 @@ Para adicionar um novo grupo de consumidores no seu centro de eventos:
 
    Após a criação da fonte do evento, o Azure Time Series Insights começa automaticamente a transmitir dados para o seu ambiente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Defina políticas de acesso](time-series-insights-data-access.md) a dados para proteger os dados.
+- [Defina políticas de acesso](./concepts-access-policies.md) a dados para proteger os dados.
 
 - [Envie eventos](time-series-insights-send-events.md) para a fonte do evento.
 

@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: tradução da fala
-ms.openlocfilehash: e54659b0d4504def272d3de40d5e953d98404a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630075"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015210"
 ---
 # <a name="what-is-speech-translation"></a>O que é a tradução de voz?
 
@@ -48,19 +48,19 @@ O código de amostra para o SDK de discurso está disponível no GitHub. Estas a
 
 ## <a name="migration-guides"></a>Guias de migração
 
-Se as suas aplicações, ferramentas ou produtos estiverem a utilizar a [API do Discurso](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview)do Tradutor, criámos guias para o ajudar a migrar para o serviço Desempiração.
+Se as suas aplicações, ferramentas ou produtos estiverem a utilizar a [API do Discurso](./how-to-migrate-from-translator-speech-api.md)do Tradutor, criámos guias para o ajudar a migrar para o serviço Desempiração.
 
 * [Migrar da API do Discurso do Tradutor para o serviço de Discurso](how-to-migrate-from-translator-speech-api.md)
 
 ## <a name="reference-docs"></a>Documentos de referência
 
-* [API de Voz](speech-sdk-reference.md)
+* [API de Voz](./speech-sdk.md)
 * [SDK de Dispositivos de Voz](speech-devices-sdk.md)
 * [REST API: Discurso-a-texto](rest-speech-to-text.md)
 * [REST API: Texto-a-discurso](rest-text-to-speech.md)
 * [REST API: Transcrição e personalização do lote](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Complete o [quickstart](get-started-speech-translation.md) de tradução da fala
 * [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)

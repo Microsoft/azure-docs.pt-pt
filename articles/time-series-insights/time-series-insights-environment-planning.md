@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0f1ea42aa2ba888b89dd652d3397a3a2163a3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569442"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016212"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planeie o seu ambiente Azure Time Series Insights Gen1
 
@@ -92,7 +92,7 @@ A agitação e a latência desempenham um papel na capacidade por minuto. Se tiv
 
 Por exemplo, se tiver um SKU único, ingressa dados a uma taxa de 720 eventos por minuto, e a taxa de dados aumenta por menos de uma hora a uma taxa de 1.440 eventos ou menos, não há latência percetível no seu ambiente. No entanto, se exceder 1.440 eventos por minuto por mais de uma hora, provavelmente sentirá latência em dados que estão visualizados e disponíveis para consulta no seu ambiente.
 
-Pode não saber com antecedência quantos dados espera empurrar. Neste caso, pode encontrar telemetria de dados para [Azure IoT Hub](../iot-hub/iot-hub-metrics.md) e [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) na sua subscrição do portal Azure. A telemetria pode ajudá-lo a determinar como providenciar o seu ambiente. Utilize o painel **Métricas** no portal Azure para que a respetiva fonte de evento veja a sua telemetria. Se compreender as métricas da fonte do evento, pode planear e fornecer mais eficazmente o seu ambiente Azure Time Series Insights.
+Pode não saber com antecedência quantos dados espera empurrar. Neste caso, pode encontrar telemetria de dados para [Azure IoT Hub](../iot-hub/monitor-iot-hub.md) e [Azure Event Hubs](/archive/blogs/cloud_solution_architect/using-the-azure-rest-apis-to-retrieve-event-hub-metrics) na sua subscrição do portal Azure. A telemetria pode ajudá-lo a determinar como providenciar o seu ambiente. Utilize o painel **Métricas** no portal Azure para que a respetiva fonte de evento veja a sua telemetria. Se compreender as métricas da fonte do evento, pode planear e fornecer mais eficazmente o seu ambiente Azure Time Series Insights.
 
 ### <a name="calculate-ingress-requirements"></a>Calcular requisitos de entrada
 
@@ -124,10 +124,10 @@ Para saber mais sobre como criar, carregar e gerir os seus dados de referência 
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Iniciou-se com a criação [de um novo ambiente Azure Time Series Insights no portal Azure](time-series-insights-get-started.md).
 
-- Saiba como [adicionar uma fonte de eventos do Event Hubs](time-series-insights-how-to-add-an-event-source-eventhub.md) ao Azure Time Series Insights.
+- Saiba como [adicionar uma fonte de eventos do Event Hubs](./how-to-ingest-data-event-hub.md) ao Azure Time Series Insights.
 
-- Leia sobre como [configurar uma fonte de eventos IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md).
+- Leia sobre como [configurar uma fonte de eventos IoT Hub](./how-to-ingest-data-iot-hub.md).

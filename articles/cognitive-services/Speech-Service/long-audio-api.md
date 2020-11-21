@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: be38d3e78108a15c9f7875a15156e0eeba5a6211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a538deb3b7da19261e1bc2b7c0d29f35315f786
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167764"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015418"
 ---
 # <a name="long-audio-api-preview"></a>API de áudio longo (pré-visualização)
 
@@ -27,7 +27,7 @@ Benefícios adicionais da API de Áudio Longo:
 * Não há necessidade de implantar um ponto final de voz, uma vez que sintetiza as vozes em nenhum modo de lote em tempo real.
 
 > [!NOTE]
-> A API de Áudio Longo suporta agora [vozes neurais públicas](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) e [vozes neuronais personalizadas.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices)
+> A API de Áudio Longo suporta agora [vozes neurais públicas](./language-support.md#neural-voices) e [vozes neuronais personalizadas.](./how-to-custom-voice.md#custom-neural-voices)
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -44,7 +44,7 @@ Ao preparar o seu ficheiro de texto, certifique-se de que:
 * Ou é texto simples (.txt) ou texto SSML (.txt)
 * Está codificado como [UTF-8 com Byte Order Mark (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
 * É um único ficheiro, não um fecho
-* Contém mais de 400 caracteres para texto simples ou 400 [caracteres faturantes](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) para texto SSML, e menos de 10.000 parágrafos
+* Contém mais de 400 caracteres para texto simples ou 400 [caracteres faturantes](./text-to-speech.md#pricing-note) para texto SSML, e menos de 10.000 parágrafos
   * Para texto simples, cada parágrafo é separado por bater **Enter/Return** - Ver [exemplo de entrada de texto simples](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * Para o texto SSML, cada peça SSML é considerada um parágrafo. As peças SSML devem ser separadas por parágrafos diferentes - Ver [exemplo de entrada de texto SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 > [!NOTE]
@@ -114,7 +114,7 @@ Se o parâmetro **PublicVoice** é **Verdadeiro,** a voz é voz neural pública.
 Prepare um ficheiro de texto de entrada, em texto simples ou em texto SSML, em seguida, adicione o seguinte código `voice_synthesis_client.py` para:
 
 > [!NOTE]
-> 'concatenateResult' é um parâmetro opcional. Se este parâmetro não estiver definido, as saídas de áudio serão geradas por parágrafo. Também pode concatenar os áudios em 1 saída definindo o parâmetro. Por predefinição, a saída de áudio é definida para riff-16khz-16bit-mono-pcm. Para obter mais informações sobre saídas de áudio suportadas, consulte [os formatos de saída áudio](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
+> 'concatenateResult' é um parâmetro opcional. Se este parâmetro não estiver definido, as saídas de áudio serão geradas por parágrafo. Também pode concatenar os áudios em 1 saída definindo o parâmetro. Por predefinição, a saída de áudio é definida para riff-16khz-16bit-mono-pcm. Para obter mais informações sobre saídas de áudio suportadas, consulte [os formatos de saída áudio](#audio-output-formats).
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
@@ -285,7 +285,7 @@ A tabela seguinte detalha os códigos e mensagens de resposta HTTP da API REST.
 
 A API áudio longa está disponível em várias regiões com pontos finais únicos.
 
-| Region | Ponto final |
+| Região | Ponto final |
 |--------|----------|
 | Leste da Austrália | `https://australiaeast.customvoice.api.speech.microsoft.com` |
 | Canadá Central | `https://canadacentral.customvoice.api.speech.microsoft.com` |

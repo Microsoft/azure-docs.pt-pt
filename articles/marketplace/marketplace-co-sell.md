@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/17/2020
-ms.openlocfilehash: 730178d974ba95db968332ac669f701486b513bd
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.date: 11/20/2020
+ms.openlocfilehash: 9d6970331024ea0cd08e890cc62507d9eb230678
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738531"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016338"
 ---
 # <a name="co-sell-partner-engagement"></a>Compromisso entre parceiros para venda conjunta
 
@@ -86,7 +86,14 @@ Inicie a sua viagem de Co-venda diretamente no Partner Center seguindo os passos
 
     O CED contactar-lhe-á para concluir o processo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-your-offers-co-sell-status"></a>Consulte o estado de Co-venda da sua oferta
+
+Para ofertas com a [opção Co-venda no Partner Center,](./partner-center-portal/commercial-marketplace-co-sell.md)pode ver o estado atual de Co-venda da sua oferta na página 'Oferta Geral':
+
+ :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Esta imagem mostra o estado atual de Co-venda das ofertas.":::
+
+
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a venda com a Microsoft.](https://partner.microsoft.com/membership/sell-with-microsoft)
 - Saiba mais sobre a [opção Co-venda no Partner Center.](./partner-center-portal/commercial-marketplace-co-sell.md)

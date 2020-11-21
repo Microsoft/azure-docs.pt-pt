@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3528ff790f16b5ec759989966ab35b8bad6565a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86b465d0b3c28c50a8aa85247a14e189d4586a47
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629459"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016280"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso de dados a um ambiente
 
@@ -32,7 +32,7 @@ Este artigo discute os dois tipos de políticas de acesso Azure Time Series Insi
 
 Siga estes passos para conceder acesso aos dados para um utilizadores principal.
 
-1. Selecione **Políticas de Acesso a Dados**e, em seguida, selecione + **Adicionar**.
+1. Selecione **Políticas de Acesso a Dados** e, em seguida, selecione + **Adicionar**.
 
     [![Selecione e adicione uma Política de Acesso a Dados](media/data-access/data-access-select-add-button.png)](media/data-access/data-access-select-add-button.png#lightbox)
 
@@ -60,7 +60,7 @@ Siga estes passos para conceder acesso aos dados para um utilizadores principal.
 
 ## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Fornecer acesso ao hóspede de outro inquilino da AD Azure
 
-O `Guest` papel não é um papel de gestão. É um termo usado para uma conta que é convidada de um inquilino para outro. Depois de a conta de hóspedes ser convidada para o diretório do arrendatário, pode ter o mesmo controlo de acesso aplicado a ele como qualquer outra conta. Pode conceder acesso à gestão a um Azure Time Series Insights Environment utilizando a lâmina Access Control (IAM). Ou pode conceder acesso aos dados no ambiente através da lâmina Políticas de Acesso a Dados. Para obter mais informações sobre o acesso ao hóspede do Azure Ative Directory (Azure AD), leia [os utilizadores de colaboração Add Azure Ative Directory B2B no portal Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+O `Guest` papel não é um papel de gestão. É um termo usado para uma conta que é convidada de um inquilino para outro. Depois de a conta de hóspedes ser convidada para o diretório do arrendatário, pode ter o mesmo controlo de acesso aplicado a ele como qualquer outra conta. Pode conceder acesso à gestão a um Azure Time Series Insights Environment utilizando a lâmina Access Control (IAM). Ou pode conceder acesso aos dados no ambiente através da lâmina Políticas de Acesso a Dados. Para obter mais informações sobre o acesso ao hóspede do Azure Ative Directory (Azure AD), leia [os utilizadores de colaboração Add Azure Ative Directory B2B no portal Azure](../active-directory/external-identities/add-users-administrator.md).
 
 Siga estes passos para conceder ao hóspede acesso a um ambiente Azure Time Series Insights a um utilizador Azure AD de outro inquilino.
 
@@ -120,8 +120,8 @@ Siga estes passos para conceder ao hóspede acesso a um ambiente Azure Time Seri
 
     [![O utilizador convidado seleciona o seu inquilino Azure a partir do drop-down](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Leia as etapas de registo de aplicações de [autenticação e autorização](time-series-insights-authentication-and-authorization.md) para o Azure Ative Directory.
 
-* Veja [o seu ambiente no Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md).
+* Veja [o seu ambiente no Azure Time Series Insights Explorer](./concepts-ux-panels.md).

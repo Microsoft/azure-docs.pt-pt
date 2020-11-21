@@ -6,20 +6,22 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f164418c29e9838928f3d03519342ebef40e16e7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77368298"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015702"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Criar e utilizar regras personalizadas de Firewall de Aplicação Web v2 no Gateway de Aplicações
 
 O Firewall de Aplicação Web (WAF) v2 no Gateway de aplicações Azure fornece proteção para aplicações web. Esta proteção é fornecida pelo Open Web Application Security Project (OWASP) Core Rule set (CRS). Em alguns casos, poderá ter de criar as suas próprias regras personalizadas para atender às suas necessidades específicas. Para obter mais informações sobre as regras personalizadas da WAF, consulte [as regras gerais da firewall de aplicações web personalizadas](custom-waf-rules-overview.md).
 
 Este artigo mostra-lhe algumas regras personalizadas de exemplo que pode criar e usar com o seu V2 WAF. Para aprender a implementar um WAF com uma regra personalizada utilizando a Azure PowerShell, consulte [as regras personalizadas da Configuração web Web Firewall utilizando a Azure PowerShell](configure-waf-custom-rules.md).
+
+Os snippets JSON mostrados neste artigo são derivados de um recurso [ApplicationGatewayWebApplicationFirewallPolicies.](/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies)
 
 >[!NOTE]
 > Se o seu gateway de aplicação não estiver a utilizar o nível WAF, a opção de atualizar o gateway de aplicação para o nível WAF aparece no painel direito.
@@ -229,7 +231,7 @@ Regra de CRS correspondente: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:
 
 ## <a name="example-4"></a>Exemplo 4
 
-Por exemplo, pretende-se bloquear User-Agent *evilbot*e o tráfego na faixa 192.168.5.0/24. Para isso, pode criar duas condições de jogo separadas, e colocá-las ambas na mesma regra. Isto garante que se tanto o *evilbot* no cabeçalho User-Agent **como** os endereços IP do intervalo 192.168.5.0/24 forem compatíveis, então o pedido é bloqueado.
+Por exemplo, pretende-se bloquear User-Agent *evilbot* e o tráfego na faixa 192.168.5.0/24. Para isso, pode criar duas condições de jogo separadas, e colocá-las ambas na mesma regra. Isto garante que se tanto o *evilbot* no cabeçalho User-Agent **como** os endereços IP do intervalo 192.168.5.0/24 forem compatíveis, então o pedido é bloqueado.
 
 Lógica: p **e** q
 
@@ -543,7 +545,7 @@ JSON correspondente:
   }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar as suas regras personalizadas, pode aprender a ver os seus registos WAF. Para mais informações, consulte os [diagnósticos do Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
 

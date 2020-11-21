@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9ed4e47cf946827e2e4b9aaeb14d9668e96aeaa5
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: e76612c6c1b83ddb7e88377824902fe6290e7aaf
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873782"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015244"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -587,7 +587,7 @@ Também pode fornecer diretamente o seu esperado `alias` para o acrónimo ou ter
 
 Para obter mais informações sobre o ficheiro léxico personalizado, consulte [a Versão 1.0 da Especificação lexicon de Pronúncia (PLS).](https://www.w3.org/TR/pronunciation-lexicon/)
 
-Em seguida, publique o seu ficheiro de léxico personalizado. Embora não tenhamos restrições sobre onde este ficheiro pode ser armazenado, recomendamos a utilização do [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+Em seguida, publique o seu ficheiro de léxico personalizado. Embora não tenhamos restrições sobre onde este ficheiro pode ser armazenado, recomendamos a utilização do [Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md).
 
 Depois de publicar o seu léxico personalizado, pode fazê-lo referência a partir do seu SSML.
 
@@ -854,6 +854,6 @@ Apenas um ficheiro áudio de fundo é permitido por documento SSML. No entanto, 
 </speak>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Suporte linguístico: vozes, locais, línguas](language-support.md)

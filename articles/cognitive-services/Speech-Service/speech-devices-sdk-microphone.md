@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 698a1d52af6c2472d6c025851ead1a0b6a6dff82
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232530"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015346"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendações de conjunto de microfone SDK de dispositivos de fala
 
@@ -97,7 +97,7 @@ São necessárias as seguintes orientações para a arquitetura na integração 
 | Relógio de amostragem      | O áudio do dispositivo deve estar livre de nervosismo e abandonos com baixa deriva |
 | Capacidade de Gravação   | O dispositivo deve ser capaz de registar fluxos brutos de canais individuais simultaneamente |
 | USB                 | Todos os dispositivos de entrada de áudio USB devem definir descritores de acordo com os [dispositivos de áudio USB Rev3 Spec](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
-| Geometria do microfone | Os controladores devem implementar os [descritores de geometria da matriz do microfone](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) corretamente |
+| Geometria do microfone | Os controladores devem implementar os [descritores de geometria da matriz do microfone](/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) corretamente |
 | Descoberta     | Os dispositivos não devem ter qualquer hardware, firmware ou algoritmos de processamento de áudio não lineares não lineares não-lineares não-lineares indebráveis ou incontroláveis |
 | Formato de captura      | Os formatos de captura devem utilizar uma taxa mínima de amostragem de 16 kHz e a profundidade recomendada de 24 bits |
 
@@ -109,7 +109,7 @@ Os componentes de hardware, tais como a conversão PDM-to-TDM, devem assegurar q
 
 A classe 2.0 usb audio de alta velocidade 2.0 deve ser suportada em quaisquer MCUs áudio, a fim de fornecer a largura de banda necessária para até sete canais a taxas de amostra mais elevadas e profundidades de bits.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre os dispositivos de fala SDK](speech-devices-sdk.md)

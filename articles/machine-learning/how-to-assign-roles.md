@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 6cd4bbec89e955c398f7cb6e37ba5c3dcc6427ea
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 90abd46e73ecb50b5e6de40218571d0ec899752e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961231"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012959"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 
@@ -27,7 +27,7 @@ Neste artigo, aprende-se a gerir o acesso (autorização) a um espaço de trabal
 >
 > * [Controle o acesso aos recursos de cluster Azure Kubernetes](../aks/azure-ad-rbac.md)
 > * [Use a Azure RBAC para a autorização de Kubernetes](../aks/manage-azure-rbac.md)
-> * [Use o Azure RBAC para acesso a dados blob](/storage/common/storage-auth-aad-rbac-portal.md)
+> * [Use o Azure RBAC para acesso a dados blob](/azure/storage/common/storage-auth-aad-rbac-portal)
 
 > [!WARNING]
 > A aplicação de algumas funções pode limitar a funcionalidade de UI no estúdio Azure Machine Learning para outros utilizadores. Por exemplo, se o papel de um utilizador não tiver a capacidade de criar uma instância computacional, a opção de criar uma instância computacional não estará disponível em estúdio. Este comportamento é esperado e impede o utilizador de tentar operações que retornem um erro negado de acesso negado.
@@ -467,7 +467,7 @@ Eis algumas coisas a ter em conta enquanto utiliza o controlo de acesso baseado 
 
 - Às vezes pode levar até 1 hora para que as suas novas tarefas de função produzam efeitos sobre permissões em cache através da pilha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral da segurança empresarial](concept-enterprise-security.md)
 - [Isolamento de rede virtual e visão geral da privacidade](how-to-network-security-overview.md)

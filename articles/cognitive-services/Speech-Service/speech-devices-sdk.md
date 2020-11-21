@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 560c156c8e2c3d69c099b2ad573fa0d214f3f80b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0309329b37436022dc88f8951853c4bb09a2c080
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355079"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015278"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>O que é o SDK dos Dispositivos de Fala?
 
@@ -29,9 +29,9 @@ O SDK de Dispositivos de Fala pode ajudá-lo:
 
 O Dispositivo de Fala SDK consome o [SDK da fala](speech-sdk.md). Utilizando os nossos algoritmos avançados de processamento de áudio com a matriz de microfone do dispositivo para enviar o áudio para o [serviço Speech](overview.md). Proporciona [um reconhecimento](speech-to-text.md) preciso da fala de campo distante através da supressão de ruído, cancelamento de eco, formação de feixes e dereverberação.
 
-Também pode utilizar o Speech Devices SDK para construir dispositivos ambiente que tenham a sua própria [palavra-chave personalizada.](speech-devices-sdk-create-kws.md) Uma palavra-chave personalizada fornece uma sugestão que inicia uma interação do utilizador que é única para a sua marca.
+Também pode utilizar o Speech Devices SDK para construir dispositivos ambiente que tenham a sua própria [palavra-chave personalizada.](./custom-keyword-basics.md) Uma palavra-chave personalizada fornece uma sugestão que inicia uma interação do utilizador que é única para a sua marca.
 
-O Speech Devices SDK permite uma variedade de cenários ativados por voz, tais como assistentes de [voz, sistemas](https://aka.ms/bots/speech/va)de encomenda drive-thru, [transcrição de conversação](conversation-transcription-service.md)e colunas inteligentes. Pode responder aos utilizadores com texto, responder-lhes numa voz padrão ou [personalizada,](how-to-customize-voice-font.md)fornecer resultados de pesquisa, [traduzir](speech-translation.md) para outros idiomas, e muito mais. Estamos ansiosos para ver o que constrói!
+O Speech Devices SDK permite uma variedade de cenários ativados por voz, tais como assistentes de [voz, sistemas](./voice-assistants.md)de encomenda drive-thru, [transcrição de conversação](./conversation-transcription.md)e colunas inteligentes. Pode responder aos utilizadores com texto, responder-lhes numa voz padrão ou [personalizada,](./how-to-custom-voice-create-voice.md)fornecer resultados de pesquisa, [traduzir](speech-translation.md) para outros idiomas, e muito mais. Estamos ansiosos para ver o que constrói!
 
 ## <a name="get-the-speech-devices-sdk"></a>Obter o SDK de Dispositivos de Voz
 
@@ -55,7 +55,7 @@ A aplicação é construída com o pacote Speech SDK, e o Eclipse Java IDE (v4) 
 
 Binários adicionais são fornecidos para suportar os dispositivos futuros, [Roobo v2 DDK,](https://aka.ms/sdsdk-download-roobov2) [Urbetter DDK,](https://aka.ms/sdsdk-download-urbetter) [GGEC Speaker,](https://aka.ms/sdsdk-download-speaker) [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32), e [Linux ARM64](https://aka.ms/sdsdk-download-linux-arm64).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Escolha o seu dispositivo de fala](get-speech-devices-sdk.md)

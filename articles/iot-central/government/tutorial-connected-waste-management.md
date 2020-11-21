@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a7f5ec0231612a2cee2a9435144c886527c228e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972437"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014480"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Criar uma aplicação de gestão de resíduos conectada na IoT Central
 
@@ -69,7 +69,7 @@ Para criar uma nova aplicação de gestão de resíduos conectada Azure IoT Cent
     ![Azure IoT Central Criar Informações de Faturação Conectadas](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
 
  
-6. Criou agora uma aplicação de gestão de resíduos conectada utilizando o modelo de **gestão de resíduos Azure**IoT Central Connected. 
+6. Criou agora uma aplicação de gestão de resíduos conectada utilizando o modelo de **gestão de resíduos Azure** IoT Central Connected. 
 
 Parabéns! A sua aplicação recém-criada vem com pré-configuração:
 * Dashboards do operador da amostra
@@ -92,29 +92,29 @@ Como construtor, pode criar e personalizar vistas no painel de instrumentos para
 
 O painel é composto por diferentes tipos de azulejos:
 
-* Azulejo de ***imagem de utilidade de resíduos mundiais:*** o primeiro azulejo no tablier é um azulejo de imagem de um utilitário fictício de resíduos "Wide World Waste". Pode personalizar o azulejo e colocar a sua própria imagem ou removê-la. 
+* *Azulejo de imagem de **utilidade de resíduos mundiais** de largura _: o primeiro azulejo no tablier é um azulejo de imagem de um utilitário fictício de resíduos "Wide World Waste". Pode personalizar o azulejo e colocar a sua própria imagem ou removê-la. 
 
-* ***Azulejo de imagem do caixote do***lixo : pode utilizar azulejos de imagem e conteúdo para criar uma representação visual do dispositivo que está a ser monitorizado juntamente com um texto descritivo. 
+_ ***Azulejo de imagem do caixote do lixo** _: pode utilizar azulejos de imagem e conteúdo para criar uma representação visual do dispositivo que está a ser monitorizado juntamente com um texto descritivo. 
 
-* ***Nível de enchimento KPI:*** o azulejo apresenta um valor relatado por um sensor *de nível de enchimento* num caixote do lixo. *O nível de enchimento* e outros sensores como *o medidor de odor* ou *peso* num caixote do lixo podem ser monitorizados remotamente. Um operador pode tomar medidas, como despachar um camião de recolha de lixo. 
+_ ***Encha o azulejo KPI de nível** _: o azulejo apresenta um valor relatado por um sensor de nível _fill* num caixote do lixo. *O nível de enchimento* e outros sensores como *o medidor de odor* ou *peso* num caixote do lixo podem ser monitorizados remotamente. Um operador pode tomar medidas, como despachar um camião de recolha de lixo. 
 
-*  ***Mapa da área de monitorização de resíduos***: o mapa está a utilizar o Azure Maps, que pode configurar diretamente no Azure IoT Central. O azulejo do mapa está a mostrar a localização do dispositivo. Tente pairar sobre o mapa e tente os controlos sobre o mapa, como zoom-in, zoom-out ou expansão.
+*  ***Mapa da área de monitorização de resíduos** _: o mapa está a usar o Azure Maps, que pode configurar diretamente no Azure IoT Central. O azulejo do mapa está a mostrar a localização do dispositivo. Tente pairar sobre o mapa e tente os controlos sobre o mapa, como zoom-in, zoom-out ou expansão.
 
      ![Mapa do painel de instrumentos de gestão de resíduos conectado](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
 
-* ***Preencha, odor, gráfico de barras de nível de peso:** pode visualizar dados de telemetria de um ou vários dispositivos num gráfico de barras. Também pode expandir o gráfico de barras.  
+_ ***Preencha, odor, gráfico de barras de nível de peso:** pode visualizar dados de telemetria de um ou vários dispositivos num gráfico de barras. Também pode expandir o gráfico de barras.  
 
   ![Gráfico de barra de painel de dashboard de gestão de resíduos conectado](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
 
 
-* **Azulejo de conteúdo de Serviços de**Campo : o dashboard inclui ligação à forma de integração com os Serviços de Campo Dynamics 365 a partir da sua aplicação Azure IoT Central. Como exemplo, você pode usar os Serviços de Campo para criar bilhetes para despachar serviços de recolha de lixo. 
+* **Azulejo de conteúdo de Serviços de** Campo : o dashboard inclui ligação à forma de integração com os Serviços de Campo Dynamics 365 a partir da sua aplicação Azure IoT Central. Como exemplo, você pode usar os Serviços de Campo para criar bilhetes para despachar serviços de recolha de lixo. 
 
 
 ### <a name="customize-dashboard"></a>Personalizar painel de instrumentos 
 
 Como construtor, pode personalizar vistas no painel de instrumentos para os operadores. Pode tentar:
-1. Clique em **Editar** para personalizar o **painel de gestão de resíduos conectado**ao Mundo Largo. Pode personalizar o dashboard clicando no menu **Editar.** Uma vez que o painel de instrumentos esteja em modo **de edição,** pode adicionar novos azulejos, ou pode configurar 
+1. Clique em **Editar** para personalizar o **painel de gestão de resíduos conectado** ao Mundo Largo. Pode personalizar o dashboard clicando no menu **Editar.** Uma vez que o painel de instrumentos esteja em modo **de edição,** pode adicionar novos azulejos, ou pode configurar 
 
     ![Editar Dashboard](./media/tutorial-connectedwastemanagement/edit-dashboard.png)
 
@@ -189,7 +189,7 @@ A aplicação **de gestão de resíduos conectados** tem dois dispositivos simul
 * Explore o separador Propriedades do **Dispositivo** e o **separador dashboard do dispositivo.** 
 
 > [!NOTE]
-> Note que todos os separadores foram configurados a partir das **vistas**do modelo do dispositivo .
+> Note que todos os separadores foram configurados a partir das **vistas** do modelo do dispositivo .
 
 ### <a name="add-new-devices"></a>Adicionar novos dispositivos
 
@@ -197,7 +197,7 @@ A aplicação **de gestão de resíduos conectados** tem dois dispositivos simul
 
 ## <a name="explore-and-configure-rules"></a>Explorar e configurar regras
 
-No Azure IoT Central, pode criar regras para monitorizar automaticamente a telemetria do dispositivo e desencadear ações quando uma ou mais condições forem satisfeitas. As ações podem incluir o envio de notificações por e-mail, desencadear uma ação do Microsoft Flow ou uma ação webhook para enviar dados para outros serviços.
+No Azure IoT Central, pode criar regras para monitorizar automaticamente a telemetria do dispositivo e desencadear ações quando uma ou mais condições forem satisfeitas. As ações podem incluir o envio de notificações por e-mail, o desencadear de uma ação Power Automamate ou uma ação webhook para enviar dados para outros serviços.
 
 A aplicação **de gestão de resíduos conectados** tem quatro regras de amostragem.
 
@@ -258,14 +258,14 @@ Como construtor, pode alterar várias definições para personalizar a experiên
 7. Finalmente, também pode alterar o **Tema** clicando em **Definições** no masthead da aplicação.
 
   
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não continuar a utilizar esta aplicação, elimine a sua aplicação com os seguintes passos:
 
 1. Abra o separador Administração a partir do painel esquerdo da sua aplicação IoT Central.
 2. Selecione as definições de Aplicação e clique em Eliminar o botão na parte inferior da página.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre
  

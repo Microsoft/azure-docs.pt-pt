@@ -1,18 +1,18 @@
 ---
 title: Formato do Common Data Model
 description: Transformar dados utilizando o sistema de metadados do Modelo de Dados Comuns
-author: djpmsft
+author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.author: daperlov
-ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/20/2020
+ms.author: makromer
+ms.openlocfilehash: 7fc3a63f841a88451746d088a527a41d756e711f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636413"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015176"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato comum do modelo de dados na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,7 +38,7 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de MDL. Pode edit
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Formato deve ser `cdm` | yes | `cdm` | formato |
-| Formato de metadados | Onde a entidade se refere aos dados está localizada. Se utilizar a versão 1.0 do CDM, escolha manifesto. Se utilizar uma versão CDM antes do 1.0, escolha model.jsligado. | Sim | `'manifest'` ou `'model'` | manifestoType |
+| Formato de metadados | Onde a entidade se refere aos dados está localizada. Se utilizar a versão 1.0 do CDM, escolha manifesto. Se utilizar uma versão CDM antes do 1.0, escolha model.jsligado. | Yes | `'manifest'` ou `'model'` | manifestoType |
 | Localização da raiz: recipiente | Nome do recipiente da pasta CDM | yes | String | sistema de ficheiros |
 | Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | yes | String | folderPath |
 | Arquivo manifesto: Caminho da entidade | Caminho da pasta da entidade dentro da pasta raiz | não | String | entidadePata |
@@ -52,7 +52,11 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de MDL. Pode edit
 | Entidade corpus | Caminho para referência de entidade | yes | String | entidade |
 | Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
-Se a definição de entidade que pretende utilizar na sua transformação Source estiver localizada no mesmo diretório que a sua pasta de dados, pode desmarcar "Use entity from corpus" e simplesmente digitar na entidade da entidade que pretende utilizar como referência da sua entidade.
+Ao selecionar "Referência de Entidade" tanto nas transformações de Origem como em Sink, pode selecionar a partir destas três opções para a localização da referência da sua entidade:
+
+* Local utiliza a entidade definida no manifesto já a ser utilizado pela ADF
+* O costume pedir-lhe-á para indicar um ficheiro manifesto de entidade que é diferente do ficheiro manifesto que a ADF está a usar
+* A Standard utilizará uma referência de entidade a partir da biblioteca padrão de entidades cdm mantidas em ```Github``` .
 
 ### <a name="sink-settings"></a>Configurações do lavatório
 
@@ -157,6 +161,6 @@ CDMSource sink(allowSchemaDrift: true,
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Crie uma [transformação de fonte](data-flow-source.md) no fluxo de dados de mapeamento.

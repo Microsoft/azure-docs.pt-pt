@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 31219fda04095d48b55165f59c27f3dee85485a9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843643"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014837"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Criação de piscina de inquilino e anfitrião no Windows Virtual Desktop (clássico)
 
@@ -49,7 +49,7 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 **Causa:** Consentimento não concedido ao Windows Virtual Desktop no caso do diretório Azure Ative.
 
-**Correção:** [Siga este guia](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) para conceder o consentimento.
+**Correção:** [Siga este guia](./tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) para conceder o consentimento.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erro: O utilizador não está autorizado a consultar o serviço de gestão
 
@@ -140,9 +140,9 @@ Se o seu modelo de operação ultrapassar o limite de quota, pode fazer uma das 
 
 Siga estas instruções para resolver implementações infrutíferas dos modelos do Gestor de Recursos Azure e do PowerShell DSC.
 
-1. Rever erros na implementação utilizando [operações de implementação do View com o Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-operations.md).
-2. Se não houver erros na implementação, reveja os erros no registo de atividades utilizando [registos de atividades do View para auditar ações sobre recursos](../../azure-resource-manager/resource-group-audit.md).
-3. Assim que o erro for identificado, utilize a mensagem de erro e os recursos em [erros comuns de implementação do Azure com o Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md) para resolver o problema.
+1. Rever erros na implementação utilizando [operações de implementação do View com o Azure Resource Manager](../../azure-resource-manager/templates/deployment-history.md).
+2. Se não houver erros na implementação, reveja os erros no registo de atividades utilizando [registos de atividades do View para auditar ações sobre recursos](../../azure-resource-manager/management/view-activity-logs.md).
+3. Assim que o erro for identificado, utilize a mensagem de erro e os recursos em [erros comuns de implementação do Azure com o Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md) para resolver o problema.
 4. Elimine quaisquer recursos criados durante a implementação anterior e volte a tentar implementar o modelo novamente.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erro: A sua implantação falhou.... \<hostname> /joindomain
@@ -410,7 +410,7 @@ Se estiver a executar o modelo GitHub Azure Resource Manager, forneça valores p
 
 **Correção:** Pode especificar uma sub-rede com pelo menos tantos endereços IP disponíveis como o número de VMs adicionados não utilizando o Marketplace UI, isto pode ser feito especificando o nome da sub-rede no parâmetro "**existenteSSubnetName**" quando [recolocar uma implantação](expand-existing-host-pool-2019.md#redeploy-from-azure) ou [implantação existente usando o modelo ARM subjacente do GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview-2019.md).
 - Para resolver problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração da máquina virtual do anfitrião da Sessão](troubleshoot-vm-configuration-2019.md).

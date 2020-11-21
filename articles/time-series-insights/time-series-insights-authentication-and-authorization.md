@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 7408e3fb279536f61dd2e5cf1858476da57219d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1bd3c5796658663b6111723829cbe620346002c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665820"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016246"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -73,7 +73,7 @@ Por **passo 3,** separar as credenciais da sua aplicação e do seu utilizador p
 1. Guarde a política selecionando **OK**.
 
    > [!TIP]
-   > Para opções avançadas de acesso a dados, leia [a concessão de acesso aos dados.](./time-series-insights-data-access.md)
+   > Para opções avançadas de acesso a dados, leia [a concessão de acesso aos dados.](./concepts-access-policies.md)
 
 ### <a name="client-app-initialization"></a>Inicialização de aplicativos de cliente
 
@@ -90,18 +90,18 @@ Por **passo 3,** separar as credenciais da sua aplicação e do seu utilizador p
    1. O token pode então ser passado no `Authorization` cabeçalho quando a aplicação chama a AZure Time Series Insights API.
 
 > [!IMPORTANT]
-> Se estiver a utilizar [a Azure Ative Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) leia sobre [a migração para o MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration).
+> Se estiver a utilizar [a Azure Ative Directory Authentication Library (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md) leia sobre [a migração para o MSAL](../active-directory/develop/msal-net-migration.md).
 
 ## <a name="common-headers-and-parameters"></a>Cabeçalhos e parâmetros comuns
 
-Esta secção descreve os cabeçalhos e parâmetros comuns de pedidos HTTP utilizados para fazer consultas contra as Azure Time Series Insights Gen1 e Gen2 APIs. Os requisitos específicos da API são cobertos com maior detalhe na documentação de referência da [Azure Time Series Insights REST API](https://docs.microsoft.com/rest/api/time-series-insights/).
+Esta secção descreve os cabeçalhos e parâmetros comuns de pedidos HTTP utilizados para fazer consultas contra as Azure Time Series Insights Gen1 e Gen2 APIs. Os requisitos específicos da API são cobertos com maior detalhe na documentação de referência da [Azure Time Series Insights REST API](/rest/api/time-series-insights/).
 
 > [!TIP]
-> Leia a [referência API AZure REST](https://docs.microsoft.com/rest/api/azure/) para saber mais sobre como consumir APIs DE REST, fazer pedidos HTTP e lidar com respostas HTTP.
+> Leia a [referência API AZure REST](/rest/api/azure/) para saber mais sobre como consumir APIs DE REST, fazer pedidos HTTP e lidar com respostas HTTP.
 
 ### <a name="authentication"></a>Autenticação
 
-Para realizar consultas autenticadas contra o [Azure Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), um token portador OAuth 2.0 válido deve ser passado no [cabeçalho de autorização](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) usando um cliente REST à sua escolha (Carteiro, JavaScript, C#).
+Para realizar consultas autenticadas contra o [Azure Time Series Insights REST APIs](/rest/api/time-series-insights/), um token portador OAuth 2.0 válido deve ser passado no [cabeçalho de autorização](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) usando um cliente REST à sua escolha (Carteiro, JavaScript, C#).
 
 > [!TIP]
 > Leia a visualização da [amostra do cliente SDK](https://tsiclientsample.azurewebsites.net/) da Série De Tempo Azure para aprender a autenticar com o Azure Time Series Insights APIs programáticamente utilizando o [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) juntamente com gráficos e gráficos.
@@ -140,7 +140,7 @@ Os cabeçalhos de resposta opcionais mas recomendados são descritos abaixo.
 ### <a name="http-parameters"></a>Parâmetros HTTP
 
 > [!TIP]
-> Encontre mais informações sobre as informações de consulta necessárias e opcionais na [documentação de referência.](https://docs.microsoft.com/rest/api/time-series-insights/)
+> Encontre mais informações sobre as informações de consulta necessárias e opcionais na [documentação de referência.](/rest/api/time-series-insights/)
 
 Os parâmetros de cadeia de consulta de URL necessários dependem da versão API.
 
@@ -157,15 +157,15 @@ Os parâmetros de cadeia de consulta de URL opcionais incluem a definição de u
 
 | Parâmetro de consulta opcional | Descrição | Versão |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Tempo de tempo do lado do servidor para a execução do pedido HTTP. Aplicável apenas aos [Eventos De Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) e [Obter ApIs agregados ambientais.](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) O valor de tempo limite deve estar no formato de duração ISO 8601, por `"PT20S"` exemplo, e deve estar na gama `1-30 s` . O valor predefinido é `30 s`. | Gen1 |
+| `timeout=<timeout>` | Tempo de tempo do lado do servidor para a execução do pedido HTTP. Aplicável apenas aos [Eventos De Ambiente](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) e [Obter ApIs agregados ambientais.](/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) O valor de tempo limite deve estar no formato de duração ISO 8601, por `"PT20S"` exemplo, e deve estar na gama `1-30 s` . O valor predefinido é `30 s`. | Gen1 |
 | `storeType=<storeType>` | Para ambientes Gen2 com loja quente ativada, a consulta pode ser executada no `WarmStore` ou `ColdStore` . Este parâmetro na consulta define em que loja a consulta deve ser executada. Se não estiver definida, a consulta será executada na loja de frio. Para consultar a loja quente, **o storeType** precisa de ser configurado para `WarmStore` . Se não estiver definida, a consulta será executada contra a loja de frio. | Gen2 |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para o código de amostra que chama a Gen1 Azure Time Series Insights API, leia [os dados da Consulta Gen1 utilizando C#](./time-series-insights-query-data-csharp.md).
 
 * Para obter o código de amostra que chama as amostras de código API da Série De Tempo Azure Gen2, leia [os dados da Consulta Gen2 utilizando C#](./time-series-insights-update-query-data-csharp.md).
 
-* Para obter informações de referência da API, leia a documentação de referência da [API.](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api)
+* Para obter informações de referência da API, leia a documentação de referência da [API.](/rest/api/time-series-insights/gen1-query-api)
 
 * Saiba como [criar um diretor de serviço.](../active-directory/develop/howto-create-service-principal-portal.md)

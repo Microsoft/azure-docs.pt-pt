@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: b9b76b2eb5e9536561f73a92b6911a2f82122a1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0fe33dff0161767b74546aad49003d8fc70c16
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078100"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015261"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Encriptação do serviço de fala dos dados em repouso
 
@@ -33,11 +33,11 @@ Quando utilizar a Fala Personalizada e a Voz Personalizada, o serviço de fala p
 
 Por predefinição, os seus dados são armazenados no armazenamento da Microsoft e a sua subscrição utiliza chaves de encriptação geridas pela Microsoft. Também tem a opção de preparar a sua própria conta de armazenamento. O acesso à loja é gerido pela Identidade Gerida, e o serviço de Fala não pode aceder diretamente aos seus próprios dados, tais como dados de traços de fala, dados de formação de personalização e modelos personalizados.
 
-Para obter mais informações sobre identidade gerida, consulte [o que são identidades geridas.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Para obter mais informações sobre identidade gerida, consulte [o que são identidades geridas.](../../active-directory/managed-identities-azure-resources/overview.md)
 
 ## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>Traga o seu próprio armazenamento (BYOS) para personalização e registo
 
-Para solicitar o acesso para trazer o seu próprio armazenamento, preencha e submeta o [serviço Dea palavra - traga o seu próprio formulário de pedido de armazenamento (BYOS).](https://aka.ms/cogsvc-cmk) Uma vez aprovado, terá de criar a sua própria conta de armazenamento para armazenar os dados necessários para personalização e registo. Ao adicionar uma conta de armazenamento, o recurso de serviço Speech permitirá uma identidade gerida atribuída ao sistema. Após o sistema atribuído à identidade gerida, este recurso será registado no Azure Ative Directory (AAD). Após o registo, a identidade gerida terá acesso à conta de armazenamento. Pode saber mais sobre identidades geridas aqui. Para obter mais informações sobre identidade gerida, consulte [o que são identidades geridas.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Para solicitar o acesso para trazer o seu próprio armazenamento, preencha e submeta o [serviço Dea palavra - traga o seu próprio formulário de pedido de armazenamento (BYOS).](https://aka.ms/cogsvc-cmk) Uma vez aprovado, terá de criar a sua própria conta de armazenamento para armazenar os dados necessários para personalização e registo. Ao adicionar uma conta de armazenamento, o recurso de serviço Speech permitirá uma identidade gerida atribuída ao sistema. Após o sistema atribuído à identidade gerida, este recurso será registado no Azure Ative Directory (AAD). Após o registo, a identidade gerida terá acesso à conta de armazenamento. Pode saber mais sobre identidades geridas aqui. Para obter mais informações sobre identidade gerida, consulte [o que são identidades geridas.](../../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
 > Se desativar as identidades geridas do sistema, o acesso à conta de armazenamento será removido. Isto fará com que as partes do serviço Discurso que exigem o acesso à conta de armazenamento deixem de funcionar.  
@@ -47,7 +47,7 @@ O serviço de discurso não suporta atualmente o Lockbox do Cliente. No entanto,
 > [!IMPORTANT]
 > A Microsoft **não** utiliza os dados dos clientes para melhorar os seus modelos De Discurso. Além disso, se a sessão de registo de pontos finais for desativada e não forem utilizadas personalizações, não são armazenados dados do cliente. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Serviço de fala - traga o seu próprio formulário de pedido de armazenamento (BYOS)](https://aka.ms/cogsvc-cmk)
-* [O que são identidades geridas.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* [O que são identidades geridas.](../../active-directory/managed-identities-azure-resources/overview.md)

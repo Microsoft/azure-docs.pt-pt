@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: e54e8e9de1df4c8a1c870285d36e4580daaa698a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c38c57a8480ef2addde494b94d70bd2eb679373
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667831"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016773"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-gen2"></a>Provisão e gestão da Azure Time Series Insights Gen2
 
@@ -31,8 +31,8 @@ Ao fornecer um ambiente Azure Time Series Insights Gen2, cria estes recursos Azu
 
 > [!TIP]
 >
-> * Saiba [como planear o seu ambiente.](./time-series-insights-update-plan.md)
-> * Leia sobre como [adicionar uma fonte de hub](./time-series-insights-how-to-add-an-event-source-eventhub.md) de evento ou como adicionar uma fonte de hub [IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).
+> * Saiba [como planear o seu ambiente.](./how-to-plan-your-environment.md)
+> * Leia sobre como [adicionar uma fonte de hub](./how-to-ingest-data-event-hub.md) de evento ou como adicionar uma fonte de hub [IoT](./how-to-ingest-data-iot-hub.md).
 
 Vai aprender a:
 
@@ -59,16 +59,16 @@ Para criar um ambiente Azure Time Series Insights Gen 2:
     >
     > * O ID da Série De Tempo é *sensível a casos* e *imutável*. (Não pode ser mudado depois de definido.)
     > * Os IDs da Série De Tempo podem chegar a *três* teclas. Pense nisso como uma chave primária numa base de dados, que representa exclusivamente cada sensor de dispositivo que enviaria dados para o seu ambiente. Pode ser uma propriedade ou uma combinação de até três propriedades.
-    > * Leia mais sobre [Como escolher um ID da Série De Tempo](time-series-insights-update-how-to-id.md)
+    > * Leia mais sobre [Como escolher um ID da Série De Tempo](./how-to-select-tsid.md)
 
-1. Crie uma conta de Armazenamento Azure selecionando um nome de conta de armazenamento, tipo de conta e designando uma escolha de [replicação.](https://docs.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal) Ao fazê-lo, cria-se automaticamente uma conta de Armazenamento Azure. Por predefinição, será criada a conta [V2 para fins gerais.](https://docs.microsoft.com/azure/storage/common/storage-account-overview) A conta é criada na mesma região que o ambiente Azure Time Series Insights Gen2 que selecionou anteriormente.
+1. Crie uma conta de Armazenamento Azure selecionando um nome de conta de armazenamento, tipo de conta e designando uma escolha de [replicação.](../storage/common/redundancy-migration.md?tabs=portal) Ao fazê-lo, cria-se automaticamente uma conta de Armazenamento Azure. Por predefinição, será criada a conta [V2 para fins gerais.](../storage/common/storage-account-overview.md) A conta é criada na mesma região que o ambiente Azure Time Series Insights Gen2 que selecionou anteriormente.
 Em alternativa, também pode trazer o seu próprio armazenamento (BYOS) através [do modelo ARM](./time-series-insights-manage-resources-using-azure-resource-manager-template.md) quando criar um novo ambiente Azure Time Series Gen2.
 
 1. **(Opcional)** Ative a loja quente para o seu ambiente se quiser consultas mais rápidas e ilimitadas sobre os dados mais recentes no seu ambiente. Também pode criar ou eliminar uma loja quente através da opção **de configuração de armazenamento** no painel de navegação esquerdo, depois de criar um ambiente Azure Time Series Insights Gen2.
 
 1. **(Opcional)** Pode adicionar uma fonte de evento agora. Também pode esperar até que o caso tenha sido a provisionado.
 
-   * Azure Time Series Insights suporta [Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) e [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) como opções de origem de eventos. Embora possa adicionar apenas uma única fonte de eventos quando criar o ambiente, pode adicionar outra fonte de evento mais tarde.
+   * Azure Time Series Insights suporta [Azure IoT Hub](./how-to-ingest-data-iot-hub.md) e [Azure Event Hubs](./how-to-ingest-data-event-hub.md) como opções de origem de eventos. Embora possa adicionar apenas uma única fonte de eventos quando criar o ambiente, pode adicionar outra fonte de evento mais tarde.
 
      Pode selecionar um grupo de consumidores existente ou criar um novo grupo de consumidores quando adicionar a fonte do evento. Por favor, note que a fonte do evento requer um grupo de consumidores único para o seu ambiente ler dados nele.
 
@@ -92,19 +92,19 @@ Pode gerir o seu ambiente Azure Time Series Insights Gen2 utilizando o portal Az
   * A capacidade é removida porque não se aplica aos ambientes da Gen2.
   * A propriedade **de ID da série Time** é adicionada. Determina como os seus dados são divididos.
   * Os conjuntos de dados de referência são removidos.
-  * O URL apresentado direciona-o para o [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md).
+  * O URL apresentado direciona-o para o [Azure Time Series Insights Explorer](./concepts-ux-panels.md).
   * O nome da sua conta Azure Storage está listado.
 
 * A lâmina **de configuração** do portal Azure é removida porque as unidades de escala não se aplicam aos ambientes Azure Time Series Insights Gen2. No entanto, pode utilizar a **Configuração de Armazenamento** para configurar a loja quente recentemente introduzida.
 
-* A lâmina de **dados** de referência do portal Azure é removida no Azure Time Series Insights Gen2 porque o conceito de dados de referência foi substituído pelo [Modelo de Séries de Tempo (TSM)](/azure/time-series-insights/concepts-model-overview).
+* A lâmina de **dados** de referência do portal Azure é removida no Azure Time Series Insights Gen2 porque o conceito de dados de referência foi substituído pelo [Modelo de Séries de Tempo (TSM)](./concepts-model-overview.md).
 
 [![Azure Time Series Insights Gen2 ambiente no portal Azure](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre a Azure Time Series Insights geralmente disponíveis ambientes e ambientes Gen2 lendo [Planeie o seu ambiente](./time-series-insights-update-plan.md).
+* Saiba mais sobre a Azure Time Series Insights geralmente disponíveis ambientes e ambientes Gen2 lendo [Planeie o seu ambiente](./how-to-plan-your-environment.md).
 
-* Saiba como [adicionar uma fonte de centro de eventos.](./time-series-insights-how-to-add-an-event-source-eventhub.md)
+* Saiba como [adicionar uma fonte de centro de eventos.](./how-to-ingest-data-event-hub.md)
 
-* Configure uma [fonte de hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).
+* Configure uma [fonte de hub IoT](./how-to-ingest-data-iot-hub.md).

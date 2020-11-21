@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7e41eb0f6a61f7b195e251739ae93207c731cac5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5cc8a4508ceeda245fbc10a81e16f3ecf05284c7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535882"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013610"
 ---
 # <a name="detect-adult-content"></a>Detetar conteúdo adulto
 
 A Visão Computacional pode detetar material adulto em imagens para que os desenvolvedores possam restringir a exibição destas imagens no seu software. As bandeiras de conteúdo são aplicadas com uma pontuação entre zero e uma para que os desenvolvedores possam interpretar os resultados de acordo com as suas próprias preferências.
 
 > [!NOTE]
-> Grande parte desta funcionalidade é oferecida pelo serviço [Azure Content Moderador.](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) Consulte esta alternativa para soluções para cenários de moderação de conteúdo mais rigorosos, como moderação de texto e fluxos de trabalho de revisão humana.
+> Grande parte desta funcionalidade é oferecida pelo serviço [Azure Content Moderador.](../content-moderator/overview.md) Consulte esta alternativa para soluções para cenários de moderação de conteúdo mais rigorosos, como moderação de texto e fluxos de trabalho de revisão humana.
 
 ## <a name="content-flag-definitions"></a>Definições de bandeira de conteúdo
 
@@ -37,5 +37,5 @@ Dentro da classificação "adulto" estão várias categorias diferentes:
 
 Pode detetar conteúdo adulto com a [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) Quando adiciona o valor do `Adult` parâmetro de consulta **visualFeatures,** a API devolve três propriedades booleanas &mdash; `isAdultContent` , e na sua `isRacyContent` resposta `isGoryContent` &mdash; JSON. O método também devolve propriedades &mdash; `adultScore` correspondentes, e que `racyScore` `goreScore` &mdash; representam pontuações de confiança entre zero e uma para cada categoria respetiva.
 
-- [Quickstart: Analisar uma imagem (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+- [Quickstart: Analisar uma imagem (.NET SDK)](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 - [Quickstart: Analisar uma imagem (REST API)](./quickstarts/csharp-analyze.md)

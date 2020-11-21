@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 8154ef7a90011da8c15f52870eebb6c80ebaebca
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496100"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014582"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e resolução de problemas
 
@@ -51,7 +51,7 @@ Entradas:
 Saídas:
 1. Azure Monitor
 
-O módulo de análise espacial fornecido telegraf publicará todos os dados de telemetria emitidos pelo recipiente de análise espacial ao Azure Monitor. Consulte o [Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/overview) para obter informações sobre a adição do Monitor Azure à sua subscrição.
+O módulo de análise espacial fornecido telegraf publicará todos os dados de telemetria emitidos pelo recipiente de análise espacial ao Azure Monitor. Consulte o [Monitor Azure](../../azure-monitor/overview.md) para obter informações sobre a adição do Monitor Azure à sua subscrição.
 
 Depois de configurar o Azure Monitor, terá de criar credenciais que permitam ao módulo enviar telemetria. Pode utilizar o portal Azure para criar um novo Diretor de Serviços ou utilizar o comando Azure CLI abaixo para criar um.
 
@@ -215,8 +215,8 @@ A partir do portal IoT Edge, selecione o seu dispositivo e, em seguida, o módul
 Os registos são carregados a pedido com o `getRTCVLogs` método IoT Edge, no `diagnostics` módulo. 
 
 
-1. Vá à página do portal IoT Hub, selecione **Dispositivos edge**e, em seguida, selecione o seu dispositivo e o seu módulo de diagnóstico. 
-2. Vá à página de detalhes do módulo e clique no separador método*_* _ método._*
+1. Vá à página do portal IoT Hub, selecione **Dispositivos edge** e, em seguida, selecione o seu dispositivo e o seu módulo de diagnóstico. 
+2. Vá à página de detalhes do módulo e clique no separador método *_* _ método._*
 3. Digite `getRTCVLogs` no Nome do Método e uma cadeia de formato json na carga útil. Pode `{}` entrar, que é uma carga vazia. 
 4. Desa estacadem a ligação e o método, e clique em _*Invoke Method**.
 5. Selecione o seu recipiente-alvo e construa uma corda de json de carga útil utilizando os parâmetros descritos na secção **de sintaxe de registo.** Clique **em Invocar Método** para realizar o pedido.
@@ -224,7 +224,7 @@ Os registos são carregados a pedido com o `getRTCVLogs` método IoT Edge, no `d
 >[!NOTE]
 > Invocar o `getRTCVLogs` método com uma carga útil vazia devolverá uma lista de todos os recipientes implantados no dispositivo. O nome do método é sensível a maiôs. Obterá um erro 501 se for dado um nome de método incorreto.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Relatório de telemetria do Monitor Azure":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Invocando o método getRTCVLogs ":::
 ![getRTCVLogs Página de método direto](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -245,7 +245,7 @@ A tabela seguinte lista os atributos na resposta de consulta.
 
 | Palavra-chave | Descrição|
 |--|--|
-|DoPost| Verdadeiro *true* ou *falso.* Indica se os registos foram carregados ou não. Quando opta por não fazer o upload de registos, a api devolve informações *** sincronizadamente**_. Quando opta por fazer o upload de registos, a API devolve 200, se o pedido for válido, e começa a carregar registos _*_assíncronamente_*_.|
+|DoPost| Verdadeiro *true* ou *falso.* Indica se os registos foram carregados ou não. Quando opta por não fazer o upload de registos, a api devolve informações *** sincronizadamente** _. Quando opta por fazer o upload de registos, a API devolve 200, se o pedido for válido, e começa a carregar registos _*_assíncronamente_*_.|
 |Filtro de tempo| Filtro de tempo aplicado aos troncos.|
 |Filtros de Valor| Filtros de palavras-chave aplicados nos registos. |
 |TimeStamp| Tempo de início da execução do método. |
@@ -316,7 +316,7 @@ A secção seguinte é fornecida para ajudar na depuração e verificação do e
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Aceda ao Ponto Final da API da Kubernetes. 
 
-1. Na UI local do seu dispositivo, aceda à página _*Dispositivos** 
+1. Na UI local do seu dispositivo, aceda à página _ *Dispositivos** 
 2. Nos **pontos finais do dispositivo,** copie o ponto final de serviço da API da Kubernetes. Este ponto final é uma cadeia no seguinte formato: `https://compute..[device-IP-address]` .
 3. Salve a corda do ponto final. Usará isto mais tarde ao configurar `kubectl` para aceder ao cluster Kubernetes.
 
@@ -326,7 +326,7 @@ Remotamente, conecte-se a partir de um cliente Windows. Após a criação do clu
 
 > [!TIP]
 > * Antes de começar, certifique-se de que o seu cliente Windows está a executar o Windows PowerShell 5.0 ou mais tarde.
-> * PowerShell também está [disponível no Linux.](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux)
+> * PowerShell também está [disponível no Linux.](/powershell/scripting/install/installing-powershell-core-on-linux)
 
 1. Executar uma sessão Windows PowerShell como administrador. 
     1. Certifique-se de que o serviço de Gestão Remota do Windows está a funcionar no seu cliente. Na solicitação de comando, escreva `winrm quickconfig` .
@@ -401,7 +401,7 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 | `Get-HcsApplianceInfo` | Devolve informações sobre o seu dispositivo. |
 | `Enable-HcsSupportAccess` | Gera credenciais de acesso para iniciar uma sessão de suporte. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Implementar uma aplicação web People Counting](spatial-analysis-web-app.md)
 * [Configure operações de análise espacial](./spatial-analysis-operations.md)

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e861182ee57a0b49d3e62a858fc97dbf0890ea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48cde51ee9941f705aa848d121c419a8f0c9ad1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399708"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013705"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de inquilino (pré-visualização)
 
@@ -25,7 +25,7 @@ O Modelo de Inquilino (Custom Speech with Microsoft 365 data) é um serviço de 
 > [!IMPORTANT]
 > Se a sua organização se inscrever utilizando o serviço Modelo de Inquilino, o Serviço de Fala poderá aceder ao modelo linguístico da sua organização. O modelo é gerado a partir de e-mails e documentos de grupo público microsoft 365, que podem ser vistos por qualquer pessoa da sua organização. O administrador da sua organização pode ligar ou desligar o uso do modelo linguístico em toda a organização a partir do portal de administração.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Inscreva-se no Modelo de Inquilino utilizando o centro de administração Microsoft 365
@@ -40,7 +40,7 @@ Antes de poder implementar o seu modelo de inquilino, tem de estar inscrito no s
 
 1. Inicie sessão no [centro de administração do Microsoft 365](https://admin.microsoft.com).
 
-1. No painel esquerdo, selecione **Definições**e, em seguida, selecione **Definições** do menu aninhado e, em seguida, selecione **Azure Speech Services** a partir da janela principal.
+1. No painel esquerdo, selecione **Definições** e, em seguida, selecione **Definições** do menu aninhado e, em seguida, selecione **Azure Speech Services** a partir da janela principal.
 
    ![O painel "Serviços & add-ins"](media/tenant-language-model/tenant-language-model-enrollment.png)
 
@@ -59,7 +59,7 @@ Para utilizar o seu modelo de inquilino com o Speech SDK, precisa de um recurso 
 1. Inicie sessão no [portal do Azure](https://aka.ms/azureportal).
 1. Selecione **Criar um recurso**.
 1. Na caixa **de Pesquisa,** escreva **Discurso**.
-1. Na lista de resultados, selecione **Speech**e, em seguida, selecione **Criar**.
+1. Na lista de resultados, selecione **Speech** e, em seguida, selecione **Criar**.
 1. Siga as instruções no ecrã para criar o seu recurso. Certifique-se de que:
    * **A localização** está definida para **este** ou **oeste.**
    * **O nível de preços** está definido para **S0**.
@@ -105,7 +105,7 @@ Quando a sua instância modelo de inquilino estiver pronta, desloque-a fazendo o
 
 Agora que implementou o seu modelo, pode usá-lo com o SDK do discurso. Nesta secção, utiliza o código de amostra para chamar o Serviço de Fala utilizando a autenticação do Azure Ative Directory (Azure AD).
 
-Vamos ver o código que vais usar para chamar o Discurso SDK em C#. Neste exemplo, realiza-se o reconhecimento da fala utilizando o seu modelo de inquilino. Este guia pressupõe que a sua plataforma já está configurada. Se precisar de ajuda de configuração, consulte [Quickstart: Reconheça a fala, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+Vamos ver o código que vais usar para chamar o Discurso SDK em C#. Neste exemplo, realiza-se o reconhecimento da fala utilizando o seu modelo de inquilino. Este guia pressupõe que a sua plataforma já está configurada. Se precisar de ajuda de configuração, consulte [Quickstart: Reconheça a fala, C# (.NET Core)](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Copie este código para o seu projeto:
 
@@ -304,7 +304,7 @@ Em seguida, você precisa reconstruir e executar o projeto a partir da linha de 
 
 Neste tutorial, aprendeu a usar os dados do Microsoft 365 para criar um modelo personalizado de reconhecimento de voz, implantá-lo e usá-lo com o Speech SDK.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Speech Studio](https://speech.microsoft.com/)
 * [API de Voz](speech-sdk.md)

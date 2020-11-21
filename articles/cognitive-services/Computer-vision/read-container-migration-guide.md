@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 14b4e7217b6e902023e5e82f8dbd404e43b36ef0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1616a0149ae56de8afe0e9ab485af4bf76326d86
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676158"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014616"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrar para os recipientes de OCR de Leitura v3.x
 
@@ -35,7 +35,7 @@ O recipiente Read v3.1 utiliza a versão 3 da API de Visão Computacional e tem 
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
 
-Consulte o [guia de migração da API da API com Visão De Computador v3](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) PARA obter informações detalhadas sobre a atualização das suas aplicações para utilizar a versão 3 da API de leitura baseada na nuvem. Esta informação aplica-se também ao contentor. Note que as operações de sincronização só são suportadas em contentores.
+Consulte o [guia de migração da API da API com Visão De Computador v3](./upgrade-api-versions.md) PARA obter informações detalhadas sobre a atualização das suas aplicações para utilizar a versão 3 da API de leitura baseada na nuvem. Esta informação aplica-se também ao contentor. Note que as operações de sincronização só são suportadas em contentores.
 
 ## <a name="memory-requirements"></a>Requisitos de memória
 
@@ -78,7 +78,7 @@ Ajuste o temporizador com `Queue:Azure:QueueVisibilityTimeoutInMilliseconds` , o
 | 30000 |    120000 |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Rever recipientes de configuração](computer-vision-resource-container-config.md) para configurações de configuração
 * Reveja [a visão geral da Visão computacional](overview.md) para saber mais sobre o reconhecimento de texto impresso e manuscrito

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d96d7b5952c020493af278ee1ea8ad5ff46716
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598118"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016790"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planeie o seu ambiente Azure Time Series Insights Gen2
 
@@ -45,7 +45,7 @@ Como parte do processo de provisionamento, especifica se deseja ativar uma loja 
 As consultas na loja quente são gratuitas, enquanto as consultas sobre a loja de frio incorrem em custos. É importante compreender os seus padrões de consulta e planear a configuração da sua loja quente em conformidade. Recomendamos que a análise interativa dos dados mais recentes resida na sua loja quente e análise de padrões e tendências de longo prazo residem no frio.
 
 > [!NOTE]
-> Para ler mais sobre como consultar os seus dados quentes, leia a [Referência API.](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters)
+> Para ler mais sobre como consultar os seus dados quentes, leia a [Referência API.](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters)
 
 Para começar, precisa de três itens adicionais:
 
@@ -64,7 +64,7 @@ Para criar um novo ambiente Azure Time Series Insights, selecione um ID da Séri
 > [!IMPORTANT]
 > Os IDs da Série De Tempo *não podem ser alterados mais tarde*. Verifique cada um antes da seleção final e primeira utilização.
 
-Pode selecionar até três chaves para diferenciar exclusivamente os seus recursos. Para mais informações, leia [as melhores práticas para escolher as regras de ID](./time-series-insights-update-how-to-id.md) e [Ingestão](concepts-json-flattening-escaping-rules.md)da Série Tempo.
+Pode selecionar até três chaves para diferenciar exclusivamente os seus recursos. Para mais informações, leia [as melhores práticas para escolher as regras de ID](./how-to-select-tsid.md) e [Ingestão](concepts-json-flattening-escaping-rules.md)da Série Tempo.
 
 A propriedade **Timestamp** também é importante. Você pode designar esta propriedade quando adicionar fontes de evento. Cada fonte de evento tem uma propriedade opcional do Timestamp que é usada para rastrear fontes de eventos ao longo do tempo. Os valores do tempotamp são sensíveis à caixa e devem ser formatados à especificação individual de cada fonte de evento.
 
@@ -74,7 +74,7 @@ Quando deixado em branco, o momento em que o evento foi encostado no IoT Hub ou 
 
 Agora pode configurar o modelo da Série De Tempo do Azure. O novo modelo facilita a procura e análise de dados IoT. Permite a cura, manutenção e enriquecimento de dados de séries de tempo e ajuda a preparar conjuntos de dados prontos para o consumidor. O modelo usa IDs de Séries De Tempo, que mapeiam para um caso que associa o recurso único com variáveis, conhecidas como tipos, e hierarquias. Leia sobre a visão geral do [Modelo série](./concepts-model-overview.md) de tempo para saber mais.
 
-O modelo é dinâmico, por isso pode ser construído a qualquer momento. Para começar rapidamente, construa-o e carrete-o antes de empurrar os dados para a Azure Time Series Insights. Para construir o seu modelo, leia [Use o Modelo série de tempo](/azure/time-series-insights/concepts-model-overview).
+O modelo é dinâmico, por isso pode ser construído a qualquer momento. Para começar rapidamente, construa-o e carrete-o antes de empurrar os dados para a Azure Time Series Insights. Para construir o seu modelo, leia [Use o Modelo série de tempo](./concepts-model-overview.md).
 
 Para muitos clientes, o Modelo série de tempo mapeia para um modelo de ativo existente ou sistema ERP já em vigor. Se não tiver um modelo existente, é [fornecida](https://github.com/Microsoft/tsiclient) uma experiência de utilizador pré-construída para se levantar e funcionar rapidamente. Para imaginar como um modelo pode ajudá-lo, veja o [ambiente de demonstração de amostras](https://insights.timeseries.azure.com/preview/demo).
 
@@ -91,7 +91,7 @@ Para obter mais informações e para compreender como os eventos serão achatado
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Reveja [o Azure Advisor](../advisor/advisor-overview.md) para planear as suas opções de configuração de recuperação de negócios.
 * Reveja [o Azure Advisor](../advisor/advisor-overview.md) para planear as suas opções de configuração de recuperação de negócios.

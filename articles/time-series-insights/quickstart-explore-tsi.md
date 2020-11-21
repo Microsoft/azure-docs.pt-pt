@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 10/02/2020
-ms.openlocfilehash: 9cd1a6059360c948229a1da00780cd6cb40b7f35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3956f8d91793367f7200d2f349a8713aff3d2f59
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666539"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016229"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Quickstart: Explore o ambiente de demonstração da Azure Time Series Insights Gen2
 
@@ -54,7 +54,7 @@ O Azure Time Series Insights Gen2 Explorer demonstra dados históricos e anális
 
 1. Reveja outros eventos na época do incêndio para entender o que aconteceu. A pressão do óleo e os avisos ativos aumentaram pouco antes do incêndio.
 
-   1. Selecione **o sistema**de  >  **arremesso HydraulicoilPressure**.
+   1. Selecione **o sistema** de  >  **arremesso HydraulicoilPressure**.
    1. Selecione **Pitch System**  >  **ActiveWarning**.
 
       [![Reveja outros eventos ao mesmo tempo](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
@@ -102,7 +102,7 @@ Ao usar a Azure Time Series Insights Gen2 e a telemetria de sensores, descobrimo
 
 1. Outros pontos de dados do sensor podem ser adicionados para proporcionar um maior contexto. Quanto mais sensores vemos, mais completa é a nossa compreensão do problema. Vamos deixar cair um marcador para mostrar os valores reais.
 
-    1. Selecione **o Sistema gerador**, e, em seguida, selecione três sensores: **GridVoltagePhase1,** **GridVoltagePhase2**e **GridVoltagePhase3**.
+    1. Selecione **o Sistema gerador**, e, em seguida, selecione três sensores: **GridVoltagePhase1,** **GridVoltagePhase2** e **GridVoltagePhase3**.
     1. Deixe cair um marcador no último ponto de dados na área visível.
 
        [![Deixe cair um marcador](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
@@ -119,17 +119,17 @@ Ao usar a Azure Time Series Insights Gen2 e a telemetria de sensores, descobrimo
 
 Agora que completou o quickstart, limpe os recursos que criou:
 
-1. A partir do menu esquerdo no [portal Azure](https://portal.azure.com), selecione **Todos os recursos**e localize o seu grupo de recursos Azure Time Series Insights Gen2.
+1. A partir do menu esquerdo no [portal Azure](https://portal.azure.com), selecione **Todos os recursos** e localize o seu grupo de recursos Azure Time Series Insights Gen2.
 1. Ou elimina todo o grupo de recursos (e todos os recursos contidos no mesmo) selecionando **Eliminar** ou remover cada recurso individualmente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Estás pronto para criar o teu próprio ambiente Azure Time Series Insights Gen2. Para começar:
 
 > [!div class="nextstepaction"]
-> [Planeie o seu ambiente Azure Time Series Insights Gen2](time-series-insights-update-plan.md)
+> [Planeie o seu ambiente Azure Time Series Insights Gen2](./how-to-plan-your-environment.md)
 
 Aprenda a usar a demonstração e as suas características:
 
 > [!div class="nextstepaction"]
-> [The Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md)
+> [The Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md)

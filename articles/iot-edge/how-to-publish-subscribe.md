@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: ef92895374f07c79f8ba8d626a0aab3d89733f40
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1ace40098e1d53c6199accea755ffb6969781663
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629653"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015668"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e subscrever com a Azure IoT Edge
 
@@ -31,7 +31,7 @@ Pode utilizar o corretor MQTT Azure IoT Edge para publicar e subscrever mensagen
 - Um **hub IoT** da SKU, F1, S1, S2 ou S3.
 - Tenha um **dispositivo IoT Edge com a versão 1.2 ou superior**. Uma vez que o corretor MQTT IoT Edge está atualmente em pré-visualização pública, deite as seguintes variáveis ambientais para verdade no recipiente edgeHub para permitir o corretor MQTT:
 
-   | Name | Valor |
+   | Nome | Valor |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
@@ -209,7 +209,7 @@ Agora que entende como se conectar com o corretor IoT Edge MQTT, vamos ver como 
 
 ## <a name="publish-and-subscribe-on-user-defined-topics"></a>Publicar e subscrever tópicos definidos pelo utilizador
 
-Neste artigo, você usará um cliente chamado **sub_client** que subscreve um tópico e outro cliente chamado **pub_client** que publica para um tópico. Usaremos a [autenticação da chave simétrica,](how-to-authenticate-downstream-device.md#symmetric-key-authentication) mas o mesmo pode ser feito com [a autenticação auto-assinada X.509](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) ou [com a autenticação auto-assinada X.509.](./how-to-authenticate-downstream-device.md#x509-self-signed-authentication)
+Neste artigo, você usará um cliente chamado **sub_client** que subscreve um tópico e outro cliente chamado **pub_client** que publica para um tópico. Utilizaremos a [autenticação da chave simétrica,](how-to-authenticate-downstream-device.md#symmetric-key-authentication) mas o mesmo pode ser feito com [a autenticação auto-assinada X.509](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) ou [com a autenticação assinada por X.509 CA.](./how-to-authenticate-downstream-device.md#x509-ca-signed-authentication)
 
 ### <a name="create-publisher-and-subscriber-clients"></a>Criar clientes editores e assinantes
 
@@ -439,6 +439,6 @@ Abaixo está um exemplo de uma configuração de ponte IoT Edge MQTT que republi
 Outras notas sobre a ponte MQTT do hub IoT Edge:
 - O protocolo MQTT será automaticamente utilizado como protocolo a montante quando o corretor MQTT for utilizado e que o IoT Edge é utilizado numa configuração aninhada, por exemplo, com um `parent_hostname` especificado. Para saber mais sobre os protocolos a montante, consulte [a comunicação cloud](iot-edge-runtime.md#cloud-communication). Para saber mais sobre configurações aninhadas, consulte [ligar um dispositivo IoT Edge a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Compreenda o hub IoT Edge](iot-edge-runtime.md#iot-edge-hub)

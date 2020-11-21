@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 18e90bcfe7238ae998ac677a9d7eebef0ffa8939
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a4848f5e8b542d80b382abe39f4882a26e0f534c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874258"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015685"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Erros de certificado de resolução de problemas
 
@@ -58,9 +58,8 @@ O quadro que se segue apresenta erros comuns de certificado e informações deta
 | CertificadoImportFailure | O certificado com impressão digital {0} não foi importado no {1} nó. Se o problema persistir, contacte o Microsoft Support. |
 | CertificadoApplyFailure | O certificado com impressão digital {0} não foi aplicado no {1} nó. Se o problema persistir, contacte o Microsoft Support.|
 | NodeNotReachable | Não foi possível validar o certificado em {0} . Verifique a saúde do hardware e software do sistema.|
-| OBTER CÓDIGO DE ERRO | A chave privada deste certificado não é acessível. Certifique-se de que está a utilizar um certificado suportado. Apenas o Microsoft RSA/Schannel Cryptographic Provider é suportado. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Requisitos de certificado](azure-stack-edge-j-series-certificate-requirements.md)
