@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 03b7941385517fe694f0743194655a1b6a1c0e1e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591752"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253563"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
 O Azure NetApp Files suporta a criação de instantâneos a pedido e a utilização de políticas instantâneas para agendar a criação automática de instantâneos. Também pode restaurar uma imagem instantânea para um novo volume, restaurar um único ficheiro utilizando um cliente, ou reverter um volume existente utilizando um instantâneo.
+
+> [!NOTE] 
+> Para obter considerações sobre a gestão instantânea na replicação entre regiões, consulte [requisitos e considerações para a utilização de replicações entre regiões.](cross-region-replication-requirements-considerations.md)
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Crie um instantâneo a pedido para um volume
 
@@ -261,7 +264,7 @@ Pode apagar imagens que já não precisa de guardar.
 
     ![Screenshot que confirma a eliminação de instantâneos](../media/azure-netapp-files/snapshot-confirm-delete.png)  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Resolver problemas das políticas de instantâneo](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)

@@ -1,5 +1,5 @@
 ---
-title: Criar redes de replicação para ficheiros Azure NetApp / Microsoft Docs
+title: Criar replicação de volume para ficheiros Azure NetApp / Microsoft Docs
 description: Descreve como criar a replicação de volume a espreitar os Ficheiros Azure NetApp para configurar a replicação transversal.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: df70f8a37a7223119068afd323583ea6126ca542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 412724a072bfc03a67bf1005173702f757c6fdf4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708823"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249942"
 ---
-# <a name="create-replication-peering-for-azure-netapp-files"></a>Criar olhando para a replicação para ficheiros Azure NetApp
+# <a name="create-volume-replication-for-azure-netapp-files"></a>Criar replicação de volume para ficheiros Azure NetApp
 
 > [!IMPORTANT]
 > A funcionalidade de replicação entre regiões está atualmente em visualização pública. Tem de submeter um pedido de lista de espera para aceder à funcionalidade através da [página de submissão da lista de espera de replicação da Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Aguarde um e-mail oficial de confirmação da equipa do Azure NetApp Files antes de utilizar a funcionalidade de replicação entre regiões.
@@ -82,7 +82,7 @@ Para o protocolo NFS, certifique-se de que as regras de política de exportaçã
 
     ![Criar replicação de volume](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
 
-9. Clique **em Rever + Criar**e, em seguida, clique em **Criar** para criar o volume de replicação de dados.   
+9. Clique **em Rever + Criar** e, em seguida, clique em **Criar** para criar o volume de replicação de dados.   
 
     ![Rever e criar replicação](../media/azure-netapp-files/cross-region-replication-review-create-replication.png)
 
@@ -106,12 +106,13 @@ Para autorizar a replicação, é necessário obter o ID de recursos do volume d
 
 6. No campo Authorize, cole o ID do recurso de replicação de destino que obteve no Passo 3 e, em seguida, clique em **OK**.
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Requisitos e considerações para a utilização da replicação entre regiões](cross-region-replication-requirements-considerations.md)
 * [Apresentar o estado de funcionamento da relação de replicação](cross-region-replication-display-health-status.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
 * [Gerir a recuperação após desastre](cross-region-replication-manage-disaster-recovery.md)
+* [Eliminar replicações ou volumes de volume](cross-region-replication-delete.md)
 * [Resolução de problemas transversal à replicação da região](troubleshoot-cross-region-replication.md)
 

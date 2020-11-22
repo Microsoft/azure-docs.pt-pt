@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: f2a50872fdb71419a0c3f068712ec67523a098e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b664dcd1cb12808960ffacf91c6d02d58632c4e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708783"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243142"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisitos e considerações para a utilização da replicação entre regiões 
 
@@ -38,12 +38,14 @@ Note os seguintes requisitos e considerações sobre a utilização da funcional
 * A replicação de volume configurante para volumes de origem criados a partir de instantâneo não é suportada neste momento.
 * Depois de configurar a replicação entre regiões, o processo de replicação cria *instantâneos* para fornecer referências entre o volume de origem e o volume de destino. Os instantâneos snapmirror são ciclamados automaticamente quando um novo é criado para cada transferência incremental. Não é possível eliminar instantâneos até que a relação de replicação e o volume sejam eliminados. 
 * Pode eliminar instantâneos manuais no volume de origem de uma relação de replicação quando a relação de replicação está ativa ou quebrada, e também após a relação de replicação ser eliminada. Não é possível eliminar instantâneos manuais para o volume de destino até que a relação de replicação seja quebrada.
+* Não pode voltar a uma imagem tirada antes da criação do volume de destino de replicação.
 
-## <a name="next-steps"></a>Passos seguintes
-* [Criar o peering de replicação](cross-region-replication-create-peering.md)
+## <a name="next-steps"></a>Próximos passos
+* [Criar replicação de volume](cross-region-replication-create-peering.md)
 * [Apresentar o estado de funcionamento da relação de replicação](cross-region-replication-display-health-status.md)
 * [Gerir a recuperação após desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
+* [Eliminar replicações ou volumes de volume](cross-region-replication-delete.md)
 * [Resolver problemas da replicação entre regiões](troubleshoot-cross-region-replication.md)
 
 

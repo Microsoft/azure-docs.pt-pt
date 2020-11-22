@@ -3,12 +3,12 @@ title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver as suas soluções Azure Batch.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: a799aa7de19b9d5b0b8e085252cb172efebd05dc
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916870"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254668"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -38,7 +38,7 @@ Este artigo discute uma coleção de boas práticas e dicas úteis para usar efi
 
 ### <a name="pool-lifetime-and-billing"></a>Vida útil da piscina e faturação
 
-A vida útil da piscina pode variar dependendo do método de alocação e das opções aplicadas à configuração da piscina. As piscinas podem ter uma vida útil arbitrária e um número variado de nós computacional na piscina em qualquer momento. É da sua responsabilidade gerir os nódinhos de computação na piscina, quer explicitamente, quer através de funcionalidades fornecidas pelo serviço (autoescala ou autopool).
+A vida útil da piscina pode variar dependendo do método de alocação e das opções aplicadas à configuração da piscina. As piscinas podem ter uma vida útil arbitrária e um número variado de nós computacional na piscina em qualquer momento. É da sua responsabilidade gerir os nódinhos de computação na piscina, quer explicitamente, quer através de funcionalidades fornecidas pelo serviço[(autoescala](nodes-and-pools.md#automatic-scaling-policy) ou [autopool).](nodes-and-pools.md#autopools)
 
 - **Mantenha as piscinas frescas.**
     Redimensione as suas piscinas para zero a cada poucos meses para garantir que obtém as [últimas atualizações de agentes de nó e correções de erros](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). A sua piscina não receberá atualizações de agentes de nó, a menos que seja recriada ou redimensionada para 0 nós de computação. Antes de recriar ou redimensionar a sua piscina, é aconselhável baixar quaisquer registos de agentes de nó para fins de depuração, conforme discutido na secção [Nodes.](#nodes)
@@ -93,7 +93,7 @@ Existe uma [quota de emprego ativo e de agendamento de emprego.](batch-quota-lim
 
 ### <a name="save-task-data"></a>Guardar dados de tarefas
 
-Os nós computacionais são pela sua natureza efémeras. Existem muitas funcionalidades em Batch, como a autopool e a autoescala, que facilitam o desaparecimento dos nós. Quando os nós saem da piscina (devido a um redimensionado ou a uma eliminação de piscina) todos os ficheiros desses nós também são apagados. Por isso, uma tarefa deve retirar a sua saída do nó em que está a funcionar e para uma loja durável antes de terminar. Da mesma forma, se uma tarefa falhar, deve mover os registos necessários para diagnosticar a falha numa loja durável.
+Os nós computacionais são pela sua natureza efémeras. Existem muitas funcionalidades em Batch, como [a autopool](nodes-and-pools.md#autopools) e [a autoescala,](nodes-and-pools.md#automatic-scaling-policy) que podem facilitar o desaparecimento dos nós. Quando os nós saem de uma piscina (devido a um redimensionado ou a uma eliminação de piscinas), todos os ficheiros desses nós também são apagados. Por isso, uma tarefa deve retirar a sua saída do nó em que está a funcionar e para uma loja durável antes de terminar. Da mesma forma, se uma tarefa falhar, deve mover os registos necessários para diagnosticar a falha numa loja durável.
 
 O Batch integrou o suporte Azure Storage para carregar dados através [do OutputFiles,](batch-task-output-files.md)bem como uma variedade de sistemas de ficheiros partilhados, ou pode realizar o upload sozinho nas suas tarefas.
 
@@ -225,7 +225,7 @@ O lote tenta ativamente limpar o diretório de trabalho em que as tarefas são e
 
 A limpeza automatizada do diretório de trabalho será bloqueada se executar um serviço no Windows a partir do diretório de trabalho startTask, devido à pasta ainda em uso. Isto resultará num desempenho degradado. Para corrigir isto, mude o diretório desse serviço para um diretório separado que não seja gerido pelo Batch.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma conta Azure Batch utilizando o portal Azure](batch-account-create-portal.md).
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.

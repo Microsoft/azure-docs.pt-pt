@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: c20333c83275edb90a266afec3ec3756ae1e0e7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216271"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241612"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Saiba como resolver problemas de funcionamento do U-SQL devido a alterações no tempo de funcionamento
 
@@ -33,7 +33,7 @@ Pode ver a história da versão em tempo de execução que os seus trabalhos ant
 
 1. No portal Azure, aceda à sua conta Data Lake Analytics.
 2. Selecione **Ver Todos os Trabalhos**. Aparece uma lista de todos os empregos ativos e recentemente acabados na conta.
-3. Opcionalmente, clique em **Filtro** para ajudá-lo a encontrar os trabalhos por **Time Range,** **Job Name**e **Author** values.
+3. Opcionalmente, clique em **Filtro** para ajudá-lo a encontrar os trabalhos por **Time Range,** **Job Name** e **Author** values.
 4. Pode ver o tempo de funcionação usado nos trabalhos concluídos.
 
 ![Exibindo a versão de tempo de execução de um trabalho passado](./media/runtime-troubleshoot/prior-job-usql-runtime-version-.png)
@@ -49,9 +49,23 @@ Por exemplo, release_20190318_adl_3394512_2 significa que a segunda versão da c
 
 Existem dois possíveis problemas de versão de tempo de execução que pode encontrar:
 
-1. Um script ou algum código de utilizador está a mudar o comportamento de uma versão para a outra. Tais alterações de rutura são normalmente comunicadas com antecedência com a publicação de notas de lançamento. Se encontrar uma mudança de rutura, contacte o Microsoft Support para reportar este comportamento de rutura (caso ainda não tenha sido documentado) e submeta os seus trabalhos contra a versão de tempo de execução mais antiga.
+1. Um script ou algum código de utilizador está a mudar o comportamento de uma versão para a outra. Tais alterações de rutura são normalmente comunicadas com antecedência com a publicação de notas de lançamento. Se encontrar uma mudança tão quebrada, contacte o Microsoft Support para reportar este comportamento de rutura (caso ainda não tenha sido documentado) e submeta os seus trabalhos contra a versão de tempo de execução mais antiga.
 
-2. Tem vindo a utilizar um tempo de execução não padrão, explicitamente ou implicitamente, quando este foi fixado na sua conta, e esse tempo de funcionação foi removido após algum tempo. Se encontrar tempo de execução em falta, por favor atualize os seus scripts para executar com o tempo de execução atual. Se precisar de tempo adicional, contacte o Microsoft Support
+2. Tem vindo a utilizar um tempo de execução não padrão, explicitamente ou implicitamente, quando este foi fixado na sua conta, e esse tempo de funcionação foi removido após algum tempo. Se encontrar tempo de execução em falta, atualize os seus scripts para executar com o tempo de execução atual. Se precisar de tempo adicional, contacte o Microsoft Support
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+* A referência Newtonsoft.Jsna versão de ficheiro 12.0.3 ou em diante num script USQL causará a seguinte falha de compilação:
+
+    *"Lamentamos; os empregos que funcionam na sua conta Data Lake Analytics provavelmente funcionarão mais lentamente ou não completarão. Um problema inesperado está a impedir-nos de restaurar automaticamente esta funcionalidade na sua conta Azure Data Lake Analytics. Engenheiros do Azure Data Lake foram contactados para investigar."*  
+
+    Onde a pilha de chamadas conterá:  
+    `System.IndexOutOfRangeException: Index was outside the bounds of the array.`  
+    `at Roslyn.Compilers.MetadataReader.PEFile.CustomAttributeTableReader.get_Item(UInt32 rowId)`  
+    `...`
+
+    **Solução**: Utilize Newtonsoft.Jsno ficheiro v12.0.2 ou inferior.
+
 
 ## <a name="see-also"></a>Ver também
 

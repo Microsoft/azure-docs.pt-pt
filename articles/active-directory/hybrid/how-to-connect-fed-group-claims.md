@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb828eeb408a170b93ffc73b58f14b3f7a883cc4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265474"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95247239"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configure pedidos de pedidos de candidaturas com a Azure Ative Directory
 
@@ -144,8 +144,9 @@ Os valores válidos são:
 |----------|-------------|
 | **"Todos"** | Emite grupos de segurança, listas de distribuição e funções |
 | **"SecurityGroup"** | Emite grupos de segurança do utilizador é um membro dos grupos alegam |
-| **"DirectoryRole** | Se o utilizador tiver funções de diretório atribuídas, são emitidas como uma alegação de 'wids' (os grupos alegam que não serão emitidos) |
-| **"ApplicationGroup** | Emite apenas os grupos que são explicitamente atribuídos à aplicação e o utilizador é membro da |
+| **"DirectoryRole"** | Se o utilizador tiver funções de diretório atribuídas, são emitidas como uma alegação de 'wids' (os grupos alegam que não serão emitidos) |
+| **"ApplicationGroup"** | Emite apenas os grupos que são explicitamente atribuídos à aplicação e o utilizador é membro da |
+| **"Nenhum"** | Nenhum grupo é devolvido. (Não é desíotoro caso-sentido para que nenhum funcione tão bem e possa ser definido diretamente no manifesto de aplicação.) |
 
    Por exemplo:
 
@@ -220,7 +221,7 @@ Para emitir nomes de grupo a serem devolvidos no formato netbiosDomain\samAccoun
  }
  ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Adicionar autorização usando grupos & grupos reclamam a uma aplicação web core ASP.NET (amostra de código)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
 - [Atribuir um utilizador ou grupo a uma aplicação empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)

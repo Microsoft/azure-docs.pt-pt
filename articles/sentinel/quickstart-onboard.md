@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 21e0cfd56a37304d1ec333f8713894504282541f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 107806b6372360e501fe9cc0a21d25cff5cc35f9
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660666"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95248650"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Início Rápido: Integração do Azure Sentinel
 
@@ -41,7 +41,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros cri
 
 ### <a name="geographical-availability-and-data-residency"></a>Disponibilidade geográfica e residência de dados
 
-- O Azure Sentinel pode funcionar em espaços de trabalho em qualquer [região de GA de Log Analytics,](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) exceto as regiões da China e Alemanha (Soberana). 
+- O Azure Sentinel pode funcionar em espaços de trabalho na maioria [das regiões de GA de Log Analytics,](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) exceto as regiões da China e Alemanha (Soberana). Por vezes, as regiões new log analytics podem demorar algum tempo a embarcar no serviço Sentinel. 
 
 - Os dados gerados pelo Azure Sentinel, tais como incidentes, marcadores e regras de análise, podem conter alguns dados do cliente provenientes dos espaços de trabalho do Log Analytics do cliente. Estes dados gerados pelo Azure Sentinel são guardados na geografia listada na tabela seguinte, de acordo com a geografia em que se encontra o espaço de trabalho:
 

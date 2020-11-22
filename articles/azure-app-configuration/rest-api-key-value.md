@@ -1,23 +1,23 @@
 ---
-title: Azure App Configuration REST API - Key-Value
-description: Páginas de referência para trabalhar com valores-chave usando a API de Configuração de Aplicação Azure
+title: Azure App Configuration REST API - valor-chave
+description: Páginas de referência para trabalhar com valores-chave utilizando a API de Configuração de Aplicação Azure
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 50d97a330507e9361674776acf29d1007ee5bf58
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f89b3f2fa4805eeb2fd9f9d511c8f228b98139ac
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424137"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241034"
 ---
-# <a name="key-values"></a>Key-Values
+# <a name="key-values"></a>Chaves-valor
 
-versão api: 1.0
+Um valor-chave é um recurso identificado por uma combinação única de `key`  +  `label` . `label` é opcional. Para fazer referência explícita a um valor-chave sem etiqueta, utilize "\0" (URL codificado como ``%00`` ). Consulte os detalhes de cada operação.
 
-Um valor-chave é um recurso identificado por uma combinação única de `key`  +  `label` . `label` é opcional. Para referir explicitamente um valor-chave sem uma etiqueta use "\0" (url codificado como ``%00`` ). Consulte os detalhes de cada operação.
+Este artigo aplica-se à versão API 1.0.
 
 ## <a name="operations"></a>Operações
 
@@ -45,10 +45,10 @@ Um valor-chave é um recurso identificado por uma combinação única de `key`  
 }
 ```
 
-## <a name="get-key-value"></a>Obter Key-Value
+## <a name="get-key-value"></a>Obtenha valor-chave
 
-**Requerido:** ``{key}````{api-version}``  
-*Opcional:* ``label`` - Se omitido, implica um valor-chave sem rótulo
+Requerido: ``{key}````{api-version}``  
+Opcional: ``label`` (Se omitido, implica um valor-chave sem etiqueta.)
 
 ```http
 GET /kv/{key}?label={label}&api-version={api-version}
@@ -85,9 +85,9 @@ Se a chave não existir, a seguinte resposta é devolvida:
 HTTP/1.1 404 Not Found
 ```
 
-## <a name="get-conditionally"></a>Obter (Condicionalmente)
+## <a name="get-conditionally"></a>Obter (condicionalmente)
 
-Para melhorar o caching do cliente, use `If-Match` ou `If-None-Match` solicite cabeçalhos. O `etag` argumento faz parte da representação-chave. Ver [as secções 14.24 e 14.26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+Para melhorar o caching do cliente, use `If-Match` ou `If-None-Match` solicite cabeçalhos. O `etag` argumento faz parte da representação-chave. Para mais informações, consulte [as secções 14.24 e 14.26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 O seguinte pedido só recupera o valor-chave se a representação atual não corresponder à `etag` especificada:
 
@@ -109,12 +109,9 @@ ou
 HTTP/1.1 200 OK
 ```
 
-## <a name="list-key-values"></a>Key-Values de lista
+## <a name="list-key-values"></a>Listar valores-chave
 
-Ver **Filtragem** para opções adicionais
-
-*Opcional:* ``key`` - se não especificado, implica **qualquer** chave.
-*Opcional:* ``label`` - se não for especificado, implica **qualquer** etiqueta.
+Opcional: ``key`` (Se não for especificado, implica qualquer chave.) Opcional: ``label`` (Se não for especificado, implica qualquer etiqueta.)
 
 ```http
 GET /kv?label=*&api-version={api-version} HTTP/1.1
@@ -127,10 +124,12 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
 
+Para obter opções adicionais, consulte a secção "Filtragem" mais tarde neste artigo.
+
 ## <a name="pagination"></a>Paginação
 
 O resultado é paginado se o número de itens devolvidos exceder o limite de resposta. Siga os cabeçalhos de resposta opcionais `Link` e use para `rel="next"` navegação.
-Em alternativa, o conteúdo fornece um próximo link na forma da `@nextLink` propriedade. O uri ligado inclui o `api-version` argumento.
+Em alternativa, o conteúdo fornece um próximo link na forma da `@nextLink` propriedade. O URI ligado inclui o `api-version` argumento.
 
 ```http
 GET /kv?api-version={api-version} HTTP/1.1
@@ -183,7 +182,7 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 
 `_`, `\`, `,`
 
-Se um carácter reservado faz parte do valor, então deve ser escapado usando `\{Reserved Character}` . Personagens não reservados também podem ser escapados.
+Se um carácter reservado faz parte do valor, então deve ser escapado utilizando `\{Reserved Character}` . Personagens não reservados também podem ser escapados.
 
 ***Validação do filtro** _
 
@@ -212,7 +211,7 @@ _ *Exemplos**
     GET /kv?api-version={api-version}
     ```
 
-- O nome chave começa com **abc** e inclui todos os rótulos
+- O nome chave começa com **abc** e inclui todas as etiquetas
 
     ```http
     GET /kv?key=abc*&label=*&api-version={api-version}
@@ -226,15 +225,15 @@ _ *Exemplos**
 
 ## <a name="request-specific-fields"></a>Solicitar campos específicos
 
-Utilize o parâmetro de cadeia de consulta opcional `$select` e forneça a lista separada de vírgulas dos campos solicitados. Se o `$select` parâmetro for omitido, a resposta contém o conjunto predefinido.
+Utilize o parâmetro de cadeia de consulta opcional `$select` e forneça uma lista separada de vírgulas dos campos solicitados. Se o `$select` parâmetro for omitido, a resposta contém o conjunto predefinido.
 
 ```http
 GET /kv?$select=key,value&api-version={api-version} HTTP/1.1
 ```
 
-## <a name="time-based-access"></a>Acesso Time-Based
+## <a name="time-based-access"></a>Acesso baseado no tempo
 
-Obtenha uma representação do resultado como foi em tempos anteriores. Consulte a secção [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1). A paginação ainda é apoiada como definido acima.
+Obtenha uma representação do resultado como foi em tempos anteriores. Para mais informações, consulte a secção [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1). A paginação ainda é apoiada como definido anteriormente neste artigo.
 
 ```http
 GET /kv?api-version={api-version} HTTP/1.1
@@ -258,10 +257,10 @@ Link: <{relative uri}>; rel="original"
 }
 ```
 
-## <a name="set-key"></a>Chave de conjunto
+## <a name="set-key"></a>Definir tecla
 
-- **Requerido:**``{key}``
-- *Opcional:* ``label`` - se não for especificado ou rotulado=%00, implica KV sem etiqueta.
+- Necessário: ``{key}``
+- Opcional: ``label`` (Se não for especificado, ou rótulo=%00, implica valor-chave sem etiqueta.)
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -320,12 +319,12 @@ Content-Type: application/problem+json; charset="utf-8"
 }
 ```
 
-## <a name="set-key-conditionally"></a>Chave de conjunto (condicionalmente)
+## <a name="set-key-conditionally"></a>Definir tecla (condicionalmente)
 
 Para evitar condições de corrida, utilize `If-Match` ou `If-None-Match` solicite cabeçalhos. O `etag` argumento faz parte da representação-chave.
-Se `If-Match` ou `If-None-Match` forem omitidos, a operação será incondicional.
+Se `If-Match` ou `If-None-Match` forem omitidos, a operação é incondicional.
 
-A resposta seguinte atualiza o valor apenas se a representação atual corresponder à especificada `etag`
+A resposta a seguir atualiza o valor apenas se a representação atual corresponder à `etag` especificada:
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -333,7 +332,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json
 If-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 
-A resposta seguinte atualiza o valor apenas se a representação atual *não* corresponder à especificada `etag`
+A resposta a seguir atualiza o valor apenas se a representação atual não corresponder à `etag` especificada:
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -349,7 +348,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json;
 If-Match: "*"
 ```
 
-O seguinte pedido só acrescenta o valor se uma representação já *não* existir:
+O seguinte pedido só acrescenta o valor se uma representação já não existir:
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -373,8 +372,8 @@ HTTP/1.1 412 PreconditionFailed
 
 ## <a name="delete"></a>Eliminar
 
-- **Requerido:** `{key}``{api-version}`
-- *Opcional:* `{label}` - se não for especificado ou rotulado=%00, implica KV sem etiqueta.
+- Requerido: `{key}``{api-version}`
+- Opcional: `{label}` (Se não for especificado, ou rótulo=%00, implica valor-chave sem etiqueta.)
 
 ```http
 DELETE /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -394,6 +393,6 @@ ou
 HTTP/1.1 204 No Content
 ```
 
-## <a name="delete-key-conditionally"></a>Eliminar chave (condicionalmente)
+## <a name="delete-key-conditionally"></a>Eliminar a tecla (condicionalmente)
 
-Semelhante à **chave de conjunto (condicionalmente)**
+Isto é semelhante à secção "Definir a tecla (condicionalmente)" anteriormente neste artigo.

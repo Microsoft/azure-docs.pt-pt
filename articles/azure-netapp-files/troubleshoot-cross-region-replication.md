@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b30ed0cca680013b85efe064d59fb7cb73d753d2
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745688"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95239555"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Resolver problemas da replicação entre regiões
 
@@ -50,6 +50,12 @@ Este artigo descreve mensagens de erro e resoluções que podem ajudá-lo a reso
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Validar que a replicação foi quebrada ou não é insinibida e inativa (inicialização falhada).    |
 |     `Cannot delete   source replication`    |     Não é permitido eliminar a replicação do lado da fonte. Certifique-se de que está a apagar a replicação do lado do destino.    |
+
+## <a name="errors-deleting-volume"></a>Erros que apagam o volume
+
+|     Mensagem de Erro    |     Resolução    |
+|-|-|
+| `Volume is a member of an active volume replication relationship`  |  Elimine a replicação antes de apagar o volume. Ver [Eliminar replicações](cross-region-replication-delete.md). Esta operação requer que quebre o espreitamento antes de apagar a replicação para o volume. |
 | `Volume with replication cannot be deleted`  |  Elimine a replicação antes de apagar o volume. Ver [Eliminar replicações](cross-region-replication-delete.md). Esta operação requer que quebre o espreitamento antes de apagar a replicação para o volume. 
 
 ## <a name="errors-resyncing-volume"></a>Erros no volume de ressíduo
@@ -65,11 +71,11 @@ Este artigo descreve mensagens de erro e resoluções que podem ajudá-lo a reso
 |     `Snapshot   cannot be deleted, parent volume is a Data Protection volume with a   replication object`    |     Valide que quebrou a replicação do volume se quiser eliminar esta imagem.    |
 |     `Cannot delete   volume replication generated snapshot`    |     Não é permitida a eliminação de instantâneos de linha de base de replicação.    |
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Requisitos e considerações para a utilização da replicação entre regiões](cross-region-replication-requirements-considerations.md)
-* [Criar o peering de replicação](cross-region-replication-create-peering.md)
+* [Criar replicação de volume](cross-region-replication-create-peering.md)
 * [Apresentar o estado de funcionamento da relação de replicação](cross-region-replication-display-health-status.md)
 * [Gerir a recuperação após desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Resolver problemas da replicação entre regiões](troubleshoot-cross-region-replication.md)

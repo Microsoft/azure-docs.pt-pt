@@ -1,31 +1,31 @@
 ---
-title: Azure Ative Directory REST API - Autenticação
+title: Azure Ative Directory REST API - autenticação
 description: Utilize o Azure Ative Directory para autenticar para a Configuração de Aplicações Azure utilizando a API REST
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: fb3d00fb79c55e29d578f5e068e4ae025414a935
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 78344bd3896ca7d00c9f761c586b6f5142dc1e58
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424196"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253410"
 ---
 # <a name="azure-active-directory-authentication"></a>Autenticação do Azure Active Directory
 
-Os pedidos HTTP podem ser autenticados utilizando o sistema de autenticação **do Portador** com um símbolo adquirido à Azure Ative Directory (Azure AD). Estes pedidos devem ser transmitidos através do TLS.
+Pode autenticar pedidos HTTP utilizando o `Bearer` esquema de autenticação com um símbolo adquirido à Azure Ative Directory (Azure AD). Deve transmitir estes pedidos através da Segurança da Camada de Transporte (TLS).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O principal que será usado para solicitar um token AD Azure deve ser atribuído a uma das funções de Configuração de [Aplicação aplicáveis](./rest-api-authorization-azure-ad.md)
+Você deve atribuir o principal que é usado para solicitar um token AD Azure para uma das funções de Configuração de [Aplicação de Aplicação Azure](./rest-api-authorization-azure-ad.md)aplicável .
 
-Forneça a cada pedido todos os cabeçalhos HTTP necessários para autenticação. O mínimo exigido é:
+Forneça a cada pedido todos os cabeçalhos HTTP necessários para a autenticação. Aqui está o requisito mínimo:
 
-|  Cabeçalho do Pedido | Description  |
+|  Cabeçalho do pedido | Descrição  |
 | --------------- | ------------ |
-| **Autorização** | Informações de autenticação requeridas pelo esquema **Do Portador.** O formato e os detalhes são explicados abaixo. |
+| `Authorization` | Informação de autenticação requerida pelo `Bearer` esquema. |
 
 **Exemplo:**
 
@@ -34,50 +34,55 @@ Host: {myconfig}.azconfig.io
 Authorization: Bearer {{AadToken}}
 ```
 
-## <a name="azure-active-directory-token-acquisition"></a>Aquisição de fichas do Azure Ative Directory
+## <a name="azure-ad-token-acquisition"></a>Aquisição de fichas Azure AD
 
-Antes de adquirir um token AD Azure deve-se identificar qual o utilizador que querem autenticar como, para que público estão a pedir o símbolo, e para que ponto final (autoridade) Azure AD devem utilizar.
+Antes de adquirir um token AD Azure, deve identificar qual o utilizador que pretende autenticar como, para que público está a pedir o símbolo, e o que o ponto final da AZure AD (autoridade) usar.
 
 ### <a name="audience"></a>Audiência
 
-O sinal AD Azure deve ser solicitado com um público adequado. Para a Configuração da Aplicação Azure, um dos seguintes públicos deve ser especificado ao solicitar um token. O público também pode ser referido como o "recurso" que o símbolo está a ser solicitado.
+Solicite o sinal de Ad Azure com um público adequado. Para configuração de aplicativos Azure, utilize um dos seguintes públicos. O público também pode ser referido como o *recurso* que o símbolo está sendo solicitado.
 
 - {configuraçãoStoreName}.azconfig.io
 - *.azconfig.io
 
 > [!IMPORTANT]
-> Quando o público solicitado é {configuraçãoStoreName}.azconfig.io, deve corresponder exatamente ao cabeçalho de pedido "Host" (sensível a caso) utilizado para enviar o pedido.
+> Quando o público solicitado `{configurationStoreName}.azconfig.io` é, deve corresponder exatamente ao cabeçalho de `Host` pedido (sensível a caso) utilizado para enviar o pedido.
 
 ### <a name="azure-ad-authority"></a>Autoridade AD de Azure
 
-A autoridade AZure AD é o ponto final que é usado para adquirir um token AD Azure. Está na forma `https://login.microsoftonline.com/{tenantId}` de. O `{tenantId}` segmento refere-se ao ID do inquilino do Azure Ative Directory ao qual pertence o utilizador/aplicação que está a tentar autenticar.
+A autoridade AZure AD é o ponto final que usa para adquirir um token AD Azure. Está na forma `https://login.microsoftonline.com/{tenantId}` de. O `{tenantId}` segmento refere-se ao ID do inquilino Azure AD a que pertence o utilizador ou aplicação que está a tentar autenticar.
 
 ### <a name="authentication-libraries"></a>Bibliotecas de autenticação
 
-O Azure fornece um conjunto de bibliotecas chamadas Azure Ative Directory Authentication Libraries (ADAL) para simplificar o processo de aquisição de um token AD Azure. Estas bibliotecas são construídas para várias línguas. A documentação pode ser [consultada aqui.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
+O Azure fornece um conjunto de bibliotecas, chamadas Bibliotecas de Autenticação de Diretório Ativo Azure, para simplificar o processo de aquisição de um token AD Azure. Azure constrói estas bibliotecas para várias línguas. Para mais informações, consulte a [documentação.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
-## <a name="errors"></a>**Erros**
+## <a name="errors"></a>Erros
+
+Pode encontrar os seguintes erros.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256, Bearer
 ```
 
-**Razão:** Não é fornecido o cabeçalho do pedido de autorização com o regime do Portador.
-**Solução:** Fornecer ```Authorization``` cabeçalho de pedido HTTP válido
+**Razão:** Não forneceu o pedido de autorização com o `Bearer` esquema.
+
+**Solução:** Forneça um `Authorization` cabeçalho de pedido HTTP válido.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256, Bearer error="invalid_token", error_description="Authorization token failed validation"
 ```
 
-**Razão:** O sinal AD Azure não é válido.
-**Solução:** Adquira um token AD Azure da Autoridade AD Azure e certifique-se de que o público adequado é usado.
+**Razão:** O sinal de Azure não é válido.
+
+**Solução:** Adquira um sinal AD AZure da autoridade AZure AD, e certifique-se de que usou o público adequado.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256, Bearer error="invalid_token", error_description="The access token is from the wrong issuer. It must match the AD tenant associated with the subscription to which the configuration store belongs. If you just transferred your subscription and see this error message, please try back later."
 ```
 
-**Razão:** O sinal AD Azure não é válido.
-**Solução:** Adquirir um token AD Azure da Autoridade AD Azure e garantir que o Azure AD Tenant é o associado à subscrição, a que pertence a loja de configuração. Este erro pode aparecer se o principal pertencer a mais de um inquilino da AD Azure.
+**Razão:** O sinal de Azure não é válido.
+
+**Solução:** Adquira um token AD Azure da autoridade Azure AD. Certifique-se de que o inquilino AZURE AD é o associado à subscrição a que pertence a loja de configuração. Este erro pode aparecer se o principal pertencer a mais de um inquilino da AD Azure.

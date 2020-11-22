@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77a8e6948b9912061801fefaa63d2f49611014aa
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6b510464145f434f761cc28ba4e1c1361f983f8b
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651707"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237396"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamento na cloud piloto de uma floresta do AD sincronizada existente 
 
@@ -126,7 +126,7 @@ Devem ser seguidos os mesmos passos para todos os tipos de objetos (utilizador, 
 
 4. Uma vez concluída esta operação, o assistente de configuração será lançado.  Inscreva-se na sua conta de administrador global Azure AD.
 5. No ecrã **do Diretório Ativo Connect,** clique em **Adicionar diretório** e, em seguida, inscreva-se na sua conta de administrador Ative Directory.  Esta operação irá adicionar o seu diretório no local.  Clique em **Seguinte**.</br>
-![Screenshot que mostra o ecrã "Connect Ative Directory" com um valor de diretório introduzido.](media/how-to-install/install-3.png)</br>
+![Screenshot que mostra o ecrã "Connect Ative Directory" com um valor de diretório introduzido.](media/how-to-install/install-3a.png)</br>
 
 6. No ecrã completo da **Configuração,** clique em **Confirmar**.  Esta operação registará e reiniciará o agente.</br>
 ![Screenshot que mostra o ecrã "Configuração completa" com o botão "Confirmar" selecionado.](media/how-to-install/install-4a.png)</br>

@@ -1,34 +1,33 @@
 ---
-title: Azure App Configuration REST API - Revisões de valor-chave
-description: Páginas de referência para trabalhar com revisões de valor-chave usando a API de Configuração de Aplicação Azure
+title: Azure App Configuration REST API - revisões de valor-chave
+description: Páginas de referência para trabalhar com revisões de valor-chave utilizando a API de Configuração de Aplicação Azure
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 7d1990d6bc524a69de2b22b4f7c5aeec88c3ce9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 668345da8bb89412f7b1dd36975c5bed6f229580
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424483"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95246389"
 ---
 # <a name="key-value-revisions"></a>Revisões do valor-chave
 
-versão api: 1.0
+Uma *revisão de valor-chave* define a representação histórica de um recurso de valor-chave. As revisões expiram após 7 dias para lojas de nível livre, ou 30 dias para lojas standard. As revisões apoiam a `List` operação.
 
-Uma **revisão de valor-chave** define a representação histórica de um recurso de valor-chave. As revisões expiram após 7 dias para lojas de nível livre, ou 30 dias para lojas standard. As revisões suportam as seguintes operações:
+Para todas as operações, ``key`` é um parâmetro opcional. Se omitido, implica qualquer chave.
 
-- Lista
+Para todas as operações, ``label`` é um parâmetro opcional. Se omitido, implica qualquer etiqueta.
 
-Para todas as operações, ``key`` é um parâmetro opcional. Se omitido, implica **qualquer** chave.
-Para todas as operações, ``label`` é um parâmetro opcional. Se omitido, implica **qualquer** etiqueta.
+Este artigo aplica-se à versão API 1.0.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## <a name="list-revisions"></a>Revisões da Lista
+## <a name="list-revisions"></a>Revisões da lista
 
 ```http
 GET /revisions?label=*&api-version={api-version} HTTP/1.1
@@ -62,7 +61,7 @@ Accept-Ranges: items
 
 ## <a name="pagination"></a>Paginação
 
-O resultado é paginado se o número de itens devolvidos exceder o limite de resposta. Siga o cabeçalho de resposta opcional ``Link`` e use para ``rel="next"`` navegação.  Em alternativa, o conteúdo fornece um próximo link na forma da ``@nextLink`` propriedade.
+O resultado é paginado se o número de itens devolvidos exceder o limite de resposta. Siga o cabeçalho de resposta opcional ``Link`` e use para ``rel="next"`` navegação. Em alternativa, o conteúdo fornece um próximo link na forma do ``@nextLink`` imóvel.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -88,7 +87,7 @@ Link: <{relative uri}>; rel="next"
 
 ## <a name="list-subset-of-revisions"></a>Subconjunto de listas de revisões
 
-Use o cabeçalho do `Range` pedido. A resposta conterá um `Content-Range` cabeçalho. Se o servidor não conseguir satisfazer a gama solicitada, responderá com HTTP `416` (RangeNotSfiable)
+Use o cabeçalho do `Range` pedido. A resposta contém um cabeçalho `Content-Range`. Se o servidor não conseguir satisfazer o intervalo solicitado, responde com HTTP `416` `RangeNotSatisfiable` ().
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -135,9 +134,11 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### <a name="reserved-characters"></a>Caracteres reservados
 
+Os caracteres reservados são:
+
 `*`, `\`, `,`
 
-Se um carácter reservado faz parte do valor, então deve ser escapado usando `\{Reserved Character}` . Personagens não reservados também podem ser escapados.
+Se um carácter reservado faz parte do valor, então deve ser escapado utilizando `\{Reserved Character}` . Personagens não reservados também podem ser escapados.
 
 ### <a name="filter-validation"></a>Validação do filtro
 
@@ -160,19 +161,19 @@ Content-Type: application/problem+json; charset=utf-8
 
 ### <a name="examples"></a>Exemplos
 
-- Todos
+- Todos:
 
     ```http
     GET /revisions
     ```
 
-- Itens onde o nome chave começa com **abc**
+- Itens onde o nome chave começa com **abc:**
 
     ```http
     GET /revisions?key=abc*&api-version={api-version}
     ```
 
-- Itens onde o nome chave é **abc** ou **xyz** e rótulos contêm **prod**
+- Itens em que o nome-chave é **abc** ou **xyz,** e as etiquetas contêm **prod:**
 
     ```http
     GET /revisions?key=abc,xyz&label=*prod*&api-version={api-version}
@@ -180,15 +181,15 @@ Content-Type: application/problem+json; charset=utf-8
 
 ## <a name="request-specific-fields"></a>Solicitar campos específicos
 
-Utilize o parâmetro de cadeia de consulta opcional `$select` e forneça a lista separada de vírgulas dos campos solicitados. Se o `$select` parâmetro for omitido, a resposta contém o conjunto predefinido.
+Utilize o parâmetro de cadeia de consulta opcional `$select` e forneça uma lista separada de vírgulas dos campos solicitados. Se o `$select` parâmetro for omitido, a resposta contém o conjunto predefinido.
 
 ```http
 GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/1.1
 ```
 
-## <a name="time-based-access"></a>Acesso Time-Based
+## <a name="time-based-access"></a>Acesso baseado no tempo
 
-Obtenha uma representação do resultado como foi em tempos anteriores. Ver secção [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1)
+Obtenha uma representação do resultado como foi em tempos anteriores. Para mais informações, consulte [o Quadro HTTP para Time-Based Acesso aos Estados de Recursos -- Memento,](https://tools.ietf.org/html/rfc7089#section-2.1)secção 2.1.1.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1

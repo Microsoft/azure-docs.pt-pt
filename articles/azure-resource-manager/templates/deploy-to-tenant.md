@@ -2,13 +2,13 @@
 title: Mobilizar recursos para inquilino
 description: Descreve como implantar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/20/2020
+ms.openlocfilehash: 65a5e90616f8883b338d22fa31eee6932452b5fd
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668697"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95242666"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implantações de inquilinos com modelos ARM
 
@@ -36,11 +36,19 @@ Para criar grupos de gestão, utilize:
 
 * [grupos de gestão](/azure/templates/microsoft.management/managementgroups)
 
+Para criar subscrições, utilize:
+
+* [pseudónimos](/azure/templates/microsoft.subscription/aliases)
+
 Para gerir custos, utilize:
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
 * [instruções](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [faturaSecções](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+
+Para configurar o portal, utilize:
+
+* [inquilinoConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
 
 ## <a name="schema"></a>Esquema
 
@@ -123,12 +131,12 @@ Para obter informações mais detalhadas sobre comandos de implantação e opç�
 
 ## <a name="deployment-scopes"></a>Âmbitos de implantação
 
-Ao ser implantado num grupo de gestão, pode mobilizar recursos para:
+Ao ser destacado para um inquilino, pode mobilizar recursos para:
 
 * o inquilino
 * grupos de gestão dentro do inquilino
 * assinaturas
-* grupos de recursos (através de duas implantações aninhadas)
+* grupos de recursos
 * [recursos de extensão](scope-extension-resources.md) podem ser aplicados a recursos
 
 O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
@@ -155,83 +163,35 @@ Para direcionar uma subscrição dentro do inquilino, use uma implantação anin
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
 
+### <a name="scope-to-resource-group"></a>Âmbito para grupo de recursos
+
+Você também pode direcionar grupos de recursos dentro do inquilino. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
+
+Para direcionar um grupo de recursos dentro do inquilino, use uma implantação aninhada. Desa estação `subscriptionId` e `resourceGroup` propriedades. Não desloque um local para a implantação aninhada porque está implantado na localização do grupo de recursos.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
+
 ## <a name="deployment-location-and-name"></a>Localização e nome de implantação
 
 Para implantações de nível de inquilino, você deve fornecer uma localização para a implantação. A localização da implantação é separada da localização dos recursos que implementa. A localização da implantação especifica onde armazenar dados de implantação.
 
-Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy** .
+Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
 
 Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
 
 ## <a name="create-management-group"></a>Criar grupo de gestão
 
-O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) cria um grupo de gestão.
+O modelo a seguir cria um grupo de gestão.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "mgName": {
-      "type": "string",
-      "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2019-11-01",
-      "name": "[parameters('mgName')]",
-      "properties": {
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
 
 ## <a name="assign-role"></a>Atribuir função
 
-O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) atribui uma função no âmbito do inquilino.
+O modelo a seguir atribui uma função no âmbito do inquilino.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "principalId if the user that will be given contributor access to the resourceGroup"
-      }
-    },
-    "roleDefinitionId": {
-      "type": "string",
-      "defaultValue": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
-      "metadata": {
-        "description": "roleDefinition for the assignment - default is owner"
-      }
-    }
-  },
-  "variables": {
-    // This creates an idempotent guid for the role assignment
-    "roleAssignmentName": "[guid('/', parameters('principalId'), parameters('roleDefinitionId'))]"
-  },
-  "resources": [
-    {
-      "name": "[variables('roleAssignmentName')]",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2019-04-01-preview",
-      "properties": {
-        "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-        "principalId": "[parameters('principalId')]",
-        "scope": "/"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/tenant-role-assignment/azuredeploy.json":::
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender sobre a atribuição de funções, consulte atribuições de [funções Add Azure utilizando modelos do Gestor de Recursos Azure](../../role-based-access-control/role-assignments-template.md).
 * Também pode implementar modelos ao [nível de subscrição](deploy-to-subscription.md) ou [ao nível do grupo de gestão.](deploy-to-management-group.md)

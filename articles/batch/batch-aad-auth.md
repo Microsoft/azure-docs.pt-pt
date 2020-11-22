@@ -4,12 +4,12 @@ description: O lote suporta o Azure AD para autenticação a partir do serviço 
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 685b84f1e628ea67689d3de8bf64c9641edba6fc
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 784e92eaa2cd672d511177066befcfd7effc7ca4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920513"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95252645"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço batch com Diretório Ativo
 
@@ -144,7 +144,7 @@ Pode utilizar uma função personalizada para conceder permissões a um utilizad
 - Microsoft.Batch/batchAcounts/read (para qualquer operação de leitura)
 - Microsoft.Batch/batchAccounts/listKeys/action (para qualquer operação)
 
-As funções personalizadas são para utilizadores autenticados pelo Azure AD, e não para as credenciais de conta Batch (chave partilhada). Note que as credenciais da conta Batch dão permissão total à conta Batch. Note também que os trabalhos que utilizam a autopool requerem permissões ao nível da piscina.
+As funções personalizadas são para utilizadores autenticados pelo Azure AD, e não para as credenciais de conta Batch (chave partilhada). Note que as credenciais da conta Batch dão permissão total à conta Batch. Note também que os trabalhos que utilizam [a autopool](nodes-and-pools.md#autopools) requerem permissões ao nível da piscina.
 
 > [!NOTE]
 > Determinadas atribuições de funções devem ser especificadas no campo ação, enquanto outras devem ser especificadas no campo DataAction. Para obter mais informações, consulte [as operações do fornecedor de recursos Azure.](../role-based-access-control/resource-provider-operations.md#microsoftbatch)
@@ -406,7 +406,7 @@ Utilize as credenciais principais de serviço para abrir um objeto **BatchServic
 )
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja a [Documentação do Diretório Ativo Azure](../active-directory/index.yml). Exemplos aprofundados que mostram como utilizar o ADAL estão disponíveis na biblioteca [Azure Code Samples.](https://azure.microsoft.com/resources/samples/?service=active-directory)
 - Conheça os [objetos principais de aplicação e serviço no Azure Ative Directory](../active-directory/develop/app-objects-and-service-principals.md) e [como criar uma aplicação AD AD Azure que possa aceder a recursos.](../active-directory/develop/howto-create-service-principal-portal.md)

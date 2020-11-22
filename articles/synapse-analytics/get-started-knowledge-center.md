@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 57213e228359fd6c201d501d3bb75f7267054277
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 0314f5e55a476cd1cd1f8a31bd918e0ebb64c75f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685431"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254243"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explore o Centro de Conhecimento sinapse
 
@@ -33,8 +33,8 @@ Escolha qualquer um dos métodos e abra o **Centro de Conhecimento.**
 ## <a name="overview"></a>Descrição geral
 
 O **Centro de Conhecimento** permite-lhe fazer três coisas:
-* **Utilize amostras imediatamente**. Esta opção está otimizada para você ver a análise em ação o mais rápido possível. Se quiser um exemplo rápido de como funciona a Sinapse, escolha esta opção.
-* **Amostra disponível do navegador.** Esta opção permite-lhe ligar conjuntos de dados de amostra e adicionar código de amostra sob a forma de scripts, cadernos e oleodutos SQL.
+* **Utilize amostras imediatamente**. Se quiser um exemplo rápido de como funciona a Sinapse, escolha esta opção.
+* **Procurar na galeria.** Esta opção permite-lhe ligar conjuntos de dados de amostra e adicionar código de amostra sob a forma de scripts, cadernos e oleodutos SQL.
 * **Estúdio Tour Synapse**. Esta opção leva-o a uma breve visita às partes básicas do Synapse Studio. Isto é útil se nunca usou o Synapse Studio antes.
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Explorando o armazenamento de bolhas com piscina SQL sem servidor
@@ -47,7 +47,7 @@ O **Centro de Conhecimento** permite-lhe fazer três coisas:
 1. Clique em Run (Executar). Irá executar o texto que selecionou.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Carregar mais dados de táxi de NYC
-1. Vá ao **Knowledge Center,** clique em **procurar amostras disponíveis** 
+1. Ir ao **Knowledge Center,** clicar na **galeria Browse** 
 1. Selecione o separador **de scripts SQL** no topo
 1. Selecione **Carregar o conjunto de dados do Táxi de Nova Iorque**
 1. Em **Entradas**, escolha **selecionar uma piscina existente** e selecione **SQLDB1**

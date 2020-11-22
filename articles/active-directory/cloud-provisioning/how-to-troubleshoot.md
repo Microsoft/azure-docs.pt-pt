@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 94cf1f34db590abeb084c5e95367781e50c85efc
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fa7292d423d8b716ffd75a1a20431fb5a79bbf96
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650102"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237345"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Resolução de problemas de provisão de nuvens
 
@@ -124,40 +124,17 @@ Para resolver este problema, altere as políticas de execução powerShell no se
 
 ### <a name="log-files"></a>Ficheiros de registo
 
-Por predefinição, o agente emite mensagens de erro mínimas e informações de rastreio de pilha. Pode encontrar estes registos de vestígios na pasta *C:\ProgramData\Microsoft\Azure AD Connect Provision Agent\Trace*.
+Por predefinição, o agente emite mensagens de erro mínimas e informações de rastreio de pilha. Pode encontrar estes registos de vestígios na pasta **C:\ProgramData\Microsoft\Azure AD Connect Provision Agent\Trace**.
 
 Para reunir detalhes adicionais para resolver problemas relacionados com o agente, siga estes passos.
 
-1. Parar o serviço **Microsoft Azure AD Connect Provisioning Agent**.
-1. Criar uma cópia do ficheiro config original: *C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*.
-1. Substitua a secção existente `<system.diagnostics>` pelo seguinte, e todas as mensagens de rastreio irão para o ficheiro *ProvAgentTrace.log*.
+1.  Instale o módulo PowerShell AADCloudSyncTools, conforme descrito [aqui.](reference-powershell.md#install-the-aadcloudsynctools-powershell-module)
+2. Utilize o `Export-AADCloudSyncToolsLogs` cmdlet PowerShell para capturar a informação.  Pode utilizar os seguintes interruptores para afinar a sua recolha de dados.
+      - SkipVerboseTrace apenas para exportar registos atuais sem capturar registos verbosos (padrão = falso)
+      - RastreioDurationMins para especificar uma duração de captura diferente (padrão = 3 minutos)
+      - OutputPath para especificar uma trajetória de saída diferente (padrão = Documentos do utilizador)
 
-   ```xml
-     <system.diagnostics>
-         <sources>
-         <source name="AAD Connect Provisioning Agent">
-             <listeners>
-             <add name="console"/>
-             <add name="etw"/>
-             <add name="textWriterListener"/>
-             </listeners>
-         </source>
-         </sources>
-         <sharedListeners>
-         <add name="console" type="System.Diagnostics.ConsoleTraceListener" initializeData="false"/>
-         <add name="etw" type="System.Diagnostics.EventLogTraceListener" initializeData="Azure AD Connect Provisioning Agent">
-             <filter type="System.Diagnostics.EventTypeFilter" initializeData="All"/>
-         </add>
-         <add name="textWriterListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log"/>
-         </sharedListeners>
-     </system.diagnostics>
-    
-   ```
-1. Inicie o serviço **Microsoft Azure AD Connect Provisioning Agent**.
-1. Utilize o seguinte comando para seguir o ficheiro e depurar problemas. 
-    ```
-    Get-Content “C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log” -Wait
-    ```
+
 ## <a name="object-synchronization-problems"></a>Problemas de sincronização de objetos
 
 A secção seguinte contém informações sobre a sincronização de objetos de resolução de problemas.
@@ -203,6 +180,22 @@ Ao selecionar o estado, pode ver informações adicionais sobre a quarentena. Ta
   utilize o seguinte pedido:
  
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+
+## <a name="repairing-the-the-cloud-sync-service-account"></a>Reparação da conta de serviço Cloud Sync
+Se precisar de reparar a conta de serviço sincronizado na nuvem, pode utilizar o `Repair-AADCloudSyncToolsAccount` .  
+
+
+   1.  Utilize os passos de instalação [aqui](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) descritos para começar e, em seguida, continuar com os passos restantes.
+   2.  A partir de uma sessão Do Windows PowerShell com privilégios administrativos, escreva ou copie e cole o seguinte: 
+    ```
+    Connect-AADCloudSyncTools
+    ```  
+   3. Insira as suas credenciais de administração global Azure AD
+   4. Digite ou copie e cole o seguinte: 
+    ```
+    Repair-AADCloudSyncToolsAccount
+    ```  
+   5. Uma vez concluída esta informação, deve dizer que a conta foi reparada com sucesso.
 
 ## <a name="next-steps"></a>Próximos passos 
 

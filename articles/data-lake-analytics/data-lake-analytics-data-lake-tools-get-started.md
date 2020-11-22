@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 08/30/2019
-ms.openlocfilehash: 83384dd24141cfeb7b03f388e6e3505fea8f496e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d3812cb27d2d9ea7a49038f566f8b4cc5d779172
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221082"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241697"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio
 
@@ -51,9 +51,9 @@ Este tutorial exige que as Ferramentas do Data Lake para Visual Studio estejam i
 
 1. Abra o Visual Studio.
 
-1. Abrir **o Explorador do Servidor** selecionando **Ver**Explorador  >  **do Servidor**.
+1. Open **Data Lake Analytics Explorer** selecionando Ver **Data** Lake Analytics  >  **Explorer**.
 
-1. Clique com o botão direito **Azure**e, em seguida, **selecione Connect to Microsoft Azure Subscription**. In **Iniciar sôm no seu conta,** siga as instruções.
+1. Clique com o botão direito **Azure** e, em seguida, **selecione Connect to Microsoft Azure Subscription**. In **Iniciar sôm no seu conta,** siga as instruções.
 
 1. No **Server Explorer**, selecione **Azure**  >  **Data Lake Analytics**. Verá uma lista das suas contas do Data Lake Analytics.
 
@@ -86,7 +86,7 @@ OUTPUT @a
 
 1. Cole o script a partir de [escrever o seu primeiro script U-SQL](#write-your-first-u-sql-script) na janela **Script.usql.**
 
-1. No **Solution Explorer,** clique à direita **script.usql**e selecione **Enviar Script**.
+1. No **Solution Explorer,** clique à direita **script.usql** e selecione **Enviar Script**.
 
 1. Em **Enviar Emprego,** escolha a sua conta Data Lake Analytics e selecione **Enviar por isso.**
 
@@ -124,7 +124,7 @@ Para ver o estado de trabalho mais recente e refrescar o ecrã, **selecione Refr
 
 1. No separador **Saídas de Tarefas**, selecione o ficheiro `"/data.csv"`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Run U-SQL scripts on your own workstation for testing and debugging](data-lake-analytics-data-lake-tools-local-run.md) (Executar scripts U-SQL na sua própria área de trabalho para testes e depuração)
 * [Depurar o código C# em tarefas U-SQL com Ferramentas do Azure Data Lake para o Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)

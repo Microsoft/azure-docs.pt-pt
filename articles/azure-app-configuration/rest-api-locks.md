@@ -1,37 +1,35 @@
 ---
-title: Configuração de aplicativo Azure REST API - Fechaduras
-description: Páginas de referência para trabalhar com fechaduras de valor-chave usando a API de Configuração de Aplicação Azure
+title: Azure App Configuration REST API - fechaduras
+description: Páginas de referência para trabalhar com fechaduras de valor-chave utilizando a API de Configuração de Aplicação Azure
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4949db646c54d75f60d29d3c631d0f4ee8d7c26e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 7e63b48f2119c48cd43717acee7b13b1701e0032
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424515"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241272"
 ---
 # <a name="locks"></a>Bloqueios
 
-versão api: 1.0
-
-Esta API fornece semântica de bloqueio/desbloqueio para o recurso de valor chave. Apoia as seguintes operações:
+Esta API (versão 1.0) fornece semântica de bloqueio e desbloqueio para o recurso de valor-chave. Apoia as seguintes operações:
 
 - Bloqueio de lugar
 - Remover fechadura
 
-Se estiver presente, `label` deve ser um valor de etiqueta explícito **(não** um wildcard). Para todas as operações é um parâmetro opcional. Se omitido, não implica qualquer etiqueta.
+Se estiver presente, `label` deve ser um valor de etiqueta explícito (não um wildcard). Para todas as operações, é um parâmetro opcional. Se omitido, não implica qualquer etiqueta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## <a name="lock-key-value"></a>Key-Value de bloqueio
+## <a name="lock-key-value"></a>Valor-chave de bloqueio
 
-- **Requerido:** ``{key}````{api-version}``  
-- *Opcional:*``label``
+- Requerido: ``{key}````{api-version}``  
+- Opcional: ``label``
 
 ```http
 PUT /locks/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -63,10 +61,10 @@ Se o valor-chave não existir, a seguinte resposta é devolvida:
 HTTP/1.1 404 Not Found
 ```
 
-## <a name="unlock-key-value"></a>Desbloqueie Key-Value
+## <a name="unlock-key-value"></a>Desbloquear valor-chave
 
-- **Requerido:** ``{key}````{api-version}``  
-- *Opcional:*``label``
+- Requerido: ``{key}````{api-version}``  
+- Opcional: ``label``
 
 ```http
 DELETE /locks/{key}?label={label}?api-version={api-version} HTTP/1.1
@@ -98,9 +96,9 @@ Se o valor-chave não existir, a seguinte resposta é devolvida:
 HTTP/1.1 404 Not Found
 ```
 
-## <a name="conditional-lockunlock"></a>Bloqueio condicional/desbloqueio
+## <a name="conditional-lock-and-unlock"></a>Bloqueio condicional e desbloqueio
 
-Para evitar condições de corrida, utilize `If-Match` ou `If-None-Match` solicite cabeçalhos. O `etag` argumento faz parte da representação-chave. Se `If-Match` ou `If-None-Match` forem omitidos, a operação será incondicional.
+Para evitar condições de corrida, utilize `If-Match` ou `If-None-Match` solicite cabeçalhos. O `etag` argumento faz parte da representação-chave. Se `If-Match` ou `If-None-Match` forem omitidos, a operação é incondicional.
 
 O seguinte pedido só aplica a operação se a representação do valor-chave atual corresponder à `etag` especificada:
 

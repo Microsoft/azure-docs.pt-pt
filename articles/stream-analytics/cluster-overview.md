@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 613cf7d9b68fe42c26f2c01cb1fb5dd1da1e1fb5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f67df45b6b663584e848983251031146cdf8df60
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947479"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95247698"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Visão geral do Azure Stream Analytics Cluster (Pré-visualização)
 
@@ -69,9 +69,9 @@ Os seus clusters Stream Analytics são carregados com base na capacidade de SU e
 
 ### <a name="which-inputs-and-outputs-can-i-privately-connect-to-from-my-stream-analytics-cluster"></a>Quais as entradas e saídas a que posso ligar em privado do meu cluster Stream Analytics?
 
-Stream Analytics suporta vários tipos de entrada e saída. Qualquer um destes serviços que suportem a Azure Private Links pode ligar-se aos seus trabalhos em privado. Pode [criar pontos finais privados](private-endpoints.md) no seu cluster que permitam que os empregos acedam aos recursos de entrada e produção.
+Stream Analytics suporta vários tipos de entrada e saída. Pode [criar pontos finais privados](private-endpoints.md) no seu cluster que permitam que os empregos acedam aos recursos de entrada e produção. Atualmente Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub e Azure Service Bus são serviços apoiados e outros tipos serão adicionados em breve. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Tem agora uma visão geral do cluster Azure Stream Analytics. Em seguida, pode criar o seu cluster e executar o seu trabalho stream Analytics: 
 

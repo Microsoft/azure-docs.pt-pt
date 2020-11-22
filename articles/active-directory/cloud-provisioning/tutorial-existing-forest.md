@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cef5c60b8b06a7bedbf65312c3210d5eb746880d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 546d5462c890e73994f04dfe1921b6365a112b7f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649812"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95237328"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrar uma floresta existente e uma nova floresta num único inquilino do Azure AD
 
@@ -65,7 +65,7 @@ Neste cenário, existe uma floresta existente sincronizada utilizando a sincroni
 
 7. Uma vez concluída esta operação, o assistente de configuração será lançado.  Inscreva-se na sua conta de administrador global Azure AD.  Note que se tiver segurança reforçada iE ativada, isto bloqueará a inscrição.  Se for esse o caso, feche a instalação, desative a segurança reforçada do IE no Server Manager e clique no Assistente de **Provisionamento de Ligação AAD** para reiniciar a instalação.
 8. No ecrã **do Diretório Ativo Connect,** clique em **Adicionar diretório** e, em seguida, inscreva-se na sua conta de administrador de domínio ative Directy. A conta de administrador de domínio não deve ter requisitos de alteração de senha. Caso a palavra-passe expire ou se altera, terá de voltar a configurar o agente com as novas credenciais. Esta operação irá adicionar o seu diretório no local.  Clique em **Seguinte**.</br>
-![Screenshot que mostra o ecrã "Connect Ative Directory".](media/how-to-install/install-3.png)</br>
+![Screenshot que mostra o ecrã "Connect Ative Directory".](media/how-to-install/install-3a.png)</br>
 
 9. No ecrã completo da **Configuração,** clique em **Confirmar**.  Esta operação registará e reiniciará o agente.</br>
 ![Screenshot que mostra o ecrã "Configuração completa".](media/how-to-install/install-4a.png)</br>
@@ -127,7 +127,7 @@ Irá agora verificar se os utilizadores que tinha no nosso diretório no local f
 
 1. Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Inscreva-se com uma conta de utilizador que foi criada no nosso novo inquilino.  Terá de iniciar sção utilizando o seguinte formato: user@domain.onmicrosoft.com (). Utilize a mesma palavra-passe que o utilizador utiliza para iniciar sins insição no local.</br>
-   ![Verificar](media/tutorial-single-forest/verify-1.png)</br>
+   ![Verificação](media/tutorial-single-forest/verify-1.png)</br>
 
 Criou agora com sucesso um ambiente de identidade híbrida que pode usar para testar e familiarizar-se com o que o Azure tem para oferecer.
 

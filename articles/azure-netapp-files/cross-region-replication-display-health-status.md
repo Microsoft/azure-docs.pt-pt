@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 95c1202fb56e882554d40926e9d5ecec7be49086
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a14656bc1abc42fdc3e948fdae1ca07469681d21
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708812"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249857"
 ---
 # <a name="display-health-status-of-replication-relationship"></a>Apresentar o estado de funcionamento da relação de replicação 
 
@@ -53,10 +53,11 @@ Pode ver o estado de replicação no volume de origem ou no volume de destino.
 > [!NOTE] 
 > A relação de replicação mostra o estado de saúde como *pouco saudável* se os trabalhos de replicação anteriores não estiverem completos. Este estado é o resultado de grandes volumes serem transferidos com uma janela de transferência mais baixa (por exemplo, um tempo de transferência de dez minutos para um grande volume). Neste caso, o estado da relação mostra *que a transferência* e o estado de saúde não são *saudáveis.*
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Gerir a recuperação após desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
+* [Eliminar replicações ou volumes de volume](cross-region-replication-delete.md)
 * [Resolver problemas da replicação entre regiões](troubleshoot-cross-region-replication.md)
 

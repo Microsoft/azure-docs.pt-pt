@@ -2,13 +2,13 @@
 title: Nódoas e piscinas em Azure Batch
 description: Saiba mais sobre os nós e piscinas computacional e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 11/20/2020
+ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537616"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243074"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nódoas e piscinas em Azure Batch
 
@@ -40,7 +40,7 @@ Um nome e um endereço IP exclusivos são atribuídos a cada nó que seja adicio
 
 Os conjuntos só podem ser utilizados pela conta do Batch em que foram criados. Uma conta Batch pode criar várias piscinas para satisfazer os requisitos de recursos das aplicações que irá executar.
 
-A piscina pode ser criada manualmente ou automaticamente pelo serviço Batch quando especificar o trabalho a fazer. Quando cria um conjunto, pode especificar os seguintes atributos:
+A piscina pode ser criada manualmente ou [automaticamente pelo serviço Batch](#autopools) quando especificar o trabalho a fazer. Quando cria um conjunto, pode especificar os seguintes atributos:
 
 - [Sistema operativo e versão do nó](#operating-system-and-version)
 - [Tipo de nó e número de alvo de nós](#node-type-and-target)
@@ -125,9 +125,9 @@ Como exemplo, talvez um trabalho exija que apresente um grande número de tarefa
 
 Uma fórmula de dimensionamento pode basear-se nas métricas seguintes:
 
-- **Métricas de tempo** : baseadas em estatísticas recolhidas a cada cinco minutos no número de horas especificado.
-- **Métricas de recurso** : baseadas na utilização da CPU, da largura de banda, da memória e no número de nós.
-- **Métricas de tarefas** : baseadas no estado da tarefa, como *Ativa* (em fila), *Em Execução* ou *Concluída*.
+- **Métricas de tempo**: baseadas em estatísticas recolhidas a cada cinco minutos no número de horas especificado.
+- **Métricas de recurso**: baseadas na utilização da CPU, da largura de banda, da memória e no número de nós.
+- **Métricas de tarefas**: baseadas no estado da tarefa, como *Ativa* (em fila), *Em Execução* ou *Concluída*.
 
 Quando o dimensionamento automático diminuir o número de nós de computação de um conjunto, tem de pensar como vai processar as tarefas que estão a ser executadas no momento da operação de diminuição. Para acomodar isto, o Batch fornece uma [*opção de deallocação de nó*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que pode incluir nas suas fórmulas. Por exemplo, pode especificar que as tarefas em execução são paradas imediatamente e recolocadas em fila para execução noutro nó ou que podem ser concluídas antes de o nó ser removido do conjunto. Note que definir a opção de translocação de nó como `taskcompletion` ou `retaineddata` impedirá operações de redimensionamento de piscina até que todas as tarefas tenham terminado, ou todos os períodos de retenção de tarefas tenham expirado, respectivamente.
 
@@ -142,7 +142,7 @@ A opção de configuração [máximo de tarefas por nó](batch-parallel-node-tas
 
 A configuração predefinida especifica que uma tarefa seja executada num nó de computação de cada vez, mas existem cenários onde é vantajoso ter duas ou mais tarefas executadas num nó em simultâneo. Veja o [cenário de exemplo](batch-parallel-node-tasks.md#example-scenario) no artigo [Tarefas de nó simultâneas](batch-parallel-node-tasks.md) para saber como tirar partido de várias tarefas por nó.
 
-Também pode especificar um *tipo de preenchimento* , que determina se o Batch espalha as tarefas uniformemente em todos os nós de uma piscina ou embala cada nó com o número máximo de tarefas antes de atribuir tarefas a outro nó.
+Também pode especificar um *tipo de preenchimento*, que determina se o Batch espalha as tarefas uniformemente em todos os nós de uma piscina ou embala cada nó com o número máximo de tarefas antes de atribuir tarefas a outro nó.
 
 ## <a name="communication-status"></a>Estado da comunicação
 
@@ -185,6 +185,10 @@ No outro extremo do espetro, se a prioridade mais elevada for dar início aos tr
 
 Uma abordagem combinada é normalmente usada para manusear uma carga variável, mas contínua. Você pode ter uma piscina em que vários trabalhos são submetidos, e pode escalar o número de nós para cima ou para baixo de acordo com a carga de trabalho. Pode fazer estes ajustes reativamente, com base na carga atual, ou pró-ativamente, se for possível prever a carga. Para mais informações, consulte [a política de escala automática.](#automatic-scaling-policy)
 
+## <a name="autopools"></a>Autopools
+
+Uma [autopool](/rest/api/batchservice/job/add#autopoolspecification) é uma piscina que é criada pelo serviço Batch quando um trabalho é submetido, em vez de ser criado antes dos trabalhos que irão funcionar na piscina. O serviço Batch gerirá a vida útil de uma autopool de acordo com as características que especifica. Na maioria das vezes, estas piscinas também são definidas para apagar automaticamente após o seu trabalho ter terminado.
+
 ## <a name="security-with-certificates"></a>Segurança com certificados
 
 Normalmente, tem de utilizar certificados quando encriptar ou desencriptar informações confidenciais relativas a tarefas, como a chave de uma [conta de Armazenamento do Azure](accounts.md#azure-storage-accounts). Para suportar esta situação, pode instalar certificados em nós. Os segredos encriptados são transmitidos para as tarefas através dos parâmetros da linha de comandos ou incorporados num dos recursos da tarefa, sendo que os certificados instalados podem ser utilizados para desencriptá-los.
@@ -195,6 +199,6 @@ Quando um certificado é associado a um conjunto, o serviço Batch instala o cer
 
 Se adicionar um certificado a uma piscina existente, deve reiniciar os seus nós de cálculo para que o certificado seja aplicado aos nós.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Conheça [os empregos e tarefas.](jobs-and-tasks.md)

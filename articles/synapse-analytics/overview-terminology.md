@@ -9,18 +9,18 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: e78c31b3e7c309c0c55895c764fa29589dd15dbd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 4d69c1d69de63dc0d4c3c8f8e46e73f9efc72933
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026851"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95244723"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia Azure Synapse Analytics
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Esta terminologia Azure Synapse Analytics guia-o através dos conceitos básicos do serviço e comandos importantes. Este artigo é útil tanto para os novos alunos como para aqueles que querem destaques da terminologia essencial do Azure Synapse.
+Este documento guia-o através dos conceitos básicos da Azure Synapse Analytics.
 
 ## <a name="basics"></a>Informações básicas
 
@@ -28,16 +28,18 @@ Um espaço de **trabalho da Sinapse** é um limite de colaboração garantido pa
 
 Um espaço de trabalho permite-lhe realizar análises com faísca SQL e Apache. Os recursos disponíveis para análises SQL e Spark estão organizados em **piscinas** SQL e Spark. 
 
+## <a name="linked-services"></a>Serviços ligados
+
 Um espaço de trabalho pode conter qualquer número de **serviço Linked,** essencialmente cordas de conexão que definem as informações de conexão necessárias para que o espaço de trabalho se conecte a recursos externos.
 
-## <a name="synapse-sql-terminology"></a>Terminologia SQL de Sinapse
+## <a name="synapse-sql"></a>SQL do Synapse
 
 **O SQL de Sinapse** é a capacidade de fazer análises baseadas em T-SQL no espaço de trabalho da Synapse. O Synapse SQL tem dois modelos de consumo: dedicados e sem servidor.  Para o modelo dedicado, utilize **piscinas SQL dedicadas.** Um espaço de trabalho pode ter qualquer número destas piscinas. Para utilizar o modelo sem servidor, utilize as **piscinas SQL sem servidor**. Cada espaço de trabalho tem uma destas piscinas.
 
 * **PEDIDO SQL** - Funcionamento como uma consulta executada através de piscina SQL dedicada ou piscina SQL sem servidor.
 * **Script SQL** - Conjunto de comandos SQL guardados num ficheiro. Um script SQL pode conter uma ou mais declarações SQL. Pode ser usado para executar pedidos SQL através de piscina SQL dedicada ou piscina SQL sem servidor.
 
-## <a name="apache-spark-for-synapse-terminology"></a>Faísca apache para terminologia da Sinapse
+## <a name="apache-spark-for-synapse"></a>Faísca apache para sinapse
 
 Para utilizar a análise spark, crie e use **piscinas Apache Spark sem servidor** no seu espaço de trabalho Synapse.
 
@@ -48,7 +50,7 @@ Para utilizar a análise spark, crie e use **piscinas Apache Spark sem servidor*
 * **Notebook** - Interface interativa e reativa de Data Science and Engineering de apoio a Scala, PySpark, C#e SparkSQL.
 * **Definição de trabalho de faísca** - Interface para submeter um trabalho de Faísca com frasco de montagem contendo o código e suas dependências.
 
-## <a name="pipelines-terminology"></a>Terminologia de gasodutos
+## <a name="pipelines"></a>Pipelines
 
 * **Integração de Dados** - Dá a capacidade de ingerir dados entre várias fontes e orquestrar atividades que funcionam dentro de um espaço de trabalho ou fora de um espaço de trabalho.
 * **Data Flow** - Proporciona uma experiência totalmente visual sem codificação necessária para fazer a transformação de big data. Toda a otimização e execução são tratadas de forma sem servidor.

@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3610fa5ea442e5ccb15255d8a1ddcee211871aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be72c2152bdb8e1155d2dd29547f93ba3605d462
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463948"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95251098"
 ---
 # <a name="how-to-investigate-risk"></a>How To: Investigar riscos
 
-A Proteção de Identidade fornece às organizações três relatórios que podem usar para investigar riscos de identidade no seu ambiente. Estes relatórios são **os utilizadores arriscados**, **as entradas de risco**e as **deteções de riscos.** A investigação dos acontecimentos é fundamental para uma melhor compreensão e identificação de quaisquer pontos fracos na sua estratégia de segurança.
+A Proteção de Identidade fornece às organizações três relatórios que podem usar para investigar riscos de identidade no seu ambiente. Estes relatórios são **os utilizadores arriscados**, **as entradas de risco** e as **deteções de riscos.** A investigação dos acontecimentos é fundamental para uma melhor compreensão e identificação de quaisquer pontos fracos na sua estratégia de segurança.
 
 Todos os três relatórios permitem o download de eventos em . Formato CSV para análise posterior fora do portal Azure. Os utilizadores de risco e os relatórios de insiná-ins de risco permitem o descarregamento das 2500 entradas mais recentes, enquanto o relatório de deteções de risco permite descarregar os registos mais recentes de 5000.
 
@@ -91,7 +91,11 @@ Com as informações fornecidas pelo relatório de deteção de riscos, os admin
 
 Os administradores podem então optar por voltar ao relatório de risco ou de inscrição do utilizador para tomar medidas com base nas informações recolhidas.
 
-## <a name="next-steps"></a>Passos seguintes
+> [!NOTE] 
+> O nosso sistema pode detetar que o evento de risco que contribuiu para a pontuação de risco do utilizador foi um falso positivo ou o risco do utilizador foi remediado com a aplicação de políticas, tais como completar uma alteração de senha rápida ou segura do MFA. Por isso, o nosso sistema irá descartar o estado de risco e surgirá um detalhe de risco de "AI confirmou o cofre de inscrição" e deixará de contribuir para o risco do utilizador. 
+
+
+## <a name="next-steps"></a>Próximos passos
 
 - [Políticas disponíveis para mitigar riscos](concept-identity-protection-policies.md)
 

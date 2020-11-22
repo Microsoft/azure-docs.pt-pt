@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: 55555d81eb531ae5a4d946fa3f661796b3294897
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6a7301fd878eb65e4c1dd540275611bcf9348afc
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365504"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241748"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 
-[Custom Tradutor](https://portal.customtranslator.azure.ai) é uma característica do serviço Microsoft Tradutor, que permite às empresas de Tradutor, desenvolvedores de aplicações e prestadores de serviços linguísticos construir sistemas de tradução automática neural (NMT) personalizados. Os sistemas de tradução personalizados integram-se perfeitamente em aplicações, fluxos de trabalho e websites existentes. [O Custom Tradutor](https://portal.customtranslator.azure.ai/) oferece capacidades semelhantes ao que o [Microsoft Tradutor Hub](https://hub.microsofttranslator.com/) faz para tradução automática estatística (SMT), mas exclusivamente para sistemas de Tradução Automática Neural (NMT).
+[Custom Tradutor](https://portal.customtranslator.azure.ai) é uma característica do serviço Microsoft Tradutor, que permite às empresas de Tradutor, desenvolvedores de aplicações e prestadores de serviços linguísticos construir sistemas de tradução automática neural (NMT) personalizados. Os sistemas de tradução personalizados integram-se perfeitamente em aplicações, fluxos de trabalho e websites existentes.
 
 Os sistemas de tradução construídos com [Tradutor Personalizado](https://portal.customtranslator.azure.ai) estão disponíveis através do mesmo [texto API V3,](../reference/v3-0-translate.md?tabs=curl)baseado em nuvem, [seguro,](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality)de alto desempenho, altamente escalável do Texto do Tradutor da Microsoft, que alimenta milhares de milhões de traduções todos os dias.
 
@@ -60,7 +60,7 @@ O custo da utilização de um modelo personalizado para traduzir conteúdo basei
 
 Os sistemas personalizados podem ser acedidos e integrados perfeitamente em qualquer produto ou fluxo de trabalho de negócio, e em qualquer dispositivo, através da API de Texto do Microsoft Tradutor através da tecnologia padrão REST.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia sobre os [detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
 

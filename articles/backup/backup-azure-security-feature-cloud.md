@@ -3,12 +3,12 @@ title: Excluir suave para cópia de segurança do Azure
 description: Aprenda a usar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da473b1d886ec2fe95a7baae76b09aff38fb3cd7
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271550"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254054"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Excluir suave para cópia de segurança do Azure
 
@@ -73,7 +73,7 @@ Siga estes passos:
 
 1. Siga os passos para [desativar a eliminação suave](#enabling-and-disabling-soft-delete).
 
-2. No portal Azure, vá ao seu cofre, vá a **Itens de Reserva**e escolha o item apagado suave.
+2. No portal Azure, vá ao seu cofre, vá a **Itens de Reserva** e escolha o item apagado suave.
 
    ![Escolha um item apagado suave](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -87,11 +87,11 @@ Siga estes passos:
 
 5. Escolha **Eliminar os dados de backup** para eliminar permanentemente os dados de backup.
 
-   ![Escolha Eliminar dados de backup](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Escolha Eliminar dados de backup](./media/backup-azure-manage-vms/delete-backup-button.png)
 
 6. Digite o nome do item de cópia de segurança para confirmar que pretende eliminar os pontos de recuperação.
 
-   ![Digite o nome do item de reserva](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Digite o nome do item de reserva](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 7. Para eliminar os dados de cópia de segurança do item, selecione **Eliminar**. Uma mensagem de notificação permite-lhe saber que os dados de cópia de segurança foram eliminados.
 
@@ -172,12 +172,12 @@ O cofre dos Serviços de Recuperação não pode ser apagado se houver itens de 
 
 ### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Posso eliminar os dados mais cedo do que os 14 dias de eliminação suave após a eliminação?
 
-N.º Não é possível forçar a eliminação dos itens apagados. São apagados automaticamente após 14 dias. Esta funcionalidade de segurança está ativada para salvaguardar os dados com apoio de eliminações acidentais ou maliciosas.  Deve esperar 14 dias antes de realizar qualquer outra ação no artigo.  Os itens apagados não serão carregados.  Se precisar de reprotegir os itens marcados para eliminar suavemente no prazo de 14 dias num novo cofre, contacte o suporte da Microsoft.
+Não. Não é possível forçar a eliminação dos itens apagados. São apagados automaticamente após 14 dias. Esta funcionalidade de segurança está ativada para salvaguardar os dados com apoio de eliminações acidentais ou maliciosas.  Deve esperar 14 dias antes de realizar qualquer outra ação no artigo.  Os itens apagados não serão carregados.  Se precisar de reprotegir os itens marcados para eliminar suavemente no prazo de 14 dias num novo cofre, contacte o suporte da Microsoft.
 
 ### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>As operações de eliminação suave podem ser executadas em PowerShell ou CLI?
 
 As operações de eliminação suave podem ser efetuadas utilizando o PowerShell. Atualmente, o CLI não é apoiado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral das funcionalidades de segurança no Azure Backup](security-overview.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a0d474208f11c203ca65e9ac296fa381d8633a8b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663746"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238399"
 ---
 # <a name="create-an-app-service-environment"></a>Criar um Ambiente de Serviço de Aplicações
 
@@ -48,7 +48,7 @@ O ASEv3 só é oferecido em regiões selecionadas. Mais regiões serão adiciona
 
 ## <a name="creating-an-ase-in-the-portal"></a>Criação de um ASE no portal
 
-1. Para criar um ASEv3, procure no mercado de **App Service Environment v3**.  
+1. Para criar um ASEv3, procure no mercado do Ambiente de Serviço de **Aplicações (pré-visualização)**.  
 2. Fundamentos: Selecione a Subscrição, selecione ou crie o Grupo de Recursos e insira o nome do seu ASE.  O nome ASE também será usado para o sufixo de domínio do seu ASE.  Se o seu nome ASE for *contoso,* então o sufixo de domínio será *contoso.appserviceenvironment.net*.  Este nome será automaticamente definido na sua zona privada Azure DNS utilizada pelo Vnet em que o ASE é implantado. 
 
     ![App Service Environment cria separador básico](./media/creation/creation-basics.png)

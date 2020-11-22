@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 95cb4aa5827190abf125669f2423c808cf8c92a5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9c4410cb2b9550bc111da96204ada15313867fb1
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368938"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238093"
 ---
 # <a name="customize-your-text-translations"></a>Personalize as suas traduções de texto
 
@@ -39,29 +39,7 @@ Dado o tipo e quantidade adequados de dados de formação, não é incomum esper
 
 Mais detalhes sobre os vários níveis de personalização com base nos dados disponíveis podem ser encontrados no Guia do [Utilizador do Tradutor Personalizado.](./custom-translator/overview.md)
 
-
-## <a name="microsoft-translator-hub"></a>Microsoft Tradutor Hub
-
-> [!NOTE]
-> O legado Microsoft Tradutor Hub será retirado no dia 17 de maio de 2019. [Consulte informações e datas de migração importantes.](https://www.microsoft.com/translator/business/hub/)  
-
-## <a name="custom-translator-versus-hub"></a>Tradutor personalizado contra Hub
-
-| Funcionalidade | Hub | Custom Translator |
-| ------- | :-: | :---------------: |
-|Estado do recurso de personalização    | Disponibilidade Geral    | Disponibilidade Geral |
-| Versão API de texto    | Apenas V2    | Apenas V3 |
-| Personalização SMT    | Yes    | No |
-| Personalização de NMT    | No    | Yes |
-| Nova personalização unificada de serviços de fala    | No    | Yes |
-| [Sem vestígios](https://www.aka.ms/notrace) | Yes    | Yes |
-
-## <a name="collaborative-translations-framework"></a>Quadro de Traduções Colaborativas
-
-> [!NOTE]
-> A partir de 1 de fevereiro de 2018, a AddTranslation() e a AddTranslationArray já não estão disponíveis para utilização com o Tradutor v2.0. Estes métodos falharão e nada será escrito. O tradutor v3.0 não apoia estes métodos.
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Crie um sistema de linguagem personalizado utilizando o Tradutor Personalizado](./custom-translator/overview.md)
