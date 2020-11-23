@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 7a6f493bef86952de212eea264cccea1c0bcfeca
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 576b35c357c533918ff9bc384d816217730d34b1
+  ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87810059"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94965345"
 landingContent:
 - title: Acerca das Funções do Azure
   linkLists:
@@ -41,15 +41,17 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Criar a sua primeira função (C#)
-      url: functions-create-your-first-function-visual-studio.md
+      url: create-first-function-vs-code-csharp.md
     - text: Criar a sua primeira função (Java)
-      url: functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java
+      url: create-first-function-vs-code-java.md
     - text: Criar a sua primeira função (JavaScript)
-      url: functions-create-first-function-vs-code.md?pivots=programming-language-javascript
+      url: create-first-function-vs-code-node.md
     - text: Criar a sua primeira função (PowerShell)
-      url: functions-create-first-function-vs-code.md?pivots=programming-language-powershell
+      url: create-first-function-vs-code-powershell.md
     - text: Criar a sua primeira função (Python)
-      url: functions-create-first-function-vs-code.md?pivots=programming-language-python
+      url: create-first-function-vs-code-python.md
+    - text: Criar a sua primeira função (TypeScript)
+      url: create-first-function-vs-code-typescript.md
   - linkListType: learn
     links:
     - text: Criar lógica sem servidor

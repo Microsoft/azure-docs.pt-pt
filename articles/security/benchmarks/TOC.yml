@@ -81,6 +81,8 @@
       href: /azure/data-explorer/security-baseline
     - name: Linha de base de segurança do Azure Data Factory
       href: ../../data-factory/security-baseline.md
+    - name: Linha de base de segurança do Azure Data Share
+      href: ../../data-share/security-baseline.md
     - name: Linha de base de segurança da Base de Dados do Azure para MySQL
       href: ../../mysql/security-baseline.md
     - name: Linha de base de segurança do Azure Database for MariaDB
@@ -91,6 +93,8 @@
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Linha de base de segurança do Azure Databricks
       href: /azure/databricks/scenarios/security-baseline
+    - name: Linha de base de segurança do Azure Defender para IoT
+      href: ../../defender-for-iot/security-baseline.md
     - name: Linha de base de segurança do DNS do Azure
       href: ../../dns/security-baseline.md
     - name: Linha de base de segurança do Azure DevTest Labs
@@ -101,18 +105,24 @@
       href: ../../frontdoor/security-baseline.md
     - name: Linha de base de segurança das Funções do Azure
       href: ../../azure-functions/security-baseline.md
+    - name: Linha de base de segurança do Azure HPC Cache
+      href: ../../hpc-cache/security-baseline.md
     - name: Linha de base de segurança do Azure Information Protection
       href: /azure/information-protection/security-baseline
     - name: Linha de base de segurança do Hub IoT do Azure
       href: ../../iot-hub/security-baseline.md
     - name: Linha de base de segurança do Azure Kubernetes Service
       href: ../../aks/security-baseline.md
+    - name: Linha de base de segurança do Azure Lighthouse
+      href: ../../lighthouse/security-baseline.md
     - name: Linha de base de segurança do Balanceador de Carga do Azure
       href: ../../load-balancer/security-baseline.md
     - name: Linha de base de segurança do Azure Monitor
       href: ../../azure-monitor/security-baseline.md
     - name: Linha de base de segurança do Azure Machine Learning
       href: ../../machine-learning/security-baseline.md
+    - name: Linha de base de segurança do Azure Migrate
+      href: ../../migrate/security-baseline.md
     - name: Linha de base de segurança do Azure Policy
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Linha de base de segurança do Azure Private Link
