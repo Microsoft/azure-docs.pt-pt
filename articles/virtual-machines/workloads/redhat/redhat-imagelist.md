@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: b03d559b8952a61896fa79a568fb8200b3618fed
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: ea0e8c148a847ecc23bab5e87a1dc60a626cf0c1
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968643"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411619"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Imagens red hat enterprise Linux (RHEL) disponíveis em Azure
 O Azure oferece uma variedade de imagens RHEL para diferentes casos de uso.
@@ -55,12 +55,14 @@ RHEL          | 6.7      | RAW    | Agente Linux | Suporte prolongado de ciclo d
 |             | 8-lvm-gen2| LVM    | Agente Linux | Hiper-V Geração 2 - FAMÍLIA RHEL 8.x de imagens. Ligado a repositórios regulares.
 |             | 8        | LVM    | Agente Linux | Imagens RHEL 8.0.
 |             | 8-gen2   | LVM    | Agente Linux | Hiper-V Geração 2 - IMAGENS RHEL 8.0.
-|             | 8.1      | LVM    | Agente Linux | Imagens RHEL 8.2. Atualmente ligado a repositórios regulares.
-|             | 81gen2   | LVM    | Agente Linux | Hiper-V Geração 2 - IMAGENS RHEL 8.1. Atualmente ligado a repositórios regulares.
-|             | 8.1-ci   | LVM    | Agente Linux | Imagens RHEL 8.1 que usam a cloud-init como agente de provisionamento. Atualmente ligado a repositórios regulares.
-|             | 81-ci-gen2| LVM    | Agente Linux | Hiper-V Geração 2 - Imagens RHEL 8.1 usando a nuvem como agente de provisionamento. Atualmente ligado a repositórios regulares.
-|             | 8.2      | LVM    | Agente Linux | Imagens RHEL 8.2. Atualmente ligado a repositórios regulares.
-|             | 82gen2   | LVM    | Agente Linux | Hiper-V Geração 2 - IMAGENS RHEL 8.1. Atualmente ligado a repositórios regulares.
+|             | 8.1      | LVM    | Agente Linux | Anexado aos repositórios eus por defeito.
+|             | 81gen2   | LVM    | Agente Linux | Hiper-V Geração 2 - Anexa aos repositórios eus a partir de novembro de 2020.
+|             | 8.1-ci   | LVM    | Agente Linux | Anexado aos repositórios da UE a partir de novembro de 2020.
+|             | 81-ci-gen2| LVM    | Agente Linux | Hiper-V Geração 2 - Anexa aos repositórios eus a partir de novembro de 2020.
+|             | 8.2      | LVM    | Agente Linux | Anexado aos repositórios da UE a partir de novembro de 2020.
+|             | 82gen2   | LVM    | Agente Linux | Hiper-V Geração 2 - Anexa aos repositórios eus a partir de novembro de 2020.
+|             | 8.3   | LVM    | Agente Linux |  Anexado aos repositórios regulares (EUS indisponível para RHEL 8.3)
+|             | 83-gen2   | LVM    | Agente Linux |Hiper-V Geração 2 - Anexado a repositórios regulares (EUS indisponível para RHEL 8.3)
 RHEL-SAP      | 7.4      | LVM    | Agente Linux | RHEL 7.4 para SAP HANA e Business Apps. Anexados aos repositórios E4S, cobrará um prémio pela SAP e pela RHEL, bem como pela taxa de cálculo base.
 |             | 74sap-gen2| LVM    | Agente Linux | RHEL 7.4 para SAP HANA e Business Apps. Imagem de geração 2. Anexados aos repositórios E4S, cobrará um prémio pela SAP e pela RHEL, bem como pela taxa de cálculo base.
 |             | 7,5       | LVM    | Agente Linux | RHEL 7.5 para SAP HANA e Business Apps. Anexados aos repositórios E4S, cobrará um prémio pela SAP e pela RHEL, bem como pela taxa de cálculo base.
@@ -76,6 +78,11 @@ RHEL-SAP-APPS | 6.8       | RAW    | Agente Linux | RHEL 6.8 para aplicações e
 |             | 7.4       | LVM    | Agente Linux | RHEL 7.4 para aplicações empresariais SAP.
 |             | 7.6       | LVM    | Agente Linux | RHEL 7.6 para aplicações empresariais SAP.
 |             | 7.7       | LVM    | Agente Linux | RHEL 7.7 para aplicações empresariais SAP.
+|             | 77-gen2       | LVM    | Agente Linux | RHEL 7.7 para aplicações empresariais SAP. Imagem de geração 2
+|             | 8.1       | LVM    | Agente Linux | RHEL 8.1 para aplicações empresariais SAP.
+|             | 81-gen2      | LVM    | Agente Linux | RHEL 8.1 para aplicações empresariais SAP. Imagem de geração 2.
+|             | 8.2       | LVM    | Agente Linux | RHEL 8.2 para aplicações empresariais SAP.
+|             | 82-gen2      | LVM    | Agente Linux | RHEL 8.2 para aplicações empresariais SAP. Imagem de geração 2.
 RHEL-HA       | 7.4       | LVM    | Agente Linux | RHEL 7.4 com HA Add-On. Cobrará um prémio por HA e RHEL em cima da taxa de cálculo base. Antiquado a favor das imagens RHEL-SAP-HA.
 |             | 7,5       | LVM    | Agente Linux | RHEL 7.5 com HA Add-On. Cobrará um prémio por HA e RHEL em cima da taxa de cálculo base. Antiquado a favor das imagens RHEL-SAP-HA.
 |             | 7.6       | LVM    | Agente Linux | RHEL 7.6 com HA Add-On. Cobrará um prémio por HA e RHEL em cima da taxa de cálculo base. Antiquado a favor das imagens RHEL-SAP-HA.
@@ -86,6 +93,10 @@ RHEL-SAP-HA   | 7.4          | LVM    | Agente Linux | RHEL 7.4 para SAP com ser
 |             | 76sapha-gen2 | LVM    | Agente Linux | RHEL 7.6 para SAP com serviços de HA e Atualização. Imagem de geração 2. Anexado aos repositórios E4S. Cobrará um prémio aos repositórios SAP e HA, bem como ao RHEL, para além das taxas de cálculo base.
 |             | 7.7          | LVM    | Agente Linux | RHEL 7.7 para SAP com serviços de HA e Atualização. Anexado aos repositórios E4S. Cobrará um prémio aos repositórios SAP e HA, bem como ao RHEL, para além das taxas de cálculo base.
 |             | 77sapha-gen2 | LVM    | Agente Linux | RHEL 7.7 para SAP com serviços de HA e Atualização. Imagem de geração 2. Anexado aos repositórios E4S. Cobrará um prémio aos repositórios SAP e HA, bem como ao RHEL, para além das taxas de cálculo base.
+|             | 8.1          | LVM    | Agente Linux | RHEL 8.1 para SAP com serviços de HA e Atualização. Anexado aos repositórios E4S. Cobrará um prémio aos repositórios SAP e HA, bem como ao RHEL, para além das taxas de cálculo base.
+|             | 81sapha-gen2          | LVM    | Agente Linux | RHEL 8.1 para SAP com serviços de HA e Atualização. Imagens de geração 2 anexadas aos repositórios E4S. Cobrará um prémio aos repositórios SAP e HA, bem como ao RHEL, para além das taxas de cálculo base.
+|             | 8.2          | LVM    | Agente Linux | RHEL 8.2 para SAP com serviços de HA e Atualização. Cobrará um prémio aos repositórios SAP e HA, bem como ao RHEL, para além das taxas de cálculo base.
+|             | 82sapha-gen2          | LVM    | Agente Linux | RHEL 8.2 para SAP com serviços de HA e Atualização. Imagens de geração 2 anexadas aos repositórios E4S. Cobrará um prémio aos repositórios SAP e HA, bem como ao RHEL, para além das taxas de cálculo base.
 rhel-byos     |rhel-lvm74| LVM    | Agente Linux | As imagens RHEL 7.4 BYOS, não anexadas a nenhuma fonte de atualizações, não cobrarão um prémio RHEL.
 |             |rhel-lvm75| LVM    | Agente Linux | As imagens RHEL 7.5 BYOS, não anexadas a nenhuma fonte de atualizações, não cobrarão um prémio RHEL.
 |             |rhel-lvm76| LVM    | Agente Linux | As imagens RHEL 7.6 BYOS, não anexadas a nenhuma fonte de atualizações, não cobrarão um prémio RHEL.
@@ -104,7 +115,7 @@ rhel-byos     |rhel-lvm74| LVM    | Agente Linux | As imagens RHEL 7.4 BYOS, nã
 > [!NOTE]
 > A oferta de produtos RHEL-SAP-HANA é considerada fim de vida pela Red Hat. As implementações existentes continuarão a funcionar normalmente, mas a Red Hat recomenda que os clientes migram das imagens RHEL-SAP-HANA para as imagens RHEL-SAP-HA, que inclui os repositórios SAP HANA, bem como o addon HA. Mais detalhes sobre as ofertas de nuvem SAP da Red Hat estão disponíveis [aqui.](https://access.redhat.com/articles/3751271)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre as [imagens do Chapéu Vermelho em Azure.](./redhat-images.md)
 * Saiba mais sobre a [Infraestrutura de Atualização do Chapéu Vermelho.](./redhat-rhui.md)
 * Saiba mais sobre a [oferta DA RHEL BYOS.](./byos.md)

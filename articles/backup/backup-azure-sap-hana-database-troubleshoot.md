@@ -3,12 +3,12 @@ title: Resolução de problemas SAP HANA erros de backup
 description: Descreve como resolver erros comuns que podem ocorrer quando utiliza o Azure Backup para fazer backup nas bases de dados SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377689"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411330"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Backup de resolução de problemas das bases de dados SAP HANA em Azure
 
@@ -153,7 +153,7 @@ As atualizações para o SISTEMA, alteração da versão SDC ou alteração da v
 - Certifique-se de que a nova versão SO, SDC ou MDC são atualmente [suportadas pela Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
 - [Parar a proteção com os dados de retenção](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) para a base de dados
 - Realizar a atualização ou atualização
-- Reencaúndio do script de pré-registo. Normalmente, o processo de atualização remove as funções necessárias. Executar o script de pré-registo ajudará a verificar todas as funções necessárias
+- Reencaúndio do script de pré-registo. Frequentemente, o processo de atualização pode remover [as funções necessárias](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). Executar o script de pré-registo ajudará a verificar todas as funções necessárias.
 - Retomar a proteção da base de dados novamente
 
 ## <a name="sdc-to-mdc-upgrade-with-no-change-in-sid"></a>SDC para atualização de MDC sem alterações no SID
@@ -202,6 +202,6 @@ Estes sintomas podem surgir por uma ou mais das seguintes razões:
 
 Nos cenários anteriores, recomendamos que desencadeie uma operação de re-registo no VM.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Reveja as [perguntas frequentes](./sap-hana-faq-backup-azure-vm.md) sobre o backup das bases de dados SAP HANA em VMs Azure.

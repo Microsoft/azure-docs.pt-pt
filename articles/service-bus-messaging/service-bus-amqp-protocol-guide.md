@@ -3,26 +3,26 @@ title: AMQP 1.0 no Azure Service Bus and Event Hubs guia de protocolos / Microso
 description: Guia protocolar para expressões e descrição de AMQP 1.0 em Azure Service Bus and Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32e71211ed1574cade0567f7944b154eea062b24
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064541"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95396880"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 em Azure Service Bus and Event Hubs guia de protocolo
 
-O Protocolo de Fila de Mensagens Avançadas 1.0 é um protocolo de enquadramento e transferência padronizado para mensagens assíncronos, seguras e fiavelmente transferidas entre duas partes. É o protocolo principal da Azure Service Bus Messaging e da Azure Event Hubs. Ambos os serviços também suportam HTTPS. O protocolo proprietário do SBMP que também é apoiado está a ser eliminado gradualmente a favor da AMQP.
+O Protocolo de Fila de Mensagens Avançadas 1.0 é um protocolo de enquadramento e transferência padronizado para mensagens assíncronos, seguras e fiavelmente transferidas entre duas partes. É o protocolo principal da Azure Service Bus Messaging e da Azure Event Hubs.  
 
-AMQP 1.0 é o resultado de uma ampla colaboração da indústria que reuniu fornecedores de middleware, como a Microsoft e a Red Hat, com muitos utilizadores de middleware de mensagens como JP Morgan Chase a representar a indústria de serviços financeiros. O fórum de normalização técnica para o protocolo amQP e especificações de extensão é o OASIS, e obteve a aprovação formal como norma internacional como ISO/IEC 19494.
+AMQP 1.0 é o resultado de uma ampla colaboração da indústria que reuniu fornecedores de middleware, como a Microsoft e a Red Hat, com muitos utilizadores de middleware de mensagens como JP Morgan Chase a representar a indústria de serviços financeiros. O fórum de normalização técnica para o protocolo amQP e especificações de extensão é o OASIS, e obteve a aprovação formal como padrão internacional como ISO/IEC 19494:2014. 
 
 ## <a name="goals"></a>Objetivos
 
-Este artigo resume brevemente os conceitos fundamentais da especificação de mensagens AMQP 1.0 juntamente com um pequeno conjunto de especificações de extensão de projeto que estão atualmente a ser finalizados no comité técnico da OASIS AMQP e explica como a Azure Service Bus implementa e baseia-se nestas especificações.
+Este artigo resume os conceitos fundamentais da especificação de mensagens AMQP 1.0 ao longo das especificações de extensão desenvolvidas pelo [Comité Técnico da AMQP OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) e explica como a Azure Service Bus implementa e baseia-se nestas especificações.
 
 O objetivo é que qualquer desenvolvedor que utilize qualquer pilha de cliente AMQP 1.0 existente em qualquer plataforma para poder interagir com a Azure Service Bus via AMQP 1.0.
 
-As pilhas amQP 1.0 de uso geral comum, como Apache Proton ou AMQP.NET Lite, já implementam todos os protocolos core AMQP 1.0. Esses gestos fundamentais são, por vezes, embrulhados com uma API de nível superior; Apache Protão oferece ainda dois, a api-de-mensageiro imperativa e a API do reator reativo.
+Pilhas amqp 1.0 de uso geral comum, tais como [Apache Qpid Proton](https://qpid.apache.org/proton/index.html) ou [AMQP.NET Lite,](https://github.com/Azure/amqpnetlite)implemente todos os elementos de protocolo AMQP 1.0 de núcleo, como sessões ou links. Esses elementos fundamentais são, por vezes, envoltos numa API de nível superior; Apache Protão oferece ainda dois, a api-de-mensageiro imperativa e a API do reator reativo.
 
 Na discussão seguinte, assumimos que a gestão de ligações, sessões e links amQP e o manuseamento de transferências de quadros e controlo de fluxo são tratados pela respetiva stack (como Apache Proton-C) e não requerem muita atenção específica dos desenvolvedores de aplicações. Assumimos abstratamente a existência de alguns primitivos da API, como a capacidade de se conectar, e de criar alguma forma de objetos de abstração *de remetente* e *recetor,* que depois têm alguma forma `send()` e `receive()` operações, respectivamente.
 
@@ -46,7 +46,7 @@ A fonte mais autoritária para aprender sobre como funciona a AMQP é a especifi
 
 ### <a name="connections-and-sessions"></a>Conexões e sessões
 
-AMQP chama os *recipientes*de programas de comunicação; os que contêm *nós,* que são as entidades comunicantes dentro desses contentores. Uma fila pode ser um nó. AmQP permite multiplexing, para que uma única ligação possa ser usada para muitos caminhos de comunicação entre nós; por exemplo, um cliente de aplicação pode receber simultaneamente de uma fila e enviar para outra fila sobre a mesma ligação de rede.
+AMQP chama os *recipientes* de programas de comunicação; os que contêm *nós,* que são as entidades comunicantes dentro desses contentores. Uma fila pode ser um nó. AmQP permite multiplexing, para que uma única ligação possa ser usada para muitos caminhos de comunicação entre nós; por exemplo, um cliente de aplicação pode receber simultaneamente de uma fila e enviar para outra fila sobre a mesma ligação de rede.
 
 ![Diagrama mostrando Sessões e Ligações entre recipientes.][1]
 
@@ -77,14 +77,14 @@ Os clientes que utilizam ligações AMQP sobre TCP exigem que as portas 5671 e 5
 
 ![Lista de portos de destino][4]
 
-Um cliente .NET falharia com uma SocketException ("Foi feita uma tentativa de aceder a uma tomada de uma forma proibida pelas suas permissões de acesso") se estas portas forem bloqueadas pela firewall. A funcionalidade pode ser desativada através da definição `EnableAmqpLinkRedirect=false` da cadeia connectiong, o que obriga os clientes a comunicarem com o serviço remoto sobre a porta 5671.
+Um cliente .NET falharia com uma SocketException ("Foi feita uma tentativa de aceder a uma tomada de uma forma proibida pelas suas permissões de acesso") se estas portas forem bloqueadas pela firewall. A funcionalidade pode ser desativada por definição `EnableAmqpLinkRedirect=false` na cadeia de ligação, o que obriga os clientes a comunicarem com o serviço remoto sobre a porta 5671.
 
 
 ### <a name="links"></a>Ligações
 
 AMQP transfere mensagens por links. Um link é uma via de comunicação criada ao longo de uma sessão que permite transferir mensagens numa direção; a negociação do estado de transferência é sobre o link e bid-direcional entre as partes ligadas.
 
-![Screenshot mostrando uma sessão de transporte uma ligação de ligação entre dois recipientes.][2]
+![Screenshot mostrando uma Sessão com uma ligação de ligação entre dois recipientes.][2]
 
 Os links podem ser criados por qualquer um dos contentores a qualquer momento e ao longo de uma sessão existente, o que torna a AMQP diferente de muitos outros protocolos, incluindo HTTP e MQTT, onde o início das transferências e trajeto de transferência é um privilégio exclusivo da parte que cria a ligação à tomada.
 
@@ -120,9 +120,9 @@ Para compensar possíveis envios duplicados, o Service Bus suporta a deteção d
 
 Além do modelo de controlo de fluxo de nível de sessão que previamente discutido, cada ligação tem o seu próprio modelo de controlo de fluxo. O controlo de fluxo ao nível da sessão protege o recipiente de ter de manusear demasiados quadros ao mesmo tempo, o controlo de fluxo de nível de ligação encarrega a aplicação de quantas mensagens pretende manusear a partir de um link e quando.
 
-![Screenshot de um registo que mostra Origem, Destino, Porto fonte, Porto de Destino e Nome do Protocolo. Na linha mais fiesta, o Porto de Destino 10401 (0x28 A 1) é delineado em preto.][4]
+![Screenshot de um registo que mostra Origem, Destino, Porto fonte, Porto de Destino e Nome do Protocolo. Na primeira linha, o Porto de Destino 10401 (0x28 A 1) é delineado em preto.][4]
 
-Num link, as transferências só podem acontecer quando o remetente tem *crédito de ligação*suficiente . O crédito de ligação é um contra-conjunto definido pelo recetor utilizando o *fluxo* performativo, que é telescópio para um link. Quando o remetente é atribuído crédito de ligação, tenta usar esse crédito entregando mensagens. Cada entrega de mensagens diminui o restante crédito de ligação por 1. Quando o crédito de ligação é usado, as entregas param.
+Num link, as transferências só podem acontecer quando o remetente tem *crédito de ligação* suficiente . O crédito de ligação é um contra-conjunto definido pelo recetor utilizando o *fluxo* performativo, que é telescópio para um link. Quando o remetente é atribuído crédito de ligação, tenta usar esse crédito entregando mensagens. Cada entrega de mensagens diminui o restante crédito de ligação por 1. Quando o crédito de ligação é usado, as entregas param.
 
 Quando o Service Bus está na função recetora, fornece instantaneamente ao remetente um amplo crédito de ligação, para que as mensagens possam ser enviadas imediatamente. À medida que o crédito de ligação é usado, o Service Bus ocasionalmente envia um *fluxo* performativo para o remetente para atualizar o saldo de crédito de ligação.
 
@@ -130,7 +130,7 @@ Na função de remetente, a Service Bus envia mensagens para utilizar qualquer c
 
 Uma chamada "receber" ao nível da API traduz-se num *fluxo* performativo enviado para a Service Bus pelo cliente, e a Service Bus consome esse crédito, tirando a primeira mensagem disponível e desbloqueada da fila, bloqueando-a e transferindo-a. Se não houver nenhuma mensagem prontamente disponível para entrega, qualquer crédito pendente por qualquer ligação estabelecida com essa entidade em particular permanece registada na ordem de chegada, e as mensagens são bloqueadas e transferidas à medida que ficam disponíveis, para utilizar qualquer crédito pendente.
 
-O bloqueio de uma mensagem é divulgado quando a transferência é liquidada num dos estados terminais *aceites,* *rejeitados*ou *libertados*. A mensagem é removida da Service Bus quando o estado terminal é *aceite.* Permanece em Service Bus e é entregue ao próximo recetor quando a transferência chegar a qualquer um dos outros estados. A Service Bus move automaticamente a mensagem para a fila da cartada da entidade quando atinge a contagem máxima de entrega permitida para a entidade devido a repetidas rejeições ou lançamentos.
+O bloqueio de uma mensagem é divulgado quando a transferência é liquidada num dos estados terminais *aceites,* *rejeitados* ou *libertados*. A mensagem é removida da Service Bus quando o estado terminal é *aceite.* Permanece em Service Bus e é entregue ao próximo recetor quando a transferência chegar a qualquer um dos outros estados. A Service Bus move automaticamente a mensagem para a fila da cartada da entidade quando atinge a contagem máxima de entrega permitida para a entidade devido a repetidas rejeições ou lançamentos.
 
 Mesmo que as APIs do Service Bus não exponham diretamente essa opção hoje em dia, um cliente protocolo AMQP de nível inferior pode usar o modelo de crédito de ligação para transformar a interação "pull-style" de emitir uma unidade de crédito para cada pedido de receção num modelo de "push-style", emitindo um grande número de créditos de ligação e, em seguida, receber mensagens à medida que ficam disponíveis sem qualquer interação adicional. O push é suportado através das definições de propriedade [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) ou [MessageReceiver.PrefetchCount.](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) Quando não são zero, o cliente AMQP usa-o como crédito de ligação.
 
@@ -172,14 +172,14 @@ As setas na tabela seguinte mostram a direção de fluxo performativa.
 
 | Cliente | Service Bus |
 | --- | --- |
-| -> transferência.<br/>entrega-id={pega numérica},<br/>entrega-tag={alça binária},<br/>liquidado=**false**falso,mais=**falso,**<br/>estado=**nulo,**<br/>currículo=**falso**<br/>) |Sem ação |
+| -> transferência.<br/>entrega-id={pega numérica},<br/>entrega-tag={alça binária},<br/>liquidado=**false** falso,mais=**falso,**<br/>estado=**nulo,**<br/>currículo=**falso**<br/>) |Sem ação |
 | Sem ação |<- disposição.<br/>role=recetor,<br/>first={delivery ID},<br/>ID de entrega last={},<br/>resolvido=**verdadeiro,**<br/>estado=**aceito**<br/>) |
 
 #### <a name="send-error"></a>Enviar (erro)
 
 | Cliente | Service Bus |
 | --- | --- |
-| -> transferência.<br/>entrega-id={pega numérica},<br/>entrega-tag={alça binária},<br/>liquidado=**false**falso,mais=**falso,**<br/>estado=**nulo,**<br/>currículo=**falso**<br/>) |Sem ação |
+| -> transferência.<br/>entrega-id={pega numérica},<br/>entrega-tag={alça binária},<br/>liquidado=**false** falso,mais=**falso,**<br/>estado=**nulo,**<br/>currículo=**falso**<br/>) |Sem ação |
 | Sem ação |<- disposição.<br/>role=recetor,<br/>first={delivery ID},<br/>ID de entrega last={},<br/>resolvido=**verdadeiro,**<br/>estado=**rejeitado**(<br/>error={error info}<br/>)<br/>) |
 
 #### <a name="receive"></a>Receber
@@ -208,7 +208,7 @@ Qualquer propriedade que a aplicação precise definir deve ser mapeada para o m
 
 #### <a name="header"></a>cabeçalho
 
-| Nome do Campo | Utilização | Nome API |
+| Nome do Campo | Utilização | Nome da API |
 | --- | --- | --- |
 | durável |- |- |
 | prioridade |- |- |
@@ -218,7 +218,7 @@ Qualquer propriedade que a aplicação precise definir deve ser mapeada para o m
 
 #### <a name="properties"></a>propriedades
 
-| Nome do Campo | Utilização | Nome API |
+| Nome do Campo | Utilização | Nome da API |
 | --- | --- | --- |
 | mensagem id |Identificador de formulário livre definido para aplicação para esta mensagem. Usado para deteção duplicada. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificador de utilizador definido por aplicação, não interpretado pela Service Bus. |Não acessível através da API de autocarro de serviço. |
@@ -238,7 +238,7 @@ Qualquer propriedade que a aplicação precise definir deve ser mapeada para o m
 
 Existem poucas outras propriedades de mensagem de ônibus de serviço, que não fazem parte das propriedades de mensagens AMQP, e são transmitidas como `MessageAnnotations` na mensagem.
 
-| Chave do mapa de anotação | Utilização | Nome API |
+| Chave do mapa de anotação | Utilização | Nome da API |
 | --- | --- | --- |
 | x-opt-programado-enqueue-time | Declara em que momento a mensagem deve aparecer na entidade |[Horário DeEnqueue Hora do Tempo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
 | x-opt-partition-key | Chave definida pela aplicação que dita em que partição a mensagem deve pousar. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
@@ -319,7 +319,7 @@ Esta secção abrange as capacidades avançadas da Azure Service Bus que se base
 
 ### <a name="amqp-management"></a>Gestão amqp
 
-O caderno de encargos é o primeiro dos projetos de extensão discutidos neste artigo. Esta especificação define um conjunto de protocolos em camadas em cima do protocolo AMQP que permitem interações de gestão com a infraestrutura de mensagens sobre AMQP. A especificação define operações genéricas como *criar,* *ler,* *atualizar*e *excluir* para entidades gestoras dentro de uma infraestrutura de mensagens e um conjunto de operações de consulta.
+O caderno de encargos é o primeiro dos projetos de extensão discutidos neste artigo. Esta especificação define um conjunto de protocolos em camadas em cima do protocolo AMQP que permitem interações de gestão com a infraestrutura de mensagens sobre AMQP. A especificação define operações genéricas como *criar,* *ler,* *atualizar* e *excluir* para entidades gestoras dentro de uma infraestrutura de mensagens e um conjunto de operações de consulta.
 
 Todos estes gestos requerem uma interação pedido/resposta entre o cliente e a infraestrutura de mensagens, pelo que a especificação define como modelar esse padrão de interação em cima da AMQP: o cliente conecta-se à infraestrutura de mensagens, inicia uma sessão e, em seguida, cria um par de links. Num link, o cliente atua como remetente e, por outro, atua como recetor, criando assim um par de links que podem funcionar como um canal biducional.
 
@@ -404,7 +404,7 @@ Com esta funcionalidade, cria-se um remetente e estabelece-se a ligação com o 
 | anexar;<br/>nome={link name},<br/>role=remetente,<br/>ID de ligação ao cliente source={},<br/>alvo=**{via-entidade}**,<br/>**propriedades=mapa <br/> [(com.microsoft:transfer-destination-address= <br/> {destination-entity} ))** | ------> | |
 | | <------ | anexar;<br/>nome={link name},<br/>role=recetor,<br/>ID de ligação ao cliente source={},<br/>target={via-entidade},<br/>propriedades=mapa [.<br/>com.microsoft:transfer-destination-address=<br/>{entidade de destino} )] ) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre AMQP, visite os seguintes links:
 
