@@ -44,7 +44,7 @@ Para calcular os custos da cópia de segurança de VMs do Azure ou de servidores
 
   - Escolha **Baixa** ou **Moderada** para servidores de ficheiros e **Alta** se estiver a executar bases de dados
 
-  - Se conhece a sua **%dealteração** , pode utilizar a opção **Introduzir a sua própria %**
+  - Se conhece a sua **%dealteração**, pode utilizar a opção **Introduzir a sua própria %**
 
 - Escolha a política de cópias de segurança
 
@@ -82,7 +82,7 @@ Para calcular os custos da cópia de segurança dos servidores SQL em execução
 
 - Qual é a compressão esperada dos dados da cópia de segurança dos seus servidores SQL?
 
-  - A maioria dos clientes do Azure Backup vê que os dados da cópia de segurança têm 80% de compressão em comparação com o tamanho do servidor SQL quando a compressão de SQL está **ativada** .
+  - A maioria dos clientes do Azure Backup vê que os dados da cópia de segurança têm 80% de compressão em comparação com o tamanho do servidor SQL quando a compressão de SQL está **ativada**.
 
   - Se espera ver uma compressão diferente, introduza o número neste campo
 
@@ -94,7 +94,7 @@ Para calcular os custos da cópia de segurança dos servidores SQL em execução
 
   - Normalmente, as bases de dados têm uma alteração "Alta"
 
-  - Se conhece a sua **%dealteração** , pode utilizar a opção **Introduzir a sua própria %**
+  - Se conhece a sua **%dealteração**, pode utilizar a opção **Introduzir a sua própria %**
 
 - Escolha a política de cópias de segurança
 
@@ -134,11 +134,11 @@ Para calcular os custos da cópia de segurança dos servidores SAP HANA em exec
 - Qual é a quantidade de alterações a dados diária esperada nestes servidores?
   - A % indica o tamanho médio diário da alteração como uma % do tamanho total das bases de dados SAP HANA das quais está a fazer cópia de segurança no servidor SAP HANA
   - Normalmente, as bases de dados têm uma alteração "Alta"
-  - Se conhece a sua **%dealteração** , pode utilizar a opção **Introduzir a sua própria %**
+  - Se conhece a sua **%dealteração**, pode utilizar a opção **Introduzir a sua própria %**
 - Escolha a política de cópias de segurança
   - Tipo de Cópia de Segurança
-    - A política mais eficaz que pode escolher é **Diferenciais diárias** com cópias de segurança completas **semanais/mensais/anuais** . O Azure Backup também pode restaurar a partir de diferenciais através de um clique.
-    - Pode ainda optar por ter uma política com cópias de segurança completas **diárias/semanais/mensais/anuais** . Esta opção vai consumir um pouco mais de armazenamento do que a primeira opção.
+    - A política mais eficaz que pode escolher é **Diferenciais diárias** com cópias de segurança completas **semanais/mensais/anuais**. O Azure Backup também pode restaurar a partir de diferenciais através de um clique.
+    - Pode ainda optar por ter uma política com cópias de segurança completas **diárias/semanais/mensais/anuais**. Esta opção vai consumir um pouco mais de armazenamento do que a primeira opção.
   - Por quanto tempo espera reter as cópias de segurança de "registo"? (em dias) [7–35]
   - Por quanto tempo espera reter as cópias de segurança "Diárias"? (em dias)
   - Por quanto tempo espera reter as cópias de segurança "Semanais"? (em semanas)
@@ -155,7 +155,7 @@ Para calcular os custos da cópia de segurança dos servidores SAP HANA em exec
 
 Para calcular os custos da cópia de segurança das partilhas de ficheiros do Azure com a [solução de cópia de segurança baseada em instantâneos](azure-file-share-backup-overview.md) oferecida pelo Azure Backup, vai precisar dos seguintes parâmetros:
 
-- Tamanho ( **em GB** ) das partilhas de ficheiros das quais pretende fazer cópia de segurança.
+- Tamanho (**em GB**) das partilhas de ficheiros das quais pretende fazer cópia de segurança.
 
 - Se pretende fazer cópia de segurança de partilhas de ficheiros distribuídas entre várias contas de armazenamento, especifique o número de contas de armazenamento que alojam as partilhas de ficheiros com o tamanho acima.
 

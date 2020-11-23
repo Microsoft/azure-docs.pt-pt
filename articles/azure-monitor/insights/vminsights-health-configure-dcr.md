@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: fd131798352aaccaea66c242e92d550c98d7c86f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2bbc57d8ddc004c1926da7e0037efdc1fcf2d76e
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687018"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318104"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Configure a monitorização no Azure Monitor para a saúde dos hóspedes em VMs utilizando regras de recolha de dados (pré-visualização)
 [O Azure Monitor para a saúde dos hóspedes em VMs](vminsights-health-overview.md) permite-lhe visualizar a saúde de uma máquina virtual, tal como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como pode modificar a monitorização predefinitiva em várias máquinas virtuais usando regras de recolha de dados.
@@ -20,7 +20,7 @@ ms.locfileid: "94687018"
 ## <a name="monitors"></a>Monitores
 O estado de saúde de uma máquina virtual é determinado pelo [rollup de saúde](vminsights-health-overview.md#health-rollup-policy) de cada um dos seus monitores. Existem dois tipos de monitores no Azure Monitor para a saúde dos hóspedes VMs, como mostrado na tabela seguinte.
 
-| Monitorização | Descrição |
+| Monitorizar | Descrição |
 |:---|:---|
 | Monitor de unidade | Mede algum aspeto de um recurso ou aplicação. Isto pode estar a verificar um contador de desempenho para determinar o desempenho do recurso, ou a sua disponibilidade. |
 | Monitor Agregado | Agrum múltiplos monitores para fornecer um único estado de saúde agregado. Um monitor agregado pode conter um ou mais monitores unitários e outros monitores agregados. |
@@ -47,7 +47,7 @@ A tabela seguinte descreve as propriedades que podem ser configuradas em cada mo
 A tabela seguinte lista a configuração predefinitiva para cada monitor. Esta configuração padrão não pode ser alterada diretamente, mas pode definir [sobreposições](#overrides) que irão modificar a configuração do monitor para determinadas máquinas virtuais.
 
 
-| Monitorização | Ativado | Alertas | Aviso | Crítico | Frequência de avaliação | Olhar para o interior | Tipo de avaliação | Amostra de min | Amostras max |
+| Monitorizar | Ativado | Alertas | Aviso | Crítico | Frequência de avaliação | Olhar para o interior | Tipo de avaliação | Amostra de min | Amostras max |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
 | Utilização da CPU  | Verdadeiro | Falso | Nenhum | \> 90%    | 60 s | 240 seg | Mín. | 2 | 3 |
 | Memória disponível | Verdadeiro | Falso | Nenhum | \< 100 MB | 60 s | 240 seg | Máx | 2 | 3 |
@@ -57,7 +57,7 @@ A tabela seguinte lista a configuração predefinitiva para cada monitor. Esta c
 ## <a name="overrides"></a>Substituições
 Uma *sobreposição* altera mais um minério de propriedades de um monitor. Por exemplo, uma sobreposição poderia desativar um monitor que é ativado por padrão, definir critérios de aviso para o monitor ou modificar o limiar crítico do monitor. 
 
-As substituições são definidas numa [Regra de Recolha de Dados (DCR)](../platform/data-collection-rule-overview.md). Pode criar vários DCRs com diferentes conjuntos de sobreposições e aplicá-los em várias máquinas virtuais. Aplica-se um DCR a uma máquina virtual criando uma associação como descrito na [recolha de dados Configure para o agente Azure Monitor (pré-visualização)](../platform/data-collection-rule-azure-monitor-agent.md#dcr-associations).
+As substituições são definidas numa [Regra de Recolha de Dados (DCR)](../platform/data-collection-rule-overview.md). Pode criar vários DCRs com diferentes conjuntos de sobreposições e aplicá-los em várias máquinas virtuais. Aplica-se um DCR a uma máquina virtual criando uma associação como descrito na [recolha de dados Configure para o agente Azure Monitor (pré-visualização)](../platform/data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations).
 
 
 ## <a name="multiple-overrides"></a>Múltiplas sobreposições
@@ -103,9 +103,9 @@ A saúde dos hóspedes é implementada como uma extensão ao agente Azure Monito
 | Elemento | Obrigatório | Descrição |
 |:---|:---|:---|
 | `name` | Sim | Cadeia definida pelo utilizador para a extensão. |
-| `streams` | Sim | Lista de streams para os que os dados de saúde dos hóspedes serão enviados. Isto deve incluir **microsoft-HealthStateChange**.  |
-| `extensionName` | Sim | O nome da extensão. Esta deve ser **a HealthExtension**. |
-| `extensionSettings` | Sim | Matriz de `healthRuleOverride` elementos a aplicar à configuração padrão. |
+| `streams` | Yes | Lista de streams para os que os dados de saúde dos hóspedes serão enviados. Isto deve incluir **microsoft-HealthStateChange**.  |
+| `extensionName` | Yes | O nome da extensão. Esta deve ser **a HealthExtension**. |
+| `extensionSettings` | Yes | Matriz de `healthRuleOverride` elementos a aplicar à configuração padrão. |
 
 
 ## <a name="extensionsettings-element"></a>extensãoSelementos elemento
@@ -122,8 +122,8 @@ Contém definições para a extensão.
 | Elemento | Obrigatório | Descrição |
 |:---|:---|:---|
 | `schemaVersion` | Sim | Cadeia definida pela Microsoft para representar o esquema esperado do elemento. Atualmente deve ser definido para 1.0 |
-| `contentVersion` | Não | Cadeia definida pelo utilizador para rastrear diferentes versões da configuração de saúde, se necessário. |
-| `healthRuleOverrides` | Sim | Matriz de `healthRuleOverride` elementos a aplicar à configuração padrão. |
+| `contentVersion` | No | Cadeia definida pelo utilizador para rastrear diferentes versões da configuração de saúde, se necessário. |
+| `healthRuleOverrides` | Yes | Matriz de `healthRuleOverride` elementos a aplicar à configuração padrão. |
 
 ## <a name="healthrulesoverrides-element"></a>healthRulesOverrides elemento
 Contém um ou mais `healthRuleOverride` elementos que cada um define uma sobreposição.
@@ -143,10 +143,10 @@ Contém um ou mais `healthRuleOverride` elementos que cada um define uma sobrepo
 | Elemento | Obrigatório | Descrição |
 |:---|:---|:---|
 | `scopes` | Sim | Lista de um ou mais âmbitos que especificam as máquinas virtuais às quais esta sobreposição é aplicável. Mesmo que o DCR esteja associado a uma máquina virtual, a máquina virtual deve estar dentro de uma margem para que o sobreposição seja aplicado. |
-| `monitors` | Sim | Lista de uma ou mais cordas que definem quais os monitores que receberão esta sobreposição.  |
-| `monitorConfiguration` | Não | Configuração para o monitor, incluindo estados de saúde e como são calculados. |
-| `alertConfiguration` | Não | Configuração de alerta para o monitor. |
-| `isEnabled` | Não | Controla se o monitor está ativado ou não. O monitor desativado muda para estado especial de saúde *para deficientes* e está incapacitado, a menos que seja reativado. Se omitido, o monitor herdará o seu estatuto do monitor dos pais na hierarquia. |
+| `monitors` | Yes | Lista de uma ou mais cordas que definem quais os monitores que receberão esta sobreposição.  |
+| `monitorConfiguration` | No | Configuração para o monitor, incluindo estados de saúde e como são calculados. |
+| `alertConfiguration` | No | Configuração de alerta para o monitor. |
+| `isEnabled` | No | Controla se o monitor está ativado ou não. O monitor desativado muda para estado especial de saúde *para deficientes* e está incapacitado, a menos que seja reativado. Se omitido, o monitor herdará o seu estatuto do monitor dos pais na hierarquia. |
 
 
 ## <a name="scopes-element"></a>elemento de âmbitos
@@ -227,12 +227,12 @@ No caso de haver menos amostras em intervalo de retrocesso do `minSamples` que, 
 | Elemento | Obrigatório | Descrição | 
 |:---|:---|:---|
 | `evaluationFrequencySecs` | Não | Define a frequência para a avaliação do estado de saúde. Cada monitor é avaliado no momento em que o agente inicia e num intervalo regular definido por este parâmetro posteriormente. |
-| `lookbackSecs`   | Não | Tamanho da janela de olhar em segundos. |
-| `evaluationType` | Não | `min` – tirar o valor mínimo de todo o conjunto de amostras<br>`max` - tirar o valor máximo de todo o conjunto de amostras<br>`avg` – recolher a média dos valores definidos de amostras<br>`all` – comparar cada valor no conjunto com os limiares. O monitor comuta o estado se e somente se todas as amostras do conjunto satisfizerem a condição limiar. |
-| `minSamples`     | Não | Número mínimo de valores a utilizar para calcular o valor. |
-| `maxSamples`     | Não | Número máximo de valores a utilizar para calcular o valor. |
-| `warningCondition`  | Não | Lógica de limiar e comparação para a condição de aviso. |
-| `criticalCondition` | Não | Lógica de limiar e comparação para a condição crítica. |
+| `lookbackSecs`   | No | Tamanho da janela de olhar em segundos. |
+| `evaluationType` | No | `min` – tirar o valor mínimo de todo o conjunto de amostras<br>`max` - tirar o valor máximo de todo o conjunto de amostras<br>`avg` – recolher a média dos valores definidos de amostras<br>`all` – comparar cada valor no conjunto com os limiares. O monitor comuta o estado se e somente se todas as amostras do conjunto satisfizerem a condição limiar. |
+| `minSamples`     | No | Número mínimo de valores a utilizar para calcular o valor. |
+| `maxSamples`     | No | Número máximo de valores a utilizar para calcular o valor. |
+| `warningCondition`  | No | Lógica de limiar e comparação para a condição de aviso. |
+| `criticalCondition` | No | Lógica de limiar e comparação para a condição crítica. |
 
 
 ## <a name="warningcondition-element"></a>elemento de pré-aviso
@@ -249,8 +249,8 @@ Define a lógica de limiar e comparação para a condição de aviso. Se este el
 | Propriedade | Obrigatório | Descrição | 
 |:---|:---|:---|
 | `isEnabled` | Não | Especifica se a condição está ativada. Se for definido como **falso,** a condição é desativada, mesmo que as propriedades do limiar e do operador possam ser definidas. |
-| `threshold` | Não | Define o limiar para comparar o valor avaliado. |
-| `operator`  | Não | Define o operador de comparação a utilizar na expressão limiar. Valores possíveis: >, <, >=, <=, ==. |
+| `threshold` | No | Define o limiar para comparar o valor avaliado. |
+| `operator`  | No | Define o operador de comparação a utilizar na expressão limiar. Valores possíveis: >, <, >=, <=, ==. |
 
 
 ## <a name="criticalcondition-element"></a>elemento críticocondição
@@ -267,8 +267,8 @@ Define a lógica de limiar e comparação para a condição crítica. Se este el
 | Propriedade | Obrigatório | Descrição | 
 |:---|:---|:---|
 | `isEnabled` | Não | Especifica se a condição está ativada. Se for definido como **falso,** a condição é desativada, mesmo que as propriedades do limiar e do operador possam ser definidas. |
-| `threshold` | Não | Define o limiar para comparar o valor avaliado. |
-| `operator`  | Não | Define o operador de comparação a utilizar na expressão limiar. Valores possíveis: >, <, >=, <=, ==. |
+| `threshold` | No | Define o limiar para comparar o valor avaliado. |
+| `operator`  | No | Define o operador de comparação a utilizar na expressão limiar. Valores possíveis: >, <, >=, <=, ==. |
 
 ## <a name="sample-data-collection-rule"></a>Regra de recolha de dados de amostra
 A seguinte regra de recolha de dados de amostra mostra um exemplo de uma sobreposição para configurar a monitorização.

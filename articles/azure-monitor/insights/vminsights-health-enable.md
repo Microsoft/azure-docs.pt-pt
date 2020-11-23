@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 6033ca5b0eaf6845d14407832c776dd8e006226b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 647256949d1f8f13439a0a5db87f3b02d697d32b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686973"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318138"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Ativar o Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)
 O Azure Monitor para a saúde dos hóspedes em VMs permite-lhe visualizar a saúde de uma máquina virtual, tal como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como ativar esta funcionalidade na sua subscrição e como ativar a monitorização do hóspede para cada máquina virtual.
@@ -24,12 +24,18 @@ O Azure Monitor para a saúde dos hóspedes VMs tem as seguintes limitações na
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 ou posterior
 - A máquina virtual deve estar localizada numa das seguintes regiões:
+  - Leste da Austrália
   - Sudeste da Austrália
+  - Índia Central
   - E.U.A. Central
   - E.U.A. Leste
   - E.U.A. Leste 2
   - Leste DOS EUA 2
+  - Alemanha Centro-Oeste
+  - Leste do Japão
+  - E.U.A. Centro-Norte
   - Europa do Norte
+  - E.U.A. Centro-Sul
   - Sudeste Asiático
   - Sul do Reino Unido
   - Europa Ocidental

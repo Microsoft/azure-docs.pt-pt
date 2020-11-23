@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 64dfc7400380505c882979e68a3bf0adcb8942a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 048068a74151bb986392b5cb27787385fc0f5363
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107968"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95315537"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de recolha de dados no Azure Monitor (pré-visualização)
 As Regras de Recolha de Dados (DCR) definem os dados que entram no Azure Monitor e especificam para onde esses dados devem ser enviados ou armazenados. Este artigo fornece uma visão geral das regras de recolha de dados, incluindo o seu conteúdo e estrutura e como pode criar e trabalhar com eles.
@@ -40,7 +40,7 @@ O diagrama seguinte mostra os componentes de uma regra de recolha de dados e a s
 ### <a name="data-source-types"></a>Tipos de origem de dados
 Cada fonte de dados tem um tipo de fonte de dados. Cada tipo define um conjunto único de propriedades que devem ser especificadas para cada fonte de dados. Os tipos de fonte de dados atualmente disponíveis são apresentados na tabela seguinte.
 
-| Tipo de fonte de dados | Description | 
+| Tipo de fonte de dados | Descrição | 
 |:---|:---|
 | extensão | Fonte de dados baseada em extensão VM |
 | performanceCounters | Contadores de desempenho tanto para Windows como Linux |
@@ -49,19 +49,7 @@ Cada fonte de dados tem um tipo de fonte de dados. Cada tipo define um conjunto 
 
 
 ## <a name="limits"></a>Limites
-O quadro que se segue lista os limites que atualmente se aplicam a cada regra de recolha de dados.
-
-| Limite | Valor |
-|:---|:---|
-| Número máximo de fontes de dados | 10 |
-| Número máximo de especificadores de contadores no contador de desempenho | 100 |
-| Número máximo de nomes de instalações no Syslog | 20 |
-| Número máximo de consultas XPath no Registo de Eventos | 100 |
-| Número máximo de fluxos de dados | 10 |
-| Número máximo de fluxos de dados | 10 |
-| Número máximo de extensões | 10 |
-| Tamanho máximo das definições de extensão | 32 Kb |
-| Número máximo de espaços de trabalho log analytics | 10 |
+Para limites aplicáveis a cada regra de recolha de [dados, consulte os limites de serviço do Azure Monitor](../service-limits.md#data-collection-rules).
 
 
 ## <a name="create-a-dcr"></a>Criar um DCR
@@ -196,6 +184,6 @@ A regra de recolha de dados da amostra abaixo é para máquinas virtuais com o a
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Crie uma regra de recolha de dados](data-collection-rule-azure-monitor-agent.md) e uma associação a partir de uma máquina virtual utilizando o agente Azure Monitor.

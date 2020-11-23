@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95139c862b82a85dbf7f50aef021ad71c5c8210f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: cffa6b1200b7236b3c0a3e48b50c58275cf4c57b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629449"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95316625"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga os seus servidores no local aos Ficheiros Azure, permitindo a sincronização de vários locais e funcionalidades de tiering em nuvem. Como tal, um servidor no local deve ser ligado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor chegar aos serviços de cloud Azure.
@@ -21,10 +21,10 @@ Este artigo fornecerá informações sobre requisitos e opções específicos di
 
 Recomendamos que se leia [considerações de networking do Azure File Sync](storage-sync-files-networking-overview.md) antes de ler este como orientar.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 O Azure File Sync funciona como um serviço de orquestração entre o seu Windows Server, a sua partilha de ficheiros Azure e vários outros serviços Azure para sincronizar dados como descrito no seu grupo de sincronização. Para que o Azure File Sync funcione corretamente, terá de configurar os seus servidores para comunicar com os seguintes serviços Azure:
 
-- Armazenamento do Azure
+- Storage do Azure
 - Azure File Sync
 - Azure Resource Manager
 - Serviços de autenticação
@@ -100,6 +100,7 @@ A tabela a seguir descreve os domínios necessários para a comunicação:
 | **Armazenamento do Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor descarrega um ficheiro, o servidor executa esse movimento de dados de forma mais eficiente quando fala diretamente para a partilha de ficheiros Azure na Conta de Armazenamento. O servidor tem uma chave SAS que apenas permite o acesso de partilha de ficheiros direcionado. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | Após o registo inicial do servidor, o servidor recebe um URL regional para a instância do serviço Azure File Sync naquela região. O servidor pode utilizar o URL para comunicar de forma direta e eficiente com a instância que manuseia a sua sincronização. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Uma vez instalado o agente Azure File Sync, o URL PKI é utilizado para descarregar certificados intermédios necessários para comunicar com o serviço Azure File Sync e a partilha de ficheiros Azure. O URL OCSP é utilizado para verificar o estado de um certificado. |
+| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Uma vez instalado o agente Azure File Sync, os URLs da Microsoft Update são utilizados para descarregar atualizações do agente Azure File Sync. |
 
 > [!Important]
 > Ao permitir o tráfego &ast; de .afs.azure.net, o tráfego só é possível para o serviço de sincronização. Não existem outros serviços da Microsoft que utilizem este domínio.
@@ -138,8 +139,8 @@ Por razões de continuidade de negócios e recuperação de desastres (BCDR), po
 | Público | Europa Ocidental | https: \/ /westeurope01.afs.azure.net<br>https: \/ /kailani6.one.microsoft.com | Europa do Norte | https: \/ /tm-westeurope01.afs.azure.net<br>https: \/ /tm-kailani6.one.microsoft.com |
 | Público | E.U.A. Oeste | https: \/ /westus01.afs.azure.net<br>https: \/ /kailani.one.microsoft.com | E.U.A. Leste | https: \/ /tm-westus01.afs.azure.net<br>https: \/ /tm-kailani.one.microsoft.com |
 | Público | E.U.A. Oeste 2 | https: \/ /westus201.afs.azure.net | E.U.A. Centro-Oeste | https: \/ /tm-westus201.afs.azure.net |
-| Administração Pública | US Gov - Arizona | https: \/ /usgovarizona01.afs.azure.us | US Gov - Texas | https: \/ /tm-usgovarizona01.afs.azure.us |
-| Administração Pública | US Gov - Texas | https: \/ /usgovtexas01.afs.azure.us | US Gov - Arizona | https: \/ /tm-usgovtexas01.afs.azure.us |
+| Governo | US Gov - Arizona | https: \/ /usgovarizona01.afs.azure.us | US Gov - Texas | https: \/ /tm-usgovarizona01.afs.azure.us |
+| Governo | US Gov - Texas | https: \/ /usgovtexas01.afs.azure.us | US Gov - Arizona | https: \/ /tm-usgovtexas01.afs.azure.us |
 
 - Se utilizar contas de armazenamento redundantes locais (LRS) ou zonas redundantes (ZRS), só precisa de ativar o URL listado em "URL de ponto final primário".
 
@@ -281,7 +282,7 @@ As listas anteriores deste documento contêm o URLs Azure File Sync atualmente c
 
 A criação de regras de firewall de restrição de domínios pode ser uma medida para melhorar a segurança. Se estas configurações de firewall forem utilizadas, é preciso ter em mente que os URLs serão adicionados e poderão até mudar com o tempo. Verifique este artigo periodicamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

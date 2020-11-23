@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/27/2020
+ms.date: 11/21/2020
 ms.author: memildin
-ms.openlocfilehash: 79dcc645ecff00b3189dc90dcf34e042a78ed318
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9b715ea890c7c85161a9e360bc16f9a2a608d64b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949331"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95320990"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -39,6 +39,8 @@ As atualizações em novembro incluem:
 - [NIST SP 800 171 R2 adicionado ao painel de conformidade regulamentar do Centro de Segurança](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
 - [Lista de recomendações agora inclui filtros](#recommendations-list-now-includes-filters)
 - [Experiência de provisionamento automático melhorada e expandida](#auto-provisioning-experience-improved-and-expanded)
+- [A pontuação segura está agora disponível em exportação contínua (pré-visualização)](#secure-score-is-now-available-in-continuous-export-preview)
+- [Recomendação "Atualizações do sistema devem ser instaladas nas suas máquinas" agora inclui sub-recomendações](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
 
@@ -103,6 +105,41 @@ Pode agora configurar o provisionamento automático de:
 - (Novo) Agente de dependência da Microsoft
 
 Saiba mais em [agentes de provisionamento automático e extensões do Azure Security Center](security-center-enable-data-collection.md).
+
+
+### <a name="secure-score-is-now-available-in-continuous-export-preview"></a>A pontuação segura está agora disponível em exportação contínua (pré-visualização)
+
+Com a exportação contínua de pontuação segura, pode transmitir alterações à sua pontuação em tempo real para Azure Event Hubs ou um espaço de trabalho Log Analytics. Utilize esta capacidade para:
+
+- rastrear a sua pontuação segura ao longo do tempo com relatórios dinâmicos
+- exportar dados de pontuação segura para Azure Sentinel (ou qualquer outro SIEM)
+- integrar estes dados com quaisquer processos que já possa estar a usar para monitorizar pontuação segura na sua organização
+
+Saiba mais sobre como [exportar continuamente os dados do Security Center.](continuous-export.md)
+
+
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations"></a>Recomendação "Atualizações do sistema devem ser instaladas nas suas máquinas" agora inclui sub-recomendações
+
+As **atualizações do Sistema devem ser instaladas na** recomendação das suas máquinas. A nova versão inclui sub-recomendações para cada atualização em falta e traz as seguintes melhorias:
+
+- Uma experiência redesenhada nas páginas do Centro de Segurança Azure do portal Azure. A página de detalhes da recomendação para **atualizações do Sistema deve ser instalada nas suas máquinas** inclui a lista de resultados, tal como mostrado abaixo. Ao selecionar uma única descoberta, o painel de detalhes abre-se com um link para a informação de remediação e uma lista de recursos afetados.
+
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Abertura de uma das sub-recomendações na experiência do portal para a recomendação atualizada":::
+
+- Dados enriquecidos para a recomendação do Azure Resource Graph (ARG). A ARG é um serviço Azure projetado para fornecer uma exploração eficiente de recursos. Você pode usar ARG para consultar em escala através de um determinado conjunto de subscrições para que você possa efetivamente governar o seu ambiente. 
+
+    Para o Azure Security Center, pode utilizar o ARG e a [Língua De Consulta de Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) para consultar uma ampla gama de dados de postura de segurança.
+
+    Anteriormente, se questionou esta recomendação em ARG, a única informação disponível era que a recomendação precisa de ser remediada numa máquina. A seguinte consulta da versão melhorada irá devolver cada atualização do sistema em falta agrupadas por máquina.
+
+    ```kusto
+    securityresources
+    | where type =~ "microsoft.security/assessments/subassessments"
+    | where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+    | where properties.status.code == "Unhealthy"
+    ```
+
+
 
 ## <a name="october-2020"></a>Outubro de 2020
 
