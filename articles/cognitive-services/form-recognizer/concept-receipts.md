@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913199"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95492215"
 ---
 # <a name="receipt-concepts"></a>Conceitos de recibo
 
@@ -57,6 +57,13 @@ A API recibo também devolve as seguintes informações:
 * Texto em bruto OCR (saída de texto extraída por OCR para a totalidade do recibo)
 * Caixa de limites para cada valor, linha e palavra
 
+## <a name="try-it-out"></a>Experimente
+
+Para experimentar o serviço de recibos Do Reconhecimento de Formulários, aceda à ferramenta online Sample UI:
+
+> [!div class="nextstepaction"]
+> [Experimente modelos pré-construídos](https://fott-preview.azurewebsites.net/)
+
 ## <a name="input-requirements"></a>Requisitos de entrada
 
 [!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
@@ -64,7 +71,7 @@ A API recibo também devolve as seguintes informações:
 ## <a name="supported-locales"></a>Locais apoiados 
 
 * **Recibo pré-construído v2.0** (GA) suporta recibos de venda na localidade EN-US
-* **O recibo pré-construído v2.1-pré-visualização.1** (Visualização pública) adiciona suporte adicional para os seguintes locais de receção EN: 
+* **O recibo pré-construído v2.1-pré-visualização.2** (Visualização pública) adiciona suporte adicional para os seguintes locais de receção EN: 
   * EN-AU 
   * EN-CA 
   * EN-GB 
@@ -73,12 +80,12 @@ A API recibo também devolve as seguintes informações:
   > [!NOTE]
   > Entrada linguística 
   >
-  > O Recibo Pré-construído v2.1-preview.1 tem um parâmetro de pedido opcional para especificar um local de recibo de mercados ingleses adicionais. Para receitas de vendas em inglês da Austrália (EN-AU), Canadá (EN-CA), Grã-Bretanha (EN-GB) e Índia (EN-IN), pode especificar o local para obter melhores resultados. Se não for especificado qualquer local em v2.1-pré-visualização.1, o modelo irá desagravar-se com o modelo EN-US.
+  > O Recibo Pré-construído v2.1-preview.2 tem um parâmetro de pedido opcional para especificar um local de recibo de mercados ingleses adicionais. Para receitas de vendas em inglês da Austrália (EN-AU), Canadá (EN-CA), Grã-Bretanha (EN-GB) e Índia (EN-IN), pode especificar o local para obter melhores resultados. Se não for especificado qualquer local em v2.1-pré-visualização.2, o modelo irá desagravar-se com o modelo EN-US.
 
 
 ## <a name="the-analyze-receipt-operation"></a>A operação De Receção de Análise
 
-O [Recibo de Análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) retira uma imagem ou PDF de um recibo como entrada e extrai os valores de interesse e texto. A chamada devolve um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é um URL que contém o Resultado ID para ser usado no passo seguinte.
+O [Recibo de Análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) retira uma imagem ou PDF de um recibo como entrada e extrai os valores de interesse e texto. A chamada devolve um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é um URL que contém o Resultado ID para ser usado no passo seguinte.
 
 |Cabeçalho de resposta| URL de resultados |
 |:-----|:----|
@@ -86,11 +93,11 @@ O [Recibo de Análise](https://westcentralus.dev.cognitive.microsoft.com/docs/se
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>A operação Obter Resultados de Recibos de Análise
 
-O segundo passo é ligar para a operação [Obter Resultados de Receção.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) Esta operação toma como entrada o Resultado ID que foi criado pela operação 'Receção de Análise'. Devolve uma resposta JSON que contém um campo **de estado** com os seguintes valores possíveis. Você chama a esta operação iterativamente até que ela retorne com o valor **bem sucedido.** Utilize um intervalo de 3 a 5 segundos para evitar exceder os pedidos por segundo (RPS).
+O segundo passo é ligar para a operação [Obter Resultados de Receção.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) Esta operação toma como entrada o Resultado ID que foi criado pela operação 'Receção de Análise'. Devolve uma resposta JSON que contém um campo **de estado** com os seguintes valores possíveis. Você chama a esta operação iterativamente até que ela retorne com o valor **bem sucedido.** Utilize um intervalo de 3 a 5 segundos para evitar exceder os pedidos por segundo (RPS).
 
 |Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
-|status | cadeia | notStarted: A operação de análise ainda não começou. |
+|status | string | notStarted: A operação de análise ainda não começou. |
 | |  | funcionamento: A operação de análise está em curso. |
 | |  | falhou: A operação de análise falhou. |
 | |  | conseguiu: A operação de análise foi bem sucedida. |
@@ -456,7 +463,7 @@ A API de Receção também alimenta a [funcionalidade de Processamento de Recibo
 - Preencha um [início rápido da biblioteca do cliente Do Reconhecimento de Formulários](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de recibos com o Form Recogniser no idioma à sua escolha.
 - Ou, siga o [quickstart da API Python de receção](./quickstarts/python-receipts.md) para reconhecer os recibos usando a API REST.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)
 * [REST API referenciar docs](./index.yml)

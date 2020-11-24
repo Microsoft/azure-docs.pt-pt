@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5a588195f2095b2d0cb261e1573eeb9ec881f2fd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f77c0fb09dddd884335d31d630904ea6aeafeaf5
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322845"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495207"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implementar um serviço web Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:** ![ Esta é uma marca de verificação, o que significa que este artigo se aplica ao Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Este é um X, o que significa que este artigo se aplica ao Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 O Azure Machine Learning Studio (clássico) permite-lhe construir e testar uma solução analítica preditiva. Em seguida, pode implementar a solução como um serviço web.
@@ -93,7 +93,7 @@ Quando converte esta experiência de treino numa experiência preditiva, alguns 
 
 * **Pontuação** - Neste exemplo, o módulo [Dados Divididos][split] é utilizado para dividir o fluxo de dados em dados de teste e dados de treino. Na experiência preditiva, já não estamos a treinar, por isso os [dados divididos][split] podem ser removidos. Da mesma forma, o segundo módulo [do Modelo de Pontuação][score-model] e o módulo [De Modelo de Avaliação][evaluate-model] são utilizados para comparar os resultados dos dados do teste, pelo que estes módulos não são necessários na experiência preditiva. No entanto, o módulo [restante do Modelo de Pontuação][score-model] é necessário para devolver um resultado de pontuação através do serviço web.
 
-Aqui está como o nosso exemplo fica depois de clicar em **Configurar o Serviço Web** :
+Aqui está como o nosso exemplo fica depois de clicar em **Configurar o Serviço Web**:
 
 ![Experiência preditiva convertida](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 

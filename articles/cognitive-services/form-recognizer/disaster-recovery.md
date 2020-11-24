@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79cf0ef059d96ac66f5918605e999d3936d589d2
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718820"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486522"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Recue e recupere os seus modelos de Reconhecimento de Formulários
 
@@ -41,7 +41,7 @@ O processo de cópia de um modelo personalizado consiste nos seguintes passos:
 1. Você usará as suas credenciais de recurso de origem para consultar o URL de progresso até que a operação seja um sucesso. Também pode consultar o novo ID do modelo no recurso-alvo para obter o estado do novo modelo.
 
 > [!CAUTION]
-> A API copy não suporta atualmente iDs de modelo para [modelos personalizados compostos.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose) O composição do modelo é uma funcionalidade de pré-visualização na pré-visualização v2.1.1. 
+> A API copy não suporta atualmente iDs de modelo para [modelos personalizados compostos.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose) O composição do modelo é uma funcionalidade de pré-visualização em pré-visualização v2.1-preview.2. 
 
 ## <a name="generate-copy-authorization-request"></a>Gerar pedido de autorização de cópia
 

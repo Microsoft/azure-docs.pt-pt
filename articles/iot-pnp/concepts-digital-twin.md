@@ -7,12 +7,12 @@ ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ea523045875e0abc9e14924c7bb388ea2cfcc2db
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f13230c7bd88a9c3cf043fc1881a34f6b7ce6fe7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046473"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495326"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Compreender os duplos digitais Plug and Play do IoT
 
@@ -382,6 +382,6 @@ content-encoding:utf-8
 Agora que aprendeu sobre gémeos digitais, aqui estão alguns recursos adicionais:
 
 - [Como usar IoT Plug e Play APIs digitais twin](howto-manage-digital-twin.md)
-- [Interagir com um dispositivo a partir da sua solução](quickstart-service-node.md)
+- [Interagir com um dispositivo a partir da sua solução](quickstart-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Explorador de Azure IoT](howto-use-iot-explorer.md)

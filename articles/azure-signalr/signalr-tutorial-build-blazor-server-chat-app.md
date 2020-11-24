@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: 16fd15a5939cc6c268a80e88401f05042a206075
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ea55762aa40360d8eea94223a030f08aad504206
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516820"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95485397"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Tutorial: Construa uma aplicação de chat do Blazor Server
 
@@ -39,7 +39,7 @@ A partir da versão 16.2.0 do Visual Studio 2019, o Serviço Azure SignalR é um
    
    No Visual Studio, escolha Criar um novo projeto -> Blazor App -> (nomeie a app e escolha uma pasta) -> Blazor Server App. Certifique-se de que já instalou .NET Core SDK 3.0+ para permitir que o Visual Studio reconheça corretamente a estrutura-alvo.
 
-   [![blazor-chat-create ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png#lightbox)
+   [![Na Criação de um novo projeto, os modelos de Aplicação Blazor são selecionados. ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-create.png#lightbox)
    
    Ou executar cmd
    ```dotnetcli
@@ -355,7 +355,7 @@ A partir da versão 16.2.0 do Visual Studio 2019, o Serviço Azure SignalR é um
 
 1. Clique em <kbd>F5</kbd> para executar a aplicação. Poderá conversar como abaixo.
 
-   [![blazor-chat ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif#lightbox)
+   [![Uma conversa animada entre Bob e Alice é mostrada. A Alice diz Olá, o Bob diz olá. ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif#lightbox)
    
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsblazor)
 
@@ -375,13 +375,13 @@ A partir da versão 16.2.0 do Visual Studio 2019, o Serviço Azure SignalR é um
    * Alvo específico: Todos os tipos de Serviço de **Aplicações Azure** são suportados.
    * Serviço de Aplicações: crie um novo ou selecione o serviço de aplicações existente.
 
-   [![blazor-chat-profile ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
+   [![A animação mostra a seleção de Azure como Target, e depois a Azure App Serice como alvo específico. ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
 
 1. Adicionar dependência do serviço Azure SignalR
 
    Após a publicação do perfil criado, pode ver uma mensagem recomendada em **Dependências de Serviços.** Clique em **Configurar** para criar o novo ou selecionar o Serviço Azure SignalR existente no painel.
 
-   [![blazor-chat-dependência ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png#lightbox)
+   [![Na Publicação, destaca-se o link para a Configure. ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency.png#lightbox)
 
    A dependência do serviço fará coisas abaixo para ativar a sua aplicação automaticamente para o Serviço Azure SignalR quando estiver no Azure.
 
@@ -391,7 +391,7 @@ A partir da versão 16.2.0 do Visual Studio 2019, o Serviço Azure SignalR é um
    * A loja de segredos de configuração depende da sua escolha.
    * Adicione `appsettings` a configuração para tornar o seu alvo de aplicação selecionado Serviço Azure SignalR.
 
-   [![blazor-chat-dependência-resumo ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png#lightbox)
+   [![No Resumo das alterações, as caixas de verificação são utilizadas para selecionar todas as dependências. ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-dependency-summary.png#lightbox)
 
 1. Publicar a aplicação
 
@@ -400,7 +400,7 @@ A partir da versão 16.2.0 do Visual Studio 2019, o Serviço Azure SignalR é um
    > Pode não funcionar imediatamente na primeira página de visita devido à implementação do Serviço de Aplicações Azure iniciar a latência e tentar refrescar a página para dar algum atraso.
    > Além disso, pode utilizar o modo de depurador de navegador com <kbd>F12</kbd> para validar o tráfego já redirecionado para o Serviço Azure SignalR.
 
-   [![blazor-chat-azure ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png#lightbox)
+   [![Blazor SignalR Chat Sample tem uma caixa de texto para o seu nome, e um botão Chat! para iniciar uma conversação. ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png#lightbox)
    
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsblazor)
 
@@ -449,7 +449,7 @@ A partir da versão 16.2.0 do Visual Studio 2019, o Serviço Azure SignalR é um
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsblazor)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados neste tutorial, elimine o grupo de recursos no portal do Azure.
 

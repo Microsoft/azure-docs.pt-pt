@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: dda0e3d6739e94df4ce5910938c164e3db336bce
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5f82206a7c86c5ae1e6477419faee0dca88ef883
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445579"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495292"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Use modelos IoT Plug e Play numa solução IoT
 
@@ -125,7 +125,7 @@ Depois de identificar o ID do modelo para uma nova ligação ao dispositivo, sig
 
 1. Utilizando a definição de modelo do dispositivo conectado, pode enumerar as capacidades do dispositivo.
 
-1. Utilizando as capacidades enumeradas do dispositivo, pode permitir que os utilizadores [interajam com o dispositivo](quickstart-service-node.md).
+1. Utilizando as capacidades enumeradas do dispositivo, pode permitir que os utilizadores [interajam com o dispositivo](quickstart-service.md).
 
 ### <a name="custom-store"></a>Loja personalizada
 
@@ -137,12 +137,12 @@ Depois de identificar o ID do modelo para uma nova ligação ao dispositivo, sig
 
 1. Utilizando a definição de modelo do dispositivo conectado, pode enumerar as capacidades do dispositivo. 
 
-1. Utilizando as capacidades enumeradas do dispositivo, pode permitir que os utilizadores [interajam com o dispositivo](quickstart-service-node.md).  
+1. Utilizando as capacidades enumeradas do dispositivo, pode permitir que os utilizadores [interajam com o dispositivo](quickstart-service.md).  
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a integrar os modelos IoT Plug e Play numa solução IoT, alguns dos próximos passos sugeridos são:
 
-- [Interagir com um dispositivo a partir da sua solução](quickstart-service-node.md)
+- [Interagir com um dispositivo a partir da sua solução](quickstart-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Explorador de Azure IoT](howto-use-iot-explorer.md)

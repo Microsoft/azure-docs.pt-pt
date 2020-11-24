@@ -7,19 +7,18 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc0429ae4507172e95618bc95e6a2c51034d352
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bf5a06cf906084e3f87d5f56748476a26587ff17
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379264"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95490736"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras dinâmicas de adesão para grupos no Azure Ative Directory
 
@@ -309,8 +308,8 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 As seguintes dicas podem ajudá-lo a utilizar a regra corretamente.
 
-- A **identificação do gerente** é a identificação do objeto do gerente. Pode ser encontrado no **Perfil**do gestor.
-- Para que a regra funcione, certifique-se de que a propriedade **manager** está corretamente definida para os utilizadores da sua organização. Pode verificar o valor atual no **Perfil**do utilizador.
+- A **identificação do gerente** é a identificação do objeto do gerente. Pode ser encontrado no **Perfil** do gestor.
+- Para que a regra funcione, certifique-se de que a propriedade **manager** está corretamente definida para os utilizadores da sua organização. Pode verificar o valor atual no **Perfil** do utilizador.
 - Esta regra apoia apenas os relatórios diretos do gestor. Por outras palavras, não se pode criar um grupo com os relatórios diretos do gestor *e* os seus relatórios.
 - Esta regra não pode ser combinada com quaisquer outras regras de adesão.
 

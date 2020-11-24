@@ -7,19 +7,18 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: enterprise-users
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 842cd92e451b8d959dcf04135da504d7cf85a16e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7a0b9e4ccd595e90ab941cb061a016f8c4d4f3d0
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647210"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503029"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Quickstart: Desconfiem dos grupos Microsoft 365 para expirar no Azure Ative Directory
 
@@ -82,7 +81,7 @@ Já está! Neste arranque rápido, definiu com sucesso a política de expiraçã
 1. Selecione **Azure Ative Directory**  >  **Groups**  >  **General**. 
 2. Definir **Os utilizadores podem criar grupos Microsoft 365 em portais Azure** para **No**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a expiração, incluindo instruções powerShell e restrições técnicas, consulte o seguinte artigo:
 

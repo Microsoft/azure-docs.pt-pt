@@ -7,19 +7,18 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: enterprise-users
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a594d42485510a525ce4e3c7f03b432554100f8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c31ff1fdc3eaff00d3fa4533d4642f980ddb1dcf
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650602"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488781"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Início rápido: Política de nomenclatura para grupos no Azure Active Directory
 
@@ -64,7 +63,7 @@ Já está. Definiu a política de nomenclatura e adicionou palavras bloqueadas p
 1. Na página de **política de naming,** selecione **Eliminar a política**.
 1. Depois de confirmar a supressão, a política de nomeação é removida, incluindo toda a política de nomeação de prefixos e quaisquer palavras bloqueadas personalizadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a definir a política de nomeação para a sua organização AZure AD através do portal Azure.
 

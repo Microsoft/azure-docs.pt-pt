@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a0a677342534cd92d5530199076e3d2e7084134d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658796"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95494782"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificar ameaças avançadas com a Análise de Comportamento de Utilizador e Entidade (UEBA) em Azure Sentinel
 
@@ -205,7 +205,7 @@ Pode utilizar o [caderno Jupyter](https://github.com/Azure/Azure-Sentinel-Notebo
 
 A análise de permissão ajuda a determinar o impacto potencial do comprometimento de um ativo organizacional por um intruso. Este impacto também é conhecido como o "raio de explosão" do ativo. Os analistas de segurança podem usar esta informação para priorizar investigações e tratamento de incidentes.
 
-O Azure Sentinel determina os direitos de acesso diretos e transitórios detidos por um determinado utilizador aos recursos da Azure, avaliando as subscrições do Azure que o utilizador pode aceder diretamente ou através de grupos ou principais serviços. Esta informação, bem como a lista completa da adesão ao grupo de segurança Azure AD do utilizador, é então armazenada na tabela **UserAccessAnalytics.** A imagem abaixo mostra uma linha de amostra na tabela UserAccessAnalytics, para o utilizador Alex Johnson. **A entidade-fonte** é a conta principal do utilizador ou serviço, e **a entidade-alvo** é o recurso a que a entidade-fonte tem acesso. Os valores do **nível** de acesso e **do tipo** de acesso dependem do modelo de controlo de acesso da entidade-alvo. Pode ver que a Alex tem acesso ao Azure Subscription *Contoso Hotels Tenant.* O modelo de controlo de acesso da subscrição é o RBAC.   
+O Azure Sentinel determina os direitos de acesso diretos e transitórios detidos por um determinado utilizador aos recursos da Azure, avaliando as subscrições do Azure que o utilizador pode aceder diretamente ou através de grupos ou principais serviços. Esta informação, bem como a lista completa da adesão ao grupo de segurança Azure AD do utilizador, é então armazenada na tabela **UserAccessAnalytics.** A imagem abaixo mostra uma linha de amostra na tabela UserAccessAnalytics, para o utilizador Alex Johnson. **A entidade-fonte** é a conta principal do utilizador ou serviço, e **a entidade-alvo** é o recurso a que a entidade-fonte tem acesso. Os valores do **nível** de acesso e **do tipo** de acesso dependem do modelo de controlo de acesso da entidade-alvo. Pode ver que a Alex tem acesso ao Azure Subscription *Contoso Hotels Tenant.* O modelo de controlo de acesso da subscrição é Azure RBAC.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Imagem de tela da tabela de análise de acesso ao utilizador":::
 
@@ -217,7 +217,7 @@ Azure Sentinel fornece fora da caixa um conjunto de consultas de caça, consulta
 
 Saiba mais sobre [a caça e o gráfico de investigação](./hunting.md) em Azure Sentinel.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, você aprendeu sobre as capacidades de análise de comportamento da entidade de Azure Sentinel. Para obter orientações práticas sobre a implementação e para utilizar os insights que obteve, consulte os seguintes artigos:
 
 - [Ativar a análise de comportamento da entidade](./enable-entity-behavior-analytics.md) em Azure Sentinel.

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: b7ec7273848b9e8bb5be809b9cf48cdc919d3949
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 81842fb3a9a68e818a3e8c94aa6db690cb1d94f5
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307982"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486284"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Quickstart: Crie a sua primeira experiência de ciência de dados no Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:** ![ Esta é uma marca de verificação, o que significa que este artigo se aplica ao Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Este é um X, o que significa que este artigo se aplica ao Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -47,7 +47,7 @@ Este arranque rápido segue o fluxo de trabalho padrão para uma experiência:
 ## <a name="get-the-data"></a>Obter os dados
 
 A primeira coisa que precisas na aprendizagem automática são os dados.
-Existem vários conjuntos de dados de amostras incluídos no Studio (clássico) que pode usar, ou pode importar dados de muitas fontes. Neste exemplo, vamos utilizar o conjunto de dados de exemplo, **Automobile price data (Raw) (Dados de preços de automóveis (não processados))** , que está incluído na sua área de trabalho.
+Existem vários conjuntos de dados de amostras incluídos no Studio (clássico) que pode usar, ou pode importar dados de muitas fontes. Neste exemplo, vamos utilizar o conjunto de dados de exemplo, **Automobile price data (Raw) (Dados de preços de automóveis (não processados))**, que está incluído na sua área de trabalho.
 Este conjunto de dados inclui entradas para vários automóveis individuais, incluindo informações como a marca, o modelo, as especificações técnicas e o preço.
 
 > [!TIP]
@@ -78,7 +78,7 @@ Neste conjunto de dados, cada linha representa um automóvel, e as variáveis as
 
 ![Veja os dados dos automóveis na janela de visualização de dados](./media/create-experiment/visualize-auto-data.png)
 
-Feche a janela de visualização, clicando no " **x** " no canto superior direito.
+Feche a janela de visualização, clicando no "**x**" no canto superior direito.
 
 ## <a name="prepare-the-data"></a>Preparar os dados
 
@@ -95,11 +95,11 @@ Primeiro, adicionamos um módulo que remove completamente a coluna **de perdas n
 
     ![Adicione o módulo "Select Columns in Dataset” à tela da experimentação e ligue-o](./media/create-experiment/type-select-columns.png)
 
-1. Clique no módulo [Select Columns in Dataset][select-columns] e clique em **Launch column selector (Iniciar seletor de colunas)** , no painel **Properties (Propriedades)**.
+1. Clique no módulo [Select Columns in Dataset][select-columns] e clique em **Launch column selector (Iniciar seletor de colunas)**, no painel **Properties (Propriedades)**.
 
    - À esquerda, clique em **Com regras**
-   - Em **Começar Com** , clique em **Todas as colunas**. Estas regras [direcionam as Colunas Selecionadas no Conjunto de Dados][select-columns] para passar por todas as colunas (exceto as colunas que estamos prestes a excluir).
-   - Nas listas pendentes, selecione **Excluir** e os **nomes das colunas** e, em seguida, clique dentro da caixa de texto. É apresentada uma lista de colunas. Selecione **normalized-losses** , que é adicionada à caixa de texto.
+   - Em **Começar Com**, clique em **Todas as colunas**. Estas regras [direcionam as Colunas Selecionadas no Conjunto de Dados][select-columns] para passar por todas as colunas (exceto as colunas que estamos prestes a excluir).
+   - Nas listas pendentes, selecione **Excluir** e os **nomes das colunas** e, em seguida, clique dentro da caixa de texto. É apresentada uma lista de colunas. Selecione **normalized-losses**, que é adicionada à caixa de texto.
    - Clique no botão de marca de verificação (OK) para fechar o seletor de colunas (no lado inferior direito).
 
      ![Inicie o seletor de colunas e exclua a coluna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
@@ -113,7 +113,7 @@ Primeiro, adicionamos um módulo que remove completamente a coluna **de perdas n
 
      ![Faça duplo clique num módulo para adicionar um comentário](./media/create-experiment/add-comment.png)
 
-1. Arraste o módulo [Apagar dados em falta][clean-missing-data] para a tela de experimentação e conecte-o ao módulo [Selecionar colunas no conjunto de dados][select-columns]. No painel **Properties** , selecione **Remove entire row (Remover linha inteira)** , em **Cleaning mode (Modo de limpeza)**. Estas opções [direcionam os Dados Em Falta][clean-missing-data] para limpar os dados, removendo linhas que tenham valores em falta. Clique duas vezes no módulo e escreva o comentário "Remover linhas de valor em falta".
+1. Arraste o módulo [Apagar dados em falta][clean-missing-data] para a tela de experimentação e conecte-o ao módulo [Selecionar colunas no conjunto de dados][select-columns]. No painel **Properties**, selecione **Remove entire row (Remover linha inteira)**, em **Cleaning mode (Modo de limpeza)**. Estas opções [direcionam os Dados Em Falta][clean-missing-data] para limpar os dados, removendo linhas que tenham valores em falta. Clique duas vezes no módulo e escreva o comentário "Remover linhas de valor em falta".
 
     ![Defina o modo de limpeza como “Remove entire row” no módulo “Clean Missing Data”](./media/create-experiment/set-remove-entire-row.png)
 
@@ -150,7 +150,7 @@ Vamos criar um modelo que utiliza um subconjunto das funcionalidades no nosso co
 
 1. Clique em **Com regras**.
 
-1. Em **Begin With (Começar Em)** , clique em **No columns (Nenhuma coluna)**. Na linha do filtro, selecione **Include (Incluir)** e **column names (nomes das colunas)** e selecione a lista de nomes de colunas na caixa de texto. Este filtro direciona o módulo para não passar por nenhuma coluna (características), exceto as que especificamos.
+1. Em **Begin With (Começar Em)**, clique em **No columns (Nenhuma coluna)**. Na linha do filtro, selecione **Include (Incluir)** e **column names (nomes das colunas)** e selecione a lista de nomes de colunas na caixa de texto. Este filtro direciona o módulo para não passar por nenhuma coluna (características), exceto as que especificamos.
 
 1. Clique no botão de marca de verificação (OK).
 
@@ -174,12 +174,12 @@ Vamos utilizar os dados quer para preparar o modelo, quer para testá-lo, dividi
 
 1. Selecione e arraste o módulo [Split Data (Dividir Dados)][split] para a tela da experimentação e ligue-o ao último módulo [Select Columns in Dataset][select-columns].
 
-1. Clique no módulo [Split Data][split] para selecioná-lo. Localize **Fraction of rows in the first output dataset (Fração de linhas no primeiro conjunto de dados de saída)** (no painel **Properties (Propriedades)** , no lado direito da tela) e defina-a como 0,75. Desta forma, vamos utilizar 75% dos dados para preparar o modelo e retenha 25% para fins de teste.
+1. Clique no módulo [Split Data][split] para selecioná-lo. Localize **Fraction of rows in the first output dataset (Fração de linhas no primeiro conjunto de dados de saída)** (no painel **Properties (Propriedades)**, no lado direito da tela) e defina-a como 0,75. Desta forma, vamos utilizar 75% dos dados para preparar o modelo e retenha 25% para fins de teste.
 
     ![Defina a fração de divisão do módulo "Split Data" como 0,75](./media/create-experiment/set-split-data-percentage.png)
 
     > [!TIP]
-    > Ao alterar o parâmetro **Seed aleatório** , pode produzir diferentes amostras aleatórias para formação e testar. Este parâmetro controla a propagação do gerador de número pseudo-aleatório.
+    > Ao alterar o parâmetro **Seed aleatório**, pode produzir diferentes amostras aleatórias para formação e testar. Este parâmetro controla a propagação do gerador de número pseudo-aleatório.
 
 1. Execute a experimentação. Quando a experimentação é executada, os módulos [Select Columns in Dataset][select-columns] e [Split Data][split] passam as definições das colunas para os módulos que vamos adicionar em seguida.  
 
@@ -227,11 +227,11 @@ As estatísticas seguintes são apresentadas para o nosso modelo:
 
 - **Média dos erros absolutos** (MAE): A média dos erros absolutos (um *erro* é a diferença entre o valor previsto e o valor real).
 - **Raiz quadrada da média dos erros** (RMSE): A raiz quadrada da média dos erros ao quadrado das predições efetuadas no conjunto de dados de teste.
-- **Erro relativo absoluto** : A média dos erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
-- **Erro ao quadrado absoluto** : A média dos erros ao quadrado relativos à diferença ao quadrado entre os valores reais e a média de todos os valores reais.
-- **Coeficiente de determinação** : Também conhecido como o **valor de R ao quadrado** , esta é uma métrica de estatística que indica o quão bem um modelo é adequado para os dados.
+- **Erro relativo absoluto**: A média dos erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
+- **Erro ao quadrado absoluto**: A média dos erros ao quadrado relativos à diferença ao quadrado entre os valores reais e a média de todos os valores reais.
+- **Coeficiente de determinação**: Também conhecido como o **valor de R ao quadrado**, esta é uma métrica de estatística que indica o quão bem um modelo é adequado para os dados.
 
-Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor mais pequeno indica que as predições mais detalhadas correspondem aos valores reais. No **Coeficiente de determinação** , quanto mais próximo for um valor de outro (1.0), melhores serão as predições.
+Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor mais pequeno indica que as predições mais detalhadas correspondem aos valores reais. No **Coeficiente de determinação**, quanto mais próximo for um valor de outro (1.0), melhores serão as predições.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

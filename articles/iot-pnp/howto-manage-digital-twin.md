@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5f1c52b764634f8086763aca67dfc32b507d2edd
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 51bd073b6f84f3378b91091e04f2f278ea2f49b6
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042852"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495274"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gerir ioT plug e jogar gémeos digitais
 
@@ -155,7 +155,7 @@ A seguinte amostra do Patch JSON mostra como adicionar, substituir ou remover um
 
 ### <a name="rules-for-setting-the-desired-value-of-a-digital-twin-property"></a>Regras para definir o valor desejado de uma propriedade digital twin
 
-**Nome**
+**Name**
 
 O nome de um componente ou propriedade deve ser válido nome DTDL v2.
 
@@ -193,6 +193,6 @@ As atualizações podem falhar se os valores reportados de um dispositivo não e
 
 Agora que aprendeu sobre gémeos digitais, aqui estão alguns recursos adicionais:
 
-- [Interagir com um dispositivo a partir da sua solução](quickstart-service-node.md)
+- [Interagir com um dispositivo a partir da sua solução](quickstart-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Explorador de Azure IoT](howto-use-iot-explorer.md)

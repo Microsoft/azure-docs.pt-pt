@@ -9,17 +9,16 @@ ms.reviewer: krbain
 ms.date: 11/15/2020
 ms.topic: overview
 ms.service: active-directory
-ms.subservice: enterprise-users
 ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e86d61f71a49a502a91b16761fc9feccea6faafd
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a983c8cf7188fd395f1ff4a58884857144dbfaa3
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650942"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488934"
 ---
 # <a name="what-is-enterprise-user-management"></a>O que é a gestão de utilizadores da empresa?
 
@@ -70,7 +69,7 @@ O Azure AD também oferece um controle granular dos dados que fluem entre a apli
 * Iniciar e parar o serviço de aprovisionamento do Azure AD para uma aplicação, limpar a cache de ou reiniciar o serviço
 * Ver o **Relatório de atividades de aprovisionamento** que fornece um registo de todos os utilizadores e grupos criados, atualizados e removidos entre o Azure AD e a aplicação, e o **relatório de erros de aprovisionamento** que fornece mensagens de erro mais detalhadas
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se for um administrador principiante do Azure AD, conheça os princípios básicos em [Noções Básicas do Azure Active Directory](../fundamentals/index.yml).
 

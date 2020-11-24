@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: victorh
-ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 84ecea7764ddf48d68c983eaa5bccbac5f332d9b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596693"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95489699"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Azure Firewall Manager?
 
@@ -89,7 +89,8 @@ O Azure Firewall Manager tem os seguintes problemas conhecidos:
 |As regras de aplicação falham num hub seguro com DNS personalizado (pré-visualização) configurado.|O DNS personalizado (pré-visualização) não funciona em implementações seguras do hub e nas implementações de rede virtual do Hub onde está ativado o túnel forçado.|Consertar sob investigação.|
 |DDoS Protection Standard não suportado com centros virtuais seguros|A Norma de Proteção DDoS não está integrada com vWANs.|A investigar|
 |Registos de atividade não totalmente suportados|A política de firewall não suporta atualmente registos de atividade.|A investigar|
-|Configurar gamas de endereços IP privados SNAT|[As definições privadas de gama IP](../firewall/snat-private-range.md) são ignoradas se a política do Azure Firewall estiver configurada. O comportamento padrão do Azure Firewall é utilizado, onde não é regras da Rede SNAT quando o endereço IP de destino está em uma gama de endereços IP privada por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|A investigar
+|Configurar gamas de endereços IP privados SNAT|[As definições privadas de gama IP](../firewall/snat-private-range.md) são ignoradas se a política do Azure Firewall estiver configurada. O comportamento padrão do Azure Firewall é utilizado, onde não é regras da Rede SNAT quando o endereço IP de destino está em uma gama de endereços IP privada por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|A investigar|
+|Algumas definições de firewall não são migradas quando a firewall é migrada para usar a Política de Firewall|As zonas de disponibilidade e os endereços privados SNAT não são migrados quando migra para a Política de Firewall do Azure.|A investigar| 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -4,12 +4,12 @@ description: Saiba como utilizar as informações recolhidas na fase de planeame
 ms.topic: tutorial
 ms.author: tredavis
 ms.date: 11/09/2020
-ms.openlocfilehash: 264ad99b21150f391c367eba2da31f0d08f4ab08
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 47fc894fa1d6204a1bc2c912da7fcbb2394627fa
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336340"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95484224"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementar e configurar a solução VMware Azure
 
@@ -30,7 +30,7 @@ Utilize as informações recolhidas no artigo [de implementação do Planeamento
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
 >[!NOTE]
->Para uma visão geral deste passo, consulte a [Solução Azure VMware: Deployment](https://www.youtube.com/embed/1JLB3L2WDWI) video. 
+>Para uma visão geral deste passo, consulte a [Solução Azure VMware: Deployment](https://www.youtube.com/embed/gng7JjxgayI) video.
 
 ## <a name="create-the-jump-box"></a>Criar a caixa de salto
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 0704f076ef7c5d1a39af67d3ec6ec2baece1fda5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9c100ca82b751a050e74cce85e1794701a789288
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517306"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95498474"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
@@ -91,7 +91,7 @@ A tabela seguinte resume as funções e ações permitidas no Azure Sentinel.
 
 - Além disso, ou em vez de usar funções incorporadas do Azure, pode criar papéis personalizados Azure para O Azure Sentinel. Os papéis personalizados Azure para O Azure Sentinel são criados da mesma forma que cria outros [papéis personalizados Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), baseados em [permissões específicas para Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) e para [recursos Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Pode utilizar o controlo avançado de acesso baseado em funções do Log Analytics através dos dados do seu espaço de trabalho Azure Sentinel. Isto inclui tanto o Azure RBAC baseado em dados como o Azure RBAC centrado em recursos. Para obter mais informações sobre as funções de Log Analytics, consulte [Gerir os dados de registo e os espaços de trabalho no Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Pode utilizar o controle avançado de acesso baseado em funções do Log Analytics através dos dados do seu espaço de trabalho Azure Sentinel. Isto inclui tanto o Azure RBAC baseado em dados como o Azure RBAC centrado em recursos. Para obter mais informações sobre as funções de Log Analytics, consulte [Gerir os dados de registo e os espaços de trabalho no Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Passos seguintes
 

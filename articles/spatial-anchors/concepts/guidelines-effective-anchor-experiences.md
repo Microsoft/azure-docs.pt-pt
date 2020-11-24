@@ -1,19 +1,19 @@
 ---
 title: Orientações para experiências de âncora eficazes
 description: Diretrizes e considerações para criar e localizar as âncoras de forma eficaz utilizando âncoras espaciais Azure.
-author: mattwojo
-manager: jken
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: mattwoj
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1877934cb604d140d7700c2e537d6dc187b63cc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6bc500516de7e554c38a335ea57519a39c8f602
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005528"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95487508"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Crie uma experiência de âncora eficaz usando âncoras espaciais Azure
 

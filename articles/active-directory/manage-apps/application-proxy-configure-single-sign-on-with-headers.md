@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 61bff59114d25b2f3167a34100ec2f742036bb90
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663710"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503174"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Sign-on único baseado em cabeçalho para aplicativos no local com Proxy app AD Ad (Preview)
 
@@ -85,11 +85,11 @@ Antes de iniciar com um único sinal para aplicações baseadas em cabeçalhos, 
 ## <a name="test-your-app"></a>Testar a aplicação 
 
 Quando tiver completado todos estes passos, a sua aplicação deve estar a correr e disponível. Para testar a aplicação: 
-1. Abra um browser e navegue para o **URL Externo** a partir   das definições de Procuração de Aplicações. 
+1. Abra um novo navegador ou janela de navegador privado para se certificar de que os cabeçalhos previamente em cache estão limpos. Em seguida, navegue para o **URL Externo** a partir   das definições de Procuração de Aplicação.
 2. Inscreva-se na conta de teste que atribuiu à aplicação. Se conseguir carregar e assinar a aplicação usando SSO, então está bem! 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o início de sessão único?](what-is-single-sign-on.md)
 - [O que é procuração de aplicativos?](what-is-application-proxy.md)

@@ -7,18 +7,18 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: dc86340026ec7b85afc9e5208ea8ef8c32d8bac6
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421469"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500276"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Ligue um módulo IoT Plug and Play (C#)
 
 Este tutorial mostra-lhe como ligar um [módulo](../iot-hub/iot-hub-devguide-module-twins.md)genérico IoT Plug and Play .
 
-Um dispositivo é um dispositivo IoT Plug and Play se publicar o seu ID modelo quando se conecta a um hub IoT e implementa as propriedades e métodos descritos no modelo Digital Twins Definition Language (DTDL) identificado pelo ID do modelo. Para saber mais sobre como os dispositivos utilizam um DTDL e um ID de modelo, consulte [o guia de desenvolvimento IoT Plug and Play](./concepts-developer-guide-device-csharp.md). Os módulos utilizam iDs de modelo e modelos DTDL da mesma forma.
+Um dispositivo é um dispositivo IoT Plug and Play se publicar o seu ID modelo quando se conecta a um hub IoT e implementa as propriedades e métodos descritos no modelo Digital Twins Definition Language (DTDL) identificado pelo ID do modelo. Para saber mais sobre como os dispositivos utilizam um DTDL e um ID de modelo, consulte [o guia de desenvolvimento IoT Plug and Play](./concepts-developer-guide-device.md). Os módulos utilizam iDs de modelo e modelos DTDL da mesma forma.
 
 Para demonstrar como implementar um módulo IoT Plug and Play, este tutorial mostra-lhe como converter a amostra do dispositivo termóstato C# num módulo genérico.
 
@@ -238,4 +238,4 @@ Pode utilizar a ferramenta Azure IoT Explorer para ver:
 Neste tutorial, aprendeu a ligar um dispositivo IoT Plug and Play com módulos a um hub IoT. Para saber mais sobre os modelos ioT Plug e Play, consulte:
 
 > [!div class="nextstepaction"]
-> [Guia de desenvolvedores de modelação IoT Plug e Play](./concepts-developer-guide-device-csharp.md)
+> [Guia de desenvolvedores de modelação IoT Plug e Play](./concepts-developer-guide-device.md)

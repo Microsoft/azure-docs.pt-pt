@@ -10,18 +10,17 @@ editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: enterprise-users
 ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f202bebd2c9ab6147d8a37fc6109b915065068aa
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6cc58a1d9592b46d48e4538957e4d4535b74031a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650347"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488492"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Como migrar utilizadores com licenças individuais para grupos para licenciamento
 
@@ -77,7 +76,7 @@ Eis como pode ser o processo de migração:
 
    ![confirmar que as licenças diretas são removidas](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre outros cenários para a gestão de licenças de grupo:
 

@@ -10,18 +10,17 @@ editor: ''
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.subservice: enterprise-users
 ms.date: 11/15/2020
 ms.author: kakern
 ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db07f18b97936389d9b2360f7d4476c67d9f284a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a980181a1e9bc50c0ec5e941c07025fde6817afb
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646904"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95502970"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomes de produtos e identificadores de plano de serviço para licenciamento
 
@@ -255,7 +254,7 @@ Os seguintes planos de serviço não podem ser atribuídos em conjunto:
 | YAMMER_EDU    | 2078e8df-cff6-4290-98cb-5408261a760a |
 | YAMMER_MIDSIZE    | 41bf139a-4e60-409f-9346-a1361efc6dfb |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o conjunto de funcionalidades para gestão de licenças através de grupos, consulte o seguinte:
 

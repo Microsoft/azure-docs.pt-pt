@@ -6,19 +6,18 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: enterprise-users
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5cec8802fba3852f4600b9fb426ee4c175314b1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3f79b08a75deca64a301f5b8e0b3a7634f5a3c7d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647125"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95502992"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Restaurar um grupo Microsoft 365 eliminado no Azure Ative Directory
 
@@ -92,7 +91,7 @@ Para verificar se restaurou com sucesso um grupo Microsoft 365, execute o `Get-A
 - Quaisquer sites sharePoint e todos os seus conteúdos estarão disponíveis
 - O grupo pode ser acedido a partir de qualquer um dos pontos finais do Exchange e outras cargas de trabalho do Microsoft365 que suportam grupos Microsoft 365
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estes artigos fornecem informações adicionais sobre os grupos do Azure Active Directory.
 

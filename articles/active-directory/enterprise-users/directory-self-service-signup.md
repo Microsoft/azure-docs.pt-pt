@@ -7,7 +7,6 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
 ms.date: 11/15/2020
@@ -15,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7f6d643586897924c5efaddd7d1f229ba8d85dc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 846059c5c20255f9bddba59673458e12e1f354d3
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952459"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503568"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>O que é inscrição de self-service para o Azure Ative Directory?
 

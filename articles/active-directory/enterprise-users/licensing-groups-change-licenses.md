@@ -10,18 +10,17 @@ editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: enterprise-users
 ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ec9a215d25ce1177b015b392c4f36d7547be521
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0f6d472f52fa0acf791cc9b5998bf2ebf4e5951b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647023"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503105"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Alterar atribuições de licença para um utilizador ou grupo no Azure Ative Directory
 
@@ -73,7 +72,7 @@ A Azure AD aplica as novas licenças e remove as licenças antigas simultaneamen
 
 Para fornecer continuidade de serviço, a Azure AD aplica as novas licenças e remove as licenças antigas simultaneamente para todos os utilizadores do grupo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre outros cenários para a gestão de licenças através de grupos nos seguintes artigos:
 

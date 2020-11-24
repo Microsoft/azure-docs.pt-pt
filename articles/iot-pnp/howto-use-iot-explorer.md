@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: contperfq2
-ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 55607527ced2e5d93a61cfd85477758482f18daa
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445307"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495428"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instale e utilize o explorador Azure IoT
 
@@ -40,7 +40,7 @@ Vá ao [Azure IoT explorer lança](https://github.com/Azure/azure-iot-explorer/r
 
 ## <a name="use-azure-iot-explorer"></a>Use o explorador Azure IoT
 
-Para um dispositivo, pode ligar o seu próprio dispositivo ou utilizar um dos dispositivos simulados da amostra. Para alguns dispositivos simulados, por exemplo, escritos em diferentes idiomas, consulte a [aplicação de dispositivo ioT plug e play de amostra para](quickstart-connect-device-node.md) arranques rápidos do IoT Hub.
+Para um dispositivo, pode ligar o seu próprio dispositivo ou utilizar um dos dispositivos simulados da amostra. Para alguns dispositivos simulados, por exemplo, escritos em diferentes idiomas, consulte a [aplicação de dispositivo ioT plug e play de amostra para](quickstart-connect-device.md) o arranque rápido do IoT Hub.
 
 ### <a name="connect-to-your-hub"></a>Ligue-se ao seu hub
 
@@ -78,7 +78,7 @@ Na página da lista **de Dispositivos,** selecione um valor na coluna **de ident
 
 ### <a name="device"></a>Dispositivo
 
-Esta secção inclui a Identidade do **Dispositivo** , **Dispositivo Twin,** **Telemetria,** **Método Direto,** **Mensagem Nuvem-dispositivo,** Separadores **de Identidade do Módulo.**
+Esta secção inclui a Identidade do **Dispositivo**, **Dispositivo Twin,** **Telemetria,** **Método Direto,** **Mensagem Nuvem-dispositivo,** Separadores **de Identidade do Módulo.**
 
 - Pode visualizar e atualizar as informações de identidade do [dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) no **separador identidade do Dispositivo.**
 - Pode aceder ao dispositivo com informações [duplas](../iot-hub/iot-hub-devguide-device-twins.md) no **separador Device Twin.**

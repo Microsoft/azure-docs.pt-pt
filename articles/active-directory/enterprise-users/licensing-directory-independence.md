@@ -8,18 +8,17 @@ manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.workload: identity
-ms.subservice: enterprise-users
 ms.date: 11/15/2020
 ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b35c8630f47910c61e169d405c2117e53d0d536e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 997192c0d03d644080a7a248d526cc4e3e613bf6
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650532"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488696"
 ---
 # <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Entenda como várias organizações de Diretório Ativo Azure interagem
 
@@ -53,6 +52,6 @@ Para adicionar uma organização AZure AD no portal Azure, inscreva-se no [porta
 > Ao contrário de outros recursos Azure, as suas organizações Azure AD não são recursos infantis de uma subscrição do Azure. Se a subscrição do Azure for cancelada ou expirada, ainda pode aceder aos dados da sua organização Azure AD utilizando o Azure PowerShell, o Microsoft Graph API ou o centro de administração microsoft 365. Também pode [associar outra subscrição à organização.](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para considerações de licenciamento da AZure AD e boas práticas, veja [o que é o licenciamento do Azure Ative Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)

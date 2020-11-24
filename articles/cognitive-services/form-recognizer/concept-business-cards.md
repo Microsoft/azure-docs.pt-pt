@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 82182c24f87a82df5ee040b7853588f74dda449f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 76e19c36f0fa4096966c5dd23d2384b6b30f2271
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909952"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95498865"
 ---
 # <a name="business-card-concepts"></a>Conceitos de cartões de visita
 
@@ -52,19 +52,19 @@ A API do Cartão de Visita também pode devolver todo o texto reconhecido do Car
 
 ## <a name="the-analyze-business-card-operation"></a>A operação do Cartão de Visita analisar
 
-O [Cartão De Negócios analisar](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) tira uma imagem ou PDF de um cartão de visita como entrada e extrai os valores de interesse. A chamada devolve um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é um URL que contém o Resultado ID para ser usado no passo seguinte.
+O [Cartão De Negócios analisar](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync) tira uma imagem ou PDF de um cartão de visita como entrada e extrai os valores de interesse. A chamada devolve um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é um URL que contém o Resultado ID para ser usado no passo seguinte.
 
 |Cabeçalho de resposta| URL de resultados |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-analyze-business-card-result-operation"></a>A operação Get Analyze Cartão De visita
 
-O segundo passo é chamar a operação [Get Analyze Business Card Result.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult) Esta operação toma como entrada o Resultado ID que foi criado pela operação Do Cartão De Negócios de Análise. Devolve uma resposta JSON que contém um campo **de estado** com os seguintes valores possíveis. Você chama a esta operação iterativamente até que ela retorne com o valor **bem sucedido.** Utilize um intervalo de 3 a 5 segundos para evitar exceder os pedidos por segundo (RPS).
+O segundo passo é chamar a operação [Get Analyze Business Card Result.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult) Esta operação toma como entrada o Resultado ID que foi criado pela operação Do Cartão De Negócios de Análise. Devolve uma resposta JSON que contém um campo **de estado** com os seguintes valores possíveis. Você chama a esta operação iterativamente até que ela retorne com o valor **bem sucedido.** Utilize um intervalo de 3 a 5 segundos para evitar exceder os pedidos por segundo (RPS).
 
 |Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
-|status | cadeia | notStarted: A operação de análise ainda não começou.<br /><br />funcionamento: A operação de análise está em curso.<br /><br />falhou: A operação de análise falhou.<br /><br />conseguiu: A operação de análise foi bem sucedida.|
+|status | string | notStarted: A operação de análise ainda não começou.<br /><br />funcionamento: A operação de análise está em curso.<br /><br />falhou: A operação de análise falhou.<br /><br />conseguiu: A operação de análise foi bem sucedida.|
 
 Quando o campo **de status** tiver o valor **bem sucedido,** a resposta JSON incluirá o entendimento do cartão de visita e os resultados de reconhecimento de texto opcional, se solicitado. O resultado do entendimento do cartão de visita é organizado como um dicionário de valores de campo nomeados, onde cada valor contém o texto extraído, valor normalizado, caixa de delimitação, confiança e elementos de palavra correspondentes. O resultado do reconhecimento de texto é organizado como uma hierarquia de linhas e palavras, com texto, caixa de delimitação e informação de confiança.
 
@@ -391,7 +391,7 @@ A API do Cartão De Visita também alimenta a [funcionalidade de Processamento d
 
 - Siga o [quickstart dos Cartões de Visita API Python](./quickstarts/python-business-cards.md) para começar a reconhecer cartões de visita.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)
-* [REST API referenciar docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
+* [REST API referenciar docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)

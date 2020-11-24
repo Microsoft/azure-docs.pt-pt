@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 2d723a18bfe764b4e1459f72b00fa81db716dcdb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3afcf87c360651ac314450910fbf5ab72afd289a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325645"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503903"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Implementar modelo de risco de crédito - Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
-
+**APLICA-SE A:** ![ Esta é uma marca de verificação, o que significa que este artigo se aplica ao Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Este é um X, o que significa que este artigo se aplica ao Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Neste tutorial, você dá uma olhada alargada no processo de desenvolvimento de uma solução de análise preditiva. Desenvolve-se um modelo simples no Machine Learning Studio (clássico).  Em seguida, implementa o modelo como um serviço web Azure Machine Learning.  Este modelo implementado pode fazer previsões usando novos dados. Este tutorial é **parte três de uma série tutorial em três partes.**
 
@@ -105,7 +104,7 @@ Ao clicar em **Configurar o Serviço Web,** várias coisas acontecem:
 * **São** adicionados módulos de entrada de serviço web e de saída de **serviço Web** (estes identificam onde os dados do utilizador entrarão no modelo e quais os dados devolvidos, quando o serviço web é acedido)
 
 > [!NOTE]
-> Pode ver que a experiência é guardada em duas partes sob separadores que foram adicionadas no topo da tela experimentos. A experiência de treino original está sob a **experiência tab Training** , e a experiência preditiva recém-criada está sob experiência **preditiva.** A experiência preditiva é aquela que vais implementar como um serviço web.
+> Pode ver que a experiência é guardada em duas partes sob separadores que foram adicionadas no topo da tela experimentos. A experiência de treino original está sob a **experiência tab Training**, e a experiência preditiva recém-criada está sob experiência **preditiva.** A experiência preditiva é aquela que vais implementar como um serviço web.
 
 você precisa dar um passo adicional com esta experiência em particular.
 adicionou dois módulos [executar R Script][execute-r-script] para fornecer uma função de ponderação aos dados. Era um truque que precisavas para treinar e testar, para que pudesses tirar esses módulos no modelo final.

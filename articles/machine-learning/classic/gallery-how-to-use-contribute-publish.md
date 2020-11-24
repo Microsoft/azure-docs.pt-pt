@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: fc405c56538ab305d6e0b8a22c1095458cb1264e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eacc7adae16785049022cd05f04904d97b0b3a6d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309885"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486131"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partilhar e descobrir recursos na Galeria Azure AI
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:** ![ Esta é uma marca de verificação, o que significa que este artigo se aplica ao Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Este é um X, o que significa que este artigo se aplica ao Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 
@@ -131,7 +131,7 @@ Também pode apagar a experiência da Galeria.
 
 Pode esclarar estas alterações, ou eliminar a experiência, a partir da página de detalhes da experiência ou da página de perfil na Galeria.
 
-* Na página de detalhes da experiência, para alterar os detalhes da sua experiência, **selecione Editar**. A página de detalhes entra no modo de edição. Para escoar alterações, **selecione Editar** ao lado do nome da experiência, resumo ou tags. Quando terminar de fazer alterações, selecione **'Fazer'.** Para alterar as definições de visibilidade para a experiência ( **Público** ou **Não Listado),** ou para eliminar a experiência da Galeria, selecione o ícone **Definições.**
+* Na página de detalhes da experiência, para alterar os detalhes da sua experiência, **selecione Editar**. A página de detalhes entra no modo de edição. Para escoar alterações, **selecione Editar** ao lado do nome da experiência, resumo ou tags. Quando terminar de fazer alterações, selecione **'Fazer'.** Para alterar as definições de visibilidade para a experiência (**Público** ou **Não Listado),** ou para eliminar a experiência da Galeria, selecione o ícone **Definições.**
 
 * Na sua página de perfil, selecione a seta para baixo para a experiência e, em seguida, **selecione Editar**. Isto leva-o à página de detalhes para a sua experiência, em modo de edição. Quando terminar de fazer alterações, selecione **'Fazer'.** Para eliminar a experiência da Galeria, selecione **Delete**.
 
@@ -202,6 +202,6 @@ Depois de introduzir uma etiqueta, para introduzir outra etiqueta, prima a tecla
 
 Queremos que a Galeria seja conduzida pelos nossos utilizadores e pelos nossos utilizadores. Use o sorriso no direito de nos dizer o que ama ou odeia na Galeria.  
 
-![Comentários](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![Uma janela de feedback permite-lhe enviar um sorriso, enviar uma franja ou introduzir texto. Há um botão de submissão.](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[LEVE-ME À GALERIA >>](https://gallery.azure.ai)**

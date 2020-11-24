@@ -9,16 +9,42 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: c9287e9661172480292a2214b231e7e5dac9c32f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 92eda77d03e547e814cac85f5ac8bb03b552d135
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912248"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95506582"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
 O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo para se manter atualizado com melhorias de funcionalidades, correções e atualizações de documentação.
+
+## <a name="november-2020"></a>Novembro de 2020
+
+### <a name="new-features"></a>Novas funcionalidades
+
+- **Novo modelo de fatura pré-construído** - O novo modelo de Fatura pré-construído permite que os clientes levem faturas em diversos formatos e devolvam dados estruturados para automatizar o processamento da fatura. Combina as nossas poderosas capacidades de Reconhecimento de Caracteres Óticos (OCR) com a compreensão da fatura de modelos de aprendizagem profunda para extrair informações-chave das faturas em inglês. Extrai o texto, tabelas e informações como cliente, fornecedor, identificação de fatura, data de vencimento da fatura, total, valor devido, valor do imposto, envio para, fatura para, e muito mais.
+
+  > [Saiba mais sobre o modelo de fatura pré-construído](concept-invoices.md)
+
+  :::image type="content" source="./media/invoice-example.jpg" alt-text="exemplo de fatura" lightbox="./media/invoice-example.jpg":::
+
+- **Extração de mesa melhorada** - O Reconhecimento de Formulários fornece agora uma extração melhorada da mesa, que combina as nossas poderosas capacidades de reconhecimento de caracteres óticos (OCR) com um modelo de extração de mesa de aprendizagem profunda. O Form Recogniser pode extrair dados de tabelas, incluindo tabelas complexas com colunas fundidas, linhas, sem fronteiras e muito mais. 
+ 
+  :::image type="content" source="./media/tables-example.jpg" alt-text="tabelas exemplo" lightbox="./media/tables-example.jpg":::
+
+ 
+  > [Saiba mais sobre a extração de Layout](concept-layout.md)
+
+- **Nova linguagem suportada: Japonês** - As seguintes novas línguas são agora apoiadas: para `AnalyzeLayout` e : `AnalyzeCustomForm` japonês ( `ja` ). [Suporte de idiomas](language-support.md)
+- **Indicação de estilo de linha de texto (manuscrito/impressão) (apenas línguas latinas)** - O Reconhecedor de Formulários agora produz um `appearance` objeto classificando se cada linha de texto é ou não estilo manuscrito, juntamente com uma pontuação de confiança. Esta funcionalidade é suportada apenas para línguas latinas.
+- **Melhorias de qualidade** - Melhorias de extração, incluindo melhorias na extração de um dígito.
+- **Nova funcionalidade de try-it-out na Ferramenta de Rotulagem da Amostra do Reconhecimento de Formulários** - Capacidade de experimentar modelos pré-construídos de fatura, recibo e cartão de visita e a API de layout utilizando a ferramenta de rotulagem da amostra do reconhecimento de formulários. Veja como os seus dados serão extraídos sem escrever nenhum código.
+
+  > [Experimente a ferramenta de amostra do reconhecimento de formulários](https://fott-preview.azurewebsites.net/)
+
+  ![Exemplo FOTT](./media/fott-preview.jpg)
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -30,8 +56,8 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 - **Rest A referência API está disponível** - Ver a [referência v2.1-preview.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
 - **Novas línguas apoiadas Para além** do inglês, as [seguintes línguas](language-support.md) são agora apoiadas: para `Layout` e : inglês `Train Custom Model` `en` (simplificado) ( ( holandês ( ( ( ( francês ( ( ( ( ( ( ( ), alemão ( `zh-Hans` ( ( ( ( ( ( ( ( ( ( ( ( ) português `nl` ( ) e espanhol ( `fr` `de` `it` `pt` ). `es`
 - **Deteção de marca de verificação / Seleção** – O Reconhecimento de Formulários suporta a deteção e extração de marcas de seleção, tais como caixas de verificação e botões de rádio. As marcas de seleção são extraídas `Layout` e agora também pode rotular e treinar em Comboio com `Train Custom Model`  -  _Etiquetas_ para extrair pares de valores chave para marcas de seleção. 
-- **O Model Compose** permite que vários modelos sejam compostos e chamados com um único modelo ID. Quando um documento é submetido a ser analisado com um ID de modelo composto, uma etapa de classificação é executada pela primeira vez para encaminhá-lo para o modelo personalizado correto. O modelo composição está disponível para `Train Custom Model`  -  _Comboio com etiquetas._
-- **O nome do modelo** adiciona um nome amigável aos seus modelos personalizados para facilitar a gestão e o rastreio.
+- **Model Compose** - permite que vários modelos sejam compostos e chamados com um único modelo ID. Quando um documento é submetido a ser analisado com um ID de modelo composto, uma etapa de classificação é executada pela primeira vez para encaminhá-lo para o modelo personalizado correto. O Modelo Compose está disponível para `Train Custom Model`  -  _Comboio com etiquetas._
+- **Nome do modelo** - adicione um nome amigável aos seus modelos personalizados para facilitar a gestão e o rastreio.
 - **[Novo modelo pré-construído para cartões de visita](concept-business-cards.md)** para extrair campos comuns em inglês, cartões de visita em língua.
 - **[Novas localidades para recibos pré-construídos](concept-receipts.md)** para além da EN-US, o suporte está agora disponível para EN-AU, EN-CA, EN-GB, EN-IN
 - **Melhorias de qualidade** para `Layout` , Tre sem `Train Custom Model`  -  _Etiquetas_ e Comboio com _Etiquetas._
@@ -53,22 +79,22 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 
 ### <a name="new-features"></a>Novas funcionalidades
 
-* **v2.0 referência disponível** Ver a [referência v2.0 API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e os SDKs atualizados para [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python,](/python/api/overview/azure/?view=azure-python) [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)e [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest).
-* **Melhoramentos de mesa e extração** incluem melhorias de precisão e melhorias de extrações de mesa, especificamente, a capacidade de aprender cabeçalhos de mesa e estruturas em _comboios personalizados sem etiquetas._ 
+* **v2.0 referência disponível** - Ver a [referência V2.0 API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e os SDKs atualizados para [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python,](/python/api/overview/azure/?view=azure-python) [Java,](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)e [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest).
+* **Melhoramentos de mesa e melhorias de extração** - inclui melhorias de precisão e melhorias de extrações de mesa, especificamente, a capacidade de aprender cabeçalhos e estruturas de mesas em _comboios personalizados sem etiquetas_. 
 
-* **Suporte cambial** Deteção e extração de símbolos de moeda global.
-* **Azure Gov** O Form Recogniser também está disponível em Azure Gov.
+* **Suporte cambial** - Deteção e extração de símbolos de moeda global.
+* **Azure Gov** - Form Recogniser também está disponível em Azure Gov.
 * **Características de segurança reforçadas:** 
-   * **Traga a sua própria chave**  O Form Recogniser encripta automaticamente os seus dados quando persistido na nuvem para protegê-los e ajudá-lo a cumprir os seus compromissos de segurança organizacional e conformidade. Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. Agora também pode gerir a sua subscrição com as suas próprias chaves de encriptação. [As teclas geridas pelo cliente (CMK), também conhecidas como trazer a sua própria chave (BYOK),](./form-recognizer-encryption-of-data-at-rest.md)oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados.  
+   * **Traga a sua própria chave** - O Form Recogniser encripta automaticamente os seus dados quando persistido na nuvem para protegê-los e ajudá-lo a cumprir os seus compromissos de segurança organizacional e conformidade. Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. Agora também pode gerir a sua subscrição com as suas próprias chaves de encriptação. [As teclas geridas pelo cliente (CMK), também conhecidas como trazer a sua própria chave (BYOK),](./form-recognizer-encryption-of-data-at-rest.md)oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados.  
    * **Pontos finais privados** – Permite-lhe aceder de forma segura a [dados por uma Ligação Privada.](../../private-link/private-link-overview.md)
 
 
 ## <a name="june-2020"></a>Junho de 2020
 
 ### <a name="new-features"></a>Novas funcionalidades
-* **CopyModel API adicionado aos SDKs do cliente** Agora pode utilizar os SDKs do cliente para copiar modelos de uma subscrição para outra. Consulte [Os modelos de Back up e recupere para](./disaster-recovery.md) obter informações gerais sobre esta funcionalidade.
-* **Integração do Diretório Ativo Azure** Agora pode utilizar as suas credenciais AZure AD para autenticar os objetos do cliente do Form Recogniser nos SDKs.
-* **Alterações específicas do SDK** Isto inclui adições de recursos menores e alterações de rutura. Consulte os sdk para obter mais informações.
+* **CopyModel API adicionado aos SDKs do cliente** - Agora pode utilizar os SDKs do cliente para copiar modelos de uma subscrição para outra. Consulte [Os modelos de Back up e recupere para](./disaster-recovery.md) obter informações gerais sobre esta funcionalidade.
+* **Integração do Azure Ative Directory** - Pode agora utilizar as suas credenciais AZure AD para autenticar os seus objetos de cliente Do Reconhecimento de Formulários nos SDKs.
+* **Alterações específicas da SDK** - Isto inclui adições de recursos menores e alterações de rutura. Consulte os sdk para obter mais informações.
   * [C# SDK Preview 3 alterlog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
   * [Python SDK Preview 3 alterlog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
   * [Antevisão 3 de Antevisão de Java SDK](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
@@ -77,7 +103,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 ## <a name="april-2020"></a>Abril de 2020
 
 ### <a name="new-features"></a>Novas funcionalidades
-* **Suporte SDK para reconhecimento de formulário API v2.0 Visualização pública** Este mês expandimos o nosso suporte de serviço para incluir um SDK de pré-visualização para o lançamento do Reconhecimento de Formulários v2.0 (pré-visualização). Use os links abaixo para começar com o seu idioma de eleição: 
+* **Suporte SDK para a pré-visualização pública do Reconhecimento de Formulários V2.0** - Este mês expandimos o nosso suporte de serviço para incluir um SDK de pré-visualização para o lançamento do Reconhecimento de Formulários v2.0 (pré-visualização). Use os links abaixo para começar com o seu idioma de eleição: 
    * [SDK do .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
    * [SDK Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
    * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
@@ -91,7 +117,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 
 ### <a name="security-improvements"></a>Melhoramentos de segurança
 
-* As Chaves Geridas pelo Cliente estão agora disponíveis para FormRecognizer. Para obter mais informações, consulte [a encriptação de dados em repouso para o Reconhecimento de Formulários](./form-recognizer-encryption-of-data-at-rest.md).
+* Customer-Managed Keys estão agora disponíveis para FormRecognizer. Para obter mais informações, consulte [a encriptação de dados em repouso para o Reconhecimento de Formulários](./form-recognizer-encryption-of-data-at-rest.md).
 * Utilize identidades geridas para acesso aos recursos Azure com o Azure Ative Directory. Para mais informações, consulte [Autoriza o acesso a identidades geridas.](../authentication.md#authorize-access-to-managed-identities)
 
 ## <a name="march-2020"></a>Março de 2020 
@@ -111,9 +137,9 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
   Consulte o guia [da ferramenta de rotulagem da amostra](./quickstarts/label-tool.md#specify-tag-value-types) para aprender a utilizar esta função.
 
 
-* **Visualização de tabelas** A ferramenta de rotulagem da amostra apresenta agora tabelas que foram reconhecidas no documento. Isto permite-lhe ver as tabelas que foram reconhecidas e extraídas do documento, antes da rotulagem e análise. Esta função pode ser alternada entre/desligando utilizando a opção camadas.
+* **Visualização de tabelas** A ferramenta de rotulagem da amostra apresenta agora tabelas que foram reconhecidas no documento. Esta funcionalidade permite-lhe visualizar as tabelas que foram reconhecidas e extraídas do documento, antes de rotular e analisar. Esta função pode ser alternada entre/desligando utilizando a opção camadas.
 
-  Este é um exemplo de como as tabelas são reconhecidas e extraídas:
+  A imagem a seguir é um exemplo de como as tabelas são reconhecidas e extraídas:
 
   > [!div class="mx-imgBorder"]
   > ![Visualização da tabela utilizando a ferramenta de rotulagem da amostra](./media/whats-new/formre-table-viz.png)
@@ -144,7 +170,7 @@ Esta versão introduz o Reconhecimento de Formulários 2.0 (pré-visualização)
 ### <a name="new-features"></a>Novas funcionalidades
 
 * **Modelo personalizado**
-  * **Treine com etiquetas** Agora pode treinar um modelo personalizado com dados etiquetados manualmente. Isto resulta em modelos de melhor desempenho e pode produzir modelos que funcionam com formas ou formas complexas que contêm valores sem chaves.
+  * **Treine com etiquetas** Agora pode treinar um modelo personalizado com dados etiquetados manualmente. Este método resulta em modelos de melhor desempenho e pode produzir modelos que funcionam com formas ou formas complexas que contêm valores sem chaves.
   * **API assíncrono** Você pode usar chamadas de API async para treinar e analisar grandes conjuntos de dados e ficheiros.
   * **Suporte de ficheiros TIFF** Agora pode treinar e extrair dados de documentos do TIFF.
   * **Melhorias da precisão da extração**
@@ -179,6 +205,6 @@ As respostas JSON para todas as chamadas da API têm novos formatos. Algumas cha
 
 Complete um [quickstart da biblioteca de clientes](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de formulários com o Form Recogniser no idioma à sua escolha.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)

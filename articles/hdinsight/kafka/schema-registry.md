@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 7e17cdca508db81551d988c795bd1235fa729e82
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bb46bc18469638416ff76f84516498e0076c85fd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636865"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500327"
 ---
 # <a name="apache-kafka-with-confluent-schema-registry-in-azure-hdinsight"></a>Apache Kafka com Registo De Schema Confluente em Azure HDInsight
 
@@ -34,7 +34,7 @@ Nesta secção, implantamos um cluster HDInsight Managed Kafka com um Nó de Bor
 
 1. Selecione o botão **Implementar para Azure** abaixo para iniciar seduca no Azure e abra o modelo de Gestor de Recursos.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json" target="_blank">:::image type="icon" source="media/schema-registry/hdi-deploy-to-azure1.png":::</a>
+    [![Implementar no Azure](./media/schema-registry/hdi-deploy-to-azure1.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json)
 
 1. No modelo de implantação personalizado, povoe os campos conforme descrito abaixo:
 
@@ -42,7 +42,7 @@ Nesta secção, implantamos um cluster HDInsight Managed Kafka com um Nó de Bor
     |---|---|
     |Subscrição|A partir da lista de drop-down, selecione a subscrição Azure que é usada para o cluster.|
     |Grupo de recursos|A partir da lista de drop-down, selecione o seu grupo de recursos existente ou selecione **Criar novo**.|
-    |Região|A partir da lista de drop-down, selecione uma região onde o cluster é criado.|
+    |Region|A partir da lista de drop-down, selecione uma região onde o cluster é criado.|
     |Nome do Cluster|Introduza um nome globalmente exclusivo. Ou deixar o as-is para usar o nome padrão.|
     |Nome de Utilizador de Início de Sessão do Cluster|Forneça o nome de utilizador, o padrão é **administrador**.|
     |Palavra-passe de Início de Sessão do Cluster|Forneça a senha.|

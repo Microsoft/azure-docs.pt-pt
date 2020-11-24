@@ -9,18 +9,17 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: enterprise-users
 ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 732a92aea321bac0bc9cea4d3eee5a3979a469b1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 94f65e2c4884392563f26303aa64547a1af46be2
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650585"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488543"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças aos utilizadores por membro do grupo no Azure Ative Directory
 
@@ -93,7 +92,7 @@ Ao atribuir licenças a um grupo, a Azure AD processa todos os membros existente
 
 1. Para resolver este conflito, remova o utilizador do grupo de utilizadores do **Quiosque.** Após o Azure AD processar a mudança, as licenças **do Departamento de RH** são corretamente atribuídas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o conjunto de funcionalidades para atribuição de licenças utilizando grupos, consulte os seguintes artigos:
 

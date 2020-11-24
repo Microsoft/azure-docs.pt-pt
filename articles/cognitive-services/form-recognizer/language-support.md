@@ -10,23 +10,24 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: erhopf
-ms.openlocfilehash: e43572a321968a0436cb7900578e80086d5cbe4e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f7a5fdd6535d7a70bce032fcc36a41677f8bafcc
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503305"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95493626"
 ---
 # <a name="language-support-for-form-recognizer"></a>Suporte linguístico para o Reconhecimento de Formulários
 
-Este artigo lista as línguas humanas suportadas pelo serviço Form Recogniser.
+Esta tabela lista as línguas humanas suportadas pelo serviço Form Recogniser.
 
 
-|Linguagem| Código do idioma | Reconhecimento de Formulários v2.0 | Pré-visualização do Reconhecimento de Formulários v2.1|
+|Idioma| Código do idioma | Reconhecimento de Formulários v2.0 | Pré-visualização do Reconhecimento de Formulários v2.1|
 |:-----|:----:|:-----:|:---:|
-|Chinês (Simplificado) | `zh-Hans`| | ✔ |
-|Neerlandês | `nl` | | ✔ |
 |Português (impresso & manuscrito) | `en` | ✔ | ✔|
+|Chinês (Simplificado) | `zh-Hans`| | ✔ |
+|Japonês | `ja` |  | ✔|
+|Neerlandês | `nl` | | ✔ |
 |Francês | `fr` | | ✔ |
 |Alemão | `de` | | ✔ |
 |Italiano | `it` | | ✔ |

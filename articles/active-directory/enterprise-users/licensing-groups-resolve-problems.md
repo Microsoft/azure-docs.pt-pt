@@ -7,7 +7,6 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/15/2020
@@ -15,12 +14,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd61a33bdcc0d18dee7dba651f097f7cd49e7149
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: de91ffe721cbaf2061c0ded70a150fbc410af955
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647040"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503096"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Ative Directory
 
@@ -173,7 +172,7 @@ Dependendo dos passos que tomou para resolver os erros, pode ser necessário aci
 
 Por exemplo, depois de resolver o problema de endereço de procuração duplicado para um utilizador afetado, tem de ativar o processamento do utilizador. Para reprocessar um utilizador, vá ao painel de utilizador, abra **licenças** e, em seguida, selecione o botão **reprocessamento** na barra de ferramentas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre outros cenários para a gestão de licenças através de grupos, consulte o seguinte:
 

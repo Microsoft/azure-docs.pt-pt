@@ -8,19 +8,18 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: enterprise-users
 ms.topic: how-to
 ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0136f7677aa722e578ac54c4f7d34338e47b0f7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8684b2af99eda00fbba47db444fcf6ee19117a1e
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646615"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488526"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Melhorias na gestão dos utilizadores (pré-visualização) no Azure Ative Directory
 
@@ -142,7 +141,7 @@ O que acontece com as capacidades a granel para utilizadores e hóspedes? | As o
 O que aconteceu com a coluna Source? | A coluna **Fonte** foi substituída por outras colunas que fornecem informações semelhantes, permitindo ao mesmo tempo filtrar esses valores de forma independente. Exemplos incluem **tipo de Criação,** **Diretório sincronizado** e **emitente de identidade.**
 O que aconteceu com a coluna User Name? | A coluna **Nome do Utilizador** ainda está lá, mas foi renomeada para Nome Principal do **Utilizador.** Isto reflete melhor a informação contida naquela coluna. Também notará que o nome principal do utilizador completo está agora apresentado para os hóspedes B2B. Isto coincide com o que se obtém no Ms Graph.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Operações de utilizador
 

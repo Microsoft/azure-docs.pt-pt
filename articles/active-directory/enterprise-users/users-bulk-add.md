@@ -8,17 +8,16 @@ manager: daveba
 ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42e26e9b1e3548d3caeff58079ec489c2d282a63
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2ca68a9450dee930226f869972a126fc69e6b1ae
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646887"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95490838"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>A granel cria utilizadores no Azure Ative Directory
 
@@ -101,7 +100,7 @@ Deve ver se os utilizadores que criou estão listados.
 
 Cada atividade a granel para criar utilizadores pode funcionar até uma hora. Isto permite a criação em massa de pelo menos 50.000 utilizadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Eliminar utilizadores em massa](users-bulk-delete.md)
 - [Lista de utilizadores](users-bulk-download.md)

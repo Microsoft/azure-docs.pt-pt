@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: abcc2b60fd796a80342fe48c3c9027388660476a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360790"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488152"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -132,7 +132,7 @@ A Atualização Gestão utiliza os recursos descritos nesta secção. Estes recu
 
 Depois de ativar a Gestão de Atualizações, qualquer máquina do Windows que esteja diretamente ligada ao seu espaço de trabalho Log Analytics é automaticamente configurada como Um Trabalhador De Runbook Híbrido para suportar os livros de execução que suportam a Gestão de Atualização.
 
-Cada máquina Windows gerida pela Update Management está listada no painel de trabalhadores híbridos como um grupo de trabalhadores híbridos do Sistema para a conta Automation. Os grupos usam a `Hostname FQDN_GUID` convenção de nomeação. Não podes visar estes grupos com livros na tua conta. Se tentar, a tentativa falha. Estes grupos destinam-se a suportar apenas a Gestão de Atualização. Para saber mais sobre a visualização da lista de máquinas windows configuradas como Um Trabalhador de Runbook Híbrido, consulte [os Trabalhadores de Runbook Híbridos.](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers)
+Cada máquina Windows gerida pela Update Management está listada no painel de trabalhadores híbridos como um grupo de trabalhadores híbridos do Sistema para a conta Automation. Os grupos usam a `Hostname FQDN_GUID` convenção de nomeação. Não podes visar estes grupos com livros na tua conta. Se tentar, a tentativa falha. Estes grupos destinam-se a suportar apenas a Gestão de Atualização. Para saber mais sobre a visualização da lista de máquinas windows configuradas como Um Trabalhador de Runbook Híbrido, consulte [os Trabalhadores de Runbook Híbridos.](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers)
 
 Pode adicionar a máquina Do Windows a um grupo híbrido de trabalhador runbook na sua conta Automation para suportar os runbooks da Automação se utilizar a mesma conta para a Gestão de Atualização e a filiação do grupo Híbrido Runbook Worker. Esta funcionalidade foi adicionada na versão 7.2.12024.0 do Híbrido Runbook Worker.
 
@@ -259,7 +259,7 @@ Aqui estão as formas de permitir a gestão de atualização e selecionar máqui
 > [!NOTE]
 > A Gestão de Atualização requer a ligação de um espaço de trabalho log Analytics à sua conta de Automação. Para obter uma lista definitiva de regiões apoiadas, consulte [os mapeamentos do Espaço de Trabalho Azure.](../how-to/region-mappings.md) Os mapeamentos da região não afetam a capacidade de gerir VMs numa região separada da sua conta de Automação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter detalhes sobre o trabalho com a Gestão de Atualização, consulte [Gerir as atualizações para os seus VMs](manage-updates-for-vm.md).
 
