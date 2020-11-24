@@ -80,7 +80,7 @@
     - name: Java
       href: /java/api/
     - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+      href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
@@ -98,7 +98,7 @@
     - name: Blogue de Redes
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft sobre Redes
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Comentários sobre a rede
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: Preços

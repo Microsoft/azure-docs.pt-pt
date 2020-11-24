@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: b29654a0eb305d2e20dcc8aed5c60d96b7ca3268
-  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+  ms.openlocfilehash: 2f8379447edbe6ce7d74780e2f87b79cf77c72b7
+  ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2020
-  ms.locfileid: "93313264"
+  ms.lasthandoff: 11/24/2020
+  ms.locfileid: "95527042"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -26,13 +26,13 @@ highlightedContent:
     url: guides/developer/azure-developer-guide.md
   - title: Crie a sua aplicação com o Centro de Arquitetura do Azure
     itemType: architecture
-    url: https://docs.microsoft.com/azure/architecture/
+    url: /azure/architecture/
   - title: Prepare a sua organização com o Cloud Adoption Framework
     itemType: overview
-    url: https://docs.microsoft.com/azure/cloud-adoption-framework/
+    url: /azure/cloud-adoption-framework/
   - title: Desenvolva as suas competências com o Microsoft Learn
     itemType: learn
-    url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning%20path
+    url: /learn/browse/?products=azure&resource_type=learning%2bpath
 productDirectory:
   title: Procurar produtos do Azure
   items:
@@ -47,7 +47,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/bot-service.svg
     azureCategories:
     - ai-machine-learning
-    url: https://docs.microsoft.com/azure/bot-service/
+    url: /azure/bot-service/
   - title: Azure Cognitive Search
     summary: Serviço de pesquisa na cloud com tecnologia de IA para desenvolvimento de aplicações móveis e Web
     imageSrc: https://static.docs.com/ui/media/product/azure/search.svg
@@ -89,7 +89,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/rtos.svg
     azureCategories:
     - iot
-    url: https://docs.microsoft.com/azure/rtos/
+    url: /azure/rtos/
   - title: Sugestão Automática do Bing
     summary: Dê à sua aplicação opções de sugestão automática inteligente para as pesquisas
     imageSrc: ./media/index/API_Bing_AutoSuggest.svg
@@ -236,7 +236,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/bonsai.svg
     azureCategories:
     - ai-machine-learning
-    url: https://docs.microsoft.com/bonsai/
+    url: /bonsai/
   - title: QnA Maker
     summary: Converta informações em respostas de conversação fáceis de navegar
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -248,19 +248,19 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
     - ai-machine-learning
-    url: cognitive-services/speaker-recognition/home.md
+    url: ./cognitive-services/speech-service/speaker-recognition-overview.md
   - title: Conversão de Voz em Texto
     summary: Converta áudio falado em texto para interações mais naturais
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
     - ai-machine-learning
-    url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=speechtotext
+    url: ./cognitive-services/speech-service/index-speech-to-text.yml
   - title: Tradução de Voz
     summary: Integre facilmente tradução de voz em tempo real na sua aplicação
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
     - ai-machine-learning
-    url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=speechtranslation
+    url: ./cognitive-services/speech-service/index-speech-translation.yml
   - title: Análise de Texto
     summary: Avalie sentimentos e tópicos facilmente, de modo a compreender o que os utilizadores querem
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -272,7 +272,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
     - ai-machine-learning
-    url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=texttospeech
+    url: ./cognitive-services/speech-service/index-text-to-speech.yml
   - title: Tradutor
     summary: Realize facilmente traduções automática com uma simples chamada à API REST
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -367,7 +367,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/power-bi.svg
     azureCategories:
     - analytics
-    url: https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded
+    url: /power-bi/developer/azure-pbie-what-is-power-bi-embedded
   - title: R Server para HDInsight
     summary: Análise preditiva, machine learning e modelação estatística para macrodados
     imageSrc: https://static.docs.com/ui/media/product/azure/hdinsight.svg
@@ -425,13 +425,13 @@ productDirectory:
     imageSrc: ./media/index/logo_cyclecloud.svg
     azureCategories:
     - compute
-    url: https://docs.microsoft.com/azure/cyclecloud/index
+    url: /azure/cyclecloud/index
   - title: Azure Dedicated Host
     summary: Um servidor físico dedicado para alojar as suas VMs do Azure para Windows e Linux
     imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
     azureCategories:
     - compute
-    url: virtual-machines/windows/dedicated-hosts.md
+    url: ./virtual-machines/dedicated-hosts.md
   - title: Funções do Azure
     summary: Processe eventos com código sem servidor
     imageSrc: https://static.docs.com/ui/media/product/azure/functions.svg
@@ -501,7 +501,7 @@ productDirectory:
     azureCategories:
     - compute
     - databases
-    url: https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json
+    url: ./azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json
   - title: Aplicações Web Estáticas (Pré-visualização)
     summary: Um serviço de aplicações Web moderno que oferece desenvolvimento simplificado de pilha completa de código fonte para elevada disponibilidade global
     imageSrc: ./media/index/static-apps.svg
@@ -563,7 +563,7 @@ productDirectory:
     azureCategories:
     - containers
     - web
-    url: app-service/containers/index.yml
+    url: ./app-service/index.yml
   - title: API do Azure para FHIR
     summary: Crie e implemente facilmente um serviço FHIR para soluções de dados de saúde e interoperabilidade
     imageSrc: https://static.docs.com/ui/media/product/azure/api-for-fhir.svg
@@ -647,7 +647,7 @@ productDirectory:
     imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
     azureCategories:
     - developer-tools
-    url: https://docs.microsoft.com/sql/azure-data-studio/
+    url: /sql/azure-data-studio/
   - title: DevOps do Azure
     summary: Serviços que permitem às equipas partilhar código, monitorizar trabalho e enviar software
     imageSrc: https://static.docs.com/ui/media/product/azure/devops.svg
@@ -655,7 +655,7 @@ productDirectory:
     - developer-tools
     - devops
     - hybrid
-    url: https://docs.microsoft.com/azure/devops/
+    url: /azure/devops/
   - title: Azure DevTest Labs
     summary: Crie ambientes rapidamente com modelos e artefactos reutilizáveis
     imageSrc: https://static.docs.com/ui/media/product/azure/devtest-labs.svg
@@ -675,13 +675,13 @@ productDirectory:
     azureCategories:
     - developer-tools
     - devops
-    url: https://docs.microsoft.com/azure/devops/pipelines/
+    url: /azure/devops/pipelines/
   - title: Visual Studio
     summary: Ambiente poderoso e flexível para desenvolver aplicações na cloud
     imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
     azureCategories:
     - developer-tools
-    url: https://docs.microsoft.com/visualstudio/windows
+    url: /visualstudio/windows
   - title: Visual Studio Code
     summary: Um avançado editor de código leve para desenvolvimento na cloud
     imageSrc: https://docs.microsoft.com/media/logos/logo_vs-code.svg
@@ -693,7 +693,7 @@ productDirectory:
     imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
     azureCategories:
     - developer-tools
-    url: https://docs.microsoft.com/visualstudio/online/overview/what-is-vsonline
+    url: /visualstudio/online/overview/what-is-vsonline
   - title: Application Insights
     summary: Observabilidade completa para aplicações, infraestrutura e rede
     imageSrc: https://static.docs.com/ui/media/product/azure/application-insights.svg
@@ -706,13 +706,13 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/artifacts.svg
     azureCategories:
     - devops
-    url: https://docs.microsoft.com/azure/devops/artifacts/
+    url: /azure/devops/artifacts/
   - title: Quadros do Azure
     summary: Planeie, acompanhe e discuta o trabalho pelas suas equipas
     imageSrc: https://static.docs.com/ui/media/product/azure/boards.svg
     azureCategories:
     - devops
-    url: https://docs.microsoft.com/azure/devops/boards/
+    url: /azure/devops/boards/
   - title: Azure Monitor
     summary: Observabilidade completa para aplicações, infraestrutura e rede
     imageSrc: https://static.docs.com/ui/media/product/azure/monitor.svg
@@ -725,20 +725,20 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/repos.svg
     azureCategories:
     - devops
-    url: https://docs.microsoft.com/azure/devops/repos/
+    url: /azure/devops/repos/
   - title: Planos de Teste do Azure
     summary: Teste e faça lançamentos com confiança com um manual e um kit de ferramentas para testes exploratórios
     imageSrc: https://static.docs.com/ui/media/product/azure/test-plans.svg
     azureCategories:
     - devops
-    url: https://docs.microsoft.com/azure/devops/test/
+    url: /azure/devops/test/
   - title: GitHub Actions para o Azure
     summary: Criar, testar e implementar qualquer aplicação do GitHub no Azure
     imageSrc: ./media/index/github-actions-icon.svg
     azureCategories:
     - devops
     - developer-tools
-    url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
+    url: /azure/developer/github/github-actions
   - title: Azure Active Directory (AD)
     summary: Sincronize diretórios no local e ative o início de sessão único
     imageSrc: https://static.docs.com/ui/media/product/azure/active-directory.svg
@@ -772,25 +772,25 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/stack.svg
     azureCategories:
     - hybrid
-    url: https://docs.microsoft.com/azure-stack/
+    url: /azure-stack/
   - title: Azure Stack HCI (Pré-visualização)
     summary: Integre a infraestrutura hiperconvergente no Azure e nos serviços híbridos para executar cargas de trabalho virtuais no local
     imageSrc: https://static.docs.com/ui/media/product/azure/stack-hci.svg
     azureCategories:
     - hybrid
-    url: https://docs.microsoft.com/azure-stack/hci/
+    url: /azure-stack/hci/
   - title: Azure Stack Hub
     summary: O Azure Stack Hub é vendido como um sistema de hardware integrado, com software pré-instalado no hardware validado
     imageSrc: https://static.docs.com/ui/media/product/azure/stack-hub.svg
     azureCategories:
     - hybrid
-    url: https://docs.microsoft.com/azure-stack/operator/
+    url: /azure-stack/operator/
   - title: Azure Stack Edge
     summary: Uma aplicação gerida do Azure que leva a computação, o armazenamento e a inteligência do Azure até ao edge
     imageSrc: https://static.docs.com/ui/media/product/azure/stack-edge.svg
     azureCategories:
     - hybrid
-    url: https://docs.microsoft.com/azure/databox-online/
+    url: ./databox-online/index.yml
   - title: Centro de Segurança
     summary: Unifique a gestão de segurança e ative a proteção contra ameaças avançada em cargas de trabalho na cloud híbrida
     imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
@@ -824,7 +824,7 @@ productDirectory:
     azureCategories:
     - identity
     - security
-    url: https://docs.microsoft.com/azure/information-protection/
+    url: /azure/information-protection/
   - title: Gestão de API
     summary: Publique APIs para programadores, parceiros e empregados de forma segura e em escala
     imageSrc: https://static.docs.com/ui/media/product/azure/api-management.svg
@@ -885,7 +885,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/sphere.svg
     azureCategories:
     - iot
-    url: https://docs.microsoft.com/azure-sphere/
+    url: /azure-sphere/
   - title: Azure Time Series Insights
     summary: Explore e analise dados de séries temporais a partir de dispositivos IoT
     imageSrc: https://static.docs.com/ui/media/product/azure/time-series-insights-environments.svg
@@ -905,7 +905,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/iot-windows10-core-services.svg
     azureCategories:
     - iot
-    url: https://docs.microsoft.com/windows/iot-core/
+    url: /windows/iot-core/
   - title: Automatização
     summary: Simplifique a gestão em cloud com a automatização de processos
     imageSrc: https://static.docs.com/ui/media/product/azure/automation.svg
@@ -1089,13 +1089,13 @@ productDirectory:
     imageSrc: https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg
     azureCategories:
     - mobile
-    url: https://docs.microsoft.com/appcenter/
+    url: /appcenter/
   - title: Xamarin
     summary: Crie aplicações móveis com tecnologia de cloud mais rapidamente
     imageSrc: https://docs.microsoft.com/media/logos/logo_xamarin.svg
     azureCategories:
     - mobile
-    url: https://docs.microsoft.com/xamarin/
+    url: /xamarin/
   - title: Gateway de Aplicação
     summary: Crie front-ends Web seguros, dimensionáveis e de disponibilidade elevada no Azure
     imageSrc: https://static.docs.com/ui/media/product/azure/application-gateways.svg
@@ -1121,14 +1121,14 @@ productDirectory:
     azureCategories:
     - security
     - iot
-    url: security-center/defender-for-iot-introduction.md
+    url: ./security-center/azure-defender.md
   - title: Proteção contra DDoS do Azure
     summary: Proteja as suas aplicações contra ataques Denial of Service Distribuídos (DDoS)
     imageSrc: https://static.docs.com/ui/media/product/azure/ddos-protection.svg
     azureCategories:
     - networking
     - security
-    url: virtual-network/ddos-protection-overview.md
+    url: ./ddos-protection/ddos-protection-overview.md
   - title: DNS do Azure
     summary: Aloje o domínio DNS no Azure
     imageSrc: https://static.docs.com/ui/media/product/azure/dns.svg
@@ -1293,28 +1293,28 @@ tools:
   items:
   - title: Python
     imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-    url: https://docs.microsoft.com/azure/developer/python/
+    url: /azure/developer/python/
   - title: .NET
     imageSrc: ./media/index/net-logo.svg
-    url: https://docs.microsoft.com/dotnet/azure/
+    url: /dotnet/azure/
   - title: JavaScript
     imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-    url: https://docs.microsoft.com/azure/developer/javascript/
+    url: /azure/developer/javascript/
   - title: Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: https://docs.microsoft.com/azure/developer/java/
+    url: /azure/developer/java/
   - title: Ir
     imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
-    url: https://docs.microsoft.com/azure/developer/go/
+    url: /azure/developer/go/
   - title: API REST
     imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
-    url: https://docs.microsoft.com/rest/api/
+    url: /rest/api/
   - title: Azure PowerShell
     imageSrc: https://docs.microsoft.com/media/logos/logo_powershell.svg
-    url: https://docs.microsoft.com/powershell/azure/
+    url: /powershell/azure/
   - title: CLI do Azure
     imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
-    url: https://docs.microsoft.com/cli/azure/
+    url: /cli/azure/
   - title: Modelos de ARM
     imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
     url: azure-resource-manager/templates/index.yml
@@ -1339,4 +1339,4 @@ additionalContent:
       url: germany/index.yml
     - title: Azure China 21Vianet
       summary: Uma cloud dedicada localizada na China e operada pela 21Vianet.
-      url: https://docs.microsoft.com/azure/china/
+      url: /azure/china/

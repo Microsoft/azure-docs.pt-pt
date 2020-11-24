@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 6eb82920be23d209433bbe7444c1ac34d374945b
-  ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+  ms.openlocfilehash: 205037ce6f7fa2a221cc80be200698bbc9e20cc4
+  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/19/2020
-  ms.locfileid: "94887608"
+  ms.lasthandoff: 11/23/2020
+  ms.locfileid: "95484071"
 highlightedContent:
   items:
   - title: O que é o IoT do Azure?
@@ -127,7 +127,7 @@ conceptualContent:
     - url: ../iot-pnp/quickstart-connect-device-node.md
       itemType: quickstart
       text: Ligar um dispositivo de exemplo ao Hub IoT
-    - url: ../iot-pnp/concepts-developer-guide-device-csharp.md
+    - url: ../iot-pnp/concepts-developer-guide-device.md
       itemType: concept
       text: Guia para programadores
     footerLink:
