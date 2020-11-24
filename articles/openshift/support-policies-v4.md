@@ -1,17 +1,17 @@
 ---
 title: Política de suporte ao cluster Azure Red Hat OpenShift 4
-description: Compreenda os requisitos de política de apoio para o Red Hat OpenShift 4.
+description: Compreenda os requisitos de política de apoio para o Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: e396cfa032a3030467b2e2318d61393713894cd4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/23/2020
+ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628225"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521143"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Política de suporte Azure Red Hat OpenShift
 
@@ -23,7 +23,7 @@ Certas configurações para a azure Red Hat OpenShift 4 clusters podem afetar a 
 ## <a name="cluster-configuration-requirements"></a>Requisitos de configuração do cluster
 
 * Todos os operadores do Agrupamento OpenShift devem permanecer em estado de gestão. A lista de operadores de cluster pode ser devolvida em `oc get clusteroperators` funcionamento.
-* O aglomerado deve ter um nó mínimo de um trabalhador. Não escalone os trabalhadores do agrupamento a zero.
+* O aglomerado deve ter um mínimo de dois nós operários. Não escalone os trabalhadores do agrupamento a zero, nem tente uma paragem graciosa do cluster.
 * Não remova nem modifique os serviços prometheus e alertmanager.
 * Não remova as regras do Service Alertmanager.
 * Não remova nem modifique o registo do serviço Azure Red Hat OpenShift (cápsulas mdsd).

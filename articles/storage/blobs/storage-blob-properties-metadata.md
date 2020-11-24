@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 19d20a208672667e5a4354fd1b7d185d0c00f8d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 984fb00e163a090534da1fb41850dcfef6c5d516
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399130"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521534"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gerir propriedades blob e metadados com .NET
 
@@ -126,7 +126,7 @@ Pode especificar os metadados como um ou mais pares de valor-nome num recurso de
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
 ---
 
-Os pares de nome/valor dos metadados são cabeçalhos HTTP válidos e devem aderir a todas as restrições que regem os cabeçalhos HTTP. Os nomes dos metadados devem ser válidos Nomes de cabeçalhos HTTP e identificadores C# válidos, podem conter apenas caracteres ASCII e devem ser tratados como insensíveis a casos. [Base64-codificar](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) ou [codificar](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) valores de metadados de URL que contenham caracteres não ASCII.
+Os pares de nome/valor dos metadados são cabeçalhos HTTP válidos e devem aderir a todas as restrições que regem os cabeçalhos HTTP. Os nomes dos metadados devem ser válidos Nomes de cabeçalhos HTTP e identificadores C# válidos, podem conter apenas caracteres ASCII e devem ser tratados como insensíveis a casos. [Base64-codificar](/dotnet/api/system.convert.tobase64string) ou [codificar](/dotnet/api/system.web.httputility.urlencode) valores de metadados de URL que contenham caracteres não ASCII.
 
 O nome dos seus metadados deve estar em conformidade com as convenções de nomeação dos identificadores C#. Os nomes dos metadados mantêm o caso utilizado quando foram criados, mas são insensíveis a casos quando definidos ou lidos. Se dois ou mais cabeçalhos de metadados usando o mesmo nome forem submetidos para um recurso, o armazenamento Azure Blob devolve o código de erro HTTP 400 (Mau Pedido).
 
@@ -208,7 +208,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Definir operação Blob Properties](/rest/api/storageservices/set-blob-properties)
 - [Obtenha a operação Blob Properties](/rest/api/storageservices/get-blob-properties)

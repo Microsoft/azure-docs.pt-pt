@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72718285ff83a23acd21a5e29001ea96e1f061c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317859"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531360"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics divisória de saída de bolha personalizada
 
@@ -25,7 +25,7 @@ Os atributos de campo ou de entrada personalizados melhoram os fluxos de trabalh
 
 ### <a name="partition-key-options"></a>Opções-chave de partição
 
-A chave de partição, ou nome da coluna, usado para os dados de entrada de partição pode conter caracteres alfanuméricos com hífens, sublinhados e espaços. Não é possível utilizar campos aninhados como chave de partição, a menos que seja utilizado em conjunto com pseudónimos. A chave de partição deve ser NVARCHAR(MAX).
+A chave de partição, ou nome da coluna, usado para os dados de entrada de partição pode conter caracteres alfanuméricos com hífens, sublinhados e espaços. Não é possível utilizar campos aninhados como chave de partição, a menos que seja utilizado em conjunto com pseudónimos. A tecla de partição deve ser NVARCHAR(MAX), BIGINT, FLOAT ou BIT (nível de compatibilidade de 1,2 ou superior). Para obter mais informações, consulte os [tipos de dados Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Exemplo
 
@@ -62,6 +62,8 @@ Note que cada registo na bolha tem uma coluna **client_id** correspondente ao no
 2. As chaves de partição são insensíveis, por isso as chaves de partição como "John" e "John" são equivalentes. Além disso, as expressões não podem ser usadas como chaves de partição. Por exemplo, **{columnA + columnB}** não funciona.  
 
 3. Quando um fluxo de entrada consiste em registos com uma cardinalidade chave de partição abaixo de 8000, os registos serão anexados a bolhas existentes e só criarão novas bolhas quando necessário. Se o cardinalício for superior a 8000, não há garantias de que as bolhas existentes sejam escritas e não serão criadas novas bolhas para um número arbitrário de registos com a mesma chave de partição.
+
+4. Se a saída do blob for [configurada como imutável,](../storage/blobs/storage-blob-immutable-storage.md)o Stream Analytics criará uma nova bolha cada vez que os dados são enviados.
 
 ## <a name="custom-datetime-path-patterns"></a>Padrões de caminho personalizados do tempo de data
 

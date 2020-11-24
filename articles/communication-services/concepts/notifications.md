@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f4de7268f3384f86b7090dfe18576347311e048e
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 9cf503f374cd2fd1ca04aad6650b2c07abebbc46
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888679"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519358"
 ---
 # <a name="communication-services-notifications"></a>Notificações dos Serviços de Comunicação
 
@@ -77,7 +77,8 @@ No portal, navegue para o seu recurso Azure Communication Services. Dentro do re
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot mostrando as definições de Notificações push dentro do Portal Azure.":::
 
 > [!NOTE]
-> Se a cadeia de ligação Azure Notification Hub for atualizada, o recurso serviços de comunicação também tem de ser atualizado.
+> Se a cadeia de ligação Azure Notification Hub for atualizada, o recurso serviços de comunicação também tem de ser atualizado.  
+Qualquer alteração na forma como o hub está ligado será refletida no plano de dados (isto é, ao enviar uma notificação) dentro de um período máximo de ``10`` minutos. Isto aplica-se também quando o hub está ligado pela primeira vez **se** houver notificações enviadas anteriormente.
 
 #### <a name="device-registration"></a>Registo de dispositivo 
 

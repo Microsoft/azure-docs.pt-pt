@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: b439dcfc755f0113ffabf792850a2bd0fbcf322e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: cbbec71ff8ab762ea0da764a7db9459123850271
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996519"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95530238"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Instantâneos de depuração com exceções em aplicações .NET
 Quando ocorre uma exceção, pode recolher automaticamente uma imagem de depurar da sua aplicação web ao vivo. O instantâneo mostra o estado do código fonte e as variáveis no momento em que a exceção foi lançada. O Snapshot Debugger in [Azure Application Insights](./app-insights-overview.md) monitoriza a telemetria de exceção da sua aplicação web. Recolhe instantâneos nas suas exceções de arremesso de topo para que tenha a informação necessária para diagnosticar problemas na produção. Inclua o [pacote NuGet do colecionador Snapshot](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) na sua aplicação e configurar opcionalmente os parâmetros de recolha em [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). As imagens aparecem em [exceções](./asp-net-exceptions.md) no portal Application Insights.
@@ -39,7 +39,7 @@ Se ativou o Snapshot Debugger mas não está a ver instantâneos, consulte o nos
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
-O acesso a instantâneos está protegido pelo controlo de acesso baseado em funções (RBAC). Para analisar um instantâneo, primeiro tem de ser adicionado à função necessária por um proprietário da subscrição.
+O acesso a instantâneos é protegido pelo controlo de acesso baseado em funções Azure (Azure RBAC). Para analisar um instantâneo, primeiro tem de ser adicionado à função necessária por um proprietário da subscrição.
 
 > [!NOTE]
 > Os proprietários e contribuintes não têm automaticamente esta função. Se querem ver instantâneos, devem acrescentar-se ao papel.
@@ -115,7 +115,7 @@ A versão 15.2 (ou acima) do Visual Studio 2017 publica símbolos para as constr
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
 ```
 
-Para o Azure Compute e outros tipos, certifique-se de que os ficheiros de símbolos estão na mesma pasta da aplicação principal .dll (normalmente, `wwwroot/bin` ) ou estão disponíveis no caminho atual.
+Para o Azure Compute e outros tipos, certifique-se de que os ficheiros de símbolos estão na mesma pasta da aplicação principal .dll (normalmente,) `wwwroot/bin` ou estão disponíveis no caminho atual.
 
 > [!NOTE]
 > Para obter mais informações sobre as diferentes opções de símbolos disponíveis consulte a documentação do [Estúdio Visual.](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output

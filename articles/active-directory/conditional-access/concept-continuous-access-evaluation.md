@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daa3f3b1687b01005f32cbd2665c84b933c993b8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 706fa1666dc327955294fb350b673aed40d6bf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837622"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520667"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -26,7 +26,9 @@ Os clientes têm manifestado preocupação com o desfasamento entre quando as co
 
 Uma resposta oportuna a violações de políticas ou questões de segurança requer realmente uma "conversa" entre o emitente simbólico, como a Azure AD, e a parte que conta, como o Exchange Online. Esta conversa bidirecionais dá-nos duas capacidades importantes. A parte que conta pode notar quando as coisas mudaram, como um cliente vindo de um novo local, e dizer ao emitente simbólico. Também dá ao emitente token uma forma de dizer à parte que conta para parar de respeitar as fichas para um determinado utilizador devido a compromisso de conta, desativação ou outras preocupações. O mecanismo para esta conversação é a avaliação contínua do acesso (CAE). O objetivo é que a resposta seja quase em tempo real, mas em alguns casos a latência de até 15 minutos pode ser observada devido ao tempo de propagação do evento.
 
-A implementação inicial da avaliação de acesso contínuo centra-se no Exchange, Teams e SharePoint Online. 
+A implementação inicial da avaliação de acesso contínuo centra-se no Exchange, Teams e SharePoint Online.
+
+Para preparar as suas aplicações para utilizar CAE, consulte [como utilizar apis de avaliação de acesso contínuo ativados nas suas aplicações.](/develop/app-resilience-continuous-access-evaluation.md)
 
 ### <a name="key-benefits"></a>Principais vantagens
 

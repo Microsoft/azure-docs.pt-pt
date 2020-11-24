@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 71114b6663d010437e5778d288eacf4e120b3da5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d36a2804519e5728dd068cc6c06ad005244e8c95
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91395979"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524101"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicações Multi-inquilino no Azure
 Uma aplicação multitenante é um recurso partilhado que permite que "utilizadores em inquilinos separados" vejam a aplicação como se fosse sua. Um cenário típico que se presta a uma aplicação multitenante é aquele em que todos os utilizadores da aplicação de diferentes inquilinos podem querer personalizar a experiência do utilizador, mas de outra forma têm os mesmos requisitos básicos de negócio. Exemplos de grandes aplicações multitenantes são o Microsoft 365, Outlook.com e visualstudio.com.
@@ -43,7 +43,7 @@ Uma aplicação multitenante devidamente implementada proporciona os seguintes b
 
 Em suma, embora existam muitas considerações que deve ter em conta para prestar um serviço altamente escalável, existem também uma série de objetivos e requisitos que são comuns a muitas aplicações multitenantes. Alguns podem não ser relevantes em cenários específicos, e a importância de objetivos e requisitos individuais diferirá em cada cenário. Como fornecedor da aplicação multitenante, você também terá objetivos e requisitos tais como, atender os objetivos e requisitos do inquilino, rentabilidade, faturação, múltiplos níveis de serviço, fornecimento, monitorização de manutenção e automação.
 
-Para obter mais informações sobre considerações adicionais de design de uma aplicação multitenant, consulte [hospedar uma aplicação multi-arrendatário no Azure][Hosting a Multi-Tenant Application on Azure]. Para obter informações sobre os padrões da arquitetura de dados comuns de aplicações de base de dados de software como um serviço (Saas) de multi-inquilino, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database (Padrões de estrutura para Aplicações SaaS Multi-inquilino com a Base de Dados SQL do Azure)](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
+Para obter mais informações sobre considerações adicionais de design de uma aplicação multitenant, consulte [hospedar uma aplicação multi-arrendatário no Azure][Hosting a Multi-Tenant Application on Azure]. Para obter informações sobre os padrões da arquitetura de dados comuns de aplicações de base de dados de software como um serviço (Saas) de multi-inquilino, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database (Padrões de estrutura para Aplicações SaaS Multi-inquilino com a Base de Dados SQL do Azure)](./azure-sql/database/saas-tenancy-app-design-patterns.md). 
 
 O Azure fornece muitas funcionalidades que lhe permitem resolver os principais problemas encontrados ao conceber um sistema multitenante.
 
@@ -92,5 +92,5 @@ A Azure fornece uma série de formas de fornecer novos inquilinos para o pedido.
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: https://msdn.microsoft.com/library/hh534480.aspx
+[Hosting a Multi-Tenant Application on Azure]: /previous-versions/msp-n-p/hh534480(v=pandp.10)
 [Designing Multitenant Applications on Azure]: https://msdn.microsoft.com/library/windowsazure/hh689716

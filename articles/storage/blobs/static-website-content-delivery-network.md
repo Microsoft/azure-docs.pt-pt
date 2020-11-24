@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e458f98d82c910ec845ebf951b7f6470b6aba10d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465223"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527331"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrar um website estático com a Azure CDN
 
@@ -47,7 +47,7 @@ Pode ativar o Azure CDN para o seu website estático diretamente a partir da sua
 
    ![Screenshot mostrando a configuração do ponto final cdN da amostra](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-1. Selecione **Criar**e, em seguida, aguarde que o CDN provisa. Depois da criação do ponto final, este é apresentado na lista de pontos finais. (Se tiver algum erro na forma, aparece um ponto de exclamação ao lado desse campo.)
+1. Selecione **Criar** e, em seguida, aguarde que o CDN provisa. Depois da criação do ponto final, este é apresentado na lista de pontos finais. (Se tiver algum erro na forma, aparece um ponto de exclamação ao lado desse campo.)
 
 1. Para verificar se o ponto final do CDN está configurado corretamente, clique no ponto final para navegar para as suas definições. A partir da visão geral do CDN para a sua conta de armazenamento, localize o nome de anfitrião do ponto final e navegue até ao ponto final, como mostra a imagem seguinte. O formato do seu ponto final CDN será semelhante a `https://staticwebsitesamples.azureedge.net` .
 
@@ -63,7 +63,7 @@ Pode ativar o Azure CDN para o seu website estático diretamente a partir da sua
 
 Se já não pretender ter um objeto em cache na CDN do Azure, poderá efetuar um dos seguintes passos:
 
-* Torne o contentor privado em vez de público. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
+* Torne o contentor privado em vez de público. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](./anonymous-read-access-configure.md) (Gerir o acesso de leitura anónima a contentores e blobs).
 * Desative ou elimine o ponto final da CDN ao utilizar o portal do Azure.
 * Modifique o serviço alojado para deixar de responder a pedidos para o objeto.
 

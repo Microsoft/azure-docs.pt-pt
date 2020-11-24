@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 62cd31ab6f63aec5ddeb675bca3621a329ab1f2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c6b5b23a0609a5d68eb72c614ce282ae04a817
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87826573"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519103"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 
@@ -29,17 +29,17 @@ Se quiser experimentar eventos de armazenamento de bolhas, consulte qualquer um 
 
 |Se quiser utilizar esta ferramenta:    |Consulte este artigo: |
 |--|-|
-|Portal do Azure    |[Quickstart: Route Blob storage events to web endpoint with the Azure portal](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|PowerShell    |[Quickstart: Route storage events to web endpoint with PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|CLI do Azure    |[Quickstart: Route storage events to web endpoint with Azure CLI](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Portal do Azure    |[Quickstart: Route Blob storage events to web endpoint with the Azure portal](../../event-grid/blob-event-quickstart-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
+|PowerShell    |[Quickstart: Route storage events to web endpoint with PowerShell](./storage-blob-event-quickstart-powershell.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
+|CLI do Azure    |[Quickstart: Route storage events to web endpoint with Azure CLI](./storage-blob-event-quickstart.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
 
 Para ver exemplos aprofundados de reação a eventos de armazenamento blob utilizando funções Azure, consulte estes artigos:
 
 - [Tutorial: Use eventos Azure Data Lake Storage Gen2 para atualizar uma tabela Delta databricks](data-lake-storage-events.md).
-- [Tutorial: Automatizar redimensionar imagens carregadas usando a Grade de Eventos](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
+- [Tutorial: Automatizar redimensionar imagens carregadas usando a Grade de Eventos](../../event-grid/resize-images-on-storage-blob-upload-event.md?tabs=dotnet)
 
 >[!NOTE]
-> Apenas contas de armazenamento do tipo **StorageV2 (finalidade geral v2),** **BlockBlobStorage**e integração de eventos de suporte **BlobStorage.** **O armazenamento (propósito geral v1)** *não* suporta a integração com a Grade de Eventos.
+> Apenas contas de armazenamento do tipo **StorageV2 (finalidade geral v2),** **BlockBlobStorage** e integração de eventos de suporte **BlobStorage.** **O armazenamento (propósito geral v1)** *não* suporta a integração com a Grade de Eventos.
 
 ## <a name="the-event-model"></a>O modelo do evento
 
@@ -60,7 +60,7 @@ Consulte o artigo [de esquema de eventos de armazenamento Blob](../../event-grid
 
 Os [eventos blob podem ser filtrados](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) pelo tipo de evento, nome do recipiente ou nome do objeto que foi criado/eliminado. Os filtros em Grade de Evento correspondem ao início ou ao fim do assunto para que os eventos com um sujeito correspondente vão para o assinante.
 
-Para saber mais sobre como aplicar filtros, consulte [eventos de filtro para grelha de eventos.](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)
+Para saber mais sobre como aplicar filtros, consulte [eventos de filtro para grelha de eventos.](../../event-grid/how-to-filter-events.md)
 
 O tema dos eventos de armazenamento Blob utiliza o formato:
 
@@ -88,7 +88,7 @@ Para combinar eventos a partir de bolhas criadas em recipiente específico que p
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 
-Para combinar eventos a partir de bolhas criadas em recipientes específicos que partilham um sufixo de bolha, utilize um `subjectEndsWith` filtro como ".log" ou ".jpg". Para mais informações, consulte [os Conceitos de Grelha de Eventos.](../../event-grid/concepts.md#event-subscriptions)
+Para combinar eventos de bolhas criadas em recipientes específicos que partilham um sufixo de bolha, utilize um `subjectEndsWith` filtro como ".log" ou ".jpg". Para mais informações, consulte [os Conceitos de Grelha de Eventos.](../../event-grid/concepts.md#event-subscriptions)
 
 ## <a name="practices-for-consuming-events"></a>Práticas para consumir eventos
 
@@ -96,13 +96,13 @@ As aplicações que lidam com eventos de armazenamento Blob devem seguir algumas
 > [!div class="checklist"]
 > * Como várias subscrições podem ser configuradas para encaminhar eventos para o mesmo manipulador de eventos, é importante não assumir que os eventos são de uma determinada fonte, mas para verificar o tópico da mensagem para garantir que ele vem da conta de armazenamento que você está esperando.
 > * Da mesma forma, verifique se o eventType é aquele que está preparado para processar, e não assuma que todos os eventos que receber serão os tipos que espera.
-> * Como as mensagens podem chegar após algum atraso, use os campos etag para entender se as suas informações sobre objetos ainda estão atualizadas. Para aprender a utilizar o campo etag, consulte [a Gestão da concordância no armazenamento blob](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
+> * Como as mensagens podem chegar após algum atraso, use os campos etag para entender se as suas informações sobre objetos ainda estão atualizadas. Para aprender a utilizar o campo etag, consulte [a Gestão da concordância no armazenamento blob](../common/storage-concurrency.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#managing-concurrency-in-blob-storage). 
 > * Como as mensagens podem chegar fora de ordem, use os campos de sequenciador para entender a ordem dos eventos em qualquer objeto em particular. O campo do sequenciador é um valor de corda que representa a sequência lógica de eventos para qualquer nome blob em particular. Pode utilizar a comparação de cordas padrão para entender a sequência relativa de dois eventos no mesmo nome blob.
 > * Os eventos de armazenamento garantem pelo menos uma vez a entrega aos assinantes, o que garante que todas as mensagens são outputadas. No entanto, devido a retrações ou disponibilidade de subscrições, podem ocorrer mensagens duplicadas ocasionalmente. Para saber mais sobre a entrega de mensagens e retentou, consulte [a entrega de mensagens de Event Grid e retentou.](../../event-grid/delivery-and-retry.md)
 > * Utilize o campo blobType para entender que tipo de operações são permitidas na bolha e quais os tipos de biblioteca de clientes que deve usar para aceder à bolha. Valores válidos são `BlockBlob` `PageBlob` ou. 
 > * Utilize o campo url com os `CloudBlockBlob` `CloudAppendBlob` construtores e para aceder à bolha.
 > * Ignore campos que não entende. Esta prática irá ajudá-lo a manter-se resiliente a novas funcionalidades que poderão ser adicionadas no futuro.
-> * Se pretender garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block Blob estiver completamente comprometido, filtre o evento para chamadas `CopyBlob` , ou REST `PutBlob` `PutBlockList` `FlushWithClose` API. Estas chamadas API desencadeiam o evento **Microsoft.Storage.BlobCreated** apenas depois de os dados estiverem totalmente comprometidos com uma Blob de Bloco. Para aprender a criar um filtro, consulte [eventos de filtro para grelha de eventos.](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)
+> * Se pretender garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block Blob estiver completamente comprometido, filtre o evento para chamadas `CopyBlob` , ou REST `PutBlob` `PutBlockList` `FlushWithClose` API. Estas chamadas API desencadeiam o evento **Microsoft.Storage.BlobCreated** apenas depois de os dados estiverem totalmente comprometidos com uma Blob de Bloco. Para aprender a criar um filtro, consulte [eventos de filtro para grelha de eventos.](../../event-grid/how-to-filter-events.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes

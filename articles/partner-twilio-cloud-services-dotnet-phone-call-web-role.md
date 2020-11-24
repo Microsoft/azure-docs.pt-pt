@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: mimckitt
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 536a28801193cdbb4204ca1432892abdc7fb297e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22e0a19c0e2f5b29b35ebf43a3f250959c9b636d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268490"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521126"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Como fazer uma chamada telefónica usando Twilio em um papel web em Azure
 Este guia demonstra como usar twilio para fazer uma chamada a partir de uma página web hospedada em Azure. A aplicação resultante solicita ao utilizador que faça uma chamada com o número e mensagem dados, como mostrado na imagem seguinte.
@@ -38,7 +38,7 @@ Deve estar familiarizado com a criação de um papel web básico [no Azure.][azu
 <a id="use_nuget"></a>Para adicionar as bibliotecas Twilio ao seu projeto de função web:
 
 1. Abra a sua solução no Visual Studio.
-2. **Referências**de clique à direita.
+2. **Referências** de clique à direita.
 3. Clique **em Gerir Pacotes NuGet**.
 4. Clique **em 'Online'.**
 5. Na caixa online de pesquisa, escreva *twilio.*
@@ -158,7 +158,7 @@ Este código foi fornecido para mostrar-lhe a funcionalidade básica usando Twil
 * Leia as Diretrizes de Segurança Twilio em [https://www.twilio.com/docs/security][twilio_docs_security] .
 * Saiba mais sobre twilio [https://www.twilio.com/docs][twilio_docs] em.
 
-## <a name="see-also"></a><a name="seealso"></a>Consulte também
+## <a name="see-also"></a><a name="seealso"></a>Veja também
 * [Como utilizar twilio para capacidades de voz e SMS do Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console
@@ -186,5 +186,5 @@ Este código foi fornecido para mostrar-lhe a funcionalidade básica usando Twil
 [twilio_say]: https://www.twilio.com/docs/api/twiml/say
 
 
-[azure_runtime_ref_dotnet]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
-[azure_webroles_get_started]: https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-get-started
+[azure_runtime_ref_dotnet]: /previous-versions/azure/reference/ee741722(v=azure.100)
+[azure_webroles_get_started]: ./cloud-services/cloud-services-dotnet-get-started.md

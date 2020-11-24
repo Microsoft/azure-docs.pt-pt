@@ -2,13 +2,13 @@
 title: Mobilizar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Também mostra como implantar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/23/2020
+ms.openlocfilehash: c87f6fa590e1f769816fb0ee3cba3aad1997de15
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668888"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519868"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implementações de subscrição com modelos ARM
 
@@ -104,7 +104,7 @@ az deployment sub create \
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para o comando de implantação PowerShell, utilize [o New-AzDeployment](/powershell/module/az.resources/new-azdeployment) ou **o New-AzSubscriptionDeployment** . O exemplo a seguir implementa um modelo para criar um grupo de recursos:
+Para o comando de implantação PowerShell, utilize [o New-AzDeployment](/powershell/module/az.resources/new-azdeployment) ou **o New-AzSubscriptionDeployment**. O exemplo a seguir implementa um modelo para criar um grupo de recursos:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -131,20 +131,28 @@ Para obter informações mais detalhadas sobre comandos de implantação e opç�
 Ao implementar uma subscrição, pode mobilizar recursos para:
 
 * a subscrição-alvo da operação
-* grupos de recursos dentro da subscrição
+* qualquer subscrição no inquilino
+* grupos de recursos dentro da subscrição ou outras subscrições
+* o inquilino para a assinatura
 * [recursos de extensão](scope-extension-resources.md) podem ser aplicados a recursos
 
-Não é possível implantar uma subscrição diferente da subscrição-alvo. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
+O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
 
 Esta secção mostra como especificar diferentes âmbitos. Você pode combinar estes diferentes âmbitos em um único modelo.
 
-### <a name="scope-to-subscription"></a>Âmbito de subscrição
+### <a name="scope-to-target-subscription"></a>Âmbito de subscrição de destino
 
 Para implantar recursos na subscrição-alvo, adicione esses recursos à secção de recursos do modelo.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
 
 Para exemplos de implantação na subscrição, consulte [Criar grupos de recursos](#create-resource-groups) e atribuir [definição de política](#assign-policy-definition).
+
+### <a name="scope-to-other-subscription"></a>Âmbito de outra subscrição
+
+Para implementar recursos para uma subscrição diferente da subscrição da operação, adicione uma implementação aninhada. Desloque a `subscriptionId` propriedade para o ID da subscrição para a que pretende implementar. Desa parte a `location` propriedade para a implantação aninhada.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
 
 ### <a name="scope-to-resource-group"></a>Âmbito para grupo de recursos
 
@@ -154,11 +162,23 @@ Para implementar recursos para um grupo de recursos dentro da subscrição, adic
 
 Para um exemplo de implantação para um grupo de recursos, consulte [Criar grupo de recursos e recursos](#create-resource-group-and-resources).
 
+### <a name="scope-to-tenant"></a>Âmbito para inquilino
+
+Pode criar recursos no arrendatário definindo o `scope` conjunto para `/` . O utilizador que implementa o modelo deve ter o [acesso necessário para implantar no arrendatário](deploy-to-tenant.md#required-access).
+
+Pode utilizar uma implantação aninhada `scope` e `location` definida.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+Ou, pode definir o âmbito `/` para alguns tipos de recursos, como grupos de gestão.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
+
 ## <a name="deployment-location-and-name"></a>Localização e nome de implantação
 
 Para implementações de nível de subscrição, deve fornecer uma localização para a implementação. A localização da implantação é separada da localização dos recursos que implementa. A localização da implantação especifica onde armazenar dados de implantação.
 
-Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy** .
+Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
 
 Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
 

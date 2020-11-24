@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 9/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento facial, software de reconhecimento facial, análise facial, correspondência facial, app de reconhecimento facial, pesquisa facial por imagem, pesquisa de reconhecimento facial
-ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911448"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532261"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço Azure Face?
 
@@ -29,7 +29,7 @@ O serviço Azure Face fornece algoritmos de IA que detetam, reconhecem e analisa
 
 O serviço Face fornece várias funções de análise facial diferentes que são descritas nas seguintes secções.
 
-## <a name="face-detection"></a>Deteção de rostos
+## <a name="face-detection"></a>Deteção facial
 
 O serviço Face deteta rostos humanos numa imagem e devolve as coordenadas do retângulo das suas localizações. Opcionalmente, a deteção facial pode extrair uma série de atributos relacionados com o rosto, tais como pose de cabeça, sexo, idade, emoção, pelos faciais e óculos.
 
@@ -76,9 +76,9 @@ Depois de criar e treinar uma base de dados, pode fazer a identificação contra
 
 Para obter mais informações sobre a identificação da pessoa, consulte o guia de conceitos [de reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API identificar.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
 
-## <a name="containers"></a>Contentores
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantar nas instalações utilizando contentores Docker
 
-[Utilize o recipiente Face](face-how-to-install-containers.md) para detetar, reconhecer e identificar rostos instalando um recipiente Docker normalizado mais próximo dos seus dados.
+[Utilize o recipiente Face (pré-visualização)](face-how-to-install-containers.md) para implantar as funcionalidades API no local. Este recipiente Docker permite-lhe aproximar o serviço dos seus dados por razões de conformidade, segurança ou outras razões operacionais.
 
 ## <a name="sample-apps"></a>Exemplos de aplicações
 

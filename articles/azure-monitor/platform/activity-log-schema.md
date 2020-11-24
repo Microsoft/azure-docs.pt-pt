@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bda92667cfc3afb44a55adf3f3c12798a734ddc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612766"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522724"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de evento de registo de atividade azure
 O [registo de Atividades Azure](platform-logs-overview.md) fornece informações sobre quaisquer eventos de nível de subscrição que ocorreram em Azure. Este artigo descreve categorias de registo de atividade e o esquema para cada um. 
@@ -40,9 +40,9 @@ Cada evento no Registo de Atividades tem uma categoria específica que são desc
 
 | Categoria | Descrição |
 |:---|:---|
-| [Administrativo](#administrative-category) | Contém o registo de todas as operações de criação, atualização, exclusão e ação realizadas através do Gestor de Recursos. Exemplos de eventos administrativos incluem _criar máquina virtual_ e eliminar o grupo de segurança da _rede._<br><br>Todas as ações tomadas por um utilizador ou aplicação utilizando o Gestor de Recursos são modeladas como uma operação num determinado tipo de recurso. Se o tipo de funcionamento for _Write_, _Delete_, ou _Action_, os registos do início e do sucesso ou falha dessa operação são registados na categoria Administrativa. Os eventos administrativos também incluem quaisquer alterações ao controlo de acesso baseado em funções numa subscrição. |
-| [Estado de funcionamento dos serviços](#service-health-category) | Contém o registo de quaisquer incidentes de saúde de serviço que ocorreram em Azure. Um exemplo de um evento de Saúde de Serviço _SQL Azure no Leste dos EUA está a passar por um tempo de inatividade._ <br><br>Os eventos de saúde de serviço vêm em seis variedades: _Ação necessária,_ _Recuperação Assistida,_ _Incidente,_ _Manutenção,_ _Informação_ou _Segurança_. Estes eventos só são criados se tiver um recurso na subscrição que seria impactado pelo evento.
-| [Estado de Funcionamento de Recursos](#resource-health-category) | Contém o registo de quaisquer eventos de saúde de recursos que tenham ocorrido aos seus recursos Azure. Um exemplo de um evento de Saúde de Recursos é _o estado de saúde da Máquina Virtual alterado para indisponível_.<br><br>Os eventos de saúde de recursos podem representar um dos quatro estados de saúde: _Disponível,_ _Indisponível,_ _Degradado_e _Desconhecido._ Além disso, os eventos de Saúde de Recursos podem ser categorizados como sendo _Iniciados_ pela Plataforma ou _Iniciados pelo Utilizador._ |
+| [Administrativo](#administrative-category) | Contém o registo de todas as operações de criação, atualização, exclusão e ação realizadas através do Gestor de Recursos. Exemplos de eventos administrativos incluem _criar máquina virtual_ e eliminar o grupo de segurança da _rede._<br><br>Todas as ações tomadas por um utilizador ou aplicação utilizando o Gestor de Recursos são modeladas como uma operação num determinado tipo de recurso. Se o tipo de funcionamento for _Write_, _Delete_, ou _Action_, os registos do início e do sucesso ou falha dessa operação são registados na categoria Administrativa. Os eventos administrativos também incluem quaisquer alterações ao controlo de acesso baseado em funções da Azure numa subscrição. |
+| [Estado de funcionamento dos serviços](#service-health-category) | Contém o registo de quaisquer incidentes de saúde de serviço que ocorreram em Azure. Um exemplo de um evento de Saúde de Serviço _SQL Azure no Leste dos EUA está a passar por um tempo de inatividade._ <br><br>Os eventos de saúde de serviço vêm em seis variedades: _Ação necessária,_ _Recuperação Assistida,_ _Incidente,_ _Manutenção,_ _Informação_ ou _Segurança_. Estes eventos só são criados se tiver um recurso na subscrição que seria impactado pelo evento.
+| [Estado de Funcionamento de Recursos](#resource-health-category) | Contém o registo de quaisquer eventos de saúde de recursos que tenham ocorrido aos seus recursos Azure. Um exemplo de um evento de Saúde de Recursos é _o estado de saúde da Máquina Virtual alterado para indisponível_.<br><br>Os eventos de saúde de recursos podem representar um dos quatro estados de saúde: _Disponível,_ _Indisponível,_ _Degradado_ e _Desconhecido._ Além disso, os eventos de Saúde de Recursos podem ser categorizados como sendo _Iniciados_ pela Plataforma ou _Iniciados pelo Utilizador._ |
 | [Alerta](#alert-category) | Contém o registo de ativações para alertas Azure. Um exemplo de um evento de alerta é _que o CPU % no myVM foi superior a 80 nos últimos 5 minutos_.|
 | [Dimensionamento Automático](#autoscale-category) | Contém o registo de quaisquer eventos relacionados com o funcionamento do motor de autoescala com base em quaisquer definições de autoescala que tenha definido na sua subscrição. Um exemplo de um evento de autoescala é a ação de _escala automática falhada._ |
 | [Recomendação](#recommendation-category) | Contém eventos de recomendação do Azure Advisor. |
@@ -50,7 +50,7 @@ Cada evento no Registo de Atividades tem uma categoria específica que são desc
 | [Política](#policy-category) | Contém registos de todas as operações de ação realizadas pela Azure Policy. Exemplos de eventos de política incluem _Auditoria_ e _Negação._ Todas as medidas tomadas pela Política são modeladas como uma operação a um recurso. |
 
 ## <a name="administrative-category"></a>Categoria administrativa
-Esta categoria contém o registo de todas as operações de criação, atualização, exclusão e ação realizadas através do Gestor de Recursos. Exemplos dos tipos de eventos que veria nesta categoria incluem "criar máquina virtual" e "eliminar o grupo de segurança da rede" Todas as medidas tomadas por um utilizador ou aplicação utilizando o Resource Manager são modeladas como uma operação num determinado tipo de recurso. Se o tipo de funcionamento for Escrever, Excluir ou Ação, os registos do início e do sucesso ou falha dessa operação são registados na categoria Administrativa. A categoria Administrativa também inclui quaisquer alterações ao controlo de acesso baseado em funções numa subscrição.
+Esta categoria contém o registo de todas as operações de criação, atualização, exclusão e ação realizadas através do Gestor de Recursos. Exemplos dos tipos de eventos que veria nesta categoria incluem "criar máquina virtual" e "eliminar o grupo de segurança da rede" Todas as medidas tomadas por um utilizador ou aplicação utilizando o Resource Manager são modeladas como uma operação num determinado tipo de recurso. Se o tipo de funcionamento for Escrever, Excluir ou Ação, os registos do início e do sucesso ou falha dessa operação são registados na categoria Administrativa. A categoria Administrativa também inclui quaisquer alterações ao controlo de acesso baseado em funções da Azure numa subscrição.
 
 ### <a name="sample-event"></a>Evento da amostra
 ```json
@@ -143,7 +143,7 @@ Esta categoria contém o registo de todas as operações de criação, atualiza�
 ### <a name="property-descriptions"></a>Descrições de propriedade
 | Nome do Elemento | Descrição |
 | --- | --- |
-| autorização |Bolha das propriedades da RBAC do evento. Normalmente inclui as propriedades de "ação", "papel" e "âmbito". |
+| autorização |Blob of Azure RBAC propriedades do evento. Normalmente inclui as propriedades de "ação", "papel" e "âmbito". |
 | chamador |Endereço de e-mail do utilizador que realizou a operação, reclamação UPN ou reclamação SPN com base na disponibilidade. |
 | canais |Um dos seguintes valores: "Administrador", "Operação" |
 | sinistros |O símbolo JWT utilizado pelo Ative Directory para autenticar o utilizador ou aplicação para realizar esta operação no Gestor de Recursos. |
@@ -774,7 +774,7 @@ Esta categoria contém registos de todas as operações de ação de efeito real
 
 | Nome do Elemento | Descrição |
 | --- | --- |
-| autorização | Matriz de propriedades RBAC do evento. Para novos recursos, esta é a ação e âmbito do pedido que desencadeou a avaliação. Para os recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
+| autorização | Matriz de propriedades RBAC Azure do evento. Para novos recursos, esta é a ação e âmbito do pedido que desencadeou a avaliação. Para os recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
 | chamador | Para novos recursos, a identidade que iniciou uma implantação. Para os recursos existentes, o GUID do Microsoft Azure Policy Insights RP. |
 | canais | Os eventos políticos utilizam apenas o canal "Operação". |
 | sinistros | O símbolo JWT utilizado pelo Ative Directory para autenticar o utilizador ou aplicação para realizar esta operação no Gestor de Recursos. |

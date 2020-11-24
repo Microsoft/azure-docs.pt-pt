@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 404999cfac5037702eb61fdf74b2c5245ce9eb30
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74270230"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95526124"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Níveis de desempenho do armazenamento dos blobs de blocos
 
@@ -83,6 +83,6 @@ Não é possível mover dados que são armazenados numa conta de armazenamento d
 Avalie o calor, o frio e o arquivo nas contas de armazenamento GPv2 e Blob.
 
 - [Saiba mais sobre a reidratação de dados blob a partir do nível de arquivo](storage-blob-rehydration.md)
-- [Avaliar a utilização das suas contas do Storage atuais ao ativar as métricas do Storage do Azure](../common/storage-enable-and-view-metrics.md)
+- [Avaliar a utilização das suas contas do Storage atuais ao ativar as métricas do Storage do Azure](./monitor-blob-storage.md)
 - [Verifique preços quentes, frescos e de arquivo nas contas blob e GPv2 por região](https://azure.microsoft.com/pricing/details/storage/)
 - [Verificar os preços das transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/)

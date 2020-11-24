@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: 07652f2ac88475664f30e8189204b5649f966d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f00d964a87790b8d8c9b1d8eceaed26d15199e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033619"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531972"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerir os recursos de armazenamento Azure Blob com o Storage Explorer
 
 ## <a name="overview"></a>Descrição geral
 
-[O Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acedidos a partir de qualquer parte do mundo através de HTTP ou HTTPS.
+[O Azure Blob Storage](./storage/blobs/storage-quickstart-blobs-dotnet.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acedidos a partir de qualquer parte do mundo através de HTTP ou HTTPS.
 Pode utilizar o armazenamento de Blobs para expor publicamente os dados ao mundo ou para armazenar dados da aplicação em privado. Neste artigo, você vai aprender a usar o Storage Explorer para trabalhar com recipientes e bolhas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -43,7 +43,7 @@ Os seguintes passos ilustram como criar um recipiente de bolhas dentro do Storag
 
 1. Abra o Explorador de Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento na qual deseja criar o recipiente blob.
-3. Clique à direita em **Recipientes Blob**e - a partir do menu de contexto - selecione **Create Blob Container**.
+3. Clique à direita em **Recipientes Blob** e - a partir do menu de contexto - selecione **Create Blob Container**.
 
    ![Criar menu de contexto de recipientes blob][0]
 4. Aparecerá por baixo da pasta **Blob Containers** uma caixa de texto. Introduza o nome do contentor de blobs. Consulte [Criar um recipiente](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter informações sobre regras e restrições sobre o nome de recipientes de bolhas.
@@ -61,7 +61,7 @@ Os seguintes passos ilustram como ver o conteúdo de um recipiente de bolhas den
 
 1. Abra o Explorador de Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento que contém o recipiente blob que deseja ver.
-3. Expandir os **recipientes blob**da conta de armazenamento.
+3. Expandir os **recipientes blob** da conta de armazenamento.
 4. Clique com o botão direito no recipiente blob que deseja visualizar e - a partir do menu de contexto - selecione **Open Blob Container Editor**.
    Também pode clicar duas vezes no recipiente blob que deseja visualizar.
 
@@ -78,7 +78,7 @@ Os seguintes passos ilustram como eliminar um recipiente de bolhas dentro do Exp
 
 1. Abra o Explorador de Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento que contém o recipiente blob que deseja ver.
-3. Expandir os **recipientes blob**da conta de armazenamento.
+3. Expandir os **recipientes blob** da conta de armazenamento.
 4. Clique com o botão direito no recipiente blob que deseja eliminar e - a partir do menu de contexto - selecione **Delete**.
    Também pode **premir Eliminar** para eliminar o recipiente blob atualmente selecionado.
 
@@ -95,7 +95,7 @@ Os seguintes passos ilustram como copiar um recipiente blob de uma conta de arma
 
 1. Abra o Explorador de Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento que contém o recipiente blob que pretende copiar.
-3. Expandir os **recipientes blob**da conta de armazenamento.
+3. Expandir os **recipientes blob** da conta de armazenamento.
 4. Clique com o botão direito no recipiente blob que deseja copiar e - a partir do menu de contexto - selecione **Copy Blob Container**.
 
    ![Menu de contexto do recipiente blob de cópia][6]
@@ -105,14 +105,14 @@ Os seguintes passos ilustram como copiar um recipiente blob de uma conta de arma
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Obter a SAS para um contentor de blobs
 
-As [assinaturas de acesso partilhado (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) disponibilizam acesso delegado a recursos na sua conta de armazenamento.
+As [assinaturas de acesso partilhado (SAS)](./storage/common/storage-sas-overview.md) disponibilizam acesso delegado a recursos na sua conta de armazenamento.
 Isto significa que pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento durante um determinado período de tempo e com um conjunto de permissões especificadas, sem ter de partilhar as chaves de acesso da conta.
 
 Os seguintes passos ilustram como criar um SAS para um recipiente de bolhas:
 
 1. Abra o Explorador de Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento que contém o recipiente blob para o qual deseja obter um SAS.
-3. Expandir os **recipientes blob**da conta de armazenamento.
+3. Expandir os **recipientes blob** da conta de armazenamento.
 4. Clique com o botão direito no recipiente de bolhas pretendido e - a partir do menu de contexto - **selecione Obter Assinatura de Acesso Partilhado**.
 
    ![Obtenha menu de contexto SAS][8]
@@ -132,7 +132,7 @@ Os seguintes passos ilustram como gerir (adicionar e remover) as políticas de a
 
 1. Abra o Explorador de Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento contendo o recipiente blob cujas políticas de acesso pretende gerir.
-3. Expandir os **recipientes blob**da conta de armazenamento.
+3. Expandir os **recipientes blob** da conta de armazenamento.
 4. Selecione o recipiente blob desejado e - a partir do menu de contexto - **selecione 'Gerir políticas de acesso'.**
 
    ![Menu de Contexto Gerir políticas de acesso][11]
@@ -153,7 +153,7 @@ Os seguintes passos ilustram como especificar um nível de acesso público para 
 
 1. Abra o Explorador de Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento contendo o recipiente blob cujas políticas de acesso pretende gerir.
-3. Expandir os **recipientes blob**da conta de armazenamento.
+3. Expandir os **recipientes blob** da conta de armazenamento.
 4. Selecione o recipiente blob desejado e - a partir do menu de contexto - selecione **Definir Nível de Acesso Público**.
 
    ![Definir menu de contexto de nível de acesso público][13]
@@ -170,7 +170,7 @@ Os passos seguintes ilustram como gerir as bolhas (e pastas) dentro de um recipi
 
 1. Abra o Explorador de Armazenamento.
 2. No painel esquerdo, expanda a conta de armazenamento que contém o contentor de blobs que quer gerir.
-3. Expandir os **recipientes blob**da conta de armazenamento.
+3. Expandir os **recipientes blob** da conta de armazenamento.
 4. Clique duas vezes no recipiente blob que deseja ver.
 5. O painel principal mostrará o conteúdo do recipiente blob.
 
@@ -191,7 +191,7 @@ Os passos seguintes ilustram como gerir as bolhas (e pastas) dentro de um recipi
      5. Selecione **Carregar**.
    * **Faça o upload de uma pasta para um recipiente de bolhas**
 
-     1. Na barra de ferramentas do painel principal, **selecione Carregar**e, em seguida, carregar a **pasta** a partir do menu suspenso.
+     1. Na barra de ferramentas do painel principal, **selecione Carregar** e, em seguida, carregar a **pasta** a partir do menu suspenso.
 
         ![Menu Carregar pasta][17]
      2. Na caixa de diálogo **Upload folder (Carregar pasta)**, selecione o botão de reticências (**...**), no lado direito da caixa de texto **Folder (Pasta)**, para selecionar a pasta cujos conteúdos quer carregar.

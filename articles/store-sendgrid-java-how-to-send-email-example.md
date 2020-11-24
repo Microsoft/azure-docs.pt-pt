@@ -16,12 +16,12 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.custom: devx-track-java
-ms.openlocfilehash: 3957d7501634be01a978481787885ae13ad3273b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57daf9170a7f97c6c141532dafe759cde9d1c77b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225959"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519069"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Como enviar e-mail usando SendGrid de Java em uma implementação de Azure
 O exemplo que se segue mostra como pode usar o SendGrid para enviar e-mails a partir de uma página web hospedada no Azure. A aplicação resultante irá solicitar ao utilizador valores de e-mail, como mostrado na imagem seguinte.
@@ -219,7 +219,7 @@ Implementar a sua aplicação no emulador computacional e dentro de um navegador
 
 Este código foi fornecido para lhe mostrar como usar SendGrid em Java em Azure. Antes de ser implantado no Azure em produção, é melhor adicionar mais manipulação de erros ou outras funcionalidades. Por exemplo: 
 
-* Você poderia usar bolhas de armazenamento Azure ou SQL Database para armazenar endereços de e-mail e mensagens de e-mail, em vez de usar um formulário web. Para obter informações sobre a utilização de bolhas de armazenamento Azure em Java, consulte [Como Utilizar o Serviço de Armazenamento blob de Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Para obter informações sobre a utilização da Base de Dados SQL em Java, consulte [a Utilização da Base de Dados SQL em Java.](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java)
+* Você poderia usar bolhas de armazenamento Azure ou SQL Database para armazenar endereços de e-mail e mensagens de e-mail, em vez de usar um formulário web. Para obter informações sobre a utilização de bolhas de armazenamento Azure em Java, consulte [Como Utilizar o Serviço de Armazenamento blob de Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Para obter informações sobre a utilização da Base de Dados SQL em Java, consulte [a Utilização da Base de Dados SQL em Java.](./azure-sql/database/connect-query-java.md)
 * Para obter mais informações sobre a utilização do SendGrid em Java, consulte [Como enviar e-mail usando o SendGrid de Java.](store-sendgrid-java-how-to-send-email.md)
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg

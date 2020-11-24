@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2f46440a4214e298bc6d2f3b9c2b5680437ead7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143926"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522707"
 ---
 # <a name="azure-resource-logs"></a>Registos de recursos do Azure
 Os registos de recursos Azure são [registos de plataformas](platform-logs-overview.md) que fornecem informações sobre operações que foram realizadas dentro de um recurso Azure. O conteúdo dos registos de recursos varia consouros e de tipo de recurso. Os registos de recursos não são recolhidos por predefinição. Tem de criar uma definição de diagnóstico para cada recurso Azure para enviar os seus registos de recursos para um espaço de trabalho do Log Analytics para utilizar com [registos do Monitor Azure,](data-platform-logs.md)Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar.
@@ -54,7 +54,7 @@ A tabela AzureDiagnostics será a seguinte:
 | ... |
 
 ### <a name="resource-specific"></a>Específico de recursos
-Neste modo, são criadas tabelas individuais no espaço de trabalho selecionado para cada categoria selecionada na definição de diagnóstico. Este método é recomendado, uma vez que torna muito mais fácil trabalhar com os dados em consultas de log, proporciona uma melhor descoberta dos esquemas e da sua estrutura, melhora o desempenho em ambos os tempos de latência e consulta, e a capacidade de conceder direitos de RBAC em uma tabela específica. Todos os serviços da Azure acabarão por migrar para o modo Resource-Specific. 
+Neste modo, são criadas tabelas individuais no espaço de trabalho selecionado para cada categoria selecionada na definição de diagnóstico. Este método é recomendado, uma vez que torna muito mais fácil trabalhar com os dados em consultas de registo, proporciona uma melhor descoberta dos esquemas e da sua estrutura, melhora o desempenho em ambos os tempos de latência e consulta, e a capacidade de conceder direitos de RBAC Azure em uma tabela específica. Todos os serviços da Azure acabarão por migrar para o modo Resource-Specific. 
 
 O exemplo acima resultaria na criação de três tabelas:
  

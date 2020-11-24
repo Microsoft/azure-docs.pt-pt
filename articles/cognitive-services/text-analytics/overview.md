@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 keywords: mineração de texto, análise de sentimento, análise de texto
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: a91be0798dc67bfb751807b385d638343b89562b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 14dfa6111bbda8750b175c8c9b2a96321e1af2c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957049"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519409"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -47,9 +47,14 @@ A deteção de [idiomas](how-tos/text-analytics-how-to-language-detection.md) po
 
 O Nome De Reconhecimento de Entidade (NER) pode [identificar e categorizar entidades](how-tos/text-analytics-how-to-entity-linking.md) no seu texto como pessoas, locais, organizações, quantidades, entidades conhecidas também são reconhecidas e ligadas a mais informações na web.
 
-## <a name="use-containers"></a>Utilizar contentores
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantar nas instalações utilizando contentores Docker
 
-[Utilize os recipientes Text Analytics](how-tos/text-analytics-how-to-install-containers.md) como solução no local para o texto de mineração e para a utilização da API. Estes recipientes Docker permitem-lhe extrair frases-chave, detetar linguagem e analisar o sentimento mais próximo dos seus dados.
+[Utilize recipientes de Análise de Texto](how-tos/text-analytics-how-to-install-containers.md) para implantar funcionalidades de API no local. Estes recipientes de estivadores permitem-lhe aproximar o serviço dos seus dados por razões de conformidade, segurança ou outras razões operacionais. O Text Analytics oferece os seguintes recipientes:
+
+* análise de sentimento
+* extração de frase-chave (pré-visualização)
+* deteção de linguagem (pré-visualização)
+* Análise de texto para saúde (pré-visualização)
 
 ## <a name="asynchronous-operations"></a>Operações assíncronas
 

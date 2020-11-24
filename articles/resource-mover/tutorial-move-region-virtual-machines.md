@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3a5489241aa15ce105dbe4d89086aff00373ca55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f21db00ecc9ff2668698f53a4d20f5bae525721
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603973"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520446"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Tutorial: Mover VMs Azure em regiões
 
@@ -23,7 +23,7 @@ Neste artigo, aprenda a mover VMs Azure, e recursos relacionados de rede/armazen
 > A Azure Resource Mover está atualmente em pré-visualização pública.
 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Verifique os pré-requisitos e requisitos.
@@ -44,7 +44,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 -  Verifique se tem acesso *ao Proprietário* na subscrição que contém os recursos que pretende mover.
     - A primeira vez que adiciona um recurso para um par de origem e destino específico numa subscrição do Azure, o Resource Mover cria uma [identidade gerida atribuída ao sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anteriormente conhecida como Managed Service Identify (MSI)) que é fidedigna pela subscrição.
     - Para criar a identidade e atribuir-lhe a função necessária (administrador de Acesso ao Utilizador ou Colaborador na subscrição de origem), a conta que utiliza para adicionar recursos necessita de permissões *do Proprietário* na subscrição. [Saiba mais](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre os papéis do Azure.
-- A subscrição precisa de quota suficiente para criar os recursos que está a mover na região alvo. Se não tiver quota, [solicite limites adicionais.](/azure/azure-resource-manager/management/azure-subscription-service-limits)
+- A subscrição precisa de quota suficiente para criar os recursos que está a mover na região alvo. Se não tiver quota, [solicite limites adicionais.](../azure-resource-manager/management/azure-subscription-service-limits.md)
 - Verifique os preços e os encargos associados à região-alvo para a qual está a mover VMs. Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para ajudá-lo.
     
 
@@ -79,7 +79,7 @@ Selecione os recursos que pretende mover.
 
     ![Botão para adicionar recursos para se mudar para outra região](./media/tutorial-move-region-virtual-machines/get-started.png)
 
-3. Em **Move resources**Fonte +  >  **destino,** selecione a subscrição de origem e região.
+3. Em **Move resources** Fonte +  >  **destino,** selecione a subscrição de origem e região.
 4. No **Destino**, selecione a região para a qual pretende mover os VMs. Em seguida, clique em **Seguinte**.
 
     ![Página para selecionar origem e região de destino](./media/tutorial-move-region-virtual-machines/source-target.png)
@@ -123,7 +123,7 @@ Selecione os recursos que pretende mover.
 
 Antes de poder preparar e mover VMs, o grupo de recursos VM deve estar presente na região alvo. 
 
-### <a name="prepare-to-move-the-source-resource-group"></a>Prepare-se para mover o grupo de recursos de origem
+### <a name="prepare-to-move-the-source-resource-group"></a>Preparar para mover o grupo de recursos de origem
 
 Durante o processo de preparação, o Resource Mover gera modelos do Azure Resource Manager (ARM) utilizando as definições do grupo de recursos. Os recursos dentro do grupo de recursos não são afetados.
 
@@ -179,7 +179,7 @@ Agora que o grupo de recursos de origem está movido, pode preparar-se para move
 
 Com os recursos preparados, pode agora iniciar a mudança. 
 
-1. Em **Todas as regiões**, selecione recursos com *movimento de iniciado*do estado pendente . Em seguida, clique em **Iniciar movimento**.
+1. Em **Todas as regiões**, selecione recursos com *movimento de iniciado* do estado pendente . Em seguida, clique em **Iniciar movimento**.
 2. Em **Recursos Move,** clique em **Iniciar movimento**.
 
     ![Clique para o botão de movimento iniciado](./media/tutorial-move-region-virtual-machines/initiate-move.png)

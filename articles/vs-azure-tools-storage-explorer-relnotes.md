@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a53f947eb2a44cc8773be8ee2b2bd03ca899be22
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87828783"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521007"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de lançamento do Microsoft Azure Storage Explorer
 
@@ -86,7 +86,7 @@ Para baixar versões anteriores do Storage Explorer, pode visitar a [página de 
 * As funcionalidades do Disco Gerido não são suportadas no Azure Stack.
 * Se um upload ou pasta de disco falhar e um novo Disco foi criado antes da falha, o Storage Explorer não apagará o Disco para si.
 * Dependendo de quando cancela um upload ou pasta de disco, é possível deixar o novo Disco num estado corrompido. Se isto acontecer, ou é necessário eliminar o novo Disco ou ligar manualmente para as APIs do disco para substituir o conteúdo do Disco de modo a que não seja mais corrompido.
-* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * A desvinculação de um recurso ligado através do SAS URI, como um recipiente de bolhas, pode causar um erro que impeça que outros acessórios apareçam corretamente. Para contornar esta questão, basta refrescar o nó de grupo. Consulte #537 para mais informações.
 * Se utilizar o VS para Mac e alguma vez tiver criado uma configuração AAD personalizada, poderá não conseguir iniciar sôs-in. Para contornar a questão, elimine o conteúdo de ~/. IdentityService/AadConfigurations. Se isso não o desbloquear, comente sobre esta questão.
 * A Azurite ainda não implementou totalmente todas as APIs de armazenamento. Por isso, pode haver erros ou comportamentos inesperados ao utilizar a Azurite para armazenamento de desenvolvimento.
@@ -108,7 +108,7 @@ Para baixar versões anteriores do Storage Explorer, pode visitar a [página de 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* O Explorador de Armazenamento em Execução no Linux requer que certas dependências sejam instaladas primeiro. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
+* O Explorador de Armazenamento em Execução no Linux requer que certas dependências sejam instaladas primeiro. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
 
 ## <a name="previous-releases"></a>Versões anteriores
 
@@ -176,7 +176,7 @@ Para baixar versões anteriores do Storage Explorer, pode visitar a [página de 
   * Criar uma imagem instantânea de um disco
 
 O upload, download e cópia transversal dos discos são alimentados pela AzCopy v10.
-* O Storage Explorer pode agora ser instalado através da loja Snap no Linux. Quando instalar através da loja Snap, todas as dependências são instaladas para si, incluindo .NET Core! Atualmente, verificamos que o Storage Explorer funciona bem em Ubuntu e CentOS. Se encontrar problemas instalados na loja Snap em outros distros Linux, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para saber mais sobre a instalação na loja Snap, consulte o nosso [guia de arranque.](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux) #68
+* O Storage Explorer pode agora ser instalado através da loja Snap no Linux. Quando instalar através da loja Snap, todas as dependências são instaladas para si, incluindo .NET Core! Atualmente, verificamos que o Storage Explorer funciona bem em Ubuntu e CentOS. Se encontrar problemas instalados na loja Snap em outros distros Linux, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para saber mais sobre a instalação na loja Snap, consulte o nosso [guia de arranque.](./vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux) #68
 * Foram feitas duas grandes alterações para anexar com o Azure Ative Directory (Azure AD) que se destinam a tornar a funcionalidade mais útil para os utilizadores da ADLS Gen2:
   * Agora selecione o inquilino em que o recurso que está a anexar está. Isto significa que já não precisa de ter acesso rbac à subscrição do recurso.
   * Se estiver a anexar um recipiente de bolhas ADLS Gen2, pode agora fixar-se a um caminho específico no recipiente.
@@ -202,7 +202,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 * Dependendo de quando cancela um upload ou pasta de disco, é possível deixar o novo Disco num estado corrompido. Se isto acontecer, ou é necessário eliminar o novo Disco ou ligar manualmente para as APIs do disco para substituir o conteúdo do Disco de modo a que não seja mais corrompido.
 * Dependendo de quando cancela um upload ou pasta de disco, é possível deixar o novo Disco num estado corrompido. Se isto acontecer, ou é necessário eliminar o novo Disco ou ligar manualmente para as APIs do disco para substituir o conteúdo do Disco de modo a que não seja mais corrompido.
 * Ao realizar um download não-AzCopy Blob, o MD5 para ficheiros grandes não está a ser verificado. Isto deve-se a um erro no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * A desvinculação de um recurso ligado através do SAS URI, como um recipiente de bolhas, pode causar um erro que impeça que outros acessórios apareçam corretamente. Para contornar esta questão, basta refrescar o nó de grupo. Consulte #537 para mais informações.
 * Se utilizar o VS para Mac e alguma vez tiver criado uma configuração AAD personalizada, poderá não conseguir iniciar sôs-in. Para contornar a questão, elimine o conteúdo de ~/. IdentityService/AadConfigurations. Se isso não o desbloquear, comente sobre esta questão.
 * A Azurite ainda não implementou totalmente todas as APIs de armazenamento. Por isso, pode haver erros ou comportamentos inesperados ao utilizar a Azurite para armazenamento de desenvolvimento.
@@ -224,7 +224,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* O Explorador de Armazenamento em Execução no Linux requer que certas dependências sejam instaladas primeiro. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
+* O Explorador de Armazenamento em Execução no Linux requer que certas dependências sejam instaladas primeiro. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
 
 
 ## <a name="version-1100"></a>Versão 1.10.0
@@ -250,7 +250,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
     * Criar uma imagem instantânea de um disco
 
     O upload, download e cópia transversal dos discos são alimentados pela AzCopy v10.
-* O Storage Explorer pode agora ser instalado através da loja Snap no Linux. Quando instalar através da loja Snap, todas as dependências são instaladas para si, incluindo .NET Core! Atualmente, verificamos que o Storage Explorer funciona bem em Ubuntu e CentOS. Se encontrar problemas instalados na loja Snap em outros distros Linux, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para saber mais sobre a instalação na loja Snap, consulte o nosso [guia de arranque.](https://aka.ms/storageexplorer/snapinformation) [#68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
+* O Storage Explorer pode agora ser instalado através da loja Snap no Linux. Quando instalar através da loja Snap, todas as dependências são instaladas para si, incluindo .NET Core! Atualmente, verificamos que o Storage Explorer funciona bem em Ubuntu e CentOS. Se encontrar problemas instalados na loja Snap em outros distros Linux, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para saber mais sobre a instalação na loja Snap, consulte o nosso [guia de arranque.](./vs-azure-tools-storage-manage-with-storage-explorer.md) [#68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
 * Foram feitas duas grandes alterações para anexar com o Azure Ative Directory (Azure AD) que se destinam a tornar a funcionalidade mais útil para os utilizadores da ADLS Gen2: * Seleciona agora o inquilino em que se encontra o recurso em que se encontra. Isto significa que já não precisa de ter acesso rbac à subscrição do recurso.
         * Se estiver a prender um recipiente de bolhas ADLS Gen2, pode agora fixar-se a um caminho específico no recipiente.
 * Ao gerir ACLs para ficheiros e pastas ADLS Gen2, o Storage Explorer irá agora mostrar os nomes amigáveis para entidades na ACL. [#957](https://www.github.com/Microsoft/AzureStorageExplorer/issues/957)
@@ -276,7 +276,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 * Se um upload ou pasta de disco falhar e um novo Disco foi criado antes da falha, o Storage Explorer não apagará o Disco para si.
 * Dependendo de quando cancela um upload ou pasta de disco, é possível deixar o novo Disco num estado corrompido. Se isto acontecer, ou é necessário eliminar o novo Disco ou ligar manualmente para as APIs do disco para substituir o conteúdo do Disco de modo a que não seja mais corrompido.
 * Ao realizar um download não-AzCopy Blob, o MD5 para ficheiros grandes não está a ser verificado. Isto deve-se a um erro no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * A desvinculação de um recurso ligado através do SAS URI, como um recipiente de bolhas, pode causar um erro que impeça que outros acessórios apareçam corretamente. Para contornar esta questão, basta refrescar o nó de grupo. Consulte #537 para mais informações.
 * Se utilizar o VS para Mac e alguma vez tiver criado uma configuração AAD personalizada, poderá não conseguir iniciar sôss. Para contornar a questão, elimine o conteúdo de ~/. IdentityService/AadConfigurations. Se isso não o desbloquear, comente sobre esta questão.
 * A Azurite ainda não implementou totalmente todas as APIs de armazenamento. Por isso, pode haver erros ou comportamentos inesperados ao utilizar a Azurite para armazenamento de desenvolvimento.
@@ -298,7 +298,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* O Explorador de Armazenamento em Execução no Linux requer que certas dependências sejam instaladas primeiro. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
+* O Explorador de Armazenamento em Execução no Linux requer que certas dependências sejam instaladas primeiro. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
 
 ## <a name="version-190"></a>Versão 1.9.0
 7/1/2019
@@ -334,7 +334,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 ### <a name="known-issues"></a>Problemas Conhecidos
 
 * Ao realizar um download não-AzCopy Blob, o MD5 para ficheiros grandes não está a ser verificado. Isto deve-se a um erro no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * Tentar aceder a Blobs Gen2 da ADLS quando está por trás de um representante pode falhar.
 * A desvinculação de um recurso ligado através do SAS URI, como um recipiente de bolhas, pode causar um erro que impeça que outros acessórios apareçam corretamente. Para contornar esta questão, basta refrescar o nó de grupo. Consulte #537 para mais informações.
 * Se utilizar o VS para Mac e alguma vez tiver criado uma configuração AAD personalizada, poderá não conseguir iniciar sôs-in. Para contornar a questão, elimine o conteúdo de ~/. IdentityService/AadConfigurations. Se isso não o desbloquear, comente sobre esta questão.
@@ -356,7 +356,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* O Explorador de Armazenamento em Execução no Linux requer que certas dependências sejam instaladas primeiro. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
+* O Explorador de Armazenamento em Execução no Linux requer que certas dependências sejam instaladas primeiro. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
 
 ## <a name="version-181"></a>Versão 1.8.1
 5/13/2019
@@ -391,7 +391,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 ### <a name="known-issues"></a>Problemas Conhecidos
 
 * Ao realizar um download não-AzCopy Blob, o MD5 para ficheiros grandes não está a ser verificado. Isto deve-se a um erro no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * Tentar aceder a Blobs Gen2 da ADLS quando está por trás de um representante pode falhar.
 * A desvinculação de um recurso ligado através do SAS URI, como um recipiente de bolhas, pode causar um erro que impeça que outros acessórios apareçam corretamente. Para contornar esta questão, basta refrescar o nó de grupo. Consulte #537 para mais informações.
 * Se utilizar o VS para Mac e alguma vez tiver criado uma configuração AAD personalizada, poderá não conseguir iniciar sôs-in. Para contornar a questão, elimine o conteúdo de ~/. IdentityService/AadConfigurations. Se isso não o desbloquear, comente sobre esta questão.
@@ -413,7 +413,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* O Explorador de Armazenamento em Execução no Linux requer que certas dependências sejam instaladas primeiro. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
+* O Explorador de Armazenamento em Execução no Linux requer que certas dependências sejam instaladas primeiro. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
 
 ## <a name="version-180"></a>Versão 1.8.0
 01/05/2019
@@ -443,7 +443,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 ### <a name="known-issues"></a>Problemas Conhecidos
 
 * Ao realizar um download não-AzCopy Blob, o MD5 para ficheiros grandes não está a ser verificado. Isto deve-se a um erro no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * Tentar aceder a Blobs Gen2 da ADLS quando está por trás de um representante pode falhar.
 * A desvinculação de um recurso ligado através do SAS URI, como um recipiente de bolhas, pode causar um erro que impeça que outros acessórios apareçam corretamente. Para contornar esta questão, basta refrescar o nó de grupo. Consulte #537 para mais informações.
 * Se utilizar o VS para Mac e alguma vez tiver criado uma configuração AAD personalizada, poderá não conseguir iniciar sôs-in. Para contornar a questão, elimine o conteúdo de ~/. IdentityService/AadConfigurations. Se isso não o desbloquear, comente sobre esta questão.
@@ -465,7 +465,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* O Explorador de Armazenamento em Execução no Linux requer que certas dependências sejam instaladas primeiro. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
+* O Explorador de Armazenamento em Execução no Linux requer que certas dependências sejam instaladas primeiro. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
 
 ## <a name="version-170"></a>Versão 1.7.0
 3/5/2019
@@ -499,7 +499,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 
 ### <a name="known-issues"></a>Problemas Conhecidos
 
-* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao utilizar o RBAC, o Storage Explorer requer algumas permissões de camada de gestão para aceder aos seus recursos de armazenamento. Consulte o [guia de resolução de problemas](./storage/common/storage-explorer-troubleshooting.md) para obter mais informações.
 * Tentar aceder a Blobs Gen2 da ADLS quando está por trás de um representante pode falhar.
 * A desvinculação de um recurso ligado através do SAS URI, como um recipiente de bolhas, pode causar um erro que impeça que outros acessórios apareçam corretamente. Para contornar esta questão, basta refrescar o nó de grupo. Consulte #537 para mais informações.
 * A desvinculação de um recurso ligado através do SAS URI, como um recipiente de bolhas, pode causar um erro que impeça que outros acessórios apareçam corretamente. Para contornar esta questão, basta refrescar o nó de grupo. Para mais informações, consulte #537.
@@ -559,7 +559,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
         
 ### <a name="new"></a>Novo
 
-* Agora pode utilizar o Storage Explorer para aceder aos seus dados Blob através [do RBAC.](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409) Se estiver assinado e o Storage Explorer não conseguir recuperar as chaves da sua conta de Armazenamento, então será usado um token OAuth para autenticar quando interagir com os seus dados.
+* Agora pode utilizar o Storage Explorer para aceder aos seus dados Blob através [do RBAC.](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) Se estiver assinado e o Storage Explorer não conseguir recuperar as chaves da sua conta de Armazenamento, então será usado um token OAuth para autenticar quando interagir com os seus dados.
 * O Storage Explorer suporta agora as contas de armazenamento ADLS Gen2. Quando o Storage Explorer detetar que o espaço hierárquico está ativado para uma conta de Armazenamento, verá "(Pré-visualização ADLS Gen2)" ao lado do nome da sua conta de Armazenamento. O Storage Explorer é capaz de detetar se o espaço de nome hierárquico está ou não ativado quando está assinado ou se anexou a sua Conta de Armazenamento com nome e chave. Para contas de armazenamento ADLS Gen2, pode utilizar o Storage Explorer para:
   * Criar e apagar contentores
   * Gerir as propriedades e permissões dos contentores (do lado esquerdo)
@@ -628,7 +628,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
         
 ### <a name="new"></a>Novo
 
-* Agora pode utilizar o Storage Explorer para aceder aos seus dados Blob através [do RBAC.](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409) Se estiver assinado e o Storage Explorer não conseguir recuperar as chaves da sua conta de Armazenamento, então será usado um token OAuth para autenticar quando interagir com os seus dados.
+* Agora pode utilizar o Storage Explorer para aceder aos seus dados Blob através [do RBAC.](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) Se estiver assinado e o Storage Explorer não conseguir recuperar as chaves da sua conta de Armazenamento, então será usado um token OAuth para autenticar quando interagir com os seus dados.
 * O Storage Explorer suporta agora as contas de armazenamento ADLS Gen2. Quando o Storage Explorer detetar que o espaço hierárquico está ativado para uma conta de Armazenamento, verá "(Pré-visualização ADLS Gen2)" ao lado do nome da sua conta de Armazenamento. O Storage Explorer é capaz de detetar se o espaço de nome hierárquico está ou não ativado quando está assinado ou se anexou a sua Conta de Armazenamento com nome e chave. Para contas de armazenamento ADLS Gen2, pode utilizar o Storage Explorer para:
   * Criar e apagar contentores
   * Gerir as propriedades e permissões dos contentores (do lado esquerdo)
@@ -683,7 +683,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 
 ### <a name="new"></a>Novo
 
-* Agora pode utilizar o Storage Explorer para aceder aos seus dados Blob através [do RBAC.](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409) Se estiver assinado e o Storage Explorer não conseguir recuperar as chaves da sua conta de Armazenamento, então será usado um token OAuth para autenticar quando interagir com os seus dados.
+* Agora pode utilizar o Storage Explorer para aceder aos seus dados Blob através [do RBAC.](./storage/common/storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) Se estiver assinado e o Storage Explorer não conseguir recuperar as chaves da sua conta de Armazenamento, então será usado um token OAuth para autenticar quando interagir com os seus dados.
 * O Storage Explorer suporta agora as contas de armazenamento ADLS Gen2. Quando o Storage Explorer detetar que o espaço hierárquico está ativado para uma conta de Armazenamento, verá "(Pré-visualização ADLS Gen2)" ao lado do nome da sua conta de Armazenamento. O Storage Explorer é capaz de detetar se o espaço de nome hierárquico está ou não ativado quando está assinado ou se anexou a sua Conta de Armazenamento com nome e chave. Para contas de armazenamento ADLS Gen2, pode utilizar o Storage Explorer para:
   * Criar e apagar contentores
   * Gerir as propriedades e permissões dos contentores (do lado esquerdo)
@@ -1144,7 +1144,7 @@ Finalmente, o suporte para a utilização do AzCopy com ações de ficheiros vir
 
 ### <a name="new"></a>Novo
 * O Storage Explorer suporta agora a utilização do Azurite. Nota: a ligação a Azurite está codificada nos pontos finais de desenvolvimento predefinidos.
-* O Storage Explorer suporta agora os Níveis de Acesso apenas para blob e contas de armazenamento GPV2. Saiba mais sobre os Níveis de Acesso [aqui.](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)
+* O Storage Explorer suporta agora os Níveis de Acesso apenas para blob e contas de armazenamento GPV2. Saiba mais sobre os Níveis de Acesso [aqui.](./storage/blobs/storage-blob-storage-tiers.md)
 * Já não é necessário um tempo de início para gerar um SAS.
 
 ### <a name="fixes"></a>Correções
@@ -1204,7 +1204,7 @@ Finalmente, o suporte para a utilização do AzCopy com ações de ficheiros vir
 * O feedback do Storage Explorer vive agora no GitHub. Pode chegar à nossa página de problemas clicando no botão de Feedback na parte inferior esquerda ou indo para [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues) . Sinta-se livre para fazer sugestões, relatar questões, fazer perguntas ou deixar qualquer outra forma de feedback.
 * Se encontrar problemas com o Certificado TLS/SSL e não conseguir encontrar o certificado de ofensa, pode agora lançar o Storage Explorer a partir da linha de comando com a `--ignore-certificate-errors` bandeira. Quando lançado com esta bandeira, o Storage Explorer ignorará os erros de certificado TLS/SSL.
 * Existe agora uma opção 'Download' no menu de contexto para itens de blob e ficheiros.
-* Melhor acessibilidade e suporte ao leitor de ecrã. Se confia nas funcionalidades de acessibilidade, consulte a nossa [documentação de acessibilidade](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) para mais informações.
+* Melhor acessibilidade e suporte ao leitor de ecrã. Se confia nas funcionalidades de acessibilidade, consulte a nossa [documentação de acessibilidade](./vs-azure-tools-storage-explorer-accessibility.md) para mais informações.
 * O Explorador de Armazenamento agora utiliza o Eletrão 1.8.3
 
 ### <a name="breaking-changes"></a>Alterações Interruptivas

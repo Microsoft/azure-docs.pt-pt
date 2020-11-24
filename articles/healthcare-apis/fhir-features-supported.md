@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 71097f13fffbbe5cb57a69c98fb0ab272e16af5c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3aea2322129c383a385168c54001464da5dae276
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026306"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520089"
 ---
 # <a name="features"></a>Funcionalidades
 
@@ -29,25 +29,25 @@ As versões anteriores também suportadas incluem: `3.0.2`
 
 | API                            | Suportado - PaaS | Suportado - OSS (SQL) | Suportado - OSS (Cosmos DB) | Comentário                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| leitura                           | Yes       | Yes       | Yes       |                                                     |
-| vread                          | Yes       | Yes       | Yes       |                                                     |
-| update                         | Yes       | Yes       | Yes       |                                                     |
-| atualização com bloqueio otimista | Yes       | Yes       | Yes       |                                                     |
-| atualização (condicional)           | Yes       | Yes       | Yes       |                                                     |
-| patch                          | No        | No        | No        |                                                     |
-| delete                         | Yes       | Yes       | Yes       |                                                     |
-| eliminar (condicional)           | No        | No        | No        |                                                     |
-| histórico                        | Yes       | Yes       | Yes       |                                                     |
-| criar                         | Yes       | Yes       | Yes       | Apoiar tanto o POST/PUT                               |
-| criar (condicional)           | Yes       | Yes       | Yes       | Emissão [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
+| leitura                           | Sim       | Sim       | Sim       |                                                     |
+| vread                          | Sim       | Sim       | Sim       |                                                     |
+| update                         | Sim       | Sim       | Sim       |                                                     |
+| atualização com bloqueio otimista | Sim       | Sim       | Sim       |                                                     |
+| atualização (condicional)           | Sim       | Sim       | Sim       |                                                     |
+| patch                          | Não        | Não        | Não        |                                                     |
+| delete                         | Sim       | Sim       | Sim       |                                                     |
+| eliminar (condicional)           | Não        | Não        | Não        |                                                     |
+| histórico                        | Sim       | Sim       | Sim       |                                                     |
+| criar                         | Sim       | Sim       | Sim       | Apoiar tanto o POST/PUT                               |
+| criar (condicional)           | Sim       | Sim       | Sim       | Emissão [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | pesquisar                         | Parcial   | Parcial   | Parcial   | Veja abaixo                                           |
-| pesquisa acorrentada                 | No        | Yes       | No        |                                           |
-| pesquisa acorrentada inversa         | No        | No        | No        |                                            |
-| capacidades                   | Yes       | Yes       | Yes       |                                                     |
-| lote                          | Yes       | Yes       | Yes       |                                                     |
-| transação                    | No        | Yes       | No        |                                                     |
+| pesquisa acorrentada                 | Não        | Sim       | Não        |                                           |
+| pesquisa acorrentada inversa         | Não        | Não        | Não        |                                            |
+| capacidades                   | Sim       | Sim       | Sim       |                                                     |
+| lote                          | Sim       | Sim       | Sim       |                                                     |
+| transação                    | Não        | Sim       | Não        |                                                     |
 | paging                         | Parcial   | Parcial   | Parcial   | `self` e `next` são apoiados                     |
-| intermediários                 | No        | No        | No        |                                                     |
+| intermediários                 | Não        | Não        | Não        |                                                     |
 
 ## <a name="search"></a>Pesquisa
 
@@ -55,59 +55,59 @@ Todos os tipos de parâmetros de pesquisa são suportados.
 
 | Tipo de parâmetro de pesquisa | Suportado - PaaS | Suportado - OSS (SQL) | Suportado - OSS (Cosmos DB) | Comentário |
 |-----------------------|-----------|-----------|-----------|---------|
-| Número                | Yes       | Yes       | Yes       |         |
-| Data/Data         | Yes       | Yes       | Sim       |         |
-| String                | Yes       | Yes       | Yes       |         |
-| Token                 | Yes       | Yes       | Yes       |         |
-| Referência             | Yes       | Yes       | Yes       |         |
-| Composto             | Yes       | Yes       | Yes       |         |
-| Quantidade              | Yes       | Yes       | Yes       |         |
-| URI                   | Yes       | Yes       | Yes       |         |
-| Especial               | No        | No        | No        |         |
+| Número                | Sim       | Sim       | Sim       |         |
+| Data/Data         | Sim       | Sim       | Sim       |         |
+| String                | Sim       | Sim       | Sim       |         |
+| Token                 | Sim       | Sim       | Sim       |         |
+| Referência             | Sim       | Sim       | Sim       |         |
+| Composto             | Sim       | Sim       | Sim       |         |
+| Quantidade              | Sim       | Sim       | Sim       |         |
+| URI                   | Sim       | Sim       | Sim       |         |
+| Especial               | Não        | Não        | Não        |         |
 
 
 | Modificadores             | Suportado - PaaS | Suportado - OSS (SQL) | Suportado - OSS (Cosmos DB) | Comentário |
 |-----------------------|-----------|-----------|-----------|---------|
-|`:missing`             | Yes       | Yes       | Yes       |         |
-|`:exact`               | Yes       | Yes       | Yes       |         |
-|`:contains`            | Yes       | Yes       | Yes       |         |
-|`:text`                | Yes       | Yes       | Yes       |         |
-|`:in` (símbolo)          | No        | No        | No        |         |
-|`:below` (símbolo)       | No        | No        | No        |         |
-|`:above` (símbolo)       | No        | No        | No        |         |
-|`:not-in` (símbolo)      | No        | No        | No        |         |
-|`:[type]` (referência)  | No        | No        | No        |         |
-|`:below` (uri)         | Yes       | Yes       | Yes       |         |
-|`:not`                 | No        | No        | No        |         |
-|`:above` (uri)         | No        | No        | No        | Emissão [#158](https://github.com/Microsoft/fhir-server/issues/158) |
+|`:missing`             | Sim       | Sim       | Sim       |         |
+|`:exact`               | Sim       | Sim       | Sim       |         |
+|`:contains`            | Sim       | Sim       | Sim       |         |
+|`:text`                | Sim       | Sim       | Sim       |         |
+|`:in` (símbolo)          | Não        | Não        | Não        |         |
+|`:below` (símbolo)       | Não        | Não        | Não        |         |
+|`:above` (símbolo)       | Não        | Não        | Não        |         |
+|`:not-in` (símbolo)      | Não        | Não        | Não        |         |
+|`:[type]` (referência)  | Não        | Não        | Não        |         |
+|`:below` (uri)         | Sim       | Sim       | Sim       |         |
+|`:not`                 | Não        | Não        | Não        |         |
+|`:above` (uri)         | Não        | Não        | Não        | Emissão [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Parâmetro de pesquisa comum | Suportado - PaaS | Suportado - OSS (SQL) | Suportado - OSS (Cosmos DB) | Comentário |
 |-------------------------| ----------| ----------| ----------|---------|
-| `_id`                   | Yes       | Yes       | Yes       |         |
-| `_lastUpdated`          | Yes       | Yes       | Yes       |         |
-| `_tag`                  | Yes       | Yes       | Yes       |         |
-| `_profile`              | Yes       | Yes       | Yes       |         |
-| `_security`             | Yes       | Yes       | Yes       |         |
-| `_text`                 | No        | No        | No        |         |
-| `_content`              | No        | No        | No        |         |
-| `_list`                 | Yes       | Yes       | Yes       |         |
-| `_has`                  | No        | No        | No        |         |
-| `_type`                 | Yes       | Yes       | Yes       |         |
-| `_query`                | No        | No        | No        |         |
-| `_filter`               | No        | No        | No        |         |
+| `_id`                   | Sim       | Sim       | Sim       |         |
+| `_lastUpdated`          | Sim       | Sim       | Sim       |         |
+| `_tag`                  | Sim       | Sim       | Sim       |         |
+| `_profile`              | Sim       | Sim       | Sim       |         |
+| `_security`             | Sim       | Sim       | Sim       |         |
+| `_text`                 | Não        | Não        | Não        |         |
+| `_content`              | Não        | Não        | Não        |         |
+| `_list`                 | Sim       | Sim       | Sim       |         |
+| `_has`                  | Não        | Não        | Não        |         |
+| `_type`                 | Sim       | Sim       | Sim       |         |
+| `_query`                | Não        | Não        | Não        |         |
+| `_filter`               | Não        | Não        | Não        |         |
 
 | Parâmetros de resultado de pesquisa | Suportado - PaaS | Suportado - OSS (SQL) | Suportado - OSS (Cosmos DB) | Comentário |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Parcial        | Parcial   | Parcial        |   `_sort=_lastUpdated` é apoiado       |
-| `_count`                | Yes       | Yes       | Yes       | `_count` está limitado a 100 caracteres. Se for fixado para mais de 100, apenas 100 serão devolvidos e um aviso será devolvido no pacote. |
-| `_include`              | Yes       | Yes       | Yes       |Os itens incluídos estão limitados a 100. Incluir no PaaS e o OSS na Cosmos DB não inclui :suporte iterate.|
-| `_revinclude`           | Yes       | Yes       | Yes       | Os itens incluídos estão limitados a 100. Incluir no PaaS e o OSS na Cosmos DB não inclui :suporte iterate.|
+| `_count`                | Sim       | Sim       | Sim       | `_count` está limitado a 100 caracteres. Se for fixado para mais de 100, apenas 100 serão devolvidos e um aviso será devolvido no pacote. |
+| `_include`              | Sim       | Sim       | Sim       |Os itens incluídos estão limitados a 100. Incluir no PaaS e o OSS na Cosmos DB não inclui :suporte iterate.|
+| `_revinclude`           | Sim       | Sim       | Sim       | Os itens incluídos estão limitados a 100. Incluir no PaaS e o OSS na Cosmos DB não inclui :suporte iterate.|
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` é apoiado |
 | `_total`                | Parcial   | Parcial   | Parcial   | _total=não e _total=preciso      |
-| `_elements`             | Yes       | Yes       | Yes       |         |
-| `_contained`            | No        | No        | No        |         |
-| `containedType`         | No        | No        | No        |         |
-| `_score`                | No        | No        | No        |         |
+| `_elements`             | Sim       | Sim       | Sim       |         |
+| `_contained`            | Não        | Não        | Não        |         |
+| `containedType`         | Não        | Não        | Não        |         |
+| `_score`                | Não        | Não        | Não        |         |
 
 ## <a name="extended-operations"></a>Operações Alargadas
 
@@ -115,9 +115,9 @@ Todas as operações que são apoiadas que alargam a API RESTful.
 
 | Tipo de parâmetro de pesquisa | Suportado - PaaS | Suportado - OSS (SQL) | Suportado - OSS (Cosmos DB) | Comentário |
 |------------------------|-----------|-----------|-----------|---------|
-| $export (todo o sistema) | Yes       | Yes       | Yes       |         |
-| Paciente/$export        | Yes       | Yes       | Yes       |         |
-| Grupo/$export          | Yes       | Yes       | Yes       |         |
+| $export (todo o sistema) | Sim       | Sim       | Sim       |         |
+| Paciente/$export        | Sim       | Sim       | Sim       |         |
+| Grupo/$export          | Sim       | Sim       | Sim       |         |
 
 ## <a name="persistence"></a>Persistência
 
@@ -129,7 +129,7 @@ Cosmos DB é uma base de dados multi-modelo distribuída globalmente (SQL API, M
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
-O Servidor FHIR utiliza [o Azure Ative Directory](https://azure.microsoft.com/services/active-directory/) para controlo de acessos. Especificamente, Role-Based Controlo de Acesso (RBAC) é aplicado, se o `FhirServer:Security:Enabled` parâmetro de configuração estiver definido para `true` , e todos os pedidos (exceto `/metadata` ) para o Servidor FHIR devem ter `Authorization` o cabeçalho de pedido definido para `Bearer <TOKEN>` . O símbolo deve conter uma ou mais funções, tal como definidas na `roles` reivindicação. Um pedido será permitido se o token contiver uma função que permita a ação especificada sobre o recurso especificado.
+O Servidor FHIR utiliza [o Azure Ative Directory](https://azure.microsoft.com/services/active-directory/) para controlo de acessos. Especificamente, o controlo de acesso baseado em funções (RBAC) é aplicado, se o parâmetro de `FhirServer:Security:Enabled` configuração for definido para `true` , e todos os pedidos (exceto ) para o Servidor `/metadata` FHIR devem ter o `Authorization` cabeçalho de pedido definido para `Bearer <TOKEN>` . O símbolo deve conter uma ou mais funções, tal como definidas na `roles` reivindicação. Um pedido será permitido se o token contiver uma função que permita a ação especificada sobre o recurso especificado.
 
 Atualmente, as ações permitidas para um determinado papel são aplicadas *globalmente* na API.
 
@@ -154,7 +154,7 @@ O desempenho do sistema depende do número de RUs, ligações simultâneas e do 
 | 10,000   | 225-400       |
 | 100.000  | 2,500-4,000   |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você leu sobre as funcionalidades de FHIR suportadas na Azure API para FHIR. Em seguida, implemente a AZure API para fHIR.
  

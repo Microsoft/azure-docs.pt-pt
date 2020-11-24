@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
-ms.openlocfilehash: fb81405e85d6e2653e0cf6c007c363493992161a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3417b59d0be9e285f8793ef598abb7f98bda7549
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419976"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527994"
 ---
 # <a name="networking-in-azure-red-hat-on-openshift-4"></a>Networking em Azure Red Hat no OpenShift 4
 
@@ -98,7 +98,7 @@ As seguintes definições de rede estão disponíveis no Azure Red Hat OpenShift
     * "Público" - O Servidor API é acessível por redes externas.
     * "Private" - API Server atribuiu um IP privado à sub-rede masters, apenas acessível através de redes conectadas (redes virtuais espreitadas, outras sub-redes no cluster). Será criada uma Zona DE DNS privada em nome do cliente.
 * **Ingress Visibilidade** - Desemita a visibilidade da API ao executar o [comando az aro create](tutorial-create-cluster.md#create-the-cluster).
-    * As rotas "públicas" serão indefinidas para o Esquilibr de Carga Padrão Azure (isto pode ser alterado).
+    * As rotas "públicas" serão infringidas por um Balanceador de Carga Padrão público (isto pode ser alterado).
     * As rotas "privadas" serão incumpridoras para o balanceador interno de carga (isto pode ser alterado).
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede

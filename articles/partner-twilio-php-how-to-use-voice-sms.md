@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 2ce0e34032d8f0d07af3a7dcd3c47558814be7bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf1ab01b39d594002bc5e677ffe6c3049fbb91ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826813"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521024"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Como usar twilio para capacidades de voz e SMS em PHP
 Este guia demonstra como executar tarefas de programação comuns com o serviço Twilio API em Azure. Os cenários abrangidos incluem fazer uma chamada telefónica e enviar uma mensagem do Serviço de Mensagens Curtas (SMS). Para obter mais informações sobre Twilio e utilizando voz e SMS nas suas aplicações, consulte a secção [Etapas Seguintes.](#NextSteps)
@@ -38,20 +38,20 @@ A API Twilio é uma API RESTful que fornece funcionalidade de voz e SMS para apl
 Os principais aspetos da API de Twilio são os verbos Twilio e a Língua de Marcação Twilio (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Verbos Twilio
-A API faz uso de verbos twilio; por exemplo, o verbo ** &lt; Say &gt; ** instrui Twilio a entregar uma mensagem audivelmente numa chamada.
+A API faz uso de verbos twilio; por exemplo, o verbo **&lt; Say &gt;** instrui Twilio a entregar uma mensagem audivelmente numa chamada.
 
 Segue-se uma lista de verbos de Twilio. Saiba mais sobre os outros verbos e capacidades através da [documentação da linguagem Twilio Markup](https://www.twilio.com/docs/api/twiml).
 
-* Marcação : Liga o chamador a outro telefone. ** &lt; &gt; **
-* ** &lt; Recolha: &gt; **Coleciona dígitos numéricos introduzidos no teclado do telefone.
-* ** &lt; Hangup &gt; **: Termina uma chamada.
-* ** &lt; Reproduzir: &gt; **Reproduz um ficheiro áudio.
-* ** &lt; Pausa &gt; **: Aguarde silenciosamente um número especificado de segundos.
-* ** &lt; Record: &gt; **Grava a voz do autor da chamada e devolve um URL de um ficheiro que contém a gravação.
-* ** &lt; Redirecionamento &gt; **: Transfere o controlo de uma chamada ou SMS para o TwiML num URL diferente.
-* ** &lt; Rejeitar: &gt; **Rejeita uma chamada recebida para o seu número Twilio sem o cobrar
-* ** &lt; Diga: &gt; **Converte texto para discurso que é feito numa chamada.
-* ** &lt; Sms &gt; **: Envia uma mensagem SMS.
+* Marcação : Liga o chamador a outro telefone. **&lt; &gt;**
+* **&lt; Recolha: &gt;** Coleciona dígitos numéricos introduzidos no teclado do telefone.
+* **&lt; Hangup &gt;**: Termina uma chamada.
+* **&lt; Reproduzir: &gt;** Reproduz um ficheiro áudio.
+* **&lt; Pausa &gt;**: Aguarde silenciosamente um número especificado de segundos.
+* **&lt; Record: &gt;** Grava a voz do autor da chamada e devolve um URL de um ficheiro que contém a gravação.
+* **&lt; Redirecionamento &gt;**: Transfere o controlo de uma chamada ou SMS para o TwiML num URL diferente.
+* **&lt; Rejeitar: &gt;** Rejeita uma chamada recebida para o seu número Twilio sem o cobrar
+* **&lt; Diga: &gt;** Converte texto para discurso que é feito numa chamada.
+* **&lt; Sms &gt;**: Envia uma mensagem SMS.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TWIML
 TwiML é um conjunto de instruções baseadas em XML com base nos verbos Twilio que informam Twilio de como processar uma chamada ou SMS.
@@ -210,7 +210,7 @@ print $response;
 
 Para obter mais informações sobre o TwiML, consulte [https://www.twilio.com/docs/api/twiml][twiml_reference] . 
 
-Assim que tiver a sua página PHP configurada para fornecer respostas TwiML, utilize o URL da página PHP à medida que o URL passou para o  `Services_Twilio->account->calls->create`  método. Por exemplo, se tiver uma aplicação Web chamada **MyTwiML** implantada num serviço hospedado em Azure, e o nome da página PHP for **mytwiml.php,** o URL pode ser transmitido para  **Services_Twilio->chamadas >>>criar**  como mostrado no seguinte exemplo:
+Assim que tiver a sua página PHP configurada para fornecer respostas TwiML, utilize o URL da página PHP à medida que o URL passou para o  `Services_Twilio->account->calls->create`  método. Por exemplo, se tiver uma aplicação Web chamada **MyTwiML** implantada num serviço hospedado no Azure, e o nome da página PHP for **mytwiml.php**, o URL pode ser transmitido para  **chamadas >>>Services_Twilio criar**  como mostrado no seguinte exemplo:
 
 ```php
 require_once 'Services/Twilio.php';
@@ -262,7 +262,7 @@ Agora que aprendeu o básico do serviço Twilio, siga estes links para saber mai
 [howto_phonecall_php]: partner-twilio-php-make-phone-call.md
 [twilio_voice_request]: https://www.twilio.com/docs/api/twiml/twilio_request
 [twilio_sms_request]: https://www.twilio.com/docs/api/twiml/sms/twilio_request
-[misc_role_config_settings]: https://msdn.microsoft.com/library/windowsazure/hh690945.aspx
+[misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message
 [twimlet_message_url_hello_world]: https://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twiml_reference]: https://www.twilio.com/docs/api/twiml

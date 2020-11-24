@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 18222573956f5ff3e9c617602902374b114328da
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4fa00bffc35c4ed67ce70751c8882b74ad6b01a1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555622"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534505"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>O que há de novo na documentação do Monitor Azure?
 
@@ -296,7 +296,7 @@ Artigos novos e atualizados da reestruturação do Azure Monitor para conteúdos
 
 ### <a name="logs"></a>Registos
 - [Eliminar e recuperar o espaço de trabalho Azure Log Analytics](platform/delete-workspace.md) - Comando PowerShell adicionado. Resolução de problemas atualizada.
-- [Gerir os espaços de trabalho do Log Analytics no Azure Monitor](platform/manage-access.md) - Exemplo adicional para tabelas não permitidas na secção RBAC.
+- [Gerir os espaços de trabalho do Log Analytics no Azure Monitor](platform/manage-access.md) - Exemplo adicional para tabelas não permitidas na secção Azure RBAC.
 - [Gerir a utilização e os custos dos Registos monitores Azure](platform/manage-cost-storage.md) - Detalhes adicionais no cálculo do tamanho dos dados. Alertas de volume de dados atualizados. Detalhes sobre os dados de segurança recolhidos pelo Azure Sentinel. Esclarecimento sobre a tampa de dados.
 - [Utilize registos do Monitor Azure com aplicações lógicas Azure e limites de](platform/logicapp-flow-connector.md) automatização de energia.
 
@@ -571,7 +571,7 @@ Múltiplas atualizações como parte da reescrita do conteúdo de extensão de d
 
 #### <a name="azure-monitor-for-containers"></a>Azure Monitor para Contentores
 
-- [Integre o Azure Ative Directory com o Serviço Azure Kubernetes](../aks/azure-ad-integration-cli.md) - Nota adicionada para criar uma aplicação de cliente para apoiar o cluster ativado pelo RBAC para apoiar o Azure Monitor para contentores.
+- [Integre o Azure Ative Directory com o Serviço Azure Kubernetes](../aks/azure-ad-integration-cli.md) - Nota adicionada para criar uma aplicação de cliente para apoiar o cluster ativado por SIDA para apoiar o Azure Monitor para contentores.
 
 #### <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
 

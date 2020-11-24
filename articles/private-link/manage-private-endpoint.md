@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2987cd1ff8c678f7079e13e8b9bc657817c066f1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737500"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531377"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Manage a Private Endpoint connection (Gerir uma ligação de Ponto Final Privado)
 A Azure Private Link trabalha num modelo de fluxo de chamada de aprovação em que o consumidor do serviço Private Link pode solicitar uma ligação ao prestador de serviços para o consumo do serviço. O prestador de serviços pode então decidir se permite ou não a ligação do consumidor. O Azure Private Link permite aos prestadores de serviços gerir a ligação privada de ponto final nos seus recursos. Este artigo fornece instruções sobre como gerir as ligações Private Endpoint.
@@ -20,8 +20,8 @@ A Azure Private Link trabalha num modelo de fluxo de chamada de aprovação em q
 ![Gerir pontos finais privados](media/manage-private-endpoint/manage-private-endpoint.png)
 
 Existem dois métodos de aprovação de ligação que um consumidor de serviço de Ligação Privada pode escolher:
-- **Automático**: Se o consumidor de serviço tiver permissões de RBAC no recurso do prestador de serviços, o consumidor pode escolher o método de aprovação automática. Neste caso, quando o pedido chega ao recurso do prestador de serviços, não é necessária qualquer ação do prestador de serviços e a ligação é automaticamente aprovada. 
-- **Manual**: Pelo contrário, se o consumidor de serviço não tiver permissões DE RBAC no recurso do prestador de serviços, o consumidor pode escolher o método de aprovação manual. Neste caso, o pedido de ligação aparece nos recursos de serviço como **Pendente**. O prestador de serviços tem de aprovar manualmente o pedido antes de serem estabelecidas ligações. Em casos manuais, o consumidor de serviços também pode especificar uma mensagem com o pedido de fornecer mais contexto ao prestador de serviços. O prestador de serviços tem as seguintes opções a escolher para todas as ligações Private Endpoint: **Aprovado,** **Rejeitar,** **Remover**.
+- **Automático**: Se o consumidor de serviço tiver permissões Azure RBAC no recurso do prestador de serviços, o consumidor pode escolher o método de aprovação automática. Neste caso, quando o pedido chega ao recurso do prestador de serviços, não é necessária qualquer ação do prestador de serviços e a ligação é automaticamente aprovada. 
+- **Manual**: Pelo contrário, se o consumidor de serviço não tiver permissões Azure RBAC no recurso do prestador de serviços, o consumidor pode escolher o método de aprovação manual. Neste caso, o pedido de ligação aparece nos recursos de serviço como **Pendente**. O prestador de serviços tem de aprovar manualmente o pedido antes de serem estabelecidas ligações. Em casos manuais, o consumidor de serviços também pode especificar uma mensagem com o pedido de fornecer mais contexto ao prestador de serviços. O prestador de serviços tem as seguintes opções a escolher para todas as ligações Private Endpoint: **Aprovado,** **Rejeitar,** **Remover**.
 
 A tabela abaixo mostra as várias ações do prestador de serviços e os estados de conexão resultantes para private endpoints.  O prestador de serviços também pode alterar o estado de ligação da ligação privada de ponto final mais tarde sem a intervenção do consumidor. A ação atualizará o estado do ponto final do lado do consumidor. 
 

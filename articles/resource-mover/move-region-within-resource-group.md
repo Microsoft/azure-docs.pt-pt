@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 716928761d23c2cf04ebcc72e253ad7884408065
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34064fe3fe88a34b0dd2430d7adec3ebcb17ebcc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061852"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528232"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Mover recursos através das regiões (do grupo de recursos)
 
@@ -27,7 +27,7 @@ Neste artigo, aprenda a mover recursos num grupo de recursos específicos para u
 - Precisa do acesso *do Proprietário* à subscrição em que estão localizados os recursos que pretende mover.
     - A primeira vez que adiciona um recurso para uma fonte específica e mapeamento de destino numa subscrição do Azure, o Resource Mover cria uma [identidade gerida atribuída ao sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anteriormente conhecida como Managed Service Identify (MSI)) que é fidedigna pela subscrição.
     - Para criar a identidade e atribuir-lhe a função necessária (administrador de Acesso ao Utilizador ou Colaborador na subscrição de origem), a conta que utiliza para adicionar recursos necessita de permissões *do Proprietário* na subscrição. [Saiba mais](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre os papéis do Azure.
-- A subscrição necessita de quotas suficientes para criar os recursos de origem na região-alvo. Se não, peça limites adicionais. [Saiba mais](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- A subscrição necessita de quotas suficientes para criar os recursos de origem na região-alvo. Se não, peça limites adicionais. [Saiba mais](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Verifique os preços e os encargos associados à região-alvo para a qual está a mover VMs. Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para ajudá-lo.
 - Verifique se os recursos que pretende mover são suportados pela Resource Mover:
     - VMs Azure e discos associados
@@ -64,7 +64,7 @@ Selecione os recursos que pretende mover. Você move recursos para uma região a
 
     ![Seleção para transferir recursos para uma região diferente](./media/move-region-within-resource-group/select-move-region.png)
     
-4. Na **Fonte + destino,** selecione a região alvo para a qual pretende mover os recursos. e selecione **Seguinte**.
+4. Na **Fonte + destino,** selecione a região alvo para a qual pretende mover os recursos. Em seguida, selecione **Seguinte**.
 
 
     ![Página de origem e destino para selecionar região alvo](./media/move-region-within-resource-group/source-target.png)
@@ -110,7 +110,7 @@ Os recursos que está a mover aparecem na página **das regiões,** num estado p
 
 Antes de poder preparar e mover recursos, o grupo de recursos de origem deve estar presente na região alvo. 
 
-### <a name="prepare-to-move-the-source-resource-group"></a>Prepare-se para mover o grupo de recursos de origem
+### <a name="prepare-to-move-the-source-resource-group"></a>Preparar para mover o grupo de recursos de origem
 
 Prepare-se da seguinte forma:
 
@@ -182,7 +182,7 @@ Agora que o grupo de recursos de origem está movido, pode preparar-se para move
 
 Com os recursos preparados, pode agora iniciar a mudança.
 
-1. Em **Todas as regiões**, selecione recursos com *movimento de iniciado*do estado pendente . Em seguida, **selecione Iniciar movimento**.
+1. Em **Todas as regiões**, selecione recursos com *movimento de iniciado* do estado pendente . Em seguida, **selecione Iniciar movimento**.
 2. Em **Recursos move,** selecione **Iniciar movimento**.
 
     ![Selecione para o botão de movimento iniciado](./media/move-region-within-resource-group/initiate-move.png)

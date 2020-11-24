@@ -7,17 +7,17 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d3bedfae88544d0b0ebd07868438559305279fed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747694"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95530119"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurar log analytics espaço de trabalho para monitor azure para VMs
 O Azure Monitor para VMs recolhe os seus dados de um ou mais espaços de trabalho do Log Analytics no Azure Monitor. Antes dos agentes de bordo, deve criar e configurar um espaço de trabalho. Este artigo descreve os requisitos do espaço de trabalho e configura-o para o Azure Monitor para VMs.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Uma única subscrição pode utilizar qualquer número de espaços de trabalho dependendo dos seus requisitos O único requisito do espaço de trabalho é que esteja localizado num local suportado e configurado com a solução *VMInsights.*
 
 Uma vez configurado o espaço de trabalho, pode utilizar qualquer uma das opções disponíveis para instalar os agentes necessários em VM e VMSS e especificar um espaço de trabalho para que eles enviem os seus dados. O Azure Monitor para VMs recolherá dados de qualquer espaço de trabalho configurado na sua subscrição.
@@ -68,7 +68,7 @@ O Azure Monitor for VMs suporta espaços de trabalho log Analytics nas seguintes
 - Leste da Austrália
 - Austrália Sudeste
 
-## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
+## <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
 Para ativar e aceder às funcionalidades em Azure Monitor para VMs, tem de ter o [papel de colaborador do Log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho. Para visualizar dados de desempenho, saúde e mapa, deve ter o [papel de leitor de monitorização](../platform/roles-permissions-security.md#built-in-monitoring-roles) para o VM Azure. Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, consulte [Gerir espaços de trabalho.](../platform/manage-access.md)
 
 ## <a name="add-vminsights-solution-to-workspace"></a>Adicionar solução VMInsights ao espaço de trabalho

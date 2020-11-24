@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983594"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522673"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de registo e métrica armazenados no Azure Monitor.
@@ -49,7 +49,7 @@ Aqui está um vídeo sobre a criação de dashboards.
 - Profunda integração no Azure. As visualizações podem ser fixadas a dashboards de várias páginas Azure, incluindo Metrics Explorer, Log Analytics e Application Insights.
 - Suporta métricas e registos.
 - Combine dados de várias fontes, incluindo a saída do explorador de [métricas,](platform/metrics-charts.md) [consultas de registo,](log-query/log-query-overview.md) [mapas](app/app-map.md) e disponibilidade em Insights de Aplicação.
-- Opção para dashboards pessoais ou partilhados. Integrado com a [autenticação baseada em funções](../role-based-access-control/overview.md)Azure (RBAC) .
+- Opção para dashboards pessoais ou partilhados. Integrado com [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md).
 - Refrescamento automático. A atualização das métricas depende do intervalo de tempo com um mínimo de cinco minutos. Os registos atualizam-se a cada hora, com uma opção de atualização manual a pedido clicando no ícone "refresh" numa determinada visualização, ou refrescando o painel completo.
 - Dashboards de métricas parametrizados com tempotamp e parâmetros personalizados.
 - Opções de layout flexíveis.

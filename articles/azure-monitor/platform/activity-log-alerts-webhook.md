@@ -4,12 +4,12 @@ description: Saiba mais sobre o esquema do JSON que é publicado num URL webhook
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 0ebaf7f0cc52ac131573226dfff5516581745c67
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 026613c3f5710137fb110153b34f9ed74bbf8a7b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104279"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522792"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividades do Azure
 Como parte da definição de um grupo de ação, você pode configurar pontos finais webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar estas notificações para outros sistemas para ações pós-processamento ou personalizadas. Este artigo mostra como é a carga útil do HTTP POST para um webhook.
@@ -269,7 +269,7 @@ Para obter detalhes específicos sobre os alertas de registo de atividades de no
 | resourceGroupName |Nome do grupo de recursos para o recurso impactado. |
 | propriedades |Conjunto de `<Key, Value>` pares (isto é, `Dictionary<String, String>` ) que inclui detalhes sobre o evento. |
 | evento |Elemento que contém metadados sobre o evento. |
-| autorização |As Role-Based propriedades de Controlo de Acesso do evento. Estas propriedades geralmente incluem a ação, o papel e o âmbito. |
+| autorização |As propriedades de controlo de acesso baseadas em funções Azure do evento. Estas propriedades geralmente incluem a ação, o papel e o âmbito. |
 | categoria |Categoria do evento. Os valores suportados incluem Administrativo, Alerta, Segurança, Saúde do Serviço e Recomendação. |
 | chamador |Endereço de e-mail do utilizador que realizou a operação, reclamação UPN ou reclamação SPN com base na disponibilidade. Pode ser nulo para certas chamadas do sistema. |
 | correlationId |Normalmente um GUID em formato de corda. Os eventos com correlationid pertencem à mesma ação maior e geralmente partilham uma correlaid. |

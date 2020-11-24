@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 11/13/2020
 ms.author: matjazl
-ms.openlocfilehash: 3bb168cf3f642d22096c54b3f35c7833afaff769
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 386003d7dae80e086f523b2cebe61aa0eee7b89e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635148"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527824"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>O que é Azure API para &reg; FHIR?
 
@@ -24,7 +24,7 @@ A Azure API para FHIR permite uma rápida troca de dados através de APIs de Int
 - Alto desempenho, baixa latência
 - Gestão segura de dados de saúde protegidos (PHI) num ambiente de nuvem compatível
 - SMART em FHIR para implementações móveis e web
-- Controle os seus próprios dados em escala com Role-Based Access Control (RBAC)
+- Controle os seus próprios dados em escala com o controlo de acesso baseado em funções (RBAC)
 - Rastreio de registo de auditoria para acesso, criação, modificação e leituras dentro de cada loja de dados
 
 A Azure API para FHIR permite-lhe criar e implementar um serviço FHIR em poucos minutos para alavancar a escala elástica da nuvem.  Paga-se apenas pela produção e armazenamento de que precisa. Os serviços Azure que alimentam a Azure API para fHIR são projetados para um desempenho rápido independentemente do tamanho dos conjuntos de dados que você está gerindo.
@@ -53,7 +53,7 @@ A utilização da API Azure para FHIR permite-lhe conectar-se com qualquer siste
 
 ### <a name="control-data-access-at-scale"></a>Controlo do Acesso de Dados à Escala
 
-Controla os seus dados. Role-Based Access Control (RBAC) permite-lhe gerir a forma como os seus dados são armazenados e acedidos.  Proporcionando maior segurança e reduzindo a carga de trabalho administrativa, você determina quem tem acesso aos conjuntos de dados que cria, com base nas definições de funções que cria para o seu ambiente.  
+Controla os seus dados. O controlo de acesso baseado em funções (RBAC) permite-lhe gerir a forma como os seus dados são armazenados e acedidos.  Proporcionando maior segurança e reduzindo a carga de trabalho administrativa, você determina quem tem acesso aos conjuntos de dados que cria, com base nas definições de funções que cria para o seu ambiente.  
 
 ### <a name="audit-logs-and-tracking"></a>Registos de auditoria e rastreio 
 

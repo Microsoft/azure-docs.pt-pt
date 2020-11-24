@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 6fd20cd9e3172d6ce80d2c18c2cfa41fcc044929
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8021d659c144bfb68c2714f1680b6ad27a51b56a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92508034"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522350"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto Final Privado do Azure?
 
@@ -28,7 +28,7 @@ O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço
 |Sub-rede    |  A sub-rede para implantar e alocar endereços IP privados a partir de uma rede virtual. Para obter os requisitos da sub-rede, consulte a secção Limitações neste artigo.         |
 |Recurso de ligação privada    |   O recurso de ligação privada para ligar usando iD ou pseudónimo de recurso, a partir da lista de tipos disponíveis. Será gerado um identificador de rede único para todo o tráfego enviado a este recurso.       |
 |Subresource-alvo   |      O subresource para ligar. Cada tipo de recurso de ligação privada tem diferentes opções para selecionar com base na preferência.    |
-|Método de aprovação de conexão    |  Automático ou manual. Com base nas permissões de controlo de acesso baseado em funções (RBAC), o seu ponto final privado pode ser aprovado automaticamente. Se tentar ligar-se a um recurso de ligação privada sem RBAC, utilize o método manual para permitir ao proprietário do recurso aprovar a ligação.        |
+|Método de aprovação de conexão    |  Automático ou manual. Com base nas permissões de controlo de acesso baseado em funções (Azure RBAC), o seu ponto final privado pode ser aprovado automaticamente. Se tentar ligar-se a um recurso de ligação privada sem aure RBAC, utilize o método manual para permitir ao proprietário do recurso aprovar a ligação.        |
 |Mensagem de Pedido     |  Pode especificar uma mensagem para que as ligações solicitadas sejam aprovadas manualmente. Esta mensagem pode ser usada para identificar um pedido específico.        |
 |Estado da ligação   |   Uma propriedade só de leitura que especifica se o ponto final privado está ativo. Apenas os pontos finais privados num estado aprovado podem ser utilizados para o envio de tráfego. Estados adicionais disponíveis: <br>-**Aprovado**: A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada.</br><br>-**Pendente**: A ligação foi criada manualmente e está pendente de aprovação pelo proprietário do recurso de ligação privada.</br><br>-**Rejeitado:** A ligação foi rejeitada pelo proprietário de recursos de ligação privada.</br><br>-**Desligado**: A ligação foi removida pelo proprietário do recurso de ligação privada. O ponto final privado torna-se informativo e deve ser eliminado para limpeza. </br>|
 
@@ -45,9 +45,9 @@ Aqui estão alguns detalhes chave sobre os pontos finais privados:
  
 - Vários pontos finais privados podem ser criados usando o mesmo recurso de ligação privada. Para uma única rede utilizando uma configuração comum do servidor DNS, a prática recomendada é utilizar um único ponto final privado para um dado recurso de ligação privada para evitar entradas ou conflitos duplicados na resolução dns. 
  
-- Vários pontos finais privados podem ser criados nas mesmas sub-redes ou diferentes dentro da mesma rede virtual. Existem limites para o número de pontos finais privados que pode criar numa subscrição. Para mais detalhes, consulte [os limites de Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Vários pontos finais privados podem ser criados nas mesmas sub-redes ou diferentes dentro da mesma rede virtual. Existem limites para o número de pontos finais privados que pode criar numa subscrição. Para mais detalhes, consulte [os limites de Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
-- A subscrição do recurso de ligação privada também deve ser registada no fornecedor de recursos Micosoft.Network. Para mais informações, consulte [os Fornecedores de Recursos Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
+- A subscrição do recurso de ligação privada também deve ser registada no fornecedor de recursos Micosoft.Network. Para mais informações, consulte [os Fornecedores de Recursos Azure.](../azure-resource-manager/management/resource-providers-and-types.md)
 
  
 ## <a name="private-link-resource"></a>Recurso de ligação privada 
@@ -136,7 +136,7 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao utilizar pontos
 - [Criar um ponto final privado para base de dados SQL utilizando o portal](create-private-endpoint-portal.md)
 - [Criar um ponto final privado para base de dados SQL utilizando PowerShell](create-private-endpoint-powershell.md)
 - [Criar um ponto final privado para base de dados SQL utilizando CLI](create-private-endpoint-cli.md)
-- [Criar um ponto final privado para armazenamento usando o portal](create-private-endpoint-storage-portal.md)
+- [Criar um ponto final privado para armazenamento usando o portal](./tutorial-private-endpoint-storage-portal.md)
 - [Criar um ponto final privado para a conta Azure Cosmos usando o portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Crie o seu próprio serviço de Ligação Privada utilizando a Azure PowerShell](create-private-link-service-powershell.md)
 - [Crie o seu próprio Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único utilizando o portal](../postgresql/howto-configure-privatelink-portal.md)

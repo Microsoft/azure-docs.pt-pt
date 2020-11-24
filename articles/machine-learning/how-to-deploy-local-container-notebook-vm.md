@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 05d810928a71aec0e3314c32051e5f3565413564
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 17b2d717ac6f244cb3ddddfdbc2f29581aa1f59f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444610"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527314"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implementar um modelo para a Azure Machine Learning computação de instâncias
 
@@ -40,7 +40,7 @@ Um caderno de exemplo que demonstra implementações locais está incluído na s
 
 1. A partir do [estúdio Azure Machine Learning,](https://ml.azure.com)selecione as suas instâncias de cálculo Azure Machine Learning.
 
-1. Abra a `samples-*` subdiretória e, em seguida, abra `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb` . Uma vez aberto, executar o caderno.
+1. Abra a `samples-*` subdiretória e, em seguida, abra `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb` . Uma vez aberto, executar o caderno.
 
     ![Screenshot do serviço local em execução no caderno](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 

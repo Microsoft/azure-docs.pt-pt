@@ -9,17 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: b7c442aaf6484e8e47bd6d00c91023fba43af75d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bca2f0229a15f44ff8f3589a9c1e80032036b97c
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325020"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95507214"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Começa com o Azure Machine Learning Studio (clássico) em R
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
-
+**APLICA-SE A:** ![ Esta é uma marca de verificação, o que significa que este artigo se aplica ao Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Este é um X, o que significa que este artigo se aplica ao Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 <!-- Stephen F Elston, Ph.D. -->
 Neste tutorial, você aprende a usar o Azure Machine Learning Studio (clássico) para criar, testar e executar código R. No final, terá uma solução de previsão completa.
@@ -76,9 +75,9 @@ Se necessitar de um tratamento mais completo do manuseamento de exceções R, le
 
 Teste e depure o seu código R em pequena escala em RStudio. Existem também casos em que terá de rastrear problemas de código R no [próprio Script Execut r.][execute-r-script] Além disso, é uma boa prática verificar os seus resultados no Machine Learning Studio (clássico).
 
-A saída da execução do seu código R e da plataforma Machine Learning Studio (classic) encontra-se principalmente em output.log. Algumas informações adicionais estão em error.log.
+A saída da execução do seu código R e da plataforma Machine Learning Studio (classic) encontra-se principalmente na saída.log. Algumas informações adicionais estão em erro.log.
 
-Se ocorrer um erro no Machine Learning Studio (clássico) enquanto executa o seu código R, o seu primeiro curso de ação deve ser olhar para error.log. Este ficheiro pode conter mensagens de erro úteis para o ajudar a compreender e corrigir o seu erro. Para visualizar error.log, **selecione Ver registo de erro** no painel de propriedades para o Script Execute [R][execute-r-script] que contém o erro.
+Se ocorrer um erro no Machine Learning Studio (clássico) enquanto executa o seu código R, o seu primeiro curso de ação deve ser olhar para o erro.log. Este ficheiro pode conter mensagens de erro úteis para o ajudar a compreender e corrigir o seu erro. Para visualizar erro.log, selecione **Ver registo de erro** no painel de propriedades para o Script Execute [R][execute-r-script] que contém o erro.
 
 Por exemplo, executamos o seguinte código R, com uma variável indefinida y, num módulo [executo R Script.][execute-r-script]
 
@@ -91,7 +90,7 @@ Este código não é executado, o que resulta numa condição de erro. Seleciona
 
   ![Screenshot que mostra uma mensagem de erro pop-up.](./media/r-quickstart/fig2.png)
 
-Parece que precisamos olhar em output.log para ver a mensagem de erro R. Selecione o módulo ['Script Execute R'][execute-r-script] e, em seguida, selecione o item **'Ver saída.log'** no painel de propriedades para a direita. Abre-se uma nova janela do navegador e aparece a seguinte mensagem de erro.
+Parece que precisamos olhar para a saída.log para ver a mensagem de erro R. Selecione o módulo ['Script Execute R'][execute-r-script] e, em seguida, selecione a **saída 'Ver.log** item no painel de propriedades para a direita. Abre-se uma nova janela do navegador e aparece a seguinte mensagem de erro.
 
 ```output
 [Critical]     Error: Error 0063: The following error occurred during evaluation of R script:
@@ -105,7 +104,7 @@ object 'y' not found
 
 Esta mensagem de erro não contém surpresas e identifica claramente o problema.
 
-Para verificar o valor de qualquer objeto em R, pode imprimir estes valores no ficheiro output.log. As regras para examinar os valores dos objetos são essencialmente as mesmas que numa sessão R interativa. Por exemplo, se introduzir um nome variável numa linha, o valor do objeto será impresso no ficheiro output.log.
+Para verificar o valor de qualquer objeto em R, pode imprimir estes valores no ficheiro .log saída. As regras para examinar os valores dos objetos são essencialmente as mesmas que numa sessão R interativa. Por exemplo, se introduzir um nome variável numa linha, o valor do objeto será impresso no ficheiro .log saída.
 
 #### <a name="packages-in-machine-learning-studio-classic"></a>Pacotes em Machine Learning Studio (clássico)
 
@@ -122,9 +121,9 @@ Se não entende a última linha deste código no momento, leia. No resto deste a
 
 RStudio é um IDE amplamente utilizado para R. Usaremos o RStudio para editar, testar e depurar alguns dos códigos R utilizados neste guia. Depois de o código R ser testado e pronto, pode cortar e colar do editor RStudio num módulo de Machine Learning Studio (clássico) [Execute R Script.][execute-r-script]
 
-Se não tiver a linguagem de programação R instalada na sua máquina de ambiente de trabalho, faça-o agora. Descarregamentos gratuitos de idioma R de código aberto estão disponíveis na [Rede de Arquivo R Integral (CRAN)](https://www.r-project.org/). Os downloads estão disponíveis para Windows, Mac OS e Linux/UNIX. Escolha um espelho próximo e siga as instruções de descarregamento. Além disso, o CRAN contém muitos pacotes de análise e manipulação de dados úteis.
+Se não tiver a linguagem de programação R instalada na sua máquina de ambiente de trabalho, faça-o agora. Descarregamentos gratuitos de idioma R de código aberto estão disponíveis na [Rede de Arquivo R Integral (CRAN)](https://www.r-project.org/). Os downloads estão disponíveis para Windows, macOS e Linux/UNIX. Escolha um espelho próximo e siga as instruções de descarregamento. Além disso, o CRAN contém muitos pacotes de análise e manipulação de dados úteis.
 
-Se é novo no RStudio, deve descarregar e instalar a versão para desktop. Pode encontrar os downloads RStudio para Windows, Mac OS e Linux/UNIX no [RStudio.](http://www.rstudio.com/products/RStudio/) Siga as instruções fornecidas para instalar o RStudio na sua máquina de ambiente de trabalho.
+Se é novo no RStudio, deve descarregar e instalar a versão para desktop. Pode encontrar os downloads RStudio para Windows, macOS e Linux/UNIX no [RStudio.](http://www.rstudio.com/products/RStudio/) Siga as instruções fornecidas para instalar o RStudio na sua máquina de ambiente de trabalho.
 
 Uma introdução tutorial ao RStudio está disponível na [Utilização do RStudio IDE](https://support.rstudio.com/hc/sections/200107586-Using-RStudio).
 
@@ -159,7 +158,7 @@ Agora que temos alguns dados no Machine Learning Studio (clássico), precisamos 
 1. Arraste **csdairydata.csv conjunto de dados** para a experiência.
 1. Na caixa **de itens de experiência de pesquisa** na parte superior do painel esquerdo, insira executar o Script [R][execute-r-script]. O módulo aparece na lista de pesquisa.
 1. Arraste o módulo [de script Execute R][execute-r-script] para a sua palete.
-1. Ligue a saída do conjunto de **dadoscsdairydata.csv** à entrada mais à esquerda **(Dataset1** ) do [Script Execute R][execute-r-script].
+1. Ligue a saída do conjunto de **dadoscsdairydata.csv** à entrada mais à esquerda **(Dataset1**) do [Script Execute R][execute-r-script].
 1. Selecione **Guardar**.
 
 Neste momento, a sua experiência deve parecer-se com este exemplo.
@@ -255,7 +254,7 @@ Pode passar uma tabela retangular de dados para o seu código R utilizando a ent
 cadairydata <- maml.mapInputPort(1)
 ```
 
-Execute a sua experiência selecionando o botão **Executar.** Quando a execução terminar, selecione o módulo ['Script Execute R'][execute-r-script] e, em seguida, selecione **Ver registo de saída** no painel de propriedades. Uma nova página deve aparecer no seu navegador mostrando o conteúdo do ficheiro output.log. Quando rolar para baixo, deve ver algo como a seguinte saída.
+Execute a sua experiência selecionando o botão **Executar.** Quando a execução terminar, selecione o módulo ['Script Execute R'][execute-r-script] e, em seguida, selecione **Ver registo de saída** no painel de propriedades. Uma nova página deve aparecer no seu navegador mostrando o conteúdo do ficheiro .log saída. Quando rolar para baixo, deve ver algo como a seguinte saída.
 
 ```output
 [ModuleOutput] InputDataStructure
@@ -597,7 +596,7 @@ Se não estás habituado à programação defensiva em R, todo este código pode
 1. Os controlos são executados nos argumentos da função. Em cada caso, se for detetado um erro, é devolvido um valor predefinido e uma mensagem é produzida pela `warning()` função. Estamos a usar `warning()` em vez de porque este último vai terminar a `stop()` execução, que é o que estamos a tentar evitar. Este código está escrito num estilo processual, porque neste caso uma abordagem funcional parecia complexa e obscura.
 1. Os cálculos de registo são embrulhados de `tryCatch()` modo a que as exceções não causem uma paragem abrupta no processamento. Sem `tryCatch()` , a maioria dos erros levantados pelas funções R resultam num sinal de stop, o que faz isso mesmo.
 
-Execute este código R na sua experiência e veja a saída impressa no ficheiro output.log. Agora verá os valores transformados das quatro colunas no tronco, como mostrado aqui.
+Execute este código R na sua experiência e veja a saída impressa no ficheiro .log saída. Agora verá os valores transformados das quatro colunas no tronco, como mostrado aqui.
 
 ```output
 [ModuleOutput] [1] "Loading variable port1..."
@@ -1276,11 +1275,11 @@ A partir destes resultados, vemos que adicionar os fatores sazonais ao modelo re
 
 O RStudio está bem documentado. Aqui estão algumas ligações com as secções-chave da documentação RStudio para começar.
 
-* **Criar projetos** : Pode organizar e gerir o seu código R em projetos utilizando o RStudio. Para obter mais informações, consulte [Utilização de Projetos.](https://support.rstudio.com/hc/articles/200526207-Using-Projects) Siga estas instruções e crie um projeto para os exemplos de código R neste artigo.
-* **Editar e executar código R** : O RStudio proporciona um ambiente integrado para a edição e execução do código R. Para obter mais informações, consulte [o Código de Edição e Execução.](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code)
-* **Debug** : RStudio inclui poderosas capacidades de depuração. Para obter mais informações sobre estas funcionalidades, consulte [Debugging com RStudio.](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) Para obter informações sobre funcionalidades de resolução de problemas de breakpoint, consulte [a resolução de problemas de Breakpoint](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
+* **Criar projetos**: Pode organizar e gerir o seu código R em projetos utilizando o RStudio. Para obter mais informações, consulte [Utilização de Projetos.](https://support.rstudio.com/hc/articles/200526207-Using-Projects) Siga estas instruções e crie um projeto para os exemplos de código R neste artigo.
+* **Editar e executar código R**: O RStudio proporciona um ambiente integrado para a edição e execução do código R. Para obter mais informações, consulte [o Código de Edição e Execução.](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code)
+* **Debug**: RStudio inclui poderosas capacidades de depuração. Para obter mais informações sobre estas funcionalidades, consulte [Debugging com RStudio.](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) Para obter informações sobre funcionalidades de resolução de problemas de breakpoint, consulte [a resolução de problemas de Breakpoint](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
 
-## <a name="further-reading"></a><a id="appendixb"></a>Continuar a ler
+## <a name="further-reading"></a><a id="appendixb"></a>Leitura adicional
 
 Este tutorial de programação R cobre o básico do que você precisa para usar a linguagem R com Machine Learning Studio (clássico). Se não está familiarizado com r, duas apresentações estão disponíveis no CRAN:
 

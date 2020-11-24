@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
-ms.openlocfilehash: c62593251cb0e19c91d1c4877d1b33fe407ebd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096e4e3ecbcedaec674e074a2baccbb336e03c94
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847011"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524203"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Configurar o RBAC local para fHIR 
 
@@ -23,7 +23,7 @@ Este artigo explica como configurar a API Azure para a FHIR utilizar um inquilin
 
 ## <a name="add-service-principal"></a>Adicionar principal de serviço
 
-O RBAC local permite-lhe utilizar um inquilino externo do Azure Ative Directory com o seu servidor FHIR. A fim de permitir que o sistema RBAC verifique os membros do grupo neste inquilino, a Azure API para fHIR deve ter um principal de serviço no arrendatário. Este diretor de serviço será criado automaticamente em inquilinos ligados a subscrições que tenham implantado a AZure API para fHIR, mas caso o seu inquilino não tenha nenhuma subscrição ligada a ele, um administrador de inquilino terá de criar este diretor de serviço com um dos seguintes comandos:
+O RBAC local permite-lhe utilizar um inquilino externo do Azure Ative Directory com o seu servidor FHIR. A fim de permitir que o sistema local de RBAC verifique os membros do grupo neste inquilino, a Azure API para fHIR deve ter um diretor de serviço no arrendatário. Este diretor de serviço será criado automaticamente em inquilinos ligados a subscrições que tenham implantado a AZure API para fHIR, mas caso o seu inquilino não tenha nenhuma subscrição ligada a ele, um administrador de inquilino terá de criar este diretor de serviço com um dos seguintes comandos:
 
 Utilizando o `Az` módulo PowerShell:
 

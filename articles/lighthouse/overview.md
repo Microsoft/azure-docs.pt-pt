@@ -1,14 +1,14 @@
 ---
 title: O que é o Azure Lighthouse?
 description: O Azure Lighthouse permite que os prestadores de serviços entreguem serviços geridos aos seus clientes com maior automatização e eficiência em escala.
-ms.date: 10/19/2020
+ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: a76606ff48a09c0c31584882e3d2aa164ec97325
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a8fd796218804a79c82a5723c0e5851af359cdea
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203794"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528827"
 ---
 # <a name="what-is-azure-lighthouse"></a>O que é o Azure Lighthouse?
 
@@ -33,9 +33,12 @@ Não existem custos adicionais associados à utilização do Farol Azure para ge
 O Farol Azure inclui múltiplas formas de ajudar a agilizar o envolvimento e a gestão:
 
 - **Gestão de recursos delegada da Azure**: [Gerencie os recursos Azure dos seus clientes de forma segura a partir do seu próprio inquilino,](concepts/azure-delegated-resource-management.md)sem ter de mudar de contexto e controlar os aviões. As subscrições de clientes e grupos de recursos podem ser delegadas em utilizadores e funções especificados no inquilino gerente, com a capacidade de remover o acesso conforme necessário.
-- **Experiências do portal Azure**: Ver informações de inquilinos cruzados na página [ **dos meus clientes** ](how-to/view-manage-customers.md) no portal Azure. Uma página correspondente [ **de prestadores de serviços** ](how-to/view-manage-service-providers.md) permite que os clientes vejam e gerem o acesso do seu prestador de serviços.
+- **Experiências do portal Azure**: Ver informações de inquilinos cruzados na página [ **dos meus clientes**](how-to/view-manage-customers.md) no portal Azure. Uma página correspondente [ **de prestadores de serviços**](how-to/view-manage-service-providers.md) permite que os clientes vejam e gerem o acesso do seu prestador de serviços.
 - **Modelos do Gestor de Recursos Azure**: Use modelos ARM para [obter recursos de clientes delegados](how-to/onboard-customer.md) a bordo e [execute tarefas de gestão de inquilinos cruzados.](samples/index.md)
 - **Ofertas de Serviço Gerido no Azure Marketplace**: [Ofereça os seus serviços aos clientes](concepts/managed-services-offers.md) através de ofertas privadas ou públicas e a bordo automaticamente para o Farol Azure.
+
+> [!TIP]
+> Uma oferta semelhante, [o Microsoft 365 Lighthouse,](https://techcommunity.microsoft.com/t5/small-and-medium-business-blog/announcing-microsoft-365-lighthouse-for-managed-service/ba-p/1698181)ajudará os PARCEIROS DE TI a bordo, monitorizar e gerir os seus clientes Microsoft 365 em escala. O Microsoft 365 Lighthouse encontra-se atualmente em pré-visualização privada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27e7c899f0d22789c10541fc98a0d2c63a7843ec
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604483"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533060"
 ---
 # <a name="modify-target-settings"></a>Modificar as definições de destino
 
@@ -41,8 +41,8 @@ As definições de configuração que pode modificar são resumidas na tabela.
 **SKU da VM** | O [tipo VM](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (disponível na região alvo) que será utilizado para o VM alvo.<br/><br/> O VM-alvo selecionado não deve ser menor do que o VM de origem.
 **Recursos de rede** | Opções para redes virtuais (VNets)/grupos de segurança de rede/interfaces de rede:<br/><br/> - Criar um novo recurso com o mesmo nome na região alvo.<br/><br/> - Criar um novo recurso com um nome diferente na região alvo.<br/><br/> - Utilize um recurso de rede existente na região alvo.<br/><br/> Se criar um novo recurso-alvo, com exceção das definições modificadas, é atribuído às mesmas definições que o recurso de origem.
 **Nome do endereço IP público** | Especifique o nome.
-**Endereço IP público SKU** | Especificar o [SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Zona de endereços IP público** | Especifique a [zona](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) para endereços IP públicos padrão.<br/><br/> Se quiser que seja uma zona redundante, entre como **Zona redundante.**
+**Endereço IP público SKU** | Especificar o [SKU](../virtual-network/public-ip-addresses.md#sku).
+**Zona de endereços IP público** | Especifique a [zona](../virtual-network/public-ip-addresses.md#standard) para endereços IP públicos padrão.<br/><br/> Se quiser que seja uma zona redundante, entre como **Zona redundante.**
 **Nome do balanceador de carga** | Especifique o nome.
 **Balanceador de carga SKU** | Básico ou Standard. Recomendamos a utilização do Standard.
 **Zona de balançador de carga** | Especifique uma zona para o balançador de carga. <br/><br/> Se quiser que seja uma zona redundante, entre como **Zona redundante.**
@@ -81,9 +81,9 @@ Ao mover os recursos da Base de Dados Azure SQL, pode modificar as definições 
 
 ### <a name="sql-settings-you-can-modify"></a>Definições SQL que pode modificar
 
-**Definição** | **Base de dados SQL** | **Piscina elástica**
+**Definição** | **Base de dados SQL** | **Conjunto elástico**
 --- | --- | ---
-**Nome** | Criar uma nova base de dados com o mesmo nome na região alvo.<br/><br/> Crie uma nova base de dados com um nome diferente na região alvo.<br/><br/> Utilize uma base de dados existente na região alvo. | Crie uma nova piscina elástica com o mesmo nome na região alvo.<br/><br/> Crie uma nova piscina elástica com um nome diferente na região alvo.<br/><br/> Utilize uma piscina elástica existente na região alvo.
+**Name** | Criar uma nova base de dados com o mesmo nome na região alvo.<br/><br/> Crie uma nova base de dados com um nome diferente na região alvo.<br/><br/> Utilize uma base de dados existente na região alvo. | Crie uma nova piscina elástica com o mesmo nome na região alvo.<br/><br/> Crie uma nova piscina elástica com um nome diferente na região alvo.<br/><br/> Utilize uma piscina elástica existente na região alvo.
 **Redundância entre zonas** | Passar de uma região que suporta a redundância de zona para uma região que não o faça, **digite Desativar** na zona.<br/><br/> Para passar de uma região que não suporta a redundância da zona para uma região que o faça, **digite Enable** na definição de zona. | Passar de uma região que suporta a redundância de zona para uma região que não o faça, **digite Desativar** na zona.<br/><br/> Para passar de uma região que não suporta a redundância da zona para uma região que o faça, **digite Enable** na definição de zona.
 
 ### <a name="edit-sql-target-settings"></a>Editar definições de alvo SQL

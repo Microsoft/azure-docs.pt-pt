@@ -3,12 +3,12 @@ title: Planeamento da implementação da Solução VMware Azure
 description: Este artigo descreve um fluxo de trabalho de implementação de Solução VMware Azure.  O resultado final é um ambiente pronto para a criação e migração de máquinas virtuais (VM).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 08a15e6f8cad4068415cec3353544829f2218fb0
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1ef83a568e41fe99f1e8e385a599de9c5ab7c0ca
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888985"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95529738"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planeamento da implementação da Solução VMware Azure
 
@@ -31,7 +31,7 @@ Identifique a subscrição que pretende utilizar para implementar a Solução VM
 
 Identifique o grupo de recursos que pretende utilizar para a sua Solução Azure VMware.  Geralmente, um grupo de recursos é criado especificamente para a Azure VMware Solution, mas você pode usar um grupo de recursos existente.
 
-## <a name="region"></a>Região
+## <a name="region"></a>Region
 
 Identifique a região que pretende que a Azure VMware Solution seja implementada.  Para mais informações, consulte os [Produtos Azure Disponíveis por Guia da Região.](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware)
 
@@ -48,7 +48,7 @@ Identifique os anfitriões de tamanho que pretende utilizar ao implementar a Sol
 
 ## <a name="number-of-hosts"></a>Número de anfitriões
 
-Defina o número de anfitriões que pretende implantar na nuvem privada Azure VMware Solution.  A contagem mínima de nó é de três, e a máxima é de 16 por cluster.  Para mais informações, consulte a documentação [privada de nuvem e clusters Azure VMware Solution.](concepts-private-clouds-clusters.md#clusters)
+Defina o número de anfitriões que pretende implantar na nuvem privada Azure VMware Solution.  O número mínimo de hospedeiros é de três, e o máximo é de 16 por agrupamento.  Para mais informações, consulte a documentação [privada de nuvem e clusters Azure VMware Solution.](concepts-private-clouds-clusters.md#clusters)
 
 Pode sempre estender o cluster mais tarde se precisar de ir além do número inicial de implantação.
 
