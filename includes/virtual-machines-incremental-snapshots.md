@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: storage
 author: roygara
 ms.service: storage
@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f0832672cc848495f3d95d308071e0a8359ae4f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a662598efdca05769c7da9fbeecdf692dccdacb5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87375640"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563979"
 ---
 ## <a name="overview"></a>Descrição geral
-O Azure Storage fornece a capacidade de tirar fotos de bolhas. Os instantâneos captam o estado da bolha nessa altura. Neste artigo, descrevemos um cenário em que é possível manter cópias de segurança de discos de máquinas virtuais utilizando instantâneos. Pode utilizar esta metodologia quando optar por não utilizar o Serviço de Backup e Recuperação do Azure e pretende criar uma estratégia de backup personalizada para os seus discos de máquinas virtuais. Para máquinas virtuais que executam cargas de trabalhos ou cargas de trabalho críticas de missão, é recomendado usar [o Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) como parte da estratégia de backup.  
+O Azure Storage fornece a capacidade de tirar fotos de bolhas. Os instantâneos captam o estado da bolha nessa altura. Neste artigo, descrevemos um cenário em que é possível manter cópias de segurança de discos de máquinas virtuais utilizando instantâneos. Pode utilizar esta metodologia quando optar por não utilizar o Serviço de Backup e Recuperação do Azure e pretende criar uma estratégia de backup personalizada para os seus discos de máquinas virtuais. Para máquinas virtuais que executam cargas de trabalhos ou cargas de trabalho críticas de missão, é recomendado usar [o Azure Backup](../articles/backup/backup-azure-vms-introduction.md) como parte da estratégia de backup.  
 
-Os discos de máquina virtual Azure são armazenados como bolhas de página no Azure Storage. Uma vez que estamos descrevendo uma estratégia de backup para discos de máquinas virtuais neste artigo, referimo-nos a instantâneos no contexto das bolhas de página. Para saber mais sobre instantâneos, consulte a [Criação de um Instantâneo de uma Bolha.](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
+Os discos de máquina virtual Azure são armazenados como bolhas de página no Azure Storage. Uma vez que estamos descrevendo uma estratégia de backup para discos de máquinas virtuais neste artigo, referimo-nos a instantâneos no contexto das bolhas de página. Para saber mais sobre instantâneos, consulte a [Criação de um Instantâneo de uma Bolha.](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
 
 ## <a name="what-is-a-snapshot"></a>O que é uma foto?
 Um instantâneo blob é uma versão apenas de leitura de uma bolha que é capturada em um ponto do tempo. Uma vez criado um instantâneo, pode ser lido, copiado ou eliminado, mas não modificado. As imagens fornecem uma forma de fazer recuar uma bolha como aparece num momento do tempo. Até à versão REST 2015-04-05, teve a capacidade de copiar fotografias completas. Com a versão REST 2015-07-08 e acima, também pode copiar instantâneos incrementais.
@@ -32,7 +32,7 @@ As imagens podem ser copiadas para outra conta de armazenamento como uma bolha p
 > 
 
 ### <a name="back-up-disks-using-snapshots"></a>Fazer back-up discos usando instantâneos
-Como estratégia de backup para os seus discos de máquinas virtuais, pode tirar fotos periódicas do disco ou da bolha de página e copiá-las para outra conta de armazenamento utilizando ferramentas como a operação [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) ou [AzCopy](../articles/storage/common/storage-use-azcopy.md). Pode copiar uma imagem instantânea para uma mancha de página de destino com um nome diferente. A bolha da página de destino resultante é uma bolha de página escrita e não uma foto instantânea. Mais tarde neste artigo, descrevemos passos para fazer cópias de segurança de discos de máquinas virtuais usando instantâneos.
+Como estratégia de backup para os seus discos de máquinas virtuais, pode tirar fotos periódicas do disco ou da bolha de página e copiá-las para outra conta de armazenamento utilizando ferramentas como a operação [Copy Blob](/rest/api/storageservices/Copy-Blob) ou [AzCopy](../articles/storage/common/storage-use-azcopy-v10.md). Pode copiar uma imagem instantânea para uma mancha de página de destino com um nome diferente. A bolha da página de destino resultante é uma bolha de página escrita e não uma foto instantânea. Mais tarde neste artigo, descrevemos passos para fazer cópias de segurança de discos de máquinas virtuais usando instantâneos.
 
 ### <a name="restore-disks-using-snapshots"></a>Restaurar discos usando instantâneos
 Quando for a hora de restaurar o seu disco para uma versão estável que foi previamente capturada numa das imagens de backup, pode copiar uma imagem sobre a bolha da página base. Depois do instantâneo ser promovido à página base blob, o instantâneo permanece, mas a sua fonte é substituída com uma cópia que pode ser lida e escrita. Mais tarde neste artigo descrevemos passos para restaurar uma versão anterior do seu disco a partir da sua imagem.
@@ -40,12 +40,12 @@ Quando for a hora de restaurar o seu disco para uma versão estável que foi pre
 ### <a name="implementing-full-snapshot-copy"></a>Implementação de cópia snapshot completa
 Pode implementar uma cópia instantânea completa fazendo o seguinte,
 
-* Primeiro, tire uma foto da bolha de base utilizando a operação [Snapshot Blob.](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob)
-* Em seguida, copie o instantâneo para uma conta de armazenamento alvo utilizando [copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob).
+* Primeiro, tire uma foto da bolha de base utilizando a operação [Snapshot Blob.](/rest/api/storageservices/Snapshot-Blob)
+* Em seguida, copie o instantâneo para uma conta de armazenamento alvo utilizando [copy Blob](/rest/api/storageservices/Copy-Blob).
 * Repita este processo para manter cópias de reserva da sua bolha de base.
 
 ## <a name="incremental-snapshot-copy"></a>Cópia instantânea incremental
-A nova funcionalidade na API [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) fornece uma forma muito melhor de fazer o back-up das imagens das suas páginas blobs ou discos. A API devolve a lista de alterações entre a bolha de base e as imagens, o que reduz a quantidade de espaço de armazenamento utilizado na conta de backup. A API suporta bolhas de página no Armazenamento Premium, bem como o Armazenamento Padrão. Utilizando esta API, pode construir soluções de backup mais rápidas e eficientes para os VMs Azure. Esta API estará disponível com a versão REST 2015-07-08 e superior.
+A nova funcionalidade na API [GetPageRanges](/rest/api/storageservices/Get-Page-Ranges) fornece uma forma muito melhor de fazer o back-up das imagens das suas páginas blobs ou discos. A API devolve a lista de alterações entre a bolha de base e as imagens, o que reduz a quantidade de espaço de armazenamento utilizado na conta de backup. A API suporta bolhas de página no Armazenamento Premium, bem como o Armazenamento Padrão. Utilizando esta API, pode construir soluções de backup mais rápidas e eficientes para os VMs Azure. Esta API estará disponível com a versão REST 2015-07-08 e superior.
 
 Cópia Snapshot incremental permite-lhe copiar de uma conta de armazenamento para outra a diferença entre,
 
@@ -55,7 +55,7 @@ Cópia Snapshot incremental permite-lhe copiar de uma conta de armazenamento par
 Desde que sejam satisfeitas as seguintes condições,
 
 * A bolha foi criada em Jan-1-2016 ou mais tarde.
-* A bolha não foi substituída com [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) ou [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) entre duas imagens.
+* A bolha não foi substituída com [PutPage](/rest/api/storageservices/Put-Page) ou [Copy Blob](/rest/api/storageservices/Copy-Blob) entre duas imagens.
 
 >[!NOTE]
 >Esta funcionalidade está disponível para Premium e Standard Azure Page Blobs.
@@ -65,11 +65,11 @@ Quando você tem uma estratégia de backup personalizada usando instantâneos, c
 ### <a name="implementing-incremental-snapshot-copy"></a>Implementação de cópia snapshot incremental
 Pode implementar uma cópia instantânea incremental fazendo o seguinte,
 
-* Tire uma foto da bolha de base usando [snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Copie o instantâneo para a conta de armazenamento de backup do alvo na mesma ou em qualquer outra região de Azure utilizando [a Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Esta é a bolha da página de reserva. Tire uma foto da bolha da página de reserva e guarde-a na conta de reserva.
+* Tire uma foto da bolha de base usando [snapshot Blob](/rest/api/storageservices/Snapshot-Blob).
+* Copie o instantâneo para a conta de armazenamento de backup do alvo na mesma ou em qualquer outra região de Azure utilizando [a Copy Blob](/rest/api/storageservices/Copy-Blob). Esta é a bolha da página de reserva. Tire uma foto da bolha da página de reserva e guarde-a na conta de reserva.
 * Tire outra foto da bolha de base usando snapshot Blob.
-* Obtenha a diferença entre a primeira e a segunda imagens da bolha de base utilizando [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Utilize o novo **prevsnapshot do**parâmetro , para especificar o valor dataTime do instantâneo com o qual pretende obter a diferença. Quando este parâmetro está presente, a resposta REST inclui apenas as páginas que foram alteradas entre o instantâneo do alvo e o instantâneo anterior, incluindo páginas claras.
-* Utilize [o PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) para aplicar estas alterações na bolha da página de reserva.
+* Obtenha a diferença entre a primeira e a segunda imagens da bolha de base utilizando [GetPageRanges](/rest/api/storageservices/Get-Page-Ranges). Utilize o novo **prevsnapshot do** parâmetro , para especificar o valor dataTime do instantâneo com o qual pretende obter a diferença. Quando este parâmetro está presente, a resposta REST inclui apenas as páginas que foram alteradas entre o instantâneo do alvo e o instantâneo anterior, incluindo páginas claras.
+* Utilize [o PutPage](/rest/api/storageservices/Put-Page) para aplicar estas alterações na bolha da página de reserva.
 * Por fim, tire uma foto da bolha da página de reserva e guarde-a na conta de armazenamento de cópias de segurança.
 
 Na secção seguinte, descreveremos com mais pormenor como pode manter cópias de segurança dos discos utilizando cópia snapshot incremental
@@ -79,7 +79,7 @@ Nesta secção, descrevemos um cenário que envolve uma estratégia de backup pe
 
 Considere um Azure VM da série DS com um disco P30 de armazenamento premium ligado. O disco P30 chamado *mypremiumdisk* está guardado numa conta de armazenamento premium chamada *mypremiumaccount*. Uma conta de armazenamento padrão chamada *mybackupstdaccount* é usada para armazenar a cópia de segurança do *mypremiumdisk*. Gostaríamos de ter uma foto do *mypremiumdisk* a cada 12 horas.
 
-Para saber mais sobre a criação de uma conta de armazenamento, consulte [Criar uma conta de armazenamento.](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+Para saber mais sobre a criação de uma conta de armazenamento, consulte [Criar uma conta de armazenamento.](../articles/storage/common/storage-account-create.md)
 
 Para saber mais sobre o backup dos VMs Azure, consulte as [cópias de segurança Plan Azure VM](../articles/backup/backup-azure-vms-introduction.md).
 
@@ -88,9 +88,9 @@ Os seguintes passos descrevem como tirar fotos do *mypremiumdisk* e manter os ba
 
 1. Crie a bolha de página de reserva para o seu disco de armazenamento premium, tirando uma foto do *mypremiumdisk* chamada *mypremiumdisk_ss1*.
 2. Copie esta foto para o mybackupstdaccount como uma bolha de página chamada *mybackupstdpageblob*.
-3. Tire uma foto do *mybackupstdpageblob* chamado *mybackupstdpageblob_ss1,* usando [snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) e guarde-o no *mybackupstdaccount*.
+3. Tire uma foto do *mybackupstdpageblob* chamado *mybackupstdpageblob_ss1,* usando [snapshot Blob](/rest/api/storageservices/Snapshot-Blob) e guarde-o no *mybackupstdaccount*.
 4. Durante a janela de reserva, crie outra imagem do *mypremiumdisk*, digamos *mypremiumdisk_ss2*, e guarde-a na *conta mypremiumaccount*.
-5. Obtenha as alterações incrementais entre os dois instantâneos, *mypremiumdisk_ss2* e *mypremiumdisk_ss1*, utilizando [o GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) no *mypremiumdisk_ss2* com o parâmetro **pré-navegação** definido para o tempotando de *mypremiumdisk_ss1*. Escreva estas alterações incrementais na página de backup blob *mybackupstdpageblob* no *mybackupstdaccount*. Se houver intervalos eliminados nas alterações incrementais, devem ser limpos a partir da bolha da página de reserva. Utilize [o PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) para escrever alterações incrementais na bolha da página de reserva.
+5. Obtenha as alterações incrementais entre os dois instantâneos, *mypremiumdisk_ss2* e *mypremiumdisk_ss1*, utilizando [o GetPageRanges](/rest/api/storageservices/Get-Page-Ranges) no *mypremiumdisk_ss2* com o parâmetro **pré-navegação** definido para o tempotando de *mypremiumdisk_ss1*. Escreva estas alterações incrementais na página de backup blob *mybackupstdpageblob* no *mybackupstdaccount*. Se houver intervalos eliminados nas alterações incrementais, devem ser limpos a partir da bolha da página de reserva. Utilize [o PutPage](/rest/api/storageservices/Put-Page) para escrever alterações incrementais na bolha da página de reserva.
 6. Tire uma foto da página de backup blob *mybackupstdpageblob*, chamada *mybackupstdpageblob_ss2*. Elimine o instantâneo anterior *mypremiumdisk_ss1* da conta de armazenamento premium.
 7. Repita os passos 4-6 em todas as janelas de reserva. Desta forma, pode manter cópias de segurança do *mypremiumdisk* numa conta de armazenamento padrão.
 
@@ -112,6 +112,5 @@ Os seguintes passos, descreva como restaurar o disco premium, *mypremiumdisk* pa
 ## <a name="next-steps"></a>Passos Seguintes
 Use os seguintes links para saber mais sobre a criação de instantâneos de uma bolha e planejar a sua infraestrutura de backup VM.
 
-* [Criando um instantâneo de uma bolha](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
+* [Criando um instantâneo de uma bolha](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
 * [Planeie a sua infraestrutura de backup VM](../articles/backup/backup-azure-vms-introduction.md)
-

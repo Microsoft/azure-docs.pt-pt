@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 5b60082db53b458adc53ac23d98731ad1c97b52b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 5c2763112b1aa2d58f5dc57cea72a3d0bdea961e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563652"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545674"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Perguntas frequentes para firewall de aplicação web Azure no serviço de porta frontal Azure
 
@@ -35,7 +35,7 @@ A Porta da Frente oferece descarregamento TLS. A WAF está integrada nativamente
 
 ## <a name="does-azure-waf-support-ipv6"></a>A Azure WAF suporta o IPv6?
 
-Yes. Pode configurar a restrição IP para IPv4 e IPv6.
+Sim. Pode configurar a restrição IP para IPv4 e IPv6.
 
 ## <a name="how-up-to-date-are-the-managed-rule-sets"></a>Até que ponto estão atualizados os conjuntos de regras geridos?
 
@@ -57,6 +57,17 @@ Pode configurar a Lista de Controlo de Acesso IP na sua parte traseira para perm
 
 Existem duas opções na aplicação das políticas waf em Azure. WAF com Azure Front Door é uma solução de segurança de borda distribuída globalmente. A WAF com Application Gateway é uma solução regional e dedicada. Recomendamos que escolha uma solução com base nos seus requisitos globais de desempenho e segurança. Para obter mais informações, consulte [o load-balance com a suite de entrega de aplicações da Azure.](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md)
 
+## <a name="whats-the-recommended-approach-to-enabling-waf-on-front-door"></a>Qual é a abordagem recomendada para permitir a WAF na Porta da Frente?
+
+Quando ativa o WAF numa aplicação existente, é comum ter falsas deteções positivas onde as regras da WAF detetam o tráfego legítimo como uma ameaça. Para minimizar o risco de impacto para os seus utilizadores, recomendamos o seguinte processo:
+
+* Ativar o modo WAF no modo [ **deteção**](./waf-front-door-create-portal.md#change-mode) para garantir que o WAF não bloqueia os pedidos enquanto estiver a trabalhar neste processo.
+  > [!IMPORTANT]
+  > Este processo descreve como ativar o WAF numa solução nova ou existente quando a sua prioridade é minimizar a perturbação para os utilizadores da sua aplicação. Se estiver sob ataque ou ameaça iminente, poderá querer, em vez disso, implantar imediatamente o modo WAF no modo **de Prevenção** e utilizar o processo de afinação para monitorizar e sintonizar o WAF ao longo do tempo. Isto provavelmente fará com que algum do seu tráfego legítimo seja bloqueado, e é por isso que só recomendamos fazê-lo quando estiver sob ameaça.
+* Siga as [nossas orientações para afinação do WAF](./waf-front-door-tuning.md). Este processo requer que permita a verificação de registos de diagnóstico, reveja regularmente os registos e adicione exclusões de regras e outras mitigações.
+* Repita todo este processo, verificando os registos regularmente, até que esteja convencido de que nenhum tráfego legítimo está a ser bloqueado. Todo o processo pode demorar várias semanas. Idealmente, deve ver menos deteções falsas positivas após cada alteração de sintonização que faz.
+* Por último, ativar o MODO DE **PREVENÇÃO**.
+* Mesmo depois de estar a executar o WAF em produção, deve continuar a monitorizar os registos para identificar quaisquer outras deteções falsas positivas. A revisão regular dos registos também o ajudará a identificar quaisquer tentativas de ataque reais que tenham sido bloqueadas.
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Suporta as mesmas funcionalidades da WAF em todas as plataformas integradas?
 

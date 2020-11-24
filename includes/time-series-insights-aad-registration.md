@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 ms.topic: include
 ms.custom: include file
 services: time-series-insights
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
-ms.openlocfilehash: 7de4dc21391f7dbd817c56ce51606a808cf9e3c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f203357d29d450f5b34593952f611f025b14ff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665821"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95564065"
 ---
 1. No [portal Azure,](https://ms.portal.azure.com/)selecione **Azure Ative Directory**  >  **App registos**  >  **Novo registo**.
 
@@ -22,11 +22,11 @@ ms.locfileid: "91665821"
 
     A sua aplicação será listada aqui depois de a registar.
 
-1. Dar à aplicação um nome e selecionar **Contas neste diretório organizacional apenas** para especificar os **tipos de conta suportado** que podem aceder à API. Se estiver a criar uma [aplicação para clientes públicos,](https://docs.microsoft.com/azure/active-directory/develop/msal-client-application-configuration#redirect-uri)adicione um URI de redirecionamento válido, então **Registe-se**.
+1. Dar à aplicação um nome e selecionar **Contas neste diretório organizacional apenas** para especificar os **tipos de conta suportado** que podem aceder à API. Se estiver a criar uma [aplicação para clientes públicos,](../articles/active-directory/develop/msal-client-application-configuration.md#redirect-uri)adicione um URI de redirecionamento válido, então **Registe-se**.
 
    [![Crie a aplicação no Azure Ative Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 
-1. As informações importantes da aplicação Azure Ative Directory são apresentadas na lâmina de **visão geral** da sua aplicação listada. Selecione a sua aplicação em **aplicações próprias**e, em seguida, **visão geral**.
+1. As informações importantes da aplicação Azure Ative Directory são apresentadas na lâmina de **visão geral** da sua aplicação listada. Selecione a sua aplicação em **aplicações próprias** e, em seguida, **visão geral**.
 
    [![Copiar o ID da aplicação](media/time-series-insights-aad-registration/active-directory-copy-application-id.png)](media/time-series-insights-aad-registration/active-directory-copy-application-id.png#lightbox)
 
@@ -55,7 +55,7 @@ ms.locfileid: "91665821"
 
     [![Criar URIs de redirecionamento](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png)](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png#lightbox)
 
-    Clique **em Configurar**e, em seguida, **Guarde**.
+    Clique **em Configurar** e, em seguida, **Guarde**.
 
 1. Selecione **Certificados & segredos** então **Novo cliente secreto** para criar uma senha de aplicação que a sua aplicação cliente pode usar para provar a sua identidade.
 

@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: azure-policy
 author: craigshoemaker
 ms.service: azure-policy
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 137aca7c6c857ee6e833c359b710e1c1848d15ed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184472"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560690"
 ---
 ## <a name="deleting-personal-information"></a>Apagar informações pessoais
 
@@ -37,7 +37,7 @@ Quando um trabalho de importação/exportação é criado, os utilizadores forne
 
 As informações pessoais de contacto podem ser eliminadas das seguintes formas:
 
-- Os dados guardados com o trabalho são apagados com o trabalho. Os utilizadores podem eliminar os postos de trabalho manualmente e os trabalhos concluídos são automaticamente eliminados após 90 dias. Pode eliminar manualmente os trabalhos através da API REST ou do portal Azure. Para eliminar o trabalho no portal Azure, vá ao seu trabalho de importação/exportação e clique em *Eliminar* a partir da barra de comando. Para obter informações sobre como eliminar um trabalho de importação/exportação através da REST API, consulte [a Eliminação de um trabalho de importação/exportação](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
+- Os dados guardados com o trabalho são apagados com o trabalho. Os utilizadores podem eliminar os postos de trabalho manualmente e os trabalhos concluídos são automaticamente eliminados após 90 dias. Pode eliminar manualmente os trabalhos através da API REST ou do portal Azure. Para eliminar o trabalho no portal Azure, vá ao seu trabalho de importação/exportação e clique em *Eliminar* a partir da barra de comando. Para obter informações sobre como eliminar um trabalho de importação/exportação através da REST API, consulte [a Eliminação de um trabalho de importação/exportação](/previous-versions/azure/storage/common/storage-import-export-cancelling-and-deleting-jobs).
 
 - As informações de contacto guardadas nas definições do portal podem ser removidas eliminando as definições do portal. Pode eliminar as definições do portal seguindo estes passos:
   - Inicie sessão no [portal do Azure](https://portal.azure.com).

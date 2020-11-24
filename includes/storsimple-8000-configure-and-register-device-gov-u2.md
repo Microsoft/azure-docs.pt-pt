@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 7700f1c92aecab76dbc347814b7b161bc3d822a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 338332eb90fda9afe7655f9f2ad19ed726419b6c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184315"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95564304"
 ---
 ### <a name="to-configure-and-register-the-device"></a>Para configurar e registar o dispositivo
 1. Aceda à interface do Windows PowerShell na consola de série do dispositivo StorSimple. Para obter as instruções, veja [Utilizar o PuTTY para ligar à consola de série do dispositivo](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console). **Confirme que está a seguir o procedimento rigorosamente. Caso contrário, não conseguirá aceder à consola.**
@@ -43,7 +43,7 @@ ms.locfileid: "67184315"
    4. Opcionalmente, configurar o seu servidor de procuração web.
       
       > [!IMPORTANT]
-      > Apesar de a configuração do proxy Web ser opcional, tenha em atenção que se utilizar um proxy Web, só pode configurá-lo aqui. Para obter mais informações, veja [Configure web proxy for your device (Configurar o proxy Web para o seu dispositivo)](../articles/storsimple/storsimple-configure-web-proxy.md).
+      > Apesar de a configuração do proxy Web ser opcional, tenha em atenção que se utilizar um proxy Web, só pode configurá-lo aqui. Para obter mais informações, veja [Configure web proxy for your device (Configurar o proxy Web para o seu dispositivo)](../articles/storsimple/storsimple-8000-configure-web-proxy.md).
      
 6. Prima Ctrl + C para sair do assistente de configuração.
 8. Executar o seguinte cmdlet para apontar o dispositivo para o portal do Governo Microsoft Azure (porque aponta para o portal clássico Azure público por padrão). Isto reiniciará ambos os controladores. Recomendamos que utilize duas sessões PuTTY para ligar simultaneamente a ambos os controladores, de modo a que possa ver quando cada controlador é reiniciado.
@@ -86,4 +86,3 @@ ms.locfileid: "67184315"
         Se o dispositivo continuar offline mesmo após alguns minutos, terá então de verificar se a sua rede de firewall foi configurada do modo descrito em [Requisitos de rede para o seu dispositivo StorSimple](../articles/storsimple/storsimple-8000-system-requirements.md).
        
         Verifique se a porta 9354 está aberta para comunicação de saída, uma vez que é utilizada pelo barramento de serviço para a comunicação Serviço Gestor de Dispositivos do StorSimple.
-

@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c1972eba84f4f1990c87112c5801c386849640
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288342"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545963"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral das bolhas da página de Azure
 
@@ -31,7 +31,7 @@ As bolhas de página só podem utilizar o nível de acesso **Hot,** não podem u
 
 ## <a name="sample-use-cases"></a>Exemplos de casos de utilização
 
-Vamos discutir alguns casos de uso para bolhas de página começando com discos Azure IaaS. As bolhas de página Azure são a espinha dorsal da plataforma de discos virtuais para Azure IaaS. Tanto o Azure OS como os discos de dados são implementados como discos virtuais onde os dados são duramente persistidos na plataforma de Armazenamento Azure e depois entregues às máquinas virtuais para o máximo desempenho. Os Discos Azure são persistidos no [formato Hiper-VHD](https://technet.microsoft.com/library/dd979539.aspx) e [armazenados](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) como uma bolha de página no Azure Storage. Além de utilizar discos virtuais para VMs Azure IaaS, as bolhas de página também permitem cenários paaS e DBaaS, como o serviço Azure SQL DB, que atualmente utiliza bolhas de página para armazenar dados SQL, permitindo operações de leitura aleatória rápida para a base de dados. Outro exemplo seria se você tivesse um serviço PaaS para acesso partilhado de mídia para aplicações colaborativas de edição de vídeo, as bolhas de página permitem o acesso rápido a locais aleatórios nos meios de comunicação. Também permite a edição e fusão rápidas e eficientes dos mesmos meios por vários utilizadores. 
+Vamos discutir alguns casos de uso para bolhas de página começando com discos Azure IaaS. As bolhas de página Azure são a espinha dorsal da plataforma de discos virtuais para Azure IaaS. Tanto o Azure OS como os discos de dados são implementados como discos virtuais onde os dados são duramente persistidos na plataforma de Armazenamento Azure e depois entregues às máquinas virtuais para o máximo desempenho. Os Discos Azure são persistidos no [formato Hiper-VHD](/previous-versions/windows/it-pro/windows-7/dd979539(v=ws.10)) e [armazenados](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) como uma bolha de página no Azure Storage. Além de utilizar discos virtuais para VMs Azure IaaS, as bolhas de página também permitem cenários paaS e DBaaS, como o serviço Azure SQL DB, que atualmente utiliza bolhas de página para armazenar dados SQL, permitindo operações de leitura aleatória rápida para a base de dados. Outro exemplo seria se você tivesse um serviço PaaS para acesso partilhado de mídia para aplicações colaborativas de edição de vídeo, as bolhas de página permitem o acesso rápido a locais aleatórios nos meios de comunicação. Também permite a edição e fusão rápidas e eficientes dos mesmos meios por vários utilizadores. 
 
 Os serviços da Microsoft, como o Azure Site Recovery, o Azure Backup, bem como muitos desenvolvedores de terceiros implementaram inovações líderes do setor usando a interface REST da page blob. Seguem-se alguns dos cenários únicos implementados no Azure: 
 
@@ -47,7 +47,7 @@ Ambos os tipos de armazenamento oferecidos com bolhas de página têm o seu pró
 
 ### <a name="rest-api"></a>API REST
 
-Consulte o seguinte documento para começar [a desenvolver-se utilizando bolhas de página](storage-dotnet-how-to-use-blobs.md). Como exemplo, veja como aceder a bolhas de página usando a Biblioteca do Cliente de Armazenamento para .NET. 
+Consulte o seguinte documento para começar [a desenvolver-se utilizando bolhas de página](./storage-quickstart-blobs-dotnet.md). Como exemplo, veja como aceder a bolhas de página usando a Biblioteca do Cliente de Armazenamento para .NET. 
 
 O diagrama seguinte descreve as relações globais entre contas, contentores e bolhas de página.
 
@@ -63,7 +63,7 @@ Primeiro, faça referência a um contentor. Para criar uma bolha de página, lig
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
-Para criar uma bolha de página, criamos primeiro um objeto **CloudBlobClient,** com o URI base para aceder ao armazenamento de bolhas para a sua conta de armazenamento *(pbaccount* na figura 1) juntamente com o objeto **StorageCredentialsAccountAndKey,** como mostrado no exemplo seguinte. O exemplo mostra então a criação de uma referência a um objeto **CloudBlobContainer** e, em seguida, a criação do recipiente *(testvhds* ) se já não existir. Em seguida, utilizando o objeto **CloudBlobContainer,** crie uma referência a um objeto **CloudPageBlob** especificando o nome blob da página (os4.vhd) para aceder. Para criar a bolha de página, ligue para [CloudPageBlob.Create,](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)passando no tamanho máximo para a bolha criar. O *blobSize* deve ser um múltiplo de 512 bytes.
+Para criar uma bolha de página, criamos primeiro um objeto **CloudBlobClient,** com o URI base para aceder ao armazenamento de bolhas para a sua conta de armazenamento *(pbaccount* na figura 1) juntamente com o objeto **StorageCredentialsAccountAndKey,** como mostrado no exemplo seguinte. O exemplo mostra então a criação de uma referência a um objeto **CloudBlobContainer** e, em seguida, a criação do recipiente *(testvhds*) se já não existir. Em seguida, utilizando o objeto **CloudBlobContainer,** crie uma referência a um objeto **CloudPageBlob** especificando o nome blob da página (os4.vhd) para aceder. Para criar a bolha de página, ligue para [CloudPageBlob.Create,](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)passando no tamanho máximo para a bolha criar. O *blobSize* deve ser um múltiplo de 512 bytes.
 
 ```csharp
 using Microsoft.Azure;

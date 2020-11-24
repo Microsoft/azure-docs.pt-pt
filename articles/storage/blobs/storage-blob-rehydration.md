@@ -9,19 +9,19 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: a416c22c5b8e09104b20a17bc5042302fa56d8ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f74d4ffdd724039354a311234317dac889cd7cfe
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035149"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545949"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Reidratar dados blob do nível de arquivo
 
 Enquanto uma bolha está no nível de acesso ao arquivo, é considerada offline e não pode ser lida ou modificada. Os metadados blob permanecem on-line e disponíveis, permitindo-lhe listar a bolha e as suas propriedades. Ler e modificar dados blob só está disponível com níveis on-line, como quentes ou frescos. Existem duas opções para recuperar e aceder aos dados armazenados no nível de acesso ao arquivo.
 
-1. [Reidratar uma bolha arquivada para um nível on-line](#rehydrate-an-archived-blob-to-an-online-tier) - Reidratar uma bolha de arquivo para quente ou fresco alterando a sua camada utilizando a operação [set Blob Tier.](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier)
-2. [Copie uma bolha arquivada para um nível on-line](#copy-an-archived-blob-to-an-online-tier) - Crie uma nova cópia de uma bolha de arquivo utilizando a operação [Copy Blob.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) Especifique um nome de bolha diferente e um nível de destino de quente ou fresco.
+1. [Reidratar uma bolha arquivada para um nível on-line](#rehydrate-an-archived-blob-to-an-online-tier) - Reidratar uma bolha de arquivo para quente ou fresco alterando a sua camada utilizando a operação [set Blob Tier.](/rest/api/storageservices/set-blob-tier)
+2. [Copie uma bolha arquivada para um nível on-line](#copy-an-archived-blob-to-an-online-tier) - Crie uma nova cópia de uma bolha de arquivo utilizando a operação [Copy Blob.](/rest/api/storageservices/copy-blob) Especifique um nome de bolha diferente e um nível de destino de quente ou fresco.
 
  Para obter mais informações sobre os níveis, consulte [o armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo.](storage-blob-storage-tiers.md)
 
@@ -31,7 +31,7 @@ Enquanto uma bolha está no nível de acesso ao arquivo, é considerada offline 
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copiar um blob arquivado para uma camada online
 
-Se não quiser reidratar a sua bolha de arquivo, pode optar por fazer uma operação [Copy Blob.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) A sua bolha original permanecerá desmodificado no arquivo enquanto uma nova bolha é criada no nível quente ou fresco on-line para que possa trabalhar. Na operação Copy Blob, também pode definir a propriedade opcional *x-ms-rehydrate-prioridade* para Standard ou High para especificar a prioridade em que deseja que a sua cópia blob seja criada.
+Se não quiser reidratar a sua bolha de arquivo, pode optar por fazer uma operação [Copy Blob.](/rest/api/storageservices/copy-blob) A sua bolha original permanecerá desmodificado no arquivo enquanto uma nova bolha é criada no nível quente ou fresco on-line para que possa trabalhar. Na operação Copy Blob, também pode definir a propriedade opcional *x-ms-rehydrate-prioridade* para Standard ou High para especificar a prioridade em que deseja que a sua cópia blob seja criada.
 
 Copiar uma bolha do arquivo pode demorar horas a ser completada dependendo da prioridade rehidratada selecionada. Nos bastidores, a operação **Copy Blob** lê a sua mancha de origem de arquivo para criar uma nova bolha on-line no nível de destino selecionado. O novo blob pode estar visível quando lista as bolhas, mas os dados não estão disponíveis até que a leitura da bolha do arquivo de origem esteja completa e os dados sejam escritos para a nova bolha de destino online. A nova bolha é como uma cópia independente e qualquer modificação ou supressão não afeta a bolha de arquivo de origem.
 

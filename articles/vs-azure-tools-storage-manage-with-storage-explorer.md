@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 9922601d67393d103b95da7286d8db71d913434a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be9b2d9a31d4affc9615f5d2f4b2585b7533a0f6
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235250"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545912"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de Armazenamento
 
@@ -53,15 +53,15 @@ O Storage Explorer requer a utilização de um gestor de passwords. Pode ter de 
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-O Storage Explorer também está disponível como download *.tar.gz.* Tem que instalar dependências manualmente. As seguintes distribuições de suporte Linux *.tar.gz* instalação:
+O Storage Explorer também está disponível como *.tar.gz* download. Tem que instalar dependências manualmente. As seguintes distribuições de suporte Linux *.tar.gz* instalação:
 
 * Ubuntu 20.04 x64
 * Ubuntu 18.04 x64
 * Ubuntu 16.04 x64
 
-A instalação *.tar.gz* pode funcionar em outras distribuições, mas apenas estas listadas são oficialmente suportadas.
+A *instalação .tar.gz* pode funcionar em outras distribuições, mas apenas estas listadas são oficialmente suportadas.
 
-Para obter mais ajuda para instalar o Storage Explorer no Linux, consulte as [dependências do Linux](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies) no guia de resolução de problemas do Azure Storage Explorer.
+Para obter mais ajuda para instalar o Storage Explorer no Linux, consulte as [dependências do Linux](./storage/common/storage-explorer-troubleshooting.md#linux-dependencies) no guia de resolução de problemas do Azure Storage Explorer.
 
 ---
 
@@ -79,7 +79,7 @@ O Explorador de Armazenamento proporciona várias formas de ligar a contas de ar
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 > [!NOTE]
-> Para aceder totalmente aos recursos após a sua sinstrução, o Storage Explorer requer tanto permissões de gestão (Azure Resource Manager) como de camadas de dados. Isto significa que precisa de permissões do Azure Ative Directory (Azure AD), que lhe dão acesso à sua conta de armazenamento, aos contentores da conta e aos dados nos contentores. Se tiver permissões apenas na camada de dados, considere [adicionar um recurso através do Azure AD](#add-a-resource-via-azure-ad). Para obter mais informações sobre as permissões específicas que o Storage Explorer necessita, consulte o [guia de resolução de problemas do Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#rbac-permissions-issues).
+> Para aceder totalmente aos recursos após a sua sinstrução, o Storage Explorer requer tanto permissões de gestão (Azure Resource Manager) como de camadas de dados. Isto significa que precisa de permissões do Azure Ative Directory (Azure AD), que lhe dão acesso à sua conta de armazenamento, aos contentores da conta e aos dados nos contentores. Se tiver permissões apenas na camada de dados, considere [adicionar um recurso através do Azure AD](#add-a-resource-via-azure-ad). Para obter mais informações sobre as permissões específicas que o Storage Explorer necessita, consulte o [guia de resolução de problemas do Azure Storage Explorer](./storage/common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
 
 1. No Explorador de Armazenamento, selecione **Ver**  >  **Gestão de Conta** ou selecione o botão **'Gerir contas'.**
 
@@ -106,8 +106,8 @@ O Explorador de Armazenamento proporciona várias formas de ligar a contas de ar
 Existem várias formas de anexar a um recurso no Storage Explorer:
 
 * [Adicione um recurso via Azure AD](#add-a-resource-via-azure-ad). Se tiver permissões apenas na camada de dados, utilize esta opção para adicionar um recipiente blob ou um recipiente de armazenamento Azure Data Lake Gen2 Blob.
-* [Utilize uma cadeia de ligação.](#use-a-connection-string) Utilize esta opção se tiver um fio de ligação a uma conta de armazenamento. O Storage Explorer suporta as cordas de ligação [de assinaturas](storage/common/storage-dotnet-shared-access-signature-part-1.md) de acesso chave e partilhado.
-* [Utilize uma assinatura de acesso partilhado URI](#use-a-shared-access-signature-uri). Se tiver uma [assinatura de acesso partilhado URI](storage/common/storage-dotnet-shared-access-signature-part-1.md) a um recipiente de bolhas, partilha de ficheiros, fila ou mesa, utilize-a para anexar o recurso. Para obter uma assinatura de acesso partilhado URI, pode utilizar [o Storage Explorer](#generate-a-sas-in-storage-explorer) ou o portal [Azure.](https://portal.azure.com)
+* [Utilize uma cadeia de ligação.](#use-a-connection-string) Utilize esta opção se tiver um fio de ligação a uma conta de armazenamento. O Storage Explorer suporta as cordas de ligação [de assinaturas](./storage/common/storage-sas-overview.md) de acesso chave e partilhado.
+* [Utilize uma assinatura de acesso partilhado URI](#use-a-shared-access-signature-uri). Se tiver uma [assinatura de acesso partilhado URI](./storage/common/storage-sas-overview.md) a um recipiente de bolhas, partilha de ficheiros, fila ou mesa, utilize-a para anexar o recurso. Para obter uma assinatura de acesso partilhado URI, pode utilizar [o Storage Explorer](#generate-a-sas-in-storage-explorer) ou o portal [Azure.](https://portal.azure.com)
 * [Use um nome e uma chave.](#use-a-name-and-key) Se souber de alguma das chaves da conta da sua conta de armazenamento, pode utilizar esta opção para se ligar rapidamente. Encontre as suas chaves na página da conta de armazenamento selecionando **as**  >  **teclas de acesso** de Definições no portal [Azure](https://portal.azure.com).
 * [Ligue-se a um emulador local.](#attach-to-a-local-emulator) Se estiver a utilizar um dos emuladores de armazenamento Azure disponíveis, utilize esta opção para se ligar facilmente ao seu emulador.
 * [Ligue-se a uma conta DB da Azure Cosmos utilizando uma cadeia de ligação](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string). Utilize esta opção se tiver uma cadeia de ligação a uma instância CosmosDB.
@@ -131,7 +131,7 @@ Existem várias formas de anexar a um recurso no Storage Explorer:
 
 1. Reveja o **Resumo da Ligação** para se certificar de que todas as informações estão corretas. Se for, selecione **Connect**. Caso contrário, selecione **Voltar** para as páginas anteriores para corrigir qualquer informação incorreta.
 
-Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O recurso aparece nos recipientes de & de armazenamento **Local & Attached**  >  **anexos**  >  **locais (contentores**  >  **anexos) .** Se o Storage Explorer não conseguir adicionar a sua ligação, ou se não conseguir aceder aos seus dados depois de adicionar a ligação com sucesso, consulte o [guia de resolução de problemas do Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O recurso aparece nos recipientes de & de armazenamento **Local & Attached**  >  **anexos**  >  **locais (contentores**  >  **anexos) .** Se o Storage Explorer não conseguir adicionar a sua ligação, ou se não conseguir aceder aos seus dados depois de adicionar a ligação com sucesso, consulte o [guia de resolução de problemas do Azure Storage Explorer](./storage/common/storage-explorer-troubleshooting.md).
 
 #### <a name="use-a-connection-string"></a>Utilizar uma cadeia de ligação
 
@@ -139,13 +139,13 @@ Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o n
 
     ![Ligar à opção de armazenamento do Azure][9]
 
-1. **Selecione Utilize uma cadeia de ligação**e, em seguida, selecione **Seguinte**.
+1. **Selecione Utilize uma cadeia de ligação** e, em seguida, selecione **Seguinte**.
 
 1. Escolha um nome de visualização para a sua ligação e introduza a sua cadeia de ligação. Em seguida, selecione **Seguinte**.
 
 1. Reveja o **Resumo da Ligação** para se certificar de que todas as informações estão corretas. Se for, selecione **Connect**. Caso contrário, selecione **Voltar** para as páginas anteriores para corrigir qualquer informação incorreta.
 
-Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O recurso aparece nas contas de armazenamento **anexadas &**  >  **Locais.** Se o Storage Explorer não conseguir adicionar a sua ligação, ou se não conseguir aceder aos seus dados depois de adicionar a ligação com sucesso, consulte o [guia de resolução de problemas do Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O recurso aparece nas contas de armazenamento **anexadas &**  >  **Locais.** Se o Storage Explorer não conseguir adicionar a sua ligação, ou se não conseguir aceder aos seus dados depois de adicionar a ligação com sucesso, consulte o [guia de resolução de problemas do Azure Storage Explorer](./storage/common/storage-explorer-troubleshooting.md).
 
 #### <a name="use-a-shared-access-signature-uri"></a>Utilizar um URI de assinatura de acesso partilhado
 
@@ -153,13 +153,13 @@ Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o n
 
     ![Ligar à opção de armazenamento do Azure][9]
 
-1. Selecione **Utilize uma assinatura de acesso partilhado (SAS) URI**e, em seguida, selecione **Next**.
+1. Selecione **Utilize uma assinatura de acesso partilhado (SAS) URI** e, em seguida, selecione **Next**.
 
 1. Escolha um nome de exibição para a sua ligação e introduza a sua assinatura de acesso partilhado URI. O ponto final de serviço para o tipo de recurso que está a anexar deve ser preenchido automaticamente. Se está a usar um ponto final personalizado, é possível que não. Selecione **Seguinte**.
 
 1. Reveja o **Resumo da Ligação** para se certificar de que todas as informações estão corretas. Se for, selecione **Connect**. Caso contrário, selecione **Voltar** para as páginas anteriores para corrigir qualquer informação incorreta.
 
-Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O recurso aparece em & Contas de Armazenamento **Anexadas**  >  **Storage Accounts**  >  **(Contentores Anexos)**  >  *o nó de serviço para o tipo de recipiente que anexou*. Se o Storage Explorer não conseguir adicionar a sua ligação, consulte o [guia de resolução de problemas do Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting). Consulte o guia de resolução de problemas se não conseguir aceder aos seus dados depois de ter acedido com sucesso a ligação.
+Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O recurso aparece em & Contas de Armazenamento **Anexadas**  >  **Storage Accounts**  >  **(Contentores Anexos)**  >  *o nó de serviço para o tipo de recipiente que anexou*. Se o Storage Explorer não conseguir adicionar a sua ligação, consulte o [guia de resolução de problemas do Azure Storage Explorer](./storage/common/storage-explorer-troubleshooting.md). Consulte o guia de resolução de problemas se não conseguir aceder aos seus dados depois de ter acedido com sucesso a ligação.
 
 #### <a name="use-a-name-and-key"></a>Utilizar um nome e uma chave
 
@@ -167,7 +167,7 @@ Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o n
 
     ![Ligar à opção de armazenamento do Azure][9]
 
-1. Selecione **Utilize o nome e a chave da conta de armazenamento**e, em seguida, selecione **Seguinte**.
+1. Selecione **Utilize o nome e a chave da conta de armazenamento** e, em seguida, selecione **Seguinte**.
 
 1. Escolha um nome de exibição para a sua ligação.
 
@@ -177,7 +177,7 @@ Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o n
 
 1. Reveja o **Resumo da Ligação** para se certificar de que todas as informações estão corretas. Se for, selecione **Connect**. Caso contrário, selecione **Voltar** para as páginas anteriores para corrigir qualquer informação incorreta.
 
-Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O recurso aparece nas contas de armazenamento **anexadas &**  >  **Locais.** Se o Storage Explorer não conseguir adicionar a sua ligação, ou se não conseguir aceder aos seus dados depois de adicionar a ligação com sucesso, consulte o [guia de resolução de problemas do Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O recurso aparece nas contas de armazenamento **anexadas &**  >  **Locais.** Se o Storage Explorer não conseguir adicionar a sua ligação, ou se não conseguir aceder aos seus dados depois de adicionar a ligação com sucesso, consulte o [guia de resolução de problemas do Azure Storage Explorer](./storage/common/storage-explorer-troubleshooting.md).
 
 #### <a name="attach-to-a-local-emulator"></a>Anexar a um emulador local
 
@@ -199,23 +199,23 @@ Se pretender utilizar um nome diferente para a sua ligação, ou se o seu emulad
 
     ![Ligar à opção de armazenamento do Azure][9]
 
-1. **Selecione Fixe-se a um emulador local**e, em seguida, selecione **Seguinte**.
+1. **Selecione Fixe-se a um emulador local** e, em seguida, selecione **Seguinte**.
 
 1. Escolha um nome de visor para a sua ligação e introduza as portas onde o seu emulador está a ouvir para cada tipo de serviço. **A fixação a um Emulador Local** sugere os valores de porta padrão para a maioria dos emuladores. **A porta de ficheiros** está em branco, porque nenhum dos emuladores oficiais suporta atualmente o serviço Ficheiros. Se o emulador que está a utilizar suportar ficheiros, pode entrar na porta para utilizar. Em seguida, selecione **Seguinte**.
 
 1. Reveja o **Resumo da Ligação** e certifique-se de que todas as informações estão corretas. Se for, selecione **Connect**. Caso contrário, selecione **Voltar** para as páginas anteriores para corrigir qualquer informação incorreta.
 
-Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O nó deve aparecer nas contas de armazenamento **&**  >  **Locais anexas**. Se o Storage Explorer não conseguir adicionar a sua ligação, ou se não conseguir aceder aos seus dados depois de adicionar a ligação com sucesso, consulte o [guia de resolução de problemas do Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O nó deve aparecer nas contas de armazenamento **&**  >  **Locais anexas**. Se o Storage Explorer não conseguir adicionar a sua ligação, ou se não conseguir aceder aos seus dados depois de adicionar a ligação com sucesso, consulte o [guia de resolução de problemas do Azure Storage Explorer](./storage/common/storage-explorer-troubleshooting.md).
 
 #### <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Ligue-se a uma conta DB Azure Cosmos usando uma cadeia de ligação
 
 Em vez de gerir as contas DB da Azure Cosmos através de uma subscrição do Azure, pode ligar-se ao Azure Cosmos DB utilizando uma cadeia de ligação. Para se ligar, siga estes passos:
 
-1. No **âmbito do EXPLORER**, expanda as contas de & **Locais anexadas,** clique à direita, **e**selecione Connect **to Azure Cosmos DB**.
+1. No **âmbito do EXPLORER**, expanda as contas de & **Locais anexadas,** clique à direita, **e** selecione Connect **to Azure Cosmos DB**.
 
     ![Ligar ao Azure Cosmos DB através de uma cadeia de ligação][21]
 
-1. Selecione a Azure Cosmos DB API, introduza os dados **da sua Cadeia de Ligação** e, em seguida, selecione **OK** para ligar a conta DB Azure Cosmos. Para obter informações sobre como recuperar a cadeia de ligação, consulte [Gerir uma conta Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+1. Selecione a Azure Cosmos DB API, introduza os dados **da sua Cadeia de Ligação** e, em seguida, selecione **OK** para ligar a conta DB Azure Cosmos. Para obter informações sobre como recuperar a cadeia de ligação, consulte [Gerir uma conta Azure Cosmos](./cosmos-db/how-to-manage-database-account.md).
 
     ![Cadeia de ligação][22]
 
@@ -225,7 +225,7 @@ Pode aceder a um recurso que não está na sua assinatura. Precisa de alguém qu
 
 1. No **âmbito do EXPLORER**, expanda & **Locais Anexados**.
 
-1. Clique à direita no **Data Lake Storage Gen1**e selecione **Connect to Data Lake Storage Gen1**.
+1. Clique à direita no **Data Lake Storage Gen1** e selecione **Connect to Data Lake Storage Gen1**.
 
     ![Conecte-se ao menu de contexto da Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-connect-data-lake-storage.png)
 

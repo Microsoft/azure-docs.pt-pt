@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 8579efcee45e08fec3331df8f55b61618edb4f4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e687b172b49fec5f77615e332d0a2204162c43
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000418"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545796"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução aos serviços ligados (projetos de serviços cloud) Armazenamento de Tabelas do Azure e o Visual Studio
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -28,11 +28,11 @@ Este artigo descreve como começar a usar o armazenamento de mesa Azure no Visua
 
 O serviço de armazenamento Azure Table permite armazenar grandes quantidades de dados estruturados. O serviço é uma loja de dados NoSQL que aceita chamadas autenticadas de dentro e fora da nuvem Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.
 
-Para começar, primeiro precisa de criar uma tabela na sua conta de armazenamento. Vamos mostrar-lhe como criar uma tabela Azure em código, e também como realizar operações básicas de tabela e entidade, tais como adicionar, modificar, ler e ler entidades de tabela. As amostras estão escritas em código C \# e utilizam a biblioteca de [clientes microsoft Azure Storage para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Para começar, primeiro precisa de criar uma tabela na sua conta de armazenamento. Vamos mostrar-lhe como criar uma tabela Azure em código, e também como realizar operações básicas de tabela e entidade, tais como adicionar, modificar, ler e ler entidades de tabela. As amostras estão escritas em código C \# e utilizam a biblioteca de [clientes microsoft Azure Storage para .NET](/previous-versions/azure/dn261237(v=azure.100)).
 
-**NOTA:** Algumas das APIs que realizam chamadas para o armazenamento do Azure são assíncronas. Consulte [a programação Asynchronous com Async e aguarde](https://msdn.microsoft.com/library/hh191443.aspx) mais informações. O código abaixo pressupõe que estão a ser utilizados métodos de programação async.
+**NOTA:** Algumas das APIs que realizam chamadas para o armazenamento do Azure são assíncronas. Consulte [a programação Asynchronous com Async e aguarde](/previous-versions/hh191443(v=vs.140)) mais informações. O código abaixo pressupõe que estão a ser utilizados métodos de programação async.
 
-* Consulte [Começar com o armazenamento da tabela Azure usando .NET](../storage/storage-dotnet-how-to-use-tables.md) para obter mais informações sobre tabelas de manipulação programática.
+* Consulte [Começar com o armazenamento da tabela Azure usando .NET](../cosmos-db/tutorial-develop-table-dotnet.md) para obter mais informações sobre tabelas de manipulação programática.
 * Consulte [a documentação de armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o Armazenamento Azure.
 * Consulte [a documentação dos Serviços cloud](https://azure.microsoft.com/documentation/services/cloud-services/) para obter informações gerais sobre os serviços na nuvem Azure.
 * Consulte [ASP.NET](https://www.asp.net) para obter mais informações sobre a programação ASP.NET aplicações.
@@ -215,4 +215,3 @@ else
 
 ## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
-

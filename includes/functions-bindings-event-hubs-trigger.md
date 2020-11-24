@@ -4,33 +4,33 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: d8c6b79dca97de3dd46eb9c677f2c94191f276b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cd514c852e13b83a679821ca2d940e4ed112bd8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89304056"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563712"
 ---
 Utilize o gatilho de função para responder a um evento enviado para um fluxo de eventos do centro de eventos. Deve ter lido o acesso ao centro de eventos subjacente para configurar o gatilho. Quando a função é desencadeada, a mensagem transmitida para a função é dactilografada como uma corda.
 
 ## <a name="scaling"></a>Dimensionamento
 
-Cada instância de uma função desencadeada por um evento é apoiada por uma única instância [EventProcessorHost.](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) O gatilho (alimentado por Event Hubs) garante que apenas uma instância [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) pode obter um arrendamento numa determinada partição.
+Cada instância de uma função desencadeada por um evento é apoiada por uma única instância [EventProcessorHost.](/dotnet/api/microsoft.azure.eventhubs.processor) O gatilho (alimentado por Event Hubs) garante que apenas uma instância [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) pode obter um arrendamento numa determinada partição.
 
 Por exemplo, considere um Centro de Eventos da seguinte forma:
 
 * 10 divisórias
 * 1.000 eventos distribuídos uniformemente em todas as divisórias, com 100 mensagens em cada partição
 
-Quando a sua função está ativada pela primeira vez, há apenas uma instância da função. Vamos chamar a primeira instância `Function_0` de função. A `Function_0` função tem uma única instância de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) que detém um arrendamento em todas as dez divisórias. Este caso está a ler eventos de divisórias 0-9. A partir de agora, um dos seguintes acontece:
+Quando a sua função está ativada pela primeira vez, há apenas uma instância da função. Vamos chamar a primeira instância `Function_0` de função. A `Function_0` função tem uma única instância de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) que detém um arrendamento em todas as dez divisórias. Este caso está a ler eventos de divisórias 0-9. A partir de agora, um dos seguintes acontece:
 
 * **Não são necessários novos casos de função:** `Function_0` é capaz de processar todos os 1.000 eventos antes que a lógica de escalagem de funções produza efeito. Neste caso, todas as 1.000 mensagens são processadas por `Function_0` .
 
-* **Uma instância de função adicional é adicionada**: Se a lógica de escala de Funções determinar que `Function_0` tem mais mensagens do que pode processar, é criada uma nova instância de aplicação de função `Function_1` ( ) Esta nova função também tem uma instância associada do [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). À medida que os Centros de Eventos subjacentes detetam que uma nova instância de anfitrião está a tentar ler mensagens, ele carrega equilibrar as divisórias entre as instâncias do anfitrião. Por exemplo, as divisórias 0-4 podem ser `Function_0` atribuídas e as divisórias 5-9 a `Function_1` .
+* **Uma instância de função adicional é adicionada**: Se a lógica de escala de Funções determinar que `Function_0` tem mais mensagens do que pode processar, é criada uma nova instância de aplicação de função `Function_1` ( ) Esta nova função também tem uma instância associada do [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor). À medida que os Centros de Eventos subjacentes detetam que uma nova instância de anfitrião está a tentar ler mensagens, ele carrega equilibrar as divisórias entre as instâncias do anfitrião. Por exemplo, as divisórias 0-4 podem ser `Function_0` atribuídas e as divisórias 5-9 a `Function_1` .
 
 * **N mais instâncias de função são adicionadas**: Se a lógica de escala de Funções determinar que ambos `Function_0` e ter mais `Function_1` mensagens do que podem processar, `Functions_N` novas instâncias de aplicações de função são criadas.  As aplicações são criadas ao ponto de serem `N` maiores do que o número de divisórias do centro de eventos. No nosso exemplo, o Event Hubs volta a carregar equilibra as divisórias, neste caso através dos `Function_0` casos... `Functions_9` .
 
-À medida que o escalonamento ocorre, `N` os casos são um número maior do que o número de partições do centro de eventos. Este padrão é usado para garantir que as instâncias [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) estão disponíveis para obter bloqueios em divisórias à medida que ficam disponíveis a partir de outras instâncias. Só é cobrado pelos recursos utilizados quando a instância de função é executada. Por outras palavras, não é cobrado por este excesso de provisão.
+À medida que o escalonamento ocorre, `N` os casos são um número maior do que o número de partições do centro de eventos. Este padrão é usado para garantir que as instâncias [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) estão disponíveis para obter bloqueios em divisórias à medida que ficam disponíveis a partir de outras instâncias. Só é cobrado pelos recursos utilizados quando a instância de função é executada. Por outras palavras, não é cobrado por este excesso de provisão.
 
 Quando toda a execução da função estiver concluída (com ou sem erros), os pontos de verificação são adicionados à conta de armazenamento associada. Quando o check-pointing tem sucesso, todas as 1.000 mensagens nunca mais são recuperadas.
 
@@ -212,7 +212,7 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-Para receber eventos num lote, definido `cardinality` `many` nofunction.js* em* arquivo, como mostrado nos seguintes exemplos.
+Para receber eventos num lote, definido `cardinality` `many` nofunction.js *em* arquivo, como mostrado nos seguintes exemplos.
 
 ### <a name="version-2x-and-higher"></a>Versão 2.x e superior
 
@@ -343,7 +343,7 @@ Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A partir da [biblioteca de funções](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)Java, use a anotação [EventHubTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger) em parâmetros cujo valor viria do Event Hub. Parâmetros com estas anotações fazem com que a função funcione quando um evento chega. Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores anulados usando `Optional<T>` .
+A partir da [biblioteca de funções](/java/api/overview/azure/functions/runtime)Java, use a anotação [EventHubTrigger](/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger) em parâmetros cujo valor viria do Event Hub. Parâmetros com estas anotações fazem com que a função funcione quando um evento chega. Esta anotação pode ser usada com tipos nativos de Java, POJOs ou valores anulados usando `Optional<T>` .
 
 ---
 
@@ -366,11 +366,11 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 ## <a name="event-metadata"></a>Metadados de eventos
 
-O gatilho do Event Hubs fornece várias [propriedades de metadados.](../articles/azure-functions/./functions-bindings-expressions-patterns.md) As propriedades dos metadados podem ser usadas como parte de expressões de ligação noutras ligações ou como parâmetros no seu código. As propriedades provêm da classe [EventData.](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata)
+O gatilho do Event Hubs fornece várias [propriedades de metadados.](../articles/azure-functions/./functions-bindings-expressions-patterns.md) As propriedades dos metadados podem ser usadas como parte de expressões de ligação noutras ligações ou como parâmetros no seu código. As propriedades provêm da classe [EventData.](/dotnet/api/microsoft.servicebus.messaging.eventdata)
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
-|`PartitionContext`|[PartitionContexto](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|O `PartitionContext` exemplo.|
+|`PartitionContext`|[PartitionContexto](/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|O `PartitionContext` exemplo.|
 |`EnqueuedTimeUtc`|`DateTime`|O tempo encadeado na UTC.|
 |`Offset`|`string`|A compensação dos dados relativos ao fluxo de partição do Event Hub. O offset é um marcador ou identificador para um evento dentro do fluxo de Centros de Eventos. O identificador é único dentro de uma partição do fluxo de Centros de Eventos.|
 |`PartitionKey`|`string`|A partição para a qual os dados do evento devem ser enviados.|

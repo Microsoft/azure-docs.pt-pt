@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 9f0a3c3a96a73bd71a9b0c769a3ceff85ae428f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94f248edfebd6c6fedb78a54eee220c0ef38b4ab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017622"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545881"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução aos serviços ligados (projetos de serviços cloud) Armazenamento de Filas do Azure e o Visual Studio
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "89017622"
 ## <a name="overview"></a>Descrição geral
 Este artigo descreve como começar a usar o armazenamento da Azure Queue no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento Azure num projeto de serviços na nuvem utilizando o diálogo visual Studio **Add Connected Services.**
 
-Vamos mostrar-lhe como criar uma fila em código. Também lhe mostraremos como realizar operações básicas de fila, tais como adicionar, modificar, ler e remover mensagens de fila. As amostras estão escritas no código C# e utilizam a Biblioteca do [Cliente de Armazenamento microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Vamos mostrar-lhe como criar uma fila em código. Também lhe mostraremos como realizar operações básicas de fila, tais como adicionar, modificar, ler e remover mensagens de fila. As amostras estão escritas no código C# e utilizam a Biblioteca do [Cliente de Armazenamento microsoft Azure para .NET](/previous-versions/azure/dn261237(v=azure.100)).
 
 A operação **Add Connected Services** instala os pacotes NuGet apropriados para aceder ao armazenamento do Azure no seu projeto e adiciona a cadeia de ligação para a conta de armazenamento aos ficheiros de configuração do projeto.
 
@@ -150,7 +150,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Use o padrão de Async-Await com APIs comuns da fila Azure
-Este exemplo mostra como usar o padrão Async-Await com APIs comuns da Fila Azure. A amostra chama a versão async de cada um dos métodos dados, isto pode ser visto pela pós-correcção **assínc** de cada método. Quando um método de assínc é usado, o padrão de espera de assínc suspende a execução local até que a chamada termine. Este comportamento permite que o fio atual faça outros trabalhos que ajudem a evitar estrangulamentos de desempenho e melhorem a capacidade de resposta geral da sua aplicação. Para obter mais detalhes sobre como utilizar o padrão Async-Await no .NET, consulte [Async-Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+Este exemplo mostra como usar o padrão Async-Await com APIs comuns da Fila Azure. A amostra chama a versão async de cada um dos métodos dados, isto pode ser visto pela pós-correcção **assínc** de cada método. Quando um método de assínc é usado, o padrão de espera de assínc suspende a execução local até que a chamada termine. Este comportamento permite que o fio atual faça outros trabalhos que ajudem a evitar estrangulamentos de desempenho e melhorem a capacidade de resposta geral da sua aplicação. Para obter mais detalhes sobre como utilizar o padrão Async-Await no .NET, consulte [Async-Await (C# e Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
 ```csharp
 // Create a message to put in the queue
@@ -179,4 +179,3 @@ messageQueue.Delete();
 
 ## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
-
