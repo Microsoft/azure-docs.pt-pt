@@ -12,39 +12,13 @@
     - name: Configurar o seu ambiente
       href: set-up-environment.md
     - name: Ligar um dispositivo ao Hub IoT
-      items:
-        - name: C
-          href: quickstart-connect-device-c.md
-        - name: Node.js
-          href: quickstart-connect-device-node.md
-        - name: Python
-          href: quickstart-connect-device-python.md
-        - name: C#
-          href: quickstart-connect-device-csharp.md
-        - name: Java
-          href: quickstart-connect-device-java.md
+      href: quickstart-connect-device.md
     - name: Interagir com um dispositivo a partir da sua solução
-      items:
-        - name: Node.js
-          href: quickstart-service-node.md
-        - name: Python
-          href: quickstart-service-python.md
-        - name: C#
-          href: quickstart-service-csharp.md
-        - name: Java
-          href: quickstart-service-java.md
+      href: quickstart-service.md
 - name: Tutoriais
   items:
-    - name: Ligar um dispositivo de vários componentes (C)
-      href: tutorial-multiple-components-c.md
-    - name: Ligar um dispositivo de vários componentes (C#)
-      href: tutorial-multiple-components-csharp.md
-    - name: Ligar um dispositivo de vários componentes (Java)
-      href: tutorial-multiple-components-java.md
-    - name: Ligar um dispositivo de vários componentes (Node.js)
-      href: tutorial-multiple-components-node.md
-    - name: Ligar um dispositivo de vários componentes (Python)
-      href: tutorial-multiple-components-python.md
+    - name: Ligar um dispositivo de vários componentes
+      href: tutorial-multiple-components.md
     - name: Utilizar o MQTT para ligar um dispositivo
       href: tutorial-use-mqtt.md
     - name: Interagir com um dispositivo MXChip (Exemplo)
@@ -58,17 +32,7 @@
     - name: Arquitetura
       href: concepts-architecture.md
     - name: Guia para programadores de dispositivos
-      items:
-        - name: C#
-          href: concepts-developer-guide-device-csharp.md
-        - name: Node.js
-          href: concepts-developer-guide-device-node.md
-        - name: Java
-          href: concepts-developer-guide-device-java.md
-        - name: Python
-          href: concepts-developer-guide-device-python.md
-        - name: C
-          href: concepts-developer-guide-device-c.md
+      href: concepts-developer-guide-device.md
     - name: Guia para programadores de serviços
       href: concepts-developer-guide-service.md
     - name: Componentes
