@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6864502a9d338a786e1e77dbf9888a7818bb94e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444168"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95748653"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App Daemon que chama APIs web - configuração de código
 
@@ -36,9 +36,9 @@ Estas bibliotecas da Microsoft suportam aplicações daemon:
 
 As aplicações da Daemon usam permissões de aplicação em vez de permissões delegadas. Assim, o tipo de conta suportada não pode ser uma conta em qualquer diretório organizacional ou qualquer conta pessoal da Microsoft (por exemplo, Skype, Xbox, Outlook.com). Não há nenhum administrador inquilino que conceda consentimento a um pedido de daemon para uma conta pessoal da Microsoft. Terá de escolher *contas na minha organização* ou *contas em qualquer organização.*
 
-Assim, a autoridade especificada na configuração da aplicação deve ser arrendada (especificando um ID do inquilino ou um nome de domínio associado à sua organização).
+A autoridade especificada na configuração da aplicação deve ser arrendada (especificando um ID do inquilino ou um nome de domínio associado à sua organização).
 
-Se é um ISV e quer fornecer uma ferramenta multitenant, pode usar `organizations` . Mas tenha em mente que também terá de explicar aos seus clientes como conceder o consentimento administrativo. Para mais informações, consulte [o Pedido de Consentimento para um inquilino inteiro.](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) Além disso, existe atualmente uma limitação no MSAL: `organizations` só é permitido quando as credenciais do cliente são um segredo de aplicação (não um certificado).
+Mesmo que pretenda fornecer uma ferramenta multitenante, deve utilizar um ID ou nome de domínio do inquilino, e **não** `common` ou com este `organizations` fluxo, porque o serviço não pode inferir de forma fiável qual o inquilino deve ser usado.
 
 ## <a name="configure-and-instantiate-the-application"></a>Configure e instantaneamente a aplicação
 

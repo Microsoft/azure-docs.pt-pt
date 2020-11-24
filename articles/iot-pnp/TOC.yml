@@ -51,6 +51,8 @@
       href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
     - name: Ligar um módulo de dispositivo
       href: tutorial-migrate-device-to-module.md
+    - name: Pré-visualização - Ligar e analisar dados com o Time Series Insights Gen2
+      href: tutorial-configure-tsi.md
 - name: Conceitos
   items:
     - name: Arquitetura

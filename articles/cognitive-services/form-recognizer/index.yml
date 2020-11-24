@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 5f0893f53c18bfeead5135a7ffdbc3d9d806bc79
-  ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+  ms.openlocfilehash: 3ba0788b150f39c43471fd9d5e69b14a36ddbb78
+  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/29/2020
-  ms.locfileid: "92913012"
+  ms.lasthandoff: 11/23/2020
+  ms.locfileid: "95493609"
 landingContent:
 - title: Sobre o Reconhecedor de Formato
   linkLists:
@@ -96,6 +96,10 @@ landingContent:
       url: concept-business-cards.md?
 - title: Obter informações de esquema de texto
   linkLists:
+  - linkListType: concept
+    links:
+    - text: Conceitos de esquema
+      url: concept-layout.md?
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET

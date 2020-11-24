@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b85b2d9b81e84ec6c6e09fef16c66a919aa30cd7
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: e5e344aa84bfc6912266720083f0cd15f575883c
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616761"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95740255"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviço Azure em imagens de câmara
 
@@ -154,7 +154,7 @@ Siga estes passos para executar a aplicação:
 1. No primeiro ecrã, insira o seu iD principal cliente de serviço, iD do inquilino e senha. Selecione o botão **Iniciar sessão.**
 
     > [!NOTE]
-    > Em alguns emuladores, o botão **de Login** pode não ser ativado neste passo. Se isso acontecer, parar a aplicação, abrir o ficheiro *Source/VisualProvision/Pages/LoginPage.xaml,* encontrar o `Button` elemento marcado como **BOTÃO DE LOGIN** , remover a seguinte linha e, em seguida, executar novamente a aplicação.
+    > Em alguns emuladores, o botão **de Login** pode não ser ativado neste passo. Se isso acontecer, parar a aplicação, abrir o ficheiro *Source/VisualProvision/Pages/LoginPage.xaml,* encontrar o `Button` elemento marcado como **BOTÃO DE LOGIN**, remover a seguinte linha e, em seguida, executar novamente a aplicação.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```

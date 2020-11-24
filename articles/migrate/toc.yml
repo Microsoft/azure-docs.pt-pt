@@ -32,10 +32,12 @@
           href: tutorial-discover-gcp.md
     - name: Avaliação
       items:
-        - name: Avaliar VMs VMware para migração para VMs do Azure
-          href: tutorial-assess-vmware-azure-vm.md
-        - name: Avaliar VMs VMware para migração para o AVS
-          href: tutorial-assess-vmware-azure-vmware-solution.md
+        - name: Avaliar VMs VMware
+          items:
+            - name: Avaliar VMs VMware para migração para VMs do Azure
+              href: tutorial-assess-vmware-azure-vm.md
+            - name: Avaliar VMs VMware para migração para o AVS
+              href: tutorial-assess-vmware-azure-vmware-solution.md
         - name: Avaliar VMs Hyper-V para migração para o Azure
           href: tutorial-assess-hyper-v.md
         - name: Avaliar servidores físicos para migração para o Azure
@@ -44,19 +46,19 @@
           href: tutorial-assess-aws.md
         - name: Avaliar instâncias do GCP para migração para o Azure
           href: tutorial-assess-gcp.md
-        - name: Avaliar servidores importados
+        - name: Avaliar servidores importados para migração para o Azure
           href: tutorial-discover-import.md
     - name: Migrate
       items:
         - name: Migrar VMs VMware
           items:
-            - name: Acerca das opções de migração para as VMs VMware
+            - name: Opções de migração para VMs VMware
               href: server-migrate-overview.md
-            - name: Migrar VMs VMware com migração sem agente - Portal do Azure
+            - name: Migrar com migração sem agente (portal)
               href: tutorial-migrate-vmware.md
-            - name: Migrar VMs VMware com migração sem agente
+            - name: Migrar com migração baseada em agente
               href: tutorial-migrate-vmware-agent.md
-            - name: Migrar VMs VMware com migração sem agente - PowerShell
+            - name: Migrar com migração sem agente (PowerShell)
               href: tutorial-migrate-vmware-powershell.md
         - name: Migrar VMs Hyper-V
           href: tutorial-migrate-hyper-v.md
@@ -68,128 +70,150 @@
           href: tutorial-migrate-gcp-virtual-machines.md
 - name: Conceitos
   items:
-    - name: Criar um plano de migração
-      href: concepts-migration-planning.md
-    - name: Matrizes de suporte
+    - name: Geral
       items:
-        - name: Suporte geral
+        - name: Suporte do Azure Migrate
           href: migrate-support-matrix.md
-        - name: Suporte de avaliação de VMware
+        - name: Linha de base de segurança do Azure Migrate
+          href: security-baseline.md
+    - name: Detetar
+      items:
+        - name: Suporte de deteção do VMware
           href: migrate-support-matrix-vmware.md
-        - name: Suporte de migração de VMware
-          href: migrate-support-matrix-vmware-migration.md
-        - name: Suporte de avaliação de Hyper-V
+        - name: Suporte de deteção do Hyper-V
           href: migrate-support-matrix-hyper-v.md
-        - name: Suporte de migração de Hyper-V
-          href: migrate-support-matrix-hyper-v-migration.md
-        - name: Suporte de avaliação do servidor físico
+        - name: Suporte de deteção de servidores físicos
           href: migrate-support-matrix-physical.md
-        - name: Suporte de migração do servidor físico
-          href: migrate-support-matrix-physical-migration.md
         - name: Requisitos de aplicação do Azure Migrate
           href: migrate-appliance.md
+        - name: Arquitetura de aplicação do Azure Migrate
+          href: migrate-appliance-architecture.md
+        - name: Descrição geral da análise de dependências
+          href: concepts-dependency-visualization.md
+    - name: Avaliar
+      items:
+        - name: Descrição geral das avaliações (migrar para VMs do Azure)
+          href: concepts-assessment-calculation.md
+        - name: Descrição geral da avaliação (migrar para o AVS)
+          href: concepts-azure-vmware-solution-assessment-calculation.md
+        - name: Melhores práticas de avaliação
+          href: best-practices-assessment.md
+    - name: Migrate
+      items:
+        - name: Criar um plano de migração
+          href: concepts-migration-planning.md
+        - name: Suporte de migração de VMware
+          href: migrate-support-matrix-vmware-migration.md
+        - name: Suporte de migração de Hyper-V
+          href: migrate-support-matrix-hyper-v-migration.md
+        - name: Suporte de migração do servidor físico
+          href: migrate-support-matrix-physical-migration.md
         - name: Requisitos de aplicação de replicação
           href: migrate-replication-appliance.md
-    - name: Segurança
-      items:
-        - name: Linha de base de segurança
-          href: security-baseline.md
-    - name: Arquitetura de aplicação do Azure Migrate
-      href: migrate-appliance-architecture.md
-    - name: Arquitetura de migração do Hyper-V
-      href: hyper-v-migration-architecture.md
-    - name: Arquitetura de migração baseada em agentes do VMware
-      href: agent-based-migration-architecture.md
-    - name: Descrição geral da avaliação (migrar para VMs do Azure)
-      href: concepts-assessment-calculation.md
-    - name: Descrição geral da avaliação (migrar para o AVS)
-      href: concepts-azure-vmware-solution-assessment-calculation.md
-    - name: Melhores práticas para avaliações
-      href: best-practices-assessment.md
-    - name: Descrição geral da análise de dependências
-      href: concepts-dependency-visualization.md
+        - name: Arquitetura de migração do Hyper-V
+          href: hyper-v-migration-architecture.md
+        - name: Arquitetura de migração baseada em agentes do VMware
+          href: agent-based-migration-architecture.md
 - name: Guias de procedimentos
   items:
     - name: Criar e gerir projetos de migrações do Azure Migrate
       href: create-manage-projects.md
-    - name: Adicionar uma ferramenta pela primeira vez
-      href: how-to-add-tool-first-time.md
     - name: Preparar-se para trabalhar com ferramentas de ISV/Movere
       href: prepare-isv-movere.md
-    - name: Adicionar ferramentas de avaliação
-      href: how-to-assess.md
-    - name: Implementar a aplicação do Azure Migrate
+    - name: Detetar
       items:
-        - name: Implementar a aplicação com o modelo (VMware)
-          href: how-to-set-up-appliance-vmware.md
-        - name: Implementar a aplicação com o modelo (Hyper-V)
-          href: how-to-set-up-appliance-hyper-v.md
-        - name: Implementar a aplicação com o script (VMware/Hyper-V)
-          href: deploy-appliance-script.md
-        - name: Implementar a aplicação para servidores físicos
-          href: how-to-set-up-appliance-physical.md
-        - name: Implementar a aplicação no Azure Government
-          href: deploy-appliance-script-government.md
-    - name: Limitar o âmbito de deteção para VMs VMware
-      href: set-discovery-scope.md
-    - name: Detetar aplicações/funções/funcionalidades
-      href: how-to-discover-applications.md
-    - name: Agrupar máquinas para avaliação
-      href: how-to-create-a-group.md
-    - name: Analisar dependências de máquinas (baseadas em agente)
-      href: how-to-create-group-machine-dependencies.md
-    - name: Analisar dependências de máquinas (sem agente)
-      href: how-to-create-group-machine-dependencies-agentless.md
-    - name: Criar uma avaliação de VM do Azure
-      href: how-to-create-assessment.md
-    - name: Criar uma avaliação do AVS
-      href: how-to-create-azure-vmware-solution-assessment.md
-    - name: Avaliar uma base de dados do SQL Server
-      href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
-    - name: Personalizar uma avaliação
-      href: how-to-modify-assessment.md
-    - name: Adicionar ferramentas de migração
-      href: how-to-migrate.md
-    - name: Migrar VMs VMware para VMs do Azure encriptadas com SSE e CMK
-      href: how-to-migrate-vmware-vms-with-cmk-disks.md
-    - name: Preparar os servidores do Windows 2003 para migração
-      href: prepare-windows-server-2003-migration.md
-    - name: Preparar máquinas para migração
-      href: prepare-for-migration.md
-    - name: Eliminar um projeto do Azure Migrate
-      href: how-to-delete-project.md
-    - name: Trabalhar com a versão anterior
-      href: migrate-v1.md
-    - name: Dimensionar a avaliação e a migração
+        - name: Implementar a aplicação do Azure Migrate
+          items:
+            - name: Implementar a aplicação com o modelo (VMware)
+              href: how-to-set-up-appliance-vmware.md
+            - name: Implementar a aplicação com o modelo (Hyper-V)
+              href: how-to-set-up-appliance-hyper-v.md
+            - name: Implementar a aplicação com o script (VMware/Hyper-V)
+              href: deploy-appliance-script.md
+            - name: Implementar a aplicação para servidores físicos
+              href: how-to-set-up-appliance-physical.md
+            - name: Implementar a aplicação no Azure Government
+              href: deploy-appliance-script-government.md
+        - name: Limitar o âmbito de deteção para VMs VMware
+          href: set-discovery-scope.md
+        - name: Detetar aplicações/funções/funcionalidades
+          href: how-to-discover-applications.md
+        - name: Analisar dependências de máquinas (baseadas em agente)
+          href: how-to-create-group-machine-dependencies.md
+        - name: Analisar dependências de máquinas (sem agente)
+          href: how-to-create-group-machine-dependencies-agentless.md
+    - name: Avaliar
       items:
-        - name: Avaliar um grande número de VMs VMware
-          href: scale-vmware-assessment.md
-        - name: Avaliar um grande número de VMs Hyper-V
-          href: scale-hyper-v-assessment.md
-        - name: Avaliar um grande número de servidores físicos
-          href: scale-physical-assessment.md
-        - name: Automatizar a migração de um elevado número de VMs
-          href: how-to-migrate-at-scale.md
-        - name: Como automatizar a migração do VMware
-          href: how-to-automate-migration.md
-        - name: Exemplos de migração (série Contoso)
-          href: contoso-migration-overview.md
+        - name: Adicionar ferramentas de avaliação
+          href: how-to-assess.md
+        - name: Agrupar máquinas para avaliação
+          href: how-to-create-a-group.md
+        - name: Criar uma avaliação de VM do Azure
+          href: how-to-create-assessment.md
+        - name: Criar uma avaliação do AVS
+          href: how-to-create-azure-vmware-solution-assessment.md
+        - name: Avaliar uma base de dados do SQL Server
+          href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
+        - name: Personalizar uma avaliação
+          href: how-to-modify-assessment.md
+        - name: Dimensionar a avaliação
+          items:
+            - name: Avaliar um grande número de VMs VMware
+              href: scale-vmware-assessment.md
+            - name: Avaliar um grande número de VMs Hyper-V
+              href: scale-hyper-v-assessment.md
+            - name: Avaliar um grande número de servidores físicos
+              href: scale-physical-assessment.md
+    - name: Migrate
+      items:
+        - name: Adicionar ferramentas de migração
+          href: how-to-migrate.md
+        - name: Preparar máquinas para migração
+          href: prepare-for-migration.md
+        - name: Migrar VMs VMware
+          items:
+            - name: Migrar VMs VMware para VMs do Azure encriptadas
+              href: how-to-migrate-vmware-vms-with-cmk-disks.md
+            - name: Preparar os servidores do Windows 2003 para migração
+              href: prepare-windows-server-2003-migration.md
+        - name: Dimensionar a migração
+          items:
+            - name: Automatizar a migração de um elevado número de VMs
+              href: how-to-migrate-at-scale.md
+            - name: Como automatizar a migração do VMware
+              href: how-to-automate-migration.md
+    - name: Gerir
+      items:
+        - name: Eliminar um projeto do Azure Migrate
+          href: how-to-delete-project.md
+        - name: Trabalhar com a versão anterior do Azure Migrate
+          href: migrate-v1.md
 - name: Resolução de problemas
   items:
-    - name: Resolver problemas do Azure Migrate
-      href: troubleshoot-general.md
-    - name: Resolver problemas relacionados com projetos do Azure Migrate
-      href: troubleshoot-project.md
-    - name: Resolver problemas da aplicação/descoberta do Azure Migrate
-      href: troubleshoot-appliance-discovery.md
-    - name: Resolver problemas de avaliação/visualização de dependência
-      href: troubleshoot-assessment.md
-    - name: Resolver problemas de replicação da migração de VMware sem agente
-      href: troubleshoot-changed-block-tracking-replication.md
+    - name: Geral
+      items:
+        - name: Resolver problemas do Azure Migrate
+          href: troubleshoot-general.md
+        - name: Resolver problemas relacionados com projetos do Azure Migrate
+          href: troubleshoot-project.md
+    - name: Detetar
+      items:
+        - name: Resolver problemas da aplicação/descoberta do Azure Migrate
+          href: troubleshoot-appliance-discovery.md
+    - name: Avaliar
+      items:
+        - name: Resolver problemas de avaliação/visualização de dependência
+          href: troubleshoot-assessment.md
+    - name: Migrate
+      items:
+        - name: Resolver problemas de replicação da migração de VMware sem agente
+          href: troubleshoot-changed-block-tracking-replication.md
 - name: Recursos
   items:
     - name: Migração na Estrutura de Adoção da Cloud
       href: /azure/cloud-adoption-framework/migrate/
+    - name: Exemplos de migração da Contoso
+      href: /azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-overview
     - name: API REST
       href: /rest/api/migrate/
     - name: Modelo do Resource Manager

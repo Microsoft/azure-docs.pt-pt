@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/11/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 3222c934998febe79c36121ca816f949b78d374e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: dc725839d018c281dc784f5f83b256e62d70884d
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411563"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635420"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferências do Azure Enterprise
 
@@ -98,9 +98,9 @@ Não há tempo de inatividade durante a transferência da inscrição ou da cont
 
 Para transferir uma subscrição Enterprise para uma subscrição individual com tarifas Pay As You Go, tem de criar um novo pedido de suporte no portal Azure Enterprise. Para criar um pedido de suporte, selecione **+ Novo pedido de suporte** na área **Ajuda e Suporte**.
 
-## <a name="change-account-owner"></a>Alterar o Proprietário da Conta
+## <a name="change-azure-subscription-or-account-ownership"></a>Alterar a propriedade de uma subscrição ou conta do Azure
 
-O Azure EA Portal pode transferir subscrições de um proprietário de conta para outro. Para obter mais informações, veja [Criar Proprietário de Conta](ea-portal-administration.md#change-account-owner).
+O Azure EA Portal pode transferir subscrições de um proprietário de conta para outro. Para obter mais informações, veja [Alterar a propriedade de uma subscrição ou conta do Azure](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
 
 ## <a name="subscription-transfer-effects"></a>Efeitos da transferência da subscrição
 

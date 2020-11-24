@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 92eda77d03e547e814cac85f5ac8bb03b552d135
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed6d3b927254d44863b7fd0a597528813be791cf
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95506582"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736616"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -38,13 +38,13 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
   > [Saiba mais sobre a extração de Layout](concept-layout.md)
 
 - **Nova linguagem suportada: Japonês** - As seguintes novas línguas são agora apoiadas: para `AnalyzeLayout` e : `AnalyzeCustomForm` japonês ( `ja` ). [Suporte de idiomas](language-support.md)
-- **Indicação de estilo de linha de texto (manuscrito/impressão) (apenas línguas latinas)** - O Reconhecedor de Formulários agora produz um `appearance` objeto classificando se cada linha de texto é ou não estilo manuscrito, juntamente com uma pontuação de confiança. Esta funcionalidade é suportada apenas para línguas latinas.
+- **Indicação de estilo de linha de texto (manuscrito/outro) (apenas línguas latinas)** - O Reconhecedor de Formulários agora produz um `appearance` objeto classificando se cada linha de texto é ou não estilo manuscrito, juntamente com uma pontuação de confiança. Esta funcionalidade é suportada apenas para línguas latinas.
 - **Melhorias de qualidade** - Melhorias de extração, incluindo melhorias na extração de um dígito.
 - **Nova funcionalidade de try-it-out na Ferramenta de Rotulagem da Amostra do Reconhecimento de Formulários** - Capacidade de experimentar modelos pré-construídos de fatura, recibo e cartão de visita e a API de layout utilizando a ferramenta de rotulagem da amostra do reconhecimento de formulários. Veja como os seus dados serão extraídos sem escrever nenhum código.
 
   > [Experimente a ferramenta de amostra do reconhecimento de formulários](https://fott-preview.azurewebsites.net/)
 
-  ![Exemplo FOTT](./media/fott-preview.jpg)
+  ![Exemplo FOTT](./media/ui-preview.jpg)
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -85,7 +85,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 * **Suporte cambial** - Deteção e extração de símbolos de moeda global.
 * **Azure Gov** - Form Recogniser também está disponível em Azure Gov.
 * **Características de segurança reforçadas:** 
-   * **Traga a sua própria chave** - O Form Recogniser encripta automaticamente os seus dados quando persistido na nuvem para protegê-los e ajudá-lo a cumprir os seus compromissos de segurança organizacional e conformidade. Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. Agora também pode gerir a sua subscrição com as suas próprias chaves de encriptação. [As teclas geridas pelo cliente (CMK), também conhecidas como trazer a sua própria chave (BYOK),](./form-recognizer-encryption-of-data-at-rest.md)oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados.  
+   * **Traga a sua própria chave** - O Form Recogniser encripta automaticamente os seus dados quando persistido na nuvem para protegê-los e ajudá-lo a cumprir os seus compromissos de segurança organizacional e conformidade. Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. Agora também pode gerir a sua subscrição com as suas próprias chaves de encriptação. [As teclas geridas pelo cliente, também conhecidas como trazer a sua própria chave (BYOK),](./form-recognizer-encryption-of-data-at-rest.md)oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados.  
    * **Pontos finais privados** – Permite-lhe aceder de forma segura a [dados por uma Ligação Privada.](../../private-link/private-link-overview.md)
 
 
@@ -205,6 +205,6 @@ As respostas JSON para todas as chamadas da API têm novos formatos. Algumas cha
 
 Complete um [quickstart da biblioteca de clientes](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de formulários com o Form Recogniser no idioma à sua escolha.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)

@@ -270,9 +270,13 @@
     - name: Criar transformações e tarefas
       items:
         - name: Criar transformações
-          href: cli-create-transform.md
+          href: how-to-create-transform.md
         - name: Criar uma transformação de áudio básica com REST
           href: how-to-create-basic-audio-transform.md
+        - name: Criar uma transformação copyAllBitrateNonInterleaved com REST
+          href: how-to-create-copyallbitratenoninterleaved-transform.md
+        - name: Copiar vídeos sem codificação com REST
+          href: how-to-create-copy-video-audio-transform.md
         - name: Criar tarefas
           href: cli-create-jobs.md
         - name: Criar uma entrada de tarefa com um ficheiro local e o .NET
@@ -397,7 +401,7 @@
           href: /python/api/overview/azure/mediaservices/management
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Go
+        - name: Ir
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions

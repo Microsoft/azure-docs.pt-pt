@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 4252e3a7f8c3ff9d0ec782a2a9222553c063463c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533281"
+ms.locfileid: "95736540"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
@@ -276,7 +276,7 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 ```
 
 > [!IMPORTANT]
-> Com o SISTEMA Efémero pode implementar imagens VM e exemplo até ao tamanho da cache VM. No caso AKS, a configuração do disco de talos padrão usa 100GiB, o que significa que precisa de um tamanho VM que tenha uma cache maior que 100 GiB. O Standard_DS2_v2 padrão tem um tamanho de cache de 86 GiB, que não é grande o suficiente. O Standard_DS3_v2 tem um tamanho de cache de 172 GiB, que é grande o suficiente. Também pode reduzir o tamanho predefinido do disco SO utilizando `--node-osdisk-size` . O tamanho mínimo para imagens AKS é 30GiB. 
+> Com o SISTEMA Efémero pode implementar imagens VM e exemplo até ao tamanho da cache VM. No caso AKS, a configuração do disco de nó padrão USA 128GB, o que significa que precisa de um tamanho VM que tenha uma cache maior que 128GB. O Standard_DS2_v2 padrão tem um tamanho de cache de 86GB, que não é grande o suficiente. O Standard_DS3_v2 tem um tamanho de cache de 172GB, que é grande o suficiente. Também pode reduzir o tamanho predefinido do disco SO utilizando `--node-osdisk-size` . O tamanho mínimo para imagens AKS é de 30GB. 
 
 Se pretender criar piscinas de nó com discos de SISTEMA ligados à rede, pode fazê-lo especificando `--node-osdisk-type Managed` .
 

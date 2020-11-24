@@ -115,12 +115,10 @@
             - name: Controlo de acesso
               items:
                 - name: Descrição geral
-                  href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  href: ./security/access-control.md
+                  displayname: 'access, control'
                 - name: Identidade gerida da área de trabalho do Synapse
                   href: ./security/synapse-workspace-managed-identity.md
-                - name: Conjuntos de SQL
-                  href: ./sql/access-control.md
-                  displayname: 'access, control'
         - name: 'Integração de ferramentas (IA, ETL, BI)'
           items:
             - name: Resolver problemas do Synapse Studio
@@ -304,6 +302,8 @@
               href: ./sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Segurança
           items:
+            - name: Controlo de acesso à base de dados
+              href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Segurança de dados
               items:
                 - name: Segurança ao nível da coluna

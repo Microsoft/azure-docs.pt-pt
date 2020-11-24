@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 423a879889402d5d3df70a7fadae6451c8418238
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096007"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95743162"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>O que são as revisões de acesso do Azure AD?
 
@@ -74,10 +74,18 @@ Dependendo do que pretende rever, criará a sua análise de acesso em avaliaçõ
 
 O seu diretório necessita de pelo menos tantas licenças Azure AD Premium P2 como o número de funcionários que irão desempenhar as seguintes tarefas:
 
-- Utilizadores membros e convidados que são designados como revisores
-- Utilizadores de membros e convidados que realizam uma auto-revisão
-- Proprietários do grupo que realizam uma revisão de acesso
-- Proprietários de aplicativos que realizam uma revisão de acesso
+-   Utilizadores membros que são designados como revisores
+-   Utilizadores membros que realizam uma auto-revisão
+-   Utilizadores membros como proprietários de grupo que realizam uma revisão de acesso
+-   Utilizadores membros como proprietários de aplicações que realizam uma revisão de acesso
+
+Para os utilizadores convidados, as necessidades de licenciamento dependerão do modelo de licenciamento que está a usar. No entanto, as atividades dos utilizadores abaixo são consideradas a utilização Azure AD Premium P2:
+
+-   Utilizadores convidados que são designados como revisores
+-   Utilizadores convidados que realizam uma auto-revisão
+-   Utilizadores convidados como proprietários de grupo que realizam uma revisão de acesso
+-   Utilizadores convidados como proprietários de aplicações que realizam uma revisão de acesso
+
 
 As licenças Azure AD Premium P2 **não** são necessárias para utilizadores com as funções de Administrador Global ou Administrador de Utilizador que configuram revisões de acesso, configuram definições ou aplicam as decisões das avaliações.
 

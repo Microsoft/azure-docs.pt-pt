@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 0765c05e08dda782c084775fb83b22a52558fa0d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 9e8aecfe8b16d8af755d3f4c3c71b875d4e8ec40
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491618"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751254"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configuração detalhada para unidades de teste hospedadas
 
@@ -29,7 +29,7 @@ Este artigo descreve como configurar um test drive hospedado para Dynamics 365 p
 
     - **Tipo de test drive** – Escolha **o Microsoft Hosted (Dynamics 365 para o Envolvimento do Cliente & PowerApps)**. Isto indica que a Microsoft irá hospedar e manter o serviço que executa o fornecimento e desprovisionamento do utilizador do test drive.
 
-5. Conceda ao Microsoft AppSource permissão para provisão e deprovisionar utilizadores de test drive no seu inquilino usando [estas instruções.](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md) Neste passo, irá gerar o ID da **App AD AZure** e os valores chave da **aplicação AD AD Azure** mencionados abaixo.
+5. Conceda ao Microsoft AppSource permissão para provisão e deprovisionar utilizadores de test drive no seu inquilino usando [estas instruções.](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup) Neste passo, irá gerar o ID da **App AD AZure** e os valores chave da **aplicação AD AD Azure** mencionados abaixo.
 6. Preencha estes campos na página **de configuração técnica** do Test drive.
 
     [![A página de configuração técnica do test drive.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)

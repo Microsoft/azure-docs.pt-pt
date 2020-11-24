@@ -67,6 +67,8 @@
           href: ./ag/application-gateway-waf-faq.md
     - name: Front Door
       items:
+        - name: Ajuste
+          href: ./afds/waf-front-door-tuning.md
         - name: Regras personalizadas
           href: ./afds/waf-front-door-custom-rules.md
         - name: Listas de exclusão

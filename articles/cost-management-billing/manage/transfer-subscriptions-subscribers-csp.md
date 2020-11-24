@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7cbb628f6af286141fb1c7b330117ded33142c4f
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460687"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744243"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir subscrições do Azure entre subscritores e CSPs
 
@@ -25,7 +25,7 @@ Se tiver algumas reservas existentes, estas deixarão de ser aplicadas após tra
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transferir subscrições EA para um parceiro CSP
 
-Os parceiros CSP de faturação direta certificados como [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) podem pedir a transferência de subscrições do Azure para os clientes que tenham um Contrato Enterprise (EA) Direto. As transferências de subscrições são permitidas apenas para os clientes que aceitaram o Contrato de Cliente Microsoft (MCA) e que tenham comprado um plano do Azure.
+Os parceiros CSP de faturação direta certificados como [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) podem pedir a transferência de subscrições do Azure para os clientes que tenham um Contrato Enterprise (EA) Direto. As transferências de subscrições são permitidas apenas para os clientes que aceitaram o Contrato de Cliente Microsoft (MCA) e que tenham comprado um plano do Azure com o programa CSP.
 
 Quando o pedido for aprovado, o CSP poderá disponibilizar uma fatura combinada aos clientes. Para saber mais acerca da transferência de subscrições pelos CSPs, veja [ Obter a propriedade de faturação da conta MPA](mpa-request-ownership.md).
 

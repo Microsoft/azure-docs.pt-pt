@@ -7,24 +7,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/04/2020
-ms.openlocfilehash: c52fabcfc2ff22df2de6dd93f2543d625310baef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/30/2020
+ms.openlocfilehash: 83c575aa40b80d9a8e39263e89a5e7860c8f8774
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484346"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95741666"
 ---
-# <a name="publishing-guide-for-container-offers"></a>Guia de publicação de ofertas de contentores
+# <a name="publishing-guide-for-azure-container-offers"></a>Guia de publicação de ofertas de contentores Azure
 
-As ofertas de contentores ajudam-no a publicar a sua imagem de contentor no Azure Marketplace. Utilize este guia para compreender os requisitos desta oferta. 
+O recipiente Azure oferece-o para o ajudar a publicar a sua imagem de contentor no Azure Marketplace. Utilize este guia para compreender os requisitos para este tipo de oferta.
 
-As ofertas de contentores são ofertas de transações que são implementadas e faturadas através do Azure Marketplace. A opção de listagem que um utilizador vê é "Get It Now".
+As ofertas de contentores Azure são ofertas de transações que são implementadas e faturadas através do Azure Marketplace. A opção de listagem que um utilizador vê é "Get It Now".
 
-Utilize o tipo de oferta *de recipiente* quando a sua solução é uma imagem de contentor Docker que é configurada como uma instância de serviço de contentores Azure baseada em Kubernetes. 
+Utilize o tipo de oferta de recipiente Azure quando a sua solução é uma imagem de contentor Docker que é configurada como uma instância de recipiente Azure baseada em Kubernetes.
 
 > [!NOTE]
-> Exemplos de casos de serviço de contentores Azure baseados em Kubernetes são o Serviço Azure Kubernetes ou instâncias de contentores Azure, a escolha dos clientes Azure para um tempo de funcionamento do contentor baseado em Kubernetes.  
+> Uma instância do Azure Container é uma instância de estivador de tempo de execução que fornece a maneira mais rápida e simples de executar um recipiente em Azure, sem ter que gerir nenhuma máquina virtual e sem ter que adotar um serviço de nível mais alto. As instâncias do contentor podem ser implantadas diretamente para Azure ou orquestradas pela Azure Kubernetes Services ou pelo Motor de Serviço Azure Kubernetes.  
 
 A Microsoft suporta atualmente modelos de licenciamento gratuitos e de trazer a sua própria licença (BYOL).
 
@@ -39,9 +39,6 @@ A Microsoft suporta atualmente modelos de licenciamento gratuitos e de trazer a 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se ainda não o fez, aprenda a [fazer crescer o seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
+- Para preparar os ativos técnicos para uma oferta de contentores, consulte [os ativos técnicos do contentor Create Azure](create-azure-container-technical-assets.md).
 
-Para se inscrever e começar a trabalhar no Partner Center:
-
-- [Inscreva-se no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou completar a sua oferta.
-- Consulte [a criação de uma oferta de recipiente Azure](./partner-center-portal/create-azure-container-offer.md) para obter mais informações.
+- Para criar uma oferta de recipiente Azure, consulte criar uma oferta de [recipiente Azure no Azure Marketplace](create-azure-container-offer.md) para obter mais informações.

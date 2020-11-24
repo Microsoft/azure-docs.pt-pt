@@ -71,6 +71,16 @@
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
         - name: Documentação sobre contentores dos Serviços Cognitivos
           href: ../containers/index.yml
+- name: Análises aprofundadas de cenários
+  items:
+    - name: Inscrição no Face
+      items:
+        - name: Descrição geral
+          href: enrollment-overview.md
+        - name: Guias de procedimentos
+          items:
+            - name: Criar uma aplicação de inscrição com o React
+              href: build-enrollment-app.md
 - name: Referência
   items:
     - name: API Face
@@ -85,7 +95,7 @@
           href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
         - name: Node.js
           href: /javascript/api/@azure/cognitiveservices-face
-        - name: Go
+        - name: Ir
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
 - name: Recursos
   items:

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 01c5d4395eb584631efb9b3b956b9a987e46b0db
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c77001707eda7c208ad19a014a1f0cff2b85b25d
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540625"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736481"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é SQL Data Sync para Azure?
 
@@ -26,7 +26,7 @@ SQL Data Sync é um serviço construído na Base de Dados Azure SQL que permite 
 > O Azure SQL Data Sync não suporta a Azure SQL Managed Instance neste momento.
 
 
-## <a name="overview"></a>Descrição Geral 
+## <a name="overview"></a>Descrição geral 
 
 O Data Sync baseia-se no conceito de um grupo de sincronização. Um grupo de sincronização é um grupo de bases de dados que pretende sincronizar.
 
@@ -44,7 +44,7 @@ Data Sync usa um hub e falou topologia para sincronizar dados. Define uma das ba
 Um grupo de sincronização tem as seguintes propriedades:
 
 - O **Sync Schema** descreve quais os dados que estão a ser sincronizados.
-- A **Direção de Sincronização** pode ser bidis ou fluir numa só direção. Ou seja, a Direção de Sincronização pode ser *Hub para Membro* , ou Membro do *Hub* , ou ambos.
+- A **Direção de Sincronização** pode ser bidis ou fluir numa só direção. Ou seja, a Direção de Sincronização pode ser *Hub para Membro*, ou Membro do *Hub*, ou ambos.
 - O **Intervalo de Sincronização** descreve a frequência da sincronização.
 - A **Política de Resolução de Conflitos** é uma política de nível de grupo, que pode ser *o Hub ganha* ou o *membro ganha.*
 
@@ -81,7 +81,7 @@ Data Sync não é a solução preferida para os seguintes cenários:
 | | Sincronização de Dados | Replicação Transacional |
 |---|---|---|
 | **Vantagens** | - Suporte ativo<br/>- Biducional entre as instalações e a Base de Dados Azure SQL | - Menor latência<br/>- Consistência transacional<br/>- Reutilização da topologia existente após a migração <br/>-Suporte a exemplos geridos Azure SQL |
-| **Desvantagens** | - 5 min de frequência mínima entre sincronizações<br/>- Sem consistência transacional<br/>- Maior impacto no desempenho | - Não pode publicar na Base de Dados Azure SQL <br/>- Alto custo de manutenção |
+| **Desvantagens** | - Sem consistência transacional<br/>- Maior impacto no desempenho | - Não pode publicar na Base de Dados Azure SQL <br/>- Alto custo de manutenção |
 
 ## <a name="get-started"></a>Introdução 
 
@@ -166,7 +166,6 @@ O Data Sync não consegue sincronizar apenas colunas de leitura ou geradas pelo 
 | Tabelas em um grupo de sincronização                                          | 500                    | Criar vários grupos de sincronização |
 | Colunas em uma mesa em um grupo de sincronização                              | 1000                   |                             |
 | Tamanho da linha de dados em uma mesa                                        | 24 Mb                  |                             |
-| Intervalo de frequência de sincronização mínima (desde o início da sincronização anterior)     | 5 Minutos              |                             |
 
 > [!NOTE]
 > Pode haver até 30 pontos finais num único grupo de sincronização se houver apenas um grupo de sincronização. Se houver mais de um grupo de sincronização, o número total de pontos finais em todos os grupos de sincronização não pode exceder 30. Se uma base de dados pertence a vários grupos de sincronização, é contada como vários pontos finais, não um.
@@ -195,7 +194,7 @@ O SQL Data Sync está disponível em todas as regiões.
 
 ### <a name="is-a-sql-database-account-required"></a>É necessária uma conta SQL Database
 
-Yes. Deve ter uma conta SQL Database para hospedar a base de dados do hub.
+Sim. Deve ter uma conta SQL Database para hospedar a base de dados do hub.
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-databases-only"></a>Posso usar o Data Sync para sincronizar apenas entre bases de dados do SQL Server
 
@@ -203,18 +202,18 @@ Não diretamente. No entanto, pode sincronizar indiretamente entre bases de dado
 
 ### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-subscriptions"></a>Posso utilizar o Data Sync para sincronizar entre bases de dados na Base de Dados SQL que pertencem a diferentes subscrições
 
-Yes. Pode sincronizar entre bases de dados pertencentes a grupos de recursos pertencentes a diferentes subscrições.
+Sim. Pode sincronizar entre bases de dados pertencentes a grupos de recursos pertencentes a diferentes subscrições.
 
 - Se as subscrições pertencerem ao mesmo inquilino, e tiver permissão para todas as subscrições, pode configurar o grupo de sincronização no portal Azure.
 - Caso contrário, terá de utilizar o PowerShell para adicionar os membros sincronizados que pertencem a diferentes subscrições.
 
 ### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Posso utilizar o Data Sync para sincronizar entre bases de dados na Base de Dados SQL que pertencem a diferentes nuvens (como Azure Public Cloud e Azure China 21Vianet)
 
-Yes. Pode sincronizar entre bases de dados que pertencem a diferentes nuvens. Tem de utilizar o PowerShell para adicionar os membros sincronizados que pertencem às diferentes subscrições.
+Sim. Pode sincronizar entre bases de dados que pertencem a diferentes nuvens. Tem de utilizar o PowerShell para adicionar os membros sincronizados que pertencem às diferentes subscrições.
 
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Posso usar o Data Sync para sementerar dados da minha base de dados de produção para uma base de dados vazia, e depois sincronizá-los
 
-Yes. Crie o esquema manualmente na nova base de dados, scriptando-o a partir do original. Depois de criar o esquema, adicione as tabelas a um grupo de sincronização para copiar os dados e mantê-lo sincronizado.
+Sim. Crie o esquema manualmente na nova base de dados, scriptando-o a partir do original. Depois de criar o esquema, adicione as tabelas a um grupo de sincronização para copiar os dados e mantê-lo sincronizado.
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Devo usar o SQL Data Sync para fazer o back up e restaurar as minhas bases de dados
 
@@ -229,7 +228,7 @@ Para obter uma técnica de backup recomendada, consulte [copiar uma base de dado
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>É colagem suportada no SQL Data Sync
 
-Yes. SQL Data Sync suporta a colagem nos seguintes cenários:
+Sim. SQL Data Sync suporta a colagem nos seguintes cenários:
 
 - Se as tabelas de esquemas de sincronização selecionadas já não estiverem no seu centro ou bases de dados dos membros, então quando implementa o grupo de sincronização, o serviço cria automaticamente as tabelas e colunas correspondentes com as definições de colisão selecionadas nas bases de dados de destino vazias.
 - Se as tabelas a serem sincronizadas já existirem tanto no seu hub como nas bases de dados dos membros, o SQL Data Sync requer que as colunas-chave primárias tenham a mesma colagem entre bases de dados do hub e dos membros para implementar com sucesso o grupo de sincronização. Não existem restrições de colagem em colunas que não as colunas-chave primárias.

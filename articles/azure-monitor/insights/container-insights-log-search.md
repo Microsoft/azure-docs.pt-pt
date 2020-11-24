@@ -3,12 +3,12 @@ title: Como consultar registos do Azure Monitor para contentores Microsoft Docs
 description: O Azure Monitor para contentores recolhe métricas e dados de registo e este artigo descreve os registos e inclui consultas de amostra.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 08c42fab84cb5180497f8da4f077b9bd82283ad4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994020"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95747684"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Como consultar registos do Azure Monitor para contentores
 
@@ -16,7 +16,7 @@ O Azure Monitor para contentores recolhe métricas de desempenho, dados de inven
 
 ## <a name="container-records"></a>Registos de contentores
 
-No quadro seguinte, são fornecidos pormenores sobre os registos recolhidos pelo Azure Monitor para os contentores. 
+No quadro seguinte, são fornecidos pormenores sobre os registos recolhidos pelo Azure Monitor para os contentores. Para obter uma listagem das descrições da coluna, consulte a referência para as tabelas [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) e [ContainerLog.](/azure/azure-monitor/reference/tables/containerlog)
 
 | Dados | Origem de dados | Tipo de dados | Campos |
 |------|-------------|-----------|--------|

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 9dc6433170144635ad05033d110f448cf314179b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 2214dbc9dcbd4ba7728065ee45471e9f94b9e513
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628854"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95740000"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Visão geral - autenticação de serviços de domínio de diretório ativo no local sobre SMB para ações de ficheiros Azure
 
@@ -24,7 +24,7 @@ Se é novo nas ações de ficheiros Azure, recomendamos que leia o nosso [guia d
 
 - As identidades AD DS utilizadas para a autenticação AD DS dos Ficheiros AZure devem ser sincronizadas com a Azure AD. A sincronização de hash de palavra-passe é opcional. 
 - Suporta ações de ficheiros Azure geridas pela Azure File Sync.
-- Suporta a autenticação Kerberos com encriptação AD com encriptação RC4-HMAC e [AES 256](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). A encriptação AES 128 Kerberos ainda não está suportada.
+- Suporta a autenticação Kerberos com encriptação AD com encriptação RC4-HMAC e [AES 256](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). O suporte de encriptação AES 256 está atualmente limitado a contas de armazenamento com nomes <= 15 caracteres de comprimento. A encriptação Kerberos AES 128 ainda não é suportada.
 - Suporta uma única experiência de inscrição.
 - Suportado apenas em clientes que executam em versões DE mais recentes do que o Windows 7 ou Windows Server 2008 R2.
 - Apenas suportado contra a floresta AD para a qual a conta de armazenamento está registada. Só é possível aceder a partilhas de ficheiros Azure com as credenciais AD DS de uma única floresta por padrão. Se precisar de aceder à sua partilha de ficheiros Azure a partir de uma floresta diferente, certifique-se de que tem a confiança florestal adequada configurada, consulte as [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) para obter mais detalhes.
@@ -64,7 +64,7 @@ Antes de ativar a autenticação AD DS para ações de ficheiros Azure, certifiq
 
 A autenticação de Ficheiros Azure com DS AD está disponível em [todas as regiões Azure Public e Gov](https://azure.microsoft.com/global-infrastructure/locations/).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Se pretender ativar quaisquer configurações de rede na sua partilha de ficheiros, recomendamos que leia o artigo [de consideração de rede](./storage-files-networking-overview.md) e complete a configuração relacionada antes de permitir a autenticação de DS AD.
 

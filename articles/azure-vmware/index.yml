@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 10/19/2020
-  ms.openlocfilehash: 223d0cdbe95bf2ec24a7f460d2f92a0a50f08d0d
-  ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+  ms.date: 11/19/2020
+  ms.openlocfilehash: d040756779b998f23ac4f021941e245bf8440135
+  ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/19/2020
-  ms.locfileid: "94888305"
+  ms.lasthandoff: 11/20/2020
+  ms.locfileid: "94990589"
 landingContent:
 - title: Acerca do Azure VMware Solution
   linkLists:
@@ -42,7 +42,7 @@ landingContent:
   linkLists:
   - linkListType: deploy
     links:
-    - text: Planear a implementação
+    - text: 0 - Planear a implementação
       url: production-ready-deployment-steps.md
     - text: 1 - Implementar o Azure VMware Solution
       url: deploy-azure-vmware-solution.md

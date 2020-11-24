@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 11/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0aace1041eba771a26bed4c85361ea2551c71ba6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257439"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659425"
 ---
 ::: zone target="docs"
 
@@ -66,18 +66,18 @@ Se pretender devolver o dispositivo nos E.U.A. ou no Canadá, siga os passos aba
     - Se não indicar o número de rastreio, terá de pagar uma taxa adicional à UPS na recolha.
     - Em vez de agendar a recolha, também pode entregar o Data Box Disk na localização de entrega mais próxima.
 
-### <a name="europe"></a>[Europa](#tab/in-europe)
 
-Se pretender devolver o dispositivo na Europa, siga os passos abaixo.
+### <a name="europe-or-uk"></a>[Europa ou Reino Unido](#tab/in-europe-or-uk)
+
+Se pretender devolver o dispositivo na Europa ou no Reino Unido, siga os passos abaixo.
 
 1. Utilize a guia de remessa para devolução com a capa de plástico afixada à caixa. Se a guia estiver danificada ou a tiver perdido:
     - Aceda a **Descrição Geral > Transferir guia de remessa** e transfira uma guia de remessa para devolução.
     - Afixe a guia ao dispositivo.
 
-2. Feche a caixa de envio e certifique-se de que a etiqueta para envio de devolução se encontra visível.
-3. Se estiver a devolver o dispositivo na Europa com a DHL, solicite uma recolha à DHL acedendo ao respetivo site e especificando o número de carta de porte aéreo.
-4. Aceda ao site da DHL Express do seu país/região e selecione **Book a Courier Collection (Agendar uma Recolha por Estafeta) > eReturn Shipment (Envio eReturn)** .
-5. Especifique o número de carta de porte aéreo e clique em **Schedule Pickup (Agendar Recolha)** para marcar uma recolha.
+2. Feche a caixa de envio e certifique-se de que a guia de remessa está visível.
+3. Aceda ao site da DHL Express no seu país/região e selecione **Agendar uma recolha**. Em **Necessita de criar uma etiqueta de envio**, selecione **Não** > **Eu tenho um número de carta de porte DHL**.
+4. Especifique o número de carta de porte e clique em **Agendar uma recolha** para marcar a recolha.
 
 ### <a name="australia"></a>[Austrália](#tab/in-australia)
 

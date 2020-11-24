@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: f2a01c4e4d364494d271fa676bca5bfac2677395
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: f27822e5edd772b9f2c50f2e98a4804bf994881c
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592758"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95743264"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Quickstart: Inicie seduário nos utilizadores e obtenha um token de acesso num JavaScript SPA
 
@@ -41,7 +41,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Se a sua conta lhe der acesso a mais do que um inquilino, selecione a conta no topo direito e, em seguida, desacione a sua sessão de portal para o inquilino Azure Ative Directory (Azure AD) que pretende utilizar.
 > 1. Aceda ao novo [portal Azure - Painel de inscrições](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) da App.
 > 1. Introduza um nome para a aplicação.
-> 1. Nos **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
+> 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Selecione **Registar**.
 > 1. Siga as instruções para descarregar e configurar automaticamente a sua nova aplicação.
 >
@@ -55,10 +55,10 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Aceda à plataforma de identidade da Microsoft para programadores [Página de registos de aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza um nome para a sua aplicação.
-> 1. Nos **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
+> 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Selecione **Registar**. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
 > 1. Este arranque rápido requer que o [fluxo de subvenção implícito](v2-oauth2-implicit-grant-flow.md) seja ativado. No painel esquerdo da aplicação registada, selecione **Autenticação**.
-> 1. Em **Configurações de Plataforma** , selecione Adicionar uma **plataforma**. Abre-se um painel à esquerda. Lá, selecione a região **aplicações web.**
+> 1. Em **Configurações de Plataforma**, selecione Adicionar uma **plataforma**. Abre-se um painel à esquerda. Lá, selecione a região **aplicações web.**
 > 1. Ainda à esquerda, desa um **valor URI de redirecionamento** para `http://localhost:3000/` . Em seguida, selecione **Access Token** e **ID Token**.
 > 1. Selecione **Configurar**.
 
@@ -85,7 +85,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-javascript-app"></a>Passo 3: Configurar a sua aplicação JavaScript
 >
-> Na pasta *JavaScriptSPA,* edite *authConfig.js* , e desaprote o `clientID` , e os `authority` `redirectUri` valores em `msalConfig` .
+> Na pasta *JavaScriptSPA,* edite *authConfig.js*, e desaprote o `clientID` , e os `authority` `redirectUri` valores em `msalConfig` .
 >
 > ```javascript
 >
@@ -119,7 +119,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 >    - Se a sua aplicação suportar *contas em qualquer diretório organizacional e contas pessoais da Microsoft,* substitua este valor por **comum**. Para restringir apenas o suporte às *contas pessoais da Microsoft,* substitua este valor pelos **consumidores**.
 >
 > > [!TIP]
-> > Para encontrar os valores do **ID da Aplicação (cliente)** , o **ID de Diretório (inquilino)** e os **Tipos de conta suportados** , vá para a página **Descrição geral** da aplicação no portal do Azure.
+> > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passo 3: A sua aplicação está configurada e pronta para correr
@@ -205,7 +205,7 @@ O código quickstart também mostra como inicializar a biblioteca MSAL:
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Onde  | Descrição |
+> |Onde  | Description |
 > |---------|---------|
 > |`clientId`     | Identificação de aplicação da aplicação registada no portal Azure.|
 > |`authority`    | (Opcional) O URL de autoridade que suporta tipos de conta, conforme descrito anteriormente na secção de configuração. A autoridade por defeito `https://login.microsoftonline.com/common` é. |
@@ -233,7 +233,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Onde  | Descrição |
+> |Onde  | Description |
 > |---------|---------|
 > | `scopes`   | (Opcional) Contém âmbitos que estão a ser solicitados para o consentimento do utilizador no momento de início de sedu. Por exemplo, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados (isto é, `api://<Application ID>/access_as_user` ). |
 
@@ -263,7 +263,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Onde  | Descrição |
+> |Onde  | Description |
 > |---------|---------|
 > | `scopes`   | Contém âmbitos a serem solicitados para serem devolvidos no token de acesso para a API. Por exemplo, `[ "mail.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados (isto é, `api://<Application ID>/access_as_user` ).|
 

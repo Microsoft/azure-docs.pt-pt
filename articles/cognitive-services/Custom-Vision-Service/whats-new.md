@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 10/23/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 030b09dae9db11fb14defecde3d14e949b9e6748
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 57f3cf0cb15243d054da0111366f3a1dc0fb5349
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412736"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95739762"
 ---
 # <a name="whats-new-in-custom-vision"></a>Novidades na Visão Personalizada
 

@@ -2,14 +2,14 @@
 title: Dimensionar automaticamente os nós de computação de um conjunto do Azure Batch
 description: Permita que o escalonamento automático numa piscina de nuvens ajuste dinamicamente o número de nós computacional na piscina.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5774acbfc035ab61267dddb31b01b0e82689f690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849797"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737297"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Crie uma fórmula automática para escalar os nóns computacional numa piscina de Lote
 
@@ -135,6 +135,9 @@ Pode obter o valor destas variáveis definidas pelo serviço para fazer ajustes 
 > [!TIP]
 > Estas variáveis definidas apenas por serviço são *objetos* que fornecem vários métodos de acesso aos dados associados a cada um. Para mais informações, consulte [Obter dados da amostra](#obtain-sample-data) mais tarde neste artigo.
 
+> [!NOTE]
+> Utilize `$RunningTasks` ao escalonar com base no número de tarefas executadas num ponto do tempo e ao `$ActiveTasks` escalonar com base no número de tarefas que são filas para executar.
+
 ## <a name="types"></a>Tipos
 
 As fórmulas de autoescala suportam os seguintes tipos:
@@ -192,7 +195,7 @@ Ao testar um duplo com um operador ternário `double ? statement1 : statement2` 
 
 Pode utilizar estas **funções** predefinidas ao definir uma fórmula de autoescala.
 
-| Função | Tipo de retorno | Descrição |
+| Função | Tipo de retorno | Description |
 | --- | --- | --- |
 | avg (doubleVecList) |double |Devolve o valor médio para todos os valores na DoubleVecList. |
 | len (doubleVecList) |double |Devolve o comprimento do vetor que é criado a partir do doubleVecList. |
@@ -226,7 +229,7 @@ Pode utilizar as métricas de recursos e tarefas quando estiver a definir uma f�
 
 <table>
   <tr>
-    <th>Métrica</th>
+    <th>Metric</th>
     <th>Descrição</th>
   </tr>
   <tr>
@@ -381,7 +384,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> Se optar, pode incluir comentários e quebras de linha em cadeias de fórmula.
+> Se optar, pode incluir comentários e quebras de linha em cadeias de fórmula. Esteja também ciente de que a falta de pontos de snímido pode resultar em erros de avaliação.
 
 ## <a name="automatic-scaling-interval"></a>Intervalo de escala automático
 

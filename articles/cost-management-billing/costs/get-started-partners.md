@@ -3,18 +3,18 @@ title: Começar a utilizar o Azure Cost Management para parceiros
 description: Este artigo explica como os parceiros utilizam as funcionalidades do Azure Cost Management e como ativam o acesso ao Cost Management para os clientes.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/04/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827586"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657317"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Começar a utilizar o Azure Cost Management para parceiros
 
@@ -126,7 +126,7 @@ Independentemente da política, os administradores globais e os agentes administ
 
 Tem de ser membro do grupo **agente de administração** para ver e atualizar a política. Utilize as seguintes informações para ativar a política que permite aos clientes ver os custos de utilização do Azure.
 
-No portal do Azure, inicie sessão no inquilino do parceiro e selecione **Cost Management + Faturação**. Selecione o âmbito de faturação relevante na área Âmbito de Faturação e, em seguida, selecione **Clientes**. A lista de clientes está associada à conta de faturação.
+No portal do Azure, inicie sessão no *inquilino do parceiro* e selecione **Cost Management + Faturação**. Selecione o âmbito de faturação relevante na área Âmbito de Faturação e, em seguida, selecione **Clientes**. A lista de clientes está associada à conta de faturação. *Se iniciar sessão por engano no inquilino do cliente, não verá a lista **Clientes**.*
 
 Na lista de clientes, selecione o cliente que quer permitir que veja os custos.
 
@@ -188,7 +188,7 @@ Os seguintes campos de dados estão disponíveis nos ficheiros de detalhes de ut
 | costCenter | Centro de custos associado à subscrição. | N/D |
 | billingPeriodStartDate | Data de início do período de faturação, conforme mostrado na fatura. | N/D |
 | billingPeriodEndDate | Data de fim do período de faturação, conforme mostrado na fatura. | N/D |
-| servicePeriodStartDate | Data de início do período de classificação quando a utilização do serviço foi classificada para os custos. Os preços dos serviços do Azure são determinados para o período de classificação. | ChargeStartDate no Centro de Parceiros. Data de início do ciclo de faturação, exceto quando apresentar datas de dados de utilização latente anteriormente não cobrados de um ciclo de faturação anterior. A hora é sempre o início do dia, 00:00. |
+| servicePeriodStartDate | Data de início do período de classificação quando a utilização do serviço foi classificada para os custos. Os preços dos serviços do Azure são determinados para o período de classificação. | ChargeStartDate no Centro de Parceiros.  Data de início do ciclo de faturação, exceto quando apresentar datas de dados de utilização latente anteriormente não cobrados de um ciclo de faturação anterior. A hora é sempre o início do dia, 00:00. |
 | servicePeriodEndDate | Data de fim do período quando a utilização do serviço foi classificada para os custos. Os preços dos serviços do Azure são determinados com base no período de classificação. | N/D |
 | date | Para dados de consumo do Azure, mostra a data de utilização conforme foi classificada. Para uma instância reservada, mostra a data de compra. Para custos recorrentes e únicos, como o Marketplace e o suporte, mostra a data de compra. | N/D |
 | productID | Identificador do produto que acumulou custos por consumo ou compra. Trata-se da chave concatenada de productID e SKuID, conforme mostrado no Centro de Parceiros. | ID do produto. |

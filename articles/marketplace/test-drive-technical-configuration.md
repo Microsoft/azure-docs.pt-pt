@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: f628c2a4c2f8eb474bbc34ef2d3fd2f03f668992
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: de85e4eb553f623790b472e79f8f97487ba96b48
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629908"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751118"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuração técnica da versão de teste
 
@@ -34,11 +34,13 @@ A Microsoft pode remover a complexidade da configuração de um test drive hospe
 
 - **URL de exemplo** (obrigatório) – O URL onde o cliente iniciará o seu test drive. Tipicamente, o URL da sua instância Dynamics 365 executa a sua aplicação com dados de amostra instalados (por exemplo, `https://testdrive.crm.dynamics.com` ).
 
-- **Exemplo Web API URL** (obrigatório) – Recupere o URL da Web API para a sua instância Dynamics 365, iniciando sessão na sua conta Microsoft 365 e navegando para **Configurações**  >  **Desativação**  >  **Desenvolvimento Recursos Desinsusitados Desemintado Recursos** Web  >  **API (SERVICE Root URL)** ), copiar o URL encontrado aqui (por exemplo, `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
+- **Exemplo Web API URL** (obrigatório) – Recupere o URL da Web API para a sua instância Dynamics 365, iniciando sessão na sua conta Microsoft 365 e navegando para **Configurações**  >  **Desativação**  >  **Desenvolvimento Recursos Desinsusitados Desemintado Recursos** Web  >  **API (SERVICE Root URL)**), copiar o URL encontrado aqui (por exemplo, `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - **Nome de função** (obrigatório) – Forneça o nome de função de segurança que definiu no seu test drive Dynamics 365 personalizado, que será atribuído ao utilizador durante a sua unidade de teste (por exemplo, função de test-drive).
 
-Para obter ajuda sobre como configurar o seu ambiente Dynamics 365 para test drive e conceder permissão appSource para provisão e deprovisionar utilizadores de test drive no seu inquilino, siga [estas instruções](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md).
+Para obter ajuda sobre como configurar o seu ambiente Dynamics 365 para test drive e conceder permissão appSource para provisão e deprovisionar utilizadores de test drive no seu inquilino, siga [estas instruções](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup).
+
+Para obter instruções passo a passo sobre a listagem e configuração do seu Test Drive hospedado, visite a configuração detalhada para a página [de test drive hospedada.](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config)
 
 ## <a name="logic-app-test-drive"></a>Unidade de teste de aplicativo lógico
 
@@ -68,11 +70,11 @@ Para permitir que a Microsoft implemente o test drive em seu nome, crie e forne�
 
 - **ID de subscrição Azure** (obrigatório para o Azure Resource Manager e aplicações Lógica) – Introduza o ID de subscrição para garantir o acesso aos serviços de conta Azure para reportar e faturar o uso de recursos. Recomendamos que considere [criar uma subscrição Azure separada](../cost-management-billing/manage/create-subscription.md) para usar para test drives se ainda não tiver uma. Pode encontrar o seu ID de subscrição Azure iniciando sessão no [portal Azure](https://portal.azure.com/) e navegando no separador **Subscrições** do menu do lado esquerdo. A seleção do separador apresentará o seu ID de subscrição (por exemplo, "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **ID do inquilino Azure AD** (obrigatório) – Insira o seu ID do inquilino Azure Ative [(AD).](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu esquerdo, selecione **Propriedades** , em seguida, procure o número de ID do **diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Você também pode procurar o ID do inquilino da sua organização usando o seu endereço de nome de domínio em [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
+- **ID do inquilino Azure AD** (obrigatório) – Insira o seu ID do inquilino Azure Ative [(AD).](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu esquerdo, selecione **Propriedades**, em seguida, procure o número de ID do **diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Você também pode procurar o ID do inquilino da sua organização usando o seu endereço de nome de domínio em [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 - **Nome do inquilino Azure AD** (obrigatório para Dynamic 365) – Insira o seu nome Azure Ative Directory (AD). Para encontrar este nome, inscreva-se no [portal Azure,](https://portal.azure.com/)no canto superior direito o nome do seu inquilino será listado no nome da sua conta.
 
-- **ID da aplicação AD AZure** (obrigatório) – Introduza o ID da aplicação Azure Ative [(AD).](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure,](https://portal.azure.com/)selecione o separador Ative Directory no menu esquerdo, selecione **as inscrições da App** , em seguida, procure o número de ID da **aplicação** listado (como). `50c464d3-4930-494c-963c-1e951d15360e`
+- **ID da aplicação AD AZure** (obrigatório) – Introduza o ID da aplicação Azure Ative [(AD).](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure,](https://portal.azure.com/)selecione o separador Ative Directory no menu esquerdo, selecione **as inscrições da App**, em seguida, procure o número de ID da **aplicação** listado (como). `50c464d3-4930-494c-963c-1e951d15360e`
 
 - **Azure AD app cliente secreto** (obrigatório) – Insira o [segredo do](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)seu cliente de aplicação Azure AD). Para encontrar este valor, inscreva-se no [portal Azure](https://portal.azure.com/). Selecione o separador **Azure Ative Directory** no menu esquerdo, selecione **registos de Aplicações** e selecione a sua aplicação test drive. Em seguida, selecione **Certificados e segredos,** selecione **Novo segredo do cliente,** introduza uma descrição, selecione **Nunca** em **Expiração,** e escolha **Adicionar**. Certifique-se de copiar o valor. Não navegue para longe da página antes de copiar o valor.
 
@@ -92,6 +94,8 @@ A opção **de listagem test drive** encontrada no separador Test **drive** no P
   - **Miniatura** (533 x 324 pixels) – A imagem deve estar em formato PNG.
 
 Se estiver atualmente a criar o seu test drive no Partner Center, **selecione Guardar o rascunho** antes de continuar.
+
+Para obter instruções passo a passo sobre a listagem e configuração do seu Test Drive hospedado, visite a configuração detalhada para a página [de test drive hospedada.](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

@@ -13,16 +13,16 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 70194c7adc55a00c5cb65928daac184499eb124d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aff89d49dec9bafedb3c9a5a76abdeb803740a12
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611117"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746732"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Tutorial: Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação para iOS ou macOS
 
-Neste tutorial, aprende-se a integrar uma aplicação iOS ou macOS com a plataforma de identidade da Microsoft. A aplicação irá iniciar seduca num utilizador, obter um token de acesso para ligar para a API do Gráfico da Microsoft e fazer um pedido para a Microsoft Graph API.
+Neste tutorial, você constrói uma aplicação iOS ou macOS que se integra com a plataforma de identidade da Microsoft para assinar utilizadores e obter um token de acesso para ligar para a Microsoft Graph API.
 
 Quando tiver concluído o guia, a sua aplicação aceitará inscrições de contas pessoais da Microsoft (incluindo outlook.com, live.com e outras) e contas de trabalho ou escola de qualquer empresa ou organização que utilize o Azure Ative Directory. Este tutorial é aplicável tanto às aplicações iOS como ao macOS. Alguns passos são diferentes entre as duas plataformas.
 

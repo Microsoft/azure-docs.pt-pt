@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/30/2020
+ms.date: 11/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: ecc25af19694c0befdd24b041807e2067db4f13b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 163947268d79a0297eef3f3f6e97187a0aef6994
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886945"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95738147"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -144,10 +144,10 @@ Nuvens especializadas, como a Azure Germany, e a Azure China 21Vianet, não est�
 Certifique-se de que o seu diretório tem pelo menos tantas licenças Azure AD Premium P2 como tem:
 
 - Utilizadores membros que **podem** solicitar um pacote de acesso.
-- Utilizadores membros e convidados que <u>solicitam</u> um pacote de acesso.
-- Utilizadores membros e convidados que <u>aprovam pedidos</u> de um pacote de acesso.
+- Utilizadores membros que <u>solicitam</u> um pacote de acesso.
+- Utilizadores <u>membros que aprovam pedidos</u> de um pacote de acesso.
 - Utilizadores membros que <u>analisam atribuições</u> para um pacote de acesso. 
-- Utilizadores membros e convidados que tenham uma <u>atribuição direta</u> a um pacote de acesso.
+- Utilizadores membros que têm uma <u>atribuição direta</u> a um pacote de acesso.
 
 Para os utilizadores convidados, as necessidades de licenciamento dependerão do [modelo de licenciamento](../external-identities/external-identities-pricing.md) que está a usar. No entanto, as atividades dos utilizadores abaixo são consideradas a utilização Azure AD Premium P2:
 - Utilizadores convidados que <u>solicitam</u> um pacote de acesso. 

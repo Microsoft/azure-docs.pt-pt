@@ -3,12 +3,12 @@ title: AMQP 1.0 no Azure Service Bus and Event Hubs guia de protocolos / Microso
 description: Guia protocolar para expressões e descrição de AMQP 1.0 em Azure Service Bus and Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 32e71211ed1574cade0567f7944b154eea062b24
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95396880"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736719"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 em Azure Service Bus and Event Hubs guia de protocolo
 
@@ -42,7 +42,7 @@ O protocolo AMQP 1.0 foi concebido para ser extensível, permitindo especificaç
 
 Esta secção explica o uso básico de AMQP 1.0 com a Azure Service Bus, que inclui a criação de ligações, sessões e links, e a transferência de mensagens de e para entidades de Service Bus, tais como filas, tópicos e subscrições.
 
-A fonte mais autoritária para aprender sobre como funciona a AMQP é a especificação AMQP 1.0, mas a especificação foi escrita para orientar precisamente a implementação e não para ensinar o protocolo. Esta secção centra-se na introdução da terminologia necessária para descrever como o Service Bus utiliza AMQP 1.0. Para uma introdução mais abrangente à AMQP, bem como uma discussão mais alargada sobre AMQP 1.0, você pode rever [este curso de vídeo][this video course].
+A fonte mais autoritária para saber como funciona a AMQP é a [especificação AMQP 1.0,](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html)mas a especificação foi escrita para orientar precisamente a implementação e não para ensinar o protocolo. Esta secção centra-se na introdução da terminologia necessária para descrever como o Service Bus utiliza AMQP 1.0. Para uma introdução mais abrangente à AMQP, bem como uma discussão mais alargada sobre AMQP 1.0, você pode rever [este curso de vídeo][this video course].
 
 ### <a name="connections-and-sessions"></a>Conexões e sessões
 
@@ -67,7 +67,7 @@ As sessões têm um modelo de controlo de fluxo baseado em janelas; quando uma s
 
 Este modelo baseado em janelas é aproximadamente análogo ao conceito TCP de controlo de fluxo baseado em janelas, mas ao nível da sessão dentro da tomada. O conceito do protocolo de permitir múltiplas sessões simultâneas existe para que o tráfego de alta prioridade possa ser ultrapassado pelo tráfego normal acelerado, como numa via expressa de autoestrada.
 
-A Azure Service Bus utiliza atualmente exatamente uma sessão para cada ligação. O tamanho máximo do quadro do Service Bus é de 262.144 bytes (bytes de 256-K) para Service Bus Standard e Event Hubs. São 1.048.576 (1 MB) para Service Bus Premium. A Service Bus não impõe janelas de estrangulamento ao nível da sessão específicas, mas repõe a janela regularmente como parte do controlo de fluxo de nível de ligação (ver [secção seguinte).](#links)
+A Azure Service Bus utiliza atualmente exatamente uma sessão para cada ligação. O tamanho máximo do quadro do Service Bus é de 262.144 bytes (bytes de 256-K) para o Service Bus Standard. São 1.048.576 (1 MB) para Service Bus Premium e Event Hubs. A Service Bus não impõe janelas de estrangulamento ao nível da sessão específicas, mas repõe a janela regularmente como parte do controlo de fluxo de nível de ligação (ver [secção seguinte).](#links)
 
 Ligações, canais e sessões são efémeras. Se a ligação subjacente colapsar, as ligações, o túnel TLS, o contexto de autorização SASL e as sessões devem ser restabelecidas.
 
@@ -359,10 +359,10 @@ A mensagem de pedido tem as seguintes propriedades de aplicação:
 
 | Chave | Opcional | Tipo de Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operation |Não |string |**put-token** |
-| tipo |Não |string |O tipo de símbolo que está a ser colocado. |
-| name |Não |string |O "público" a que o símbolo se aplica. |
-| expiração |Sim |carimbo de data/hora |O prazo de validade do token. |
+| operation |No |string |**put-token** |
+| tipo |No |string |O tipo de símbolo que está a ser colocado. |
+| name |No |string |O "público" a que o símbolo se aplica. |
+| expiração |Yes |carimbo de data/hora |O prazo de validade do token. |
 
 O *nome* da propriedade identifica a entidade com a qual o símbolo deve ser associado. No Service Bus é o caminho para a fila, ou tópico/subscrição. A propriedade *tipo* identifica o tipo de símbolo:
 
@@ -378,8 +378,8 @@ A mensagem de resposta tem os seguintes valores *de propriedades de aplicação*
 
 | Chave | Opcional | Tipo de Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| código de estado |Não |int |Código de resposta HTTP **[RFC2616]**. |
-| descrição do estado |Sim |string |Descrição do estado. |
+| código de estado |No |int |Código de resposta HTTP **[RFC2616]**. |
+| descrição do estado |Yes |string |Descrição do estado. |
 
 O cliente pode ligar *para o put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens são telescópios para o cliente atual e ancorados na ligação atual, o que significa que o servidor deixa cair quaisquer fichas retidas quando a ligação cai.
 
@@ -404,7 +404,7 @@ Com esta funcionalidade, cria-se um remetente e estabelece-se a ligação com o 
 | anexar;<br/>nome={link name},<br/>role=remetente,<br/>ID de ligação ao cliente source={},<br/>alvo=**{via-entidade}**,<br/>**propriedades=mapa <br/> [(com.microsoft:transfer-destination-address= <br/> {destination-entity} ))** | ------> | |
 | | <------ | anexar;<br/>nome={link name},<br/>role=recetor,<br/>ID de ligação ao cliente source={},<br/>target={via-entidade},<br/>propriedades=mapa [.<br/>com.microsoft:transfer-destination-address=<br/>{entidade de destino} )] ) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre AMQP, visite os seguintes links:
 

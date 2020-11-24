@@ -3,18 +3,18 @@ title: Administração do Azure EA Portal
 description: Este artigo explica as tarefas comuns que um administrador realiza no Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/27/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperfq1
-ms.openlocfilehash: e83af5baa4ca38a8e81dffa8bb81ab3da64e1e95
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: edcc94050880544a6c2de54ff27f833f1c60f99f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411077"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683650"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 
@@ -28,7 +28,7 @@ Se tiver sido configurado como administrador do Enterprise, não precisa de espe
 
 Caso tenha mais de uma inscrição, escolha uma para ativar. Por predefinição, só são mostradas as inscrição ativas. Para ver o histórico de inscrições, desmarque a opção **Ativa** no canto superior direito do portal Azure Enterprise.
 
-Em **Inscrição** , o estado indica **Ativa**.
+Em **Inscrição**, o estado indica **Ativa**.
 
 ![O exemplo mostra uma inscrição ativa](./media/ea-portal-administration/ea-enrollment-status.png)
 
@@ -117,7 +117,7 @@ A estrutura das contas e das subscrições afeta a forma como elas são administ
 Para adicionar uma conta:
 
 1. No portal Azure Enterprise, selecione **Gerir** no painel de navegação esquerdo.
-1. Selecione o separador **Conta**. Na página **Conta** , selecione **+Adicionar Conta**.
+1. Selecione o separador **Conta**. Na página **Conta**, selecione **+Adicionar Conta**.
 1. Selecione um departamento ou deixe como não atribuído e, em seguida, selecione o tipo de autenticação desejado.
 1. Introduza um nome amigável para identificar a conta nos relatórios.
 1. Introduza o **E-mail do Proprietário da Conta** para associar à nova conta.
@@ -135,28 +135,20 @@ Para confirmar a propriedade da conta:
    O estado deverá mudar de **Pendente** para **Data de Início/Fim**. A Data de Início/Fim é a data em que o utilizador iniciou sessão pela primeira vez e a data de fim do contrato.
 1. Quando a mensagem de **Aviso** é apresentada, o proprietário de conta tem de selecionar **Continuar** para ativar a conta ao iniciar sessão pela primeira vez no portal Azure Enterprise.
 
-## <a name="change-account-owner"></a>Alterar o Proprietário da Conta
+## <a name="change-azure-subscription-or-account-ownership"></a>Alterar a propriedade de uma subscrição ou conta do Azure
 
-Os administradores do Enterprise podem utilizar o portal Azure Enterprise para transferir a propriedade da conta da subscrição numa inscrição. A ação move todas as subscrições de uma conta de utilizador de origem para uma conta de utilizador de destino.
+Os administradores do Enterprise podem utilizar o portal Azure Enterprise para transferir a propriedade da conta de uma determinada subscrição ou de todas as subscrições numa inscrição.
 
-Ao transferir contas, tenha em atenção as seguintes informações importantes:
+Quando concluir a transferência de uma subscrição ou conta, a Microsoft atualiza o proprietário da conta.
 
-- Pode efetuar estas transferências:
-  - De uma conta escolar ou profissional para outra conta escolar ou profissional.
-  - De uma conta Microsoft para uma conta escolar ou profissional.
-  - De uma conta Microsoft para outra conta Microsoft.
+Antes de realizar a transferência da propriedade, compreenda as seguintes políticas do controlo de acesso baseado em funções do Azure (RBAC do Azure):
 
-    A conta de destino tem de ser uma Conta comercial do Azure válida, para que seja um destino válido para as transferências. Para contas novas, é-lhe pedido que crie uma Conta comercial do Azure ao iniciar sessão no portal Azure Enterprise. Para contas existentes, tem de criar primeiro uma nova subscrição do Azure para a conta ficar elegível.
-
-- Não pode transferir de uma conta escolar ou profissional para uma conta Microsoft.
-
-- Quando concluir a transferência de uma subscrição, a Microsoft atualiza o proprietário da conta.
-
-Compreenda estas políticas de controlo de acesso baseado em funções (RBAC):
-
-- Quando efetua transferências de subscrições entre dois IDs organizacionais no mesmo inquilino, as políticas RBAC e as funções de administrador de serviços e de coadministrador são preservadas.
-- As outras transferências de subscrições resultam na perda das políticas RBAC e das atribuições de função.
+- Ao fazer transferências de propriedade de subscrições ou contas entre dois IDs organizacionais no mesmo inquilino, as políticas RBAC do Azure, o administrador do serviço atual e as funções de coadministradores são preservadas.
+- As transferências de propriedade entre inquilinos ou contas originam a perda das políticas do RBAC do Azure e das atribuições de funções.
 - As políticas e as funções de administrador não são transferidas entre diretórios diferentes. Os administradores de serviços são atualizados para o proprietário da conta de destino.
+- Para evitar a perda das políticas de RBAC e das atribuições de funções ao transferir subscrições entre inquilinos, confirme que a caixa de verificação **Mover as subscrições para o inquilino do Azure AD do destinatário** permanece **por selecionar**. Desta forma, os serviços, as funções RBAC e as políticas são mantidas no inquilino do Azure AD atual e só é transferida a propriedade de faturação da conta.  
+    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Imagem que mostra a caixa de verificação não selecionada para mover subscrições para o inquilino do Azure AD" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+
 
 Antes de alterar um proprietário de conta:
 
@@ -168,26 +160,25 @@ Para transferir a propriedade da conta para todas as subscrições:
 1. Inicie sessão no portal Azure Enterprise.
 1. Na área de navegação à esquerda, selecione **Gerir**.
 1. Selecione o separador **Conta** e coloque o cursor sobre uma conta.
-1. Selecione o ícone para alterar o proprietário da conta à direita. O ícone assemelha-se a uma pessoa.
-1. Escolha uma conta elegível e, em seguida, selecione **Seguinte**.
+1. Selecione o ícone para alterar o proprietário da conta à direita. O ícone assemelha-se a uma pessoa.  
+    ![Imagem que mostra o símbolo Alterar Proprietário da Conta](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
+1. Escolha a conta de destino para a qual transferir e selecione **Seguinte**.
+1. Se pretender transferir a propriedade da conta entre inquilinos do Azure AD, selecione a caixa de verificação **Mover as subscrições para o inquilino do Azure AD do destinatário**.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Imagem que mostra a caixa de verificação selecionada para mover subscrições para o inquilino do Azure AD" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confirme a transferência e selecione **Submeter**.
-
-![Imagem que mostra o símbolo Alterar Proprietário da Conta](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 
 Para transferir a propriedade da conta para uma subscrição individual:
 
 1. Inicie sessão no portal Azure Enterprise.
 1. Na área de navegação à esquerda, selecione **Gerir**.
 1. Selecione o separador **Conta** e coloque o cursor sobre uma conta.
-1. Selecione o ícone de transferência de subscrições à direita. O ícone assemelha-se a uma página.
-1. Escolha uma subscrição elegível e, em seguida, selecione **Seguinte**.
+1. Selecione o ícone de transferência de subscrições à direita. O ícone assemelha-se a uma página.  
+    ![Imagem que mostra o símbolo Transferir Subscrições](./media/ea-portal-administration/ea-transfer-subscriptions.png)
+1. Escolha a conta de destino para transferir a subscrição e selecione **Seguinte**.
+1. Se pretender transferir a propriedade da subscrição entre inquilinos do Azure AD, selecione a caixa de verificação **Mover as subscrições para o inquilino do Azure AD do destinatário**.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Imagem que mostra a caixa de verificação selecionada para mover subscrições para o inquilino do Azure AD" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
 1. Confirme a transferência e, em seguida, selecione **Submeter**.
 
-![Imagem que mostra o símbolo Transferir Subscrições](./media/ea-portal-administration/ea-transfer-subscriptions.png)
-
-Assista a este vídeo para ver a gestão de utilizadores do portal Azure Enterprise:
-
-> [!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
 
 ## <a name="associate-an-account-to-a-department"></a>Associar uma conta a um departamento
 
@@ -216,7 +207,7 @@ Caso já possua uma conta existente do Microsoft Azure no portal do Azure, intro
 1. Forneça o nome que gostaria de utilizar para identificar esta conta no relatório.
 1. Selecione **Adicionar**.
 1. Para adicionar uma conta adicional, pode selecionar a opção **+Adicionar uma Conta** novamente ou regressar à home page ao selecionar o botão **Admin**.
-1. Se vir a página **Conta** , a conta recentemente adicionada será apresentada com um estado **Pendente**.
+1. Se vir a página **Conta**, a conta recentemente adicionada será apresentada com um estado **Pendente**.
 
 ### <a name="confirm-account-ownership"></a>Confirmar a propriedade da conta
 
@@ -400,7 +391,7 @@ Para adicionar um contacto:
 2. Introduza o endereço de e-mail e, em seguida, confirme-o.
 3. Selecione **Guardar**.
 
-O novo contacto de notificação é apresentado na secção **Contato de Notificação**. Para alterar a frequência de notificação, selecione o contacto de notificação e selecione o símbolo de lápis à direita da linha selecionada. Defina a frequência como **diária** , **semanal** , **mensal** ou **nenhuma**.
+O novo contacto de notificação é apresentado na secção **Contato de Notificação**. Para alterar a frequência de notificação, selecione o contacto de notificação e selecione o símbolo de lápis à direita da linha selecionada. Defina a frequência como **diária**, **semanal**, **mensal** ou **nenhuma**.
 
 Pode suprimir _a aproximação da data de término do período de cobertura_ e _desativar e desaprovisionar as notificações do ciclo de vida de aproximação de data_. Desativar notificações de ciclo de vida suprime notificações sobre o período de cobertura e a data de término do contrato.
 
@@ -474,29 +465,29 @@ Para criar uma subscrição do tipo de oferta Azure Enterprise, deve ter direito
 
 ## <a name="azure-ea-term-glossary"></a>Glossário dos termos do Azure EA
 
-- **Conta** : uma unidade organizacional no portal Azure Enterprise. É utilizada para administrar subscrições e para gerar relatórios.
-- **Proprietário da conta** : a pessoa que gere as subscrições e os administradores de serviços no Azure. Podem ver os dados de utilização nessa conta e as subscrições.
-- **Subscrição de emenda** : uma subscrição de um ano ou consubstancial ao abrigo da emenda da inscrição.
-- **Pré-pagamento** : O Pré-pagamento de um montante monetário anual para os serviços do Azure a uma tarifa de Pré-pagamento com desconto para utilização em relação a este pré-pagamento.
-- **Administrador de departamento** : a pessoa que gere departamentos, cria novas contas e proprietários de contas, vê detalhes de utilização dos departamentos que gerem e pode ver os custos quando forem concedidas permissões.
-- **Número da inscrição** : um identificador exclusivo fornecido pela Microsoft para identificar a inscrição específica associada a um Contrato Enterprise.
-- **Administrador do Enterprise** : a pessoa que gere departamentos, proprietários de departamentos, contas e proprietários de contas no Azure. Têm a capacidade de gerir administradores do Enterprise e de ver os dados de utilização, as quantidades faturadas e os custos não faturados em todas as contas e subscrições associadas à inscrição Enterprise.
-- **Contrato Enterprise** : um contrato de licenciamento da Microsoft para clientes com compras centralizadas que querem padronizar toda a organização na tecnologia da Microsoft e manter uma infraestrutura de tecnologias de informação num padrão de software da Microsoft.
-- **Inscrição do contrato Enterprise** : uma inscrição no programa de Contrato Enterprise que oferece produtos da Microsoft em volume a tarifas com desconto.
-- **Conta Microsoft** : um serviço baseado na Web que permite que sites participantes autentiquem um utilizador com um único conjunto de credenciais.
+- **Conta**: uma unidade organizacional no portal Azure Enterprise. É utilizada para administrar subscrições e para gerar relatórios.
+- **Proprietário da conta**: a pessoa que gere as subscrições e os administradores de serviços no Azure. Podem ver os dados de utilização nessa conta e as subscrições.
+- **Subscrição de emenda**: uma subscrição de um ano ou consubstancial ao abrigo da emenda da inscrição.
+- **Pré-pagamento**: O Pré-pagamento de um montante monetário anual para os serviços do Azure a uma tarifa de Pré-pagamento com desconto para utilização em relação a este pré-pagamento.
+- **Administrador de departamento**: a pessoa que gere departamentos, cria novas contas e proprietários de contas, vê detalhes de utilização dos departamentos que gerem e pode ver os custos quando forem concedidas permissões.
+- **Número da inscrição**: um identificador exclusivo fornecido pela Microsoft para identificar a inscrição específica associada a um Contrato Enterprise.
+- **Administrador do Enterprise**: a pessoa que gere departamentos, proprietários de departamentos, contas e proprietários de contas no Azure. Têm a capacidade de gerir administradores do Enterprise e de ver os dados de utilização, as quantidades faturadas e os custos não faturados em todas as contas e subscrições associadas à inscrição Enterprise.
+- **Contrato Enterprise**: um contrato de licenciamento da Microsoft para clientes com compras centralizadas que querem padronizar toda a organização na tecnologia da Microsoft e manter uma infraestrutura de tecnologias de informação num padrão de software da Microsoft.
+- **Inscrição do contrato Enterprise**: uma inscrição no programa de Contrato Enterprise que oferece produtos da Microsoft em volume a tarifas com desconto.
+- **Conta Microsoft**: um serviço baseado na Web que permite que sites participantes autentiquem um utilizador com um único conjunto de credenciais.
 - **Emenda da Inscrição Enterprise do Microsoft Azure (emenda da inscrição)** : uma emenda assinada por uma empresa, que lhes permite o acesso ao Azure como parte da inscrição Enterprise.
-- **Portal Azure Enterprise** : o portal utilizado pelos nossos clientes Enterprise para gerir as contas do Azure e as subscrições relacionadas.
-- **Quantidade de recursos consumida** : a quantidade de um serviço do Azure individual que foi utilizada num mês.
-- **Administrador de serviços** : a pessoa que acede e gere subscrições e projetos de desenvolvimento no portal Azure Enterprise.
-- **Subscrição** : representa uma subscrição do portal Azure Enterprise e é um contentor de serviços do Azure geridos pelo mesmo administrador de serviços.
-- **Conta profissional ou escolar** : para as organizações que tenham configurado o Azure Active Directory com federação na cloud e que tenham todas as contas num único inquilino.
+- **Portal Azure Enterprise**: o portal utilizado pelos nossos clientes Enterprise para gerir as contas do Azure e as subscrições relacionadas.
+- **Quantidade de recursos consumida**: a quantidade de um serviço do Azure individual que foi utilizada num mês.
+- **Administrador de serviços**: a pessoa que acede e gere subscrições e projetos de desenvolvimento no portal Azure Enterprise.
+- **Subscrição**: representa uma subscrição do portal Azure Enterprise e é um contentor de serviços do Azure geridos pelo mesmo administrador de serviços.
+- **Conta profissional ou escolar**: para as organizações que tenham configurado o Azure Active Directory com federação na cloud e que tenham todas as contas num único inquilino.
 
 ### <a name="enrollment-statuses"></a>Estados da inscrição
 
-- **Novo** : este estado é atribuído a uma inscrição que tenha sido criada nas últimas 24 horas e é atualizado para o estado Pendente passadas 24 horas.
-- **Pendente** : o administrador da inscrição tem de iniciar sessão no portal Azure Enterprise. Depois de a sessão ter sido iniciada, a inscrição muda para o estado Ativo.
-- **Ativo** : a inscrição está Ativa e podem ser criadas contas e subscrições no portal Azure Enterprise. A inscrição permanece ativa até à data limite do Contrato Enterprise.
-- **Período alargado indefinidamente** : o estado de período alargado indefinidamente ocorre depois de chegar à data limite do Contrato Enterprise. Permite que os clientes Azure EA que optaram pelo período alargado continuem a utilizar os serviços do Azure indefinidamente no final do Contrato Enterprise.
+- **Novo**: este estado é atribuído a uma inscrição que tenha sido criada nas últimas 24 horas e é atualizado para o estado Pendente passadas 24 horas.
+- **Pendente**: o administrador da inscrição tem de iniciar sessão no portal Azure Enterprise. Depois de a sessão ter sido iniciada, a inscrição muda para o estado Ativo.
+- **Ativo**: a inscrição está Ativa e podem ser criadas contas e subscrições no portal Azure Enterprise. A inscrição permanece ativa até à data limite do Contrato Enterprise.
+- **Período alargado indefinidamente**: o estado de período alargado indefinidamente ocorre depois de chegar à data limite do Contrato Enterprise. Permite que os clientes Azure EA que optaram pelo período alargado continuem a utilizar os serviços do Azure indefinidamente no final do Contrato Enterprise.
 
    Antes de a inscrição Azure EA atingir a data limite do Contrato Enterprise, o administrador da inscrição precisa de decidir qual das seguintes opções deve ser tomada:
 
@@ -504,8 +495,8 @@ Para criar uma subscrição do tipo de oferta Azure Enterprise, deve ter direito
   - Transferir para uma nova inscrição.
   - Migrar para o Programa de Subscrição Online da Microsoft (MOSP).
   - Confirmar a desativação de todos os serviços associados à inscrição.
-- **Expirado** : o cliente Azure EA não optou pelo período alargado e a inscrição Azure EA atingiu a data limite do Contrato Enterprise. A inscrição vai expirar e todos os serviços associados vão ser desativados.
-- **Transferido** : as inscrições em que todas as contas e serviços associados foram transferidos para uma nova inscrição são apresentadas com o estado transferido.
+- **Expirado**: o cliente Azure EA não optou pelo período alargado e a inscrição Azure EA atingiu a data limite do Contrato Enterprise. A inscrição vai expirar e todos os serviços associados vão ser desativados.
+- **Transferido**: as inscrições em que todas as contas e serviços associados foram transferidos para uma nova inscrição são apresentadas com o estado transferido.
   >[!NOTE]
   > As inscrições não são transferidas automaticamente se for gerado um novo número de inscrição aquando da renovação. Tem de incluir o número de inscrição anterior na documentação de renovação para facilitar a transferência automática.
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: f083ae097995dc618dbbe096d7cddfa57e96e78b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: c3551156c2745e8904cf9f795a69e0e9c2c3c418
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95013917"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95746052"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-nodejs"></a>Quickstart: Extrair texto impresso (OCR) utilizando a API e o Node.js
 
@@ -199,7 +199,7 @@ O JSON devolve uma resposta de êxito. O exemplo analisa e apresenta uma respost
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o ficheiro e, em seguida, desinstale o pacote `request` do npm. Para desinstalar o pacote, siga os seguintes passos:
 
@@ -212,7 +212,7 @@ Quando já não for necessário, elimine o ficheiro e, em seguida, desinstale o 
 
 3. Depois de o pacote ser desinstalado com êxito, feche a janela da linha de comandos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, explore as APIs de Visão Computacional usadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito.
 

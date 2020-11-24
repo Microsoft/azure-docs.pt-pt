@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 006c995217ced91690798ae68f04e3b6c3148228
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 27594ff4d7673038e9de38c5969a615be60aeadf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131960"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844698"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Criar uma subscrição do Azure adicional
 
@@ -73,7 +73,11 @@ Precisará das seguintes permissões para criar subscrições:
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>Criar uma subscrição do Azure adicional através de programação
 
-Também pode criar subscrições adicionais através de programação. Para obter mais informações, veja [Criar subscrições do Azure através de programação](programmatically-create-subscription.md).
+Também pode criar subscrições adicionais através de programação. Para obter mais informações, veja:
+
+- [Criar subscrições do EA através de programação com a API mais recente](programmatically-create-subscription-enterprise-agreement.md)
+- [Criar subscrições do MCA através de programação com a API mais recente](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Criar subscrições do MPA através de programação com a API mais recente](Programmatically-create-subscription-microsoft-customer-agreement.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

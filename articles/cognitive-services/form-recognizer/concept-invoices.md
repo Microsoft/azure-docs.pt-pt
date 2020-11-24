@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 366826e591ed131ca63dc94eae994773217438d1
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511566"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736684"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de fatura pré-construído do Reconhecimento de Formulário
 
@@ -74,7 +74,7 @@ A saída JSON tem 3 partes:
 
 O serviço de Fatura extrairá o texto, as tabelas e 26 campos de fatura. Seguem-se os campos extraídos de uma fatura na resposta de saída JSON (a saída abaixo utiliza esta [fatura de amostra)](./media/sample-invoice.jpg)  
 
-|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
+|Nome| Tipo | Description | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Cliente a ser faturado | Microsoft Corp |  |
 | CustomerId | string | ID de referência para o cliente | CID-12345 |  |
@@ -107,8 +107,9 @@ O serviço de Fatura extrairá o texto, as tabelas e 26 campos de fatura. Seguem
 ## <a name="next-steps"></a>Passos seguintes
 
 - Experimente as suas próprias faturas e amostras na [UI da amostra do reconhecimento de formulários.](https://fott-preview.azurewebsites.net/)
-- Ou, siga o [quickstart de dados](./QuickStarts/python-invoices.md) da fatura extrato para implementar a extração de dados de fatura usando Python e a API REST.
-## <a name="see-also"></a>Veja também
+- Complete um [início rápido da biblioteca do cliente Do Reconhecimento de Formulários](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de faturas com o Form Recogniser no idioma à sua escolha.
+- Ou, siga o [quickstart de dados](./quickstarts/python-invoices.md) da fatura extrato para implementar a extração de dados de fatura usando Python e a API REST.
+## <a name="see-also"></a>Ver também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)
 * [REST API referenciar docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)

@@ -4,12 +4,12 @@ description: Padrões de escala automática em Azure para aplicações web, conj
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fdb3588833dd9bcf989e020cd1dd861c6e28f37
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327060"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95745321"
 ---
 # <a name="best-practices-for-autoscale"></a>Melhores práticas do Dimensionamento Automático
 A autoescala do Azure Monitor aplica-se apenas a [conjuntos de escalas de máquinas virtuais,](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [serviços de nuvem,](https://azure.microsoft.com/services/cloud-services/) [serviço de aplicações - Web Apps](https://azure.microsoft.com/services/app-service/web/)e [serviços de Gestão API.](../../api-management/api-management-key-concepts.md)
@@ -73,6 +73,9 @@ Neste caso
 3. Agora assuma que com o tempo o CPU% cai para 60.
 4. A regra de escala de auto-escala estima o estado final se for para escalar. Por exemplo, 60 x 3 (contagem de instâncias correntes) = 180 / 2 (número final de casos quando reduzido) = 90. Assim, a autoescala não se escala, pois teria de ser reduzida imediatamente. Em vez disso, salta para baixo.
 5. Da próxima vez que verificar automaticamente, o CPU continua a cair para 50. Estima novamente - 50 x 3 instâncias = 150 / 2 instâncias = 75, que está abaixo do limiar de escala de 80, pelo que escala com sucesso para 2 instâncias.
+
+> [!NOTE]
+> Se o motor de autoescala detetar a agitação pode ocorrer como resultado da escala para o número de casos-alvo, também tentará escalar para um número diferente de casos entre a contagem atual e a contagem de alvos. Se não ocorrer uma oscilação dentro deste intervalo, a escala automática continuará a funcionar em escala com o novo alvo.
 
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Considerações relativas aos valores dos limiares de dimensionamento das métricas especiais
  Para métricas especiais como a métrica do comprimento da fila de armazenamento ou de serviço, o limiar é o número médio de mensagens disponíveis por número atual de instâncias. Escolha cuidadosamente o valor limiar desta métrica.
@@ -143,6 +146,8 @@ A autoescala será publicada no Registo de Atividades se ocorrerem alguma das se
 * O serviço de autoescala não toma uma medida de escala.
 * As métricas não estão disponíveis para o serviço de autoescala para tomar uma decisão de escala.
 * As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala.
+* A autoescala deteta as batidas e aborta a tentativa de escala. Você verá um tipo de log `Flapping` desta situação. Se virem isto, considerem se os vossos limiares são demasiado estreitos.
+* A autoescala deteta as batidas, mas ainda é capaz de escalar com sucesso. Você verá um tipo de log `FlappingOccurred` desta situação. Se o vir, o motor de autoescala tentou escalar (por exemplo, de 4 instâncias para 2), mas determinou que isso causaria agitação. Em vez disso, o motor de autoescala reduziu-se a um número diferente de casos (por exemplo, utilizando 3 instâncias em vez de 2), o que já não provoca a agitação, pelo que se reduziu a este número de casos.
 
 Também pode utilizar um alerta de Registo de Atividade para monitorizar a saúde do motor de autoescala. Aqui estão exemplos para [criar um Alerta de Registo de Atividade para monitorizar todas as operações de motor de autoescala na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) ou para [criar um Alerta de Registo de Atividade para monitorizar todas as operações de escala automática falhadas na sua subscrição.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

@@ -38,6 +38,10 @@
           items:
             - name: Python
               href: quickstarts/python-business-cards.md
+        - name: Utilizar o modelo de fatura pré-criado
+          items:
+            - name: Python
+              href: quickstarts/python-invoices.md
         - name: Obter informações de esquema de texto
           items:
             - name: Python
@@ -50,10 +54,14 @@
       href: tutorial-ai-builder.md
 - name: Conceitos
   items:
+    - name: Extração do esquema
+      href: concept-layout.md
     - name: Recibos
       href: concept-receipts.md
     - name: Cartões de visita
       href: concept-business-cards.md
+    - name: Faturas
+      href: concept-invoices.md
 - name: Guias de procedimentos
   items:
     - name: Criar um conjunto de dados de preparação
@@ -77,7 +85,7 @@
 - name: Referência
   items:
     - name: Pré-visualização da API v2.1 do Reconhecedor de Formato
-      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync'
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync'
     - name: API do Reconhecedor de Formato v2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
     - name: SDKs
