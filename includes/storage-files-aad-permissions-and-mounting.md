@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: storage
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/26/2020
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: a168b9f721cd9c3d4ab0e8b6a56b764fec3b1fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4773446ec0007ffbed99bc01939d1f92f5823d99
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779868"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554552"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Atribuir permissões de acesso a uma identidade
 
@@ -77,7 +77,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 
 Depois de atribuir permissões de nível de partilha com o RBAC, deve atribuir permissões NTFS adequadas no nível de raiz, diretório ou ficheiro. Pense nas permissões de nível de partilha como o gatekeeper de alto nível que determina se um utilizador pode aceder à partilha. Considerando que as permissões NTFS atuam a um nível mais granular para determinar que operações o utilizador pode fazer ao nível do diretório ou do ficheiro.
 
-O Azure Files suporta o conjunto completo de permissões básicas e avançadas do NTFS. Pode visualizar e configurar permissões NTFS em diretórios e ficheiros numa partilha de ficheiros Azure, montando a partilha e, em seguida, utilizando o Windows File Explorer ou executando os [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) windows ou o comando [Set-ACL.](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) 
+O Azure Files suporta o conjunto completo de permissões básicas e avançadas do NTFS. Pode visualizar e configurar permissões NTFS em diretórios e ficheiros numa partilha de ficheiros Azure, montando a partilha e, em seguida, utilizando o Windows File Explorer ou executando os [icacls](/windows-server/administration/windows-commands/icacls) windows ou o comando [Set-ACL.](/powershell/module/microsoft.powershell.security/set-acl) 
 
 Para configurar o NTFS com permissões de super-er, tem de montar a parte utilizando a chave da sua conta de armazenamento a partir do seu VM ligado ao domínio. Siga as instruções na secção seguinte para montar uma partilha de ficheiroS Azure a partir da pronta de comando e para configurar as permissões NTFS em conformidade.
 
@@ -108,7 +108,7 @@ else
 
 ```
 
-Se tiver problemas na ligação aos Ficheiros Azure, consulte [a ferramenta de resolução de problemas que publicámos para erros de montagem de Ficheiros Azure no Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Também fornecemos [orientações](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para trabalhar em torno de cenários quando a porta 445 está bloqueada. 
+Se tiver problemas na ligação aos Ficheiros Azure, consulte [a ferramenta de resolução de problemas que publicámos para erros de montagem de Ficheiros Azure no Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Também fornecemos [orientações](../articles/storage/files/storage-files-faq.md#on-premises-access) para trabalhar em torno de cenários quando a porta 445 está bloqueada. 
 
 
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Configure permissões NTFS com o Windows File Explorer
@@ -132,7 +132,7 @@ Utilize o seguinte comando do Windows para conceder permissões completas a todo
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-Para obter mais informações sobre como utilizar os ICACLs para definir permissões NTFS e sobre os diferentes tipos de permissões apoiadas, consulte [a referência da linha de comando para icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+Para obter mais informações sobre como utilizar os ICACLs para definir permissões NTFS e sobre os diferentes tipos de permissões apoiadas, consulte [a referência da linha de comando para icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Monte uma partilha de ficheiros a partir de um VM de domínio
 
@@ -142,7 +142,7 @@ Inscreva-se no VM utilizando a identidade Azure AD à qual concedeu permissões,
 
 ![Screenshot mostrando ecrã de inscrição AD AD para autenticação do utilizador](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Utilize o seguinte comando para montar a partilha de ficheiros Azure. Lembre-se de substituir os valores do espaço reservado pelos seus próprios valores. Como foi autenticado, não precisa de fornecer a chave da conta de armazenamento, as credenciais de DS AD no local ou as credenciais AD DS do Azure. Uma experiência única de inscrição é suportada para autenticação com DS AD ou Azure AD DS. Se encontrar problemas de montagem com credenciais de DS AD, consulte [os problemas de Troubleshoot Azure Files no Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) para obter orientação.
+Utilize o seguinte comando para montar a partilha de ficheiros Azure. Lembre-se de substituir os valores do espaço reservado pelos seus próprios valores. Como foi autenticado, não precisa de fornecer a chave da conta de armazenamento, as credenciais de DS AD no local ou as credenciais AD DS do Azure. Uma experiência única de inscrição é suportada para autenticação com DS AD ou Azure AD DS. Se encontrar problemas de montagem com credenciais de DS AD, consulte [os problemas de Troubleshoot Azure Files no Windows](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md) para obter orientação.
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445

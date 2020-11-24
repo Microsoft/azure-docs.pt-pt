@@ -4,22 +4,22 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 01/28/2020
 ms.author: larryfr
-ms.openlocfilehash: f500df6a592769928470d22468ff2fdff18293a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f7798e684a0a144cfe5285a0dd926a3b440934a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88748749"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555207"
 ---
-As entradas no mapa do `inferenceconfig.json` documento aos parâmetros para a classe [InferenceConfig.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) A tabela a seguir descreve o mapeamento entre entidades no documento JSON e os parâmetros para o método:
+As entradas no mapa do `inferenceconfig.json` documento aos parâmetros para a classe [InferenceConfig.](/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) A tabela a seguir descreve o mapeamento entre entidades no documento JSON e os parâmetros para o método:
 
 | Entidade JSON | Parâmetro do método | Descrição |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | Caminho para um ficheiro local que contenha o código para correr para a imagem. |
 | `sourceDirectory` | `source_directory` | Opcional. Caminho para pastas que contenham todos os ficheiros para criar a imagem, o que facilita o acesso a quaisquer ficheiros dentro desta pasta ou sub-dobragem. Pode carregar uma pasta inteira a partir da sua máquina local como dependências para o Webservice. Nota: os seus caminhos entry_script, conda_file e extra_docker_file_steps são caminhos relativos para o caminho source_directory. |
-| `environment` | `environment` | Opcional.  Ambiente de [aprendizagem](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)automática Azure .|
+| `environment` | `environment` | Opcional.  Ambiente de [aprendizagem](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)automática Azure .|
 
-Pode incluir especificações completas de um [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de aprendizagem automática Azure no ficheiro de configuração de inferência. Se este ambiente não existir no seu espaço de trabalho, o Azure Machine Learning irá criá-lo. Caso contrário, o Azure Machine Learning atualizará o ambiente se necessário. O seguinte JSON é um exemplo:
+Pode incluir especificações completas de um [ambiente](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de aprendizagem automática Azure no ficheiro de configuração de inferência. Se este ambiente não existir no seu espaço de trabalho, o Azure Machine Learning irá criá-lo. Caso contrário, o Azure Machine Learning atualizará o ambiente se necessário. O seguinte JSON é um exemplo:
 
 ```json
 {
@@ -65,7 +65,7 @@ Pode incluir especificações completas de um [ambiente](https://docs.microsoft.
 }
 ```
 
-Também pode utilizar um [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de aprendizagem automática Azure existente em parâmetros CLI separados e remover a chave "ambiente" do ficheiro de configuração de inferência. Use -e para o nome do ambiente, e -- ev para a versão ambiental. Se não especificar -ev, a versão mais recente será usada. Aqui está um exemplo de um ficheiro de configuração de inferência:
+Também pode utilizar um [ambiente](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de aprendizagem automática Azure existente em parâmetros CLI separados e remover a chave "ambiente" do ficheiro de configuração de inferência. Use -e para o nome do ambiente, e -- ev para a versão ambiental. Se não especificar -ev, a versão mais recente será usada. Aqui está um exemplo de um ficheiro de configuração de inferência:
 
 ```json
 {
@@ -76,7 +76,7 @@ Também pode utilizar um [ambiente](https://docs.microsoft.com/python/api/azurem
 
 O seguinte comando demonstra como implantar um modelo utilizando o ficheiro de configuração de inferência anterior (nomeado myInferenceConfig.js). 
 
-Também utiliza a versão mais recente de um [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de aprendizagem automática Azure existente (chamado AzureML-Minimal).
+Também utiliza a versão mais recente de um [ambiente](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de aprendizagem automática Azure existente (chamado AzureML-Minimal).
 
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 --ic myInferenceConfig.json -e AzureML-Minimal --dc deploymentconfig.json

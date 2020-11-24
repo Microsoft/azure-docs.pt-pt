@@ -4,12 +4,12 @@ ms.service: hdinsight
 ms.topic: include
 ms.date: 10/25/2018
 ms.author: jasonh
-ms.openlocfilehash: f42705902257e0284a3b316f3b1572627aa27f7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9111d4f4ad6061a5c2a699b8b322c5be8a328a5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184386"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560444"
 ---
 > [!div class="op_single_selector"]
 > * [Descrição Geral](../articles/hdinsight/hadoop/hdinsight-use-mapreduce.md)
@@ -17,7 +17,5 @@ ms.locfileid: "67184386"
 > * [Caracóis](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-curl.md)
 > * [PowerShell](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-powershell.md)
 > * [SDK do .NET](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md)
-> * [Ambiente de Trabalho Remoto](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-remote-desktop.md)
 > 
-> 
-
+>

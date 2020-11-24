@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28609ad27330ae4ea5ea7c0d02d5a61181fbe0df
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73034551"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556193"
 ---
 Ao conceber um sistema, é importante compreender as potenciais ameaças a esse sistema, e adicionar defesas apropriadas em conformidade, uma vez que o sistema é projetado e arquitetado. É importante projetar o produto desde o início com a segurança em mente porque entender como um intruso pode ser capaz de comprometer um sistema ajuda a garantir que as mitigações apropriadas estão em vigor desde o início.
 
@@ -72,7 +72,7 @@ Os quatro elementos fundamentais de um modelo de ameaça são:
 
 * Entidades Externas (qualquer coisa que interage com o sistema, mas não esteja sob o controlo da aplicação, exemplos incluem utilizadores e feeds de satélite)
 
-Todos os elementos do diagrama arquitetónico estão sujeitos a várias ameaças; este artigo o STRIDE mnemonic. Leia [a Modelação de Ameaças Novamente, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) para saber mais sobre os elementos STRIDE.
+Todos os elementos do diagrama arquitetónico estão sujeitos a várias ameaças; este artigo o STRIDE mnemonic. Leia [a Modelação de Ameaças Novamente, STRIDE](/archive/blogs/larryosterman/threat-modeling-again-stride) para saber mais sobre os elementos STRIDE.
 
 Diferentes elementos do diagrama de aplicação estão sujeitos a certas ameaças de PASSO:
 
@@ -265,7 +265,7 @@ As superfícies de controlo físico intermédio são aquelas em que a lógica qu
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 * [Ferramenta de modelação de ameaças SDL](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
 * [Microsoft Azure IoT arquitetura de referência](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)

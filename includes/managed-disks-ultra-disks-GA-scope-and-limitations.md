@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: eeda43b972e30c573743c8c59f75cfae61d7ee85
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413149"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555134"
 ---
 Por enquanto, os discos ultra têm limitações adicionais, são os seguintes:
 
@@ -67,7 +67,7 @@ O quadro que se segue descreve as regiões em que os discos ultra estão dispon�
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Nem todos os tamanhos de VM estão disponíveis em todas as regiões suportadas com discos ultra.
 - Só estão disponíveis como discos de dados. 
-- Suporte tamanho do sector físico 4k por padrão. O tamanho do sector 512E está disponível como uma oferta geralmente disponível, mas, você deve [se inscrever para isso](https://aka.ms/ultradisk512e). A maioria das aplicações são compatíveis com tamanhos do sector 4k, mas, algumas requerem 512 tamanhos do setor byte. Um exemplo seria a Oracle Database, que requer a libertação 12.2 ou mais tarde para suportar os discos nativos 4k. Para versões mais antigas do Oracle DB, é necessário o tamanho do sector 512 byte.
+- Suporte tamanho do sector físico 4k por padrão. O tamanho do sector 512E está disponível como uma oferta geralmente disponível (sem necessidade de inscrição), mas atualmente só está disponível usando o CLI ou a powershell. A maioria das aplicações são compatíveis com tamanhos do sector 4k, mas, algumas requerem 512 tamanhos do setor byte. Um exemplo seria a Oracle Database, que requer a libertação 12.2 ou mais tarde para suportar os discos nativos 4k. Para versões mais antigas do Oracle DB, é necessário o tamanho do sector 512 byte.
 - Só podem ser criados como discos vazios.
 - Atualmente não suporta instantâneos de disco, imagens VM, conjuntos de disponibilidade, Anfitriões Dedicados Azure ou encriptação de disco Azure.
 - Atualmente não suporta a integração com a Azure Backup ou Azure Site Recovery.

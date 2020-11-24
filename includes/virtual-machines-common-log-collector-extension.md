@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a442b5de7a256dd8bcf47da741bd41894709c3a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74085268"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562544"
 ---
 Diagnosticar problemas com um serviço de nuvem Microsoft Azure requer a recolha dos ficheiros de registo do serviço em máquinas virtuais à medida que os problemas ocorrem. Pode utilizar a extensão AzureLogCollector a pedido para executar uma recolha única de registos a partir de um ou mais VMs do Cloud Service (tanto a partir de funções web como de trabalhador) e transferir os ficheiros recolhidos para uma conta de armazenamento Azure – tudo sem iniciar sessão remota em qualquer um dos VMs.
 
@@ -44,7 +44,7 @@ Em ambos os modos de recolha, as pastas adicionais de recolha de dados podem ser
 * Azure PowerShell. Consulte [a Instalação Azure PowerShell](/powershell/azure/install-az-ps)] para obter instruções de instalação.
 
 ## <a name="add-the-extension"></a>Adicionar a extensão
-Pode utilizar cmdlets [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) ou [SERVICE Management REST APIs](https://msdn.microsoft.com/library/ee460799.aspx) para adicionar a extensão AzureLogCollector.
+Pode utilizar cmdlets [Microsoft Azure PowerShell](/previous-versions/azure/dn495240(v=azure.100)) ou [SERVICE Management REST APIs](/previous-versions/azure/ee460799(v=azure.100)) para adicionar a extensão AzureLogCollector.
 
 Para os Serviços cloud, o cmdlet Azure Powershell existente, **Set-AzureServiceExtension,** pode ser utilizado para permitir a extensão em instâncias de funções do Cloud Service. Sempre que esta extensão é ativada através deste cmdlet, a recolha de registos é ativada nas instâncias de função selecionadas de funções selecionadas.
 
@@ -528,4 +528,3 @@ else
 
 ## <a name="next-steps"></a>Passos Seguintes
 Agora pode examinar ou copiar os seus registos a partir de um simples local.
-

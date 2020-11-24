@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: machine-learning
 author: sdgilley
 ms.service: machine-learning
@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 03/05/2020
-ms.openlocfilehash: ff449626ce528cfe0218a95330a567303c547e5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e7580abfd113a279e2223b9cc9665f6a0b86bc8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79486120"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562129"
 ---
-1. Use as instruções na [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)  para instalar o Azure Machine Learning SDK para Python
+1. Use as instruções na [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?view=azure-ml-py)  para instalar o Azure Machine Learning SDK para Python
 
 1. Criar um espaço de trabalho para [aprendizagem automática Azure.](../articles/machine-learning/how-to-manage-workspace.md)
 

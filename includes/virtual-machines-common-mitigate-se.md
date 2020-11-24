@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8594ce713a8675505e0ee3051018b05992b160a9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73935895"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561254"
 ---
 **Última atualização do documento**: 12 de novembro de 2019 10:00 PST.
 
@@ -21,9 +21,9 @@ A divulgação de uma [nova classe de vulnerabilidades de CPU](https://portal.ms
 
 A Microsoft implementou mitigações em todos os nossos serviços na nuvem. A infraestrutura que gere o Azure e isola as cargas de trabalho dos clientes uns dos outros está protegida. Isto significa que um potencial intruso que usa a mesma infraestrutura não pode atacar a sua aplicação usando estas vulnerabilidades.
 
-O Azure está a utilizar [a manutenção de preservação da memória](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) sempre que possível, para minimizar o impacto do cliente e eliminar a necessidade de reinicialização. O Azure continuará a utilizar estes métodos ao fazer atualizações a nível do sistema para o anfitrião e proteger os nossos clientes.
+O Azure está a utilizar [a manutenção de preservação da memória](../articles/virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#maintenance-that-doesnt-require-a-reboot) sempre que possível, para minimizar o impacto do cliente e eliminar a necessidade de reinicialização. O Azure continuará a utilizar estes métodos ao fazer atualizações a nível do sistema para o anfitrião e proteger os nossos clientes.
 
-Mais informações sobre como a segurança é integrada em todos os aspetos do Azure estão disponíveis no site da [Documentação de Segurança Azure.](https://docs.microsoft.com/azure/security/) 
+Mais informações sobre como a segurança é integrada em todos os aspetos do Azure estão disponíveis no site da [Documentação de Segurança Azure.](../articles/security/index.yml) 
 
 > [!NOTE] 
 > Desde que este documento foi publicado pela primeira vez, várias variantes desta classe de vulnerabilidade foram divulgadas. A Microsoft continua a investir fortemente na proteção dos nossos clientes e na prestação de orientação. Esta página será atualizada à medida que continuarmos a lançar correções adicionais. 
@@ -43,7 +43,7 @@ Embora uma atualização de SO não seja necessária para isolar as suas aplica�
 
 | Oferta | Ação Recomendada  |
 |----------|---------------------|
-| Cloud Services do Azure  | Ative [a atualização automática](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) ou certifique-se de que está a executar o mais recente Sistema operativo convidado. |
+| Cloud Services do Azure  | Ative [a atualização automática](../articles/cloud-services/cloud-services-how-to-configure-portal.md) ou certifique-se de que está a executar o mais recente Sistema operativo convidado. |
 | Máquinas virtuais Azure Linux | Instale atualizações do seu fornecedor do sistema operativo. Para mais informações, consulte [Linux](#linux) mais tarde neste documento. |
 | Máquinas virtuais Azure Windows  | Instale o último rollup de segurança.
 | Outros Serviços Azure PaaS | Não é necessária qualquer ação para os clientes que utilizam estes serviços. O Azure mantém automaticamente as versões de SO atualizadas. |
@@ -72,7 +72,7 @@ Pode ativar funcionalidades de segurança adicionais dentro do seu VM ou Cloud S
 O seu sistema operativo-alvo deve estar atualizado para permitir estas funcionalidades de segurança adicionais. Embora numerosas mitigações de canais laterais de execução especulativa sejam ativadas por padrão, as funcionalidades adicionais descritas aqui devem ser ativadas manualmente e podem causar um impacto no desempenho. 
 
 
-**Passo 1: Desativar a hiper rosca no VM** - Os clientes que executam códigos não fidedicordos num VM hiper roscado terão de desativar a hiper rosca ou passar para um tamanho VM não hiper-roscado. Consulte [este doc](https://docs.microsoft.com/azure/virtual-machines/windows/acu) para uma lista de tamanhos VM hiper roscados (onde a razão entre vCPU e Core é de 2:1). Para verificar se o seu VM tem hiper rosca ativada, consulte o script abaixo utilizando a linha de comando do Windows a partir do VM.
+**Passo 1: Desativar a hiper rosca no VM** - Os clientes que executam códigos não fidedicordos num VM hiper roscado terão de desativar a hiper rosca ou passar para um tamanho VM não hiper-roscado. Consulte [este doc](../articles/virtual-machines/acu.md) para uma lista de tamanhos VM hiper roscados (onde a razão entre vCPU e Core é de 2:1). Para verificar se o seu VM tem hiper rosca ativada, consulte o script abaixo utilizando a linha de comando do Windows a partir do VM.
 
 Escreva `wmic` para entrar na interface interativa. Em seguida, digite o seguinte para ver a quantidade de processadores físicos e lógicos no VM.
 
@@ -108,10 +108,10 @@ Se a saída aparecer, contacte o `MDS mitigation is enabled: False` [Suporte Azu
 **Passo 3**: Para ativar o suporte de sombra de endereço virtual kernel (KVAS) e de injeção de alvo de ramo (BTI), siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para permitir proteções utilizando as chaves de `Session Manager` registo. É necessário reiniciar.
 
 
-**Passo 4**: Para implementações que estejam a utilizar [a virtualização aninhada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (apenas D3 e E3): Estas instruções aplicam-se no interior do VM que está a utilizar como hospedeiro Hiper-V.
+**Passo 4**: Para implementações que estejam a utilizar [a virtualização aninhada](../articles/virtual-machines/windows/nested-virtualization.md) (apenas D3 e E3): Estas instruções aplicam-se no interior do VM que está a utilizar como hospedeiro Hiper-V.
 
 1.  Siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para permitir proteções utilizando as `MinVmVersionForCpuBasedMitigations` chaves de registo.
-2.  Desave o tipo de programador de hipervisores seguindo `Core` as instruções [aqui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+2.  Desave o tipo de programador de hipervisores seguindo `Core` as instruções [aqui](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
@@ -119,7 +119,7 @@ Se a saída aparecer, contacte o `MDS mitigation is enabled: False` [Suporte Azu
 <a name="linux"></a>Permitir o conjunto de funcionalidades de segurança adicionais no interior requer que o sistema operativo-alvo esteja totalmente atualizado. Algumas mitigações serão ativadas por defeito. A secção seguinte descreve as funcionalidades que estão desligadas por predefinição e/ou dependentes do suporte de hardware (microcódigo). Ativar estas funcionalidades pode causar um impacto no desempenho. Consulte a documentação do seu fornecedor do sistema operativo para mais instruções
 
 
-**Passo 1: Desativar a hiper rosca no VM** - Os clientes que executam código não fidedicordos num VM hiper roscado terão de desativar a hiper rosca ou passar para um VM não hiper roscado.  Consulte [este doc](https://docs.microsoft.com/azure/virtual-machines/linux/acu) para uma lista de tamanhos VM hiper roscados (onde a razão entre vCPU e Core é de 2:1). Para verificar se está a executar um VM hiper-roscado, verifique o `lscpu` comando no Linux VM. 
+**Passo 1: Desativar a hiper rosca no VM** - Os clientes que executam código não fidedicordos num VM hiper roscado terão de desativar a hiper rosca ou passar para um VM não hiper roscado.  Consulte [este doc](../articles/virtual-machines/acu.md) para uma lista de tamanhos VM hiper roscados (onde a razão entre vCPU e Core é de 2:1). Para verificar se está a executar um VM hiper-roscado, verifique o `lscpu` comando no Linux VM. 
 
 Se, `Thread(s) per core = 2` então, a hiper rosca tiver sido ativada. 
 
@@ -179,11 +179,3 @@ Este artigo fornece orientações para os ataques de canal laterais de execuçã
 
 Extensões de sincronização transacional (Intel® TSX) Transação Assíncronea Abortar:  
 - [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) - Transação TSX Assíncrona Abortar (TAA)
-
-
-
-
-
-
-
-

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: f2e95a53f7dd188e1103a47cba097716cfad9484
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1c1d438f0322942a1e68c0af74de8d5e2d77c77a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746214"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562001"
 ---
 A encriptação do disco Azure pode ser ativada e gerida através do [Azure CLI](/cli/azure) e [da Azure PowerShell](/powershell/azure/new-azureps-module-az). Para tal, tem de instalar as ferramentas localmente e ligar-se à sua subscrição Azure.
 
@@ -43,7 +43,7 @@ az account set --subscription "<subscription name or ID>"
 Para mais informações, consulte [Começar com a Azure CLI 2.0](/cli/azure/get-started-with-azure-cli). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-O [módulo Azure PowerShell az](/powershell/azure/new-azureps-module-az) fornece um conjunto de cmdlets que utiliza o modelo [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) para gerir os seus recursos Azure. Pode usá-lo no seu navegador com [a Azure Cloud Shell,](/azure/cloud-shell/overview)ou pode instalá-lo na sua máquina local utilizando as instruções no [Install the Azure PowerShell module](/powershell/azure/install-az-ps). 
+O [módulo Azure PowerShell az](/powershell/azure/new-azureps-module-az) fornece um conjunto de cmdlets que utiliza o modelo [Azure Resource Manager](../articles/azure-resource-manager/management/overview.md) para gerir os seus recursos Azure. Pode usá-lo no seu navegador com [a Azure Cloud Shell,](../articles/cloud-shell/overview.md)ou pode instalá-lo na sua máquina local utilizando as instruções no [Install the Azure PowerShell module](/powershell/azure/install-az-ps). 
 
 Se já o tiver instalado localmente, certifique-se de que utiliza a versão mais recente da versão Azure PowerShell SDK para configurar a Encriptação do Disco Azure. Descarregue a versão mais recente do lançamento do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
@@ -66,4 +66,4 @@ Para confirmar a instalação dos cmdlets de encriptação do disco Azure, utili
 ```powershell
 Get-command *diskencryption*
 ```
-Para obter mais informações, consulte [Começar com a Azure PowerShell](/powershell/azure/get-started-azureps). 
+Para obter mais informações, consulte [Começar com a Azure PowerShell](/powershell/azure/get-started-azureps).

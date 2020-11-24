@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5d14068f6be4717f74e4917d6fccf1082cd0efd3
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 48a7912b1a6375111b6f9af1496cbbd41966202c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331763"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554217"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Que regiões estão disponíveis?
 
@@ -61,9 +61,9 @@ AZure Bastion não move nem armazena os dados dos clientes para fora da região 
 
 Para estabelecer uma ligação, são necessárias as seguintes funções:
 
-* Papel do leitor na máquina virtual
-* Função do leitor no NIC com IP privado da máquina virtual
-* Papel do leitor no recurso Azure Bastion
+* Função de leitor na máquina virtual
+* Função de leitor na NIC com IP privado da máquina virtual
+* Função de leitor no recurso do Azure Bastion
 
 ### <a name="what-is-the-pricing"></a><a name="pricingpage"></a>Qual é o preço?
 
@@ -89,7 +89,7 @@ Uma sessão só deve ser iniciada a partir do portal Azure. Inscreva-se no porta
 
 ### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Como lido com falhas de implantação?
 
-Reveja quaisquer mensagens de erro e [levante um pedido de apoio no portal Azure,](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) se necessário. Falhas de implantação podem resultar de [limites de subscrição, quotas e restrições](../articles/azure-resource-manager/management/azure-subscription-service-limits.md)de subscrição da Azure . Especificamente, os clientes podem encontrar um limite no número de endereços IP públicos permitidos por subscrição que faz com que a implantação do Bastião Azure falhe.
+Reveja quaisquer mensagens de erro e [levante um pedido de apoio no portal Azure,](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) se necessário. Falhas de implantação podem resultar de [limites de subscrição, quotas e restrições](../articles/azure-resource-manager/management/azure-subscription-service-limits.md)de subscrição da Azure . Especificamente, os clientes podem encontrar um limite no número de endereços IP públicos permitidos por subscrição que faz com que a implantação do Bastião Azure falhe.
 
 ### <a name="how-do-i-incorporate-azure-bastion-in-my-disaster-recovery-plan"></a><a name="dr"></a>Como incorporar O Bastião Azure no meu plano de recuperação de desastres?
 

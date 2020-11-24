@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: iot-suite
 author: dominicbetts
 ms.service: iot-suite
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4b93685160250a5abe7c050db89978ae8ceb1a9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184695"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557704"
 ---
 > [!div class="op_single_selector"]
 > * [C em Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -21,7 +21,7 @@ ms.locfileid: "67184695"
 > * [C no Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 > * [Node.js (genérico)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Node.js no Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
-> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
+> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md)
 
 Neste tutorial, implementa-se um dispositivo **Chiller** que envia a seguinte telemetria para o acelerador de solução de [monitorização](../articles/iot-accelerators/about-iot-accelerators.md)remota:
 
@@ -54,7 +54,7 @@ Quando o processo de implementação da solução de Monitorização Remota term
 ### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Adicione o seu dispositivo à solução de Monitorização Remota
 
 > [!NOTE]
-> Se já adicionou um dispositivo na sua solução, pode saltar este passo. No entanto, o próximo passo requer a cadeia de ligação do dispositivo. Pode recuperar a cadeia de ligação de um dispositivo a partir do [portal Azure](https://portal.azure.com) ou utilizando a ferramenta [Az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI.
+> Se já adicionou um dispositivo na sua solução, pode saltar este passo. No entanto, o próximo passo requer a cadeia de ligação do dispositivo. Pode recuperar a cadeia de ligação de um dispositivo a partir do [portal Azure](https://portal.azure.com) ou utilizando a ferramenta [Az iot](/cli/azure/iot?view=azure-cli-latest) CLI.
 
 Para que um dispositivo se conecte ao acelerador de solução, deve identificar-se ao IoT Hub utilizando credenciais válidas. Tem a oportunidade de guardar a cadeia de ligação do dispositivo que contém estas credenciais quando adiciona o dispositivo à solução. Inclui a cadeia de ligação do dispositivo na aplicação do seu cliente mais tarde neste tutorial.
 
@@ -68,7 +68,7 @@ Para adicionar um dispositivo à sua solução de Monitorização Remota, comple
 
     ![Escolha as opções do dispositivo](media/iot-suite-selector-connecting/devicesoptions.png)
 
-1. Escolha **Aplicar**. Em seguida, tome nota dos valores de chave primária do **dispositivo, ID,** **chave primária**e **ligação:**
+1. Escolha **Aplicar**. Em seguida, tome nota dos valores de chave primária do **dispositivo, ID,** **chave primária** e **ligação:**
 
     ![Obter credenciais](media/iot-suite-selector-connecting/credentials.png)
 
@@ -78,4 +78,4 @@ A aplicação do cliente implementa o modelo de dispositivo **Chiller** incorpor
 
 * As propriedades que o dispositivo reporta à solução. Por exemplo, um dispositivo **Chiller** informa informações sobre o seu firmware e localização.
 * Os tipos de telemetria que o dispositivo envia para a solução. Por exemplo, um dispositivo **Chiller** envia valores de temperatura, humidade e pressão.
-* Os métodos que pode agendar a partir da solução para executar no dispositivo. Por exemplo, um dispositivo **Chiller** deve implementar métodos **Reboot**, **FirmwareUpdate,** **EmergencyValveRelease**e **IncreasePressure.**
+* Os métodos que pode agendar a partir da solução para executar no dispositivo. Por exemplo, um dispositivo **Chiller** deve implementar métodos **Reboot**, **FirmwareUpdate,** **EmergencyValveRelease** e **IncreasePressure.**

@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 1cb7753f54e9c1334e35635c227f776041631f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b5034f2163e8478d7ddb7b9271402b094a809d7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88864836"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557582"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Gere o ficheiro de pedido de assinatura de certificado
 
@@ -23,22 +23,22 @@ Gere o ficheiro Pedido de Assinatura de Certificado (CSR), que a Apple utiliza p
 
 1. No Mac, execute a ferramenta de Acesso Keychain. Pode ser aberto a partir da pasta **Utilities** ou da **Outra** pasta no Launchpad.
 
-1. Selecione **Keychain Access**, expanda **o Certificate Assistant**e, em seguida, selecione **Solicite um Certificado a partir de uma Autoridade de Certificados**.
+1. Selecione **Keychain Access**, expanda **o Certificate Assistant** e, em seguida, selecione **Solicite um Certificado a partir de uma Autoridade de Certificados**.
 
     ![Utilizar o Acesso Keychain para pedir um novo certificado](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
 
    > [!NOTE]
    > Por predefinição, o Keychain Access seleciona o primeiro item da lista. Isto pode ser um problema se estiver na categoria **certificados** e a **Apple Worldwide Developer Relations Certification Authority** não é o primeiro item da lista. Certifique-se de que tem um item não chave, ou a chave **da Apple Worldwide Developer Relations Certification Authority** é selecionada, antes de gerar o CSR (Pedido de Assinatura de Certificado).
 
-1. Selecione o seu **Endereço de E-mail do utilizador,** insira o valor **nome comum,** certifique-se de que especifica **guardar para o disco**e, em seguida, selecione **Continue**. Deixe **o endereço de e-mail CA** em branco, uma vez que não é necessário.
+1. Selecione o seu **Endereço de E-mail do utilizador,** insira o valor **nome comum,** certifique-se de que especifica **guardar para o disco** e, em seguida, selecione **Continue**. Deixe **o endereço de e-mail CA** em branco, uma vez que não é necessário.
 
     ![Informações de certificado obrigatórias](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
 
-1. Introduza um nome para o ficheiro CSR em **Save As**, selecione a localização em **Onde**e, em seguida, selecione **Guardar**.
+1. Introduza um nome para o ficheiro CSR em **Save As**, selecione a localização em **Onde** e, em seguida, selecione **Guardar**.
 
     ![Escolha um nome de ficheiro para o certificado](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-save-csr.png)
 
-    Esta ação guarda o ficheiro CSR no local selecionado. A localização **predefinida**é desktop . Memorize a localização escolhida para o ficheiro.
+    Esta ação guarda o ficheiro CSR no local selecionado. A localização **predefinida** é desktop . Memorize a localização escolhida para o ficheiro.
 
 Em seguida, registe a sua aplicação com a Apple, permita notificações push e carregar a RSE exportada para criar um certificado push.
 
@@ -78,9 +78,9 @@ Para enviar notificações push para uma aplicação iOS, registe a sua aplicaç
 É necessário um certificado para permitir que o centro de notificação trabalhe com a **APNS**. Isto pode ser feito de uma de duas maneiras:
 
 1. Crie um **.p12** que pode ser carregado diretamente para o Centro de Notificação.  
-2. Crie um **.p8** que pode ser usado [para autenticação baseada em fichas](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification) *(a abordagem mais recente).*
+2. Crie um **.p8** que pode ser usado [para autenticação baseada em fichas](../articles/notification-hubs/notification-hubs-push-notification-http2-token-authentication.md) *(a abordagem mais recente).*
 
-A abordagem mais recente tem uma série de benefícios (em comparação com a utilização de certificados) como documentado na autenticação baseada em [Token (HTTP/2) para a APNS](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification). No entanto, foram previstas medidas para ambas as abordagens. 
+A abordagem mais recente tem uma série de benefícios (em comparação com a utilização de certificados) como documentado na autenticação baseada em [Token (HTTP/2) para a APNS](../articles/notification-hubs/notification-hubs-push-notification-http2-token-authentication.md). No entanto, foram previstas medidas para ambas as abordagens. 
 
 ### <a name="option-1-creating-a-p12-push-certificate-that-can-be-uploaded-directly-to-notification-hub"></a>OPÇÃO 1: Criação de um certificado de pressão .p12 que pode ser carregado diretamente para o Centro de Notificação
 

@@ -4,18 +4,18 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: 0c43c6dcced94225e9ab9ae903535ce74286ad9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cae7ac2d3b961120cb9100f5072dc141769afff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87406724"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559301"
 ---
 ## <a name="create-a-container-registry"></a>Criar um registo de contentor
 
 Neste tutorial, utiliza-se a extensão Azure IoT Tools para construir um módulo e criar uma imagem de **recipiente** a partir dos ficheiros. Em seguida, vai enviar essa imagem para um **registo** que armazena e gere as suas imagens. Por fim, vai implementar a imagem a partir do registo para ser executada no seu dispositivo IoT Edge.
 
-Pode utilizar qualquer registo compatível com o Docker para guardar as imagens do seu contentor. Dois serviços populares de registo do Docker são [o Registo de Contentores Azure](https://docs.microsoft.com/azure/container-registry/) e [o Docker Hub.](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) Este tutorial utiliza o Azure Container Registry.
+Pode utilizar qualquer registo compatível com o Docker para guardar as imagens do seu contentor. Dois serviços populares de registo do Docker são [o Registo de Contentores Azure](../articles/container-registry/index.yml) e [o Docker Hub.](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) Este tutorial utiliza o Azure Container Registry.
 
 Se ainda não tiver um registo de contentores, siga estes passos para criar um novo em Azure:
 
@@ -37,6 +37,6 @@ Se ainda não tiver um registo de contentores, siga estes passos para criar um n
 
 5. Clique para permitir ao utilizador do Administrador visualizar o **nome de utilizador** e a **palavra-passe** para o seu registo de contentores.
 
-6. Copie os valores para **o servidor de Login,** **nome de utilizador**e **password** e guarde-os num local conveniente. Utiliza estes valores ao longo deste tutorial para fornecer acesso ao registo do contentor.
+6. Copie os valores para **o servidor de Login,** **nome de utilizador** e **password** e guarde-os num local conveniente. Utiliza estes valores ao longo deste tutorial para fornecer acesso ao registo do contentor.
 
    ![Copiar servidor de login, nome de utilizador e senha para registo de contentores](./media/iot-edge-create-container-registry/registry-access-key.png)

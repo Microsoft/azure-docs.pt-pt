@@ -5,12 +5,12 @@ ms.subservice: cloud-provisioning
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
-ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d95e40623f17a39145778a2fc067dccc68fd872
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79504367"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95553898"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Passos para permitir o único sinal de inscrição
 O fornecimento de nuvens funciona com o Single Sign-on.  Atualmente não existe uma opção para ativar sSO quando o agente está instalado, no entanto pode usar os passos abaixo para ativar sSO e usá-lo. 
@@ -23,7 +23,7 @@ O fornecimento de nuvens funciona com o Single Sign-on.  Atualmente não existe 
 
 ### <a name="step-2-import-the-seamless-sso-powershell-module"></a>Passo 2: Importar o módulo SSO PowerShell sem costura
 
-1. Faça o download e [instale o Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Faça o download e [instale o Azure AD PowerShell](/powershell/azure/active-directory/overview).
 2. Navegue na `%programfiles%\Microsoft Azure Active Directory Connect` pasta.
 3. Importe o módulo SSO PowerShell sem costura utilizando este comando: `Import-Module .\AzureADSSO.psd1` .
 

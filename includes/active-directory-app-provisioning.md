@@ -1,19 +1,18 @@
 ---
-ms.openlocfilehash: 475a468977a976e2e7399c14df9329b31446d404
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c400856546142353a7294a03fce6bbff1c258cc0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135415"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558363"
 ---
-
 No Azure Ative Directory (Azure AD), o termo **provisionamento de aplicações** refere-se à criação automática de identidades e funções de utilizador nas aplicações da cloud [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/)às que os utilizadores precisam de acesso. Além da criação de identidades de utilizador, o fornecimento automático inclui a manutenção e remoção das identidades dos utilizadores como alteração de estado ou de funções. Os cenários comuns incluem a disponibilização de um utilizador AZure AD em aplicações como [Dropbox,](../articles/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md) [Salesforce,](../articles/active-directory/saas-apps/salesforce-provisioning-tutorial.md) [ServiceNow](../articles/active-directory/saas-apps/servicenow-provisioning-tutorial.md)e muito mais.
 
 ![Diagrama de visão geral de provisionamento](./media/active-directory-app-provisioning/provisioning-overview.png)
 
 Esta funcionalidade permite-lhe:
 
-- **Automatizar o fornecimento** : Crie automaticamente novas contas nos sistemas certos para novas pessoas quando se juntam à sua equipa ou organização.
+- **Automatizar o fornecimento**: Crie automaticamente novas contas nos sistemas certos para novas pessoas quando se juntam à sua equipa ou organização.
 - **Automatizar a desprovisionamento:** Desativar automaticamente as contas nos sistemas certos quando as pessoas saem da equipa ou da organização.
 - **Sincronizar dados entre sistemas:** Certifique-se de que as identidades das suas apps e sistemas são mantidas atualizadas com base em alterações no diretório ou no sistema de recursos humanos.
 - **Grupos de provisão:** Provisionar grupos para aplicações que os apoiam.
@@ -42,13 +41,13 @@ O fornecimento de utilizadores AZure AD pode ajudar a resolver estes desafios. P
 
 A Azure AD apresenta suporte pré-integrado para muitas aplicações populares do SaaS e sistemas de recursos humanos, e suporte genérico para aplicações que implementam partes específicas da [norma SCIM 2.0](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
 
-* **Aplicações pré-integradas (apps da galeria SaaS)** . Pode encontrar todas as aplicações para as quais a Azure AD suporta um conector de provisionamento pré-integrado na [lista de tutoriais de aplicações para o fornecimento de utilizadores.](../articles/active-directory/saas-apps/tutorial-list.md) As aplicações pré-integradas listadas na galeria geralmente utilizam APIs de gestão de utilizadores baseados no SCIM 2.0 para o provisionamento. 
+* **Aplicações pré-integradas (apps da galeria SaaS)**. Pode encontrar todas as aplicações para as quais a Azure AD suporta um conector de provisionamento pré-integrado na [lista de tutoriais de aplicações para o fornecimento de utilizadores.](../articles/active-directory/saas-apps/tutorial-list.md) As aplicações pré-integradas listadas na galeria geralmente utilizam APIs de gestão de utilizadores baseados no SCIM 2.0 para o provisionamento. 
 
    ![Logotipo da Salesforce](./media/active-directory-app-provisioning/gallery-app-logos.png)
 
-   Se pretender solicitar um novo pedido de provisionamento, pode [solicitar que a sua aplicação seja integrada na nossa galeria de aplicações.](../articles/active-directory/azuread-dev/howto-app-gallery-listing.md) Para um pedido de provisionamento do utilizador, exigimos que a aplicação tenha um ponto final compatível com SCIM. Por favor, solicite que o fornecedor de aplicações siga a norma SCIM para que possamos embarcar rapidamente na nossa plataforma.
+   Se pretender solicitar um novo pedido de provisionamento, pode [solicitar que a sua aplicação seja integrada na nossa galeria de aplicações.](../articles/active-directory/develop/v2-howto-app-gallery-listing.md) Para um pedido de provisionamento do utilizador, exigimos que a aplicação tenha um ponto final compatível com SCIM. Por favor, solicite que o fornecedor de aplicações siga a norma SCIM para que possamos embarcar rapidamente na nossa plataforma.
 
-* **Aplicações que suportam SCIM 2.0** . Para obter informações sobre como conectar genericamente aplicações que implementem APIs de gestão de utilizadores baseados em SCIM 2.0, consulte [Construir um ponto final SCIM e configurar o fornecimento do utilizador](../articles/active-directory/app-provisioning/use-scim-to-provision-users-and-groups.md).
+* **Aplicações que suportam SCIM 2.0**. Para obter informações sobre como conectar genericamente aplicações que implementem APIs de gestão de utilizadores baseados em SCIM 2.0, consulte [Construir um ponto final SCIM e configurar o fornecimento do utilizador](../articles/active-directory/app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ## <a name="what-is-system-for-cross-domain-identity-management-scim"></a>O que é Sistema de Gestão de Identidade de Domínio Cruzado (SCIM)?
 
@@ -66,7 +65,7 @@ As candidaturas na galeria Azure AD suportam um dos dois modos de provisionament
 
 * **O automático** significa que foi desenvolvido um conector AZure AD para esta aplicação. Deve seguir o tutorial de configuração específico para configurar o provisionamento para a aplicação. Os tutoriais de aplicações podem ser encontrados na [Lista de Tutoriais sobre Como Integrar as Aplicações SaaS com o Azure Ative Directory](../articles/active-directory/saas-apps/tutorial-list.md).
 
-Na galeria Azure AD, as aplicações que suportam o provisionamento automático são designadas por um ícone **de Provisioning.** Mude para a nova experiência de pré-visualização da galeria para ver estes ícones (no banner no topo da página de **aplicação Adicionar** , selecione o link que diz **Clique aqui para experimentar a nova e melhorada galeria de aplicações).**
+Na galeria Azure AD, as aplicações que suportam o provisionamento automático são designadas por um ícone **de Provisioning.** Mude para a nova experiência de pré-visualização da galeria para ver estes ícones (no banner no topo da página de **aplicação Adicionar**, selecione o link que diz **Clique aqui para experimentar a nova e melhorada galeria de aplicações).**
 
 ![Ícone de provisionamento na galeria de aplicações](./media/active-directory-app-provisioning/browse-gallery.png)
 

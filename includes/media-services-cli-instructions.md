@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: media-services
 author: Juliako
 ms.service: media-services
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 5ebbac39c8850737ea6f9ef333e45d305a520655
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1327ac49920af353d6adbbe592ab4189417e60e8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79461219"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556561"
 ---
 ## <a name="use-cli-shell"></a>Use a concha CLI
 
-Recomenda-se a utilização [de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) para executar comandos CLI. **Cloud Shell** é uma concha interativa e gratuita que pode usar para executar os passos neste artigo. As ferramentas comuns do Azure estão pré-instaladas e configuradas no Cloud Shell para que possa utilizá-las com a sua conta. Dá a flexibilidade de escolher a experiência de shell mais adequada ao seu método de trabalho. Os utilizadores do Linux podem optar por uma experiência do Bash, ao passo que os utilizadores do Windows podem optar pelo PowerShell.
+Recomenda-se a utilização [de Azure Cloud Shell](../articles/cloud-shell/overview.md?view=azure-cli-latest) para executar comandos CLI. **Cloud Shell** é uma concha interativa e gratuita que pode usar para executar os passos neste artigo. As ferramentas comuns do Azure estão pré-instaladas e configuradas no Cloud Shell para que possa utilizá-las com a sua conta. Dá a flexibilidade de escolher a experiência de shell mais adequada ao seu método de trabalho. Os utilizadores do Linux podem optar por uma experiência do Bash, ao passo que os utilizadores do Windows podem optar pelo PowerShell.
 
-Também pode instalar o CLI localmente. Consulte [a Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter instruções para a sua plataforma.
+Também pode instalar o CLI localmente. Consulte [a Instalação do Azure CLI](/cli/azure/install-azure-cli) para obter instruções para a sua plataforma.
 
 ### <a name="sign-in"></a>Iniciar sessão
 

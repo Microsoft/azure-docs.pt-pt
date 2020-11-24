@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 320fa542f2b786f0a256c22f2d2eb299c476dcae
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 1b5905046fdde4d5574fd4d39f40dce1bbf11e32
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94362760"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558149"
 ---
 As tabelas a seguir fornecem quotas e limites específicos aos [Hubs de Eventos Azure](https://azure.microsoft.com/services/event-hubs/). Para obter informações sobre os preços dos Event Hubs, consulte [os preços do Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -42,12 +42,12 @@ O quadro a seguir mostra limites que podem ser diferentes para os níveis básic
 | Número de grupos de consumidores por centro de eventos | &nbsp; |1 |20 |
 | Número de ligações AMQP por espaço de nome | Os pedidos subsequentes de ligações adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |100 |5000|
 | Período máximo de retenção dos dados do evento | &nbsp; |1 dia |1-7 dias |
-| Unidades de produção máxima |Ultrapassar este limite faz com que os seus dados sejam estrangulados e gera uma [exceção ocupada pelo servidor](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar um maior número de unidades de produção para um nível Standard, apresente um pedido de [suporte](/azure/azure-portal/supportability/how-to-create-azure-support-request). [Unidades de produção adicionais](../articles/event-hubs/event-hubs-auto-inflate.md) estão disponíveis em blocos de 20 numa base de compra comprometida. |20 | 20 | 
+| Unidades de produção máxima |Ultrapassar este limite faz com que os seus dados sejam estrangulados e gera uma [exceção ocupada pelo servidor](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar um maior número de unidades de produção para um nível Standard, apresente um pedido de [suporte](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). [Unidades de produção adicionais](../articles/event-hubs/event-hubs-auto-inflate.md) estão disponíveis em blocos de 20 numa base de compra comprometida. |20 | 20 | 
 
 ## <a name="dedicated-tier-vs-standard-tier"></a>Nível dedicado vs. nível padrão
 A oferta dedicada do Event Hubs é faturada a um preço mensal fixo, com um mínimo de 4 horas de utilização. O tier dedicado oferece todas as características do plano Standard, mas com capacidade de escala empresarial e limites para clientes com cargas de trabalho exigentes. 
 
-Consulte este [documento](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal) sobre como criar um cluster dedicado de Centros de Eventos utilizando o portal Azure.
+Consulte este [documento](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) sobre como criar um cluster dedicado de Centros de Eventos utilizando o portal Azure.
 
 | Funcionalidade | Standard | Dedicada |
 | --- |:---|:---|
@@ -83,8 +83,3 @@ Consulte este [documento](https://docs.microsoft.com/azure/event-hubs/event-hubs
 | Tamanho do registo de esquemas (namespace) em mega bytes | 25 |  1024 |
 | Número de grupos de esquemas num registo de esquemas ou espaço de nome | 1 - excluindo o grupo predefinido | 1000 |
 | Número de versões de esquema em todos os grupos de esquemas | 25 | 10000 |
-
-
-
-
-

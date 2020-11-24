@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 89ad3dfffa82f062ef8bc808da19440adfa32f05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc42c22579346c272ee5a6f41147e6b5b09643ba
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050479"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557954"
 ---
 #### <a name="to-download-hotfixes"></a>Para transferir correções
 
@@ -20,7 +20,7 @@ Execute os seguintes passos para transferir a atualização de software a partir
 
     ![Instalar o catálogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. Na caixa de pesquisa do Catálogo Microsoft Update, introduza o número da Base de Dados de Conhecimento (BDC) de correção que pretende transferir, por exemplo **4011839**e, em seguida, clique em **Pesquisa**.
+3. Na caixa de pesquisa do Catálogo Microsoft Update, introduza o número da Base de Dados de Conhecimento (BDC) de correção que pretende transferir, por exemplo **4011839** e, em seguida, clique em **Pesquisa**.
    
     A lista de correções é apresentada, por exemplo, **Atualização do Pacote de Software Cumulativo 4.0 para StorSimple Série 8000**.
    
@@ -101,7 +101,7 @@ Execute os seguintes passos para instalar e verificar correções do modo normal
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
    * `HcsSoftwareVersion: 6.3.9600.17820`
    
-     Se o número da versão não se alterar depois de aplicar a atualização, indica que a correção não foi aplicada. Se tal acontecer, entre em contacto com o [Suporte da Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) para obter assistência.
+     Se o número da versão não se alterar depois de aplicar a atualização, indica que a correção não foi aplicada. Se tal acontecer, entre em contacto com o [Suporte da Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) para obter assistência.
      
      > [!IMPORTANT]
      > Tem de reiniciar o controlador ativo através do `Restart-HcsController` cmdlet antes de aplicar a próxima atualização.
@@ -169,7 +169,7 @@ Para instalar as atualizações de firmware do disco, siga as instruções abaix
     ```
 
 3. Monitorize o progresso da instalação com o comando `Get-HcsUpdateStatus`. A atualização está completa quando o `RunInProgress` é alterado para `False`.
-4. Após a instalação estar concluída, o controlador em que a correção do modo de manutenção foi instalada reinicia. Inicie sessão como opção 1, **faça login com acesso total**e verifique a versão do firmware do disco. Escreva:
+4. Após a instalação estar concluída, o controlador em que a correção do modo de manutenção foi instalada reinicia. Inicie sessão como opção 1, **faça login com acesso total** e verifique a versão do firmware do disco. Escreva:
    
    `Get-HcsFirmwareVersion`
    
@@ -267,4 +267,3 @@ Para instalar as atualizações de firmware do disco, siga as instruções abaix
    `Exit-HcsMaintenanceMode`
 
 5. Os controladores reiniciam quando sair do modo de manutenção. Assim que as atualizações do firmware do disco forem aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, regresse ao portal clássico do Azure. Tenha em atenção que o portal pode não mostrar que instalou as atualizações do modo de manutenção durante 24 horas.
-

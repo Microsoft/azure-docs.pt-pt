@@ -10,12 +10,12 @@ ms.custom: develop apps
 ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
-ms.openlocfilehash: 6ead2e0ea326b5c3f2e76e7aa9cc4ab3c50d4154
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b06004143d4a1ec5a2808e21b1f78833e410c195
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184339"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555985"
 ---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtenha a cadeia de ligação a partir do portal Azure
 Utilize o [portal Azure](https://portal.azure.com/) para obter a cadeia de ligação necessária para que o seu programa cliente interaja com a Base de Dados Azure SQL.
@@ -38,7 +38,7 @@ Utilize o [portal Azure](https://portal.azure.com/) para obter a cadeia de liga�
 
 8. Num formato ou noutro, cole a informação da cadeia de ligação no código do programa do cliente.
 
-Para obter mais informações, consulte [as cordas de ligação e os ficheiros de configuração](https://msdn.microsoft.com/library/ms254494.aspx).
+Para obter mais informações, consulte [as cordas de ligação e os ficheiros de configuração](/dotnet/framework/data/adonet/connection-strings-and-configuration-files).
 
 <!-- Image references. -->
 

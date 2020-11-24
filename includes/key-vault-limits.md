@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 01b3c9584f3ecddbcdcc6938f5eb469510a47a4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4abbeadb0d30911d99fff57c0e99a3e427a6d8d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85838793"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555998"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Principais transações (transações máximas permitidas em 10 segundos, por abóbada por região<sup>1):</sup>
 
@@ -40,7 +40,7 @@ ms.locfileid: "85838793"
 | --- | --- |
 | Todas as transações |2.000 |
 
-Para obter informações sobre como lidar com o estrangulamento quando estes limites forem ultrapassados, consulte a orientação de [estrangulamento do Azure Key Vault](../articles/key-vault/key-vault-ovw-throttling.md).
+Para obter informações sobre como lidar com o estrangulamento quando estes limites forem ultrapassados, consulte a orientação de [estrangulamento do Azure Key Vault](../articles/key-vault/general/overview-throttling.md).
 
 <sup>1</sup> Um limite de subscrição para todos os tipos de transações é cinco vezes por limite de cofre de tecla. Por exemplo, as transações HSM-other por subscrição estão limitadas a 5.000 transações em 10 segundos por subscrição.
 

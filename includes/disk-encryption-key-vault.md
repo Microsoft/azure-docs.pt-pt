@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 489ee630deb56aef6c004067f29779053fbcd3e7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3fe622d2ff4f6f8aff546452db0f475cfd44eb1b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755749"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558493"
 ---
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -63,8 +63,8 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 
 Também pode criar um cofre de chaves utilizando o [modelo de Gestor de Recursos.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 
-1. No modelo de arranque rápido Azure, clique em **Implementar para Azure** .
-2. Selecione a subscrição, grupo de recursos, localização do grupo de recursos, nome do Cofre chave, ID do objeto, termos legais e acordo, e, em seguida, clique em **Comprar** . 
+1. No modelo de arranque rápido Azure, clique em **Implementar para Azure**.
+2. Selecione a subscrição, grupo de recursos, localização do grupo de recursos, nome do Cofre chave, ID do objeto, termos legais e acordo, e, em seguida, clique em **Comprar**. 
 
 
 ##  <a name="set-key-vault-advanced-access-policies"></a>Definir as políticas avançadas de acesso do cofre de chaves
@@ -117,10 +117,10 @@ Utilize [a atualização do keyvault az](/cli/azure/keyvault#az-keyvault-update)
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Selecione o cofre de chaves, vá às **Políticas de Acesso** e clique para mostrar políticas de acesso **avançadas** .
-2. Selecione a caixa com a etiqueta **Ativar o acesso à Encriptação do Disco Azure para encriptação de volume** .
+1. Selecione o cofre de chaves, vá às **Políticas de Acesso** e clique para mostrar políticas de acesso **avançadas**.
+2. Selecione a caixa com a etiqueta **Ativar o acesso à Encriptação do Disco Azure para encriptação de volume**.
 3. **Selecione Permitir o acesso a Máquinas Virtuais Azure para implantação** e/ou Permitir o Acesso ao Gestor de Recursos **Azure para a implementação do modelo,** se necessário. 
-4. Clique em **Guardar** .
+4. Clique em **Guardar**.
 
     ![Azure key vault políticas avançadas de acesso](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -131,7 +131,7 @@ Se pretender utilizar uma chave de encriptação (KEK) para uma camada adicional
 
 Pode gerar um novo KEK utilizando a tecla Azure CLI [az keyvault criar](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) comando, o cmdlet Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) ou o [portal Azure](https://portal.azure.com/). Tem de gerar um tipo de chave RSA; A encriptação do disco Azure ainda não suporta a utilização de teclas elípticas da curva.
 
-Em vez disso, pode importar um KEK da sua gestão de chaves HSM no local. Para obter mais informações, consulte [a Documentação do Cofre-Chave](/azure/key-vault/key-vault-hsm-protected-keys).
+Em vez disso, pode importar um KEK da sua gestão de chaves HSM no local. Para obter mais informações, consulte [a Documentação do Cofre-Chave](../articles/key-vault/keys/hsm-protected-keys.md).
 
 O seu cofre-chave KEK URLs tem de ser versão. A Azure impõe esta restrição de versão. Para obter URLs secretos e KEK válidos, consulte os seguintes exemplos:
 

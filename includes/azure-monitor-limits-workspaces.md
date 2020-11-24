@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: e206c12a85cfbaed3297f2a44bf0a5d694c2d170
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2ed5cbc8c855d2f81986964c93009d75ed28fb8e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92321867"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554872"
 ---
 **Volume e retenção de recolha de dados** 
 
@@ -62,7 +62,7 @@ ms.locfileid: "92321867"
 |:---|:---|:---|
 | Colunas máximas numa tabela         | 500 | |
 | Caracteres máximos para nome de coluna | 500 | |
-| Exportação de dados | Não disponível atualmente | Utilize a Azure Function ou a Logic App para agregar e exportar dados. | 
+| Exportar dados | Não disponível atualmente | Utilize a Azure Function ou a Logic App para agregar e exportar dados. | 
 
 **<a name="data-ingestion-volume-rate">Taxa de volume de ingestão de dados</a>**
 
@@ -73,4 +73,4 @@ Quando envia dados para um espaço de trabalho a uma taxa de volume superior a 8
 Consulte [a saúde do Monitor do Log Analytics no Monitor Azure](../articles/azure-monitor/platform/monitor-workspace.md) para criar regras de alerta para ser notificado proactivamente quando atingir quaisquer limites de ingestão.
 
 >[!NOTE]
->Dependendo do tempo que usa o Log Analytics, poderá ter acesso a níveis de preços antigos. Saiba mais sobre [os níveis de preços do legado Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 
+>Dependendo do tempo que usa o Log Analytics, poderá ter acesso a níveis de preços antigos. Saiba mais sobre [os níveis de preços do legado Log Analytics](../articles/azure-monitor/platform/manage-cost-storage.md#legacy-pricing-tiers).

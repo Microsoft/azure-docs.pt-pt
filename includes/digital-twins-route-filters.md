@@ -3,25 +3,37 @@ author: baanders
 description: incluir ficheiro para opções de filtro de rota Azure Digital Twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 8/3/2020
+ms.date: 11/18/2020
 ms.author: baanders
-ms.openlocfilehash: a1098088a38b23ec1074434e5424e261e60bcd55
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 261c5fa47cddcc527e7c0a18fbd18aad9320ed4b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "91779911"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560476"
 ---
 | Nome do filtro | Descrição | Esquema de texto do filtro | Valores suportados | 
 | --- | --- | --- | --- |
 | Verdadeiro / Falso | Permite criar uma rota sem filtragem, ou desativar uma rota para que nenhum evento sejam enviados | `<true/false>` | `true` = rota está ativada sem filtragem <br> `false` = rota é desativada |
 | Tipo | O [tipo de evento](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) que flui através da sua instância digital gémea | `type = '<eventType>'` | Aqui estão os possíveis valores do tipo de evento: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
-| Origem | Nome da instância Azure Digital Twins | `source = '<hostname>'`| Aqui estão os possíveis valores do nome de anfitrião: <br> **Para notificações:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Para telemetria:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
+| Origem | Nome da instância Azure Digital Twins | `source = '<hostname>'`| Aqui estão os possíveis valores do nome de anfitrião: <br> **Para notificações:**`<yourDigitalTwinInstance>.api.<yourRegion>.digitaltwins.azure.net` <br> **Para telemetria:**`<yourDigitalTwinInstance>.api.<yourRegion>.digitaltwins.azure.net/<twinId>`|
 | Assunto | Uma descrição do evento no contexto da fonte do evento acima | `subject = '<subject>'` | Aqui estão os valores possíveis: <br>**Para notificações**: O assunto é `<twinid>` <br> ou um formato URI para sujeitos, que são identificados exclusivamente por múltiplas partes ou IDs:<br>`<twinid>/relationships/<relationshipid>`<br> **Para a telemetria**: O sujeito é o caminho do componente (se a telemetria for emitida a partir de um componente gémeo), tais como `comp1.comp2` . Se a telemetria não for emitida a partir de um componente, então o seu campo de objetos está vazio. |
 | Esquema de dados | ID modelo DTDL | `dataschema = '<model-dtmi-ID>'` | **Para a telemetria**: O esquema de dados é o ID do modelo do gémeo ou o componente que emite a telemetria. Por exemplo, `dtmi:example:com:floor4;2` <br>**Para notificações**: O esquema de dados pode ser acedido no organismo de notificação `$body.$metadata.$model`|
 | Tipo do conteúdo | Tipo de conteúdo do valor dos dados | `datacontenttype = '<contentType>'` | O tipo de conteúdo é `application/json` |
 | Versão spec | A versão do esquema de evento que está a usar | `specversion = '<version>'` | A versão deve `1.0` ser. Isto indica que o esquema do CloudEvents versão 1.0 |
-| Organismo de notificação | Referenciar qualquer propriedade no `data` campo de uma notificação | `$body.<property>` | Ver [*Como fazer: Compreender os dados do evento*](https://docs.microsoft.com/azure/digital-twins/how-to-interpret-event-data) por exemplo de notificações. Qualquer propriedade no `data` campo pode ser referenciada usando `$body`
+| Organismo de notificação | Referenciar qualquer propriedade no `data` campo de uma notificação | `$body.<property>` | Ver [*Como fazer: Compreender os dados do evento*](../articles/digital-twins/how-to-interpret-event-data.md) por exemplo de notificações. Qualquer propriedade no `data` campo pode ser referenciada usando `$body`
+
+Note que pode adicionar vários filtros a um pedido como este: 
+
+```json  
+{
+    "endpointName": "dt-endpoint", 
+    "filter": "true", 
+    "filter": "source = 'ADT-resource.api.wus2.digitaltwins.azure.net/myFloorID'", 
+    "filter": "type = 'Microsoft.DigitalTwins.Twin.Delete'", 
+    "filter": "specversion = '1.0'"
+}
+```
 
 Os seguintes tipos de dados são suportados como valores devolvidos por referências aos dados acima:
 

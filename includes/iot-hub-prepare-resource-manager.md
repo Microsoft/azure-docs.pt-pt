@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 4eb794fa35164e3f86a5e3d6f67d446321f91f0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26c158145de6ce729d8a7060152b19fb14b63d58
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67133371"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561862"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Prepare-se para autenticar os pedidos do Gestor de Recursos Azure
 Deve autenticar todas as operações que executa em recursos utilizando o [Azure Resource Manager][lnk-authenticate-arm] com o Azure Ative Directory (AD). A maneira mais fácil de configurar isto é usar PowerShell ou Azure CLI.
@@ -68,5 +68,5 @@ Terminou agora a criação da aplicação AZure AD que lhe permite autenticar a 
 * ApplicationID
 * Palavra-passe
 
-[lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
+[lnk-authenticate-arm]: /rest/api/
 [lnk-powershell-install]: /powershell/azure/install-az-ps

@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 29cbb2f6a7f0faf91852e520f15b779b3fe229c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897695"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554475"
 ---
 A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens. As Galerias de Imagem Partilhadas fornecem:
 
@@ -45,7 +45,7 @@ A funcionalidade Image Gallery partilhada tem vários tipos de recursos:
 
 As definições de imagem são um agrupamento lógico para versões de uma imagem. A definição de imagem contém informações sobre o porquê da imagem ter sido criada, para que é o SISTEMA, e outras informações sobre a utilização da imagem. Uma definição de imagem é como um plano para todos os detalhes em torno da criação de uma imagem específica. Não se implanta um VM a partir de uma definição de imagem, mas a partir das versões de imagem criadas a partir da definição.
 
-Existem três parâmetros para cada definição de imagem que são usados em combinação - **Publisher,** **Offer** e **SKU** . Estes são usados para encontrar uma definição de imagem específica. Pode ter versões de imagem que partilham um ou dois, mas não os três valores.  Por exemplo, aqui estão três definições de imagem e os seus valores:
+Existem três parâmetros para cada definição de imagem que são usados em combinação - **Publisher,** **Offer** e **SKU**. Estes são usados para encontrar uma definição de imagem específica. Pode ter versões de imagem que partilham um ou dois, mas não os três valores.  Por exemplo, aqui estão três definições de imagem e os seus valores:
 
 |Definição da Imagem|Publisher|Oferta|Sku|
 |---|---|---|---|
@@ -71,7 +71,7 @@ Seguem-se outros parâmetros que podem ser definidos na definição de imagem pa
 - Tag - pode adicionar tags quando criar a definição de imagem. Para obter mais informações sobre tags, consulte [Usando tags para organizar os seus recursos](../articles/azure-resource-manager/management/tag-resources.md)
 - Recomendações mínimas e máximas de vCPU e memória - se a sua imagem tiver vCPU e recomendações de memória, pode anexar essa informação à sua definição de imagem.
 - Tipos de disco não permitidos - pode fornecer informações sobre as necessidades de armazenamento para o seu VM. Por exemplo, se a imagem não for adequada para discos HDD padrão, adicione-os à lista de não-adesecedores.
-- Informação do plano de compra para imagens do Marketplace - `-PurchasePlanPublisher` `-PurchasePlanName` , e `-PurchasePlanProduct` . Para obter mais informações sobre informações sobre planos de compra, consulte [encontrar imagens no Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e fornecer informações do [plano de compra do Azure Marketplace ao criar imagens.](../articles/virtual-machines/marketplace-images.md)
+- Informação do plano de compra para imagens do Marketplace - `-PurchasePlanPublisher` `-PurchasePlanName` , e `-PurchasePlanProduct` . Para obter mais informações sobre informações sobre planos de compra, consulte [encontrar imagens no Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) e fornecer informações do [plano de compra do Azure Marketplace ao criar imagens.](../articles/virtual-machines/marketplace-images.md)
 
 
 ## <a name="image-versions"></a>Versões de imagem
@@ -110,7 +110,7 @@ Existem limites, por subscrição, para a implantação de recursos utilizando g
 - 10 réplicas de versão de imagem, por subscrição, por região
 - Qualquer disco ligado à imagem deve ser inferior ou igual a 1TB de tamanho
 
-Para obter mais informações, [consulte a utilização do recurso contra limites,](https://docs.microsoft.com/azure/networking/check-usage-against-limits) por exemplo, sobre como verificar a sua utilização atual.
+Para obter mais informações, [consulte a utilização do recurso contra limites,](../articles/networking/check-usage-against-limits.md) por exemplo, sobre como verificar a sua utilização atual.
  
 ## <a name="scaling"></a>Dimensionamento
 A Galeria de Imagens Partilhada permite especificar o número de réplicas que pretende que o Azure guarde as imagens. Isto ajuda em cenários de implantação multi-VM, uma vez que as implementações de VM podem ser espalhadas para diferentes réplicas reduzindo a possibilidade de processamento de criação de instância ser estrangulado devido à sobrecarga de uma única réplica.
@@ -128,7 +128,7 @@ Recomendamos sempre que exercê o número de réplicas em excesso devido a fator
 
 [O armazenamento redundante da Zona Azure (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) proporciona resiliência contra uma falha da Zona de Disponibilidade na região. Com a disponibilidade geral da Galeria de Imagens Partilhadas, pode optar por armazenar as suas imagens em contas ZRS em regiões com Zonas de Disponibilidade. 
 
-Também pode escolher o tipo de conta para cada uma das regiões-alvo. O tipo de conta de armazenamento predefinido é Standard_LRS, mas pode escolher Standard_ZRS para regiões com Zonas de Disponibilidade. Consulte [aqui](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)a disponibilidade regional de ZRS.
+Também pode escolher o tipo de conta para cada uma das regiões-alvo. O tipo de conta de armazenamento predefinido é Standard_LRS, mas pode escolher Standard_ZRS para regiões com Zonas de Disponibilidade. Consulte [aqui](../articles/storage/common/storage-redundancy.md)a disponibilidade regional de ZRS.
 
 ![ZRS de exibição gráfica](./media/shared-image-galleries/zrs.png)
 
@@ -139,7 +139,7 @@ As regiões para ver uma imagem partilhada são replicadas para serem atualizada
 
 ![Gráfico mostrando como pode replicar imagens](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Acesso
+## <a name="access"></a>Access
 
 Como a Galeria de Imagens Partilhada, Definição de Imagem e Versão Image são todos recursos, podem ser partilhados usando os controlos Azure RBAC nativos incorporados. Utilizando o RBAC, pode partilhar estes recursos com outros utilizadores, diretores de serviços e grupos. Pode até partilhar o acesso a indivíduos fora do inquilino onde foram criados. Uma vez que um utilizador tenha acesso à versão Imagem Partilhada, pode implementar um VM ou um Conjunto de Escala de Máquina Virtual.  Aqui está a matriz de partilha que ajuda a entender a que o utilizador tem acesso:
 
@@ -183,11 +183,11 @@ Versão de imagem:
 
 Os seguintes SDKs apoiam a criação de Galerias de Imagem Partilhada:
 
-- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
-- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Ir](https://docs.microsoft.com/azure/go/)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](/java/azure/?view=azure-java-stable)
+- [Node.js](/javascript/api/@azure/arm-compute)
+- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Ir](/azure/go/)
 
 ## <a name="templates"></a>Modelos
 
@@ -222,9 +222,9 @@ Pode criar o recurso Image Gallery partilhado utilizando modelos. Existem vário
 Para listar todos os recursos da Galeria de Imagens Partilhadas através de subscrições a que tem acesso no portal Azure, siga os passos abaixo:
 
 1. Abra o [portal do Azure](https://portal.azure.com).
-1. Percorra a página e selecione **Todos os recursos** .
+1. Percorra a página e selecione **Todos os recursos**.
 1. Selecione todas as subscrições sob as quais gostaria de listar todos os recursos.
-1. Procure recursos de galeria de **imagens partilhadas,** .
+1. Procure recursos de galeria de **imagens partilhadas,**.
   
 Para listar todos os recursos da Galeria de Imagens Partilhadas através de subscrições às para as as que tem permissões, utilize o seguinte comando no CLI Azure:
 
@@ -244,8 +244,8 @@ Sim. Existem 3 cenários baseados nos tipos de imagens que pode ter.
 
  Cenário 3: Se tiver um VHD no seu sistema de ficheiros local, então precisa de carregar o VHD para uma imagem gerida, então pode criar uma definição de imagem e versão de imagem a partir dele.
 
-- Se o VHD for de um VM do Windows, consulte [o Upload a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-- Se o VHD for para um Linux VM, consulte [upload a VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+- Se o VHD for de um VM do Windows, consulte [o Upload a VHD](../articles/virtual-machines/windows/upload-generalized-managed.md).
+- Se o VHD for para um Linux VM, consulte [upload a VHD](../articles/virtual-machines/linux/upload-vhd.md#option-1-upload-a-vhd)
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Posso criar uma versão de imagem a partir de um disco especializado?
 
@@ -310,4 +310,4 @@ Para implementações de VM e Conjunto de Escala de Máquina Virtual utilizando 
 
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>Posso atualizar o meu Conjunto de Escala de Máquina Virtual criado usando uma imagem gerida para utilizar imagens da Galeria de Imagens Partilhadas?
 
-Sim, pode atualizar a referência de imagem definida em escala de uma imagem gerida para uma imagem de galeria de imagens partilhada, desde que o tipo de SO, geração Hyper-V e o layout do disco de dados correspondam entre as imagens. 
+Sim, pode atualizar a referência de imagem definida em escala de uma imagem gerida para uma imagem de galeria de imagens partilhada, desde que o tipo de SO, geração Hyper-V e o layout do disco de dados correspondam entre as imagens.

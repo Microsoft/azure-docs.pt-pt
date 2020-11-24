@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1af80f208c72af9434d596f2c1219c08c0e3f719
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82789007"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556687"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens
 
@@ -35,15 +35,15 @@ O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *my
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
-As definições de imagem criam um agrupamento lógico para imagens. São utilizados para gerir informações sobre as versões de imagem que são criadas dentro delas. Os nomes da definição de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e períodos. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+As definições de imagem criam um agrupamento lógico para imagens. São utilizados para gerir informações sobre as versões de imagem que são criadas dentro delas. Os nomes da definição de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e períodos. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](../articles/virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 Crie a definição de imagem da galeria dentro da sua galeria. Neste exemplo, a imagem da galeria é nomeada *myImageDefinition*.
 
 1. Na página para a sua nova galeria de imagens, **selecione Adicione uma nova definição** de imagem no topo da página. 
 1. Na **nova definição de imagem add para galeria de imagens partilhada,** para **região,** selecione *East US*.
-1. Para **o nome de definição de**imagem, *escreva myImageDefinition*.
+1. Para **o nome de definição de** imagem, *escreva myImageDefinition*.
 1. Para **o sistema operativo,** selecione a opção correta com base na sua fonte VM.  
-1. Para **a geração VM,** selecione a opção com base na sua fonte VM. Na maioria dos casos, esta será *a Gen 1.* Para obter mais informações, consulte [Suporte para a geração 2 VMs](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
+1. Para **a geração VM,** selecione a opção com base na sua fonte VM. Na maioria dos casos, esta será *a Gen 1.* Para obter mais informações, consulte [Suporte para a geração 2 VMs](../articles/virtual-machines/generation-2.md).
 1. Para **o estado do sistema operativo,** selecione a opção com base na sua fonte VM. Para mais informações, consulte [Generalizado e especializado.](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images)
 1. Para **Editor,** escreva *myPublisher*. 
 1. Para **Oferta**, *Digite myOffer*.
@@ -104,4 +104,3 @@ Recomendamos que partilhe o acesso ao nível da galeria de imagens. O seguinte a
 1. Se o utilizador estiver fora da sua organização, verá a mensagem **Este utilizador será enviado um e-mail que lhes permite colaborar com a Microsoft.** Selecione o utilizador com o endereço de e-mail e, em seguida, clique em **Guardar**.
 
 Se o utilizador estiver fora da sua organização, receberá um convite por e-mail para se juntar à organização. O utilizador precisa de aceitar o convite, então poderá ver a galeria e todas as definições de imagem e versões na sua lista de recursos.
-

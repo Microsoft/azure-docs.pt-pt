@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: ba2985b8b6c92e299e8ab378263c9b4c062561d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23d0f16e025727f8d733f973a2c751ba7114fa49
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184465"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562235"
 ---
 #### <a name="to-mount-initialize-and-format-a-volume"></a>Para montar, inicializar e formatar um volume
 1. Inicie o iniciador do Microsoft iSCSI.
@@ -31,4 +31,4 @@ ms.locfileid: "67184465"
     4. Efetue uma formatação rápida.
 
 <!--Link references-->
-[1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

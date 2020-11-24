@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b68fce603801c7bc1aee2af871df257b5f69197
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79500193"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558484"
 ---
 1. Instale certificados de cliente no cliente do Windows 10, como mostra este artigo [de cliente VPN ponto a local.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) O certificado deve estar na loja de utilizadores atual.
 
-1. Configure o cliente Always On VPN através do PowerShell, Do Gestor de Configuração ou do Intune seguindo as instruções no [Configure cliente Do Windows 10 Sempre Nas ligações VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+1. Configure o cliente Always On VPN através do PowerShell, Do Gestor de Configuração ou do Intune seguindo as instruções no [Configure cliente Do Windows 10 Sempre Nas ligações VPN](/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
 ### <a name="example-configuration-for-the-user-tunnel"></a>Configuração de exemplo para o túnel do utilizador
 
 Depois de configurar o gateway de rede virtual e instalar o certificado de cliente na loja de máquinas local no cliente Windows 10, configure um túnel do dispositivo cliente utilizando os seguintes exemplos:
 
-1. Copie o seguinte texto e guarde-o como *usercert.ps1: *
+1. Copie o seguinte texto e guarde-o como *usercert.ps1:*
 
    ```
    Param(
@@ -75,7 +75,7 @@ Depois de configurar o gateway de rede virtual e instalar o certificado de clien
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copie o texto que se segue e guarde-o como *VPNProfile.xml* na mesma pasta * queusercert.ps1*. Edite o seguinte texto para combinar com o seu ambiente:
+1. Copie o texto que se segue e guarde-o como *VPNProfile.xml* na mesma pasta *queusercert.ps1*. Edite o seguinte texto para combinar com o seu ambiente:
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
