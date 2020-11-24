@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
-ms.openlocfilehash: 4d520f51717aa11dba55697d63852b17e0ba9cf0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90604500"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522955"
 ---
 # <a name="about-the-move-process"></a>Sobre o processo de mudança
 
@@ -25,8 +25,8 @@ Estes componentes são utilizados durante o movimento da região.
 
 **Componente** | **Detalhes**
 --- | ---
-**Mover de Recursos** |  A Resource Mover coordena com [os fornecedores de recursos da Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) para orquestrar a movimentação de recursos entre regiões. A Resource Mover analisa as dependências de recursos e mantém e gere o estado dos recursos durante o processo de mudança. 
-**Coleção move** |  Uma coleção de movimentos é um objeto [Azure Resource Manager.](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)<br/><br/> A recolha de movimentos é criada durante o processo de movimento da região, para cada combinação emparelhada de regiões de origem e alvo numa subscrição. A recolha contém metadados e informações de configuração sobre os recursos que pretende mover.<br/><br/>Os recursos adicionados a uma recolha de movimentos devem estar na mesma subscrição, mas podem estar em diferentes grupos de recursos. 
+**Mover de Recursos** |  A Resource Mover coordena com [os fornecedores de recursos da Azure](../azure-resource-manager/management/resource-providers-and-types.md) para orquestrar a movimentação de recursos entre regiões. A Resource Mover analisa as dependências de recursos e mantém e gere o estado dos recursos durante o processo de mudança. 
+**Coleção move** |  Uma coleção de movimentos é um objeto [Azure Resource Manager.](../azure-resource-manager/management/overview.md)<br/><br/> A recolha de movimentos é criada durante o processo de movimento da região, para cada combinação emparelhada de regiões de origem e alvo numa subscrição. A recolha contém metadados e informações de configuração sobre os recursos que pretende mover.<br/><br/>Os recursos adicionados a uma recolha de movimentos devem estar na mesma subscrição, mas podem estar em diferentes grupos de recursos. 
 **Mover recurso** | Quando adiciona um recurso a uma coleção de movimentos, é rastreado pela Resource Mover como um recurso de movimento.<br/><br/> A Resource Mover mantém informação para todos os recursos de movimento na recolha do movimento, e mantém uma relação de um para um entre a fonte e o recurso alvo. 
 **Dependências** | A Resource Mover valida os recursos que adiciona a uma coleção e verifica se os recursos têm alguma dependência que não esteja na recolha de movimentos.<br/><br/> Depois de identificar dependências de um recurso, pode adicioná-las dependências à recolha de movimentos e movê-las também, ou pode selecionar recursos alternativos existentes na região alvo. Todas as dependências têm de ser resolvidas antes de começares a mudança. 
 
@@ -40,7 +40,7 @@ Cada recurso de movimento passa pelos passos resumidos.
 
 **Passo** | **Detalhes** | **Estado/Questões**
 --- | --- | --- 
-**Passo 1: Selecione recursos** | Selecione um recurso. O recurso é adicionado à coleção de movimentos. | Estado de recursos *move-se*para Preparar pendente .<br/><br/> Se o recurso tiver dependências, *validar a dependência* indica que é necessário adicionar recursos dependentes à recolha do movimento.
+**Passo 1: Selecione recursos** | Selecione um recurso. O recurso é adicionado à coleção de movimentos. | Estado de recursos *move-se* para Preparar pendente .<br/><br/> Se o recurso tiver dependências, *validar a dependência* indica que é necessário adicionar recursos dependentes à recolha do movimento.
 **Passo 2: Validar dependências** | Inicie o processo de validação.<br/><br/> Se a validação mostrar que os recursos dependentes estão pendentes, adicione-os à recolha de movimentos. <br/><br/> Adicione todos os recursos dependentes, mesmo que não queira movê-los. Mais tarde, pode especificar que os recursos que está a mover devem utilizar recursos diferentes na região alvo.<br/><br/> Valida-se de novo, até não haver dependências pendentes. | Depois de todas as dependências serem adicionadas e a validação for bem sucedida, o estado de recursos passa a *preparar-se pendente,* sem quaisquer problemas.
 **Passo 3: Preparar** | Inicie o processo de preparação. Os passos de preparação dependem dos recursos que está a mover:<br/><br/> - **Recursos apátridas**: Os recursos apátridas têm apenas informação de configuração. Estes recursos não precisam de uma replicação contínua de dados para os mover. Exemplos incluem redes virtuais Azure (VNets), adaptadores de rede, equilibradores de carga e grupos de segurança de rede. Para este tipo de recurso, o processo De preparação gera um modelo de Gestor de Recursos Azure.<br/><br/> - **Recursos estatais**: Os recursos estatais têm informações de configuração e dados que precisam de ser movidos. Exemplos incluem VMs Azure e bases de dados Azure SQL. O processo de preparação difere para cada recurso. Pode incluir a replicação do recurso de origem para a região alvo. | Iniciar movimentos de recursos estado para *preparar em curso*.<br/><br/> Depois de preparar os acabamentos, o estado de recursos move-se para *Iniciar movimento pendente,* sem problemas.<br/><br/> Um processo mal sucedido move estado para *preparar falhou*.
 **Passo 4: Iniciar movimento** | Inicie o processo de mudança. O método de movimento depende do tipo de recurso:<br/><br/> - **Apátrida**: Normalmente, para os recursos apátridas, o processo de movimento implementa um modelo importado na região alvo. O modelo baseia-se nas definições de recursos de origem e em quaisquer edições manuais que faça para definir o alvo.<br/><br/> - **Imponente**: Para recursos estatais, o processo de movimento pode implicar a criação do recurso, ou permitir uma cópia, na região alvo.<br/><br/>  Apenas para recursos estatais, iniciar uma mudança pode resultar em tempo de inatividade dos recursos de origem. Por exemplo, VMs e SQL. | O início do movimento desloca o Estado para *iniciar a mudança em curso.*<br/><br/> Um movimento iniciado com sucesso move o estado de recursos para *cometer movimento pendente,* sem problemas. <br/><br/> Um processo de movimento mal sucedido move o estado para *iniciar movimento falhou*.

@@ -1,5 +1,5 @@
 ---
-title: Criar Monitor de Conexão (Pré-visualização) - Modelo ARM
+title: Criar Monitor de Conexão - Modelo ARM
 titleSuffix: Azure Network Watcher
 description: Saiba como criar o Monitor de Ligação utilizando o ARMClient.
 services: network-watcher
@@ -10,22 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: e1a0ecd85d07aa4fdf5482c5104c17eb4a068688
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: c3b228d2652d5f7dcf7c6596ee5425b3f5f9a4d8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984231"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544008"
 ---
 # <a name="create-a-connection-monitor-using-the-arm-template"></a>Criar um monitor de ligação utilizando o modelo ARM
 
 Saiba como criar o Connection Monitor para monitorizar a comunicação entre os seus recursos utilizando o ARMClient. Suporta implantações de nuvem híbrida e Azure.
 
-> [!IMPORTANT]
-> O Monitor de Ligação encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Before you begin 
 
@@ -402,7 +399,7 @@ Os monitores de ligação têm os seguintes limites de escala:
 * Fontes e destinos máximos por monitor de ligação: 100
 * Configurações máximas de teste por monitor de ligação: 20 via ARMClient
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba [como analisar dados de monitorização e definir alertas](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
 * Saiba [como diagnosticar problemas na sua rede](./connection-monitor-overview.md#diagnose-issues-in-your-network)

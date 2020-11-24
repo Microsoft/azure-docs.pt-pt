@@ -7,18 +7,18 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.openlocfilehash: d28a3a304a42ec82ff18ad7f5e72518e2b77ec29
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8cfe44b9433ee1daac028253aa45c97804c88ae5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280877"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544110"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Tutorial - Conecte-se a um servidor Azure SQL utilizando um Azure Private Endpoint - Azure CLI
 
 O ponto final privado Azure é o bloco de construção fundamental para private link em Azure. Permite que os recursos do Azure, como máquinas virtuais (VMs), comuniquem com os recursos de Private Link em privado.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma rede virtual e um hospedeiro de bastião.
@@ -285,7 +285,7 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
     Um endereço IP privado de **10.0.0.5** é devolvido para o nome do servidor SQL.  Este endereço encontra-se na sub-rede da rede virtual que criou anteriormente.
 
 
-10. Instale [o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) no **myVM**.
+10. Instale [o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) no **myVM**.
 
 11. Open **SQL Server Management Studio**.
 
@@ -298,7 +298,7 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
     | Autenticação | Selecione **SQL Server Authentication** (Autenticação do SQL Server). |
     | Nome de utilizador | Introduza o nome de utilizador que inseriu durante a criação do servidor |
     | Palavra-passe | Introduza a palavra-passe que introduziu durante a criação do servidor |
-    | Memorizar palavra-passe | Selecione **Sim**. |
+    | Memorizar palavra-passe | Selecione **Yes** (Sim). |
 
 13. Selecione **Connect** (Ligar).
 

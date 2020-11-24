@@ -13,17 +13,17 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a55791544bf2b2f17ba189f7e4aca498469c365b
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 2a1f970a97616fbc38a2f5d274998596992d4a45
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503125"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522078"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Ative Directory
 
 No Azure Ative Directory (Azure AD), pode utilizar regras para determinar a adesão ao grupo com base nas propriedades do utilizador ou do dispositivo. Este artigo diz como configurar uma regra para um grupo dinâmico no portal Azure.
-A adesão dinâmica é suportada por grupos de segurança ou Grupos Microsoft 365. Quando uma regra de membro do grupo é aplicada, os atributos do utilizador e do dispositivo são avaliados para partidas com a regra de adesão. Quando um atributo muda para um utilizador ou dispositivo, todas as regras dinâmicas do grupo na organização são processadas para alterações de membros. Os utilizadores e dispositivos são adicionados ou removidos se cumprirem as condições de um grupo. Os grupos de segurança podem ser utilizados para dispositivos ou utilizadores, mas os Grupos Microsoft 365 podem ser apenas grupos de utilizadores.
+A adesão dinâmica é suportada por grupos de segurança ou Grupos Microsoft 365. Quando uma regra de membro do grupo é aplicada, os atributos do utilizador e do dispositivo são avaliados para partidas com a regra de adesão. Quando um atributo muda para um utilizador ou dispositivo, todas as regras dinâmicas do grupo na organização são processadas para alterações de membros. Os utilizadores e dispositivos são adicionados ou removidos se cumprirem as condições de um grupo. Os grupos de segurança podem ser utilizados para dispositivos ou utilizadores, mas os Grupos Microsoft 365 podem ser apenas grupos de utilizadores. A utilização de grupos Dinâmicos requer licença P1 premium Azure AD . Consulte [as regras de adesão dynamic para grupos](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-dynamic-membership) para obter mais detalhes. 
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Construtor de regras no portal Azure
 
@@ -79,7 +79,7 @@ Se a regra que inseriu não for válida, uma explicação do porquê da regra n�
 
 ## <a name="turn-on-or-off-welcome-email"></a>Ligue ou desligue o e-mail de boas-vindas
 
-Quando um novo grupo Microsoft 365 é criado, uma notificação de e-mail bem-vinda é enviada para os utilizadores que são adicionados ao grupo. Mais tarde, se quaisquer atributos de um utilizador ou dispositivo mudarem, todas as regras dinâmicas do grupo na organização são processadas para alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
+Quando um novo grupo Microsoft 365 é criado, uma notificação de e-mail bem-vinda é enviada para os utilizadores que são adicionados ao grupo. Mais tarde, se quaisquer atributos de um utilizador ou dispositivo mudarem, todas as regras dinâmicas do grupo na organização são processadas para alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps&preserve-view=true).
 
 ## <a name="check-processing-status-for-a-rule"></a>Verifique o estado de processamento de uma regra
 

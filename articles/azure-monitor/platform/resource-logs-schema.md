@@ -4,12 +4,12 @@ description: Compreenda os serviços suportados e o esquema de eventos para regi
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 791f95dc75c55c7a5c7c26d0719e186245713fba
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2a66f90043e0f544dd86d2ab1245a3d8cbaff3d5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543415"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534573"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema comum e específico de serviço para registos de recursos Azure
 
@@ -23,12 +23,12 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 
 ## <a name="top-level-common-schema"></a>Esquema comum de alto nível
 
-| Nome | Obrigatório/Opcional | Descrição |
+| Name | Obrigatório/Opcional | Descrição |
 |---|---|---|
 | hora | Necessário | A hora de jogo (UTC) do evento. |
 | resourceId | Necessário | O ID de recursos do recurso que emitia o evento. Para os serviços de arrendamento, este é do formulário /inquilinos/inquilino-id/provedor/nome de provedor. |
 | inquilinoId | Obrigatório para registos de inquilinos | O inquilino identificação do inquilino ative diretório a que este evento está ligado. Esta propriedade é usada apenas para registos ao nível do inquilino, não aparece em registos de nível de recursos. |
-| operationName | Necessário | O nome da operação representada por este evento. Se o evento representar uma operação RBAC, este é o nome de operação RBAC (por exemplo, Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Tipicamente modelado sob a forma de uma operação de Gestor de Recursos, mesmo que não sejam operações de Gestor de Recursos documentados reais ( `Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>` ) |
+| operationName | Necessário | O nome da operação representada por este evento. Se o evento representar uma operação RBAC Azure, este é o nome de operação Azure RBAC (por exemplo, Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Tipicamente modelado sob a forma de uma operação de Gestor de Recursos, mesmo que não sejam operações de Gestor de Recursos documentados reais ( `Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>` ) |
 | operationVersion | Opcional | A versão api associada à operação, se a operaçãoName foi realizada com uma API (por exemplo, `http://myservice.windowsazure.net/object?api-version=2016-06-01` ). Se não houver API que corresponda a esta operação, a versão representa a versão dessa operação no caso de as propriedades associadas à alteração da operação no futuro. |
 | categoria | Necessário | A categoria de registo do evento. Categoria é a granularidade em que pode ativar ou desativar registos num determinado recurso. As propriedades que aparecem dentro da bolha de propriedades de um evento são as mesmas dentro de uma determinada categoria de registo e tipo de recurso. As categorias típicas de registo são "Auditoria" "Operacional" "Execução" e "Pedido". |
 | resultType | Opcional | O estado do evento. Os valores típicos incluem Iniciado, Em Progresso, Bem Sucedido, Falhado, Ativo e Resolvido. |
@@ -71,7 +71,7 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Azure Firewall | Schema não está disponível. |
 | Front Door | [Registo para porta da frente](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [Operações do Hub IoT](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
-| Key Vault |[Azure Key Vault Logging](../../key-vault/general/logging.md) |
+| Cofre de Chaves |[Azure Key Vault Logging](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Azure Kubernetes Logging](../../aks/view-master-logs.md#log-event-schema) |
 | Balanceador de Carga |[Análise de registos para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Aplicações Lógicas |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
@@ -79,9 +79,9 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Proteção contra DDOS | [Gerir a norma de proteção Azure DDoS](../../virtual-network/manage-ddos-protection.md) |
 | Power BI Dedicado | [Registo de Power BI Incorporado em Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Serviços de Recuperação | [Modelo de dados para backup Azure](../../backup/backup-azure-reports-data-model.md)|
-| Pesquisar |[Ativar e utilizar a Pesquisa traffic Analytics](../../search/search-traffic-analytics.md) |
+| Pesquisa |[Ativar e utilizar a Pesquisa traffic Analytics](../../search/search-traffic-analytics.md) |
 | Service Bus |[Registos de ônibus de serviço Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| Base de Dados SQL | [Registo da base de dados Azure SQL](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
+| SQL Database | [Registo da base de dados Azure SQL](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Registos de trabalhos](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Gestor de Tráfego | [Esquema de registo do gestor de tráfego](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Redes Virtuais | Schema não está disponível. |

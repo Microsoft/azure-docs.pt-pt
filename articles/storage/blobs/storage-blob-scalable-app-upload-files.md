@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc1f8b8a7c46a3d6ad6f62d93bc91753e42c3ae
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75371943"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545045"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo para o armazenamento do Azure
 
@@ -62,7 +62,7 @@ Escreva `dotnet run` para executar a aplicação. Da primeira vez que executar `
 dotnet run
 ```
 
-A aplicação cria cinco contentores aleatoriamente nomeados e começa a carregar os ficheiros no diretório faseado para a conta de armazenamento. A aplicação define os threads mínimos como 100 e o [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) como 100 para garantir que é permitido um grande número de ligações simultâneas quando executar a aplicação.
+A aplicação cria cinco contentores aleatoriamente nomeados e começa a carregar os ficheiros no diretório faseado para a conta de armazenamento. A aplicação define os threads mínimos como 100 e o [DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) como 100 para garantir que é permitido um grande número de ligações simultâneas quando executar a aplicação.
 
 Além de configurar as definições de threading e de ligação, as [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) do método [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) estão configuradas para utilizar o paralelismo e desativar a validação do hash MD5. Os ficheiros são carregados em blocos de 100 MB e esta configuração proporciona um melhor desempenho, mas poderá ser dispendiosa se utilizar uma rede com um desempenho fraco, uma vez que se houver uma falha, todo o bloco de 100 MB é repetido.
 

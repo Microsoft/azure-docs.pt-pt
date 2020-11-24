@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f920a937f4b9b51f9babd03ed0fb42dd3c7775d8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2477107105b6dbcab96db8d44ac982554dc0c48d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217794"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543175"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Quickstart: Use o Azure Storage Explorer para criar uma bolha
 
@@ -78,7 +78,7 @@ Para transferir blobs através do **Explorador de Armazenamento do Azure**, com 
 
 ## <a name="manage-snapshots"></a>Gerir instantâneos
 
-O Explorador de Armazenamento do Azure permite criar e gerir [instantâneos](storage-blob-snapshots.md) dos blobs. Para criar um instantâneo de um blob, clique com o botão direito do rato no blob e selecione **Criar Instantâneo**. Para ver os instantâneos de um blob, clique com o botão direito do rato no blob e selecione **Gerir Instantâneos**. É apresentada uma lista dos instantâneos do blob no separador atual.
+O Explorador de Armazenamento do Azure permite criar e gerir [instantâneos](./snapshots-overview.md) dos blobs. Para criar um instantâneo de um blob, clique com o botão direito do rato no blob e selecione **Criar Instantâneo**. Para ver os instantâneos de um blob, clique com o botão direito do rato no blob e selecione **Gerir Instantâneos**. É apresentada uma lista dos instantâneos do blob no separador atual.
 
 ![Screenshot que mostra uma lista de bolhas no Microsoft Azure Storage Explorer.](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
@@ -99,4 +99,4 @@ As Assinaturas de Acesso Partilhado (SAS) podem ser obtidas através do Explorad
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure através do **Explorador de Armazenamento do Azure**. Para saber mais sobre a utilização do armazenamento de Blobs, avance para os procedimentos do armazenamento de blobs.
 
 > [!div class="nextstepaction"]
-> [Procedimentos de Operações de Armazenamento de Blobs](storage-how-to-use-blobs-powershell.md)
+> [Procedimentos de Operações de Armazenamento de Blobs](./storage-quickstart-blobs-powershell.md)

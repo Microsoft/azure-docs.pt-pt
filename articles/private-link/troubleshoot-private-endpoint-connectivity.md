@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: fcc482e6231bbd925fd500a37989052765dede58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f861f9efa6ecc1886647ed6c460b6718ff97e8a1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77538539"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522333"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Resolver problemas de conectividade do Ponto Final Privado do Azure
 
@@ -56,7 +56,7 @@ Reveja estes passos para se certificar de que todas as configurações habituais
     
        ![Rede virtual e configuração de DNS](./media/private-endpoint-tsg/vnet-dns-configuration.png)
     
-1. Utilize [o Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/overview) para ver se os dados estão a fluir.
+1. Utilize [o Monitor Azure](../azure-monitor/overview.md) para ver se os dados estão a fluir.
 
     a. No recurso ponto final privado, selecione **Monitor**.
      - Selecione **dados dentro** ou **fora dos dados**. 
@@ -68,7 +68,7 @@ Reveja estes passos para se certificar de que todas as configurações habituais
 
     a. Selecione o VM cliente.
 
-    b. Selecione **A resolução de problemas**de ligação e, em seguida, selecione o separador **de ligações de saída.**
+    b. Selecione **A resolução de problemas** de ligação e, em seguida, selecione o separador **de ligações de saída.**
     
       ![Network Watcher - Testar ligações de saída](./media/private-endpoint-tsg/network-watcher-outbound-connection.png)
     
@@ -80,7 +80,7 @@ Reveja estes passos para se certificar de que todas as configurações habituais
      - Cole o FQDN a partir do recurso de ponto final privado.
      - Providenciar um porto. Normalmente, use 443 para Azure Storage ou Azure Cosmos DB e 1336 para SQL.
 
-    e. Selecione **Teste**e valide os resultados do teste.
+    e. Selecione **Teste** e valide os resultados do teste.
     
       ![Observador de Rede - Resultados do teste](./media/private-endpoint-tsg/network-watcher-test-results.png)
     
@@ -93,7 +93,7 @@ Reveja estes passos para se certificar de que todas as configurações habituais
        - Verifique se existe o registo privado da zona de DNS. Se não existe, crie-o.
      - Se utilizar DNS personalizados:
        - Reveja as definições de DNS personalizadas e valide que a configuração do DNS está correta.
-       Para obter orientação, consulte [a visão geral do ponto final privado: configuração DNS](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+       Para obter orientação, consulte [a visão geral do ponto final privado: configuração DNS](./private-endpoint-overview.md#dns-configuration).
 
     b. Se a conectividade estiver a falhar devido a grupos de segurança de rede (NSGs) ou a rotas definidas pelo utilizador:
      - Reveja as regras de saída da NSG e crie as regras de saída apropriadas para permitir o tráfego.
@@ -107,5 +107,5 @@ Reveja estes passos para se certificar de que todas as configurações habituais
 
 ## <a name="next-steps"></a>Passos seguintes
 
- * [Criar um ponto final privado na sub-rede atualizada (portal Azure)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
+ * [Criar um ponto final privado na sub-rede atualizada (portal Azure)](./create-private-endpoint-portal.md)
  * [Guia de resolução de problemas do Azure Private Link](troubleshoot-private-link-connectivity.md)

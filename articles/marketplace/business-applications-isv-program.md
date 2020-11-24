@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 7/14/2020
-ms.openlocfilehash: 653e6aad7f57b4d683f2f71ed22e402ed5d1fca8
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/19/2020
+ms.openlocfilehash: a20c495553dfe9a16c34a2972575d21cc95eef44
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630299"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537140"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guia de inclusão do Programa Microsoft Business Applications Independent Software Vendor (ISV) Connect
 
@@ -38,7 +38,7 @@ A participação neste programa requer que reveja e aceite a [Adenda aplicaçõe
 > Este passo requer uma função *de Proprietário* ou *Gestor* no Partner Center para que a sua conta assine acordos legais.
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard).
-1. Selecione **Definições** (ícone de engrenagem) e, em seguida, **Definições de programação**.
+1. Selecione **Definições** (ícone de engrenagem) > **Definições de conta**.
 1. Selecione **Acordos**.
 1. Selecione o link de versão e veja o acordo.
 1. Para concordar e aceitar o acordo, **selecione Aceitar Acordo**.
@@ -51,8 +51,8 @@ Configurar informações de faturação para o Programa de Ligação de Aplicaç
 > Este passo requer uma função *de Proprietário* ou *Gestor* no Partner Center para a sua conta atualizar as informações de faturação.
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard).
-1. Selecione **Definições** (ícone de engrenagem) e, em seguida, **Definições de programação**.
-1. Nas **definições de Conta** , selecione perfil de **Faturação**.
+1. Selecione **Definições** (ícone de engrenagem) > **Definições de conta**.
+1. No **perfil da Organização,** selecione **o perfil de Billing** e, em seguida, o **separador Developer.**
 1. Reveja as informações de contacto e faturação primárias que são povoadas da sua entidade legal.
 1. Para escoar as alterações, selecione **Update**.
 1. Se aplicável, forneça configurações de ID/ID de imposto.

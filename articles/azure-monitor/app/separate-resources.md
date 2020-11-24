@@ -3,12 +3,12 @@ title: Como conceber a sua implementação de Application Insights - Um vs muito
 description: Telemetria direta a diferentes recursos para desenvolvimento, teste e carimbos de produção.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258725"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536358"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos de Insights de Aplicação devo implementar
 
@@ -26,7 +26,7 @@ Cada recurso De Insights de Aplicação vem com métricas que estão disponívei
 
 -   Para os componentes de aplicação que são implantados em conjunto. Normalmente desenvolvido por uma única equipa, gerido pelo mesmo conjunto de utilizadores de DevOps/ITOps.
 -   Se fizer sentido agregar indicadores-chave de desempenho (KPI's) tais como durações de resposta, taxas de falha no painel de instrumentos, etc., em todos eles por padrão (pode optar por segmentar por nome de função na experiência Metrics Explorer).
--   Se não houver necessidade de gerir o Controlo de Acesso baseado em funções (RBAC) de forma diferente entre os componentes da aplicação.
+-   Se não houver necessidade de gerir o controlo de acesso baseado em funções (Azure RBAC) de forma diferente entre os componentes da aplicação.
 -   Se não precisar de critérios de alerta de métricas que sejam diferentes entre os componentes.
 -   Se não for necessário gerir as exportações contínuas de forma diferente entre os componentes.
 -   Se não precisar de gerir a faturação/quotas de forma diferente entre os componentes.

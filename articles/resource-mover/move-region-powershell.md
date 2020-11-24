@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 3236e0a95c6a4b4f57ac38ed067011c3d6848b5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 176f12a0a06a5bcae601463e30189bc139d3531f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89670800"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543855"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>Mover recursos através de regiões em PowerShell
 
@@ -25,7 +25,7 @@ Saiba como mover os recursos da Azure para uma região diferente usando o PowerS
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- A sua subscrição Azure deve ter acesso ao Resource Mover, e deverá ter permissões [de Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) ou Administrador de Acesso ao [Utilizador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) para a subscrição.
+- A sua subscrição Azure deve ter acesso ao Resource Mover, e deverá ter permissões [de Proprietário](../role-based-access-control/built-in-roles.md#owner) ou Administrador de Acesso ao [Utilizador](../role-based-access-control/built-in-roles.md#user-access-administrator) para a subscrição.
 - O Resource Mover não rastreia alterações e atualizações, por isso faça quaisquer alterações necessárias nos recursos, antes de começar a movê-las.
 - Quando movimenta recursos com o PowerShell, não pode atualmente editar quaisquer definições da região alvo. Modifique estas definições diretamente no portal.
 - Quando adiciona recursos a uma recolha de movimentos, em preparação para a sua deslocação para outra região, os metadados sobre a mudança são armazenados num grupo de recursos criado para o efeito. Atualmente, este grupo de recursos pode residir nas regiões leste dos EUA 2 ou norte da Europa. Os recursos azuis podem ser deslocados entre as regiões públicas utilizando metadados presentes em qualquer uma destas regiões.

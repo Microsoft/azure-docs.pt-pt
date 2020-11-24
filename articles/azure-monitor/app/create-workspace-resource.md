@@ -3,18 +3,18 @@ title: Criar um novo recurso baseado no espaço de trabalho do Azure Monitor Ins
 description: Conheça os passos necessários para permitir os novos recursos baseados no espaço de trabalho do Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ecbac02bcb4d9b4f0db36eab854a91366c774d6c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945418"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536919"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Insights de Aplicação baseados no espaço de trabalho
 
 Os recursos baseados no espaço de trabalho suportam a integração total entre o Application Insights e o Log Analytics. Pode agora optar por enviar a telemetria Application Insights para um espaço de trabalho comum do Log Analytics, que lhe permite ter acesso total a todas as funcionalidades do Log Analytics, mantendo os registos de aplicações, infraestruturas e plataformas num único local consolidado.
 
-Isto também permite que o Controle de Acesso Role-Based comum (RBAC) através dos seus recursos, e elimina a necessidade de consultas cruzadas/espaço de trabalho.
+Isto também permite um controlo comum de acesso baseado em funções (Azure RBAC) através dos seus recursos, e elimina a necessidade de consultas cruzadas/espaço de trabalho.
 
 > [!NOTE]
 > A ingestão de dados e a retenção de recursos de Insights de Aplicação baseados no espaço de trabalho são faturados através do espaço de trabalho Log Analytics onde os dados estão localizados. [Saiba mais]( ./pricing.md#workspace-based-application-insights) sobre a faturação dos recursos de Aplicações Insights baseados no espaço de trabalho.
@@ -207,9 +207,9 @@ A funcionalidade de exportação contínua do legado não é suportada por recur
 
 > [!NOTE]
 > Atualmente, não existem encargos adicionais para a exportação de telemetria. As informações sobre os preços desta funcionalidade estarão disponíveis na página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Antes do início da faturação, serão enviadas notificações. Caso opte por continuar a utilizar <feature name> após o período de pré-aviso, será cobrado à taxa aplicável. 
- 
+ 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Explorar métricas](../platform/metrics-charts.md)
 * [Escrever consultas da Análise](../log-query/log-query-overview.md)

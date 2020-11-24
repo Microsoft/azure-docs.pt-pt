@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714816"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544756"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento blob
 
@@ -59,7 +59,7 @@ Este artigo organiza práticas comprovadas para o desempenho numa lista de verif
 
 Se a sua aplicação se aproximar ou exceder qualquer um dos alvos de escalabilidade, poderá encontrar atrasos de transação aumentadas ou estrangulamentos. Quando o Azure Storage acelera a sua aplicação, o serviço começa a devolver códigos de erro 503 (Server busy) ou 500 (Tempo limite de funcionamento). Evitar estes erros mantendo-se dentro dos limites dos objetivos de escalabilidade é uma parte importante para melhorar o desempenho da sua aplicação.
 
-Para obter mais informações sobre os alvos de escalabilidade para o serviço de fila, consulte a [escalabilidade do armazenamento Azure e os objetivos de desempenho](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Para obter mais informações sobre os alvos de escalabilidade para o serviço de fila, consulte a [escalabilidade do armazenamento Azure e os objetivos de desempenho](../queues/scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de contas de armazenamento
 
@@ -195,7 +195,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 Para outras linguagens de programação, consulte a documentação para determinar como definir o limite de ligação.  
 
-Para mais informações, consulte o blog post [Web Services: Concurrent Connections](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para mais informações, consulte o blog post [Web Services: Concurrent Connections](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de fios
 
@@ -213,7 +213,7 @@ Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado com a uti
 
 ## <a name="client-libraries-and-tools"></a>Bibliotecas e ferramentas do cliente
 
-Para um melhor desempenho, utilize sempre as mais recentes bibliotecas e ferramentas de clientes fornecidas pela Microsoft. As bibliotecas de clientes do Azure Storage estão disponíveis para uma variedade de idiomas. O Azure Storage também suporta o PowerShell e o Azure CLI. A Microsoft desenvolve ativamente estas bibliotecas e ferramentas de clientes com o desempenho em mente, mantém-nas atualizadas com as versões de serviço mais recentes, e garante que eles lidam com muitas das práticas de desempenho comprovadas internamente. Para mais informações, consulte a [documentação de referência do Azure Storage](/azure/storage/#reference).
+Para um melhor desempenho, utilize sempre as mais recentes bibliotecas e ferramentas de clientes fornecidas pela Microsoft. As bibliotecas de clientes do Azure Storage estão disponíveis para uma variedade de idiomas. O Azure Storage também suporta o PowerShell e o Azure CLI. A Microsoft desenvolve ativamente estas bibliotecas e ferramentas de clientes com o desempenho em mente, mantém-nas atualizadas com as versões de serviço mais recentes, e garante que eles lidam com muitas das práticas de desempenho comprovadas internamente.
 
 ## <a name="handle-service-errors"></a>Lidar com erros de serviço
 
@@ -243,11 +243,11 @@ Para copiar dados dentro da mesma conta de armazenamento, utilize a operação [
 
 ### <a name="use-azcopy"></a>Utilizar o AZCopy
 
-O utilitário de linha de comando AzCopy é uma opção simples e eficiente para a transferência a granel de blobs para, a partir e através de contas de armazenamento. O AzCopy está otimizado para este cenário, e pode alcançar altas taxas de transferência. A versão 10 da AzCopy utiliza a `Put Block From URL` operação para copiar dados blob através de contas de armazenamento. Para obter mais informações, consulte [copiar ou mover dados para o Azure Storage utilizando a AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
+O utilitário de linha de comando AzCopy é uma opção simples e eficiente para a transferência a granel de blobs para, a partir e através de contas de armazenamento. O AzCopy está otimizado para este cenário, e pode alcançar altas taxas de transferência. A versão 10 da AzCopy utiliza a `Put Block From URL` operação para copiar dados blob através de contas de armazenamento. Para obter mais informações, consulte [copiar ou mover dados para o Azure Storage utilizando a AzCopy v10](../common/storage-use-azcopy-v10.md).  
 
 ### <a name="use-azure-data-box"></a>Use a caixa de dados Azure
 
-Para importar grandes volumes de dados para o armazenamento blob, considere usar a família Azure Data Box para transferências offline. Os dispositivos Data Box fornecidos pela Microsoft são uma boa escolha para mover grandes quantidades de dados para o Azure quando se está limitado pelo tempo, disponibilidade da rede ou custos. Para mais informações, consulte a [Documentação Azure DataBox](/azure/databox/).
+Para importar grandes volumes de dados para o armazenamento blob, considere usar a família Azure Data Box para transferências offline. Os dispositivos Data Box fornecidos pela Microsoft são uma boa escolha para mover grandes quantidades de dados para o Azure quando se está limitado pelo tempo, disponibilidade da rede ou custos. Para mais informações, consulte a [Documentação Azure DataBox](../../databox/index.yml).
 
 ## <a name="content-distribution"></a>Distribuição de conteúdos
 

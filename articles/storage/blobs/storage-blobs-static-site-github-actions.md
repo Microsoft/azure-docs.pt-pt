@@ -9,19 +9,19 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3adbc0a2d55a2adc2ab7c1f82b0a358542eefc2a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 799c0dbc3ddb673cafe0fe4962f7346a841bd4b7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842452"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543107"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Crie um fluxo de trabalho de GitHub Actions para implementar o seu website estático no Azure Storage
 
 Inicie com [as ações do GitHub](https://docs.github.com/en/actions) usando um fluxo de trabalho para implantar um site estático numa conta de armazenamento Azure. Uma vez configurado um fluxo de trabalho gitHub Actions, poderá implementar automaticamente o seu site para Azure a partir do GitHub quando escoar alterações ao código do seu site.
 
 > [!NOTE]
-> Se estiver a utilizar [aplicações web estáticas Azure](https://docs.microsoft.com/azure/static-web-apps/), então não precisa de configurar manualmente um fluxo de trabalho gitHub Actions.
+> Se estiver a utilizar [aplicações web estáticas Azure](../../static-web-apps/index.yml), então não precisa de configurar manualmente um fluxo de trabalho gitHub Actions.
 > A azure Static Web Apps cria automaticamente um fluxo de trabalho de GitHub Actions para si. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -187,4 +187,4 @@ Quando o seu site estático e o repositório GitHub já não forem necessários,
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/)
+> [Saiba mais sobre Azure Static Web Apps](../../static-web-apps/index.yml)

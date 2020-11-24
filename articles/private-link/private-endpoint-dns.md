@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: bb1f4b5e37cecc33cef115f26c44ad6375c7e327
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d682495cb7add446adf1634de6e9ed6756d1468e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734383"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544382"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS do Ponto Final Privado do Azure
 
@@ -125,7 +125,7 @@ Este modelo pode ser estendido a várias redes virtuais espreitadas que estão a
 > [!IMPORTANT]
 > se estiver a utilizar um ponto final privado num modelo de hub-and-spoke a partir de uma subscrição diferente, reutilizámos a mesma zona privada de DNS no centro.
 
-Neste cenário, há um [hub e falou](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) topologia em rede com as redes de fala partilhando um ponto final privado comum, e todas as redes virtuais faladas estão ligadas à mesma zona privada de DNS. 
+Neste cenário, há um [hub e falou](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) topologia em rede com as redes de fala partilhando um ponto final privado comum, e todas as redes virtuais faladas estão ligadas à mesma zona privada de DNS. 
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hub e falou com o DNS fornecido pelo Azure":::
 
@@ -141,7 +141,7 @@ O seguinte cenário é apropriado para uma rede no local que tenha um reencaminh
 Para configurar corretamente, precisa dos seguintes recursos:
 
 - Rede no local
-- Rede virtual [ligada às instalações](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Rede virtual [ligada às instalações](/azure/architecture/reference-architectures/hybrid-networking/)
 - Encaminhador de DNS implantado em Azure 
 - Zonas privadas de DNS [privatelink.database.windows.net](../dns/private-dns-privatednszone.md) com [registo tipo A](../dns/dns-zones-records.md#record-types)
 - Informações privadas sobre o ponto final (nome de registo FQDN e endereço IP privado)
@@ -158,7 +158,7 @@ Esta configuração pode ser estendida para uma rede no local que já tenha uma 
 Para configurar corretamente, precisa dos seguintes recursos:
 
 - Rede de instalações com uma solução de DNS personalizada no lugar 
-- Rede virtual [ligada às instalações](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Rede virtual [ligada às instalações](/azure/architecture/reference-architectures/hybrid-networking/)
 - Encaminhador de DNS implantado em Azure
 - Zonas privadas de DNS [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)  com [registo tipo A](../dns/dns-zones-records.md#record-types)
 - Informações privadas sobre o ponto final (nome de registo FQDN e endereço IP privado)
@@ -187,7 +187,7 @@ Este remetente DNS é responsável pela resolução de todas as consultas de DNS
 Para configurar corretamente, precisa dos seguintes recursos:
 
 - Rede no local
-- Rede virtual [ligada às instalações](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Rede virtual [ligada às instalações](/azure/architecture/reference-architectures/hybrid-networking/)
 - [Rede virtual esprevada](../virtual-network/virtual-network-peering-overview.md) 
 - Encaminhador de DNS implantado em Azure
 - Zonas privadas de DNS [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)  com [registo tipo A](../dns/dns-zones-records.md#record-types)

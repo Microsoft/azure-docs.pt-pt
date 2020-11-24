@@ -3,14 +3,14 @@ title: Visão geral da Azure Automation Update Management
 description: Este artigo fornece uma visão geral da funcionalidade de Gestão de Atualização que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 10/26/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: abcc2b60fd796a80342fe48c3c9027388660476a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: eadceb17d01b40deab656bdd6223cb8f0844f54f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95488152"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528249"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -76,10 +76,10 @@ A tabela que se segue lista os sistemas operativos suportados para avaliações 
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 ||
 |Windows Server 2008 R2 (RTM e SP1 Standard)| A Atualização Gestão suporta avaliações e remendos para este sistema operativo. O [Trabalhador de Runbook Híbrido](../automation-windows-hrw-install.md) é suportado para o Windows Server 2008 R2. |
-|CentOS 6 (x86/x64) e 7 (x64)      | Os agentes linux requerem acesso a um repositório de atualização. O patching baseado na classificação requer `yum` a devolução de dados de segurança que o CentOS não tem nas suas versões RTM. Para obter mais informações sobre patching baseado na classificação no CentOS, consulte [as classificações de Atualização no Linux](view-update-assessments.md#linux).          |
-|Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes linux requerem acesso a um repositório de atualização.        |
+|CentOS 6 e 7 (x64)      | Os agentes linux requerem acesso a um repositório de atualização. O patching baseado na classificação requer `yum` a devolução de dados de segurança que o CentOS não tem nas suas versões RTM. Para obter mais informações sobre patching baseado na classificação no CentOS, consulte [as classificações de Atualização no Linux](view-update-assessments.md#linux).          |
+|Red Hat Enterprise 6 e 7 (x64)     | Os agentes linux requerem acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 12 (x64)     | Os agentes linux requerem acesso a um repositório de atualização.        |
-|Ubuntu 14.04 LTS, 16.04 LTS e 18.04 (x86/x64)      |Os agentes linux requerem acesso a um repositório de atualização.         |
+|Ubuntu 14.04 LTS, 16.04 LTS e 18.04 (x64)      |Os agentes linux requerem acesso a um repositório de atualização.         |
 
 > [!NOTE]
 > Os conjuntos de escala de máquina virtual Azure podem ser geridos através da Gestão de Atualização. A Atualização Gestão trabalha nos próprios casos e não na imagem base. Terá de agendar as atualizações de forma incremental, para que nem todas as instâncias VM sejam atualizadas de uma só vez. Pode adicionar nós para conjuntos de balanças de máquinas virtuais seguindo os passos sob [Adicionar uma máquina não-Azure para alterar o tracking e o inventário](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).

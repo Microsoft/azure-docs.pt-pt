@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 92ac1887aca8f30c551419ef9149073d79f333a5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7d3bc13dc373cda510153099859cf4cd61b3dd69
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143843"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95534539"
 ---
 # <a name="access-control"></a>Controlo de acesso
 
@@ -32,7 +32,7 @@ O controlo de acesso nos livros refere-se a duas coisas:
 "Workbooks Contributor" adiciona privilégios de "livros/escrita" a um objeto para salvar livros partilhados.
 Não são necessários privilégios especiais para que os utilizadores guardem livros privados que só eles possam ver.
 
-Para o controlo de acesso personalizado baseado em funções:
+Para funções personalizadas:
 
 Adicione `microsoft.insights/workbooks/write` para guardar livros partilhados. Para mais detalhes, consulte a função [de Contribuinte de Livro.](../../role-based-access-control/built-in-roles.md#monitoring-contributor)
 

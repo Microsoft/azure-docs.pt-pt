@@ -4,12 +4,12 @@ description: Seja notificado via SMS, webhook, SMS, e-mail e muito mais, quando 
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 836fc20b6c3d46766801dce0e2aeda83a217d6a3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86516129"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536086"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no registo de atividades
 
@@ -40,7 +40,7 @@ Os alertas de registo de atividade têm algumas opções comuns:
     - Nível de Subscrição: Por exemplo, todas as máquinas virtuais numa subscrição (ou) todos os recursos numa subscrição
 - **Grupo de recursos**: Por predefinição, a regra de alerta é guardada no mesmo grupo de recursos que a do alvo definido no Âmbito. O utilizador também pode definir o Grupo de Recursos onde a regra de alerta deve ser armazenada.
 - **Tipo de recurso**: Gestor de recursos definiu o espaço de nome para o alvo do alerta.
-- **Nome do funcionamento**: O nome [de operação do Gestor de Recursos Azure](../../role-based-access-control/resource-provider-operations.md) utilizado para Role-Based Controlo de Acesso . As operações não registadas no Azure Resource Manager não podem ser utilizadas numa regra de alerta de registo de atividade.
+- **Nome do funcionamento**: O nome de [operação do fornecedor de recursos Azure](../../role-based-access-control/resource-provider-operations.md) utilizado para o controlo de acesso baseado em funções Azure . As operações não registadas no Azure Resource Manager não podem ser utilizadas numa regra de alerta de registo de atividade.
 - **Nível**: O nível de gravidade do evento (Informação, Aviso, Erro ou Crítico).
 - **Estado**: O estado do evento, tipicamente iniciado, falhado ou bem sucedido.
 - **Evento iniciado por:** Também conhecido como "chamador". O endereço de e-mail ou identificador do Diretório Ativo Azure do utilizador que realizou a operação.

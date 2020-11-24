@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4252e3a7f8c3ff9d0ec782a2a9222553c063463c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698075"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533281"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
@@ -237,47 +237,28 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 Se quiser criar piscinas regulares de nó gen1, pode fazê-lo omitindo a `--aks-custom-headers` etiqueta personalizada.
 
 
-## <a name="ephemeral-os-preview"></a>OS Efémeros (Pré-visualização)
+## <a name="ephemeral-os"></a>Oss efémeros
 
-Por predefinição, o disco do sistema operativo de uma máquina virtual Azure é automaticamente replicado para o armazenamento do Azure para evitar a perda de dados caso o VM precise de ser transferido para outro hospedeiro. No entanto, uma vez que os contentores não são projetados para ter o estado local persistido, este comportamento oferece valor limitado, ao mesmo tempo que fornece alguns inconvenientes, incluindo o fornecimento de nó mais lento e a latência de leitura/escrita mais elevada.
+Por predefinição, o Azure replica automaticamente o disco do sistema operativo para uma máquina virtual para o armazenamento do Azure para evitar a perda de dados caso o VM precise de ser transferido para outro hospedeiro. No entanto, uma vez que os contentores não são projetados para ter o estado local persistido, este comportamento oferece valor limitado, ao mesmo tempo que fornece alguns inconvenientes, incluindo o fornecimento de nó mais lento e a latência de leitura/escrita mais elevada.
 
 Em contraste, os discos de OS efémeros são armazenados apenas na máquina hospedeira, tal como um disco temporário. Isto proporciona uma latência de leitura/escrita mais baixa, juntamente com a escala mais rápida do nó e upgrades de cluster.
 
 Tal como o disco temporário, um disco de SO efémero está incluído no preço da máquina virtual, pelo que não incorre em custos adicionais de armazenamento.
 
-Registar a `EnableEphemeralOSDiskPreview` função:
+> [!IMPORTANT]
+>Quando um utilizador não solicita explicitamente discos geridos para o SO, o AKS irá predefinir o SISTEMA Efémero, se possível, para uma determinada configuração de nodepool.
 
-```azurecli
-az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
-```
+Ao utilizar o SISTEMA EFÉMERO, o disco DE TEM deve encaixar na cache VM. Os tamanhos da cache VM estão disponíveis na [documentação Azure](../virtual-machines/dv3-dsv3-series.md) em parênteses ao lado do rendimento de IO ("tamanho da cache em GiB").
 
-Pode levar vários minutos para que o estado seja apresentado como **Registado**. Pode verificar o estado de registo utilizando o comando [da lista de funcionalidades AZ:](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true)
+Utilizando o tamanho VM padrão AKS Standard_DS2_v2 com o tamanho padrão do disco DE de 100GB como exemplo, este tamanho VM suporta os sistemas efémeros, mas tem apenas 86GB de tamanho de cache. Esta configuração por defeito seria padrão para discos geridos se o utilizador não especificar explicitamente. Se um utilizador solicitasse explicitamente um SO efémero, receberiam um erro de validação.
 
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
-```
+Se um utilizador solicitar o mesmo Standard_DS2_v2 com um disco OS de 60GB, esta configuração por defeito para o SISTEMA Efémero: o tamanho solicitado de 60GB é menor do que o tamanho máximo de cache de 86GB.
 
-Quando o estado aparecer como registado, reaprovida o registo do fornecedor de `Microsoft.ContainerService` recursos utilizando o comando de registo do fornecedor [az:](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true)
+Utilizando Standard_D8s_v3 com disco OS de 100GB, este tamanho VM suporta OS efémeros e tem 200GB de espaço cache. Se um utilizador não especificar o tipo de disco OS, o nodepool receberá um SO efémero por predefinição. 
 
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
+O SO efémero requer pelo menos a versão 2.15.0 do Azure CLI.
 
-O SO efémero requer pelo menos a versão 0.4.63 da extensão CLI de pré-visualização aks.
-
-Para instalar a extensão CLI de pré-visualização aks, utilize os seguintes comandos Azure CLI:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Para atualizar a extensão CLI de pré-visualização aks, utilize os seguintes comandos Azure CLI:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Utilize o SO Efémero em novos clusters (Pré-visualização)
+### <a name="use-ephemeral-os-on-new-clusters"></a>Use o SO Efémero em novos clusters
 
 Configure o cluster para utilizar discos EFÉMEROS quando o cluster é criado. Utilize a bandeira para definir o `--node-osdisk-type` SO Efémero como o tipo de disco OS para o novo cluster.
 
@@ -285,9 +266,9 @@ Configure o cluster para utilizar discos EFÉMEROS quando o cluster é criado. U
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-Se pretender criar um cluster regular utilizando discos de SISTEMA ligados à rede, pode fazê-lo omitindo a etiqueta personalizada `--node-osdisk-type` ou especificando `--node-osdisk-type=Managed` . Também pode optar por adicionar mais piscinas efémeras de nó de nó de OS, conforme abaixo.
+Se pretender criar um cluster regular utilizando discos de SISTEMA ligados à rede, pode fazê-lo especificando `--node-osdisk-type=Managed` . Também pode optar por adicionar mais piscinas efémeras de nó de nó de OS, conforme abaixo.
 
-### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Utilize o SO Efémero nos clusters existentes (Pré-visualização)
+### <a name="use-ephemeral-os-on-existing-clusters"></a>Utilize o SO Efémero nos clusters existentes
 Configure uma nova piscina de nós para usar discos DESphemerais. Utilize a `--node-osdisk-type` bandeira para definir como o tipo de disco OS como o tipo de disco OS para a piscina de nó.
 
 ```azurecli
@@ -297,7 +278,7 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 > [!IMPORTANT]
 > Com o SISTEMA Efémero pode implementar imagens VM e exemplo até ao tamanho da cache VM. No caso AKS, a configuração do disco de talos padrão usa 100GiB, o que significa que precisa de um tamanho VM que tenha uma cache maior que 100 GiB. O Standard_DS2_v2 padrão tem um tamanho de cache de 86 GiB, que não é grande o suficiente. O Standard_DS3_v2 tem um tamanho de cache de 172 GiB, que é grande o suficiente. Também pode reduzir o tamanho predefinido do disco SO utilizando `--node-osdisk-size` . O tamanho mínimo para imagens AKS é 30GiB. 
 
-Se pretender criar piscinas de nó com discos de SISTEMA ligados à rede, pode fazê-lo omitindo a `--node-osdisk-type` etiqueta personalizada.
+Se pretender criar piscinas de nó com discos de SISTEMA ligados à rede, pode fazê-lo especificando `--node-osdisk-type Managed` .
 
 ## <a name="custom-resource-group-name"></a>Nome do grupo de recursos personalizados
 

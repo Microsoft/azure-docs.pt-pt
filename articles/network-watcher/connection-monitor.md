@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/23/2020
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 667b07b3fe53ca6d88eba94faeaeeae074d71f1e
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 2da675f0836dbb10ce5227e7e93e98d706cc5c64
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984282"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544807"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais com o portal do Azure
 
@@ -37,9 +37,7 @@ A comunicação com êxito entre uma máquina virtual (VM) e um ponto final, com
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-> [!IMPORTANT]
-> O Monitor de Ligação encontra-se atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -80,7 +78,7 @@ Execute novamente os passos em [Criar a primeira VM](#create-the-first-vm), com 
 |Passo|Definição|Valor|
 |---|---|---|
 | 1 | Selecione uma versão do **Ubuntu Server** |                                                                         |
-| 3 | Nome                                  | myVm2                                                                   |
+| 3 | Name                                  | myVm2                                                                   |
 | 3 | Tipo de autenticação                   | Cole a chave pública SSH ou selecione **Palavra-passe** e introduza uma palavra-passe. |
 | 3 | Grupo de recursos                        | Selecione **Utilizar existente** e selecione **myResourceGroup**.                 |
 | 6 | Extensões                            | **Agente observador de rede para Linux**                                             |
@@ -170,7 +168,7 @@ Por predefinição, o Azure permite a comunicação através de todas as portas 
 
     Se não sabia que alguém tinha implementado a regra de segurança que criou no passo 4, saberia através do monitor de ligação que a regra está a causar o problema de comunicação. Em seguida, poderia alterar, substituir ou remover a regra, para restaurar a comunicação entre as VMs.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
@@ -178,7 +176,7 @@ Quando já não for necessário, elimine o grupo de recursos e todos os recursos
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a monitorizar uma ligação entre duas VMs. Aprendeu que uma regra do grupo de segurança de rede impediu a comunicação para uma VM. Para saber mais sobre todas as diferentes respostas que o monitor de ligação pode devolver, veja [tipos de resposta](network-watcher-connectivity-overview.md#response). Também pode monitorizar uma ligação entre uma VM, um nome de domínio completamente qualificado, um identificador de recurso uniforme ou um endereço IP.
 

@@ -5,14 +5,14 @@ keywords: Azure, inteligência artificial, ai, processamento de linguagem natura
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 11/23/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: b4034f9b7a5a9ec856134e27b422736e2c98f04a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: fb36ab8a86a89d6383f93ad58c23956472841de2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025196"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95539265"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é o Language Understanding (LUIS)?
 
@@ -116,7 +116,7 @@ Ferramentas para utilizar o LUIS de forma rápida e fácil com um bot:
 
 ## <a name="integrate-with-a-bot"></a>Integre-se com um bot
 
-Utilize o [serviço Azure Bot](/azure/bot-service/?view=azure-bot-service-4.0 "Serviço Azure Bot") com o [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") para construir e implementar um chat bot. Desenhe e desenvolva com a ferramenta de interface gráfica, [Compositor,](/composer/ "Compositor")ou [amostras de bot de trabalho projetadas](https://github.com/microsoft/BotBuilder-Samples "amostras de bot de trabalho") para cenários de bot de topo.
+Utilize o [serviço Azure Bot](/azure/bot-service/ "Serviço Azure Bot") com o [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") para construir e implementar um chat bot. Desenhe e desenvolva com a ferramenta de interface gráfica, [Compositor,](/composer/ "Compositor")ou [amostras de bot de trabalho projetadas](https://github.com/microsoft/BotBuilder-Samples "amostras de bot de trabalho") para cenários de bot de topo.
 
 ## <a name="integrate-with-other-cognitive-services"></a>Integrar-se com outros Serviços Cognitivos
 
@@ -131,7 +131,11 @@ A LUIS fornece funcionalidade a partir de Text Analytics como parte dos seus rec
 Saiba mais sobre o LUIS com quickstarts práticos utilizando o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes SDK.](azure-sdk-quickstart.md "Bibliotecas de clientes SDK")
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantar nas instalações utilizando contentores Docker
+
+[Utilize recipientes LUIS](luis-container-howto.md) para implantar funcionalidades de API no local. Estes recipientes Docker permitem-lhe aproximar o serviço dos seus dados por razões de conformidade, segurança ou outras razões operacionais.
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Novidades](whats-new.md "Novidades") com o serviço e documentação
 * [Planeie a sua app](luis-how-plan-your-app.md "Planear a sua aplicação") com [intenções](luis-concept-intent.md "intenções") e [entidades.](luis-concept-entity-types.md "entidades")

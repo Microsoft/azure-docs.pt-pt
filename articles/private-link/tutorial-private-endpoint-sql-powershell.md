@@ -7,18 +7,18 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: allensu
-ms.openlocfilehash: 36b952131c2050230de89064adc586c5a2851b65
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7448e003771bea1e235d4e0776ebce3cb1beae17
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146461"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544093"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-powershell"></a>Tutorial - Conecte-se a um servidor Azure SQL utilizando um Azure Private Endpoint - Azure PowerShell
 
 O ponto final privado Azure é o bloco de construção fundamental para private link em Azure. Permite que os recursos do Azure, como máquinas virtuais (VMs), comuniquem com os recursos de Private Link em privado.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma rede virtual e um hospedeiro de bastião.
@@ -268,11 +268,11 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
  
 2. Selecione **grupos** de recursos no painel de navegação à esquerda.
 
-3. Selecione **CreateSQLEndpointTutorial-rg** .
+3. Selecione **CreateSQLEndpointTutorial-rg**.
 
-4. Selecione **myVM** .
+4. Selecione **myVM**.
 
-5. Na página geral do **myVM,** selecione **Connect** e, em **seguida, Bastion** .
+5. Na página geral do **myVM,** selecione **Connect** e, em **seguida, Bastion**.
 
 6. Selecione o botão **azul Use Bastion.**
 
@@ -295,37 +295,37 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
     Um endereço IP privado de **10.0.0.5** é devolvido para o nome do servidor SQL.  Este endereço encontra-se na sub-rede da rede virtual que criou anteriormente.
 
 
-10. Instale [o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) no **myVM** .
+10. Instale [o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) no **myVM**.
 
-11. Open **SQL Server Management Studio** .
+11. Open **SQL Server Management Studio**.
 
 12. Em **Ligar ao servidor,** insira ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
-    | Tipo de servidor | Selecione **Motor de Base de Dados** .|
+    | Tipo de servidor | Selecione **Motor de Base de Dados**.|
     | Nome do servidor | Insira **\<sql-server-name> .database.windows.net** |
     | Autenticação | Selecione **SQL Server Authentication** (Autenticação do SQL Server). |
     | Nome de utilizador | Introduza o nome de utilizador que inseriu durante a criação do servidor |
     | Palavra-passe | Introduza a palavra-passe que introduziu durante a criação do servidor |
-    | Memorizar palavra-passe | Selecione **Sim** . |
+    | Memorizar palavra-passe | Selecione **Yes** (Sim). |
 
-13. Selecione **Ligar** .
+13. Selecione **Connect** (Ligar).
 
 14. Procure bases de dados a partir do menu esquerdo.
 
-15. (Opcionalmente) Criar ou consultar informações a partir da **mysqldatabase** .
+15. (Opcionalmente) Criar ou consultar informações a partir da **mysqldatabase**.
 
-16. Feche a ligação do bastião ao **myVM** . 
+16. Feche a ligação do bastião ao **myVM**. 
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando terminar de usar o ponto final privado, o servidor SQL e o VM, elimine o grupo de recursos e todos os recursos que contém: 
 
 1. Introduza **CreateSQLEndpointTutorial-rg** na caixa **de pesquisa** no topo do portal e selecione **CreateSQLEndpointTutorial-rg** a partir dos resultados da pesquisa. 
 
-2. Selecione **Eliminar grupo de recursos** . 
+2. Selecione **Eliminar grupo de recursos**. 
 
-3. Introduza **CreateSQLEndpointTutorial-rg** para **TYPE THE RESOURCE GROUP NAME** e selecione **Delete** .
+3. Introduza **CreateSQLEndpointTutorial-rg** para **TYPE THE RESOURCE GROUP NAME** e selecione **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

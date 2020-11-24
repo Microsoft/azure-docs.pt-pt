@@ -4,12 +4,12 @@ description: Métricas e APIs clássicos de autoescalação, também chamados de
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8900d238e7542864e3dc53f9d192e579e2c96d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317387"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536698"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor reforma do modelo de implantação clássico APIs para métricas e autoescala
 
@@ -53,7 +53,7 @@ Se não tiver a certeza se o seu código ou ferramentas personalizadas estão a 
 
 Todas as capacidades existentes para autoescalação e métricas continuarão a funcionar através das novas APIs.  
 
-A migração para novas APIs vem com capacidades baseadas em Gestores de Recursos, tais como suporte para controlo de acesso Role-Based consistente (RBAC) em todos os seus serviços de monitorização. Também ganha funcionalidade adicional para métricas: 
+A migração para novas APIs vem com capacidades baseadas em Gestores de Recursos, tais como suporte para um consistente controlo de acesso baseado em funções Azure (Azure RBAC) em todos os seus serviços de monitorização. Também ganha funcionalidade adicional para métricas: 
 
 - apoio a dimensões
 - granularidade métrica consistente de 1 minuto em todos os serviços 

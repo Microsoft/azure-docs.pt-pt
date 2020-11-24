@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 21da883867da41e81ed1787faa0ebe0e6dd25d99
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 034f2b3884d732487a9f7aff4d14740691983885
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107883"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536783"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criar a implementação de Registos do Azure Monitor
 
@@ -60,16 +60,16 @@ Se estiver a utilizar o Gestor de Operações do Centro de Sistema 2012 R2 ou ma
 
 ## <a name="access-control-overview"></a>Descrição geral do controlo de acesso
 
-Com o controlo de acesso baseado em funções (RBAC), pode conceder aos utilizadores e grupos apenas a quantidade de acesso de que precisam para trabalhar com dados de monitorização num espaço de trabalho. Isto permite-lhe alinhar-se com o modelo operativo da sua organização de TI utilizando um único espaço de trabalho para armazenar dados recolhidos ativados em todos os seus recursos. Por exemplo, concede acesso à sua equipa responsável pelos serviços de infraestrutura alojados em máquinas virtuais Azure (VMs), e como resultado terão acesso apenas aos registos gerados pelos VMs. Isto está a seguir o nosso novo modelo de registo de contexto de recursos. A base para este modelo é para cada registo de registo emitido por um recurso Azure, estando automaticamente associada a este recurso. Os registos são encaminhados para um espaço de trabalho central que respeita a deteção e o RBAC com base nos recursos.
+Com o controlo de acesso baseado em funções Azure (Azure RBAC), você pode conceder aos utilizadores e grupos apenas a quantidade de acesso que precisam para trabalhar com dados de monitorização em um espaço de trabalho. Isto permite-lhe alinhar-se com o modelo operativo da sua organização de TI utilizando um único espaço de trabalho para armazenar dados recolhidos ativados em todos os seus recursos. Por exemplo, concede acesso à sua equipa responsável pelos serviços de infraestrutura alojados em máquinas virtuais Azure (VMs), e como resultado terão acesso apenas aos registos gerados pelos VMs. Isto está a seguir o nosso novo modelo de registo de contexto de recursos. A base para este modelo é para cada registo de registo emitido por um recurso Azure, estando automaticamente associada a este recurso. Os registos são encaminhados para um espaço de trabalho central que respeita a deteção e o RBAC Azure com base nos recursos.
 
 Os dados a que um utilizador tem acesso são determinados por uma combinação de fatores listados na tabela seguinte. Cada um é descrito nas secções abaixo.
 
-| Fator | Description |
+| Fator | Descrição |
 |:---|:---|
 | [Modo de acesso](#access-mode) | Método que o utilizador utiliza para aceder ao espaço de trabalho.  Define o âmbito dos dados disponíveis e o modo de controlo de acesso que é aplicado. |
 | [Modo de controlo de acesso](#access-control-mode) | Definição no espaço de trabalho que define se as permissões são aplicadas no espaço de trabalho ou no nível de recursos. |
 | [Permissões](manage-access.md) | Permissões aplicadas a indivíduos ou grupos de utilizadores para o espaço de trabalho ou recurso. Define quais os dados a que o utilizador terá acesso. |
-| [Nível de tabela RBAC](manage-access.md#table-level-rbac) | Permissões granulares opcionais que se aplicam a todos os utilizadores, independentemente do seu modo de acesso ou modo de controlo de acesso. Define quais os tipos de dados a que um utilizador pode aceder. |
+| [Nível de mesa Azure RBAC](manage-access.md#table-level-azure-rbac) | Permissões granulares opcionais que se aplicam a todos os utilizadores, independentemente do seu modo de acesso ou modo de controlo de acesso. Define quais os tipos de dados a que um utilizador pode aceder. |
 
 ## <a name="access-mode"></a>Modo de acesso
 
@@ -77,11 +77,11 @@ O *modo de acesso* refere-se à forma como um utilizador acede a um espaço de t
 
 Os utilizadores têm duas opções para aceder aos dados:
 
-* **Contexto do espaço de**trabalho : Pode visualizar todos os registos no espaço de trabalho a que tem permissão. As consultas neste modo são procuradas em todos os dados em todas as tabelas do espaço de trabalho. Este é o modo de acesso utilizado quando os registos são acedidos ao espaço de trabalho como o âmbito, como quando seleciona **Logs** a partir do menu **Azure Monitor** no portal Azure.
+* **Contexto do espaço de** trabalho : Pode visualizar todos os registos no espaço de trabalho a que tem permissão. As consultas neste modo são procuradas em todos os dados em todas as tabelas do espaço de trabalho. Este é o modo de acesso utilizado quando os registos são acedidos ao espaço de trabalho como o âmbito, como quando seleciona **Logs** a partir do menu **Azure Monitor** no portal Azure.
 
     ![Log Analytics contexto do espaço de trabalho](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Contexto de recursos**: Ao aceder ao espaço de trabalho para um determinado recurso, grupo de recursos ou subscrição, como quando seleciona **Logs** a partir de um menu de recursos no portal Azure, pode visualizar registos apenas em todas as tabelas a que tenha acesso. As consultas neste modo são procuradas apenas por dados associados a esse recurso. Este modo também permite o RBAC granular.
+* **Contexto de recursos**: Ao aceder ao espaço de trabalho para um determinado recurso, grupo de recursos ou subscrição, como quando seleciona **Logs** a partir de um menu de recursos no portal Azure, pode visualizar registos apenas em todas as tabelas a que tenha acesso. As consultas neste modo são procuradas apenas por dados associados a esse recurso. Este modo também permite o RBAC azure granular.
 
     ![Log Analytics contexto a partir de recurso](./media/design-logs-deployment/query-from-resource.png)
 
@@ -103,22 +103,22 @@ A tabela a seguir resume os modos de acesso:
 |:---|:---|:---|
 | Para quem é destinado cada modelo? | Administração central. Administradores que precisam de configurar a recolha de dados e utilizadores que precisam de acesso a uma grande variedade de recursos. Também atualmente necessário para os utilizadores que precisam de aceder a registos de recursos fora do Azure. | Equipas de candidatura. Administradores dos recursos da Azure a ser monitorizados. |
 | O que um utilizador necessita para visualizar registos? | Permissões para o espaço de trabalho. Consulte **permissões do Espaço de Trabalho** em Gerir o acesso utilizando [permissões de espaço de trabalho.](manage-access.md#manage-access-using-workspace-permissions) | Leia o acesso ao recurso. Consulte **permissões de Recursos** em Gerir o acesso utilizando [permissões Azure](manage-access.md#manage-access-using-azure-permissions). As permissões podem ser herdadas (por exemplo, do grupo de recursos contendo) ou diretamente atribuídas ao recurso. A permissão para os registos do recurso será automaticamente atribuída. |
-| Qual é o âmbito das permissões? | Espaço de trabalho. Os utilizadores com acesso ao espaço de trabalho podem consultar todos os registos no espaço de trabalho a partir de tabelas às que têm permissões. Ver [controlo de acesso à mesa](manage-access.md#table-level-rbac) | Recurso azul. O utilizador pode consultar registos de recursos específicos, grupos de recursos ou subscrição a que tenham acesso a partir de qualquer espaço de trabalho, mas não podem consultar registos de outros recursos. |
+| Qual é o âmbito das permissões? | Espaço de trabalho. Os utilizadores com acesso ao espaço de trabalho podem consultar todos os registos no espaço de trabalho a partir de tabelas às que têm permissões. Ver [controlo de acesso à mesa](manage-access.md#table-level-azure-rbac) | Recurso azul. O utilizador pode consultar registos de recursos específicos, grupos de recursos ou subscrição a que tenham acesso a partir de qualquer espaço de trabalho, mas não podem consultar registos de outros recursos. |
 | Como podem os registos de acesso do utilizador? | <ul><li>Inicie **registos** a partir do menu **Azure Monitor.**</li></ul> <ul><li>Iniciar **registos** a partir de espaços de **trabalho log analytics**.</li></ul> <ul><li>Dos livros de [trabalho](../visualizations.md#workbooks)do Monitor Azure.</li></ul> | <ul><li>Inicie **registos** a partir do menu para o recurso Azure</li></ul> <ul><li>Inicie **registos** a partir do menu **Azure Monitor.**</li></ul> <ul><li>Iniciar **registos** a partir de espaços de **trabalho log analytics**.</li></ul> <ul><li>Dos livros de [trabalho](../visualizations.md#workbooks)do Monitor Azure.</li></ul> |
 
 ## <a name="access-control-mode"></a>Modo de controlo de acesso
 
 O *modo de controlo access* é uma definição em cada espaço de trabalho que define como as permissões são determinadas para o espaço de trabalho.
 
-* **Requer permissões de espaço de trabalho**: Este modo de controlo não permite o RBAC granular. Para que um utilizador aceda ao espaço de trabalho, deve ser-lhes concedidas permissões para o espaço de trabalho ou para mesas específicas.
+* **Requer permissões de espaço de trabalho**: Este modo de controlo não permite o RBAC azure granular. Para que um utilizador aceda ao espaço de trabalho, deve ser-lhes concedidas permissões para o espaço de trabalho ou para mesas específicas.
 
     Se um utilizador aceder ao espaço de trabalho seguindo o modo de contexto de espaço de trabalho, tem acesso a todos os dados em qualquer tabela a que tenha acesso. Se um utilizador aceder ao espaço de trabalho seguindo o modo de contexto de recursos, tem acesso a apenas dados para esse recurso em qualquer tabela a que tenha acesso.
 
     Esta é a definição padrão para todos os espaços de trabalho criados antes de março de 2019.
 
-* **Utilização de permissões de recursos ou espaço de trabalho**: Este modo de controlo permite o RBAC granular. Os utilizadores podem ter acesso a apenas dados associados aos recursos que podem ver, atribuindo a permissão do `read` Azure. 
+* **Utilização de permissões de recursos ou espaço de trabalho**: Este modo de controlo permite o RBAC azure granular. Os utilizadores podem ter acesso a apenas dados associados aos recursos que podem ver, atribuindo a permissão do `read` Azure. 
 
-    Quando um utilizador acede ao espaço de trabalho no modo de contexto de espaço de trabalho, aplicam-se permissões de espaço de trabalho. Quando um utilizador acede ao espaço de trabalho no modo de contexto de recursos, apenas as permissões de recursos são verificadas e as permissões do espaço de trabalho são ignoradas. Ativar o RBAC para um utilizador removendo-os das permissões do espaço de trabalho e permitindo que as suas permissões de recursos sejam reconhecidas.
+    Quando um utilizador acede ao espaço de trabalho no modo de contexto de espaço de trabalho, aplicam-se permissões de espaço de trabalho. Quando um utilizador acede ao espaço de trabalho no modo de contexto de recursos, apenas as permissões de recursos são verificadas e as permissões do espaço de trabalho são ignoradas. Ativar o Azure RBAC para um utilizador removendo-os das permissões do espaço de trabalho e permitindo que as suas permissões de recursos sejam reconhecidas.
 
     Esta é a definição padrão para todos os espaços de trabalho criados após março de 2019.
 

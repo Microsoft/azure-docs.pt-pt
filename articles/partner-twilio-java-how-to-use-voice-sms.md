@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: f2f30230418637b53826bd314e395e760db7087f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 053c120b7a1a6c50c16ff419a9e64666d83dc59a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87306019"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542495"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Como usar twilio para capacidades de voz e SMS em Java
 Este guia demonstra como executar tarefas de programação comuns com o serviço Twilio API em Azure. Os cenários abrangidos incluem fazer uma chamada telefónica e enviar uma mensagem do Serviço de Mensagens Curtas (SMS). Para obter mais informações sobre Twilio e utilizando voz e SMS nas suas aplicações, consulte a secção [Etapas Seguintes.](#NextSteps)
@@ -37,21 +37,21 @@ A API Twilio é uma API RESTful que fornece funcionalidade de voz e SMS para apl
 Os principais aspetos da API de Twilio são os verbos Twilio e a Língua de Marcação Twilio (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Verbos Twilio
-A API faz uso de verbos twilio; por exemplo, o verbo ** &lt; Say &gt; ** instrui Twilio a entregar uma mensagem audivelmente numa chamada.
+A API faz uso de verbos twilio; por exemplo, o verbo **&lt; Say &gt;** instrui Twilio a entregar uma mensagem audivelmente numa chamada.
 
 Segue-se uma lista de verbos de Twilio.
 
-* Marcação : Liga o chamador a outro telefone. ** &lt; &gt; **
-* ** &lt; Recolha: &gt; **Coleciona dígitos numéricos introduzidos no teclado do telefone.
-* ** &lt; Hangup &gt; **: Termina uma chamada.
-* ** &lt; Reproduzir: &gt; **Reproduz um ficheiro áudio.
-* ** &lt; Fila &gt; **: Adicione a uma fila de chamadas.
-* ** &lt; Pausa &gt; **: Aguarde silenciosamente um número especificado de segundos.
-* ** &lt; Record: &gt; **Grava a voz do autor da chamada e devolve um URL de um ficheiro que contém a gravação.
-* ** &lt; Redirecionamento &gt; **: Transfere o controlo de uma chamada ou SMS para o TwiML num URL diferente.
-* ** &lt; Rejeitar: &gt; **Rejeita uma chamada recebida para o seu número Twilio sem o cobrar.
-* ** &lt; Diga: &gt; **Converte texto para discurso que é feito numa chamada.
-* ** &lt; Sms &gt; **: Envia uma mensagem SMS.
+* Marcação : Liga o chamador a outro telefone. **&lt; &gt;**
+* **&lt; Recolha: &gt;** Coleciona dígitos numéricos introduzidos no teclado do telefone.
+* **&lt; Hangup &gt;**: Termina uma chamada.
+* **&lt; Reproduzir: &gt;** Reproduz um ficheiro áudio.
+* **&lt; Fila &gt;**: Adicione a uma fila de chamadas.
+* **&lt; Pausa &gt;**: Aguarde silenciosamente um número especificado de segundos.
+* **&lt; Record: &gt;** Grava a voz do autor da chamada e devolve um URL de um ficheiro que contém a gravação.
+* **&lt; Redirecionamento &gt;**: Transfere o controlo de uma chamada ou SMS para o TwiML num URL diferente.
+* **&lt; Rejeitar: &gt;** Rejeita uma chamada recebida para o seu número Twilio sem o cobrar.
+* **&lt; Diga: &gt;** Converte texto para discurso que é feito numa chamada.
+* **&lt; Sms &gt;**: Envia uma mensagem SMS.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TWIML
 TwiML é um conjunto de instruções baseadas em XML com base nos verbos Twilio que informam Twilio de como processar uma chamada ou SMS.
@@ -157,7 +157,7 @@ O seguinte mostra como enviar uma mensagem SMS utilizando a classe **Mensagem.**
 Para obter mais informações sobre os parâmetros transmitidos ao método **Message.creator,** consulte [https://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms] .
 
 ## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>Como: Fornecer respostas TwiML a partir do seu próprio website
-Quando a sua aplicação iniciar uma chamada para a API Twilio, por exemplo através do método **CallCreator.create,** Twilio enviará o seu pedido para um URL que se espera que devolva uma resposta TwiML. O exemplo acima utiliza o URL fornecido por [https://twimlets.com/message][twimlet_message_url] Twilio. (Enquanto o TwiML foi concebido para ser utilizado pelos serviços Web, pode ver o TwiML no seu navegador. Por exemplo, clique [https://twimlets.com/message][twimlet_message_url] para ver um elemento de ** &lt; resposta &gt; ** vazio; como outro exemplo, clique para ver um elemento de [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world] ** &lt; resposta &gt; ** que contenha um elemento ** &lt; Say.) &gt; **
+Quando a sua aplicação iniciar uma chamada para a API Twilio, por exemplo através do método **CallCreator.create,** Twilio enviará o seu pedido para um URL que se espera que devolva uma resposta TwiML. O exemplo acima utiliza o URL fornecido por [https://twimlets.com/message][twimlet_message_url] Twilio. (Enquanto o TwiML foi concebido para ser utilizado pelos serviços Web, pode ver o TwiML no seu navegador. Por exemplo, clique [https://twimlets.com/message][twimlet_message_url] para ver um elemento de **&lt; resposta &gt;** vazio; como outro exemplo, clique para ver um elemento de [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world] **&lt; resposta &gt;** que contenha um elemento **&lt; Say.) &gt;**
 
 Em vez de confiar no URL fornecido por Twilio, pode criar o seu próprio site URL que devolve respostas HTTP. Pode criar o site em qualquer idioma que devolva respostas HTTP; este tópico pressupõe que irá hospedar o URL numa página JSP.
 
@@ -217,9 +217,9 @@ Agora que aprendeu o básico do serviço Twilio, siga estes links para saber mai
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: java-add-certificate-ca-store.md
+[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
 [howto_phonecall_java]: partner-twilio-java-phone-call-example.md
-[misc_role_config_settings]: https://msdn.microsoft.com/library/windowsazure/hh690945.aspx
+[misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message
 [twimlet_message_url_hello_world]: https://twimlets.com/message?Message%5B0%5D=Hello%20World%21
 [twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls

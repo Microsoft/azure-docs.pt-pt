@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 297595c6c4a9c82c3d0293f2cea2db66ea9ca54a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0de8d8d5ff0f14d0268dbcca743f4d06ed877903
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180410"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544399"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse
 
@@ -23,12 +23,12 @@ ms.locfileid: "89180410"
 Este guia mostra-lhe como usar blobfuse, e montar um recipiente de armazenamento Blob no Linux e dados de acesso. Para saber mais sobre blobfuse, leia os detalhes no [repositório blobfuse.](https://github.com/Azure/azure-storage-fuse)
 
 > [!WARNING]
-> A Blobfuse não garante o cumprimento 100% posix, uma vez que simplesmente traduz pedidos em [APIs Blob REST](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Por exemplo, as operações de renome são atómicas em POSIX, mas não em blobfuse.
+> A Blobfuse não garante o cumprimento 100% posix, uma vez que simplesmente traduz pedidos em [APIs Blob REST](/rest/api/storageservices/blob-service-rest-api). Por exemplo, as operações de renome são atómicas em POSIX, mas não em blobfuse.
 > Para obter uma lista completa de diferenças entre um sistema de ficheiros nativo e blobfuse, visite [o repositório de código fonte blobfuse](https://github.com/azure/azure-storage-fuse).
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Instale blobfuse no Linux
-Os binários Blobfuse estão disponíveis nos [repositórios de software da Microsoft para a Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) para distribuição Ubuntu e RHEL. Para instalar blobfuse nessas distribuições, configuure um dos repositórios da lista. Também pode construir os binários a partir do código fonte seguindo os passos de instalação do [Azure Storage](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) se não houver binários disponíveis para a sua distribuição.
+Os binários Blobfuse estão disponíveis nos [repositórios de software da Microsoft para a Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) para distribuição Ubuntu e RHEL. Para instalar blobfuse nessas distribuições, configuure um dos repositórios da lista. Também pode construir os binários a partir do código fonte seguindo os passos de instalação do [Azure Storage](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) se não houver binários disponíveis para a sua distribuição.
 
 Blobfuse suporta instalação em Ubuntu 14.04, 16.04 e 18.04. Executar este comando para se certificar de que tem uma dessas versões implantadas:
 ```
@@ -36,7 +36,7 @@ lsb_release -a
 ```
 
 ### <a name="configure-the-microsoft-package-repository"></a>Configure o repositório do pacote da Microsoft
-Configure o [Repositório de Pacotes Linux para produtos microsoft](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
+Configure o [Repositório de Pacotes Linux para produtos microsoft](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
 Como exemplo, numa distribuição da Enterprise Linux 6:
 ```bash
@@ -144,5 +144,4 @@ echo "hello world" > test/blob.txt
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Página inicial blobfuse](https://github.com/Azure/azure-storage-fuse#blobfuse)
-* [Reportar problemas blobfuse](https://github.com/Azure/azure-storage-fuse/issues) 
-
+* [Reportar problemas blobfuse](https://github.com/Azure/azure-storage-fuse/issues)

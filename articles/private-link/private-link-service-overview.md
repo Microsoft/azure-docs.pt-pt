@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27dba675f82c4d34ec793cf492c18b293a6c8c77
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87760957"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544263"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço Azure Private Link?
 
-O serviço Azure Private Link é a referência ao seu próprio serviço que é alimentado pela Azure Private Link. O seu serviço que está a funcionar atrás do [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) pode ser ativado para acesso private Link para que os consumidores do seu serviço possam aceder a ele em privado a partir dos seus próprios VNets. Os seus clientes podem criar um ponto final privado dentro do seu VNet e mapeá-lo para este serviço. Este artigo explica conceitos relacionados com o lado do prestador de serviços. 
+O serviço Azure Private Link é a referência ao seu próprio serviço que é alimentado pela Azure Private Link. O seu serviço que está a funcionar atrás do [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md) pode ser ativado para acesso private Link para que os consumidores do seu serviço possam aceder a ele em privado a partir dos seus próprios VNets. Os seus clientes podem criar um ponto final privado dentro do seu VNet e mapeá-lo para este serviço. Este artigo explica conceitos relacionados com o lado do prestador de serviços. 
 
 :::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Fluxo de trabalho do serviço de ligação privada" border="true":::
 
@@ -57,7 +57,7 @@ Um serviço de Ligação Privada especifica as seguintes propriedades:
 |---------|---------|
 |Estado de provisionamento (Estado de provisionamento)  |Uma propriedade apenas de leitura que lista o estado atual de fornecimento para o serviço Private Link. Os estados de provisionamento aplicáveis são: "Supressão; Falhou; Conseguiu; Atualização". Quando o estado de provisionamento é "Bem sucedido", você tem conseguido o seu serviço de Ligação Privada.        |
 |Pseudónimo (pseudónimo)     | O pseudónimo é uma cadeia de leitura única globalmente única para o seu serviço. Ajuda-o a mascarar os dados do cliente para o seu serviço e, ao mesmo tempo, cria um nome fácil de partilhar para o seu serviço. Ao criar um serviço Private Link, o Azure gera o pseudónimo para o seu serviço que pode partilhar com os seus clientes. Os seus clientes podem usar este pseudónimo para solicitar uma ligação ao seu serviço.          |
-|Visibilidade (visibilidade)     | A visibilidade é a propriedade que controla as definições de exposição para o seu serviço Private Link. Os prestadores de serviços podem optar por limitar a exposição ao seu serviço a subscrições com permissões de controlo de acesso baseado em funções (RBAC), um conjunto restrito de subscrições ou todas as subscrições da Azure.          |
+|Visibilidade (visibilidade)     | A visibilidade é a propriedade que controla as definições de exposição para o seu serviço Private Link. Os prestadores de serviços podem optar por limitar a exposição ao seu serviço a subscrições com permissões de controlo de acesso baseado em funções Azure (Azure RBAC), um conjunto restrito de subscrições ou todas as subscrições Azure.          |
 |Aprovação automática (autoApproval)    |   A homologação automática controla o acesso automatizado ao serviço Private Link. As subscrições especificadas na lista de homologação automática são aprovadas automaticamente quando é solicitada uma ligação a partir de pontos finais privados nessas subscrições.          |
 |Configuração IP frontend do balançador de carga (loadBalancerFrontendIpConfigurations)    |    O serviço Private Link está ligado ao endereço IP frontend de um Balancer de Carga Padrão. Todo o tráfego destinado ao serviço chegará à frente do SLB. Pode configurar as regras SLB para direcionar este tráfego para piscinas de backend apropriadas onde as suas aplicações estão em execução. As configurações IP do frontend do balançador de carga são diferentes das configurações IP do NAT.      |
 |Configuração IP NAT (ipConfigurations)    |    Esta propriedade refere-se à configuração IP NAT (Network Address Translation) para o serviço Private Link. O NAT IP pode ser escolhido a partir de qualquer sub-rede na rede virtual de um prestador de serviços. O serviço Private Link realiza o lado do destino NAT-ing no tráfego de Ligação Privada. Isto garante que não existe um conflito IP entre o espaço de endereço de origem (lado do consumidor) e destino (prestador de serviços). No lado do destino (lado do prestador de serviços), o endereço NAT IP aparecerá como SOURCE IP para todos os pacotes recebidos pelo seu serviço e destino IP para todos os pacotes enviados pelo seu serviço.       |
@@ -76,7 +76,7 @@ Um serviço de Ligação Privada especifica as seguintes propriedades:
  
 - Um único Serviço de Ligação Privada pode ser acedido a partir de vários Pontos Finais Privados pertencentes a diferentes VNets, subscrições e/ou inquilinos do Ative Directory. A ligação é estabelecida através de um fluxo de trabalho de ligação. 
  
-- Vários serviços de Ligação Privada podem ser criados no mesmo Balanceador de Carga Padrão utilizando diferentes configurações IP frontais. Existem limites para o número de serviços de Private Link que pode criar por Balancer de Carga Padrão e por subscrição. Para mais detalhes, consulte [os limites de Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Vários serviços de Ligação Privada podem ser criados no mesmo Balanceador de Carga Padrão utilizando diferentes configurações IP frontais. Existem limites para o número de serviços de Private Link que pode criar por Balancer de Carga Padrão e por subscrição. Para mais detalhes, consulte [os limites de Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
  
 - O serviço Private Link pode ter mais de uma configuração NAT IP ligadas a ele. Escolher mais do que uma configuração DE IP NAT pode ajudar os prestadores de serviços a escalar. Hoje em dia, os prestadores de serviços podem atribuir até oito endereços IP NAT por serviço private Link. A cada endereço NAT IP, pode atribuir mais portas para as suas ligações TCP e, assim, escalonar. Depois de adicionar vários endereços IP NAT a um serviço de Ligação Privada, não é possível eliminar os endereços IP DO NAT. Isto é feito para garantir que as ligações ativas não sejam impactadas enquanto eliminam os endereços IP NAT.
 
@@ -95,7 +95,7 @@ Pseudónimo completo:  *Prefixo*. {GUID}. *região*.azure.privatelinkservice
 
 ## <a name="control-service-exposure"></a>Exposição ao serviço de controlo
 
-O serviço Private Link fornece-lhe opções para controlar a exposição do seu serviço através da definição "Visibilidade". Pode tornar o serviço privado para consumo a partir de diferentes VNets que possui (apenas permissões RBAC), restringir a exposição a um conjunto limitado de subscrições em que confia, ou torná-lo público para que todas as subscrições do Azure possam solicitar ligações no serviço Private Link. As suas definições de visibilidade decidem se um consumidor pode ou não ligar-se ao seu serviço. 
+O serviço Private Link fornece-lhe opções para controlar a exposição do seu serviço através da definição "Visibilidade". Pode tornar o serviço privado para consumo a partir de diferentes VNets que possui (apenas permissões Azure RBAC), restringir a exposição a um conjunto limitado de subscrições em que confia, ou torná-lo público para que todas as subscrições do Azure possam solicitar ligações no serviço Private Link. As suas definições de visibilidade decidem se um consumidor pode ou não ligar-se ao seu serviço. 
 
 ## <a name="control-service-access"></a>Acesso ao serviço de controlo
 

@@ -3,18 +3,18 @@ title: Migrar um recurso clássico da Aplicação Azure Monitor Insights para um
 description: Conheça os passos necessários para atualizar o seu recurso clássico Azure Monitor Application Insights para o novo modelo baseado no espaço de trabalho.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 709cff1326bb6393a14c594ea434a6c16fb80860
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930582"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536528"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrar para recursos de Insights de Aplicação baseados no espaço de trabalho
 
 Este guia irá acompanhá-lo através do processo de migração de um recurso clássico application Insights para um recurso baseado no espaço de trabalho. Os recursos baseados no espaço de trabalho suportam a integração total entre o Application Insights e o Log Analytics. Os recursos baseados no espaço de trabalho enviam telemetria Application Insights para um espaço de trabalho comum do Log Analytics, que lhe permite aceder às [mais recentes funcionalidades do Azure Monitor,](#new-capabilities) mantendo os registos de aplicações, infraestruturas e plataformas num único local consolidado.
 
-Os recursos baseados no espaço de trabalho permitem o controle de acesso Role-Based comum (RBAC) através dos seus recursos, e elimina a necessidade de consultas cruzadas/espaço de trabalho.
+Os recursos baseados no espaço de trabalho permitem o controlo comum de acesso baseado em funções (Azure RBAC) através dos seus recursos, e elimina a necessidade de consultas cruzadas/espaço de trabalho.
 
 **Os recursos baseados no espaço de trabalho estão atualmente disponíveis em todas as regiões comerciais e no Governo dos EUA**
 
@@ -229,7 +229,7 @@ A funcionalidade de exportação contínua do legado não é suportada por recur
 
 - Uma vez selecionados desativar, pode navegar de volta para a UI de migração. Se a página de exportação contínua de edição lhe solicitar que as suas definições não sejam guardadas, pode selecionar ok para esta solicitação, uma vez que não diz respeito à desativação/ativação da exportação contínua.
 
-- Uma vez migrado com sucesso o seu recurso Application Insights para o espaço de trabalho, pode utilizar definições de Diagnóstico para substituir a funcionalidade que a exportação contínua usou para fornecer. Selecione **as definições**de Diagnóstico  >  **adicione a definição** de diagnóstico a partir do seu recurso Application Insights. Pode selecionar todas as tabelas ou um subconjunto de tabelas para arquivar numa conta de armazenamento ou para transmitir para um Azure Event Hub. Para obter orientações detalhadas sobre as definições de diagnóstico, consulte a orientação de diagnóstico do [Monitor Azure](../platform/diagnostic-settings.md).
+- Uma vez migrado com sucesso o seu recurso Application Insights para o espaço de trabalho, pode utilizar definições de Diagnóstico para substituir a funcionalidade que a exportação contínua usou para fornecer. Selecione **as definições** de Diagnóstico  >  **adicione a definição** de diagnóstico a partir do seu recurso Application Insights. Pode selecionar todas as tabelas ou um subconjunto de tabelas para arquivar numa conta de armazenamento ou para transmitir para um Azure Event Hub. Para obter orientações detalhadas sobre as definições de diagnóstico, consulte a orientação de diagnóstico do [Monitor Azure](../platform/diagnostic-settings.md).
 
 ### <a name="retention-settings"></a>Definições de retenção
 

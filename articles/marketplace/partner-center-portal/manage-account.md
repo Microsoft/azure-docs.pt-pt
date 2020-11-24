@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/02/2020
-ms.openlocfilehash: a9d2c10d665af6899ec79312353676467a623735
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 8b372cc0fc19c6bf163d9d4e61cde6ce74cb3f28
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628888"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95538391"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerir a sua conta de mercado comercial no Partner Center
 
@@ -34,21 +34,23 @@ Neste artigo, vamos mergulhar na forma de gerir a sua conta partner Center, incl
 ## <a name="access-your-account-settings"></a>Aceda às definições da sua conta
 
 Se ainda não o fez, você (ou administrador da sua organização) deverá aceder às [definições](https://partner.microsoft.com/dashboard/account/management) de conta da sua conta Partner Center para:
-- Verifique o estado de verificação da conta da sua empresa
-- Confirme o seu ID Symantec, ID do Vendedor, Microsoft Partner Network (MPN) ID, ID do Editor e informações de contacto, incluindo o aprovador da empresa e o contacto do vendedor
-- Crie contas de utilizador para quem utilizar a sua conta de negócios no Partner Center
 
-### <a name="open-developer-settings"></a>Abra as definições do desenvolvedor
+- Verifique o estado de verificação da conta da sua empresa.
+- Confirme o seu ID Symantec, ID do vendedor, ID da Microsoft Partner Network (MPN), ID do Editor e informações de contacto, incluindo o aprovante da empresa e o contacto com o vendedor.
+- Crie contas de utilizador para quem utilizar a sua conta de negócios no Partner Center.
 
-No painel [de instrumentos do seu mercado comercial](https://partner.microsoft.com/dashboard/commercial-marketplace) no Partner Center, selecione **Definições** (ícone de engrenagem) no canto superior direito e, em seguida, **as definições do Desenvolvedor**.
+### <a name="open-account-settings"></a>Definições de Conta Aberta
+
+No painel [de instrumentos do seu mercado comercial](https://partner.microsoft.com/dashboard/commercial-marketplace) no Partner Center, selecione **Definições** (ícone de engrenagem) no canto superior direito e, em seguida, **as definições de Conta**.
 
 ![Menu de definições de conta no Partner Center](./media/dashboard-developer-settings.png)
 
 Nas **definições de Conta** pode ver o seu:
-- **Detalhes da conta** : Tipo de conta e estado da conta
-- **IDs editoriais** : ID do vendedor, ID do utilizador, ID editor, inquilinos AD Azure, e assim por diante
-- **Informações de contacto** : Nome de exibição do editor, nome de contacto do vendedor, e-mail, telefone e endereço
-- **GUIDs de rastreio** : Quaisquer GUIDs de rastreio associados à sua conta
+
+- **Detalhes da conta**: Tipo de conta e estado da conta
+- **IDs editoriais**: ID do vendedor, ID do utilizador, ID editor, inquilinos AD Azure, e assim por diante
+- **Informações de contacto**: Nome de exibição do editor, nome de contacto do vendedor, e-mail, telefone e endereço
+- **GUIDs de rastreio**: Quaisquer GUIDs de rastreio associados à sua conta
 
 ### <a name="account-details"></a>Detalhes da conta
 
@@ -71,7 +73,7 @@ Para configurar a sua conta de pagamento:
 1. Vá à [página de visão geral](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) do mercado comercial no Partner Center.
 2. Na secção Perfil, ao lado **do Perfil de Pagamento,** selecione **Update**.
 3. **Escolha um método de pagamento:** conta bancária ou PayPal.
-4. **Adicionar informações de pagamento** : Isto pode incluir a escolha de um tipo de conta (verificação ou poupança), introduzir o nome do titular da conta, o número da conta e o número de encaminhamento, endereço de faturação, número de telefone ou PayPal endereço de e-mail. *Para obter mais informações sobre a utilização de PayPal como método de pagamento da sua conta e para saber se é apoiado na sua região de mercado, consulte [PayPal informações](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+4. **Adicionar informações de pagamento**: Isto pode incluir a escolha de um tipo de conta (verificação ou poupança), introduzir o nome do titular da conta, o número da conta e o número de encaminhamento, endereço de faturação, número de telefone ou PayPal endereço de e-mail. *Para obter mais informações sobre a utilização de PayPal como método de pagamento da sua conta e para saber se é apoiado na sua região de mercado, consulte [PayPal informações](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > Alterar a sua conta de pagamento pode atrasar os seus pagamentos até um ciclo de pagamento. Este atraso ocorre porque precisamos verificar a alteração da conta, tal como fazemos quando configuramos a conta de pagamento pela primeira vez. Continuará a ser pago pelo valor total depois de verificada a sua conta; quaisquer pagamentos devidos para o ciclo de pagamento em curso serão adicionados ao próximo.  
@@ -104,7 +106,7 @@ Se estiver fora dos Estados Unidos, poderá tirar partido dos benefícios do tra
 
 Por padrão, a Microsoft envia pagamentos mensalmente. No entanto, pode opcionalmente colocar os seus pagamentos em espera, o que impedirá o envio de pagamentos para a sua conta. Se optar por colocar os seus pagamentos em espera, continuaremos a registar qualquer receita que obtenha e forneceremos os detalhes no seu **resumo do Pagamento.** No entanto, não enviaremos quaisquer pagamentos para a sua conta até que remova o porão.
 
-Para colocar os seus pagamentos em espera, vá para as **definições de Conta**. Em **detalhes financeiros** , na secção **de estado de detenção de pagamento,** alternar o slider para **On**. Pode alterar o seu estado de detenção a qualquer momento, mas esteja ciente de que a sua decisão terá impacto no próximo pagamento mensal. Por exemplo, se quiser realizar o pagamento de abril, certifique-se de definir o seu estado de detenção de pagamento para **On** antes do final de março.
+Para colocar os seus pagamentos em espera, vá para as **definições de Conta**. Em **detalhes financeiros**, na secção **de estado de detenção de pagamento,** alternar o slider para **On**. Pode alterar o seu estado de detenção a qualquer momento, mas esteja ciente de que a sua decisão terá impacto no próximo pagamento mensal. Por exemplo, se quiser realizar o pagamento de abril, certifique-se de definir o seu estado de detenção de pagamento para **On** antes do final de março.
 
 Depois de definir o seu estado de detenção de pagamento para **On,** todos os pagamentos ficarão em espera até que altere o slider de volta para **Off**. Quando o fizer, será incluído durante o próximo ciclo mensal de pagamento (desde que os limiares de pagamento aplicáveis tenham sido cumpridos). Por exemplo, se já teve os seus pagamentos em espera, mas gostaria de ter um pagamento gerado em junho, então certifique-se de alternar o estado de detenção do pagamento para **Off** antes do final de maio.
 
@@ -326,9 +328,9 @@ Para criar um novo inquilino AZure AD com a sua conta Partner Center:
 
 1. A partir da página **de Inquilinos** (em **definições de Conta),** selecione **Criar um novo inquilino AD Azure**.
 2. Insira as informações do diretório para o seu novo AD Azure:
-    - **Nome de domínio** : O nome único que usaremos para o seu domínio AZure AD, juntamente com ".onmicrosoft.com". Por exemplo, se inserisse "exemplo", o seu domínio AD Azure seria "example.onmicrosoft.com".
+    - **Nome de domínio**: O nome único que usaremos para o seu domínio AZure AD, juntamente com ".onmicrosoft.com". Por exemplo, se inserisse "exemplo", o seu domínio AD Azure seria "example.onmicrosoft.com".
     - **E-mail de contato:** Um endereço de e-mail onde podemos contactá-lo sobre a sua conta, se necessário.
-    - **Informações globais da conta de utilizador do administrador** : O primeiro nome, apelido, nome de utilizador e senha que pretende utilizar para a nova conta de administrador global.
+    - **Informações globais da conta de utilizador do administrador**: O primeiro nome, apelido, nome de utilizador e senha que pretende utilizar para a nova conta de administrador global.
 3. Selecione **Criar** para confirmar o novo domínio e informações de conta.
 4. Inicie sôr entrada com o seu novo nome de utilizador e palavra-passe do administrador global Azure AD para começar a [adicionar e gerir utilizadores.](#manage-users)
 

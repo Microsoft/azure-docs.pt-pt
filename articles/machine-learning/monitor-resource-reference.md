@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d231de8e262194cd7dda2462a3f54d7d531eb63c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540795"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542087"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorização da referência de dados de aprendizagem de máquinas Azure
 
@@ -26,7 +26,7 @@ Esta secção lista todas as métricas da plataforma recolhidas automaticamente 
 
 **Modelação**
 
-| Métrica | Unidade | Description |
+| Metric | Unidade | Descrição |
 | ----- | ----- | ----- |
 | A implementação do modelo falhou | de palavras | O número de implementações de modelos que falharam. |
 | Implementação de modelos iniciado | de palavras | O número de implementações de modelos começou. |
@@ -38,7 +38,7 @@ Esta secção lista todas as métricas da plataforma recolhidas automaticamente 
 
 A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
 
-| Métrica | Unidade | Description |
+| Metric | Unidade | Descrição |
 | ----- | ----- | ----- |
 | Núcleos ativos | de palavras | O número de núcleos de computação ativo. |
 | Nódes ativos | de palavras | O número de nós ativos. |
@@ -56,7 +56,7 @@ A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
 
 **Recurso**
 
-| Métrica | Unidade | Description |
+| Metric | Unidade | Descrição |
 | ----- | ----- | ----- |
 | CpuUtilização | Percentagem | Quanto por cento do CPU foi usado para um dado nó durante uma corrida/trabalho. Esta métrica só é publicada quando um trabalho está a funcionar num nó. Um trabalho pode usar um ou mais nós. Esta métrica é publicada por nó. |
 | GpuUtilização | Percentagem | Quanto percentagem de GPU foi utilizada para um dado nó durante uma corrida/trabalho. Um nó pode ter uma ou mais GPUs. Esta métrica é publicada por GPU por nó. |
@@ -65,7 +65,7 @@ A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
 
 Informação sobre treinos.
 
-| Métrica | Unidade | Description |
+| Metric | Unidade | Descrição |
 | ----- | ----- | ----- |
 | Execuções concluídas | de palavras | O número de execuções completas. |
 | Corridas falhadas | de palavras | O número de corridas falhadas. |
@@ -77,9 +77,9 @@ Para obter mais informações sobre as dimensões métricas, consulte [métricas
 
 A Azure Machine Learning tem as seguintes dimensões associadas às suas métricas.
 
-| Dimensão | Description |
+| Dimensão | Descrição |
 | ---- | ---- |
-| Nome do Cluster | O nome da instância computacional. Disponível para todas as métricas de quota. |
+| Nome do Cluster | O nome do recurso de cluster compute. Disponível para todas as métricas de quota. |
 | Nome da família VM | O nome da família VM usado pelo aglomerado. Disponível para percentagem de utilização de cots. |
 | Prioridade Vm | A prioridade do VM. Disponível para percentagem de utilização de cots.
 | CreatedTime | Disponível apenas para CpuUtilization e GpuUtilization. |
@@ -104,7 +104,7 @@ Os valores válidos para a dimensão RunType são:
 
 A tabela que se segue lista as operações relacionadas com a Azure Machine Learning que podem ser criadas no registo de Atividades.
 
-| Operação | Description |
+| Operação | Descrição |
 |:---|:---|
 | Cria ou atualiza um espaço de trabalho de Machine Learning | Um espaço de trabalho foi criado ou atualizado |
 | CheckComputeNameAvailability | Verifique se um nome de computação já está em uso |
@@ -228,7 +228,7 @@ Os seguintes esquemas estão em uso pela Azure Machine Learning
 | TotalE2ETimeInSegundos | O nó de tempo total estava ativo |
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - Consulte [a monitorização da aprendizagem automática Azure](monitor-azure-machine-learning.md) para uma descrição da monitorização da aprendizagem automática do Azure.
 - Consulte [os recursos de Monitor Azure com o Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

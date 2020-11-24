@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: cfc3c445595bec046de4256a57d566067fe3d29e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54023c8c4d13bb683ef2e53f2d6a49b23b3861a4
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82692446"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537769"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificar as métricas de débito e latência de uma conta de armazenamento
 
@@ -24,7 +24,7 @@ Na quarta parte da série, ficará a saber como:
 > * Configurar gráficos no portal do Azure
 > * Verificar as métricas de débito e latência
 
-As [métricas do armazenamento do Azure](../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) utilizam o monitor do Azure para proporcionar uma vista unificada do desempenho e da disponibilidade da conta de armazenamento.
+As [métricas do armazenamento do Azure](./monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) utilizam o monitor do Azure para proporcionar uma vista unificada do desempenho e da disponibilidade da conta de armazenamento.
 
 ## <a name="configure-metrics"></a>Configurar as métricas
 
@@ -36,7 +36,7 @@ Em **MÉTRICA**, selecione uma das métricas encontradas na tabela seguinte:
 
 As métricas seguintes dão-lhe uma ideia da latência e do débito da aplicação. As métricas que configurar no portal encontram-se em médias de 1 minuto. Se uma transação terminada a meio de um minuto, os dados dos minutos são reduzidos para metade para a média. Na aplicação, as operações de carregamento e transferência foram cronometradas e proporcionaram-lhe o resultado do tempo real que demorou a carregar e a transferir os ficheiros. Estas informações podem ser utilizadas em conjunto com as métricas do portal para compreender totalmente o débito.
 
-|Métrica|Definição|
+|Metric|Definição|
 |---|---|
 |**Latência de E2E Com Êxito**|A latência de ponto a ponto média de pedidos com êxito feitos a um serviço de armazenamento ou a uma operação de API especificada. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|
 |**Latência do servidor de sucesso**|O tempo médio utilizado para processar um pedido com êxito pelo Armazenamento do Azure. Este valor não inclui a latência de rede especificada em SuccessE2ELatency. |
@@ -52,7 +52,7 @@ Os gráficos podem ter mais do que uma métrica atribuída, mas atribuir mais de
 
 ## <a name="dimensions"></a>Dimensões
 
-As [dimensões](../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) servem para ver mais aprofundadamente os gráficos e obter informações mais detalhadas. Métricas diferentes têm dimensões diferentes. Uma dimensão disponível é a dimensão **Nome da API**. Esta dimensão divide o gráfico em chamadas à API separadas. A primeira imagem abaixo mostra um gráfico de exemplo do total de transações para uma conta de armazenamento. A segunda imagem mostra o mesmo gráfico, mas com a dimensão do nome da API selecionada. Como pode ver, cada transação está listada para dar mais detalhes sobre o número de chamadas realizadas pelo nome da API.
+As [dimensões](./monitor-blob-storage-reference.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#metrics-dimensions) servem para ver mais aprofundadamente os gráficos e obter informações mais detalhadas. Métricas diferentes têm dimensões diferentes. Uma dimensão disponível é a dimensão **Nome da API**. Esta dimensão divide o gráfico em chamadas à API separadas. A primeira imagem abaixo mostra um gráfico de exemplo do total de transações para uma conta de armazenamento. A segunda imagem mostra o mesmo gráfico, mas com a dimensão do nome da API selecionada. Como pode ver, cada transação está listada para dar mais detalhes sobre o número de chamadas realizadas pelo nome da API.
 
 ![Métricas da conta de armazenamento – transações sem uma dimensão](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 

@@ -6,12 +6,12 @@ author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6403ecd534d17298a10ffcf8f089a2b010fa3a51
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335136"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536460"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Suporte de mapa de origem para aplicações JavaScript
 
@@ -67,7 +67,7 @@ Se quiser configurar ou alterar a conta de armazenamento ou o recipiente Blob qu
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-### <a name="required-role-based-access-control-rbac-settings-on-your-blob-container"></a>Definições necessárias de controlo de acesso baseado em funções (RBAC) no seu recipiente Blob
+### <a name="required-azure-role-based-access-control-azure-rbac-settings-on-your-blob-container"></a>Regulação necessária do controlo de acesso baseado em funções (Azure RBAC) no seu recipiente Blob
 
 Qualquer utilizador no Portal que utilize esta função deve ser, pelo menos, designado como Leitor de [Dados blob de armazenamento][storage blob data reader] ao seu recipiente Blob. Deve atribuir este papel a qualquer pessoa que utilize os mapas de origem através desta funcionalidade.
 

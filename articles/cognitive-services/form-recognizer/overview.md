@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, tratamento de formulários
-ms.openlocfilehash: 8b790da9eaa17cbb0fbdcbcc49682786deb319a0
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 05024b8d7f4cf76024d71a79cb1fce489d58ee70
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95492166"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519528"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -30,9 +30,9 @@ O Form Recogniser é composto pelos seguintes serviços:
 * **[Layout API](#layout-api)** - Extrair texto, marcas de seleção e estruturas de mesas, juntamente com as suas coordenadas de caixa de delimitação, a partir de documentos.
 * **[Modelos personalizados](#custom-models)** - Extrair texto, pares de chaves/valor, marcas de seleção e dados de tabela a partir de formulários. Estes modelos são treinados com os seus próprios dados, por isso são adaptados aos seus formulários.
 * **[Modelos pré-construídos](#prebuilt-models)** - Extrair dados de tipos de formulários únicos utilizando modelos pré-construídos. Atualmente disponíveis são os seguintes modelos pré-construídos
-    * [Faturas](./concept-invoices.md) 
+    * [Faturas](./concept-invoices.md)
     * [Recibos de venda](./concept-receipts.md)
-    * [Cartões de visita](./concept-business-cards.md) 
+    * [Cartões de visita](./concept-business-cards.md)
 
 
 ## <a name="try-it-out"></a>Experimente
@@ -50,7 +50,7 @@ Para experimentar o serviço de reconhecimento de formulários, aceda à ferrame
 
 ---
 
-Você precisará de uma subscrição Azure[(crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e um ponto final de [recurso do Reconhecimento de Formulários](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) e chave para experimentar o serviço Deseclarador de Formulários. 
+Você precisará de uma subscrição Azure[(crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e um ponto final de [recurso do Reconhecimento de Formulários](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) e chave para experimentar o serviço Deseclarador de Formulários.
 
 ## <a name="layout-api"></a>Layout API
 
@@ -125,8 +125,6 @@ Utilize a [ferramenta Sample Form Recogniser](https://fott.azurewebsites.net/) o
     * [Dados de recibos de extração - Python](quickstarts/python-receipts.md)
   * Extrair dados de cartões de visita
     * [Extrair dados do cartão de visita - Python](quickstarts/python-business-cards.md)
- 
-
 
 ### <a name="review-the-rest-apis"></a>Rever as APIs rest
 
@@ -153,6 +151,10 @@ Explore a [documentação de referência da API](https://westus2.dev.cognitive.m
 ## <a name="input-requirements"></a>Requisitos de entrada
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantar nas instalações utilizando contentores Docker
+
+[Utilize recipientes do Reconhecimento de Formulários (pré-visualização)](form-recognizer-container-howto.md) para implantar funcionalidades de API no local. Este recipiente Docker permite-lhe aproximar o serviço dos seus dados por razões de conformidade, segurança ou outras razões operacionais.
 
 ## <a name="data-privacy-and-security"></a>Privacidade e segurança dos dados
 

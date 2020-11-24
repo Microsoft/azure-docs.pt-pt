@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 64856d0c9a06f57eb25a0cbc9279d1c09992f0d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 97795b2a693b68d1bd73a00f7b3e5ee3d4679545
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147594"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522129"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Tutorial: Ligue-se a uma conta de armazenamento usando um Azure Private Endpoint
 
@@ -53,7 +53,7 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
     | Grupo de Recursos   | Selecione **myResourceGroup** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Região           | Selecione **E.U.A. Leste**. |
+    | Region           | Selecione **E.U.A. Leste**. |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -94,7 +94,7 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
 Nesta secção, irá criar uma máquina virtual que será usada para testar o ponto final privado.
 
 
-1. No lado superior esquerdo do portal, selecione **Criar uma**máquina Virtual compute de recurso ou procurar por máquina  >  **Compute**  >  **Virtual machine** **Virtual** na caixa de pesquisa.
+1. No lado superior esquerdo do portal, selecione **Criar uma** máquina Virtual compute de recurso ou procurar por máquina  >  **Compute**  >  **Virtual machine** **Virtual** na caixa de pesquisa.
    
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os valores no **separador Básicos:**
 
@@ -105,7 +105,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
     | Grupo de Recursos | Selecione **myResourceGroup** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM** |
-    | Região | Selecione **E.U.A. Leste**. |
+    | Region | Selecione **E.U.A. Leste**. |
     | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
     | Imagem | Selecione **Windows Server 2019 Datacenter - Gen1** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -115,7 +115,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
     | Palavra-passe | Introduza uma senha |
     | Confirmar palavra-passe | Reintroduza a palavra-passe |
 
-3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos**e, em seguida, **seguinte: Networking**.
+3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos** e, em seguida, **seguinte: Networking**.
   
 4. No separador Networking, selecione ou introduza:
 
@@ -136,7 +136,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
 
 Nesta secção, você vai criar uma conta de armazenamento e configurar o ponto final privado.
 
-1. No menu à esquerda, selecione **Criar uma**conta de Armazenamento de Recursos  >  **Storage**  >  **Storage account**ou procurar conta **de Armazenamento** na caixa de pesquisa.
+1. No menu à esquerda, selecione **Criar uma** conta de Armazenamento de Recursos  >  **Storage**  >  **Storage account** ou procurar conta **de Armazenamento** na caixa de pesquisa.
 
 2. No separador Básicos da conta de **armazenamento** insira ou selecione as **seguintes** informações:
 
@@ -165,9 +165,9 @@ Nesta secção, você vai criar uma conta de armazenamento e configurar o ponto 
     | Subscrição | selecione a subscrição do Azure |
     | Grupo de Recursos | Selecione **myResourceGroup** |
     | Localização | Selecione **E.U.A. Leste**. |
-    | Nome | Insira **o myPrivateEndpoint** |
+    | Name | Insira **o myPrivateEndpoint** |
     | Subresource de armazenamento | Deixe a **bolha** padrão |
-    | **Redes** |  |
+    | **Rede** |  |
     | Rede virtual | Selecione **myVNet** |
     | Sub-rede | Selecione **mySubnet** |
     | **Integração privada de DNS** |
@@ -222,7 +222,7 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
 
     Um endereço IP privado de **10.1.0.5** é devolvido para o nome da conta de armazenamento.  Este endereço encontra-se na sub-rede da rede virtual que criou anteriormente.
 
-9. Instale o [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows) na máquina virtual.
+9. Instale o [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%252fazure%252fstorage%252fblobs%252ftoc.json) na máquina virtual.
 
 10. **Selecione Terminar** depois de instalado o **Microsoft Azure Storage Explorer.**  Deixe a caixa verificada para abrir o pedido.
 
@@ -238,11 +238,11 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
 
 16. Verifique se as definições estão corretas no **Resumo da Ligação**.  
 
-17. Selecione **Ligar**.
+17. Selecione **Connect** (Ligar).
 
 18. Feche a ligação ao **myVM**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, elimine a rede virtual, a máquina virtual e a conta de armazenamento com os seguintes passos:
 

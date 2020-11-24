@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 11/13/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visão computacional, aplicações de visão computacional, serviço de visão computacional
-ms.openlocfilehash: 1603aa05d8bde6d4c3edba2d49120fa3545d3fd0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b4768781c45733590639b4a382fecfdb02adf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014650"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532295"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -90,13 +90,12 @@ Analise o conteúdo de uma imagem para devolver as coordenadas da *área de inte
 
 Pode utilizar a Visão De Computador para [detetar conteúdo adulto](concept-detecting-adult-content.md) numa imagem e devolver pontuações de confiança para diferentes classificações. O limiar para o conteúdo de sinalização pode ser definido numa escala deslizante para acomodar as suas preferências.
 
-## <a name="use-containers"></a>Utilizar contentores
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantar nas instalações utilizando contentores Docker
 
-Utilize recipientes Do Docker de visão de computador para utilizar o serviço no local. Atualmente existem dois contentores disponíveis:
+Utilize recipientes de Visão de Computador para implantar funcionalidades de API no local. Estes recipientes Docker permitem-lhe aproximar o serviço dos seus dados por razões de conformidade, segurança ou outras razões operacionais. A Computer Vision oferece os seguintes recipientes:
 
-* O [recipiente de leitura de Visão de Computador](computer-vision-how-to-install-containers.md) permite-lhe reconhecer texto impresso e manuscrito em imagens.
-
-* O [recipiente de análise espacial Computer Vision](spatial-analysis-container.md) permite-lhe analisar vídeos de streaming em tempo real para entender as relações espaciais entre as pessoas e o seu movimento através de ambientes físicos.
+* O [computador Vision lê o recipiente OCR (pré-visualização)](computer-vision-how-to-install-containers.md) permite-lhe reconhecer texto impresso e manuscrito em imagens.
+* O [recipiente de análise espacial Computer Vision (pré-visualização)](spatial-analysis-container.md) permite-lhe analisar o vídeo de streaming em tempo real para entender as relações espaciais entre as pessoas e o seu movimento através de ambientes físicos.
 
 ## <a name="image-requirements"></a>Requisitos de imagem
 
@@ -111,7 +110,7 @@ A Imagem Digitalizada pode analisar imagens que cumprem os requisitos seguintes:
 
 Tal como acontece com todos os Serviços Cognitivos, os desenvolvedores que usam o serviço de Visão de Computador devem estar cientes das políticas da Microsoft sobre os dados dos clientes. Consulte a [página de Serviços Cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para saber mais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começa com a Visão De Computador seguindo o guia de arranque rápido na tua linguagem de desenvolvimento preferida:
 

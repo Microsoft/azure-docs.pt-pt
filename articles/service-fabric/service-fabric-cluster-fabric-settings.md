@@ -3,12 +3,12 @@ title: Alterar configurações de cluster de tecido de serviço Azure
 description: Este artigo descreve as definições de tecido e as políticas de upgrade de tecido que pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648230"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542648"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do Service Fabric
 Este artigo descreve as várias definições de tecido para o seu cluster de Tecido de Serviço que pode personalizar. Para os clusters alojados no Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure. Para obter mais informações, consulte [atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personaliza as definições atualizando o *ClusterConfig.jsno* ficheiro e executando uma atualização de configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -141,6 +141,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |IsEnabled|bool, o padrão é FALSO|Estático|Ativa/Desativa o DnsService. O DnsService é desativado por padrão e este config precisa de ser configurado para o permitir. |
 |Acordo de Partição|cadeia, padrão é "--"|Estático|Controla o valor da cadeia de prefixo de partição em consultas DNS para serviços divididos. O valor: <ul><li>Deve ser compatível com o RFC, uma vez que fará parte de uma consulta de DNS.</li><li>Não deve conter um ponto, '.', uma vez que o ponto interfere com o comportamento do sufixo DNS.</li><li>Não deve ter mais de 5 caracteres.</li><li>Não pode ser uma corda vazia.</li><li>Se a definição partiçãoPrefixo for ultrapassada, então o sufixo PartitionS deve ser ultrapassado e vice-versa.</li></ul>Para mais informações, consulte [o Serviço DNS de Tecido de Serviço.](service-fabric-dnsservice.md)|
 |Sufixo de divisórias|cadeia, padrão é ""|Estático|Controla o valor da cadeia de sufixo de partição em consultas DNS para serviços divididos. O valor: <ul><li>Deve ser compatível com o RFC, uma vez que fará parte de uma consulta de DNS.</li><li>Não deve conter um ponto, '.', uma vez que o ponto interfere com o comportamento do sufixo DNS.</li><li>Não deve ter mais de 5 caracteres.</li><li>Se a definição partiçãoPrefixo for ultrapassada, então o sufixo PartitionS deve ser ultrapassado e vice-versa.</li></ul>Para mais informações, consulte [o Serviço DNS de Tecido de Serviço.](service-fabric-dnsservice.md) |
+|RetripTransientFabricErrors|Bool, o padrão é verdadeiro|Estático|A definição controla as capacidades de retíria ao chamar APIs de Tecido de Serviço do DnsService. Quando ativado, retrifica até 3 vezes se ocorrer um erro transitório.|
 
 ## <a name="eventstoreservice"></a>EventStoreService
 
@@ -423,7 +424,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |AzureStorageMaxConnections | Int, o padrão é 5000 |Dinâmica|O número máximo de ligações simultâneas ao armazenamento azul. |
 |AzureStorageMaxWorkerThreads | Int, o padrão é 25 |Dinâmica|O número máximo de fios de trabalhador em paralelo. |
 |AzureStorageOperationTimeout | Tempo em segundos, o padrão é 6000 |Dinâmica|Especifique a timepan em segundos. Tempo para a operação xstore completar. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, o padrão é FALSO |Dinâmica|Permite ou desativa a limpeza automática do pacote de aplicações com uma oferta bem sucedida.<br/> *A melhor prática é `true` usar.*
+|CleanupApplicationPackageOnProvisionSuccess|bool, o padrão é verdade |Dinâmica|Permite ou desativa a limpeza automática do pacote de aplicações com uma oferta bem sucedida.
 |CleanupUnusedApplicationTypes|Bool, o padrão é FALSO |Dinâmica|Esta configuração, se ativada, permite automaticamente versões de tipo de aplicação nãoregudas, ignorando as três versões mais recentes não reutilizadas, aparando assim o espaço do disco ocupado pela loja de imagens. A limpeza automática será desencadeada no final da provisão bem sucedida para esse tipo de aplicação específica e também é executado periodicamente uma vez por dia para todos os tipos de aplicações. O número de versões não utilizados a saltar é configurável utilizando o parâmetro "MaxUnusedAppTypeVersionsToKeep". <br/> *A melhor prática é `true` usar.*
 |DesativaçãoChecksumValidation | Bool, o padrão é falso. |Estático| Esta configuração permite-nos ativar ou desativar a validação do checksum durante o provisionamento da aplicação. |
 |DisableServerSideCopy | Bool, o padrão é falso. |Estático|Esta configuração permite ou desativa a cópia do pacote de aplicações na ImageStore durante o provisionamento da aplicação. |
@@ -520,6 +521,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |AutoDetectAvailableResources|bool, o padrão é VERDADEIRO|Estático|Este config irá desencadear a deteção automática dos recursos disponíveis no nó (CPU e Memória) Quando este config estiver definido como verdadeiro - vamos ler capacidades reais e corrigi-las se o utilizador especificar capacidades de nó mau ou não os definir de todo Se esta config estiver definida como falsa - vamos rastrear um aviso de que o utilizador especificou capacidades de nó mau; mas não vamos corrigi-los; o que significa que o utilizador quer ter as capacidades especificadas como > do que o nó realmente tem ou se as capacidades são indefinidas; assumirá capacidade ilimitada |
 |BalanceDelayAfterNewNode | Tempo em segundos, o padrão é 120 |Dinâmica|Especifique a timepan em segundos. Não comece a equilibrar as atividades dentro deste período após a adição de um novo nó. |
 |BalancingDelayAfterNodeDown | Tempo em segundos, o padrão é 120 |Dinâmica|Especifique a timepan em segundos. Não comece a equilibrar as atividades dentro deste período após um evento de nó para baixo. |
+|BlockNodeInUpgradeConstraintPriority | Int, o padrão é 0 |Dinâmica|Determina a prioridade da restrição de capacidade: 0: Difícil; 1: Macio; negativo: Ignorar  |
 |CapacidadeConstrataPrioridade | Int, o padrão é 0 | Dinâmica|Determina a prioridade da restrição de capacidade: 0: Difícil; 1: Macio; negativo: Ignorar. |
 |Gotas consecutivasMovementsHealthReportLimit | Int, o padrão é 20 | Dinâmica|Define o número de vezes consecutivas que os movimentos emitidos pelo ResourceBalancer são eliminados antes de serem realizados os diagnósticos e emitidos avisos sanitários. Negativo: Não são emitidos avisos nesta condição. |
 |RestriçãoFixPartialDelayAfterNewNode | Tempo em segundos, o padrão é 120 |Dinâmica| Especifique a timepan em segundos. DDo não corrige falhas Demômína e UpgradeDomain violações de restrições dentro deste período após a adição de um novo nó. |
@@ -918,5 +920,5 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 | --- | --- | --- | --- |
 |Grupo de Propriedades| UserServiceMetricCapacitiesMap, predefinição é nenhum | Estático | Uma recolha de limites de governação de recursos de serviços de utilizador precisa de ser estática, uma vez que afeta a lógica de AutoDetecção |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, consulte [atualizar a configuração de um cluster Azure](service-fabric-cluster-config-upgrade-azure.md) e [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).

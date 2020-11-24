@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 79e5b1ddde0ff5f0d09dc1c20e3b20ec4de3d925
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104143"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536681"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor
 
@@ -23,7 +23,7 @@ Este artigo explica como gerir o acesso aos registos e administrar os espaços d
 * Utilizadores que precisam de acesso a dados de registo de recursos específicos usando o controlo de acesso baseado em funções Azure (Azure RBAC) - também conhecido como [contexto de recursos](design-logs-deployment.md#access-mode)
 * Utilizadores que precisam de acesso a registar dados numa tabela específica no espaço de trabalho usando o Azure RBAC.
 
-Para compreender os conceitos de Logs em torno do RBAC e estratégias de acesso, leia [a conceção da sua implementação de Registos monitores Azure](design-logs-deployment.md)
+Para compreender os conceitos de Logs em torno do Azure RBAC e estratégias de acesso, leia [a conceção da sua implementação de Registos de Monitor Azure](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>Configure o modo de controlo de acesso
 
@@ -48,7 +48,7 @@ Pode alterar esta definição a partir da página **Propriedades** do espaço de
 
 ![Alterar o modo de acesso ao espaço de trabalho](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Utilizar o PowerShell
+### <a name="using-powershell"></a>Com o PowerShell
 
 Utilize o seguinte comando para examinar o modo de controlo de acesso para todos os espaços de trabalho na subscrição:
 
@@ -162,7 +162,7 @@ Os membros da função *Contribuidor do Log Analytics* podem:
 
 A função de Contribuinte Log Analytics inclui as seguintes ações do Azure:
 
-| Permissão | Description |
+| Permissão | Descrição |
 | ---------- | ----------- |
 | `*/read`     | Capacidade para ver todos os recursos e configuração dos mesmos. Inclui ver: <br> o estado da extensão da máquina virtual <br> a configuração dos diagnósticos do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, permite que permissões completas e ilimitadas leiam a definição do espaço de trabalho e realizem consultas nos dados. Veja mais opções granulares acima. |
 | `Microsoft.Automation/automationAccounts/*` | Capacidade para criar, e configurar contas de Automatização do Azure, incluindo adicionar e editar runbooks |
@@ -189,14 +189,14 @@ Recomendamos a realização de atribuições ao nível dos recursos (espaço de 
 
 Quando os utilizadores consultam os registos de um espaço de trabalho utilizando o acesso ao contexto de recursos, terão as seguintes permissões no recurso:
 
-| Permissão | Description |
+| Permissão | Descrição |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidade de visualizar todos os dados de registo para o recurso.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Capacidade de configurar a definição de diagnósticos para permitir a configuração de registos para este recurso. |
 
-`/read`a permissão é geralmente concedida a partir de uma função que inclui _ \* /ler ou_ _\*_ permissões, tais como as funções de [Leitor](../../role-based-access-control/built-in-roles.md#reader) incorporado e [Contribuinte.](../../role-based-access-control/built-in-roles.md#contributor) Papéis personalizados que incluem ações específicas ou funções incorporadas dedicadas podem não incluir esta permissão.
+`/read`a permissão é geralmente concedida a partir de uma função que inclui _\* /ler ou_ _\*_ permissões, tais como as funções de [Leitor](../../role-based-access-control/built-in-roles.md#reader) incorporado e [Contribuinte.](../../role-based-access-control/built-in-roles.md#contributor) Papéis personalizados que incluem ações específicas ou funções incorporadas dedicadas podem não incluir esta permissão.
 
-Consulte [a definição do controlo de acesso por tabela](#table-level-rbac) abaixo se pretender criar diferentes controlos de acesso para diferentes tabelas.
+Consulte [a definição do controlo de acesso por tabela](#table-level-azure-rbac) abaixo se pretender criar diferentes controlos de acesso para diferentes tabelas.
 
 ## <a name="custom-role-examples"></a>Exemplos de funções personalizadas
 
@@ -239,9 +239,9 @@ Consulte [a definição do controlo de acesso por tabela](#table-level-rbac) aba
 
     * Conceda aos utilizadores as seguintes permissões aos seus recursos: `*/read` , atribuídos à função Reader, ou `Microsoft.Insights/logs/*/read` . 
 
-## <a name="table-level-rbac"></a>Nível de tabela RBAC
+## <a name="table-level-azure-rbac"></a>Nível de mesa Azure RBAC
 
-**O RBAC de nível** de tabela permite-lhe definir mais controlo granular aos dados num espaço de trabalho log Analytics, além das outras permissões. Este controlo permite definir tipos de dados específicos que são acessíveis apenas a um conjunto específico de utilizadores.
+**O nível de tabela Azure RBAC** permite-lhe definir mais controlo granular aos dados num espaço de trabalho log analytics, além das outras permissões. Este controlo permite definir tipos de dados específicos que são acessíveis apenas a um conjunto específico de utilizadores.
 
 Implementa o controlo de acesso à mesa com [funções personalizadas Azure](../../role-based-access-control/custom-roles.md) para conceder acesso a [mesas específicas](./data-platform-logs.md) no espaço de trabalho. Estas funções são aplicadas em espaços de trabalho com [modos](design-logs-deployment.md#access-control-mode) de controlo de acesso ao espaço de trabalho ou ao contexto de recursos, independentemente do modo de [acesso](design-logs-deployment.md#access-mode)do utilizador.
 
@@ -302,7 +302,7 @@ Por vezes, os registos personalizados provêm de fontes que não estão diretame
 
 ### <a name="considerations"></a>Considerações
 
-* Se um utilizador tiver permissão de leitura global com as funções padrão reader ou contribuinte que incluem a ação _ \* /ler,_ irá sobrepor-se ao controlo de acesso por tabela e dar-lhes acesso a todos os dados de registo.
+* Se um utilizador tiver permissão de leitura global com as funções padrão reader ou contribuinte que incluem a ação _\* /ler,_ irá sobrepor-se ao controlo de acesso por tabela e dar-lhes acesso a todos os dados de registo.
 * Se um utilizador tiver acesso por tabela, mas sem outras permissões, poderá aceder aos dados de registo da API, mas não a partir do portal Azure. Para fornecer acesso a partir do portal Azure, utilize o Log Analytics Reader como função base.
 * Os administradores e proprietários da subscrição terão acesso a todos os tipos de dados, independentemente de quaisquer outras definições de permissão.
 * Os proprietários do espaço de trabalho são tratados como qualquer outro utilizador para o controlo de acesso por mesa.

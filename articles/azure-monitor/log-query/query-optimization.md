@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: a817c12a367d7c14f693389920e49b368a35cc06
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411393"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522877"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
 O Azure Monitor Logs utiliza [o Azure Data Explorer (ADX)](/azure/data-explorer/) para armazenar dados de registo e executar consultas para analisar esses dados. Cria, gere e mantém os clusters ADX para si, e otimiza-os para a sua carga de trabalho de análise de registo. Quando você faz uma consulta, é otimizado, e encaminhado para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Tanto os Registos monitores Azure como o Azure Data Explorer utilizam muitos mecanismos automáticos de otimização de consultas. Embora as otimizações automáticas proporcionem um impulso significativo, existem alguns casos em que pode melhorar drasticamente o seu desempenho de consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -463,7 +463,7 @@ Os comportamentos de consulta que podem reduzir o paralelismo incluem:
 - Utilização de funções de serialização e janela, tais como o [operador de serialização,](/azure/kusto/query/serializeoperator) [o próximo()](/azure/kusto/query/nextfunction) [prev()](/azure/kusto/query/prevfunction)e as funções de [linha.](/azure/kusto/query/rowcumsumfunction) As funções de análise de séries temporárias e de análise de utilizadores podem ser utilizadas em alguns destes casos. A serialização ineficiente também pode acontecer se os seguintes operadores não forem utilizados no final da consulta: [intervalo](/azure/kusto/query/rangeoperator), [ordenar](/azure/kusto/query/sortoperator), [encomendar,](/azure/kusto/query/orderoperator) [topo,](/azure/kusto/query/topoperator) [top-hitters,](/azure/kusto/query/tophittersoperator) [getschema](/azure/kusto/query/getschemaoperator).
 -    A utilização da função de agregação [dcount()](/azure/kusto/query/dcount-aggfunction) força o sistema a ter cópia central dos valores distintos. Quando a escala de dados for elevada, considere usar os parâmetros opcionais da função dcount para reduzir a precisão.
 -    Em muitos casos, o operador de [união](/azure/kusto/query/joinoperator?pivots=azuremonitor) reduz o paralelismo geral. Examine a mistura como alternativa quando o desempenho é problemático.
--    Nas consultas de âmbito de recursos, os controlos RBAC pré-execução podem permanecer em situações em que há um número muito grande de atribuições de funções Azure. Isto pode levar a controlos mais longos que resultariam num paraleloismo mais baixo. Por exemplo, uma consulta é executada numa subscrição onde existem milhares de recursos e cada recurso tem muitas atribuições de funções ao nível dos recursos, não no grupo de subscrição ou recursos.
+-    Nas consultas de âmbito de recursos, os controlos de Pré-execução de Kubernetes RBAC ou Azure RBAC podem permanecer em situações em que há um número muito grande de atribuições de papel Azure. Isto pode levar a controlos mais longos que resultariam num paraleloismo mais baixo. Por exemplo, uma consulta é executada numa subscrição onde existem milhares de recursos e cada recurso tem muitas atribuições de funções ao nível dos recursos, não no grupo de subscrição ou recursos.
 -    Se uma consulta estiver a processar pequenos pedaços de dados, o seu paralelismo será baixo, uma vez que o sistema não o espalhará por muitos nós computacional.
 
 

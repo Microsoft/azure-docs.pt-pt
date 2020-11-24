@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: a01b6e644ce3afda451d94d3e00eda278a645adf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34205caf03d2f2d7255f75ea6203c5572c4c429b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87851329"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523312"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Quickstart: Gerir bolhas com Python v2.1 SDK
 
@@ -137,7 +137,7 @@ Em primeiro lugar, cria as referências para os objetos que são utilizados para
 Quando tiver o contentor Cloud Blob, instancie o objeto **CloudBlockBlob** que aponta para o blob específico em que está interessado. Depois, pode carregar, transferir e copiar o blob, conforme o que precisar.
 
 > [!IMPORTANT]
-> Os nomes dos contentores têm de estar em minúscula. Para obter mais informações sobre os nomes dos recipientes e blobs, consulte [os recipientes de nomeação e referência, bolhas e metadados.](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
+> Os nomes dos contentores têm de estar em minúscula. Para obter mais informações sobre os nomes dos recipientes e blobs, consulte [os recipientes de nomeação e referência, bolhas e metadados.](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
 
 ### <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contentor
 
@@ -196,7 +196,7 @@ block_blob_service.get_blob_to_path(
     container_name, local_file_name, full_path_to_file2)
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 Se já não precisar dos blobs carregados neste início rápido, pode eliminar o contentor inteiro com o método `delete_container`. Se pretender eliminar ficheiros individuais, utilize o método `delete_blob`.
 
 ```python
@@ -216,7 +216,7 @@ Para mais informações sobre o desenvolvimento da Python com armazenamento Blob
 
 ### <a name="client-library-reference-and-samples"></a>Referência e exemplos da biblioteca de cliente
 
-- Para mais informações sobre a biblioteca do cliente Python, consulte as [bibliotecas de armazenamento Azure para Python.](https://docs.microsoft.com/python/api/overview/azure/storage)
+- Para mais informações sobre a biblioteca do cliente Python, consulte as [bibliotecas de armazenamento Azure para Python.](/python/api/overview/azure/storage)
 - Explore os [exemplos de armazenamento de blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) escritos com a biblioteca de cliente Python.
 
 ## <a name="next-steps"></a>Passos seguintes

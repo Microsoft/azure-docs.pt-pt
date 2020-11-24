@@ -4,13 +4,13 @@ description: Como manter a sua aplicação de Compreensão linguística (LUIS) s
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.openlocfilehash: 9e322ac89d8ecad93c2002aa302c155f895911f4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 11/18/2020
+ms.openlocfilehash: cf5c88df4e2ac6b95e99a3a78b1bf1e45bf534ed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019199"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95535559"
 ---
 # <a name="devops-practices-for-luis"></a>Práticas de DevOps para LUIS
 
@@ -53,7 +53,7 @@ Para guardar uma aplicação LUIS em `.lu` formato e colocá-la sob controlo de 
 - OR: Use um editor de texto para criar um `.lu` ficheiro para uma aplicação LUIS e adicione-o ao seu repositório de controlo de origem
 
 > [!TIP]
-> Se estiver a trabalhar com a exportação JSON de uma aplicação LUIS, pode [convertê-la para LUDown](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert) utilizando o [BotBuilder-Tools LUIS CLI](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS). Utilize a `--sort` opção para garantir que as intenções e as expressões sejam ordenadas alfabeticamente.  
+> Se estiver a trabalhar com a exportação JSON de uma aplicação LUIS, pode [convertê-la no LUDown.](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert)  Utilize a `--sort` opção para garantir que as intenções e as expressões sejam ordenadas alfabeticamente.  
 > Note que o **. A** capacidade de exportação da LU incorporada no portal LUIS já separa a saída.
 
 ### <a name="build-the-luis-app-from-source"></a>Construa a app LUIS a partir de fonte
@@ -211,7 +211,7 @@ Quando estiver a trabalhar com uma aplicação LUIS 'dev branch' que criou para 
 
 Quando as suas alterações no seu PR são fundidas em mestre, é quando a versão deve ser aplicada, de modo que todas as atualizações para master são versadas de forma independente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais [sobre testes para LUIS DevOps](luis-concept-devops-testing.md)
 * Saiba como [implementar DevOps para LUIS com GitHub](luis-how-to-devops-with-github.md)

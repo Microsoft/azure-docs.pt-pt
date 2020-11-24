@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ce0aea6bb257f0a52a843ce53cc904ed0a775dd
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760166"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536205"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Consultas de auditoria em Registos do Monitor Azure (pré-visualização)
 Os registos de auditoria de consulta de registo fornecem telemetria sobre consultas de registo executadas no Azure Monitor. Isto inclui informações como quando uma consulta foi executada, quem a executou, que ferramenta foi usada, o texto de consulta, e estatísticas de desempenho descrevendo a execução da consulta.
@@ -23,7 +23,7 @@ A auditoria de consulta é ativada com uma [definição de diagnóstico](../plat
 ### <a name="azure-portal"></a>Portal do Azure
 Aceda à definição de diagnóstico de um espaço de trabalho Log Analytics no portal Azure em qualquer um dos seguintes locais:
 
-- A partir do menu **Azure Monitor,** selecione **definições de Diagnóstico**e, em seguida, localize e selecione o espaço de trabalho.
+- A partir do menu **Azure Monitor,** selecione **definições de Diagnóstico** e, em seguida, localize e selecione o espaço de trabalho.
 
     [![Definições de diagnóstico Azure Monitor ](media/log-query-audit/diagnostic-setting-monitor.png)](media/log-query-audit/diagnostic-setting-monitor.png#lightbox) 
 
@@ -66,7 +66,7 @@ Um registo de auditoria é criado cada vez que uma consulta é executada. Se env
 
 - As consultas só são registadas quando executadas num contexto de utilizador. Nenhum serviço-a-serviço dentro de Azure será registado. Os dois conjuntos primários de consultas que esta exclusão engloba são cálculos de faturação e execuções de alerta automatizados. No caso de alertas, apenas a consulta de alerta agendada em si não será registada; a execução inicial do alerta no ecrã de criação de alerta é executada num contexto de utilizador e estará disponível para efeitos de auditoria. 
 - As estatísticas de desempenho não estão disponíveis para consultas provenientes do proxy Azure Data Explorer. Todos os outros dados para estas consultas continuarão a ser preenchidos.
-- A dica *h* sobre cordas que [obfusca as cordas literais](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) não terá um efeito nos registos de auditoria de consulta. As consultas serão capturadas exatamente como submetidas sem que a corda seja obfundada. Deve garantir que apenas os utilizadores que tenham direitos de conformidade para ver estes dados são capazes de o fazer utilizando os vários modos RBAC disponíveis nos espaços de trabalho do Log Analytics.
+- A dica *h* sobre cordas que [obfusca as cordas literais](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) não terá um efeito nos registos de auditoria de consulta. As consultas serão capturadas exatamente como submetidas sem que a corda seja obfundada. Deve garantir que apenas os utilizadores que tenham direitos de conformidade para ver estes dados são capazes de o fazer utilizando os vários modos DE RBAC ou Azure RBAC disponíveis nos espaços de trabalho do Log Analytics.
 - Para consultas que incluam dados de vários espaços de trabalho, a consulta só será captada nos espaços de trabalho a que o utilizador tem acesso.
 
 ## <a name="costs"></a>Custos  

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ac69b442b06864fd45561b26909e1247674611a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc9dbf77c04ea95e5b873c45de4c0df109514c7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458387"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544450"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial - Criptografe e desencriptar bolhas usando cofre de chave Azure
 
@@ -232,12 +232,12 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     CancellationToken.None).GetAwaiter().GetResult();
 ```
 
-Já está! Divirta-se!
+Já está. Divirta-se!
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a utilização do Microsoft Azure Storage com C#, consulte [a Microsoft Azure Storage Client Library para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Para obter mais informações sobre a utilização do Microsoft Azure Storage com C#, consulte [a Microsoft Azure Storage Client Library para .NET](/previous-versions/azure/dn261237(v=azure.100)).
 
-Para obter mais informações sobre a API Blob REST, consulte [a API do Blob Service REST](https://msdn.microsoft.com/library/azure/dd135733.aspx).
+Para obter mais informações sobre a API Blob REST, consulte [a API do Blob Service REST](/rest/api/storageservices/Blob-Service-REST-API).
 
-Para obter as informações mais recentes sobre o Microsoft Azure Storage, aceda ao [Microsoft Azure Storage Team Blog](https://docs.microsoft.com/archive/blogs/windowsazurestorage/).
+Para obter as informações mais recentes sobre o Microsoft Azure Storage, aceda ao [Microsoft Azure Storage Team Blog](/archive/blogs/windowsazurestorage/).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: b52cc38c40d8b6a39961ab28d9f0600ea7ee2201
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 391d9562bc73265a10976f485c78e3966aa4fe83
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841908"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536290"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -412,7 +412,7 @@ Personalizações únicas que normalmente precisam de ser recriadas manualmente 
 - Recrie os painéis e livros personalizados. 
 - Recrie ou atualize o âmbito de quaisquer alertas de registo/métrica personalizados. 
 - Recrie os alertas de disponibilidade.
-- Recrie quaisquer definições personalizadas Role-Based Access Control (RBAC) que sejam necessárias para que os seus utilizadores acedam ao novo recurso. 
+- Recrie quaisquer definições personalizadas de controlo de acesso baseado em funções (Azure RBAC) que sejam necessárias para que os seus utilizadores acedam ao novo recurso. 
 - Replicar configurações envolvendo amostragem de ingestão, retenção de dados, tampa diária e ativação de métricas personalizadas. Estas definições são controladas através do **painel de utilização e custos estimados.**
 - Qualquer integração que dependa de chaves API, tais como [anotações de libertação,](/azure/azure-monitor/app/annotations) [métricas ao vivo, canal de controlo seguro,](app/live-stream.md#secure-the-control-channel) etc. Terá de gerar novas teclas API e atualizar a integração associada. 
 - As exportações contínuas de recursos clássicos teriam de ser configuradas novamente.
@@ -680,9 +680,9 @@ A tabela ContainerInventory contém informações sobre contentores parados e em
 
 Se receber o **registo de subscrição em falta para o Microsoft.OperationsManagement,** pode resolvê-lo registando o fornecedor de recursos **Microsoft.OperationsManagement** na subscrição onde o espaço de trabalho é definido. A documentação para como fazê-lo pode ser encontrada [aqui.](../azure-resource-manager/templates/error-register-resource-provider.md)
 
-### <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>Existe suporte para clusters AKS ativados pela RBAC?
+### <a name="is-there-support-for-kubernetes-rbac-enabled-aks-clusters"></a>Existe suporte para clusters AKS ativados pela Kubernetes?
 
-A solução de monitorização do contentor não suporta o RBAC, mas é suportada com o Azure Monitor para contentores. A página de detalhes da solução pode não mostrar as informações certas nas lâminas que mostram dados para estes clusters.
+A solução de monitorização de contentores não suporta o RBAC de Kubernetes, mas é suportada com o Azure Monitor para contentores. A página de detalhes da solução pode não mostrar as informações certas nas lâminas que mostram dados para estes clusters.
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Como posso permitir a recolha de registos para contentores no espaço de nomes do sistema kube através do Helm?
 

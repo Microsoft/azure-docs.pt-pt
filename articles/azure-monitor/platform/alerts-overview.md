@@ -4,12 +4,12 @@ description: Visão geral do alerta em Azure. Alertas, alertas clássicos e a in
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e71f048a0a96323552b426663a235ed66fa2ef87
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b8d24eab79bdf16e4d883549be00431bd5372af8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108801"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536052"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
 
@@ -80,7 +80,7 @@ Os seguintes estados de alerta são apoiados.
 |:---|:---|
 | Novo | O problema foi detetado e ainda não foi revisto. |
 | Confirmado | Um administrador reviu o alerta e começou a trabalhar nele. |
-| Fechada | A questão foi resolvida. Depois de um alerta ter sido fechado, pode reabri-lo mudando-o para outro estado. |
+| Fechado | A questão foi resolvida. Depois de um alerta ter sido fechado, pode reabri-lo mudando-o para outro estado. |
 
 *O estado de alerta* é diferente e independente da condição do *monitor.* O estado de alerta é definido pelo utilizador. A condição do monitor é definida pelo sistema. Quando um alerta dispara, o estado do monitor do alerta é definido para *'disparado',* e quando a condição subjacente que causou o alerta para o incêndio se apaga, a condição do monitor está definida para *"resolvida".* 
 
@@ -167,15 +167,15 @@ Ao selecionar um alerta, esta página fornece detalhes do alerta e permite-lhe a
 
 A página de detalhes do alerta inclui as seguintes secções:
 
-| Section | Description |
+| Section | Descrição |
 |:---|:---|
 | Resumo | Exibe as propriedades e outras informações significativas sobre o alerta. |
 | Histórico | Enumera cada ação tomada pelo alerta e quaisquer alterações feitas ao alerta. Atualmente limitado a alterações de estado. |
 | Diagnóstico | Informação sobre o grupo inteligente em que o alerta está incluído. A *contagem de alerta* refere-se ao número de alertas que estão incluídos no grupo inteligente. Inclui outros alertas no mesmo grupo inteligente que foram criados nos últimos 30 dias, qualquer que seja o filtro de tempo na página da lista de alertas. Selecione um alerta para ver os seus detalhes. |
 
-## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Controlo de acesso baseado em funções (RBAC) para os seus casos de alerta
+## <a name="azure-role-based-access-control-azure-rbac-for-your-alert-instances"></a>Controlo de acesso baseado em funções Azure (Azure RBAC) para os seus casos de alerta
 
-O consumo e a gestão de casos de alerta exigem que o utilizador tenha as funções de Azure incorporadas quer do [colaborador de monitorização](../../role-based-access-control/built-in-roles.md#monitoring-contributor) quer do [leitor de monitorização.](../../role-based-access-control/built-in-roles.md#monitoring-reader) Estas funções são suportadas em qualquer âmbito do Azure Resource Manager, desde o nível de subscrição até atribuições granulares a nível de recursos. Por exemplo, se um utilizador tiver apenas acesso de colaborador a máquina `ContosoVM1` virtual, esse utilizador pode consumir e gerir apenas os alertas gerados em `ContosoVM1` .
+O consumo e a gestão de casos de alerta exigem que o utilizador tenha as funções de Azure incorporadas quer do [colaborador de monitorização](../../role-based-access-control/built-in-roles.md#monitoring-contributor) quer do [leitor de monitorização.](../../role-based-access-control/built-in-roles.md#monitoring-reader) Estas funções são suportadas em qualquer âmbito do Azure Resource Manager, desde o nível da subscrição até às atribuições granulares ao nível do recurso. Por exemplo, se um utilizador tiver apenas acesso de colaborador a máquina `ContosoVM1` virtual, esse utilizador pode consumir e gerir apenas os alertas gerados em `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gerencie os seus casos de alerta programáticamente
 

@@ -7,12 +7,12 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0bde1b7be15d49d82818f26d07c2ec633dc4526c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "68726359"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523268"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Início Rápido: carregar, transferir e listar blobs através de Ruby
 
@@ -25,7 +25,7 @@ Neste início rápido, vai aprender a utilizar Ruby para carregar, transferir e 
 Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
-* [Biblioteca de armazenamento Azure para Ruby,](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage)utilizando o pacote rubygem: 
+* [Biblioteca de armazenamento Azure para Ruby,]()utilizando o pacote rubygem: 
 
     ```
     gem install azure-storage-blob
@@ -90,7 +90,7 @@ A primeira coisa a fazer é criar as referências para os objetos utilizados par
 Quando tiver o contentor de Blobs da Cloud, pode criar o objeto de blob **Block**, que aponta para o blob específico no qual está interessado e realizar operações, como carregamento, transferência e cópia.
 
 > [!IMPORTANT]
-> Os nomes dos contentores têm de estar em minúscula. Para obter informações sobre os nomes dos contentores e dos blobs, veja [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Dar Nomes e Referenciar Contentores, Blobs e Metadados).
+> Os nomes dos contentores têm de estar em minúscula. Para obter informações sobre os nomes dos contentores e dos blobs, veja [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Dar Nomes e Referenciar Contentores, Blobs e Metadados).
 
 Nesta secção, vai configurar uma instância do cliente de armazenamento do Azure, instanciar o objeto do serviço Blob, criar um contentor novo e, em seguida, definir as permissões no contentor, para que os blobs sejam públicos. O contentor é designado **quickstartblobs**. 
 
@@ -139,7 +139,7 @@ Para realizar uma atualização parcial do conteúdo de uma bolha de bloco, util
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-Pode obter uma lista de ficheiros no recipiente utilizando o método ** \_ das bolhas da lista.).** O código seguinte obtém a lista de blobs, depois percorre-os e mostra os nomes dos blobs encontrados num contentor.  
+Pode obter uma lista de ficheiros no recipiente utilizando o método **\_ das bolhas da lista.).** O código seguinte obtém a lista de blobs, depois percorre-os e mostra os nomes dos blobs encontrados num contentor.  
 
 ```ruby
 # List the blobs in the container
@@ -168,7 +168,7 @@ blob, content = blob_client.get_blob(container_name,local_file_name)
 File.open(full_path_to_file2,"wb") {|f| f.write(content)}
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 Se já não necessitar das bolhas carregadas neste arranque rápido, pode eliminar todo o recipiente utilizando o método **do \_ recipiente de eliminação.** Se os ficheiros criados deixarem de ser necessários, utilize o método **delete \_ blob ()** para eliminar os ficheiros.
 
 ```ruby
@@ -189,7 +189,7 @@ Veja estes recursos adicionais para desenvolvimento de Ruby com Armazenamento de
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de blobs do Azure com Ruby. Para saber mais sobre a utilização do armazenamento de blobs, avance para os Procedimentos do armazenamento de Blobs.
 
 > [!div class="nextstepaction"]
-> [Procedimentos de Operações de Armazenamento de Blobs](./storage-ruby-how-to-use-blob-storage.md)
+> [Procedimentos de Operações de Armazenamento de Blobs]()
 
 
 Para obter mais informações sobre o Explorador de armazenamento e os Blobs, veja [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Gerir recursos do armazenamento de Blobs do Azure com o Explorador de Armazenamento).

@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7bcf3e5c0b50d3d6eb8f71dc70f0ff064ff3465
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358666"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536035"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Use a ferramenta de migração voluntária para migrar as suas regras clássicas de alerta
 
@@ -45,7 +45,7 @@ Para desencadear a migração das suas regras clássicas de alerta no portal Azu
 
 1. No [portal Azure,](https://portal.azure.com)selecione **Monitor**.
 
-1. Selecione **Alertas**e, em seguida, **selecione Gerir as regras de alerta** ou **ver alertas clássicos**.
+1. Selecione **Alertas** e, em seguida, **selecione Gerir as regras de alerta** ou **ver alertas clássicos**.
 
 1. **Selecione Migrar para novas regras** para ir para a página de desembarque da migração. Esta página mostra uma lista de todas as suas subscrições e o seu estado de migração:
 
@@ -83,7 +83,7 @@ Quando uma subscrição estiver pronta para a migração, o proprietário da sub
 
 ### <a name="who-can-trigger-the-migration"></a>Quem pode desencadear a migração?
 
-Os utilizadores que tenham a função de Colaborador de Monitorização que lhes é atribuído ao nível da subscrição são capazes de desencadear a migração. [Saiba mais sobre Role-Based Controlo de Acesso para o processo de migração.](alerts-understand-migration.md#who-can-trigger-the-migration)
+Os utilizadores que tenham a função de Colaborador de Monitorização que lhes é atribuído ao nível da subscrição são capazes de desencadear a migração. [Saiba mais sobre o controlo de acesso baseado em funções da Azure para o processo de migração.](alerts-understand-migration.md#who-can-trigger-the-migration)
 
 ### <a name="how-long-will-the-migration-take"></a>Quanto tempo vai demorar a migração?
 
@@ -95,5 +95,5 @@ Consulte o [guia de resolução de problemas](alerts-understand-migration.md#com
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Preparar para a migração](alerts-prepare-migration.md)
+- [Preparar a migração](alerts-prepare-migration.md)
 - [Compreender como funciona a ferramenta de migração](alerts-understand-migration.md)

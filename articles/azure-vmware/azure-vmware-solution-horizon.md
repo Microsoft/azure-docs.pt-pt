@@ -3,12 +3,12 @@ title: Implementar Horizonte na Solução VMware Azure
 description: Saiba como implementar o VMware Horizon na Solução VMware Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d5d8e12e358e2289128af9840660be18f5f217a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423123"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537446"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implementar Horizonte na Solução VMware Azure 
 
@@ -139,22 +139,6 @@ As tabelas mostram as cargas de trabalho comuns para as cargas de trabalho do Tr
 #### <a name="power-worker-workloads"></a>Cargas de trabalho dos trabalhadores do poder
 
 :::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Tabela de perfis VDI comuns para VMware Horizon para trabalhos de trabalhadores vsi power de login" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
-
-### <a name="azure-vmware-solution-host-instance"></a>Exemplo de anfitrião da Solução VMware Azure
-
-* PowerEdge R640 Server - DSS RESTRITO
-
-* 36 núcleos \@ 2.3GHz
-
-* RAM de 576 GB
-
-* Controlador HBA330 12 Gbps SAS HBA (NÃO-RAID)
-
-* 1.92 TB SSD SATA Mix Use 6 Gbps 512 2.5in Hot-plug AG Drive, 3 DWPD, 10512 TBW
-
-* Intel 1.6 TB, NVMe, Mixed Use Express Flash, 2.5 SFF Drive, U.2, P4600 com Carrier
-
-* 2 vSAN Grupos de discos: 1,6 x 4 (1,92 TB)
 
 ### <a name="horizon-sizing-inputs"></a>Entradas de dimensionamento horizonte
 

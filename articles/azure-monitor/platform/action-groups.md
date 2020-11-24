@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a5d685e49d941d7b6febbc220cdbfbcb631c4496
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 17e01844463b6d18bd7d2c3b56ee86d938682b8e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746368"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536324"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. Pode configurar até 2.000 grupos de ação numa subscrição.
@@ -149,6 +149,10 @@ Poderá ter um número limitado de ações ITSM num Grupo de Ação.
 Você pode ter um número limitado de ações de Aplicação Lógica em um Grupo de Ação.
 
 ### <a name="secure-webhook"></a>Webhook Seguro
+
+> [!NOTE]
+> A utilização da ação webhook requer que o ponto final do webhook alvo não exija que os detalhes do alerta funcionem com sucesso ou é capaz de analisar as informações de contexto de alerta fornecidas como parte da operação POST. Se o ponto final do webhook não conseguir lidar com as informações de contexto de alerta por si só, pode utilizar uma solução como uma [ação da Logic App](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
+
 A ação Action Groups Webhook permite-lhe aproveitar o Azure Ative Directory para garantir a ligação entre o seu grupo de ação e a sua API web protegida (webhook endpoint). O fluxo de trabalho global para tirar partido desta funcionalidade é descrito abaixo. Para obter uma visão geral das aplicações ad da Azure e dos principais serviços, consulte a [plataforma de identidade da Microsoft (v2.0).](../../active-directory/develop/v2-overview.md)
 
 1. Crie uma Aplicação AD Azure para a sua API web protegida. Ver [API web protegida: registo de aplicações.](../../active-directory/develop/scenario-protected-web-api-app-registration.md)
@@ -259,6 +263,10 @@ Pode ter um número limitado de ações de voz num Grupo de Ação.
 Os preços dos países/regiões apoiados constam da página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>Webhook
+
+> [!NOTE]
+> A utilização da ação webhook requer que o ponto final do webhook alvo não exija que os detalhes do alerta funcionem com sucesso ou é capaz de analisar as informações de contexto de alerta fornecidas como parte da operação POST. Se o ponto final do webhook não conseguir lidar com as informações de contexto de alerta por si só, pode utilizar uma solução como uma [ação da Logic App](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
+
 Webhooks são processados usando as seguintes regras
 - Uma chamada webhook é tentada no máximo 3 vezes.
 - A chamada será novamente experimentada se não for recebida uma resposta dentro do prazo de tempo ou se um dos seguintes códigos de estado HTTP for devolvido: 408, 429, 503 ou 504.

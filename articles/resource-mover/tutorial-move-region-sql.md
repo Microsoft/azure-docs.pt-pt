@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fe43125c83436f89bf93cbe975317efec2beb46
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061614"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542818"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Tutorial: Mover recursos da Base de Dados Azure SQL para outra região
 
@@ -22,7 +22,7 @@ Neste tutorial, aprenda a mover bases de dados Azure SQL e piscinas elásticas p
 > [!NOTE]
 > A Azure Resource Mover está atualmente em pré-visualização.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Verifique os pré-requisitos e requisitos.
@@ -43,22 +43,22 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 -  Verifique se tem acesso *ao Proprietário* na subscrição que contém os recursos que pretende mover.
     - A primeira vez que adiciona um recurso para um par de origem e destino específico numa subscrição do Azure, o Resource Mover cria uma [identidade gerida atribuída ao sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anteriormente conhecida como Managed Service Identify (MSI)) que é fidedigna pela subscrição.
     - Para criar a identidade e atribuir-lhe a função necessária (administrador de Acesso ao Utilizador ou Colaborador na subscrição de origem), a conta que utiliza para adicionar recursos necessita de permissões *do Proprietário* na subscrição. [Saiba mais](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre os papéis do Azure.
-- A subscrição precisa de quota suficiente para criar os recursos que está a mover na região alvo. Se não tiver quota, [solicite limites adicionais.](/azure/azure-resource-manager/management/azure-subscription-service-limits)
+- A subscrição precisa de quota suficiente para criar os recursos que está a mover na região alvo. Se não tiver quota, [solicite limites adicionais.](../azure-resource-manager/management/azure-subscription-service-limits.md)
 - Verifique os preços e os encargos associados à região-alvo para a qual está a movimentar recursos. Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para ajudá-lo.
     
 
 ## <a name="check-sql-requirements"></a>Verifique os requisitos do SQL
 
 1. [Verifique quais](support-matrix-move-region-sql.md) as características da base de dados/piscina elástica suportadas para se deslocar para outra região.
-2. Na região alvo, crie um servidor alvo para cada servidor de origem. [Saiba mais](/azure/azure-sql/database/active-geo-replication-security-configure#how-to-configure-logins-and-users).
+2. Na região alvo, crie um servidor alvo para cada servidor de origem. [Saiba mais](../azure-sql/database/active-geo-replication-security-configure.md#how-to-configure-logins-and-users).
 4. Se as bases de dados forem encriptadas com encriptação de dados transparentes (TDE) e utilizar a sua própria chave de encriptação no Cofre da Chave Azure, [aprenda a](../key-vault/general/move-region.md) mover cofres-chave para outra região.
 5. Se a sincronização de dados SQL estiver ativada, as bases de dados dos membros em movimento são suportadas. Após a mudança, tem de configurar a sincronização de dados SQL para a nova base de dados-alvo.
-6. Remova as definições avançadas de segurança de dados antes da mudança. Após o movimento, [configufique as definições](/azure/sql-database/sql-database-advanced-data-security) ao nível do SQL Server na região alvo.
-7. Se a auditoria estiver ativada, as políticas reiniciam a padrão após a mudança. [Configurar a auditoria](/azure/sql-database/sql-database-auditing) novamente, depois da mudança.
-7. As políticas de retenção de backup para a base de dados de origem são transitadas para a base de dados-alvo. [Saiba mais](/azure/sql-database/sql-database-long-term-backup-retention-configure ) sobre a modificação das definições após a mudança.
-8. Remova as regras de firewall ao nível do servidor antes da mudança. As regras de firewall ao nível da base de dados são copiadas do servidor de origem para o servidor alvo, durante o movimento. Após o movimento, [estabeleça regras](/azure/sql-database/sql-database-server-level-firewall-rule) de firewall para o SQL Server na região alvo.
-9. Remova as definições de ajuste automático antes de mover. [Volte a configurar automaticamente ](/azure/sql-database/sql-database-automatic-tuning-enable) depois de se mover.
-10. Remova as definições de alerta de base de dados antes da mudança. [Reinicie](/azure/sql-database/sql-database-insights-alerts-portal) depois de se mover.
+6. Remova as definições avançadas de segurança de dados antes da mudança. Após o movimento, [configufique as definições](../azure-sql/database/azure-defender-for-sql.md) ao nível do SQL Server na região alvo.
+7. Se a auditoria estiver ativada, as políticas reiniciam a padrão após a mudança. [Configurar a auditoria](../azure-sql/database/auditing-overview.md) novamente, depois da mudança.
+7. As políticas de retenção de backup para a base de dados de origem são transitadas para a base de dados-alvo. [Saiba mais](../azure-sql/database/long-term-backup-retention-configure.md) sobre a modificação das definições após a mudança.
+8. Remova as regras de firewall ao nível do servidor antes da mudança. As regras de firewall ao nível da base de dados são copiadas do servidor de origem para o servidor alvo, durante o movimento. Após o movimento, [estabeleça regras](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) de firewall para o SQL Server na região alvo.
+9. Remova as definições de ajuste automático antes de mover. [Volte a configurar automaticamente ](../azure-sql/database/automatic-tuning-enable.md) depois de se mover.
+10. Remova as definições de alerta de base de dados antes da mudança. [Reinicie](../azure-sql/database/alerts-insights-configure-portal.md) depois de se mover.
     
 ## <a name="select-resources"></a>Selecione recursos
 
@@ -75,7 +75,7 @@ Selecione os recursos que pretende mover.
 
     ![Botão para adicionar recursos para se mudar para outra região](./media/tutorial-move-region-sql/get-started.png)
 
-3. Em **Move resources**Fonte +  >  **destino,** selecione a subscrição de origem e região.
+3. Em **Move resources** Fonte +  >  **destino,** selecione a subscrição de origem e região.
 4. No **Destino,** selecione a região para a qual pretende mover os recursos. Em seguida, clique em **Seguinte**.
 
     ![Página para selecionar origem e região de destino](./media/tutorial-move-region-sql/source-target.png)
@@ -210,7 +210,7 @@ Durante a preparação, a base de dados-alvo é criada na região alvo, e a repl
 ## <a name="move-databases"></a>Mover bases de dados
 
 Comece a mover as bases de dados.
-1. Em **Todas as regiões**, selecione recursos com **movimento de iniciado**do estado pendente . Em seguida, clique em **Iniciar movimento**.
+1. Em **Todas as regiões**, selecione recursos com **movimento de iniciado** do estado pendente . Em seguida, clique em **Iniciar movimento**.
 2. Em **Recursos Move,** clique em **Iniciar movimento**.
 
     ![Página para iniciar movimento](./media/tutorial-move-region-sql/initiate-move.png)
