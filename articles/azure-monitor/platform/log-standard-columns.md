@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: dc3d119479d2dce45b286463f3d6a76410220dd0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2370f76bacb8645f1b343da4f056c8bcf06a26dd
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014225"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95796728"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colunas padrão em Registos monitores Azure
 Os dados em Registos monitores Azure são [armazenados como um conjunto de registos num espaço de trabalho do Log Analytics ou na aplicação Application Insights](./data-platform-logs.md), cada um com um determinado tipo de dados que tem um conjunto único de colunas. Muitos tipos de dados terão colunas padrão que são comuns em vários tipos. Este artigo descreve estas colunas e fornece exemplos de como pode usá-las em consultas.
@@ -80,7 +80,7 @@ A coluna **\_ ItemId** detém um identificador único para o registo.
 ## <a name="_resourceid"></a>\_ResourceId
 A coluna **\_ ResourceId** detém um identificador único para o recurso a que o registo está associado. Isto dá-lhe uma coluna padrão para usar para estender a sua consulta apenas para registos a partir de um determinado recurso, ou para juntar dados relacionados em várias tabelas.
 
-Para os recursos Azure, o valor de **_ResourceId** é o [URL de ID de recurso Azure](../../azure-resource-manager/templates/template-functions-resource.md). A coluna está atualmente limitada aos recursos da Azure, mas será estendida a recursos fora de Azure, como computadores no local.
+Para os recursos Azure, o valor de **_ResourceId** é o [URL de ID de recurso Azure](../../azure-resource-manager/templates/template-functions-resource.md). A coluna está limitada aos recursos Azure, incluindo os recursos [do Azure Arc,](../../azure-arc/overview.md) ou a registos personalizados que indicaram o ID do recurso durante a ingestão.
 
 > [!NOTE]
 > Alguns tipos de dados já têm campos que contêm ID de recurso Azure ou pelo menos partes dele como ID de subscrição. Embora estes campos sejam mantidos para retrocompatibilidade, recomenda-se usar a _ResourceId para executar a correlação cruzada, uma vez que será mais consistente.
@@ -111,17 +111,47 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-As seguintes análises de consulta **_ResourceId** e agrega volumes de dados faturados por subscrição do Azure.
+As seguintes análises de consulta **_ResourceId** e agrega volumes de dados faturados por Azure Resource Group.
 
 ```Kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by resourceGroup | sort by Bytes nulls last 
 ```
 
 Utilize estas `union withsource = tt *` consultas com moderação, uma vez que as verificações em todos os tipos de dados são dispendiosas para executar.
+
+É sempre mais eficiente utilizar a \_ coluna SubscriptionId do que extraí-la através da análise da \_ coluna ResourceId.
+
+## <a name="_substriptionid"></a>\_SubstriptionId
+A coluna **\_ SubscriptionId** detém o ID de subscrição do recurso a que o registo está associado. Isto dá-lhe uma coluna padrão para usar para estender a sua consulta apenas registos de uma determinada subscrição, ou para comparar diferentes subscrições.
+
+Para os recursos Azure, o valor de **__SubscriptionId** é a parte de subscrição do [URL de ID de recurso Azure](../../azure-resource-manager/templates/template-functions-resource.md). A coluna está limitada aos recursos Azure, incluindo os recursos [do Azure Arc,](../../azure-arc/overview.md) ou a registos personalizados que indicaram o ID do recurso durante a ingestão.
+
+> [!NOTE]
+> Alguns tipos de dados já têm campos que contêm ID de subscrição Azure. Embora estes campos sejam mantidos para retrocompatibilidade, recomenda-se a utilização da \_ coluna SubscriptionId para executar a correlação cruzada, uma vez que será mais consistente.
+### <a name="examples"></a>Exemplos
+A seguinte consulta examina os dados de desempenho para computadores de uma subscrição específica. 
+
+```Kusto
+Perf 
+| where TimeGenerated > ago(24h) and CounterName == "memoryAllocatableBytes"
+| where _SubscriptionId == "57366bcb3-7fde-4caf-8629-41dc15e3b352"
+| summarize avgMemoryAllocatableBytes = avg(CounterValue) by Computer
+```
+
+As seguintes análises de consulta **_ResourceId** e agrega volumes de dados faturados por subscrição do Azure.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _SubscriptionId | sort by Bytes nulls last 
+```
+
+Utilize estas `union withsource = tt *` consultas com moderação, uma vez que as verificações em todos os tipos de dados são dispendiosas para executar.
+
 
 ## <a name="_isbillable"></a>\_IsBillable
 A coluna **\_ IsBillable** especifica se os dados ingeridos são faturados. Os dados com **\_ o IsBillable** igual `false` a serem recolhidos gratuitamente e não cobrados na sua conta Azure.
@@ -168,8 +198,7 @@ Para ver o tamanho dos eventos faturados por subscrição, utilize a seguinte co
 ```Kusto
 union withsource=table * 
 | where _IsBillable == true 
-| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId | sort by Bytes nulls last 
 ```
 
 Para ver o tamanho dos eventos faturados por grupo de recursos, utilize a seguinte consulta:
@@ -178,7 +207,7 @@ Para ver o tamanho dos eventos faturados por grupo de recursos, utilize a seguin
 union withsource=table * 
 | where _IsBillable == true 
 | parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
 
 ```
 
@@ -207,7 +236,7 @@ union withsource = tt *
 | summarize count() by tt | sort by count_ nulls last 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre como [os dados de registo do Azure Monitor são armazenados](../log-query/log-query-overview.md).
 - Obtenha uma lição sobre [escrever consultas de registo](../log-query/get-started-queries.md).

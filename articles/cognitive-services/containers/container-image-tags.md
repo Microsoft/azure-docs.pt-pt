@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 90ac4891dbca34ff2d9bdb9653e27ad2a495b317
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 09a83c28d07540b8ecd813e7ab2f10ceee891d7a
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021257"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95792977"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Etiquetas de imagem de contentores Azure Cognitive Services e notas de lançamento
 
@@ -52,6 +52,17 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis. Também pode 
 
 # <a name="latest-version"></a>[Versão mais recente](#tab/current)
 
+Notas de lançamento `3.2-preview.1` para:
+
+* Novo recipiente v3.2
+
+| Etiquetas de imagem                    | Notas |
+|-------------------------------|:------|
+| `latest`                      |       |
+| `3.2-preview.1` |  |
+
+# <a name="previous-versions"></a>[Versões anteriores](#tab/previous)
+
 Notas de lançamento `v2.0.013250001-amd64-preview` para:
 
 * Diminua ainda mais o uso da memória para o recipiente.
@@ -59,13 +70,6 @@ Notas de lançamento `v2.0.013250001-amd64-preview` para:
 * Resultados em falta fixos quando a cache redis é configurada e `ResultExpirationPeriod` está definida para 0.
 * Remova a limitação do tamanho do corpo do pedido de 26MB. O recipiente pode agora aceitar >ficheiros de 26MB.
 * Adicione o carimbo de tempo e construa a versão para o registo de consolas.
-
-| Etiquetas de imagem                    | Notas |
-|-------------------------------|:------|
-| `latest`                      |       |
-| `2.0.013250001-amd64-preview` |  |
-
-# <a name="previous-versions"></a>[Versões anteriores](#tab/previous)
 
 Notas de lançamento para `1.1.013050001-amd64-preview`
 
@@ -88,6 +92,7 @@ Notas de lançamento para `1.1.013050001-amd64-preview`
 
 | Etiquetas de imagem                    | Notas |
 |-------------------------------|:------|
+| `2.0.013250001-amd64-preview` |       |
 | `1.1.013050001-amd64-preview` |       |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |

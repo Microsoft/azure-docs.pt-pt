@@ -1,195 +1,220 @@
 ---
-title: 'Quickstart: Use tópicos e subscrições de ônibus da Azure Service com Python'
-description: Este artigo mostra-lhe como criar um tópico de Autocarro de Serviço Azure, subscrição, enviar mensagens para um tópico e receber mensagens de subscrição.
+title: Use tópicos e subscrições de ônibus de serviço Azure com python azure-servicebus versão 7.0.0
+description: Este artigo mostra-lhe como usar Python para enviar mensagens para um tópico e receber mensagens de subscrição.
 documentationcenter: python
 author: spelluru
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 11/18/2020
 ms.author: spelluru
 ms.custom: devx-track-python
-ms.openlocfilehash: f6d1b25cb502b8cb208ba5b59c91667e03c77778
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4035eaabb727d0db07553804b6fe94c60ddea64c
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88064388"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95804797"
 ---
-# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Quickstart: Use tópicos e subscrições de Service Bus com Python
-
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-Este artigo descreve como usar python com tópicos e subscrições do Azure Service Bus. As amostras utilizam o pacote [Azure Python SDK][Azure Python package] para: 
-
-- Criar tópicos e subscrições para tópicos
-- Criar filtros e regras de subscrição
-- Enviar mensagens para tópicos 
-- Receber mensagens de subscrições
-- Eliminar tópicos e subscrições
+# <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-python"></a>Envie mensagens para um tópico do Azure Service Bus e receba mensagens de subscrições ao tema (Python)
+Este artigo mostra-lhe como usar python para enviar mensagens um tópico de Service Bus e receber mensagens de uma subscrição do tópico. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Uma subscrição do Azure. Pode ativar os [benefícios do seu subscritor Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
-- Um espaço de nomes de Service Bus, criado seguindo os passos no [Quickstart: Use o portal Azure para criar um tópico de Service Bus e subscrições](service-bus-quickstart-topics-subscriptions-portal.md). Copie o nome do espaço de nome, o nome da chave de acesso partilhado e o valor principal das políticas de **acesso partilhado** para utilizar mais tarde neste arranque rápido. 
-- Python 3.4x ou superior, com o pacote [Azure Python SDK][Azure Python package] instalado. Para mais informações, consulte o [Guia de Instalação Python.](/azure/developer/python/azure-sdk-install)
-
-## <a name="create-a-servicebusservice-object"></a>Criar um objeto ServiceBusService
-
-Um objeto **ServiceBusService** permite-lhe trabalhar com tópicos e subscrições de tópicos. Para aceder programáticamente service bus, adicione a seguinte linha perto do topo do seu ficheiro Python:
-
-```python
-from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
-```
-
-Adicione o seguinte código para criar um objeto **ServiceBusService.** Substitua `<namespace>` , e pelo nome do seu espaço de nome Service `<sharedaccesskeyname>` `<sharedaccesskeyvalue>` Bus, nome de chave Assinatura de Acesso Partilhado (SAS) e valor principal da chave. Pode encontrar estes valores de acordo com **as políticas de acesso partilhado** no seu espaço de nomes de Service Bus no portal [Azure.][Azure portal]
-
-```python
-bus_service = ServiceBusService(
-    service_namespace='<namespace>',
-    shared_access_key_name='<sharedaccesskeyname>',
-    shared_access_key_value='<sharedaccesskeyvalue>')
-```
-
-## <a name="create-a-topic"></a>Criar um tópico
-
-O seguinte código utiliza o `create_topic` método para criar um tópico de Service Bus chamado , com `mytopic` definições predefinidos:
-
-```python
-bus_service.create_topic('mytopic')
-```
-
-Pode utilizar opções de tópicos para substituir as definições de tópicos predefinidos, como o tempo de mensagem para viver (TTL) ou o tamanho máximo do tópico. O exemplo a seguir cria um tópico nomeado `mytopic` com um tamanho máximo de tópico de 5 GB e mensagem padrão TTL de um minuto:
-
-```python
-topic_options = Topic()
-topic_options.max_size_in_megabytes = '5120'
-topic_options.default_message_time_to_live = 'PT1M'
-
-bus_service.create_topic('mytopic', topic_options)
-```
-
-## <a name="create-subscriptions"></a>Criar subscrições
-
-Também utiliza o objeto **ServiceBusService** para criar subscrições de tópicos. Uma subscrição pode ter um filtro para restringir o conjunto de mensagens entregue na sua fila virtual. Se não especificar um filtro, as novas subscrições utilizam o filtro **MatchAll** predefinido, que coloca todas as mensagens publicadas no tópico na fila virtual da subscrição. O exemplo a seguir cria uma subscrição com `mytopic` o nome que utiliza o filtro `AllMessages` **MatchAll:**
-
-```python
-bus_service.create_subscription('mytopic', 'AllMessages')
-```
-
-### <a name="use-filters-with-subscriptions"></a>Use filtros com subscrições
-
-Utilize o `create_rule` método do objeto **ServiceBusService** para filtrar as mensagens que aparecem numa subscrição. Pode especificar regras quando criar a subscrição ou adicionar regras às subscrições existentes.
-
-O tipo de filtro mais flexível é um **SqlFilter,** que utiliza um subconjunto de SQL-92. Os filtros SQL funcionam com base nas propriedades das mensagens publicadas no tópico. Para obter mais informações sobre as expressões que pode utilizar com um filtro SQL, consulte a sintaxe [SqlFilter.SqlExpression.][SqlFilter.SqlExpression]
-
-Como o filtro padrão **MatchAll** se aplica automaticamente a todas as novas subscrições, tem de removê-lo das subscrições que pretende filtrar, ou **o MatchAll** irá substituir quaisquer outros filtros especificados. Pode remover a regra por defeito utilizando o `delete_rule` método do objeto **ServiceBusService.**
-
-O exemplo a seguir cria uma subscrição com `mytopic` o nome , com uma regra `HighMessages` **SqlFilter** chamada `HighMessageFilter` . A `HighMessageFilter` regra seleciona apenas mensagens com uma propriedade personalizada `messageposition` superior a 3:
-
-```python
-bus_service.create_subscription('mytopic', 'HighMessages')
-
-rule = Rule()
-rule.filter_type = 'SqlFilter'
-rule.filter_expression = 'messageposition > 3'
-
-bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
-bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
-```
-
-O exemplo a seguir cria uma subscrição com `mytopic` o nome , com uma regra `LowMessages` **SqlFilter** chamada `LowMessageFilter` . A `LowMessageFilter` regra seleciona apenas mensagens com uma `messageposition` propriedade inferior ou igual a 3:
-
-```python
-bus_service.create_subscription('mytopic', 'LowMessages')
-
-rule = Rule()
-rule.filter_type = 'SqlFilter'
-rule.filter_expression = 'messageposition <= 3'
-
-bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
-bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
-```
-
-Com `AllMessages` `HighMessages` , e tudo em `LowMessages` efeito, as mensagens `mytopic` enviadas são sempre entregues aos recetores da `AllMessages` subscrição. As mensagens também são entregues seletivamente na `HighMessages` ou `LowMessages` subscrição, dependendo do valor da propriedade da `messageposition` mensagem. 
+- Uma subscrição do Azure. Pode ativar os [benefícios do seu assinante Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
+- Siga os passos no [Quickstart: Use o portal Azure para criar um tópico de Service Bus e subscrições do tema](service-bus-quickstart-topics-subscriptions-portal.md). Note a cadeia de ligação, o nome do tópico e um nome de subscrição. Usará apenas uma subscrição para este arranque rápido. 
+- Python 2.7 ou superior, com o pacote [Azure Python SDK][Azure Python] instalado. Para mais informações, consulte o [Guia de Instalação Python.](/azure/developer/python/azure-sdk-install)
 
 ## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
 
-As aplicações utilizam o `send_topic_message` método do objeto **ServiceBusService** para enviar mensagens para um tópico de Service Bus.
+1. Adicione a seguinte declaração de importação. 
 
-O exemplo a seguir envia cinco mensagens de teste para o `mytopic` tema. O valor da propriedade personalizada `messageposition` depende da iteração do loop e determina quais as subscrições que recebem as mensagens. 
+    ```python
+    from azure.servicebus import ServiceBusClient, ServiceBusMessage
+    ```
+2. Adicione as seguintes constantes. 
 
-```python
-for i in range(5):
-    msg = Message('Msg {0}'.format(i).encode('utf-8'),
-                  custom_properties={'messageposition': i})
-    bus_service.send_topic_message('mytopic', msg)
-```
+    ```python
+    CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
+    TOPIC_NAME = "<TOPIC NAME>"
+    SUBSCRIPTION_NAME = "<SUBSCRIPTION NAME>"
+    ```
+    
+    > [!IMPORTANT]
+    > - `<NAMESPACE CONNECTION STRING>`Substitua-a pela cadeia de ligação para o seu espaço de identificação.
+    > - `<TOPIC NAME>`Substitua-o pelo nome do tópico.
+    > - `<SUBSCRIPTION NAME>`Substitua-o pelo nome da subscrição do tópico. 
+3. Adicione um método para enviar uma única mensagem.
 
-### <a name="message-size-limits-and-quotas"></a>Limites e quotas do tamanho da mensagem
+    ```python
+    def send_single_message(sender):
+        # create a Service Bus message
+        message = ServiceBusMessage("Single Message")
+        # send the message to the topic
+        sender.send_messages(message)
+        print("Sent a single message")
+    ```
 
-Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há limite para o número de mensagens que um tópico pode conter, mas há um limite para o tamanho total das mensagens que o tópico contém. Pode definir o tamanho do tópico na hora da criação, com um limite superior de 5 GB. 
+    O remetente é um objeto que atua como cliente para o tópico que criou. Vai criá-lo mais tarde e enviar como argumento para esta função. 
+4. Adicione um método para enviar uma lista de mensagens.
 
-Para obter mais informações sobre quotas, consulte [as quotas de Service Bus.][Service Bus quotas]
+    ```python
+    def send_a_list_of_messages(sender):
+        # create a list of messages
+        messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+        # send the list of messages to the topic
+        sender.send_messages(messages)
+        print("Sent a list of 5 messages")
+    ```
+5. Adicione um método para enviar um lote de mensagens.
 
+    ```python
+    def send_batch_message(sender):
+        # create a batch of messages
+        batch_message = sender.create_message_batch()
+        for _ in range(10):
+            try:
+                # add a message to the batch
+                batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+            except ValueError:
+                # ServiceBusMessageBatch object reaches max_size.
+                # New ServiceBusMessageBatch object can be created here to send more data.
+                break
+        # send the batch of messages to the topic
+        sender.send_messages(batch_message)
+        print("Sent a batch of 10 messages")
+    ```
+6. Crie um cliente de Service Bus e, em seguida, um objeto de remetente tópico para enviar mensagens.
+
+    ```python
+    # create a Service Bus client using the connection string
+    servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
+    with servicebus_client:
+        # get a Topic Sender object to send messages to the topic
+        sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
+        with sender:
+            # send one message        
+            send_single_message(sender)
+            # send a list of messages
+            send_a_list_of_messages(sender)
+            # send a batch of messages
+            send_batch_message(sender)
+    
+    print("Done sending messages")
+    print("-----------------------")
+    ```
+ 
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma subscrição
-
-As aplicações utilizam o `receive_subscription_message` método no objeto **ServiceBusService** para receber mensagens de uma subscrição. O exemplo a seguir recebe mensagens da `LowMessages` subscrição e elimina-as à medida que são lidas:
-
-```python
-msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
-print(msg.body)
-```
-
-O parâmetro opcional `peek_lock` de determinar se o Service Bus elimina as `receive_subscription_message` mensagens da subscrição à medida que são lidas. O modo predefinido para receber mensagens é *PeekLock*, ou `peek_lock` definido para **True**, que lê (espreita) e bloqueia mensagens sem as eliminar da subscrição. Cada mensagem deve então ser explicitamente concluída para removê-la da subscrição.
-
-Para eliminar as mensagens da subscrição à medida que são lidas, pode definir o `peek_lock` parâmetro para **Falso**, como no exemplo anterior. Eliminar mensagens como parte da operação de receção é o modelo mais simples, e funciona bem se a aplicação pode tolerar mensagens em falta se houver uma falha. Para compreender este comportamento, considere um cenário em que a aplicação emite um pedido de receção e, em seguida, cai antes de processá-lo. Se a mensagem foi apagada ao ser recebida, quando a aplicação reinicia e volta a consumir mensagens, perdeu a mensagem que recebeu antes do acidente.
-
-Se a sua aplicação não pode tolerar mensagens perdidas, a receção torna-se uma operação em duas fases. O PeekLock encontra a próxima mensagem a ser consumida, bloqueia-a para evitar que outros consumidores a recebam e a devolve à aplicação. Após o processamento ou armazenamento da mensagem, a aplicação completa a segunda fase do processo de receção, chamando o `complete` método no objeto **Mensagem.**  O `complete` método marca a mensagem como sendo consumida e remove-a da subscrição.
-
-O exemplo a seguir demonstra um cenário de bloqueio de espreitar:
+Adicione o seguinte código após a declaração de impressão. Este código recebe continuamente novas mensagens até não receber novas mensagens durante 5 ( `max_wait_time` ) segundos. 
 
 ```python
-msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
-if msg.body is not None:
-    print(msg.body)
-    msg.complete()
+with servicebus_client:
+    # get the Subscription Receiver object for the subscription    
+    receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
+    with receiver:
+        for msg in receiver:
+            print("Received: " + str(msg))
+            # complete the message so that the message is removed from the subscription
+            receiver.complete_message(msg)
 ```
 
-## <a name="handle-application-crashes-and-unreadable-messages"></a>Manuseia falhas de aplicação e mensagens ilegíveis
-
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não puder processar uma mensagem por alguma razão, pode ligar para o `unlock` método no objeto **Mensagem.** O Service Bus desbloqueia a mensagem dentro da subscrição e disponibiliza-a para ser novamente recebida, seja pela mesma ou por outra aplicação consumista.
-
-Há também um tempo limite para mensagens bloqueadas dentro da subscrição. Se uma aplicação não processar uma mensagem antes do prazo de bloqueio expirar, por exemplo, se a aplicação falhar, o Service Bus desbloqueia automaticamente a mensagem e disponibiliza-a para ser novamente recebida.
-
-Se uma aplicação falhar após o processamento de uma mensagem, mas antes de ligar para `complete` o método, a mensagem será reenrimida à aplicação quando reiniciar. Este comportamento é muitas vezes chamado *de Processamento pelo menos uma vez.* Cada mensagem é processada pelo menos uma vez, mas em certas situações a mesma mensagem pode ser reenrimida. Se o seu cenário não puder tolerar o processamento duplicado, pode utilizar a propriedade **MessageId** da mensagem, que permanece constante em todas as tentativas de entrega, para lidar com a entrega de mensagens duplicadas. 
-
-## <a name="delete-topics-and-subscriptions"></a>Eliminar tópicos e subscrições
-
-Para eliminar tópicos e subscrições, utilize o [portal Azure][Azure portal] ou o `delete_topic` método. O seguinte código elimina o tópico denominado `mytopic` :
+## <a name="full-code"></a>Código completo
 
 ```python
-bus_service.delete_topic('mytopic')
+from azure.servicebus import ServiceBusClient, ServiceBusMessage
+
+CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
+TOPIC_NAME = "<TOPIC NAME>"
+SUBSCRIPTION_NAME = "<SUBSCRIPTION NAME>"
+
+def send_single_message(sender):
+    message = ServiceBusMessage("Single Message")
+    sender.send_messages(message)
+    print("Sent a single message")
+
+def send_a_list_of_messages(sender):
+    messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+    sender.send_messages(messages)
+    print("Sent a list of 5 messages")
+
+def send_batch_message(sender):
+    batch_message = sender.create_message_batch()
+    for _ in range(10):
+        try:
+            batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+        except ValueError:
+            # ServiceBusMessageBatch object reaches max_size.
+            # New ServiceBusMessageBatch object can be created here to send more data.
+            break
+    sender.send_messages(batch_message)
+    print("Sent a batch of 10 messages")
+
+servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
+
+with servicebus_client:
+    sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
+    with sender:
+        send_single_message(sender)
+        send_a_list_of_messages(sender)
+        send_batch_message(sender)
+
+print("Done sending messages")
+print("-----------------------")
+
+with servicebus_client:
+    receiver = servicebus_client.get_subscription_receiver(topic_name=TOPIC_NAME, subscription_name=SUBSCRIPTION_NAME, max_wait_time=5)
+    with receiver:
+        for msg in receiver:
+            print("Received: " + str(msg))
+            receiver.complete_message(msg)
 ```
 
-Excluir um tópico elimina todas as subscrições do tema. Também pode eliminar as subscrições de forma independente. O seguinte código elimina a subscrição nomeada `HighMessages` do `mytopic` tópico:
+## <a name="run-the-app"></a>Executar a aplicação
+Quando executar a aplicação, deverá ver a seguinte saída: 
 
-```python
-bus_service.delete_subscription('mytopic', 'HighMessages')
+```console
+Sent a single message
+Sent a list of 5 messages
+Sent a batch of 10 messages
+Done sending messages
+-----------------------
+Received: Single Message
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
 ```
 
-Por padrão, os tópicos e subscrições são persistentes e existem até que os elimine. Para eliminar automaticamente as subscrições após um determinado período de tempo, pode definir o parâmetro [auto_delete_on_idle](/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) na subscrição. 
+No portal Azure, navegue para o seu espaço de nomes de Service Bus. Na página **'Visão Geral',** verifique se a conta de mensagem **recebida** e **de saída** é de 16. Se não vir os condes, refresque a página depois de esperar alguns minutos. 
 
-> [!TIP]
-> Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite-lhe ligar-se a um espaço de nomes de Service Bus e administrar facilmente entidades de mensagens. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação e a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
+:::image type="content" source="./media/service-bus-python-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Contagem de mensagens de entrada e saída":::
+
+Selecione o tópico no painel inferior para ver a página **Tópico do Autocarro de Serviço** para o seu tópico. Nesta página, deverá ver três mensagens recebidas e três de saída na tabela **Mensagens.** 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Mensagens de entrada e saída":::
+
+Nesta página, se selecionar uma subscrição, você chega à página **de Subscrição de Serviço Bus.** Pode ver a contagem de mensagens ativas, a contagem de mensagens mortas e muito mais nesta página. Neste exemplo, todas as mensagens foram recebidas, pelo que a contagem de mensagens ativas é zero. 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Contagem de mensagens ativas":::
+
+Se comentar o código de receção, verá a contagem de mensagens ativas como 16. 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/active-message-count-2.png" alt-text="Contagem de mensagens ativas - sem receber":::
 
 ## <a name="next-steps"></a>Passos seguintes
+Consulte a seguinte documentação e amostras: 
 
-Agora que aprendeu o básico dos tópicos do Service Bus, siga estes links para saber mais:
-
-* [Filas, tópicos e subscrições][Queues, topics, and subscriptions]
-* [Referência sqlFilter.SqlExpression][SqlFilter.SqlExpression]
-
-[Azure portal]: https://portal.azure.com
-[Azure Python package]: https://pypi.python.org/pypi/azure
-[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
-[Service Bus quotas]: service-bus-quotas.md
+- [Biblioteca de clientes de autocarros de serviço Azure para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
+- [Amostras.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples) 
+    - A **pasta sync_samples** tem amostras que mostram como interagir com o Service Bus de forma sincronizada. Neste início rápido, usou este método. 
+    - A **pasta async_samples** tem amostras que mostram como interagir com o Service Bus de forma assíncronea. 
+- [documentação de referência azure-servicebus](https://docs.microsoft.com/python/api/azure-servicebus/azure.servicebus?view=azure-python-preview&preserve-view=true)

@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: c03d8e744598386db3d6d03a71e4d1b735d9d71f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3c4e062393f9d75d478720041436c2e0f54485a3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533281"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95795076"
 ---
 # <a name="introduction-of-microsoft-spark-utilities"></a>Introdução dos Utilitários Microsoft Spark
 
@@ -69,9 +69,9 @@ from pyspark.sql import SparkSession
 blob_account_name = 'Your account name' # replace with your blob name
 blob_container_name = 'Your container name' # replace with your container name
 blob_relative_path = 'Your path' # replace with your relative folder path
-linkedServiceName = 'Your linked service name' # replace with your linked service name
+linked_service_name = 'Your linked service name' # replace with your linked service name
 
-blob_sas_token = mssparkutils.credentials.getConnectionStringOrCreds(linkedServiceName)
+blob_sas_token = mssparkutils.credentials.getConnectionStringOrCreds(linked_service_name)
 
 # Allow SPARK to access from Blob remotely
 
@@ -86,6 +86,16 @@ print('Remote blob path: ' + wasb_path)
 :::zone pivot = "programming-language-scala"
 
 ```scala
+val blob_account_name = "" // replace with your blob name
+val blob_container_name = "" //replace with your container name
+val blob_relative_path = "/" //replace with your relative folder path
+val linked_service_name = "" //replace with your linked service name
+
+
+val blob_sas_token = mssparkutils.credentials.getConnectionStringOrCreds(linked_service_name)
+
+val wasbs_path = f"wasbs://$blob_container_name@$blob_account_name.blob.core.windows.net/$blob_relative_path"
+spark.conf.set(f"fs.azure.sas.$blob_container_name.$blob_account_name.blob.core.windows.net",blob_sas_token)
 
 ```
 
@@ -186,7 +196,6 @@ mssparkutils.fs.ls('Your directory path')
 ```scala
 mssparkutils.fs.ls("Your directory path")
 ```
-
 ::: zone-end
 
 :::zone pivot = "programming-language-csharp"
@@ -275,7 +284,6 @@ mssparkutils.fs.cp('source file or directory', 'destination file or directory', 
 ```scala
 mssparkutils.fs.cp("source file or directory", "destination file or directory", true) // Set the third parameter as True to copy all files and directories recursively
 ```
-
 ::: zone-end
 
 :::zone pivot = "programming-language-csharp"
@@ -446,7 +454,7 @@ mssparkutils.credentials.help()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Credentials.Help()
 ```
 
 ::: zone-end
@@ -496,7 +504,7 @@ mssparkutils.credentials.getToken("audience Key")
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Credentials.GetToken("audience Key")
 ```
 
 ::: zone-end
@@ -524,7 +532,7 @@ mssparkutils.credentials.isValidToken("your token")
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Credentials.IsValidToken("your token")
 ```
 
 ::: zone-end
@@ -552,7 +560,7 @@ mssparkutils.credentials.getConnectionStringOrCreds("linked service name")
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Credentials.GetConnectionStringOrCreds("linked service name")
 ```
 
 ::: zone-end
@@ -580,7 +588,7 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name","linked 
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Credentials.GetSecret("azure key vault name","secret name","linked service name")
 ```
 
 ::: zone-end
@@ -608,7 +616,7 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name")
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Credentials.GetSecret("azure key vault name","secret name")
 ```
 
 ::: zone-end
@@ -683,6 +691,7 @@ mssparkutils.env.help()
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.env.help()
 ```
 
 ::: zone-end
@@ -690,7 +699,7 @@ mssparkutils.env.help()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.Help()
 ```
 
 ::: zone-end
@@ -727,7 +736,7 @@ mssparkutils.env.getUserName()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.GetUserName()
 ```
 
 ::: zone-end
@@ -754,7 +763,7 @@ mssparkutils.env.getUserId()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.GetUserId()
 ```
 
 ::: zone-end
@@ -781,7 +790,7 @@ mssparkutils.env.getJobId()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.GetJobId()
 ```
 
 ::: zone-end
@@ -808,7 +817,7 @@ mssparkutils.env.getWorkspaceName()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.GetWorkspaceName()
 ```
 
 ::: zone-end
@@ -835,7 +844,7 @@ mssparkutils.env.getPoolName()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.GetPoolName()
 ```
 
 ::: zone-end
@@ -862,7 +871,7 @@ mssparkutils.env.getClusterId()
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+Env.GetClusterId()
 ```
 
 ::: zone-end

@@ -2,13 +2,13 @@
 title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implantar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: 54d4c096fab09bf31e121a7aae0eed3d2462e0c4
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 11/24/2020
+ms.openlocfilehash: 79cdb35de40501dfc0794155dcf807cced94bfa7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519885"
+ms.locfileid: "95798596"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implementações de grupos de gestão com modelos ARM
 
@@ -43,7 +43,7 @@ Para modelos aninhados que se implementem para subscrições ou grupos de recurs
 
 Para gerir os seus recursos, utilize:
 
-* [tags](/azure/templates/microsoft.resources/tags)
+* [etiquetas](/azure/templates/microsoft.resources/tags)
 
 ## <a name="schema"></a>Esquema
 
@@ -106,6 +106,14 @@ Para obter informações mais detalhadas sobre comandos de implantação e opç�
 * [Use um botão de implementação para implementar modelos do repositório GitHub](deploy-to-azure-button.md)
 * [Implementar modelos ARM da Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Localização e nome de implantação
+
+Para implementações de nível de grupo de gestão, deve fornecer uma localização para a implantação. A localização da implantação é separada da localização dos recursos que implementa. A localização da implantação especifica onde armazenar dados de implantação. [As implementações de subscrição](deploy-to-subscription.md) e [inquilinos](deploy-to-tenant.md) também requerem uma localização. Para implementações [de grupos](deploy-to-resource-group.md) de recursos, a localização do grupo de recursos é usada para armazenar os dados de implantação.
+
+Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
+
+Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Por exemplo, se criar uma implementação de grupo de gestão com o nome **implantado1** em **central,** não pode mais tarde criar outra implantação com o nome **de implantação1,** mas uma localização de **Westus**. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
+
 ## <a name="deployment-scopes"></a>Âmbitos de implantação
 
 Ao ser implantado num grupo de gestão, pode mobilizar recursos para:
@@ -131,7 +139,7 @@ Os recursos definidos na secção de recursos do modelo são aplicados ao grupo 
 
 Para direcionar outro grupo de gestão, adicione uma implantação aninhada e especifique a `scope` propriedade. Definir a `scope` propriedade para um valor no formato `Microsoft.Management/managementGroups/<mg-name>` .
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,18,22":::
 
 ### <a name="scope-to-subscription"></a>Âmbito de subscrição
 
@@ -139,7 +147,7 @@ Também pode direcionar as subscrições dentro de um grupo de gestão. O utiliz
 
 Para direcionar uma subscrição dentro do grupo de gestão, utilize uma implantação aninhada e a `subscriptionId` propriedade.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="9,10,18":::
 
 ### <a name="scope-to-resource-group"></a>Âmbito para grupo de recursos
 
@@ -162,14 +170,6 @@ Pode utilizar uma implantação aninhada `scope` e `location` definida.
 Ou, pode definir o âmbito `/` para alguns tipos de recursos, como grupos de gestão.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
-
-## <a name="deployment-location-and-name"></a>Localização e nome de implantação
-
-Para implementações de nível de grupo de gestão, deve fornecer uma localização para a implantação. A localização da implantação é separada da localização dos recursos que implementa. A localização da implantação especifica onde armazenar dados de implantação.
-
-Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
-
-Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
 
 ## <a name="azure-policy"></a>Azure Policy
 

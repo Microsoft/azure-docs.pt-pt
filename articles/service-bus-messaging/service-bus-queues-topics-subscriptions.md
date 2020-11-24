@@ -3,12 +3,12 @@ title: Mensagens de autocarro da Azure Service - filas, tópicos e subscrições
 description: Este artigo fornece uma visão geral das entidades de mensagens Azure Service Bus (fila, tópicos e subscrições).
 ms.topic: article
 ms.date: 11/04/2020
-ms.openlocfilehash: 7c1d22605e841eac42f2b47aab38777a622bfb90
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 54b6a1fd2d4e8e5ef5bb6522374646257213e4b4
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359430"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95791613"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e subscrições do Service Bus
 A Azure Service Bus suporta um conjunto de tecnologias de middleware baseadas em nuvem e orientadas para mensagens, incluindo mensagens de mensagens fiáveis e mensagens de publicação/subscrição duradouras. Estas capacidades de mensagens intermediadas podem ser consideradas como funcionalidades de mensagens dissociadas que suportam cenários de subscrição, dissociação temporal e equilíbrio de cargas utilizando a carga de trabalho de mensagens Service Bus. A comunicação dissociada tem muitas vantagens. Por exemplo, os clientes e servidores podem conectar-se conforme necessário e fazer as suas operações de forma assíncronea.
@@ -23,7 +23,7 @@ Um benefício relacionado é **o nivelamento da carga,** que permite aos produto
 A utilização de filas para intermediários entre os produtores de mensagens e os consumidores proporciona um acoplamento solto inerente entre os componentes. Como os produtores e os consumidores não estão conscientes uns dos outros, um consumidor pode ser atualizado sem ter qualquer efeito sobre o produtor.
 
 ### <a name="create-queues"></a>Criar filas
-Pode criar filas utilizando os [modelos](service-bus-resource-manager-namespace-queue.md) [do portal Azure,](service-bus-quickstart-portal.md) [PowerShell,](service-bus-quickstart-powershell.md) [CLI](service-bus-quickstart-cli.md)ou Gestor de Recursos . Em seguida, envie e receba mensagens usando clientes escritos em [C#](service-bus-dotnet-get-started-with-queues.md), [Java,](service-bus-java-how-to-use-queues.md) [Python,](service-bus-python-how-to-use-queues.md) [JavaScript,](service-bus-nodejs-how-to-use-queues-new-package.md) [PHP](service-bus-php-how-to-use-queues.md)e [Ruby](service-bus-ruby-how-to-use-queues.md). 
+Pode criar filas utilizando os [modelos](service-bus-resource-manager-namespace-queue.md) [do portal Azure,](service-bus-quickstart-portal.md) [PowerShell,](service-bus-quickstart-powershell.md) [CLI](service-bus-quickstart-cli.md)ou Gestor de Recursos . Em seguida, envie e receba mensagens usando clientes escritos em [C#](service-bus-dotnet-get-started-with-queues.md), [Java,](service-bus-java-how-to-use-queues.md) [Python,](service-bus-python-how-to-use-queues.md) [JavaScript,](service-bus-nodejs-how-to-use-queues.md) [PHP](service-bus-php-how-to-use-queues.md)e [Ruby](service-bus-ruby-how-to-use-queues.md). 
 
 ### <a name="receive-modes"></a>Receber modos
 Pode especificar dois modos diferentes em que o Service Bus recebe mensagens: **ReceberAndDelete** ou **PeekLock**. No modo [ReceiveAndDelete,](/dotnet/api/microsoft.azure.servicebus.receivemode) quando a Service Bus recebe o pedido do consumidor, marca a mensagem como sendo consumida e devolve-a à aplicação do consumidor. Este modo é o modelo mais simples. Funciona melhor para cenários em que a aplicação pode tolerar não processar uma mensagem se ocorrer uma falha. Para compreender este cenário, considere um cenário em que o consumidor emite o pedido de receber e depois cai antes de o processar. À medida que o Service Bus marca a mensagem como sendo consumida, a aplicação começa a consumir mensagens no reinício. Vai perder a mensagem que consumiu antes do acidente.
@@ -46,7 +46,7 @@ Uma fila permite o processamento de uma mensagem por um único consumidor. Em co
 A funcionalidade de envio de mensagens de uma fila mapeia diretamente para um tópico e os seus mapas de funcionalidades de receção de mensagens para uma subscrição. Entre outras coisas, esta funcionalidade significa que as subscrições suportam os mesmos padrões descritos anteriormente nesta secção no que diz respeito às filas: consumidor concorrente, dissociação temporal, nivelamento de carga e equilíbrio de carga.
 
 ### <a name="create-topics-and-subscriptions"></a>Criar tópicos e subscrições
-Criar um tópico é semelhante à criação de uma fila, como descrito na secção anterior. Pode criar tópicos e subscrições utilizando os modelos [do portal Azure,](service-bus-quickstart-topics-subscriptions-portal.md) [PowerShell,](service-bus-quickstart-powershell.md) [CLI](service-bus-tutorial-topics-subscriptions-cli.md)ou [Gestor de Recursos.](service-bus-resource-manager-namespace-topic.md) Em seguida, envie mensagens para um tópico e receba mensagens de subscrições utilizando clientes escritos em [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java,](service-bus-java-how-to-use-topics-subscriptions.md) [Python,](service-bus-python-how-to-use-topics-subscriptions.md) [JavaScript,](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md) [PHP](service-bus-php-how-to-use-topics-subscriptions.md)e [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md). 
+Criar um tópico é semelhante à criação de uma fila, como descrito na secção anterior. Pode criar tópicos e subscrições utilizando os modelos [do portal Azure,](service-bus-quickstart-topics-subscriptions-portal.md) [PowerShell,](service-bus-quickstart-powershell.md) [CLI](service-bus-tutorial-topics-subscriptions-cli.md)ou [Gestor de Recursos.](service-bus-resource-manager-namespace-topic.md) Em seguida, envie mensagens para um tópico e receba mensagens de subscrições utilizando clientes escritos em [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java,](service-bus-java-how-to-use-topics-subscriptions.md) [Python,](service-bus-python-how-to-use-topics-subscriptions.md) [JavaScript,](service-bus-nodejs-how-to-use-topics-subscriptions.md) [PHP](service-bus-php-how-to-use-topics-subscriptions.md)e [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md). 
 
 ### <a name="rules-and-actions"></a>Regras e ações
 Em muitos cenários, as mensagens com características específicas devem ser processadas de diferentes formas. Para ativar este processamento, pode configurar subscrições para encontrar mensagens que tenham propriedades desejadas e, em seguida, realizar certas modificações a essas propriedades. Enquanto as subscrições do Service Bus vêem todas as mensagens enviadas para o tópico, só é possível copiar um subconjunto dessas mensagens para a fila de subscrição virtual. Esta filtragem é realizada com filtros de subscrição. Tais modificações são chamadas **ações de filtro**. Quando uma subscrição é criada, pode fornecer uma expressão de filtro que funciona nas propriedades da mensagem. As propriedades podem ser tanto as propriedades do sistema (por exemplo, **Label)** como as propriedades de aplicação personalizadas (por exemplo, **Nome de Loja**.) A expressão do filtro SQL é opcional neste caso. Sem uma expressão de filtro SQL, qualquer ação de filtro definida numa subscrição será feita em todas as mensagens para essa subscrição.
@@ -67,7 +67,7 @@ As seguintes entidades estão acessíveis através do serviço de mensagens Java
 
 Saiba mais sobre as [entidades JMS 2.0](java-message-service-20-entities.md) e sobre como [usá-las.](how-to-use-java-message-service-20.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações e exemplos de utilização de mensagens Service Bus, consulte os seguintes tópicos avançados:
 

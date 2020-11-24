@@ -2,13 +2,13 @@
 title: Empregos e tarefas em Azure Batch
 description: Conheça os empregos e tarefas e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: e1ca721ec7527d9d042c129c22cf0266e57c32e9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955374"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808582"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Empregos e tarefas em Azure Batch
 
@@ -18,15 +18,17 @@ Em Azure Batch, uma *tarefa* representa uma unidade de cálculo. Um *trabalho* �
 
 Um trabalho é uma coleção de tarefas. Gere de que forma é que a computação é realizada pelas respetivas tarefas nos nós de computação de um conjunto.
 
-Um trabalho especifica a [piscina](nodes-and-pools.md#pools) em que o trabalho deve ser executado. Pode criar um novo conjunto para cada trabalho ou utilizar um conjunto para muitos trabalhos. Pode criar um conjunto para cada trabalho associado a uma agenda de trabalho ou para todos os trabalhos associados a uma agenda de trabalho.
+Um trabalho especifica a [piscina](nodes-and-pools.md#pools) em que o trabalho deve ser executado. Pode criar um novo conjunto para cada trabalho ou utilizar um conjunto para muitos trabalhos. Você pode criar uma piscina para cada trabalho que esteja associado a um [horário de trabalho,](#scheduled-jobs)ou uma piscina para todos os trabalhos que estejam associados a um horário de trabalho.
 
 ### <a name="job-priority"></a>Prioridade dos trabalhos
 
-Pode atribuir uma prioridade de trabalho opcional aos empregos que cria. O serviço Batch utiliza o valor de prioridade do trabalho para determinar a ordem de agendamento dos trabalhos numa conta (não deve ser confundido com [trabalhos agendados](#scheduled-jobs)). Os valores de prioridade variam entre -1000 a 1000, sendo -1000 a prioridade mais baixa e 1000 a prioridade mais alta. Para atualizar a prioridade de uma tarefa, realize a operação [Atualizar as propriedades de uma tarefa](/rest/api/batchservice/job/update) (REST do Batch) ou ao modifique a propriedade [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (NET do Batch).
+Pode atribuir uma prioridade de trabalho opcional aos empregos que cria. O serviço Batch utiliza o valor prioritário do trabalho para determinar a ordem de agendamento (para todas as tarefas dentro do trabalho) wtihin cada piscina.
 
-Dentro da mesma conta, os trabalhos de prioridade mais alta têm precedência de agendamento sobre os de prioridade mais baixa. Um trabalho com um valor de prioridade superior numa conta não tem precedência de agendamento sobre outro trabalho com um valor de prioridade inferior numa conta diferente. As tarefas de trabalhos de prioridade inferior que já estão em execução não serão substituídas.
+Para atualizar a prioridade de um trabalho, ligue para a [Atualização das propriedades de uma](/rest/api/batchservice/job/update) operação de trabalho (Batch REST), ou modifique o [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (Lote.NET). Os valores prioritários variam entre -1000 (menor prioridade) e 1000 (prioridade máxima).
 
-O agendamento de tarefas no âmbito dos conjuntos é independente. Entre conjuntos diferentes, não é garantido que um trabalho de prioridade superior seja agendado primeiro se o respetivo conjunto associado tiver poucos nós inativos. No mesmo conjunto, as tarefas com o mesmo nível de prioridade têm as mesmas hipóteses de serem agendadas.
+Dentro do mesmo conjunto, os postos de trabalho de maior prioridade têm precedência de agendamento sobre empregos de baixa prioridade. As tarefas em empregos de baixa prioridade que já estão a decorrer não serão antecipadas por tarefas num trabalho de maior prioridade. Os postos de trabalho com o mesmo nível prioritário têm a mesma possibilidade de ser programados, e a execução de tarefas não está definida.
+
+Um trabalho com um valor de alta prioridade a correr numa piscina não terá impacto no agendamento de empregos a funcionar numa piscina separada ou numa conta de Lote diferente. A prioridade do emprego não se aplica às [autopools](nodes-and-pools.md#autopools), que são criadas quando o trabalho é submetido.
 
 ### <a name="job-constraints"></a>Restrições de emprego
 
@@ -39,9 +41,9 @@ Pode utilizar restrições de trabalhos para especificar determinados limites pa
 
 A aplicação cliente pode adicionar tarefas a um trabalho ou pode especificar uma [tarefa de gestão de trabalhos](#job-manager-task). As tarefas de gestão de trabalhos contêm as informações necessárias para criar as tarefas necessárias para um trabalho, sendo a tarefa de gestão de trabalhos executada num dos nós de computação do conjunto. A tarefa de gestor de emprego é tratada especificamente pela Batch; é feito em fila assim que o trabalho é criado e é reiniciado se falhar. É necessária uma tarefa de gestor de emprego para os postos de trabalho criados por um [horário de trabalho](#scheduled-jobs), porque é a única forma de definir as tarefas antes de o trabalho ser instantâneo.
 
-Por predefinição, os trabalhos permanecem no estado ativo quando todas as tarefas dentro do trabalho estiverem concluídas. Pode alterar este comportamento para que o trabalho seja automaticamente terminado quando todas as tarefas no trabalho estiverem concluídas. Defina a propriedade **onAllTasksComplete** da tarefa ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) no Batch .NET) para *terminatejob*, para terminar automaticamente o trabalho quando todas as respetivas tarefas estiverem no estado de conclusão.
+Por predefinição, os trabalhos permanecem no estado ativo quando todas as tarefas dentro do trabalho estiverem concluídas. Pode alterar este comportamento para que o trabalho seja automaticamente terminado quando todas as tarefas no trabalho estiverem concluídas. Desacorda a propriedade do trabalho **noAllTasksComplete** [(OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) in Batch .NET) `terminatejob` para *' para encerrar automaticamente o trabalho quando todas as suas tarefas estiverem no estado concluído.
 
-O serviço Batch considera um trabalho *sem* tarefas para ter todas as suas tarefas concluídas. Por conseguinte, esta opção é frequentemente utilizada com uma [tarefa de gestor de trabalhos](#job-manager-task). Se pretender utilizar a terminação automática do trabalho sem um gestor de trabalhos, deve definir inicialmente uma nova propriedade **onAllTasksComplete** do trabalho como *noaction* e, em seguida, configurá-la para *terminatejob* (terminar o trabalho) apenas depois de terminar de adicionar tarefas ao trabalho.
+O serviço Batch considera um trabalho *sem* tarefas para ter todas as suas tarefas concluídas. Por conseguinte, esta opção é frequentemente utilizada com uma [tarefa de gestor de trabalhos](#job-manager-task). Se quiser utilizar a rescisão automática de emprego sem um gestor de emprego, deve inicialmente definir uma nova propriedade **noAllTasksComplete** para `noaction` , em seguida, defini-lo para `terminatejob` *' apenas depois de terminar de adicionar tarefas ao trabalho.
 
 ### <a name="scheduled-jobs"></a>Tarefas agendadas
 

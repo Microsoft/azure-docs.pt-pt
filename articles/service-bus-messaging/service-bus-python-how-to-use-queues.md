@@ -1,123 +1,212 @@
 ---
-title: 'Quickstart: Use filas de autocarros da Azure Service com Python'
-description: Este artigo mostra-lhe como usar python para criar, enviar mensagens e receber mensagens das filas do Azure Service Bus.
+title: Use filas de ônibus de serviço Azure com python azure-servicebus versão 7.0.0
+description: Este artigo mostra-lhe como usar python para enviar mensagens e receber mensagens das filas do Azure Service Bus.
 author: spelluru
 documentationcenter: python
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 11/18/2020
 ms.author: spelluru
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: a09f20b2c392dbf219750a76e9570239227dc865
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2b54b167413b0fcbe7022eab4bbbf34b37225be5
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89458566"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95810588"
 ---
-# <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Quickstart: Use filas de autocarros da Azure Service com Python
-
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-Este artigo mostra-lhe como usar python para criar, enviar mensagens e receber mensagens das filas do Azure Service Bus. 
-
-Para obter mais informações sobre as bibliotecas python Azure Service Bus, consulte [as bibliotecas de Service Bus para Python.](/python/api/overview/azure/servicebus?view=azure-python)
+# <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-python"></a>Enviar mensagens para e receber mensagens das filas de autocarros da Azure Service (Python)
+Este artigo mostra-lhe como usar python para enviar mensagens e receber mensagens das filas do Azure Service Bus. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Uma subscrição do Azure. Pode ativar os [benefícios do seu subscritor Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
-- Um espaço de nomes de Service Bus, criado seguindo os passos no [Quickstart: Use o portal Azure para criar um tópico de Service Bus e subscrições](service-bus-quickstart-topics-subscriptions-portal.md). Copie a cadeia de ligação primária do ecrã de políticas de **acesso partilhado** para utilizar mais tarde neste artigo. 
-- Python 3.4x ou superior, com o pacote [Python Azure Service Bus][Python Azure Service Bus package] instalado. Para mais informações, consulte o [Guia de Instalação Python.](/azure/developer/python/azure-sdk-install) 
-
-## <a name="create-a-queue"></a>Criar uma fila
-
-Um objeto **ServiceBusClient** permite-lhe trabalhar com filas. Para aceder programáticamente service bus, adicione a seguinte linha perto do topo do seu ficheiro Python:
-
-```python
-from azure.servicebus import ServiceBusClient
-```
-
-Adicione o seguinte código para criar um objeto **ServiceBusClient.** `<connectionstring>`Substitua-o pelo valor da cadeia de ligação primária do Service Bus. Pode encontrar este valor de acordo com **as políticas de acesso partilhado** no seu espaço de nomes de Service Bus no portal [Azure.][Azure portal]
-
-```python
-sb_client = ServiceBusClient.from_connection_string('<connectionstring>')
-```
-
-O seguinte código utiliza o `create_queue` método do **ServiceBusClient** para criar uma fila com `taskqueue` configurações predefinidos:
-
-```python
-sb_client.create_queue("taskqueue")
-```
-
-Pode utilizar opções para substituir as definições de fila predefinidos, como o tempo de mensagem para viver (TTL) ou o tamanho máximo do tópico. O seguinte código cria uma fila chamada `taskqueue` com um tamanho máximo de fila de 5 GB e valor TTL de 1 minuto:
-
-```python
-sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
-                       default_message_time_to_live=datetime.timedelta(minutes=1))
-```
+- Uma subscrição do Azure. Pode ativar os [benefícios do seu assinante Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
+- Se não tiver uma fila para trabalhar, siga os passos no [portal Use Azure para criar um](service-bus-quickstart-portal.md) artigo de fila de Service Bus para criar uma fila. Note a **cadeia de ligação** para o seu espaço de nomes de Service Bus e o nome da **fila** que criou.
+- Python 2.7 ou superior, com o pacote [Python Azure Service Bus](https://pypi.python.org/pypi/azure-servicebus) instalado. Para mais informações, consulte o [Guia de Instalação Python.](/azure/developer/python/azure-sdk-install) 
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens para uma fila
 
-Para enviar uma mensagem para uma fila de ônibus de serviço, uma aplicação chama o `send` método no objeto **ServiceBusClient.** O exemplo de código a seguir cria um cliente de fila e envia uma mensagem de teste para a `taskqueue` fila. `<connectionstring>`Substitua-o pelo valor da cadeia de ligação primária do Service Bus. 
+1. Adicione a seguinte declaração de importação. 
 
-```python
-from azure.servicebus import QueueClient, Message
+    ```python
+    from azure.servicebus import ServiceBusClient, ServiceBusMessage
+    ```
+2. Adicione as seguintes constantes. 
 
-# Create the QueueClient
-queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")
+    ```python
+    CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
+    QUEUE_NAME = "<QUEUE NAME>"
+    ```
 
-# Send a test message to the queue
-msg = Message(b'Test Message')
-queue_client.send(msg)
-```
+    > [!IMPORTANT]
+    > - `<NAMESPACE CONNECTION STRING>`Substitua-a pela cadeia de ligação para o seu espaço de nomes service bus.
+    > - `<QUEUE NAME>`Substitua-o pelo nome da fila. 
+3. Adicione um método para enviar uma única mensagem.
 
-### <a name="message-size-limits-and-quotas"></a>Limites e quotas do tamanho da mensagem
+    ```python
+    def send_single_message(sender):
+        # create a Service Bus message
+        message = ServiceBusMessage("Single Message")
+        # send the message to the queue
+        sender.send_messages(message)
+        print("Sent a single message")
+    ```
 
-As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há limite para o número de mensagens que uma fila pode conter, mas há um limite no tamanho total das mensagens que a fila mantém. Pode definir o tamanho da fila na hora da criação, com um limite superior de 5 GB. 
+    O remetente é um objeto que atua como cliente para a fila que criou. Vai criá-lo mais tarde e enviar como argumento para esta função. 
+4. Adicione um método para enviar uma lista de mensagens.
 
-Para obter mais informações sobre quotas, consulte [as quotas de Service Bus.][Service Bus quotas]
+    ```python
+    def send_a_list_of_messages(sender):
+        # create a list of messages
+        messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+        # send the list of messages to the queue
+        sender.send_messages(messages)
+        print("Sent a list of 5 messages")
+    ```
+5. Adicione um método para enviar um lote de mensagens.
 
+    ```python
+    def send_batch_message(sender):
+        # create a batch of messages
+        batch_message = sender.create_message_batch()
+        for _ in range(10):
+            try:
+                # add a message to the batch
+                batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+            except ValueError:
+                # ServiceBusMessageBatch object reaches max_size.
+                # New ServiceBusMessageBatch object can be created here to send more data.
+                break
+        # send the batch of messages to the queue
+        sender.send_messages(batch_message)
+        print("Sent a batch of 10 messages")
+    ```
+6. Crie um cliente de Service Bus e, em seguida, um objeto remetente de fila para enviar mensagens.
+
+    ```python
+    # create a Service Bus client using the connection string
+    servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
+    with servicebus_client:
+        # get a Queue Sender object to send messages to the queue
+        sender = servicebus_client.get_queue_sender(queue_name=QUEUE_NAME)
+        with sender:
+            # send one message        
+            send_single_message(sender)
+            # send a list of messages
+            send_a_list_of_messages(sender)
+            # send a batch of messages
+            send_batch_message(sender)
+    
+    print("Done sending messages")
+    print("-----------------------")
+    ```
+ 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
-
-O cliente da fila recebe mensagens de uma fila utilizando o `get_receiver` método no objeto **ServiceBusClient.** O exemplo de código a seguir cria um cliente de fila e recebe uma mensagem da `taskqueue` fila. `<connectionstring>`Substitua-o pelo valor da cadeia de ligação primária do Service Bus. 
+Adicione o seguinte código após a declaração de impressão. Este código recebe continuamente novas mensagens até não receber novas mensagens durante 5 ( `max_wait_time` ) segundos. 
 
 ```python
-from azure.servicebus import QueueClient
-
-# Create the QueueClient
-queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")
-
-# Receive the message from the queue
-with queue_client.get_receiver() as queue_receiver:
-    messages = queue_receiver.fetch_next(timeout=3)
-    for message in messages:
-        print(message)
-        message.complete()
+with servicebus_client:
+    # get the Queue Receiver object for the queue
+    receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME, max_wait_time=5)
+    with receiver:
+        for msg in receiver:
+            print("Received: " + str(msg))
+            # complete the message so that the message is removed from the queue
+            receiver.complete_message(msg)
 ```
 
-### <a name="use-the-peek_lock-parameter"></a>Use o parâmetro peek_lock
+## <a name="full-code"></a>Código completo
 
-O parâmetro opcional `peek_lock` de determinar se o Service Bus elimina as `get_receiver` mensagens da fila à medida que são lidas. O modo predefinido para receber mensagens é *PeekLock*, ou `peek_lock` definido para **True**, que lê (espreita) e bloqueia mensagens sem as apagar da fila. Cada mensagem deve então ser explicitamente completada para removê-la da fila.
+```python
+# import os
+from azure.servicebus import ServiceBusClient, ServiceBusMessage
 
-Para eliminar as mensagens da fila à medida que são lidas, pode definir o `peek_lock` parâmetro de `get_receiver` **"Falso".** Eliminar mensagens como parte da operação de receção é o modelo mais simples, mas só funciona se a aplicação puder tolerar mensagens em falta se houver uma falha. Para compreender este comportamento, considere um cenário em que o consumidor emite um pedido de receção e, em seguida, cai antes de o processar. Se a mensagem foi apagada ao ser recebida, quando a aplicação reinicia e volta a consumir mensagens, perdeu a mensagem que recebeu antes do acidente.
+CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
+QUEUE_NAME = "<QUEUE NAME>"
 
-Se a sua aplicação não pode tolerar mensagens perdidas, receber é uma operação em duas fases. O PeekLock encontra a próxima mensagem a ser consumida, bloqueia-a para evitar que outros consumidores a recebam e a devolve à aplicação. Após o processamento ou armazenamento da mensagem, a aplicação completa a segunda fase do processo de receção, chamando o `complete` método no objeto **Mensagem.**  O `complete` método marca a mensagem como sendo consumida e remove-a da fila.
+def send_single_message(sender):
+    message = ServiceBusMessage("Single Message")
+    sender.send_messages(message)
+    print("Sent a single message")
 
-## <a name="handle-application-crashes-and-unreadable-messages"></a>Manuseia falhas de aplicação e mensagens ilegíveis
+def send_a_list_of_messages(sender):
+    messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+    sender.send_messages(messages)
+    print("Sent a list of 5 messages")
 
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não puder processar uma mensagem por alguma razão, pode ligar para o `unlock` método no objeto **Mensagem.** O Service Bus desbloqueia a mensagem dentro da fila e disponibiliza-a para ser novamente recebida, seja pela mesma ou por outra aplicação consumista.
+def send_batch_message(sender):
+    batch_message = sender.create_message_batch()
+    for _ in range(10):
+        try:
+            batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+        except ValueError:
+            # ServiceBusMessageBatch object reaches max_size.
+            # New ServiceBusMessageBatch object can be created here to send more data.
+            break
+    sender.send_messages(batch_message)
+    print("Sent a batch of 10 messages")
 
-Há também um tempo limite para mensagens trancadas dentro da fila. Se uma aplicação não processar uma mensagem antes do prazo de bloqueio expirar, por exemplo, se a aplicação falhar, o Service Bus desbloqueia automaticamente a mensagem e disponibiliza-a para ser novamente recebida.
+servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
 
-Se uma aplicação falhar após o processamento de uma mensagem, mas antes de ligar para o `complete` método, a mensagem é reentrexada na aplicação quando reinicia. Este comportamento é muitas vezes chamado *de Processamento pelo menos uma vez.* Cada mensagem é processada pelo menos uma vez, mas em certas situações a mesma mensagem pode ser reenrimida. Se o seu cenário não puder tolerar o processamento duplicado, pode utilizar a propriedade **MessageId** da mensagem, que permanece constante em todas as tentativas de entrega, para lidar com a entrega de mensagens duplicadas. 
+with servicebus_client:
+    sender = servicebus_client.get_queue_sender(queue_name=QUEUE_NAME)
+    with sender:
+        send_single_message(sender)
+        send_a_list_of_messages(sender)
+        send_batch_message(sender)
 
-> [!TIP]
-> Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite-lhe ligar-se a um espaço de nomes de Service Bus e administrar facilmente entidades de mensagens. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação e a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos.
+print("Done sending messages")
+print("-----------------------")
+
+with servicebus_client:
+    receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME, max_wait_time=5)
+    with receiver:
+        for msg in receiver:
+            print("Received: " + str(msg))
+            receiver.complete_message(msg)
+```
+
+## <a name="run-the-app"></a>Executar a aplicação
+Quando executar a aplicação, deverá ver a seguinte saída: 
+
+```console
+Sent a single message
+Sent a list of 5 messages
+Sent a batch of 10 messages
+Done sending messages
+-----------------------
+Received: Single Message
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+```
+
+No portal Azure, navegue para o seu espaço de nomes de Service Bus. Na página **'Visão Geral',** verifique se a conta de mensagem **recebida** e **de saída** é de 16. Se não vir os condes, refresque a página depois de esperar alguns minutos. 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Contagem de mensagens de entrada e saída":::
+
+Selecione a fila nesta página **de visão geral** para navegar na página **de Fila de autocarros** de serviço. Também pode ver a contagem de mensagens **recebidas** e **de saída** nesta página. Também vê outras informações, como o **tamanho atual** da fila e a **contagem de mensagens ativas.** 
+
+:::image type="content" source="./media/service-bus-python-how-to-use-queues/queue-details.png" alt-text="Detalhes da fila":::
+
 
 ## <a name="next-steps"></a>Passos seguintes
+Consulte a seguinte documentação e amostras: 
 
-Agora que aprendeu o básico das filas do Service Bus, consulte [filas, tópicos e subscrições][Queues, topics, and subscriptions] para saber mais.
+- [Biblioteca de clientes de autocarros de serviço Azure para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
+- [Amostras.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples) 
+    - A **pasta sync_samples** tem amostras que mostram como interagir com o Service Bus de forma sincronizada. Neste início rápido, usou este método. 
+    - A **pasta async_samples** tem amostras que mostram como interagir com o Service Bus de forma assíncronea. 
+- [documentação de referência azure-servicebus](https://docs.microsoft.com/python/api/azure-servicebus/azure.servicebus?view=azure-python-preview&preserve-view=true)
 
-[Azure portal]: https://portal.azure.com
-[Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
-[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[Service Bus quotas]: service-bus-quotas.md

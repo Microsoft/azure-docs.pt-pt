@@ -1,20 +1,19 @@
 ---
-title: Referência de sintaxe SQLRuleAction em Azure Service Bus
-description: Este artigo fornece uma referência para a sintaxe SQLRuleAction. As ações são escritas na sintaxe baseada em linguagem SQL que é realizada contra uma mensagem intermediada.
+title: Azure Service Bus Subscription Rule SQL Action sintaxe Microsoft Docs
+description: Este artigo fornece uma referência para a sintaxe de ação de regra SQL. As ações são escritas na sintaxe baseada em linguagem SQL que é realizada contra uma mensagem.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: a156a9d8f18a7763f03c63b56681fa25ce6de289
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341580"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808849"
 ---
-# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referência de sintaxe SQLRuleAction para Azure Service Bus
+# <a name="subscription-rule-sql-action-syntax"></a>Regra de subscrição SQL Action Syntax
 
-A *SqlRuleAction* é um exemplo da classe [SqlRuleAction,](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) e representa um conjunto de ações escritas na sintaxe baseada em linguagem SQL que é realizada contra uma [MediaedMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+Uma *ação SQL* é usada para manipular metadados de mensagens depois de uma mensagem ter sido selecionada por um filtro de uma regra de subscrição. É uma expressão de texto que se apoia num subconjunto da norma SQL-92. Expressões de ação são usadas com o `sqlExpression` elemento da propriedade de 'ação' de um Service Bus em um modelo de Gestor de Recursos `Rule` [Azure](service-bus-resource-manager-namespace-topic-with-rule.md), ou o argumento do comando Azure CLI, `az servicebus topic subscription rule create` e [`--action-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) várias funções SDK que permitem gerir regras de subscrição.
   
-Este artigo lista detalhes sobre a gramática de ação da regra SQL.  
   
 ```  
 <statements> ::=
@@ -186,7 +185,7 @@ As constantes booleanas são representadas pelas palavras-chave `TRUE` ou `FALSE
   
 As constantes de corda são incluídas em aspas únicas e incluem caracteres Unicode válidos. Uma única marca de aspas incorporada numa constante de corda é representada como duas aspas únicas.  
   
-## <a name="function"></a>função  
+## <a name="function"></a> Função   
   
 ```  
 <function> :=  
@@ -211,5 +210,9 @@ A `property(name)` função devolve o valor do imóvel referenciado por `name` .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [Classe SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [Classe SQLRuleAction (.Net Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [Classe SQLRuleAction (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
+- [Classe SqlRuleAction (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
+- [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
+- [regra de subscrição de tópico de az servicebus](/cli/azure/servicebus/topic/subscription/rule)
+- [Novo AzServiceBusrule](/powershell/module/az.servicebus/new-azservicebusrule)

@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: a26a3a0902b76359dc7441d97fa2516989ec7f0b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 636896edf8180052508f366bcc548efe13dec1e2
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486877"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95810054"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicação no Registo do Contentor de Azure
 
@@ -18,9 +18,9 @@ As empresas que querem uma presença local, ou um backup quente, optam por execu
 
 Um registo com georreplicação proporciona as seguintes vantagens:
 
-* Nomes de registo/imagem/etiqueta únicos podem ser utilizados em várias regiões
-* Acesso de registo perto da rede a partir de implementações regionais
-* Nenhum honorário de saída adicional, pois as imagens são obtidas a partir de um registo local replicado na mesma região que o anfitrião do contentor
+* Registo único, imagem e nomes de etiquetas podem ser usados em várias regiões
+* Melhorar o desempenho e a fiabilidade das implementações regionais com acesso ao registo de proximidade da rede
+* Reduza os custos de transferência de dados puxando camadas de imagem de um registo local, replicado na mesma região ou nas proximidades que o seu anfitrião de contentores
 * Gestão única de um registo em múltiplas regiões
 
 > [!NOTE]
@@ -56,8 +56,9 @@ Os desafios típicos de vários registos incluem:
 Utilizando a funcionalidade de geo-replicação do Registo do Contentor Azure, estes benefícios são realizados:
 
 * Gerir um registo único em todas as regiões: `contoso.azurecr.io`
-* Gerir uma única configuração de implementações de imagem como todas as regiões utilizaram o mesmo URL de imagem: `contoso.azurecr.io/public/products/web:1.2`
-* Empurre para um único registo, enquanto a ACR gere a geo-replicação. Pode configurar [webhooks](container-registry-webhook.md) regionais para notificá-lo de eventos em réplicas específicas.
+* Gerir uma única configuração de implementações de imagem, uma vez que todas as regiões utilizam o mesmo URL de imagem: `contoso.azurecr.io/public/products/web:1.2`
+* Empurre para um único registo, enquanto a ACR gere a geo-replicação. O ACR apenas replica camadas únicas, reduzindo a transferência de dados entre regiões. 
+* Configure [webhooks](container-registry-webhook.md) regionais para notificá-lo de eventos em réplicas específicas.
 
 ## <a name="configure-geo-replication"></a>Configurar georreplicação
 

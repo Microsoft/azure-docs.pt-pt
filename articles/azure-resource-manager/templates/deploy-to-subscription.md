@@ -2,13 +2,13 @@
 title: Mobilizar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Também mostra como implantar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: c87f6fa590e1f769816fb0ee3cba3aad1997de15
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 11/24/2020
+ms.openlocfilehash: 2d4bd0db32a4bf0224b9da3af6e03ca86d7b496e
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519868"
+ms.locfileid: "95807697"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implementações de subscrição com modelos ARM
 
@@ -56,7 +56,7 @@ Para gerir a sua subscrição, utilize:
 * [orçamentos](/azure/templates/microsoft.consumption/budgets)
 * [Alterar perfil de análise](/azure/templates/microsoft.changeanalysis/profile)
 * [apoiarPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
-* [tags](/azure/templates/microsoft.resources/tags)
+* [etiquetas](/azure/templates/microsoft.resources/tags)
 
 Outros tipos suportados incluem:
 
@@ -126,6 +126,14 @@ Para obter informações mais detalhadas sobre comandos de implantação e opç�
 * [Use um botão de implementação para implementar modelos do repositório GitHub](deploy-to-azure-button.md)
 * [Implementar modelos ARM da Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Localização e nome de implantação
+
+Para implementações de nível de subscrição, deve fornecer uma localização para a implementação. A localização da implantação é separada da localização dos recursos que implementa. A localização da implantação especifica onde armazenar dados de implantação. [O grupo de gestão](deploy-to-management-group.md) e as implantações de [inquilinos](deploy-to-tenant.md) também requerem uma localização. Para implementações [de grupos](deploy-to-resource-group.md) de recursos, a localização do grupo de recursos é usada para armazenar os dados de implantação.
+
+Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
+
+Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Por exemplo, se criar uma implementação de subscrição com o nome **implantado1** em **central,** não pode mais tarde criar outra implantação com o nome **de implantação1,** mas uma localização de **Westus**. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
+
 ## <a name="deployment-scopes"></a>Âmbitos de implantação
 
 Ao implementar uma subscrição, pode mobilizar recursos para:
@@ -173,14 +181,6 @@ Pode utilizar uma implantação aninhada `scope` e `location` definida.
 Ou, pode definir o âmbito `/` para alguns tipos de recursos, como grupos de gestão.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
-
-## <a name="deployment-location-and-name"></a>Localização e nome de implantação
-
-Para implementações de nível de subscrição, deve fornecer uma localização para a implementação. A localização da implantação é separada da localização dos recursos que implementa. A localização da implantação especifica onde armazenar dados de implantação.
-
-Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
-
-Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
 
 ## <a name="resource-groups"></a>Grupos de recursos
 

@@ -5,31 +5,20 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 11/24/2020
 ms.author: victorh
-ms.openlocfilehash: 650cf1e9b0e9fbbadc5a783cad844898698bf017
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509739"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95802034"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Visão geral da política do Azure Firewall Manager
 
 Firewall Policy é um recurso Azure que contém recolhas de regras de nat, rede e aplicações e configurações de Inteligência de Ameaças. É um recurso global que pode ser usado em vários casos de Firewall Azure em Secured Virtual Hubs e Hub Virtual Networks. As políticas funcionam em regiões e assinaturas.
 
 ![Política do Gestor de Firewall Azure](media/policy-overview/policy-overview.png)
-
-## <a name="availability"></a>Disponibilidade
-
-Firewall Policy é um recurso altamente disponível e automaticamente replicado. Se um raro desastre regional acontecer, as operações da Política de Firewall falham nas regiões emparelhadas de Azure. As operações de pós-recuperação falham na Região Primária de Azure para operações sincronizadas e assíncronas. 
-
-As regiões emparelhadas proporcionam vários benefícios, incluindo:
-- isolamento físico separado por pelo menos 300 milhas
-- recuperação mais rápida de um desastre
-- cumprir os requisitos de residência de dados mandatados pela geografia
-
-Para obter mais informações sobre as regiões emparelhadas, consulte [a continuidade do Negócio e a recuperação de desastres (BCDR): Regiões Emparelhadas Azure](../best-practices-availability-paired-regions.md).
 
 ## <a name="policy-creation-and-association"></a>Criação de políticas e associação
 

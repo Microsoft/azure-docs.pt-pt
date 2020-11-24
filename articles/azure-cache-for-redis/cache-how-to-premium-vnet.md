@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: f7b4a22c0473acb7da0708f095c25b4f3f78fe66
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5fd82105c94bb9be2d07c8843834465821acd8bc
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445596"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95803780"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar suporte de rede virtual para uma cache premium Azure para Redis
 O Azure Cache para Redis tem diferentes ofertas de cache, que proporcionam flexibilidade na escolha do tamanho e funcionalidades da cache, incluindo características de nível Premium, tais como clustering, persistência e suporte de rede virtual. Um VNet é uma rede privada na nuvem. Quando uma cache Azure para a instância Redis é configurada com um VNet, não é publicamente endereçada e só pode ser acedida a partir de máquinas e aplicações virtuais dentro do VNet. Este artigo descreve como configurar o suporte de rede virtual para um Azure Cache premium para a instância Redis.
@@ -130,7 +130,7 @@ Há nove requisitos portuários de saída. Os pedidos de saída nestas gamas sã
 
 | Porta(s) | Direção | Protocolo de Transporte | Objetivo | Local IP | Endereço IP remoto |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 |Saída |TCP |Dependências do Redis no Azure Storage/PKI (Internet) | (Sub-rede Redis) |* |
+| 80, 443 |Saída |TCP |Dependências do Redis no Azure Storage/PKI (Internet) | (Sub-rede Redis) |* <sup>4</sup> |
 | 443 | Saída | TCP | Dependência de Redis no Cofre da Chave Azure e monitor Azure | (Sub-rede Redis) | AzureKeyVault, AzureMonitor <sup>1</sup> |
 | 53 |Saída |TCP/UDP |Dependências de Redis em DNS (Internet/VNet) | (Sub-rede Redis) | 168.63.129.16 e 169.254.169.254 <sup>2</sup> e qualquer servidor DNS personalizado para a sub-rede <sup>3</sup> |
 | 8443 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) | (Sub-rede Redis) |
@@ -146,6 +146,8 @@ Há nove requisitos portuários de saída. Os pedidos de saída nestas gamas sã
 
 <sup>3</sup> Não é necessário para sub-redes sem servidor DNS personalizado, ou caches redis mais recentes que ignoram DNS personalizados.
 
+<sup>4</sup> Para obter mais informações, consulte [os requisitos adicionais de conectividade da rede VNET](#additional-vnet-network-connectivity-requirements).
+
 #### <a name="geo-replication-peer-port-requirements"></a>Requisitos da porta do elemento de rede de georreplicação
 
 Se estiver a utilizar georeplicação entre caches em Redes Virtuais Azure, tenha em atenção que a configuração recomendada é desbloquear as portas 15000-15999 para toda a sub-rede em ambas as direções de entrada e saída para ambas as caches, de modo a que todos os componentes de réplica na sub-rede possam comunicar diretamente uns com os outros mesmo em caso de uma futura geo-falha.
@@ -156,13 +158,13 @@ Existem oito requisitos de gama portuária de entrada. Os pedidos de entrada nes
 
 | Porta(s) | Direção | Protocolo de Transporte | Objetivo | Local IP | Endereço IP remoto |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Entrada |TCP |Comunicação do cliente com Redis, Azure load balance | (Sub-rede Redis) | (Sub-rede Redis), Rede Virtual, Balançador de Carga Azure <sup>1</sup> |
+| 6379, 6380 |Entrada |TCP |Comunicação do cliente com Redis, Azure load balance | (Sub-rede Redis) | (Sub-rede Redis), (sub-rede de clientes), AzureLoadBalancer <sup>1</sup> |
 | 8443 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
-| 8500 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Balanceador de Carga do Azure |
-| 10221-10231 |Entrada |TCP |Comunicação do cliente com Redis Clusters, Comunicações Internas para Redis | (Sub-rede Redis) |(Sub-rede Redis), Balançador de Carga Azure, (sub-rede do cliente) |
-| 13000-13999 |Entrada |TCP |Comunicação do cliente com Redis Clusters, Azure load balance | (Sub-rede Redis) |Rede Virtual, Equilibrador de Carga Azure |
-| 15000-15999 |Entrada |TCP |Comunicação do cliente com Redis Clusters, Azure load Balanceing, e Geo-Replication | (Sub-rede Redis) |Rede Virtual, Balançador de Carga Azure(Sub-rede de pares geo-réplica) |
-| 16001 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Balanceador de Carga do Azure |
+| 8500 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) | AzureLoadBalancer |
+| 10221-10231 |Entrada |TCP |Comunicação do cliente com Redis Clusters, Comunicações Internas para Redis | (Sub-rede Redis) |(Sub-rede Redis), AzureLoadBalancer, (sub-rede do cliente) |
+| 13000-13999 |Entrada |TCP |Comunicação do cliente com Redis Clusters, Azure load balance | (Sub-rede Redis) | (Sub-rede Redis), (sub-rede de clientes), AzureLoadBalancer |
+| 15000-15999 |Entrada |TCP |Comunicação do cliente com Redis Clusters, Azure load Balanceing, e Geo-Replication | (Sub-rede Redis) | (sub-rede Redis), (sub-rede de clientes), AzureLoadBalancer, (sub-rede de pares de réplicas de geo-réplica) |
+| 16001 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) | AzureLoadBalancer |
 | 20226 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 
 <sup>1</sup> Pode utilizar a Etiqueta de Serviço 'AzureLoadBalancer' (ou 'AZURE_LOADBALANCER' para clássico) para a autoria das regras NSG.
@@ -171,10 +173,10 @@ Existem oito requisitos de gama portuária de entrada. Os pedidos de entrada nes
 
 Existem requisitos de conectividade de rede para Azure Cache para Redis que podem não ser inicialmente cumpridos numa rede virtual. O Azure Cache para Redis requer que todos os seguintes itens funcionem corretamente quando utilizados numa rede virtual.
 
-* Conectividade de rede de saída para pontos finais do Azure Storage em todo o mundo. Isto inclui pontos finais localizados na mesma região que a Cache Azure para a instância Redis, bem como pontos finais de armazenamento localizados em **outras** regiões do Azure. Os pontos finais de armazenamento Azure resolvem-se nos seguintes domínios DNS: *table.core.windows.net* , *blob.core.windows.net* , *queue.core.windows.net* e *file.core.windows.net*. 
+* Conectividade de rede de saída para pontos finais do Azure Storage em todo o mundo. Isto inclui pontos finais localizados na mesma região que a Cache Azure para a instância Redis, bem como pontos finais de armazenamento localizados em **outras** regiões do Azure. Os pontos finais de armazenamento Azure resolvem-se nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*. 
 * A conectividade da rede de saída para *ocsp.digicert.com,* *crl4.digicert.com,* *ocsp.msocsp.com,* *mscrl.microsoft.com,* *crl3.digicert.com,* *cacerts.digicert.com,* *oneocsp.microsoft.com* e *crl.microsoft.com.* Esta conectividade é necessária para suportar a funcionalidade TLS/SSL.
 * A configuração de DNS para a rede virtual deve ser capaz de resolver todos os pontos finais e domínios mencionados nos pontos anteriores. Estes requisitos dns podem ser cumpridos garantindo que uma infraestrutura de DNS válida é configurada e mantida para a rede virtual.
-* Conectividade de rede de saída aos seguintes pontos finais do Azure Monitor, que resolvem nos seguintes domínios DNS: *shoebox2-black.shoebox2.metrics.nsatc.net* , *north-prod2.prod2.metrics.nsatc.net* , *azglobal-black.azglobal.metrics.nsatc.net* , *shoebox2-red.shoebox2.metrics.nsatc.net* , *east-prod2.prod2.metrics.nsatc.net* , *azglobal-red.azglobal.metrics.nsatc.net*.
+* Conectividade de rede de saída aos seguintes pontos finais do Azure Monitor, que resolvem nos seguintes domínios DNS: *shoebox2-black.shoebox2.metrics.nsatc.net*, *north-prod2.prod2.metrics.nsatc.net*, *azglobal-black.azglobal.metrics.nsatc.net*, *shoebox2-red.shoebox2.metrics.nsatc.net*, *east-prod2.prod2.metrics.nsatc.net*, *azglobal-red.azglobal.metrics.nsatc.net*.
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Como posso verificar se a minha cache está a funcionar num VNET?
 
@@ -218,19 +220,19 @@ Se não conseguir resolver o nome DNS, algumas bibliotecas de clientes incluem o
 Os VNets só podem ser utilizados com caches premium.
 
 ### <a name="why-does-creating-an-azure-cache-for-redis-fail-in-some-subnets-but-not-others"></a>Porque é que a criação de um Cache Azure para redis falha em algumas sub-redes, mas não noutras?
-Se estiver a implementar uma Cache Azure para Redis para um VNet do Gestor de Recursos, a cache deve estar numa sub-rede dedicada que não contenha outro tipo de recurso. Se for feita uma tentativa de implantar uma Cache Azure para Redis numa sub-rede VNet do Gestor de Recursos que contenha outros recursos, a implementação falha. Tem de eliminar os recursos existentes dentro da sub-rede antes de poder criar uma nova Cache Azure para Redis.
+Se estiver a implantar uma Cache Azure para Redis para um VNet, a cache deve estar numa sub-rede dedicada que não contenha outro tipo de recurso. Se for feita uma tentativa de implantar uma Cache Azure para Redis para uma sub-rede VNet do Gestor de Recursos que contenha outros recursos (tais como Gateways de Aplicação, NAT de saída, e assim por diante), a implementação geralmente falhará. Deve eliminar os recursos existentes de outros tipos antes de poder criar um novo Cache Azure para Redis.
 
-Pode implementar vários tipos de recursos para um VNet clássico, desde que tenha endereços IP suficientes disponíveis.
+Também deve ter endereços IP suficientes disponíveis na sub-rede.
 
 ### <a name="what-are-the-subnet-address-space-requirements"></a>Quais são os requisitos de espaço de endereço de sub-rede?
 O Azure reserva alguns endereços IP dentro de cada sub-rede, e estes endereços não podem ser utilizados. Os primeiros e últimos endereços IP das sub-redes estão reservados para a conformidade com o protocolo, juntamente com mais três endereços utilizados para os serviços Azure. Para mais informações, consulte [existem restrições à utilização de endereços IP dentro destas sub-redes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-Para além dos endereços IP utilizados pela infraestrutura Azure VNET, cada instância Redis na sub-rede utiliza dois endereços IP por fragmento e um endereço IP adicional para o balançador de carga. Uma cache não agrupada é considerada como tendo um fragmento.
+Para além dos endereços IP utilizados pela infraestrutura Azure VNET, cada instância Redis na sub-rede utiliza dois endereços IP por fragmento de cluster (mais endereços IP adicionais para réplicas adicionais, se houver) e um endereço IP adicional para o equilibrador de carga. Uma cache não agrupada é considerada como tendo um fragmento.
 
 ### <a name="do-all-cache-features-work-when-hosting-a-cache-in-a-vnet"></a>Todas as funcionalidades de cache funcionam ao hospedar uma cache num VNET?
 Quando a sua cache faz parte de um VNET, apenas os clientes do VNET podem aceder à cache. Como resultado, as seguintes funcionalidades de gestão de cache não funcionam neste momento.
 
-* Consola Redis - Como a Consola Redis funciona no seu navegador local, que está fora do VNET, não consegue ligar-se à sua cache.
+* Consola Redis - Como a Consola Redis funciona no seu navegador local, que normalmente se encontra numa máquina de desenvolvimento que não está ligada ao VNET, não pode ligar-se ao seu cache.
 
 
 ## <a name="use-expressroute-with-azure-cache-for-redis"></a>Use ExpressRoute com Cache Azure para Redis

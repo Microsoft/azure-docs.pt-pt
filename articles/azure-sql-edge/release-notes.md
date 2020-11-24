@@ -9,17 +9,32 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/22/2020
-ms.openlocfilehash: 543a71bc2a77f0a31f8ddaa0de13135b93db48ec
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.date: 11/24/2020
+ms.openlocfilehash: bb0c176ee8c145e1268827d79b453628e6f1bc28
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395041"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808630"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de lançamento do Azure SQL Edge 
 
 Este artigo descreve o que é novo e o que mudou a cada nova construção de Azure SQL Edge.
+
+## <a name="azure-sql-edge---101"></a>Azure SQL Edge - 1.0.1
+
+### <a name="sql-engine-build-number---15020001553"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1553
+
+### <a name="whats-new"></a>Novidades
+
+- Permitir a expressão Datebucket definida em colunas computadas
+
+### <a name="fixes"></a>Correções
+
+- Correção da política de retenção para deixar cair a mesa com política de retenção ativada com intervalo infinito
+- Suporte em Implementação da DacFx para funcionalidades de Política de Streaming e Retenção 
+- Correção de implementação da DacFx para permitir a implantação a partir de uma pasta aninhada em URL SAS 
+- PREVISÃO corrigir para suportar nomes de colunas longas em mensagens de erro
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge - 1.0.0 (RTM)
 

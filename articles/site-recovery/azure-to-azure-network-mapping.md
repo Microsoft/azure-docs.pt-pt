@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: harshacs
-ms.openlocfilehash: b5ae68dea228e834b2449152bd3ef357f2a74e83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff1f80641dc3db1f6b69fc0223c60022f8cf8435
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069497"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95811635"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar o mapeamento de rede e o endereçamento IP para VNets
 
@@ -85,7 +85,7 @@ Espaço de endereço diferente | O próximo endereço IP disponível na sub-rede
 **Rede alvo** | **Detalhes**
 --- | ---
 A rede alvo é o VNet de falha | - O endereço IP alvo será estático com o mesmo endereço IP. <br/><br/>  - Se o mesmo endereço IP já estiver atribuído, o endereço IP é o próximo disponível no final da gama de sub-redes. Por exemplo: Se o endereço IP de origem for 10.0.0.19 e a rede de failover utilizar o intervalo 10.0.0.0/24, então o próximo endereço IP atribuído ao VM-alvo é de 10.0.0.254.
-A rede alvo não é o VNet de s falha | - O endereço IP alvo será estático com o mesmo endereço IP.<br/><br/>  - Se o mesmo endereço IP já estiver atribuído, o endereço IP é o próximo disponível no final da gama de sub-redes.<br/><br/> Por exemplo: Se o endereço IP estático de origem for 10.0.0.19 e o failover estiver numa rede que não é a rede de failover, com o intervalo 10.0.0.0/24, então o endereço IP estático alvo será 10.0.0.0.19 se estiver disponível, e de outra forma será 10.0.0.25.
+A rede alvo não é o VNet de s falha | - O endereço IP alvo será estático com o mesmo endereço IP.<br/><br/>  - Se o mesmo endereço IP já estiver atribuído, o endereço IP é o próximo disponível no final da gama de sub-redes.<br/><br/> Por exemplo: Se o endereço IP estático de origem for 10.0.0.19 e o failover estiver numa rede que não é a rede de failover, com o intervalo 10.0.0.0/24, então o endereço IP estático alvo será 10.0.0.19 se disponível, e de outra forma será 10.0.0.254.
 
 - O VNet de falha é a rede-alvo que seleciona quando configura a recuperação de desastres.
 - Recomendamos que utilize sempre uma rede de não produção para o teste de falha.

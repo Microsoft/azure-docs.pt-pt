@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 1616a0149ae56de8afe0e9ab485af4bf76326d86
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0ae7bb9acde3cc8552a23db12d208a82ba0fb2f3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014616"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95800866"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrar para os recipientes de OCR de Leitura v3.x
 
@@ -29,11 +29,11 @@ Se estiver a utilizar a versão 2 do recipiente OCR de Leitura de Visão de Comp
 
 ## <a name="api-changes"></a>Alterações na API
 
-O recipiente Read v3.1 utiliza a versão 3 da API de Visão Computacional e tem os seguintes pontos finais:
+O recipiente Read v3.2 utiliza a versão 3 da API de Visão Computacional e tem os seguintes pontos finais:
 
-* `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
-* `/vision/v3.1-preview.2/read/analyze`
-* `/vision/v3.1-preview.2/read/syncAnalyze`
+* `/vision/v3.2-preview.1/read/analyzeResults/{operationId}`
+* `/vision/v3.2-preview.1/read/analyze`
+* `/vision/v3.2-preview.1/read/syncAnalyze`
 
 Consulte o [guia de migração da API da API com Visão De Computador v3](./upgrade-api-versions.md) PARA obter informações detalhadas sobre a atualização das suas aplicações para utilizar a versão 3 da API de leitura baseada na nuvem. Esta informação aplica-se também ao contentor. Note que as operações de sincronização só são suportadas em contentores.
 
@@ -43,7 +43,7 @@ Os requisitos e recomendações baseiam-se em parâmetros de referência com um 
 
 |Contentor  |Mínimo | Recomendado  |
 |---------|---------|------|
-|Ler 3.1 pré-visualização | 8 núcleos, memória de 16 GB         | 8 núcleos, memória de 24 GB |
+|Ler 3.2 pré-visualização | 8 núcleos, memória de 16 GB         | 8 núcleos, memória de 24 GB |
 
 Cada núcleo deve ser pelo menos 2,6 gigahertz (GHz) ou mais rápido.
 
@@ -78,7 +78,7 @@ Ajuste o temporizador com `Queue:Azure:QueueVisibilityTimeoutInMilliseconds` , o
 | 30000 |    120000 |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Rever recipientes de configuração](computer-vision-resource-container-config.md) para configurações de configuração
 * Reveja [a visão geral da Visão computacional](overview.md) para saber mais sobre o reconhecimento de texto impresso e manuscrito

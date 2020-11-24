@@ -1,14 +1,14 @@
 ---
 title: Configurar o seu ambiente para o Operador de Blueprint
 description: Aprenda a configurar o seu ambiente Azure para utilização com o papel incorporado do Operador de Plantas.
-ms.date: 08/27/2020
+ms.date: 11/24/2020
 ms.topic: how-to
-ms.openlocfilehash: ae881ac6d0714401f8c80e880b4d288f594b7cf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db8450516feab2fae4136f549959a29b006059aa
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535786"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95804911"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurar o seu ambiente para um Operador Blueprint
 
@@ -28,7 +28,9 @@ O primeiro passo é conceder a função de **Operador De Blueprint** à conta ou
 
 Uma definição de planta pode usar identidades geridas atribuídas pelo sistema ou atribuídas pelo utilizador. No entanto, ao utilizar a função **de Operador de Plantas,** a definição de planta precisa de ser configurada para utilizar uma identidade gerida atribuída pelo utilizador. Além disso, a conta ou grupo de segurança que recebe a função **de Operador de Blueprint** deve ser concedida a função de Operador de Identidade **Gerida** na identidade gerida atribuída pelo utilizador. Sem esta permissão, as atribuições de plantas falham por falta de permissões.
 
-1. [Criar uma identidade gerida atribuída pelo utilizador](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) para utilização por uma planta atribuída
+1. [Crie uma identidade gerida atribuída ao utilizador](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) para utilização por uma planta atribuída.
+
+1. Conceder à identidade gerida atribuída ao utilizador quaisquer funções ou permissões exigidas pela definição de planta para o âmbito pretendido.
 
 1. [Adicione uma atribuição](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) de função do Operador de **Identidade Gerida** à conta ou grupo de segurança. Âmbito da atribuição de funções à nova identidade gerida atribuída pelo utilizador.
 
