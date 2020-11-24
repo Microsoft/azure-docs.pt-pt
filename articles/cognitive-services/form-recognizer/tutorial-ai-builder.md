@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3ba08f11fb52fc0ffe3acda5e81e21b7e7629628
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912332"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95757425"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutorial: Criar uma app de processamento de formulários com OI Builder
 
@@ -23,7 +23,7 @@ ms.locfileid: "92912332"
 > [!NOTE]
 > Este projeto também está disponível como [módulo Microsoft Learn.](/learn/modules/get-started-with-form-processing/)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um modelo de IA de processamento de formulários
@@ -40,10 +40,10 @@ Neste tutorial, ficará a saber como:
 ## <a name="create-a-form-processing-project"></a>Criar um projeto de processamento de formulários
 
 1. Vá a [Power Apps](https://make.powerapps.com/) ou [Power Automamate](https://flow.microsoft.com/signin), e inscreva-se na sua conta da organização.
-1. No painel esquerdo, selecione **AI Builder**  >  **Build** .
+1. No painel esquerdo, selecione **AI Builder**  >  **Build**.
 1. Selecione o cartão **de processamento de** formulários.
 1. Escreva um nome para o seu modelo.
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 
 ## <a name="upload-and-analyze-documents"></a>Carregar e analisar documentos
 
@@ -61,9 +61,9 @@ Na página **de documentos Adicionar,** precisa de fornecer documentos de amostr
 
 ### <a name="upload-your-documents"></a>Carregar os documentos
 
-1. Selecione **Adicionar documentos** , selecione um mínimo de cinco documentos e, em seguida, selecione **Carregar** .
-1. Depois de concluído o upload, selecione **Close** .
-1. Em seguida, **selecione Analisar** .
+1. Selecione **Adicionar documentos**, selecione um mínimo de cinco documentos e, em seguida, selecione **Carregar**.
+1. Depois de concluído o upload, selecione **Close**.
+1. Em seguida, **selecione Analisar**.
 
 > [!NOTE] 
 > Depois de carregar estes documentos, ainda pode remover alguns documentos ou carregar documentos adicionais.
@@ -105,12 +105,12 @@ Se o campo que pretende rotular não tiver sido detetado automaticamente pelo mo
 
     > [!div class="mx-imgBorder"]
     > ![página de formação](./media/tutorial-ai-builder/summary-train-page.png)
-1. Quando a preparação estiver concluída, selecione **Ir para a página Detalhes** no ecrã **Preparação concluída** .
+1. Quando a preparação estiver concluída, selecione **Ir para a página Detalhes** no ecrã **Preparação concluída**.
 ## <a name="quick-test-your-model"></a>Testar rapidamente o modelo
 
 A página Detalhes permite-lhe testar o modelo antes de o publicar ou utilizar:
 
-1. Na página Detalhes, selecione **Teste rápido** .
+1. Na página Detalhes, selecione **Teste rápido**.
 2. Pode arrastar e largar um documento ou selecionar **upload do meu dispositivo** para carregar o seu ficheiro de teste. O teste rápido só deverá demorar alguns segundos a apresentar os resultados.
 3. Pode selecionar **Recomeçar** para executar outro teste ou **fechar** se estiver acabado.
 

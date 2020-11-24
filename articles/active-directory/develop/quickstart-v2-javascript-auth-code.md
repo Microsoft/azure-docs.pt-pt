@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 40929a165e7a3afbbc92a472c352172723745040
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 18b62e34ab57d1d7e937eb21b9ed2a7feffa758c
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533196"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95758953"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Quickstart: Inicie os utilizadores e obtenha um token de acesso num JavaScript SPA utilizando o fluxo de código auth
 
@@ -43,7 +43,7 @@ Este arranque rápido utiliza MSAL.js 2.0 com o fluxo de código de autorizaçã
 > 1. Se a sua conta lhe der acesso a mais do que um inquilino, selecione a conta no topo direito e, em seguida, desacione a sua sessão de portal para o inquilino Azure Ative Directory (Azure AD) que pretende utilizar.
 > 1. Selecione [Registos de aplicações](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
 > 1. Introduza um nome para a aplicação.
-> 1. Nos **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
+> 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Selecione **Registar**.
 > 1. Vá ao painel de arranque rápido e siga as instruções para descarregar e configurar automaticamente a sua nova aplicação.
 >
@@ -56,10 +56,10 @@ Este arranque rápido utiliza MSAL.js 2.0 com o fluxo de código de autorizaçã
 > 1. Selecione [Registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908).
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza um nome para a sua aplicação.
-> 1. Nos **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
+> 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Selecione **Registar**. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
 > 1. No painel esquerdo da aplicação registada, selecione **Autenticação**.
-> 1. Nas **configurações da Plataforma** , selecione Adicionar uma **plataforma**. No painel que abre selecione **aplicação de página única**.
+> 1. Nas **configurações da Plataforma**, selecione Adicionar uma **plataforma**. No painel que abre selecione **aplicação de página única**.
 > 1. Desa estale o valor **URI de redirecionamento** para `http://localhost:3000/` .
 > 1. Selecione **Configurar**.
 

@@ -5,18 +5,18 @@ description: Uma descrição das restrições e limitações no formato URI (RES
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/29/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331860"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95752796"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações URI (URL de resposta)
 
@@ -32,7 +32,7 @@ Um URI de redirecionamento, ou URL de resposta, é o local onde o servidor de au
 
 Esta tabela mostra o número máximo de URIs de redirecionamento que pode adicionar a um registo de aplicações na plataforma de identidade da Microsoft.
 
-| Contas a serem assinadas | Número máximo de URIs de redirecionamento | Descrição |
+| Contas a serem assinadas | Número máximo de URIs de redirecionamento | Description |
 |--------------------------|---------------------------------|-------------|
 | Trabalho da Microsoft ou contas escolares em qualquer inquilino do Azure Ative Directory (Azure AD) de qualquer organização | 256 | `signInAudience` campo no manifesto de aplicação é definido para *AzureADMyOrg* ou *AzureADMultipleOrgs* |
 | Contas pessoais da Microsoft e contas de trabalho e escola | 100 | `signInAudience` campo no manifesto de aplicação é definido para *AzureADandPersonalMicrosoftAccount* |
@@ -51,25 +51,32 @@ Para adicionar URIs redirecionando com um esquema HTTP para registos de aplicaç
 
 Por [RFC 8252 secções 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) e [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), "loopback" ou "localhost" redireccionamento URIs vêm com duas considerações especiais:
 
-1. `http` Os esquemas URI são aceitáveis porque o redirecionamento nunca sai do dispositivo. Como tal, ambas são aceitáveis:
-    - `http://127.0.0.1/myApp`
-    - `https://127.0.0.1/myApp`
-1. Devido às gamas de portas efémeras frequentemente exigidas por aplicações nativas, o componente portuário (por exemplo, `:5001` ou ) é ignorado para efeitos de correspondência de um `:443` URI de redirecionamento. Como resultado, todos estes são considerados equivalentes:
-    - `http://127.0.0.1/MyApp`
-    - `http://127.0.0.1:1234/MyApp`
-    - `http://127.0.0.1:5000/MyApp`
-    - `http://127.0.0.1:8080/MyApp`
+1. `http` Os esquemas URI são aceitáveis porque o redirecionamento nunca sai do dispositivo. Como tal, ambas as URIs são aceitáveis:
+    - `http://localhost/myApp`
+    - `https://localhost/myApp`
+1. Devido às gamas de portas efémeras frequentemente exigidas por aplicações nativas, o componente portuário (por exemplo, `:5001` ou ) é ignorado para efeitos de correspondência de um `:443` URI de redirecionamento. Como resultado, todas estas IEI são consideradas equivalentes:
+    - `http://localhost/MyApp`
+    - `http://localhost:1234/MyApp`
+    - `http://localhost:5000/MyApp`
+    - `http://localhost:8080/MyApp`
 
 Do ponto de vista do desenvolvimento, isto significa algumas coisas:
 
 * Não registe uris de redirecionamento múltiplo onde apenas a porta difere. O servidor de login escolherá um arbitrariamente e utilizará o comportamento associado a esse URI redirecionado (por exemplo, seja um redirecionamento de `web` `native` tipo -, ou `spa` -tipo).
 
     Isto é especialmente importante quando pretende utilizar diferentes fluxos de autenticação no mesmo registo de pedidos, por exemplo, tanto o código de autorização como o fluxo implícito. Para associar o comportamento correto de resposta a cada URI de redirecionamento, o servidor de login deve ser capaz de distinguir entre os URIs de redirecionamento e não pode fazê-lo quando apenas a porta difere.
-* Se precisar de registar uris de redirecionamento múltiplo na localidade local para testar diferentes fluxos durante o desenvolvimento, diferenciá-los utilizando o componente de *caminho* do URI. Por exemplo, `http://127.0.0.1/MyWebApp` não `http://127.0.0.1/MyNativeApp` corresponde.
+* Se precisar de registar uris de redirecionamento múltiplo na localidade local para testar diferentes fluxos durante o desenvolvimento, diferenciá-los utilizando o componente de *caminho* do URI. Por exemplo, `http://localhost/MyWebApp` não `http://localhost/MyNativeApp` corresponde.
 * O endereço de backback IPv6 `[::1]` não está atualmente suportado.
-* Para evitar que a sua aplicação seja quebrada por firewalls mal configuradas ou interfaces de rede renomeadas, utilize o endereço IP literal `127.0.0.1` loopback no seu URI de redirecionamento em vez de `localhost` .
 
-    Para utilizar o `http` esquema com o endereço ip literal loopback, deve `127.0.0.1` atualmente modificar o atributo [ResponseUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) no manifesto de [aplicação](reference-app-manifest.md).
+#### <a name="prefer-127001-over-localhost"></a>Prefira 127.0.0.1 em relação ao local
+
+Para evitar que a sua aplicação seja quebrada por firewalls mal configuradas ou interfaces de rede renomeadas, utilize o endereço IP literal `127.0.0.1` loopback no seu URI de redirecionamento em vez de `localhost` . Por exemplo, `https://127.0.0.1`.
+
+No entanto, não é possível utilizar a caixa de texto **redireccionador URIs** no portal Azure para adicionar um URI de redirecionamento baseado em loop que utiliza o `http` esquema:
+
+:::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="Diálogo de erro no portal Azure mostrando redireccionamento de backback baseado em http URI":::
+
+Para adicionar um URI de redirecionamento que utilize o `http` esquema com o endereço `127.0.0.1` loopback, deve atualmente modificar o atributo [ResponseUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) no manifesto de [aplicação](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Restrições em wildcards em URIs de redirecionamento
 

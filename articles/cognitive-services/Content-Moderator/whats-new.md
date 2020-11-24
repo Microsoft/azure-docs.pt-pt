@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 08/18/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 173dd039bce7e2c8f92750d03e24498bf93984f4
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 86cbd1e1d51af3a2f9a594e7e87a7896e70d6635
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146522"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95758598"
 ---
 # <a name="whats-new-in-content-moderator"></a>Quais as novidades no Moderador de Conteúdo
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: bd6ba091b3715741af929613600a59511e7cdb0b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 16292999bf8c01615a9125ffaa9f93fc4b2a8ec2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94498348"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95756218"
 ---
 # <a name="log-analytics-tutorial"></a>Tutorial do Log Analytics
 O Log Analytics é uma ferramenta no portal Azure para editar e executar consultas de registo a partir de dados recolhidos pelos Registos do Monitor Azure e analisar interativamente os seus resultados. Pode utilizar consultas de Log Analytics para obter registos que correspondam a critérios específicos, identificar tendências, analisar padrões e fornecer uma variedade de insights nos seus dados. 
@@ -23,7 +23,7 @@ Este tutorial acompanha-o através da interface Log Analytics, começa com algum
 > * Escreva e execute consultas simples, e modifique o intervalo de tempo para consultas
 > * Filtrar, classificar e resultados de consulta de grupo
 > * Ver, modificar e partilhar visuais dos resultados da consulta
-> * Guardar, carregar, exportar e copiar consultas e resultados
+> * Carga, exportação e consultas de cópia e resultados
 
 > [!IMPORTANT]
 > Este tutorial utiliza funcionalidades do Log Analytics para construir e executar uma consulta em vez de trabalhar com a própria consulta. Você vai aproveitar as funcionalidades do Log Analytics para construir uma consulta e usar outra consulta de exemplo. Quando estiver pronto para aprender a sintaxe das consultas e começar a editar diretamente a própria consulta, passe pelo tutorial de [Língua De Consulta de Kusto.](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor) Esse tutorial percorre várias consultas de exemplo que pode editar e executar no Log Analytics, aproveitando várias das funcionalidades que vai aprender neste tutorial.

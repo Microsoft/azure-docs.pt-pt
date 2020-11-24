@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: ad399272673f1e2ede7bcaa82b66688fbaa8ac45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f340f2a4318fc187d4a7f28b91ab362e232a263e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804049"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95754994"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Amostras de modelo do gestor de recursos para definições de diagnóstico no Azure Monitor
 Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar configurações de diagnóstico para um recurso Azure. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
@@ -526,7 +526,7 @@ A amostra a seguir cria uma definição de diagnóstico para um cofre de espaço
                 "metrics": [],
                 "logs": [
                     {
-                        "category": "LAQueryLogs",
+                        "category": "Audit",
                         "enabled": true
                     }
                 ]
