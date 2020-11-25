@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
 ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108784"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012889"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
 
@@ -31,7 +31,7 @@ Os seguintes estados inteligentes do grupo são apoiados.
 |:---|:---|
 | Novo | A questão acaba de ser detetada e ainda não foi revista. |
 | Confirmado | Um administrador reviu o grupo inteligente e começou a trabalhar nele. |
-| Fechada | A questão foi resolvida. Depois de um grupo inteligente ter sido fechado, pode reabri-lo mudando-o para outro estado. |
+| Fechado | A questão foi resolvida. Depois de um grupo inteligente ter sido fechado, pode reabri-lo mudando-o para outro estado. |
 
 [Aprenda a mudar o estado do seu grupo inteligente.](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 
@@ -47,7 +47,7 @@ A página de detalhes do grupo Smart é apresentada quando seleciona um grupo in
 
 A página de detalhe do grupo inteligente inclui as seguintes secções.
 
-| Section | Description |
+| Section | Descrição |
 |:---|:---|
 | Alertas | Lista os alertas individuais incluídos no grupo inteligente. Selecione um alerta para abrir a sua página de detalhes de alerta. |
 | Histórico | Enumera cada ação tomada pelo grupo inteligente e quaisquer alterações que lhe sejam feitas. Isto está atualmente limitado a alterações de estado e alterações de adesão de alerta. |

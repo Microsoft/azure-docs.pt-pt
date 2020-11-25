@@ -9,11 +9,11 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014057"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013008"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Backup e restauro da base de dados de serviços de análise
 
@@ -25,7 +25,7 @@ O backup das bases de dados de modelos tabulares nos Serviços de Análise Azure
 > 
 
 > [!NOTE]
-> Se a conta de armazenamento estiver numa região diferente, configufique as definições de firewall da conta de armazenamento para permitir o acesso a partir de **redes selecionadas**. Na **gama**Address De Firewall , especifique o intervalo de endereços IP para a região onde se encontra o servidor de Serviços de Análise. Configurar as definições de firewall de conta de armazenamento para permitir o acesso a partir de todas as redes é suportado, no entanto é preferível escolher redes selecionadas e especificar um intervalo de endereços IP. Para saber mais, consulte [a Rede de Conectividade FAQ.](analysis-services-network-faq.md#backup-and-restore)
+> Se a conta de armazenamento estiver numa região diferente, configufique as definições de firewall da conta de armazenamento para permitir o acesso a partir de **redes selecionadas**. Na **gama** Address De Firewall , especifique o intervalo de endereços IP para a região onde se encontra o servidor de Serviços de Análise. Configurar as definições de firewall de conta de armazenamento para permitir o acesso a partir de todas as redes é suportado, no entanto é preferível escolher redes selecionadas e especificar um intervalo de endereços IP. Para saber mais, consulte [a Rede de Conectividade FAQ.](analysis-services-network-faq.md#backup-and-restore)
 
 As cópias de segurança são guardadas com uma extensão .abf. Para os modelos tabulares em memória, os dados do modelo e os metadados são armazenados. Para os modelos tabulares DirectQuery, apenas os metadados-modelo são armazenados. As cópias de segurança podem ser comprimidas e encriptadas, dependendo das opções que escolher.
 
@@ -53,13 +53,13 @@ Antes de fazer o backup, tem de configurar as definições de armazenamento para
 
     ![Guardar definições de backup](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
 ### <a name="to-backup-by-using-ssms"></a>Para fazer backup utilizando SSMS
 
 1. Em SSMS, clique com o botão direito numa base de dados > **Back Up**.
 
-2. No ficheiro de backup **de backup da base de dados**de cópia de  >  **segurança,** clique em **procurar**.
+2. No ficheiro de backup **de backup da base de dados** de cópia de  >  **segurança,** clique em **procurar**.
 
 3. No **ficheiro Guardar como** diálogo, verifique o caminho da pasta e, em seguida, digite um nome para o ficheiro de reserva. 
 

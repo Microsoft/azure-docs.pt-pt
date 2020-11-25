@@ -9,11 +9,11 @@ ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: edb80ab3107cbd0a5ddd802d56a60ce77affb2f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088119"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012923"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-java"></a>Quickstart: Use Azure Cache para Redis em Java
 
@@ -32,7 +32,7 @@ Neste quickstart, incorpora o Azure Cache para Redis numa aplicação Java utili
 
 ## <a name="setting-up-the-working-environment"></a>Criação do ambiente de trabalho 
 
-Dependendo do seu sistema operativo, adicione variáveis ambientais para o **nome anfitrião** e **a chave de acesso primário** . Abra uma solicitação de comando, ou uma janela de terminal, e configura os seguintes valores:
+Dependendo do seu sistema operativo, adicione variáveis ambientais para o **nome anfitrião** e **a chave de acesso primário**. Abra uma solicitação de comando, ou uma janela de terminal, e configura os seguintes valores:
 
 ```CMD 
 set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
@@ -57,7 +57,7 @@ Com o Maven, gera uma nova aplicação de início rápido:
 mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.3 -DgroupId=example.demo -DartifactId=redistest -Dversion=1.0
 ```
 
-Mude para o novo diretório de projeto *redistest* .
+Mude para o novo diretório de projeto *redistest*.
 
 Abra o ficheiro *pom.xml* e adicione uma dependência para [Jedis](https://github.com/xetorthio/jedis):
 
@@ -71,7 +71,7 @@ Abra o ficheiro *pom.xml* e adicione uma dependência para [Jedis](https://githu
     </dependency>
 ```
 
-Guarde o ficheiro *pom.xml* .
+Guarde o ficheiro *pom.xml*.
 
 Abra *App.java* e substitua o código pelo seguinte código:
 
@@ -127,7 +127,7 @@ public class App
 
 Este código mostra-lhe como ligar a uma Cache Azure para a instância Redis usando o nome do anfitrião da cache e variáveis de ambiente chave. O código também armazena e obtém um valor de cadeia na cache. Os comandos `PING` e `CLIENT LIST` também são executados. 
 
-Save *App.java* .
+Save *App.java*.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
@@ -142,7 +142,7 @@ No exemplo abaixo, pode ver que a chave `Message` tinha anteriormente um valor e
 
 ![Azure Cache para a aplicação Redis concluída](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 
@@ -152,13 +152,13 @@ Caso contrário, se tiver concluído a aplicação de exemplo do início rápido
 > A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 >
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos** .
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 
-1. Na caixa de texto **filter por nome,** digite o nome do seu grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources* . No seu grupo de recursos na lista de resultados, selecione **...** e, em seguida, **eliminar o grupo de recursos** .
+1. Na caixa de texto **filter por nome,** digite o nome do seu grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No seu grupo de recursos na lista de resultados, selecione **...** e, em seguida, **eliminar o grupo de recursos**.
 
    ![Grupo de recursos Azure eliminado](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
-1. É-lhe pedido que confirme a eliminação do grupo de recursos. Digite o nome do seu grupo de recursos para confirmar e selecione **Delete** .
+1. É-lhe pedido que confirme a eliminação do grupo de recursos. Digite o nome do seu grupo de recursos para confirmar e selecione **Delete**.
 
 Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 

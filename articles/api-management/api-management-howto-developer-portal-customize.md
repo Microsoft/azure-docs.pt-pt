@@ -1,27 +1,22 @@
 ---
-title: Aceda e personalize o portal de desenvolvimento gerido - Azure API Management ! Microsoft Docs
-description: Saiba como utilizar a versão gerida do portal de desenvolvimento na Gestão da API.
+title: Tutorial - Acesso e personalização do portal de desenvolvimento - Azure API Management / Microsoft Docs
+description: Siga este para tutorial para aprender a personalizar o portal de desenvolvimento da API Management, um website gerado automaticamente e totalmente personalizável com a documentação das suas APIs.
 services: api-management
-documentationcenter: API Management
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 03/05/2020
+ms.topic: tutorial
+ms.date: 11/16/2020
 ms.author: apimpm
-ms.openlocfilehash: 3ceb8fd154e8ad533f4bf6bc9eb0ec3900749f8b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 90544fbafe7393630c3f3fbc694ae367eccb7f90
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075370"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012987"
 ---
-# <a name="access-and-customize-developer-portal"></a>Aceder e personalizar portal de desenvolvedores
+# <a name="tutorial-access-and-customize-the-developer-portal"></a>Tutorial: Aceda e personalize o portal do desenvolvedor
 
-O portal do desenvolvedor é um website gerado automaticamente e totalmente personalizável com a documentação das suas APIs. É onde os consumidores da API podem descobrir as suas APIs, aprender a usá-las e solicitar acesso.
+O *portal do desenvolvedor* é um website gerado automaticamente e totalmente personalizável com a documentação das suas APIs. É onde os consumidores da API podem descobrir as suas APIs, aprender a usá-las e solicitar acesso.
 
 Neste tutorial, vai aprender a:
 
@@ -34,7 +29,7 @@ Neste tutorial, vai aprender a:
 
 Pode encontrar mais detalhes sobre o portal do desenvolvedor na visão geral do portal de desenvolvimento da [Azure API Management.](api-management-howto-developer-portal.md)
 
-![Portal de desenvolvimento de gestão da API - modo de administração](media/api-management-howto-developer-portal-customize/cover.png)
+:::image type="content" source="media/api-management-howto-developer-portal-customize/cover.png" alt-text="Portal de desenvolvimento de gestão API - modo de administrador" border="false":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,44 +42,47 @@ Pode encontrar mais detalhes sobre o portal do desenvolvedor na visão geral do 
 
 Siga os passos abaixo para aceder à versão gerida do portal.
 
-1. Aceda ao seu serviço de Gestão API no portal Azure.
-1. Clique no botão **portal Developer** na barra de navegação superior. Será aberto um novo separador de navegador com uma versão administrativa do portal.
+1. No [portal Azure,](https://portal.azure.com)navegue para o seu caso de Gestão API.
+1. Selecione o botão **portal Developer** na barra de navegação superior. Será aberto um novo separador de navegador com uma versão administrativa do portal.
 
 ## <a name="understand-the-portals-administrative-interface"></a>Compreender a interface administrativa do portal
 
 ### <a name="default-content"></a>Conteúdo predefinido 
 
-Se estiver a aceder ao portal pela primeira vez, o conteúdo predefinido será automaticamente a provisionado em segundo plano. O conteúdo predefinido foi concebido para mostrar as capacidades do portal e minimizar a quantidade de personalizações necessárias para personalizar o seu portal. Pode saber mais sobre o que está incluído no conteúdo do portal na visão geral do portal de desenvolvimento da [API Management.](api-management-howto-developer-portal.md)
+Se estiver a aceder ao portal pela primeira vez, o conteúdo predefinido é automaticamente a provisionado em segundo plano. O conteúdo predefinido foi concebido para mostrar as capacidades do portal e minimizar as personalizações necessárias para personalizar o seu portal. Pode saber mais sobre o que está incluído no conteúdo do portal na visão geral do portal de desenvolvimento da [API Management.](api-management-howto-developer-portal.md)
 
 ### <a name="visual-editor"></a>Editor visual
 
-Pode personalizar o conteúdo do portal com o editor visual. As secções de menu à esquerda permitem criar ou modificar páginas, meios de comunicação, layouts, menus, estilos ou configurações do site. Os itens de menu na parte inferior permitem alternar entre viewports (por exemplo, móveis ou desktop), ver os elementos do portal visíveis para utilizadores autenticados ou anónimos, ou guardar ou desfazer ações.
-
-Pode adicionar linhas a uma página clicando num ícone azul com um sinal de mais. Os widgets (por exemplo, texto, imagens ou lista de APIs) podem ser adicionados premindo um ícone cinzento com um sinal de mais. Pode reorganizar os itens numa página com a interação arrastar e largar. 
+Pode personalizar o conteúdo do portal com o editor visual. 
+* As secções de menu à esquerda permitem criar ou modificar páginas, meios de comunicação, layouts, menus, estilos ou configurações do site. 
+* Os itens de menu na parte inferior permitem alternar entre viewports (por exemplo, móveis ou desktop), ver os elementos do portal visíveis para utilizadores autenticados ou anónimos, ou guardar ou desfazer ações.
+* Adicione linhas a uma página clicando num ícone azul com um sinal de mais. 
+* Os widgets (por exemplo, texto, imagens ou lista de APIs) podem ser adicionados premindo um ícone cinzento com um sinal de mais.
+* Reorganize os itens numa página com a interação arrastar e largar. 
 
 ### <a name="layouts-and-pages"></a>Layouts e páginas
 
-![Páginas e layouts](media/api-management-howto-developer-portal-customize/pages-layouts.png)
+:::image type="content" source="media/api-management-howto-developer-portal-customize/pages-layouts.png" alt-text="Páginas e layouts" border="false":::
 
-Os layouts definem como as páginas são exibidas. Por exemplo, no conteúdo padrão, existem dois layouts - um aplica-se à página inicial, e o outro a todas as páginas restantes.
+Os layouts definem como as páginas são exibidas. Por exemplo, no conteúdo predefinido, existem dois layouts: um aplica-se à página inicial e o outro a todas as páginas restantes.
 
-Um layout é aplicado a uma página combinando o seu modelo de URL com o URL da página. Por exemplo, o layout com um modelo de URL de `/wiki/*` será aplicado em todas as páginas com o segmento no `/wiki/` URL: , `/wiki/getting-started` `/wiki/styles` etc.
+Um layout é aplicado a uma página combinando o seu modelo de URL com o URL da página. Por exemplo, um layout com um modelo de URL de `/wiki/*` será aplicado em todas as páginas com o segmento no `/wiki/` URL: , `/wiki/getting-started` `/wiki/styles` etc.
 
-Na imagem acima, o conteúdo pertencente ao layout é marcado em azul, enquanto a página é marcada a vermelho. As secções do menu são marcadas respectivamente.
+Na imagem anterior, o conteúdo pertencente ao layout é marcado em azul, enquanto a página é marcada a vermelho. As secções do menu são marcadas respectivamente.
 
 ### <a name="styling-guide"></a>Guia de estilo
 
-![Guia de estilo](media/api-management-howto-developer-portal-customize/styling-guide.png)
+:::image type="content" source="media/api-management-howto-developer-portal-customize/styling-guide.png" alt-text="Guia de estilo" border="false":::
 
 O styling guide é um painel criado com designers em mente. Permite supervisionar e modelar todos os elementos visuais do seu portal. O estilo é hierárquico - muitos elementos herdam propriedades de outros elementos. Por exemplo, os elementos dos botões usam cores para texto e fundo. Para alterar a cor de um botão, é necessário alterar a variante de cor original.
 
-Para editar uma variante, clique nela e selecione o ícone de lápis que aparece em cima dela. Assim que fizer as alterações na janela pop-up, feche-a.
+Para editar uma variante, selecione-a e selecione o ícone de lápis que aparece em cima dela. Depois de fazer as alterações na janela pop-up, feche-a.
 
 ### <a name="save-button"></a>Botão Guardar
 
-![Botão Guardar](media/api-management-howto-developer-portal-customize/save-button.png)
+:::image type="content" source="media/api-management-howto-developer-portal-customize/save-button.png" alt-text="Botão Guardar" border="false":::
 
-Sempre que fizer uma alteração no portal, tem de guardá-lo manualmente premindo o botão **Guardar** no menu na parte inferior. Quando guarda as alterações, o conteúdo modificado é automaticamente enviado para o seu serviço de Gestão API.
+Sempre que fizer uma alteração no portal, tem de guardá-lo manualmente selecionando o botão **Guardar** no menu na parte inferior, ou premir [Ctrl]+[S]. Quando guarda as alterações, o conteúdo modificado é automaticamente enviado para o seu serviço de Gestão API.
 
 ## <a name="customize-the-portals-content"></a>Personalize o conteúdo do portal
 
@@ -95,7 +93,7 @@ Antes de disponibilizar o seu portal aos visitantes, deverá personalizar o cont
 
 ### <a name="home-page"></a>Página de boas-vindas
 
-A página **Inicial** predefinida está cheia de conteúdo falso. Pode remover as secções inteiras com o conteúdo ou manter a estrutura e ajustar os elementos um a um. Substitua o texto e as imagens gerados pelo seu próprio e certifique-se de que os links apontam para as localizações desejadas.
+A página **Inicial** predefinida está cheia de conteúdo reservado. Pode remover secções inteiras que contenham este conteúdo ou manter a estrutura e ajustar os elementos um a um. Substitua o texto e as imagens gerados pelo seu próprio e certifique-se de que os links apontam para as localizações desejadas.
 
 ### <a name="layouts"></a>Layouts
 
@@ -107,32 +105,44 @@ Embora não precise de ajustar quaisquer estilos, pode considerar ajustar elemen
 
 ### <a name="customization-example"></a>Exemplo de personalização
 
-No vídeo abaixo demonstramos como editar o conteúdo do portal, personalizar o visual do site e publicar as alterações.
+No vídeo seguinte, demonstramos como editar o conteúdo do portal, personalizar o visual do site e publicar as alterações.
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
-## <a name="publish-the-portal"></a><a name="publish"> </a>Publicar o portal
+## <a name="publish-the-portal"></a><a name="publish"></a> Publicar o portal
 
-Para disponibilizar o seu portal e as suas últimas alterações aos visitantes, tem de o publicar.
+Para disponibilizar o seu portal e as suas últimas alterações aos visitantes, tem de *o publicar.* Pode publicar o portal dentro da interface administrativa do portal ou a partir do portal Azure.
 
-1. Certifique-se de que guardou as suas alterações clicando no ícone **Guardar.**
-1. Clique no **site publicar** na secção **Operações** do menu. Esta operação poderá demorar alguns minutos.  
-    ![Portal de publicação](media/api-management-howto-developer-portal-customize/publish-portal.png)
+### <a name="publish-from-the-administrative-interface"></a>Publicar a partir da interface administrativa
+
+1. Certifique-se de que guardou as suas alterações selecionando o ícone **Guardar.**
+1. Na secção **operações** do menu, **selecione Publicar o site.** Esta operação poderá demorar alguns minutos.  
+
+    :::image type="content" source="media/api-management-howto-developer-portal-customize/publish-portal.png" alt-text="Portal de publicação" border="false":::
+
+### <a name="publish-from-the-azure-portal"></a>Publicar a partir do portal Azure
+
+1. No [portal Azure,](https://portal.azure.com)navegue para o seu caso de Gestão API.
+1. No menu esquerdo, no **portal Developer,** selecione **Portal overview**.
+1. Na janela **de visão geral** do Portal, selecione **Publicar**.
+
+    :::image type="content" source="media/api-management-howto-developer-portal-customize/pubish-portal-azure-portal.png" alt-text="Publicar portal a partir do portal Azure":::
 
 > [!NOTE]
-> O portal precisa de ser republicado após alterações na configuração do serviço de gestão da API, tais como a atribuição de um domínio personalizado, a atualização dos fornecedores de identidade, a definição de delegação, a especificação de termos de inscrição e de produto, e muito mais.
+> O portal precisa de ser republica após alterações na configuração do serviço de gestão da API. Por exemplo, reeditar o portal após a atribuição de um domínio personalizado, atualizando os fornecedores de identidade, definindo a delegação ou especificando os termos de inscrição e produto.
+
 
 ## <a name="visit-the-published-portal"></a>Visite o portal publicado
 
-Depois de publicar o portal, pode aceder-lhe no mesmo URL que o painel administrativo, por `https://contoso-api.developer.azure-api.net` exemplo. Veja-o numa sessão de navegador separada (modo de navegação incógnito /privado) como um visitante externo.
+Depois de publicar o portal, pode aceder-lhe no mesmo URL que o painel administrativo, por `https://contoso-api.developer.azure-api.net` exemplo. Veja-o numa sessão de navegador separada (utilizando o modo de navegação incógnito ou privado) como visitante externo.
 
 ## <a name="apply-the-cors-policy-on-apis"></a>Aplicar a política do CORS em APIs
 
-É necessário ativar o CORS (partilha de recursos de origem cruzada) nas suas APIs para permitir que os visitantes do seu portal testem as APIs através da consola interativa incorporada. Consulte [este artigo de documentação](api-management-howto-developer-portal.md#cors) para mais detalhes.
+Para que os visitantes do seu portal testem as APIs através da consola interativa incorporada, ative o CORS (partilha de recursos de origem cruzada) nas suas APIs. Para mais informações, consulte a visão geral do [portal de desenvolvimento da Azure API Management](api-management-howto-developer-portal.md#cors).
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Otimize e poupe nos gastos na nuvem](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Saiba mais sobre o portal de desenvolvedores:
 
 - [Visão geral do portal de desenvolvimento da AZure API Management](api-management-howto-developer-portal.md)
+- [Migrar para o novo portal](developer-portal-deprecated-migration.md) de desenvolvedores a partir do portal do legado deprecado.

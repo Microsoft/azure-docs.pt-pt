@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cabf5f40bc17828bc37b5c094de7b90de3ec8b26
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130226"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013059"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para aceder ao Diretório Ativo Azure reportando API
 
@@ -69,7 +69,7 @@ Para configurar o seu diretório para aceder à API de reporte da Azure, tem de 
    
     ![O Screenshot mostra o Azure Ative Directory selecionado a partir do menu do portal Azure.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
-2. Na página do **Diretório Ativo Azure,** selecione **registos de Aplicações** .
+2. Na página do **Diretório Ativo Azure,** selecione **registos de Aplicações**.
 
     ![O Screenshot mostra os registos de aplicações selecionados no menu Gerir.](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
 
@@ -83,11 +83,11 @@ Para configurar o seu diretório para aceder à API de reporte da Azure, tem de 
 
     a. Na caixa de texto **'Nome',** escreva `Reporting API application` .
 
-    b. Para **o tipo de contas suportadas** , selecione Contas **apenas nesta organização** .
+    b. Para **o tipo de contas suportadas**, selecione Contas **apenas nesta organização**.
 
     c. No **URL de redirecionamento**  selecione **web** textbox, escreva `https://localhost` .
 
-    d. Selecione **Registar** . 
+    d. Selecione **Registar**. 
 
 
 ## <a name="grant-permissions"></a>Conceder permissões 
@@ -106,19 +106,19 @@ A secção seguinte lista os passos para ambas as APIs. Se não quiser aceder a 
 **Para conceder permissões de aplicação para utilizar as APIs:**
 
 
-1. Selecione **permissões API** e, em **seguida, adicione uma permissão** . 
+1. Selecione **permissões API** e, em **seguida, adicione uma permissão**. 
 
     ![A screenshot mostra a página A P I Permissões onde pode selecionar Adicionar uma permissão.](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-2. Na página de **permissões da API do Pedido** , localize **o suporte legado API** **Azure Ative Directory Graph** . 
+2. Na página de **permissões da API do Pedido**, localize **o suporte legado API** **Azure Ative Directory Graph**. 
 
     ![A screenshot mostra a página de permissões request A P I onde pode selecionar O Gráfico de Diretório Ativo Azure.](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-3. Na página de **permissões necessárias,** selecione **Permissões de Aplicação** , expanda **o Diretório** da caixa de verificação do **Diretório.ReadAll** .  **Selecione Permissões de adicionar** .
+3. Na página de **permissões necessárias,** selecione **Permissões de Aplicação**, expanda **o Diretório** da caixa de verificação do **Diretório.ReadAll**.  **Selecione Permissões de adicionar**.
 
     ![A screenshot mostra a página de permissões request A P I onde pode selecionar permissões de aplicação.](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
-4. Na **página De Relatórios API Application - API Permissões,** selecione **Grant admin consent** . 
+4. Na **página De Relatórios API Application - API Permissões,** selecione **Grant admin consent**. 
 
     ![A screenshot mostra a página de permissões de aplicação P I Reporting A P I onde pode selecionar o consentimento de administração grant.](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
@@ -140,11 +140,11 @@ Você precisa destes valores ao configurar chamadas para a API reportando.
 
 **Para obter o seu nome de domínio:**
 
-1. No [portal Azure,](https://portal.azure.com)no painel de navegação à esquerda, selecione **Azure Ative Directory** .
+1. No [portal Azure,](https://portal.azure.com)no painel de navegação à esquerda, selecione **Azure Ative Directory**.
    
     ![O Screenshot mostra o Azure Ative Directory selecionado a partir do menu do portal Azure.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
-2. Na página do **Diretório Ativo Azure,** selecione **nomes de domínio personalizados** .
+2. Na página do **Diretório Ativo Azure,** selecione **nomes de domínio personalizados**.
 
     ![A screenshot mostra nomes de domínio personalizados selecionados a partir do Azure Ative Directory.](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
 
@@ -155,7 +155,7 @@ Você precisa destes valores ao configurar chamadas para a API reportando.
 
 **Para obter a iD do cliente da sua candidatura:**
 
-1. No [portal Azure,](https://portal.azure.com)no painel de navegação à esquerda, clique no **Diretório Ativo Azure** .
+1. No [portal Azure,](https://portal.azure.com)no painel de navegação à esquerda, clique no **Diretório Ativo Azure**.
    
     ![O Screenshot mostra o Azure Ative Directory selecionado a partir do menu do portal Azure.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
@@ -171,13 +171,13 @@ Você precisa destes valores ao configurar chamadas para a API reportando.
 
 **Para obter o segredo do cliente da sua candidatura:**
 
-1. No [portal Azure,](https://portal.azure.com)no painel de navegação à esquerda, clique no **Diretório Ativo Azure** .
+1. No [portal Azure,](https://portal.azure.com)no painel de navegação à esquerda, clique no **Diretório Ativo Azure**.
    
     ![O Screenshot mostra o Azure Ative Directory selecionado a partir do menu do portal Azure.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2.  Selecione a sua candidatura a partir da página Registos de **Aplicações.**
 
-3.  Selecione **Certificados e Segredos** na página aplicação da **API,** na secção Segredos do **Cliente,** clique **em + Novo Segredo de Cliente** . 
+3.  Selecione **Certificados e Segredos** na página aplicação da **API,** na secção Segredos do **Cliente,** clique **em + Novo Segredo de Cliente**. 
 
     ![A screenshot mostra a página de segredos & Certificados onde pode adicionar um segredo de cliente.](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
@@ -185,9 +185,9 @@ Você precisa destes valores ao configurar chamadas para a API reportando.
 
     a. Na caixa de texto **Descrição,** escreva `Reporting API` .
 
-    b. Como **Expira** , selecione **Em 2 anos** .
+    b. Como **Expira**, selecione **Em 2 anos**.
 
-    c. Clique em **Guardar** .
+    c. Clique em **Guardar**.
 
     d. Copie o valor da chave.
 
@@ -203,7 +203,7 @@ Esta secção lista as mensagens de erro comuns que pode encontrar ao aceder a r
 
 ### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>Erro: Falhou em fazer verificação de licença premium a partir do Microsoft Graph 
 
-Se encontrar esta mensagem de erro enquanto tenta aceder a insusões utilizando o Graph Explorer, escolha **Modificar permissões** por baixo da sua conta na navegação esquerda e selecione **Tarefas.ReadWrite** e **Diretório.Read.All** . 
+Se encontrar esta mensagem de erro enquanto tenta aceder a insusões utilizando o Graph Explorer, escolha **Modificar permissões** por baixo da sua conta na navegação esquerda e selecione **Tarefas.ReadWrite** e **Diretório.Read.All**. 
 
 ![Modificar permissões UI](./media/troubleshoot-graph-api/modify-permissions.png)
 

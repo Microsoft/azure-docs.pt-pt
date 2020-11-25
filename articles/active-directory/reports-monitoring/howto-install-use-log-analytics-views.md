@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358904"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013038"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instale e utilize as vistas de análise de registo para o Azure Ative Directory
 
@@ -52,18 +52,18 @@ Para utilizar as vistas de análise de registo, precisa de:
 2. Uma vez no espaço de trabalho, selecione **Workspace Summary**. Deve ver as seguintes três vistas:
 
     * **Eventos de Provisionamento de Conta AZure AD**: Esta visão mostra relatórios relacionados com a atividade de provisionamento de auditoria, tais como o número de novos utilizadores a provisionados e falhas de provisionamento, o número de utilizadores atualizados e as falhas de atualização e o número de utilizadores desavisionados e falhas correspondentes.    
-    * **Eventos de início de**sposição : Esta vista mostra os relatórios mais relevantes relacionados com a monitorização da atividade de início de sposição, tais como inserções por aplicação, utilizador, dispositivo, bem como uma visão sumária que rastreia o número de ins-ins ao longo do tempo.
+    * **Eventos de início de** sposição : Esta vista mostra os relatórios mais relevantes relacionados com a monitorização da atividade de início de sposição, tais como inserções por aplicação, utilizador, dispositivo, bem como uma visão sumária que rastreia o número de ins-ins ao longo do tempo.
 
 3. Selecione qualquer uma destas vistas para saltar para os relatórios individuais. Também pode definir alertas em qualquer um dos parâmetros do relatório. Por exemplo, vamos alertar para cada vez que há um erro de inscrição. Para isso, selecione primeiro a visualização **de Eventos de Início,** selecione **erros de início de sômbro** ao longo do tempo e, em seguida, selecione **Analytics** para abrir a página de detalhes, com a consulta real por trás do relatório. 
 
     ![A screenshot mostra a página de detalhes do Analytics que tem a consulta para o relatório.](./media/howto-install-use-log-analytics-views/details.png)
 
 
-4. Selecione **'Alerta'** e, em seguida, selecione **Sempre que a pesquisa de registo personalizado estiver &lt; indefinida &gt; ** na secção de **critérios de alerta.** Uma vez que queremos alertar sempre que houver um erro de entrada, descreva o **Limiar** da lógica de alerta predefinido para **1** e, em seguida, selecione **'Fazer' ( 'Fazer').** 
+4. Selecione **'Alerta'** e, em seguida, selecione **Sempre que a pesquisa de registo personalizado estiver &lt; indefinida &gt;** na secção de **critérios de alerta.** Uma vez que queremos alertar sempre que houver um erro de entrada, descreva o **Limiar** da lógica de alerta predefinido para **1** e, em seguida, selecione **'Fazer' ( 'Fazer').** 
 
     ![Configurar lógica de sinal](./media/howto-install-use-log-analytics-views/configure-signal-logic.png)
 
-5. Introduza um nome e descrição para o alerta e desema esta medida de **gravidade**para Aviso .
+5. Introduza um nome e descrição para o alerta e desema esta medida de **gravidade** para Aviso .
 
     ![Criar regra](./media/howto-install-use-log-analytics-views/create-rule.png)
 

@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962881"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012953"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configure um nome de domínio personalizado no Azure App Service com integração de Gestor de Tráfego
 
@@ -19,7 +19,7 @@ ms.locfileid: "88962881"
 > [!NOTE]
 > Para serviços na nuvem, consulte [configurar um nome de domínio personalizado para um serviço de nuvem Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-Quando utiliza [o Azure Traffic Manager](../traffic-manager/index.yml) para carregar o tráfego de equilíbrio para o [Azure App Service,](overview.md)a aplicação do Serviço de Aplicações pode ser acedida através ** \<traffic-manager-endpoint> de .trafficmanager.net**. Pode atribuir um nome de domínio personalizado, como o \. contoso.com, com a sua aplicação App Service, de forma a fornecer um nome de domínio mais reconhecível para os seus utilizadores.
+Quando utiliza [o Azure Traffic Manager](../traffic-manager/index.yml) para carregar o tráfego de equilíbrio para o [Azure App Service,](overview.md)a aplicação do Serviço de Aplicações pode ser acedida através **\<traffic-manager-endpoint> de .trafficmanager.net**. Pode atribuir um nome de domínio personalizado, como o \. contoso.com, com a sua aplicação App Service, de forma a fornecer um nome de domínio mais reconhecível para os seus utilizadores.
 
 Este artigo mostra-lhe como configurar um nome de domínio personalizado com uma aplicação de Serviço de Aplicações que está integrada com [o Traffic Manager.](../traffic-manager/traffic-manager-overview.md)
 
@@ -69,7 +69,7 @@ Uma vez que a sua aplicação De Serviço de Aplicações está num nível de pr
 Embora as especificidades de cada fornecedor de domínio variem, você mapeia de um nome *de* [domínio personalizado não raiz](#what-about-root-domains) (como **www.contoso.com**) *para* o nome de domínio do Gestor de Tráfego **(contoso.trafficmanager.net)** que está integrado com a sua aplicação. 
 
 > [!NOTE]
-> Se um registo já estiver a ser utilizado e precisar de ligar preventivamente as suas aplicações a ela, pode criar um registo CNAME adicional. Por exemplo, para ligar preventivamente o contoso.com à sua aplicação, crie um registo CNAME de **awverify.www** a **contoso.trafficmanager.net**. ** \. ** Em seguida, pode adicionar "www \. contoso.com" à sua app sem a necessidade de alterar o registo CNAME "www" . Para mais informações, consulte [Migrar um nome DNS ativo para o Azure App Service](manage-custom-dns-migrate-domain.md).
+> Se um registo já estiver a ser utilizado e precisar de ligar preventivamente as suas aplicações a ela, pode criar um registo CNAME adicional. Por exemplo, para ligar preventivamente o contoso.com à sua aplicação, crie um registo CNAME de **awverify.www** a **contoso.trafficmanager.net**. **\.** Em seguida, pode adicionar "www \. contoso.com" à sua app sem a necessidade de alterar o registo CNAME "www" . Para mais informações, consulte [Migrar um nome DNS ativo para o Azure App Service](manage-custom-dns-migrate-domain.md).
 
 Uma vez terminada a adição ou modificação dos registos DNS no seu fornecedor de domínio, guarde as alterações.
 

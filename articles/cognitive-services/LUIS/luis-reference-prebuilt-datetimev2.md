@@ -10,11 +10,11 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/13/2020
 ms.openlocfilehash: 83522de9c00056a3808b002b3103f45c72553399
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534187"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013076"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída DatetimeV2 para uma aplicação LUIS
 
@@ -134,10 +134,10 @@ A entidade pré-construída **dataV2** tem os seguintes subtipos, e exemplos de 
 
 ## <a name="values-of-resolution"></a>Valores de resolução
 * A matriz tem um elemento se a data ou hora na expressão for totalmente especificada e inequívoca.
-* A matriz tem dois elementos se o valor da dataV2 for ambíguo. A ambiguidade inclui a falta de ano, tempo ou intervalo de tempo específicos. Veja [datas ambíguas,](#ambiguous-dates) por exemplo. Quando a hora for ambígua para a manhã. ou P.M., ambos os valores estão incluídos.
+* A matriz tem dois elementos se o valor da dataV2 for ambíguo. A ambiguidade inclui a falta de ano, tempo ou intervalo de tempo específicos. Veja [datas ambíguas,](#ambiguous-dates) por exemplo. Quando o tempo é ambíguo para A.M. ou P.M., ambos os valores estão incluídos.
 * A matriz tem quatro elementos se a expressão tiver dois elementos com ambiguidade. Esta ambiguidade inclui elementos que têm:
   * Um intervalo de data ou data que é ambíguo a partir do ano
-  * Um intervalo de tempo ou tempo ambíguo quanto à A.M. . Por exemplo, 3 de abril 3 de abril.
+  * Um intervalo de tempo ou tempo ambíguo quanto a A.M. . Por exemplo, 3 de abril 3 de abril.
 
 Cada elemento da `values` matriz pode ter os seguintes campos:
 
@@ -476,7 +476,7 @@ A seguinte expressão e a sua resposta parcial do JSON são mostradas abaixo.
 * * *
 
 ## <a name="ambiguous-time"></a>Tempo ambíguo
-A matriz de valores tem dois elementos de tempo se o tempo ou intervalo de tempo for ambíguo. Quando há um tempo ambíguo, os valores têm ambos a manhã. e P.M. vezes.
+A matriz de valores tem dois elementos de tempo se o tempo ou intervalo de tempo for ambíguo. Quando há um tempo ambíguo, os valores têm tanto o .M. e P.M. vezes.
 
 ## <a name="time-range-resolution-example"></a>Exemplo de resolução do intervalo de tempo
 
