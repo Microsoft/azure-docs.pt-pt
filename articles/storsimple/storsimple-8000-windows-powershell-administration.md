@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 65e9657c3948d8ce5883cd33ca8720f501352105
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995437"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 
@@ -50,7 +50,7 @@ Certifique-se de que utiliza as seguintes definições de PuTTY para ligar à in
 1. Na caixa de diálogo de **reconfiguração** PuTTY, no painel **de categorias,** selecione **Teclado**.
 2. Certifique-se de que as seguintes opções são selecionadas (estas são as definições predefinidos quando iniciar uma nova sessão).
    
-   | Item de teclado | Selecionar |
+   | Item de teclado | Selecione |
    | --- | --- |
    | Chave de backspace |Controlo-? (127) |
    | Chaves casa e fim |Standard |

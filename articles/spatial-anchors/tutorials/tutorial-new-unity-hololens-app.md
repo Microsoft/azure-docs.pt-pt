@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Criar uma nova app HoloLens Unitity'
 description: Neste tutorial, aprende-se a criar uma nova aplicação HoloLens Unitity utilizando âncoras espaciais Azure.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 08/17/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e94ced70ad17286612328884d03d4d1253b7818b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: ee0bf9b4ce009f37dd1931d4ed030defa24e7d38
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096543"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95996270"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar uma nova app HoloLens Unitity usando âncoras espaciais Azure
 
@@ -31,9 +31,9 @@ Para concluir este tutorial, confirme que tem:
 
 Primeiro vamos preparar o nosso projeto e a cena da unidade:
 1. Iniciar a Unidade.
-2. Selecione **New** (Novo).
+2. Selecione **Nova**.
 4. Certifique-se de que o **3D** está selecionado.
-5. Nomeie o seu projeto e introduza uma **localização**de salvamento.
+5. Nomeie o seu projeto e introduza uma **localização** de salvamento.
 6. Selecione **Create project** (Criar projeto).
 7. Guarde a cena padrão vazia para um novo ficheiro utilizando: **Guardar**  >  **ficheiros Como**.
 8. Nomeie a nova cena **Principal** e pressione o botão **Guardar.**
@@ -43,7 +43,7 @@ Primeiro vamos preparar o nosso projeto e a cena da unidade:
 Vamos agora definir algumas definições de projeto de Unidade que nos ajudam a direcionar o Windows Holographic SDK para o desenvolvimento.
 
 Primeiro, vamos definir definições de qualidade para a nossa aplicação.
-1. **Selecione a**  >  qualidade das**definições do projeto de**  >  **Quality** edição
+1. **Selecione a**  >  qualidade das **definições do projeto de**  >  **Quality** edição
 2. Na coluna sob o logótipo da **Windows Store,** clique na seta na linha **Predefinido** e selecione **Very Low**. Saberá que a definição é aplicada corretamente quando a caixa na coluna **Windows Store** e na linha **Very Low** estiver verde.
 
 Precisamos configurar a nossa app Unidade com uma visão imersiva, em vez de uma vista 2D. Podemos criar uma visão imersiva, permitindo o suporte de Realidade Virtual na Unidade direcionando o Windows 10 SDK.
@@ -89,7 +89,7 @@ Precisamos configurar a nossa app Unidade com uma visão imersiva, em vez de uma
 Deve agora ter um prefácio de esfera no painel do **projeto.**
 
 ## <a name="trying-it-out"></a>Experimentando
-Para testar que está tudo a funcionar, construa a sua app em **Unidade** e implemente-a a partir do **Visual Studio.** Siga o Capítulo 6 do [ **MR Basics 100: Começar com** ](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) o curso de Unidade para o fazer. Devias ver o ecrã de partida da Unidade e, em seguida, um ecrã claro.
+Para testar que está tudo a funcionar, construa a sua app em **Unidade** e implemente-a a partir do **Visual Studio.** Siga o Capítulo 6 do [ **MR Basics 100: Começar com**](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) o curso de Unidade para o fazer. Devias ver o ecrã de partida da Unidade e, em seguida, um ecrã claro.
 
 ## <a name="place-an-object-in-the-real-world"></a>Coloque um objeto no mundo real
 Vamos criar & colocar um objeto usando a sua aplicação. Abra a solução Visual Studio que criamos quando [implementamos a nossa aplicação.](#trying-it-out)

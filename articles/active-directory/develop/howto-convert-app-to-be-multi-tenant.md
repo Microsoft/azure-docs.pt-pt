@@ -14,11 +14,11 @@ ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 0c5b06fd14f526ca90b1b922be281af55ba00116
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077494"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995221"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>How to: Iniciar sessão de qualquer utilizador do Azure Active Directory com o padrão de aplicação multi-inquilino
 
@@ -125,7 +125,7 @@ Algumas permissões delegadas também requerem o consentimento de um administrad
 
 Se a sua aplicação utilizar permissões que exijam consentimento administrativo, tem de ter um gesto como um botão ou ligação onde o administrador pode iniciar a ação. O pedido que o seu pedido envia para esta ação é o habitual pedido de autorização OAuth2/OpenID Connect que também inclui o parâmetro de `prompt=admin_consent` cadeia de consulta. Uma vez que o administrador tenha consentido e o diretor de serviço é criado no inquilino do cliente, os pedidos subsequentes de inscrição não precisam do `prompt=admin_consent` parâmetro. Uma vez que o administrador decidiu que as permissões solicitadas são aceitáveis, nenhum outro utilizadores no arrendatário é solicitado a pedir o consentimento a partir desse ponto.
 
-Um administrador de inquilino pode desativar a capacidade de os utilizadores regulares consentirem com as aplicações. Se esta capacidade for desativada, o consentimento administrativo é sempre necessário para que o pedido seja utilizado no arrendatário. Se pretender testar a sua aplicação com o consentimento do utilizador final desativado, pode encontrar o interruptor de configuração no [portal Azure][AZURE-portal] na secção **[de definições](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** do Utilizador sob **as aplicações da Enterprise** .
+Um administrador de inquilino pode desativar a capacidade de os utilizadores regulares consentirem com as aplicações. Se esta capacidade for desativada, o consentimento administrativo é sempre necessário para que o pedido seja utilizado no arrendatário. Se pretender testar a sua aplicação com o consentimento do utilizador final desativado, pode encontrar o interruptor de configuração no [portal Azure][AZURE-portal] na secção **[de definições](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** do Utilizador sob **as aplicações da Enterprise**.
 
 O `prompt=admin_consent` parâmetro também pode ser usado por aplicações que solicitam permissões que não requerem consentimento administrativo. Um exemplo de quando isso seria usado é se a aplicação requer uma experiência em que o administrador do inquilino "assina" uma vez, e nenhum outro utilizadores é solicitado para consentimento a partir desse ponto.
 

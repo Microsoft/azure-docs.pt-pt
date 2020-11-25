@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
 ms.openlocfilehash: 41209233ec59f578db4ff7fd344bb96aefeb975e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146778"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994745"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importar uma Aplicação API como uma API
 
@@ -40,7 +40,7 @@ Neste artigo, vai aprender a:
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importar e publicar uma API de back-end
 
 1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** no menu.
-2. Selecione **Aplicação API** na lista **Adicionar uma nova API** .
+2. Selecione **Aplicação API** na lista **Adicionar uma nova API**.
 
     ![App API](./media/import-api-app-as-api/api-app.png)
 3. Prima **Procurar** para ver a lista de Aplicações API na sua subscrição.
@@ -48,7 +48,7 @@ Neste artigo, vai aprender a:
 
     Caso o APIM não localize o swagger, expõe a API como uma API de "pass-through". 
 5. Adicione um sufixo de URL de API. O sufixo é um nome que identifica esta API específica nesta instância de APIM. Tem de ser exclusivo nesta instância de APIM.
-6. Publique a API ao associá-la a um produto. Neste caso, é utilizado o produto " *Unlimited* ".  Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.
+6. Publique a API ao associá-la a um produto. Neste caso, é utilizado o produto "*Unlimited*".  Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.
 
     Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.
 
@@ -57,18 +57,18 @@ Neste artigo, vai aprender a:
     * **Inicial**
     * **Ilimitado**   
 7. Introduza outras definições de API. Pode definir os valores durante a criação ou configurá-los mais tarde, indo ao **separador Definições.** As definições são explicadas no Import e publicam o seu primeiro tutorial [da API.](import-and-publish.md#import-and-publish-a-backend-api)
-8. Selecione **Criar** .
+8. Selecione **Criar**.
 
 ## <a name="test-the-new-api-in-the-azure-portal"></a>Teste a nova API no portal Azure
 
 As operações podem ser chamadas diretamente a partir do Portal do Azure, que fornece um meio cómodo para ver e testar as operações de uma API.  
 
 1. Selecione a API que criou no passo anterior.
-2. Prima o separador **Teste** .
+2. Prima o separador **Teste**.
 3. Selecione uma operação.
 
     A página apresenta campos para os parâmetros de consulta e campos para os cabeçalhos. Um dos cabeçalhos é “Ocp-Apim-Subscription-Key”, para a chave de subscrição do produto que está associado a esta API. Se tiver criado a instância de APIM, já é um administrador, pelo que a chave é preenchida automaticamente. 
-1. Prima **Enviar** .
+1. Prima **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
 

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401372"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994898"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Direcionar tráfego para pontos finais específicos com base na sub-rede do utilizador com o Gestor de Tráfego
 
@@ -65,7 +65,7 @@ Nesta secção, você cria dois VMs *myEndpointVMEastUS* e *myEndpointVMWEurope*
     |---|---|
     |Rede virtual| Selecione **Rede virtual** em **Criar rede virtual**. Para **Nome**, introduza *myVNet1*; para sub-rede, introduza *mySubnet*.|
     |Grupo de Segurança de Rede|Selecione **Básico** e, no menu pendente **Selecionar portas de entrada públicas**, selecione **HTTP** e **RDP** |
-    |Diagnósticos de arranque.|Selecione **Desativado**.|
+    |Diagnósticos de arranque|Selecione **Desativado**.|
     |||
 
 6. Em **Criar** no **Resumo**, selecione **Criar** para iniciar a implementação da VM.
@@ -93,7 +93,7 @@ Nesta secção, instale o servidor IIS nos dois VMs - *myIISVMEastUS*   &  *myII
 3. Abra o ficheiro rdp transferido. Se lhe for pedido, selecione **Ligar**. Introduza o nome de utilizador e a palavra-passe que especificou ao criar a VM. Poderá ter de selecionar **Mais opções** e **Utilizar uma conta diferente** para especificar as credenciais que introduziu quando criou a VM.
 4. Selecione **OK**.
 5. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber o aviso, selecione **Sim** ou **Continuar** para prosseguir com a ligação.
-6. No ambiente de trabalho do servidor, navegue para o Gestor do Servidor **de Ferramentas Administrativas**do Windows > **Server Manager**.
+6. No ambiente de trabalho do servidor, navegue para o Gestor do Servidor **de Ferramentas Administrativas** do Windows > **Server Manager**.
 7. Lançar o Windows PowerShell no *myIISVMEastUS* e utilizar os seguintes comandos para instalar o servidor IIS e atualizar o ficheiro HTM predefinido.
     ```powershell-interactive
     # Install IIS
@@ -150,7 +150,7 @@ Nesta secção, você cria um VM *(mVMEastUS* e *myVMWestEurope*) em cada regiã
     |---|---|
     |Rede virtual| Selecione **Rede virtual** em **Criar rede virtual**. Para **Nome**, introduza *myVNet3*; para sub-rede, introduza *mySubnet3*.|
     |Grupo de Segurança de Rede|Selecione **Básico** e, no menu pendente **Selecionar portas de entrada públicas**, selecione **HTTP** e **RDP** |
-    |Diagnósticos de arranque.|Selecione **Desativado**.|
+    |Diagnósticos de arranque|Selecione **Desativado**.|
     |||
 
 6. Em **Criar** no **Resumo**, selecione **Criar** para iniciar a implementação da VM.
@@ -188,7 +188,7 @@ Crie um perfil para o Gestor de Tráfego que lhe permita devolver determinados p
 Adicione os dois VMs que executam os servidores IIS - *myIISVMEastUS*  &  *myIISVMWEurope* para encaminhar o tráfego do utilizador com base na sub-rede da consulta do utilizador.
 
 1. Na barra de pesquisa do portal, procure o nome do perfil do Gestor de Tráfego que criou na secção anterior e selecione-o nos resultados apresentados.
-2. Em **Perfil do Gestor de Tráfego **, na secção **Definições**, clique em **Pontos Finais** e em **Adicionar**.
+2. Em **Perfil do Gestor de Tráfego**, na secção **Definições**, clique em **Pontos Finais** e em **Adicionar**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK**:
 
     | Definição                 | Valor                                              |

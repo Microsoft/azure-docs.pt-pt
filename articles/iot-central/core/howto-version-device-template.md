@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 ms.openlocfilehash: 93545c63013c95e3db498b079061da3d9b189efd
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986451"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995765"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo do dispositivo
 
@@ -106,7 +106,7 @@ Pode criar várias versões do modelo do dispositivo. Com o tempo, terá vários
 1. Escolha **Migrar:**  :::image type="content" source="media/howto-version-device-template/migrate-device.png" alt-text="Escolha a opção de começar a migrar um dispositivo":::
 1. Selecione o modelo do dispositivo com o número de versão para o quais pretende migrar o dispositivo e **selecione Migrar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se é um operador ou construtor de soluções, um próximo passo sugerido é [aprender a gerir os seus dispositivos](./howto-manage-devices.md).
 

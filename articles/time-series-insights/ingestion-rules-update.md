@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: lyhughes
 ms.openlocfilehash: 56a1d5aab2f665f9c5bd8f6fa322f35e55483c7b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016722"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995238"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Próximas alterações ao Achatamento de JSON e fuga às regras para novos ambientes
 
@@ -51,7 +51,7 @@ Atualize o código do cliente que executa [o TypesBatchPut](/rest/api/time-serie
 * `"value": {"tsx": "$event.series.value.Double"}`
 * `"value": {"tsx": "$event['series']['value'].Double"}`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o armazenamento e entrada da [Azure Time Series Insights Gen2](./concepts-ingestion-overview.md).
 

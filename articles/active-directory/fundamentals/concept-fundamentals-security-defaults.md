@@ -13,11 +13,11 @@ ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: c26cbf55c1e3883605d4c65659511af20cf02c7f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836772"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996683"
 ---
 # <a name="what-are-security-defaults"></a>O que são falhas de segurança?
 

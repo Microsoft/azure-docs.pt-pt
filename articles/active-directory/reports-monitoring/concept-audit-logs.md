@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5aa8f675e3fd36fbebfecf42db0f02b0f0f00115
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319741"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995986"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
 
@@ -34,7 +34,7 @@ A arquitetura de reporte consiste nos seguintes componentes:
 
 - **Atividade** 
     - **Ins-** O [relatório de inscrições](concept-sign-ins.md) fornece informações sobre o uso de aplicações geridas e atividades de inscrição do utilizador.
-    - **Registos de auditoria** - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. Exemplos de registos de auditoria incluem alterações feitas a quaisquer recursos dentro do AD Azure, como adicionar ou remover utilizadores, apps, grupos, papéis e políticas.
+    - **Registos de auditoria** - Fornece rastreabilidade através de registos para todas as alterações efetuadas por várias funcionalidades dentro do Azure AD. Os exemplos de registos de auditoria incluem as alterações feitas a quaisquer recursos no Azure AD, como adicionar ou remover utilizadores, aplicações, grupos, funções e políticas.
     - Registos de **provisionamento**  -  [O fornecimento de registos](./concept-provisioning-logs.md) permite que os clientes monitorizem a atividade através do serviço de fornecimento, como a criação de um grupo no ServiceNow ou um utilizador importado do Workday. 
 - **Segurança** 
     - **Entradas arriscadas** - Um [sinal de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de inscrição que pode ter sido realizada por alguém que não é o legítimo proprietário de uma conta de utilizador. 
@@ -128,7 +128,7 @@ O filtro **Category** permite-lhe selecionar um dos seguintes filtros:
 - KerberosDomain
 - Gestão de Chaves
 - Etiqueta
-- Outros
+- Outro
 - PermissõesGrantPolicy
 - Política
 - Gestão de Recursos
@@ -154,7 +154,7 @@ Os valores possíveis são:
 
 - 7 dias
 - 24 horas
-- Personalizado
+- Personalizar
 
 Quando selecionar um período de tempo personalizado, pode configurar uma hora de início e uma hora de fim.
 

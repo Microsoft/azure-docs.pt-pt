@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
 ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999745"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995867"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 em Azure (Pré-visualização)
 
@@ -95,8 +95,8 @@ ms.locfileid: "91999745"
 > - [Detetar ameaças fora da caixa](../../sentinel/tutorial-detect-threats-built-in.md)
 > - [Criar regras analíticas personalizadas para detetar ameaças suspeitas](../../sentinel/tutorial-detect-threats-custom.md)
 > - [Monitorizar os seus dados](../../sentinel/tutorial-monitor-your-data.md)
-> - [Investigue incidentes com Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
-> - [Configurar respostas automáticas de ameaças em Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
+> - [Investigar incidentes com o Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+> - [Configurar respostas automatizadas a ameaças no Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Comunidade Azure Sentinel GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>P: O Azure Sentinel fornece conectores adicionais como parte da solução?
@@ -462,7 +462,7 @@ Estes registos são criados em resposta às operações de ficheiros no SharePoi
 
 A tabela seguinte fornece consultas de registo de amostras para registos de atualização recolhidos por esta solução.
 
-| Consulta | Description |
+| Consulta | Descrição |
 | --- | --- |
 |Conte de todas as operações na subscrição do seu Office 365 |OfficeActivity &#124; resumir a contagem() por Operação |
 |Utilização de sites SharePoint|OfficeActivity &#124; onde OfficeWorkload =~ "sharepoint" &#124; resumir a contagem() por SiteUrl \| sortido por Count asc|

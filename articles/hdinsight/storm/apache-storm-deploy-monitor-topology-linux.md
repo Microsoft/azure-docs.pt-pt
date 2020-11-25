@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085740"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995595"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implementar e gerir as topologias da Tempestade Apache em Azure HDInsight
 
@@ -23,7 +23,7 @@ Neste documento, aprenda os fundamentos da gestão e monitorização das topolog
 
 * Um aglomerado de tempestade Apache em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** for **Cluster type**.
 
-* (Opcional) Familiaridade com Secure Shell (SSH) e Secure Copy (SCP). Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* (Opcional) Familiaridade com Secure Shell (SSH) e Secure Copy (SCP). Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * (Opcional) Visual Studio, Azure SDK 2.5.1 ou mais recente, e as Ferramentas do Lago de Dados para O Estúdio Visual. Para mais informações, consulte [Apache Hadoop & Ferramentas do Lago de Dados do Estúdio Visual.](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 
@@ -226,7 +226,7 @@ A seleção de um bico nas secções **Descascados** ou **Parafusos** apresenta 
 | Estatísticas de bico ou estatísticas de parafusos | Estatísticas sobre o bico ou parafuso. Para definir o prazo para uma entrada nesta secção, selecione o seu link na coluna **Janela.** |
 | (Apenas para parafusos)<br/>Estatísticas de entrada *(prazo)* | Informação sobre os fluxos de entrada consumidos pelo parafuso. |
 | Estatísticas de saída *(prazo)* | Informação sobre os fluxos emitidos pelo bico ou parafuso. |
-| Perfis e depuragem | Controlos para perfis e depurações dos componentes nesta página. Pode definir o valor **Status / Timeout (Minutos)** e pode selecionar botões para **JStack,** **Restart Worker**e **Heap**. |
+| Perfis e depuragem | Controlos para perfis e depurações dos componentes nesta página. Pode definir o valor **Status / Timeout (Minutos)** e pode selecionar botões para **JStack,** **Restart Worker** e **Heap**. |
 | Executores *(prazo)* | Informação sobre os casos do bico ou parafuso. Para visualizar um registo de informações de diagnóstico produzidas para este caso, selecione a entrada do **Porto** para um executor específico. Também pode ver os recursos dos trabalhadores associados a um executor específico selecionando o seu link na coluna **Host.** |
 | Erros | Qualquer informação de erro para o bico ou parafuso. |
 

@@ -9,11 +9,11 @@ ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 1883ffdff20bbbef8efec1440854f01a21a281dc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045725"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994524"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Visual Studio 2019 para desenvolver e depurar módulos para Azure IoT Edge
 
@@ -98,7 +98,7 @@ O modelo de projeto Azure IoT Edge no Visual Studio cria um projeto que pode ser
 
    ![Criar Novo Projeto](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-1. Na janela **add IoT Edge Application and Module,** selecione **módulo C#** ou **Módulo C** e, em seguida, especifique o seu nome do módulo e repositório de imagem do módulo. O Visual Studio autopovoa o nome do módulo com **local:5000/<o nome \> do módulo**. Substitua-o pela sua própria informação de registo. Se usares um registo local do Docker para testes, então **o local** está bem. Se utilizar o Registo do Contentor Azure, utilize o servidor de login a partir das definições do seu registo. O servidor de login parece ** _\<registry name\>_ .azurecr.io**. Substitua apenas a parte **local: 5000** da corda para que o resultado final pareça ** \<*registry name*\> .azurecr.io/ _\<your module name\>_ **. O nome do módulo padrão é **IotEdgeModule1**
+1. Na janela **add IoT Edge Application and Module,** selecione **módulo C#** ou **Módulo C** e, em seguida, especifique o seu nome do módulo e repositório de imagem do módulo. O Visual Studio autopovoa o nome do módulo com **local:5000/<o nome \> do módulo**. Substitua-o pela sua própria informação de registo. Se usares um registo local do Docker para testes, então **o local** está bem. Se utilizar o Registo do Contentor Azure, utilize o servidor de login a partir das definições do seu registo. O servidor de login parece **_\<registry name\>_ .azurecr.io**. Substitua apenas a parte **local: 5000** da corda para que o resultado final pareça **\<*registry name*\> .azurecr.io/ _\<your module name\>_**. O nome do módulo padrão é **IotEdgeModule1**
 
    ![Adicionar aplicação e módulo](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 
@@ -112,7 +112,7 @@ O projeto **IotEdgeModule1** é uma aplicação de consola .NET Core 2.1 se for 
 
 ## <a name="develop-your-module"></a>Desenvolva o seu módulo
 
-O código do módulo predefinido que acompanha a solução está localizado em **IotEdgeModule1**  >  **Program.cs** (para C#) ou **main.c** (C). O módulo e o `deployment.template.json` ficheiro são configurados para que possa construir a solução, empurrá-la para o registo do seu contentor e implantá-la num dispositivo para iniciar os testes sem tocar em nenhum código. O módulo foi construído para obter a entrada de uma fonte (neste caso, o módulo **SimulaçãoTemperatureSensor** que simula dados) e canalizar para o Azure IoT Hub.
+O código do módulo predefinido que acompanha a solução está localizado em **IotEdgeModule1**  >  **Program.cs** (para C#) ou **principal.c** (C). O módulo e o `deployment.template.json` ficheiro são configurados para que possa construir a solução, empurrá-la para o registo do seu contentor e implantá-la num dispositivo para iniciar os testes sem tocar em nenhum código. O módulo foi construído para obter a entrada de uma fonte (neste caso, o módulo **SimulaçãoTemperatureSensor** que simula dados) e canalizar para o Azure IoT Hub.
 
 Quando estiver pronto para personalizar o modelo do módulo com o seu próprio código, utilize os [SDKs Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) para construir módulos que respondam às principais necessidades de soluções IoT, tais como segurança, gestão de dispositivos e fiabilidade.
 
@@ -147,7 +147,7 @@ Normalmente, você vai querer testar e depurar cada módulo antes de executá-lo
 
    ![Módulo correndo](./media/how-to-visual-studio-develop-csharp-module/single-module-run.png)
 
-1. Se se desenvolver em C#, desaponte um ponto de rutura `PipeMessage()` na função em **Program.cs**; se utilizar C, desaponte um ponto de rutura `InputQueue1Callback()` na função em **main.c**. Em seguida, pode testá-la enviando uma mensagem executando o seguinte comando numa casca **de Git Bash** ou **WSL Bash.** (Não é possível executar o comando a `curl` partir de um powerShell ou de um pedido de comando.)
+1. Se se desenvolver em C#, desaponte um ponto de rutura `PipeMessage()` na função em **Program.cs**; se utilizar C, desaponte um ponto de rutura `InputQueue1Callback()` na função em **geral.c**. Em seguida, pode testá-la enviando uma mensagem executando o seguinte comando numa casca **de Git Bash** ou **WSL Bash.** (Não é possível executar o comando a `curl` partir de um powerShell ou de um pedido de comando.)
 
     ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
@@ -166,7 +166,7 @@ Normalmente, você vai querer testar e depurar cada módulo antes de executá-lo
 
 Depois de ter terminado de desenvolver um único módulo, talvez queira executar e depurar uma solução inteira com vários módulos.
 
-1. No **Solution Explorer**, adicione um segundo módulo à solução clicando à direita no **AzureIoTEdgeApp1** e selecionando **Adicionar**Novo Módulo de  >  **Borda IoT**. O nome predefinido do segundo módulo é **IotEdgeModule2** e funcionará como outro módulo de tubo.
+1. No **Solution Explorer**, adicione um segundo módulo à solução clicando à direita no **AzureIoTEdgeApp1** e selecionando **Adicionar** Novo Módulo de  >  **Borda IoT**. O nome predefinido do segundo módulo é **IotEdgeModule2** e funcionará como outro módulo de tubo.
 
 1. Abra o ficheiro `deployment.template.json` e verá **que iotEdgeModule2** foi adicionado na secção de **módulos.** Substitua a secção **de rotas** pelo seguinte. Se tiver personalizado os nomes do módulo, certifique-se de atualizar estes nomes para corresponder.
 
@@ -222,7 +222,7 @@ Depois de ter terminado de desenvolver um único módulo, talvez queira executar
 
 No artigo de início rápido que utilizou para configurar o seu dispositivo IoT Edge, implementou um módulo com o portal do Azure. Também pode implementar módulos utilizando o Cloud Explorer para o Estúdio Visual. Já tem um manifesto de implantação preparado para o seu cenário, o ficheiro e tudo o `deployment.json` que precisa de fazer é selecionar um dispositivo para receber a implementação.
 
-1. Open **Cloud Explorer** clicando **view**Cloud  >  **Explorer**. Certifique-se de que iniciou sessão no Visual Studio 2019.
+1. Open **Cloud Explorer** clicando **view** Cloud  >  **Explorer**. Certifique-se de que iniciou sessão no Visual Studio 2019.
 
 1. No **Cloud Explorer,** expanda a sua subscrição, encontre o seu Azure IoT Hub e o dispositivo Azure IoT Edge que pretende implementar.
 

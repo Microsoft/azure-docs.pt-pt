@@ -14,11 +14,11 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 320d48535c4792a4d610888c6a7030568ccf16bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459849"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995187"
 ---
 # <a name="configuration-requirements-and-troubleshooting-tips-for-xamarin-android-with-msalnet"></a>Requisitos de configuração e dicas de resolução de problemas para Xamarin Android com MSAL.NET
 
@@ -76,7 +76,7 @@ protected override void OnActivityResult(int requestCode,
 
 ## <a name="update-the-android-manifest"></a>Atualize o manifesto Android
 
-O * ficheiroAndroidManifest.xml* deve conter os seguintes valores:
+O *ficheiroAndroidManifest.xml* deve conter os seguintes valores:
 
 ```XML
   <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -140,12 +140,12 @@ Para obter mais informações, consulte [os navegadores web para obter](msal-net
 - Verifique se Xamarin.Android.Support.v4 está na versão mais recente.
 - Certifique-se de que todos os pacotes Xamarin.Android.Support visam a versão mais recente.
 - Limpe ou reconstrua a aplicação.
-- No Visual Studio, tente definir o número máximo de construções paralelas para **1**. Para isso, selecione **Opções**  >  **Projetos e Soluções**  >  **Construir e Executar**O número máximo de  >  **projetos paralelos constrói.**
+- No Visual Studio, tente definir o número máximo de construções paralelas para **1**. Para isso, selecione **Opções**  >  **Projetos e Soluções**  >  **Construir e Executar** O número máximo de  >  **projetos paralelos constrói.**
 - Se estiver a construir a partir da linha de comando e o seu comando `/m` utilizar, tente remover este elemento do comando.
 
 ### <a name="error-the-name-authenticationcontinuationhelper-doesnt-exist-in-the-current-context"></a>Erro: O nome AutenticaçãoContinuationHelhelper não existe no contexto atual
 
-Se um erro indicar que `AuthenticationContinuationHelper` não existe no contexto atual, o Visual Studio pode ter atualizado incorretamente o ficheiro *Android.csproj. \* * Por vezes, o caminho do ficheiro no `<HintPath>` elemento contém incorretamente `netstandard13` em vez de `monoandroid90` .
+Se um erro indicar que `AuthenticationContinuationHelper` não existe no contexto atual, o Visual Studio pode ter atualizado incorretamente o ficheiro *Android.csproj. \** Por vezes, o caminho do ficheiro no `<HintPath>` elemento contém incorretamente `netstandard13` em vez de `monoandroid90` .
 
 Este exemplo contém um caminho de ficheiro correto:
 

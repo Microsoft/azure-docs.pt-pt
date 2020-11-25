@@ -12,11 +12,11 @@ ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, devx-track-python, deploy
 ms.openlocfilehash: 9ec82dcd7578744dc7443d48dc28820413f14005
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491703"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996309"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Implementar modelos ML para arrays de portão programáveis em campo (FPGAs) com Azure Machine Learning 
 
@@ -31,7 +31,7 @@ Pode reconfigurar FPGAs para diferentes tipos de modelos de aprendizagem automá
 
 ![Diagrama da comparação FPGA de Aprendizagem de Máquinas Azure](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|Processador| Abreviatura |Description|
+|Processador| Abreviatura |Descrição|
 |---|:-------:|------|
 |Circuitos integrados específicos de aplicação|ASICs|Circuitos personalizados, como as Unidades de Processadores TensorFlow da Google (TPU), proporcionam a maior eficiência. Não podem ser reconfigurados à medida que as suas necessidades mudam.|
 |Matrizes de portão programáveis em campo|FPGAs|As FPGAs, como as disponíveis no Azure, proporcionam um desempenho próximo dos ASICs. São também flexíveis e reconfiguráveis ao longo do tempo, para implementar uma nova lógica.|
@@ -347,9 +347,9 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
-Para evitar custos desnecessários, limpe os seus recursos **nesta ordem** : serviço web, depois imagem e, em seguida, o modelo.
+Para evitar custos desnecessários, limpe os seus recursos **nesta ordem**: serviço web, depois imagem e, em seguida, o modelo.
 
 ```python
 aks_service.delete()

@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 396344ba90aa3850d7d23dc40d6df95f6d1f6c3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279521"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996581"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidade do Utilizador e Autenticação Pass-through do Azure Active Directory
 
@@ -46,7 +46,7 @@ Recomendamos vivamente a segunda opção, uma vez que é mais fácil de implemen
 
 ### <a name="delete-azure-ad-connect-trace-log-files"></a>Eliminar ficheiros de registo de registo de rastreio Azure AD Connect
 
-Verifique o conteúdo da pasta **%ProgramData%\AADConnect** e elimine o conteúdo do registo de vestígios **(trace-.log \* ** files) desta pasta no prazo de 48 horas após a instalação ou atualização do Azure AD Connect ou modificar a configuração de autenticação pass-through, uma vez que esta ação pode criar dados cobertos pelo RGPD.
+Verifique o conteúdo da pasta **%ProgramData%\AADConnect** e elimine o conteúdo do registo de vestígios **(ficheiros \* trace-.log)** desta pasta no prazo de 48 horas após a instalação ou atualização do Azure AD Connect ou modificar a configuração de autenticação Pass-through, uma vez que esta ação pode criar dados cobertos pelo RGPD.
 
 >[!IMPORTANT]
 >Não elimine o ficheiro **PersistedState.xml** nesta pasta, uma vez que este ficheiro é utilizado para manter o estado da instalação anterior do Azure AD Connect e é utilizado quando uma instalação de upgrade é feita. Este ficheiro nunca conterá quaisquer dados sobre uma pessoa e nunca deverá ser eliminado.
@@ -93,7 +93,7 @@ Para agendar este roteiro para correr a cada 48 horas siga estes passos:
 1.  Guarde o guião num ficheiro com o ". Extensão PS1.
 2.  Abra **o Painel de Controlo** e clique no Sistema e **Segurança.**
 3.  No título **Ferramentas Administrativas,** clique em "**Agendar Tarefas**".
-4.  No **Task Scheduler**, clique à direita na "**Task Schedule Library**" e clique em " Criar tarefa**Básica...**".
+4.  No **Task Scheduler**, clique à direita na "**Task Schedule Library**" e clique em " Criar tarefa **Básica...**".
 5.  Introduza o nome para a nova tarefa e clique em **Seguinte**.
 6.  Selecione "**Daily**" para o **Gatilho de Tarefa** e clique em **Seguinte**.
 7.  Desaprote a recorrência para dois dias e clique **em Seguinte**.

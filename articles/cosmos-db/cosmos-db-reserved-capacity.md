@@ -8,11 +8,11 @@ ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 27725b1a3dd6059010ce67977c39891a012c037e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097639"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995795"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com a capacidade de reserva no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -39,7 +39,7 @@ Calculamos recomendações de compra com base no seu padrão de utilização hor
 
 2. Selecione **Todos os**  >  **serviços Reservas**  >  **Adicionar.**
 
-3. A partir do painel **de reservas de compras,** escolha **Azure Cosmos DB** .
+3. A partir do painel **de reservas de compras,** escolha **Azure Cosmos DB**.
 
 4. Selecione o separador **Recomendado** para visualizar reservas recomendadas:
 
@@ -67,7 +67,7 @@ Esta recomendação de compra de uma reserva de 30.000 RU/s indica que, entre 3 
 
 4. Preencha os campos necessários, conforme descrito no quadro seguinte:
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Recomendações de capacidade reservada":::
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png" alt-text="Preencha o formulário de capacidade reservada":::
 
    |Campo  |Descrição  |
    |---------|---------|
@@ -83,7 +83,7 @@ Esta recomendação de compra de uma reserva de 30.000 RU/s indica que, entre 3 
 
 6. No painel **de reservas de compra,** reveja o desconto e o preço da reserva. Este preço de reserva aplica-se aos recursos DB da Azure Cosmos com produção abastada em todas as regiões.  
 
-   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Recomendações de capacidade reservada":::
+   :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Resumo da capacidade reservada":::
 
 7. Selecione **Review + compre** e depois compre **agora.** Vê a seguinte página quando a compra é bem sucedida:
 

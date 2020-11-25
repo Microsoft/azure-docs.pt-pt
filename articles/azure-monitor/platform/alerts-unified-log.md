@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294143"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995085"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Monitor Azure
 
@@ -74,7 +74,7 @@ A contagem dos resultados é a medida padrão. Ideal para trabalhar com eventos 
 
 Os alertas de registo funcionam melhor quando tenta detetar dados no registo. Funciona menos bem quando se tenta detetar a falta de dados nos registos. Por exemplo, alertando sobre o batimento cardíaco da máquina virtual.
 
-Para espaços de trabalho e Insights de Aplicação, é chamado **baseado no** número **de resultados de**seleção . Em todos os outros tipos de recursos, chama-se **Medida** com **linhas de mesa de**seleção.
+Para espaços de trabalho e Insights de Aplicação, é chamado **baseado no** número **de resultados de** seleção . Em todos os outros tipos de recursos, chama-se **Medida** com **linhas de mesa de** seleção.
 
 > [!NOTE]
 > Uma vez que os registos são dados semi-estruturados, são inerentemente mais latentes do que métricos, pode sofrer falhas ao tentar detetar a falta de dados nos registos, e deve considerar a utilização de [alertas métricos](alerts-metric-overview.md). Pode enviar dados para a loja métrica a partir de registos utilizando [alertas métricos para registos](alerts-metric-logs.md).
@@ -98,7 +98,7 @@ Em seguida, as regras de alerta monitorizam quaisquer pedidos que terminem com 5
 
 #### <a name="calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value"></a>Cálculo da medida com base numa coluna numérica (como o valor de contador da CPU)
 
-Para espaços de trabalho e Insights de Aplicação, é chamado **baseado na** **medição métrica**de seleção . Em todos os outros tipos de recursos, chama-se **Medida** com seleção de qualquer nome de coluna de números.
+Para espaços de trabalho e Insights de Aplicação, é chamado **baseado na** **medição métrica** de seleção . Em todos os outros tipos de recursos, chama-se **Medida** com seleção de qualquer nome de coluna de números.
 
 ### <a name="aggregation-type"></a>Tipo de agregação
 

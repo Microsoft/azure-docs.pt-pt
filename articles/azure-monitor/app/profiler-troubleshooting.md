@@ -7,11 +7,11 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: d9acd322c454002613e21e8591c3e83aeec2d51e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979383"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995357"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemas de resolução de problemas que permitem ou visualizam o perfil de insights de aplicações
 
@@ -168,7 +168,7 @@ Para verificar as definições que foram usadas para configurar o Azure Diagnost
 
 1. Certifique-se de que o iKey na linha de comando do Profiler está correto. 
 
-1. Utilizando o caminho encontrado noconfig.jsanterior * no* ficheiro, verifique o ficheiro de registo do Profiler, chamado **BootstrapN.log**. Apresenta as informações de depurador que indicam as definições que o Profiler está a utilizar. Também apresenta mensagens de estado e erro do Profiler.  
+1. Utilizando o caminho encontrado noconfig.jsanterior *no* ficheiro, verifique o ficheiro de registo do Profiler, chamado **BootstrapN.log**. Apresenta as informações de depurador que indicam as definições que o Profiler está a utilizar. Também apresenta mensagens de estado e erro do Profiler.  
 
     Para os VMs, o ficheiro costuma estar aqui:
     ```

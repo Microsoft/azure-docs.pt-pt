@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe92f761ac0b16da7c3cc3c69c1fa4b00f4e7579
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836364"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996598"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticação pass-through do Diretório Ativo Azure: Mergulho profundo técnico
 Este artigo é uma visão geral de como funciona o diretório Azure Ative (Azure AD) De autenticação pass-through. Para obter informações técnicas e de segurança profundas, consulte o artigo [de mergulho profundo da Segurança.](how-to-connect-pta-security-deep-dive.md)

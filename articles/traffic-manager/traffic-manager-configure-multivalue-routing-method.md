@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401049"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994932"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configure método de encaminhamento MultiValue em Gestor de Tráfego
 
@@ -32,7 +32,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 Crie um grupo de recursos para o perfil de Gestor de Tráfego.
 1. No painel esquerdo do portal Azure, selecione **grupos de recursos**.
 2. Em **grupos de recursos,** no topo da página, selecione **Adicionar**.
-3. No **nome do grupo de recursos,** escreva um nome *myResourceGroupTM1*. Para **a localização do grupo de recursos**, selecione East **US**e, em seguida, selecione **OK**.
+3. No **nome do grupo de recursos,** escreva um nome *myResourceGroupTM1*. Para **a localização do grupo de recursos**, selecione East **US** e, em seguida, selecione **OK**.
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gestor de Tráfego
 Crie um perfil de Gestor de Tráfego que direcione o tráfego do utilizador enviando-os para o ponto final com menor latência.
@@ -56,7 +56,7 @@ Crie um perfil de Gestor de Tráfego que direcione o tráfego do utilizador envi
 Adicione dois endereços IP como pontos finais externos ao perfil de Gestor de Tráfego MultiValue que criou no passo anterior.
 
 1. Na barra de pesquisa do portal, procure o nome do perfil do Gestor de Tráfego que criou na secção anterior e selecione-o nos resultados apresentados.
-2. Em **Perfil do Gestor de Tráfego **, na secção **Definições**, clique em **Pontos Finais** e em **Adicionar**.
+2. Em **Perfil do Gestor de Tráfego**, na secção **Definições**, clique em **Pontos Finais** e em **Adicionar**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK**:
 
     | Definição                 | Valor                                              |

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 014c9759756a1da922a5141f064991827d593208
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a0b7330485d3152a588d43added7d9feaa5c2a14
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630265"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "95994502"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -74,27 +74,7 @@ Este parâmetro permite-lhe especificar um ID que será associado ao vídeo. O I
 
 #### <a name="callbackurl"></a>callbackUrl
 
-Um URL que é usado para notificar o cliente (usando um pedido POST) sobre os seguintes eventos:
-
-- Alteração do estado de indexação: 
-    - Propriedades:    
-    
-        |Nome|Descrição|
-        |---|---|
-        |ID|A iD de vídeo|
-        |state|O estado do vídeo|  
-    - Exemplo: https: \/ /test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processado
-- Pessoa identificada em vídeo:
-  - Propriedades
-    
-      |Nome|Descrição|
-      |---|---|
-      |ID| A iD de vídeo|
-      |faceId|O ID do rosto que aparece no índice de vídeo|
-      |conhecidoPersonId|A pessoa ID que é única dentro de um modelo de rosto|
-      |nome de pessoa|O nome da pessoa|
-        
-    - Exemplo: https: \/ /test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&conhecidoPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+[!INCLUDE [callback url](./includes/callback-url.md)]
 
 ##### <a name="other-considerations"></a>Outras considerações
 
@@ -337,7 +317,7 @@ public class AccountContractSlim
 
 Os códigos de estado indicados na tabela seguinte podem ser devolvidos pela operação de Carregamento.
 
-|Código de estado|ErrorType (no corpo da resposta)|Description|
+|Código de estado|ErrorType (no corpo da resposta)|Descrição|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|O mesmo vídeo já está a ser processado na conta específica.|
 |400|VIDEO_ALREADY_FAILED|Falha ao processar o mesmo vídeo na conta específica há menos de 2 horas. Os clientes da API devem aguardar pelo menos 2 horas antes de voltarem a carregar um vídeo.|

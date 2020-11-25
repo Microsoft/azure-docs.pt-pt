@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433675"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996156"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Resolver problemas de compressão de ficheiros CDN
 Este artigo ajuda-o a resolver problemas com [a compressão de ficheiros CDN](cdn-improve-performance.md).
@@ -30,7 +30,7 @@ Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os espe
 A compressão para o seu ponto final está ativada, mas os ficheiros estão a ser devolvidos sem comprimir.
 
 > [!TIP]
-> Para verificar se os seus ficheiros estão a ser devolvidos [comprimidos,](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)tem de utilizar uma ferramenta como [o Fiddler](https://www.telerik.com/fiddler) ou as ferramentas de desenvolvimento do seu navegador .  Verifique os cabeçalhos de resposta HTTP devolvidos com o conteúdo em cache CDN.  Se houver um cabeçalho com `Content-Encoding` o valor do **gzip**, **bzip2**ou **esvaziar**, o seu conteúdo é comprimido.
+> Para verificar se os seus ficheiros estão a ser devolvidos [comprimidos,](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)tem de utilizar uma ferramenta como [o Fiddler](https://www.telerik.com/fiddler) ou as ferramentas de desenvolvimento do seu navegador .  Verifique os cabeçalhos de resposta HTTP devolvidos com o conteúdo em cache CDN.  Se houver um cabeçalho com `Content-Encoding` o valor do **gzip**, **bzip2** ou **esvaziar**, o seu conteúdo é comprimido.
 > 
 > ![Cabeçalho de codificação de conteúdos](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 

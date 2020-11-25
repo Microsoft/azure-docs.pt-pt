@@ -8,11 +8,11 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores,
 manager: gwallace
 ms.custom: devx-track-js, devx-track-azurecli
 ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748141"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995574"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub Actions & Serviço Azure Kubernetes (pré-visualização)
 
@@ -88,31 +88,31 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 > [!IMPORTANT]
 > Você deve ter GitHub Actions habilitado para o seu repositório. Para ativar as Ações do GitHub para o seu repositório, navegue até ao seu repositório no GitHub, clique no separador Ações e escolha ativar ações para este repositório.
 
-Navegue para o seu repositório forcado e clique em *Definições* . Clique em *Segredos* na barra lateral esquerda. Clique *Em Adicionar um novo segredo* para adicionar cada novo segredo abaixo:
+Navegue para o seu repositório forcado e clique em *Definições*. Clique em *Segredos* na barra lateral esquerda. Clique *Em Adicionar um novo segredo* para adicionar cada novo segredo abaixo:
 
 1. *AZURE_CREDENTIALS:* toda a produção da criação principal do serviço.
-1. *RESOURCE_GROUP* : o grupo de recursos para o seu cluster AKS, que neste exemplo é *o MyResourceGroup* .
-1. *CLUSTER_NAME:* o nome do seu cluster AKS, que neste exemplo é *MyAKS* .
+1. *RESOURCE_GROUP*: o grupo de recursos para o seu cluster AKS, que neste exemplo é *o MyResourceGroup*.
+1. *CLUSTER_NAME:* o nome do seu cluster AKS, que neste exemplo é *MyAKS*.
 1. *CONTAINER_REGISTRY:* o *loginServer* para o ACR.
-1. *ANFITRIÃO* : o anfitrião do seu Espaço Dev, que assume a forma *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>,* que neste exemplo é *dev.bikesharingweb.fedcab0987.eus.azds.io* .
-1. *IMAGE_PULL_SECRET:* o nome do segredo que pretende utilizar, por exemplo, *demo-secret* .
-1. *MASTER_SPACE:* o nome do seu pai Dev Space, que neste exemplo é *dev* .
+1. *ANFITRIÃO*: o anfitrião do seu Espaço Dev, que assume a forma *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>,* que neste exemplo é *dev.bikesharingweb.fedcab0987.eus.azds.io*.
+1. *IMAGE_PULL_SECRET:* o nome do segredo que pretende utilizar, por exemplo, *demo-secret*.
+1. *MASTER_SPACE:* o nome do seu pai Dev Space, que neste exemplo é *dev*.
 1. *REGISTRY_USERNAME:* o *clienteId* da saída JSON da criação principal do serviço.
 1. *REGISTRY_PASSWORD:* o *clienteSecret* da saída JSON da criação principal do serviço.
 
 > [!NOTE]
 > Todos estes segredos são usados pela ação do GitHub e são configurados em [.github/workflows/bikes.yml][github-action-yaml].
 
-Opcionalmente, se pretender atualizar o espaço principal após a fusão do seu PR, adicione o *segredo GATEWAY_HOST,* que assume a forma *<MASTER_SPACE>.gateway.<HOST_SUFFIX>,* que neste exemplo é *dev.gateway.fedcab0987.eus.azds.io* . Assim que fundires as tuas mudanças no ramo principal no teu garfo, outra ação será executada para reconstruir e executar toda a tua aplicação no espaço master dev. Neste exemplo, o espaço principal é *dev.* Esta ação está configurada em [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Opcionalmente, se pretender atualizar o espaço principal após a fusão do seu PR, adicione o *segredo GATEWAY_HOST,* que assume a forma *<MASTER_SPACE>.gateway.<HOST_SUFFIX>,* que neste exemplo é *dev.gateway.fedcab0987.eus.azds.io*. Assim que fundires as tuas mudanças no ramo principal no teu garfo, outra ação será executada para reconstruir e executar toda a tua aplicação no espaço master dev. Neste exemplo, o espaço principal é *dev.* Esta ação está configurada em [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
-Além disso, se quiser que as alterações no seu Pr decorram num espaço de neto, atualize os *segredos MASTER_SPACE* e *HOST.* Por exemplo, se a sua aplicação estiver em execução em *dev* com um espaço infantil *dev/azureuser1,* para que o PR seja executado num espaço infantil *de dev/azureuser1* :
+Além disso, se quiser que as alterações no seu Pr decorram num espaço de neto, atualize os *segredos MASTER_SPACE* e *HOST.* Por exemplo, se a sua aplicação estiver em execução em *dev* com um espaço infantil *dev/azureuser1,* para que o PR seja executado num espaço infantil *de dev/azureuser1*:
 
-* Atualize *MASTER_SPACE* para o espaço infantil que deseja como espaço dos pais, neste exemplo *azureuser1* .
-* Atualizar *HOST* para *<GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , neste exemplo *dev.bikesharingweb.fedcab0987.eus.azds.io* .
+* Atualize *MASTER_SPACE* para o espaço infantil que deseja como espaço dos pais, neste exemplo *azureuser1*.
+* Atualizar *HOST* para *<GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX>*, neste exemplo *dev.bikesharingweb.fedcab0987.eus.azds.io*.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Criar um novo ramo para alterações de código
 
-Navegue `BikeSharingApp/` para criar um novo ramo chamado *bike-images* .
+Navegue `BikeSharingApp/` para criar um novo ramo chamado *bike-images*.
 
 ```cmd
 cd dev-spaces/samples/BikeSharingApp/

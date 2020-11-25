@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/04/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 87337cf22bdb388c5873a2811bb9913c3e7f4d4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019781"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994966"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtros de segurança para aparar resultados de pesquisa cognitiva do Azure utilizando identidades do Ative Directory
 
@@ -46,7 +46,7 @@ Este passo integra a sua aplicação com a AAD com o propósito de aceitar inscr
 1. Aceda à aplicação [**Converged Portal de Registo de Aplicações**](https://apps.dev.microsoft.com)  >   **Converged app**  >  **Adicione uma aplicação.**
 2. Introduza um nome para a sua aplicação e, em seguida, clique em **Criar**. 
 3. Selecione a sua nova inscrição na página My Applications.
-4. Na página de registo de **Platforms**aplicações >  >  **Plataforma de Adicionar**plataformas, escolha **API Web**.
+4. Na página de registo de **Platforms** aplicações >  >  **Plataforma de Adicionar** plataformas, escolha **API Web**.
 5. Ainda na página de registo de aplicações, vá a > **Microsoft Graph Permisses**  >  **Add**.
 6. Em Permissões Selecionadas, adicione as seguintes permissões delegadas e, em seguida, clique **em OK**:
 
@@ -187,7 +187,7 @@ A resposta inclui uma lista filtrada de documentos, constituídos por aqueles qu
 
 Nesta passagem, aprendeu técnicas para usar os sign-ins AAD para filtrar documentos nos resultados da Pesquisa Cognitiva Azure, aparando os resultados de documentos que não correspondem ao filtro fornecido no pedido.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Controlo de acesso baseado em identidade usando filtros de pesquisa cognitiva Azure](search-security-trimming-for-azure-search.md)
 + [Filtros em Pesquisa Cognitiva Azure](search-filters.md)

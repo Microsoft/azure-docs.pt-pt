@@ -12,11 +12,11 @@ ms.date: 11/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322154"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994847"
 ---
 # <a name="string-claims-transformations"></a>Cadeia reivindica transformações
 
@@ -80,10 +80,10 @@ O perfil técnico autoafirmado chama o perfil técnico **de login-NonInteractive
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-  - **inputClaim1** : someone@contoso.com
-  - **inputClaim2** : someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parâmetros de entrada:
-  - **stringComparison** : ordinalIgnoreCase
+  - **stringComparison**: ordinalIgnoreCase
 - Resultado: Erro lançado
 
 ## <a name="changecase"></a>ChangeCase
@@ -117,7 +117,7 @@ Utilize esta transformação de reclamação para alterar qualquer string ClaimT
 - Reclamações de entrada:
   - **E-mail:**SomeOne@contoso.com
 - Parâmetros de entrada:
-    - **toCase** : LOWER
+    - **toCase**: LOWER
 - Reclamações de saída:
   - **E-mail:**someone@contoso.com
 
@@ -146,9 +146,9 @@ Utilize esta transformação de sinistros para definir um valor de claimType de 
 ### <a name="example"></a>Exemplo
 
 - Parâmetro de entrada:
-    - **valor** : Contoso termos de serviço...
+    - **valor**: Contoso termos de serviço...
 - Reclamações de saída:
-    - **createdClaim** : O TOS ClaimType contém os "termos de serviço contoso..." valor.
+    - **createdClaim**: O TOS ClaimType contém os "termos de serviço contoso..." valor.
 
 ## <a name="compareclaims"></a>CompareClaims
 
@@ -183,13 +183,13 @@ Utilize esta transformação de sinistros para verificar se uma reclamação é 
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-  - **inputClaim1** : someone@contoso.com
-  - **inputClaim2** : someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Parâmetros de entrada:
-    - **operador** : NÃO IGUAL
-    - **ignoreCase** : verdadeiro
+    - **operador**: NÃO IGUAL
+    - **ignoreCase**: verdadeiro
 - Reclamações de saída:
-    - **outputClaim** : verdadeiro
+    - **outputClaim**: verdadeiro
 
 ## <a name="compareclaimtovalue"></a>CompareClaimToValue
 
@@ -223,13 +223,13 @@ Pode utilizar esta transformação de reclamações para verificar se uma reclam
 
 ### <a name="example"></a>Exemplo
 - Reclamações de entrada:
-    - **inputClaim1** : v1
+    - **inputClaim1**: v1
 - Parâmetros de entrada:
     - **comparar:** V1
-    - **operador** : EQUAL
-    - **ignoreCase** : verdadeiro
+    - **operador**: EQUAL
+    - **ignoreCase**: verdadeiro
 - Reclamações de saída:
-    - **outputClaim** : verdadeiro
+    - **outputClaim**: verdadeiro
 
 ## <a name="createrandomstring"></a>CreateRandomString
 
@@ -259,9 +259,9 @@ Seguir o exemplo gera um ID único global. Esta transformação de sinistros é 
 ### <a name="example"></a>Exemplo
 
 - Parâmetros de entrada:
-    - **RandomGeneratorType** : GUID
+    - **RandomGeneratorType**: GUID
 - Reclamações de saída:
-    - **outputClaim** : bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
+    - **outputClaim**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 O exemplo seguinte gera um valor inteiro aleatório entre 0 e 1000. O valor é formatado para OTP_{valor aleatório}.
 
@@ -282,12 +282,12 @@ O exemplo seguinte gera um valor inteiro aleatório entre 0 e 1000. O valor é f
 ### <a name="example"></a>Exemplo
 
 - Parâmetros de entrada:
-    - **RandomGeneratorType** : INTEIROGER
+    - **RandomGeneratorType**: INTEIROGER
     - **número máximo:** 1000
-    - **stringFormat** : OTP_{0}
-    - **base64** : falso
+    - **stringFormat**: OTP_{0}
+    - **base64**: falso
 - Reclamações de saída:
-    - **outputClaim** : OTP_853
+    - **outputClaim**: OTP_853
 
 
 ## <a name="formatstringclaim"></a>FormatStringClaim
@@ -319,9 +319,9 @@ Utilize esta transformação de sinistros para formatar qualquer cadeia com um p
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-    - **inputClaim** : 5164db16-3eee-4629-bfda-dcc3326790e9
+    - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
 - Parâmetros de entrada:
-    - **stringFormat** : cpim_ {0} @{RelyingPartyTenantId}
+    - **stringFormat**: cpim_ {0} @{RelyingPartyTenantId}
 - Reclamações de saída:
   - **outputClaim:**cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
@@ -356,12 +356,12 @@ Utilize esta transformação de alegações para formatar qualquer cadeia com do
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-    - **inputClaim1** : Joe
-    - **inputClaim2** : Fernando
+    - **inputClaim1**: Joe
+    - **inputClaim2**: Fernando
 - Parâmetros de entrada:
     - **stringFormat:** {0}{1}
 - Reclamações de saída:
-    - **outputClaim** : Joe Fernando
+    - **outputClaim**: Joe Fernando
 
 ## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformação
 
@@ -427,10 +427,10 @@ A transformação de sinistros define o valor do *tipo* de reclamação com o va
 ### <a name="example"></a>Exemplo
 
 - Reclamações de saída:
-  - **assunto** : Código de verificação de email da conta Contoso
-  - **mensagem** : Obrigado por verificar a sua conta!
-  - **codeIntro** : O seu código é
-  - **assinatura** : Sinceramente
+  - **assunto**: Código de verificação de email da conta Contoso
+  - **mensagem**: Obrigado por verificar a sua conta!
+  - **codeIntro**: O seu código é
+  - **assinatura**: Sinceramente
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -472,9 +472,9 @@ A transformação de sinistros procura o texto do item e devolve o seu valor. Se
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-    - **mapFromClaim** : B2C_V1_90001
+    - **mapFromClaim**: B2C_V1_90001
 - Reclamações de saída:
-    - **restriçãoValueClaim** : Não pode entrar porque é menor de idade.
+    - **restriçãoValueClaim**: Não pode entrar porque é menor de idade.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -509,14 +509,14 @@ O exemplo a seguir procura o nome de domínio numa das coleções de inputParame
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-    - **inputParameterId** : test.com
+    - **inputParameterId**: test.com
 - Parâmetros de entrada:
-    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup** : falso
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup**: falso
 - Reclamações de saída:
-    - **outputClaim** : c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **outputClaim**: c7026f88-4299-4cdb-965d-3f166464b8a9
 
 Quando `errorOnFailedLookup` o parâmetro de entrada é definido para , a `true` transformação de **pedidos de procuração** é sempre executada a partir de um perfil técnico de [validação](validation-technical-profile.md) que é chamado por um [perfil técnico autoafirmado](self-asserted-technical-profile.md), ou um [DisplayConrtol](display-controls.md). Os `LookupNotFound` metadados de um perfil técnico autoafirmado controlam a mensagem de erro que é apresentada ao utilizador.
 
@@ -544,12 +544,12 @@ O exemplo a seguir procura o nome de domínio numa das coleções de inputParame
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-    - **inputParameterId** : live.com
+    - **inputParameterId**: live.com
 - Parâmetros de entrada:
-    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup** : verdadeiro
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup**: verdadeiro
 - Erro:
     - Nenhuma correspondência encontrada para o valor de reclamação de entrada na lista de ids de parâmetros de entrada e erroOnFailedLookup é verdade.
 
@@ -573,9 +573,9 @@ Utilize esta transformação de reclamação para remover dados desnecessários 
 ```
 
 - Reclamações de entrada:
-    - **outputClaim** : Bem-vindo à App Contoso. Se continuar a navegar e a utilizar este website, está a concordar em cumprir e ficar vinculado pelos seguintes termos e condições...
+    - **outputClaim**: Bem-vindo à App Contoso. Se continuar a navegar e a utilizar este website, está a concordar em cumprir e ficar vinculado pelos seguintes termos e condições...
 - Reclamações de saída:
-    - **outputClaim** : NU
+    - **outputClaim**: NU
 
 ## <a name="parsedomain"></a>ParseDomínio
 
@@ -602,9 +602,9 @@ Utilize esta transformação de alegações para analisar o nome de domínio ap�
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-  - **e-mailAddress** : joe@outlook.com
+  - **e-mailAddress**: joe@outlook.com
 - Reclamações de saída:
-    - **domínio** : outlook.com
+    - **domínio**: outlook.com
 
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
 
@@ -641,13 +641,13 @@ Verifique se o número de telefone fornecido é válido, com base no padrão de 
 ```
 
 - Reclamações de entrada:
-    - **claimToMatch** : "64854114520"
+    - **claimToMatch**: "64854114520"
 - Parâmetros de entrada:
-    - **matchTo** : "^[0-9] {4,16} $"
-    - **outputClaimIfMatched** : "isPhone"
+    - **matchTo**: "^[0-9] {4,16} $"
+    - **outputClaimIfMatched**: "isPhone"
 - Reclamações de saída:
-    - **outputClaim** : "isPhone"
-    - **regexCompareResultClaim** : verdadeiro
+    - **outputClaim**: "isPhone"
+    - **regexCompareResultClaim**: verdadeiro
 
 ### <a name="example-2"></a>Exemplo 2
 
@@ -672,15 +672,15 @@ Verifique se o endereço de e-mail fornecido é válido e devolva o pseudónimo 
 ```
 
 - Reclamações de entrada:
-    - **claimToMatch** : emily@contoso.com "
+    - **claimToMatch**: emily@contoso.com "
 - Parâmetros de entrada:
     - **matchTo:**`(?&lt;mailAlias&gt;.*)@(.*)$`
-    - **outputClaimIfMatched** : "isEmail"
-    - **extractGroups** : verdadeiro
+    - **outputClaimIfMatched**: "isEmail"
+    - **extractGroups**: verdadeiro
 - Reclamações de saída:
-    - **outputClaim** : "isEmail"
-    - **regexCompareResultClaim** : verdadeiro
-    - **mailAlias** : emily
+    - **outputClaim**: "isEmail"
+    - **regexCompareResultClaim**: verdadeiro
+    - **mailAlias**: emily
     
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
@@ -720,16 +720,16 @@ Pode utilizar esta transformação de reclamações para verificar se uma reclam
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-    - **inputClaim** : v1
+    - **inputClaim**: v1
 - Parâmetros de entrada:
-    - **matchTo** : V1
-    - **stringComparison** : ordinalIgnoreCase
-    - **stringMatchMsg** : B2C_V1_90005
-    - **stringMatchMsgCode** : O TOS é atualizado para v2
+    - **matchTo**: V1
+    - **stringComparison**: ordinalIgnoreCase
+    - **stringMatchMsg**: B2C_V1_90005
+    - **stringMatchMsgCode**: O TOS é atualizado para v2
 - Reclamações de saída:
-    - **outputClaim1** : B2C_V1_90005
-    - **outputClaim2** : O TOS é atualizado para v2
-    - **stringCompareResultClaim** : verdadeiro
+    - **outputClaim1**: B2C_V1_90005
+    - **outputClaim2**: O TOS é atualizado para v2
+    - **stringCompareResultClaim**: verdadeiro
 
 ## <a name="setclaimsifstringsmatch"></a>SetClaimsIfStringsMatch
 
@@ -766,14 +766,14 @@ Por exemplo, a transformação de reclamações a seguir verifica se o valor da 
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-    - **claimToMatch** : Menor
+    - **claimToMatch**: Menor
 - Parâmetros de entrada:
-    - **matchTo** : Menor
-    - **stringComparison** : ordinalIgnoreCase
-    - **outputClaimIfMatched** : B2C_V1_90001
+    - **matchTo**: Menor
+    - **stringComparison**: ordinalIgnoreCase
+    - **outputClaimIfMatched**: B2C_V1_90001
 - Reclamações de saída:
-    - **isMinorResponseCode** : B2C_V1_90001
-    - **isMinor** : verdadeiro
+    - **isMinorResponseCode**: B2C_V1_90001
+    - **isMinor**: verdadeiro
 
 
 ## <a name="stringcontains"></a>CordasContains
@@ -807,12 +807,12 @@ Utilize esta transformação de sinistros para verificar se um tipo de alegaçã
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-    - **inputClaim** : "Administrador, Aprovador, Editor"
+    - **inputClaim**: "Administrador, Aprovador, Editor"
 - Parâmetros de entrada:
-    - **contém** : "administrador",
-    - **ignoreCase** : verdadeiro
+    - **contém**: "administrador",
+    - **ignoreCase**: verdadeiro
 - Reclamações de saída:
-    - **outputClaim** : verdadeiro
+    - **outputClaim**: verdadeiro
 
 ## <a name="stringsubstring"></a>StringSubstring
 
@@ -845,12 +845,12 @@ Por exemplo, obtenha o prefixo do número de telefone país/região.
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-    - **inputClaim** : "+1644114520"
+    - **inputClaim**: "+1644114520"
 - Parâmetros de entrada:
-    - **startIndex** : 0
-    - **comprimento** : 2
+    - **startIndex**: 0
+    - **comprimento**: 2
 - Reclamações de saída:
-    - **outputClaim** : "+1"
+    - **outputClaim**: "+1"
 
 ## <a name="stringreplace"></a>CadeiaReplace
 
@@ -883,12 +883,12 @@ Por exemplo, normalizar um número de telefone, removendo os `-` caracteres
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-    - **inputClaim** : "+164-411-452-054"
+    - **inputClaim**: "+164-411-452-054"
 - Parâmetros de entrada:
-    - **oldValue** : "-"
-    - **newValue** : ""
+    - **oldValue**: "-"
+    - **newValue**: ""
 - Reclamações de saída:
-    - **outputClaim** : "+164411452054"
+    - **outputClaim**: "+164411452054"
 
 ## <a name="stringjoin"></a>CordaJoin
 
@@ -919,11 +919,11 @@ O exemplo a seguir pega numa coleção de cordas de papéis de utilizador, e con
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-  - **inputClaim** : [ "Administrador", "Autor", "Leitor" ]
+  - **inputClaim**: [ "Administrador", "Autor", "Leitor" ]
 - Parâmetros de entrada:
-  - **delimiter:** ""
+  - **delimiter:**""
 - Reclamações de saída:
-  - **outputClaim** : "Administrador,Autor,Leitor"
+  - **outputClaim**: "Administrador,Autor,Leitor"
 
 
 ## <a name="stringsplit"></a>StringSplit
@@ -955,11 +955,11 @@ O exemplo a seguir pega numa cadeia de delimiter de vírgula de papéis de utili
 ### <a name="example"></a>Exemplo
 
 - Reclamações de entrada:
-  - **inputClaim** : "Administrador,Autor,Leitor"
+  - **inputClaim**: "Administrador,Autor,Leitor"
 - Parâmetros de entrada:
-  - **delimiter:** ""
+  - **delimiter:**""
 - Reclamações de saída:
-  - **outputClaim** : [ "Administrador", "Autor", "Leitor" ]
+  - **outputClaim**: [ "Administrador", "Autor", "Leitor" ]
 
 ## <a name="string-claim-transformations-expressions"></a>Alegação de cordas transforma expressões
 As expressões de transformações de reivindicação nas políticas personalizadas Azure AD B2C fornecem informações de contexto sobre o ID do inquilino e identificação de perfil técnico.

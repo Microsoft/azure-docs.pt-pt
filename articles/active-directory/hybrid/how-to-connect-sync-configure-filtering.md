@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 595cf2c1dbc105634d33b426c67e5123b9751e6e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457967"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996547"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Ao utilizar a filtragem, pode controlar quais os objetos que aparecem no Diretório Ativo Azure (AD) a partir do seu diretório no local. A configuração padrão leva todos os objetos em todos os domínios nas florestas configuradas. Em geral, esta é a configuração recomendada. Os utilizadores que utilizam cargas de trabalho microsoft 365, como Exchange Online e Skype for Business, beneficiam de uma lista completa de endereços globais para que possam enviar e-mails e ligar para todos. Com a configuração padrão, teriam a mesma experiência que teriam com uma implementação no local de Exchange ou Lync.
@@ -232,10 +232,10 @@ No exemplo seguinte, filtra (não sincronizar) todos os utilizadores onde **a ex
 3. Certifique-se de que **a Entrada** está selecionada e clique em Adicionar **Nova Regra**.
 4. Dê à regra um nome descritivo, como "*In from AD – User DoNotSyncFilter*". Selecione a floresta correta, selecione **Utilizador** como o **tipo de objeto CS**, e selecione **Pessoa** como o tipo de **objeto MV**. No **Tipo de Ligação,** selecione **'Juntar-se'.** Em **Precedência,** escreva um valor que não seja atualmente utilizado por outra regra de sincronização (por exemplo 50), e depois clique em **Seguinte**.  
    ![Descrição de entrada 1](./media/how-to-connect-sync-configure-filtering/inbound1.png)  
-5. No **filtro De scoping,** clique em **Adicionar Grupo**e clique em Adicionar **Cláusula**. No **Atributo**, selecione **ExtensionAttribute15**. Certifique-se de que **o Operador** está definido para **EQUAL**, e digite o valor **NoSync** na caixa **Valor.** Clique em **Seguinte**.  
+5. No **filtro De scoping,** clique em **Adicionar Grupo** e clique em Adicionar **Cláusula**. No **Atributo**, selecione **ExtensionAttribute15**. Certifique-se de que **o Operador** está definido para **EQUAL**, e digite o valor **NoSync** na caixa **Valor.** Clique em **Seguinte**.  
    ![Inbound 2 âmbito](./media/how-to-connect-sync-configure-filtering/inbound2.png)  
 6. Deixe as regras **de Junção** vazias e, em seguida, clique em **Seguinte**.
-7. Clique **em Adicionar Transformação,** selecione o **FlowType** como **Constant**e selecione **cloudFiltered** como o **Atributo Alvo**. Na caixa de texto **Source,** **escreva True**. Clique **em Adicionar** para guardar a regra.  
+7. Clique **em Adicionar Transformação,** selecione o **FlowType** como **Constant** e selecione **cloudFiltered** como o **Atributo Alvo**. Na caixa de texto **Source,** **escreva True**. Clique **em Adicionar** para guardar a regra.  
    ![Transformação de entrada 3](./media/how-to-connect-sync-configure-filtering/inbound3.png)
 8. Para completar a configuração, é necessário executar uma **sincronização completa**. Continuar a ler A secção [Aplicar e verificar alterações](#apply-and-verify-changes).
 
@@ -251,17 +251,17 @@ No exemplo seguinte, apenas sincroniza os objetos do utilizador onde o atributo 
 3. Certifique-se de que **a Entrada** está selecionada e clique em Adicionar **Nova Regra**.
 4. Dê à regra um nome descritivo, como "*In from AD – User Sales sync*". Selecione a floresta correta, selecione **Utilizador** como o **tipo de objeto CS**, e selecione **Pessoa** como o tipo de **objeto MV**. No **Tipo de Ligação,** selecione **'Juntar-se'.** Em **Precedência,** escreva um valor que não seja atualmente utilizado por outra regra de sincronização (por exemplo 51), e depois clique em **Seguinte**.  
    ![Entrada 4 descrição](./media/how-to-connect-sync-configure-filtering/inbound4.png)  
-5. No **filtro De scoping,** clique em **Adicionar Grupo**e clique em Adicionar **Cláusula**. No **Atributo**, selecione **department**. Certifique-se de que o Operador está definido para **EQUAL**, e digite o valor **Vendas** na caixa **valor.** Clique em **Seguinte**.  
+5. No **filtro De scoping,** clique em **Adicionar Grupo** e clique em Adicionar **Cláusula**. No **Atributo**, selecione **department**. Certifique-se de que o Operador está definido para **EQUAL**, e digite o valor **Vendas** na caixa **valor.** Clique em **Seguinte**.  
    ![Âmbito de entrada 5](./media/how-to-connect-sync-configure-filtering/inbound5.png)  
 6. Deixe as regras **de Junção** vazias e, em seguida, clique em **Seguinte**.
-7. Clique **em Adicionar Transformação,** selecione **Constant** como **FlowType**e selecione a **cloudFiltered** como o **Atributo Alvo**. Na caixa **'Fonte',** **escreva Falso**. Clique **em Adicionar** para guardar a regra.  
+7. Clique **em Adicionar Transformação,** selecione **Constant** como **FlowType** e selecione a **cloudFiltered** como o **Atributo Alvo**. Na caixa **'Fonte',** **escreva Falso**. Clique **em Adicionar** para guardar a regra.  
    ![Entrada 6 transformação](./media/how-to-connect-sync-configure-filtering/inbound6.png)  
    Este é um caso especial onde você explicitamente definir cloudFiltered to **False**.
 8. Agora temos de criar a regra da sincronização de capturas. Dê à regra um nome descritivo, como "*In from AD – User Catch-all filter*". Selecione a floresta correta, selecione **Utilizador** como o **tipo de objeto CS**, e selecione **Pessoa** como o tipo de **objeto MV**. No **Tipo de Ligação,** selecione **'Juntar-se'.** Em **Precedência,** escreva um valor que não seja atualmente utilizado por outra Regra de Sincronização (por exemplo 99). Selecionou um valor de precedência mais elevado (precedência inferior) do que a regra de sincronização anterior. Mas também deixou algum espaço para que possa adicionar mais regras de sincronização de filtragem mais tarde, quando quiser começar a sincronizar departamentos adicionais. Clique em **Seguinte**.  
    ![Descrição de entrada 7](./media/how-to-connect-sync-configure-filtering/inbound7.png)  
 9. Deixe **o filtro de escotagem** vazio e clique em **Seguinte**. Um filtro vazio indica que a regra deve ser aplicada a todos os objetos.
 10. Deixe as regras **de Junção** vazias e, em seguida, clique em **Seguinte**.
-11. Clique **em Adicionar Transformação,** selecione **Constant** como **o FlowType**e selecione **cloudFiltered** como o **Atributo Alvo**. Na caixa **'Fonte',** escreva **True**. Clique **em Adicionar** para guardar a regra.  
+11. Clique **em Adicionar Transformação,** selecione **Constant** como **o FlowType** e selecione **cloudFiltered** como o **Atributo Alvo**. Na caixa **'Fonte',** escreva **True**. Clique **em Adicionar** para guardar a regra.  
     ![Transformação de entrada 3](./media/how-to-connect-sync-configure-filtering/inbound3.png)  
 12. Para completar a configuração, é necessário executar uma **sincronização completa**. Continuar a ler A secção [Aplicar e verificar alterações](#apply-and-verify-changes).
 
@@ -278,7 +278,7 @@ Neste exemplo, altera-se a filtragem de modo a que apenas os utilizadores que te
 4. Dependendo da versão do Connect que utiliza, encontre a regra nomeada **out to AZure AD – User Join** or out to **Azure AD - User Join SOAInAD**, e clique em **Editar**.
 5. No pop-up, **responda Sim** para criar uma cópia da regra.
 6. Na página **Descrição,** **altere a Precedência** para um valor não reutilizado, como 50.
-7. Clique em **Filtrar** o filtro na navegação à esquerda e, em seguida, clique na **cláusula Adicionar**. No **Atributo**, selecione **correio.** No **Operador**, selecione **ENDSWITH**. In **Value**, type ** \@ contoso.com**e, em seguida, clique na **cláusula Adicionar**. No **Atributo**, selecione **userPrincipalName**. No **Operador**, selecione **ENDSWITH**. In **Value**, tipo ** \@ contoso.com**.
+7. Clique em **Filtrar** o filtro na navegação à esquerda e, em seguida, clique na **cláusula Adicionar**. No **Atributo**, selecione **correio.** No **Operador**, selecione **ENDSWITH**. In **Value**, type **\@ contoso.com** e, em seguida, clique na **cláusula Adicionar**. No **Atributo**, selecione **userPrincipalName**. No **Operador**, selecione **ENDSWITH**. In **Value**, tipo **\@ contoso.com**.
 8. Clique em **Guardar**.
 9. Para completar a configuração, é necessário executar uma **sincronização completa**. Continuar a ler A secção [Aplicar e verificar alterações](#apply-and-verify-changes).
 

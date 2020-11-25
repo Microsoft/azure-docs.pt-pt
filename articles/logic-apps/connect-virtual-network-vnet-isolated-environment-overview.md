@@ -7,11 +7,11 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616931"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996326"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso aos recursos da Rede Virtual Azure a partir de Azure Logic Apps utilizando ambientes de serviços de integração (ISEs)
 
@@ -65,9 +65,9 @@ Quando cria e executa aplicações lógicas num ISE, obtém as mesmas experiênc
 
   Com raras exceções, se um conector ISE estiver disponível para um sistema no local ou fonte de dados, pode ligar-se diretamente sem utilizar o [gateway de dados no local.](../logic-apps/logic-apps-gateway-connection.md) Para mais informações, consulte [o Acesso aos sistemas no local](#on-premises) mais tarde neste tópico.
 
-* Os conectores geridos que não exibem a etiqueta **ISE** continuam a funcionar para aplicações lógicas dentro de um ISE. Estes conectores *funcionam sempre no serviço multi-inquilinos Logic Apps* , não no ISE.
+* Os conectores geridos que não exibem a etiqueta **ISE** continuam a funcionar para aplicações lógicas dentro de um ISE. Estes conectores *funcionam sempre no serviço multi-inquilinos Logic Apps*, não no ISE.
 
-* Os conectores personalizados que cria *fora de um ISE* – quer necessitem ou não do [portal de dados no local](../logic-apps/logic-apps-gateway-connection.md), continuam a trabalhar para aplicações lógicas dentro de um ISE. No entanto, os conectores personalizados que cria *dentro de um ISE* não funcionarão com o portal de dados no local. Para obter mais informações, consulte [o Acesso aos sistemas de acesso ao local.](#on-premises)
+* Os conectores personalizados que cria *fora de um ISE*– quer necessitem ou não do [portal de dados no local](../logic-apps/logic-apps-gateway-connection.md), continuam a trabalhar para aplicações lógicas dentro de um ISE. No entanto, os conectores personalizados que cria *dentro de um ISE* não funcionarão com o portal de dados no local. Para obter mais informações, consulte [o Acesso aos sistemas de acesso ao local.](#on-premises)
 
 <a name="on-premises"></a>
 
@@ -83,7 +83,7 @@ As aplicações lógicas que funcionam dentro de um ISE podem aceder diretamente
 
 * Um conector personalizado
 
-  * Os conectores personalizados que cria *fora de um ISE* – quer necessitem ou não do [portal de dados no local](../logic-apps/logic-apps-gateway-connection.md), continuam a trabalhar para aplicações lógicas dentro de um ISE.
+  * Os conectores personalizados que cria *fora de um ISE*– quer necessitem ou não do [portal de dados no local](../logic-apps/logic-apps-gateway-connection.md), continuam a trabalhar para aplicações lógicas dentro de um ISE.
 
   * Os conectores personalizados que cria *dentro de um ISE* não funcionam com o portal de dados no local. No entanto, estes conectores podem aceder diretamente aos sistemas e fontes de dados no local que se encontrem dentro ou ligados à rede virtual que acolhe o seu ISE. Assim, as aplicações lógicas que estão dentro de um ISE geralmente não precisam da porta de dados ao aceder a esses recursos.
 
@@ -117,7 +117,7 @@ Ao criar o ise, pode optar por utilizar os pontos finais de acesso interno ou ex
 > [!IMPORTANT]
 > Pode selecionar o ponto final de acesso apenas durante a criação do ISE e não pode alterar esta opção mais tarde.
 
-* **Interna** : Os pontos finais privados permitem chamadas para aplicações lógicas no seu ISE onde pode ver e aceder a entradas e saídas a partir de aplicações lógicas executa o histórico *apenas a partir de dentro da sua rede virtual.*
+* **Interna**: Os pontos finais privados permitem chamadas para aplicações lógicas no seu ISE onde pode ver e aceder a entradas e saídas a partir de aplicações lógicas executa o histórico *apenas a partir de dentro da sua rede virtual.*
 
   > [!IMPORTANT]
   > Se precisar de utilizar estes gatilhos baseados em webhook, utilize pontos finais externos, *não* pontos finais internos, quando criar o seu ISE:
@@ -134,9 +134,9 @@ Ao criar o ise, pode optar por utilizar os pontos finais de acesso interno ou ex
   >
   > Por exemplo, o seu computador cliente pode existir dentro da rede virtual do ISE ou dentro de uma rede virtual que está ligada à rede virtual do ISE através de um esprevamento ou de uma rede privada virtual. 
 
-* **Externo** : Os pontos finais públicos permitem chamadas para aplicações lógicas no seu ISE onde pode ver e aceder a entradas e saídas a partir de aplicações lógicas executa o histórico *de fora da sua rede virtual.* Se utilizar grupos de segurança de rede (NSGs), certifique-se de que estão configurados com regras de entrada para permitir o acesso às entradas e saídas do histórico de execução. Para obter mais informações, consulte [Ativar o acesso ao ISE.](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)
+* **Externo**: Os pontos finais públicos permitem chamadas para aplicações lógicas no seu ISE onde pode ver e aceder a entradas e saídas a partir de aplicações lógicas executa o histórico *de fora da sua rede virtual.* Se utilizar grupos de segurança de rede (NSGs), certifique-se de que estão configurados com regras de entrada para permitir o acesso às entradas e saídas do histórico de execução. Para obter mais informações, consulte [Ativar o acesso ao ISE.](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)
 
-Para determinar se o seu ISE utiliza um ponto final de acesso interno ou externo, no menu do ise, em **Definições** , selecione **Propriedades,** e encontre a propriedade **do ponto final access:**
+Para determinar se o seu ISE utiliza um ponto final de acesso interno ou externo, no menu do ise, em **Definições**, selecione **Propriedades,** e encontre a propriedade **do ponto final access:**
 
 ![Localizar o ponto final de acesso do ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 

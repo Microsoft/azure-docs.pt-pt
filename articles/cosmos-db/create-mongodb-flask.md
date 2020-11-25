@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
 ms.openlocfilehash: 58f22a335f4c619a6348e9e127e60f5a79f658b2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099662"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994567"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Quickstart: Construa uma app Python utilizando a API da Azure Cosmos DB para a MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -100,7 +100,7 @@ Os seguintes snippets são todos retirados do ficheiro *app.py* e usam a cadeia 
 
 3. Em seguida, desaprote a variável ambiente para a aplicação Flask com `set FLASK_APP=app.py` , `$env:FLASK_APP = app.py` para editores PowerShell, ou `export FLASK_APP=app.py` se estiver a usar um Mac. 
 
-4. Execute a aplicação com `flask run` e navegue para *http: \/ /127.0.0.1:5000/* .
+4. Execute a aplicação com `flask run` e navegue para *http: \/ /127.0.0.1:5000/*.
 
 5. Adicione e remova tarefas e veja-as adicionadas e alteradas na coleção.
 
@@ -118,11 +118,11 @@ Para testar o código na conta DB do Azure Cosmos ao vivo, obtenha a informaçã
 
 2. Abra o ficheiro *app.py* no diretório de raiz.
 
-3. Copie o valor de **nome de utilizador** a partir do portal (com o botão Copiar) e faça deste o valor de **nome** no ficheiro *app.py* .
+3. Copie o valor de **nome de utilizador** a partir do portal (com o botão Copiar) e faça deste o valor de **nome** no ficheiro *app.py*.
 
 4. Em seguida, copie o valor da sua cadeia de **ligação** a partir do portal e faça-o o valor do **MongoClient** no seu ficheiro *app.py.*
 
-5. Por fim, copie o valor de **palavra-passe** a partir do portal e faça deste o valor de **palavra-passe** no ficheiro *app.py* .
+5. Por fim, copie o valor de **palavra-passe** a partir do portal e faça deste o valor de **palavra-passe** no ficheiro *app.py*.
 
 Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. Pode executá-la tal como fez anteriormente.
 
@@ -153,7 +153,7 @@ Se não quiser criar um garfo deste repo, também pode selecionar o botão **Imp
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

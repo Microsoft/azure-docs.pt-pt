@@ -4,11 +4,11 @@ description: Saiba mais sobre as opções de bloqueio nas Plantas Azure para pro
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095999"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996105"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o bloqueio de recursos em Azure Blueprints
 
@@ -109,7 +109,7 @@ As propriedades de [atribuição de negação](../../../role-based-access-contro
 
 |Modo |Permissões.Ações |Permissões.NotActions |Diretores[i]. Tipo |Excluir os Príncipes[i]. ID | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Só de Leitura |**\*** |**\*/ler**<br />**Microsoft.Autorização/bloqueios/exclusão**<br />**Microsoft.Network/virtualNetwork/sub-redes/join/action** |SystemDefined (Todos) |design de design e definido pelo utilizador **emPriciplinas excluídos** |Grupo de recursos - _verdadeiro;_ Recurso - _falso_ |
+|Só de Leitura |**\** _ |_ *\* /ler **<br />** Microsoft.Authorization/locks/delete **<br />** Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Todos) |design de design e definido pelo utilizador **emPriciplinas excluídos** |Grupo de recursos - _verdadeiro;_ Recurso - _falso_ |
 |Não apagar |**\*/eliminar** | **Microsoft.Autorização/bloqueios/exclusão**<br />**Microsoft.Network/virtualNetwork/sub-redes/join/action** |SystemDefined (Todos) |design de design e definido pelo utilizador **emPriciplinas excluídos** |Grupo de recursos - _verdadeiro;_ Recurso - _falso_ |
 
 > [!IMPORTANT]

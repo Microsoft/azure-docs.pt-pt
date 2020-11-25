@@ -7,11 +7,11 @@ ms.custom:
 - MVC
 - fasttrack-edit
 ms.openlocfilehash: 84f04d2f1f8c9b54a1f2a2a13cc97954ac5add90
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308541"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995323"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs Hyper-V para o Azure 
 
@@ -22,7 +22,7 @@ Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar m�
 > [!NOTE]
 > Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. 
 
- Neste tutorial, ficará a saber como:
+ Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Adicione a ferramenta Azure Migrate:Server Migration.
@@ -142,15 +142,15 @@ Com a descoberta concluída, pode começar a replicação de Hiper-VMs para Azur
 13. Em **Analisar e iniciar a replicação**, analise as definições e clique em **Replicar** para iniciar a replicação inicial para os servidores.
 
 > [!NOTE]
-> Pode atualizar as definições de replicação a **Manage**qualquer momento antes de começar a replicação, em  >  **máquinas de replicação de gestão**. As definições não podem ser alteradas após o início da replicação.
+> Pode atualizar as definições de replicação a **Manage** qualquer momento antes de começar a replicação, em  >  **máquinas de replicação de gestão**. As definições não podem ser alteradas após o início da replicação.
 
 ## <a name="provision-for-the-first-time"></a>Provisão pela primeira vez
 
 Se este for o primeiro VM que está a replicar no projeto Azure Migrate, a Azure Migrate: A Migração de Servidores fornece automaticamente estes recursos no mesmo grupo de recursos que o projeto.
 
-- **Autocarro de**serviço : Azure Migrate: A Migração do Servidor utiliza o Service Bus para enviar mensagens de orquestração de replicação para o aparelho.
+- **Autocarro de** serviço : Azure Migrate: A Migração do Servidor utiliza o Service Bus para enviar mensagens de orquestração de replicação para o aparelho.
 - **Conta de armazenamento gateway**: Azure Migrate: A migração do servidor utiliza a conta de armazenamento gateway para armazenar informações estatais sobre os VMs que estão a ser replicados.
-- **Conta de armazenamento de**registo : O aparelho Azure Migrate envia registos de replicação de VMs para uma conta de armazenamento de registo. Azure Migrate aplica a informação de replicação aos discos geridos por réplicas.
+- **Conta de armazenamento de** registo : O aparelho Azure Migrate envia registos de replicação de VMs para uma conta de armazenamento de registo. Azure Migrate aplica a informação de replicação aos discos geridos por réplicas.
 - **Cofre chave**: O aparelho Azure Migrate utiliza o cofre-chave para gerir as cordas de ligação do autocarro de serviço e as chaves de acesso para as contas de armazenamento utilizadas na replicação. Devia ter configurado as permissões de que o cofre-chave precisa para aceder à conta de armazenamento quando [preparou o Azure](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) para avaliação e migração de Hiper-VM. 
 
 

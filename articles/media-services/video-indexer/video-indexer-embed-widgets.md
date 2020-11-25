@@ -12,11 +12,11 @@ ms.date: 08/10/2020
 ms.author: juliako
 ms.custom: devx-track-js
 ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268626"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994983"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Widgets do Indexer de Vídeo incorporados nas suas apps
 
@@ -59,7 +59,7 @@ Você pode usar o widget editor para criar novos projetos e gerir as insights de
 
 |Nome|Definição|Descrição|
 |---|---|---|
-|`accessToken`<sup>*</sup> | Cadeia | Fornece acesso a vídeos que estão apenas na conta que é usada para incorporar o widget.<br> O widget editor requer o `accessToken` parâmetro. |
+|`accessToken`<sup>*</sup> | String | Fornece acesso a vídeos que estão apenas na conta que é usada para incorporar o widget.<br> O widget editor requer o `accessToken` parâmetro. |
 |`language` | Um código de linguagem | Controla a linguagem do jogador. O valor predefinido é `en-US`.<br/>Exemplo: `language=de-DE`. |
 |`locale` | Um código de linguagem curta | Controla a linguagem dos insights. O valor predefinido é `en`.<br/>Exemplo: `language=de`. |
 |`location` ||O `location` parâmetro deve ser incluído nos links incorporados, ver como obter o nome da sua [região.](regions.md) Se a sua conta estiver em pré-visualização, `trial` deve ser utilizada para o valor de localização. `trial` é o valor padrão para o `location` parâmetro.| 
@@ -80,7 +80,7 @@ O `location` parâmetro deve ser incluído nos links incorporados, ver como obte
 1. Inscreva-se no site do [Video Indexer.](https://www.videoindexer.ai/)
 1. Selecione o vídeo com o quais pretende trabalhar e prima **Play**.
 1. Selecione o tipo de widget que deseja **(Cognitive Insights,** **Player**, ou **Editor).**
-1. Clique ** &lt; / &gt; em Incorporar**.
+1. Clique **&lt; / &gt; em Incorporar**.
 5. Copie o código incorporado (aparece na **Cópia do código incorporado** no diálogo Share & **Embed).**
 6. Adicione o código à sua aplicação.
 

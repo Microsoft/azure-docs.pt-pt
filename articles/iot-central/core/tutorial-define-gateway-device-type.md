@@ -10,11 +10,11 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: f95df6fb74071dc16814f11fb48521f984c89778
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988049"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995527"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial - Defina um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central
 
@@ -110,7 +110,7 @@ Para adicionar propriedades de nuvem ao modelo de **dispositivo de gateway smart
 
     | Nome a apresentar      | Tipo de semântica | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhum          | Date   |
+    | Data da Última Assistência | Nenhum          | Data   |
     | Nome do Cliente     | Nenhum          | String |
 
 2. Selecione **Guardar**.

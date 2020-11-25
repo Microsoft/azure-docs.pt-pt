@@ -7,11 +7,11 @@ ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, devx-track-python, devx-track-azurepowershell
 ms.openlocfilehash: ca9ce27583168dfee1a597fce559afad38a3a8c7
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422931"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994609"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de aprendizagem automática em funções Azure com Python e TensorFlow
 
@@ -21,7 +21,7 @@ Neste artigo, aprende-se a usar as Funções Python, TensorFlow e Azure com um m
 > * Inicialize um ambiente local para o desenvolvimento de Funções Azure em Python.
 > * Importe um modelo de aprendizagem automática tensorFlow personalizado para uma aplicação de função.
 > * Construa uma API HTTP sem servidor para classificar uma imagem como contendo um cão ou um gato.
-> * Consumir a API a partir de uma aplicação web.
+> * Consumir a API numa aplicação Web.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -133,7 +133,7 @@ Em Funções Azure, um projeto de função é um recipiente para uma ou mais fun
     func new --name classify --template "HTTP trigger"
     ```
 
-    Este comando cria uma pasta que corresponde ao nome da função, *classifica .* Nessa pasta encontram-se dois ficheiros: *\_ \_ init \_ \_ .py* , que contém o código de função, e *function.jsligados* , que descreve o gatilho da função e as suas ligações de entrada e saída. Para obter mais informações sobre o conteúdo destes ficheiros, consulte [examinar o conteúdo do ficheiro](./create-first-function-cli-python.md#optional-examine-the-file-contents) no arranque rápido do Python.
+    Este comando cria uma pasta que corresponde ao nome da função, *classifica .* Nesta pasta *\_ \_ encontram-se \_ \_* dois ficheiros: .py , que contém o código de função, e *function.js,* que descreve o gatilho da função e as suas ligações de entrada e saída. Para obter mais informações sobre o conteúdo destes ficheiros, consulte [examinar o conteúdo do ficheiro](./create-first-function-cli-python.md#optional-examine-the-file-contents) no arranque rápido do Python.
 
 
 ## <a name="run-the-function-locally"></a>Executar a função localmente
@@ -229,7 +229,7 @@ Para construir o seu próprio modelo utilizando o nível gratuito do Serviço de
 
 ## <a name="update-the-function-to-run-predictions"></a>Atualizar a função para executar previsões
 
-1. Abra *a classificação/init \_ \_ \_ \_ .py* num editor de texto e adicione as seguintes linhas após as `import` declarações existentes para importar a biblioteca JSON padrão e os ajudantes *de previsão:*
+1. A *classificação aberta/ \_ \_ \_ \_ init .py* num editor de texto e adicione as seguintes linhas após as declarações existentes para importar a biblioteca `import` JSON padrão e os ajudantes *de previsão:*
 
     :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="1-6" highlight="5-6":::
 

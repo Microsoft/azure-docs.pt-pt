@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 52fad84c9ed145b4acec73ffad1fa470acf94532
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076951"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994592"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos para serviços em nuvem
 Este tópico descreve os tamanhos e opções disponíveis para instâncias de funções do Cloud Service (funções web e funções de trabalhador). Fornece igualmente considerações de implantação para estar ciente do plano de utilização destes recursos. Cada tamanho tem uma identificação que coloca no seu [ficheiro de definição de serviço.](cloud-services-model-and-package.md#csdef) Os preços para cada tamanho estão disponíveis na página [de Preços dos Serviços em Nuvem.](https://azure.microsoft.com/pricing/details/cloud-services/)

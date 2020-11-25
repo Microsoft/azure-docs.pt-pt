@@ -14,11 +14,11 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb138ade0f579a7545c0910646b6adfb7d5ac02a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650228"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996666"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicione marca à página de inscrição do Azure Ative Directory da sua organização
 Use o logótipo da sua organização e esquemas de cores personalizados para fornecer um look-and-feel consistente nas suas páginas de inscrição do Azure Ative(Azure AD). As suas páginas de insusição aparecem quando os utilizadores acedem às aplicações web da sua organização, como o Microsoft 365, que utiliza o Azure AD como fornecedor de identidade.
@@ -74,7 +74,7 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
           
           > Sublinhar: ``` ++text++ ``` 
 
-    - **Configurações avançadas**
+    - **Definições avançadas**
             
         ![Configurar a página de marca da empresa, com configurações avançadas concluídas](media/customize-branding/configure-company-branding-advanced-settings.png)   
 

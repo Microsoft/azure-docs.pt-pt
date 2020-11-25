@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 52e6c70b76b83c73059dc887eaefe8403befac13
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: ac400efe66ab740f5fb87977ac531cbe465e3f91
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594237"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95995165"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Quickstart: Inicie os utilizadores e obtenha um token de acesso numa aplicação web nó usando o fluxo de código auth
 
@@ -46,11 +46,11 @@ Este quickstart utiliza a Biblioteca de Autenticação da Microsoft para Node.js
 > 1. Selecione [Registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908).
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza um nome para a sua aplicação.
-> 1. Nos **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
+> 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Desa estale o valor **URI de redirecionamento** para `http://localhost:3000/redirect` .
 > 1. Selecione **Registar**. 
 > 1. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
-> 1. Sob **Certificados & segredos** , selecione **Novo segredo do cliente**.  Deixe a descrição em branco e a expiração padrão e, em seguida, clique em **Adicionar**.
+> 1. Sob **Certificados & segredos**, selecione **Novo segredo do cliente**.  Deixe a descrição em branco e a expiração padrão e, em seguida, clique em **Adicionar**.
 > 1. Note o **valor** do Segredo do **Cliente** para posterior utilização.
 
 #### <a name="step-2-download-the-project"></a>Passo 2: Transferir o projeto

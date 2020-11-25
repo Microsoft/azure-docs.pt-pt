@@ -11,15 +11,15 @@ ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
 ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235822"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994813"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Como fazer: Configuração de provisionamento de exportação e retrocesso para um bom estado conhecido
 
-Neste artigo, aprenderá a:
+Neste artigo, vai aprender a:
 
 - Exporte e importe a sua configuração de provisionamento a partir do portal Azure
 - Exporte e importe a sua configuração de provisionamento utilizando a API do Microsoft Graph
@@ -32,7 +32,7 @@ Para exportar a sua configuração:
 
 1. No [portal Azure,](https://portal.azure.com/)no painel de navegação à esquerda, selecione **Azure Ative Directory**.
 1. No painel **Azure Ative Directory,** selecione **aplicações da Enterprise** e escolha a sua aplicação.
-1. No painel de navegação à esquerda, selecione **provisionamento**. A partir da página de configuração de provisionamento, clique nos **mapeamentos de atributos,** em seguida, **mostre opções avançadas**e, finalmente, **reveja o seu esquema**. Isto vai levá-lo ao editor de esquemas.
+1. No painel de navegação à esquerda, selecione **provisionamento**. A partir da página de configuração de provisionamento, clique nos **mapeamentos de atributos,** em seguida, **mostre opções avançadas** e, finalmente, **reveja o seu esquema**. Isto vai levá-lo ao editor de esquemas.
 1. Clique em baixar na barra de comando no topo da página para baixar o seu esquema.
 
 ### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Recuperação de desastres - recue para um bom estado conhecido

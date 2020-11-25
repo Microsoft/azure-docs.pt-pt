@@ -10,11 +10,11 @@ ms.author: matjazl
 author: matjazl
 ms.date: 04/02/2019
 ms.openlocfilehash: 2e13a9fc32964781dda07e5534e5cab79868ddf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87846980"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995544"
 ---
 # <a name="tutorial-azure-active-directory-smart-on-fhir-proxy"></a>Tutorial: Azure Ative Directory SMART em proxy FHIR
 
@@ -126,7 +126,7 @@ Depois de iniciar o smart no launcher da aplicação FHIR, pode apontar o seu na
 
 ![SMART no launcher de aplicações FHIR](media/tutorial-smart-on-fhir/smart-on-fhir-app-launcher.png)
 
-Quando introduzir informações **sobre pacientes,** **encontros**ou **praticantes,** irá notar que o **contexto de Lançamento** está atualizado. Quando você está usando a API Azure para FHIR, o contexto de lançamento é simplesmente um documento JSON que contém informações sobre paciente, praticante e muito mais. Este contexto de lançamento é codificado e transmitido para a aplicação SMART na app FHIR como `launch` parâmetro de consulta. De acordo com o smart sobre a especificação FHIR, esta variável é opaca para a aplicação SMART na FHIR e transmitida ao fornecedor de identidade. 
+Quando introduzir informações **sobre pacientes,** **encontros** ou **praticantes,** irá notar que o **contexto de Lançamento** está atualizado. Quando você está usando a API Azure para FHIR, o contexto de lançamento é simplesmente um documento JSON que contém informações sobre paciente, praticante e muito mais. Este contexto de lançamento é codificado e transmitido para a aplicação SMART na app FHIR como `launch` parâmetro de consulta. De acordo com o smart sobre a especificação FHIR, esta variável é opaca para a aplicação SMART na FHIR e transmitida ao fornecedor de identidade. 
 
 O smart em proxy FHIR utiliza esta informação para povoar campos na resposta simbólica. A aplicação SMART on FHIR *pode* usar estes campos para controlar para que paciente solicita dados e como torna a aplicação no ecrã. O smart em proxy FHIR suporta os seguintes campos:
 

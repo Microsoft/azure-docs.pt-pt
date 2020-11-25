@@ -1,5 +1,5 @@
 ---
-title: ficheiro de inclusão
+title: incluir ficheiro
 description: incluir ficheiros para páginas confidenciais de aterragem de cenário de cliente (daemon, web app, web API)
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.date: 08/14/2020
 ms.author: jmprieur
 ms.openlocfilehash: 42102f38959911388cefcc141d949e59f24a2c31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436477"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996016"
 ---
 ## <a name="add-a-client-secret-or-certificate"></a>Adicionar um segredo ou certificado ao cliente
 

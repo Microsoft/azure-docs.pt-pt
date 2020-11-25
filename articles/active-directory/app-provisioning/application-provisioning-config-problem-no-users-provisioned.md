@@ -12,11 +12,11 @@ ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 21f16a0b9c8b3b603735520d5dcdbf61601e1480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706491"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994830"
 ---
 # <a name="no-users-are-being-provisioned"></a>Não existem utilizadores a ser aprovisionados 
 >[!NOTE]
@@ -42,7 +42,7 @@ Abaixo está uma lista das áreas de problema geral que você pode perfurar se v
 - [Os registos de provisionamento dizem que os utilizadores são ignorados e não a provisionados, mesmo que sejam atribuídos](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Serviço de fornecimento não parece começar
-Se definir o **Estado de Provisionamento** para estar **ligado na** secção de Provisionamento de Nome de Aplicação de Aplicações de Aplicação de Aplicações do **Diretório Ativo Azure &gt; &gt; \[ \] &gt; ** do portal Azure. No entanto, não são apresentados outros detalhes de estado nessa página após recargas subsequentes, é provável que o serviço esteja em execução, mas ainda não completou um ciclo inicial. Verifique os **registos de Provisionamento (pré-visualização)** acima descritos para determinar que operações o serviço está a realizar e se existem erros.
+Se definir o **Estado de Provisionamento** para estar **ligado na** secção de Provisionamento de Nome de Aplicação de Aplicações de Aplicação de Aplicações do **Diretório Ativo Azure &gt; &gt; \[ \] &gt;** do portal Azure. No entanto, não são apresentados outros detalhes de estado nessa página após recargas subsequentes, é provável que o serviço esteja em execução, mas ainda não completou um ciclo inicial. Verifique os **registos de Provisionamento (pré-visualização)** acima descritos para determinar que operações o serviço está a realizar e se existem erros.
 
 >[!NOTE]
 >Um ciclo inicial pode demorar entre 20 minutos e várias horas, dependendo do tamanho do diretório AZure AD e do número de utilizadores em possibilidade de provisionamento. As sincronizações subsequentes após o ciclo inicial são mais rápidas, uma vez que o serviço de fornecimento armazena marcas de água que representam o estado de ambos os sistemas após o ciclo inicial. O ciclo inicial melhora o desempenho das sincronizações subsequentes.

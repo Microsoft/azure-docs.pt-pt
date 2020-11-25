@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319933"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996564"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Alterar a senha de conta de serviço ADSync
 Se alterar a palavra-passe da conta de serviço ADSync, o Serviço de Sincronização não poderá iniciar-se corretamente até ter abandonado a chave de encriptação e reiniciado a palavra-passe da conta de serviço ADSync. 

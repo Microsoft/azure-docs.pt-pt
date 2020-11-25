@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.openlocfilehash: c06595b683092abf52300481068daab26394c4cb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358750"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995646"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integre o Azure Ative Directy com o E Sales Manager Remix
 
@@ -68,7 +68,7 @@ Para configurar a integração do AZure AD com o E Sales Manager Remix, adicione
 
     ![O novo botão de aplicação][3]
 
-1. Na caixa de pesquisa, o Remix do tipo **E Sales Manager** , selecione E Sales Manager **Remix** na lista de resultados e, em seguida, selecione **Add**.
+1. Na caixa de pesquisa, o Remix do tipo **E Sales Manager**, selecione E Sales Manager **Remix** na lista de resultados e, em seguida, selecione **Add**.
 
     ![E Sales Manager Remix na lista de resultados](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
@@ -119,7 +119,7 @@ Ativar o Azure AD num único sinal no portal Azure e configurar um único sinal 
 
     ![A janela editar atributo](./media/esalesmanagerremix-tutorial/configure2.png)
 
-1. No **âmbito da configuração do Remix do Gerente de Vendas E** , selecione **Configure E Sales Manager Remix**.
+1. No **âmbito da configuração do Remix do Gerente de Vendas E**, selecione **Configure E Sales Manager Remix**.
 
     ![Screenshot que mostra a secção "E Sales Manager Remix Configuration" com "Configure E Sales Manager Remix" selecionada.](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
@@ -127,7 +127,7 @@ Ativar o Azure AD num único sinal no portal Azure e configurar um único sinal 
 
 1. Na secção **referência rápida,** copie o URL de inscrição e o URL de serviço único SAML.
 
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
     ![O botão Guardar](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
@@ -209,7 +209,7 @@ Nesta secção, cria a utilizadora de teste Britta Simon no portal Azure, fazend
 
     ![Configuração remix do gerente de vendas do E](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Selecione **as definições da sua empresa** Manutenção de  >  **departamentos e funcionários** , e, em seguida, selecione **Funcionários registados**.
+1. Selecione **as definições da sua empresa** Manutenção de  >  **departamentos e funcionários**, e, em seguida, selecione **Funcionários registados**.
 
     ![O separador "Empregados registados"](./media/esalesmanagerremix-tutorial/user1.png)
 

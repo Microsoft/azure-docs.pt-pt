@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2403e3a4bfe7824659a9c34c407e55e6c56e6046
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107730"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994660"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de funções em Funções Azure
 
@@ -28,8 +28,8 @@ Uma implantação de funções Azure consiste tipicamente nestes recursos:
 
 | Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| Um aplicativo de função                                                                     | Obrigatório    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
-| Uma conta [de armazenamento Azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft.Storage/storageAcontas](/azure/templates/microsoft.storage/storageaccounts) |
+| Um aplicativo de função                                                                     | Necessário    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Uma conta [de armazenamento Azure](../storage/index.yml)                                   | Necessário    | [Microsoft.Storage/storageAcontas](/azure/templates/microsoft.storage/storageaccounts) |
 | Um componente [de Insights de Aplicação](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft.Insights/componentes](/azure/templates/microsoft.insights/components)         |
 | Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
@@ -112,11 +112,11 @@ Além disso, a chave de instrumentação deve ser fornecida à aplicação de fu
 A definição do plano de hospedagem varia e pode ser uma das seguintes:
 * [Plano de consumo](#consumption) (padrão)
 * [Plano Premium](#premium)
-* [Plano de Serviço de Aplicações](#app-service-plan)
+* [Plano do Serviço de Aplicações](#app-service-plan)
 
 ### <a name="function-app"></a>Aplicação de funções
 
-O recurso de aplicação de função é definido utilizando um recurso do tipo **Microsoft.Web/sites** e **do app de função**do tipo :
+O recurso de aplicação de função é definido utilizando um recurso do tipo **Microsoft.Web/sites** e **do app de função** do tipo :
 
 ```json
 {
@@ -137,7 +137,7 @@ O recurso de aplicação de função é definido utilizando um recurso do tipo *
 
 Uma aplicação de função deve incluir estas definições de aplicação:
 
-| Nome da definição                 | Description                                                                               | Valores de exemplo                        |
+| Nome da definição                 | Descrição                                                                               | Valores de exemplo                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Uma cadeia de ligação a uma conta de armazenamento que o tempo de execução de Funções utiliza para a fila interna | Ver [conta de armazenamento](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | A versão do tempo de funcionamento das Funções Azure                                                | `~2`                                  |

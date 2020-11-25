@@ -13,18 +13,20 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: cbfaf52a7c5bb5e44b85513d8e2c2ec5f1cea356
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 08ee000d8f801559fcf572b8ab489161fd090b77
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101988"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996207"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação Android
 
-Neste tutorial, aprende-se a integrar a sua aplicação Android com a plataforma de identidade da Microsoft utilizando a Microsoft Authentication Library (MSAL) para Android. Você vai aprender a iniciar sômsemuada e assinar um utilizador, obter um token de acesso e fazer um pedido para a Microsoft Graph API.
+Neste tutorial, você constrói uma aplicação Android que se integra com a plataforma de identidade da Microsoft para iniciar sismo nos utilizadores e obter um token de acesso para ligar para a Microsoft Graph API.
 
 Quando tiver concluído este tutorial, a sua aplicação aceitará inscrições de contas pessoais da Microsoft (incluindo outlook.com, live.com e outras) bem como contas de trabalho ou escola de qualquer empresa ou organização que utilize o Azure Ative Directory.
+
+Neste tutorial: 
 
 > [!div class="checklist"]
 > * Criar um projeto de aplicativo Android no *Android Studio*
@@ -84,7 +86,7 @@ Se ainda não tem uma aplicação Android, siga estes passos para criar um novo 
    > KeyTool.exe é instalado como parte do Kit de Desenvolvimento de Java (JDK). Também tem de instalar a ferramenta OpenSSL para executar o comando KeyTool. Consulte a documentação do [Android sobre a geração de uma chave](https://developer.android.com/studio/publish/app-signing#generate-key) para mais informações.
 
 7. Introduza o **hash Signature** gerado pelo KeyTool.
-8. Clique `Configure` e guarde a **Configuração MSAL** que aparece na página **de configuração** do Android para que possa introduzi-la quando configurar a sua aplicação mais tarde.  Clique em **Done** (Concluído).
+8. Clique `Configure` e guarde a **Configuração MSAL** que aparece na página **de configuração** do Android para que possa introduzi-la quando configurar a sua aplicação mais tarde.  Clique em **Concluído**.
 
 ### <a name="configure-your-application"></a>Configurar a aplicação
 
@@ -163,7 +165,7 @@ Se ainda não tem uma aplicação Android, siga estes passos para criar um novo 
 
 ### <a name="required-imports"></a>Importações Exigidas
 
-Adicione o seguinte ao topo da **app**  >  **src**  >  **main** >  **java**  >  **com.example (yourapp)**  >  **MainActivity.java**
+Adicione o seguinte ao topo da **app**  >  **src**  >  **main** >  **java**  >  **com.exemplo (yourapp)**  >  **MainActivity.java**
 
 ```java
 import android.os.Bundle;
@@ -576,7 +578,7 @@ PR 4
 
 A primeira vez que qualquer utilizador entrar na sua aplicação, será solicitado pela identidade da Microsoft para consentir com as permissões solicitadas. Alguns inquilinos da AD Azure têm o consentimento do utilizador desativado, o que requer que os administradores consintam em nome de todos os utilizadores. Para apoiar este cenário, você precisará criar o seu próprio inquilino ou receber o consentimento administrativo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o objeto da aplicação que criou no Passo de Inscrição da [sua aplicação.](#register-your-application)
 
