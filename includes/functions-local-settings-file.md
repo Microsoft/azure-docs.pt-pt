@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: ca8d8edd334d89e03624793a35c49971ba8161ec
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d944d1d3e9c72471fab2435430a7d13e1770e807
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94885026"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010487"
 ---
 ## <a name="local-settings-file"></a>Ficheiro de definições locais
 
@@ -46,7 +46,7 @@ Estas definições são suportadas quando executam projetos localmente:
 | **`LocalHttpPort`** | Define a porta predefinida utilizada quando executa o hospedeiro local de funções `func host start` (e `func run` . A `--port` opção de linha de comando tem precedência sobre esta definição. |
 | **`CORS`** | Define as origens permitidas para [a partilha de recursos de origem cruzada (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). As origens são fornecidas como uma lista separada por vírgula sem espaços. O valor wildcard é \* suportado, o que permite pedidos de qualquer origem. |
 | **`CORSCredentials`** |  Quando definido `true` para, permite `withCredentials` pedidos. |
-| **`ConnectionStrings`** | Uma coleção. Não utilize esta coleção para as cordas de ligação utilizadas pelas ligações da sua função. Esta coleção é utilizada apenas por quadros que normalmente obtêm cordas de ligação a partir `ConnectionStrings` da secção de um ficheiro de configuração, como o [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). As cadeias de ligação neste objeto são adicionadas ao ambiente com o tipo de fornecedor de [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Os itens desta coleção não são publicados no Azure com outras configurações de aplicações. Deve adicionar explicitamente estes valores à `Connection strings` recolha das definições da aplicação de função. Se estiver a criar um [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) código de função, deverá armazenar o valor da cadeia de ligação com as outras ligações nas **Definições de Aplicação** no portal. |
+| **`ConnectionStrings`** | Uma coleção. Não utilize esta coleção para as cordas de ligação utilizadas pelas ligações da sua função. Esta coleção é utilizada apenas por quadros que normalmente obtêm cordas de ligação a partir `ConnectionStrings` da secção de um ficheiro de configuração, como o [Entity Framework](/ef/ef6/). As cadeias de ligação neste objeto são adicionadas ao ambiente com o tipo de fornecedor de [System.Data.SqlClient](/dotnet/api/system.data.sqlclient). Os itens desta coleção não são publicados no Azure com outras configurações de aplicações. Deve adicionar explicitamente estes valores à `Connection strings` recolha das definições da aplicação de função. Se estiver a criar um [`SqlConnection`](/dotnet/api/system.data.sqlclient.sqlconnection) código de função, deverá armazenar o valor da cadeia de ligação com as outras ligações nas **Definições de Aplicação** no portal. |
 
 As seguintes definições de aplicação podem ser incluídas na **`Values`** matriz quando correrem localmente:
 

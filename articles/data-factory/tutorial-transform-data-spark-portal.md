@@ -11,11 +11,11 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 5b0bcdd66e17fb93a560b6073c13e3170e3ab37b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81409267"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010151"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformar dados na cloud através de uma atividade do Spark no Azure Data Factory
 
@@ -46,7 +46,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 
 ### <a name="upload-the-python-script-to-your-blob-storage-account"></a>Carregar o script Python para a conta de armazenamento de Blobs
-1. Criar um ficheiro Python chamado **WordCount_Spark.py** com o seguinte conteúdo: 
+1. Criar um ficheiro Python nomeado **WordCount_Spark.py** com o seguinte conteúdo: 
 
     ```python
     import sys
@@ -71,7 +71,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     if __name__ == "__main__":
         main()
     ```
-1. Substitua * &lt; o armazenamentoAme &gt; * de contagem de armazenamento pelo nome da sua conta de armazenamento Azure. Em seguida, guarde o ficheiro. 
+1. Substitua *&lt; o armazenamentoAme &gt;* de contagem de armazenamento pelo nome da sua conta de armazenamento Azure. Em seguida, guarde o ficheiro. 
 1. No armazenamento de Blobs do Azure, crie um contentor com o nome **adftutorial**, caso ainda não exista. 
 1. Crie uma pasta com o nome **spark**.
 1. Crie uma subpasta com o nome **script** na pasta **spark**. 
@@ -93,7 +93,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
       
    ![Painel "Nova fábrica de dados"](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
-   O nome da fábrica de dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados. (Por exemplo, utilize ** &lt; o seu nome de &gt; nome ADFTutorialDataFactory**). Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
+   O nome da fábrica de dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados. (Por exemplo, utilize **&lt; o seu nome de &gt; nome ADFTutorialDataFactory**). Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
   
    ![Erro quando um nome não está disponível](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
 1. Em **Subscrição**, selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 

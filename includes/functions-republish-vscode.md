@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/20/2020
 ms.author: glenga
 ms.openlocfilehash: 574756aa9d9bac4aa42febf6a4fca4c62014db3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84732481"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010465"
 ---
 1. No Código do Estúdio Visual, selecione F1 para abrir a paleta de comando. Na paleta de comando, procure e selecione **Funções Azure: Implementar para funcionar a aplicação**.
 

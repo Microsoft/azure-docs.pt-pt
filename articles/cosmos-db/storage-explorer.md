@@ -8,11 +8,11 @@ ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: 61ae446d180a86b42bc52ac3244b96b7b347b68f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025400"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010576"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Gerir os recursos DB da Azure Cosmos utilizando o Azure Storage Explorer
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -355,7 +355,7 @@ Experimente estas sugestões:
 * Verifique se a conta DB da Azure Cosmos está em andamento. Tente novamente quando a conta está sendo criada com sucesso.
 * Se a conta estiver sob os nós **de Acesso Rápido** ou Local e **Anexo,** verifique se a conta está eliminada. Em caso afirmativo, é necessário retirar manualmente o nó.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja este vídeo para ver como usar a Azure Cosmos DB no Azure Storage Explorer: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Saiba mais sobre o Explorador de Armazenamento e como ligar mais serviços em [Introdução ao Explorador de Armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md).

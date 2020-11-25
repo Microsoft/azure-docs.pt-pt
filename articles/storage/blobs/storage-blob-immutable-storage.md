@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 39fdde572e269bb4f5648e91bf85539d02236ff6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658558"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010066"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blob críticos de negócio com armazenamento imutável
 
@@ -76,7 +76,7 @@ Aplicam-se os seguintes limites às políticas de retenção:
 
 ### <a name="allow-protected-append-blobs-writes"></a>Permitir que as bolhas de apêndice protegidas escrevam
 
-As bolhas de apêndice são compostas por blocos de dados e otimizadas para operações de apêndice de dados exigidas por cenários de auditoria e registo. Por design, as bolhas de apêndice apenas permitem a adição de novos blocos até ao fim da bolha. Independentemente da imutabilidade, a modificação ou eliminação dos blocos existentes num apêndice não é fundamentalmente permitida. Para saber mais sobre as bolhas de apêndice, consulte [Sobre as bolhas de apêndice.](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)
+As bolhas de apêndice são compostas por blocos de dados e otimizadas para operações de apêndice de dados exigidas por cenários de auditoria e registo. Por design, as bolhas de apêndice apenas permitem a adição de novos blocos até ao fim da bolha. Independentemente da imutabilidade, a modificação ou eliminação dos blocos existentes num apêndice não é fundamentalmente permitida. Para saber mais sobre as bolhas de apêndice, consulte [Sobre as bolhas de apêndice.](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)
 
 Apenas as políticas de retenção baseadas no tempo têm uma `allowProtectedAppendWrites` configuração que permite escrever novos blocos a uma bolha de apêndice, mantendo a proteção e a conformidade da imutabilidade. Se esta definição estiver ativada, é-lhe permitido criar uma bolha de apêndice diretamente no recipiente protegido pela política e continuar a adicionar novos blocos de dados ao fim das bolhas de apêndice existentes utilizando a API do *Apêndice.* Apenas podem ser adicionados novos blocos e os blocos existentes não podem ser modificados ou eliminados. A proteção da imutabilidade da retenção de tempo ainda se aplica, evitando a supressão da bolha do apêndice até que o período de retenção eficaz tenha decorrido. Ativar esta definição não afeta o comportamento de imutabilidade de bolhas de blocos ou bolhas de página.
 
@@ -103,7 +103,7 @@ Aplicam-se os seguintes limites aos detém legais:
 
 ## <a name="scenarios"></a>Cenários
 
-A tabela seguinte mostra os tipos de operações de armazenamento Blob que são desativadas para os diferentes cenários imutáveis. Para mais informações, consulte a documentação da [Azure Blob Service REST API.](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
+A tabela seguinte mostra os tipos de operações de armazenamento Blob que são desativadas para os diferentes cenários imutáveis. Para mais informações, consulte a documentação da [Azure Blob Service REST API.](/rest/api/storageservices/blob-service-rest-api)
 
 | Cenário | Estado blob | Operações de blob negadas | Proteção de contentores e conta |
 |--|--|--|--|
@@ -116,7 +116,7 @@ A tabela seguinte mostra os tipos de operações de armazenamento Blob que são 
 <sup>2</sup> O Bloco de Apêndice só é permitido para políticas de retenção baseadas no tempo com a `allowProtectedAppendWrites` propriedade ativada. Para obter mais informações, consulte a secção ['Escrever blobs' de apêndice protegido.](#allow-protected-append-blobs-writes)
 
 > [!IMPORTANT]
-> Algumas cargas de trabalho, como [a SQL Backup para URL,](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)criam uma bolha e depois adicionam-na. Se o contentor tiver uma política de retenção ativa baseada no tempo ou se mantiver em vigor, este padrão não será bem sucedido.
+> Algumas cargas de trabalho, como [a SQL Backup para URL,](/sql/relational-databases/backup-restore/sql-server-backup-to-url)criam uma bolha e depois adicionam-na. Se o contentor tiver uma política de retenção ativa baseada no tempo ou se mantiver em vigor, este padrão não será bem sucedido.
 
 ## <a name="pricing"></a>Preços
 
@@ -170,11 +170,11 @@ Sim. Quando uma política de retenção baseada no tempo é criada pela primeira
 
 **Posso utilizar a eliminação suave ao lado das políticas de bolhas imutáveis?**
 
-Sim, se os seus requisitos de conformidade permitirem a sua eliminação suave. [A eliminação suave para o armazenamento Azure Blob](storage-blob-soft-delete.md) aplica-se a todos os contentores dentro de uma conta de armazenamento, independentemente de uma política de retenção por precaução legal ou baseada no tempo. Recomendamos que se promova a eliminação suave para proteção adicional antes de serem aplicadas e confirmadas quaisquer políticas imutáveis do WORM.
+Sim, se os seus requisitos de conformidade permitirem a sua eliminação suave. [A eliminação suave para o armazenamento Azure Blob](./soft-delete-blob-overview.md) aplica-se a todos os contentores dentro de uma conta de armazenamento, independentemente de uma política de retenção por precaução legal ou baseada no tempo. Recomendamos que se promova a eliminação suave para proteção adicional antes de serem aplicadas e confirmadas quaisquer políticas imutáveis do WORM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Definir e gerir políticas de imutabilidade para armazenamento blob](storage-blob-immutability-policies-manage.md)
 - [Descreva regras para eliminar automaticamente os dados blob com a gestão do ciclo de vida](storage-lifecycle-management-concepts.md)
-- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](../blobs/storage-blob-soft-delete.md)
+- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](./soft-delete-blob-overview.md)
 - [Proteja subscrições, grupos de recursos e recursos com bloqueios do Azure Resource Manager](../../azure-resource-manager/management/lock-resources.md).

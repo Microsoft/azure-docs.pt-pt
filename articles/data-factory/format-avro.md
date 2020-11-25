@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
 ms.openlocfilehash: 7d61121b4c80b7b89ec29ade4ab1bfab91a660d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334349"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010559"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Formato Avro na Azure Data Factory
 
@@ -67,7 +67,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 ### <a name="avro-as-source"></a>Avro como fonte
 
-As seguintes propriedades são suportadas na secção *** \* de origem \* *** da atividade de cópia.
+As seguintes propriedades são suportadas na atividade de cópia **_ \_ secção \* fonte*** .
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -76,7 +76,7 @@ As seguintes propriedades são suportadas na secção *** \* de origem \* *** da
 
 ### <a name="avro-as-sink"></a>Avro como pia
 
-As seguintes propriedades são suportadas na secção de *** \* lavatório \* *** de atividade de cópia.
+As seguintes propriedades são suportadas na atividade de **cópia _ \_ pia \**** secção.
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -103,9 +103,9 @@ A tabela abaixo lista as propriedades suportadas por uma fonte avro. Pode editar
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não | Corda[] | wildcardPaths |
-| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | Cadeia | partitionRootPath |
+| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | String | partitionRootPath |
 | Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não | `true` ou `false` | fileList |
-| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | Cadeia | rowUrlColumn |
+| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | String | rowUrlColumn |
 | Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não | Excluir: `true` ou `false` <br> Mover-se: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Timestamp | modificado Depois <br> modificadoSForo antes |
 | Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
@@ -130,6 +130,6 @@ Ao trabalhar com ficheiros Avro em fluxos de dados, pode ler e escrever tipos de
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição geral da atividade de cópia](copy-activity-overview.md)
+- [Visão geral da atividade da cópia](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 - [Atividade getMetadata](control-flow-get-metadata-activity.md)

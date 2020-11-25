@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.openlocfilehash: 0b15d560e2678772cefdf3d87c047013b24ed467
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675473"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010287"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Tutorial: Integração do Azure Ative Directory com a SAML 1.1 Token habilitada a aplicação LOB
 
@@ -49,7 +49,7 @@ Para configurar a integração da APP SAML 1.1 Token ativada lob app em Azure AD
 
 **Para adicionar a App LOB ativada SAML 1.1 da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração da APP SAML 1.1 Token ativada lob app em Azure AD
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, tipo **SAML 1.1 Token ativou a Aplicação LOB** , selecione **SAML 1.1 Token ativado loB App** a partir do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, tipo **SAML 1.1 Token ativou a Aplicação LOB**, selecione **SAML 1.1 Token ativado loB App** a partir do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
 
      ![SAML 1.1 Token ativou a App LOB na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com um único sign-on com a SAML 1.1 Token ativada pela LOB App com base num utilizador de teste chamado **Britta Simon** .
+Nesta secção, configura e testa o Azure AD com um único sign-on com a SAML 1.1 Token ativada pela LOB App com base num utilizador de teste chamado **Britta Simon**.
 Para um único sinal de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na APLICAÇÃO LOB ativada pela SAML 1.1.
 
 Para configurar e testar o único sinal de Azure AD com a APLICAÇÃO LOB ativada por SAML 1.1 Token, é necessário completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com uma única sação ativada pela SAML 1.1 Token, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **LOB ativada pela SAML 1.1,** selecione **Single sign-on** .
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **LOB ativada pela SAML 1.1,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -130,7 +130,7 @@ Para configurar um único sinal de sação no **lado da Aplicação LOB ativado 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -142,28 +142,28 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso à App LOB ativada pela SAML 1.1 Token.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações,** em seguida, selecione **SAML 1.1 Token ativado lob App** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **SAML 1.1 Token ativado lob App**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, escreva e selecione **SAML 1.1 Token ativado pela App LOB** .
+2. Na lista de aplicações, escreva e selecione **SAML 1.1 Token ativado pela App LOB**.
 
     ![O link da aplicação SAML 1.1 ativado LOB na lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 

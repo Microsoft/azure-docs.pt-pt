@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 626f5b67905e5dd89cf8f12460bc2378451614de
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c7f0e98b5ea2fdd13b1daa9fd9737998eb6cfaf1
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078311"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "96010219"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Atualizar e escalar uma instância de gestão da API Azure  
 
@@ -45,9 +45,9 @@ Para seguir os passos deste artigo, deve:
 
 ## <a name="upgrade-and-scale"></a>Atualizar e dimensionar  
 
-Pode escolher entre quatro níveis: **Developer,** **Basic,** **Standard**e **Premium.** O nível **de Desenvolvedor** deve ser utilizado para avaliar o serviço; não deve ser utilizado para a produção. O nível **de Desenvolvedor** não tem SLA e não é possível escalar este nível (adicionar/remover unidades). 
+Pode escolher entre quatro níveis: **Developer,** **Basic,** **Standard** e **Premium.** O nível **de Desenvolvedor** deve ser utilizado para avaliar o serviço; não deve ser utilizado para a produção. O nível **de Desenvolvedor** não tem SLA e não é possível escalar este nível (adicionar/remover unidades). 
 
-**Básico**, **Standard**e **Premium** são níveis de produção que têm SLA e podem ser dimensionados. O nível **Básico** é o nível mais barato com um SLA e pode ser dimensionado até duas unidades, o nível **standard** pode ser dimensionado até quatro unidades. Pode adicionar qualquer número de unidades ao nível **Premium.**
+**Básico**, **Standard** e **Premium** são níveis de produção que têm SLA e podem ser dimensionados. O nível **Básico** é o nível mais barato com um SLA e pode ser dimensionado até duas unidades, o nível **standard** pode ser dimensionado até quatro unidades. Pode adicionar qualquer número de unidades ao nível **Premium.**
 
 O nível **Premium** permite-lhe distribuir uma única instância de Gestão API Azure em qualquer número de regiões Azure desejadas. Quando inicialmente cria um serviço de Gestão API Azure, o caso contém apenas uma unidade e reside numa única região de Azure. A região inicial é designada como a região **primária.** Regiões adicionais podem ser facilmente adicionadas. Ao adicionar uma região, especifique o número de unidades que pretende alocar. Por exemplo, pode ter uma unidade na região **primária** e cinco unidades em outra região. Pode adaptar o número de unidades ao tráfego que tem em cada região. Para obter mais informações, consulte [Como implementar um serviço de gestão AZure API para várias regiões do Azure.](api-management-howto-deploy-multi-region.md)
 
@@ -78,6 +78,10 @@ Pode atualizar e descer de e para qualquer nível. A atualização ou degradaç�
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Tempo de paragem durante a escalada para cima e para baixo
 Se estiver a escalar de ou para o nível de Desenvolvedor, haverá tempo de inatividade. Caso contrário, não há tempo de descanso. 
+
+## <a name="compute-isolation"></a>Isolamento computacional
+Se os seus requisitos de segurança incluirem [isolamento computacional,](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation)pode utilizar o nível de preços **isolado.** Este nível garante que os recursos compute de uma instância de serviço de gestão da API consomem todo o hospedeiro físico e fornecem o nível de isolamento necessário para suportar, por exemplo, cargas de trabalho do Departamento de Impacto do Departamento de Defesa dos EUA 5 (IL5). Para ter acesso ao nível isolado, [crie um bilhete de apoio.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) 
+
 
 
 ## <a name="next-steps"></a>Passos seguintes

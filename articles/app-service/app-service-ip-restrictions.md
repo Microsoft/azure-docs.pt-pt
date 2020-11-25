@@ -8,11 +8,11 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e1549dda367105db34272eab8a90c1760dd5bb5c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576449"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010185"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurar restrições de acesso ao Serviço de Aplicações Azure
 
@@ -58,7 +58,7 @@ As regras são aplicadas por ordem prioritária, a partir do número mais baixo 
 
 No painel **de restrição de IP adicionar,** quando criar uma regra, faça o seguinte:
 
-1. Em **Ação** , selecione **Ou permitir** ou **negar**.  
+1. Em **Ação**, selecione **Ou permitir** ou **negar**.  
 
    ![Screenshot do painel "Adicionar restrição IP".](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
    
@@ -72,7 +72,7 @@ No painel **de restrição de IP adicionar,** quando criar uma regra, faça o se
 Siga o procedimento descrito na secção anterior, mas com a seguinte variação:
 * Para o passo 3, na lista de drop-down **tipo,** selecione **IPv4** ou **IPv6**. 
 
-Especifique o endereço IP na notação de encaminhamento de Inter-Domain (CIDR) sem classe para os endereços IPv4 e IPv6. Para especificar um endereço, pode utilizar algo como *1.2.3.4/32* , onde os primeiros quatro octetos representam o seu endereço IP e */32* é a máscara. A notação CIDR IPv4 para todos os endereços é de 0.0.0.0/0. Para saber mais sobre a notação CIDR, consulte [o Roteamento de Inter-Domain Sem Classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Especifique o endereço IP na notação de encaminhamento de Inter-Domain (CIDR) sem classe para os endereços IPv4 e IPv6. Para especificar um endereço, pode utilizar algo como *1.2.3.4/32*, onde os primeiros quatro octetos representam o seu endereço IP e */32* é a máscara. A notação CIDR IPv4 para todos os endereços é de 0.0.0.0/0. Para saber mais sobre a notação CIDR, consulte [o Roteamento de Inter-Domain Sem Classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
 ## <a name="use-service-endpoints"></a>Utilizar pontos finais de serviço
 
@@ -112,7 +112,7 @@ Pode editar ou eliminar uma regra de restrição de acesso existente.
 
 ### <a name="delete-a-rule"></a>Eliminar uma regra
 
-Para eliminar uma regra, na página **'Restrições de Acesso',** selecione a elipse **(...** ) ao lado da regra que pretende eliminar e, em seguida, selecione **Remover**.
+Para eliminar uma regra, na página **'Restrições de Acesso',** selecione a elipse **(...**) ao lado da regra que pretende eliminar e, em seguida, selecione **Remover**.
 
 ![Screenshot da página "Restrições de Acesso", mostrando a elipse "Remover" ao lado da regra de restrição de acesso a ser eliminada.](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
@@ -153,7 +153,7 @@ Também pode definir valores manualmente fazendo qualquer um dos seguintes:
 
 * Utilize uma operação [Azure REST API](/rest/api/azure/) PUT na configuração da aplicação no Azure Resource Manager. A localização desta informação no Azure Resource Manager é:
 
-  **management.azure.com/subscriptions/ subscrição ID** /resourceGroups/ **grupos de recursos** /fornecedores/Microsoft.Web/sites/ web app **name** /config/web?api-version=2018-02-01
+  **management.azure.com/subscriptions/ subscrição ID**/resourceGroups/**grupos de recursos**/fornecedores/Microsoft.Web/sites/ web app **name**/config/web?api-version=2018-02-01
 
 * Utilize um modelo ARM. Como exemplo, pode utilizar resources.azure.com e editar o bloco ipSecurityRestrictions para adicionar o JSON necessário.
 

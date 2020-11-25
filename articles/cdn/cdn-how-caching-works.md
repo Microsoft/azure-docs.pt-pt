@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
 ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778626"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010168"
 ---
 # <a name="how-caching-works"></a>Como funciona a colocação em cache
 
@@ -129,9 +129,9 @@ A tabela seguinte descreve o comportamento padrão de caching para os produtos A
 | **Origem de honra**       | Sim    | Sim   | Não   | Sim    | Não   | Sim   | Sim    |
 | **Duração da cache CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
-**Origem de honra** : Especifica se deve honrar os cabeçalhos de diretiva de cache suportados se existirem na resposta HTTP do servidor de origem.
+**Origem de honra**: Especifica se deve honrar os cabeçalhos de diretiva de cache suportados se existirem na resposta HTTP do servidor de origem.
 
-**Duração da cache cdN** : Especifica a quantidade de tempo para a qual um recurso está em cache no Azure CDN. No entanto, se **a origem honor** é Sim e a resposta HTTP do servidor de origem inclui o cabeçalho da diretiva cache `Expires` ou , `Cache-Control: max-age` Azure CDN usa o valor de duração especificado pelo cabeçalho. 
+**Duração da cache cdN**: Especifica a quantidade de tempo para a qual um recurso está em cache no Azure CDN. No entanto, se **a origem honor** é Sim e a resposta HTTP do servidor de origem inclui o cabeçalho da diretiva cache `Expires` ou , `Cache-Control: max-age` Azure CDN usa o valor de duração especificado pelo cabeçalho. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

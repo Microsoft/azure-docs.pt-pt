@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: ddd1a6fa2fc25add30664da5b739338e87e7e74f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547848"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010117"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Use os nódrupes de borda vazios em aglomerados Apache Hadoop em HDInsight
 
@@ -109,9 +109,9 @@ Nesta secção, utilize um modelo de Gestor de Recursos para criar um cluster HD
     |Grupo de recursos|Criar um novo grupo de recursos utilizado para o cluster.|
     |Localização|Selecione uma localização para o grupo de recursos.|
     |Nome do Cluster|Insira um nome para o novo cluster para criar.|
-    |Nome de Utilizador de Início de Sessão do Cluster|Insira o nome de utilizador Hadoop HTTP.  O nome predefinido é **admin** .|
+    |Nome de Utilizador de Início de Sessão do Cluster|Insira o nome de utilizador Hadoop HTTP.  O nome predefinido é **admin**.|
     |Palavra-passe de Início de Sessão do Cluster|Introduza a palavra-passe do utilizador Hadoop HTTP.|
-    |Nome do utilizador Ssh|Insira o nome de utilizador SSH. O nome predefinido é **sshuser** .|
+    |Nome do utilizador Ssh|Insira o nome de utilizador SSH. O nome predefinido é **sshuser**.|
     |Ssh Password|Insira a senha de utilizador SSH.|
     |Instalar ação do script|Mantenha o valor padrão para passar por este artigo.|
 
@@ -133,7 +133,7 @@ O nó de borda aparece como uma aplicação no portal Azure.  O portal dá-lhe a
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o cluster HDInsight com um nó de borda.
-3. Selecione **Aplicações** . Verá o nó de borda.  O nome predefinido é **new-edgenode** .
+3. Selecione **Aplicações**. Verá o nó de borda.  O nome predefinido é **new-edgenode**.
 4. Selecione o nó de borda. Verá o ponto final do SSH.
 
 **Para usar colmeia no nó de borda**
@@ -158,8 +158,8 @@ Pode apagar um nó de borda do portal Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o cluster HDInsight com um nó de borda.
-3. Selecione **Aplicações** . Verá uma lista de nós de borda.  
-4. Clique com o botão direito no nó de borda que pretende eliminar e, em seguida, **selecione Delete** .
+3. Selecione **Aplicações**. Verá uma lista de nós de borda.  
+4. Clique com o botão direito no nó de borda que pretende eliminar e, em seguida, **selecione Delete**.
 5. Selecione **Sim** para confirmar.
 
 ## <a name="next-steps"></a>Passos seguintes

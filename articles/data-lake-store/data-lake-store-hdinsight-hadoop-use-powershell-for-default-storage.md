@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 675f68a36963d19f42cb7c0c5d49ae8c4f0006f2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103429"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010542"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Crie clusters HDInsight com Azure Data Lake Storage Gen1 como armazenamento padrão usando PowerShell
 
 > [!div class="op_single_selector"]
-> * [Use o portal Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Utilizar o portal do Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Utilize o PowerShell (para armazenamento predefinido)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [Utilize o PowerShell (para armazenamento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Use Gestor de Recursos](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -236,7 +236,7 @@ Nesta secção, você cria um cluster HDInsight Hadoop Linux com Data Lake Stora
     Depois de o cmdlet ter sido concluído com sucesso, deverá ver uma saída que lista os detalhes do cluster.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Executar trabalhos de teste no cluster HDInsight para usar data lake storage gen1
-Depois de configurar um cluster HDInsight, pode fazer testes nele para garantir que pode aceder ao Data Lake Storage Gen1. Para tal, faça uma amostra do trabalho da Hive para criar uma tabela que utilize os dados da amostra que já estão disponíveis na Data Lake Storage Gen1 em * \<cluster root> /exemplo/data/sample.log*.
+Depois de configurar um cluster HDInsight, pode fazer testes nele para garantir que pode aceder ao Data Lake Storage Gen1. Para tal, faça uma amostra do trabalho da Hive para criar uma tabela que utilize os dados da amostra que já estão disponíveis na Data Lake Storage Gen1 em *\<cluster root> /exemplo/data/sample.log*. .
 
 Nesta secção, você faz uma ligação Secure Shell (SSH) no cluster HDInsight Linux que criou, e depois executar uma consulta de hive amostra.
 

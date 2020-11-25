@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
 ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108138"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010236"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Tutorial: Transforme e proteja a sua API
 
@@ -58,7 +58,7 @@ Para ver a resposta original:
 
 A resposta original deve ser semelhante à seguinte:
 
-:::image type="content" source="media/transform-api/original-response.png" alt-text="Políticas no portal":::
+:::image type="content" source="media/transform-api/original-response.png" alt-text="Resposta original da API":::
 
 Como pode ver, a resposta inclui os cabeçalhos **X-AspNet-Version** e **X-Powered-By.**
 
@@ -67,12 +67,12 @@ Como pode ver, a resposta inclui os cabeçalhos **X-AspNet-Version** e **X-Power
 1. Selecione **Demo Conference API**  >  **Design**  >  **Todas as operações**.
 4. Na secção **de processamento outbound,** selecione o ícone do editor de código **</>** ()
 
-   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Políticas no portal" border="false":::
+   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Navegar para a política de saída" border="false":::
 
-1. Posicione o cursor dentro do elemento ** &lt; de saída &gt; ** e selecione Mostrar os **cortes** no canto superior direito.
+1. Posicione o cursor dentro do elemento **&lt; de saída &gt;** e selecione Mostrar os **cortes** no canto superior direito.
 1. Na janela direita, sob **as políticas de transformação,** selecione **set HTTP duas** vezes (para inserir dois cortes de política).
 
-   :::image type="content" source="media/transform-api/transform-api.png" alt-text="Políticas no portal":::
+   :::image type="content" source="media/transform-api/transform-api.png" alt-text="Definir política de cabeçalho HTTP":::
 
 1. Modifique o seu **\<outbound>** código para ficar assim:
 
@@ -81,7 +81,7 @@ Como pode ver, a resposta inclui os cabeçalhos **X-AspNet-Version** e **X-Power
    <set-header name="X-AspNet-Version" exists-action="delete" />
    ```
 
-   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Políticas no portal":::
+   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Definir cabeçalho HTTP":::
 
 1. Selecione **Guardar**.
 
@@ -98,14 +98,14 @@ Para ver a resposta original:
 
     Como pode ver, a resposta inclui os URLs de backend originais:
 
-    :::image type="content" source="media/transform-api/original-response2.png" alt-text="Políticas no portal":::
+    :::image type="content" source="media/transform-api/original-response2.png" alt-text="URLs originais em resposta":::
 
 
 ### <a name="set-the-transformation-policy"></a>Definir a política de transformação
 
 1.  Selecione **Demo Conference API**  >  **Todos os projetos de operações.**  >  **Design**
 1.  Na secção **de processamento outbound,** selecione o ícone do editor de código **</>** ()
-1.  Posicione o cursor dentro do elemento ** &lt; de saída &gt; ** e selecione Mostrar os **cortes** no canto superior direito.
+1.  Posicione o cursor dentro do elemento **&lt; de saída &gt;** e selecione Mostrar os **cortes** no canto superior direito.
 1.  Na janela direita, sob as **políticas de transformação,** selecione **URLs de máscara em conteúdo**. 
 1.  Selecione **Guardar**.
 
@@ -115,9 +115,9 @@ Esta secção mostra como adicionar proteção à API de back-end através da co
 
 1.  Selecione **Demo Conference API**  >  **Todos os projetos de operações.**  >  **Design**
 1.  Na secção **de processamento de entrada,** selecione o ícone do editor de código **</>** ()
-1.  Posicione o cursor dentro do elemento ** &lt; de entrada &gt; ** e selecione Mostrar os **cortes** no canto superior direito.
+1.  Posicione o cursor dentro do elemento **&lt; de entrada &gt;** e selecione Mostrar os **cortes** no canto superior direito.
 
-    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Políticas no portal" border="false":::
+    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Definir a política de entrada" border="false":::
 
 1.  Na janela direita, ao abrigo das **políticas de restrição de acesso,** selecione **+ Limite a taxa de chamada por tecla**.
 1.  Modifique o seu código **limite de taxa por chave** (no **\<inbound\>** elemento) para o seguinte código:
@@ -160,7 +160,7 @@ O resto desta secção testa as transformações de política que definiu neste 
 
     Como pode ver, os cabeçalhos foram despojados:
 
-    :::image type="content" source="media/transform-api/final-response1.png" alt-text="Políticas no portal":::
+    :::image type="content" source="media/transform-api/final-response1.png" alt-text="Cabeçalhos de resposta despidos":::
 
 ### <a name="test-the-replaced-url"></a>Testar o URL substituído
 
@@ -169,7 +169,7 @@ O resto desta secção testa as transformações de política que definiu neste 
 
     Como pode ver, a URL foi substituída.
 
-    :::image type="content" source="media/transform-api/final-response2.png" alt-text="Políticas no portal":::
+    :::image type="content" source="media/transform-api/final-response2.png" alt-text="URL substituído":::
 
 ### <a name="test-the-rate-limit-throttling"></a>Testar o limite de taxa (limitação)
 
@@ -178,7 +178,7 @@ O resto desta secção testa as transformações de política que definiu neste 
 
     Depois de enviar o pedido 3 vezes, obtém a **resposta de muitos pedidos 429.**
 
-    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Políticas no portal":::
+    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Muitos pedidos":::
 
 1. Aguarde mais ou menos 15 segundos e selecione **Enviar** novamente. Neste momento, deve obter uma resposta **200 OK**.
 

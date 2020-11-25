@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167904"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010513"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver as Funções do Azure com o Visual Studio Code
 
@@ -311,7 +311,7 @@ Esta secção utiliza a [extensão de armazenamento Azure para Código de Estúd
 
 Para definir o fio de ligação da conta de armazenamento:
 
-1. No Estúdio Visual, abra **o Cloud Explorer,** expanda a **conta de armazenamento**da sua conta de  >  **armazenamento**e, em seguida, selecione **Propriedades** e copie o valor da cadeia **de ligação primária.**
+1. No Estúdio Visual, abra **o Cloud Explorer,** expanda a **conta de armazenamento** da sua conta de  >  **armazenamento** e, em seguida, selecione **Propriedades** e copie o valor da cadeia **de ligação primária.**
 
 2. No seu projeto, abra a local.settings.jsem arquivo e descreva o valor da chave **AzureWebJobsStorage** para a cadeia de ligação que copiou.
 
@@ -373,7 +373,7 @@ Tal como no upload, se o ficheiro local for encriptado, é desencriptado, atuali
 
 Quando [executar funções locais,](#run-functions-locally)os dados de registo são transmitidos para a consola Terminal. Também pode obter dados de registo quando o seu projeto Funções está a decorrer numa aplicação de função em Azure. Pode ligar-se a registos de streaming em Azure para ver dados de registo em tempo real, ou pode ativar o Application Insights para uma compreensão mais completa de como a sua aplicação de função se está a comportar.
 
-### <a name="streaming-logs"></a>Registos de streaming
+### <a name="streaming-logs"></a>Registos de transmissão em fluxo
 
 Quando se está a desenvolver uma aplicação, é muitas vezes útil ver informações de registo em tempo quase real. Pode ver um fluxo de ficheiros de registo a ser gerado pelas suas funções. Esta saída é um exemplo de registos de streaming para um pedido a uma função desencadeada por HTTP:
 

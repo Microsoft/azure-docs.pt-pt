@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
 ms.openlocfilehash: d2780b3456a802904800b894f6849544cfee4e61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85105940"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010134"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar as políticas apache kafka em HDInsight com pacote de segurança empresarial (pré-visualização)
 
 Saiba como configurar as políticas apache ranger para pacotes de segurança empresarial (ESP) apache kafka clusters. Os clusters do ESP estão ligados a um domínio, permitindo que os utilizadores sejam autenticados com credenciais do domínio. Neste tutorial, vai criar duas políticas do Ranger para restringir o acesso aos tópicos `sales` e `marketingspend`.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar utilizadores de domínio
@@ -48,7 +48,7 @@ Crie uma política do Ranger para **sales_user** e **marketing_user**.
 
 1. Abra a **IU do Ranger Admin**.
 
-2. Selecione ** \<ClusterName> _kafka** em **Kafka**. Poderá ser apresentada uma política pré-configurada.
+2. Selecione **\<ClusterName> _kafka** em **Kafka**. Poderá ser apresentada uma política pré-configurada.
 
 3. **Selecione Adicionar Nova Política** e introduza os seguintes valores:
 
@@ -225,7 +225,7 @@ Se não vai continuar a utilizar esta aplicação, elimine o cluster Kafka que c
 1. Clique em **Eliminar**. Clique em **Sim**.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Se kafka-produtor-consumidor.jar não funcionar num cluster de domínio, certifique-se de que está a utilizar o kafka-produtor-produtor-consumidor.jar no âmbito do projeto "DomainJoined-Producer-Consumer" (não o Producer-Consumer projeto, que é para cenários não de domínio).
+Se o kafka-produtor-consumidor.jar não funcionar num cluster de domínios, certifique-se de que está a utilizar o kafka-produtor-produtor-consumidor.jar no âmbito do projeto "DomainJoined-Producer-Consumer" (não o Producer-Consumer projeto, que é para cenários não de domínio).
 
 ## <a name="next-steps"></a>Passos seguintes
 

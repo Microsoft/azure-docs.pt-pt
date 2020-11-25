@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 08/19/2020
 ms.custom: include file
 ms.openlocfilehash: efdd4a065e1eab55f5af420585a44754d42a43e9
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94503961"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010384"
 ---
 1. A partir do menu do portal Azure ou da **página Inicial,** selecione **Criar um recurso**.
 
@@ -21,7 +21,7 @@ ms.locfileid: "94503961"
 
 1. Na página DB do **Azure Cosmos,** selecione **Criar**.
 
-1. Na página **Criar Conta do Azure Cosmos DB** , introduza as definições básicas da nova conta do Azure Cosmos DB. 
+1. Na página **Criar Conta do Azure Cosmos DB**, introduza as definições básicas da nova conta do Azure Cosmos DB. 
 
     |Definição|Valor|Descrição |
     |---|---|---|
@@ -38,7 +38,7 @@ ms.locfileid: "94503961"
     > Pode ter até uma conta DB Azure Cosmos de nível gratuito por subscrição Azure e deve optar pela criação da conta. Se não vir a opção de aplicar o desconto de nível livre, isto significa que outra conta na subscrição já foi ativada com nível gratuito.
    
     > [!NOTE]
-    > As seguintes opções não estão disponíveis se selecionar **Serverless** como **o modo Capacidade** :
+    > As seguintes opções não estão disponíveis se selecionar **Serverless** como **o modo Capacidade**:
     > - Aplicar Desconto de Escalão Gratuito
     > - Georredundância
     > - Escritas de várias regiões

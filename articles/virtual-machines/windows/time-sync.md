@@ -8,11 +8,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 830bdd45be4b0365ac45bc3ea366b99a34882a4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871484"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010627"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronização de tempo para VMs do Windows em Azure
 
@@ -30,7 +30,7 @@ O Azure é agora apoiado por infraestruturas que executam o Windows Server 2016.
 
 A precisão para um relógio de computador é avaliada sobre a proximidade do relógio do computador ao padrão de tempo universal coordenado (UTC). A UTC é definida por uma amostra multinacional de relógios atómicos precisos que só podem ser desligados por um segundo em 300 anos. Mas, ler a UTC requer hardware especializado. Em vez disso, os servidores de tempo são sincronizados com utc e são acedidos a partir de outros computadores para fornecer escalabilidade e robustez. Todos os computadores têm o serviço de sincronização de tempo em execução que sabe a que horas os servidores devem utilizar e verifica periodicamente se o relógio do computador precisa de ser corrigido e ajusta o tempo se necessário. 
 
-Os anfitriões do Azure são sincronizados com servidores internos do tempo da Microsoft que levam o seu tempo a partir de dispositivos Stratum 1 da Microsoft, com antenas GPS. As máquinas virtuais em Azure podem depender do seu anfitrião para passar o tempo exato (hora do*anfitrião)* para o VM ou o VM pode obter tempo diretamente a partir de um servidor de tempo, ou uma combinação de ambos. 
+Os anfitriões do Azure são sincronizados com servidores internos do tempo da Microsoft que levam o seu tempo a partir de dispositivos Stratum 1 da Microsoft, com antenas GPS. As máquinas virtuais em Azure podem depender do seu anfitrião para passar o tempo exato (hora do *anfitrião)* para o VM ou o VM pode obter tempo diretamente a partir de um servidor de tempo, ou uma combinação de ambos. 
 
 As interações virtuais da máquina com o hospedeiro também podem afetar o relógio. Durante [a manutenção da conservação da memória,](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot)os VM são pausados até 30 segundos. Por exemplo, antes de a manutenção começar, o relógio VM mostra 10:00:00 am e dura 28 segundos. Após o recomeço do VM, o relógio do VM ainda mostraria 10:00:00 am, o que seria 28 segundos de desconto. Para corrigir isto, o serviço VMICTimeSync monitoriza o que está a acontecer no anfitrião e pede que as alterações ocorram nos VMs para compensar.
 

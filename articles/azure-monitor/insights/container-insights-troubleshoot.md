@@ -4,11 +4,11 @@ description: Este artigo descreve como pode resolver problemas com o Azure Monit
 ms.topic: conceptual
 ms.date: 07/21/2020
 ms.openlocfilehash: 5727702ff973523ce7ab6400c1c7748e0584acbf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890365"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010593"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Resolver problemas do Azure Monitor para contentores
 
@@ -23,9 +23,9 @@ Durante o processo de embarque ou atualização, a atribuição da função **de
 Também pode conceder manualmente esta função a partir do portal Azure, realizando os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No portal do Azure, clique em **Todos os serviços** , que se encontra no canto superior esquerdo. Na lista de recursos, **digite Kubernetes.** À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Azure Kubernetes** .
+2. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, **digite Kubernetes.** À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Azure Kubernetes**.
 3. Na lista de agrupamentos de Kubernetes, selecione um da lista.
-2. A partir do menu da esquerda, clique no **controlo de acesso (IAM)** .
+2. A partir do menu da esquerda, clique no **controlo de acesso (IAM)**.
 3. Selecione **+ Adicione** para adicionar uma atribuição de função e selecione a função **de Editor de Métricas de Monitorização** e sob a caixa **Select** tipo **AKS** para filtrar os resultados apenas nos principais de serviço de clusters definidos na subscrição. Selecione o da lista específica para esse cluster.
 4. **Selecione Guardar** para terminar a atribuição do papel.
 
@@ -112,7 +112,7 @@ O Azure Monitor para o agente de contentores Pods utiliza o ponto final do cAdvi
 
 ## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>O cluster não-Azure Kubernetes não está a aparecer no Azure Monitor para contentores
 
-Para visualizar o cluster não-Azure Kubernetes no Azure Monitor para contentores, é necessário ler o acesso no espaço de trabalho Log Analytics que suporta este Insight e no recurso de solução Container Insights **ContainerInsights *(espaço de trabalho)*** .
+Para visualizar o cluster não-Azure Kubernetes no Azure Monitor para contentores, é necessário ler o acesso no espaço de trabalho Log Analytics que suporta este Insight e no recurso de solução Container Insights **ContainerInsights *(espaço de trabalho)***.
 
 ## <a name="next-steps"></a>Passos seguintes
 
