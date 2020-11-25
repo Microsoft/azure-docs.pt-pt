@@ -4,11 +4,11 @@ description: Descreve como fazer backup e restaurar VMs Azure encriptados com o 
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.openlocfilehash: 67c0e879fe2acf241b1ed08a5658209bf70b1b9c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173902"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978119"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Fazer o back up e restaurar máquinas virtuais Azure encriptadas
 
@@ -32,8 +32,8 @@ O Azure Backup pode fazer backup e restaurar VMs Azure usando ADE com e sem a ap
 
 **Tipo de disco da VM** | **ADE (BEK/dm-cripta)** | **ADE e KEK**
 --- | --- | ---
-**Não gerido** | Yes | Yes
-**Gerido**  | Yes | Yes
+**Não gerido** | Sim | Sim
+**Gerido**  | Sim | Sim
 
 - Saiba mais sobre [ADE,](../security/fundamentals/azure-disk-encryption-vms-vmss.md) [Key Vault](../key-vault/general/overview.md)e [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
 - Leia as [FAQ](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para encriptação do disco Azure VM.
@@ -66,18 +66,18 @@ Além disso, há algumas coisas que pode precisar fazer em algumas circunstânci
 
     ![Painel de reserva](./media/backup-azure-vms-encryption/select-backup.png)
 
-1. Em **Backup goal**Onde está a sua carga de trabalho a  >  **correr?** **Azure**
-1. Em O que pretende fazer **Virtual machine**para fazer **o back-up?** Em seguida, **selecione Backup**.
+1. Em **Backup goal** Onde está a sua carga de trabalho a  >  **correr?** **Azure**
+1. Em O que pretende fazer **Virtual machine** para fazer **o back-up?** Em seguida, **selecione Backup**.
 
       ![Painel de cenário](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-1. Na **política de backup**Escolha a política de  >  **backup,** selecione a política que pretende associar ao cofre. Em seguida, selecione **OK**.
+1. Na **política de backup** Escolha a política de  >  **backup,** selecione a política que pretende associar ao cofre. Em seguida, selecione **OK**.
     - Uma política de backup especifica quando as cópias de segurança são tomadas e quanto tempo estão armazenadas.
     - Os detalhes da política predefinida estão listados no menu pendente.
 
     ![Escolha a política de backup](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
-1. Se não quiser utilizar a política predefinitiva, **selecione Create New**e crie uma política [personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
+1. Se não quiser utilizar a política predefinitiva, **selecione Create New** e crie uma política [personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. Em **Máquinas Virtuais**, selecione **Adicionar**.
 
@@ -119,9 +119,9 @@ O Azure Backup precisa de acesso apenas de leitura para fazer cópias de seguran
 
 Para definir permissões:
 
-1. No portal Azure, selecione **Todos os serviços**e procure **cofres chave**.
+1. No portal Azure, selecione **Todos os serviços** e procure **cofres chave**.
 1. Selecione o cofre de chaves associado ao VM encriptado que está a fazer.
-1. Selecione **políticas de acesso**Adicionar Política de  >  **Acesso**.
+1. Selecione **políticas de acesso** Adicionar Política de  >  **Acesso**.
 
     ![Adicionar política de acesso](./media/backup-azure-vms-encryption/add-access-policy.png)
 
