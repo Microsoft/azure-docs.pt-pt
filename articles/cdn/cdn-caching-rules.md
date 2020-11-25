@@ -14,11 +14,11 @@ ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
 ms.openlocfilehash: a5f4f6a6e72b57638688069111071a6e0a035c49
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778970"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018669"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controlar o comportamento da colocação em cache da CDN do Azure com as regras de colocação em cache
 
@@ -42,11 +42,11 @@ Para obter informações sobre o comportamento padrão do caching e cabeçalhos 
 
 1. Abra o portal Azure, selecione um perfil CDN e, em seguida, selecione um ponto final.
 
-2. No painel esquerdo, em Definições, selecione **Regras de colocação em cache** .
+2. No painel esquerdo, em Definições, selecione **Regras de colocação em cache**.
 
    ![Botão Regras de colocação em cache da CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-   É apresentada a página **Regras de colocação em cache** .
+   É apresentada a página **Regras de colocação em cache**.
 
    ![Página Regras de colocação em cache da CDN](./media/cdn-caching-rules/cdn-caching-rules-page.png)
 
@@ -54,11 +54,11 @@ Para obter informações sobre o comportamento padrão do caching e cabeçalhos 
 ## <a name="caching-behavior-settings"></a>Caching definições de comportamento
 Para regras globais e personalizadas de caching, pode especificar as seguintes definições **de comportamento de Caching:**
 
-- **Cache de bypass** : Não cache e ignore cabeçalhos de diretiva de cache fornecidos pela origem.
+- **Cache de bypass**: Não cache e ignore cabeçalhos de diretiva de cache fornecidos pela origem.
 
-- **Sobreposição** : Ignorar a duração da cache fornecida pela origem; em vez disso, utilize a duração da cache fornecida. Isto não irá sobrepor-se ao controlo de cache: sem cache.
+- **Sobreposição**: Ignorar a duração da cache fornecida pela origem; em vez disso, utilize a duração da cache fornecida. Isto não irá sobrepor-se ao controlo de cache: sem cache.
 
-- **Conjunto, se faltar** : Cabeçalhos de diretiva de cache fornecidos pela origem honorária, se existirem; caso contrário, utilize a duração da cache fornecida.
+- **Conjunto, se faltar**: Cabeçalhos de diretiva de cache fornecidos pela origem honorária, se existirem; caso contrário, utilize a duração da cache fornecida.
 
 ![Regras globais de colocação em cache](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
@@ -75,9 +75,9 @@ Para regras globais e personalizadas de cache, pode especificar a duração de v
 
 Para regras de cache personalizadas, estão disponíveis duas condições de jogo:
  
-- **Caminho** : Esta condição corresponde ao caminho do URL, excluindo o nome de domínio, e suporta o símbolo wildcard \* (). Por exemplo, _/myfile.html,_ _/my/folder/*_ , e _/my/images/*.jpg_ . O comprimento máximo é de 260 caracteres.
+- **Caminho**: Esta condição corresponde ao caminho do URL, excluindo o nome de domínio, e suporta o símbolo wildcard \* (). Por exemplo, _/myfile.html,_ _/my/folder/*_, e _/my/images/*.jpg_. O comprimento máximo é de 260 caracteres.
 
-- **Extensão** : Esta condição corresponde à extensão do ficheiro solicitado. Pode fornecer uma lista de extensões de ficheiros separadas por vírgula para combinar. Por exemplo, _.jpg_ , _.mp3_ , ou _.png_ . O número máximo de extensões é de 50 e o número máximo de caracteres por extensão é de 16. 
+- **Extensão**: Esta condição corresponde à extensão do ficheiro solicitado. Pode fornecer uma lista de extensões de ficheiros separadas por vírgula para combinar. Por exemplo, _.jpg,_ _.mp3,_ ou _.png._ O número máximo de extensões é de 50 e o número máximo de caracteres por extensão é de 16. 
 
 ## <a name="global-and-custom-rule-processing-order"></a>Ordem de processamento de regras global e personalizada
 As regras globais e personalizadas de caching são processadas na seguinte ordem:
@@ -109,7 +109,7 @@ Quando estas regras são definidas, um pedido de _&lt; nome de anfitrião &gt;_ 
 > Os ficheiros que estão em cache antes de uma alteração de regras mantêm a definição de duração da cache de origem. Para repor as durações da cache, tem de [limpar o ficheiro](cdn-purge-endpoint.md). 
 >
 > As alterações de configuração do Azure CDN podem demorar algum tempo a propagar-se através da rede: 
-> - Para os perfis **CDN do Azure Standard da Akamai** , a propagação normalmente fica concluída num minuto. 
+> - Para os perfis **CDN do Azure Standard da Akamai**, a propagação normalmente fica concluída num minuto. 
 > - Para **o Azure CDN Standard dos** perfis Verizon, a propagação geralmente completa em 10 minutos.  
 >
 

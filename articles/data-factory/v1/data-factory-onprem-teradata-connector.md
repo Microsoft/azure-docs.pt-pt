@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707315"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019604"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mover dados da Teradata usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -46,7 +46,7 @@ Para que o Gateway de Gestão de Dados se conecte à Base de Dados teradata, é 
 Pode criar um pipeline com uma atividade de cópia que move dados de uma loja de dados cassandra no local, utilizando diferentes ferramentas/APIs.
 
 - A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
-- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -284,12 +284,12 @@ Ao mover dados para Teradata, os seguintes mapeamentos são usados do tipo Terad
 
 | Tipo de Base de Dados Teradata | .NET Tipo de quadro |
 | --- | --- |
-| Char |Cadeia |
-| Clob |Cadeia |
-| Gráfico |Cadeia |
-| Rio VarChar |Cadeia |
-| VarGraphic |Cadeia |
-| Blob |Byte[] |
+| Char |String |
+| Clob |String |
+| Gráfico |String |
+| Rio VarChar |String |
+| VarGraphic |String |
+| Blobs |Byte[] |
 | Byte |Byte[] |
 | Rio VarByte |Byte[] |
 | BigInt |Int64 |
@@ -299,9 +299,9 @@ Ao mover dados para Teradata, os seguintes mapeamentos são usados do tipo Terad
 | Número inteiro |Int32 |
 | Número |Double (Duplo) |
 | PequenoInt |Int16 |
-| Date |Data e Hora |
+| Data |Data e Hora |
 | Hora |TimeSpan |
-| Tempo com fuso horário |Cadeia |
+| Tempo com fuso horário |String |
 | Timestamp |DateTime |
 | Relógio com fuso horário |Início de execução de tempo de data |
 | Dia do Intervalo |TimeSpan |
@@ -314,15 +314,15 @@ Ao mover dados para Teradata, os seguintes mapeamentos são usados do tipo Terad
 | Minuto de Intervalo |TimeSpan |
 | Minuto de intervalo para segundo |TimeSpan |
 | Intervalo Segundo |TimeSpan |
-| Ano de Intervalo |Cadeia |
-| Intervalo ano a mês |Cadeia |
-| Mês de Intervalo |Cadeia |
-| Período (Data) |Cadeia |
-| Período (Tempo) |Cadeia |
-| Período (Tempo com Fuso Horário) |Cadeia |
-| Period (Timetamp) |Cadeia |
-| Periodtamp with Time zone) |Cadeia |
-| Xml |Cadeia |
+| Ano de Intervalo |String |
+| Intervalo ano a mês |String |
+| Mês de Intervalo |String |
+| Período (Data) |String |
+| Período (Tempo) |String |
+| Período (Tempo com Fuso Horário) |String |
+| Period (Timetamp) |String |
+| Periodtamp with Time zone) |String |
+| Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para obter informações sobre as colunas de mapeamento em conjunto de dados de origem para colunas no conjunto de dados da pia, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).

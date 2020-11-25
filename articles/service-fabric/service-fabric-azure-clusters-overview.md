@@ -6,11 +6,11 @@ documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: 25e6854491f35dd0aa46b5de218d312f57854760
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685822"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018924"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters de tecido de serviço em Azure
 Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um cluster é chamada de nó de cluster. Os aglomerados podem escalar para milhares de nós. Se adicionar novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e as instâncias através do aumento do número de nós. O desempenho geral da aplicação melhora e a contenção para o acesso à memória diminui. Se os nós do cluster não estiverem a ser utilizados de forma eficiente, pode diminuir o número de nós no cluster. O Tecido de Serviço reequilibra novamente as réplicas de partição e instâncias através do número reduzido de nós para melhor utilizar o hardware em cada nó.
@@ -45,7 +45,7 @@ Pode utilizar conjuntos de escala para implantar e gerir uma coleção de máqui
 
 Para obter mais informações, leia [os tipos de nó de nó de tecido de serviço e conjuntos de balança de máquinas virtuais](service-fabric-cluster-nodetypes.md).
 
-### <a name="azure-load-balancer"></a>Balanceador de Carga do Azure
+### <a name="azure-load-balancer"></a>Azure Load Balancer
 As instâncias VM são unidas por trás de um [equilibrador de carga Azure](../load-balancer/load-balancer-overview.md), que está associado a um [endereço IP público](../virtual-network/public-ip-addresses.md) e etiqueta DNS.  Quando fornece um cluster com *&lt; nome &gt; de cluster,* o nome DNS, *&lt; nome de &gt; cluster. &lt; localização &gt; .cloudapp.azure.com* é a etiqueta DNS associada ao equilibrador de carga em frente ao conjunto de escala.
 
 Os VMs num cluster têm [apenas endereços IP privados](../virtual-network/private-ip-addresses.md).  O tráfego de tráfego de gestão e o tráfego de serviços são encaminhados através do público virado para o balancer de carga.  O tráfego de rede é encaminhado para estas máquinas através das regras NAT (os clientes ligam-se a nós/instâncias específicos) ou regras de equilíbrio de carga (o tráfego vai para o robin redondo dos VMs).  Um equilibrador de carga tem um IP público associado com um nome DNS no formato: *&lt; clustername &gt; . &lt; localização &gt; .cloudapp.azure.com*.  Um IP público é outro recurso Azure no grupo de recursos.  Se definir vários tipos de nós num cluster, é criado um equilibrador de carga para cada conjunto de tipo/escala de nó. Ou, pode configurar um único balançador de carga para vários tipos de nós.  O nó primário tem o nome de cluster de etiqueta DNS *&lt; &gt; . &lt; localização &gt; .cloudapp.azure.com*, outros tipos de nós têm o nó de conjunto de rótulo DNS *&lt; &gt; - &lt; &gt; . &lt; localização &gt; .cloudapp.azure.com*.
@@ -112,7 +112,7 @@ Para mais informações consulte [ver versões de cluster suportadas em Azure](.
 >
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia mais sobre [a fixação,](service-fabric-cluster-security.md) [dimensionamento](service-fabric-cluster-scaling.md)e [modernização dos](service-fabric-cluster-upgrade.md) agrupamentos Azure.
 
 Saiba mais sobre [as opções de suporte do Tecido de Serviço.](service-fabric-support.md)

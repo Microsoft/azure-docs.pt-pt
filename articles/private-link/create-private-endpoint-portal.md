@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
 ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895206"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018074"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>Quickstart: Criar um ponto final privado utilizando o portal Azure
 
@@ -50,7 +50,7 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
     | Grupo de Recursos   | Selecione **CreatePrivateEndpointqs-rg** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Região           | Selecione **Europa Ocidental** .|
+    | Region           | Selecione **Europa Ocidental**.|
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -60,7 +60,7 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
     |--------------------|----------------------------|
     | Espaço de endereço IPv4 | Insira **10.1.0.0/16** |
 
-5. No **nome da sub-rede,** selecione a palavra **predefinição** .
+5. No **nome da sub-rede,** selecione a palavra **predefinição**.
 
 6. Na **sub-rede Editar,** insira esta informação:
 
@@ -69,22 +69,22 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
     | Nome da sub-rede | Insira **mySubnet** |
     | Intervalo de endereços da sub-rede | Insira **10.1.0.0/24** |
 
-7. Selecione **Guardar** .
+7. Selecione **Guardar**.
 
 8. Selecione o separador **Segurança.**
 
-9. Em **BastionHost** , selecione **Enable** . Insira esta informação:
+9. Em **BastionHost**, selecione **Enable**. Insira esta informação:
 
     | Definição            | Valor                      |
     |--------------------|----------------------------|
     | Nome de bastião | Insira **myBastionHost** |
     | Espaço de endereço AzureBastionSubnet | Insira **10.1.1.0/24** |
-    | Endereço IP Público | Selecione **Criar novo** . </br> Para **nome,** insira **myBastionIP** . </br> Selecione **OK** . |
+    | Endereço IP Público | Selecione **Criar novo**. </br> Para **nome,** insira **myBastionIP**. </br> Selecione **OK**. |
 
 
 8. Selecione o **separador 'Rever +' ou** selecionar o botão **'Rever +' criar.**
 
-9. Selecione **Criar** .
+9. Selecione **Criar**.
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -101,7 +101,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
     | Grupo de Recursos | Selecione **CreatePrivateEndpointqs-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM** |
-    | Região | Selecione **Europa Ocidental** . |
+    | Region | Selecione **Europa Ocidental**. |
     | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
     | Imagem | Selecione **Windows Server 2019 Datacenter - Gen1** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -111,7 +111,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
     | Palavra-passe | Introduza uma senha |
     | Confirmar palavra-passe | Reintroduza a palavra-passe |
 
-3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos** e, em seguida, **seguinte: Networking** .
+3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos** e, em seguida, **seguinte: Networking**.
   
 4. No separador Networking, selecione ou introduza:
 
@@ -120,25 +120,25 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
     | Sub-rede | **mySubnet** |
-    | IP público | Selecione **Nenhuma** . |
+    | IP público | Selecione **Nenhuma**. |
     | Grupo de segurança de rede NIC | **Básica**|
-    | Portas de entrada públicas | Selecione **Nenhuma** . |
+    | Portas de entrada públicas | Selecione **Nenhuma**. |
    
-5. Selecione **Rever + criar** . 
+5. Selecione **Rever + criar**. 
   
-6. Reveja as definições e, em seguida, **selecione Criar** .
+6. Reveja as definições e, em seguida, **selecione Criar**.
 
 ## <a name="create-a-private-endpoint"></a>Criar um Ponto Final Privado
 
 Nesta secção, irá criar um Ponto Final Privado para a aplicação web que criou na secção pré-requisitos.
 
-1. No lado superior esquerdo do ecrã no portal, selecione **Criar um Link** Privado de Rede de Recursos , ou na caixa de pesquisa entrar No Link  >  **Networking**  >  **Private Link** **Privado** .
+1. No lado superior esquerdo do ecrã no portal, selecione **Criar um Link** Privado de Rede de Recursos , ou na caixa de pesquisa entrar No Link  >  **Networking**  >  **Private Link** **Privado**.
 
-2. Selecione **Criar** .
+2. Selecione **Criar**.
 
-3. No **Private Link Center** , selecione **Pontos finais privados** no menu da esquerda.
+3. No **Private Link Center**, selecione **Pontos finais privados** no menu da esquerda.
 
-4. Em **pontos finais privados** , selecione **+ Adicionar** .
+4. Em **pontos finais privados**, selecione **+ Adicionar**.
 
 5. No separador **Básico de** Criar um ponto **final privado,** insira ou selecione estas informações:
 
@@ -146,10 +146,10 @@ Nesta secção, irá criar um Ponto Final Privado para a aplicação web que cri
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscrição | Selecione a sua subscrição. |
-    | Grupo de recursos | Selecione **CreatePrivateEndpointQs-rg** . Criou este grupo de recursos na secção anterior.|
+    | Grupo de recursos | Selecione **CreatePrivateEndpointQs-rg**. Criou este grupo de recursos na secção anterior.|
     | **Detalhes da instância** |  |
-    | Name  | Introduza **myPrivateEndpoint** . |
-    | Região | Selecione **Europa Ocidental** . |
+    | Name  | Introduza **myPrivateEndpoint**. |
+    | Region | Selecione **Europa Ocidental**. |
 
 6. Selecione o **separador Recursos** ou o **seguinte: Botão de recurso** na parte inferior da página.
     
@@ -157,11 +157,11 @@ Nesta secção, irá criar um Ponto Final Privado para a aplicação web que cri
 
     | Definição | Valor |
     | ------- | ----- |
-    | Método de ligação | Selecione **Ligar a um recurso Azure no meu diretório** . |
+    | Método de ligação | Selecione **Ligar a um recurso Azure no meu diretório**. |
     | Subscrição | Selecione a sua subscrição. |
-    | Tipo de recurso | Selecione **Microsoft.Web/sites** . |
-    | Recurso | Selecione **\<your-web-app-name>** . </br> Selecione o nome da aplicação web que criou nos pré-requisitos. |
-    | Recurso secundário de destino | Selecione **sites** . |
+    | Tipo de recurso | Selecione **Microsoft.Web/sites**. |
+    | Recurso | Selecione **\<your-web-app-name>**. </br> Selecione o nome da aplicação web que criou nos pré-requisitos. |
+    | Recurso secundário de destino | Selecione **sites**. |
 
 8. Selecione o **separador Configuração** ou o **seguinte: Botão de configuração** na parte inferior do ecrã.
 
@@ -169,18 +169,18 @@ Nesta secção, irá criar um Ponto Final Privado para a aplicação web que cri
 
     | Definição | Valor |
     | ------- | ----- |
-    | **Redes** |  |
-    | Rede virtual | Selecione **myVNet** . |
-    | Sub-rede | Selecione **mySubnet** . |
+    | **Rede** |  |
+    | Rede virtual | Selecione **myVNet**. |
+    | Sub-rede | Selecione **mySubnet**. |
     | **Integração privada de DNS** |  |
-    | Integrar com zona DNS privada | Deixe o padrão de **Sim** . |
+    | Integrar com zona DNS privada | Deixe o padrão de **Sim**. |
     | Subscrição | Selecione a sua subscrição. |
-    | Zonas DNS Privadas | Deixe o padrão de **(Nova) privatelink.azurewebsites.net** .
+    | Zonas DNS Privadas | Deixe o padrão de **(Nova) privatelink.azurewebsites.net**.
     
 
-13. Selecione **Rever + criar** .
+13. Selecione **Rever + criar**.
 
-14. Selecione **Criar** .
+14. Selecione **Criar**.
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testar conectividade com o ponto final privado
 
@@ -188,11 +188,11 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
 
 1. Selecione **grupos** de recursos no painel de navegação à esquerda.
 
-2. Selecione **CreatePrivateEndpointQs-rg** .
+2. Selecione **CreatePrivateEndpointQs-rg**.
 
-3. Selecione **myVM** .
+3. Selecione **myVM**.
 
-4. Na página geral do **myVM,** selecione **Connect** e, em **seguida, Bastion** .
+4. Na página geral do **myVM,** selecione **Connect** e, em **seguida, Bastion**.
 
 5. Selecione o botão **azul Use Bastion.**
 
@@ -216,13 +216,13 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
 
 11. Na ligação de bastião ao **myVM,** abra o Internet Explorer.
 
-12. Introduza o url da sua aplicação web, **https:// \<your-webapp-name> .azurewebsites.net** .
+12. Introduza o url da sua aplicação web, **https:// \<your-webapp-name> .azurewebsites.net**.
 
 13. Receberá a página de aplicações web padrão se a sua aplicação não tiver sido implementada:
 
     :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Página de aplicativo web padrão." border="true":::
 
-18. Feche a ligação ao **myVM** .
+18. Feche a ligação ao **myVM**.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -230,13 +230,13 @@ Se não continuar a utilizar esta aplicação, elimine a rede virtual, a máquin
 
 1. A partir do menu da esquerda, selecione **Grupos de Recursos.**
 
-2. Selecione **CreatePrivateEndpointQs-rg** .
+2. Selecione **CreatePrivateEndpointQs-rg**.
 
-3. Selecione **Eliminar grupo de recursos** .
+3. Selecione **Eliminar grupo de recursos**.
 
-4. **Insira CreatePrivateEndpointQS-rg** em **TIPO O NOME DO GRUPO DE RECURSOS** .
+4. **Insira CreatePrivateEndpointQS-rg** em **TIPO O NOME DO GRUPO DE RECURSOS**.
 
-5. Selecione **Eliminar** .
+5. Selecione **Eliminar**.
 
 
 ## <a name="next-steps"></a>Próximos passos

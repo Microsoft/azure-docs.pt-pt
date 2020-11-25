@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.openlocfilehash: ad3dbd8cdc6fff7eca8c24bb6e5258022d52cb9b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959463"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018499"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalar o TmaxSoft OpenFrame no Azure
 

@@ -4,11 +4,11 @@ description: Descreve parâmetros relacionados com a atualização de uma aplica
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 6b6116bf1188fcf191b2d672e6c698bb3c050e6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247970"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018482"
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros da atualização da aplicação
 Este artigo descreve os vários parâmetros que se aplicam durante a atualização de uma aplicação de Tecido de Serviço Azure. Os parâmetros de atualização da aplicação controlam os intervalos e os controlos de saúde que são aplicados durante a atualização, e especificam as políticas que devem ser aplicadas quando uma atualização falha. Os parâmetros de aplicação aplicam-se às atualizações utilizando:
@@ -26,9 +26,9 @@ Os parâmetros aplicáveis e opcionais são descritos em cada secção da seguin
 
 ## <a name="visual-studio-and-powershell-parameters"></a>Estúdio Visual e Parâmetros PowerShell
 
-As atualizações da aplicação de tecido de serviço utilizando o PowerShell utilizam o comando [Start-ServiceFabricApplicationUpgrade.](/powershell/module/servicefabric/start-servicefabricapplicationupgrade) O modo de atualização é selecionado passando o parâmetro **Monitor,** **UnmonitoredAuto**ou **UnmonitoredManual** para [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade).
+As atualizações da aplicação de tecido de serviço utilizando o PowerShell utilizam o comando [Start-ServiceFabricApplicationUpgrade.](/powershell/module/servicefabric/start-servicefabricapplicationupgrade) O modo de atualização é selecionado passando o parâmetro **Monitor,** **UnmonitoredAuto** ou **UnmonitoredManual** para [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade).
 
-Os parâmetros de atualização da aplicação visual Studio Service Fabric são definidos através do diálogo visual de atualização do estúdio. O modo de atualização do Estúdio Visual é selecionado utilizando a caixa de dropdown **do modo de atualização** para **monitorado**, **UnmonitoredAuto**ou **UnmonitoredManual**. Para mais informações, consulte [configurar a atualização de uma aplicação de Tecido de Serviço no Estúdio Visual.](service-fabric-visualstudio-configure-upgrade.md)
+Os parâmetros de atualização da aplicação visual Studio Service Fabric são definidos através do diálogo visual de atualização do estúdio. O modo de atualização do Estúdio Visual é selecionado utilizando a caixa de dropdown **do modo de atualização** para **monitorado**, **UnmonitoredAuto** ou **UnmonitoredManual**. Para mais informações, consulte [configurar a atualização de uma aplicação de Tecido de Serviço no Estúdio Visual.](service-fabric-visualstudio-configure-upgrade.md)
 
 ### <a name="required-parameters"></a>Parâmetros necessários
 (PS=PowerShell, VS=Visual Studio)
@@ -37,7 +37,7 @@ Os parâmetros de atualização da aplicação visual Studio Service Fabric são
 | --- | --- | --- |
 ApplicationName |PS| Nome da aplicação que está a ser atualizada. Exemplos: tecido:/VisualObjects, tecido:/ClusterMonitor. |
 AplicaçãoTypeVersion|PS|A versão do tipo de aplicação que o upgrade visa. |
-Falha deacção |PS, VS|Os valores permitidos são **Reversão,** **Manual**e **Inválido**. A ação compensatória a realizar quando uma atualização *monitorizada* encontra políticas de monitorização ou violações da política de saúde. <br>**A reversão** especifica que a atualização irá automaticamente reverter para a versão pré-actualização. <br>**O manual** indica que a atualização irá mudar para o modo de atualização *Não monitorizadoManual.* <br>**Inválido** indica que a ação de avaria é inválida.|
+Falha deacção |PS, VS|Os valores permitidos são **Reversão,** **Manual** e **Inválido**. A ação compensatória a realizar quando uma atualização *monitorizada* encontra políticas de monitorização ou violações da política de saúde. <br>**A reversão** especifica que a atualização irá automaticamente reverter para a versão pré-actualização. <br>**O manual** indica que a atualização irá mudar para o modo de atualização *Não monitorizadoManual.* <br>**Inválido** indica que a ação de avaria é inválida.|
 Monitorizado |PS|Indica que o modo de atualização é monitorizado. Depois de o cmdlet terminar uma atualização para um domínio de upgrade, se a saúde do domínio de upgrade e o cluster cumprirem as políticas de saúde que define, o Service Fabric atualiza o próximo domínio de atualização. Se o domínio ou cluster de atualização não cumprir as políticas de saúde, a atualização falha e o Service Fabric reverte a atualização para o domínio de atualização ou reverte para o modo manual de acordo com a política especificada. Este é o modo recomendado para atualizações de aplicações em ambiente de produção. |
 UpgradeMode | VS | Os valores permitidos são **monitorizados** (padrão), **UnmonitoredAuto,** ou **UnmonitoredManual**. Consulte os parâmetros PowerShell para cada modo neste artigo para obter mais detalhes. |
 Não monitorizadoauto | PS | Indica que o modo de atualização não é monitorizado automaticamente. Depois de o Service Fabric atualizar um domínio de upgrade, o Service Fabric atualiza o próximo domínio de atualização independentemente do estado de saúde da aplicação. Este modo não é recomendado para produção, e só é útil durante o desenvolvimento de uma aplicação. |
@@ -70,7 +70,7 @@ Os parâmetros de avaliação da saúde são opcionais. Se os critérios de aval
 > | UpgradeTimeoutSec |PS, VS |Um intervalo (em segundos) que se aplica a toda a atualização. Se este intervalo for atingido, a atualização para e *o FailureAction* é acionado. O valor predefinido nunca é (Infinito) e deve ser personalizado adequadamente para a sua aplicação. |
 > | WhatIf | PS | Os valores permitidos são **verdadeiros** e **falsos.** Apresenta o que aconteceria mediante a execução do cmdlet. O cmdlet não é executado. |
 
-Os *critérios MaxPercentUnhealthyServices*, *MaxPercentUnhealthyPartitionsPerService*e *MaxPercentUnhealthyReplicasPerPartition* podem ser especificados por tipo de serviço para uma instância de aplicação. A definição destes parâmetros por serviço permite que uma aplicação contenha diferentes tipos de serviços com diferentes políticas de avaliação. Por exemplo, um tipo de serviço de gateway apátrida pode ter um *MaxPercentUnhealthyPartitionsPerService* que é diferente de um tipo de serviço de motor imponente para uma determinada instância de aplicação.
+Os *critérios MaxPercentUnhealthyServices*, *MaxPercentUnhealthyPartitionsPerService* e *MaxPercentUnhealthyReplicasPerPartition* podem ser especificados por tipo de serviço para uma instância de aplicação. A definição destes parâmetros por serviço permite que uma aplicação contenha diferentes tipos de serviços com diferentes políticas de avaliação. Por exemplo, um tipo de serviço de gateway apátrida pode ter um *MaxPercentUnhealthyPartitionsPerService* que é diferente de um tipo de serviço de motor imponente para uma determinada instância de aplicação.
 
 ## <a name="sfctl-parameters"></a>Parâmetros SFCTL
 
@@ -89,7 +89,7 @@ parâmetros  |Uma lista codificada por JSON de sobreposições de parâmetros de
 | Parâmetro | Descrição |
 | --- | --- |
 incumprimento serviço-saúde-política | [A JSON](/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) codificou a especificação da política de saúde utilizada por defeito para avaliar a saúde de um tipo de serviço. O mapa está vazio por defeito. |
-falha de ação | Os valores permitidos são **Reversão,** **Manual**e **Inválido**. A ação compensatória a realizar quando uma atualização *monitorizada* encontra políticas de monitorização ou violações da política de saúde. <br>**A reversão** especifica que a atualização irá automaticamente reverter para a versão pré-actualização. <br>**O manual** indica que a atualização irá mudar para o modo de atualização *Não monitorizadoManual.* <br>**Inválido** indica que a ação de avaria é inválida.|
+falha de ação | Os valores permitidos são **Reversão,** **Manual** e **Inválido**. A ação compensatória a realizar quando uma atualização *monitorizada* encontra políticas de monitorização ou violações da política de saúde. <br>**A reversão** especifica que a atualização irá automaticamente reverter para a versão pré-actualização. <br>**O manual** indica que a atualização irá mudar para o modo de atualização *Não monitorizadoManual.* <br>**Inválido** indica que a ação de avaria é inválida.|
 forçar a reiniciar | Se atualizar uma configuração ou pacote de dados sem atualizar o código de serviço, o serviço só será reiniciado se a propriedade ForceRestart estiver definida como **True**. Quando a atualização estiver concluída, o Service Fabric notifica o serviço de que está disponível um novo pacote de configuração ou pacote de dados. O serviço é responsável pela aplicação das alterações. Se necessário, o serviço pode reiniciar-se sozinho. |
 verificação de saúde-retry-timeout | O tempo para repetir a avaliação de saúde quando a aplicação ou o cluster não é saudável antes *da execução do FailureAction.* É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. Predefinição: PT0H10M0s. |
 duração do controlo da saúde estável | O tempo que a aplicação ou cluster deve permanecer saudável antes da atualização avançar para o próximo domínio de atualização. É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. Padrão: PT0H2M0s. |

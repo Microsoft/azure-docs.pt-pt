@@ -4,41 +4,41 @@ description: Utilize as instalações de implantação de ficheiros .zip do serv
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85833057"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018453"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Zip deployment for Azure Functions (Implementação com ficheiro zip para as Funções do Azure)
 
-Este artigo descreve como implementar os ficheiros do projeto de aplicação de função para Azure a partir de um ficheiro .zip (comprimido). Aprende-se a fazer uma implementação de impulsos, tanto utilizando o Azure CLI como utilizando as APIs REST. [A azure Functions Core Tools](functions-run-local.md) também utiliza estas APIs de implementação ao publicar um projeto local para a Azure.
+Este artigo descreve como implementar os ficheiros do projeto de aplicação de função para Azure a partir de um ficheiro de .zip (comprimido). Aprende-se a fazer uma implementação de impulsos, tanto utilizando o Azure CLI como utilizando as APIs REST. [A azure Functions Core Tools](functions-run-local.md) também utiliza estas APIs de implementação ao publicar um projeto local para a Azure.
 
 A Azure Functions tem toda a gama de opções de implementação e integração contínuas que são fornecidas pelo Azure App Service. Para obter mais informações, consulte [a implementação contínua para funções Azure](functions-continuous-deployment.md).
 
-Para acelerar o desenvolvimento, poderá ser mais fácil implementar os ficheiros do projeto de aplicações de função diretamente a partir de um ficheiro .zip. A API de implementação .zip retira o conteúdo de um ficheiro .zip e extrai o conteúdo para a `wwwroot` pasta da sua aplicação de função. Esta implementação de ficheiros .zip utiliza o mesmo serviço Kudu que alimenta implementações baseadas em integração contínua, incluindo:
+Para acelerar o desenvolvimento, poderá ser mais fácil implementar os ficheiros do projeto de aplicações de função diretamente a partir de um ficheiro .zip. A API de implantação .zip leva o conteúdo de um ficheiro .zip e extrai o conteúdo para a `wwwroot` pasta da sua aplicação de função. Esta implementação de ficheiros .zip utiliza o mesmo serviço Kudu que alimenta implementações baseadas em integração contínua, incluindo:
 
 + Eliminação de ficheiros que foram deixados de implementações anteriores.
 + Personalização de implementação, incluindo scripts de implementação.
 + Registos de implantação.
 + A função de sincronização dispara numa aplicação de função [do plano de consumo.](functions-scale.md)
 
-Para obter mais informações, consulte a [referência de implementação .zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+Para obter mais informações, consulte a [referência de .zip de implantação](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
-## <a name="deployment-zip-file-requirements"></a>Requisitos de ficheiros de desdobramento .zip
+## <a name="deployment-zip-file-requirements"></a>Requisitos de ficheiros de .zip de implantação
 
-O ficheiro .zip que utiliza para a colocação de push deve conter todos os ficheiros necessários para executar a sua função.
+O ficheiro .zip que utiliza para a implantação de push deve conter todos os ficheiros necessários para executar a sua função.
 
 >[!IMPORTANT]
-> Quando utiliza a implementação .zip, quaisquer ficheiros de uma implementação existente que não sejam encontrados no ficheiro .zip são eliminados da sua aplicação de função.  
+> Quando utiliza .zip implementação, quaisquer ficheiros de uma implementação existente que não sejam encontrados no ficheiro .zip são eliminados da sua aplicação de função.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Uma aplicação de função inclui todos os ficheiros e pastas no `wwwroot` diretório. Uma implementação de ficheiro .zip inclui o conteúdo do `wwwroot` diretório, mas não o próprio diretório. Ao implementar um projeto de biblioteca de classe C', deve incluir os ficheiros e dependências da biblioteca compiladas numa `bin` sub-dobradeira no seu pacote .zip.
+Uma aplicação de função inclui todos os ficheiros e pastas no `wwwroot` diretório. Uma .zip implantação de ficheiros inclui o conteúdo do `wwwroot` diretório, mas não o próprio diretório. Ao implementar um projeto de biblioteca de classes C', deve incluir os ficheiros e dependências da biblioteca compiladas numa `bin` sub-dobradeira no seu pacote .zip.
 
 ## <a name="download-your-function-app-files"></a>Descarregue os ficheiros de aplicações da sua função
 
-Quando está a desenvolver-se num computador local, é fácil criar um ficheiro .zip da pasta de projeto de aplicação de funções no seu computador de desenvolvimento.
+Quando está a desenvolver-se num computador local, é fácil criar um ficheiro .zip da pasta de projeto de aplicação de função no seu computador de desenvolvimento.
 
 No entanto, pode ter criado as suas funções utilizando o editor no portal Azure. Você pode baixar um projeto de aplicativo de função existente de uma forma:
 
@@ -50,7 +50,7 @@ No entanto, pode ter criado as suas funções utilizando o editor no portal Azur
 
       ![Descarregue o projeto de aplicação de função](./media/deployment-zip-push/download-project.png)
 
-     O ficheiro .zip descarregado encontra-se no formato correto para ser republicado na sua aplicação de função utilizando a implementação .zip push. O download do portal também pode adicionar os ficheiros necessários para abrir a sua aplicação de função diretamente no Visual Studio.
+     O ficheiro .zip descarregado encontra-se no formato correto para ser republicado na sua aplicação de função utilizando .zip implementação de push. O download do portal também pode adicionar os ficheiros necessários para abrir a sua aplicação de função diretamente no Visual Studio.
 
 + **Utilização de APIs de REPOUSO:**
 
@@ -62,7 +62,7 @@ No entanto, pode ter criado as suas funções utilizando o editor no portal Azur
 
     Incluindo `/site/wwwroot/` certifique-se de que o seu ficheiro zip inclui apenas os ficheiros de projeto de aplicações de função e não todo o site. Se ainda não se inscreveu no Azure, ser-lhe-á pedido que o faça.  
 
-Também pode descarregar um ficheiro .zip a partir de um repositório GitHub. Quando descarrega um repositório GitHub como um ficheiro .zip, o GitHub adiciona um nível de pasta extra para o ramo. Este nível de pasta extra significa que não pode implementar o ficheiro .zip diretamente à medida que o descarregou do GitHub. Se estiver a utilizar um repositório GitHub para manter a sua aplicação de função, deve utilizar uma [integração contínua](functions-continuous-deployment.md) para implementar a sua aplicação.  
+Também pode descarregar um ficheiro .zip de um repositório GitHub. Quando descarrega um repositório GitHub como um ficheiro .zip, o GitHub adiciona um nível de pasta extra para o ramo. Este nível de pasta extra significa que não pode implementar o ficheiro .zip diretamente à medida que o descarregou do GitHub. Se estiver a utilizar um repositório GitHub para manter a sua aplicação de função, deve utilizar uma [integração contínua](functions-continuous-deployment.md) para implementar a sua aplicação.  
 
 ## <a name="deploy-by-using-azure-cli"></a><a name="cli"></a>Implementar com a CLI do Azure
 
@@ -77,7 +77,7 @@ az functionapp deployment source config-zip -g <resource_group> -n \
 
 Este comando implementa ficheiros de projeto do ficheiro .zip descarregado para a sua aplicação de função em Azure. Em seguida, reinicia a aplicação. Para visualizar a lista de implementações para esta aplicação de funções, tem de utilizar as APIs REST.
 
-Quando estiver a utilizar o Azure CLI no seu computador local, `<zip_file_path>` é o caminho para o ficheiro .zip no seu computador. Também pode executar Azure CLI em [Azure Cloud Shell](../cloud-shell/overview.md). Quando utilizar o Cloud Shell, tem primeiro de carregar o ficheiro .zip para a conta Azure Files que está associada à sua Cloud Shell. Nesse caso, `<zip_file_path>` é o local de armazenamento que a sua conta Cloud Shell utiliza. Para obter mais informações, consulte [os ficheiros Persist em Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
+Quando estiver a utilizar o Azure CLI no seu computador local, `<zip_file_path>` é o caminho para o ficheiro .zip no seu computador. Também pode executar Azure CLI em [Azure Cloud Shell](../cloud-shell/overview.md). Quando utilizar o Cloud Shell, tem primeiro de enviar o ficheiro .zip de implementação para a conta Azure Files que está associada à sua Cloud Shell. Nesse caso, `<zip_file_path>` é o local de armazenamento que a sua conta Cloud Shell utiliza. Para obter mais informações, consulte [os ficheiros Persist em Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 40f912122e6ffb9cccbd32a747f6f0d46fd6c330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292799"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019153"
 ---
 # <a name="scale-with-additional-process-servers"></a>Escala com servidores de processos adicionais
 
@@ -52,9 +52,9 @@ Os pré-requisitos para o servidor de processo adicional são resumidos na tabel
 Descarregue o ficheiro de instalação para o servidor de processo da seguinte forma:
 
 1. Inscreva-se no portal Azure e navegue pelo cofre dos Serviços de Recuperação.
-2. Servidores de **Site Recovery Infrastructure**  >  configuração**VMware e Máquinas Físicas**de Recuperação de Locais  >  **Abertos** (em VMware & Máquinas Físicas).
+2. Servidores de **Site Recovery Infrastructure**  >  configuração **VMware e Máquinas Físicas** de Recuperação de Locais  >  **Abertos** (em VMware & Máquinas Físicas).
 3. Selecione o servidor de configuração para perfurar os detalhes do servidor. Em seguida, clique **em + Servidor de Processo**.
-4. In **Add Process server**Escolha onde pretende implementar o seu servidor de  >   **processos**, selecione Implementar um Servidor de Processo de Escala no **local**.
+4. In **Add Process server** Escolha onde pretende implementar o seu servidor de  >   **processos**, selecione Implementar um Servidor de Processo de Escala no **local**.
 
    ![Adicionar página de servidores](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Clique **em Baixar a Configuração Unificada de Recuperação do Site microsoft Azure**. Isto descarrega a versão mais recente do ficheiro de instalação.

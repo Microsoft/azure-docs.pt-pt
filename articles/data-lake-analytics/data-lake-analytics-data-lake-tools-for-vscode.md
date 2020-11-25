@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 02/09/2018
 ms.openlocfilehash: e7da5454581e0e414dc832d4fcec50277f3b7f40
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221252"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019060"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utilizar Azure Data Lake Tools for Visual Studio Code
 
@@ -20,7 +20,7 @@ Neste artigo, saiba como pode utilizar ferramentas do Lago de Dados Azure para c
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Azure Data Lake Tools for VS Code suporta Windows, Linux e macOS.A corrida local U-SQL e o depurg local funcionam apenas no Windows.
+Azure Data Lake Tools for VS Code suporta Windows, Linux e macOS. A corrida local U-SQL e o depurg local funcionam apenas no Windows.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
@@ -65,18 +65,18 @@ Abra a paleta de comando (Ctrl+Shift+P) e **introduza ADL: Open Sample Script**.
 4. Introduza o seguinte código no ficheiro Untitled-1:
 
    ```usql
-   @departments  =
-       SELECT * FROM
-           (VALUES
-               (31,    "Sales"),
-               (33,    "Engineering"),
-               (34,    "Clerical"),
-               (35,    "Marketing")
-           ) AS
-                 D( DepID, DepName );
+   @departments  =
+       SELECT * FROM
+           (VALUES
+               (31,    "Sales"),
+               (33,    "Engineering"),
+               (34,    "Clerical"),
+               (35,    "Marketing")
+           ) AS
+                 D( DepID, DepName );
    ```
 
-   SAÍDA @departments      PARA "/Output/departments.csv" USANDO Outputters.Csv();
+   SAÍDA @departments     PARA "/Output/departments.csv" USANDO Outputters.Csv();
 
     O script cria um ficheiro departments.csv com alguns dados incluídos na pasta /saída.
 
@@ -162,7 +162,7 @@ Pode registar a montagem através do comando **ADL: Register Assembly** ou **ADL
 
 O portal é aberto num browser e exibe o processo de registo de montagem.  
 
-Uma forma mais conveniente de ativar o comando **ADL: Register Assembly** é clicar à direita no ficheiro .dll no File Explorer.
+Uma forma mais conveniente de acionar o comando **ADL: Register Assembly** é clicar com o direito no ficheiro .dll no File Explorer.
 
 ### <a name="to-register-through-the-adl-register-assembly-advanced-command"></a>Para se registar através do comando ADL: Register Assembly (Advanced)
 
@@ -176,9 +176,9 @@ Uma forma mais conveniente de ativar o comando **ADL: Register Assembly** é cli
 >[!NOTE]
 >
 >- A Azure Data Lake Tools autodetects se o DLL tem alguma dependência de montagem. As dependências são exibidas no ficheiro JSON depois de detetadas.
->- Pode carregar os seus recursos DLL (por exemplo, .txt, .png e .csv) como parte do registo de montagem.
+>- Pode fazer o upload dos seus recursos DLL (por exemplo, .txt, .png e .csv) como parte do registo de montagem.
 
-Outra forma de acionar o comando **ADL: Register Assembly (Advanced)** é clicar à direita no ficheiro .dll no File Explorer.
+Outra forma de acionar o comando **ADL: Register Assembly (Advanced)** é clicar com o direito no ficheiro .dll no File Explorer.
 
 O seguinte código U-SQL demonstra como convocar uma montagem. Na amostra, o nome de montagem é *testado.*
 
@@ -260,7 +260,7 @@ Não pode sair do explorador. Para assinar, consulte [Ligar-se ao Azure utilizan
 
 ## <a name="create-an-extraction-script"></a>Criar um script de extração
 
-Pode criar um script de extração para ficheiros .csv, .tsv e .txt utilizando o comando **ADL: Criar SCRIPT EXTRACT** ou a partir do explorador do Lago de Dados Azure.
+Pode criar um script de extração para .csv, .tsv e .txt ficheiros utilizando o comando **ADL: Criar SCRIPT EXTRACT** ou a partir do explorador do Lago de Dados Azure.
 
 ### <a name="to-create-an-extraction-script-by-using-a-command"></a>Para criar um script de extração usando um comando
 
@@ -277,7 +277,7 @@ O script de extração é gerado com base nas suas entradas. Para um script que 
 
 ### <a name="to-create-an-extraction-script-from-the-explorer"></a>Para criar um script de extração do explorador
 
-Outra forma de criar o script de extração é através do menu de clique à direita (atalho) no ficheiro .csv, .tsv ou .txt na Azure Data Lake Store ou no armazenamento Azure.
+Outra forma de criar o script de extração é através do menu de clique direito (atalho) no .csv, .tsv, ou .txt ficheiro na Azure Data Lake Store ou no armazenamento Azure Blob.
 
 ![Comando "Criar SCRIPT EXTRACT" a partir do menu de atalho](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-from-context-menu.png)
 
@@ -351,7 +351,7 @@ Outra forma de pré-visualizar o ficheiro é através do menu de atalho no camin
 ### <a name="upload-a-file-or-folder"></a>Faça upload de um ficheiro ou pasta
 
 1. Clique com o botão direito no editor de scripts e selecione **Upload File** ou **Upload Folder**.
-2. Escolha um ficheiro ou vários ficheiros se selecionou o **Upload File**ou escolher toda a pasta se selecionou **a Pasta do Upload**. Em seguida, selecione **Carregar**.
+2. Escolha um ficheiro ou vários ficheiros se selecionou o **Upload File** ou escolher toda a pasta se selecionou **a Pasta do Upload**. Em seguida, selecione **Carregar**.
 3. Escolha a pasta de armazenamento na lista ou selecione **Insira um caminho** ou **navegue pelo caminho raiz**. (Estamos usando **Enter um caminho** como um exemplo.)
 4. Selecione a sua conta Data Lake Analytics.
 5. Navegue para ou introduza o caminho da pasta de armazenamento (por exemplo, /output/).
@@ -382,7 +382,7 @@ Pode [monitorizar o estado do download](#check-storage-tasks-status).
 
 ### <a name="to-download-a-file-through-the-adl-download-file-command"></a>Para descarregar um ficheiro através do comando ADL: Download File
 
-1. Clique com o botão direito no editor de scripts, selecione **Download File**e, em seguida, selecione a pasta de destino na caixa de diálogo **Select Folder.**
+1. Clique com o botão direito no editor de scripts, selecione **Download File** e, em seguida, selecione a pasta de destino na caixa de diálogo **Select Folder.**
 
 1. Escolha a pasta da lista ou selecione **Insira um caminho** ou **navegue pelo caminho raiz**. (Estamos usando **Enter um caminho** como um exemplo.)
 
@@ -410,7 +410,7 @@ Depois de iniciar sessão, todas as subscrições da sua conta Azure estão list
 
 ### <a name="data-lake-analytics-metadata-navigation"></a>Data Lake Analytics metadados navegação
 
-Expanda a sua subscrição Azure. No nó **U-SQL Databases,** pode navegar pela base de dados U-SQL e ver pastas como **Schemas,** **Credenciais,** **Conjuntos,** **Tabelas**e **Índice**.
+Expanda a sua subscrição Azure. No nó **U-SQL Databases,** pode navegar pela base de dados U-SQL e ver pastas como **Schemas,** **Credenciais,** **Conjuntos,** **Tabelas** e **Índice**.
 
 ### <a name="data-lake-analytics-metadata-entity-management"></a>Gestão de metadados data Lake Analytics
 
@@ -432,11 +432,11 @@ Pode registar um conjunto na base de dados correspondente clicando no nó **de C
 
 Navegue pela **Data Lake Store:**
 
-- Pode clicar no nó da pasta e depois utilizar o **"Refresh**", **Eliminar**, **Carregar,** **Carregar Pasta,** **Copiar Caminho Relativo**e Copiar comandos Full **Path** no menu de atalho.
+- Pode clicar no nó da pasta e depois utilizar o **"Refresh**", **Eliminar**, **Carregar,** **Carregar Pasta,** **Copiar Caminho Relativo** e Copiar comandos Full **Path** no menu de atalho.
 
    ![Comandos de menu de atalho para um nó de pasta no explorador do Lago de Dados](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
-- Pode clicar no nó de ficheiro e depois utilizar o **pré-visualização**, **baixar**, **eliminar**, **criar script EXTRACT** (disponível apenas para ficheiros CSV, TSV e TXT), Copiar Caminho **Relativo**e Copiar comandos Do **Caminho Completo** no menu de atalho.
+- Pode clicar no nó de ficheiro e depois utilizar o **pré-visualização**, **baixar**, **eliminar**, **criar script EXTRACT** (disponível apenas para ficheiros CSV, TSV e TXT), Copiar Caminho **Relativo** e Copiar comandos Do **Caminho Completo** no menu de atalho.
 
    ![Comandos de menu de atalho para um nó de ficheiro no explorador do Lago de Dados](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-extract.png)
 
@@ -444,7 +444,7 @@ Navegue pela **Data Lake Store:**
 
 Procurar no armazenamento blob:
 
-- Pode clicar com o botão direito do nó do recipiente blob e, em seguida, utilizar os comandos **Refresh**, **Delete Blob**e Carregar os comandos **Blob** no menu de atalho.
+- Pode clicar com o botão direito do nó do recipiente blob e, em seguida, utilizar os comandos **Refresh**, **Delete Blob** e Carregar os comandos **Blob** no menu de atalho.
 
    ![Comandos de menu de atalho para um nó de recipiente blob sob armazenamento Blob](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
 
@@ -452,7 +452,7 @@ Procurar no armazenamento blob:
 
    ![Comandos de menu de atalho para um nó de pasta sob armazenamento Blob](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
 
-- Pode clicar no nó de ficheiro e depois utilizar o **pré-visualização/Edição**, **Descarregar**, **Eliminar**, **Criar Script EXTRACT** (disponível apenas para ficheiros CSV, TSV e TXT), Copiar Caminho **Relativo**e Copiar comandos Do **Caminho Completo** no menu de atalho.
+- Pode clicar no nó de ficheiro e depois utilizar o **pré-visualização/Edição**, **Descarregar**, **Eliminar**, **Criar Script EXTRACT** (disponível apenas para ficheiros CSV, TSV e TXT), Copiar Caminho **Relativo** e Copiar comandos Do **Caminho Completo** no menu de atalho.
 
     ![Comandos de menu de atalho para um nó de ficheiro sob armazenamento Blob](./media/data-lake-analytics-data-lake-tools-for-vscode/create-extract-script-from-context-menu-2.png)
 

@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
 ms.openlocfilehash: e90086be18e344e3061b9e683780f4427b3c15a1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148987"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018635"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purgue um ponto final Azure CDN
 ## <a name="overview"></a>Descrição geral
@@ -73,7 +73,7 @@ Este tutorial leva-o a purgar ativos de todos os nós de um ponto final.
 > 
 > 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Pré-carregar recursos num ponto final da CDN do Azure](cdn-preload-endpoint.md)
 * [Referência Azure CDN REST API - Purgar ou Pré-Carregar um ponto final](/rest/api/cdn/endpoints)
 

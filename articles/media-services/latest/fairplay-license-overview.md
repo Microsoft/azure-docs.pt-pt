@@ -15,11 +15,11 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 09068064f24594ef35a8a1bf64213b48d83873ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296868"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018737"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Requisitos de licença e configuração do Apple FairPlay
 
@@ -56,7 +56,7 @@ São necessários os seguintes ao utilizar os Serviços de Comunicação Social 
     
 * As seguintes coisas devem ser definidas pelo lado do cliente FPS:
 
-  * **App Cert (AC)**: Trata-se de um ficheiro .cer/.der que contém a chave pública, que o sistema operativo utiliza para encriptar alguma carga útil. Os Serviços de Comunicação Social precisam de saber porque é exigido pelo jogador. O serviço de entrega de chaves desencripta-o utilizando a chave privada correspondente.
+  * **App Cert (AC)**: Este é um ficheiro .cer/.der que contém a chave pública, que o sistema operativo utiliza para encriptar alguma carga útil. Os Serviços de Comunicação Social precisam de saber porque é exigido pelo jogador. O serviço de entrega de chaves desencripta-o utilizando a chave privada correspondente.
 
 * Para reproduzir um stream encriptado FairPlay, obtenha um ASK real primeiro e, em seguida, gere um certificado real. Este processo cria as três partes:
 

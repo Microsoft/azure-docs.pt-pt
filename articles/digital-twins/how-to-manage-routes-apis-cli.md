@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Veja como configurar e gerir pontos finais e rotas de eventos para os dados da Azure Digital Twins.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 10/12/2020
+ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0b8bd9006482daf7c9218f0f3dbb16d2e08359bf
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: b836038aa2f8f60e25c51d1d5674d22497b3ce44
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533757"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96018970"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -64,14 +64,14 @@ Uma vez criado o tópico, pode ligá-lo à Azure Digital Twins com o seguinte [c
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Agora, o tópico da grelha de eventos está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado com o `--endpoint-name` argumento. Normalmente, você usará esse nome como alvo de uma rota de **eventos** , que irá criar [mais tarde neste artigo](#create-an-event-route) usando o serviço Azure Digital Twins API.
+Agora, o tópico da grelha de eventos está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado com o `--endpoint-name` argumento. Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo](#create-an-event-route) usando o serviço Azure Digital Twins API.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Crie um centro de eventos ou ponto final de ônibus de serviço
 
 O processo de criação de Centros de Eventos ou pontos finais de autocarros de serviço é semelhante ao processo de Grelha de Eventos acima mostrado.
 
 Primeiro, crie os seus recursos que usará como ponto final. Aqui está o que é necessário:
-* Service Bus: _Service Bus namespace_ , _Service Bus topic_ , Regra de _autorização_
+* Service Bus: _Service Bus namespace_, _Service Bus topic_, Regra de _autorização_
 * Centros de eventos: _Espaço de nomes de Centros de Eventos,_ _centro de eventos,_ regra _de autorização_
 
 Em seguida, utilize os seguintes comandos para criar os pontos finais em Azure Digital Twins: 
@@ -156,10 +156,10 @@ Para enviar dados da Azure Digital Twins para um ponto final, terá de definir u
 
 As amostras desta secção utilizam o [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
-**Pré-requisito** : É necessário criar pontos finais, conforme descrito anteriormente neste artigo, antes de poder passar a criar uma rota. Pode proceder à criação de uma rota de eventos assim que os seus pontos finais terminarem a sua configuração.
+**Pré-requisito**: É necessário criar pontos finais, conforme descrito anteriormente neste artigo, antes de poder passar a criar uma rota. Pode proceder à criação de uma rota de eventos assim que os seus pontos finais terminarem a sua configuração.
 
->[!NOTE]
->Se implementou recentemente os seus pontos finais, valide que terminaram de ser implementados **antes** de tentar usá-los para uma nova rota de eventos. Se a implementação da rota falhar porque os pontos finais não estão prontos, aguarde alguns minutos e tente novamente.
+> [!NOTE]
+> Se implementou recentemente os seus pontos finais, valide que terminaram de ser implementados **antes** de tentar usá-los para uma nova rota de eventos. Se a implementação da rota falhar porque os pontos finais não estão prontos, aguarde alguns minutos e tente novamente.
 >
 > Se estiver a escrever este fluxo, é melhor prestar contas por isso construindo em 2-3 minutos de tempo de espera para o serviço de ponto final terminar a implantação antes de seguir para a configuração da rota.
 
@@ -229,7 +229,7 @@ Sem filtragem, os pontos finais recebem uma variedade de eventos da Azure Digita
 
 Pode restringir os eventos que estão a ser enviados adicionando um **filtro** para um ponto final na sua rota de eventos.
 
-Para adicionar um filtro, pode utilizar um pedido PUT para *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-10-31* com o seguinte corpo:
+Para adicionar um filtro, pode utilizar um pedido PUT para *https://{Your-azure-digital-twins-hostname}/eventRoutes/{event-route-name}?api-version=2020-10-31* com o seguinte corpo:
 
 ```json  
 {
@@ -237,7 +237,6 @@ Para adicionar um filtro, pode utilizar um pedido PUT para *https://{YourHost}/E
     "filter": "<filter-text>"
 }
 ``` 
-
 Aqui estão os filtros de rota suportados. Utilize o detalhe na coluna *de esquema de texto do filtro* para substituir o espaço reservado no corpo de pedido `<filter-text>` acima.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]

@@ -1,19 +1,19 @@
 ---
 title: Relocalização grosseira no Objectivo-C
 description: Explicação aprofundada de como criar e localizar âncoras utilizando uma relocalização grosseira no Objectivo-C.
-author: bucurb
-manager: dacoghl
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: bobuc
-ms.date: 09/19/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 251f0d8609921bd1d0222d9e30c537ecbb2a04bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c50b324bddd2c57f65225c02b0745ed3ad1244a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76548276"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96018023"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-objective-c"></a>Como criar e localizar âncoras utilizando uma relocalização grosseira no Objectivo-C
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779174"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018686"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Compreender a faturação da CDN do Azure
 
@@ -48,7 +48,7 @@ A região de faturação Azure CDN baseia-se na localização do servidor de ori
 Por exemplo, se um utilizador localizado no México emitir um pedido e este pedido for reparado por um servidor localizado num POP dos Estados Unidos devido a condições de observação ou tráfego, a região de faturação será os Estados Unidos.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>O que é uma transação Azure CDN faturada?
-Qualquer pedido HTTP(S) que encerre no CDN é um evento faturante, que inclui todos os tipos de resposta: sucesso, falha ou outro. No entanto, diferentes respostas podem gerar diferentes quantidades de tráfego. Por exemplo, *304 respostas não modificadas* e outras respostas apenas para cabeçalho geram pouco tráfego porque são uma resposta de cabeçalho pequeno; da mesma forma, as respostas de erro (por exemplo, *404 Não Encontradas* ) são faturantes, mas incorrem num pequeno custo devido à carga útil de resposta minúscula.
+Qualquer pedido HTTP(S) que encerre no CDN é um evento faturante, que inclui todos os tipos de resposta: sucesso, falha ou outro. No entanto, diferentes respostas podem gerar diferentes quantidades de tráfego. Por exemplo, *304 respostas não modificadas* e outras respostas apenas para cabeçalho geram pouco tráfego porque são uma resposta de cabeçalho pequeno; da mesma forma, as respostas de erro (por exemplo, *404 Não Encontradas*) são faturantes, mas incorrem num pequeno custo devido à carga útil de resposta minúscula.
 
 ## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Que outros custos da Azure estão associados à utilização do Azure CDN?
 A utilização do Azure CDN também incorre em algumas taxas de utilização nos serviços utilizados como origem para os seus objetos. Estes custos são tipicamente uma pequena fração do custo total de utilização do CDN.

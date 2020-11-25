@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
 ms.openlocfilehash: bf86656ff670df19162867d597a869d762a012e8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454574"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019349"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Tutorial: Integrar o Negócio dropbox com o Azure Ative Directory
 
@@ -119,7 +119,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado Britta
 
 Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, concedendo acesso ao Dropbox Business.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Dropbox Business**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -173,7 +173,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
     ![Configurar o início de sessão único](./media/dropboxforbusiness-tutorial/configure6.png "Configurar o início de sessão único")
 
-    c. Clique **no certificado de upload**e, em seguida, navegue no seu ficheiro de certificado **codificado Base64** que descarregou a partir do portal Azure.
+    c. Clique **no certificado de upload** e, em seguida, navegue no seu ficheiro de certificado **codificado Base64** que descarregou a partir do portal Azure.
 
     d. Clique no **link Copy** e cole o valor copiado na caixa de texto URL **de Sign-on** do Domínio de **Negócios dropbox e na secção URLs** no portal Azure.
 

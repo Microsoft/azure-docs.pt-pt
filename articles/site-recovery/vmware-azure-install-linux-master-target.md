@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
 ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146477"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019247"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
 Depois de falhar as suas máquinas virtuais para o Azure, pode falhar de volta as máquinas virtuais para o local. Para falhar, é necessário reprotegir a máquina virtual de Azure para o local. Para este processo, precisa de um servidor-alvo principal no local para receber o tráfego. 
@@ -44,11 +44,11 @@ Publique comentários ou perguntas no final deste artigo ou na página de pergun
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Diretrizes de dimensionamento para criar o servidor principal alvo
 
 Crie o alvo principal de acordo com as seguintes diretrizes de dimensionamento:
-- **RAM** : 6 GB ou mais
-- **Tamanho do disco de SO** : 100 GB ou mais (para instalar o SO)
-- **Tamanho adicional do disco para unidade de retenção** : 1 TB
-- **Núcleos do CPU** : 4 núcleos ou mais
-- **Kernel** : 4.16.*
+- **RAM**: 6 GB ou mais
+- **Tamanho do disco de SO**: 100 GB ou mais (para instalar o SO)
+- **Tamanho adicional do disco para unidade de retenção**: 1 TB
+- **Núcleos do CPU**: 4 núcleos ou mais
+- **Kernel**: 4.16.*
 
 ## <a name="deploy-the-master-target-server"></a>Implementar o servidor-alvo principal
 
@@ -59,77 +59,77 @@ Tome as seguintes medidas para instalar o sistema operativo Ubuntu 16.04.2 de 64
 1.   Vá ao [link de descarregamento](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), escolha o espelho mais próximo e descarregue um Ubuntu 16.04.2 mínimo de 64 bits ISO.
 Mantenha um Ubuntu 16.04.2 iso mínimo de 64 bits na unidade de DVD e inicie o sistema.
 
-1.  Selecione **o inglês** como o seu idioma preferido e, em seguida, selecione **Enter** .
+1.  Selecione **o inglês** como o seu idioma preferido e, em seguida, selecione **Enter**.
     
     ![Escolha um idioma](./media/vmware-azure-install-linux-master-target/image1.png)
-1. Selecione **instalar o Servidor Ubuntu** e, em seguida, selecione **Enter** .
+1. Selecione **instalar o Servidor Ubuntu** e, em seguida, selecione **Enter**.
 
     ![Selecione instalar o servidor Ubuntu](./media/vmware-azure-install-linux-master-target/image2.png)
 
-1.  Selecione **o inglês** como o seu idioma preferido e, em seguida, selecione **Enter** .
+1.  Selecione **o inglês** como o seu idioma preferido e, em seguida, selecione **Enter**.
 
     ![Selecione o inglês como o seu idioma preferido](./media/vmware-azure-install-linux-master-target/image3.png)
 
-1. Selecione a opção adequada na lista de opções **do Fuso Horário** e, em seguida, selecione **Enter** .
+1. Selecione a opção adequada na lista de opções **do Fuso Horário** e, em seguida, selecione **Enter**.
 
     ![Selecione o fuso horário correto](./media/vmware-azure-install-linux-master-target/image4.png)
 
-1. Selecione **Não** (a opção predefinitiva) e, em seguida, selecione **Enter** .
+1. Selecione **Não** (a opção predefinitiva) e, em seguida, selecione **Enter**.
 
      ![Configure o teclado](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Selecione **Inglês (EUA)** como país/região de origem para o teclado e, em seguida, selecione **Enter** .
+1. Selecione **Inglês (EUA)** como país/região de origem para o teclado e, em seguida, selecione **Enter**.
 
-1. Selecione **Inglês (EUA)** como o layout do teclado e, em seguida, selecione **Enter** .
+1. Selecione **Inglês (EUA)** como o layout do teclado e, em seguida, selecione **Enter**.
 
-1. Introduza o nome de anfitrião para o seu servidor na caixa **de nome anfitrião** e, em seguida, selecione **Continue** .
+1. Introduza o nome de anfitrião para o seu servidor na caixa **de nome anfitrião** e, em seguida, selecione **Continue**.
 
-1. Para criar uma conta de utilizador, insira o nome de utilizador e, em seguida, **selecione Continue** .
+1. Para criar uma conta de utilizador, insira o nome de utilizador e, em seguida, **selecione Continue**.
 
       ![Criar uma conta de utilizador](./media/vmware-azure-install-linux-master-target/image9.png)
 
-1. Introduza a palavra-passe para a nova conta de utilizador e, em seguida, **selecione Continue** .
+1. Introduza a palavra-passe para a nova conta de utilizador e, em seguida, **selecione Continue**.
 
-1.  Confirme a palavra-passe para o novo utilizador e, em seguida, **selecione Continue** .
+1.  Confirme a palavra-passe para o novo utilizador e, em seguida, **selecione Continue**.
 
     ![Confirme as palavras-passe](./media/vmware-azure-install-linux-master-target/image11.png)
 
-1.  Na próxima seleção para encriptar o diretório de casa, selecione **Nº** (a opção padrão) e, em seguida, **selecione Enter** .
+1.  Na próxima seleção para encriptar o diretório de casa, selecione **Nº** (a opção padrão) e, em seguida, **selecione Enter**.
 
-1. Se o fuso horário apresentado estiver correto, selecione **Sim** (a opção padrão) e, em seguida, selecione **Enter** . Para reconfigurar o seu fuso horário, selecione **Nº** .
+1. Se o fuso horário apresentado estiver correto, selecione **Sim** (a opção padrão) e, em seguida, selecione **Enter**. Para reconfigurar o seu fuso horário, selecione **Nº**.
 
-1. A partir das opções do método de partição, **selecione Guided - use o disco inteiro** e, em seguida, selecione **Enter** .
+1. A partir das opções do método de partição, **selecione Guided - use o disco inteiro** e, em seguida, selecione **Enter**.
 
      ![Selecione a opção método de partição](./media/vmware-azure-install-linux-master-target/image14.png)
 
-1.  Selecione o disco apropriado a partir do disco Select para as opções **de partição** e, em seguida, selecione **Enter** .
+1.  Selecione o disco apropriado a partir do disco Select para as opções **de partição** e, em seguida, selecione **Enter**.
 
     ![Selecione o disco](./media/vmware-azure-install-linux-master-target/image15.png)
 
-1.  Selecione **Sim** para escrever as alterações no disco e, em seguida, selecione **Enter** .
+1.  Selecione **Sim** para escrever as alterações no disco e, em seguida, selecione **Enter**.
 
     ![Selecione a opção predefinitiva](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-1.  Na seleção de procuração configurada, selecione a opção predefinida, selecione **Continue** e, em seguida, selecione **Enter** .
+1.  Na seleção de procuração configurada, selecione a opção predefinida, selecione **Continue** e, em seguida, selecione **Enter**.
      
      ![Screenshot que mostra onde selecionar Continue e, em seguida, selecione Enter.](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
-1.  Selecione Nenhuma opção **de atualizações automáticas** na seleção para gerir atualizações no seu sistema e, em seguida, selecione **Enter** .
+1.  Selecione Nenhuma opção **de atualizações automáticas** na seleção para gerir atualizações no seu sistema e, em seguida, selecione **Enter**.
 
      ![Selecione como gerir upgrades](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Uma vez que o servidor-alvo principal de recuperação do site Azure requer uma versão muito específica do Ubuntu, é necessário garantir que as atualizações do kernel são desativadas para a máquina virtual. Se estiverem ativadas, quaisquer atualizações regulares fazem com que o servidor principal do alvo avarie. Certifique-se de que seleciona a opção **"Não atualizações automáticas".**
 
-1.  Selecione as opções predefinitivas. Se pretender abrir OSSH para ligação SSH, selecione a opção **do servidor OpenSSH** e, em seguida, selecione **Continue** .
+1.  Selecione as opções predefinitivas. Se pretender abrir OSSH para ligação SSH, selecione a opção **do servidor OpenSSH** e, em seguida, selecione **Continue**.
 
     ![Selecione software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. Na seleção para instalar o carregador de arranque GRUB, selecione **Sim** e, em seguida, selecione **Enter** .
+1. Na seleção para instalar o carregador de arranque GRUB, selecione **Sim** e, em seguida, selecione **Enter**.
      
     ![Instalador de botas GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
-1. Selecione o dispositivo apropriado para a instalação do carregador de arranque (de preferência **/dev/sda** ), e, em seguida, selecione **Enter** .
+1. Selecione o dispositivo apropriado para a instalação do carregador de arranque (de preferência **/dev/sda**), e, em seguida, selecione **Enter**.
      
     ![Selecione o dispositivo apropriado](./media/vmware-azure-install-linux-master-target/image21.png)
 
@@ -150,7 +150,7 @@ Para obter o ID de cada disco rígido SCSI numa máquina virtual Linux, o **disc
 
 1. Desligue a sua máquina virtual.
 
-2. Clique à direita na entrada da máquina virtual no painel esquerdo e, em seguida, selecione **Editar Definições** .
+2. Clique à direita na entrada da máquina virtual no painel esquerdo e, em seguida, selecione **Editar Definições**.
 
 3. Selecione o separador **Opções.**
 
@@ -162,13 +162,13 @@ Para obter o ID de cada disco rígido SCSI numa máquina virtual Linux, o **disc
 
 5. Veja se uma linha com **disco. EnableUUID** já existe.
 
-   - Se o valor existir e estiver definido como **Falso,** altere o valor para **Verdadeiro** . (Os valores não são sensíveis a casos.)
+   - Se o valor existir e estiver definido como **Falso,** altere o valor para **Verdadeiro**. (Os valores não são sensíveis a casos.)
 
-   - Se o valor existir e estiver definido para **True,** **selecione Cancelar** .
+   - Se o valor existir e estiver definido para **True,** **selecione Cancelar**.
 
-   - Se o valor não existir, **selecione Add Row** .
+   - Se o valor não existir, **selecione Add Row**.
 
-   - Na coluna de nomes, adicione **o disco. EnableUUID** , e, em seguida, definir o valor para **TRUE** .
+   - Na coluna de nomes, adicione **o disco. EnableUUID**, e, em seguida, definir o valor para **TRUE**.
 
      ![A verificar se o disco. EnableUUID já existe](./media/vmware-azure-install-linux-master-target/image25.png)
 
@@ -201,9 +201,9 @@ Para descarregá-lo usando Linux, escreva:
 
 #### <a name="access-the-installer-from-the-process-server"></a>Aceda ao instalador a partir do servidor de processo
 
-1. No servidor de processos, aceda a **C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repositório** .
+1. No servidor de processos, aceda a **C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repositório**.
 
-2. Copie o ficheiro instalador necessário do servidor de processo e guarde-o como **mais recentementelinuxmobsvc.tar.gz** no seu diretório de casa.
+2. Copie o ficheiro instalador necessário do servidor de processo e guarde-o como **mais recente .tar.gz** no seu diretório de origem.
 
 
 ### <a name="apply-custom-configuration-changes"></a>Aplicar alterações de configuração personalizadas
@@ -238,7 +238,7 @@ Utilize os seguintes passos para criar um disco de retenção:
 
     ![ID multipata](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatar a unidade e, em seguida, criar um sistema de ficheiros na nova unidade: **mkfs.ext4 /dev/mapper/ \<Retention disk's multipath id>** .
+3. Formatar a unidade e, em seguida, criar um sistema de ficheiros na nova unidade: **mkfs.ext4 /dev/mapper/ \<Retention disk's multipath id>**.
     
     ![Sistema de ficheiros](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -257,7 +257,7 @@ Utilize os seguintes passos para criar um disco de retenção:
 
     **/dev/mapper/ \<Retention disks multipath id> /mnt/retenção ext4 rw 0 0**
 
-    Selecione **Esc** , e, em seguida, **escreva :wq** (escreva e desista) para fechar a janela do editor.
+    Selecione **Esc**, e, em seguida, **escreva :wq** (escreva e desista) para fechar a janela do editor.
 
 ### <a name="install-the-master-target"></a>Instale o alvo principal
 
@@ -300,7 +300,7 @@ Espera até o guião acabar. Se o alvo principal se registar com sucesso, o alvo
 
 #### <a name="install-the-master-target-by-using-interactive-installation"></a>Instale o alvo principal utilizando a instalação interativa
 
-1. Executar o seguinte comando para instalar o alvo principal. Para o papel de agente, escolha **o alvo principal** .
+1. Executar o seguinte comando para instalar o alvo principal. Para o papel de agente, escolha **o alvo principal**.
 
     ```
     ./install
@@ -329,7 +329,7 @@ Depois de concluída a instalação, registe o servidor de configuração utiliz
 
 ### <a name="upgrade-the-master-target-server"></a>Atualize o servidor alvo principal
 
-Execute o instalador. Deteta automaticamente que o agente está instalado no alvo principal. Para atualizar, selecione **Y** .  Depois de concluída a configuração, verifique a versão do alvo principal instalado utilizando o seguinte comando:
+Execute o instalador. Deteta automaticamente que o agente está instalado no alvo principal. Para atualizar, selecione **Y**.  Depois de concluída a configuração, verifique a versão do alvo principal instalado utilizando o seguinte comando:
 
 `cat /usr/local/.vx_version`
 

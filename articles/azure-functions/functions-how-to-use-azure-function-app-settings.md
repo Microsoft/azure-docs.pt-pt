@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
 ms.openlocfilehash: f597e58c70d6ac9daff753f5c0a54199c2383c42
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746174"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019515"
 ---
 # <a name="manage-your-function-app"></a>Gerir a sua aplicação de função 
 
@@ -29,7 +29,7 @@ Este artigo descreve como configurar e gerir as suas aplicações de função.
 
 1. Para começar, vá ao [portal Azure] e inscreva-se na sua conta Azure. Na barra de pesquisa no topo do portal, insira o nome da sua aplicação de função e selecione-a da lista. 
 
-2. Em **Definições** no painel esquerdo, **selecione Configuração** .
+2. Em **Definições** no painel esquerdo, **selecione Configuração**.
 
     :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Visão geral da aplicação de função no portal Azure":::
 

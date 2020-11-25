@@ -10,11 +10,11 @@ ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075965"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018533"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialize telemetria usando tampão de protocolo
 
@@ -63,7 +63,7 @@ Faça o download e desaperte o [microserviço](https://github.com/Azure/device-s
 
 No Código do Estúdio Visual, abra a pasta **adaptador de dispositivos de monitorização remota-dotnet-master\storage-adapter.** Clique em quaisquer botões **De restauro** para corrigir dependências não resolvidas.
 
-Abra a variável **ambiente de .vscode/launch.jsno** ficheiro e atribua a sua cadeia de ligação Cosmos DB à variável ambiente de ** \_ \_ connstring DOCUMENTDB DO PCS STORAGEADAPTER. \_ **
+Abra a variável **ambiente de .vscode/launch.jsno** ficheiro e atribua a sua cadeia de ligação Cosmos DB à variável ambiente de **\_ \_ connstring DOCUMENTDB DO PCS STORAGEADAPTER. \_**
 
 > [!NOTE]
 > Quando você executar o micro-serviço localmente na sua máquina, ele ainda requer uma instância Cosmos DB em Azure para funcionar corretamente.
@@ -190,15 +190,15 @@ Nesta secção, testa o dispositivo de rastreador de ativos que criou nas secç�
 
 Abra o **ficheiro .vscode/launch.jse** atribua o seu:
 
-* Cadeia de ligação IoT Hub à variável ambiente ** \_ de \_ connstring PCS IOTHUB.**
+* Cadeia de ligação IoT Hub à variável ambiente **\_ de \_ connstring PCS IOTHUB.**
 * Cadeia de ligação da conta de armazenamento para a variável ambiente **de conta de armazenamento PCS \_ \_ \_ AZURE.**
-* Cadeia de ligação Cosmos DB à variável ambiente ambiente ** \_ DE \_ CONNSTRING DOCUMENTDB \_ DOCUMENTDB.**
+* Cadeia de ligação Cosmos DB à variável ambiente ambiente **\_ DE \_ CONNSTRING DOCUMENTDB \_ DOCUMENTDB.**
 
 Abra o **WebService/Properties/launchSettings.jsno** ficheiro e atribua o seu:
 
-* Cadeia de ligação IoT Hub à variável ambiente ** \_ de \_ connstring PCS IOTHUB.**
+* Cadeia de ligação IoT Hub à variável ambiente **\_ de \_ connstring PCS IOTHUB.**
 * Cadeia de ligação da conta de armazenamento para a variável ambiente **de conta de armazenamento PCS \_ \_ \_ AZURE.**
-* Cadeia de ligação Cosmos DB à variável ambiente ambiente ** \_ DE \_ CONNSTRING DOCUMENTDB \_ DOCUMENTDB.**
+* Cadeia de ligação Cosmos DB à variável ambiente ambiente **\_ DE \_ CONNSTRING DOCUMENTDB \_ DOCUMENTDB.**
 
 Abra o ficheiro **WebService\appsettings.ini** e modifique as definições da seguinte forma:
 
@@ -247,7 +247,7 @@ Para configurar o Carteiro:
 
 1. Abra o Carteiro na sua máquina local.
 
-1. Clique ** \> em Importar Ficheiros.** Em seguida, clique em **Escolher Ficheiros**.
+1. Clique **\> em Importar Ficheiros.** Em seguida, clique em **Escolher Ficheiros**.
 
 1. Selecione **Azure IoT Device Simulation accelerator.postman \_ collection** and **Azure IoT Device Simulation accelerator.postman \_ environment** and click **Open**.
 
@@ -265,7 +265,7 @@ Para configurar e executar a simulação:
 
 Para interromper a simulação, selecione o pedido **de simulação Stop** no Carteiro e clique em **Enviar**.
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode parar os dois microserviços de funcionamento local nas suas instâncias do Código do Estúdio Visual **(Debug \> Stop Debugging).**
 

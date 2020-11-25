@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 11/18/2020
 ms.author: baanders
 ms.openlocfilehash: 261c5fa47cddcc527e7c0a18fbd18aad9320ed4b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95560476"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018971"
 ---
 | Nome do filtro | Descrição | Esquema de texto do filtro | Valores suportados | 
 | --- | --- | --- | --- |

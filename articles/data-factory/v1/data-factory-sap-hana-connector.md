@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707145"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019570"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mover dados da SAP HANA usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -42,7 +42,7 @@ Para permitir a conectividade à instância SAP HANA, instale os seguintes compo
 Pode criar um pipeline com uma atividade de cópia que move dados de uma loja de dados SAP HANA no local utilizando diferentes ferramentas/APIs. 
 
 - A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy. 
-- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia. 
+- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia. 
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -291,10 +291,10 @@ REAL | Único
 DUPLO | Único
 DECIMAL | Decimal
 BOOLEANA | Byte
-RIO VARCHAR | Cadeia
-NVARCHAR | Cadeia
+RIO VARCHAR | String
+NVARCHAR | String
 CLOB | Byte[]
-ALPHANUM | Cadeia
+ALPHANUM | String
 BLOB | Byte[]
 DATE | DateTime
 TIME | TimeSpan

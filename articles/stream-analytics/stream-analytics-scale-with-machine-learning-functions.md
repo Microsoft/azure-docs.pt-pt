@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
 ms.openlocfilehash: feeb709f67a0e75f5980ec0520b95feb7edd5960
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124412"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018822"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalar o seu trabalho stream analytics com funções Azure Machine Learning Studio (clássico)
 
@@ -52,7 +52,7 @@ Para processar 200.000 eventos por segundo, o trabalho stream Analytics precisa 
 
 ![Scale Stream Analytics com Estúdio (clássico) Funções dois exemplos de trabalho](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Scale Stream Analytics com Estúdio (clássico) Funções dois exemplos de trabalho")
 
-Em geral, * *_B_* _ para o tamanho do lote, _*_L_*_ para a latência do serviço web no tamanho do lote B em milissegundos, a produção de um trabalho stream Analytics com _*_N_*_ SUs é:
+Em geral, **_B_* _ para o tamanho do lote, _*_L_*_ para a latência do serviço web no tamanho do lote B em milissegundos, a produção de um trabalho stream Analytics com _*_N_*_ SUs é:
 
 ![Scale Stream Analytics com Fórmula de Funções de Estúdio (clássico)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Scale Stream Analytics com Fórmula de Funções de Estúdio (clássico)")
 
@@ -63,7 +63,7 @@ Para obter mais informações sobre este cenário, reveja o [artigo de Escala pa
 ## <a name="example--sentiment-analysis"></a>Exemplo – Análise de Sentimentos
 O exemplo a seguir inclui um trabalho stream Analytics com a função de análise de sentimento Studio (clássico), como descrito no [tutorial de integração de machine learning (clássico) stream Analytics Machine Learning Studio ( clássico).](stream-analytics-machine-learning-integration-tutorial.md)
 
-A consulta é uma consulta simples e totalmente dividida seguida pela função _ *sentiment* * , como mostra o seguinte exemplo:
+A consulta é uma consulta simples e totalmente dividida seguida pela função _ *sentiment** , como mostra o seguinte exemplo:
 
 ```SQL
     WITH subquery AS (
@@ -99,7 +99,7 @@ Vejamos a escala usando as seguintes medidas de latência para cada tamanho do l
 | 300 ms | Lotes de 10.000 eventos |
 | 500 ms | Lotes de 25.000 eventos |
 
-1. Utilizando a primeira opção **(não** fornecendo mais SUs). O tamanho do lote pode ser aumentado para **25.000** . Aumentar o tamanho do lote desta forma permitirá ao trabalho processar 1.000.000 eventos com 20 ligações simultâneas ao serviço web Studio (clássico) (com uma latência de 500 ms por chamada). Assim, a latência adicional do trabalho stream Analytics devido aos pedidos de função de sentimento contra os pedidos de serviço web do Studio (clássico) seria aumentada de **200 para** **500 ms** . No entanto, o tamanho do lote **não pode** ser aumentado infinitamente, uma vez que os serviços web do Studio (clássico) requerem que o tamanho da carga útil de um pedido seja 4 MB ou menor, e o serviço web solicita tempo de operação após 100 segundos de funcionamento.
+1. Utilizando a primeira opção **(não** fornecendo mais SUs). O tamanho do lote pode ser aumentado para **25.000**. Aumentar o tamanho do lote desta forma permitirá ao trabalho processar 1.000.000 eventos com 20 ligações simultâneas ao serviço web Studio (clássico) (com uma latência de 500 ms por chamada). Assim, a latência adicional do trabalho stream Analytics devido aos pedidos de função de sentimento contra os pedidos de serviço web do Studio (clássico) seria aumentada de **200 para** **500 ms**. No entanto, o tamanho do lote **não pode** ser aumentado infinitamente, uma vez que os serviços web do Studio (clássico) requerem que o tamanho da carga útil de um pedido seja 4 MB ou menor, e o serviço web solicita tempo de operação após 100 segundos de funcionamento.
 1. Utilizando a segunda opção, o tamanho do lote é deixado a 1000, com latência de serviço web de 200 ms, cada 20 ligações simultâneas ao serviço web seria capaz de processar 1000 * 20 * 5 eventos = 100.000 por segundo. Assim, para processar 1.000.000 eventos por segundo, o trabalho precisaria de 60 SUs. Em comparação com a primeira opção, o trabalho stream Analytics faria mais pedidos de lote de serviço web, gerando, por sua vez, um custo acrescido.
 
 Abaixo está uma tabela para a produção do trabalho stream Analytics para diferentes SUs e tamanhos de lote (em número de eventos por segundo).
@@ -126,9 +126,9 @@ Na área monitor de um trabalho stream analytics, foram adicionadas três métri
 
 Os são definidos da seguinte forma:
 
-**PEDIDOS DE FUNÇÃO** : O número de pedidos de função.
+**PEDIDOS DE FUNÇÃO**: O número de pedidos de função.
 
-**EVENTOS DE FUNÇÃO** : Os números dos pedidos de função.
+**EVENTOS DE FUNÇÃO**: Os números dos pedidos de função.
 
 **PEDIDOS DE FUNÇÃO FALHADO :** O número de pedidos de função falhados.
 

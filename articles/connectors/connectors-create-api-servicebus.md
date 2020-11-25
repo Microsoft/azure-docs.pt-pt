@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
 ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426646"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019719"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Troque mensagens na nuvem usando Azure Logic Apps e Azure Service Bus
 
@@ -47,7 +47,7 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
 
 1. No [portal Azure,](https://portal.azure.com)inscreva-se na sua conta Azure.
 
-1. Vá ao seu *espaço de nomes*de Service Bus . Na página do espaço de nomes, em **Definições,** **selecione Políticas de acesso partilhado**. Em **Sinistros,** verifique se tem permissões **de Gestão** para esse espaço de nome.
+1. Vá ao seu *espaço de nomes* de Service Bus . Na página do espaço de nomes, em **Definições,** **selecione Políticas de acesso partilhado**. Em **Sinistros,** verifique se tem permissões **de Gestão** para esse espaço de nome.
 
    ![Gerir permissões para o espaço de nomes do Service Bus](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
@@ -163,7 +163,7 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
 
 ## <a name="send-correlated-messages-in-order"></a>Enviar mensagens correlacionadas por ordem
 
-Quando precisa enviar mensagens relacionadas numa ordem específica, pode utilizar o padrão do [ *comboio sequencial* ](/azure/architecture/patterns/sequential-convoy) utilizando o [conector Azure Service Bus](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como o ID para a [sessão](../service-bus-messaging/message-sessions.md) em Service Bus.
+Quando precisa enviar mensagens relacionadas numa ordem específica, pode utilizar o padrão do [ *comboio sequencial*](/azure/architecture/patterns/sequential-convoy) utilizando o [conector Azure Service Bus](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como o ID para a [sessão](../service-bus-messaging/message-sessions.md) em Service Bus.
 
 Ao criar uma aplicação lógica, pode selecionar a **entrega de encomenda correlacionada utilizando** o modelo de sessões de autocarro de serviço, que implementa o padrão de comboio sequencial. Para obter mais informações, consulte [Enviar mensagens relacionadas por ordem](../logic-apps/send-related-messages-sequential-convoy.md).
 

@@ -7,16 +7,16 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 3674c316e34b1e54ed8282ac7d2c228a2b774c06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081224"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019026"
 ---
 # <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Como documentar fontes de dados no Catálogo de Dados do Azure
 
 ## <a name="introduction"></a>Introdução
-**O Microsoft Azure Data Catalog** é um serviço de cloud totalmente gerido que serve como um sistema de registo e sistema de descoberta para fontes de dados empresariais. Por outras palavras, **o Azure Data Catalog** tem tudo a ver com ajudar as pessoas a descobrir, *compreender*e usar fontes de dados, e ajudar as organizações a obter mais valor a partir dos seus dados existentes.
+**O Microsoft Azure Data Catalog** é um serviço de cloud totalmente gerido que serve como um sistema de registo e sistema de descoberta para fontes de dados empresariais. Por outras palavras, **o Azure Data Catalog** tem tudo a ver com ajudar as pessoas a descobrir, *compreender* e usar fontes de dados, e ajudar as organizações a obter mais valor a partir dos seus dados existentes.
 
 Quando uma fonte de dados é registada no **Azure Data Catalog,** os seus metadados são copiados e indexados pelo serviço, mas a história não termina aí. **O Azure Data Catalog** também permite que os utilizadores forneçam a sua documentação completa que possa descrever o uso e cenários comuns para a fonte de dados.
 

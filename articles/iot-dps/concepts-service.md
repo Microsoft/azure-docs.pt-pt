@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotga
 ms.openlocfilehash: b9fc37c6589cdd0bc6a5cdce7b7ebebe2c6e9a85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531615"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019451"
 ---
 # <a name="iot-hub-device-provisioning-service-dps-terminology"></a>Terminologia do Serviço de Provisionamento de Dispositivos IoT Hub (DPS)
 
@@ -44,7 +44,7 @@ A definição de nível de serviço que determina como o Serviço de Provisionam
 
 * **Latência mais baixa**: os dispositivos são a provisionados a um hub IoT com a latência mais baixa do dispositivo. Se vários hubs IoT ligados forneceriam a mesma latência mais baixa, o serviço de fornecimento hashes dispositivos através desses centros
 
-* **Configuração estática através da lista**de inscrições : a especificação do hub IoT desejado na lista de inscrições tem prioridade sobre a política de atribuição ao nível do serviço.
+* **Configuração estática através da lista** de inscrições : a especificação do hub IoT desejado na lista de inscrições tem prioridade sobre a política de atribuição ao nível do serviço.
 
 * **Custom (Use Azure Function)**: Uma política de atribuição personalizada dá-lhe mais controlo sobre a forma como os dispositivos são atribuídos a um hub IoT. Isto é conseguido utilizando código personalizado numa Função Azure para atribuir dispositivos a um hub IoT. O serviço de fornecimento de dispositivos chama o seu código Azure Function fornecendo todas as informações relevantes sobre o dispositivo e a inscrição no seu código. O seu código de função é executado e devolve as informações do hub IoT utilizadas para o fornecimento do dispositivo.
 

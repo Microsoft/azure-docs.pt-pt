@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f7edf790e526329dd285d03a31137a26220e52ee
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778936"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018652"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Utilização de Azure CDN com CORS
 ## <a name="what-is-cors"></a>O que é o CORS?
@@ -69,7 +69,7 @@ No Azure CDN Standard da Microsoft, pode criar uma regra no [motor de regras Sta
 ![Exemplo de regras com motor de regras padrão](./media/cdn-cors/cdn-standard-cors.png)
 
 > [!TIP]
-> Pode adicionar ações adicionais à sua regra para modificar cabeçalhos de resposta adicionais, tais como **Acesso-Control-Allow-Methods** .
+> Pode adicionar ações adicionais à sua regra para modificar cabeçalhos de resposta adicionais, tais como **Acesso-Control-Allow-Methods**.
 > 
 
 No **Azure CDN Standard da Akamai,** o único mecanismo que permite múltiplas origens sem a utilização da origem wildcard é utilizar o [caching](cdn-query-string.md)de cordas de consulta . Ativar a definição de cadeia de consulta para o ponto final do CDN e, em seguida, utilizar uma cadeia de consulta única para pedidos de cada domínio permitido. Ao fazê-lo, o CDN irá caching um objeto separado para cada cadeia de consulta única. Esta abordagem não é, no entanto, ideal, uma vez que resultará em múltiplas cópias do mesmo ficheiro em cache no CDN.  
@@ -91,7 +91,7 @@ https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.co
 > 
 > 
 
-Se a expressão regular corresponder, a sua regra substituirá o cabeçalho **Access-Control-Allow-Origin** (se houver) da origem com a origem que enviou o pedido.  Também pode adicionar cabeçalhos CORS adicionais, tais como **Acesso-Control-Allow-Methods** .
+Se a expressão regular corresponder, a sua regra substituirá o cabeçalho **Access-Control-Allow-Origin** (se houver) da origem com a origem que enviou o pedido.  Também pode adicionar cabeçalhos CORS adicionais, tais como **Acesso-Control-Allow-Methods**.
 
 ![Exemplo de regras com expressão regular](./media/cdn-cors/cdn-cors-regex.png)
 

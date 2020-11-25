@@ -13,11 +13,11 @@ ms.custom:
 - mqtt
 - devx-track-js
 ms.openlocfilehash: 78600b7b57a7c30fc609434a700f13fa21e079ce
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659646"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019264"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo a jusante a um gateway do Azure IoT Edge
 
@@ -218,6 +218,6 @@ Se o seu dispositivo de folha tiver ligação intermitente ao seu dispositivo ga
 2. O nome de anfitrião do portal é resolúvel para um endereço IP? Pode resolver ligações intermitentes utilizando DNS ou adicionando uma entrada de ficheiro de anfitrião no dispositivo de folha.
 3. As portas de comunicação estão abertas na sua firewall? A comunicação com base no protocolo utilizado (MQTTS:8883/AMQPS:5671/HTTPS:433) deve ser possível entre o dispositivo a jusante e o IoT Edge transparente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como o IoT Edge pode estender [as capacidades offline](offline-capabilities.md) a dispositivos a jusante.

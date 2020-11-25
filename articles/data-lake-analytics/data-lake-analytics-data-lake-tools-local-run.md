@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 5f9410cc91174420662bb5efc67c8904b5d5e647
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219688"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018992"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Executar scripts U-SQL na sua máquina local
 
@@ -54,7 +54,7 @@ As ferramentas do Azure Data Lake para o Estúdio Visual têm um motor de funcio
  
 ## <a name="local-runs-with-a-local-machine-account"></a>Local funciona com uma conta de máquina local
 
-Uma conta **de máquina local** é uma conta de computação local partilhada com uma única pasta de raiz de dados local como conta de loja local. Por predefinição, a pasta raiz de dados está localizada em **C:\Utilizadores \<username> \AppData\Local\USQLDataRoot**. Também é configurável através de **opções**e configurações do  >  **Lago de**  >  **Dados de Ferramentas.**
+Uma conta **de máquina local** é uma conta de computação local partilhada com uma única pasta de raiz de dados local como conta de loja local. Por predefinição, a pasta raiz de dados está localizada em **C:\Utilizadores \<username> \AppData\Local\USQLDataRoot**. Também é configurável através de **opções** e configurações do  >  **Lago de**  >  **Dados de Ferramentas.**
 
 ![Configure uma pasta de raiz de dados local](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-local-data-root.png)
   
@@ -92,8 +92,8 @@ No quadro seguinte são apresentadas mais diferenças entre as contas **de proje
 |Ângulo de diferença|Máquina local|Projeto local|
 |----------------|---------------|---------------|
 |Acesso local|Pode ser acedido por todos os projetos.|Apenas o projeto correspondente pode aceder a esta conta.|
-|Pasta de raiz de dados locais|Uma pasta local permanente. Configurado através de **opções**  >  e configurações do Lago**de**  >  **Dados de Ferramentas**.|Uma pasta temporária criada para cada execução local no âmbito do diretório de trabalho do projeto U-SQL. A pasta é limpa quando acontece uma reconstrução ou repetição.|
-|Dados de entrada para um script U-SQL|O caminho relativo sob a pasta permanente de raiz de dados locais.|Configurar através **da propriedade do projeto U-SQL**Fonte de  >  **dados de teste.** Todos os ficheiros e sub-dobradores são copiados para a pasta de raiz de dados temporários antes de uma execução local.|
+|Pasta de raiz de dados locais|Uma pasta local permanente. Configurado através de **opções**  >  e configurações do Lago **de**  >  **Dados de Ferramentas**.|Uma pasta temporária criada para cada execução local no âmbito do diretório de trabalho do projeto U-SQL. A pasta é limpa quando acontece uma reconstrução ou repetição.|
+|Dados de entrada para um script U-SQL|O caminho relativo sob a pasta permanente de raiz de dados locais.|Configurar através **da propriedade do projeto U-SQL** Fonte de  >  **dados de teste.** Todos os ficheiros e sub-dobradores são copiados para a pasta de raiz de dados temporários antes de uma execução local.|
 |Dados de saída para um script U-SQL|Percurso relativo sob a pasta permanente de raiz de dados locais.|Saída para a pasta de raiz de dados temporários. Os resultados são limpos quando uma reconstrução ou repetição acontece.|
 |Implantação de base de dados referenciada|As bases de dados referenciadas não são implantadas automaticamente quando correm contra uma conta **de máquina local.** É o mesmo para submeter-se a uma conta Azure Data Lake Analytics.|As bases de dados referenciadas são implantadas automaticamente na conta **do projeto local** antes de uma execução local. Todos os ambientes da base de dados são limpos e redistribuídos quando uma reconstrução ou repetição acontece.|
 

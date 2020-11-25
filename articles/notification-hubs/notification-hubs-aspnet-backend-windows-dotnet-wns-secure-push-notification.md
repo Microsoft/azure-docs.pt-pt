@@ -16,11 +16,11 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 98e587103e63cd5cc26eab5b00864d00e0b9007f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089956"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019430"
 ---
 # <a name="send-secure-push-notifications-from-azure-notification-hubs"></a>Enviar notificações push seguras dos hubs de notificação do Azure
 
@@ -93,11 +93,11 @@ Este tutorial mostra como enviar uma notificação push de forma segura. O tutor
 
 O próximo passo é criar o componente de fundo de impulso.
 
-1. No Solution Explorer, clique no nó de nível superior da solução **(Solution SecurePush** neste caso), clique em **Adicionar**e, em seguida, clique em **Novo Projeto**.
-2. Expandir **as aplicações da loja,** em seguida, clicar em **Aplicativos windows phone**e, em seguida, clicar no Componente de tempo de **execução do Windows (Windows Phone)**. Nomeie o projeto **PushBackgroundComponent**e, em seguida, clique **em OK** para criar o projeto.
+1. No Solution Explorer, clique no nó de nível superior da solução **(Solution SecurePush** neste caso), clique em **Adicionar** e, em seguida, clique em **Novo Projeto**.
+2. Expandir **as aplicações da loja,** em seguida, clicar em **Aplicativos windows phone** e, em seguida, clicar no Componente de tempo de **execução do Windows (Windows Phone)**. Nomeie o projeto **PushBackgroundComponent** e, em seguida, clique **em OK** para criar o projeto.
 
     ![Screenshot do diálogo Add New Project com a opção Visual C# do Windows Runtime Component (Windows Phone).][12]
-3. No Solution Explorer, clique com o botão direito no projeto **PushBackgroundComponent (Windows Phone 8.1)** e, em seguida, clique em **Adicionar**e, em seguida, clique em **Classe**. Diga o nome da nova `PushBackgroundTask.cs` classe. Clique **em Adicionar** para gerar a classe.
+3. No Solution Explorer, clique com o botão direito no projeto **PushBackgroundComponent (Windows Phone 8.1)** e, em seguida, clique em **Adicionar** e, em seguida, clique em **Classe**. Diga o nome da nova `PushBackgroundTask.cs` classe. Clique **em Adicionar** para gerar a classe.
 4. Substitua todo o conteúdo da definição de `PushBackgroundComponent` espaço de nome pelo seguinte código, substituindo o espaço reservado pelo ponto final de `{back-end endpoint}` back-end obtido enquanto implementa o seu back-end:
 
     ```csharp
@@ -148,7 +148,7 @@ O próximo passo é criar o componente de fundo de impulso.
 5. No Solution Explorer, clique com o botão direito no projeto **PushBackgroundComponent (Windows Phone 8.1)** e, em seguida, clique em **Gerir Pacotes NuGet**.
 6. No lado esquerdo, clique em **Online**.
 7. Na caixa **Procurar**, escreva **Cliente HTTP**.
-8. Na lista de resultados, clique nas **Bibliotecas do Cliente Microsoft HTTP**e, em seguida, clique em **Instalar**. Conclua a instalação.
+8. Na lista de resultados, clique nas **Bibliotecas do Cliente Microsoft HTTP** e, em seguida, clique em **Instalar**. Conclua a instalação.
 9. Na caixa **Procurar** no NuGet, escreva **Json.net**. Instale o pacote **Json.NET** e feche a janela NuGet Package Manager.
 10. Adicione as `using` seguintes declarações no topo do `PushBackgroundTask.cs` ficheiro:
 
@@ -163,7 +163,7 @@ O próximo passo é criar o componente de fundo de impulso.
     using Windows.Data.Xml.Dom;
     ```
 
-11. No Solution Explorer, no projeto **NotifyUserWindowsPhone (Windows Phone 8.1),** clique com o botão direito **Referências,** em seguida, clique em **Adicionar Referência...**. No diálogo do Gestor de Referência, verifique a caixa ao lado do **PushBackgroundComponent**e, em seguida, clique **em OK**.
+11. No Solution Explorer, no projeto **NotifyUserWindowsPhone (Windows Phone 8.1),** clique com o botão direito **Referências,** em seguida, clique em **Adicionar Referência...**. No diálogo do Gestor de Referência, verifique a caixa ao lado do **PushBackgroundComponent** e, em seguida, clique **em OK**.
 12. No Solution Explorer, clique duplo **em Package.appxmanifest** no projeto **NotifyUserWindowsPhone (Windows Phone 8.1).** Em **Notificações**, definir **Torrada capaz** de **sim**.
 
     ![Screenshot da janela Solution Explorer focada no Package.appxmanifest com a opção "Torrada" definida para Sim delineada a vermelho.][3]

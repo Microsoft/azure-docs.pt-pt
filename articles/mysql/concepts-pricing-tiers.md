@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: c70e4a097a56b76089a26510bcf33b4c7c24c266
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535151"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018720"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de Dados Azure para os níveis de preços do MySQL
 
@@ -21,7 +21,7 @@ Pode criar uma Base de Dados Azure para o servidor MySQL num dos três níveis d
 |:---|:----------|:--------------------|:---------------------|
 | Geração computacional | Gen 4, Gen 5 | Gen 4, Gen 5 | Geração 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Memória por vCore | 2 GB | 5 GB | 10 GB |
+| Memória por vCore | 2 GB | 5 GB | 10 GB |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
 | Período de retenção de backup da base de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 0019e50615f3e66778709ad8cb28f92967c66e2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050200"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018452"
 ---
 ## <a name="deployment-customization"></a>Personalização de implementação
 
@@ -17,4 +17,4 @@ O processo de implementação pressupõe que o ficheiro .zip que empurra contém
 
 `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-Quando utilizar a implementação .zip push, esta definição é **falsa** por defeito. O padrão é **verdadeiro** para implementações de integração contínua. Quando definido como **verdadeiro,** as suas definições relacionadas com a implementação são utilizadas durante a implementação. Pode configurar estas definições como definições de aplicações ou num ficheiro de configuração de .implementação que está localizado na raiz do seu ficheiro .zip. Para obter mais informações, consulte [as definições relacionadas com o Repositório e](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings) a implementação na referência de implantação.
+Quando utiliza .zip colocação de impulsos, esta definição é **falsa** por defeito. O padrão é **verdadeiro** para implementações de integração contínua. Quando definido como **verdadeiro,** as suas definições relacionadas com a implementação são utilizadas durante a implementação. Pode configurar estas definições como definições de aplicações ou num ficheiro de configuração de .implementação que esteja localizado na raiz do seu ficheiro .zip. Para obter mais informações, consulte [as definições relacionadas com o Repositório e](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings) a implementação na referência de implantação.

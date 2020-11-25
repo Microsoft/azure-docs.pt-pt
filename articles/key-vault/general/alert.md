@@ -12,11 +12,11 @@ ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
 ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427028"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018125"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorização e alerta para Azure Key Vault
 

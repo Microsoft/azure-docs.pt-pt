@@ -12,16 +12,16 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 6d3c9f0df0d834ffe75d0b56e3c80a432c27ea38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81419022"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018550"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transforme os dados executando um caderno Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A Azure Databricks Notebook Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) gere um caderno Databricks no seu espaço de trabalho Azure Databricks. Este artigo baseia-se no artigo de atividades de [transformação](transform-data.md)de   dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas.Azure Databricks é uma plataforma gerida para executar Apache Spark.
+A Azure Databricks Notebook Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) gere um caderno Databricks no seu espaço de trabalho Azure Databricks. Este artigo baseia-se no artigo de atividades de [transformação](transform-data.md) de dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação apoiadas. Azure Databricks é uma plataforma gerida para executar Apache Spark.
 
 ## <a name="databricks-notebook-activity-definition"></a>Definição de atividade de caderno de dados
 
@@ -62,7 +62,7 @@ A tabela a seguir descreve as propriedades JSON utilizadas na definição JSON:
 |name|O nome da atividade no oleoduto.|Sim|
 |descrição|Texto descrevendo o que a atividade faz.|Não|
 |tipo|Para a Atividade do Caderno databricks, o tipo de atividade é DatabricksNotebook.|Sim|
-|linkedServiceName|Nome do Serviço Linked Databricks no qual funciona o portátil Databricks. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  |Sim|
+|linkedServiceName|Nome do Serviço Linked Databricks no qual funciona o portátil Databricks. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)|Sim|
 |notebookPath|O caminho absoluto do caderno a ser executado no Espaço de Trabalho databricks. Este caminho deve começar com um corte.|Sim|
 |basesParametros|Uma variedade de pares Key-Value. Os parâmetros de base podem ser utilizados para cada execução de atividade. Se o caderno tiver um parâmetro que não esteja especificado, o valor predefinido do portátil será utilizado. Saiba mais sobre os parâmetros nos [cadernos databricks.](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)|Não|
 |bibliotecas|Uma lista de bibliotecas a instalar no cluster que executará o trabalho. Pode ser uma variedade \<string, object> de.|Não|

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542177"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019468"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o conjunto de entrega de aplicações do Azure
 
@@ -25,7 +25,7 @@ A Microsoft Azure fornece vários serviços globais e regionais para gerir a for
 
 * Gateway de Aplicação
 * Front Door 
-* Load balancer  
+* Balanceador de Carga  
 * Gestor de Tráfego
 
 Juntamente com as muitas regiões e arquitetura zonal da Azure, a utilização destes serviços em conjunto pode permitir-lhe construir aplicações robustas, escaláveis e de alto desempenho.
@@ -82,7 +82,7 @@ Além disso, o pool VM padrão que serve o conteúdo dinâmico precisa de falar 
 
 O seguinte diagrama mostra a arquitetura deste cenário:
 
-:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Suíte de Entrega de Aplicações":::
+:::image type="content" source="./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure2.png" alt-text="Suíte de entrega de aplicações Arquitetura detalhada":::
 
 > [!NOTE]
 > Este exemplo é apenas uma das muitas configurações possíveis dos serviços de equilíbrio de carga que a Azure oferece. O Gestor de Tráfego, Porta Frontal, Gateway de Aplicação e Balancer de Carga podem ser misturados e combinados de melhor forma às suas necessidades de equilíbrio de carga. Por exemplo, se não for necessária a descarga TLS/SSL ou o processamento da Camada 7, o Balanceador de Carga pode ser utilizado no lugar do Gateway de Aplicações.

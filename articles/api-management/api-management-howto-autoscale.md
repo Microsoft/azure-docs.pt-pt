@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095956"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018257"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Crie automaticamente uma instância de dimensionamento da Gestão de API do Azure  
 
@@ -66,7 +66,7 @@ Siga os passos abaixo para configurar a autoescala para um serviço de Gestão A
 
     ![Azure Monitor autoscale enable](media/api-management-howto-autoscale/03.png)
 
-6. Na secção **Regras,** clique **+ Adicione uma regra** .
+6. Na secção **Regras,** clique **+ Adicione uma regra**.
 
     ![Regra de adicionar automaticamente a azure Monitor](media/api-management-howto-autoscale/04.png)
 
@@ -93,7 +93,7 @@ Siga os passos abaixo para configurar a autoescala para um serviço de Gestão A
 
     ![Regra de escala de escala do Monitor Azure](media/api-management-howto-autoscale/05.png)
 
-9. Clique novamente **em + Adicione uma regra** .
+9. Clique novamente **em + Adicione uma regra**.
 
     Desta vez, uma escala de regra precisa de ser definida. Garantirá que os recursos não sejam desperdiçados, quando a utilização de APIs diminuir.
 
@@ -127,7 +127,7 @@ Siga os passos abaixo para configurar a autoescala para um serviço de Gestão A
 
     ![Screenshot que realça onde definir o número máximo de unidades de Gestão API da Azure.](media/api-management-howto-autoscale/07.png)
 
-13. Clique em **Guardar** . A sua autoescalada foi configurada.
+13. Clique em **Guardar**. A sua autoescalada foi configurada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

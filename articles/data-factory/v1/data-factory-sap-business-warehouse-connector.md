@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707281"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019587"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -46,7 +46,7 @@ Para permitir a conectividade à instância SAP BW, instale os seguintes compone
 Pode criar um pipeline com uma atividade de cópia que move dados de uma loja de dados cassandra no local, utilizando diferentes ferramentas/APIs. 
 
 - A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy. 
-- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia. 
+- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia. 
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -291,27 +291,27 @@ Ao mover dados do SAP BW, os seguintes mapeamentos são utilizados de tipos SAP 
 Tipo de dados no Dicionário ABAP | .NET Data Type
 -------------------------------- | --------------
 ACCP |  int
-CHAR | Cadeia
-CLNT | Cadeia
+CHAR | String
+CLNT | String
 CURR | Decimal
-RIO CUKY | Cadeia
+RIO CUKY | String
 DEC | Decimal
 FLTP | Double (Duplo)
 INT1 | Byte
 INT2 | Int16
 INT4 | int
-LANG | Cadeia
-LCHR | Cadeia
+LANG | String
+LCHR | String
 RIO LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-CORDA | Cadeia
-UNIDADE | Cadeia
-DATS | Cadeia
-NUMC | Cadeia
-TIMS | Cadeia
+CORDA | String
+UNIDADE | String
+DATS | String
+NUMC | String
+TIMS | String
 
 > [!NOTE]
 > Para mapear colunas de conjunto de dados de origem para colunas a partir do conjunto de dados da pia, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).

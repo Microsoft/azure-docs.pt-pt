@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217563"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018210"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo usando o Azure Monitor
 
@@ -126,7 +126,7 @@ Aqui os passos para começar a escrever consultas para alertas:
 
     ![Criar regra](media/alerts-log/AlertsPreviewAdd.png)
 
-1. Prima no **botão 'Selecionar Recursos'.** Filtre por escolher a *Subscrição*, *Tipo de Recurso*e selecione um recurso. Certifique-se de que o recurso tem registos disponíveis.
+1. Prima no **botão 'Selecionar Recursos'.** Filtre por escolher a *Subscrição*, *Tipo de Recurso* e selecione um recurso. Certifique-se de que o recurso tem registos disponíveis.
 
    ![Selecione recurso](media/alerts-log/Alert-SelectResourceLog.png)
 
@@ -176,7 +176,7 @@ Aqui os passos para começar a escrever consultas para alertas:
 
     ![Separador de ações](media/alerts-log/actions-tab.png)
 
-1. No separador **Detalhes,** defina os detalhes da **regra alerta**e detalhes **do Projeto**. Pode configurar opcionalmente se não **deve começar**a funcionar agora , ou [**ações de silenciamento**](alerts-unified-log.md#state-and-resolving-alerts) por um período após o incêndio da regra de alerta.
+1. No separador **Detalhes,** defina os detalhes da **regra alerta** e detalhes **do Projeto**. Pode configurar opcionalmente se não **deve começar** a funcionar agora , ou [**ações de silenciamento**](alerts-unified-log.md#state-and-resolving-alerts) por um período após o incêndio da regra de alerta.
 
     > [!NOTE]
     > As regras de alerta de registo são atualmente apátridas e disparam uma ação sempre que um alerta é criado, a menos que o silenciamento seja definido.

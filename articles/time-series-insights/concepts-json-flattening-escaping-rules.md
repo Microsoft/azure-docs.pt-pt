@@ -10,11 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.openlocfilehash: 0839d2c734418824952f37cb177490e56e1133c5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023314"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017972"
 ---
 # <a name="json-flattening-escaping-and-array-handling"></a>Simplificação, Escape e Processamento de Matriz do JSON
 
@@ -182,6 +182,6 @@ A configuração e carga útil acima produzirá três colunas e um evento
 | ---- | ---- | ---- |
 | `2020-11-01T10:00:00.000Z` | `800500054755`| ``[{"value": 120},{"value":124}]`` |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Compreenda as [limitações](./concepts-streaming-ingress-throughput-limits.md) de produção do seu ambiente

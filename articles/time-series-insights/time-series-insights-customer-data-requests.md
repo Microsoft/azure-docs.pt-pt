@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5565dd43689d0420fbb9b73f088f24a38a2d54db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5ecbabe4a5c3458c77d145fbce1281550470e00
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665910"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96019077"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados de clientes
 
@@ -34,7 +34,7 @@ Um administrador de inquilino pode apagar os dados do cliente usando o portal Az
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-No entanto, antes de eliminar os dados dos clientes através do portal, deverá remover as políticas de acesso do utilizador do ambiente Time Series Insights dentro do portal Azure. Para obter mais informações, leia [o acesso de dados do Grant a um ambiente de Insights de Séries Tempotadas utilizando o portal Azure](time-series-insights-data-access.md).
+No entanto, antes de eliminar os dados dos clientes através do portal, deverá remover as políticas de acesso do utilizador do ambiente Time Series Insights dentro do portal Azure. Para obter mais informações, leia [o acesso de dados do Grant a um ambiente de Insights de Séries Tempotadas utilizando o portal Azure](./concepts-access-policies.md).
 
 Também pode executar operações de eliminação nas políticas de acesso utilizando a API REST. Para mais informações, leia [Políticas de Acesso - Excluir](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete).
 
@@ -46,7 +46,7 @@ Da mesma forma para eliminar dados, um administrador de inquilino pode ver e exp
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Se for administrador de inquilinos, pode ver as políticas de acesso a dados dentro do ambiente Time Series Insights no portal Azure. Para obter mais informações, leia [o acesso de dados do Grant a um ambiente de Insights de Séries Tempotadas utilizando o portal Azure](time-series-insights-data-access.md).
+Se for administrador de inquilinos, pode ver as políticas de acesso a dados dentro do ambiente Time Series Insights no portal Azure. Para obter mais informações, leia [o acesso de dados do Grant a um ambiente de Insights de Séries Tempotadas utilizando o portal Azure](./concepts-access-policies.md).
 
 É igualmente possível realizar operações de exportação em políticas de acesso utilizando a operação "list by environment" na API providenciada. Para mais informações, leia [Políticas de Acesso - List By Environment](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment).
 
@@ -68,7 +68,7 @@ Para obter mais informações, leia [a retenção de configuração em Time Seri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Leia mais sobre [a concessão de acesso de dados ao ambiente Azure Time Series Insights](./time-series-insights-data-access.md).
+* Leia mais sobre [a concessão de acesso de dados ao ambiente Azure Time Series Insights](./concepts-access-policies.md).
 
 * Ver o [explorador Azure Time Series Insights](time-series-insights-explorer.md).
 

@@ -4,30 +4,30 @@ description: Utilize a cópia de segurança periódica do Service Fabric e a fun
 ms.topic: article
 ms.date: 2/01/2019
 ms.openlocfilehash: 2607502af44b178131820d78f23bcdf4e32454a0
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506129"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018890"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compreensão da configuração de backup periódica no Tecido de Serviço Azure
 
 Configurar a cópia de segurança periódica dos seus serviços estatais confiáveis ou atores fiáveis consiste nos seguintes passos:
 
-1. **Criação de políticas de backup** : Neste passo, uma ou mais políticas de backup são criadas em função dos requisitos.
+1. **Criação de políticas de backup**: Neste passo, uma ou mais políticas de backup são criadas em função dos requisitos.
 
-2. **Ativar o backup** : Neste passo, associa as políticas de backup criadas no **Passo 1** às entidades requeridas, _Aplicação,_ _Serviço_ ou _Partição_.
+2. **Ativar o backup**: Neste passo, associa as políticas de backup criadas no **Passo 1** às entidades requeridas, _Aplicação,_ _Serviço_ ou _Partição_.
 
 ## <a name="create-backup-policy"></a>Criar Política de Backup
 
 Uma política de backup consiste nas seguintes configurações:
 
-* **Restauração automática na perda de dados** : Especifica se deve desencadear a restauração automaticamente utilizando a cópia de segurança mais recente disponível no caso de a partição experimentar um evento de perda de dados.
+* **Restauração automática na perda de dados**: Especifica se deve desencadear a restauração automaticamente utilizando a cópia de segurança mais recente disponível no caso de a partição experimentar um evento de perda de dados.
 > [!NOTE]
 > Recomenda-se não definir auto-restauração em clusters de produção
 >
 
-* **Cópias de segurança incrementais máximas** : Define o número máximo de cópias de segurança incrementais a serem tomadas entre duas cópias de segurança completas. Cópias de segurança incrementais max especificam o limite superior. Uma cópia de segurança completa pode ser tomada antes de o número especificado de cópias de segurança incrementais ser concluído numa das seguintes condições
+* **Cópias de segurança incrementais máximas**: Define o número máximo de cópias de segurança incrementais a serem tomadas entre duas cópias de segurança completas. Cópias de segurança incrementais max especificam o limite superior. Uma cópia de segurança completa pode ser tomada antes de o número especificado de cópias de segurança incrementais ser concluído numa das seguintes condições
 
     1. A réplica nunca teve uma cópia de segurança completa desde que se tornou primária.
 
@@ -35,9 +35,9 @@ Uma política de backup consiste nas seguintes configurações:
 
     3. Réplica passou o limite MaxAccumulatedBackupLogSizeInMB.
 
-* **Horário de reserva** : A hora ou a frequência para então fazer cópias de segurança periódicas. Pode-se agendar cópias de segurança para serem recorrentes num intervalo especificado ou num horário fixo diariamente/semanalmente.
+* **Horário de reserva**: A hora ou a frequência para então fazer cópias de segurança periódicas. Pode-se agendar cópias de segurança para serem recorrentes num intervalo especificado ou num horário fixo diariamente/semanalmente.
 
-    1. **Horário de backup baseado em frequências** : Este tipo de programação deve ser utilizado se for necessário fazer cópia de segurança de dados em intervalos fixos. O intervalo de tempo desejado entre duas cópias de segurança consecutivas é definido utilizando o formato ISO8601. O horário de backup baseado em frequências suporta a resolução de intervalos ao minuto.
+    1. **Horário de backup baseado em frequências**: Este tipo de programação deve ser utilizado se for necessário fazer cópia de segurança de dados em intervalos fixos. O intervalo de tempo desejado entre duas cópias de segurança consecutivas é definido utilizando o formato ISO8601. O horário de backup baseado em frequências suporta a resolução de intervalos ao minuto.
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -45,8 +45,8 @@ Uma política de backup consiste nas seguintes configurações:
         }
         ```
 
-    2. **Horário de backup baseado no tempo** : Este tipo de programação deve ser utilizado se for necessário fazer cópia de segurança de dados em horas específicas do dia ou da semana. O tipo de frequência de programação pode ser diário ou semanal.
-        1. **_Agenda_ de backup baseada no tempo diário** : Este tipo de programação deve ser usado se for necessário obter cópia de segurança de dados em horas específicas do dia. Para especificar isto, definido `ScheduleFrequencyType` para _Daily;_ e definir `RunTimes` para listar a hora desejada durante o dia no formato ISO8601, a data especificada juntamente com o tempo será ignorada. Por exemplo, `0001-01-01T18:00:00` representa _18:00 todos_ os dias, ignorando a data _parte 0001-01-01_. Abaixo o exemplo ilustra a configuração para acionar a cópia de segurança diária às _9:00_ e _18:00 todos_ os dias.
+    2. **Horário de backup baseado no tempo**: Este tipo de programação deve ser utilizado se for necessário fazer cópia de segurança de dados em horas específicas do dia ou da semana. O tipo de frequência de programação pode ser diário ou semanal.
+        1. **_Agenda_ de backup baseada no tempo diário**: Este tipo de programação deve ser usado se for necessário obter cópia de segurança de dados em horas específicas do dia. Para especificar isto, definido `ScheduleFrequencyType` para _Daily;_ e definir `RunTimes` para listar a hora desejada durante o dia no formato ISO8601, a data especificada juntamente com o tempo será ignorada. Por exemplo, `0001-01-01T18:00:00` representa _18:00 todos_ os dias, ignorando a data _parte 0001-01-01_. Abaixo o exemplo ilustra a configuração para acionar a cópia de segurança diária às _9:00_ e _18:00 todos_ os dias.
 
             ```json
             {
@@ -59,7 +59,7 @@ Uma política de backup consiste nas seguintes configurações:
             }
             ```
 
-        2. **_Horário semanal_ de backup baseado em tempo** : Este tipo de programação deve ser usado se for necessário obter cópia de segurança de dados em horas específicas do dia. Para especificar isto, definido `ScheduleFrequencyType` para _Weekly_ ; definir para lista de dias numa semana em que a cópia de `RunDays` segurança precisa ser ativada e definida para a `RunTimes` lista de tempo desejado durante o dia no formato ISO8601, a data especificada juntamente com o tempo será ignorada. Lista de dias de uma semana para desencadear a cópia de segurança periódica. Abaixo o exemplo ilustra a configuração para ativar o backup diário às _9:00_ e _18:00_ pm durante segunda a sexta-feira.
+        2. **_Horário semanal_ de backup baseado em tempo**: Este tipo de programação deve ser usado se for necessário obter cópia de segurança de dados em horas específicas do dia. Para especificar isto, definido `ScheduleFrequencyType` para _Weekly_; definir para lista de dias numa semana em que a cópia de `RunDays` segurança precisa ser ativada e definida para a `RunTimes` lista de tempo desejado durante o dia no formato ISO8601, a data especificada juntamente com o tempo será ignorada. Lista de dias de uma semana para desencadear a cópia de segurança periódica. Abaixo o exemplo ilustra a configuração para ativar o backup diário às _9:00_ e _18:00_ pm durante segunda a sexta-feira.
 
             ```json
             {
@@ -79,8 +79,8 @@ Uma política de backup consiste nas seguintes configurações:
             }
             ```
 
-* **Armazenamento de cópia de segurança** : Especifica a localização para carregar cópias de segurança. O armazenamento pode ser ou a loja de blob Azure ou a partilha de ficheiros.
-    1. **Loja blob Azure** : Este tipo de armazenamento deve ser selecionado quando a necessidade é armazenar cópias de segurança geradas em Azure. Tanto os agrupamentos _autónomos_ como os _baseados em Azure_ podem utilizar este tipo de armazenamento. A descrição deste tipo de armazenamento requer o fio de ligação e o nome do recipiente onde as cópias de segurança precisam de ser carregadas. Se o recipiente com o nome especificado não estiver disponível, então é criado durante o upload de uma cópia de segurança.
+* **Armazenamento de cópia de segurança**: Especifica a localização para carregar cópias de segurança. O armazenamento pode ser ou a loja de blob Azure ou a partilha de ficheiros.
+    1. **Loja blob Azure**: Este tipo de armazenamento deve ser selecionado quando a necessidade é armazenar cópias de segurança geradas em Azure. Tanto os agrupamentos _autónomos_ como os _baseados em Azure_ podem utilizar este tipo de armazenamento. A descrição deste tipo de armazenamento requer o fio de ligação e o nome do recipiente onde as cópias de segurança precisam de ser carregadas. Se o recipiente com o nome especificado não estiver disponível, então é criado durante o upload de uma cópia de segurança.
 
         ```json
         {
@@ -95,7 +95,7 @@ Uma política de backup consiste nas seguintes configurações:
         > Backup restaurar Serviço não funciona com armazenamento V1 Azure
         >
 
-    2. **Partilha de ficheiros** : Este tipo de armazenamento deve ser selecionado para clusters _autónomos_ quando a necessidade é armazenar a cópia de segurança dos dados no local. A descrição deste tipo de armazenamento requer uma trajetória de partilha de ficheiros onde as cópias de segurança precisam de ser carregadas. O acesso à partilha de ficheiros pode ser configurado usando uma das seguintes opções
+    2. **Partilha de ficheiros**: Este tipo de armazenamento deve ser selecionado para clusters _autónomos_ quando a necessidade é armazenar a cópia de segurança dos dados no local. A descrição deste tipo de armazenamento requer uma trajetória de partilha de ficheiros onde as cópias de segurança precisam de ser carregadas. O acesso à partilha de ficheiros pode ser configurado usando uma das seguintes opções
         1. _Autenticação integrada do Windows,_ onde o acesso à partilha de ficheiros é fornecido a todos os computadores pertencentes ao cluster De Tecido de Serviço. Neste caso, desconfie de campos seguintes para configurar o armazenamento de backup baseado em _partilha de ficheiros._
 
             ```json
@@ -124,8 +124,8 @@ Uma política de backup consiste nas seguintes configurações:
 > Certifique-se de que a fiabilidade do armazenamento satisfaz ou excede os requisitos de fiabilidade dos dados de backup.
 >
 
-* **Política de Retenção** : Especifica a política de retenção de cópias de segurança no armazenamento configurado. Apenas a Política Básica de Retenção é apoiada.
-    1. **Política básica de retenção** : Esta política de retenção permite garantir uma utilização ótima do armazenamento removendo ficheiros de backup que já não são necessários. `RetentionDuration` pode ser especificado para definir o tempo para o qual as cópias de segurança são necessárias para serem mantidas no armazenamento. `MinimumNumberOfBackups` é um parâmetro opcional que pode ser especificado para garantir que o número especificado de cópias de segurança são sempre mantidos independentemente do `RetentionDuration` . Abaixo o exemplo ilustra a configuração para reter backups durante _10_ dias e não permite que o número de backups desça abaixo de _20_.
+* **Política de Retenção**: Especifica a política de retenção de cópias de segurança no armazenamento configurado. Apenas a Política Básica de Retenção é apoiada.
+    1. **Política básica de retenção**: Esta política de retenção permite garantir uma utilização ótima do armazenamento removendo ficheiros de backup que já não são necessários. `RetentionDuration` pode ser especificado para definir o tempo para o qual as cópias de segurança são necessárias para serem mantidas no armazenamento. `MinimumNumberOfBackups` é um parâmetro opcional que pode ser especificado para garantir que o número especificado de cópias de segurança são sempre mantidos independentemente do `RetentionDuration` . Abaixo o exemplo ilustra a configuração para reter backups durante _10_ dias e não permite que o número de backups desça abaixo de _20_.
 
         ```json
         {
@@ -136,14 +136,14 @@ Uma política de backup consiste nas seguintes configurações:
         ```
 
 ## <a name="enable-periodic-backup"></a>Ativar a cópia de segurança periódica
-Depois de definir a política de backup para cumprir os requisitos de backup de dados, a política de backup deve ser adequadamente associada a uma _aplicação_ , ou _serviço,_ ou a uma _partição_.
+Depois de definir a política de backup para cumprir os requisitos de backup de dados, a política de backup deve ser adequadamente associada a uma _aplicação_, ou _serviço,_ ou a uma _partição_.
 
 > [!NOTE]
 > Certifique-se de que não existem atualizações de aplicações em andamento antes de permitir o backup
 >
 
 ### <a name="hierarchical-propagation-of-backup-policy"></a>Propagação hierárquica da política de backup
-No Tecido de Serviço, a relação entre aplicação, serviço e partições é hierárquica como explicado no [modelo de Aplicação.](./service-fabric-application-model.md) A política de backup pode ser associada a uma _aplicação,_ _serviço_ ou a uma _divisória_ na hierarquia. A política de backup propaga-se hierárquicamente para o próximo nível. Assumindo que existe apenas uma política de backup criada e associada a uma _aplicação_ , todas as divisórias estatais pertencentes a todos os _serviços estatais confiáveis_ e _atores fiáveis_ da _aplicação_ serão apoiadas usando a política de backup. Ou se a política de backup estiver associada a um _serviço estatal fiável,_ todas as suas divisórias serão apoiadas utilizando a política de backup.
+No Tecido de Serviço, a relação entre aplicação, serviço e partições é hierárquica como explicado no [modelo de Aplicação.](./service-fabric-application-model.md) A política de backup pode ser associada a uma _aplicação,_ _serviço_ ou a uma _divisória_ na hierarquia. A política de backup propaga-se hierárquicamente para o próximo nível. Assumindo que existe apenas uma política de backup criada e associada a uma _aplicação_, todas as divisórias estatais pertencentes a todos os _serviços estatais confiáveis_ e _atores fiáveis_ da _aplicação_ serão apoiadas usando a política de backup. Ou se a política de backup estiver associada a um _serviço estatal fiável,_ todas as suas divisórias serão apoiadas utilizando a política de backup.
 
 ### <a name="overriding-backup-policy"></a>Política de backup dominante
 Pode haver um cenário em que a cópia de segurança dos dados com o mesmo horário de backup é necessária para todos os serviços da aplicação, exceto para serviços específicos em que a necessidade é ter cópia de segurança de dados usando um horário de frequência mais elevado ou levar backup para uma conta de armazenamento diferente ou partilha de ficheiros. Para resolver estes cenários, o serviço de restauro de backup fornece facilidades para anular a política propagada no âmbito de serviço e partição. Quando a política de backup está associada ao _serviço_ ou _à partilha,_ substitui a política de backup propagada, se houver.

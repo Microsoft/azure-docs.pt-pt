@@ -10,11 +10,11 @@ ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307462"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019230"
 ---
 # <a name="table-design-patterns"></a>Padrões de design da tabela
 Este artigo descreve alguns padrões adequados para utilização com soluções de serviço de mesa. Além disso, você verá como você pode praticamente abordar algumas das questões e trade-offs discutidos em outros artigos de design de armazenamento de mesa. O diagrama seguinte resume as relações entre os diferentes padrões:  
@@ -35,7 +35,7 @@ O serviço tabela indexa automaticamente as entidades utilizando os valores **Pa
 Se também quiser encontrar uma entidade de colaboradores com base no valor de outra propriedade, como endereço de e-mail, deve utilizar uma verificação de partição menos eficiente para encontrar uma correspondência. Isto porque o serviço de mesa não fornece índices secundários. Além disso, não há opção de solicitar uma lista de funcionários classificados numa ordem diferente da ordem **RowKey.**  
 
 ### <a name="solution"></a>Solução
-Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade com cada cópia utilizando um valor **RowKey** diferente. Se armazenar uma entidade com as estruturas abaixo indicadas, pode recuperar eficientemente entidades de colaboradores com base no endereço de e-mail ou iD do funcionário. Os valores de prefixo para o **RowKey** , "empid_" e "email_" permitem-lhe consultar um único empregado ou uma série de colaboradores utilizando uma série de endereços de e-mail ou IDs de funcionários.  
+Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade com cada cópia utilizando um valor **RowKey** diferente. Se armazenar uma entidade com as estruturas abaixo indicadas, pode recuperar eficientemente entidades de colaboradores com base no endereço de e-mail ou iD do funcionário. Os valores de prefixo para o **RowKey**, "empid_" e "email_" permitem-lhe consultar um único empregado ou uma série de colaboradores utilizando uma série de endereços de e-mail ou IDs de funcionários.  
 
 ![Entidades dos trabalhadores](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
@@ -90,7 +90,7 @@ Se também quiser encontrar uma entidade de colaboradores com base no valor de o
 Está a antecipar um elevado volume de transações contra estas entidades e pretende minimizar o risco de o serviço de Tabela estrangular o seu cliente.  
 
 ### <a name="solution"></a>Solução
-Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade com cada cópia utilizando diferentes valores **PartitionKey** e **RowKey.** Se armazenar uma entidade com as estruturas abaixo indicadas, pode recuperar eficientemente entidades de colaboradores com base no endereço de e-mail ou iD do funcionário. Os valores de prefixo para a **PartitionKey** , "empid_" e "email_" permitem identificar o índice que pretende utilizar para uma consulta.  
+Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade com cada cópia utilizando diferentes valores **PartitionKey** e **RowKey.** Se armazenar uma entidade com as estruturas abaixo indicadas, pode recuperar eficientemente entidades de colaboradores com base no endereço de e-mail ou iD do funcionário. Os valores de prefixo para a **PartitionKey**, "empid_" e "email_" permitem identificar o índice que pretende utilizar para uma consulta.  
 
 ![Índice primário e índice secundário](media/storage-table-design-guide/storage-table-design-IMAGE10.png)
 
@@ -163,7 +163,7 @@ Alguns erros dos serviços de Tabela e Fila são erros transitórios, e a sua ap
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Esta solução não prevê o isolamento das transações. Por exemplo, um cliente podia ler as tabelas **Corrente** e **Arquivo** quando o papel do trabalhador estava entre os passos **4** e **5** , e ver uma visão inconsistente dos dados. Os dados serão consistentes eventualmente.  
+* Esta solução não prevê o isolamento das transações. Por exemplo, um cliente podia ler as tabelas **Corrente** e **Arquivo** quando o papel do trabalhador estava entre os passos **4** e **5**, e ver uma visão inconsistente dos dados. Os dados serão consistentes eventualmente.  
 * Deve certificar-se de que os passos 4 e 5 são idempotentes para garantir uma eventual consistência.  
 * Pode escalar a solução utilizando várias filas e instâncias de função do trabalhador.  
 
@@ -213,7 +213,7 @@ A propriedade **EmployeeIDs** contém uma lista de IDs de empregados para funcio
 Os seguintes passos descrevem o processo que deve seguir quando estiver a adicionar um novo funcionário se estiver a utilizar a segunda opção. Neste exemplo, estamos adicionando um empregado com ID 000152 e um sobrenome Jones no departamento de Vendas:  
 
 1. Recupere a entidade de índice com um valor **PartitionKey** "Sales" e o valor **RowKey** "Jones". Guarde o ETag desta entidade para utilizar no passo 2.  
-2. Criar uma transação de grupo de entidades (isto é, uma operação de lote) que insira a nova entidade de empregados ( **Valor PartitionKey** "Vendas" e valor **RowKey** "000152"), e atualiza a entidade de índices ( **valor PartitionKey** "Sales" e **valor RowKey** "Jones") adicionando o novo ID do empregado à lista no campo EmployeeIDs. Para obter mais informações sobre transações de grupos de entidades, consulte As Transações do Grupo Entity.  
+2. Criar uma transação de grupo de entidades (isto é, uma operação de lote) que insira a nova entidade de empregados (**Valor PartitionKey** "Vendas" e valor **RowKey** "000152"), e atualiza a entidade de índices (**valor PartitionKey** "Sales" e **valor RowKey** "Jones") adicionando o novo ID do empregado à lista no campo EmployeeIDs. Para obter mais informações sobre transações de grupos de entidades, consulte As Transações do Grupo Entity.  
 3. Se a transação do grupo de entidades falhar devido a um erro de concordância otimista (alguém acabou de modificar a entidade de índice), então precisa recomeçar no passo 1.  
 
 Pode utilizar uma abordagem semelhante para eliminar um empregado se estiver a utilizar a segunda opção. Alterar o apelido de um colaborador é um pouco mais complexo porque terá de executar uma transação de grupo de entidades que atualiza três entidades: a entidade de colaboradores, a entidade indexa para o apelido antigo e a entidade indexa para o novo apelido. Tem de recuperar cada entidade antes de efetuar quaisquer alterações para recuperar os valores ETag que pode utilizar para executar as atualizações utilizando a concordância otimista.  
@@ -540,7 +540,7 @@ Esta secção descreve como o Storage Analytics armazena dados de registo no arm
 
 Storage Analytics armazena mensagens de registo num formato delimitado em várias bolhas. O formato delimitado facilita a análise dos dados na mensagem de registo.  
 
-O Storage Analytics utiliza uma convenção de nomeação para bolhas que lhe permite localizar a bolha (ou bolhas) que contêm as mensagens de registo pelas quais está a pesquisar. Por exemplo, uma bolha chamada "queue/2014/07/31/1800/000001.log" contém mensagens de registo que dizem respeito ao serviço de fila para a hora a partir das 18:00 de 31 de julho de 2014. O "000001" indica que este é o primeiro ficheiro de registo deste período. O Storage Analytics também regista os termos tempotamos das primeira e últimas mensagens de registo armazenadas no ficheiro como parte dos metadados da bolha. A API para armazenamento de bolhas permite localizar bolhas num recipiente com base num prefixo de nome: para localizar todas as bolhas que contêm dados de registo de fila para a hora a partir das 18:00, pode utilizar o prefixo "fila/2014/07/31/1800".  
+O Storage Analytics utiliza uma convenção de nomeação para bolhas que lhe permite localizar a bolha (ou bolhas) que contêm as mensagens de registo pelas quais está a pesquisar. Por exemplo, uma bolha chamada "fila/2014/07/31/1800/000001.log" contém mensagens de registo que dizem respeito ao serviço de fila para a hora a partir das 18:00 de 31 de julho de 2014. O "000001" indica que este é o primeiro ficheiro de registo deste período. O Storage Analytics também regista os termos tempotamos das primeira e últimas mensagens de registo armazenadas no ficheiro como parte dos metadados da bolha. A API para armazenamento de bolhas permite localizar bolhas num recipiente com base num prefixo de nome: para localizar todas as bolhas que contêm dados de registo de fila para a hora a partir das 18:00, pode utilizar o prefixo "fila/2014/07/31/1800".  
 
 Os buffers de Armazenamento Analytics registam as mensagens internamente e, em seguida, atualiza periodicamente a bolha apropriada ou cria uma nova com o mais recente lote de entradas de registo. Isto reduz o número de escritos que deve executar para o serviço blob.  
 
@@ -686,7 +686,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 ### <a name="server-side-projection"></a>Projeção do lado do servidor
-Uma única entidade pode ter até 255 propriedades e ter até 1 MB de tamanho. Ao consultar a tabela e recuperar entidades, pode não precisar de todas as propriedades e pode evitar a transferência de dados desnecessariamente (para ajudar a reduzir a latência e o custo). Pode utilizar a projeção do lado do servidor para transferir apenas as propriedades necessárias. O exemplo a seguir é a recuperação apenas da propriedade **Email** (juntamente com **PartitionKey,** **RowKey,** **Timestamp** e **ETag** ) das entidades selecionadas pela consulta.  
+Uma única entidade pode ter até 255 propriedades e ter até 1 MB de tamanho. Ao consultar a tabela e recuperar entidades, pode não precisar de todas as propriedades e pode evitar a transferência de dados desnecessariamente (para ajudar a reduzir a latência e o custo). Pode utilizar a projeção do lado do servidor para transferir apenas as propriedades necessárias. O exemplo a seguir é a recuperação apenas da propriedade **Email** (juntamente com **PartitionKey,** **RowKey,** **Timestamp** e **ETag**) das entidades selecionadas pela consulta.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
@@ -927,7 +927,7 @@ O restante desta secção descreve algumas das funcionalidades na Biblioteca do 
 ### <a name="retrieving-heterogeneous-entity-types"></a>Recuperação de tipos de entidades heterogéneas
 Se estiver a utilizar a Biblioteca do Cliente de Armazenamento, tem três opções para trabalhar com vários tipos de entidades.  
 
-Se conhecer o tipo de entidade armazenada com um determinado valor **RowKey** e **PartitionKey,** então pode especificar o tipo de entidade quando recuperar a entidade como mostrado nos dois exemplos anteriores que recuperam entidades de tipo **Entidade de Empregados** : Executar uma consulta de [ponto utilizando a Biblioteca do Cliente de Armazenamento](#executing-a-point-query-using-the-storage-client-library) e Recuperar [várias entidades utilizando o LINQ](#retrieving-multiple-entities-using-linq).  
+Se conhecer o tipo de entidade armazenada com um determinado valor **RowKey** e **PartitionKey,** então pode especificar o tipo de entidade quando recuperar a entidade como mostrado nos dois exemplos anteriores que recuperam entidades de tipo **Entidade de Empregados**: Executar uma consulta de [ponto utilizando a Biblioteca do Cliente de Armazenamento](#executing-a-point-query-using-the-storage-client-library) e Recuperar [várias entidades utilizando o LINQ](#retrieving-multiple-entities-using-linq).  
 
 A segunda opção é utilizar o tipo **DynamicTableEntity** (um saco de propriedade) em vez de um tipo de entidade POCO de betão (esta opção também pode melhorar o desempenho porque não há necessidade de serializar e desseializar a entidade para os tipos .NET). O código C# seguinte potencialmente recupera várias entidades de diferentes tipos da tabela, mas devolve todas as entidades como instâncias **DynamicTableEntity.** Em seguida, utiliza a propriedade **EntityType** para determinar o tipo de cada entidade:  
 

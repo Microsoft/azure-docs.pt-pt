@@ -7,11 +7,11 @@ ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
 ms.openlocfilehash: 7b2f1a170a792e0b4d069258264407c121dab3ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260236"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018839"
 ---
 # <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do tecido de serviço
 
@@ -27,7 +27,7 @@ O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita 
 
 **Aplicação de malha de tecido de serviço**: As aplicações de malha de tecido de serviço são descritas pelo Modelo de Recurso (ficheiros de recursos YAML e JSON) e podem ser implantadas em qualquer ambiente onde o Tecido de Serviço funciona.
 
-**Aplicação nativa do tecido de**serviço : Aplicações nativas do tecido de serviço são descritas pelo Modelo de Aplicação Nativa (manifestos de aplicação e serviço baseados em XML).  As aplicações nativas do tecido de serviço não podem funcionar na malha de tecido de serviço.
+**Aplicação nativa do tecido de** serviço : Aplicações nativas do tecido de serviço são descritas pelo Modelo de Aplicação Nativa (manifestos de aplicação e serviço baseados em XML).  As aplicações nativas do tecido de serviço não podem funcionar na malha de tecido de serviço.
 
 ### <a name="service-fabric-mesh-application-concepts"></a>Conceitos de aplicação de malha de tecido de serviço
 
@@ -75,7 +75,7 @@ Existem dois tipos de serviços:
 
 **Reconfiguração** refere-se ao processo de qualquer alteração no conjunto de réplica de um serviço. Ver [Reconfiguração](service-fabric-concepts-reconfiguration.md).
 
-**Pacote de**serviço : Um diretório de discos contendo o ficheiro do tipo de `ServiceManifest.xml` serviço. Este ficheiro faz referência ao código, dados estáticos e pacotes de configuração para o tipo de serviço. Os ficheiros do diretório de pacotes de serviço são referenciados pelo ficheiro do tipo de `ApplicationManifest.xml` aplicação. Por exemplo, um pacote de serviço pode referir-se ao código, dados estáticos e pacotes de configuração que compõem um serviço de base de dados.
+**Pacote de** serviço : Um diretório de discos contendo o ficheiro do tipo de `ServiceManifest.xml` serviço. Este ficheiro faz referência ao código, dados estáticos e pacotes de configuração para o tipo de serviço. Os ficheiros do diretório de pacotes de serviço são referenciados pelo ficheiro do tipo de `ApplicationManifest.xml` aplicação. Por exemplo, um pacote de serviço pode referir-se ao código, dados estáticos e pacotes de configuração que compõem um serviço de base de dados.
 
 **Serviço com o nome**: Depois de criar uma aplicação nomeada, pode criar uma instância de um dos seus tipos de serviço dentro do cluster. Especifica o tipo de serviço utilizando o seu nome/versão. Cada instância do tipo de serviço é atribuída a um nome URI analisado no âmbito do URI da sua aplicação. Por exemplo, se criar um serviço com o nome "MyDatabase" dentro de uma aplicação com o nome "MyNamedApp", o URI parece: `"fabric:/MyNamedApp/MyDatabase"` . Dentro de uma aplicação nomeada, pode criar vários serviços nomeados. Cada serviço nomeado pode ter o seu próprio esquema de partição e caso ou contagem de réplicas.
 

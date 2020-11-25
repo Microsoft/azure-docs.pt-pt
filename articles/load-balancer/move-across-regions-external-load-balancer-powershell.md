@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: e43d8f1050f6b2b458c0926c674c05f7f18edc63
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696664"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018516"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Mover o balanceador de carga externo Azure para outra região usando a Azure PowerShell
 

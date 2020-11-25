@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: a547a874c42d06d8453b154847561d8b5f0dabb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361398"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019204"
 ---
 # <a name="manage-process-servers"></a>Gerir servidores de processos
 
@@ -47,8 +47,8 @@ Equilibrar a carga movendo VMs entre dois servidores de processo, da seguinte fo
 
     ![A screenshot mostra o painel de equilíbrio de carga com o servidor de processo de destino seleto selecionado.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
-2. Clique **em Selecionar máquinas**e escolha as máquinas que pretende mover da corrente para o servidor de processo-alvo. Os detalhes da mudança média de dados são apresentados contra cada máquina virtual. Em seguida, clique em **OK**. 
-3. No cofre, monitorize o progresso **Monitoring**do trabalho no âmbito dos trabalhos de  >  **recuperação do local de monitorização.**
+2. Clique **em Selecionar máquinas** e escolha as máquinas que pretende mover da corrente para o servidor de processo-alvo. Os detalhes da mudança média de dados são apresentados contra cada máquina virtual. Em seguida, clique em **OK**. 
+3. No cofre, monitorize o progresso **Monitoring** do trabalho no âmbito dos trabalhos de  >  **recuperação do local de monitorização.**
 
 Levará cerca de 15 minutos para que as alterações sejam refletidas no portal. Para um efeito mais rápido, [refresque o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
@@ -63,7 +63,7 @@ Mover toda a carga de trabalho tratada por um servidor de processo para um servi
 
     ![A screenshot mostra o painel do servidor do processo de destino Select.](media/vmware-azure-manage-process-server/Switch.PNG)
 
-5. No cofre, monitorize o progresso **Monitoring**do trabalho no âmbito dos trabalhos de  >  **recuperação do local de monitorização.**
+5. No cofre, monitorize o progresso **Monitoring** do trabalho no âmbito dos trabalhos de  >  **recuperação do local de monitorização.**
 
 Levará cerca de 15 minutos para que as alterações sejam refletidas no portal. Para um efeito mais rápido, [refresque o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 

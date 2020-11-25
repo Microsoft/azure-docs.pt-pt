@@ -14,15 +14,15 @@ ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77201303"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017921"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: ligar redes virtuais com o peering de rede virtual, utilizando o Portal do Azure
 
-Pode ligar redes virtuais entre si com o peering de rede virtual. Estas redes virtuais podem estar na mesma região ou em regiões diferentes (também conhecidas como o peering de VNet Global). Depois de as redes virtuais estarem em modo de peering, os recursos nas duas redes virtuais conseguem comunicar entre si, com a mesma latência e largura de banda, como se os recursos estivessem na mesma rede virtual. Neste tutorial, ficará a saber como:
+Pode ligar redes virtuais entre si com o peering de rede virtual. Estas redes virtuais podem estar na mesma região ou em regiões diferentes (também conhecidas como o peering de VNet Global). Depois de as redes virtuais estarem em modo de peering, os recursos nas duas redes virtuais conseguem comunicar entre si, com a mesma latência e largura de banda, como se os recursos estivessem na mesma rede virtual. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar duas redes virtuais
@@ -48,7 +48,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |---|---|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza *myResourceGroup*.|
-    |Região| Selecione **East US**.|
+    |Region| Selecione **East US**.|
     |Nome|myVirtualNetwork1|
 
 4. No separador **endereços IP, insira** 10.0.0.0/16 para o campo **Address Space.** Clique no botão **de sub-rede Adicionar** abaixo e introduza *a Sub-rede1* para **nome da sub-rede** e 10.0.0.0/24 para **a gama de endereços sub-rede**.
