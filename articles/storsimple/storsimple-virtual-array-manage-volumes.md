@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 79e3ce8c1605e5d68ff44901f53854d2f5f10abc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129954"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014385"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Utilizar o serviço do Gestor de Dispositivos do StorSimple para gerir volumes no StorSimple Virtual Array
 
@@ -33,8 +33,8 @@ O serviço StorSimple Device Manager é uma extensão no portal Azure que permit
 
 Os volumes StorSimple podem ser:
 
-* **Localmente fixado** : Os dados nestes volumes permanecem sempre na matriz e não derramam para a nuvem.
-* **Tiered** : Os dados nestes volumes podem derramar para a nuvem. Quando se cria um volume hierárquico, cerca de 10 % do espaço é a provisionado no nível local e 90 % do espaço é a provisionado na nuvem. Por exemplo, se fornecesse um volume de 1 TB, 100 GB residiria no espaço local e 900 GB seriam usados na nuvem quando os níveis de dados. Isto, por sua vez, implica que, se ficar sem todo o espaço local do dispositivo, não poderá prever um volume hierárquico (porque os 10 % exigidos no nível local não estarão disponíveis).
+* **Localmente fixado**: Os dados nestes volumes permanecem sempre na matriz e não derramam para a nuvem.
+* **Tiered**: Os dados nestes volumes podem derramar para a nuvem. Quando se cria um volume hierárquico, cerca de 10 % do espaço é a provisionado no nível local e 90 % do espaço é a provisionado na nuvem. Por exemplo, se fornecesse um volume de 1 TB, 100 GB residiria no espaço local e 900 GB seriam usados na nuvem quando os níveis de dados. Isto, por sua vez, implica que, se ficar sem todo o espaço local do dispositivo, não poderá prever um volume hierárquico (porque os 10 % exigidos no nível local não estarão disponíveis).
 
 ### <a name="provisioned-capacity"></a>Capacidade a provisionada
 Consulte o quadro seguinte para obter a capacidade máxima a provisionada para cada tipo de volume.
@@ -55,7 +55,7 @@ Um volume consiste numa série de atributos:
 
 * **Nome do volume** – Um nome descritivo que deve ser único e ajuda a identificar o volume.
 * **Estado** – Pode estar online ou offline. Se um volume estiver offline, não é visível para os iniciadores (servidores) que têm acesso à utilização do volume.
-* **Tipo** – Indica se o volume é **Tiered** (o padrão) ou **fixado localmente** .
+* **Tipo** – Indica se o volume é **Tiered** (o padrão) ou **fixado localmente**.
 * **Capacidade** – especifica a quantidade de dados utilizados em comparação com a quantidade total de dados que podem ser armazenados pelo iniciador (servidor).
 * **Backup** – No caso do Conjunto Virtual StorSimple, todos os volumes são automaticamente ativados para cópia de segurança.
 * **Anfitriões conectados** – Especifica os iniciadores (servidores) que têm acesso a este volume.
@@ -79,11 +79,11 @@ Utilize as instruções deste tutorial para executar as seguintes tarefas:
    * No campo **de nomes Volume,** insira um nome único para o seu volume. O nome deve ser uma corda que contenha 3 a 127 caracteres.
    * Na lista de dropdown **do tipo,** especifique se deve criar um volume **tiered** ou **localmente fixado.** Para cargas de trabalho que exijam garantias locais, baixas latências e maior desempenho, selecione **volume fixo local.** Para todos os outros dados, **selecione Volume Tiered.**
    * No campo **Capacidade,** especifique o tamanho do volume. Um volume hierárquico deve estar entre 500 GB e 5 TB e um volume fixado localmente deve estar entre 50 GB e 500 GB.
-   * * Clique **em Anfitriões Conectados** , selecione um registo de controlo de acesso (ACR) correspondente ao iniciador iSCSI que pretende ligar a este volume e, em seguida, clique em **Select** .
-3. Para adicionar um novo anfitrião conectado, clique em **Adicionar novo,** insira um nome para o anfitrião e o seu nome qualificado iSCSI (IQN) e, em seguida, clique em **Adicionar** .
+   * * Clique **em Anfitriões Conectados**, selecione um registo de controlo de acesso (ACR) correspondente ao iniciador iSCSI que pretende ligar a este volume e, em seguida, clique em **Select**.
+3. Para adicionar um novo anfitrião conectado, clique em **Adicionar novo,** insira um nome para o anfitrião e o seu nome qualificado iSCSI (IQN) e, em seguida, clique em **Adicionar**.
    
     ![A screenshot mostra o painel de anfitriões conectado onde pode adicionar novos.](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
-4. Quando terminar de configurar o seu volume, clique em **Criar** . Será criado um volume com as definições especificadas e verá uma notificação sobre a criação bem sucedida do mesmo. Por predefinição, a cópia de segurança será ativada para o volume.
+4. Quando terminar de configurar o seu volume, clique em **Criar**. Será criado um volume com as definições especificadas e verá uma notificação sobre a criação bem sucedida do mesmo. Por predefinição, a cópia de segurança será ativada para o volume.
 5. Para confirmar que o volume foi criado com sucesso, vá para a lâmina **Volumes.** Devia ver o volume listado.
    
     ![Volume criar sucesso](./media/storsimple-virtual-array-manage-volumes/volume-success.png)
@@ -131,11 +131,11 @@ Preencha os seguintes passos para eliminar um volume.
 #### <a name="to-delete-a-volume"></a>Para apagar um volume
 
 1. A partir da definição **de Volumes** na lâmina de resumo do serviço StorSimple, selecione a matriz virtual em que reside o volume em que deseja eliminar.
-2. **Selecione** o volume e clique **...** (alternadamente clique à direita nesta linha) e a partir do menu de contexto, selecione **Delete** .
+2. **Selecione** o volume e clique **...** (alternadamente clique à direita nesta linha) e a partir do menu de contexto, selecione **Delete**.
    
     ![Eliminar volume](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
 3. Verifique o estado do volume que pretende eliminar. Se o volume que pretende eliminar não estiver offline, desative-o primeiro, seguindo os passos em [Retirar um volume offline](#take-a-volume-offline).
-4. Quando solicitado para confirmação na lâmina **eliminar,** aceite a confirmação e clique em **Eliminar** . O volume será agora eliminado e a lâmina **volumes** mostrará a lista atualizada de volumes dentro da matriz virtual.
+4. Quando solicitado para confirmação na lâmina **eliminar,** aceite a confirmação e clique em **Eliminar**. O volume será agora eliminado e a lâmina **volumes** mostrará a lista atualizada de volumes dentro da matriz virtual.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,14 +7,14 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2471a19cf795d969644cb92e23b7a2926f2ee1a9
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372613"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96014584"
 ---
-# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Utilize o Azure Defender para registos de contentores para digitalizar as suas imagens para obter vulnerabilidades
+# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Utilizar o Azure Defender dos registos de contentores para analisar as imagens quanto a vulnerabilidades
 
 Esta página explica como usar o scanner de vulnerabilidade incorporado para digitalizar as imagens do contentor armazenadas no registo de contentores Azure, baseado em Azure Resource Manager.
 
@@ -22,17 +22,7 @@ Quando o **Azure Defender para registos de contentor** estiver ativado, qualquer
 
 Quando o scanner reporta vulnerabilidades ao Centro de Segurança, o Centro de Segurança apresenta as conclusões e informações relacionadas como recomendações. Além disso, as conclusões incluem informações relacionadas, tais como medidas de reparação, CVEs relevantes, pontuações de CVSS, e muito mais. Pode ver as vulnerabilidades identificadas para uma ou mais subscrições ou para um registo específico.
 
-## <a name="availability"></a>Disponibilidade
-
-|Aspeto|Detalhes|
-|----|:----|
-|Estado de libertação:|Geralmente disponível (GA)|
-|Preços:|**Azure Defender para registos de contentores** é faturado como mostrado [na página de preços](security-center-pricing.md)|
-|Registos e imagens suportados:|Imagens linux em registos ACR acessíveis a partir da internet pública com acesso a conchas|
-|Registos e imagens não suportados:|Imagens do Windows<br>Registos "privados"<br>Registos com acesso limitado com firewall, ponto final de serviço ou pontos finais privados, tais como Azure Private Link<br>Imagens super minimalistas como imagens [de rascunho de Docker,](https://hub.docker.com/_/scratch/) ou imagens "distroless" que contêm apenas uma aplicação e suas dependências de tempo de execução sem um gestor de pacotes, concha ou SO|
-|Funções e permissões necessárias:|**Leitor de segurança** e [papel de leitor de registo de contentores Azure](../container-registry/container-registry-roles.md)|
-|Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Yes ](./media/icons/yes-icon.png) US Gov - Apenas a digitalização na função push é suportada atualmente. Saiba mais em [Quando as imagens são digitalizadas?](defender-for-container-registries-introduction.md#when-are-images-scanned)<br>![No ](./media/icons/no-icon.png) China Gov, Other Gov|
-|||
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificar vulnerabilidades em imagens nos registos de contentores do Azure 
@@ -142,7 +132,7 @@ Pode utilizar qualquer um dos seguintes critérios:
 
 Para criar uma regra:
 
-1. A partir da página de pormenor de recomendações para **vulnerabilidades em imagens do registo de contentores Azure deve ser remediada** , selecione **Disable rule**.
+1. A partir da página de pormenor de recomendações para **vulnerabilidades em imagens do registo de contentores Azure deve ser remediada**, selecione **Disable rule**.
 1. Selecione o âmbito relevante.
 1. Defina os seus critérios.
 1. **Selecione Aplicar a regra**.

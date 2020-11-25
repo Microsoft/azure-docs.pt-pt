@@ -2,17 +2,17 @@
 title: Resolução de problemas de integração auto-acolagem na Azure Data Factory
 description: Saiba como resolver problemas de integração auto-hospedados na Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844102"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96013465"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
 
@@ -320,7 +320,7 @@ Se o erro aparecer como acima *Não AutorizadoAccessExcepção,* siga as instru�
         1. Limpe desinstalar o atual IR auto-hospedado.
         1. Instale as bits de IR auto-hospedadas.
         1. Siga abaixo as instruções para alterar a conta de serviço: 
-            1. Vá para a pasta de instalação auto-achatada do IR, mude para a pasta: *Microsoft Integration Runtime\4.0\Shared*.
+            1. Vá para a pasta de instalação auto-hospedada do IR, mude para a pasta: *Microsoft Integration Runtime\4.0\Shared*.
             1. Inicie uma linha de comando usando privilégios elevados. Substitua *\<user>* e pelo seu próprio nome de utilizador e senha *\<password>* e, em seguida, corra abaixo do comando:
                        
                 ```
@@ -731,7 +731,7 @@ Duas razões possíveis para esta questão:
 - O certificado de servidor de serviço Root CA da ADF não é fidedigno na máquina onde o SHIR está instalado. 
 - Está a utilizar procuração no seu ambiente e o certificado de servidor do serviço ADF é substituído pelo representante, enquanto o certificado de servidor substituído não é fidedigno pela máquina onde o SHIR está instalado.
 
-#### <a name="solution"></a>Solução
+#### <a name="resolution"></a>Resolução
 
 - Por razão 1, certifique-se de que o certificado do servidor ADF e a sua cadeia de certificados são fidedignos pela máquina onde o SHIR está instalado.
 - Por razão 2, confie na raiz substituída ca na máquina SHIR, ou configuure o representante para não substituir o certificado de servidor ADF.
@@ -744,6 +744,7 @@ Estamos a lançar um novo certificado SSL, assinado pela DigiCert, por favor, ve
   ![Raiz Global DigiCert G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
 
 Caso contrário, descarregue-o a partir [daqui.](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ) 
+
 
 ## <a name="self-hosted-ir-sharing"></a>Partilha do IR Autoalojado
 
@@ -764,7 +765,7 @@ Para obter mais ajuda na resolução de problemas, experimente os seguintes recu
 
 *  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&Uma página de perguntas](/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum para data factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)

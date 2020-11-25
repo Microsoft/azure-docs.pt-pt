@@ -6,11 +6,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: ba69098f32e131714a15923aef64c3f6ba17e18f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219501"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013314"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Gerir a Azure Data Lake Analytics usando políticas de conta
 
@@ -78,7 +78,7 @@ Há uma política de incumprimento definida em cada conta. A política por defei
 
 2. Clique **em Limites e políticas.**
 
-3. Nos **limites de submissão de**emprego, clique no botão **Adicionar Política.** Em seguida, selecione ou introduza as seguintes definições:
+3. Nos **limites de submissão de** emprego, clique no botão **Adicionar Política.** Em seguida, selecione ou introduza as seguintes definições:
 
    1. **Nome da Política de Cálculo**: Insira um nome de política, para lembrá-lo do propósito da apólice.
 

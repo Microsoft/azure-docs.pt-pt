@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 24dc2cad8d299d150adddc03de5e9006fc831fc6
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93061645"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013734"
 ---
-Definições de configuração para [funções duradouras](../articles/azure-functions/durable-functions-overview.md).
+Definições de configuração para [funções duradouras](../articles/azure-functions/durable/durable-functions-overview.md).
 
 > [!NOTE]
 > Todas as principais versões de Funções Duradouras são suportadas em todas as versões do tempo de funcionamento das Funções Azure. No entanto, o esquema do host.jsna configuração é ligeiramente diferente dependendo da versão do tempo de funcionamento das Funções Azure e da versão de extensão de Funções Duráveis que utiliza. Os exemplos a seguir são para utilização com as Funções Azure 2.0 e 3.0. Em ambos os exemplos, se estiver a utilizar as Funções Azure 1.0, as definições disponíveis são as mesmas, mas a secção "DurableTask" do host.jsem diante deve ir na raiz do host.jsna configuração em vez de como um campo em "extensões".
@@ -97,11 +97,11 @@ Definições de configuração para [funções duradouras](../articles/azure-fun
 }
 ```
 
-Os nomes dos centros de tarefa devem começar com uma letra e consistir apenas em letras e números. Se não for especificado, o nome do centro de tarefas predefinido para uma aplicação de função é **DurableFunctionsHub** . Para obter mais informações, consulte [os centros de tarefas.](../articles/azure-functions/durable-functions-task-hubs.md)
+Os nomes dos centros de tarefa devem começar com uma letra e consistir apenas em letras e números. Se não for especificado, o nome do centro de tarefas predefinido para uma aplicação de função é **DurableFunctionsHub**. Para obter mais informações, consulte [os centros de tarefas.](../articles/azure-functions/durable/durable-functions-task-hubs.md)
 
-|Propriedade  |Predefinição | Description |
+|Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
-|nome hub|DurableFunctionsHub|Nomes de [centros de tarefas](../articles/azure-functions/durable-functions-task-hubs.md) alternativos podem ser usados para isolar várias aplicações de Funções Duráveis umas das outras, mesmo que estejam a usar o mesmo backend de armazenamento.|
+|nome hub|DurableFunctionsHub|Nomes de [centros de tarefas](../articles/azure-functions/durable/durable-functions-task-hubs.md) alternativos podem ser usados para isolar várias aplicações de Funções Duráveis umas das outras, mesmo que estejam a usar o mesmo backend de armazenamento.|
 |controlQueueBatchSize|32|O número de mensagens a retirar da fila de controlo de cada vez.|
 |controlQueueBufferThreshold|256|O número de mensagens de fila de controlo que podem ser tamponadas na memória de cada vez, altura em que o despachante aguardará antes de descoduar quaisquer mensagens adicionais.|
 |partitionCount |4|A contagem de divisórias para a fila de controlo. Pode ser um inteiro positivo entre 1 e 16.|
@@ -124,4 +124,4 @@ Os nomes dos centros de tarefa devem começar com uma letra e consistir apenas e
 |useLegacyPartitionManagement|true|Quando `false` definido, utiliza um algoritmo de gestão de partição que reduz a possibilidade de duplicar a execução da função ao escalonar.  Disponível a partir de v2.3.0. O padrão será alterado para `false` uma futura versão.|
 |useGracefulShutdown|false|(Pré-visualização) Ativar graciosamente desligar para reduzir as chances de paralisações do hospedeiro falhando execuções de função no processo.|
 
-Muitas destas configurações são para otimizar o desempenho. Para mais informações, consulte [Performance e escala.](../articles/azure-functions/durable-functions-perf-and-scale.md)
+Muitas destas configurações são para otimizar o desempenho. Para mais informações, consulte [Performance e escala.](../articles/azure-functions/durable/durable-functions-perf-and-scale.md)

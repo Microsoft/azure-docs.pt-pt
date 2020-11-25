@@ -5,11 +5,11 @@ manager: rkarlin
 ms.date: 11/22/2020
 ms.topic: include
 ms.openlocfilehash: 30de9181fd23a29b28973d01899f0b23fca3ae89
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530003"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014585"
 ---
 ## <a name="availability"></a>Disponibilidade
 

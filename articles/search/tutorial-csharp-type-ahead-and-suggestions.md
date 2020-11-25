@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 202a7f6b01423045fe7c72db5b42c29ae58f648d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739668"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013841"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutorial: Adicione autocomplete e sugestões utilizando o .NET SDK
 
 Saiba como implementar o autocomplete (consultas de tipa e resultados sugeridos) quando um utilizador começar a digitar numa caixa de pesquisa. Neste tutorial, mostraremos consultas autocompletas e resultados sugeridos separadamente, e depois juntos. Um utilizador só pode ter de escrever dois ou três caracteres para localizar todos os resultados disponíveis.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Adicionar sugestões
 > * Adicionar destaque às sugestões
@@ -51,7 +51,7 @@ Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lis
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-1. Na sequência desta declaração, após o fecho ** &lt; /div, &gt; **insira este script. Este script aproveita o [widget autocomplete](https://api.jqueryui.com/autocomplete/) da biblioteca jQuery UI de código aberto para apresentar a lista de resultados sugeridos.
+1. Na sequência desta declaração, após o fecho **&lt; /div, &gt;** insira este script. Este script aproveita o [widget autocomplete](https://api.jqueryui.com/autocomplete/) da biblioteca jQuery UI de código aberto para apresentar a lista de resultados sugeridos.
 
     ```javascript
     <script>
@@ -151,7 +151,7 @@ Comecemos pelo caso mais simples de oferecer alternativas ao utilizador: uma lis
 
 4. No script view, definir **&confuso** para verdade, e executar a app novamente. Agora insira "po". Note que a procura assume que errou com uma carta.
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Dactilografia *po* revela duas sugestões" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png" alt-text="Dactilografia *pa* com conjunto felpudo para verdade" border="false":::
 
     Se estiver interessado, a [sintaxe de consulta Lucene em Azure Cognitive Search](./query-lucene-syntax.md) descreve a lógica usada em pesquisas difusas em detalhe.
 
@@ -196,7 +196,7 @@ Podemos melhorar a aparência das sugestões ao utilizador definindo o parâmetr
 
 1. Execute novamente a aplicação e deverá ver o seu texto inserido arrombado nas sugestões. Tente escrever "pa".
  
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Dactilografia *po* revela duas sugestões" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png" alt-text="Dactilografia *pa* com destaque" border="false":::
 
    A lógica usada no roteiro de destaque acima não é infalível. Se introduzir um termo que aparece duas vezes no mesmo nome, os resultados arrojados não são bem o que desejaria. Tente escrever "mo".
 
@@ -255,7 +255,7 @@ Outra variação, ligeiramente diferente das sugestões, é a auto-conclusão (p
 
 1. Execute a aplicação. Note como o leque de opções apresentadas na lista de suspensos são palavras únicas. Tente escrever palavras começando com "re". Note como o número de opções diminui à medida que mais letras são dactilografadas.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Dactilografia *po* revela duas sugestões" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png" alt-text="Dactilografia com auto-contícula básica" border="false":::
 
     Tal como está, o script de sugestões que executou anteriormente é provavelmente mais útil do que este script de auto-premutável. Para tornar a auto-contígnia mais fácil de utilizar, considere usá-la com resultados sugeridos.
 
@@ -443,7 +443,7 @@ Existem bibliotecas que oferecem esta funcionalidade - muitas vezes chamada de "
 
     Leia os comentários no script para obter um entendimento mais completo.
 
-1. Por último, precisamos de fazer um pequeno ajuste a duas classes HTML para torná-los transparentes. Adicione a seguinte linha às aulas **searchBoxForm** e **searchBox,** no ficheiro hotels.css.
+1. Por último, precisamos de fazer um pequeno ajuste a duas classes HTML para torná-los transparentes. Adicione a seguinte linha às aulas **searchBoxForm** e **searchBox,** no ficheiro .css hotéis.
 
     ```html
     background: rgba(0,0,0,0);
@@ -451,7 +451,7 @@ Existem bibliotecas que oferecem esta funcionalidade - muitas vezes chamada de "
 
 1. Agora executar a aplicação. Introduza "pa" na caixa de pesquisa. Você recebe "palácio" como a sugestão autocompleta, juntamente com dois hotéis que contêm "pa"?
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Dactilografia *po* revela duas sugestões" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png" alt-text="Dactilografia com autocompleto inline e sugestões" border="false":::
 
 1. Tente fazer tabbing para aceitar a sugestão de precontamento automático e tente selecionar sugestões utilizando as teclas de seta e tecla do separador, e tente novamente usando o rato e um simples clique. Verifique se o script lida com todas estas situações de forma ordenada.
 

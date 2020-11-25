@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -9,11 +9,11 @@ ms.topic: include
 ms.custom: include file
 ms.date: 06/27/2019
 ms.openlocfilehash: a979cd0a4c2ee6466edebadf61e8a98b8f17c9f3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86544153"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013382"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,7 +55,7 @@ Também pode pesquisar e selecionar *contas de Armazenamento* a partir de qualqu
 
 Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no armazenamento de Blobs do Azure.
 
-1. Na página da conta **Overview**de armazenamento, selecione  >  **Overview Containers**.
+1. Na página da conta **Overview** de armazenamento, selecione  >  **Overview Containers**.
 2. Na *\<Account name>*  -  barra de ferramentas da página dos **contentores,** selecione **Recipiente**.
 3. Na caixa de diálogo **Novo contentor**, introduza **adftutorial** para o nome e selecione **OK**. A página *\<Account name>*  -  **de Contentores** é atualizada para incluir **adftutorial** na lista de contentores.
 
@@ -63,7 +63,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no ar
 
 #### <a name="add-an-input-folder-and-file-for-the-blob-container"></a>Adicione uma pasta de entrada e ficheiro para o recipiente blob
 
-Nesta secção, cria-se uma pasta denominada **entrada** no recipiente que criou e, em seguida, envia um ficheiro de amostra para a pasta de entrada. Antes de começar, abra um editor de texto como **o Notepad**e crie um ficheiro com o nome **emp.txt** com o seguinte conteúdo:
+Nesta secção, cria-se uma pasta denominada **entrada** no recipiente que criou e, em seguida, envia um ficheiro de amostra para a pasta de entrada. Antes de começar, abra um editor de texto como **o Notepad** e crie um ficheiro com o nome **emp.txt** com o seguinte conteúdo:
 
 ```emp.txt
 John, Doe

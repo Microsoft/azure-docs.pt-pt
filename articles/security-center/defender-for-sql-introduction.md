@@ -3,17 +3,17 @@ title: Azure Defender para SQL - os benefícios e funcionalidades
 description: Conheça os benefícios e funcionalidades do Azure Defender para a SQL.
 author: memildin
 ms.author: memildin
-ms.date: 11/17/2020
+ms.date: 11/22/2020
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: b4f046339c027a5ae66f7f7510d8d2b311abd6df
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: bb24c04681b142aaa1c80738090afe2a13949495
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693465"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96014550"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introdução ao Azure Defender para o SQL
 
@@ -25,8 +25,8 @@ O Azure Defender for SQL inclui dois planos do Azure Defender que alargam o paco
 |----|:----|
 |Estado de libertação:|**Azure Defender para servidores de base de dados Azure SQL** - Geralmente disponível (GA)<br>**Azure Defender para servidores SQL em máquinas** - Pré-visualização<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Preços:|Os dois planos que formam **o Azure Defender para o SQL** são faturados como mostrado na [página de preços](security-center-pricing.md)|
-|Versões SQL protegidas:|Base de Dados SQL do Azure <br>Instância Gerida do Azure SQL<br>Piscina SQL dedicada em Azure Synapse (anteriormente SQL DW)<br>SQL Server (todas as versões suportadas)|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Versões SQL protegidas:|SQL em máquinas virtuais Azure - [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) e [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md)<br>[Servidores SQL ativados pelo Arco](https://docs.microsoft.com/sql/sql-server/azure-arc/overview) (inclui servidores SQL no local)<br>Bases [de dados únicas](../azure-sql/database/single-database-overview.md) do Azure SQL e [piscinas elásticas](../azure-sql/database/elastic-pool-overview.md)<br>[Instância Gerida do SQL no Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (anteriormente SQL DW) piscina SQL dedicada](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>O que a Azure Defender protege para a SQL?

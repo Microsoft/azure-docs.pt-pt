@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539773"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014249"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitor desempenho do cluster em Azure HDInsight
 
@@ -27,7 +27,7 @@ Os clusters hadoop podem proporcionar o melhor desempenho quando a carga no clus
 
 Para obter uma visibilidade de alto nível para os nós do seu cluster e para o seu carregamento, inscreva-se no [Ambari Web UI,](hdinsight-hadoop-manage-ambari.md)em seguida, selecione o **separador Anfitriões.** Os seus anfitriões estão listados pelos seus nomes de domínio totalmente qualificados. O estado de funcionamento de cada hospedeiro é indicado por um indicador de saúde colorido:
 
-| Color | Descrição |
+| Cor | Descrição |
 | --- | --- |
 | Red | Pelo menos um componente principal no hospedeiro está em baixo. Hover para ver uma ponta de ferramenta que lista os componentes afetados. |
 | Laranja | Pelo menos um componente secundário no hospedeiro está em baixo. Hover para ver uma ponta de ferramenta que lista os componentes afetados. |
@@ -72,7 +72,7 @@ Na UI do Gestor de Recursos, selecione **Scheduler** a partir do menu da mão es
 
 ## <a name="storage-throttling"></a>Limitação de armazenamento
 
-O estrangulamento de desempenho de um cluster pode acontecer ao nível do armazenamento. Este tipo de estrangulamento deve-se, na maioria das vezes, *ao bloqueio* das operações de entrada/saída (IO), que acontecem quando as suas tarefas de funcionamento enviam mais IO do que o serviço de armazenamento pode suportar. Este bloqueio cria uma fila de pedidos de IO à espera de serem processados até que os IOs atuais sejam processados. Os blocos devem-se ao estrangulamento do *armazenamento* , que não é um limite físico, mas sim um limite imposto pelo serviço de armazenamento por um acordo de nível de serviço (SLA). Este limite garante que nenhum cliente ou inquilino possa monopolizar o serviço. O SLA limita o número de IOs por segundo (IOPS) para armazenamento Azure - para mais detalhes, ver [metas de escalabilidade e desempenho para contas de armazenamento padrão](../storage/common/scalability-targets-standard-account.md).
+O estrangulamento de desempenho de um cluster pode acontecer ao nível do armazenamento. Este tipo de estrangulamento deve-se, na maioria das vezes, *ao bloqueio* das operações de entrada/saída (IO), que acontecem quando as suas tarefas de funcionamento enviam mais IO do que o serviço de armazenamento pode suportar. Este bloqueio cria uma fila de pedidos de IO à espera de serem processados até que os IOs atuais sejam processados. Os blocos devem-se ao estrangulamento do *armazenamento*, que não é um limite físico, mas sim um limite imposto pelo serviço de armazenamento por um acordo de nível de serviço (SLA). Este limite garante que nenhum cliente ou inquilino possa monopolizar o serviço. O SLA limita o número de IOs por segundo (IOPS) para armazenamento Azure - para mais detalhes, ver [metas de escalabilidade e desempenho para contas de armazenamento padrão](../storage/common/scalability-targets-standard-account.md).
 
 Se estiver a utilizar o Azure Storage, para obter informações sobre questões relacionadas com o armazenamento, incluindo estrangulamento, consulte [o Monitor, o diagnóstico e a resolução de problemas do Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 

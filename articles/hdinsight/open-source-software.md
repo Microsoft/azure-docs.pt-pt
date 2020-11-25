@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: fe9ccc50d6196997863fbf228fbb76913a0d0330
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534384"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013875"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Suporte de software de código aberto em Azure HDInsight
 

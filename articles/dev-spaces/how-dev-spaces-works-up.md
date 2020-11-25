@@ -6,11 +6,11 @@ ms.topic: conceptual
 description: Descreve os processos de execução do seu código no Serviço Azure Kubernetes com Espaços Azure Dev
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 ms.openlocfilehash: 1cace325f9415d46210636e5c04cc2d75589cc11
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975472"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014436"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Como funciona o seu código com a Azure Dev Spaces
 
@@ -70,7 +70,7 @@ As alterações a ficheiros como código fonte ou ficheiros de configuração de
 * Reconstrói a aplicação
 * Reinicia o processo ou processos associados à aplicação
 
-A forma como *o devhostagent* executa os passos anteriores está [configurada em `azds.yaml` ][azds-yaml-section].
+A forma como *o devhostagent* executa os passos anteriores está [configurada em `azds.yaml`][azds-yaml-section].
 
 As atualizações para ficheiros de projetos como Dockerfiles, ficheiros csproj ou qualquer parte do gráfico Helm requerem que o contentor da aplicação seja reconstruído e redistribuído. Quando um destes ficheiros é sincronizado com o espaço dev, o controlador executa o comando de [atualização][helm-upgrade] do leme e o contentor da aplicação é reconstruído e redistribuído.
 
@@ -132,11 +132,11 @@ A propriedade *install.set* permite-lhe configurar um ou mais valores que preten
 
 No exemplo acima, a propriedade *install.set.replicaCount* diz ao controlador quantas instâncias da sua aplicação devem ser executadas no seu espaço dev. Dependendo do seu cenário, pode aumentar este valor, mas terá um impacto na anexação de um depurante à cápsula da sua aplicação. Para mais informações, consulte o [artigo de resolução de problemas.][troubleshooting]
 
-Na tabela Helm gerada, a imagem do contentor é definida para *{{{. . Values.image.repositório }}:{{{ . Values.image.tag }}*. O `azds.yaml` ficheiro define *instalar.set.image.tag* propriedade como *$(tag)* por padrão, que é usado como o valor para *{{ . Values.image.tag }}*. Ao definir a propriedade *install.set.image.tag* desta forma, permite que a imagem do recipiente para a sua aplicação seja marcada de forma distinta ao executar espaços Azure Dev. Neste caso específico, a imagem é marcada como * \<value from image.repository> :$(tag)*. Deve utilizar a variável *$(tag)* como o valor da   *instalação.set.image.tag* para que os Espaços Dev reconheçam e localizem o recipiente no cluster AKS.
+Na tabela Helm gerada, a imagem do contentor é definida para *{{{. . Values.image.repositório }}:{{{ . Values.image.tag }}*. O `azds.yaml` ficheiro define *instalar.set.image.tag* propriedade como *$(tag)* por padrão, que é usado como o valor para *{{ . Values.image.tag }}*. Ao definir a propriedade *install.set.image.tag* desta forma, permite que a imagem do recipiente para a sua aplicação seja marcada de forma distinta ao executar espaços Azure Dev. Neste caso específico, a imagem é marcada como *\<value from image.repository> :$(tag)*. Deve utilizar a variável *$(tag)* como o valor da   *instalação.set.image.tag* para que os Espaços Dev reconheçam e localizem o recipiente no cluster AKS.
 
 No exemplo acima, `azds.yaml` define *instalar.set.ingress.hosts*. A *propriedade install.set.ingress.hosts* define um formato de nome anfitrião para pontos finais públicos. Esta propriedade também usa *$(spacePrefix)*, *$(rootSpacePrefix)* e *$(hostSuffix)*, que são valores fornecidos pelo controlador.
 
-O *$(spacePrefix)* é o nome do espaço dev infantil, que assume a forma de *SPACENAME.s*. *O $(rootSpacePrefix)* é o nome do espaço dos pais. Por exemplo, se *o azureuser* for um espaço de *padrão*infantil, o valor para *$(rootSpacePrefix)* é *padrão* e o valor de *$(spacePrefix)* é *azureuser.s*. Se o espaço não for um espaço para crianças, *$(spacePrefix)* está em branco. Por exemplo, se o espaço *predefinido* não tiver espaço para pais, o valor para *$(rootSpacePrefix)* é *padrão* e o valor de *$(spacePrefix)* está em branco. O *$(hostS suix)* é um sufixo DNS que aponta para o Controlador de Ingress Azure Dev Spaces que funciona no seu cluster AKS. Este sufixo DNS corresponde a uma entrada de DNS wildcard, por exemplo * \* . RANDOM_VALUE.eus.azds.io,* que foi criado quando o controlador Azure Dev Spaces foi adicionado ao seu cluster AKS.
+O *$(spacePrefix)* é o nome do espaço dev infantil, que assume a forma de *SPACENAME.s*. *O $(rootSpacePrefix)* é o nome do espaço dos pais. Por exemplo, se *o azureuser* for um espaço de *padrão* infantil, o valor para *$(rootSpacePrefix)* é *padrão* e o valor de *$(spacePrefix)* é *azureuser.s*. Se o espaço não for um espaço para crianças, *$(spacePrefix)* está em branco. Por exemplo, se o espaço *predefinido* não tiver espaço para pais, o valor para *$(rootSpacePrefix)* é *padrão* e o valor de *$(spacePrefix)* está em branco. O *$(hostS suix)* é um sufixo DNS que aponta para o Controlador de Ingress Azure Dev Spaces que funciona no seu cluster AKS. Este sufixo DNS corresponde a uma entrada de DNS wildcard, por exemplo *\* . RANDOM_VALUE.eus.azds.io,* que foi criado quando o controlador Azure Dev Spaces foi adicionado ao seu cluster AKS.
 
 No `azds.yaml` ficheiro acima, também pode atualizar *instalar.set.ingress.hosts* para alterar o nome de anfitrião da sua aplicação. Por exemplo, se quiser simplificar o nome de anfitrião da sua aplicação de *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* para *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)*.
 
@@ -159,7 +159,7 @@ configurations:
 
 O controlador usa um Dockerfile para construir e executar a sua aplicação.
 
-A *propriedade build.context* lista o diretório onde existem os Dockerfiles. A * propriedadebuild.dockerfile* define o nome do Dockerfile para a construção da versão de produção da aplicação. A * propriedadeconfigurations.develop.build.dockerfile* configura o nome do Dockerfile para a versão de desenvolvimento da aplicação.
+A *propriedade build.context* lista o diretório onde existem os Dockerfiles. A *propriedadebuild.dockerfile* define o nome do Dockerfile para a construção da versão de produção da aplicação. A *propriedadeconfigurations.develop.build.dockerfile* configura o nome do Dockerfile para a versão de desenvolvimento da aplicação.
 
 Ter diferentes Dockerfiles para desenvolvimento e produção permite-lhe permitir certas coisas durante o desenvolvimento e desativar esses itens para implementações de produção. Por exemplo, pode permitir a depuração ou mais registo verboso durante o desenvolvimento e desativar num ambiente de produção. Também pode atualizar estas propriedades se os seus Dockerfiles forem nomeados de forma diferente ou se estiverem num local diferente.
 

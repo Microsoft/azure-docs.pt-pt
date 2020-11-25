@@ -8,11 +8,11 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489681"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014028"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Host zonas de pesquisa de DNS inversas em Azure DNS
 
@@ -29,7 +29,7 @@ Este artigo percorre os passos para criar a sua primeira zona de DNS de pesquisa
 ## <a name="create-a-reverse-lookup-dns-zone"></a>Criar uma zona de DNS de pesquisa inversa
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. No menu **Hub,** selecione **New**  >  **Networking**e, em seguida, selecione **a zona DNS**.
+1. No menu **Hub,** selecione **New**  >  **Networking** e, em seguida, selecione **a zona DNS**.
 
    ![Seleção "zona DNS"](./media/dns-reverse-dns-hosting/figure1.png)
 
@@ -157,7 +157,7 @@ O exemplo que se segue acompanha-o através do processo de criação de um novo 
 
 2. O nome do recorde estabelecido para um registo DEPT tem de ser o resto do endereço IPv6 em ordem inversa. Não deve incluir qualquer compressão zero. 
 
-   Neste exemplo, os primeiros 64 bits do IPv6 já estão povoados como parte do nome da zona (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). Portanto, apenas os últimos 64 bits são fornecidos na caixa **Nome.** Os últimos 64 bits do endereço IP são introduzidos em ordem inversa, com um período como o declimiter entre cada número hexadecimal. Por exemplo, pode nomear o seu recorde estabelecido **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f** para um recurso cujo endereço IP é 2001:0db8:abdc:0000:f524:10bc:1af9:405e.  
+   Neste exemplo, os primeiros 64 bits do IPv6 já estão povoados como parte do nome da zona (0.0.0.0.c.d.b.a.8.b.d.0.1.0.2.ip6.arpa). Portanto, apenas os últimos 64 bits são fornecidos na caixa **Nome.** Os últimos 64 bits do endereço IP são introduzidos em ordem inversa, com um período como o declimiter entre cada número hexadecimal. Por exemplo, pode nomear o seu recorde estabelecido **e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f** para um recurso cujo endereço IP é 2001:0db8:abdc:0000:f524:10bc:1af9:405e.  
 3. Para **Tipo**, selecione **PTR**.  
 4. Para **NOME DE DOMÍNIO,** introduza o FQDN do recurso que utiliza o IP.
 5. Selecione **OK** na parte inferior do painel para criar o registo DNS.

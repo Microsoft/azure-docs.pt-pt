@@ -8,11 +8,11 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708021"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014623"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Problemas de conexão de resolução de problemas para Azure Database para PostgreSQL - Servidor Único
 
@@ -48,7 +48,7 @@ Se a aplicação não ligar persistentemente à Base de Dados Azure para Postgre
 
 * Configuração da firewall do servidor: Certifique-se de que a base de dados Azure para firewall do servidor PostgreSQL está configurada para permitir ligações do seu cliente, incluindo servidores de procuração e gateways.
 * Configuração da firewall do cliente: A firewall do seu cliente deve permitir ligações ao servidor de base de dados. Endereços IP e portas do servidor que não pode ser permitido, bem como nomes de aplicações como PostgreSQL em algumas firewalls.
-* Erro do utilizador: Pode ter parâmetros de ligação mal definidos, como o nome do servidor na cadeia de ligação ou um * \@ sufixo* de nome de servidor em falta no nome de utilizador.
+* Erro do utilizador: Pode ter parâmetros de ligação mal definidos, como o nome do servidor na cadeia de ligação ou um *\@ sufixo* de nome de servidor em falta no nome de utilizador.
 * Se vir o _error Server não está configurado para permitir ligações ipv6_, note que o nível Básico não suporta pontos finais de serviço VNet. Tem de remover o ponto final do Microsoft.Sql da sub-rede que está a tentar ligar-se ao servidor Basic.
 * Se vir o erro de ligação _do valor "***" inválido quando o suporte SSL não é compilado por_ engano, significa que o seu cliente PostgreSQL não suporta SSL. Provavelmente, o libpq do lado do cliente não foi compilado com a bandeira "-com-openssl". Por favor, tente conectar-se com um cliente PostgreSQL que tenha suporte SSL. 
 

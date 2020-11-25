@@ -9,11 +9,11 @@ ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 54612bee5715cdb78141a8aacfa5d24c814269d1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312401"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014725"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Conceder permissões à identidade gerida pelo espaço de trabalho (pré-visualização)
 

@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 85e974d51f49bbb6742683ed253c077bb3ff69de
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545553"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014657"
 ---
 # <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Operações de ficheiros DEBUG WASB em Azure HDInsight
 
@@ -28,13 +28,13 @@ Um tronco produzido será semelhante a:
 
 1. A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs` para, onde `CLUSTERNAME` está o nome do seu cluster Spark.
 
-1. Navegue para **propriedades avançadas de spark2-log4j** .
+1. Navegue para **propriedades avançadas de spark2-log4j**.
 
     1. Modificar `log4j.appender.console.Threshold=INFO` para `log4j.appender.console.Threshold=DEBUG` .
 
     1. Adicione `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG` .
 
-1. Navegue para **propriedades avançadas de livy2-log4j** .
+1. Navegue para **propriedades avançadas de livy2-log4j**.
 
     Adicione `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG` .
 

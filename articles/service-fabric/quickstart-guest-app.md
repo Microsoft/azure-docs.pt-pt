@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.custom: devx-track-js
 ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614109"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013603"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Alojar uma aplicação Node.js no Azure Service Fabric
 
@@ -98,13 +98,13 @@ Selecione o perfil de destino **PublishProfiles\Cloud.xml**.
 
 Se ainda não o tiver feito, escolha uma conta do Azure na qual implementar. Se ainda não tiver uma, [inscreva-se numa][create-account].
 
-Em **Ponto Final da Ligação**, selecione o cluster do Service Fabric no qual implementar. Se não tiver um, selecione ** &lt; Create New Cluster... &gt; ** que abre a janela do navegador web para o portal Azure. Para obter mais informações, veja [Create a cluster in the portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal) (Crair um cluster no portal). 
+Em **Ponto Final da Ligação**, selecione o cluster do Service Fabric no qual implementar. Se não tiver um, selecione **&lt; Create New Cluster... &gt;** que abre a janela do navegador web para o portal Azure. Para obter mais informações, veja [Create a cluster in the portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal) (Crair um cluster no portal). 
 
 Quando criar o cluster do Service Fabric, confirme que define a definição **Pontos finais personalizados** como **80**.
 
 ![Configuração de tipo de nó do Service Fabric com ponto final personalizado][custom-endpoint]
 
-A criação de um cluster do Service Fabric novo demora algum tempo a ser concluída. Uma vez criado, volte ao diálogo de publicação e selecione ** &lt; Refresh &gt; **. O cluster novo é apresentado na caixa pendente; selecione-o.
+A criação de um cluster do Service Fabric novo demora algum tempo a ser concluída. Uma vez criado, volte ao diálogo de publicação e selecione **&lt; Refresh &gt;**. O cluster novo é apresentado na caixa pendente; selecione-o.
 
 Prima **publicar** e aguarde pela conclusão da implementação.
 

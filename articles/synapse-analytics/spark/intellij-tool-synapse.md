@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
 ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325229"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013773"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutorial: Criar uma aplicação Apache Spark com IntelliJ usando um espaço de trabalho synapse
 
@@ -24,7 +24,7 @@ Este tutorial mostra-lhe como usar o Azure Toolkit para o plug-in IntelliJ para 
 - Aceda aos recursos das suas piscinas Spark.
 - Desenvolver e executar uma aplicação Scala Spark localmente.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 >
 > - Utilize o kit de ferramentas Azure para o plug-in IntelliJ
@@ -40,7 +40,7 @@ Neste tutorial, ficará a saber como:
 - O seguinte pré-requisito é apenas para utilizadores do Windows:
 
   Enquanto executa a aplicação local Spark Scala num computador Windows, poderá obter uma exceção, como explicado no [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). A exceção ocorre porque WinUtils.exe falta no Windows.
-  Para resolver este erro, faça o download dos [WinUtils executáveis](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) para um local como **C:\WinUtils\bin**. Em seguida, adicione a variável ambiental **HADOOP_HOME** , e desave o valor da variável para **C:\WinUtils**.
+  Para resolver este erro, faça o download dos [WinUtils executáveis](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) para um local como **C:\WinUtils\bin**. Em seguida, adicione a variável ambiental **HADOOP_HOME**, e desave o valor da variável para **C:\WinUtils**.
 
 ## <a name="create-a-spark-scala-application-for-a-spark-pool"></a>Crie uma aplicação Spark Scala para uma piscina de faíscas
 
@@ -136,7 +136,7 @@ Depois de criar uma aplicação Scala, pode executá-la remotamente.
 
     ![A Aplicação de Faísca submeter ao comando HDInsight 2](./media/intellij-tool-synapse/create-synapse-configuration02.png)
 
-3. Na janela **Configurações Run/Debug,** forneça os seguintes valores e, em seguida, selecione **OK** :
+3. Na janela **Configurações Run/Debug,** forneça os seguintes valores e, em seguida, selecione **OK**:
 
     |Propriedade |Valor |
     |----|----|
@@ -199,7 +199,7 @@ Pode executar diferentes operações no Azure Explorer dentro do Azure Toolkit p
 
     ![IntelliJ IDEA Azure Explorer vista principal](./media/intellij-tool-synapse/azure-explorer-workspace.png)
 
-2. Clique com o botão direito num espaço de trabalho e, em seguida, selecione **Launch workspace** , website será aberto.
+2. Clique com o botão direito num espaço de trabalho e, em seguida, selecione **Launch workspace**, website será aberto.
 
     ![Detalhes da aplicação de visualização de emprego spark 1](./media/intellij-tool-synapse/launch-workspace-synapse.png)
 
@@ -216,7 +216,7 @@ Certifique-se de ter satisfeito o pré-requisito WINUTILS.EXE.
 1. A partir da barra **Run** de menu, navegue para  >  **configurações de edição de execução...**.
 2. A partir da janela **configurações Run/Debug,** no painel esquerdo, navegue até **Apache Spark na Synapse**  >  **[Faísca na Sinapse] myApp**.
 3. A partir da janela principal, selecione o **separador Localmente Executar.**
-4. Forneça os seguintes valores e, em seguida, selecione **OK** :
+4. Forneça os seguintes valores e, em seguida, selecione **OK**:
 
     |Propriedade |Valor |
     |----|----|
@@ -247,7 +247,7 @@ Só é suportado no IntelliJ 2018.2 e 2018.3.
 
 3. A partir da janela principal, selecione o **separador "Executar remotamente" no separador Cluster.**
 
-4. Forneça os seguintes valores e, em seguida, selecione **OK** :
+4. Forneça os seguintes valores e, em seguida, selecione **OK**:
 
     |Propriedade |Valor |
     |----|----|

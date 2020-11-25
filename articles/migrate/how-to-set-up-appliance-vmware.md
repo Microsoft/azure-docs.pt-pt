@@ -4,11 +4,11 @@ description: Saiba como configurar um aparelho Azure Migrate para avaliar e migr
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: f20bb77c29d98ab4e3549bfed43d47d1f1f7dc0c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318206"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013637"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um aparelho para VMware VMs
 
@@ -92,10 +92,10 @@ Coloque o aparelho pela primeira vez.
 
 1. Na consola vSphere Client, clique com o botão direito no VM e, em seguida, selecione **Open Console**.
 2. Forneça o idioma, o fuso horário e a palavra-passe para o aparelho.
-3. Abra um browser em qualquer máquina que possa ligar ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
+3. Abra um browser em qualquer máquina que possa ligar ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço *IP*: 44368**.
 
    Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho do aparelho selecionando o atalho da aplicação.
-1. Aceite os termos da **licença**e leia as informações de terceiros.
+1. Aceite os termos da **licença** e leia as informações de terceiros.
 1. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
    - **Conectividade**: A aplicação verifica se o VM tem acesso à Internet. Se o VM utilizar um representante:
      - Clique em **Configurar o representante** para especificar o endereço de procuração (no formulário http://ProxyIPAddress ou na porta de http://ProxyFQDN) audição.

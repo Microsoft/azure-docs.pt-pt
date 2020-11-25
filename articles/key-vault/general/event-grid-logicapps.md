@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284495"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013994"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Use Aplicativos Lógicos para receber e-mail sobre alterações de estado dos segredos chave do cofre
 
@@ -60,7 +60,7 @@ Para criar uma subscrição da Azure Event Grid, siga estes passos:
 
 1. Construa o seu modelo de e-mail:
     - **Para:** Insira o endereço de e-mail para receber os e-mails de notificação. Neste tutorial, utilize uma conta de e-mail a que pode aceder para fazer o teste.
-    - **Assunto** e **Corpo** : escreva o texto da sua mensagem de e-mail. Selecione as propriedades JSON da ferramenta de seletor para incluir conteúdo dinâmico com base nos dados de eventos. Pode recuperar os dados do evento utilizando `@{triggerBody()?['Data']}` .
+    - **Assunto** e **Corpo**: escreva o texto da sua mensagem de e-mail. Selecione as propriedades JSON da ferramenta de seletor para incluir conteúdo dinâmico com base nos dados de eventos. Pode recuperar os dados do evento utilizando `@{triggerBody()?['Data']}` .
 
     O seu modelo de e-mail pode parecer este exemplo.
 

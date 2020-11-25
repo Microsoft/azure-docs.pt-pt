@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081853"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013735"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Encadernações para funções duradouras (Funções Azure)
 
@@ -21,7 +21,7 @@ O gatilho de orquestração permite-lhe autorizar [funções orquestradoras dur�
 
 Quando utiliza as ferramentas Visual Studio para Funções Azure, o gatilho de orquestração é configurado utilizando o atributo [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute?view=azure-dotnet) .NET.
 
-Quando escreve funções de orquestrador em idiomas de script (por exemplo, scripts JavaScript ou C#), o gatilho de orquestração é definido pelo seguinte objeto JSON na `bindings` matriz dofunction.js* no* ficheiro:
+Quando escreve funções de orquestrador em idiomas de script (por exemplo, scripts JavaScript ou C#), o gatilho de orquestração é definido pelo seguinte objeto JSON na `bindings` matriz dofunction.js *no* ficheiro:
 
 ```json
 {
@@ -128,7 +128,7 @@ O gatilho de atividade permite-lhe autorizar funções que são chamadas por fun
 
 Se estiver a utilizar o Visual Studio, o gatilho de atividade é configurado utilizando o `ActivityTriggerAttribute` atributo .NET.
 
-Se estiver a utilizar o Código VS ou o portal Azure para o desenvolvimento, o gatilho de atividade é definido pelo seguinte objeto JSON na `bindings` matriz defunction.js* em*:
+Se estiver a utilizar o Código VS ou o portal Azure para o desenvolvimento, o gatilho de atividade é definido pelo seguinte objeto JSON na `bindings` matriz defunction.js *em*:
 
 ```json
 {
@@ -249,7 +249,7 @@ A ligação do cliente de orquestração permite-lhe escrever funções que inte
 
 Se estiver a utilizar o Visual Studio, pode ligar-se ao cliente de orquestração utilizando o `OrchestrationClientAttribute` atributo .NET para Funções Duradouras 1.0. A partir das Funções Duráveis 2.0, pode ligar-se ao cliente de orquestração utilizando o `DurableClientAttribute` atributo .NET.
 
-Se estiver a utilizar linguagens de script (por exemplo, *ficheiros .csx* ou *.js)* para desenvolvimento, o gatilho de orquestração é definido pelo seguinte objeto JSON na `bindings` matriz defunction.js* em*:
+Se estiver a utilizar linguagens de script (por exemplo, *ficheiros .csx* ou *.js)* para desenvolvimento, o gatilho de orquestração é definido pelo seguinte objeto JSON na `bindings` matriz defunction.js *em*:
 
 ```json
 {
@@ -303,7 +303,7 @@ public static Task Run(
 
 ### <a name="client-sample-not-visual-studio"></a>Amostra de cliente (não Estúdio Visual)
 
-Se não estiver a utilizar o Visual Studio para desenvolvimento, pode criar os * seguintesfunction.jsno* ficheiro. Este exemplo mostra como configurar uma função desencadeada por filas que utiliza a ligação duradoura do cliente de orquestração:
+Se não estiver a utilizar o Visual Studio para desenvolvimento, pode criar os *seguintesfunction.jsno* ficheiro. Este exemplo mostra como configurar uma função desencadeada por filas que utiliza a ligação duradoura do cliente de orquestração:
 
 ```json
 {
@@ -511,7 +511,7 @@ Se estiver a utilizar o Visual Studio, pode ligar-se ao cliente da entidade util
 > [!NOTE]
 > O `[DurableClientAttribute]` também pode ser usado para ligar ao cliente da [orquestração.](#orchestration-client)
 
-Se estiver a utilizar linguagens de script (por exemplo, *ficheiros .csx* ou *.js)* para desenvolvimento, o gatilho da entidade é definido pelo seguinte objeto JSON na `bindings` matriz defunction.js* em*:
+Se estiver a utilizar linguagens de script (por exemplo, *ficheiros .csx* ou *.js)* para desenvolvimento, o gatilho da entidade é definido pelo seguinte objeto JSON na `bindings` matriz defunction.js *em*:
 
 ```json
 {
@@ -533,7 +533,7 @@ Se estiver a utilizar linguagens de script (por exemplo, *ficheiros .csx* ou *.j
 
 Nas funções .NET, normalmente liga-se `IDurableEntityClient` a, o que lhe dá acesso total a todas as APIs do cliente suportadas por Entidades Duráveis. Também pode ligar-se à `IDurableOrchestrationClient` interface, que dá acesso às APIs dos clientes tanto para entidades como para orquestrações. As APIs no objeto do cliente incluem:
 
-* **ReadEntityStateAsync \<T> **: lê o estado de uma entidade. Devolve uma resposta que indica se a entidade-alvo existe e, em caso afirmativo, qual é o seu estado.
+* **ReadEntityStateAsync \<T>**: lê o estado de uma entidade. Devolve uma resposta que indica se a entidade-alvo existe e, em caso afirmativo, qual é o seu estado.
 * **SignalEntityAsync**: envia uma mensagem de ida para uma entidade e aguarda que seja encosta.
 * **ListEntitiesAsync**: consultas para o estado de várias entidades. As entidades podem ser questionadas pelo *nome* e *pela última vez de funcionamento.*
 

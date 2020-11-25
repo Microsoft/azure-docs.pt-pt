@@ -15,11 +15,11 @@ ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc, devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 921c3b8afdb6b196e001cdb7c190529e6238c1f7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127098"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014266"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Use referências do Cofre de Chaves numa aplicação java Spring
 
@@ -35,7 +35,7 @@ Este tutorial mostra-lhe como implementar referências do Key Vault no seu códi
 
 Você pode usar qualquer editor de código para fazer os passos neste tutorial. Por exemplo, [o Visual Studio Code](https://code.visualstudio.com/) é um editor de códigos de plataforma cruzada que está disponível para os sistemas operativos Windows, macOS e Linux.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma chave de configuração de aplicativos que faz referência a um valor armazenado no Key Vault.
@@ -54,14 +54,14 @@ Neste tutorial, ficará a saber como:
     ![A screenshot mostra a opção de recurso Criar no portal Azure.](./media/quickstarts/search-services.png)
 1. Na caixa de pesquisa, introduza **o Cofre de Chaves.**
 1. Na lista de resultados, selecione **cofres chave** à esquerda.
-1. Em **cofres chave** , selecione **Add** .
+1. Em **cofres chave**, selecione **Add**.
 1. À direita no **cofre de chaves Create,** forneça as seguintes informações:
     * **Selecione Subscrição** para escolher uma subscrição.
     * No **Grupo de Recursos,** selecione **Criar novo** e introduza um nome de grupo de recursos.
-    * Em **key vault name** , um nome único é necessário. Para este tutorial, **insira Contoso-vault2.**
+    * Em **key vault name**, um nome único é necessário. Para este tutorial, **insira Contoso-vault2.**
     * Na lista de drop-down da **Região,** escolha um local.
 1. Deixe as outras **Opções de cofre de chave** com os seus valores padrão.
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 
 Neste momento, a sua conta Azure é a única autorizada a aceder a este novo cofre.
 
@@ -71,26 +71,26 @@ Neste momento, a sua conta Azure é a única autorizada a aceder a este novo cof
 
 Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais. Neste caso, adicione uma mensagem que pode usar para testar a recuperação do Cofre de Chaves. A mensagem chama-se **Mensagem** e armazena o valor "Olá do Cofre de Chaves" nela.
 
-1. A partir das páginas de propriedades do Cofre chave, selecione **Secrets** .
+1. A partir das páginas de propriedades do Cofre chave, selecione **Secrets**.
 1. **Selecione Gerar/Importar.**
 1. No painel Criar um painel **secreto,** insira os seguintes valores:
-    * **Opções de upload** : Introduza **manual** .
-    * **Nome** : **Introdução Mensagem** .
-    * **Valor** : **Insira Olá a partir do Cofre da Chave** .
+    * **Opções de upload**: Introduza **manual**.
+    * **Nome**: **Introdução Mensagem**.
+    * **Valor**: **Insira Olá a partir do Cofre da Chave**.
 1. Deixar o outro **Criar propriedades secretas** com os seus valores padrão.
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Adicione uma referência do Cofre de Chaves à Configuração de Aplicações
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos** e, em seguida, selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
 
-1. Selecione **O Explorador de Configuração** .
+1. Selecione **O Explorador de Configuração**.
 
 1. Selecione **+ Criar**  >  **referência de cofre de chave** e, em seguida, especificar os seguintes valores:
-    * **Chave** : Selecione **/application/config.keyvaultmessage**
-    * **Etiqueta** : Deixe este valor em branco.
-    * **Subscrição** , **Grupo de Recursos** e Cofre **chave** : Introduza os valores correspondentes aos valores no cofre-chave que criou na secção anterior.
-    * **Segredo** : Selecione o segredo chamado **Mensagem** que criou na secção anterior.
+    * **Chave**: Selecione **/application/config.keyvaultmessage**
+    * **Etiqueta**: Deixe este valor em branco.
+    * **Subscrição**, **Grupo de Recursos** e Cofre **chave**: Introduza os valores correspondentes aos valores no cofre-chave que criou na secção anterior.
+    * **Segredo**: Selecione o segredo chamado **Mensagem** que criou na secção anterior.
 
 ## <a name="connect-to-key-vault"></a>Ligue-se ao cofre de chaves
 
@@ -168,7 +168,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     ```
 
-1. Open *MessageProperties.java* . Adicione uma nova variável chamada *keyVaultMessage:*
+1. Open *MessageProperties.java*. Adicione uma nova variável chamada *keyVaultMessage:*
 
     ```java
     private String keyVaultMessage;
@@ -182,7 +182,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
     }
     ```
 
-1. Abra *HelloController.java* . Atualize o método *getMessage* para incluir a mensagem recuperada do Cofre de Chaves.
+1. Abra *o HelloController.java*. Atualize o método *getMessage* para incluir a mensagem recuperada do Cofre de Chaves.
 
     ```java
     @GetMapping
@@ -220,7 +220,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
     }
     ```
 
-1. Criar um novo ficheiro chamado *AppConfiguration.java* . E adicione o código abaixo.
+1. Criar um novo ficheiro chamado *AppConfiguration.java*. E adicione o código abaixo.
 
     ```java
     package com.example.demo;
@@ -260,7 +260,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
 
     Vê a mensagem que inseriu na loja de Configuração de Aplicações. Também vê a mensagem que introduziu no Cofre de Chaves.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

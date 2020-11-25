@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
 ms.openlocfilehash: 0a487f778693e87e680033edd0d80c55d1a85f66
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348632"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013790"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Política de proteção de informação SQL no Centro de Segurança Azure
  
@@ -141,7 +141,7 @@ Pode descarregar um ficheiro JSON com as suas etiquetas e tipos de informação 
 - [Set-AzSqlInformationProtectionPolicy](/powershell/module/az.security/set-azsqlinformationprotectionpolicy): Define a política eficaz de proteção da informação do inquilino SQL.
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
  
 Neste artigo, aprendeu sobre a definição de uma política de proteção de informação no Centro de Segurança Azure. Para saber mais sobre a utilização da SqL Information Protection para classificar e proteger dados sensíveis nas suas bases de dados SQL, consulte [a Azure SQL Database Data Discovery and Classification](../azure-sql/database/data-discovery-and-classification-overview.md).
 

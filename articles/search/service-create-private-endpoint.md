@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
 ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700159"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014368"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto final privado para uma ligação segura à Pesquisa Cognitiva Azure
 
@@ -46,8 +46,8 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede para hospedar o VM qu
     | ------- | ----- |
     | Subscrição | Selecione a sua subscrição|
     | Grupo de recursos | Selecione **Criar novo,** insira *myResourceGroup,* em seguida, selecione **OK** |
-    | Name | Insira *myVirtualNetwork* |
-    | Região | Selecione a região desejada |
+    | Nome | Insira *myVirtualNetwork* |
+    | Region | Selecione a região desejada |
     |||
 
 1. Deixe as predefinições para o resto das definições. Clique **em Rever + criar** e, em seguida, **criar**
@@ -121,7 +121,7 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
     | Nome da máquina virtual | *Insira o myVm*. |
-    | Região | Selecione **West US** ou qualquer região que estiver usando. |
+    | Region | Selecione **West US** ou qualquer região que estiver usando. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows** Server . |
     | Tamanho | Deixe o **padrão DS1 v2**. |

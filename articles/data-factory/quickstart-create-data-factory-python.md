@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, devx-track-python
 ms.openlocfilehash: e511b8b5505f1fa8713d81d0ce959df32ef28503
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89439117"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013331"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Create a data factory and pipeline using Python (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o Python)
 
@@ -44,7 +44,7 @@ Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos proc
 
 * [Explorador de Armazenamento Azure](https://storageexplorer.com/) (opcional).
 
-* [Uma aplicação no Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota dos seguintes valores a utilizar em etapas posteriores: **ID de aplicação,** **chave de autenticação**e **identificação do inquilino.** Atribua a aplicação à **função Contribuinte** seguindo as instruções no mesmo artigo.
+* [Uma aplicação no Azure Ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota dos seguintes valores a utilizar em etapas posteriores: **ID de aplicação,** **chave de autenticação** e **identificação do inquilino.** Atribua a aplicação à **função Contribuinte** seguindo as instruções no mesmo artigo.
 
 ## <a name="create-and-upload-an-input-file"></a>Criar e carregar um ficheiro de entrada
 
@@ -58,7 +58,7 @@ Os oleodutos podem ingerir dados de lojas de dados diferentes. Os oleodutos proc
 
 ## <a name="install-the-python-package"></a>Instalar o pacote do Python
 
-1. Abra um terminal ou uma linha de comandos com privilégios de administrador. 
+1. Abra um terminal ou uma linha de comandos com privilégios de administrador. 
 2. Em primeiro lugar, instale o pacote do Python para recursos de gestão do Azure:
 
     ```python
@@ -451,7 +451,7 @@ Number of bytes written: 18
 Copy duration: 4
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para eliminar a fábrica de dados, adicione o código abaixo ao programa:
 

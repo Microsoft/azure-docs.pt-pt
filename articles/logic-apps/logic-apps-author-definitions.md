@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 9163071237041d7c8510a644c573e3763434bb0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87060664"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014402"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Criar, editar ou expandir JSON para definições de fluxo de aplicações lógicas no Azure Logic Apps
 
@@ -33,7 +33,7 @@ Se é novo em aplicações lógicas, [reveja como criar a sua primeira aplicaç�
 2. A partir do menu esquerdo, escolha **Todos os serviços.**
 Na caixa de pesquisa, encontre "aplicações lógicas", e depois, a partir dos resultados, selecione a sua aplicação lógica.
 
-3. No menu da sua aplicação lógica, em **Ferramentas**de Desenvolvimento, selecione **Logic App Code View**.
+3. No menu da sua aplicação lógica, em **Ferramentas** de Desenvolvimento, selecione **Logic App Code View**.
 
    O editor code view abre e mostra a definição de aplicação lógica no formato JSON.
 
@@ -46,7 +46,7 @@ No Visual Studio, pode abrir aplicações lógicas que foram criadas e implement
 
 1. Abra a solução Visual Studio, ou projeto [Azure Resource Group,](../azure-resource-manager/management/overview.md) que contém a sua aplicação lógica.
 
-2. Encontre e abra a definição da sua aplicação lógica, que por padrão, aparece num [modelo de Gestor de Recursos,](../azure-resource-manager/templates/overview.md)nomeadoLogicApp.js** em**.
+2. Encontre e abra a definição da sua aplicação lógica, que por padrão, aparece num [modelo de Gestor de Recursos,](../azure-resource-manager/templates/overview.md)nomeadoLogicApp.js **em**.
 Pode utilizar e personalizar este modelo para a implementação de diferentes ambientes.
 
 3. Abra o menu de atalho para a definição e modelo da sua aplicação lógica.

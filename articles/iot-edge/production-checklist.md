@@ -12,11 +12,11 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669602"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013297"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implementar a sua solução IoT Edge na produção
 
@@ -132,7 +132,7 @@ O valor predefinido do parâmetro timeToLiveSecs é de 7200 segundos, ou seja, d
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>Não utilize versões de depurar imagens de módulos
 
-Ao passar de cenários de teste para cenários de produção, lembre-se de remover as configurações de depuração dos manifestos de implantação. Verifique se nenhuma das imagens do módulo nos manifestos de implantação tem o sufixo de ** \. depuração.** Se adicionar opções para expor portas nos módulos de depurar, remova essas opções de criação também.
+Ao passar de cenários de teste para cenários de produção, lembre-se de remover as configurações de depuração dos manifestos de implantação. Verifique se nenhuma das imagens do módulo nos manifestos de implantação tem o sufixo de **\. depuração.** Se adicionar opções para expor portas nos módulos de depurar, remova essas opções de criação também.
 
 ## <a name="container-management"></a>Gestão de contentores
 
@@ -194,7 +194,7 @@ Em seguida, certifique-se de atualizar as referências de imagem no deployment.t
 
     `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 * **Útil**
   * Revisão da configuração de saída/entrada

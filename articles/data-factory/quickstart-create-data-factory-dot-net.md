@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
 ms.openlocfilehash: d564b96807574dd7a275d6959aea085ad16e9e2e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565947"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013416"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Quickstart: Create a data factory and pipeline using .NET SDK (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o SDK .NET)
 
@@ -49,7 +49,7 @@ A partir das secções em *Como: Utilizar o portal para criar uma aplicação AD
 
 1. Na [Criação de uma aplicação Azure Ative Directory,](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)crie uma aplicação que represente a aplicação .NET que está a criar neste tutorial. Para o URL de início de sessão, pode fornecer um URL fictício conforme mostrado no artigo (`https://contoso.org/exampleapp`).
 2. Em [Obter valores para iniciar sessão,](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)obtenha o ID da **aplicação** e **iD do inquilino,** e observe estes valores que você usa mais tarde neste tutorial. 
-3. Em [Certificados e segredos](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), obtenha a **chave de autenticação** , e note este valor que você usa mais tarde neste tutorial.
+3. Em [Certificados e segredos](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), obtenha a **chave de autenticação**, e note este valor que você usa mais tarde neste tutorial.
 4. Na [Atribuição da aplicação a uma função,](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)atribua a aplicação à função **Contribuinte** ao nível de subscrição para que a aplicação possa criar fábricas de dados na subscrição.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
@@ -87,7 +87,7 @@ Em seguida, crie uma aplicação de consola C# .NET no Visual Studio:
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Adicione o código seguinte ao método **Principal** que define as variáveis. Substitua os espaços reservados pelos seus próprios valores. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory** : [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). As lojas de dados (Azure Storage, Azure SQL Database, e muito mais) e computas (HDInsight e outras) utilizadas pela fábrica de dados podem estar noutras regiões.
+2. Adicione o código seguinte ao método **Principal** que define as variáveis. Substitua os espaços reservados pelos seus próprios valores. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). As lojas de dados (Azure Storage, Azure SQL Database, e muito mais) e computas (HDInsight e outras) utilizadas pela fábrica de dados podem estar noutras regiões.
 
    ```csharp
    // Set variables
@@ -436,7 +436,7 @@ O gasoduto cria automaticamente a pasta de saída no recipiente de **bolhas adft
 2. Na lista de pastas, selecione **output**.
 3. Confirme se o ficheiro **emp.txt** foi copiado para a pasta de saída. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para eliminar programáticamente a fábrica de dados, adicione as seguintes linhas de código ao programa: 
 

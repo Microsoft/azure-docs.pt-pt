@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 018570019b306dced76760fefa4441ee7d86ad2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88189838"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013960"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Cofre da Chave Azure .NET 2.0 - Guia de Lançamento e Migração
 As seguintes informações ajudam a migrar para a versão 2.0 da biblioteca Azure Key Vault para C# e .NET.  As aplicações escritas para versões anteriores precisam de ser atualizadas para suportar a versão mais recente.  Estas alterações são necessárias para suportar plenamente novas funcionalidades e **melhores,** tais como certificados Key Vault .
@@ -49,12 +49,12 @@ Os certificados Key Vault gerem certificados x509 e suportam os seguintes compor
 
 * *Segredo* alterado para *SecretBundle*
 * *Dicionário* alterado para *IDictionary*
-* *Lista, \<T> string []* alterado para *IList \<T> *
+* *Lista, \<T> string []* alterado para *IList \<T>*
 * *NextList* alterado para  *NextPageLink*
 
 ## <a name="return-types"></a>Tipos de retorno
 
-* **KeyList** e **SecretList** agora devolve * \<T> IPage* em vez de *ListKeysResponseMessage*
+* **KeyList** e **SecretList** agora devolve *\<T> IPage* em vez de *ListKeysResponseMessage*
 * O **BackupKeyAsync** gerado agora devolve *BackupKeyResult*, que contém *Valor* (blob de backup). Anteriormente, o método foi embrulhado e devolvido apenas o valor.
 
 ## <a name="exceptions"></a>Exceções

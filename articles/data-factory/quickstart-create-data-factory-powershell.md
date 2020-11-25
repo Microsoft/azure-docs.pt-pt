@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
 ms.openlocfilehash: a7fcb4be47e0e1e62c190a9b089243a178df8e7a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562054"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013368"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Quickstart: Criar uma fábrica de dados Azure utilizando o PowerShell
 
@@ -105,9 +105,9 @@ Tenha em atenção os seguintes pontos:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 
-* Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário** , ou um **administrador** da subscrição do Azure.
+* Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário**, ou um **administrador** da subscrição do Azure.
 
-* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory** : [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
 
 ## <a name="create-a-linked-service"></a>Criar um serviço ligado
@@ -136,9 +136,9 @@ Crie os serviços ligados numa fábrica de dados para ligar os seus arquivos de 
     }
     ```
 
-    Se estiver a utilizar o Bloco de Notas, selecione **Todos os Ficheiros** no campo **Guardar com o tipo** , na caixa de diálogo **Guardar como**. Caso contrário, pode adicionar a extensão `.txt` ao ficheiro. Por exemplo, `AzureStorageLinkedService.json.txt`. Se criar o ficheiro no Explorador de Ficheiros antes de o abrir no Bloco de Notas, poderá não ver a extensão `.txt`, uma vez que a opção **Ocultar extensões para tipos de ficheiros conhecidos** está definida por predefinição. Antes de avançar para o próximo passo, remova a extensão `.txt`.
+    Se estiver a utilizar o Bloco de Notas, selecione **Todos os Ficheiros** no campo **Guardar com o tipo**, na caixa de diálogo **Guardar como**. Caso contrário, pode adicionar a extensão `.txt` ao ficheiro. Por exemplo, `AzureStorageLinkedService.json.txt`. Se criar o ficheiro no Explorador de Ficheiros antes de o abrir no Bloco de Notas, poderá não ver a extensão `.txt`, uma vez que a opção **Ocultar extensões para tipos de ficheiros conhecidos** está definida por predefinição. Antes de avançar para o próximo passo, remova a extensão `.txt`.
 
-2. No **PowerShell** , mude para a pasta **ADFv2QuickStartPSH**.
+2. No **PowerShell**, mude para a pasta **ADFv2QuickStartPSH**.
 
     ```powershell
     Set-Location 'C:\ADFv2QuickStartPSH'
@@ -164,8 +164,8 @@ Crie os serviços ligados numa fábrica de dados para ligar os seus arquivos de 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 
 Neste procedimento, vai criar dois conjuntos de dados, **InputDataset** e **OutputDataset**. Estes conjuntos de dados são do tipo **Binário.** Dizem respeito ao serviço ligado do Armazenamento do Azure que criou na secção anterior.
-O conjunto de dados de entrada representa a origem de dados na pasta de entrada. Na definição do conjunto de dados de entrada, vai especificar o contentor de blobs ( **adftutorial** ), a pasta ( **input** ) e o ficheiro ( **emp.txt** ) que contêm os dados de origem.
-O conjunto de dados de saída representa os dados que são copiados para o destino. Na definição do conjunto de dados de saída, vai especificar o contentor de blobs ( **adftutorial** ), a pasta ( **output** ) e o ficheiro para o qual os dados vão ser copiados. 
+O conjunto de dados de entrada representa a origem de dados na pasta de entrada. Na definição do conjunto de dados de entrada, vai especificar o contentor de blobs (**adftutorial**), a pasta (**input**) e o ficheiro (**emp.txt**) que contêm os dados de origem.
+O conjunto de dados de saída representa os dados que são copiados para o destino. Na definição do conjunto de dados de saída, vai especificar o contentor de blobs (**adftutorial**), a pasta (**output**) e o ficheiro para o qual os dados vão ser copiados. 
 1. Crie um ficheiro JSON nomeado **InputDataset.jsna** pasta **C:\ADFv2QuickStartPSH,** com o seguinte conteúdo:
 
     ```json
@@ -190,7 +190,7 @@ O conjunto de dados de saída representa os dados que são copiados para o desti
     }
     ```
 
-2. Para criar o conjunto de dados: **InputDataset** , executar o **cmdlet Set-AzDataFactoryV2Dataset.**
+2. Para criar o conjunto de dados: **InputDataset**, executar o **cmdlet Set-AzDataFactoryV2Dataset.**
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -306,7 +306,7 @@ Neste procedimento, cria-se um pipeline com uma atividade de cópia que utiliza 
     }
     ```
 
-2. Para criar o oleoduto: **Adfv2QuickStartPipeline** , executar o **cmdlet Set-AzDataFactoryV2Pipeline.**
+2. Para criar o oleoduto: **Adfv2QuickStartPipeline**, executar o **cmdlet Set-AzDataFactoryV2Pipeline.**
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline `

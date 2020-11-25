@@ -7,11 +7,11 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269561"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014419"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implementá-los no Azure Logic Apps
 
@@ -102,7 +102,7 @@ Para mais informações, consulte [Grow up to Azure Logic Apps](https://flow.mic
 
    1. Depois de atualizar as suas ligações, na barra de ferramentas do designer, selecione **Save**.
 
-1. Quando estiver pronto para ativar a sua aplicação lógica, no menu da aplicação lógica, selecione **Overview**e, em seguida, selecione **Enable**.
+1. Quando estiver pronto para ativar a sua aplicação lógica, no menu da aplicação lógica, selecione **Overview** e, em seguida, selecione **Enable**.
 
    ![Ativar aplicativo de lógica](./media/export-from-microsoft-flow-logic-app-template/enable-logic-app.png)
 
@@ -166,7 +166,7 @@ Se configurar o Visual Studio com os [pré-requisitos](../logic-apps/quickstart-
 
    Após a implementação, a sua aplicação lógica é publicada mas não é ativada no portal Azure.
 
-1. Quando estiver pronto para ativar a sua aplicação lógica no portal Azure, encontre e abra a sua aplicação lógica no Logic App Designer. No menu da aplicação lógica, selecione **Overview**e, em seguida, selecione **Enable**.
+1. Quando estiver pronto para ativar a sua aplicação lógica no portal Azure, encontre e abra a sua aplicação lógica no Logic App Designer. No menu da aplicação lógica, selecione **Overview** e, em seguida, selecione **Enable**.
 
 1. Para evitar a execução de fluxos de trabalho duplicados, certifique-se de desativar ou eliminar o seu fluxo original.
 

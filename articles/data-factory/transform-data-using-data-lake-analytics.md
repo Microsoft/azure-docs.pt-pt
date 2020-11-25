@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: d890f73ea8b2294755b14055cb11904d50160cc4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632129"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014011"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Processar dados executando scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -38,7 +38,7 @@ A tabela a seguir fornece descrições para as propriedades genéricas utilizada
 
 | Propriedade                 | Descrição                              | Obrigatório                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **tipo**                 | A propriedade tipo deve ser configurada para: **AzureDataLakeAnalytics** . | Sim                                      |
+| **tipo**                 | A propriedade tipo deve ser configurada para: **AzureDataLakeAnalytics**. | Sim                                      |
 | **accountName**          | Nome da conta Azure Data Lake Analytics.  | Sim                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | Não                                       |
 | **subscriçãoId**       | ID de assinatura Azure                    | Não                                       |
@@ -123,7 +123,7 @@ A tabela seguinte descreve nomes e descrições de propriedades específicas a e
 | :------------------ | :--------------------------------------- | :------- |
 | name                | Nome da atividade no oleoduto     | Sim      |
 | descrição         | Texto descrevendo o que a atividade faz.  | Não       |
-| tipo                | Para a atividade U-SQL do Data Lake Analytics, o tipo de atividade é  **DataLakeAnalyticsU-SQL** . | Sim      |
+| tipo                | Para a atividade U-SQL do Data Lake Analytics, o tipo de atividade é  **DataLakeAnalyticsU-SQL**. | Sim      |
 | linkedServiceName   | Serviço ligado ao Azure Data Lake Analytics. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  |Sim       |
 | scriptPath          | Caminho para a pasta que contém o script U-SQL. O nome do ficheiro é sensível a casos. | Sim      |
 | scriptLinkedService | Serviço ligado que liga a **Azure Data Lake Store** ou **Azure Storage** que contém o script para a fábrica de dados | Sim      |

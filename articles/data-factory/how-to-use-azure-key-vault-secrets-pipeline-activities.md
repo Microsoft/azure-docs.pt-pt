@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: 1766705e73afab5d15cdb5aa2c5bb1487ad3d7c5
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634288"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013892"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Utilizar segredos do Azure Key Vault em atividades de pipeline
 
@@ -39,7 +39,7 @@ Esta funcionalidade baseia-se na identidade gerida pela fábrica de dados.  Saib
 
     ![Principais políticas de acesso ao cofre](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 
-    Clique **em Adicionar** e, em seguida, clique em **Guardar** .
+    Clique **em Adicionar** e, em seguida, clique em **Guardar**.
 
 3. Navegue para o seu segredo do Cofre chave e copie o Identificador Secreto.
 
@@ -65,7 +65,7 @@ Esta funcionalidade baseia-se na identidade gerida pela fábrica de dados.  Saib
     > [!CAUTION]
     > Descreva a opção Saída Segura de forma verdadeira para evitar que o valor secreto seja registado em texto simples.  Quaisquer outras atividades que consumam este valor devem ter a sua opção de Entrada Segura definida como verdadeira.
 
-5. Para utilizar o valor noutra atividade, utilize a seguinte expressão de código **@activity ('Web1').output.value** .
+5. Para utilizar o valor noutra atividade, utilize a seguinte expressão de código **@activity ('Web1').output.value**.
 
     ![Expressão de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

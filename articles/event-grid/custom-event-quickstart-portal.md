@@ -4,11 +4,11 @@ description: 'Quickstart: Use a Azure Event Grid e o portal Azure para publicar 
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87421047"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013671"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o ponto final da Web com o portal Azure e a Grade de Eventos
 
@@ -24,12 +24,12 @@ O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, o porta
 Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/).
-2. Na barra de pesquisa do tópico, escreva **Tópicos de Grelha de Eventos**e, em seguida, selecione Tópicos de Grelha de **Eventos** da lista de drop down. 
+2. Na barra de pesquisa do tópico, escreva **Tópicos de Grelha de Eventos** e, em seguida, selecione Tópicos de Grelha de **Eventos** da lista de drop down. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
 3. Na página **Tópicos da Grelha de Eventos,** selecione **+ Adicione** na barra de ferramentas. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Adicionar botão tópico de grelha de evento":::
 4. Na página **'Criar Tópico',** siga estes passos:
     1. Selecione a sua **subscrição Azure**.
     2. Selecione um grupo de recursos existente ou **selecione Criar novo**, e insira um **nome** para o grupo **de recursos**.
@@ -37,18 +37,18 @@ Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual
     4. Selecione um **local** para o tópico da grelha do evento.
     5. Selecione **'Rever + criar'** na parte inferior da página. 
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Criar página de tópicos":::
     6. No **separador 'Rever +' criar** o separador **'Criar' da** página de tópicos, selecione **Criar**. 
     
-        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Rever definições e criar":::
 5. Após a implementação ter sucesso, escreva **tópicos de grelha de eventos** novamente na barra de pesquisa e selecione **Tópicos** de Grelha de Evento da lista de drop-down como fez anteriormente. 
 6. Selecione o tópico que criou na lista. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selecione o seu tópico na lista":::
 
 7. Você vê a página **tópico da grelha de evento** para o seu tópico. Mantenha esta página aberta. Usa-se mais tarde no arranque rápido. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Página inicial do tópico da grelha de evento":::
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem
 Antes de criar uma subscrição para o tópico personalizado, crie um ponto final para a mensagem do evento. Normalmente, o ponto final executa as ações com base nos dados do evento. Para simplificar este início rápido, vai implementar uma [aplicação Web pré-criada](https://github.com/Azure-Samples/azure-event-grid-viewer) para apresentar as mensagens de evento. A solução implementada inclui um plano do Serviço de Aplicações, uma aplicação Web do Serviço de Aplicações e o código de origem do GitHub.
@@ -69,16 +69,16 @@ Subscreva um tópico do Event Grid para comunicar ao Event Grid os eventos que p
 
 1. Agora, na página **Tópico da Grelha de Eventos** para o seu tópico personalizado, selecione + **Subscrição de evento** na barra de ferramentas.
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Adicionar botão de subscrição de evento":::
 2. Na página **De Subscrição de Eventos** Criar, siga estes passos:
     1. Insira um **nome** para a subscrição do evento.
     3. Selecione **Web Hook** para o **tipo Endpoint**. 
     4. Escolha **Selecionar um ponto final.** 
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Indicar os valores da subscrição de evento":::
     5. Para o ponto final do webhook, indique o URL da sua aplicação Web e adicione `api/updates` ao URL da home page. Selecione **Confirmar a Seleção**.
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Indicar o URL de ponto final":::
     6. De volta à página **de Subscrição de Eventos,** selecione **Criar**.
 
 3. Verifique a aplicação Web novamente e repare que um evento de validação de subscrição foi enviado para a mesma. Selecione o ícone do olho para expandir os dados do evento. O Event Grid envia o evento de validação para que o ponto final possa verificar que pretende receber dados de eventos. A aplicação Web inclui código para validar a subscrição.
@@ -95,7 +95,7 @@ O primeiro exemplo utiliza a CLI do Azure. Obtém o URL e a chave para o tópico
 ### <a name="azure-cli"></a>CLI do Azure
 1. No portal Azure, selecione **Cloud Shell**. O Cloud Shell abre no painel inferior do navegador web. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Selecione ícone cloud shell":::
 1. Selecione **Bash** no canto superior esquerdo da janela Cloud Shell. 
 
     ![Cloud Shell - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
@@ -125,7 +125,7 @@ O segundo exemplo utiliza o PowerShell para efetuar passos semelhantes.
 
 1. No portal Azure, selecione **Cloud Shell** (em alternativa vá `https://shell.azure.com/` a). O Cloud Shell abre no painel inferior do navegador web. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Selecione ícone cloud shell":::
 1. No **Cloud Shell**, selecione **PowerShell** no canto superior esquerdo da janela Cloud Shell. Consulte a imagem da janela **Cloud Shell** na secção Azure CLI.
 2. Desa estarda as seguintes variáveis. Depois de copiar e colar cada comando, atualize o nome do **tópico** e **o nome do grupo de recursos** antes de executar o comando:
 
@@ -178,9 +178,9 @@ O segundo exemplo utiliza o PowerShell para efetuar passos semelhantes.
 ### <a name="verify-in-the-event-grid-viewer"></a>Verifique no Espectador de Grelha de Eventos
 Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. Verifique a aplicação Web para ver o evento que acabámos de enviar.
 
-:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Procurar e selecionar tópicos de grelha de eventos":::
+:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Espectador de grelha de evento":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se quiser continuar a trabalhar com este evento, não limpe os recursos criados neste artigo. Caso contrário, elimine os recursos que criou neste artigo.
 
 1. Selecione **Grupos de Recursos** no menu esquerdo. Se não o vir no menu esquerdo, selecione **Todos os Serviços** no menu esquerdo e selecione **Grupos de Recursos**. 

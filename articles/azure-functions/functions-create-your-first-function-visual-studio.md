@@ -3,14 +3,14 @@ title: 'Quickstart: Crie a sua primeira função em Azure usando o Visual Studio
 description: Neste arranque rápido, aprende-se a criar e a publicar um Azure Function de gatilho HTTP utilizando o Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 03/06/2020
+ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: d7cfcd02c5e6c9ff57241288bd79efb45d4ac7ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c9ddd6e74e25d8de415e24038e99da9d21dab867
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88213987"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "96014482"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Quickstart: Crie a sua primeira função em Azure usando o Visual Studio
 
@@ -60,7 +60,7 @@ Antes de poder publicar o seu projeto, tem de ter uma aplicação de função na
 
 ## <a name="test-your-function-in-azure"></a>Testar a sua função no Azure
 
-1. No Cloud Explorer, a sua nova aplicação de função deve ser selecionada. Caso contrário, expanda a sua subscrição > **Serviços de Aplicações**e selecione a sua nova aplicação de função.
+1. No Cloud Explorer, a sua nova aplicação de função deve ser selecionada. Caso contrário, expanda a sua subscrição > **Serviços de Aplicações** e selecione a sua nova aplicação de função.
 
 1. Clique com o botão direito na aplicação de função e escolha **Abrir no Browser.** Isto abre a raiz da sua aplicação de função no seu navegador web padrão e exibe a página que indica que a sua aplicação de função está em execução. 
 
@@ -74,9 +74,9 @@ Antes de poder publicar o seu projeto, tem de ter uma aplicação de função na
 
 2. Vá a este URL e veja uma resposta no navegador ao pedido remoto GET devolvido pela função, que parece ser o seguinte exemplo:
 
-    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Aplicação de função em execução":::
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Resposta de função no navegador":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros guias de introdução desta coleção têm por base este guia de introdução. Se planeia trabalhar com quickstarts subsequentes, tutoriais ou com qualquer um dos serviços que criou neste arranque rápido, não limpe os recursos.
 
@@ -88,7 +88,7 @@ Criou recursos para concluir estes guias de introdução. Poderá ser-lhe cobrad
 
 1. Na página de aplicações da função, selecione o **separador 'Vista Geral'** e, em seguida, selecione o link no **grupo De recursos**.
 
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Aplicação de função em execução":::
+   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Selecione o grupo de recursos para eliminar a partir da página de aplicação de funções":::
 
 2. Na página do **grupo Recursos,** reveja a lista de recursos incluídos e verifique se são eles que pretende eliminar.
  
