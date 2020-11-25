@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: a73d155d20d09573ad5e1b2597678291aea4c92b
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: c7db48a1df61472de8676192f267493232139b6e
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980597"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030820"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planear e gerir os custos da Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -52,7 +52,7 @@ Se planeia utilizar o Azure Cosmos DB em modo sem servidor, tem de estimar quant
 | Executar uma consulta | 10 RUs | Custo médio para uma consulta que tira o máximo partido da [indexação](index-overview.md) e devolve 100 resultados ou menos |
 
 > [!IMPORTANT] 
-> Preste atenção às notas da tabela acima. Para uma estimativa mais precisa dos custos reais das suas operações, pode utilizar o [Emulador Azure Cosmos](local-emulator.md) e [medir o custo exato da RU das suas operações.](find-request-unit-charge.md) Embora o Emulador Azure Cosmos não suporte sem servidor, reporta uma taxa RU padrão para operações de base de dados e pode ser usado para esta estimativa.
+> Preste atenção às notas da tabela acima. Para uma estimativa mais precisa dos custos reais das suas operações, pode utilizar o [Emulador Azure Cosmos DB](local-emulator.md) e [medir o custo exato da RU das suas operações.](find-request-unit-charge.md) Embora o Emulador DB Azure Cosmos não suporte sem servidor, reporta uma taxa RU padrão para operações de base de dados e pode ser usado para esta estimativa.
 
 Uma vez calculado o número total de Unidades de Pedido e GB de armazenamento que provavelmente consumirá ao longo de um mês, a seguinte fórmula devolverá a sua estimativa **de custos: ([Número de unidades de pedido] / 1.000.000 * $0,25) + ([GB de armazenamento] * $0,25)**.
 

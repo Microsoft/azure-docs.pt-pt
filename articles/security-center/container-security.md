@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6b57428aeba702dc8cf06ec4ae7984854a94ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7265195f9614928a2150a56a780ea7b36bc2e266
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449183"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030871"
 ---
-# <a name="container-security-in-security-center"></a>Segurança de contentores no Centro de Segurança
+# <a name="container-security-in-security-center"></a>Segurança do contentor no Centro de Segurança
 
 O Azure Security Center é a solução nativa do Azure para proteger os seus contentores.
 
@@ -78,11 +78,11 @@ Para obter mais informações sobre as recomendações relevantes do Centro de S
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Melhores práticas de proteção da carga de trabalho utilizando o controlo de admissão de Kubernetes
 
-Instale o  **addon Azure Policy para kubernetes** para obter um pacote de recomendações para proteger as cargas de trabalho dos seus recipientes Kubernetes.
+Para obter um conjunto de recomendações para proteger as cargas de trabalho dos seus recipientes Kubernetes, instale o  **addon Azure Policy para Kubernetes**. Também pode implementar automaticamente este addon como explicado no [Enable auto provisioning de extensões](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Quando o fornecimento automático para o addon é definido como "on", a extensão é ativada por padrão em todos os clusters existentes e futuros (que satisfazem os requisitos de instalação adicionais).
 
 Tal como explicado nesta [página da Política Azure para kubernetes,](../governance/policy/concepts/policy-for-kubernetes.md)o add-on estende o webhook do controlador de admissão [gatekeeper v3](https://github.com/open-policy-agent/gatekeeper)de código aberto   para o Agente de Política [Aberta](https://www.openpolicyagent.org/). Os controladores de admissão kubernetes são plugins que impõem a forma como os seus clusters são usados. O addon regista-se como um gancho web para o controlo de admissão de Kubernetes e permite aplicar aplicações e salvaguardas em escala nos seus clusters de forma centralizada e consistente. 
 
-Quando tiver instalado o addon no seu cluster AKS, todos os pedidos para o servidor API de Kubernetes serão monitorizados contra o conjunto de boas práticas predefinido antes de serem persistidos no cluster. Em seguida, pode configurar para **impor** as melhores práticas e mandatá-las para futuras cargas de trabalho. 
+Com o addon no seu cluster AKS, todos os pedidos para o servidor API de Kubernetes serão monitorizados contra o conjunto pré-definido de boas práticas antes de serem persistidos no cluster. Em seguida, pode configurar para **impor** as melhores práticas e mandatá-las para futuras cargas de trabalho. 
 
 Por exemplo, pode ordenar que os contentores privilegiados não sejam criados, e quaisquer pedidos futuros para o fazer serão bloqueados.
 
@@ -100,4 +100,4 @@ Saiba mais em [Proteger as cargas de trabalho dos Seus Kubernetes.](kubernetes-w
 Nesta visão geral, você aprendeu sobre os elementos fundamentais da segurança do contentor no Azure Security Center. Para materiais relacionados ver:
 
 - [Introdução ao Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
-- [Introdução ao Azure Defender para registos de contentores](defender-for-container-registries-introduction.md)
+- [Introdução ao Azure Defender dos registos de contentores](defender-for-container-registries-introduction.md)

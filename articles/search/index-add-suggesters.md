@@ -7,18 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013586"
+ms.locfileid: "96030786"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Crie um sugestivo para permitir resultados autocompletos e sugeridos numa consulta
 
-Na Pesquisa Cognitiva Azure, "search-as-you-type" é ativado através de uma construção **sugestiva** adicionada a um [índice de pesquisa](search-what-is-an-index.md). Um sugestivo suporta duas experiências: *autocomplete,* que completa uma entrada parcial para uma consulta de todo o termo, e *sugestões* que convidam a clicar para uma determinada correspondência. O autocomplete produz uma consulta. As sugestões produzem um documento correspondente.
+Na Pesquisa Cognitiva Azure, "search-as-you-type" é ativado através de um *sugestivo*. Um sugestivo é uma estrutura interna de dados que consiste numa recolha de campos. Os campos são submetidos a tokenização adicional, gerando sequências de prefixos para suportar partidas em termos parciais.
+
+Por exemplo, se um sugestivo incluir um campo da Cidade, combinações de prefixos resultantes de "mar", "assento", "seatt" e "seattl" seriam criados para o termo "Seattle". Os prefixos são armazenados em índices invertidos, um para cada campo especificado numa recolha de campos sugestivos.
+
+## <a name="typeahead-experiences-in-cognitive-search"></a>Experiências typeahead em Pesquisa Cognitiva
+
+Um sugestivo suporta duas experiências: *autocomplete,* que completa uma entrada parcial para uma consulta de todo o termo, e *sugestões* que convidam a clicar para uma determinada correspondência. O autocomplete produz uma consulta. As sugestões produzem um documento correspondente.
 
 A imagem a seguir da Criação da [sua primeira aplicação em C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustra ambas. O autocomplete antecipa um termo potencial, terminando "tw" com "in". As sugestões são resultados de mini pesquisa, onde um campo como o nome do hotel representa um documento de pesquisa de hotel correspondente a partir do índice. Para sugestões, pode emergir qualquer campo que forneça informações descritivas.
 
@@ -31,10 +37,6 @@ Pode utilizar estas funcionalidades separadamente ou em conjunto. Para implement
 + Ligue para uma consulta habilitada a sugerir, sob a forma de um pedido de sugestão ou de um pedido de auto-preencha, utilizando uma das [APIs listadas abaixo](#how-to-use-a-suggester).
 
 O suporte do tipo search-as-you é ativado numa base por campo para campos de cordas. Pode implementar ambos os comportamentos de tipa dentro da mesma solução de pesquisa se quiser uma experiência semelhante à indicada na imagem. Ambos os pedidos visam a recolha de *documentos* de índice específico e as respostas são devolvidas depois de um utilizador ter fornecido pelo menos uma cadeia de entrada de três caracteres.
-
-## <a name="what-is-a-suggester"></a>O que é um sugestivo?
-
-Um sugestivo é uma estrutura de dados interna que suporta comportamentos de pesquisa como você-tipo, armazenando prefixos para combinar em consultas parciais. Tal como acontece com os termos simbólicos, os prefixos são armazenados em índices invertidos, um para cada campo especificado numa recolha de campos sugestivos.
 
 ## <a name="how-to-create-a-suggester"></a>Como criar um sugestivo
 
