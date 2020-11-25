@@ -10,11 +10,11 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: fc08adb2f71c49fad3c8574e9cfd5315f13d7f44
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532769"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95982267"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Resolução de problemas Tempestade Apache usando Azure HDInsight
 
@@ -27,8 +27,8 @@ Você tem duas opções para aceder ao UI storm a partir de um navegador:
 ### <a name="apache-ambari-ui"></a>Apache Ambari UI
 
 1. Vai ao painel Ambari.
-2. Na lista de serviços, selecione **Storm** .
-3. No menu **Links Rápidos,** selecione **Storm UI** .
+2. Na lista de serviços, selecione **Storm**.
+3. No menu **Links Rápidos,** selecione **Storm UI**.
 
 ### <a name="direct-link"></a>Ligação direta
 
@@ -40,7 +40,7 @@ Exemplo: `https://stormcluster.azurehdinsight.net/stormui`
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Como transfira informação do centro de verificação do storm event de uma topologia para outra?
 
-Quando desenvolver topologias que lêem a partir de Azure Event Hubs utilizando o ficheiro hdInsight Storm .jar, deve implementar uma topologia com o mesmo nome num novo cluster. No entanto, deve reter os dados de verificação que foram comprometidos com o [Apache ZooKeeper](https://zookeeper.apache.org/) no antigo cluster.
+Quando desenvolver topologias que lêem a partir de Azure Event Hubs utilizando o hub de eventos HDInsight Storm .jar ficheiro, deve implementar uma topologia com o mesmo nome num novo cluster. No entanto, deve reter os dados de verificação que foram comprometidos com o [Apache ZooKeeper](https://zookeeper.apache.org/) no antigo cluster.
 
 ### <a name="where-checkpoint-data-is-stored"></a>Onde os dados do checkpoint são armazenados
 
@@ -54,7 +54,7 @@ Os dados do checkpoint para compensações são armazenados pelo centro de event
 
 Para obter os scripts e bibliotecas que usa para exportar dados do ZooKeeper e, em seguida, importar os dados de volta para o ZooKeeper com um novo nome, consulte [exemplos de HDInsight Storm](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/tools/zkdatatool-1.0).
 
-A pasta lib tem ficheiros .jar que contêm a implementação para a operação de exportação/importação. A pasta bash tem um script de exemplo que demonstra como exportar dados do servidor ZooKeeper no antigo cluster, e depois importá-lo de volta para o servidor ZooKeeper no novo cluster.
+A pasta lib tem .jar ficheiros que contenham a implementação para a operação de exportação/importação. A pasta bash tem um script de exemplo que demonstra como exportar dados do servidor ZooKeeper no antigo cluster, e depois importá-lo de volta para o servidor ZooKeeper no novo cluster.
 
 Executar [o](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) stormmeta.sh script dos nós do ZooKeeper para exportar e, em seguida, importar dados. Atualize o script para a versão correta da Plataforma de Dados de Hortonworks (HDP). (Estamos a trabalhar em tornar estes scripts genéricos em HDInsight. Os scripts genéricos podem ser executados a partir de qualquer nó no cluster sem modificações por parte do utilizador.)
 
@@ -133,7 +133,7 @@ Os nóns dos trabalhadores da tempestade gerem os seguintes serviços:
 
 ## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Como localizo binaários storm hub para desenvolvimento?
 
-Para obter mais informações sobre a utilização de ficheiros storm event hub .jar com a sua topologia, consulte os seguintes recursos.
+Para obter mais informações sobre a utilização do hub de eventos Storm .jar ficheiros com a sua topologia, consulte os seguintes recursos.
 
 ### <a name="java-based-topology"></a>Topologia baseada em Java
 
