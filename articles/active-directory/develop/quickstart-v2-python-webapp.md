@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: eaac8bdf828d2dd9a8e2dfae0b1b2b5985d1951d
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 1a8d851d2e70850155950786c6aa67c1d5086eb2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592707"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993878"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web Python
 
@@ -56,7 +56,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >      - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `python-webapp` exemplo.
->      - Nos **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
+>      - Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 >      - Selecione **Registar**.
 >      - Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
 > 1. Selecione a **Autenticação** do menu e, em seguida, adicione as seguintes informações:

@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb5cda16cd9405f0cbe91a3f88be7dc3f582d21b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86142772"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993431"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar uma piscina Azure Batch numa rede virtual
 
@@ -35,14 +35,14 @@ Para permitir que os nós computacional se comuniquem de forma segura com outras
 
 ## <a name="create-a-pool-with-a-vnet-in-the-azure-portal"></a>Criar uma piscina com um VNet no portal Azure
 
-Uma vez criado o seu VNet e atribuído uma sub-rede, pode criar uma piscina de Lote com esse VNet. Siga estes passos para criar uma piscina a partir do portal Azure: 
+Uma vez criado o seu VNet e atribuído uma sub-rede, pode criar uma piscina de Lote com esse VNet. Siga estes passos para criar uma piscina a partir do portal Azure: 
 
 1. No portal do Azure, navegue para a sua conta do Batch. Esta conta deve estar na mesma subscrição e região que o grupo de recursos que contém o VNet que pretende utilizar.
 2. Na janela **Definições** à esquerda, selecione o item do menu **Pools.**
 3. Na janela **Pools,** **selecione Adicionar**.
 4. Na janela **Add Pool,** selecione a opção que pretende utilizar a partir do **dropdown do Tipo** de Imagem.
 5. Selecione o **Editor/Oferta/Sku** correto para a sua imagem personalizada.
-6. Especifique as definições restantes necessárias, incluindo o tamanho do **nó,** **os nós dedicados ao alvo**e os nós de baixa **prioridade,** bem como quaisquer configurações opcionais desejadas.
+6. Especifique as definições restantes necessárias, incluindo o tamanho do **nó,** **os nós dedicados ao alvo** e os nós de baixa **prioridade,** bem como quaisquer configurações opcionais desejadas.
 7. Na **Rede Virtual,** selecione a rede virtual e a sub-rede que pretende utilizar.
 
    ![Adicionar piscina com rede virtual](./media/batch-virtual-network/add-vnet-pool.png)

@@ -10,12 +10,12 @@ ms.date: 11/17/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 64ab86836989030c36ad2e8ad054c364b382af0b
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 5802070bf9b495c0e866d160d6661349369a444e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95248021"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993754"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Ativar e gerir a versão blob
 
@@ -87,7 +87,7 @@ O exemplo de código que se segue mostra como listar a versão blobs com a bibli
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobVersions":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Versão blob](versioning-overview.md)
-- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](soft-delete-overview.md)
+- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](./soft-delete-blob-overview.md)

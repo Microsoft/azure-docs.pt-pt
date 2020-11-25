@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: e1ccd337851f8242526362675a11280e33584082
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92513835"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993929"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutorial: Integração do Diretório Ativo Azure com o PageDNA
 
@@ -56,7 +56,7 @@ Para configurar a integração do PageDNA no AD AZure, é necessário adicionar 
 
     ![A opção Azure Ative Directory](common/select-azuread.png)
 
-1. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 
     ![O painel de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -64,7 +64,7 @@ Para configurar a integração do PageDNA no AD AZure, é necessário adicionar 
 
     ![A nova opção de aplicação](common/add-new-app.png)
 
-1. Na caixa de pesquisa, insira **o PageDNA**. Nos resultados da pesquisa, selecione **PageDNA**e, em seguida, **selecione Adicionar** para adicionar a aplicação.
+1. Na caixa de pesquisa, insira **o PageDNA**. Nos resultados da pesquisa, selecione **PageDNA** e, em seguida, **selecione Adicionar** para adicionar a aplicação.
 
     ![PageDNA na lista de resultados](common/search-new-app.png)
 
@@ -156,7 +156,7 @@ Nesta secção, cria-se um utilizador de teste no portal Azure chamado Britta Si
 
     1. Na caixa **Nome,** **insira BrittaSimon**.
   
-    1. Na caixa **de nome do utilizador,** insira **BrittaSimon \@ \<yourcompanydomain> . . \<extension> ** Por exemplo, **brittaSimon \@ contoso.com**.
+    1. Na caixa **de nome do utilizador,** insira **BrittaSimon \@ \<yourcompanydomain> . . \<extension>** Por exemplo, **brittaSimon \@ contoso.com**.
 
     1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
 
@@ -178,7 +178,7 @@ Nesta secção, permite ao utilizador Britta Simon utilizar o Azure como único 
 
     ![A opção "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. **Selecione + Adicione o utilizador**e, em seguida, selecione **Utilizadores e grupos** no painel **de atribuição de adicionar.**
+1. **Selecione + Adicione o utilizador** e, em seguida, selecione **Utilizadores e grupos** no painel **de atribuição de adicionar.**
 
     ![O painel de atribuição de adição](common/add-assign-user.png)
 

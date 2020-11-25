@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 1b15330d368a93ac4ba176df129df212a259f3e2
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 3ea3c3990a9319a81c841de8a7109850fcab5179
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561901"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993912"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Quickstart: Inicie sísmia nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação para iOS ou macOS
 
@@ -101,7 +101,7 @@ Numa janela terminal, navegue para a pasta com a amostra de código descarregada
 >#### <a name="step-4-configure-your-project"></a>Passo 4: Configurar o seu projeto
 > Se selecionou a Opção 1 acima, pode saltar estes passos.
 > 1. Extraia o ficheiro zip e abra o projeto no XCode.
-> 1. Editar _ *ViewController.swift* * e substituir a linha começando por 'let kClientID' com o seguinte corte de código. Lembre-se de atualizar o valor para `kClientID` com o clientID que guardou quando registou a sua aplicação no portal mais cedo neste arranque rápido:
+> 1. Editar _ *ViewController.swift** e substituir a linha começando por 'let kClientID' com o seguinte corte de código. Lembre-se de atualizar o valor para `kClientID` com o clientID que guardou quando registou a sua aplicação no portal mais cedo neste arranque rápido:
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
@@ -117,7 +117,7 @@ Numa janela terminal, navegue para a pasta com a amostra de código descarregada
 >     ```
 > 1. Abra as definições do projeto. Na secção **Identidade,** insira o **identificador de pacote** que inseriu no portal.
 > 1. Clique à direita **Info.plist** e selecione **Abrir Como**  >  **Código Fonte**.
-> 1. Sob o nó de raiz dict, `Enter_the_bundle_Id_Here` substitua-o pelo *_Id do pacote_* * que usou no portal.
+> 1. Sob o nó de raiz dict, `Enter_the_bundle_Id_Here` substitua-o pelo *_Id do pacote_** que usou no portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -179,7 +179,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 > |Onde: | Descrição |
 > |---------|---------|
-> | `clientId` | O ID do formulário registado em _portal.azure.com* |
+> | `clientId` | O ID do requerimento registado em _portal.azure.com* |
 > | `authority` | O ponto final da plataforma de identidade da Microsoft. Na maioria dos casos isto será `https://login.microsoftonline.com/common` |
 > | `redirectUri` | O URI redirecionado da aplicação. Pode passar 'zero' para utilizar o valor padrão ou o seu URI de redirecionamento personalizado. |
 
@@ -213,7 +213,7 @@ A sua aplicação também deve ter o seguinte na `AppDelegate` sua. Isto permite
     }
  ```
 
-Finalmente, a sua aplicação deve ter uma `LSApplicationQueriesSchemes` entrada na sua * **Info.plist** _ ao lado da `CFBundleURLTypes` . A amostra vem com isto incluído.
+Finalmente, a sua aplicação deve ter uma `LSApplicationQueriesSchemes` entrada na sua ***Info.plist** _ ao lado da `CFBundleURLTypes` . A amostra vem com isto incluído.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>

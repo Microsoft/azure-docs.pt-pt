@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 5747de399e7ae0cfe99ba013f8da376be0ba1b2a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544958"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993640"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configurar as políticas apache HBase em HDInsight com pacote de segurança empresarial
 
 Saiba como configurar as políticas apache ranger para pacotes de segurança empresarial (ESP) apache hbase clusters. Os clusters do ESP estão ligados a um domínio, permitindo que os utilizadores sejam autenticados com credenciais do domínio. Neste tutorial, você cria duas políticas ranger para restringir o acesso a diferentes colunas-famílias em uma tabela HBase.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar utilizadores de domínio
@@ -26,7 +26,7 @@ Neste tutorial, ficará a saber como:
 > * Criar tabelas num cluster HBase
 > * Testar as políticas do Ranger
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
@@ -95,11 +95,11 @@ Pode utilizar o SSH para ligar aos clusters HBase e, em seguida, utilizar [a Apa
 
 Crie uma política ranger para **sales_user1** e **marketing_user1.**
 
-1. Abra a **IU do Ranger Admin** . Clique **\<ClusterName> _hbase** em **HBase** .
+1. Abra a **IU do Ranger Admin**. Clique **\<ClusterName> _hbase** em **HBase**.
 
    ![HDInsight Apache Ranger Admin UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
-2. O ecrã **da Lista de Políticas** apresentará todas as políticas ranger criadas para este cluster. Poderá ser apresentada uma política pré-configurada. Clique **em Adicionar Nova Política** .
+2. O ecrã **da Lista de Políticas** apresentará todas as políticas ranger criadas para este cluster. Poderá ser apresentada uma política pré-configurada. Clique **em Adicionar Nova Política**.
 
     ![Lista de políticas do Apache Ranger HBase](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
@@ -123,7 +123,7 @@ Crie uma política ranger para **sales_user1** e **marketing_user1.**
    ![A política da Apache Ranger cria vendas](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
-   >Aguarde um momento enquanto o Ranger sincroniza com o Azure AD, se um utilizador de domínio não for preenchido automaticamente em **Selecionar Utilizador** .
+   >Aguarde um momento enquanto o Ranger sincroniza com o Azure AD, se um utilizador de domínio não for preenchido automaticamente em **Selecionar Utilizador**.
 
 4. Clique em **Adicionar** para guardar a política.
 
@@ -236,10 +236,10 @@ Com base nas políticas dos Rangers configuradas, **sales_user1** podem ver todo
 Se não continuar a utilizar esta aplicação, elimine o cluster HBase que criou com os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Na caixa **de pesquisa** no topo, escreva **HDInsight** . 
-1. Selecione **clusters HDInsight** em **Serviços** .
+2. Na caixa **de pesquisa** no topo, escreva **HDInsight**. 
+1. Selecione **clusters HDInsight** em **Serviços**.
 1. Na lista de clusters HDInsight que aparecem, clique no **...** ao lado do cluster que criou para este tutorial. 
-1. Clique em **Eliminar** . Clique em **Sim** .
+1. Clique em **Eliminar**. Clique em **Sim**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

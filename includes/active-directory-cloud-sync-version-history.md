@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 46c27fa2073ea1178fdf01ea3cbf96fe86954a6a
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 3fc2475569765116d46a175629f25d9d49634942
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255154"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993959"
 ---
 Este artigo lista as versões e funcionalidades do Azure Ative Directory Connect Provisioning Agent que foram lançados. A equipa Azure AD atualiza regularmente o Agente de Provisionamento com novas funcionalidades e funcionalidades. O Agente Provisionante é atualizado automaticamente quando uma nova versão é lançada. 
 
@@ -14,12 +14,12 @@ A Microsoft fornece suporte direto para a versão mais recente do agente e uma v
 
 ### <a name="release-status"></a>Estado de lançamento
 
-Novembro XX, 2020: Lançado para download
+23 de novembro de 2020: Lançado para download
 
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 
 * Suporte para [gMSA](../articles/active-directory/cloud-provisioning/how-to-prerequisites.md#group-managed-service-accounts)
-* Apoio a grupos até 1500 membros (durante a sincronização delta)
+* Suporte para grupos até tamanho inferior a 1500 membros durante o ciclo de sincronização incremental ou delta. Isto é aplicável ao usar o filtro de deteção de grupo
 * Suporte para grandes grupos com tamanho de membro até 15K
 * Melhorias iniciais do sincronização
 * Registo avançado de verbose

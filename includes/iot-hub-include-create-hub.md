@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d7ac494edfb9b1deeceafcac523ac58bccde96b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2144945647dc6b2e31e5593de3b6c8c0bf99a606
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85365153"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993313"
 ---
 Esta secção descreve como criar um hub IoT utilizando o [portal Azure](https://portal.azure.com).
 
@@ -50,7 +50,7 @@ Esta secção descreve como criar um hub IoT utilizando o [portal Azure](https:/
     - **Unidades IoT Hub**: O número de mensagens permitidas por unidade por dia depende do nível de preços do seu hub. Por exemplo, se quiser que o hub suporte uma entrada de 700.000 mensagens, escolha duas unidades de nível S1.
     Para mais detalhes sobre as outras opções de nível, consulte [escolher o nível IoT Hub certo](../articles/iot-hub/iot-hub-scaling.md).
 
-    - **Centro de Segurança Azure**: Ligue isto para adicionar uma camada extra de proteção contra ameaças ao IoT e aos seus dispositivos. Esta opção não está disponível para centros no nível livre. Para mais informações sobre esta funcionalidade, consulte [o Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/).
+    - **Centro de Segurança Azure**: Ligue isto para adicionar uma camada extra de proteção contra ameaças ao IoT e aos seus dispositivos. Esta opção não está disponível para centros no nível livre. Para mais informações sobre esta funcionalidade, consulte [o Azure Security Center for IoT](/azure/asc-for-iot/).
 
     - **Definições Avançadas**  >  **Partições dispositivo-nuvem**: Esta propriedade relaciona as mensagens dispositivo-nuvem com o número de leitores simultâneos das mensagens. A maioria dos centros só precisa de quatro divisórias.
 

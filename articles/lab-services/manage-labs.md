@@ -4,11 +4,11 @@ description: Aprenda a ver todos os laboratórios numa conta de laboratório e e
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cc097e97430462e36a33b982a7394a20c308eab5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85443490"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993623"
 ---
 # <a name="manage-labs-in-a-lab-account"></a>Gerir laboratórios numa conta de laboratório
 Este artigo mostra como um dono de conta de laboratório ou administrador pode ver todos os laboratórios numa conta de laboratório e apagar um laboratório na conta do laboratório. 

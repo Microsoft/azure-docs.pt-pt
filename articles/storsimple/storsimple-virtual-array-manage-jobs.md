@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: d806d8a04dc1bd8547808d20c77bfec310f7dd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507488"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992991"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Utilize o serviço StorSimple Device Manager para visualizar postos de trabalho para o StorSimple Virtual Array
 ## <a name="overview"></a>Descrição geral
@@ -33,7 +33,7 @@ Você pode rapidamente encontrar os empregos que lhe interessam filtrando em cam
 * **Dispositivos** – Os trabalhos são iniciados num dispositivo específico ligado ao seu serviço. Os trabalhos filtrados são então tabulados com base nos seguintes atributos:
   
   * **Nome** – O nome do trabalho pode ser **All**, **Backup**, **Clone**, **Fail over**, **Download updates**, ou **Instalar atualizações**.
-  * **Estado** – Empregos podem ser **todos,** **em progresso,** **bem sucedidos,** **falhados**ou **cancelados.**
+  * **Estado** – Empregos podem ser **todos,** **em progresso,** **bem sucedidos,** **falhados** ou **cancelados.**
   * **Entidade** – Os trabalhos podem ser associados a um volume, partilha ou dispositivo.
   * **Dispositivo** – O nome do dispositivo em que o trabalho foi iniciado.
   * **Começou** por ser – O momento em que o trabalho começou.

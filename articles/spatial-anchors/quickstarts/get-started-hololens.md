@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Criar uma aplicação HoloLens com DirectX'
 description: Neste arranque rápido, aprende-se a construir uma aplicação HoloLens utilizando Âncoras Espaciais.
-author: craigktreasure
-manager: virivera
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 66b8008312c1cf81d4fca7fb8ee5f26fc4c98f60
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: c96c45869ee1c9c96cd77d0b3eb10c733199666e
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096168"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95993521"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Quickstart: Criar uma aplicação HoloLens com âncoras espaciais Azure, em C++/WinRT e DirectX
 
@@ -58,7 +58,7 @@ Localize o `SpatialAnchorsAccountDomain` campo e `Set me` substitua-o pelo domí
 
 ## <a name="deploy-the-app-to-your-hololens"></a>Implemente a aplicação para os seus HoloLens
 
-Alterar a Configuração de **Solução** para **Soltar,** alterar **a Plataforma de Solução** para **x86**e selecionar **o Dispositivo** a partir das opções-alvo de implementação.
+Alterar a Configuração de **Solução** para **Soltar,** alterar **a Plataforma de Solução** para **x86** e selecionar **o Dispositivo** a partir das opções-alvo de implementação.
 
 Se utilizar hololens 2, utilize **o ARM64** como **Plataforma de Solução,** em vez de **x86**.
 

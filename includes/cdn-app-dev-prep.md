@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 4967991b0edaa854acbf6b308596859d662311fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316766"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993386"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de escrever o código de gestão cdn, deve fazer alguma preparação para permitir que o código interaja com o Gestor de Recursos Azure. Para fazer esta preparação, você precisa:
@@ -37,7 +37,7 @@ Existem duas abordagens para a autenticação de aplicações com o Azure Ative 
 A criação de um principal serviço consiste em várias etapas, incluindo a criação de uma aplicação Azure Ative Directory.  Para criá-lo, vamos [seguir este tutorial.](../articles/active-directory/develop/howto-create-service-principal-portal.md)
 
 > [!IMPORTANT]
-> Certifique-se de seguir todos os passos no [tutorial ligado.](../articles/active-directory/develop/howto-create-service-principal-portal.md)  É *importante* que o complete exatamente como descrito.  Certifique-se de que nota o seu **ID**do **inquilino, nome de domínio do inquilino** (geralmente um domínio *.onmicrosoft.com* a menos que tenha especificado um domínio personalizado), **ID do cliente,** e **chave de autenticação do cliente,** pois precisamos desta informação mais tarde.  Tenha cuidado para guardar a **identificação** do seu cliente e **a chave de autenticação**do cliente, uma vez que estas credenciais podem ser utilizadas por qualquer pessoa para executar operações como diretor de serviço.
+> Certifique-se de seguir todos os passos no [tutorial ligado.](../articles/active-directory/develop/howto-create-service-principal-portal.md)  É *importante* que o complete exatamente como descrito.  Certifique-se de que nota o seu **ID** do **inquilino, nome de domínio do inquilino** (geralmente um domínio *.onmicrosoft.com* a menos que tenha especificado um domínio personalizado), **ID do cliente,** e **chave de autenticação do cliente,** pois precisamos desta informação mais tarde.  Tenha cuidado para guardar a **identificação** do seu cliente e **a chave de autenticação** do cliente, uma vez que estas credenciais podem ser utilizadas por qualquer pessoa para executar operações como diretor de serviço.
 >
 > Quando chegar ao degrau denominado Configure multi-inusitário, selecione **Nº**.
 >

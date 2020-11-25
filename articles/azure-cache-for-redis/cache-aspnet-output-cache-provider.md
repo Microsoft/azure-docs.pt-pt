@@ -8,11 +8,11 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
 ms.openlocfilehash: 6d711b07a10e04dcdf31259f3e53c9687af28e28
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544635"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993392"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>ASP.NET fornecedor de cache de saída para cache Azure para Redis
 
@@ -22,7 +22,7 @@ Para utilizar o Fornecedor de Cache de Saída Redis, configurar primeiro o seu c
 
 ## <a name="store-aspnet-page-output-in-the-cache"></a>Armazenar ASP.NET saída de página na cache
 
-Para configurar uma aplicação do cliente no Estúdio Visual utilizando o pacote Azure Cache for Redis Session State NuGet, clique em **NuGet Package Manager** , **Package Manager Consola** a partir do menu **Ferramentas.**
+Para configurar uma aplicação do cliente no Estúdio Visual utilizando o pacote Azure Cache for Redis Session State NuGet, clique em **NuGet Package Manager**, **Package Manager Consola** a partir do menu **Ferramentas.**
 
 Execute o seguinte comando a partir da janela `Package Manager Console`.
 
@@ -62,11 +62,11 @@ Configure os atributos com os valores da sua lâmina de cache no portal Microsof
 | *conexãoTimeoutInMiliss* | inteiro positivo | Fornecido por StackExchange.Redis | Usado para definir *ConnectTimeout ao* criar StackExchange.Redis.ConnectionMultiplexer. |
 | *operaçãoTimeoutInMiliss* | inteiro positivo | Fornecido por StackExchange.Redis | Usado para definir *SyncTimeout ao* criar StackExchange.Redis.ConnectionMultiplexer. |
 | *ligaçãoStragem* (Cadeia de ligação Valid StackExchange.Redis) | string | *n/a* | Ou uma referência de parâmetro a AppSettings ou web.config, ou então uma cadeia de conexão StackExchange.Redis válida. Este atributo pode fornecer valores para *o anfitrião,* *porta,* *accessKey,* *ssl e outros atributos* StackExchange.Redis. Para uma análise mais atenta da *ligação,* consulte [a ligação DefiniçãoDestando](#setting-connectionstring) na secção [notas do Atributo.](#attribute-notes) |
-| *definiçõesFinaname*<br/>*definiçõesMethodName* | string<br/>string | *n/a* | *Estes atributos só podem ser especificados através de web.config ou AppSettings.*<br/><br/>Utilize estes atributos para fornecer uma cadeia de ligação. *definições O Nome de Classe* deve ser um nome de classe qualificado de montagem que contenha o método especificado pelas *definiçõesMethodName* .<br/><br/>O método especificado pelas *definições O Nome de Method* deve ser público, estático e vazio (não tomar quaisquer parâmetros), com um tipo de **cadeia** de retorno . Este método devolve a cadeia de ligação real. |
-| *nome de classes de registo*<br/>*nome de Method logging* | string<br/>string | *n/a* | *Estes atributos só podem ser especificados através de web.config ou AppSettings.*<br/><br/>Utilize estes atributos para depurar a sua aplicação fornecendo registos da Sessão Estado/Cache de saída juntamente com registos de StackExchange.Redis. *loggingClassName* deve ser um nome de classe qualificado de montagem que contém o método especificado por *loggingMethodName* .<br/><br/>O método especificado por *loggingMethodName* deve ser público, estático e vazio (não tomar quaisquer parâmetros), com um tipo de retorno de **System.IO.TextWriter** . |
+| *definiçõesFinaname*<br/>*definiçõesMethodName* | string<br/>string | *n/a* | *Estes atributos só podem ser especificados através de web.config ou AppSettings.*<br/><br/>Utilize estes atributos para fornecer uma cadeia de ligação. *definições O Nome de Classe* deve ser um nome de classe qualificado de montagem que contenha o método especificado pelas *definiçõesMethodName*.<br/><br/>O método especificado pelas *definições O Nome de Method* deve ser público, estático e vazio (não tomar quaisquer parâmetros), com um tipo de **cadeia** de retorno . Este método devolve a cadeia de ligação real. |
+| *nome de classes de registo*<br/>*nome de Method logging* | string<br/>string | *n/a* | *Estes atributos só podem ser especificados através de web.config ou AppSettings.*<br/><br/>Utilize estes atributos para depurar a sua aplicação fornecendo registos da Sessão Estado/Cache de saída juntamente com registos de StackExchange.Redis. *loggingClassName* deve ser um nome de classe qualificado de montagem que contém o método especificado por *loggingMethodName*.<br/><br/>O método especificado por *loggingMethodName* deve ser público, estático e vazio (não tomar quaisquer parâmetros), com um tipo de retorno de **System.IO.TextWriter**. |
 | *aplicativoName* | string | O nome do módulo do processo atual ou "/" | *SessionStateProvider apenas*<br/>*Este atributo só pode ser especificado através de web.config ou AppSettings.*<br/><br/>O prefixo do nome da aplicação para usar na cache Redis. O cliente pode utilizar a mesma cache Redis para diferentes finalidades. Para garantir que as teclas de sessão não colidem, pode ser pré-fixado com o nome da aplicação. |
-| *throwOnError* | boolean | true | *SessionStateProvider apenas*<br/>*Este atributo só pode ser especificado através de web.config ou AppSettings.*<br/><br/>Se lançar uma exceção quando ocorre um erro.<br/><br/>Para obter mais informações sobre *o throwOnError* , consulte [notas no *throwOnError*](#notes-on-throwonerror) na secção [notas do Atributo.](#attribute-notes) |>*Microsoft.Web.Redis.RedisSessionStateProvider.LastException* . |
-| *retryTimeoutInMilliseconds* | inteiro positivo | 5000 | *SessionStateProvider apenas*<br/>*Este atributo só pode ser especificado através de web.config ou AppSettings.*<br/><br/>Quanto tempo para tentar novamente quando uma operação falha. Se este valor for inferior *ao funcionamentoTimeoutInMilisconds,* o fornecedor não voltará a tentar.<br/><br/>Para obter mais informações sobre *retryTimeoutInMilliseconds* , consulte [notas sobre *retryTimeoutInMilisconds*](#notes-on-retrytimeoutinmilliseconds) na secção [notas de atributo.](#attribute-notes) |
+| *throwOnError* | boolean | true | *SessionStateProvider apenas*<br/>*Este atributo só pode ser especificado através de web.config ou AppSettings.*<br/><br/>Se lançar uma exceção quando ocorre um erro.<br/><br/>Para obter mais informações sobre *o throwOnError*, consulte [notas no *throwOnError*](#notes-on-throwonerror) na secção [notas do Atributo.](#attribute-notes) |>*Microsoft.Web.Redis.RedisSessionStateProvider.LastException*. |
+| *retryTimeoutInMilliseconds* | inteiro positivo | 5000 | *SessionStateProvider apenas*<br/>*Este atributo só pode ser especificado através de web.config ou AppSettings.*<br/><br/>Quanto tempo para tentar novamente quando uma operação falha. Se este valor for inferior *ao funcionamentoTimeoutInMilisconds,* o fornecedor não voltará a tentar.<br/><br/>Para obter mais informações sobre *retryTimeoutInMilliseconds*, consulte [notas sobre *retryTimeoutInMilisconds*](#notes-on-retrytimeoutinmilliseconds) na secção [notas de atributo.](#attribute-notes) |
 | *redisSerializerType* | string | *n/a* | Especifica o nome de tipo qualificado de montagem de uma classe que implementa Microsoft.Web.Redis. ISerializador e que contém a lógica personalizada para serializar e desseializar os valores. Para obter mais informações, consulte [ *Sobre o redisSerializerType*](#about-redisserializertype) na secção [notas do Atributo.](#attribute-notes) |
 
 ## <a name="attribute-notes"></a>Notas de atributo
@@ -135,7 +135,7 @@ Atualmente, se ocorrer um erro durante uma operação de sessão, o provedor do 
 
 Este comportamento foi modificado de forma a suportar as expectativas dos utilizadores do fornecedor estatal de sessão ASP.NET existentes, ao mesmo tempo que fornece a capacidade de agir em exceções, se desejar. O comportamento predefinido ainda abre uma exceção quando ocorre um erro, consistente com outros fornecedores do Estado de sessão de ASP.NET; código existente deve funcionar da mesma forma que antes.
 
-Se colocar *o throwOnError* em **falso,** em vez de lançar uma exceção quando ocorre um erro, falhará silenciosamente. Para ver se houve um erro e, em caso afirmativo, descubra qual foi a exceção, verifique a propriedade estática *Microsoft.Web.Redis.Redis.RedisSessionStateProvider.LastException* .
+Se colocar *o throwOnError* em **falso,** em vez de lançar uma exceção quando ocorre um erro, falhará silenciosamente. Para ver se houve um erro e, em caso afirmativo, descubra qual foi a exceção, verifique a propriedade estática *Microsoft.Web.Redis.Redis.RedisSessionStateProvider.LastException*.
 
 ### <a name="notes-on-retrytimeoutinmilliseconds"></a>Notas sobre *retryTimeoutInMilisconds*
 

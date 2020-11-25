@@ -9,11 +9,11 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82612338"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992946"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Criar e gerir contratos de parceiros comerciais no Azure Logic Apps
 
@@ -77,7 +77,7 @@ No menu Azure principal, selecione **Todos os serviços**. Na caixa de pesquisa,
    >
    > Se estes valores mudarem para o seu parceiro, certifique-se de que também atualiza o acordo.
 
-1. Quando terminar de criar o seu acordo, na página **Adicionar,** escolha **OK**e volte à sua conta de integração.
+1. Quando terminar de criar o seu acordo, na página **Adicionar,** escolha **OK** e volte à sua conta de integração.
 
    A lista **de Acordos** mostra agora o seu novo acordo.
 

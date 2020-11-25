@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4f17fbfad1e7e550b3a1e95c93e4b061d0f1c3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507631"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993432"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -69,7 +69,7 @@ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) apenas se 
 
 | Endereços IP de origem | Etiqueta de serviço de origem | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/D | `BatchNodeManagement` [Etiqueta de serviço](../articles/virtual-network/security-overview.md#service-tags) (se estiver a ser utilizada uma variante regional, na mesma região da sua conta do Batch) | * | Qualquer | 29876-29877 | TCP | Permitir |
+| N/D | `BatchNodeManagement` [Etiqueta de serviço](../articles/virtual-network/network-security-groups-overview.md#service-tags) (se estiver a ser utilizada uma variante regional, na mesma região da sua conta do Batch) | * | Qualquer | 29876-29877 | TCP | Permitir |
 | IPs de origem do utilizador para aceder remotamente aos nós de computação e/ou à sub-rede dos nós de computação para tarefas de multi-instâncias em Linux, se necessário. | N/D | * | Qualquer | 3389 (Windows), 22 (Linux) | TCP | Permitir |
 
 > [!WARNING]
@@ -79,7 +79,7 @@ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) apenas se 
 
 | Origem | Portas de origem | Destino | Etiqueta do serviço de destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
-| Qualquer | * | [Etiqueta de serviço](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (se estiver a ser utilizada uma variante regional, na mesma região da sua conta do Batch) | 443 | TCP | Permitir |
+| Qualquer | * | [Etiqueta de serviço](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (se estiver a ser utilizada uma variante regional, na mesma região da sua conta do Batch) | 443 | TCP | Permitir |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Conjuntos na configuração dos Serviços Cloud
 

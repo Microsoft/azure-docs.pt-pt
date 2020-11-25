@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: joflore
 ms.openlocfilehash: f5ebe594f1f50c7b7490e5ead8cb3fe7636f0ce7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967482"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994031"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar LDAP seguro para um domínio gerido por Azure Ative Directory Domain Services
 
@@ -44,7 +44,7 @@ Para completar este tutorial, precisa dos seguintes recursos e privilégios:
     * Se necessário, [crie um inquilino do Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
 * Um domínio de domínio do Azure Ative Directory Services gerido ativo e configurado no seu inquilino AZure AD.
     * Se necessário, [crie e configuure um domínio gerido por Azure Ative Directory Domain Services][create-azure-ad-ds-instance].
-* A * ferramentaLDP.exe* instalada no seu computador.
+* A *ferramentaLDP.exe* instalada no seu computador.
     * Se necessário, [instale as Ferramentas de Administração do Servidor Remoto (RSAT)][rsat] para *Serviços de Domínio de Diretório Ativo e LDAP*.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
@@ -127,7 +127,7 @@ Antes de utilizar o certificado digital criado no passo anterior com o seu domí
 1. Abra a Consola de Gestão da Microsoft (MMC) introduzindo **o mmc** no diálogo *Run* e, em seguida, selecione **OK**.
 1. Na solicitação **de Controlo de Conta de Utilizador,** selecione **Sim** para lançar mMC como administrador.
 1. No menu **Ficheiro,** **selecione Adicionar/Remover Snap-in...**
-1. No assistente **de encaixe de certificados,** escolha **a conta de Computador**e, em seguida, selecione **Seguinte**.
+1. No assistente **de encaixe de certificados,** escolha **a conta de Computador** e, em seguida, selecione **Seguinte**.
 1. Na página **Select Computer,** escolha **computador local: (o computador em que a consola está a funcionar)** e, em seguida, selecione **Acabamento**.
 1. No diálogo **Add or Remove Snap-ins,** selecione **OK** para adicionar os certificados snap-in ao MMC.
 1. Na janela MMC, expanda a **raiz da consola.** Selecione **Certificados (Computador Local)**, em seguida, expanda o nó **Pessoal,** seguido do nó **certificados.**
@@ -141,7 +141,7 @@ Antes de utilizar o certificado digital criado no passo anterior com o seu domí
 1. No **Certificado De Exportação de Assistente**, selecione **Seguinte**.
 1. A chave privada do certificado deve ser exportada. Se a chave privada não estiver incluída no certificado exportado, a ação para permitir um LDAP seguro para o seu domínio gerido falha.
 
-    Na página **'Chave Privada exportar',** escolha **Sim, exporte a chave privada**e, em seguida, selecione **Seguinte**.
+    Na página **'Chave Privada exportar',** escolha **Sim, exporte a chave privada** e, em seguida, selecione **Seguinte**.
 1. Os domínios geridos suportam apenas *o . Formato* de ficheiro de certificado PFX que inclui a chave privada. Não exporte o certificado como *. Formato* de ficheiro de certificado CER sem a chave privada.
 
     Na página **'Formato de Ficheiros de Exportação',** selecione **Personal Information Exchange - PKCS #12 (. PFX)** como formato de ficheiro para o certificado exportado. Verifique a caixa para *incluir todos os certificados na via de certificação, se possível:*
@@ -150,9 +150,9 @@ Antes de utilizar o certificado digital criado no passo anterior com o seu domí
 
 1. Uma vez que este certificado é utilizado para desencriptar dados, deve controlar cuidadosamente o acesso. Uma palavra-passe pode ser usada para proteger a utilização do certificado. Sem a senha correta, o certificado não pode ser aplicado a um serviço.
 
-    Na página **'Segurança',** escolha a opção por **Palavra-Passe** para proteger o *. * Arquivo de certificado PFX. O algoritmo de encriptação deve ser *TripleDES-SHA1*. Introduza e confirme uma palavra-passe e, em seguida, selecione **Seguinte**. Esta palavra-passe é utilizada na secção seguinte para permitir um LDAP seguro para o seu domínio gerido.
+    Na página **'Segurança',** escolha a opção por **Palavra-Passe** para proteger o *.* Arquivo de certificado PFX. O algoritmo de encriptação deve ser *TripleDES-SHA1*. Introduza e confirme uma palavra-passe e, em seguida, selecione **Seguinte**. Esta palavra-passe é utilizada na secção seguinte para permitir um LDAP seguro para o seu domínio gerido.
 1. Na página **"Ficheiro para Exportação",** especifique o nome do ficheiro e o local onde pretende exportar o certificado, tais como *C:\Users\accountname\azure-ad-ds.pfx*. Mantenha uma nota da senha e localização do *. Ficheiro PFX,* uma vez que esta informação seria necessária nos próximos passos.
-1. Na página de análise, **selecione Finish** para exportar o certificado para um *. * Arquivo de certificado PFX. É apresentado um diálogo de confirmação quando o certificado foi exportado com sucesso.
+1. Na página de análise, **selecione Finish** para exportar o certificado para um *.* Arquivo de certificado PFX. É apresentado um diálogo de confirmação quando o certificado foi exportado com sucesso.
 1. Deixe o MMC aberto para utilização na secção seguinte.
 
 ### <a name="export-a-certificate-for-client-computers"></a>Exportar um certificado para computadores clientes
@@ -173,14 +173,14 @@ Neste tutorial utiliza-se um certificado auto-assinado e gerou um certificado qu
 
 O *. O* ficheiro de certificado CER pode agora ser distribuído aos computadores clientes que precisam confiar na ligação LDAP segura ao domínio gerido. Vamos instalar o certificado no computador local.
 
-1. Abra o File Explorer e navegue no local onde guardou o *. Arquivo* de certificado CER, tais como *C:\Users\accountname\azure-ad-ds-client.cer*.
+1. Abra o File Explorer e navegue no local onde guardou o *. Arquivo* de certificado CER, como *C:\Users\accountname\azure-ad-ds-client.cer*.
 1. Selecione à direita *o . Arquivo* de certificado CER, em seguida, escolha **Certificado de Instalação**.
 1. No **Certificado De Importação De Feiticeiras,** opte por armazenar o certificado na *máquina Local,* selecione **seguinte**:
 
     ![Escolha a opção de importar o certificado para a loja de máquinas local](./media/tutorial-configure-ldaps/import-cer-file.png)
 
 1. Quando solicitado, escolha **Sim** para permitir que o computador escoda alterações.
-1. Opte **por selecionar automaticamente a loja de certificados com base no tipo de certificado**e, em seguida, selecione **Seguinte**.
+1. Opte **por selecionar automaticamente a loja de certificados com base no tipo de certificado** e, em seguida, selecione **Seguinte**.
 1. Na página de revisão, **selecione Finish** para importar o *. Certificado CER.* ficheiro Um diálogo de confirmação é apresentado quando o certificado foi importado com sucesso.
 
 ## <a name="enable-secure-ldap-for-azure-ad-ds"></a>Ativar LDAP seguro para Azure AD DS
@@ -280,7 +280,7 @@ Para ver os objetos armazenados no seu domínio gerido:
 
 Para consultar diretamente um recipiente específico, a partir do menu **View > Tree,** pode especificar um **BaseDN** como *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* ou *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. Para obter mais informações sobre como formatar e criar consultas, consulte o [básico da consulta LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se adicionar uma entrada de DNS ao ficheiro de anfitriões locais do seu computador para testar a conectividade para este tutorial, remova esta entrada e adicione um registo formal na sua zona de DNS. Para remover a entrada do ficheiro dos anfitriões locais, complete os seguintes passos:
 

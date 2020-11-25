@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
 ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108104"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994116"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas e registos de diagnóstico
 
@@ -33,7 +33,7 @@ No portal Azure, a página **'Visão Geral'** da conta apresentará por predeza 
 
 Para ver todas as métricas da conta do Lote no portal Azure:
 
-1. No portal Azure, selecione **todas as**contas de Lote de  >  **Serviços**e, em seguida, selecione o nome da sua conta Batch.
+1. No portal Azure, selecione **todas as** contas de Lote de  >  **Serviços** e, em seguida, selecione o nome da sua conta Batch.
 2. Em **Monitorização**, selecione **Métricas**.
 3. **Selecione Adicione a métrica** e, em seguida, escolha uma métrica da lista de dropdown.
 4. Selecione uma opção **de agregação** para a métrica. Para métricas baseadas na contagem (como "Contagem de Núcleos Dedicado" ou "Contagem de nó de baixa prioridade"), utilize a agregação **média.** Para métricas baseadas em eventos (como "Pool Resize Complete Events"), utilize a agregação **do Conde.**
@@ -61,9 +61,9 @@ Por exemplo, é melhor configurar um alerta métrico quando a sua contagem de n�
 
 Para configurar um alerta métrico no portal Azure:
 
-1. Selecione **todas as**contas do Lote de  >  **Serviços**e, em seguida, selecione o nome da sua conta Batch.
-2. Em **Monitorização**, selecione **Alertas**e, em seguida, selecione **Nova regra de alerta**.
-3. Clique **Em Selecionar a condição**e, em seguida, escolha uma métrica. Confirme os valores relativos ao **período de gráfico**, tipo **limiar,** **operador**e tipo **de agregação,** e introduza um **valor limiar**. Em seguida, selecione **Done** (Concluído).
+1. Selecione **todas as** contas do Lote de  >  **Serviços** e, em seguida, selecione o nome da sua conta Batch.
+2. Em **Monitorização**, selecione **Alertas** e, em seguida, selecione **Nova regra de alerta**.
+3. Clique **Em Selecionar a condição** e, em seguida, escolha uma métrica. Confirme os valores relativos ao **período de gráfico**, tipo **limiar,** **operador** e tipo **de agregação,** e introduza um **valor limiar**. Em seguida, selecione **Done** (Concluído).
 4. Adicione um grupo de ação ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 5. Na secção de detalhes da **regra de alerta,** insira um **nome de regra de alerta** e **descrição** e selecione a **Severidade**
 6. Selecione **Criar regra de alerta**.
@@ -97,7 +97,7 @@ Alternadamente, pode:
 
 Para criar uma nova definição de diagnóstico no portal Azure, siga os passos abaixo.
 
-1. No portal Azure, selecione **todas as**contas de Lote de  >  **Serviços**e, em seguida, selecione o nome da sua conta Batch.
+1. No portal Azure, selecione **todas as** contas de Lote de  >  **Serviços** e, em seguida, selecione o nome da sua conta Batch.
 2. Em **Monitorização**, selecione **Definições de diagnóstico**.
 3. Nas **definições de Diagnóstico**, selecione Adicionar a **definição de diagnóstico**.
 4. Insira um nome para a definição.
@@ -139,7 +139,7 @@ Para obter mais informações sobre o esquema dos registos de diagnóstico na co
 
 ### <a name="service-log-events"></a>Eventos de registo de serviço
 
-Os registos de serviço Azure Batch, se recolhidos, contêm eventos emitidos pelo serviço Azure Batch durante o período de vida de um recurso individual do Batch, como uma piscina ou tarefa. Cada evento emitido pelo Batch é registado no formato JSON. Por exemplo, este é o corpo de um **evento de criação**de amostras:
+Os registos de serviço Azure Batch, se recolhidos, contêm eventos emitidos pelo serviço Azure Batch durante o período de vida de um recurso individual do Batch, como uma piscina ou tarefa. Cada evento emitido pelo Batch é registado no formato JSON. Por exemplo, este é o corpo de um **evento de criação** de amostras:
 
 ```json
 {

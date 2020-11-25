@@ -1,20 +1,20 @@
 ---
 title: Criar & localizar âncoras na Unidade
 description: Explicação aprofundada de como criar e localizar âncoras usando âncoras espaciais Azure em Unidade.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 08/10/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 42598b6471ea29c779b1863852169c4a1025e229
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 9339b3f96c677488658713b94789069cabb1125d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097461"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95993074"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Como criar e localizar âncoras usando âncoras espaciais Azure em Unidade
 

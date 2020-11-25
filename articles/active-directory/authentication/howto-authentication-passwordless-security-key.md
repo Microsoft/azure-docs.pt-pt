@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839306"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994252"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Ativar o sing-in da chave de segurança sem palavras-passe (pré-visualização)
 

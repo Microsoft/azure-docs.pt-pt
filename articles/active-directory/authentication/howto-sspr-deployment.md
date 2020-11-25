@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838082"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994167"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de autosserviço do Azure Ative Directory
 
@@ -56,7 +56,7 @@ Os principais benefícios de permitir a SSPR são:
 
 * **Auditoria robusta e rastreio de utilização.** Uma organização pode garantir que os sistemas de negócio se mantenham seguros enquanto os seus utilizadores reiniciam as suas próprias palavras-passe. Os registos de auditoria robustos incluem informações de cada passo do processo de reset da palavra-passe. Estes registos estão disponíveis a partir de uma API e permitem ao utilizador importar os dados para um sistema de monitorização de incidentes de segurança e monitorização de eventos (SIEM).
 
-### <a name="licensing"></a>Licenciamento
+### <a name="licensing"></a>Licensing
 
 O Azure Ative Directory é licenciado por utilizador, o que significa que cada utilizador necessita de uma licença adequada para as funcionalidades que utiliza. Recomendamos licenças baseadas em grupo para a SSPR. 
 
@@ -154,14 +154,14 @@ São necessárias as seguintes definições para ativar o SSPR juntamente com os
 | **Propriedades SSPR** | Redefinição da palavra-passe de autosserviço ativada | **Grupo selecionado** para piloto / **Todos** para produção |
 | **Métodos de autenticação** | Métodos de autenticação necessários para registar | Sempre 1 mais do que o necessário para reset |
 |   | Métodos de autenticação necessários para repor | Um ou dois |
-| **Inscrição** | Exigir que os utilizadores se registem ao iniciar sessão | Yes |
+| **Inscrição** | Exigir que os utilizadores se registem ao iniciar sessão | Sim |
 |   | Número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação | 90 - 180 dias |
-| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Yes |
-|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Yes |
-| **Personalização** | Personalizar link helpdesk | Yes |
+| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Sim |
+|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Sim |
+| **Personalização** | Personalizar link helpdesk | Sim |
 |   | E-mail de ajuda personalizada ou URL | Site de suporte ou endereço de e-mail |
-| **Integração no local** | Descreva palavras-passe para a AD no local | Yes |
-|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Yes |
+| **Integração no local** | Descreva palavras-passe para a AD no local | Sim |
+|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Sim |
 
 ### <a name="sspr-properties"></a>Propriedades SSPR
 
@@ -331,7 +331,7 @@ Os registos de auditoria para o registo e o reset da palavra-passe estão dispon
 
 ### <a name="helpful-documentation"></a>Documentação útil
 
-* [What are authentication methods?](./concept-authentication-methods.md) (O que são os métodos de autenticação?)
+* [O que são métodos de autenticação?](./concept-authentication-methods.md)
 
 * [Como funciona: Azure AD autosserviço palavra-passe reposta?](./concept-sspr-howitworks.md)
 

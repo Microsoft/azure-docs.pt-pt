@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80656240"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993182"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentar a segurança das chamadas para APIs personalizadas das Azure Logic Apps
 
@@ -51,7 +51,7 @@ A sua aplicação lógica utiliza esta identidade de aplicação AD Azure para a
 2. Confirme que está no mesmo diretório que a sua aplicação web ou app API.
 
    > [!TIP]
-   > Para mudar de diretório, escolha o seu perfil e selecione outro diretório. Ou, escolha **o**  >  **diretório da Switch de**visão geral .
+   > Para mudar de diretório, escolha o seu perfil e selecione outro diretório. Ou, escolha **o**  >  **diretório da Switch de** visão geral .
 
 3. No menu do diretório, em **Manage,** escolha **registos app**  >  **Novo registo de candidatura.**
 
@@ -135,7 +135,7 @@ Agora você deve encontrar o ID do cliente e iD do inquilino para a identidade d
 
 2. Na página **Azure Ative Directory Settings,** defina o **modo de Gestão** para **Avançado**.
 
-3. Copie o **ID**do Cliente e guarde o GUID para utilização na Parte 3.
+3. Copie o **ID** do Cliente e guarde o GUID para utilização na Parte 3.
 
    > [!TIP] 
    > Se **o ID** do Cliente e **o Url emitente** não aparecerem, tente refrescar o portal Azure e repita o Passo 1.

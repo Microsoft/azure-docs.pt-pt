@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
 ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235829"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993997"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicações baseados em atributos com filtros de escotagem
 O objetivo deste artigo é explicar como usar filtros de digitalização para definir regras baseadas em atributos que determinam quais os utilizadores que estão a forcam a uma aplicação.
@@ -72,7 +72,7 @@ Os filtros de deteção são configurados como parte dos mapeamentos de atributo
 
 6. **Selecione Adicionar filtro de escotagem**.
 
-7. Defina uma cláusula selecionando um **Nome de Atributo**de Origem, um **Operador**e um Valor **De Atributo** para corresponder. São apoiados os seguintes operadores:
+7. Defina uma cláusula selecionando um **Nome de Atributo** de Origem, um **Operador** e um Valor **De Atributo** para corresponder. São apoiados os seguintes operadores:
 
    a. **É IGUAL.** A cláusula devolve "verdadeiro" se o atributo avaliado corresponder exatamente ao valor da cadeia de entrada (sensível a caso).
 

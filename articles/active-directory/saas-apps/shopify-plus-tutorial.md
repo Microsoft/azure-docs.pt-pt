@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
 ms.openlocfilehash: d7a5d160fa8a0209478fe81d2880e8956828350d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504736"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993504"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Shopify Plus
 
@@ -120,7 +120,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Shopify Plus.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Shopify Plus**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -138,7 +138,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 Para ver os passos completos, consulte a [documentação do Shopify sobre a criação de integrações SAML](https://help.shopify.com/en/manual/shopify-plus/saml).
 
-Para configurar um único sinal no lado **do Shopify Plus,** copie o URL de **metadados da Federação** de Aplicações do Azure Ative Directory. Em seguida, inicie sessão na [administração](https://shopify.plus) da organização e vá para a Segurança **dos Utilizadores.**  >  **Security** Selecione **Configurar configuração**e, em seguida, cole o URL de metadados da Federação de Aplicações na secção **URL de metadados do fornecedor de identidade.** **Selecione Adicionar** para completar este passo.
+Para configurar um único sinal no lado **do Shopify Plus,** copie o URL de **metadados da Federação** de Aplicações do Azure Ative Directory. Em seguida, inicie sessão na [administração](https://shopify.plus) da organização e vá para a Segurança **dos Utilizadores.**  >  **Security** Selecione **Configurar configuração** e, em seguida, cole o URL de metadados da Federação de Aplicações na secção **URL de metadados do fornecedor de identidade.** **Selecione Adicionar** para completar este passo.
 
 ### <a name="create-shopify-plus-test-user"></a>Criar utilizador de teste Shopify Plus
 
@@ -151,7 +151,7 @@ Nesta secção, cria-se um utilizador chamado B.Simon in Shopify Plus. Volte à 
 
 Utilizadores individuais:
 1. Aceda a uma página individual de um utilizador no Shopify Plus com um domínio de e-mail gerido pela Azure AD e verificado no Shopify Plus.
-1. Na secção de autenticação SAML, selecione **Editar,** selecione **Required**e, em seguida, selecione **Guardar**.
+1. Na secção de autenticação SAML, selecione **Editar,** selecione **Required** e, em seguida, selecione **Guardar**.
 1. Teste que este utilizador pode iniciar sed com sucesso através dos fluxos iniciados pelo idP e iniciados por SP.
 
 Para todos os utilizadores sob um domínio de e-mail:

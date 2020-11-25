@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bf8fe68c28457fd01704762e537fe259a96a6bce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6fb23d7325347a1b27165d3e9bc3bf33797682
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116230"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95994366"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configure as credenciais de senha do proprietário do recurso fluem no Azure Ative Directory B2C usando uma política personalizada
 
@@ -219,14 +219,14 @@ Complete os passos em [Começar com políticas personalizadas no Azure Ative Dir
     ```
 
 7. Na página **'Políticas Personalizadas'** no seu inquilino Azure AD B2C, selecione **'Política de Upload'.**
-8. Ativar **a política em caso de existência**e, em seguida, navegar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
+8. Ativar **a política em caso de existência** e, em seguida, navegar e selecionar o ficheiro *TrustFrameworkExtensions.xml.*
 9. Clique em **Carregar**.
 
 ## <a name="create-a-relying-party-file"></a>Criar um ficheiro de partido de confiante
 
 Em seguida, atualize o ficheiro do partido que inicia a jornada do utilizador que criou:
 
-1. Faça uma cópia do * ficheiroSignUpOrSignin.xml* no seu diretório de trabalho e rebatize-o para *ROPC_Auth.xml*.
+1. Faça uma cópia do *ficheiroSignUpOrSignin.xml* no seu diretório de trabalho e rebatize-o para *ROPC_Auth.xml*.
 2. Abra o novo ficheiro e altere o valor do atributo **PolicyId** para **a TrustFrameworkPolicy** para um valor único. A identificação da apólice é o nome da sua apólice. Por exemplo, **B2C_1A_ROPC_Auth.**
 3. Alterar o valor do atributo **ReferenceId** em **DefaultUserJourney** para `ResourceOwnerPasswordCredentials` .
 4. Alterar o elemento **OutputClaims** para conter apenas as seguintes alegações:
@@ -240,14 +240,14 @@ Em seguida, atualize o ficheiro do partido que inicia a jornada do utilizador qu
     ```
 
 5. Na página **'Políticas Personalizadas'** no seu inquilino Azure AD B2C, selecione **'Política de Upload'.**
-6. Ativar **a política em caso de existência**e, em seguida, navegar e selecionar o ficheiro *ROPC_Auth.xml.*
+6. Ativar **a política em caso de existência** e, em seguida, navegar e selecionar o ficheiro *ROPC_Auth.xml.*
 7. Clique em **Carregar**.
 
 ## <a name="test-the-policy"></a>Testar a política
 
 Use a sua aplicação de desenvolvimento API favorita para gerar uma chamada de API e reveja a resposta para depurar a sua política. Construa uma chamada como este exemplo com as seguintes informações como o corpo do pedido DOM:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - `<tenant-name>`Substitua-o pelo nome do seu inquilino Azure AD B2C.
 - `B2C_1A_ROPC_Auth`Substitua-a pelo nome completo da política de credenciais de senha do seu proprietário de recursos.
@@ -269,7 +269,7 @@ Use a sua aplicação de desenvolvimento API favorita para gerar uma chamada de 
 O pedido do POST real parece ser o seguinte exemplo:
 
 ```https
-POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1A_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -292,7 +292,7 @@ Uma resposta bem sucedida com acesso offline parece ser o seguinte exemplo:
 
 Construa uma chamada post como a mostrada aqui. Utilize as informações no quadro seguinte como o corpo do pedido:
 
-`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token`
 
 - `<tenant-name>`Substitua-o pelo nome do seu inquilino Azure AD B2C.
 - `B2C_1A_ROPC_Auth`Substitua-a pelo nome completo da política de credenciais de senha do seu proprietário de recursos.

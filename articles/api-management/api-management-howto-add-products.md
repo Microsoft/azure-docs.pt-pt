@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 2f298f240d8aa7a38b42a8c78ee3c90fe3423d10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630598"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993555"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Tutorial: Criar e publicar um produto  
 
 Na Azure API Management, um [*produto*](api-management-terminology.md#term-definitions) contém uma ou mais APIs, bem como uma quota de utilização e os termos de utilização. Depois de um produto ser publicado, os programadores podem subscrevê-lo e começar a utilizar as APIs do mesmo.  
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar e publicar um produto
@@ -38,7 +38,7 @@ Neste tutorial, ficará a saber como:
 1. Na navegação à esquerda, selecione **Produtos**  >  **+ Adicionar.**
 1.  Na janela **do produto Adicionar,** introduza os valores descritos na tabela seguinte para criar o seu produto.
 
-    :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-01.png" alt-text="Produtos de Gestão API em portal":::
+    :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-01.png" alt-text="Adicionar produto no portal":::
 
     | Nome                     | Descrição                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -80,7 +80,7 @@ Os programadores têm de subscrever primeiro um produto para obter acesso à API
 1. Selecione **+ Adicionar**.
 1. Selecione um ou mais APIs e, em seguida, **selecione**.
 
-:::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Produtos de Gestão API em portal":::
+:::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="Adicionar API ao produto existente":::
 
 > [!TIP]
 > Pode criar ou atualizar a subscrição de um utilizador a um produto com teclas de subscrição personalizadas através de um comando [REST API](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) ou PowerShell.

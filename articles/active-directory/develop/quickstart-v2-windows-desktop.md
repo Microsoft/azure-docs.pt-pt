@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 25c5e6445bb5d673db1cfb755f320302a9e9c5b5
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: f63dbad398afcd0a9756cc1e9d4f70f1303d00b0
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561867"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95993861"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 
@@ -50,7 +50,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > 1. Aceda à lâmina de [registos](https://aka.ms/MobileAppReg) da App para O Diretório Ativo Azure no portal Azure.
 > 1. Selecione **Novo registo**.
 >      - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `Win-App-calling-MsGraph` exemplo.
->      - Na secção **Tipos de conta suportados** , selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)**.
+>      - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)**.
 >      - Selecione **Registar** para criar a aplicação.
 > 1. Na lista de páginas da aplicação, selecione **Autenticação**.
 > 1. Na secção **de redirecionamento de**  |  **URIs sugeridas para clientes públicos (mobile, desktop)** use **https://login.microsoftonline.com/common/oauth2/nativeclient** .
@@ -97,12 +97,12 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > Onde:
 > - `Enter_the_Application_Id_here` - é o **ID da Aplicação (cliente)** que registou.
 > - `Enter_the_Tenant_Info_Here` - está definido para uma das seguintes opções:
->   - Se a sua aplicação suportar **Contas neste diretório organizacional** , substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
->   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional** , substitua este valor por `organizations`
->   - Se a sua aplicação suportar **Contas em quaisquer contas da Microsoft de diretório organizacional e pessoais** , substitua este valor por `common`
+>   - Se a sua aplicação suportar **Contas neste diretório organizacional**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
+>   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
+>   - Se a sua aplicação suportar **Contas em quaisquer contas da Microsoft de diretório organizacional e pessoais**, substitua este valor por `common`
 >
 > > [!TIP]
-> > Para encontrar os valores do **ID da Aplicação (cliente)** , o **ID de Diretório (inquilino)** e os **Tipos de conta suportados** , vá para a página **Descrição geral** da aplicação no portal do Azure.
+> > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
 
 ## <a name="more-information"></a>Mais informações
 

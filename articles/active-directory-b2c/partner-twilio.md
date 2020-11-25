@@ -12,11 +12,11 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 953653a758577ed3d48ca2d81403b4cb363ea294
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259073"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994048"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Integração da App Twilio Check com o Azure Ative Directory B2C
 
@@ -102,7 +102,7 @@ Adicione os ficheiros de política ao Azure AD B2C:
 
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 
-4. Navegue para **Azure AD B2C**  >  **Identity Experience Framework**Policy  >  **Keys**.
+4. Navegue para **Azure AD B2C**  >  **Identity Experience Framework** Policy  >  **Keys**.
 
 5. Adicione uma nova chave com o nome **B2cRestTwilioClientId**. Selecione **manual**, e forneça o valor do Twilio AccountSID.
 

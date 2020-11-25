@@ -12,11 +12,11 @@ ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
 ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949960"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992844"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitor Azure AD B2C com Monitor Azure
 
@@ -100,7 +100,7 @@ Em seguida, irá criar um modelo de Gestor de Recursos Azure que concede acesso 
    | Campo   | Definição |
    |---------|------------|
    | Subscrição |  Selecione o diretório que contém a subscrição Azure onde foi criado o grupo de recursos *ad-b2c-monitor.* |
-   | Região| Selecione a região onde o recurso será implantado.  | 
+   | Region| Selecione a região onde o recurso será implantado.  | 
    | Nome da oferta de msp| Um nome descrevendo esta definição. Por exemplo, *Monitorização Azure AD B2C*.  |
    | Descrição da oferta de msp| Uma breve descrição da sua oferta. Por exemplo, *Ativa o Monitor Azure em Azure AD B2C*.|
    | Gerido por Id inquilino| O **ID** do Inquilino do seu inquilino Azure AD B2C (também conhecido como iD do diretório). |

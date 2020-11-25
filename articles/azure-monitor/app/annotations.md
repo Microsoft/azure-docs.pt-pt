@@ -4,11 +4,11 @@ description: Adicione marcadores de implementação ou construção aos gráfico
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758188"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993725"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações em gráficos métricos em Insights de Aplicação
 
@@ -42,7 +42,7 @@ Crie uma chave API separada para cada um dos seus modelos de libertação de Azu
 
 1. Numa janela separada do navegador, abra ou crie o modelo de desbloqueio que gere as implementações dos Seus Pipelines Azure.
    
-1. **Selecione Adicionar a tarefa**e, em seguida, selecione a tarefa de **anotação de desbloqueio de insights** de aplicação no menu.
+1. **Selecione Adicionar a tarefa** e, em seguida, selecione a tarefa de **anotação de desbloqueio de insights** de aplicação no menu.
    
    ![Selecione Adicionar Tarefa e selecione a anotação de desbloqueio de insights de aplicação.](./media/annotations/3-add-task.png)
 
@@ -57,7 +57,7 @@ Crie uma chave API separada para cada um dos seus modelos de libertação de Azu
    
    ![No separador API Access, selecione Criar Chave API.](./media/annotations/5-create-api-key.png)
    
-1. Na janela da **chave Create API,** escreva uma descrição, selecione **anotações de escrita**e, em seguida, selecione **'Gerar tecla ' Geração'** Copie a nova chave.
+1. Na janela da **chave Create API,** escreva uma descrição, selecione **anotações de escrita** e, em seguida, selecione **'Gerar tecla ' Geração'** Copie a nova chave.
    
    ![Na janela da chave Create API, escreva uma descrição, selecione anotações de escrita e, em seguida, selecione Gerar tecla.](./media/annotations/6-create-api-key.png)
    

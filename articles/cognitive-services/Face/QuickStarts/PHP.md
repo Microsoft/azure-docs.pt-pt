@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
-ms.openlocfilehash: dc28f5a9c3faa9d1c963a441f79eb1eea3fcba47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 649c456309d2524fec8d44f13c0f3081725c4361
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858324"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95994094"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Início rápido: detetar rostos numa imagem com a API REST e PHP
 
@@ -271,3 +271,4 @@ Explore a API face usada para detetar rostos humanos numa imagem, demarcar os ro
 
 > [!div class="nextstepaction"]
 > [APIs Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+ 

@@ -16,11 +16,11 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: devx-track-js
 ms.openlocfilehash: f5d5c7a6e1f6993b19f38db2ae846b213a1d553e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316767"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993387"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introdução à programação do CDN do Azure
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ Depois de as embalagens serem feitas para instalar, o *package.jsno* ficheiro de
 }
 ```
 
-Finalmente, utilizando o seu editor de texto, crie um ficheiro de texto em branco e guarde-o na raiz da nossa pasta de projeto * à medida queapp.js*.  Estamos prontos para começar a escrever código.
+Finalmente, utilizando o seu editor de texto, crie um ficheiro de texto em branco e guarde-o na raiz da nossa pasta de projeto *à medida queapp.js*.  Estamos prontos para começar a escrever código.
 
 ## <a name="requires-constants-authentication-and-structure"></a>Requer, constantes, autenticação e estrutura
 Com *app.js* aberto no nosso editor, vamos escrever a estrutura básica do nosso programa.
@@ -91,7 +91,7 @@ Com *app.js* aberto no nosso editor, vamos escrever a estrutura básica do nosso
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. Precisamos definir algumas constantes que os nossos métodos usarão.  Adicione o seguinte.  Certifique-se de que substitui os espaços reservados, incluindo os ** &lt; suportes angulares, &gt; **com os seus próprios valores, se necessário.
+2. Precisamos definir algumas constantes que os nossos métodos usarão.  Adicione o seguinte.  Certifique-se de que substitui os espaços reservados, incluindo os **&lt; suportes angulares, &gt;** com os seus próprios valores, se necessário.
    
     ``` javascript
     //Tenant app constants
@@ -124,7 +124,7 @@ Com *app.js* aberto no nosso editor, vamos escrever a estrutura básica do nosso
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    Certifique-se de que substitui os itens em ** &lt; suportes angulares &gt; ** com as informações corretas.  Para `<redirect URI>` , use o URI de redirecionamento que inseriu quando registou a aplicação no Azure AD.
+    Certifique-se de que substitui os itens em **&lt; suportes angulares &gt;** com as informações corretas.  Para `<redirect URI>` , use o URI de redirecionamento que inseriu quando registou a aplicação no Azure AD.
 4. A nossa aplicação de consola Node.js vai levar alguns parâmetros de linha de comando.  Vamos validar que pelo menos um parâmetro foi passado.
    
    ```javascript

@@ -8,22 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: 43ee7272066dbd89e7c0053d51ba039b83fb494f
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 2977946b2e1f37aa356ee075d2caac237170df0f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363821"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "95993345"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
-As chamadas para a **API de Análise de Texto** são chamadas HTTP POST/GET, que pode formular em qualquer idioma. Neste artigo, utilizamos REST e [Carteiro](https://www.postman.com/downloads/) para demonstrar conceitos-chave.
+Neste artigo, utilizamos a API E o [Carteiro](https://www.postman.com/downloads/) Text Analytics REST para demonstrar conceitos-chave. A API fornece vários pontos finais sincronizados e assíncronos para a utilização das características do serviço. 
 
-Cada pedido deve incluir a sua chave de acesso e um ponto final HTTP. O ponto final especifica a região que escolheu durante a inscrição, o URL de serviço e um recurso utilizado no pedido: `sentiment` `keyphrases` , , e `languages` `entities` . 
+## <a name="using-the-api-asynchronously"></a>Usando a API assíncronea
 
-Lembre-se que o Text Analytics é apátrida para que não existam ativos de dados para gerir. O seu texto é carregado, analisado após a receção, e os resultados são devolvidos imediatamente ao pedido de chamada.
+A partir de v3.1-pré-visualização.3, a API text Analytics fornece dois pontos finais assíncronos: 
+
+* O `/analyze` ponto final para Análise de Texto permite-lhe analisar o mesmo conjunto de documentos de texto com múltiplas funcionalidades de análise de texto numa chamada API. Anteriormente, para utilizar várias funcionalidades, precisaria de fazer chamadas API separadas para cada operação. Considere esta capacidade quando necessitar de analisar grandes conjuntos de documentos com mais de uma funcionalidade de Text Analytics.
+
+* O `/health` ponto final para a Análise de Texto para a saúde, que pode extrair e rotular informações médicas relevantes a partir de documentos clínicos.  
+
+Consulte a tabela abaixo para ver quais as características que podem ser utilizadas assíncroneamente. Note que apenas algumas funcionalidades podem ser chamadas do `/analyze` ponto final. 
+
+| Funcionalidade | Synchronous (Síncrono) | Assíncrono |
+|--|--|--|
+| Deteção de idioma | ✔ |  |
+| Análise de sentimentos | ✔ |  |
+| Mineração de opinião | ✔ |  |
+| Extração de expressões-chave | ✔ | ✔* |
+| Reconhecimento de Entidades Nomeadas (incluindo PII e PHI) | ✔ | ✔* |
+| Análise de texto para a saúde (recipiente) | ✔ |  |
+| Análise de Texto para a saúde (API) |  | ✔  |
+
+`*` - Chamado assíncronosamente através do `/analyze` ponto final.
+
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -31,15 +50,24 @@ Lembre-se que o Text Analytics é apátrida para que não existam ativos de dado
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+
+> [!NOTE]
+> Necessitará de um recurso Text Analytics utilizando um [nível de preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Standard (S) se quiser utilizar os `/analyze` pontos finais ou `/health` finais.
+
+1.  Primeiro, vá ao [portal Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e crie um novo recurso Text Analytics, se ainda não o tiver. Escolha o nível de preços Standard (S) se quiser utilizar os `/analyze` `/health` pontos finais ou finais.
+
+2.  Selecione a região que pretende utilizar no seu ponto final.
+
+3.  Crie o recurso Text Analytics e vá para a "lâmina de teclas e ponto final" no lado esquerdo da página. Copie a chave a ser usada mais tarde quando ligar para as APIs. Vais acrescentar isto mais tarde como um valor para o `Ocp-Apim-Subscription-Key` cabeçalho.
+
 
 <a name="json-schema"></a>
 
-## <a name="json-schema-definition"></a>Definição de esquema JSON
+## <a name="api-request-format"></a>Formato de pedido da API
 
-A entrada deve ser JSON em texto cru e não estruturado. XML não é suportado. O esquema é simples, consistindo dos elementos descritos na seguinte lista. 
+#### <a name="synchronous"></a>[Synchronous (Síncrono)](#tab/synchronous)
 
-Atualmente, pode submeter os mesmos documentos para todas as operações de Text Analytics: sentimento, frase-chave, deteção de idiomas e identificação de entidades. (O esquema é suscetível de variar para cada análise no futuro.)
+O formato para pedidos de API é o mesmo para todas as operações sincronizadas. Os documentos são apresentados num objeto JSON como texto cru e não estruturado. XML não é suportado. O esquema JSON consiste nos elementos descritos abaixo.
 
 | Elemento | Valores válidos | Necessário? | Utilização |
 |---------|--------------|-----------|-------|
@@ -47,8 +75,7 @@ Atualmente, pode submeter os mesmos documentos para todas as operações de Text
 |`text` | Texto cru não estruturado, até 5.120 caracteres. | Necessário | Para a deteção de idiomas, o texto pode ser expresso em qualquer língua. Para análise de sentimentos, extração de frases-chave e identificação de entidades, o texto deve estar numa [língua suportada](../language-support.md). |
 |`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caracteres para uma [língua suportada](../language-support.md) | Varia | Necessário para a análise de sentimentos, extração de frases-chave e ligação de entidades; opcional para a deteção de linguagem. Não há erro se o excluirmos, mas a análise é enfraquecida sem ela. O código linguístico deve corresponder ao `text` que fornece. |
 
-Para obter mais informações sobre limites, consulte [a visão geral > limites de dados](../overview.md#data-limits)de texto. 
-
+Segue-se um exemplo de um pedido de API para os pontos finais sincronizados de Text Analytics. 
 
 ```json
 {
@@ -57,71 +84,265 @@ Para obter mais informações sobre limites, consulte [a visão geral > limites 
       "language": "en",
       "id": "1",
       "text": "Sample text to be sent to the text analytics api."
-    },
-    {
-      "language": "en",
-      "id": "2",
-      "text": "It's incredibly sunny outside! I'm so happy."
-    },
-    {
-      "language": "en",
-      "id": "3",
-      "text": "Pike place market is my favorite Seattle attraction."
     }
   ]
 }
 ```
 
+#### <a name="analyze"></a>[Análise](#tab/analyze)
 
-## <a name="set-up-a-request-in-postman"></a>Configurar um pedido no Carteiro
+> [!NOTE]
+> O último pré-relanço da biblioteca de clientes Text Analytics permite-lhe ligar para operações de Análise Assíncronica utilizando um objeto cliente. Pode encontrar exemplos no GitHub:
+* [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+* [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+* [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
-O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro (ou outra ferramenta de teste web API), configurar o ponto final para incluir o recurso que pretende utilizar e fornecer a chave de acesso num cabeçalho de pedido. Cada operação requer que apendam o recurso adequado ao ponto final. 
+O `/analyze` ponto final permite-lhe escolher qual das funcionalidades de Análise de Texto suportadas que pretende utilizar numa única chamada API. Este ponto final suporta atualmente:
 
-1. No Carteiro:
+* extração de frase-chave 
+* Reconhecimento de Entidades Nomeadas (incluindo PII e PHI)
 
-   + Escolha **o Post** como o tipo de pedido.
-   + Cole no ponto final que copiou a partir da página do portal.
-   + Anexar um recurso.
+| Elemento | Valores válidos | Necessário? | Utilização |
+|---------|--------------|-----------|-------|
+|`displayName` | String | Opcional | Usado como nome de exibição para o identificador único para o trabalho.|
+|`analysisInput` | Inclui o `documents` campo abaixo | Necessário | Contém a informação para os documentos que pretende enviar. |
+|`documents` | Inclui os `id` campos e `text` campos abaixo | Necessário | Contém informações para cada documento enviado e o texto em bruto do documento. |
+|`id` | String | Necessário | Os IDs que fornece são usados para estruturar a saída. |
+|`text` | Texto cru não estruturado, até 125.000 caracteres. | Necessário | Deve estar na língua inglesa, que é a única língua atualmente apoiada. |
+|`tasks` | Inclui as seguintes funcionalidades de Análise de Texto: `entityRecognitionTasks` , `keyPhraseExtractionTasks` ou `entityRecognitionPiiTasks` . | Necessário | Um ou mais dos recursos de Text Analytics que pretende utilizar. Note que `entityRecognitionPiiTasks` tem um parâmetro opcional que pode ser definido para ou `domain` `pii` `phi` . Se não for especificado, o sistema falha em `pii` . |
+|`parameters` | Inclui os `model-version` campos e `stringIndexType` campos abaixo | Necessário | Este campo está incluído nas tarefas de recurso acima escolhidas. Contêm informações sobre a versão modelo que pretende utilizar e o tipo de índice. |
+|`model-version` | String | Necessário | Especifique qual a versão do modelo que está a ser chamado de que pretende utilizar.  |
+|`stringIndexType` | String | Necessário | Especifique o descodificador de texto que corresponda ao seu ambiente de programação.  Os tipos suportados são `textElement_v8` (predefinido), `unicodeCodePoint` `utf16CodeUnit` . . Consulte o [artigo Text offset](../concepts/text-offsets.md#offsets-in-api-version-31-preview) para obter mais informações.  |
+|`domain` | String | Opcional | Só se aplica como parâmetro da `entityRecognitionPiiTasks` tarefa e pode ser definido para ou `pii` `phi` . Não é especificado `pii` se não especificado.  |
 
-   Os pontos finais de recursos são os seguintes (a sua região pode variar):
+```json
+{
+    "displayName": "My Job",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1",
+                "text": "It's incredibly sunny outside! I'm so happy"
+            },
+            {
+                "id": "doc2",
+                "text": "Pike place market is my favorite Seattle attraction."
+            }
+        ]
+    },
+    "tasks": {
+        "entityRecognitionTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
+        "keyPhraseExtractionTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }],
+        "entityRecognitionPiiTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }]
+    }
+}
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/entities/recognition/general`
+```
 
-2. Desa estação os três cabeçalhos de pedido:
+#### <a name="text-analytics-for-health"></a>[Análise de Texto para a saúde](#tab/health)
 
-   + `Ocp-Apim-Subscription-Key`: a sua chave de acesso, obtida a partir do portal Azure.
-   + `Content-Type`: aplicação/json.
-   + `Accept`: aplicação/json.
+O formato dos pedidos de API ao Text Analytics para a API de saúde é o mesmo que para o seu recipiente. Os documentos são apresentados num objeto JSON como texto cru e não estruturado. XML não é suportado. O esquema JSON consiste nos elementos descritos abaixo.  Preencha e envie o formulário de [pedido dos Serviços Cognitivos](https://aka.ms/csgate) para solicitar o acesso ao Texto Analytics para pré-visualização do público em saúde. Não será cobrado para Text Analytics para uso de saúde. 
 
-   O seu pedido deve ser semelhante ao seguinte, assumindo um recurso **/keyPhrases.**
+| Elemento | Valores válidos | Necessário? | Utilização |
+|---------|--------------|-----------|-------|
+|`id` |O tipo de dados é string, mas na prática os IDs de documento tendem a ser inteiros. | Necessário | O sistema utiliza os IDs que fornece para estruturar a saída. |
+|`text` | Texto cru não estruturado, até 5.120 caracteres. | Necessário | Note que apenas o texto em inglês está atualmente suportado. |
+|`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caracteres para uma [língua suportada](../language-support.md) | Necessário | Apenas `en` está atualmente apoiado. |
 
-   ![Solicitar screenshot com ponto final e cabeçalhos](../media/postman-request-keyphrase-1.png)
+Segue-se um exemplo de um pedido da API para o Texto Analytics para os pontos finais de saúde. 
 
-4. Clique **em Corpo** e escolha **cru** para o formato.
+```json
+example.json
 
-   ![Solicitar screenshot com configurações do corpo](../media/postman-request-body-raw.png)
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Subject was administered 100mg remdesivir intravenously over a period of 120 min"
+    }
+  ]
+}
+```
 
-5. Cole em alguns documentos JSON num formato válido para a análise pretendida. Para obter mais informações sobre uma análise específica, consulte os tópicos abaixo:
+---
 
-  + [Deteção de idioma](text-analytics-how-to-language-detection.md)  
-  + [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md)  
-  + [Análise de sentimentos](text-analytics-how-to-sentiment-analysis.md)  
-  + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md)  
+>[!TIP]
+> Consulte o artigo [Data and Rate Limits](../concepts/data-limits.md) para obter informações sobre as taxas e limites de tamanho para o envio de dados para a API de Análise de Texto.
 
 
-6. Clique **em Enviar** para submeter o pedido. Consulte a secção [limite de dados](../overview.md#data-limits) na visão geral para obter informações sobre o número de pedidos que pode enviar por minuto e segundo.
+## <a name="set-up-a-request"></a>Configurar um pedido 
 
-   No Carteiro, a resposta é exibida na janela seguinte para baixo, como um único documento JSON, com um item para cada documento ID fornecido no pedido.
+No Carteiro (ou noutra ferramenta de teste web da API), adicione o ponto final para a funcionalidade que pretende utilizar. Utilize a tabela abaixo para encontrar o formato de ponto final apropriado e `<your-text-analytics-resource>` substitua-a pelo seu ponto final de recurso. Por exemplo:
 
-## <a name="see-also"></a>Ver também 
+`https://my-resource.cognitiveservices.azure.com/text/analytics/v3.0/languages`
 
- [Visão geral da análise de texto](../overview.md)  
- [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
+#### <a name="synchronous"></a>[Synchronous (Síncrono)](#tab/synchronous)
 
-## <a name="next-steps"></a>Passos seguintes
+| Funcionalidade | Tipo de pedido | Pontos finais de recursos |
+|--|--|--|
+| Deteção de idioma | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
+| Análise de sentimentos | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
+| Mineração de Opinião | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
+| Extração de expressões-chave | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
+| Reconhecimento de entidade nomeada - geral | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
+| Reconhecimento de entidade nomeada - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
+| Reconhecimento de entidade nomeada - PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
 
-> [!div class="nextstepaction"]
-> [Detetar Idioma](text-analytics-how-to-language-detection.md)
+#### <a name="analyze"></a>[Análise](#tab/analyze)
+
+| Funcionalidade | Tipo de pedido | Pontos finais de recursos |
+|--|--|--|
+| Submeter trabalho de análise | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
+| Obtenha estado de análise e resultados | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
+
+#### <a name="text-analytics-for-health"></a>[Análise de Texto para a saúde](#tab/health)
+
+| Funcionalidade | Tipo de pedido | Pontos finais de recursos |
+|--|--|--|
+| Enviar Análise de Texto para trabalho de saúde  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
+| Obtenha o estado de trabalho e os resultados | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| Cancelar trabalho | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+
+--- 
+
+Depois de ter o seu ponto final, no Carteiro (ou noutra ferramenta de teste web API):
+
+1. Escolha o tipo de pedido para a funcionalidade que pretende utilizar.
+2. Cole no ponto final do funcionamento adequado que pretende da tabela acima.
+3. Desa estação os três cabeçalhos de pedido:
+
+   + `Ocp-Apim-Subscription-Key`: a sua chave de acesso, obtida a partir do portal Azure
+   + `Content-Type`: aplicação/json
+   + `Accept`: aplicação/json
+
+    Se estiver a usar o Carteiro, o seu pedido deve parecer semelhante à imagem que se segue, assumindo um `/keyPhrases` ponto final.
+    
+    ![Solicitar screenshot com ponto final e cabeçalhos](../media/postman-request-keyphrase-1.png)
+    
+4. Escolha **cru** para o formato do **Corpo**
+    
+    ![Solicitar screenshot com configurações do corpo](../media/postman-request-body-raw.png)
+
+5. Cole em alguns documentos JSON num formato válido. Utilize os exemplos na secção de formulário de pedido da **API** acima, e para mais informações e exemplos, consulte os tópicos abaixo:
+
+      + [Deteção de idioma](text-analytics-how-to-language-detection.md)
+      + [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md)
+      + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md)
+      + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md)
+
+## <a name="send-the-request"></a>Enviar o pedido
+
+Submeta o pedido da API. Se esboçar a chamada para um ponto final sincronizado, a resposta será exibida imediatamente, como um único documento JSON, com um item para cada documento ID fornecido no pedido.
+
+Se fez a chamada para os `/analyze` pontos finais assíncronos ou `/health` finais, verifique se recebeu um código de resposta 202. terá de obter a resposta para ver os resultados:
+
+1. Na resposta da API, encontre o `Operation-Location` do cabeçalho, que identifica o trabalho que enviou para a API. 
+2. Crie um pedido GET para o ponto final que usou. consulte o [quadro acima](#set-up-a-request) para o formato endpoint, e reveja a documentação de referência da [API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus). Por exemplo:
+
+    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>`
+
+3. Adicione o `Operation-Location` pedido.
+
+4. A resposta será um único documento JSON, com um item para cada documento ID fornecido no pedido.
+
+## <a name="example-api-responses"></a>Exemplo respostas da API
+ 
+# <a name="synchronous"></a>[Synchronous (Síncrono)](#tab/synchronous)
+
+As respostas sincronizadas do ponto final variam consoante o ponto final que utilizar. Consulte os seguintes artigos, por exemplo, respostas.
+
++ [Deteção de idioma](text-analytics-how-to-language-detection.md#step-3-view-the-results)
++ [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
++ [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md#view-the-results)
++ [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md#view-results)
+
+# <a name="analyze"></a>[Análise](#tab/analyze)
+
+Se for bem sucedido, o pedido GET ao `/analyze` ponto final devolverá um objeto que contenha as tarefas atribuídas. Por exemplo, `keyPhraseExtractionTasks`. Estas tarefas contêm o objeto de resposta da função de Análise de Texto apropriado. Consulte os seguintes artigos para mais informações.
+
++ [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
++ [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md#view-results)
+
+
+```json
+{
+  "displayName": "My Analyze Job",
+  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
+  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
+  "createdDateTime": "2020-11-13T04:01:13Z",
+  "expirationDateTime": "2020-11-14T04:01:13Z",
+  "status": "running",
+  "errors": [],
+  "tasks": {
+      "details": {
+          "name": "My Analyze Job",
+          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
+      },
+      "completed": 1,
+      "failed": 0,
+      "inProgress": 2,
+      "total": 3,
+      "keyPhraseExtractionTasks": [
+          {
+              "name": "My Analyze Job",
+              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
+              "results": {
+                  "inTerminalState": true,
+                  "documents": [
+                      {
+                          "id": "doc1",
+                          "keyPhrases": [
+                              "sunny outside"
+                          ],
+                          "warnings": []
+                      },
+                      {
+                          "id": "doc2",
+                          "keyPhrases": [
+                              "favorite Seattle attraction",
+                              "Pike place market"
+                          ],
+                          "warnings": []
+                      }
+                  ],
+                  "errors": [],
+                  "modelVersion": "2020-07-01"
+              }
+          }
+      ]
+  }
+}
+```
+
+# <a name="text-analytics-for-health"></a>[Análise de Texto para a saúde](#tab/health)
+
+Consulte o seguinte artigo para obter mais informações para o Texto Analytics para a resposta da API assíncrono à saúde:
+
++ [Análise de Texto para a saúde](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
+
+
+--- 
+
+## <a name="see-also"></a>Ver também
+
+* [Descrição geral da Análise de Texto](../overview.md)
+* [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
+* [Página de produto da Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759712)
+* [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)
+* [Novidades](../whats-new.md)

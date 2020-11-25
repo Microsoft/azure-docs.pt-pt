@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
 ms.openlocfilehash: d35ea57a68e500deffa99033b83114ec518dd5e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776736"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993810"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Diretrizes de formato para documentos e URLs importados
 
@@ -70,9 +70,9 @@ Abaixo está um exemplo de um documento de palavra QnA estruturado:
 
  ![Exemplo de documento da QnA estruturado para uma base de conhecimento](./media/qnamaker-concepts-datasources/structured-qna-doc.png)
 
-## <a name="structured-txt-tsv-and-xls-files"></a>*Arquivos TXT*estruturados, *TSV* e *XLS*
+## <a name="structured-txt-tsv-and-xls-files"></a>*Arquivos TXT* estruturados, *TSV* e *XLS*
 
-Os QnAs sob a forma de ficheiros *estruturados .txt*, *.tsv* ou *.xls* também podem ser enviados para o QnA Maker para criar ou aumentar uma base de conhecimento.  Estes podem ser texto simples, ou podem ter conteúdo em RTF ou HTML.
+QnAs sob a forma de *.txt* estruturados , *.tsv* ou *.xls* ficheiros também podem ser enviados para qnA Maker para criar ou aumentar uma base de conhecimento.  Estes podem ser texto simples, ou podem ter conteúdo em RTF ou HTML.
 
 | Pergunta  | Resposta  | Metadados (1 chave: 1 valor) |
 |-----------|---------|-------------------------|
@@ -83,13 +83,13 @@ Quaisquer colunas adicionais no ficheiro de origem são ignoradas.
 
 ### <a name="example-of-structured-excel-file"></a>Exemplo de arquivo Excel estruturado
 
-Abaixo está um exemplo de um ficheiro QnA *.xls* estruturado, com conteúdo HTML:
+Abaixo está um exemplo de um ficheiro de *.xls QnA* estruturado, com conteúdo HTML:
 
  ![QnA estruturado exemplo de excel para uma base de conhecimento](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Exemplo de perguntas alternativas para resposta única no ficheiro Excel
 
-Abaixo está um exemplo de um ficheiro QnA *.xls* estruturado, com várias perguntas alternativas para uma única resposta:
+Abaixo está um exemplo de um ficheiro de *.xls* QnA estruturado, com várias perguntas alternativas para uma única resposta:
 
  ![Exemplo de perguntas alternativas para resposta única no ficheiro Excel](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
 

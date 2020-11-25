@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.openlocfilehash: b22c73b3f0626b9938608e88c3382e3f5e8d97fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427484"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993143"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Crie, treine e publique a sua base de conhecimentos QnA Maker
 
@@ -40,9 +40,9 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Screenshot de selecionar uma base de conhecimento de serviço QnA Maker":::
 
-5. No **passo 3** , nomeie a sua base de conhecimento **My Sample QnA KB**.
+5. No **passo 3**, nomeie a sua base de conhecimento **My Sample QnA KB**.
 
-6. No **passo 4** , configurar as definições com a seguinte tabela:
+6. No **passo 4**, configurar as definições com a seguinte tabela:
 
     |Definição|Valor|
     |--|--|
@@ -51,7 +51,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
     |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Conversa**|Selecione **Profissional**|
 
-7. No **passo 5** , selecione **Criar o seu KB**.
+7. No **passo 5**, selecione **Criar o seu KB**.
 
     O processo de extração leva alguns momentos para ler o documento e identificar perguntas e respostas.
 
@@ -73,11 +73,11 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="Screenshot de selecionar uma base de conhecimento de serviço do QnA Maker gerida pré-visualização":::
 
-5. No **Passo 2** , se estiver a criar a primeira base de conhecimento para o seu serviço, terá a opção de tornar a definição de linguagem específica para cada base de conhecimento. Uma vez definida a definição de idioma para a primeira base de conhecimento, não poderá modificar as definições do serviço mais tarde.
+5. No **Passo 2**, se estiver a criar a primeira base de conhecimento para o seu serviço, terá a opção de tornar a definição de linguagem específica para cada base de conhecimento. Uma vez definida a definição de idioma para a primeira base de conhecimento, não poderá modificar as definições do serviço mais tarde.
 
-6. No **passo 3** , nomeie a sua base de conhecimento **My Sample QnA KB**. 
+6. No **passo 3**, nomeie a sua base de conhecimento **My Sample QnA KB**. 
 
-7. No **passo 4** , configurar as definições com a seguinte tabela:
+7. No **passo 4**, configurar as definições com a seguinte tabela:
 
     |Definição|Valor|
     |--|--|
@@ -86,7 +86,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
     |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Conversa**|Selecione **Profissional**|
 
-8. No **passo 5** , selecione **Criar o seu KB**.
+8. No **passo 5**, selecione **Criar o seu KB**.
 
     O processo de extração leva alguns momentos para ler o documento e identificar perguntas e respostas.
 
@@ -200,7 +200,7 @@ Depois de publicar a base de conhecimento, criou um bot e testou o bot.
 
 Tudo isto foi feito em poucos minutos sem ter que escrever nenhum código ou limpar o conteúdo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar para o próximo quickstart, elimine os recursos-quadro do QnA Maker e bot no portal Azure.
 

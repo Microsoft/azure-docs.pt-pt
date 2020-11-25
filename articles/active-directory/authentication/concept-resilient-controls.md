@@ -13,11 +13,11 @@ ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6b5b83d75df734c667c365f20fad2e1f62f997d7
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839714"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994286"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crie uma estratégia resiliente de gestão de controlo de acessos com o Azure Ative Directory
 
@@ -282,7 +282,7 @@ Se a sua organização estiver a utilizar políticas antigas de MFA por utilizad
 >[!NOTE]
  > Configurar [IPs fidedignos](./howto-mfa-mfasettings.md) para Azure AD MFA só está disponível com [licenças Azure AD Premium](./concept-mfa-licensing.md).
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 * [Documentação da Autenticação do Azure AD](./howto-mfaserver-iis.md)
 * [Gerir contas administrativas de acesso de emergência em Azure AD](../roles/security-emergency-access.md)

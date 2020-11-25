@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 11/24/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d700c2f2b4df01da577b67dafab989b655bdb58d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 904456de527e8d0acb1319059c18f9a3c6b0a1a3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91331085"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95992958"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure
 
@@ -38,7 +38,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com a sua conta do
 
 Criará o gateway de aplicações utilizando os separadores na página **Criar um gateway de aplicações.**
 
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**. A **nova** janela aparece.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. A **nova** janela aparece.
 
 2. Selecione **Networking** e, em seguida, selecione **Application Gateway** na lista **em destaque.**
 
@@ -146,7 +146,7 @@ Para fazer isto, vai:
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**. A **nova** janela aparece.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. A **nova** janela aparece.
 2. Selecione **o Centro de Dados do Windows Server 2016** na lista **Popular.** Aparece a página **de máquina virtual Create a.**<br>O Application Gateway pode encaminhar o tráfego para qualquer tipo de máquina virtual utilizada na sua piscina de backend. Neste exemplo, utiliza um Datacenter Windows Server 2016.
 3. Introduza estes valores no separador **Básicos** para as seguintes definições de máquina virtual:
 
@@ -158,7 +158,7 @@ Para fazer isto, vai:
 4. Aceite as outras predefinições e, em seguida, selecione **Seguinte: Discos**.  
 5. Aceite as falhas do separador **Discos** e, em seguida, selecione **Seguinte: Networking**.
 6. No **separador Networking,** verifique se o **myVNet** está selecionado para a **rede Virtual** e a **sub-rede** está definida para **o myBackendSubnet**. Aceite os outros incumprimentos e, em seguida, selecione **Seguinte: Gestão**.<br>O Application Gateway pode comunicar com casos fora da rede virtual em que se encontra, mas é preciso garantir que existe conectividade IP.
-7. No **separador Gestão,** desata **o diagnóstico de Boot** para **desligar**. Aceite os outros predefinidos e, em seguida, **selecione Review + create**.
+7. No **separador Gestão,** desative **os diagnósticos boot** para **desativar**. Aceite os outros predefinidos e, em seguida, **selecione Review + create**.
 8. No **separador 'Rever +' criar,** rever as definições, corrigir quaisquer erros de validação e, em seguida, selecionar **Criar**.
 9. Aguarde que a criação da máquina virtual esteja concluída antes de continuar.
 
@@ -217,7 +217,7 @@ Embora o IIS não seja obrigado a criar o gateway de aplicações, instalou-o ne
 
    Refresque o navegador várias vezes e deverá ver ligações tanto para o myVM como para o myVM2.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicações, elimine o grupo de recursos. Ao eliminar o grupo de recursos, também remove o gateway de aplicação e todos os recursos relacionados.
 
@@ -225,7 +225,7 @@ Para eliminar o grupo de recursos:
 
 1. No menu do portal Azure, selecione **grupos de recursos** ou procure e selecione *grupos de Recursos.*
 2. Na página **de grupos de recursos,** procure **o myResourceGroupAG** na lista e, em seguida, selecione-o.
-3. Na **página**do grupo Recursos , selecione **Eliminar grupo de recursos**.
+3. Na **página** do grupo Recursos , selecione **Eliminar grupo de recursos**.
 4. Introduza *myResourceGroupAG* para **escrever o nome do grupo de recursos** e, em seguida, selecione **Eliminar**
 
 ## <a name="next-steps"></a>Passos seguintes
