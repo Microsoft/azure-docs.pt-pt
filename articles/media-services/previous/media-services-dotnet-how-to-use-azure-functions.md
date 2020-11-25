@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba5bca9b0d5907d9900741d0fe2c319f141f810b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 520ad8f68e0f995ea05456ebcf6de4c1ba3f9418
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913641"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030310"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver funções de Azure com serviços de mídia
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-Este artigo mostra-lhe como começar a criar Funções Azure que utilizam os Media Services. A Função Azure definida neste artigo monitoriza um recipiente de conta de armazenamento nomeado **entrada** para novos ficheiros MP4. Uma vez que um ficheiro é deixado no recipiente de armazenamento, o gatilho blob executa a função. Para rever as funções de Azure, consulte [a visão geral](../../azure-functions/functions-overview.md) e outros tópicos na secção **funções Azure.**
+Este artigo mostra-lhe como começar a criar Funções Azure que utilizam os Media Services. A Função Azure definida neste artigo monitoriza um recipiente de conta de armazenamento nomeado **entrada** para novos ficheiros MP4. Uma vez que um ficheiro é deixado no recipiente de armazenamento, o gatilho blob executa a função. Para rever as Funções Azure, consulte [a Visão Geral](../../azure-functions/functions-overview.md) e outros tópicos na secção **Funções Azure.**
 
 Se pretende explorar e implementar as Funções Azure existentes que utilizam os Serviços de Mídia Azure, consulte as [Funções Azure dos Serviços de Media](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Este repositório contém exemplos que utilizam os Serviços de Mídia para mostrar fluxos de trabalho relacionados com a ingestão de conteúdos diretamente do armazenamento de bolhas, codificação e escrevendo conteúdo de volta para o armazenamento de bolhas. Também inclui exemplos de como monitorizar as notificações de emprego através de WebHooks e Azure Queues. Também pode desenvolver as suas Funções com base nos exemplos do repositório de [Funções Azure dos Serviços de Media.](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) Para implantar as funções, prima o botão **'Implementar para Azul'.**
 
@@ -49,13 +49,13 @@ Ao desenvolver funções de Media Services, é útil adicionar variáveis ambien
 
 A função, definida neste artigo, pressupõe que tem as seguintes variáveis ambientais nas definições da sua aplicação:
 
-**AMSAADTenantDomain** : Azure AD tenant endpoint. Para mais informações sobre a ligação à AMS API, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artigo.
+**AMSAADTenantDomain**: Azure AD tenant endpoint. Para mais informações sobre a ligação à AMS API, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artigo.
 
-**AMSRESTAPIEndpoint** : URI que representa o ponto final REST API. 
+**AMSRESTAPIEndpoint**: URI que representa o ponto final REST API. 
 
-**AMSClientId** : Identificação do cliente de aplicação AD AZure.
+**AMSClientId**: Identificação do cliente de aplicação AD AZure.
 
-**AMSClientSecret** : Azure AD application client secret.
+**AMSClientSecret**: Azure AD application client secret.
 
 **ArmazenamentoConnection:** ligação de armazenamento da conta associada à conta dos Serviços de Mídia. Este valor é utilizado no **function.jsficheiro** e **ficheiro run.csx** (descrito abaixo).
 
@@ -73,17 +73,17 @@ Uma vez implementada a sua aplicação de função, pode encontrá-la entre as F
 
     ![A screenshot mostra o Nome da caixa de diálogo da sua função.](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Clique em **Criar** . 
+4. Clique em **Criar**. 
 
 ## <a name="files"></a>Ficheiros
 
-A sua função Azure está associada a ficheiros de código e outros ficheiros descritos nesta secção. Quando utilizar o portal Azure para criar uma função, **function.js** e **executar.csx** são criados para si. Tem de adicionar ou carregar uma **project.jsno** ficheiro. O resto desta secção dá uma breve explicação de cada ficheiro e mostra as suas definições.
+A sua Função Azure está associada a ficheiros de código e outros ficheiros descritos nesta secção. Quando utilizar o portal Azure para criar uma função, **function.js** e **executar.csx** são criados para si. Tem de adicionar ou carregar uma **project.jsno** ficheiro. O resto desta secção dá uma breve explicação de cada ficheiro e mostra as suas definições.
 
 ![A screenshot mostra os ficheiros json no seu projeto.](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
-O function.jsno ficheiro define as ligações de funções e outras definições de configuração. O tempo de execução utiliza este ficheiro para determinar os eventos para monitorizar e como transmitir dados e devolver dados da execução da função. Para obter mais informações, consulte [as funções Azure HTTP e as ligações webhook](../../azure-functions/functions-reference.md#function-code).
+O function.jsno ficheiro define as ligações de funções e outras definições de configuração. O tempo de execução utiliza este ficheiro para determinar os eventos para monitorizar e como transmitir dados e devolver dados da execução da função. Para obter mais informações, veja [Azure Functions HTTP and webhook bindings](../../azure-functions/functions-reference.md#function-code) (Enlaces de HTTP e webhook das Funções do Azure).
 
 >[!NOTE]
 >Desative a propriedade **desativada** **para** evitar que a função seja executada. 
@@ -138,7 +138,7 @@ O exemplo definido nesta secção demonstra
 
 No cenário da vida real, é provável que queiras acompanhar o progresso do trabalho e depois publicar o teu ativo codificado. Para obter mais informações, consulte [a Azure WebHooks para monitorizar as notificações de trabalho dos Media Services](media-services-dotnet-check-job-progress-with-webhooks.md). Para mais exemplos, consulte [as Funções Azure dos Serviços de Comunicação](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)Social .  
 
-Substitua o conteúdo do ficheiro run.csx existente pelo seguinte código: Uma vez terminada a definição da sua função clique em **Guardar e Executar** .
+Substitua o conteúdo do ficheiro run.csx existente pelo seguinte código: Uma vez terminada a definição da sua função clique em **Guardar e Executar**.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -336,8 +336,8 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 Para testar a sua função, é necessário enviar um ficheiro MP4 para o recipiente de **entrada** da conta de armazenamento que especificou na cadeia de ligação.  
 
 1. Selecione a conta de armazenamento especificada na variável **ambiente StorageConnection.**
-2. Clique **em Blobs** .
-3. Clique em **+ Contentor** . Nomeie a **entrada** do recipiente .
+2. Clique **em Blobs**.
+3. Clique em **+ Contentor**. Nomeie a **entrada** do recipiente .
 4. Prima **upload** e navegue num ficheiro .mp4 que pretende carregar.
 
 >[!NOTE]

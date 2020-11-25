@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 77aaef751a15ddbb6dc66653e8e3e5d4878c587e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95562325"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027773"
 ---
 > [!div class="op_single_selector"]
 > * [.NET](../articles/cosmos-db/tutorial-develop-table-dotnet.md)

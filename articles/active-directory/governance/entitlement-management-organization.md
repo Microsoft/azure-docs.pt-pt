@@ -16,12 +16,12 @@ ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449823"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029375"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicione uma organização conectada na gestão de direitos AD Azure
 
@@ -56,9 +56,9 @@ Para adicionar um diretório ou domínio AD AD externo como uma organização co
 
 **Função pré-requisito**: *Administrador global* ou *administrador de utilizador*
 
-1. No portal Azure, selecione **Azure Ative Directory**e, em seguida, selecione **A Identity Governance**.
+1. No portal Azure, selecione **Azure Ative Directory** e, em seguida, selecione **A Identity Governance**.
 
-1. No painel esquerdo, selecione **Organizações Conectadas**e, em seguida, selecione **Adicionar organização conectada**.
+1. No painel esquerdo, selecione **Organizações Conectadas** e, em seguida, selecione **Adicionar organização conectada**.
 
     ![O botão "Adicionar organização conectada"](./media/entitlement-management-organization/connected-organization.png)
 
@@ -83,7 +83,7 @@ Para adicionar um diretório ou domínio AD AD externo como uma organização co
     > [!NOTE]
     > Todos os utilizadores do diretório ou domínio Azure AD poderão solicitar este pacote de acesso. Isto inclui utilizadores em Azure AD de todos os subdomínios associados ao diretório, a menos que esses domínios sejam bloqueados pelo negócio Azure AD para negócios (B2B) permitir ou negar a lista. Para obter mais informações, consulte [Permitir ou bloquear convites a utilizadores B2B de organizações específicas.](../external-identities/allow-deny-list.md)
 
-1. Depois de adicionar o diretório ou domínio AZure AD, **selecione**Select .
+1. Depois de adicionar o diretório ou domínio AZure AD, **selecione** Select .
 
     A organização aparece na lista.
 
@@ -107,9 +107,9 @@ Se a organização ligada mudar para um domínio diferente, o nome da organizaç
 
 **Função pré-requisito**: *Administrador global* ou *administrador de utilizador*
 
-1. No portal Azure, selecione **Azure Ative Directory**e, em seguida, selecione **A Identity Governance**.
+1. No portal Azure, selecione **Azure Ative Directory** e, em seguida, selecione **A Identity Governance**.
 
-1. No painel esquerdo, selecione **Organizações Conectadas**e, em seguida, selecione a organização conectada para abri-la.
+1. No painel esquerdo, selecione **Organizações Conectadas** e, em seguida, selecione a organização conectada para abri-la.
 
 1. No painel de visão geral da organização conectada, **selecione Editar** para alterar o nome, descrição ou estado da organização.  
 
@@ -124,9 +124,9 @@ Se já não tiver uma relação com um diretório ou domínio Azure AD externo, 
 
 **Função pré-requisito**: *Administrador global* ou *administrador de utilizador*
 
-1. No portal Azure, selecione **Azure Ative Directory**e, em seguida, selecione **A Identity Governance**.
+1. No portal Azure, selecione **Azure Ative Directory** e, em seguida, selecione **A Identity Governance**.
 
-1. No painel esquerdo, selecione **Organizações Conectadas**e, em seguida, selecione a organização conectada para abri-la.
+1. No painel esquerdo, selecione **Organizações Conectadas** e, em seguida, selecione a organização conectada para abri-la.
 
 1. No painel de visão geral da organização ligada, **selecione Delete** para eliminá-lo.
 
@@ -148,9 +148,9 @@ Existem dois tipos diferentes de propriedades estatais para organizações conec
 
 - Uma organização conectada proposta é uma organização conectada que foi criada automaticamente, mas não teve um administrador criar ou aprovar a organização. Quando um utilizador se inscreve para um pacote de acesso fora de uma organização conectada configurada, quaisquer organizações conectadas criadas automaticamente estarão no estado **proposto,** uma vez que nenhum administrador na configuração do arrendatário dessa parceria. 
     
-    As organizações ligadas propostas não aparecem nos pickers para organizações conectadas configuradas, e não estão no âmbito das definições de "todas as organizações conectadas configuradas" em quaisquer políticas. 
+    As organizações ligadas propostas não estão no âmbito das definições de "todas as organizações conectadas configuradas" em quaisquer políticas, mas só podem ser utilizadas em políticas destinadas a organizações específicas. 
 
-Apenas os utilizadores de organizações conectadas configuradas podem solicitar pacotes de acesso que estejam disponíveis para utilizadores de todas as organizações configuradas. Os utilizadores de organizações ligadas propostas têm uma experiência como se não existisse uma organização conectada para esse domínio, e não terão acesso ao pacote de acesso até que o estado seja alterado por um administrador.
+Apenas os utilizadores de organizações conectadas configuradas podem solicitar pacotes de acesso que estejam disponíveis para utilizadores de todas as organizações configuradas. Os utilizadores de organizações ligadas propostas têm uma experiência como se não existisse uma organização conectada para esse domínio; só podem ver e solicitar pacotes de acesso a uma organização específica ou a qualquer utilizador.
 
 > [!NOTE]
 > Como parte do lançamento desta nova funcionalidade, todas as organizações ligadas criadas antes do dia 09/09/20 foram **consideradas configuradas.** Se tinha um pacote de acesso que permitisse aos utilizadores de qualquer organização inscreverem-se, deverá rever a sua lista de organizações conectadas que foram criadas antes dessa data para garantir que nenhuma delas está mal categorizada como **configurada.**  Um administrador pode atualizar a propriedade **do Estado** conforme apropriado. Para obter orientação, consulte [Atualizar uma organização conectada](#update-a-connected-organization).

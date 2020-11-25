@@ -2,13 +2,13 @@
 title: Configurar a análise de dependência baseada em agentes na avaliação do servidor migratório Azure
 description: Este artigo descreve como configurar a análise de dependência baseada em agentes na Avaliação do Servidor migratório Azure.
 ms.topic: how-to
-ms.date: 6/09/2020
-ms.openlocfilehash: c5c019ec995f59b61fb96917bed50bd8ba3f61d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: 17c6e3e24596727350b11946bdf6896e22d41529
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022382"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028967"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar visualização de dependência
 
@@ -83,7 +83,7 @@ Para instalar o agente numa máquina Windows:
 
 Pode instalar o agente a partir da linha de comando ou utilizando um método automatizado, como o Gestor de Configurações ou [o Intigua.](https://www.intigua.com/intigua-for-azure-migration)
 - [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#installation-options) sobre a utilização destes métodos para instalar o agente MMA.
-- O agente MMA também pode ser instalado com este [script](https://go.microsoft.com/fwlink/?linkid=2104394).
+- O agente MMA também pode ser instalado com este [script](https://github.com/brianbar-MSFT/Install-MMA).
 - [Saiba mais](../azure-monitor/platform/agents-overview.md#supported-operating-systems) sobre os sistemas operativos Windows suportados pelo MMA.
 
 ### <a name="install-mma-on-a-linux-machine"></a>Instale o MMA numa máquina Linux

@@ -4,15 +4,15 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 86b18c2a6fc3fbf342f5b7a4b6b563432c605f73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 648c2e4ffc63dad42a87888e7cb5629fb7301eea
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68781483"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028428"
 ---
 Tenha em mente estas boas práticas:
 
 - Recomendamos que guarde todas as palavras-passe num local seguro para que não tenha de redefinir uma palavra-passe se for esquecida. O serviço de gestão não consegue recuperar as senhas existentes. Só pode reiniciá-los através do portal Azure. Se redefinir uma palavra-passe, certifique-se de notificar todos os utilizadores antes de a redefinir.
 - Pode aceder à interface Do Windows PowerShell do seu dispositivo remotamente através de HTTP. Como uma boa prática de segurança, deve utilizar HTTP apenas em redes fidedignas.
-- Certifique-se de que as palavras-passe do dispositivo estão fortes e bem protegidas. Siga as [melhores práticas da palavra-passe.](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices#enable-password-management)
+- Certifique-se de que as palavras-passe do dispositivo estão fortes e bem protegidas. Siga as [melhores práticas da palavra-passe.](../articles/security/fundamentals/identity-management-best-practices.md#enable-password-management)

@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 04/16/2020
-ms.openlocfilehash: 569cf130b464d97e0ac10904ffd86365b57610a5
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 11/25/2020
+ms.openlocfilehash: af7ac49fd6c1a31a8363c4ba0bf925787613ecc2
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420840"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030412"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Exceções e códigos de erro para o designer
 
@@ -187,7 +187,7 @@ Verifique também se a conta, o recipiente ou a bolha foram apagados. Utilize ou
 
 Alguns tipos de conta mais recentes não são suportados pela Azure Machine Learning. Por exemplo, os novos tipos de armazenamento "quente" ou "frio" não podem ser utilizados para a aprendizagem automática. Tanto as contas clássicas de armazenamento como as contas de armazenamento criadas como "finalidade geral" funcionam bem.
 
-Se o caminho completo para uma bolha for especificado, verifique se o caminho é especificado como **recipiente/blobname** , e que tanto o recipiente como o blob existem na conta.  
+Se o caminho completo para uma bolha for especificado, verifique se o caminho é especificado como **recipiente/blobname**, e que tanto o recipiente como o blob existem na conta.  
 
  O caminho não deve conter um corte de liderança. Por **exemplo/recipiente/bolha** está incorreto e deve ser introduzido como **recipiente/bolha**.  
 
@@ -281,11 +281,18 @@ Se o modelo foi treinado utilizando qualquer um dos módulos de formação espec
 
  Este erro ocorre quando uma coluna contém demasiados valores únicos.  Por exemplo, pode ver este erro se especificar que uma coluna é tratada como dados categóricos, mas existem demasiados valores únicos na coluna para permitir o processamento completo. Pode também ver este erro se houver uma incompatibilidade entre o número de valores únicos em duas entradas.   
 
+O erro de valores únicos é maior do que o permitido ocorrerá se cumprir **ambas as** seguintes condições:
+
+- Mais de 97% de casos de uma coluna são valores únicos, o que significa que quase todas as categorias são diferentes umas das outras.
+- Uma coluna tem mais de 1000 valores únicos.
+
 **Resolução:**
 
 Abra o módulo que gerou o erro e identifique as colunas utilizadas como entradas. Para alguns módulos, pode clicar com o botão direito na entrada do conjunto de dados e selecionar **o Visualize** para obter estatísticas sobre colunas individuais, incluindo o número de valores únicos e a sua distribuição.
 
 Para colunas que pretende utilizar para agrupar ou categorizar, tome medidas para reduzir o número de valores únicos nas colunas. Pode reduzir de diferentes formas, dependendo do tipo de dados da coluna. 
+
+Normalmente neste cenário, a coluna que atinge o erro não faz sentido como característica para treinar modelos. Assim, pode utilizar [Os Metadados de Edição](../algorithm-module-reference/edit-metadata.md) para marcar essa coluna como **funcionalidade Clear** e não será utilizada durante o treino de um modelo. 
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
@@ -1107,7 +1114,7 @@ Consulte os seguintes artigos para obter ajuda com consultas de Hive para machin
 
  Se houver uma mensagem gerada pelo SQL reportada pela exceção do módulo, tome medidas com base no erro reportado. Por exemplo, as mensagens de erro por vezes incluem orientações específicas sobre o erro provável:
 + *Nenhuma coluna ou base de dados em falta,* indicando que pode ter digitado um nome de coluna errado. Se tiver a certeza de que o nome da coluna está correto, tente utilizar suportes ou marcas de aspas para incluir o identificador de colunas.
-+ *SQL erro \<SQL keyword\> lógico próximo* , indicando que pode ter um erro de sintaxe antes da palavra-chave especificada
++ *SQL erro \<SQL keyword\> lógico próximo*, indicando que pode ter um erro de sintaxe antes da palavra-chave especificada
 
   
 |Mensagens de Exceção|

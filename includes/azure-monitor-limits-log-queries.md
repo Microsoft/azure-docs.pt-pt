@@ -9,11 +9,11 @@ ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
 ms.openlocfilehash: ff5d04a2923f16c763e1529ecb365f60d6275ca2
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95556438"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028228"
 ---
 ### <a name="general-query-limits"></a>Limites gerais de consulta
 

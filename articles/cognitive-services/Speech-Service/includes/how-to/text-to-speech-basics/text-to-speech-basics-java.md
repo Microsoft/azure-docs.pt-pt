@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 6502685890df1a5cd6a922c5bbf544d5d5798402
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2da56514870f279da342976ac074697be5196021
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425565"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028193"
 ---
 Neste arranque rápido, você aprende padrões de design comuns para fazer síntese de texto-a-fala usando o SDK do discurso. Começa por fazer configuração e síntese básicas e passa a exemplos mais avançados para o desenvolvimento de aplicações personalizadas, incluindo:
 
@@ -52,19 +52,19 @@ import java.util.Scanner;
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de discurso
 
-Para ligar para o serviço de discurso usando o SDK de discurso, precisa de criar um [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-java-stable) . Esta classe inclui informações sobre a sua subscrição, como a sua chave e região associada, ponto final, anfitrião ou token de autorização.
+Para ligar para o serviço de discurso usando o SDK de discurso, precisa de criar um [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) . Esta classe inclui informações sobre a sua subscrição, como a sua chave e região associada, ponto final, anfitrião ou token de autorização.
 
 > [!NOTE]
 > Independentemente de estar a realizar reconhecimento de voz, síntese de fala, tradução ou reconhecimento de intenções, irá sempre criar uma configuração.
 
-Há algumas maneiras de inicializar [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-java-stable) um:
+Há algumas maneiras de inicializar [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) um:
 
 * Com uma subscrição: passe numa chave e na região associada.
 * Com um ponto final: passe num ponto final de serviço de discurso. Uma chave ou sinal de autorização é opcional.
 * Com um anfitrião: passe em um endereço de anfitrião. Uma chave ou sinal de autorização é opcional.
 * Com um sinal de autorização: passe em um token de autorização e na região associada.
 
-Neste exemplo, cria-se uma [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-java-stable) chave de subscrição e uma região. Obtenha estas credenciais seguindo os passos no [serviço Try the Speech gratuitamente](../../../overview.md#try-the-speech-service-for-free). Também cria um código básico de placa de caldeira para usar para o resto deste artigo, que modifica para diferentes personalizações.
+Neste exemplo, cria-se uma [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) chave de subscrição e uma região. Obtenha estas credenciais seguindo os passos no [serviço Try the Speech gratuitamente](../../../overview.md#try-the-speech-service-for-free). Também cria um código básico de placa de caldeira para usar para o resto deste artigo, que modifica para diferentes personalizações.
 
 ```java
 public class Program 
@@ -77,7 +77,7 @@ public class Program
 
 ## <a name="synthesize-speech-to-a-file"></a>Sintetizar o discurso a um ficheiro
 
-Em seguida, [`SpeechSynthesizer`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?preserve-view=true&view=azure-java-stable) cria-se um objeto que executa conversões de texto para discurso e saídas para altifalantes, ficheiros ou outros fluxos de saída. O [`SpeechSynthesizer`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?preserve-view=true&view=azure-java-stable) aceita como params o [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-java-stable) objeto criado no passo anterior, e um [`AudioConfig`](/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?preserve-view=true&view=azure-java-stable) objeto que especifica como os resultados de saída devem ser tratados.
+Em seguida, [`SpeechSynthesizer`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer) cria-se um objeto que executa conversões de texto para discurso e saídas para altifalantes, ficheiros ou outros fluxos de saída. O [`SpeechSynthesizer`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer) aceita como params o [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) objeto criado no passo anterior, e um [`AudioConfig`](/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig) objeto que especifica como os resultados de saída devem ser tratados.
 
 Para iniciar, crie uma `AudioConfig` saída para escrever automaticamente a saída para um ficheiro utilizando a `.wav` `fromWavFileOutput()` função estática.
 
@@ -129,7 +129,7 @@ Para muitos cenários no desenvolvimento de aplicações de fala, é provável q
 > [!NOTE]
 > Passar `null` para o , em vez de `AudioConfig` omiti-lo como no exemplo de saída do altifalante acima, não reproduzirá o áudio por padrão no dispositivo de saída ativo atual.
 
-Desta vez, guarde o resultado para uma [`SpeechSynthesisResult`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult?preserve-view=true&view=azure-java-stable) variável. A `SpeechSynthesisResult.getAudioData()` função devolve um `byte []` dos dados de saída. Pode trabalhar manualmente com `byte []` isto, ou pode utilizar a [`AudioDataStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream?preserve-view=true&view=azure-java-stable) classe para gerir o fluxo de memória. Neste exemplo, utiliza-se a `AudioDataStream.fromResult()` função estática para obter um fluxo a partir do resultado.
+Desta vez, guarde o resultado para uma [`SpeechSynthesisResult`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult) variável. A `SpeechSynthesisResult.getAudioData()` função devolve um `byte []` dos dados de saída. Pode trabalhar manualmente com `byte []` isto, ou pode utilizar a [`AudioDataStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) classe para gerir o fluxo de memória. Neste exemplo, utiliza-se a `AudioDataStream.fromResult()` função estática para obter um fluxo a partir do resultado.
 
 ```java
 public static void main(String[] args) {
@@ -152,11 +152,11 @@ A seguinte secção mostra como personalizar atributos de saída de áudio, incl
 * Taxa de amostra
 * Profundidade da bit
 
-Para alterar o formato áudio, utilize a `setSpeechSynthesisOutputFormat()` função no `SpeechConfig` objeto. Esta função espera um `enum` tipo , que utiliza para [`SpeechSynthesisOutputFormat`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat?preserve-view=true&view=azure-java-stable) selecionar o formato de saída. Consulte os documentos de referência para obter uma [lista de formatos áudio](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?preserve-view=true&view=azure-dotnet) disponíveis.
+Para alterar o formato áudio, utilize a `setSpeechSynthesisOutputFormat()` função no `SpeechConfig` objeto. Esta função espera um `enum` tipo , que utiliza para [`SpeechSynthesisOutputFormat`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat) selecionar o formato de saída. Consulte os documentos de referência para obter uma [lista de formatos áudio](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?preserve-view=true&view=azure-dotnet) disponíveis.
 
 Existem várias opções para diferentes tipos de ficheiros, dependendo dos seus requisitos. Note que, por definição, formatos brutos como `Raw24Khz16BitMonoPcm` não incluem cabeçalhos de áudio. Utilize formatos brutos apenas quando souber que a sua implementação a jusante pode descodificar um bitstream cru, ou se planeia construir manualmente cabeçalhos baseados na profundidade de bit, taxa de amostra, número de canais, etc.
 
-Neste exemplo, especifica-se um formato RIFF de alta `Riff24Khz16BitMonoPcm` fidelidade, definindo `SpeechSynthesisOutputFormat` o no `SpeechConfig` objeto. Semelhante ao exemplo na secção anterior, [`AudioDataStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream?preserve-view=true&view=azure-java-stable) usa-se para obter um fluxo de memória do resultado e, em seguida, escreva-o num ficheiro.
+Neste exemplo, especifica-se um formato RIFF de alta `Riff24Khz16BitMonoPcm` fidelidade, definindo `SpeechSynthesisOutputFormat` o no `SpeechConfig` objeto. Semelhante ao exemplo na secção anterior, [`AudioDataStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) usa-se para obter um fluxo de memória do resultado e, em seguida, escreva-o num ficheiro.
 
 ```java
 public static void main(String[] args) {

@@ -11,18 +11,16 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: f6078ed96106d6a53b55195ee950e2165334221d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c2c2f9d0ad7bfa50f543b57326b9fc8dab0069c6
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920078"
+ms.locfileid: "96029307"
 ---
 # <a name="increase-resilience-of-authentication-and-authorization-applications-you-develop"></a>Aumentar a resiliência dos pedidos de autenticação e autorização que desenvolve
 
 A Microsoft Identity utiliza a autenticação e a autorização modernas baseadas em símbolos. Isto significa que uma aplicação adquire fichas de um fornecedor de identidade para autenticar o utilizador e autorizar o pedido de chamada de APIs protegidas.
-
-![Imagem de aplicação chamando Identidade da Microsoft](media/resilience-app-development-overview/app-overview.png)
 
 Um token é válido por um certo período de tempo antes que a app tenha de adquirir uma nova. Raramente, uma chamada para recuperar um token pode falhar devido a um problema como falha de rede ou falha de serviço de infraestrutura ou falha de serviço de autenticação. Neste documento, delineamos as medidas que um desenvolvedor pode tomar para aumentar a resiliência nas suas aplicações se ocorrer uma falha de aquisição simbólica.
 

@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: b8f6768ebf988ff568739c86303b52ea5b0a9234
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 01e9787d9b812334d959ce6ae9b929ec8734ffb5
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018717"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030480"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 e Esv4
 
@@ -58,7 +58,7 @@ Os tamanhos da série Esv4 são executados no Intel &reg; Xeon &reg; Platinum 82
 [Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
 [Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
-[Suporte de geração VM](generation-2.md): Geração 1<br>
+[Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos|Largura de banda esperada da rede (Mbps) |

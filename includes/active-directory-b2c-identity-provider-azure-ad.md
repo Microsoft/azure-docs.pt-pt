@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
-ms.openlocfilehash: 818f33abfdb0655d96c0a8873a43903ee972b3bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb2ecd9ab63345954356d18164a2afe94a5aae24
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82925394"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028049"
 ---
 ## <a name="register-an-azure-ad-app"></a>Registar uma aplicação do Azure AD
 
@@ -31,12 +31,12 @@ Para ativar o sôm-in para utilizadores de uma organização específica da Azur
     Por exemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Selecione **Registar**. Grave o **ID da Aplicação (cliente)** para utilização num passo posterior.
-1. Selecione **Certificados & segredos**e, em seguida, selecione **Novo segredo de cliente**.
+1. Selecione **Certificados & segredos** e, em seguida, selecione **Novo segredo de cliente**.
 1. Introduza uma **Descrição** para o segredo, selecione uma expiração e, em seguida, **selecione Adicionar**. Grave o **valor** do segredo para utilização num passo posterior.
 
 ### <a name="configuring-optional-claims"></a>Configurar pedidos opcionais
 
-Se quiser obter as `family_name` `given_name` reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação AD AZure.](/azure/active-directory/develop/active-directory-optional-claims)
+Se quiser obter as `family_name` `given_name` reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação AD AZure.](../articles/active-directory/develop/active-directory-optional-claims.md)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Procure e selecione **Azure Active Directory**.
 1. A partir da secção **Gerir,** selecione **registos de Aplicações.**

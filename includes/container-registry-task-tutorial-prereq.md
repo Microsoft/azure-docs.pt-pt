@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79e2ca71d6b8178be63c3429edba89cf3bb523e2
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67133561"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029999"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -21,7 +21,7 @@ Este tutorial parte do princípio de que já concluiu os passos no [tutorial ant
 
 Para concluir este tutorial tem de ter um registo de contentor do Azure na sua subscrição do Azure. Se precisar de um registo, veja o [tutorial anterior](../articles/container-registry/container-registry-tutorial-quick-task.md) ou [Início Rápido: Criar um registo de contentor com a CLI do Azure](../articles/container-registry/container-registry-get-started-azure-cli.md).
 
-## <a name="create-a-github-personal-access-token"></a>Criar um token de acesso pessoal do GitHub
+### <a name="create-a-github-personal-access-token"></a>Criar um token de acesso pessoal do GitHub
 
 Para desencadear uma tarefa com um repositório de Git, as Tarefas ACR precisam de um token de acesso pessoal (PAT) para aceder ao repositório. Se ainda não tiver um PAT, siga estes passos para gerar um no GitHub:
 
@@ -35,7 +35,7 @@ Para desencadear uma tarefa com um repositório de Git, as Tarefas ACR precisam 
    > Para gerar um PAT para aceder a um repo *privado,* selecione o âmbito para controlo total **do repo.**
 
 1. Selecione o botão **Gerar token** (poderá ser-lhe pedido para confirmar a palavra-passe)
-1. Copie e guarde o token gerado numa ** localização segura** (irá utilizar este token na definição de uma tarefa de compilação na secção seguinte)
+1. Copie e guarde o token gerado numa **localização segura** (irá utilizar este token na definição de uma tarefa de compilação na secção seguinte)
 
    ![Captura de ecrã do Token de Acesso Pessoal gerado no GitHub][build-task-02-generated-token]
 

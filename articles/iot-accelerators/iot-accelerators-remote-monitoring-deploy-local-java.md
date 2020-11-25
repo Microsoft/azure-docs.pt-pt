@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 78573cfe00d8e2e7ddcbf705dffdd5530f82c4e0
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998601"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024202"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementar o acelerador de solução de monitorização remota localmente - IntelliJ
 
@@ -95,10 +95,10 @@ Se ainda não criou os recursos Azure necessários, siga estes passos:
 
    O script cria um grupo de recursos em Azure que tem o seu nome de solução. Este grupo de recursos contém os recursos Azure que o acelerador de solução utiliza. Pode eliminar este grupo de recursos depois de já não precisar dos recursos correspondentes.
 
-   O script também adiciona um conjunto de variáveis ambientais à sua máquina local. Cada nome variável tem o **PCS**prefixo. Estas variáveis ambientais fornecem detalhes que permitem que a Monitorização Remota leia os seus valores de configuração a partir de um recurso Azure Key Vault.
+   O script também adiciona um conjunto de variáveis ambientais à sua máquina local. Cada nome variável tem o **PCS** prefixo. Estas variáveis ambientais fornecem detalhes que permitem que a Monitorização Remota leia os seus valores de configuração a partir de um recurso Azure Key Vault.
 
    > [!TIP]
-   > Quando o script termina, guarda as variáveis ambientais para um ficheiro chamado ** \<your home folder\> \\ .pcs \\ \<solution name\> .env**. Pode usá-las para futuras implementações de aceleradores de soluções. Note que quaisquer variáveis ambientais definidas na sua máquina local sobrepõem os valores nos ** \\ scripts de serviços \\ ficheiro local \\ .env** quando executar **o docker-compose**.
+   > Quando o script termina, guarda as variáveis ambientais para um ficheiro chamado **\<your home folder\> \\ .pcs \\ \<solution name\> .env**. Pode usá-las para futuras implementações de aceleradores de soluções. Note que quaisquer variáveis ambientais definidas na sua máquina local sobrepõem os valores nos **\\ scripts de serviços \\ ficheiro local \\ .env** quando executar **o docker-compose**.
 
 1. Feche o ambiente da linha de comando.
 
@@ -109,7 +109,7 @@ Se já criou os recursos Azure necessários, desconfie das variáveis ambientais
 * **PCS_AAD_APPID**: O ID da aplicação Azure Ative (Azure AD).
 * **PCS_AAD_APPSECRET**: O segredo da aplicação AD Azure.
 
-Os valores de configuração serão lidos a partir deste recurso Key Vault. Estas variáveis ambientais podem ser guardadas no ficheiro ** \<your home folder\> \\ \\ \<solution name\> .pcs .env** a partir da implementação. Note que as variáveis ambientais definidas na sua máquina local sobrepõem os valores nos ** \\ scripts de serviços \\ locais \\ .env** file quando você executar **docker-compor**.
+Os valores de configuração serão lidos a partir deste recurso Key Vault. Estas variáveis ambientais podem ser guardadas no ficheiro **\<your home folder\> \\ \\ \<solution name\> .pcs .env** a partir da implementação. Note que as variáveis ambientais definidas na sua máquina local sobrepõem os valores nos **\\ scripts de serviços \\ locais \\ .env** file quando você executar **docker-compor**.
 
 Algumas das configurações necessárias pelo microserviço são armazenadas num caso de Key Vault que foi criado na implementação inicial. As variáveis correspondentes no cofre-chave devem ser modificadas conforme necessário.
 
@@ -161,7 +161,7 @@ Os passos seguintes mostram-lhe como executar os microserviços de monitorizaç�
 
 1. Selecione **Run**  >  **Configurações de edição de execução**.
 1. Selecione Adicionar nova tarefa sbt de **configuração**  >  **sbt task**.
-1. Insira **o Nome**e, em seguida, **introduza Tarefas** como **executada**.
+1. Insira **o Nome** e, em seguida, **introduza Tarefas** como **executada**.
 1. Selecione o **Diretório de Trabalho** com base no serviço que pretende executar.
 1. **Selecione Apply**  >  **OK** para guardar as suas escolhas.
 1. Criar configurações de execução para os seguintes serviços web:
@@ -177,7 +177,7 @@ Como exemplo, a imagem a seguir mostra como adicionar uma configuração para um
 #### <a name="create-a-compound-configuration"></a>Criar uma configuração composta
 
 1. Para executar todos os serviços em conjunto, selecione Adicionar novo Composto **de Configuração**  >  **Compound**.
-1. Introduzir **Nome**e, em seguida, **selecionar adicionar tarefas sbt**.
+1. Introduzir **Nome** e, em seguida, **selecionar adicionar tarefas sbt**.
 1. **Selecione Apply**  >  **OK** para guardar as suas escolhas.
 
 Como exemplo, a imagem a seguir mostra como adicionar todas as tarefas sbt a uma única configuração:

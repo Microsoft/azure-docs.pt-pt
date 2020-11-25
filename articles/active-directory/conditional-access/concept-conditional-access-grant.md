@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ef2d233024ab3e9cd086e8285e681dc9f42f3f7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8915ae349e33390ce5bb687d7c07a21665a0258
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95904023"
+ms.locfileid: "96029409"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Concessão
 
@@ -108,7 +108,7 @@ Esta definição aplica-se às seguintes aplicações iOS e Android:
 - As aplicações de clientes aprovadas suportam a funcionalidade de gestão de aplicações móveis Intune.
 - O requisito **da aplicação do cliente aprovado requerido:**
    - Suporta apenas o iOS e Android para o sistema de plataforma do dispositivo.
-   - É necessária uma aplicação de corretor para registar o dispositivo. No iOS, a aplicação de corretor é Microsoft Authenticator e no Android, é a aplicação Intune Company Portal.
+   - É necessária uma aplicação de corretor para registar o dispositivo. A aplicação de corretor pode ser o Microsoft Authenticator para iOS, ou o portal Microsoft Authenticator ou Microsoft Company para dispositivos Android.
 - O Acesso Condicional não pode considerar o Microsoft Edge no modo InPrivate uma aplicação de cliente aprovada.
 
 Consulte o artigo, [Como: Exigir aplicações de clientes aprovadas para acesso a aplicações na nuvem com Acesso Condicional](app-based-conditional-access.md) para exemplos de configuração.

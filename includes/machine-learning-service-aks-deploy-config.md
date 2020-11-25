@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: 95422ace63c9f79583de5a2c86d777ad4d0a8834
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95559041"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027833"
 ---
 As entradas no mapa do `deploymentconfig.json` documento aos parâmetros para [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). A tabela a seguir descreve o mapeamento entre as entidades do documento JSON e os parâmetros para o método:
 

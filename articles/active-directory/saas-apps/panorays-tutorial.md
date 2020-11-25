@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 9dacbfacdbb9a1ecc103b0cec224d861b42b1576
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3e4d3145263b4b0379f85dea86d075480935a28c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370592"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029358"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-panorays"></a>Tutorial: Azure Ative Directory integração única (SSO) com Panorays
 
@@ -75,18 +75,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-1. Na secção **De Configuração Básica SAML,** o utilizador não tem de realizar qualquer passo, uma vez que a aplicação já está pré-integrada com o Azure.
-
-1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
-
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:
-
-    | URL de início de sessão |
-    |--------------|
-    | `https://www.panoraysapp.com` |
-    | `https://auth.panoraysapp.com` |
-
-1. Clique em **Guardar**.
+1. Na secção **de Configuração Básica SAML,** a aplicação está pré-configurada e os URLs necessários já estão pré-povoados com Azure. O utilizador precisa de guardar a configuração clicando no botão Guardar.
 
 1. A sua aplicação Panorays espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos, enquanto **o Identificador Exclusivo do Utilizador** é mapeado com o nome **user.userprincipal**. A aplicação Panorays espera que **o Identificador Exclusivo** do Utilizador seja mapeado com **o user.mail,** pelo que é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
 
@@ -100,10 +89,10 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
@@ -134,9 +123,7 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 #### <a name="sp-initiated"></a>SP iniciado:
 
-1. Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Panorays Assinar no URL onde pode iniciar o fluxo de login.  
-
-1. Vá diretamente ao URL de inscrição de Panorays e inicie o fluxo de login a partir daí.
+Vá diretamente ao [URL de inscrição de Panorays](https://www.panoraysapp.com) e inicie o fluxo de login a partir daí.
 
 #### <a name="idp-initiated"></a>IDP iniciado:
 

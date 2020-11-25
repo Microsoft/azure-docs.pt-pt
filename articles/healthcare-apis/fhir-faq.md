@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 744bcfe196629f76c5505f36ef9c8c224fefe601
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d013af82a862f1bc6b5324e7523aeea5593a4f94
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95909072"
+ms.locfileid: "96030667"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Perguntas frequentes sobre a AZure API para FHIR
 
@@ -122,7 +122,7 @@ Dispomos de um conjunto de arquiteturas de referência disponíveis na [página 
 
 ### <a name="where-can-i-see-an-example-of-connecting-a-web-application-to-azure-api-for-fhir"></a>Onde posso ver um exemplo de ligação de uma aplicação web à Azure API para fHIR?
 
-Temos uma [página gitHub de arquitetura de saúde](https://github.com/microsoft/health-architectures) que contém aplicações e cenários de exemplo. Ilustra como ligar uma aplicação web à Azure API para fHIR.  
+Temos uma [página gitHub de arquitetura de saúde](https://aka.ms/health-architectures) que contém aplicações e cenários de exemplo. Ilustra como ligar uma aplicação web à Azure API para fHIR.  
 
 ## <a name="azure-api-for-fhir-features-and-services"></a>Azure API para funcionalidades e serviços fHIR 
 

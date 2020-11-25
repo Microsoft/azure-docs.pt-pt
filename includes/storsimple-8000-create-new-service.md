@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d47cf21e25c89c20a8baa31a80b867b74ada93df
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 746198f87e23cd7aca2a3177c23974917cb4b12a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360691"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027235"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
@@ -23,13 +23,13 @@ ms.locfileid: "93360691"
 
     ![Criar StorSimple Device Manager 2](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
-3. No painel **Gestor de Dispositivos do StorSimple** , siga os seguintes passos:
+3. No painel **Gestor de Dispositivos do StorSimple**, siga os seguintes passos:
 
    1. Forneça um **Nome do recurso** exclusivo para o serviço. Este é um nome amigável que pode ser utilizado para identificar o serviço. O nome pode ter entre 2 e 50 carateres que podem ser letras, números e hífenes. O nome tem de começar e terminar com uma letra ou um número.
 
    2. Escolha uma **Subscrição** na lista pendente. A subscrição está ligada à sua conta de faturação. Este campo não estará presente se tiver apenas uma subscrição.
 
-   3. Para **Grupo de recursos** , **Utilizar existente** ou **Criar novo**. Para obter mais informações, veja [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) (Grupos de recursos do Azure).
+   3. Para **Grupo de recursos**, **Utilizar existente** ou **Criar novo**. Para obter mais informações, veja [Azure resource groups](../articles/azure-resource-manager/management/manage-resource-groups-portal.md) (Grupos de recursos do Azure).
 
    4. Forneça uma **Localização** para o serviço. Em geral, escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo. Pode também querer ter em conta as seguintes considerações:
 

@@ -8,26 +8,26 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 63cfe7968ec88ed75dfe23e8a3d34ac2649f6776
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17dff6056564b421f0741f55ce8171f3251c94c9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84307836"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027062"
 ---
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves geridas pelo cliente com o Azure Key Vault
 
-Tem de utilizar o Cofre da Chave Azure para armazenar chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. O recurso de Serviços Cognitivos e o cofre-chave devem estar na mesma região e no mesmo inquilino do Azure Ative Directory (Azure AD), mas podem estar em diferentes subscrições. Para mais informações sobre o Azure Key Vault, veja [o que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+Tem de utilizar o Cofre da Chave Azure para armazenar chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. O recurso de Serviços Cognitivos e o cofre-chave devem estar na mesma região e no mesmo inquilino do Azure Ative Directory (Azure AD), mas podem estar em diferentes subscrições. Para mais informações sobre o Azure Key Vault, veja [o que é Azure Key Vault?](../../key-vault/general/overview.md)
 
 Quando um novo recurso de Serviços Cognitivos é criado, é sempre encriptado usando teclas geridas pela Microsoft. Não é possível ativar chaves geridas pelo cliente no momento em que o recurso é criado. As chaves geridas pelo cliente são armazenadas no Cofre da Chave Azure, e o cofre-chave deve ser aprovisionado com políticas de acesso que concedem permissões-chave à identidade gerida que está associada ao recurso Serviços Cognitivos. A identidade gerida só está disponível após a criação do recurso utilizando o Nível de Preços necessário para a CMK.
 
-Ativar as chaves geridas pelo cliente também permitirá um sistema de [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)atribuída , uma característica do Azure AD. Uma vez ativada a identidade gerida do sistema, este recurso será registado no Azure Ative Directory. Após a sua inscrição, a identidade gerida terá acesso ao Cofre-Chave selecionado durante a configuração da chave gerida pelo cliente. 
+Ativar as chaves geridas pelo cliente também permitirá um sistema de [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md)atribuída , uma característica do Azure AD. Uma vez ativada a identidade gerida do sistema, este recurso será registado no Azure Ative Directory. Após a sua inscrição, a identidade gerida terá acesso ao Cofre-Chave selecionado durante a configuração da chave gerida pelo cliente. 
 
 > [!IMPORTANT]
 > Se desativar as identidades geridas do sistema, o acesso ao cofre da chave será removido e quaisquer dados encriptados com as teclas do cliente deixarão de estar acessíveis. Quaisquer funcionalidades dependentes destes dados deixarão de funcionar.
 
 > [!IMPORTANT]
-> As identidades geridas não suportam atualmente cenários de diretórios cruzados. Quando configura as chaves geridas pelo cliente no portal Azure, uma identidade gerida é automaticamente atribuída sob as capas. Se posteriormente mover a subscrição, o grupo de recursos ou o recurso de um diretório AD Azure para outro, a identidade gerida associada ao recurso não é transferida para o novo inquilino, pelo que as chaves geridas pelo cliente podem deixar de funcionar. Para obter mais informações, consulte **a transferência de uma subscrição entre diretórios AD Azure** em [FAQs e questões conhecidas com identidades geridas para recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories).  
+> As identidades geridas não suportam atualmente cenários de diretórios cruzados. Quando configura as chaves geridas pelo cliente no portal Azure, uma identidade gerida é automaticamente atribuída sob as capas. Se posteriormente mover a subscrição, o grupo de recursos ou o recurso de um diretório AD Azure para outro, a identidade gerida associada ao recurso não é transferida para o novo inquilino, pelo que as chaves geridas pelo cliente podem deixar de funcionar. Para obter mais informações, consulte **a transferência de uma subscrição entre diretórios AD Azure** em [FAQs e questões conhecidas com identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 ## <a name="configure-azure-key-vault"></a>Configurar o Azure Key Vault
 
@@ -38,10 +38,10 @@ A utilização de chaves geridas pelo cliente requer que sejam definidas duas pr
 
 Para saber como ativar estas propriedades num cofre de chaves existente, consulte as secções intituladas **Permitir a eliminação suave** e permitir a **proteção contra purgas** num dos seguintes artigos:
 
-- [Como utilizar o soft-delete com PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell).
-- [Como utilizar o soft-delete com CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli).
+- [Como utilizar o soft-delete com PowerShell](../../key-vault/general/soft-delete-powershell.md).
+- [Como utilizar o soft-delete com CLI](../../key-vault/general/soft-delete-cli.md).
 
-Apenas as teclas RSA do tamanho 2048 são suportadas com encriptação de Armazenamento Azure. Para obter mais informações sobre as chaves, consulte **as chaves do Cofre chave** em chaves [Azure Key Vault, segredos e certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
+Apenas as teclas RSA do tamanho 2048 são suportadas com encriptação de Armazenamento Azure. Para obter mais informações sobre as chaves, consulte **as chaves do Cofre chave** em chaves [Azure Key Vault, segredos e certificados](../../key-vault/general/about-keys-secrets-certificates.md).
 
 ## <a name="enable-customer-managed-keys-for-your-resource"></a>Ativar as chaves geridas pelo cliente para o seu recurso
 
@@ -109,7 +109,7 @@ Rodar a tecla não desencadeia a reencriminação de dados no recurso. Não é n
 
 ## <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso às chaves geridas pelo cliente
 
-Para revogar o acesso às chaves geridas pelo cliente, utilize o PowerShell ou o Azure CLI. Para obter mais informações, consulte [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) ou [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). A revogação do acesso bloqueia eficazmente o acesso a todos os dados do recurso Serviços Cognitivos, uma vez que a chave de encriptação é inacessível pelos Serviços Cognitivos.
+Para revogar o acesso às chaves geridas pelo cliente, utilize o PowerShell ou o Azure CLI. Para obter mais informações, consulte [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) ou [Azure Key Vault CLI](/cli/azure/keyvault). A revogação do acesso bloqueia eficazmente o acesso a todos os dados do recurso Serviços Cognitivos, uma vez que a chave de encriptação é inacessível pelos Serviços Cognitivos.
 
 ## <a name="disable-customer-managed-keys"></a>Desativar as chaves geridas pelo cliente
 

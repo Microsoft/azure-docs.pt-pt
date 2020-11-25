@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cgronlun
 ms.openlocfilehash: 5d9345f37e7faf472170f69a36268432c451851d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95563739"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027391"
 ---
 <!-- Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
 -->

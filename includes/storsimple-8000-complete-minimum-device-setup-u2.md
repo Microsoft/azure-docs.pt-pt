@@ -4,27 +4,27 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 05719d9633429c4b8ee6fee79833f594c94ab23d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 867cdc97ff91d5932230b733dee4d7660d499c39
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375949"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026781"
 ---
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Para concluir a configuração mínima do dispositivo StorSimple
 
    > [!NOTE]
    > Não pode alterar o nome do dispositivo depois de a configuração mínima do dispositivo estiver concluída.
    
-1. A partir da lista tabular de dispositivos no painel **Dispositivos** , selecione e clique no seu dispositivo. O dispositivo está num estado **Preparado para configurar**. O painel **Configurar dispositivo** é aberto.
+1. A partir da lista tabular de dispositivos no painel **Dispositivos**, selecione e clique no seu dispositivo. O dispositivo está num estado **Preparado para configurar**. O painel **Configurar dispositivo** é aberto.
 
      ![Interfaces de rede para a configuração mínima do dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
 
-2. No painel **Configurar dispositivo** :
+2. No painel **Configurar dispositivo**:
    
    1. Forneça um **nome amigável** para o dispositivo. O nome predefinido do dispositivo reflete informações como o modelo e número de série do dispositivo. Pode atribuir um nome amigável com um máximo de 64 carateres para gerir o dispositivo.
    2. Defina o **fuso horário** com base na localização geográfica onde o dispositivo está a ser implementado. O dispositivo utiliza este fuso horário para todas as operações agendadas.
-   3. Sob as **definições de DADOS 0** :
+   3. Sob as **definições de DADOS 0**:
 
        1. A interface de rede de DADOS 0 é apresentada quando está ativada com as definições de rede (IP, sub-rede, gateway) configuradas através do assistente de configuração. Os DADOS 0 também são automaticamente ativados para a cloud, bem como a iSCSI.
 
@@ -41,4 +41,4 @@ ms.locfileid: "93375949"
     ![Interfaces de rede de configuração de dispositivos mínimos StorSimple 3](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
 
 <!--Link reference-->
-[Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
+[Test]: /previous-versions/windows/powershell-scripting/dn715782(v=wps.630)

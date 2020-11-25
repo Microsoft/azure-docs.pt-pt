@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20e635d606676a526fac4c3720931525beb66876
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: c58ee46a608ccdcbb01a082ee278d9e0f8a07f6e
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95790414"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030684"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia Azure Synapse Analytics
 
@@ -41,13 +41,11 @@ Um espaço de trabalho pode conter qualquer número de **serviço Linked,** esse
 
 ## <a name="apache-spark-for-synapse"></a>Faísca apache para sinapse
 
-Para utilizar a análise spark, crie e use **piscinas Apache Spark sem servidor** no seu espaço de trabalho Synapse.
+Para utilizar a análise spark, crie e use **piscinas Apache Spark sem servidor** no seu espaço de trabalho Synapse. Quando você começa a usar uma piscina Spark, os espaços de trabalho criam uma **sessão de faísca** para lidar com os recursos assosociados com essa sessão. 
 
-* **O conjunto Apache Spark** - 0-to-N Spark recursos ateados com as respetivas bases de dados podem ser implantados num espaço de trabalho. Uma piscina spark pode ser auto-pausada, retomada e escalada.  
-* **Pedido de faísca** - Consiste num processo de condutor e num conjunto de processos de executor. Uma aplicação Spark funciona numa piscina de faíscas sem servidor.            
-* **Sessão de faíscas**- Ponto de entrada unificado de uma aplicação de faísca. Fornece uma forma de interagir com as várias funcionalidades de Spark e com um menor número de construções. Para executar um caderno, é preciso criar uma sessão. Uma sessão pode ser configurada para executar um número específico de executores de tamanho específico. A configuração predefinida para uma sessão de portátil é executada em 2 executores de tamanho médio.
-* **Notebook** - Interface interativa e reativa de Data Science and Engineering de apoio a Scala, PySpark, C#e SparkSQL.
-* **Definição de trabalho de faísca** - Interface para submeter um trabalho de Faísca com frasco de montagem contendo o código e suas dependências.
+Há duas maneiras dentro da Sinapse de usar faísca:
+* **Os Cadernos Spark** para fazer dados Ciência e Engenharia usam Scala, PySpark, C#e SparkSQL
+* **Spark definições de trabalho** para executar trabalhos de spark de lote usando ficheiros de frascos.
 
 Suporte de versão:
 * Faísca 2.4

@@ -9,11 +9,11 @@ ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f02fa49b62a2e3d617617a20518810209d3879b7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95564342"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028136"
 ---
 Foi utilizada a seguinte configuração para os passos abaixo:
 

@@ -9,11 +9,11 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: d4b93685160250a5abe7c050db89978ae8ceb1a9
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95557704"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027352"
 ---
 > [!div class="op_single_selector"]
 > * [C em Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)

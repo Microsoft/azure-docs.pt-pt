@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 06/24/2020
 ms.author: alkohli
 ms.openlocfilehash: 2868e5a53686cfa94dc206c1aab65fe866d19b6d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95554326"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027420"
 ---
 Aqui estão os limites do tamanho dos dados que são copiados na conta de armazenamento. Certifique-se de que os dados que envia estão em conformidade com estes limites. Para obter as informações mais atualizadas sobre estes limites, consulte os objetivos de [Escalabilidade e desempenho para o armazenamento blob](../articles/storage/blobs/scalability-targets.md) e [os objetivos de escalabilidade e desempenho dos Ficheiros Azure](../articles/storage/files/storage-files-scale-targets.md).
 

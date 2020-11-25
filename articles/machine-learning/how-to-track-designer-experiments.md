@@ -8,15 +8,15 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/30/2020
+ms.date: 11/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c67415be38bc7b6fa48fd1046b51194c294df2f3
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885974"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030395"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Permitir o login nos oleodutos de designers de machine learning do Azure
 
@@ -49,13 +49,13 @@ O exemplo a seguir mostra como registar o erro médio quadrado de dois modelos t
         # Log the mean absolute error to the parent run to see the metric in the run details page.
         # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
         # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-
+        parent_run = Run.get_context().parent
+        
         # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
-        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
-
+        parent_run.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
         # Log right output port result of Evaluate Model.
-        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
-    
+        parent_run.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
+
         return dataframe1,
     ```
     

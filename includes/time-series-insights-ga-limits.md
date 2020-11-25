@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 1aff5780aa5f4cf21d862a5cee3b140179dac03c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e584b6eff16636f0657c586f6c630dbf8bbb99b2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88703951"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026521"
 ---
 O seguinte resume os limites-chave na Azure Time Series Insights Gen1.
 
@@ -44,7 +44,7 @@ Os ambientes S2 SKU suportam substancialmente mais eventos por mês e têm uma c
 
 ### <a name="property-limits"></a>Limites de propriedade
 
-Os limites de propriedade da Gen1 dependem do ambiente SKU que é selecionado. As propriedades fornecidas do evento têm correspondentes colunas JSON, CSV e gráficos que podem ser visualizadas dentro do [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart).
+Os limites de propriedade da Gen1 dependem do ambiente SKU que é selecionado. As propriedades fornecidas do evento têm correspondentes colunas JSON, CSV e gráficos que podem ser visualizadas dentro do [Azure Time Series Insights Explorer](../articles/time-series-insights/time-series-quickstart.md).
 
 | SKU | Propriedades máximas |
 | --- | --- |
@@ -55,9 +55,9 @@ Os limites de propriedade da Gen1 dependem do ambiente SKU que é selecionado. A
 
 É suportado um máximo de duas fontes de evento por instância.
 
-* Saiba como [adicionar uma fonte de centro de eventos.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub)
-* Configure [uma fonte de hub IoT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+* Saiba como [adicionar uma fonte de centro de eventos.](../articles/time-series-insights/how-to-ingest-data-event-hub.md)
+* Configure [uma fonte de hub IoT](../articles/time-series-insights/how-to-ingest-data-iot-hub.md).
 
 ### <a name="api-limits"></a>Limites da API
 
-Os limites de API para Azure Time Series Insights Gen1 são especificados na [documentação de referência](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability)da API REST .
+Os limites de API para Azure Time Series Insights Gen1 são especificados na [documentação de referência](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability)da API REST .

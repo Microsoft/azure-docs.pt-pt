@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 746257195220d26ad5d011a39022a3957e8cb1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40529df5195a29fbf2ff4887311932c2ffbf471d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021787"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029900"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicação .NET multicamadas que utiliza as filas do Service Bus do Azure
 
@@ -63,7 +63,7 @@ Em seguida, adicione o código que submete itens para a fila do Service Bus e mo
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-1. Com os privilégios de administrador, inicie o Visual Studio: clique com o botão direito no ícone do programa **Visual Studio** e, em seguida, clique em **Executar como administrador**. O emulador de computação do Azure, abordado posteriormente neste artigo, necessita que o Visual Studio seja iniciado com privilégios de administrador.
+1. Com os privilégios de administrador, inicie o Visual Studio: clique com o botão direito no ícone do programa **Visual Studio** e, em seguida, clique em **Executar como administrador**. O Azure Compute Emulator, discutido mais tarde neste artigo, exige que o Visual Studio seja iniciado com privilégios de administrador.
    
    No Visual Studio, no menu **File** (Ficheiro), clique em **New** (Novo) e, em seguida, em **Project** (Projeto).
 2. A partir de **Modelos Instalados**, em **Visual C#**, clique em **Nuvem** e, de seguida, em **Serviço em Nuvem do Azure**. Atribua o nome **MultiTierApp** ao projeto. Em seguida, clique em **OK**.

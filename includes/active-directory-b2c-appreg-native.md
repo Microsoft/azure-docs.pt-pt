@@ -5,21 +5,21 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 06/02/2020
 ms.author: mimart
-ms.openlocfilehash: 65fb406fa4f52f19b4d8e9dc4e3895207ffe6336
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ad6b90616077a6d18550e86692b109bda622af7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793711"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027327"
 ---
-Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregtraining)
+Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](../articles/active-directory-b2c/app-registrations-training-guide.md)
 
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
 1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
-1. Selecione **as inscrições da App**e, em seguida, selecione Novo **registo**.
+1. Selecione **as inscrições da App** e, em seguida, selecione Novo **registo**.
 1. Insira um **Nome** para a inscrição. Por exemplo, *a nativeapp1*.
 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional ou qualquer fornecedor de identidade.**
 1. Em **Redirecionar URI,** utilize o drop-down para selecionar **cliente público/nativo (ambiente de trabalho móvel &)**.

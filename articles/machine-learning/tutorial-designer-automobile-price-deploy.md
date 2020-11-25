@@ -2,20 +2,20 @@
 title: 'Tutorial: Implementar modelos ML com o designer'
 titleSuffix: Azure Machine Learning
 description: Construa uma solução de análise preditiva no designer de Aprendizagem automática Azure. Treine, marque e implemente um modelo de aprendizagem automática utilizando módulos de arrasto e queda.
-author: peterclu
-ms.author: peterlu
+author: likebupt
+ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/13/2020
+ms.date: 11/25/2020
 ms.custom: designer
-ms.openlocfilehash: 5a5d166e36b2870ceb081c1c6d2635e01ab43a4d
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 28358db2e538867957fcc8d4984cf1c028f9ab2c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592554"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030374"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementar um modelo de machine learning com o designer
 
@@ -59,7 +59,7 @@ Para implantar o seu oleoduto, tem primeiro de converter o gasoduto de treino nu
     > Por predefinição, a Entrada de **Serviço Web** espera o mesmo esquema de dados que os dados de treino utilizados para criar o pipeline preditivo. Neste cenário, o preço está incluído no esquema. No entanto, o preço não é usado como um fator durante a previsão.
     >
 
-1. **Selecione Enviar** , e use o mesmo alvo de cálculo e experimente que usou na primeira parte.
+1. **Selecione Enviar**, e use o mesmo alvo de cálculo e experimente que usou na primeira parte.
 
     Se esta for a primeira corrida, pode levar até 20 minutos para o seu oleoduto terminar de funcionar. As definições de computação padrão têm um tamanho mínimo de nó de 0, o que significa que o designer deve alocar recursos depois de estar inativo. As repetidas operações de gasoduto levarão menos tempo, uma vez que os recursos de computação já estão atribuídos. Além disso, o designer utiliza resultados em cache para cada módulo para melhorar ainda mais a eficiência.
 
@@ -117,7 +117,7 @@ Após o fim da implementação, pode ver o seu ponto de chegada em tempo real in
 
 Para obter mais informações sobre o consumo do seu serviço web, consulte [Consumir um modelo implementado como um webservice](how-to-consume-web-service.md)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 

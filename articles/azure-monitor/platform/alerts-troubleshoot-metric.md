@@ -4,16 +4,16 @@ description: Problemas comuns com alertas métricos do Azure Monitor e possívei
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/05/2020
+ms.date: 11/25/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 5a57e8b7f3bf2c3e820a3befee0ee69c48a2afa9
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342132"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029881"
 ---
-# <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Problemas de resolução de problemas nos alertas métricos do Monitor Azure 
+# <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Resolver problemas relacionados com os alertas de métricas do Azure Monitor 
 
 Este artigo discute problemas comuns nos [alertas métricos](alerts-metric-overview.md) do Azure Monitor e como resolvê-los.
 
@@ -44,7 +44,7 @@ Se acredita que um alerta métrico deveria ter disparado, mas não disparou e n�
 
 Se acredita que o seu alerta métrico não devia ter disparado, mas disparou, os seguintes passos podem ajudar a resolver o problema.
 
-1. Reveja a [lista de alertas disparados](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) para localizar o alerta disparado e clique para ver os seus detalhes. Reveja as informações fornecidas no âmbito do **Metric Value**porquê deste **Threshold value** **alerta disparar?**
+1. Reveja a [lista de alertas disparados](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) para localizar o alerta disparado e clique para ver os seus detalhes. Reveja as informações fornecidas no âmbito do **Metric Value** porquê deste **Threshold value** **alerta disparar?**
 
     > [!NOTE] 
     > Se estiver a utilizar um tipo de condição Dynamic Thresholds e achar que os limiares utilizados não estavam corretos, por favor forneça feedback utilizando o ícone de franzir a testa. Este feedback terá impacto na pesquisa algorítmica de aprendizagem automática e ajudará a melhorar as deteções futuras.
@@ -241,6 +241,8 @@ Considere as seguintes restrições para nomes de regras de alerta métrico:
 - Os nomes das regras de alerta métrico não podem conter os seguintes caracteres: * # & + : < > ? @ % { } \ / 
 - Os nomes das regras de alerta métrico não podem terminar com um espaço ou um período
 
+> [!NOTE] 
+> Se o nome da regra de alerta contiver caracteres que não são alfabéticos ou numéricos (por exemplo: espaços, marcas de pontuação ou símbolos), estes caracteres podem estar codificados por URL quando recuperados por determinados clientes.
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restrições ao utilizar dimensões numa regra de alerta métrico com múltiplas condições
 

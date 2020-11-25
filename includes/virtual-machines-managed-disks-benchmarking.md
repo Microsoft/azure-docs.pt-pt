@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 09af5d9af749d43f9d15f42daee6b562a877397b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 358e92d8e43473c168e24be9f4af504e6ffcc37a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94633393"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028431"
 ---
 *Aquecimento da Cache*  
 O disco com o cache do anfitrião ReadOnly é capaz de dar IOPS mais alto do que o limite do disco. Para obter este desempenho de leitura máxima da cache do anfitrião, primeiro deve aquecer a cache deste disco. Isto garante que os IOs de Leitura que a ferramenta de benchmarking irá conduzir no volume CacheReads, realmente atinge a cache, e não o disco diretamente. Os hits de cache resultam em IOPS adicionais a partir do disco ativado por cache única.
@@ -60,24 +60,24 @@ Execute os passos abaixo para aquecer cache
 
 1. Criar duas especificações de acesso com valores apresentados abaixo,
 
-   | Name | Tamanho do pedido | % aleatório | Ler % |
+   | Nome | Tamanho do pedido | % aleatório | Ler % |
    | --- | --- | --- | --- |
    | RandomWrites \_ 1MB |1 MB |100 |0 |
    | RandomReads \_ 1MB |1 MB |100 |100 |
 1. Executar o teste de Iometer para inicializar o disco de cache com os seguintes parâmetros. Utilize três fios de trabalho para o volume de destino e uma profundidade de fila de 128. Desa cosar a duração do teste para 2 horas no separador "Configuração de Teste".
 
-   | Cenário | Volume-alvo | Name | Duração |
+   | Cenário | Volume-alvo | Nome | Duração |
    | --- | --- | --- | --- |
    | Inicializar o disco cache |CacheReads |RandomWrites \_ 1MB |2 horas |
 1. Executar o teste de Iometer para aquecer o disco de cache com os seguintes parâmetros. Utilize três fios de trabalho para o volume de destino e uma profundidade de fila de 128. Desa cosar a duração do teste para 2 horas no separador "Configuração de Teste".
 
-   | Cenário | Volume-alvo | Name | Duração |
+   | Cenário | Volume-alvo | Nome | Duração |
    | --- | --- | --- | --- |
    | Aquecer disco cache |CacheReads |RandomReads \_ 1MB |2 horas |
 
 Depois de aquecer o disco de cache, proceda com os cenários de teste listados abaixo. Para executar o teste do iometer, utilize pelo menos três fios de trabalho para **cada** volume de destino. Para cada fio do trabalhador, selecione o volume-alvo, desempate a profundidade da fila e selecione uma das especificações de ensaio guardadas, como indicado na tabela abaixo, para executar o cenário de teste correspondente. A tabela também mostra os resultados esperados para IOPS e Produção ao executar estes testes. Para todos os cenários, é utilizado um pequeno tamanho IO de 8 KB e uma alta profundidade de fila de 128.
 
-| Cenário de teste | Volume-alvo | Name | Resultado |
+| Cenário de teste | Volume-alvo | Nome | Resultado |
 | --- | --- | --- | --- |
 | Um máximo de Ler IOPS |CacheReads |RandomWrites \_ 8K |50.000 OPS |
 | Um máximo de Escrever iops |NoCacheWrites |RandomReads \_ 8K |64.000 OPS |
@@ -123,17 +123,9 @@ direct=1
 iodepth=256
 ioengine=libaio
 bs=8k
+numjobs=4
 
 [writer1]
-rw=randwrite
-directory=/mnt/nocache
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-[writer4]
 rw=randwrite
 directory=/mnt/nocache
 ```
@@ -164,17 +156,9 @@ direct=1
 iodepth=256
 ioengine=libaio
 bs=8k
+numjobs=4
 
 [reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
 rw=randread
 directory=/mnt/readcache
 ```
@@ -205,33 +189,13 @@ direct=1
 iodepth=128
 ioengine=libaio
 bs=4k
+numjobs=4
 
 [reader1]
 rw=randread
 directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
 
 [writer1]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer4]
 rw=randwrite
 directory=/mnt/nocache
 rate_iops=12500

@@ -2,14 +2,14 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: a71762010984928b93c19c7256c2ba4f0fe0f64b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e7b7fae094ad15bc1732778b6a4a3259fb4dd3b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504141"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027057"
 ---
 | Recurso | Ações de ficheiros padrão\* | Ações de ficheiros premium |
 |----------|---------------|------------------------------------------|
@@ -27,6 +27,7 @@ ms.locfileid: "94504141"
 | Comprimento máximo do nome do objeto (diretórios e ficheiros) | 2.048 caracteres | 2.048 caracteres |
 | Componente de nome de pathname máximo (no caminho \A\B\C\D, cada letra é um componente) | 255 caracteres | 255 caracteres |
 | Limite de ligação rígido (apenas NFS) | N/D | 178 |
+| Número máximo de canais multicanais SMB | N/D | 4 |
 
 \* Os limites das ações de ficheiros padrão aplicam-se aos três níveis disponíveis para as ações de ficheiros padrão: transação otimizada, quente e fria.
 

@@ -9,11 +9,11 @@ ms.date: 11/22/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 32edd880e5e455393e60c87f4f963d71a3e59a20
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95563470"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026774"
 ---
 | Recurso | Limite |
 | --- | :--- |

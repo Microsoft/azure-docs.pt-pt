@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 955990ed9209ea1e12eed824241e8a5a456ed73b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4e64d866b5bd2f725db3be31d0fdd2f8663cfd7c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444882"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029698"
 ---
 # <a name="azure-tls-certificate-changes"></a>Alterações no certificado Azure TLS  
 
@@ -30,6 +30,7 @@ Detalhes específicos do serviço:
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) e [DPS](../../iot-dps/index.yml) permanecerão na Baltimore CyberTrust Root CA, mas os seus CAs intermédios mudarão. [Clique aqui para mais detalhes.](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456)
 - [O Azure Storage](../../storage/index.yml) permanecerá na Baltimore CyberTrust Root CA, mas os seus CAs intermédios vão mudar. [Clique aqui para mais detalhes.](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518)
 - [Azure Cache para Redis](../../azure-cache-for-redis/index.yml) permanecerá na Baltimore CyberTrust Root CA, mas os seus CAs intermédios mudarão. [Clique aqui para mais detalhes.](../../azure-cache-for-redis/cache-whats-new.md)
+- O Azure Instance Metadata Service permanecerá na Baltimore CyberTrust Root CA, mas os seus CAs intermédios mudarão. [Clique aqui para mais detalhes.](https://docs.microsoft.com/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html)
 
 > [!IMPORTANT]
 > Os clientes poderão ter de atualizar as suas aplicações após esta alteração para evitar falhas de conectividade ao tentarem ligar-se aos serviços Azure.
@@ -70,11 +71,11 @@ Aqui estão algumas formas de detetar se a sua aplicação é impactada:
 - Se tiver uma aplicação que se integre com APIs Azure ou outros serviços Azure e não tem a certeza se utiliza a fixação de certificados, consulte o fornecedor de aplicações.
 
 - Diferentes sistemas operativos e tempos de execução linguísticos que comunicam com os serviços da Azure podem exigir medidas adicionais para construir corretamente a cadeia de certificados com estas novas raízes:
-    - **Linux** : Muitas distribuições requerem que adicione CAs a /etc/ssl/certs. Para instruções específicas, consulte a documentação da distribuição.
-    - **Java** : Certifique-se de que a loja de chaves Java contém os CAs listados acima.
-    - **Windows running in disconnected environments** : Os sistemas que estão a funcionar em ambientes desligados terão de ter as novas raízes adicionadas à loja Trusted Root Certification Authorities e os intermediários adicionados à loja Das Autoridades de Certificação Intermédia.
-    - **Android** : Verifique a documentação do seu dispositivo e versão do Android.
-    - **Outros dispositivos de hardware, especialmente ioT** : Contacte o fabricante do dispositivo.
+    - **Linux**: Muitas distribuições requerem que adicione CAs a /etc/ssl/certs. Para instruções específicas, consulte a documentação da distribuição.
+    - **Java**: Certifique-se de que a loja de chaves Java contém os CAs listados acima.
+    - **Windows running in disconnected environments**: Os sistemas que estão a funcionar em ambientes desligados terão de ter as novas raízes adicionadas à loja Trusted Root Certification Authorities e os intermediários adicionados à loja Das Autoridades de Certificação Intermédia.
+    - **Android**: Verifique a documentação do seu dispositivo e versão do Android.
+    - **Outros dispositivos de hardware, especialmente ioT**: Contacte o fabricante do dispositivo.
 
 - Se tiver um ambiente onde as regras de firewall são definidas para permitir chamadas de saída apenas para locais específicos de verificação da Lista de Revogação de Certificados (CRL) e/ou protocolo de verificação do certificado online (OCSP). Você precisará permitir os seguintes URLs CRL e OCSP:
 

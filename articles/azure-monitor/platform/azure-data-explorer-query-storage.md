@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8710e0cdd6c930338009fb2b7f3bd98fafcfad3e
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 18ece47187e3f83277d7d925ad958d2ede7cb337
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411568"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030021"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Consulta dados exportados do Azure Monitor usando Azure Data Explorer (pré-visualização)
 A exportação de dados do Azure Monitor para uma conta de armazenamento Azure permite a retenção de baixo custo e a capacidade de realocar registos para diferentes regiões. Utilize o Azure Data Explorer para consultar dados que foram exportados dos seus espaços de trabalho Log Analytics. Uma vez configuradas, as tabelas suportadas que são enviadas dos seus espaços de trabalho para uma conta de armazenamento Azure estarão disponíveis como fonte de dados para o Azure Data Explorer.
@@ -122,7 +122,7 @@ A imagem a seguir mostra e exemplo da saída.
 
 >[!TIP]
 >* Copie, cole e, em seguida, execute a saída do script na sua ferramenta cliente Azure Data Explorer para criar a tabela e o mapeamento.
->* Se quiser utilizar todos os dados dentro do recipiente, pode alterar o script e alterar o URL para https://your.blob.core.windows.net/containername ser ' SecKey'
+>* Para utilizar todos os dados dentro do recipiente, altere o script e altere o URL para https://your.blob.core.windows.net/containername ser ; SecKey'
 
 ## <a name="query-the-exported-data-from-azure-data-explorer"></a>Consulta dos dados exportados do Azure Data Explorer 
 
@@ -134,6 +134,6 @@ external_table("HBTest","map") | take 10000
 
 [![Consulta Log Analytics dados exportados](media/azure-data-explorer-query-storage/external-table-query.png)](media/azure-data-explorer-query-storage/external-table-query.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a [escrever consultas no Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries)

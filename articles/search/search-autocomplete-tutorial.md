@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 5b498b8f49f2f0636b010e3c4d86f13ad44ac090
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426175"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029018"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar autocompleto e sugestões a aplicativos clientes
 
-O search-as-you-type é uma técnica comum para melhorar a produtividade das consultas iniciadas pelo utilizador. Na Pesquisa Cognitiva Azure, esta experiência é suportada através de *autocomplete,* que termina um termo ou frase com base na entrada parcial (completando "micro" com "microsoft"). Outro formulário são *as sugestões* : uma pequena lista de documentos correspondentes (devolvendo títulos de livro com um ID para que possa ligar a uma página de detalhes). Tanto o autocompleto como as sugestões são baseadas numa correspondência no índice. O serviço não oferece consultas que devolvam zero resultados.
+O search-as-you-type é uma técnica comum para melhorar a produtividade das consultas iniciadas pelo utilizador. Na Pesquisa Cognitiva Azure, esta experiência é suportada através de *autocomplete,* que termina um termo ou frase com base na entrada parcial (completando "micro" com "microsoft"). Uma segunda experiência de utilizador são *sugestões,* ou uma pequena lista de documentos correspondentes (devolvendo títulos de livro com um ID para que possa ligar a uma página detalhada sobre esse livro). Tanto o autocompleto como as sugestões são baseadas numa correspondência no índice. O serviço não oferece consultas que devolvam zero resultados.
 
 Para implementar estas experiências na Azure Cognitive Search, você precisará:
 
-+ Um *sugestivo* na parte de trás.
++ Uma *definição sugestiva* que está incorporada no esquema de índice.
 + Uma *consulta que* especifica [API autocompleta](/rest/api/searchservice/autocomplete) ou [sugestões](/rest/api/searchservice/suggestions) sobre o pedido.
 + Um *controlo de UI* para lidar com interações de pesquisa como você-tipo na sua aplicação de cliente. Recomendamos a utilização de uma biblioteca JavaScript existente para este fim.
 

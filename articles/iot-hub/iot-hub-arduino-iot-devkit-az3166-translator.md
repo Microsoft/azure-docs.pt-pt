@@ -10,11 +10,11 @@ ms.date: 12/19/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: be26c6fe03dac9b9ff9dbff4a2bdce391ec0837e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147863"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024168"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Use IoT DevKit AZ3166 com Funções Azure e Serviços Cognitivos para fazer um tradutor de idiomas
 
@@ -22,7 +22,7 @@ Neste artigo, você aprende a fazer IoT DevKit como tradutor de linguagem usando
 
 O [MXChip IoT DevKit](https://aka.ms/iot-devkit) é um tabuleiro compatível com Arduino com periféricos e sensores ricos. Você pode desenvolver para ele usando [a bancada de trabalho do dispositivo Azure IoT](https://aka.ms/iot-workbench) ou o pacote de extensão [Azure IoT Tools](https://aka.ms/azure-iot-tools) em Visual Studio Code. O [catálogo de projetos](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) contém aplicações de amostras para ajudá-lo a protótipo soluções IoT.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar os passos neste tutorial, primeiro faça as seguintes tarefas:
 
@@ -72,7 +72,7 @@ Para completar os passos neste tutorial, primeiro faça as seguintes tarefas:
 1. Certifique-se de que a implementação foi concluída com êxito.
    ![Implementar sucesso](media/iot-hub-arduino-iot-devkit-az3166-translator/deploy-success.png)
 
-1. No portal Azure, vá à secção **De Aplicações de Funções,** encontre a aplicação Azure Function acaba de ser criada. Clique, `devkit_translator` clique ** em</> Obter URL de função** para copiar o URL.
+1. No portal Azure, vá à secção **De Aplicações de Funções,** encontre a aplicação Azure Function acaba de ser criada. Clique, `devkit_translator` clique **em</> Obter URL de função** para copiar o URL.
    ![URL de função de cópia](media/iot-hub-arduino-iot-devkit-az3166-translator/get-function-url.png)
 
 1. Cole o URL em `azure_config.h` ficheiro.
@@ -87,7 +87,7 @@ Para completar os passos neste tutorial, primeiro faça as seguintes tarefas:
    * Mantenha premir o botão **A**.
    * Pressione e liberte o botão **Reset.**
 
-   Verá que o ecrã apresenta o ID e **a Configuração**de DevKit .
+   Verá que o ecrã apresenta o ID e **a Configuração** de DevKit .
 
    ![Modo de configuração DevKit](media/iot-hub-arduino-iot-devkit-az3166-translator/devkit-configuration-mode.png)
 
