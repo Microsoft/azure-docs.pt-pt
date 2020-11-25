@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bdfb1ca21860f1dc338f85a82caf643f9f7be6d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678167"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973206"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticação pass-through do Azure Ative Directory: Quickstart
 
@@ -72,9 +72,9 @@ Certifique-se de que existem os seguintes pré-requisitos.
      | **8080** (opcional) | Os Agentes de Autenticação reportam o seu estado a cada dez minutos sobre a porta 8080, se a porta 443 não estiver disponível. Este estado é apresentado no portal AD Azure. A porta 8080 _não_ é utilizada para os pedidos de s presenciar. |
      
      Se o seu firewall aplicar as regras de acordo com os utilizadores originários, abra estas portas para tráfego a partir de serviços Windows que funcionam como um serviço de rede.
-   - Se a sua firewall ou proxy permitir a whitelisting do DNS, adicione ligações a **\* .msappproxy.net** e **\* .servicebus.windows.net** . Caso contrário, permita o acesso aos intervalos IP do [datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.
+   - Se a sua firewall ou proxy permitir a whitelisting do DNS, adicione ligações a **\* .msappproxy.net** e **\* .servicebus.windows.net**. Caso contrário, permita o acesso aos intervalos IP do [datacenter Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.
    - Os seus Agentes de Autenticação precisam de acesso a **login.windows.net** e **login.microsoftonline.com** para inscrição inicial. Abra a firewall para os URLs também.
-    - Para validação de certificados, desbloqueie os seguintes URLs: **crl3.digicert.com:80,** **crl4.digicert.com:80,** **ocsp.digicert.com:80,** **www \. d-trust.net:80** , **root-c3-ca2-2009.ocsp.d-trust.net:80,** **crl.microsoft.com:80,** **oneocsp.microsoft.com:80** e **ocsp.msocsp.com:80** . Uma vez que estes URLs são utilizados para validação de certificados com outros produtos da Microsoft, pode já ter estes URLs desbloqueados.
+    - Para validação de certificados, desbloqueie os seguintes URLs: **crl3.digicert.com:80,** **crl4.digicert.com:80,** **ocsp.digicert.com:80,** **www \. d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80,** **crl.microsoft.com:80,** **oneocsp.microsoft.com:80** e **ocsp.msocsp.com:80**. Uma vez que estes URLs são utilizados para validação de certificados com outros produtos da Microsoft, pode já ter estes URLs desbloqueados.
 
 ### <a name="azure-government-cloud-prerequisite"></a>Azure Government nuvem pré-requisito
 Antes de ativar a autenticação pass-through através do Azure AD Connect com o Passo 2, descarregue a mais recente versão do agente PTA a partir do portal Azure.  Tem de se certificar de que o seu agente é versões **1.5.1742.0.** ou posterior.  Para verificar o seu agente consulte [agentes de autenticação de upgrade](how-to-connect-pta-upgrade-preview-authentication-agents.md)
@@ -92,7 +92,7 @@ Se estiver a instalar o Azure AD Connect pela primeira vez, escolha o [caminho d
 
 ![Azure AD Connect: Iniciar sação do utilizador](./media/how-to-connect-pta-quick-start/sso3.png)
 
-Se já instalou o Azure AD Connect utilizando a [instalação expressa](how-to-connect-install-express.md) ou o caminho [de instalação personalizado,](how-to-connect-install-custom.md) selecione a tarefa **de inscrição** do utilizador Change no Azure AD Connect e, em seguida, selecione **Seguinte** . Em seguida, selecione **a autenticação pass-through** como o método de inscrição. Após a conclusão com sucesso, um Agente de Autenticação Pass-through é instalado no mesmo servidor que o Azure AD Connect e a funcionalidade está ativada no seu inquilino.
+Se já instalou o Azure AD Connect utilizando a [instalação expressa](how-to-connect-install-express.md) ou o caminho [de instalação personalizado,](how-to-connect-install-custom.md) selecione a tarefa **de inscrição** do utilizador Change no Azure AD Connect e, em seguida, selecione **Seguinte**. Em seguida, selecione **a autenticação pass-through** como o método de inscrição. Após a conclusão com sucesso, um Agente de Autenticação Pass-through é instalado no mesmo servidor que o Azure AD Connect e a funcionalidade está ativada no seu inquilino.
 
 ![Azure AD Connect: Alterar o súmido do utilizador](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
@@ -105,9 +105,9 @@ Siga estas instruções para verificar se ativou corretamente a autenticação p
 
 1. Inscreva-se no [Azure Ative Directory admin center](https://aad.portal.azure.com) com as credenciais de administrador global para o seu inquilino.
 2. Selecione **Azure Ative Directory** no painel esquerdo.
-3. Selecione **Azure Ad Connect** .
-4. Verifique se a **função de autenticação Pass-through** aparece como **Ativada** .
-5. Selecione **a autenticação pass-through** . O **painel de autenticação Pass-through** lista os servidores onde estão instalados os seus Agentes de Autenticação.
+3. Selecione **Azure Ad Connect**.
+4. Verifique se a **função de autenticação Pass-through** aparece como **Ativada**.
+5. Selecione **a autenticação pass-through**. O **painel de autenticação Pass-through** lista os servidores onde estão instalados os seus Agentes de Autenticação.
 
 ![Centro de administração Azure Ative Directory: Painel de ligação Azure AD](./media/how-to-connect-pta-quick-start/pta7.png)
 
@@ -134,7 +134,7 @@ Para começar, siga estas instruções para descarregar o software Do Agente de 
 
 1. Para fazer o download da versão mais recente do Agente de Autenticação (versão 1.5.193.0 ou posterior), inscreva-se no [centro de administração Azure Ative Com](https://aad.portal.azure.com) as credenciais de administrador global do seu inquilino.
 2. Selecione **Azure Ative Directory** no painel esquerdo.
-3. Selecione **Azure AD Connect** , selecione **a autenticação pass-through** e, em seguida, selecione **Download Agent** .
+3. Selecione **Azure AD Connect**, selecione **a autenticação pass-through** e, em seguida, selecione **Download Agent**.
 4. Selecione os termos aceitar & botão **de descarregamento.**
 
 ![Centro de administração Azure Ative: Baixar botão de agente de autenticação](./media/how-to-connect-pta-quick-start/pta9.png)

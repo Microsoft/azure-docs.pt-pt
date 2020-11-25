@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d0507f7751305af5e626cbd7dd6e0dfd1a63a74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279487"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973053"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticação passativa do Azure Ative Directory: Atualizar agentes de autenticação de pré-visualização
 
@@ -60,7 +60,7 @@ Para verificar as versões dos seus Agentes de Autenticação, em cada servidor 
 
 Antes de atualizar, certifique-se de que tem os seguintes itens no lugar:
 
-1. **Criar uma conta global de administrador apenas**na nuvem : Não atualize sem ter uma conta de Administrador Global apenas na nuvem para usar em situações de emergência em que os seus Agentes de Autenticação Pass-through não estejam a funcionar corretamente. Saiba mais [sobre a adição de uma conta de Administrador Global apenas na nuvem.](../fundamentals/add-users-azure-active-directory.md) Fazer este passo é fundamental e garante que não fique trancado fora do seu inquilino.
+1. **Criar uma conta global de administrador apenas** na nuvem : Não atualize sem ter uma conta de Administrador Global apenas na nuvem para usar em situações de emergência em que os seus Agentes de Autenticação Pass-through não estejam a funcionar corretamente. Saiba mais [sobre a adição de uma conta de Administrador Global apenas na nuvem.](../fundamentals/add-users-azure-active-directory.md) Fazer este passo é fundamental e garante que não fique trancado fora do seu inquilino.
 2.  **Garantir uma elevada disponibilidade**: Se não estiver concluído anteriormente, instale um segundo Agente de Autenticação Autónomo para fornecer alta disponibilidade para pedidos de inscrição, utilizando estas [instruções](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Atualizar o Agente de Autenticação no seu servidor AD AD Ad
@@ -71,7 +71,7 @@ Precisa de atualizar o Azure AD Connect antes de atualizar o Agente de Autentica
 2. **Desinstalar a versão de pré-visualização do Agente de Autenticação**: Descarregue [este script PowerShell](https://aka.ms/rmpreviewagent) e execute-o como Administrador no servidor.
 3. **Descarregue a versão mais recente do Agente de Autenticação (versões 1.5.389.0 ou posterior)**: Inscreva-se no [centro de administração Azure Ative Com](https://aad.portal.azure.com) as credenciais de Administrador Global do seu inquilino. Selecione **Azure Ative Directory -> Azure AD Connect -> Agente de autenticação pass-through ->**. Aceite os [termos de serviço](https://aka.ms/authagenteula) e descarregue a versão mais recente do Agente de Autenticação. Também pode baixar o Agente de Autenticação a partir [daqui.](https://aka.ms/getauthagent)
 4. **Instale a versão mais recente do Agente de Autenticação**: Execute o executável descarregado no Passo 3. Forneça as credenciais de Administrador Global do seu inquilino quando solicitado.
-5. **Verifique se a versão mais recente foi instalada**: Como mostrado anteriormente, vá ao Control Panel **-> Programas -> Programas e Funcionalidades e** verifique se existe uma entrada para " Microsoft**Azure AD Connect Authentication Agent**".
+5. **Verifique se a versão mais recente foi instalada**: Como mostrado anteriormente, vá ao Control Panel **-> Programas -> Programas e Funcionalidades e** verifique se existe uma entrada para " Microsoft **Azure AD Connect Authentication Agent**".
 
 >[!NOTE]
 >Se verificar a lâmina de autenticação pass-through no centro de administração do [Diretório Ativo Azure](https://aad.portal.azure.com) após completar os passos anteriores, verá duas entradas do Agente de Autenticação por servidor - uma entrada que mostra o Agente de Autenticação como **Ativo** e a outra como **Inativa**. Isto é _esperado._ A entrada **Inativa** é automaticamente deixada após alguns dias.

@@ -13,11 +13,11 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
 ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365855"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974158"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto final da plataforma de identidades da Microsoft
 
@@ -179,7 +179,7 @@ Quando assinar o utilizador na sua aplicação, pode identificar a organização
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>Solicite as permissões a um administrador de diretório
 
-Quando estiver pronto para solicitar permissões do administrador da sua organização, pode redirecionar o utilizador para o *ponto final de consentimento da*plataforma de identidade da Microsoft.
+Quando estiver pronto para solicitar permissões do administrador da sua organização, pode redirecionar o utilizador para o *ponto final de consentimento da* plataforma de identidade da Microsoft.
 
 ```HTTP
 // Line breaks are for legibility only.

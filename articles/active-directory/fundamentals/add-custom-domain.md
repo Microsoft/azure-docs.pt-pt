@@ -14,17 +14,17 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370870"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973903"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicione o seu nome de domínio personalizado usando o portal Azure Ative Directory
 
-Cada novo inquilino da AD AZure vem com um nome de domínio inicial, * \<domainname> .onmicrosoft.com*. Não é possível alterar ou apagar o nome de domínio inicial, mas pode adicionar os nomes da sua organização. A adição de nomes de domínio personalizados ajuda-o a criar nomes de utilizadores familiares aos seus utilizadores, como *alain \@ contoso.com*.
+Cada novo inquilino da AD AZure vem com um nome de domínio inicial, *\<domainname> .onmicrosoft.com*. Não é possível alterar ou apagar o nome de domínio inicial, mas pode adicionar os nomes da sua organização. A adição de nomes de domínio personalizados ajuda-o a criar nomes de utilizadores familiares aos seus utilizadores, como *alain \@ contoso.com*.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Antes de poder adicionar um nome de domínio personalizado, crie o seu nome de domínio com um registo de domínio. Para um registrador de domínio acreditado, consulte [os registos acreditados da ICANN.](https://www.icann.org/registrar-reports/accredited-list.html)
 
@@ -59,7 +59,7 @@ Depois de criar o seu diretório, pode adicionar o seu nome de domínio personal
     ![Página de nomes de domínio personalizado, com adicionar página de domínio personalizado](media/add-custom-domain/add-custom-domain-blade.png)
 
     >[!IMPORTANT]
-    >Deve incluir *.com*, *.net*ou qualquer outra extensão de nível superior para que funcione corretamente.
+    >Deve incluir *.com*, *.net* ou qualquer outra extensão de nível superior para que funcione corretamente.
 
     O domínio não verificado é adicionado. A página **contoso.com** aparece mostrando as informações do DNS. Guarde esta informação. Precisa mais tarde para criar um registo TXT para configurar o DNS.
 

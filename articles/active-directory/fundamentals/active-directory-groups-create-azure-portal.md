@@ -14,11 +14,11 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e4533334204a3a1cfd46ff27b04ff0c05350dfc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371856"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973920"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Crie um grupo básico e adicione membros usando o Azure Ative Directory
 Pode criar um grupo básico através do portal do Microsoft Azure Active Directory (Microsoft Azure AD). Para os fins deste artigo, um grupo básico é adicionado a um único recurso pelo proprietário do recurso (administrador) e inclui membros específicos (funcionários) que precisam de aceder a esse recurso. Para cenários mais complexos, incluindo associações dinâmicas e criação de regras, veja [Documentação da gestão de utilizadores do Azure Active Directory](../enterprise-users/index.yml).
@@ -53,7 +53,7 @@ Pode criar um grupo básico e adicionar os membros ao mesmo tempo. Para criar um
 
     ![Nova página de grupo, preenchida com informações de exemplo](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
-1. Selecione um tipo de **grupo**pré-definido . Para obter mais informações sobre os tipos de grupo, consulte [os tipos de grupo e de membros](#group-types).
+1. Selecione um tipo de **grupo** pré-definido . Para obter mais informações sobre os tipos de grupo, consulte [os tipos de grupo e de membros](#group-types).
 
 1. Crie e adicione um **nome de grupo.** Escolha um nome de que se lembre e isso faz sentido para o grupo. Será realizada uma verificação para determinar se o nome já está a ser utilizado por outro grupo. Se o nome já estiver em uso, para evitar o nome duplicado, será solicitado que altere o nome do seu grupo.
 

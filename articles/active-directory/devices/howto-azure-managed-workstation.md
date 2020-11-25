@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a56cd23494f65b1c74e44868496855c6e4a32bf7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365821"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95974090"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Implementar uma estação de trabalho segura e gerida pelo Azure
 
@@ -31,18 +31,18 @@ Selecione um perfil antes de implementar a solução. Pode utilizar vários perf
 
 | Perfil | Baixo | Melhorada | Alto | Especializada | Protegido | Isolado |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Utilizador em Azure AD | Yes | Yes | Yes | Yes | Yes | Yes |
-| Gerido por intune | Yes | Yes | Yes | Yes | Yes | Yes |
-| Dispositivo - Azure AD registrado | Yes |  |  |  |  | |   |
-| Dispositivo - Azure AD juntou-se |   | Yes | Yes | Yes | Yes | Yes |
-| Linha de base de segurança intune aplicada |   | Yes <br> (Melhorado) | Yes <br> (Alta Segurança) | Yes <br> (NCSC) | Yes <br> (Seguro) | ND |
-| Hardware cumpre padrões seguros do Windows 10 |   | Yes | Yes | Yes | Yes | Yes |
-| Microsoft Defender ATP ativado |   | Yes  | Yes | Yes | Yes | Yes |
-| Remoção dos direitos de administração |   |   | Yes  | Yes | Yes | Yes |
-| Implementação utilizando o Microsoft Autopilot |   |   | Yes  | Yes | Yes | Yes |
-| Aplicativos instalados apenas pela Intune |   |   |   | Yes | Yes |Yes |
-| URLs restritos à lista aprovada |   |   |   | Yes | Yes |Yes |
-| Internet bloqueada (entrada/saída) |   |   |   |  |  |Yes |
+| Utilizador em Azure AD | Sim | Sim | Sim | Sim | Sim | Sim |
+| Gerido por intune | Sim | Sim | Sim | Sim | Sim | Sim |
+| Dispositivo - Azure AD registrado | Sim |  |  |  |  | |   |
+| Dispositivo - Azure AD juntou-se |   | Sim | Sim | Sim | Sim | Sim |
+| Linha de base de segurança intune aplicada |   | Sim <br> (Melhorado) | Sim <br> (Alta Segurança) | Sim <br> (NCSC) | Sim <br> (Seguro) | ND |
+| Hardware cumpre padrões seguros do Windows 10 |   | Sim | Sim | Sim | Sim | Sim |
+| Microsoft Defender ATP ativado |   | Sim  | Sim | Sim | Sim | Sim |
+| Remoção dos direitos de administração |   |   | Sim  | Sim | Sim | Sim |
+| Implementação utilizando o Microsoft Autopilot |   |   | Sim  | Sim | Sim | Sim |
+| Aplicativos instalados apenas pela Intune |   |   |   | Sim | Sim |Sim |
+| URLs restritos à lista aprovada |   |   |   | Sim | Sim |Sim |
+| Internet bloqueada (entrada/saída) |   |   |   |  |  |Sim |
 
 > [!NOTE]
 > Nos dispositivos de orientação de estação de trabalho seguros serão **atribuídos** perfis e políticas. Os utilizadores não terão as políticas aplicadas diretamente, permitindo que a partilha de dispositivos (dispositivos partilhados) esteja em vigor. Se uma estação de trabalho segura não for partilhada na sua implementação, ou forem necessárias políticas individuais de utilizador, a atribuição dos perfis de política do utilizador pode ser atribuída ao utilizador e ao dispositivo. 
@@ -102,7 +102,7 @@ A partir do portal Azure, navegue até a **Azure Ative Directory**  >  **Groups*
 Configure a definição dos seus dispositivos no Ative Directory para permitir que o seu grupo de segurança administrativa se junte a dispositivos ao seu domínio. Para configurar esta definição a partir do portal Azure:
 
 1. Aceda a **Azure Active Directory** > **Dispositivos** > **Definições do dispositivo**.
-1. Escolha **Selecionados** em **Utilizadores podem juntar dispositivos ao Azure AD**e, em seguida, selecionar o grupo "Utilizadores de estação de trabalho seguros".
+1. Escolha **Selecionados** em **Utilizadores podem juntar dispositivos ao Azure AD** e, em seguida, selecionar o grupo "Utilizadores de estação de trabalho seguros".
 
 #### <a name="removal-of-local-admin-rights"></a>Remoção dos direitos de administração locais
 
@@ -121,7 +121,7 @@ Para reforçar ainda mais o processo de junção de dispositivos à Azure AD:
 
 #### <a name="configure-mobile-device-management"></a>Configure a gestão de dispositivos móveis
 
-Do portal Azure:
+No portal do Azure:
 
 1. Navegue pela **Azure Ative Directory**  >  **Mobility (MDM e MAM)**  >  **Microsoft Intune**.
 1. Altere a definição de **âmbito do utilizador MDM** para **All**.
@@ -153,7 +153,7 @@ Depois de criar um grupo de dispositivos, deve criar um perfil de implementaçã
 
 Intune no portal Azure:
 
-1. Selecione **perfis**de  >  **implementação de inscrição**  >  **de dispositivos**  >  **Windows Criar Perfil**.
+1. Selecione **perfis** de  >  **implementação de inscrição**  >  **de dispositivos**  >  **Windows Criar Perfil**.
 1. Introduza:
 
    * Nome - **Perfil de implantação de estação de trabalho seguro**.
@@ -164,7 +164,7 @@ Intune no portal Azure:
 
    * Para **o modo de implantação,** escolha a **implantação de auto-implantação (pré-visualização)**. Os dispositivos com este perfil estão associados ao utilizador que inscreve o dispositivo. Precisa de credenciais de utilizador para inscrever o dispositivo. É essencial notar que a implementação de um dispositivo no modo **de auto-implantação permitirá** implantar portáteis num modelo partilhado. Nenhuma atribuição do utilizador acontecerá até que o dispositivo seja atribuído a um utilizador pela primeira vez. Como resultado, quaisquer políticas de utilizador como o BitLocker não serão ativadas até que uma atribuição do utilizador esteja concluída. Para obter mais informações sobre como iniciar sessão num dispositivo seguro, consulte [perfis selecionados](/intune/device-profile-assign).
    * O **AD De Azure como** caixa deve mostrar **Azure AD unidos** e ser acinzentado.
-   * Selecione o seu idioma (Região), **padrão**de tipo de conta de utilizador . 
+   * Selecione o seu idioma (Região), **padrão** de tipo de conta de utilizador . 
 
 1. Selecione **Seguinte**.
 
@@ -211,7 +211,7 @@ O Windows Defender ATP e o Microsoft Intune trabalham em conjunto para ajudar a 
 
 Para configurar a integração do Windows Defender ATP e Intune, vá ao portal Azure.
 
-1. Navegue para o **Microsoft Intune**  >  **Device Compliance**Windows Defender  >  **ATP**.
+1. Navegue para o **Microsoft Intune**  >  **Device Compliance** Windows Defender  >  **ATP**.
 1. No passo 1 sob **configuração do Windows Defender ATP**, selecione Connect Windows Defender ATP para o Microsoft **Intune no Windows Defender Security Center**.
 1. No Centro de Segurança do Windows Defender:
 
@@ -227,7 +227,7 @@ Para obter mais informações, consulte [a Proteção avançada de ameaças do W
 
 ### <a name="finish-workstation-profile-hardening"></a>Termine o endurecimento do perfil da estação de trabalho
 
-Para completar com sucesso o endurecimento da solução, descarregue e execute o script apropriado. Encontre os links de descarregamento para o **nível**de perfil pretendido:
+Para completar com sucesso o endurecimento da solução, descarregue e execute o script apropriado. Encontre os links de descarregamento para o **nível** de perfil pretendido:
 
 | Perfil | Localização de descarregamento | Nome de arquivo |
 | --- | --- | --- |
@@ -294,7 +294,7 @@ Em algumas situações, aplicações como o navegador Google Chrome são necess�
 1. Selecione **Adicionar**.
 1. No **separador Atribuições,** selecione **Disponível para dispositivos matriculados** no **tipo de atribuição**.
 1. Em **Grupos Incluídos**, adicione o grupo **Secure Workstations.**
-1. Selecione **OK**e, em seguida, selecione **Guardar**.
+1. Selecione **OK** e, em seguida, selecione **Guardar**.
 
 Para obter mais informações sobre configurar as definições do Chrome, consulte [Gerir o Navegador Chrome com o Microsoft Intune](https://support.google.com/chrome/a/answer/9102677).
 
@@ -313,7 +313,7 @@ O Azure AD oferece a capacidade de gerir e restringir, quem e o que pode aceder 
 > [!NOTE]
 > Terá de criar um grupo de utilizadores e incluir o utilizador de emergência que pode contornar a política de Acesso Condicional. Por exemplo, temos um grupo de segurança chamado **Emergency BreakGlass**
 
-1. Navegue pelo **portal Azure**  >  **Microsoft Intune**  >  **Conditional Access - Políticas**Novas Políticas  >  **.**
+1. Navegue pelo **portal Azure**  >  **Microsoft Intune**  >  **Conditional Access - Políticas** Novas Políticas  >  **.**
 1. Fornecer um **nome** para a apólice.
 1. Selecione **Utilizador e Grupos**  >  **Selecione utilizadores e grupos** 
 1. **Selecione incluir**  >  **funções de diretório** > Escolha as funções > Administrador Global, Administrador de Função Privilegiada, Administrador de Autenticação Privilegiada, Administrador de Segurança, Administrador de Conformidade, Administrador de Acesso Condicional, Administrador de Aplicação, Administrador de Aplicação em Nuvem, Administrador de Serviço Intune
@@ -337,8 +337,8 @@ O [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcenter/
 
 1. Descarregue o script para um dispositivo local.
 1. Atualize o clienteXXXX e a localização de descarregamento da imagem de fundo. No nosso exemplo, substituímos o clienteXXXX em fundos.
-1. Navegue para o **portal Azure**  >  **Microsoft Intune**Device  >  **configuração**  >  **PowerShell Scripts**  >  **Add**.
-1. Forneça um **Nome** para o script e especifique a **localização**do Script .
+1. Navegue para o **portal Azure**  >  **Microsoft Intune** Device  >  **configuração**  >  **PowerShell Scripts**  >  **Add**.
+1. Forneça um **Nome** para o script e especifique a **localização** do Script .
 1. Selecione **Configurar**.
    1. **Descreva este script utilizando as credenciais registadas** para **Sim**.
    1. Selecione **OK**.
@@ -363,7 +363,7 @@ O [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcenter/
 1. No **portal Azure**, aceda aos dispositivos de inscrição do Windows do **Dispositivo Microsoft Intune**  >  **Device enrollment**  >  **Windows enrollment**  >  **- Gerir dispositivos Windows Autopilot**.
 1. **Selecione Import** e escolha o seu ficheiro CSV.
 1. Adicione o dispositivo ao grupo de segurança **Secure Workstations.**
-1. No dispositivo Windows 10 que pretende configurar, aceda à Atualização de **Definições**do Windows  >  **&**  >  **Recuperação de**Segurança .
+1. No dispositivo Windows 10 que pretende configurar, aceda à Atualização de **Definições** do Windows  >  **&**  >  **Recuperação de** Segurança .
    1. Escolha **Começar a trabalhar** no Reset this **PC**.
    1. Siga as indicações para reiniciar e reconfigurar o dispositivo com as políticas de perfil e conformidade configuradas.
 
@@ -424,8 +424,8 @@ Implementar o agente MMA com script Intune PowerShell
 
 1. Descarregue o script de configuração [para um dispositivo local](https://aka.ms/securedworkstationgit).
 1. Atualizar os parâmetros, **$WorkSpaceID** e **$WorkSpaceKey**
-1. Navegue para o **portal Azure**  >  **Microsoft Intune**Device  >  **configuração**  >  **PowerShell Scripts**  >  **Add**.
-1. Forneça um **Nome** para o script e especifique a **localização**do Script .
+1. Navegue para o **portal Azure**  >  **Microsoft Intune** Device  >  **configuração**  >  **PowerShell Scripts**  >  **Add**.
+1. Forneça um **Nome** para o script e especifique a **localização** do Script .
 1. Selecione **Configurar**.
    1. **Descreva este script utilizando as credenciais registadas** para **Sim**.
    1. Selecione **OK**.
@@ -436,7 +436,7 @@ Implementar o agente MMA com script Intune PowerShell
 
 Em seguida, tem de configurar o Log Analytics para receber os novos registos
 1. No **portal Azure**, vá ao **Log Analytics Workspace** > Select - 'Secure Workstation Monitoring'
-1. Selecione **registos de eventos**de data windows de definições  >  **Data**  >  **avançadas**
+1. Selecione **registos de eventos** de data windows de definições  >  **Data**  >  **avançadas**
 1. Em **Recolher eventos a partir dos seguintes registos** de eventos 
 1. Introduza:
    * 'Microsoft-Windows-AppLocker/EXE e DLL' > Unselect **Informational**
@@ -450,8 +450,8 @@ O registo de aplicações estará disponível no espaço de trabalho selecionado
 ## <a name="monitoring"></a>Monitorização
 
 * Saiba como [detetar ameaças com Azure Sentinel](../../sentinel/tutorial-detect-threats-built-in.md)
-* [Investigue incidentes com Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
-* [Configurar respostas automáticas de ameaças em Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
+* [Investigar incidentes com o Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+* [Configurar respostas automatizadas a ameaças no Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 * Entenda como rever a sua [Pontuação de Exposição](/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
 * Recomendação [de segurança de revisão](/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
 * Gerir [remediações de](/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation) segurança

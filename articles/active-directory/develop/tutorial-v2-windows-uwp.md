@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: cbfb5c598a2a56b0b14a3a90cf29ce23366b9b6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 774c17af88e45e25cf1e8edc0df60ab55fe53e0e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627674"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95974340"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (UWP)
 
-Este guia explica como uma aplicação nativa da Universal Windows Platform (UWP) pode solicitar um token de acesso. A aplicação chama então a API do Gráfico microsoft. O guia aplica-se também a outras APIs que requerem acesso a tokens a partir do ponto final da plataforma de identidade da Microsoft.
+Neste tutorial, você constrói uma aplicação nativa da Universal Windows Platform (UWP) que assina nos utilizadores e obtém um token de acesso para ligar para a Microsoft Graph API. 
 
 No final deste guia, a sua aplicação chama uma API protegida utilizando contas pessoais. Exemplos são outlook.com, live.com, e outros. A sua aplicação também chama contas de trabalho e escola de qualquer empresa ou organização que tenha diretório Azure Ative (Azure AD).
 
@@ -73,7 +73,7 @@ Este guia cria uma aplicação que exibe um botão que consulta a API do Microso
 
 ### <a name="add-microsoft-authentication-library-to-your-project"></a>Adicione a Biblioteca de Autenticação do Microsoft ao seu projeto
 
-1. No Estúdio Visual, selecione **Tools**  >  **NuGet Package Manager**Package Manager  >  **Consola**.
+1. No Estúdio Visual, selecione **Tools**  >  **NuGet Package Manager** Package Manager  >  **Consola**.
 1. Copiar e colar os seguintes comandos na janela **da consola Package Manager:**
 
     ```powershell
@@ -361,7 +361,7 @@ Configure a autenticação para a sua aplicação:
 Configure permissões API para a sua aplicação:
 
 1. Em **Gestão**, selecione **permissões API**.
-1. **Selecione Adicionar uma permissão**e, em seguida, certifique-se de que selecionou **APIs da Microsoft**.
+1. **Selecione Adicionar uma permissão** e, em seguida, certifique-se de que selecionou **APIs da Microsoft**.
 1. Selecione **Microsoft Graph**.
 1. Selecione **permissões delegadas**, procure por *User.Read*, e verifique se **o Utilizador.Read** está selecionado.
 1. Se escolho alguma alteração, **selecione Adicionar permissões** para as guardar.
@@ -371,7 +371,7 @@ Configure permissões API para a sua aplicação:
 Para ativar a autenticação integrada do Windows quando é utilizado com um domínio AD Azure federado, o manifesto de aplicação deve permitir capacidades adicionais. Volte para a sua aplicação no Estúdio Visual.
 
 1. *Open Package.appxmanifest*.
-1. Selecione **Capacidades**e ative as seguintes definições:
+1. Selecione **Capacidades** e ative as seguintes definições:
 
    * **Autenticação da Empresa**
    * **Redes Privadas (Servidor & cliente)**

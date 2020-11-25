@@ -13,11 +13,11 @@ ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89320958"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973716"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloquear a autenticação do legado
  
@@ -33,7 +33,7 @@ Hoje, a maioria de todas as tentativas de inscrição comprometedoras provêm da
 Antes de bloquear a autenticação do legado no seu diretório, tem de primeiro compreender se os seus utilizadores têm aplicações que utilizam a autenticação antiga e como isso afeta o seu diretório geral. Os registos de login AD do Azure podem ser utilizados para entender se está a utilizar a autenticação antiga.
 
 1. Navegue para o **portal**  >  **Azure Ative Directory**  >  **Ins**.
-1. Adicione a coluna **'App' cliente** se não for mostrada clicando na App do Cliente **das Colunas.**   >  **Client App**
+1. Adicione a coluna **'App' cliente** se não for mostrada clicando na App do Cliente  **das Colunas.**   >  **Client App**
 1. Filter by **Client App** > verificar todas as opções de Clientes de Autenticação Legacy **apresentadas.**
 1. Filtrar por **Status**  >  **Success**. 
 1. Aumente o seu intervalo de datas, se necessário, utilizando o filtro **Data.**

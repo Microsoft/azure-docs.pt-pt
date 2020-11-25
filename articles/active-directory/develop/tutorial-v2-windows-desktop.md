@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b82193fda64f2cf265c879c5cda9141be1b576f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0408d43fe897882fe09f6dd61a22d46349f2978e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627895"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95974396"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Ligue para a API do Gráfico microsoft a partir de uma aplicação para desktop do Windows
 
-Este guia demonstra como uma aplicação nativa do Windows Desktop .NET (XAML) utiliza um token de acesso para ligar para a API do Microsoft Graph. A aplicação também pode aceder a outras APIs que requerem acesso a tokens a partir da plataforma de identidade da Microsoft.
+Neste tutorial, você constrói uma aplicação nativa do Windows Desktop .NET (XAML) que assina nos utilizadores e obtém um token de acesso para ligar para a API do Microsoft Graph. 
 
 Quando tiver concluído o guia, a sua aplicação poderá ligar para uma API protegida que utilize contas pessoais (incluindo outlook.com, live.com e outros). A aplicação também utilizará contas de trabalho e escola de qualquer empresa ou organização que utilize o Azure Ative Directory.
 
@@ -79,7 +79,7 @@ Para criar a sua aplicação, faça o seguinte:
 
 ## <a name="add-msal-to-your-project"></a>Adicione MSAL ao seu projeto
 
-1. No Estúdio Visual, selecione **Tools**  >  **NuGet Package Manager**Package Manager >  **Consola**.
+1. No Estúdio Visual, selecione **Tools**  >  **NuGet Package Manager** Package Manager >  **Consola**.
 2. Na janela da consola do gestor de pacotes, cole o seguinte comando Azure PowerShell:
 
     ```powershell

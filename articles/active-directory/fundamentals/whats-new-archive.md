@@ -14,11 +14,11 @@ ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ffa0059e78ee193cb12a4838282f7f9fb282edd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836602"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95973699"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -3022,7 +3022,7 @@ A notificação de aplicações móveis só pode ser ligada como parte de uma po
 
 ---
 
-## <a name="june-2018"></a>Junho de 2018
+## <a name="june-2018"></a>junho de 2018
 
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Aviso de alteração: Correção de segurança para o fluxo de autorização delegado para apps que utilizam Azure AD Activity Logs API
 
@@ -3166,7 +3166,7 @@ Para mais informações sobre a pré-visualização pública, consulte as [funç
 
 ---
 
-## <a name="may-2018"></a>May 2018
+## <a name="may-2018"></a>Maio de 2018
 
 ### <a name="expressroute-support-changes"></a>Alterações de suporte ExpressRoute
 
