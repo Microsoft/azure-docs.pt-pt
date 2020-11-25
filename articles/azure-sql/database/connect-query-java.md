@@ -11,11 +11,11 @@ ms.devlang: java
 ms.date: 06/26/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: badf6b8887c356c2a7fc7308f6aa15f551e4bb67
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746737"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972679"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Use Java e JDBC com Base de Dados Azure SQL
 
@@ -45,11 +45,11 @@ AZ_SQL_SERVER_PASSWORD=<YOUR_AZURE_SQL_PASSWORD>
 AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
-Substitua os espaços reservados pelos seguintes valores, que são utilizados ao longo deste artigo:
+Substitua os marcadores de posição pelos seguintes valores, que são utilizados ao longo deste artigo:
 
-- `<YOUR_DATABASE_NAME>`: O nome do seu servidor Azure SQL Database. Deve ser único em todo o Azure.
-- `<YOUR_AZURE_REGION>`: A região de Azure que você vai usar. Pode usar `eastus` por defeito, mas recomendamos que configuure uma região mais próxima do local onde vive. Pode ter a lista completa das regiões disponíveis através da `az account list-locations` entrada.
-- `<AZ_SQL_SERVER_PASSWORD>`: A palavra-passe do seu servidor Azure SQL Database. Essa senha deve ter um mínimo de oito caracteres. Os caracteres devem ser de três das seguintes categorias: letras maiúsculas inglesas, letras minúsculas inglesas, números (0-9) e caracteres não alfanuméricos (!, $, #, %, e assim por diante).
+- `<YOUR_DATABASE_NAME>`: O nome do seu servidor Azure SQL Database. Deve ser um nome exclusivo no Azure.
+- `<YOUR_AZURE_REGION>`: A região de Azure que você vai usar. Pode utilizar a região `eastus` por predefinição, mas recomendamos que configure uma região mais próxima do local onde vive. Pode ter a lista completa das regiões disponíveis através da `az account list-locations` entrada.
+- `<AZ_SQL_SERVER_PASSWORD>`: A palavra-passe do seu servidor Azure SQL Database. Essa palavra-passe deve ter pelo menos oito carateres. Os carateres devem enquadrar-se em três das seguintes categorias: letras maiúsculas, letras minúsculas, números (0 a 9) e carateres alfanuméricos (!, $, #, %, entre outros).
 - `<YOUR_LOCAL_IP_ADDRESS>`: O endereço IP do seu computador local, a partir do qual executará a sua aplicação Java. Uma maneira conveniente de encontrá-lo é apontar o seu navegador para [whatismyip.akamai.com.](http://whatismyip.akamai.com/)
 
 Em seguida, crie um grupo de recursos utilizando o seguinte comando:
@@ -62,7 +62,7 @@ az group create \
 ```
 
 > [!NOTE]
-> Utilizamos o `jq` utilitário para exibir dados JSON e torná-lo mais legível. Este utilitário é instalado por padrão na [Azure Cloud Shell](https://shell.azure.com/). Se não gostares desse utilitário, podes remover com segurança a `| jq` parte de todos os comandos que usaremos.
+> Utilizamos o `jq` utilitário para exibir dados JSON e torná-lo mais legível. Este utilitário é instalado por padrão na [Azure Cloud Shell](https://shell.azure.com/). Se não quiser utilizar esse utilitário, pode remover sem problemas a parte `| jq` de todos os comandos que utilizamos.
 
 ## <a name="create-an-azure-sql-database-instance"></a>Criar uma instância de base de dados Azure SQL
 
@@ -87,7 +87,7 @@ Este comando cria um servidor de base de dados Azure SQL.
 
 ### <a name="configure-a-firewall-rule-for-your-azure-sql-database-server"></a>Configure uma regra de firewall para o seu servidor de base de dados Azure SQL
 
-As instâncias da Base de Dados Azure SQL são protegidas por padrão. Eles têm uma firewall que não permite qualquer ligação. Para poder utilizar a sua base de dados, é necessário adicionar uma regra de firewall que permita ao endereço IP local aceder ao servidor de base de dados.
+As instâncias da Base de Dados Azure SQL são protegidas por padrão. O serviço tem uma firewall que não permite ligações de entrada. Para poder utilizar a sua base de dados, é necessário adicionar uma regra de firewall que permita ao endereço IP local aceder ao servidor de base de dados.
 
 Uma vez que configura o nosso endereço IP local no início deste artigo, pode abrir a firewall do servidor executando o seguinte comando:
 
@@ -170,13 +170,13 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id INT PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BIT);
 ```
 
-## <a name="code-the-application"></a>Código da aplicação
+## <a name="code-the-application"></a>Codificar a aplicação
 
 ### <a name="connect-to-the-database"></a>Ligue-se à base de dados
 
 Em seguida, adicione o código Java que utilizará o JDBC para armazenar e obter dados da sua base de dados Azure SQL.
 
-Crie um ficheiro *src/main/java/DemoApplication.java,* que contenha:
+Crie um ficheiro *src/main/java/DemoApplication.java* que contenha:
 
 ```java
 package com.example.demo;
@@ -225,7 +225,7 @@ public class DemoApplication {
 }
 ```
 
-Este código Java utilizará o *ficheiro.propriedades* e os ficheiros *schema.sql* que criámos anteriormente, de forma a ligar à base de dados do SQL Server e criar um esquema que armazenará os nossos dados.
+Este código Java utilizará o *ficheiro.propriedades* e o *esquema.sql* ficheiros que criámos anteriormente, de forma a ligar à base de dados do SQL Server e criar um esquema que armazenará os nossos dados.
 
 Neste ficheiro, pode ver que comentámos métodos para inserir, ler, atualizar e apagar dados: codificaremos esses métodos no resto deste artigo, e poderá descomprê-los um após o outro.
 
@@ -315,7 +315,7 @@ public class Todo {
 }
 ```
 
-Esta classe é um modelo de domínio mapeado na `todo` tabela que criou ao executar o script *schema.sql.*
+Esta classe é um modelo de domínio mapeado na `todo` tabela que criou ao executar o script .sql *esquema.*
 
 ### <a name="insert-data-into-azure-sql-database"></a>Inserir dados na base de dados Azure SQL
 

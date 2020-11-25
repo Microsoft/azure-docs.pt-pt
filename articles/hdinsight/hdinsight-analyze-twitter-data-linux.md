@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: fe511ed2d6b724c1215f9986c9d6c50aae076935
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533296"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95971914"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analise os dados do Twitter usando Apache Hive e Apache Hadoop em HDInsight
 
@@ -30,9 +30,9 @@ O Twitter permite-lhe recuperar os dados de cada tweet como um documento javaScr
 
 1. A partir de um navegador web, inscreva-se para [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) . Selecione a ligação **de inscrição agora** se não tiver uma conta no Twitter.
 
-2. Selecione **Criar nova aplicação** .
+2. Selecione **Criar nova aplicação**.
 
-3. Inserir **Nome,** **Descrição,** **Website** . Pode fazer um URL para o campo **do Site.** A tabela a seguir mostra alguns valores da amostra a utilizar:
+3. Inserir **Nome,** **Descrição,** **Website**. Pode fazer um URL para o campo **do Site.** A tabela a seguir mostra alguns valores da amostra a utilizar:
 
    | Campo | Valor |
    |--- |--- |
@@ -40,13 +40,13 @@ O Twitter permite-lhe recuperar os dados de cada tweet como um documento javaScr
    | Descrição |MyHDInsightApp |
    | Site |`https://www.myhdinsightapp.com` |
 
-4. Selecione **Sim, concordo** e, em seguida, selecione **Criar a sua aplicação twitter** .
+4. Selecione **Sim, concordo** e, em seguida, selecione **Criar a sua aplicação twitter**.
 
-5. Selecione o separador **Permissões.** A permissão por defeito é **apenas ler** .
+5. Selecione o separador **Permissões.** A permissão por defeito é **apenas ler**.
 
 6. Selecione o **separador Chaves e Tokens de acesso.**
 
-7. **Selecione Crie o meu token de acesso** .
+7. **Selecione Crie o meu token de acesso**.
 
 8. Selecione **Test OAuth** no canto superior direito da página.
 
@@ -54,7 +54,7 @@ O Twitter permite-lhe recuperar os dados de cada tweet como um documento javaScr
 
 ### <a name="download-tweets"></a>Baixar tweets
 
-O seguinte código Python descarrega 10.000 tweets do Twitter e guarda-os para um ficheiro chamado **tweets.txt** .
+O seguinte código Python descarrega 10.000 tweets do Twitter e guarda-os para um ficheiro chamado **tweets.txt**.
 
 > [!NOTE]  
 > Os seguintes passos são realizados no cluster HDInsight, uma vez que python já está instalado.

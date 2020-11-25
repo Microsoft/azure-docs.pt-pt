@@ -10,11 +10,11 @@ ms.date: 01/22/2019
 ms.author: chrande
 ms.custom: devx-track-python
 ms.openlocfilehash: 91b04b05b810b2b0fc221943a73e81c49f7119dc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360195"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95972468"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Quickstart: Criar uma base de dados de gráficos em Azure Cosmos DB usando Python e o portal Azure
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -171,7 +171,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 
 Depois de inserir os vértices e bordas, pode agora voltar ao Data Explorer e ver os vértices adicionados ao gráfico e adicionar pontos de dados adicionais.
 
-1. Na sua conta DB Azure Cosmos no portal Azure, selecione **Data Explorer,** expanda **o gráfico de amostras,** selecione **Graph** , e, em seguida, selecione **Apply Filter**. 
+1. Na sua conta DB Azure Cosmos no portal Azure, selecione **Data Explorer,** expanda **o gráfico de amostras,** selecione **Graph**, e, em seguida, selecione **Apply Filter**. 
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="A screenshot mostra gráfico selecionado a partir do A P I com a opção de Aplicar Filtro.":::
 
@@ -197,7 +197,7 @@ Depois de inserir os vértices e bordas, pode agora voltar ao Data Explorer e ve
     > [!NOTE]
     > Neste guia de introdução, criámos uma coleção não particionada. No entanto, se criar uma coleção particionada mediante a especificação de uma chave de partição durante a criação da coleção, terá de incluir a chave da partição como uma chave em cada vértice novo. 
 
-6. Selecione **OK**. Poderá ter de expandir o ecrã para ver **OK** , na parte inferior.
+6. Selecione **OK**. Poderá ter de expandir o ecrã para ver **OK**, na parte inferior.
 
 7. Selecione **Novo Vertex** novamente e adicione um novo utilizador adicional. 
 
@@ -222,7 +222,7 @@ Depois de inserir os vértices e bordas, pode agora voltar ao Data Explorer e ve
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Alterar o destino de um vértice de um gráfico":::
 
-13. Na **caixa-alvo** *rakesh* , e no tipo de caixa **de etiqueta Edge** *sabe* , e, em seguida, selecione a verificação.
+13. Na **caixa-alvo** *rakesh*, e no tipo de caixa **de etiqueta Edge** *sabe*, e, em seguida, selecione a verificação.
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Adicionar uma ligação entre ashley e rakesh no Data Explorer":::
 
@@ -240,7 +240,7 @@ Esta ação conclui a parte da criação de recursos deste tutorial. Pode contin
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, aprendeu a criar uma conta DB Azure Cosmos, criar um gráfico utilizando o Data Explorer e executar uma aplicação Python para adicionar dados ao gráfico. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
 

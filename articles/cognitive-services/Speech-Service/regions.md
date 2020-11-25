@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749307"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972657"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões apoiadas por serviços de fala
 
@@ -27,7 +27,7 @@ O portal Discurso para executar configurações personalizadas para a sua experi
 Tenha em mente os seguintes pontos ao considerar as regiões:
 
 * Se a sua aplicação utilizar um [Speech SDK,](speech-sdk.md)forneça o identificador da região, por `westus` exemplo, ao criar uma configuração de fala.
-* Se a sua aplicação utilizar uma das [APIs rest](rest-apis.md)do serviço de fala, a região faz parte do ponto final que utiliza ao fazer pedidos.
+* Se a sua aplicação utilizar uma das [APIs rest](./overview.md#reference-docs)do serviço de fala, a região faz parte do ponto final que utiliza ao fazer pedidos.
 * As chaves criadas para uma região são válidas apenas naquela região. Tentar usá-los com outras regiões resultará em erros de autenticação.
 
 ## <a name="speech-sdk"></a>API de Voz
@@ -63,7 +63,7 @@ As regiões disponíveis para **reconhecimento de intenções** através do SDK 
 | América do Norte | E.U.A. Oeste 2        | `westus2`            |
 | América do Sul | Sul do Brasil     | `brazilsouth`        |
 
-Trata-se de um subconjunto das regiões editoriais apoiado pelo [serviço de Compreensão linguística (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+Trata-se de um subconjunto das regiões editoriais apoiado pelo [serviço de Compreensão linguística (LUIS)](../luis/luis-reference-regions.md).
 
 ### <a name="voice-assistants"></a>Assistentes de voz
 

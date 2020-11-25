@@ -1,15 +1,15 @@
 ---
-author: ramonarguelles
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 08/14/2020
-ms.author: rgarcia
-ms.openlocfilehash: 9c20726ce412e651aba0fdd202031d342350c922
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/20/2020
+ms.author: parkerra
+ms.openlocfilehash: d969b1639dbb39b920c985964abe1239f068d740
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971487"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95971421"
 ---
 Selecione **Build**. No painel que abre, selecione uma pasta para exportar o projeto Xcode para.
 

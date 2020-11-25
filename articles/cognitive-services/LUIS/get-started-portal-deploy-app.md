@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 6126c6e37ad43ed6456b224d043dc6695fa2d00e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b051f349716b5597adee4509cfe774978a8f61aa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91298419"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95972521"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Quickstart: Implementar uma aplicação no portal LUIS
 
@@ -114,11 +114,11 @@ Para ver este mesmo nível de informação no painel de teste, tem de publicar a
 
 [![Compare atualmente editando versus versão publicada da app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar este arranque rápido, selecione **As minhas aplicações** a partir do menu de navegação superior. Selecione a caixa de verificação da aplicação da lista e, em seguida, **selecione Eliminar** a partir da barra de ferramentas de contexto acima da lista.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Identificar intenções e entidades comuns](luis-tutorial-prebuilt-intents-entities.md)
+> [Identificar intenções e entidades comuns](./tutorial-machine-learned-entity.md)

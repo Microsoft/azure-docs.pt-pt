@@ -1,15 +1,15 @@
 ---
-author: craigktreasure
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 1/2/2019
-ms.author: crtreasu
-ms.openlocfilehash: 5c1e076406ba774f5abe056e05b8af1b574c9d0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/20/2020
+ms.author: parkerra
+ms.openlocfilehash: f69d09fa0cd42a07b732e20d8c0d4ecfd63c052a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81422235"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95971466"
 ---
 Clone o [repositório](https://github.com/Azure/azure-spatial-anchors-samples) de amostras executando os seguintes comandos:
 
