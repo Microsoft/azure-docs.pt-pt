@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 11/19/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: cbd2d3b46ec339328e0d0889a722d39070104953
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 48cc6b84fe88676a03d1bb6e0a8154c16e3ef618
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92347296"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007444"
 ---
 O Event Hubs fornece transmissão de mensagens através de um padrão de consumidor particionado em que cada consumidor só lê um subconjunto específico, ou partição, do fluxo de mensagens. Este padrão permite um dimensionamento horizontal do processamento de eventos e fornece outras funcionalidades centradas nos fluxos que não estão disponíveis nas filas e nos tópicos.
 
@@ -25,7 +25,7 @@ O Event Hubs retém dados para um tempo de retenção configurado que se aplica 
 
 ![Hubs de Eventos](./media/event-hubs-partitions/multiple-partitions.png)
 
-O número de partições é especificado durante a criação e deve ser entre 2 e 32. O número de partições não é alterável, pelo que deve considerar uma escala a longo prazo quando definir o número de partições. As partições são um mecanismo de organização de dados relacionado com o paralelismo a jusante necessário nas aplicações de consumo. O número de partições num hub de eventos está diretamente relacionado com o número de leitores simultâneos que espera ter. Pode aumentar o número de partições além de 32 ao contactar a equipa do Event Hubs.
+O número de divisórias é especificado na criação e deve estar entre 1 e 32. O número de partições não é alterável, pelo que deve considerar uma escala a longo prazo quando definir o número de partições. As partições são um mecanismo de organização de dados relacionado com o paralelismo a jusante necessário nas aplicações de consumo. O número de partições num hub de eventos está diretamente relacionado com o número de leitores simultâneos que espera ter. Pode aumentar o número de partições além de 32 ao contactar a equipa do Event Hubs.
 
 Talvez queira defini-lo como o valor mais alto possível, que é 32, no momento da criação. Lembre-se que ter mais de uma partição resultará em eventos enviados para múltiplas divisórias sem reter a ordem, a menos que você configuure os remetentes para enviar apenas para uma única partição das 32 deixando as restantes 31 divisórias redundantes. No primeiro caso, terá que ler eventos em todas as 32 divisórias. Neste último caso, não existe um custo adicional óbvio para além da configuração extra que tem de fazer no Host do Processador de Eventos.
 

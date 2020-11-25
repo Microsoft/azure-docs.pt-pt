@@ -4,11 +4,11 @@ description: Saiba como configurar um aparelho Azure Migrate para avaliar e migr
 ms.topic: article
 ms.date: 03/23/2020
 ms.openlocfilehash: a12785ea3791366badb907498796a73c2c993623
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314172"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008315"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurar um aparelho para Hiper-VMs
 
@@ -97,10 +97,10 @@ Coloque o aparelho pela primeira vez.
 
 1. No Hyper-V Manager > **Máquinas Virtuais,** clique com o botão direito no VM > **Connect**.
 2. Forneça o idioma, o fuso horário e a palavra-passe para o aparelho.
-3. Abra um browser em qualquer máquina que possa ligar ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
+3. Abra um browser em qualquer máquina que possa ligar ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço *IP*: 44368**.
 
    Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho do aparelho clicando no atalho da aplicação.
-1. Aceite os termos da **licença**e leia as informações de terceiros.
+1. Aceite os termos da **licença** e leia as informações de terceiros.
 1. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
     - **Conectividade**: A aplicação verifica se o VM tem acesso à Internet. Se o VM utilizar um representante:
       - Clique em **Configurar o representante** para e especificar o endereço proxy (no formulário http://ProxyIPAddress ou na porta de http://ProxyFQDN) escuta.
@@ -134,8 +134,8 @@ Se estiver a executar VHDs em SMBs, deve ativar a delegação de credenciais do 
     ```
 
 2. Em alternativa, faça-o no Editor de Política do Grupo Local sobre o aparelho:
-    - Na **Local Computer Policy**  >  **configuração**do computador local, clique na delegação de credenciais **de sistema de modelos**  >  **System**  >  **administrativos**.
-    - Clique duas **vezes Em permitir a delegação de credenciais frescas**e selecione **Ativado**.
+    - Na **Local Computer Policy**  >  **configuração** do computador local, clique na delegação de credenciais **de sistema de modelos**  >  **System**  >  **administrativos**.
+    - Clique duas **vezes Em permitir a delegação de credenciais frescas** e selecione **Ativado**.
     - Em **Opções**, clique em **Mostrar**, e adicione cada anfitrião Hyper-V que pretende descobrir na lista, com **wsman/** como prefixo.
     - Na  **Delegação de Credenciais,** clique duplo **Deixe delegar credenciais frescas com autenticação do servidor apenas NTLM**. Mais uma vez, adicione cada anfitrião Hyper-V que pretende descobrir na lista, com **wsman/** como prefixo.
 

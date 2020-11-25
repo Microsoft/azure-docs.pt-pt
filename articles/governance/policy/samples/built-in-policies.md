@@ -1,21 +1,21 @@
 ---
 title: Lista de definições políticas incorporadas
 description: Listar definições políticas incorporadas para a Política Azure. As categorias incluem Tags, Conformidade Regulamentar, Cofre-Chave, Kubernetes, Configuração de Hóspedes, e muito mais.
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: c1627c05e041b2b4a91f5fb5ad44d79641cb9756
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 66563a4754d706f2c73e90ad3c2e8e0f4fe7d3a0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311916"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96007831"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições políticas incorporadas da Política Azure
 
 Esta página é um índice de definições políticas incorporadas da Azure Policy.
 
-O nome de cada ligação incorporada à definição de política no portal Azure. Utilize o link na coluna **Source** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy). Os incorporados são agrupados pela **categoria** de propriedade em **metadados.** Para saltar para uma **categoria**específica, utilize o menu no lado direito da página. Caso contrário, utilize <kbd>o Ctrl</kbd> - <kbd>F</kbd> para utilizar o recurso de pesquisa do seu navegador.
+O nome de cada ligação incorporada à definição de política no portal Azure. Utilize o link na coluna **Source** para visualizar a fonte no [repo GitHub da Política Azure](https://github.com/Azure/azure-policy). Os incorporados são agrupados pela **categoria** de propriedade em **metadados.** Para saltar para uma **categoria** específica, utilize o menu no lado direito da página. Caso contrário, utilize <kbd>o Ctrl</kbd> - <kbd>F</kbd> para utilizar o recurso de pesquisa do seu navegador.
 
 ## <a name="api-for-fhir"></a>API para FHIR
 
@@ -44,6 +44,10 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 ## <a name="automation"></a>Automatização
 
 [!INCLUDE [azure-policy-reference-policies-automation](../../../../includes/policy/reference/bycat/policies-automation.md)]
+
+## <a name="azure-data-explorer"></a>Azure Data Explorer
+
+[!INCLUDE [azure-policy-reference-policies-azure-data-explorer](../../../../includes/policy/reference/bycat/policies-azure-data-explorer.md)]
 
 ## <a name="backup"></a>Cópia de segurança
 
@@ -101,7 +105,7 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 
 [!INCLUDE [azure-policy-reference-policies-internet-of-things](../../../../includes/policy/reference/bycat/policies-internet-of-things.md)]
 
-## <a name="key-vault"></a>Cofre de Chaves
+## <a name="key-vault"></a>Key Vault
 
 [!INCLUDE [azure-policy-reference-policies-key-vault](../../../../includes/policy/reference/bycat/policies-key-vault.md)]
 
@@ -133,7 +137,11 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 
 [!INCLUDE [azure-policy-reference-policies-network](../../../../includes/policy/reference/bycat/policies-network.md)]
 
-## <a name="search"></a>Pesquisa
+## <a name="portal"></a>Portal
+
+[!INCLUDE [azure-policy-reference-policies-portal](../../../../includes/policy/reference/bycat/policies-portal.md)]
+
+## <a name="search"></a>Pesquisar
 
 [!INCLUDE [azure-policy-reference-policies-search](../../../../includes/policy/reference/bycat/policies-search.md)]
 
@@ -164,6 +172,10 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 ## <a name="stream-analytics"></a>Stream Analytics
 
 [!INCLUDE [azure-policy-reference-policies-stream-analytics](../../../../includes/policy/reference/bycat/policies-stream-analytics.md)]
+
+## <a name="synapse"></a>Sinapse
+
+[!INCLUDE [azure-policy-reference-policies-synapse](../../../../includes/policy/reference/bycat/policies-synapse.md)]
 
 ## <a name="tags"></a>Etiquetas
 

@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86130398"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007363"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Resolução de problemas na recuperação de desastres da Azure VM
 
@@ -35,7 +35,7 @@ Deve ver a taxa de alteração de dados do evento **para além dos limites supor
 
 Se selecionar o evento, deverá ver as informações exatas do disco:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Página de Recuperação do Site Azure que mostra uma alta taxa de mudança de dados que é muito alta.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Página que mostra os detalhes do evento de alteração de dados.":::
 
 ### <a name="azure-site-recovery-limits"></a>Limites do Azure Site Recovery
 
@@ -54,9 +54,9 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |20 MB/s | 1684 GB po
 
 ### <a name="solution"></a>Solução
 
-A Recuperação do Site Azure tem limites nas taxas de alteração de dados, dependendo do tipo de disco. Para ver se este problema é recorrente ou temporário, encontre a taxa de alteração de dados da máquina virtual afetada. Vá à máquina virtual de origem, encontre as métricas em **Monitorização**e adicione as métricas como mostrado nesta imagem:
+A Recuperação do Site Azure tem limites nas taxas de alteração de dados, dependendo do tipo de disco. Para ver se este problema é recorrente ou temporário, encontre a taxa de alteração de dados da máquina virtual afetada. Vá à máquina virtual de origem, encontre as métricas em **Monitorização** e adicione as métricas como mostrado nesta imagem:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Página de Recuperação do Site Azure que mostra uma alta taxa de mudança de dados que é muito alta.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Página que mostra o processo em três etapas para encontrar a taxa de alteração de dados.":::
 
 1. **Selecione Adicionar métrica**, e adicione **os bytes de escrita do disco de OS/Sec** e **os bytes de escrita do disco de dados/sec**.
 1. Monitorize o pico como mostrado na imagem.
@@ -116,7 +116,7 @@ Para resolver mais problemas, consulte os ficheiros da máquina de origem para o
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log`
 
-Para localizar os erros, abra o ficheiro _vacp.log_ num editor de texto para pesquisar a cadeia **vacpError**.
+Para localizar os erros, abra o ficheiro _vacp.log_ num editor de texto procure a cadeia **vacpError**.
 
 ```plaintext
 Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|

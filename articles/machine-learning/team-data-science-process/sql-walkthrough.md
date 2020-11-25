@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 580181aaaea975ee07bcec8108297079c5373b92
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320429"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007414"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados da equipa em ação: usando o SQL Server
 Neste tutorial, você anda pelo processo de construção e implementação de um modelo de machine learning usando SQL Server e um conjunto de dados publicamente disponível -- o conjunto de dados [de Viagens de Táxi de NYC.](https://www.andresmh.com/nyctaxitrips/) O procedimento segue um fluxo de trabalho padrão da ciência dos dados: ingerir e explorar os dados, criar recursos para facilitar a aprendizagem, depois construir e implementar um modelo.
@@ -120,7 +120,7 @@ O desempenho do carregamento/transferência de grandes quantidades de dados para
 2. Conecte-se utilizando a autenticação do Windows.
    
     ![SSMS Ligam][12]
-3. Se ainda não alterou o modo de autenticação do SQL Server e criou um novo utilizador de login SQL, abra o ficheiro de scripts denominado **change \_ auth.sql** na pasta **Scripts de Amostra.** Altere o nome de utilizador e a palavra-passe predefinidos. Clique em **Executar** na barra de ferramentas para executar o script.
+3. Se ainda não alterou o modo de autenticação do SQL Server e criou um novo utilizador de login SQL, abra o ficheiro de scripts nomeado **alterar \_ auth.sql** na pasta **Scripts de Amostra.** Altere o nome de utilizador e a palavra-passe predefinidos. Clique em **Executar** na barra de ferramentas para executar o script.
    
     ![Executar Script][13]
 4. Verifique e/ou altere a base de dados padrão do SQL Server e as pastas de registo para garantir que as bases de dados recém-criadas serão armazenadas num Disco de Dados. A imagem VM do Servidor SQL que é otimizada para cargas de armazenamento de dados é pré-configurada com dados e discos de log. Se o seu VM não incluir um Disco de Dados e tiver adicionado novos discos rígidos virtuais durante o processo de configuração VM, altere as pastas predefinidos da seguinte forma:
@@ -132,8 +132,8 @@ O desempenho do carregamento/transferência de grandes quantidades de dados para
    * Verifique e/ou altere as **localizações predefinidos da Base de Dados** para as localizações do Disco de **Dados** à sua escolha. Esta localização é onde residem novas bases de dados se criadas com as definições predefinidos.
      
        ![Predefinições da base de dados SQL][15]  
-5. Para criar uma nova base de dados e um conjunto de grupos de ficheiros para segurar as tabelas divididas, abra o script de amostra **criar \_ db \_ default.sql**. O script criará uma nova base de dados chamada **TaxiNYC** e 12 grupos de ficheiros na localização de dados predefinidos. Cada grupo de ficheiros terá um mês de dados de viagem \_ e \_ dados de tarifas de viagem. Modifique o nome da base de dados, se desejar. Clique **em Executar** para executar o script.
-6. Em seguida, crie duas mesas de partição, uma para os dados da viagem \_ e outra para a \_ viagem. Abra o script da amostra **crie \_ mesa \_ dividida.sql,** que irá:
+5. Para criar uma nova base de dados e um conjunto de grupos de ficheiros para segurar as tabelas divididas, abra o script de amostra **criar \_ db \_ predefinido.sql**. O script criará uma nova base de dados chamada **TaxiNYC** e 12 grupos de ficheiros na localização de dados predefinidos. Cada grupo de ficheiros terá um mês de dados de viagem \_ e \_ dados de tarifas de viagem. Modifique o nome da base de dados, se desejar. Clique **em Executar** para executar o script.
+6. Em seguida, crie duas mesas de partição, uma para os dados da viagem \_ e outra para a \_ viagem. Abra o roteiro da amostra **crie \_ mesa \_ dividida.sql,** que:
    
    * Crie uma função de partição para dividir os dados por mês.
    * Crie um esquema de partição para mapear os dados de cada mês para um grupo de ficheiros diferente.
@@ -151,11 +151,11 @@ O desempenho do carregamento/transferência de grandes quantidades de dados para
     Pode também selecionar o modo de autenticação, o padrão é a autenticação do Windows. Clique na seta verde na barra de ferramentas para correr. O guião lançará 24 operações de importação a granel em paralelo, 12 para cada mesa dividida. Pode monitorizar o progresso da importação de dados abrindo a pasta de dados padrão SQL Server conforme definido acima.
 9. O script PowerShell relata os tempos de início e fim. Quando todas as importações a granel terminam, o tempo final é reportado. Verifique a pasta de registo de destino para verificar se as importações a granel foram bem sucedidas, ou seja, não há erros relatados na pasta de registo alvo.
 10. A sua base de dados está agora pronta para exploração, engenharia de recursos e outras operações conforme desejado. Uma vez que as tabelas são divididas de acordo com o campo de **\_ data de recolha,** as consultas que incluem as condições de **\_ data de recolha** na cláusula **WHERE** beneficiarão do esquema de partição.
-11. No **SQL Server Management Studio,** explore as consultas de **amostras \_ fornecidas.sql**. Para executar qualquer uma das consultas de amostra, realce as linhas de consulta e clique em **Executar** na barra de ferramentas.
-12. Os dados da NYC Taxi Trips são carregados em duas tabelas separadas. Para melhorar as operações de junção, é altamente recomendado indexar as tabelas. O script da amostra **cria \_ índices \_ divididos.sql** cria índices divididos no medalhão de chave de **adesão, licença de hack \_ e hora \_ de recolha**.
+11. No **SQL Server Management Studio**, explore as consultas de **amostras \_ fornecidas.sql**. Para executar qualquer uma das consultas de amostra, realce as linhas de consulta e clique em **Executar** na barra de ferramentas.
+12. Os dados da NYC Taxi Trips são carregados em duas tabelas separadas. Para melhorar as operações de junção, é altamente recomendado indexar as tabelas. O script da amostra **cria \_ índices \_ divididos.sql** cria índices divididos no medalhão de chave de **adesão, licença de hack \_ e \_ hora de recolha**.
 
 ## <a name="data-exploration-and-feature-engineering-in-sql-server"></a><a name="dbexplore"></a>Exploração de dados e Engenharia de Recursos no SqL Server
-Nesta secção, realizaremos a exploração de dados e geração de recursos executando consultas SQL diretamente no **SQL Server Management Studio** usando a base de dados sql Server criada anteriormente. Um script de amostra chamado **\_ consultas de amostra.sql** é fornecido na pasta **Scripts de Amostra.** Modifique o script para alterar o nome da base de dados, se for diferente do padrão: **TaxiNYC**.
+Nesta secção, realizaremos a exploração de dados e geração de recursos executando consultas SQL diretamente no **SQL Server Management Studio** usando a base de dados sql Server criada anteriormente. Um guião de amostra chamado **\_ consultas de amostra.sql** é fornecido na pasta **Scripts de Amostra.** Modifique o script para alterar o nome da base de dados, se for diferente do padrão: **TaxiNYC**.
 
 Neste exercício, iremos:
 
@@ -258,10 +258,10 @@ AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 ```
 
 #### <a name="feature-engineering-in-sql-queries"></a>Engenharia de Recursos em Consultas SQL
-As consultas de exploração de geração de etiquetas e de conversão de geografia também podem ser usadas para gerar rótulos/características removendo a parte de contagem. Exemplos adicionais de engenharia de recursos SQL são fornecidos na [secção de Exploração de Dados e Engenharia de Recursos na secção IPython Notebook.](#ipnb) É mais eficiente executar as consultas de geração de funcionalidades no conjunto de dados completo ou um grande subconjunto do mesmo usando consultas SQL que funcionam diretamente na caixa de dados do SQL Server. As consultas podem ser executadas no **SQL Server Management Studio** , IPython Notebook, ou em qualquer ferramenta ou ambiente de desenvolvimento que possa aceder à base de dados local ou remotamente.
+As consultas de exploração de geração de etiquetas e de conversão de geografia também podem ser usadas para gerar rótulos/características removendo a parte de contagem. Exemplos adicionais de engenharia de recursos SQL são fornecidos na [secção de Exploração de Dados e Engenharia de Recursos na secção IPython Notebook.](#ipnb) É mais eficiente executar as consultas de geração de funcionalidades no conjunto de dados completo ou um grande subconjunto do mesmo usando consultas SQL que funcionam diretamente na caixa de dados do SQL Server. As consultas podem ser executadas no **SQL Server Management Studio**, IPython Notebook, ou em qualquer ferramenta ou ambiente de desenvolvimento que possa aceder à base de dados local ou remotamente.
 
 #### <a name="preparing-data-for-model-building"></a>Preparação de dados para a construção de modelos
-A seguinte consulta junta-se às tabelas **de tarifas nyctaxi \_ e** **nyctaxi, \_** gera uma etiqueta de classificação binária **inclinada** , uma **\_ classe** de ponta de etiqueta de classificação multi-classe , e extrai uma amostra aleatória de 1% do conjunto de dados completo. Esta consulta pode ser copiada e colada diretamente no módulo [Azure Machine Learning Studio](https://studio.azureml.net) [Import Data][import-data] para ingestão direta de dados a partir da caixa de dados do SQL Server em Azure. A consulta exclui registos com coordenadas incorretas (0,0).
+A seguinte consulta junta-se às tabelas **de tarifas nyctaxi \_ e** **nyctaxi, \_** gera uma etiqueta de classificação binária **inclinada**, uma **\_ classe** de ponta de etiqueta de classificação multi-classe , e extrai uma amostra aleatória de 1% do conjunto de dados completo. Esta consulta pode ser copiada e colada diretamente no módulo [Azure Machine Learning Studio](https://studio.azureml.net) [Import Data][import-data] para ingestão direta de dados a partir da caixa de dados do SQL Server em Azure. A consulta exclui registos com coordenadas incorretas (0,0).
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
@@ -437,7 +437,7 @@ Ao preparar dados para a construção de modelos no [Azure Machine Learning Stud
 Nesta secção, criaremos uma nova tabela para conter os dados amostrados e projetados. Um exemplo de uma consulta direta de SQL para a construção de modelos é fornecido na [secção de Exploração de Dados e Engenharia de Recursos na secção SQL Server.](#dbexplore)
 
 #### <a name="create-a-sample-table-and-populate-with-1-of-the-joined-tables-drop-table-first-if-it-exists"></a>Crie uma tabela de amostras e povoe com 1% das tabelas unidas. Mesa de lançamento primeiro se existir.
-Nesta secção, juntamo-nos às tabelas **nyctaxi \_ trip** e **tarifa nyctaxi, \_** extrair uma amostra aleatória de 1% e persistir os dados amostrados em um novo nome de mesa **nyctaxi \_ um por \_ cento** :
+Nesta secção, juntamo-nos às tabelas **nyctaxi \_ trip** e **tarifa nyctaxi, \_** extrair uma amostra aleatória de 1% e persistir os dados amostrados em um novo nome de mesa **nyctaxi \_ um por \_ cento**:
 
 ```sql
 cursor = conn.cursor()

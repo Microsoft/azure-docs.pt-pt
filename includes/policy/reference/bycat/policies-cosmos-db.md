@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f108d688c7060c2ae110544ac65c4f27359be242
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 1190add704fe6477892718f79aecd0139f123af0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92346946"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96007795"
 ---
-|Name<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Nome<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[A conta DB da Azure Cosmos deve usar chaves geridas pelo cliente para encriptar dados em repouso](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f905d99-2ab7-462c-a6b0-f709acca6c8f) |Utilize chaves geridas pelo cliente para controlar a encriptação no resto dos dados armazenados na Azure Cosmos DB quando este se tratar de um requisito regulamentar ou de conformidade. As teclas geridas pelo cliente também fornecem encriptação dupla adicionando uma segunda camada de encriptação em cima da padrão feita com teclas geridas pelo serviço. Ver [https://aka.ms/cosmosdb-cmk](https://aka.ms/cosmosdb-cmk) |auditoria, negação, desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_CMK_Deny.json) |
 |[Contas DB da Azure Cosmos devem ter regras de firewall](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb) |Auditar ou negar recursos que não tenham nenhuma regra IP configurada e permitir todas as redes por padrão. As contas que tenham pelo menos uma regra IP definida com o filtro de rede virtual ativado são consideradas conformes. As contas que incapacitam o acesso do público também são consideradas conformes. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_NetworkRulesExist_Audit.json) |

@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
 ms.openlocfilehash: e13164c3ec6049a8ae3954528a02d20e313dd883
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711464"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008128"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Mover uma rede virtual Azure para outra região usando a Azure PowerShell
 
@@ -60,7 +60,7 @@ Para exportar a rede virtual e implementar a rede virtual alvo utilizando o Powe
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. O ficheiro descarregado tem o mesmo nome que o grupo de recursos de onde o recurso foi exportado. Localize o ficheiro * \<resource-group-name> .json,* que exportou com o comando, e, em seguida, abra-o no seu editor:
+1. O ficheiro descarregado tem o mesmo nome que o grupo de recursos de onde o recurso foi exportado. Localize o ficheiro *\<resource-group-name> .json,* que exportou com o comando, e, em seguida, abra-o no seu editor:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -105,7 +105,7 @@ Para exportar a rede virtual e implementar a rede virtual alvo utilizando o Powe
     Get-AzLocation | format-table
     ```
 
-1. (Opcional) Também pode alterar outros parâmetros no ficheiro * \<resource-group-name> .json,* dependendo dos seus requisitos:
+1. (Opcional) Também pode alterar outros parâmetros no ficheiro *\<resource-group-name> .json,* dependendo dos seus requisitos:
 
     * **Espaço de endereço**: Antes de guardar o ficheiro, pode alterar o espaço de endereço da rede virtual modificando a secção de endereço **de**  >  **recursosSpace** e alterando a propriedade **de endereçoPrefixo:**
 
@@ -193,7 +193,7 @@ Para exportar a rede virtual e implementar a rede virtual alvo utilizando o Powe
          ]
         ```
 
-1. Guarde o ficheiro * \<resource-group-name> .json.*
+1. Guarde o ficheiro *\<resource-group-name> .json.*
 
 1. Criar um grupo de recursos na região alvo para que a rede virtual-alvo seja implantada através da utilização [do New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
@@ -201,7 +201,7 @@ Para exportar a rede virtual e implementar a rede virtual alvo utilizando o Powe
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. Implemente o ficheiro * \<resource-group-name> .json* editado para o grupo de recursos que criou no passo anterior, utilizando o [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+1. Implemente o ficheiro *\<resource-group-name> .json* editado para o grupo de recursos que criou no passo anterior, utilizando o [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258864"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008281"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 A Azure Service Fabric introduz um modelo de saúde que proporciona uma avaliação e reporte de saúde rica, flexível e extensível. O modelo permite um acompanhamento quase em tempo real do estado do cluster e dos serviços que nele se insem. Você pode facilmente obter informações de saúde e corrigir potenciais problemas antes que eles em cascata e causar falhas massivas. No modelo típico, os serviços enviam relatórios com base nas suas opiniões locais, e essa informação é agregada para fornecer uma visão global ao nível do cluster.
@@ -65,7 +65,7 @@ Os possíveis [estados de saúde](/dotnet/api/system.fabric.health.healthstate) 
 * **Ok, tudo bem.** A entidade é saudável. Não existem questões conhecidas sobre o mesmo ou sobre os seus filhos (quando aplicável).
 * **Atenção.** A entidade tem alguns problemas, mas ainda pode funcionar corretamente. Por exemplo, há atrasos, mas ainda não causam problemas funcionais. Em alguns casos, a condição de aviso pode fixar-se sem intervenção externa. Nestes casos, os relatórios de saúde sensibilizam e dão visibilidade ao que se passa. Noutros casos, a condição de aviso pode degradar-se num problema grave sem a intervenção do utilizador.
 * **Erro**. A entidade não é saudável. Devem ser tomadas medidas para corrigir o estado da entidade, porque não pode funcionar corretamente.
-* **Desconhecido**. A entidade não existe na loja de saúde. Este resultado pode ser obtido a partir das consultas distribuídas que se fundem resulta de vários componentes. Por exemplo, a consulta da lista de nó de obter vai para **FailoverManager,** **ClusterManager**e **HealthManager;** obter consulta de lista de candidaturas vai para **ClusterManager** e **HealthManager**. Estas consultas fundem resultados de vários componentes do sistema. Se outro componente do sistema devolver uma entidade que não está presente na loja de saúde, o resultado resultante da fusão tem um estado de saúde desconhecido. Uma entidade não está na loja porque os relatórios de saúde ainda não foram processados ou a entidade foi limpa após a eliminação.
+* **Desconhecido**. A entidade não existe na loja de saúde. Este resultado pode ser obtido a partir das consultas distribuídas que se fundem resulta de vários componentes. Por exemplo, a consulta da lista de nó de obter vai para **FailoverManager,** **ClusterManager** e **HealthManager;** obter consulta de lista de candidaturas vai para **ClusterManager** e **HealthManager**. Estas consultas fundem resultados de vários componentes do sistema. Se outro componente do sistema devolver uma entidade que não está presente na loja de saúde, o resultado resultante da fusão tem um estado de saúde desconhecido. Uma entidade não está na loja porque os relatórios de saúde ainda não foram processados ou a entidade foi limpa após a eliminação.
 
 ## <a name="health-policies"></a>Políticas de saúde
 A loja de saúde aplica políticas de saúde para determinar se uma entidade é saudável com base nos seus relatórios e nos seus filhos.
@@ -101,7 +101,7 @@ O exemplo a seguir é um excerto de um manifesto de agrupamento. Para definir as
 ```
 
 ### <a name="application-health-policy"></a>Política de saúde de aplicação
-A [política de saúde](/dotnet/api/system.fabric.health.applicationhealthpolicy) da aplicação descreve como a avaliação dos eventos e da agregação dos estados-crianças é feita para aplicações e seus filhos. Pode ser definido no manifesto de candidatura, **ApplicationManifest.xml, **no pacote de candidaturas. Se não forem especificadas políticas, a Service Fabric assume que a entidade não é saudável se tiver um relatório de saúde ou uma criança no estado de saúde de aviso ou erro.
+A [política de saúde](/dotnet/api/system.fabric.health.applicationhealthpolicy) da aplicação descreve como a avaliação dos eventos e da agregação dos estados-crianças é feita para aplicações e seus filhos. Pode ser definido no manifesto de candidatura, **ApplicationManifest.xml,** no pacote de candidaturas. Se não forem especificadas políticas, a Service Fabric assume que a entidade não é saudável se tiver um relatório de saúde ou uma criança no estado de saúde de aviso ou erro.
 As políticas configuráveis são:
 
 * [Considere AWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se deve tratar os relatórios de saúde de advertência como erros durante a avaliação de saúde. Predefinição: false.
@@ -196,7 +196,7 @@ Os [relatórios de saúde](/dotnet/api/system.fabric.health.healthreport) de cad
   * Implementação De aplicação. Nome da aplicação (URI) e nome do nó (cadeia).
   * Serviço de Serviço implantado. Nome da aplicação (URI), nome do nó (string) e nome manifesto de serviço (cadeia).
 * **Propriedade**. Uma *corda* (não uma enumeração fixa) que permite ao repórter categorizar o evento de saúde para uma propriedade específica da entidade. Por exemplo, o repórter A pode reportar a saúde da propriedade Node01 "Armazenamento" e o repórter B pode reportar a saúde da propriedade Node01 "Conectividade". Na loja de saúde, estes relatórios são tratados como eventos de saúde separados para a entidade Node01.
-* **Descrição**. Uma corda que permite a um repórter fornecer informações detalhadas sobre o evento de saúde. **SourceId**, **Property**e **HealthState** devem descrever totalmente o relatório. A descrição adiciona informações legíveis pelo homem sobre o relatório. O texto facilita a compreensão do relatório de saúde por parte dos administradores e dos utilizadores.
+* **Descrição**. Uma corda que permite a um repórter fornecer informações detalhadas sobre o evento de saúde. **SourceId**, **Property** e **HealthState** devem descrever totalmente o relatório. A descrição adiciona informações legíveis pelo homem sobre o relatório. O texto facilita a compreensão do relatório de saúde por parte dos administradores e dos utilizadores.
 * **Estado da Saúde**. Uma [enumeração](service-fabric-health-introduction.md#health-states) que descreve o estado de saúde do relatório. Os valores aceites são OK, Aviso e Erro.
 * **TimeToLive**. Um período de tempo que indica quanto tempo o relatório de saúde é válido. Juntamente com **removeWhenExpired,** permite à loja de saúde saber como avaliar eventos expirados. Por padrão, o valor é infinito, e o relatório é válido para sempre.
 * **RemoverWhenExpired**. Um booleano. Se for definido como verdadeiro, o relatório de saúde expirado é automaticamente removido da loja de saúde, e o relatório não tem impacto na avaliação de saúde da entidade. Usado quando o relatório é válido apenas por um período de tempo especificado, e o repórter não precisa explicitamente limpá-lo. Também é usado para apagar relatórios da loja de saúde (por exemplo, um cão de guarda é alterado e para de enviar relatórios com fonte e propriedade anteriores). Pode enviar um relatório com um breve TimeToLive juntamente com removeWhenExpired para limpar qualquer estado anterior da loja de saúde. Se o valor for definido como falso, o relatório caducado é tratado como um erro na avaliação de saúde. O valor falso indica à loja de saúde que a fonte deve reportar periodicamente sobre esta propriedade. Se não, deve haver algo de errado com o cão de guarda. A saúde do cão de guarda é capturada considerando o evento como um erro.

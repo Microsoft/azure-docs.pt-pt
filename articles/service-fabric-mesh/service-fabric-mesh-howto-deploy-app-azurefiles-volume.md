@@ -7,11 +7,11 @@ ms.date: 11/21/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter , devx-track-azurecli
 ms.openlocfilehash: 00addbe992bc113c67df08f73414107d51b3bce5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748216"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007397"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Monte um volume baseado em Ficheiros Azure numa aplicação de malha de tecido de serviço 
 
@@ -76,8 +76,8 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 
 Pode também encontrar estes valores no [portal Azure:](https://portal.azure.com)
 * `<storageAccountName>` - Nas **Contas de Armazenamento,** o nome da conta de armazenamento utilizada para criar a parte do ficheiro.
-* `<storageAccountKey>` - Selecione a sua conta de armazenamento em **Contas de Armazenamento** e, em seguida, selecione as **teclas de acesso** e use o valor sob **a tecla1** .
-* `<fileShareName>` - Selecione a sua conta de armazenamento em  **Contas de Armazenamento** e, em seguida, selecione **Ficheiros** . O nome a usar é o nome da partilha de ficheiros que criou.
+* `<storageAccountKey>` - Selecione a sua conta de armazenamento em **Contas de Armazenamento** e, em seguida, selecione as **teclas de acesso** e use o valor sob **a tecla1**.
+* `<fileShareName>` - Selecione a sua conta de armazenamento em  **Contas de Armazenamento** e, em seguida, selecione **Ficheiros**. O nome a usar é o nome da partilha de ficheiros que criou.
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Declare um recurso de volume e atualize o recurso de serviço (JSON)
 
