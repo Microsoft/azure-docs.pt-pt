@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 ms.openlocfilehash: 1ab6f5e9c7b602ce124116c02584c5a48a3f597f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833661"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999982"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar uma app de Serviço de Aplicações no portal Azure
 

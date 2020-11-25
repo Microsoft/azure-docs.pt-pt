@@ -5,11 +5,11 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.openlocfilehash: 58c2c597c7a75c801af91cd735561071250bda2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426151"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000577"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI Azure no Serviço Azure Kubernetes (AKS)
 
@@ -53,7 +53,7 @@ O plano de endereço IP para um cluster AKS é composto por uma rede virtual, pe
 | Sub-rede | Deve ser grande o suficiente para acomodar os nós, cápsulas e todos os recursos Kubernetes e Azure que podem ser ateados no seu cluster. Por exemplo, se implementar um Balançador de Carga Azure interno, os seus IPs frontais são atribuídos a partir da sub-rede de cluster, e não de IPs públicos. O tamanho da sub-rede também deve ter em conta as operações de atualização ou as futuras necessidades de escala.<p />Para calcular o tamanho *mínimo* da sub-rede, incluindo um nó adicional para operações de atualização: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exemplo para um aglomerado de nó de 50: `(51) + (51  * 30 (default)) = 1,581` (/21 ou maior)<p/>Exemplo para um cluster de 50 nós que também inclui disposições para escalar mais 10 nós: `(61) + (61 * 30 (default)) = 1,891` (/21 ou maior)<p>Se não especificar um número máximo de cápsulas por nó quando criar o seu cluster, o número máximo de cápsulas por nó é definido para *30*. O número mínimo de endereços IP necessários baseia-se nesse valor. Se calcular os seus requisitos mínimos de endereço IP num valor máximo diferente, consulte [como configurar o número máximo de cápsulas por nó](#configure-maximum---new-clusters) para definir este valor quando implementar o seu cluster. |
 | Intervalo de endereços do serviço Kubernetes | Este intervalo não deve ser utilizado por nenhum elemento de rede ligado ou ligado a esta rede virtual. O endereço de serviço CIDR deve ser menor que /12. Você pode reutilizar esta gama em diferentes clusters AKS. |
 | Endereço IP do serviço DNS do Kubernetes | Endereço IP dentro da gama de endereços de serviço Kubernetes que será usado pela descoberta do serviço de cluster. Não utilize o primeiro endereço IP na gama de endereços, como .1. O primeiro endereço da sua sub-rede é utilizado para o *endereço kubernetes.default.svc.cluster.local.* |
-| Endereço de bridge do Docker | O endereço de rede de bridge do Docker representa o endereço de rede de bridge*docker0* predefinido presente em todas as instalações do Docker. Embora a ponte *Docker0* não seja usada por clusters AKS ou pelas próprias cápsulas, você deve definir este endereço para continuar a apoiar cenários como a *construção de estivadores* dentro do cluster AKS. É necessário selecionar um CIDR para o endereço de rede de ponte Docker, pois caso contrário, o Docker escolherá automaticamente uma sub-rede que possa entrar em conflito com outros CIDRs. Tem de escolher um espaço de endereço que não colida com o resto dos CIDRs nas suas redes, incluindo o serviço de serviço CIDR do cluster e o POD CIDR. Padrão de 172.17.0.1/16. Você pode reutilizar esta gama em diferentes clusters AKS. |
+| Endereço de bridge do Docker | O endereço de rede de bridge do Docker representa o endereço de rede de bridge *docker0* predefinido presente em todas as instalações do Docker. Embora a ponte *Docker0* não seja usada por clusters AKS ou pelas próprias cápsulas, você deve definir este endereço para continuar a apoiar cenários como a *construção de estivadores* dentro do cluster AKS. É necessário selecionar um CIDR para o endereço de rede de ponte Docker, pois caso contrário, o Docker escolherá automaticamente uma sub-rede que possa entrar em conflito com outros CIDRs. Tem de escolher um espaço de endereço que não colida com o resto dos CIDRs nas suas redes, incluindo o serviço de serviço CIDR do cluster e o POD CIDR. Padrão de 172.17.0.1/16. Você pode reutilizar esta gama em diferentes clusters AKS. |
 
 ## <a name="maximum-pods-per-node"></a>Cápsulas máximas por nó
 
@@ -73,7 +73,7 @@ Se não especificar maxPods ao criar novos conjuntos de nós, recebe um valor pa
 
 É aplicado um valor mínimo para as cápsulas máximas por nó para garantir espaço para as cápsulas do sistema críticas à saúde do cluster. O valor mínimo que pode ser definido para os pods máximos por nó é de 10 se e somente se a configuração de cada piscina de nós tiver espaço para um mínimo de 30 cápsulas. Por exemplo, definir as cápsulas máximas por nó no mínimo de 10 requer que cada piscina individual de nó tenha um mínimo de 3 nós. Este requisito aplica-se também a cada novo conjunto de nós criado, pelo que se 10 for definido como cápsulas máximas por nó, cada piscina de nó adicionado deve ter pelo menos 3 nós.
 
-| Redes | Mínimo | Máximo |
+| Rede | Mínimo | Máximo |
 | -- | :--: | :--: |
 | Azure CNI | 10 | 250 |
 | Kubenet | 10 | 110 |

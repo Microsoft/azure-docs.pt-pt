@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.openlocfilehash: 53707261070e8efbd014614ee700df63a0925ef8
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94352732"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999710"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: Configurar os sap successFactors para o provisionamento do utilizador do Ative Directory 
 O objetivo deste tutorial é mostrar os passos que você precisa para executar para os utilizadores de SuccessFactors Employee Central em Ative Directory (AD) e Azure AD, com a write-back opcional de endereço de e-mail para SuccessFactors. 
@@ -133,7 +133,7 @@ Trabalhe com a sua equipa de administradores successFactors ou parceiro de imple
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Atribuir papel de permissão ao Grupo de Permissão
 
-* No SuccessFactors Admin Center, procure por *Manage Permission Roles* , em seguida, **selecione Gerir Funções** de Permisse a partir dos resultados da pesquisa.
+* No SuccessFactors Admin Center, procure por *Manage Permission Roles*, em seguida, **selecione Gerir Funções** de Permisse a partir dos resultados da pesquisa.
 * A partir da **Lista de Funções de Permisse,** selecione a função que criou para permissões de utilização da API.
 * Sob **o Comando de Grant, este papel para...** clique em **Adicionar...** botão.
 * Selecione **Grupo de Permissões...** a partir do menu suspenso, em seguida, clique em **Selecionar...** para abrir a janela Grupos para procurar e selecionar o grupo criado acima. 
@@ -166,7 +166,7 @@ Esta secção fornece passos para o fornecimento de conta de utilizador de Succe
 
 4. **Selecione Adicione uma aplicação** e selecione a categoria **'Todos'.**
 
-5. Procure por **SuccessFactors para Ative Directory User Provisioning** , e adicione essa aplicação na galeria.
+5. Procure por **SuccessFactors para Ative Directory User Provisioning**, e adicione essa aplicação na galeria.
 
 6. Depois de adicionar a app e o ecrã de detalhes da aplicação ser mostrado, selecione **Provisioning**
 

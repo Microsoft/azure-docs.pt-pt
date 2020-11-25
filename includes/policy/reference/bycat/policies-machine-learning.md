@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 30e599fa274bac8b8700d366c7102dcf64a5ad09
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ec1bb2b21e1ac4d24f4643ae85a790b3bc2a147a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311937"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001032"
 ---
 |Nome<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Os espaços de trabalho de aprendizagem automática Azure devem ser encriptados com uma chave gerida pelo cliente (CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fba769a63-b8cc-4b2d-abf6-ac33c7204be8) |Avalie espaços de trabalho de aprendizagem automática Azure que não tenham encriptação ativada com teclas geridas pelo cliente (CMK). As teclas geridas pelo cliente adicionam uma camada de segurança aditiva para espaços de trabalho. Para mais informações, [https://aka.ms/azureml-workspaces-cmk](https://aka.ms/azureml-workspaces-cmk) visite. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_CMKEnabled_Audit.json) |
+|[Os espaços de trabalho de aprendizagem automática Azure devem ser encriptados com uma chave gerida pelo cliente (CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fba769a63-b8cc-4b2d-abf6-ac33c7204be8) |Avalie espaços de trabalho de aprendizagem automática Azure que não tenham encriptação ativada com teclas geridas pelo cliente (CMK). As teclas geridas pelo cliente adicionam uma camada adicional de segurança para espaços de trabalho. Para mais informações, [https://aka.ms/azureml-workspaces-cmk](https://aka.ms/azureml-workspaces-cmk) visite. |Auditoria, Negar, Deficientes |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_CMKEnabled_Audit.json) |
 |[Espaços de trabalho de aprendizagem automática Azure devem usar link privado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40cec1dd-a100-4920-b15b-3024fe8901ab) |Avalie os espaços de trabalho de Aprendizagem automática Azure que não tenham pelo menos uma ligação de ponto final privado aprovado. Os clientes de uma rede virtual podem aceder de forma segura a recursos que possuem ligações privadas de ponto final através de links privados. Para mais informações, visite: [https://aka.ms/azureml-workspaces-privatelink](https://aka.ms/azureml-workspaces-privatelink) . |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/Workspace_PrivateLinkEnabled_Audit.json) |
 |[Configurar autores de módulos autorizados para cálculos específicos de aprendizagem automática Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53c70b02-63dd-11ea-bc55-0242ac130003) |Esta política ajuda a fornecer autores de módulos permitidos em computas de aprendizagem automática Azure especificadas e pode ser atribuída no espaço de trabalho. Para mais informações, [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc) visite. |impor Asetting, deficiente |[1.0.1 pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedModuleAuthors_EnforceSetting.json) |
 |[Configurar pacotes python permitidos para cálculos específicos de aprendizagem automática Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77eeea86-7e81-4a7d-9067-de844d096752) | Esta política ajuda a fornecer pacotes python permitidos em computas de aprendizagem automática Azure especificadas e pode ser atribuída no espaço de trabalho. Para mais informações, [https://aka.ms/amlpolicydoc](https://aka.ms/amlpolicydoc) visite. |impor Asetting, deficiente |[1.0.0-pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Machine%20Learning/AllowedPythonPackageChannels_EnforceSetting.json) |

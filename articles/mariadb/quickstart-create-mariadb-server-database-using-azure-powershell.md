@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 05082ffa891b72b472ed5433282198c61080f073
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537837"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999489"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>Quickstart: Criar uma base de dados Azure para servidor MariaDB utilizando PowerShell
 
@@ -61,7 +61,7 @@ A tabela seguinte contém uma lista de parâmetros e valores de amostra geralmen
 
 |        **Definição**         | **Valor de exemplo** |                                                                                                                                                             **Descrição**                                                                                                                                                              |
 | -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                       | mydemoserver     | Escolha um nome globalmente único em Azure que identifique a sua Base de Dados Azure para o servidor MariaDB. O nome do servidor só pode conter letras, números e o caracteres hífen (-) do hífen. Quaisquer caracteres maiúsculas que sejam especificados são automaticamente convertidos para minúsculas durante o processo de criação. Tem de conter entre 3 e 63 carateres. |
+| Nome                       | mydemoserver     | Escolha um nome globalmente único em Azure que identifique a sua Base de Dados Azure para o servidor MariaDB. O nome do servidor só pode conter letras, números e o caracteres hífen (-) do hífen. Quaisquer caracteres maiúsculas que sejam especificados são automaticamente convertidos para minúsculas durante o processo de criação. Tem de conter entre 3 e 63 carateres. |
 | ResourceGroupName          | myResourceGroup  | Indique o nome do grupo de recursos do Azure.                                                                                                                                                                                                                                                                                            |
 | Sku                        | GP_Gen5_2        | O nome do SKU. Segue em **abreviatura os \_ \_ vCores de geração de preços de** convenção. Para obter mais informações sobre o parâmetro Sku, consulte as informações que se seguem a esta tabela.                                                                                                                                           |
 | BackupRetentionDay         | 7                | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. O intervalo é de 7-35.                                                                                                                                                                                                                                                                       |
@@ -70,7 +70,7 @@ A tabela seguinte contém uma lista de parâmetros e valores de amostra geralmen
 | SslEnforcement             | Ativado          | Se o SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, Desativado.                                                                                                                                                                                                                                                 |
 | ArmazenamentoInMb                | 51200            | A capacidade de armazenamento do servidor (a unidade é megabytes). Armazenamento VálidoInMb é um mínimo de 5120 MB e aumenta em incrementos de 1024 MB. Para obter mais informações sobre os limites de tamanho de armazenamento, consulte [a Base de Dados Azure para os níveis de preços mariaDB](./concepts-pricing-tiers.md).                                                                               |
 | Versão                    | 5.7              | A versão principal do MariaDB.                                                                                                                                                                                                                                                                                                                 |
-| Nome do AdministradorUser      | myadmin          | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser** , **admin** , **administrador** , **raiz** , **convidado** nem **público**.                                                                                                                                                                                            |
+| Nome do AdministradorUser      | myadmin          | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser**, **admin**, **administrador**, **raiz**, **convidado** nem **público**.                                                                                                                                                                                            |
 | Palavra de Passagem de Administradores | `<securestring>` | A palavra-passe do utilizador do administrador sob a forma de uma cadeia segura. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúsculas do inglês, letras em minúsculas do inglês, números e carateres não alfanuméricos.                                       |
 
 O valor do parâmetro **Sku** segue os **\_ \_ vCores de geração de cálculo de nível de** preços da convenção, como mostrado nos seguintes exemplos.
@@ -201,7 +201,7 @@ Para obter comandos adicionais, veja [MySQL 5.7 Reference Manual - Chapter 4.5.1
 
 1. Inicie a aplicação MySQL Workbench no computador cliente. Para descarregar e instalar a bancada MySQL Workbench, consulte [download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-1. Na caixa de diálogo **Configurar Ligação Nova** , introduza as informações seguintes no separador **Parâmetros** :
+1. Na caixa de diálogo **Configurar Ligação Nova**, introduza as informações seguintes no separador **Parâmetros**:
 
    ![configurar ligação nova](./media/quickstart-create-mariadb-server-database-using-azure-powershell/setup-new-connection.png)
 
@@ -218,7 +218,7 @@ Para obter comandos adicionais, veja [MySQL 5.7 Reference Manual - Chapter 4.5.1
 
 1. Selecione a ligação para ligar ao servidor.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se os recursos criados neste quickstart não forem necessários para outro arranque rápido ou tutorial, pode eliminá-los executando o seguinte exemplo.
 

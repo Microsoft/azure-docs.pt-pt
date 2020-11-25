@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321203"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000033"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tarefas para a equipa liderar uma equipa de processos de ciência de dados de equipa
 
@@ -62,7 +62,7 @@ Para poder clonar repositórios e modificar o seu conteúdo na sua máquina loca
 - Uma subscrição do Azure.
 - Git instalado na sua máquina. Se estiver a utilizar um DSVM, o Git está pré-instalado. Caso contrário, consulte as Plataformas e o [apêndice de ferramentas.](platforms-and-tools.md#appendix)
 - Se pretender utilizar um DSVM, o Windows ou o Linux DSVM criado e configurado em Azure. Para obter mais informações e instruções, consulte a [Documentação da Máquina Virtual da Ciência dos Dados.](../data-science-virtual-machine/index.yml)
-- Para um DSVM Do Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado na sua máquina. No ficheiro *README.md,* desloque-se até à secção **de Descarregamento e Instalação** e selecione o **instalador mais recente**. Descarregue o instalador *.exe* da página do instalador e execute-o. 
+- Para um DSVM Do Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado na sua máquina. No ficheiro *README.md,* desloque-se até à secção **de Descarregamento e Instalação** e selecione o **instalador mais recente**. Descarregue o instalador *de .exe* a partir da página do instalador e execute-o. 
 - Para um Linux DSVM, uma chave pública SSH configurada no seu DSVM e adicionada em Azure DevOps. Para obter mais informações e instruções, consulte a secção **de chaves públicas Create SSH** no [apêndice de ferramentas e ferramentas.](platforms-and-tools.md#appendix) 
 
 ## <a name="create-a-team-project-and-repositories"></a>Criar um projeto de equipa e repositórios
@@ -91,7 +91,7 @@ Para criar um projeto separado para a sua equipa:
    
 1. No diálogo do **projeto Create,** insira o nome da sua equipa, como *MyTeam,* com **o nome do Projeto,** e, em seguida, selecione **Advanced**. 
    
-1. Sob **controlo de versão** , selecione **Git** , e no processo de produto **do trabalho** , selecione **Agile**. Em seguida, selecione **Criar**. 
+1. Sob **controlo de versão**, selecione **Git**, e no processo de produto **do trabalho**, selecione **Agile**. Em seguida, selecione **Criar**. 
    
    ![Criar o projeto](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
@@ -140,7 +140,7 @@ Para povoar os repositórios da sua equipa com o conteúdo dos repositórios com
    
    ![Selecione Importar](./media/team-lead-tasks/import-repo.png)
    
-1. No diálogo **repositório de repositório De Importação a Git,** selecione **Git** como o **tipo Origem** , e introduza o URL para o repositório de modelo comum do seu grupo em **URL clone**. O URL é *https: \/ / \<server name> / \<organization name> /_git/ \<repository name>*. Por exemplo: *https: \/ /dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. No diálogo **repositório de repositório De Importação a Git,** selecione **Git** como o **tipo Origem**, e introduza o URL para o repositório de modelo comum do seu grupo em **URL clone**. O URL é *https: \/ / \<server name> / \<organization name> /_git/ \<repository name>*. Por exemplo: *https: \/ /dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Selecione **Import** (Importar). O conteúdo do repositório de modelos de grupo é importado para o repositório do modelo da sua equipa. 
    
@@ -184,11 +184,11 @@ Para trabalhar com repositórios na sua máquina local ou DSVM, primeiro copia o
 
 Para clonar repositórios:
 
-1. Na página **resumo** do projeto **MyTeam,** selecione **Repos** , e no topo da página, selecione o repositório que pretende clonar.
+1. Na página **resumo** do projeto **MyTeam,** selecione **Repos**, e no topo da página, selecione o repositório que pretende clonar.
    
 1. Na página de repo, selecione **Clone** na parte superior direita.
    
-1. No diálogo **do repositório clone,** na **linha Comando** , selecione **HTTPS** para uma ligação HTTP ou **SSH** para uma ligação SSH e copie o URL do clone para a sua área de transferência.
+1. No diálogo **do repositório clone,** na **linha Comando**, selecione **HTTPS** para uma ligação HTTP ou **SSH** para uma ligação SSH e copie o URL do clone para a sua área de transferência.
    
    ![URL de clone de cópia](./media/team-lead-tasks/clone.png)
    

@@ -4,12 +4,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 1/31/2020
-ms.openlocfilehash: c8044ca5a52bb3acf1e154a7b835471d09072083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48bf5d5df3c54e8b2894ad28fa08553d5add0437
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372340"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001486"
 ---
 1. Para criar uma nova loja de Configuração de Aplicações, inscreva-se no [portal Azure.](https://portal.azure.com) No canto superior esquerdo da página inicial, selecione **Criar um recurso**. Na **caixa 'Pesquisar o Mercado',** insira *a Configuração da Aplicação* e selecione <kbd>Enter</kbd>.
 
@@ -24,7 +24,7 @@ ms.locfileid: "91372340"
     | Definição | Valor sugerido | Descrição |
     |---|---|---|
     | **Subscrição** | A sua subscrição | Selecione a subscrição Azure que pretende utilizar para testar a Configuração da Aplicação. Se a sua conta tiver apenas uma subscrição, é selecionada automaticamente e a lista **de Subscrição** não é apresentada. |
-    | **Grupo de recursos** | *AppConfigTestResources* | Selecione ou crie um grupo de recursos para o seu recurso de loja de configuração de aplicações. Este grupo é útil para organizar múltiplos recursos que você pode querer eliminar ao mesmo tempo, eliminando o grupo de recursos. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure](/azure/azure-resource-manager/resource-group-overview). |
+    | **Grupo de recursos** | *AppConfigTestResources* | Selecione ou crie um grupo de recursos para o seu recurso de loja de configuração de aplicações. Este grupo é útil para organizar múltiplos recursos que você pode querer eliminar ao mesmo tempo, eliminando o grupo de recursos. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../articles/azure-resource-manager/management/overview.md). |
     | **Nome de recurso** | Nome globalmente exclusivo | Introduza um nome de recurso único para usar para o recurso da loja de configuração de aplicações. O nome deve ser uma corda entre 5 e 50 caracteres e conter apenas números, letras e o `-` personagem. O nome não pode começar ou terminar com o `-` personagem. |
     | **Localização** | *E.U.A. Central* | Utilize a **Localização** para especificar a localização geográfica em que a sua loja de configuração de aplicações está hospedada. Para obter o melhor desempenho, crie o recurso na mesma região que outros componentes da sua aplicação. |
     | **Escalão de preço** | *Gratuito* | Selecione o nível de preços pretendido. Para obter mais informações, consulte a [página de preços de Configuração da Aplicação](https://azure.microsoft.com/pricing/details/app-configuration). |

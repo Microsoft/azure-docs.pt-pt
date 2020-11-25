@@ -8,11 +8,11 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: ad1bec66edaa3fcc6049f4911684f6e6d6c3e366
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369408"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999196"
 ---
 # <a name="troubleshoot-the-process-server"></a>Resolução de problemas do servidor de processo
 
@@ -156,7 +156,7 @@ O problema com os uploads de dados bloqueados das máquinas de origem para o ser
 
 1. Para resolver falhas no upload da rede, pode procurar erros neste registo:
 
-    C:\Ficheiros de programas (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
+    C:\Ficheiros de programa (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
 2. Utilize o resto dos procedimentos neste artigo pode ajudá-lo a resolver problemas de upload de dados.
 
@@ -235,7 +235,7 @@ Verifique se a firewall baseada em endereços IP no servidor de processos está 
 
     a) Procure por **Backup Microsoft Azure**.
 
-    b) Abra **a Cópia de Segurança do Microsoft Azure**e selecione **Action**  >  **Change Properties**.
+    b) Abra **a Cópia de Segurança do Microsoft Azure** e selecione **Action**  >  **Change Properties**.
 
     c) No **separador Configuração Proxy,** o endereço proxy deve ser o mesmo que o endereço de procuração mostrado nas definições de registo. Caso contrário, altere-o para o mesmo endereço.
 

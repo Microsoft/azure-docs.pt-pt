@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: f2baeaf72bb77dfe9247380b8b26f3860cbfd5b0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459803"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Diretório Ativo Azure com iQualify LMS
 
@@ -133,7 +133,7 @@ Para configurar o Azure AD single sign-on com iQualify LMS, execute os seguintes
 
 7. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | --- | --- |
     | e-mail | user.userprincipalname |
     | first_name | user.givenname |
@@ -236,7 +236,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, permitindo o acesso ao IQualify LMS.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **iQualify LMS**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **iQualify LMS**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e803fa393d85f7f0b4849aed96356b7a4e77d83f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566270"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96000135"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ) do Language Understanding 
 
@@ -95,7 +95,7 @@ Para corrigir este erro, tem de [alterar o seu nível de preços](luis-how-to-az
 
 As soluções para este erro incluem:
 
-* No [portal Azure](https://portal.azure.com), no seu recurso de Compreensão linguística, no **nível de preços de gestão de recursos ->** , altere o seu nível de preços para um nível de TPS mais elevado. Não precisa de fazer nada no portal de Compreensão de Idiomas se o seu recurso já estiver atribuído à sua aplicação de Compreensão de Idiomas.
+* No [portal Azure](https://portal.azure.com), no seu recurso de Compreensão linguística, no **nível de preços de gestão de recursos ->**, altere o seu nível de preços para um nível de TPS mais elevado. Não precisa de fazer nada no portal de Compreensão de Idiomas se o seu recurso já estiver atribuído à sua aplicação de Compreensão de Idiomas.
 *  Se o seu uso exceder o nível de preços mais elevado, adicione mais recursos de Compreensão linguística com um equilibrador de carga à sua frente. O [recipiente de compreensão de linguagem](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
 
 ### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>Recebi um código de estado de erro HTTP 429. Como posso corrigi-lo?
@@ -108,7 +108,7 @@ As soluções incluem:
 
 * Pode [aumentar o seu nível de preços,](luis-how-to-azure-subscription.md#change-the-pricing-tier)se não estiver no nível mais alto.
 * Se o seu uso exceder o nível de preços mais elevado, adicione mais recursos de Compreensão linguística com um equilibrador de carga à sua frente. O [recipiente de compreensão de linguagem](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
-* Pode limitar os pedidos de candidatura ao seu cliente com uma [política de relemisão](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que implementa quando obtém este código de estado.
+* Pode limitar os pedidos de candidatura ao seu cliente com uma [política de relemisão](/azure/architecture/best-practices/transient-faults#general-guidelines) que implementa quando obtém este código de estado.
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>A minha consulta de fim de dia deu resultados inesperados. O que devo fazer?
 
@@ -286,7 +286,7 @@ Se estiver a utilizar o Serviço Azure Bot e o problema é que o **Teste no Web 
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resolva o problema enquanto depura na máquina local com a Bot Framework.
 
-Para saber mais sobre a depuragem local de um bot, consulte [Debug a bot.](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0)
+Para saber mais sobre a depuragem local de um bot, consulte [Debug a bot.](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0)
 
 ## <a name="integrating-luis"></a>Integração DO LUIS
 
@@ -296,7 +296,7 @@ Se selecionar um modelo LUIS e selecionar o botão **Selecione** no painel de mo
 ![Luis modelo web app bot região](./media/luis-faq/web-app-bot-location.png)
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Que regiões luis apoiam o discurso do Quadro bot?
-[A escorva da fala](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) só é suportada para aplicações LUIS no caso central (EUA).
+[A escorva da fala](/bot-framework/bot-service-manage-speech-priming) só é suportada para aplicações LUIS no caso central (EUA).
 
 ## <a name="api-programming-strategies"></a>Estratégias de Programação da API
 
@@ -334,4 +334,4 @@ Vídeos:
 
 Para saber mais sobre o LUIS, consulte os seguintes recursos:
 * [Perguntas de Stack Overflow marcadas com LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Microsoft Q&Uma página de perguntas para msdn language understanding intelligent services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
+* [Microsoft Q&Uma página de perguntas para msdn language understanding intelligent services (LUIS)](/answers/topics/azure-language-understanding.html)

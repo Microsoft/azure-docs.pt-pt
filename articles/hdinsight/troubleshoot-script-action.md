@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: ef9322c17a20ab5bfcf348649a1272dd4f301c5c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284474"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000679"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Ações de script de resolução de problemas em Azure HDInsight
 
@@ -53,7 +53,7 @@ Se a criação de cluster falhar devido a um erro de script, os registos são ma
 
     * **Nó do zookeeper:**`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
-* Toda **a sestram** e **stderr** do anfitrião correspondente são enviados para a conta de armazenamento. Há uma **saída- \* .txt** e **erros- \* .txt** para cada ação do script. O ficheiro **output-*.txt** contém informações sobre o URI do script que foi executado no anfitrião. O seguinte texto é um exemplo destas informações:
+* Toda **a sestram** e **stderr** do anfitrião correspondente são enviados para a conta de armazenamento. Há uma **saída, \* .txt** e **\* erros, .txt** para cada ação do script. O ficheiro **output-*.txt** contém informações sobre o URI do script que foi executado no anfitrião. O seguinte texto é um exemplo destas informações:
 
     ```output
     'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'

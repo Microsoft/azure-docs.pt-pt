@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 79270f2484cedd81f39d2c393546bd4a1bdd3392
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459922"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999829"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Tutorial: Integração do Diretório Ativo Azure com Intralinks
 
@@ -153,7 +153,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, permitindo o acesso a Intralinks.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Intralinks**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Intralinks**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

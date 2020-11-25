@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9d9b2546553e03d1555cf4c587d699d9a4ea7e51
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321938"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000985"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tarefas de liderança do projeto no Processo de Ciência de Dados de Equipa
 
@@ -50,14 +50,14 @@ Para clonar repositórios e modificar conteúdos na sua máquina local ou na Má
 - Uma subscrição do Azure.
 - Git instalado na sua máquina. Se estiver a utilizar um DSVM, o Git está pré-instalado. Caso contrário, consulte as Plataformas e o [apêndice de ferramentas.](platforms-and-tools.md#appendix)
 - Se pretender utilizar um DSVM, o Windows ou o Linux DSVM criado e configurado em Azure. Para obter mais informações e instruções, consulte a [Documentação da Máquina Virtual da Ciência dos Dados.](../data-science-virtual-machine/index.yml)
-- Para um DSVM Do Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado na sua máquina. No ficheiro *README.md,* desloque-se até à secção **de Descarregamento e Instalação** e selecione o **instalador mais recente**. Descarregue o instalador *.exe* da página do instalador e execute-o. 
+- Para um DSVM Do Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado na sua máquina. No ficheiro *README.md,* desloque-se até à secção **de Descarregamento e Instalação** e selecione o **instalador mais recente**. Descarregue o instalador *de .exe* a partir da página do instalador e execute-o. 
 - Para um Linux DSVM, uma chave pública SSH configurada no seu DSVM e adicionada em Azure DevOps. Para obter mais informações e instruções, consulte a secção **de chaves públicas Create SSH** no [apêndice de ferramentas e ferramentas.](platforms-and-tools.md#appendix) 
 
 ## <a name="create-a-project-repository-in-your-team-project"></a>Crie um repositório de projeto no seu projeto de equipa
 
 Para criar um repositório de projetos no projeto **MyTeam** da sua equipa:
 
-1. Aceda ao projeto da sua equipa **Resumir** a página em *https: \/ / \<server name> / \<organization name> / \<team name>* , por exemplo, **https: \/ /dev.azure.com/DataScienceUnit/MyTeam** , e selecione **Repos** a partir da navegação à esquerda. 
+1. Aceda ao projeto da sua equipa **Resumir** a página em *https: \/ / \<server name> / \<organization name> / \<team name>*, por exemplo, **https: \/ /dev.azure.com/DataScienceUnit/MyTeam**, e selecione **Repos** a partir da navegação à esquerda. 
    
 1. Selecione o nome do repositório no topo da página e, em seguida, selecione **Novo repositório** a partir do dropdown.
    
@@ -83,7 +83,7 @@ Para preencher o seu repositório de projeto com o conteúdo do repositório do 
    
    ![Selecione Importar](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. No diálogo **repositório de repositório Import a Git,** selecione **Git** como o **tipo Origem** , e introduza o URL para o seu repositório **TeamTemplate** em **URL Clone**. O URL é *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name>*. Por exemplo: **https: \/ /dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
+1. No diálogo **repositório de repositório Import a Git,** selecione **Git** como o **tipo Origem**, e introduza o URL para o seu repositório **TeamTemplate** em **URL Clone**. O URL é *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name>*. Por exemplo: **https: \/ /dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
    
 1. Selecione **Import** (Importar). O conteúdo do repositório de modelos da sua equipa é importado para o seu repositório de projeto. 
    

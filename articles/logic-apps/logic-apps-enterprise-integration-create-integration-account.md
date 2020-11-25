@@ -9,11 +9,11 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.openlocfilehash: 191832ab227e854b40938183e335c1b6ea52199c
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347850"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000063"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Criar e gerir contas de integração para integrações empresariais B2B no Azure Logic Apps.
 
@@ -49,7 +49,7 @@ Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção
 
    ![Criar nova conta de integração](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
 
-1. Na **Conta de Integração** , selecione **Criar**.
+1. Na **Conta de Integração**, selecione **Criar**.
 
    ![Escolha "Adicionar" para criar conta de integração](./media/logic-apps-enterprise-integration-create-integration-account/add-integration-account.png)
 
@@ -64,7 +64,7 @@ Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção
    | **Grupo de recursos** | Sim | <*Nome de grupo Azure-recursos*> | O nome para o [grupo de recursos Azure](../azure-resource-manager/management/overview.md) usar para organizar recursos relacionados. Para este exemplo, crie um novo grupo de recursos com o nome "FabrikamIntegration-RG". |
    | **Escalão de Preço** | Sim | <*nível de preços*> | O nível de preços da conta de integração, que pode alterar mais tarde. Para este exemplo, selecione **Grátis**. Para obter mais informações, veja estes tópicos: <p>- [Modelo de preços de Apps Lógicas](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Limites e configuração de Apps lógicas](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Preços de Apps lógicas](https://azure.microsoft.com/pricing/details/logic-apps/) |
    | **Localização** | Sim | <*Região de Azure*> | A região onde armazenar os metadados da sua conta de integração. Selecione o mesmo local que a sua aplicação lógica ou crie as suas aplicações lógicas no mesmo local que a sua conta de integração. Para este exemplo, use "West US". <p>**Nota:** Para criar uma conta de integração dentro de um [ambiente de serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)selecione o ISE como local. Para obter mais informações, consulte [Criar contas de integração num ISE.](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment) |
-   | **Log Analytics** | No | Off, On | Mantenha a definição **Off** para este exemplo. |
+   | **Log Analytics** | Não | Off, On | Mantenha a definição **Off** para este exemplo. |
    |||||
 
 1. Quando terminar, **selecione Criar**.
@@ -355,7 +355,7 @@ Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção
 
    ![Para confirmar a eliminação, selecione "Sim"](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Crie parceiros comerciais na sua conta de integração](../logic-apps/logic-apps-enterprise-integration-partners.md)
 * [Crie acordos entre parceiros na sua conta de integração](../logic-apps/logic-apps-enterprise-integration-agreements.md)

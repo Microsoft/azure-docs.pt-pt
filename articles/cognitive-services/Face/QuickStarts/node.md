@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: f77282502a0032a5b1811e32d9aa47d9b4ede569
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a245dae4405706c37b3c142963d325925d089830
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912825"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001444"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Quickstart: Detete rostos numa imagem utilizando a API face REST e Node.js
 
@@ -27,14 +27,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" crie um recurso Face crie um recurso Face no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso** .
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" crie um recurso Face crie um recurso Face no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API face. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 - Um editor de código como [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="set-up-the-node-environment"></a>Configurar o ambiente nó
 
-Vá à pasta onde pretende criar o seu projeto e crie um novo ficheiro, *facedetection.js* . Em seguida, instale o `axios` módulo neste projeto. Isto permite que os seus scripts esdu poucos pedidos.
+Vá à pasta onde pretende criar o seu projeto e crie um novo ficheiro, *facedetection.js*. Em seguida, instale o `axios` módulo neste projeto. Isto permite que os seus scripts esdu poucos pedidos.
 
 ```shell
 npm install axios --save
@@ -42,7 +42,7 @@ npm install axios --save
 
 ## <a name="write-the-nodejs-script"></a>Escreva o roteiro Node.js
 
-Cole o seguinte código em *facedetection.js* . Estes campos especificam como ligar-se ao serviço Face e onde obter os dados de entrada. [Crie variáveis ambientais](../../cognitive-services-apis-create-account.md?tabs=multiservice%252cwindows#configure-an-environment-variable-for-authentication) e adicione-lhes a chave de subscrição Face e o ponto final. Pode desejar alterar o `imageUrl` campo para apontar para a sua própria imagem de entrada.
+Cole o seguinte código em *facedetection.js*. Estes campos especificam como ligar-se ao serviço Face e onde obter os dados de entrada. [Crie variáveis ambientais](../../cognitive-services-apis-create-account.md?tabs=multiservice%252cwindows#configure-an-environment-variable-for-authentication) e adicione-lhes a chave de subscrição Face e o ponto final. Pode desejar alterar o `imageUrl` campo para apontar para a sua própria imagem de entrada.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -274,4 +274,4 @@ A resposta agora inclui atributos faciais. Por exemplo:
 Neste arranque rápido, escreveu um Node.js script que chama o serviço Azure Face para detetar rostos numa imagem e devolver os seus atributos. Em seguida, explore a documentação de referência da Face API para saber mais.
 
 > [!div class="nextstepaction"]
-> [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 

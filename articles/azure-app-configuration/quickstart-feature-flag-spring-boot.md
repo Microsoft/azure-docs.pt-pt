@@ -8,11 +8,11 @@ ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
 ms.openlocfilehash: 64ccc9c91d9ead567035b1f7f35e0a0088b6200b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124191"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001487"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação De Boot de primavera
 
@@ -45,12 +45,12 @@ Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo pr
 
 1. Especifique as seguintes opções:
 
-   * Gere um projeto do **Maven** com **Java** .
+   * Gere um projeto do **Maven** com **Java**.
    * Especifique uma versão **de Boot de mola** igual ou superior a 2.0.
    * Especifique os nomes do **Grupo** e do **Artefacto** da aplicação.  Este artigo usa `com.example` `demo` e. .
    * Adicione a dependência da **Web da primavera.**
 
-1. Depois de especificar as opções anteriores, **selecione Gerar Projeto** . Quando solicitado, descarregue o projeto para o seu computador local.
+1. Depois de especificar as opções anteriores, **selecione Gerar Projeto**. Quando solicitado, descarregue o projeto para o seu computador local.
 
 ## <a name="add-feature-management"></a>Adicionar gestão de recursos
 
@@ -242,7 +242,7 @@ Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo pr
 
     ```
 
-1. Crie uma nova pasta chamada CSS por baixo `static` e por dentro dela um novo ficheiro CSS chamado *main.css* .
+1. Crie uma nova pasta chamada CSS por baixo `static` e por dentro dela um novo ficheiro CSS nomeado *principal.css*.
 
     ```css
     html {
@@ -288,7 +288,7 @@ Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo pr
 
     ![A screenshot mostra uma janela do navegador com uma mensagem de welcome.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-1. No portal de configuração de aplicações selecione **'Feature Manager'** e altere o estado da tecla **Beta** para **On** :
+1. No portal de configuração de aplicações selecione **'Feature Manager'** e altere o estado da tecla **Beta** para **On**:
 
     | Chave | Estado |
     |---|---|
@@ -298,7 +298,7 @@ Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo pr
 
     ![A screenshot mostra uma janela do navegador com uma mensagem welcome e uma ligação Beta chamada.](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

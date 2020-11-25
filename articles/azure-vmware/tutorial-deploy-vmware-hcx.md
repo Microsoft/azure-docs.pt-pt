@@ -3,18 +3,21 @@ title: Tutorial - Implementar e configurar VMware HCX
 description: Aprenda a implementar e configurar uma solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 11/18/2020
-ms.openlocfilehash: 57bcf1bd3023e56f6a64b5d82d8f1fc90be9dd47
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: afb5c653ce7c4b4a453a4031c5664042357de6c0
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888747"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999637"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
 Este artigo mostra-lhe como implantar e configurar o Conector VMware HCX no local para a sua nuvem privada Azure VMware Solution. Com o VMware HCX, pode migrar as suas cargas de trabalho VMware para Azure VMware Solution e outros sites conectados através de vários tipos de migração. Uma vez que a Azure VMware Solution implementa e configura o HCX Cloud Manager, tem de descarregar, ativar e configurar o Conector HCX no centro de dados VMware nas suas instalações.
 
 O VMware HCX Advanced Connector está pré-implantado na Solução VMware Azure. Suporta até três ligações do local (no local para nuvem, ou nuvem para nuvem). Se precisar de mais de três ligações de site, envie um pedido de [suporte](https://portal.azure.com/#create/Microsoft.Support) para ativar o addon [VMware HCX Enterprise.](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) O addon está atualmente em pré-visualização. 
+
+>[!Note]
+>Embora a ferramenta VMware Configuration Maximum descreva os pares máximos do site para ser de 25 entre o Conector pré-m e o Cloud Manager, o licenciamento volta a limitar este a 3 para Advanced e 10 para Enterprise Edition.
 
 >[!NOTE]
 >A VMware HCX Enterprise está disponível com a Azure VMware Solution como um serviço de pré-visualização. É gratuito e está sujeito a termos e condições para um serviço de pré-visualização. Depois de o serviço VMware HCX Enterprise estar geralmente disponível, receberá um aviso de 30 dias de que a faturação irá mudar. Também terá a opção de desligar ou excluir o serviço. Não existe um caminho simples de downgrade da VMware HCX Enterprise para a VMware HCX Advanced. Se decidir desvalorizar, terá de se redistribuir, incorrendo tempo de inativo.

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 1d86009d593ef7e594ec2981132bcfb856569c31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087073437fe9d6159422799c04ce095c0aae5eca
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317230"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001257"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento da fila Azure para funções Azure
 
@@ -100,6 +100,24 @@ public static void Run(
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+ O exemplo a seguir mostra uma função Java que cria uma mensagem de fila para quando desencadeada por um pedido HTTP.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+```
+
+Na biblioteca de [funções Java,](/java/api/overview/azure/functions/runtime)utilize a `@QueueOutput` anotação em parâmetros cujo valor seria escrito para o armazenamento da fila.  O tipo de parâmetro deve ser `OutputBinding<T>` , onde está qualquer tipo nativo java de um `T` POJO.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma ligação do gatilho HTTP numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função cria um item de fila para cada pedido HTTP recebido.
@@ -149,6 +167,79 @@ module.exports = function(context) {
     context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Os seguintes exemplos de código demonstram como descodificá-lo a partir de uma função desencadeada por HTTP. A secção de configuração com o `type` de `queue` define a ligação de saída.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "Msg",
+      "queueName": "outqueue",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+Utilizando esta configuração de ligação, uma função PowerShell pode criar uma mensagem de fila utilizando `Push-OutputBinding` . Neste exemplo, uma mensagem é criada a partir de uma cadeia de consulta ou parâmetro corporal.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = $Request.Query.Message
+Push-OutputBinding -Name Msg -Value $message
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
+```
+
+Para enviar várias mensagens de uma só vez, defina um conjunto de mensagens e use `Push-OutputBinding` para enviar mensagens para a ligação de saída da fila.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = @("message1", "message2")
+Push-OutputBinding -Name Msg -Value $message
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -214,24 +305,6 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
     return 'OK'
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
- O exemplo a seguir mostra uma função Java que cria uma mensagem de fila para quando desencadeada por um pedido HTTP.
-
-```java
-@FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
- public String pushToQueue(
-     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-     final String message,
-     @HttpOutput(name = "response") final OutputBinding<String> result) {
-       result.setValue(message + " has been added.");
-       return message;
- }
-```
-
-Na biblioteca de [funções Java,](/java/api/overview/azure/functions/runtime)utilize a `@QueueOutput` anotação em parâmetros cujo valor seria escrito para o armazenamento da fila.  O tipo de parâmetro deve ser `OutputBinding<T>` , onde está qualquer tipo nativo java de um `T` POJO.
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
@@ -270,14 +343,6 @@ Pode utilizar o `StorageAccount` atributo para especificar a conta de armazename
 
 Os atributos não são suportados pelo Script C#.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Os atributos não são suportados pelo JavaScript.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Os atributos não são suportados pela Python.
-
 # <a name="java"></a>[Java](#tab/java)
 
 A `QueueOutput` anotação permite-lhe escrever uma mensagem como saída de uma função. O exemplo a seguir mostra uma função acionada por HTTP que cria uma mensagem de fila.
@@ -308,6 +373,18 @@ public class HttpTriggerQueueOutput {
 |`connection` | Aponta para o fio de ligação da conta de armazenamento. |
 
 O parâmetro associado à `QueueOutput` anotação é dactilografado como uma instância [de Fuga \<T\> de Saída.](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java)
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Os atributos não são suportados pelo JavaScript.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Os atributos não são suportados pela PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Os atributos não são suportados pela Python.
 
 ---
 
@@ -359,18 +436,6 @@ No script C# e C# escreva várias mensagens de fila utilizando um dos seguintes 
 * `ICollector<T>` ou `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-O item da fila de saída está disponível através do `context.bindings.<NAME>` local onde corresponde ao nome definido emfunction.js`<NAME>` * em*. Pode utilizar uma corda ou um objeto serializável JSON para a carga útil do item da fila.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Existem duas opções para a saída de uma mensagem de fila a partir de uma função:
-
-- **Valor de retorno**: Desa estafunction.js`name` o *imóvel.* `$return` Com esta configuração, o valor de retorno da função é persistido como uma mensagem de armazenamento de fila.
-
-- **Imperativo**: Passe um valor ao método [definido](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](/python/api/azure-functions/azure.functions.out?view=azure-python) O valor passado `set` é persistido como uma mensagem de armazenamento de fila.
-
 # <a name="java"></a>[Java](#tab/java)
 
 Existem duas opções para a saída de uma mensagem de fila a partir de uma função utilizando a anotação [QueueOutput:](/java/api/com.microsoft.azure.functions.annotation.queueoutput)
@@ -378,6 +443,22 @@ Existem duas opções para a saída de uma mensagem de fila a partir de uma fun�
 - **Valor de retorno**: Aplicando a anotação à função em si, o valor de retorno da função é persistido como uma mensagem de fila.
 
 - **Imperativo**: Para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) , onde se encontra um `T` POJO ou qualquer tipo de Java nativo. Com esta configuração, passar um valor para o `setValue` método persiste o valor como uma mensagem de fila.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+O item da fila de saída está disponível através do `context.bindings.<NAME>` local onde corresponde ao nome definido emfunction.js`<NAME>` *em*. Pode utilizar uma corda ou um objeto serializável JSON para a carga útil do item da fila.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+A saída para a mensagem de fila está disponível através do `Push-OutputBinding` qual você passa argumentos que correspondem ao nome designado pelo parâmetro de encadernação nofunction.js`name` *no* ficheiro.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Existem duas opções para a saída de uma mensagem de fila a partir de uma função:
+
+- **Valor de retorno**: Desa estafunction.js`name` o *imóvel.* `$return` Com esta configuração, o valor de retorno da função é persistido como uma mensagem de armazenamento de fila.
+
+- **Imperativo**: Passe um valor ao método [definido](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) do parâmetro declarado como um tipo [out.](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) O valor passado `set` é persistido como uma mensagem de armazenamento de fila.
 
 ---
 

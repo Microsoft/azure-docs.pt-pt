@@ -4,11 +4,11 @@ description: Este guia ajuda administradores que criam e gerem contas de laborat
 ms.topic: article
 ms.date: 10/20/2020
 ms.openlocfilehash: 08d2fea719ad67f666ea9da09721dc3f7ab54768
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024641"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999285"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guia de Administradores
 Os administradores de tecnologias da informação (TI) que gerem os recursos em nuvem de uma universidade são normalmente responsáveis pela criação da conta de laboratório para a sua escola. Depois de criarem uma conta de laboratório, administradores ou educadores criam os laboratórios que estão contidos na conta. Este artigo fornece uma visão geral de alto nível dos recursos Azure que estão envolvidos e as orientações para a sua criação.
@@ -271,7 +271,7 @@ Neste exemplo, o custo é:
 
 Não elimine a replicação em regiões específicas como forma de reduzir os custos, embora esta opção exista na galeria de imagens partilhada. As alterações de replicação podem ter efeitos adversos na capacidade da Azure Lab Services de publicar VMs a partir de imagens guardadas dentro de uma galeria de imagens partilhada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a criação e gestão de laboratórios, consulte:
 

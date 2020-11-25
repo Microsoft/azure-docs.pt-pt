@@ -4,11 +4,11 @@ description: São quatro redes necessárias para o VMware HCX.
 ms.topic: include
 ms.date: 11/23/2020
 ms.openlocfilehash: 48894c532c97b70cde1473fb8b81f406ded70343
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95529748"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999638"
 ---
 <!-- Used in avs-production-ready-deployment.md and tutorial-deploy-vmware-hcx.md -->
 

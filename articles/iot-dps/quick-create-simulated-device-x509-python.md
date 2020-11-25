@@ -10,11 +10,11 @@ services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
 ms.openlocfilehash: 28a65e9e5f85d3c1102875a97ae122a00456c607
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323911"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001419"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo X.509 simulado utilizando o dispositivo Python SDK para serviço de provisionamento de dispositivos IoT Hub
 
@@ -109,7 +109,7 @@ Este artigo demonstra inscrições individuais.
 
 7. No painel **de inscrição adicionar,** insira as seguintes informações:
    - Selecione **X.509** como o *Mecanismo* de atestado de identidades.
-   - Sob o *certificado Primário .pem ou .cer file*, escolha *Selecionar um ficheiro* para selecionar o ficheiro de certificado **X509Testcertate.pem** criado nos passos anteriores.
+   - Sob o *certificado Primário .pem ou .cer ficheiro*, escolha *Selecionar um ficheiro* para selecionar o ficheiro de certificado **X509Testcertificate.pem** criado nos passos anteriores.
    - Opcionalmente, pode fornecer as seguintes informações:
      - Selecione um hub IoT ligado ao seu serviço de aprovisionamento.
      - Introduza um ID de dispositivo exclusivo. Certifique-se de que evita dados confidenciais quando der o nome ao seu dispositivo. 
@@ -169,7 +169,7 @@ Este artigo demonstra inscrições individuais.
 > Se tiver alterado o *estado inicial do dispositivo duplo* face ao valor predefinido na entrada de inscrição do seu dispositivo, este pode extrair o estado pretendido do dispositivo duplo a partir do hub e agir em conformidade. Para obter mais informações, consulte [Compreender e utilizar gémeos do dispositivo no IoT Hub.](../iot-hub/iot-hub-devguide-device-twins.md)
 >
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositivo, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 

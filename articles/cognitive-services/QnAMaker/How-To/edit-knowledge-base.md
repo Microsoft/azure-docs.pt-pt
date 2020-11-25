@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776549"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000101"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Edite os pares QnA na sua base de conhecimentos
 
@@ -60,7 +60,7 @@ A edição de texto rico do seu texto de resposta dá-lhe um estilo de marcaçã
     |--|--|
     |Alternar entre editor de texto rico e markdown. `</>`|CTRL+M|
     |É arrojado. **B**|CTR+LB|
-    |Itálico, indicado com um iálicizado ** _I_**|CTRL+I|
+    |Itálico, indicado com um iálicizado **_I_**|CTRL+I|
     |Lista não ordenada||
     |Lista ordenada||
     |Estilo parágrafo||
@@ -112,7 +112,7 @@ Não pode ligar os pares QnA nos metadados da resposta.
 
 ## <a name="add-metadata"></a>Adicionar metadados
 
-Adicione os pares de metadados selecionando primeiro **as opções de visualização**e, em seguida, selecione **Mostrar metadados**. Isto mostra a coluna de metadados. Em seguida, selecione o **+** sinal para adicionar um par de metadados. Este par é composto por uma chave e um valor.
+Adicione os pares de metadados selecionando primeiro **as opções de visualização** e, em seguida, selecione **Mostrar metadados**. Isto mostra a coluna de metadados. Em seguida, selecione o **+** sinal para adicionar um par de metadados. Este par é composto por uma chave e um valor.
 
 Saiba mais sobre metadados no portal QnA Maker quickstart para metadados:
 * [Autoria - adicione metadados ao par QnA](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)

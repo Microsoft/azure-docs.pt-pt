@@ -11,11 +11,11 @@ ms.custom:
 - contperfq1
 - device-developer
 ms.openlocfilehash: f5b3e461408242553822024bc59c56a3feb29c44
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991065"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999523"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT na aplicação do Azure IoT Central
 
@@ -274,6 +274,6 @@ Para publicar um modelo de dispositivo, vá até si o modelo do seu dispositivo 
 
 Depois de publicar um modelo de dispositivo, um operador pode ir à página dispositivos e adicionar **dispositivos** reais ou simulados que usam o modelo do seu dispositivo. Pode continuar a modificar e guardar o modelo do dispositivo à medida que está a fazer alterações. Quando pretender empurrar estas alterações para o operador para visualizar na página **Dispositivos,** tem de selecionar **Publicar** sempre.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se você é um desenvolvedor de dispositivos, um próximo passo sugerido é ler sobre a [versão do modelo do dispositivo](./howto-version-device-template.md).

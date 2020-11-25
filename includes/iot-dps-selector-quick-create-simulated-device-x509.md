@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: iot-dps
 author: msebolt
 ms.author: v-masebo
@@ -9,11 +9,11 @@ ms.topic: include
 ms.service: iot-dps
 ms.custom: include file
 ms.openlocfilehash: 43355aac18b71f55ce157f7e275e2efd9106acac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "67184382"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001417"
 ---
 > [!div class="op_single_selector"]
 > * [C](../articles/iot-dps/quick-create-simulated-device-x509.md)

@@ -8,11 +8,11 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: f50c84212e62fae378d9d95e8990e084c82bb99a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967215"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000373"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Utilizar os filtros de ligação IP do Azure IoT DPS
 

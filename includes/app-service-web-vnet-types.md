@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b92da999c15255f543abca346fc2bf8840006c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739918"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999458"
 ---
 * Os sistemas multitenantes que suportam toda a gama de planos de preços, exceto isolados.
 * O Ambiente de Serviço de Aplicações, que se implanta no seu VNet e suporta aplicações de planos de preços isolados.
@@ -38,5 +38,5 @@ A Integração VNet exigida pelo Gateway fornece acesso a recursos apenas no VNe
 Independentemente da versão utilizada, a VNet Integration dá à sua aplicação acesso a recursos no seu VNet, mas não concede acesso privado à sua aplicação a partir do VNet. O acesso ao site privado refere-se a tornar a sua aplicação acessível apenas a partir de uma rede privada, como por exemplo dentro de um Azure VNet. A Integração VNet destina-se apenas a fazer chamadas de saída da sua app para o seu VNet.
 
 <!--Links-->
-[ASEintro]: https://docs.microsoft.com/azure/app-service/environment/intro
-[Networkingfeatures]: https://docs.microsoft.com/azure/app-service/networking-features
+[ASEintro]: ../articles/app-service/environment/intro.md
+[Networkingfeatures]: ../articles/app-service/networking-features.md

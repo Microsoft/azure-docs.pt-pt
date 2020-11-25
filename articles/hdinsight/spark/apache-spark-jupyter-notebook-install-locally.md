@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
 ms.openlocfilehash: 96b2e7deff464f00ced4457a514ac833a90bd42d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87873896"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999897"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instale o caderno Jupyter no seu computador e ligue-se ao Apache Spark em HDInsight
 
@@ -90,7 +90,7 @@ Nesta secção, configura a magia spark que instalou anteriormente para se ligar
     python
     ```
 
-2. A informação de configuração jupyter é normalmente armazenada no diretório de utilizadores. Insira o seguinte comando para identificar o diretório doméstico e crie uma pasta chamada ** \. sparkmagic**.  O caminho completo será desviado.
+2. A informação de configuração jupyter é normalmente armazenada no diretório de utilizadores. Insira o seguinte comando para identificar o diretório doméstico e crie uma pasta chamada **\. sparkmagic**.  O caminho completo será desviado.
 
     ```python
     import os

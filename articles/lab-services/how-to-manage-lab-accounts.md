@@ -4,11 +4,11 @@ description: Saiba como criar uma conta de laboratório, ver todas as contas do 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 33e5e42f65fdd34bb37b12947b5173700ad7970c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251665"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999506"
 ---
 # <a name="create-and-manage-lab-accounts"></a>Criar e gerir contas de laboratório
 Nos Serviços de Laboratório Azure, uma conta de laboratório é um recipiente para tipos de laboratório geridos, como laboratórios de sala de aula. Um administrador cria uma conta de laboratório com os Serviços Azure Lab e dá acesso aos donos de laboratórios que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, ver todas as contas do laboratório ou apagar uma conta de laboratório.
@@ -50,7 +50,7 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar uma conta
     ![Criar contas de laboratório -> Tags](./media/how-to-manage-lab-accounts/create-lab-account-review-create.png)
 5. Aguarde até que a implementação esteja completa, expanda **os próximos passos**, e selecione **Ir para** o recurso como mostrado na seguinte imagem: 
 
-    Também pode selecionar o ícone da **campainha** na barra de**ferramentas (Notificações),** confirmar se a implementação foi bem sucedida e, em seguida, selecionar **Ir para o recurso**. 
+    Também pode selecionar o ícone da **campainha** na barra de **ferramentas (Notificações),** confirmar se a implementação foi bem sucedida e, em seguida, selecionar **Ir para o recurso**. 
 
     Em alternativa, **selecione Refresh** na página Contas de **Laboratório** e selecione a conta de laboratório que criou. 
 

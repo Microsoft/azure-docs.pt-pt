@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 6bdf6015ca5633c77280111a55055a7394cee5bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057659"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001376"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Stream de conteúdo com integração de CDN
 
@@ -32,7 +32,7 @@ O conteúdo popular será servido diretamente a partir da cache CDN, desde que o
 Também é preciso considerar como o streaming adaptativo funciona. Cada fragmento de vídeo individual é cached como sua própria entidade. Por exemplo, imagine a primeira vez que um determinado vídeo é visto. Se o espectador saltar por aí a ver apenas alguns segundos aqui e ali, apenas os fragmentos de vídeo associados ao que a pessoa viu ficam em cache na CDN. Com o streaming adaptativo, normalmente tem 5 a 7 bitrates diferentes de vídeo. Se uma pessoa está a ver um bitrate e outra está a ver um bitrate diferente, então estão cada um em cache separadamente no CDN. Mesmo que duas pessoas estejam a ver a mesma bitrate, podem estar a transmitir diferentes protocolos. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) é em cache separadamente. Assim, cada bitrate e protocolo são em cache separadamente e apenas os fragmentos de vídeo que foram solicitados estão em cache.
 
 Com exceção do ambiente de teste, recomendamos que a CDN seja ativada tanto para os pontos finais de streaming Standard como para Premium. Cada tipo de ponto final de streaming tem um limite de produção suportado diferente.
-É difícil fazer um cálculo preciso para o número máximo de fluxos simultâneos suportados por um ponto final de streaming, uma vez que existem vários fatores a ter em conta. Estes incluem:
+É difícil fazer um cálculo preciso para o número máximo de fluxos simultâneos suportados por um ponto final de streaming, uma vez que existem vários fatores a ter em conta. Estas incluem:
 
 - Bitrates máximos utilizados para o streaming
 - Pré-tampão do jogador e comportamento de comutação. Os jogadores tentam rebentar segmentos a partir de uma origem e usam a velocidade de carga para calcular a comutação de bitrate adaptativo. Se um ponto final de streaming se aproximar da saturação, os tempos de resposta podem variar e os jogadores começam a mudar para uma qualidade mais baixa. Como isto está a reduzir a carga nos jogadores do Streaming Endpoint, reduza para uma qualidade mais alta criando gatilhos de comutação indesejados.

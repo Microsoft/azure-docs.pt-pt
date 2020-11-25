@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: c224332eec31b343bdc53564ef4075a0620ac340
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 759bd94aee98aa04dee56acf0e50ca90cd0541b8
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289568"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96000611"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Implementar uma aplicação de pilha dupla IPv6 utilizando o Balancer de Carga Interna Padrão em Azure - PowerShell (Pré-visualização)
 
@@ -29,7 +29,7 @@ O procedimento para criar um Balanceador de Carga Interno com capacidade IPv6 é
 ```azurepowershell
  $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
  -Name "dsLbFrontEnd_v6" `
- -PrivateIpAddress "ace:cab:deca:deed::100" `
+ -PrivateIpAddress "fd00:db8:deca:deed::100" `
  -PrivateIpAddressVersion "IPv6" `
  -Subnet $DsSubnet
 ```
@@ -100,14 +100,14 @@ Crie uma rede virtual utilizando [a Rede New-AzVirtual](/powershell/module/az.ne
 # Create dual stack subnet config
 $DsSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name "dsSubnet" `
-  -AddressPrefix "10.0.0.0/24","ace:cab:deca:deed::/64"
+  -AddressPrefix "10.0.0.0/24","fd00:db8:deca:deed::/64"
 
 # Create the virtual network
 $vnet = New-AzVirtualNetwork `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
   -Name "dsVnet" `
-  -AddressPrefix "10.0.0.0/16","ace:cab:deca::/48"  `
+  -AddressPrefix "10.0.0.0/16","fd00:db8:deca::/48"  `
   -Subnet $DsSubnet
 
 #Refresh the fully populated subnet for use in load balancer frontend configuration
@@ -130,7 +130,7 @@ $frontendIPv4 = New-AzLoadBalancerFrontendIpConfig `
 
 $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
   -Name "dsLbFrontEnd_v6" `
-  -PrivateIpAddress "ace:cab:deca:deed::100"  `
+  -PrivateIpAddress "fd00:db8:deca:deed::100"  `
   -PrivateIpAddressVersion "IPv6"   `
   -Subnet $DsSubnet
 
@@ -260,18 +260,18 @@ Crie NICs virtuais com [New-AzNetworkInterface](/powershell/module/az.network/ne
 ```azurepowershell
 
 # Create the IPv4 configuration for NIC 1
-$Ip4Config=New-AzNetworkInterfaceIpConfig `
-  -Name dsIp4Config `
+$Ip4Config=New-AzNetworkInterfaceIpConfig `
+  -Name dsIp4Config `
   -Subnet $vnet.subnets[0] `
-  -PrivateIpAddressVersion IPv4 `
+  -PrivateIpAddressVersion IPv4 `
   -LoadBalancerBackendAddressPool $backendPoolv4 `
   -PublicIpAddress  $RdpPublicIP_1
 
 # Create the IPv6 configuration
-$Ip6Config=New-AzNetworkInterfaceIpConfig `
-  -Name dsIp6Config `
+$Ip6Config=New-AzNetworkInterfaceIpConfig `
+  -Name dsIp6Config `
   -Subnet $vnet.subnets[0] `
-  -PrivateIpAddressVersion IPv6 `
+  -PrivateIpAddressVersion IPv6 `
   -LoadBalancerBackendAddressPool $backendPoolv6
 
 # Create NIC 1
@@ -283,10 +283,10 @@ $NIC_1 = New-AzNetworkInterface `
   -IpConfiguration $Ip4Config,$Ip6Config
 
 # Create the IPv4 configuration for NIC 2
-$Ip4Config=New-AzNetworkInterfaceIpConfig `
-  -Name dsIp4Config `
+$Ip4Config=New-AzNetworkInterfaceIpConfig `
+  -Name dsIp4Config `
   -Subnet $vnet.subnets[0] `
-  -PrivateIpAddressVersion IPv4 `
+  -PrivateIpAddressVersion IPv4 `
   -LoadBalancerBackendAddressPool $backendPoolv4 `
   -PublicIpAddress  $RdpPublicIP_2
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
 ms.openlocfilehash: 99d90e4d93f0e4a70350a5a33a65700c3e14acb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398328"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000815"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copie ficheiros novos e alterados por LastModifiedDate com Azure Data Factory
 
@@ -73,7 +73,7 @@ O modelo define seis parâmetros:
 
     ![Reveja o resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate7.png)
     
-7. Agora pode adicionar um gatilho de janelas para automatizar este oleoduto, para que o gasoduto possa sempre copiar ficheiros novos e alterados apenas por LastModifiedDate periodicamente.  **Selecione Adicionar o gatilho**e selecione **Novo/Editar**.
+7. Agora pode adicionar um gatilho de janelas para automatizar este oleoduto, para que o gasoduto possa sempre copiar ficheiros novos e alterados apenas por LastModifiedDate periodicamente.  **Selecione Adicionar o gatilho** e selecione **Novo/Editar**.
 
     ![Screenshot que realça a opção de menu Novo/Editar que aparece quando seleciona Adicionar gatilho.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
@@ -88,8 +88,8 @@ O modelo define seis parâmetros:
     - **Directory_Source**  =  **sub-dobrador**.  Pode substituir-se pela sua sub-dobradeira na loja de dados de origem.
     - **FolderPath_Destination**  =  **destinationfolder**.  Pode substituir pela sua pasta na loja de dados de destino.
     - **Directory_Destination**  =  **sub-dobrador**.  Pode substituir pela sua sub-dobradeira na loja de dados de destino.
-    - **LastModified_From**  =   ** \@ gatilho().outputs.windowStartTime**.  É uma variável do sistema a partir do gatilho que determina a hora em que o gasoduto foi acionado da última vez.
-    - **LastModified_To**  =  ** \@ gatilho().outputs.windowEndTime**.  É uma variável do sistema a partir do gatilho que determina o momento em que o gasoduto é acionado desta vez.
+    - **LastModified_From**  =   **\@ gatilho().outputs.windowStartTime**.  É uma variável do sistema a partir do gatilho que determina a hora em que o gasoduto foi acionado da última vez.
+    - **LastModified_To**  =  **\@ gatilho().outputs.windowEndTime**.  É uma variável do sistema a partir do gatilho que determina o momento em que o gasoduto é acionado desta vez.
     
     ![Parâmetros de entrada](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

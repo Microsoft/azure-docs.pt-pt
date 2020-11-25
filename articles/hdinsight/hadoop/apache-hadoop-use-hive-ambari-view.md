@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: cc04a891bb32ede6c7bb72a339b728642cf343ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207832"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000526"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilizar a Vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
 
@@ -62,7 +62,7 @@ Um aglomerado hadoop em HDInsight. Ver [Começar com HDInsight no Linux](./apach
 
     |Instrução | Descrição |
     |---|---|
-    |MESA DE LANÇAMENTO|Elimina a tabela e o ficheiro de dados, caso a tabela já exista.|
+    |DROP TABLE|Elimina a tabela e o ficheiro de dados, caso a tabela já exista.|
     |CRIAR TABELA EXTERNA|Cria uma nova tabela "externa" na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original.|
     |FORMATO DE LINHA|Mostra como os dados são formatados. Neste caso, os campos em cada tronco são separados por um espaço.|
     |ARMAZENADO COMO LOCALIZAÇÃO DE FICHEIRO DE TEXTO|Mostra onde os dados são armazenados, e que é armazenado como texto.|
@@ -135,7 +135,7 @@ Por exemplo, se definiu um UDF com as seguintes propriedades:
 
 * Nome do recurso: myudfs
 
-* Caminho do recurso: /myudfs.jar
+* Caminho de recurso: /myudfs.jar
 
 * Nome UDF: myawesomeudf
 

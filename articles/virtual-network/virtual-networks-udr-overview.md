@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: aldomel
 ms.openlocfilehash: ad0a5fc5940c36aa5d2d6912987b154532bc80a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83727122"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000883"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -163,7 +163,7 @@ Quando substitui o prefixo de endereço 0.0.0.0/0, para além do tráfego de sa�
         * Não negar a comunicação<br>
         * Ser capaz de utilizar a tradução e o reencaminhamento de endereços de rede ou o proxy de tráfego no recurso de destino na sub-rede, bem como de devolvê-lo à Internet.
 
-    * **Gateway de rede virtual**: se o gateway for um gateway de rede virtual do ExpressRoute, os dispositivos ligados à Internet no local podem utilizar a tradução e o reencaminhamento de endereços de rede ou o proxy de tráfego para o recurso de destino na sub-rede, através do[peering privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#privatepeering) do ExpressRoute.  
+    * **Gateway de rede virtual**: se o gateway for um gateway de rede virtual do ExpressRoute, os dispositivos ligados à Internet no local podem utilizar a tradução e o reencaminhamento de endereços de rede ou o proxy de tráfego para o recurso de destino na sub-rede, através do [peering privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#privatepeering) do ExpressRoute.  
 
 Se a rede virtual esiver ligada a um gateway VPN do Azure, não associe nenhuma tabela de rota à [sub-rede do gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluia uma rota com um destino 0.0.0.0/0. Se o fizer, poderá impedir que o gateway funcione corretamente. Para obter detalhes, veja a questão *Por que motivo determinadas portas são abertas no meu gateway de VPN?* nas [FAQ do Gateway de VPN](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
 
@@ -210,17 +210,17 @@ A tabela de rotas de *Subnet1* na imagem contém as rotas seguintes:
 |ID  |Origem |Estado  |Prefixos de endereço    |Tipo de salto seguinte          |Endereço IP do próximo salto|Nome da rota definida pelo utilizador| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Predefinição|Inválido|10.0.0.0/16         |Rede virtual        |                   |              |
-|2   |Utilizador   |Ativa |10.0.0.0/16         |Aplicação virtual      |10.0.100.4         |Within-VNet1  |
-|3   |Utilizador   |Ativa |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
+|2   |Utilizador   |Ativo |10.0.0.0/16         |Aplicação virtual      |10.0.100.4         |Within-VNet1  |
+|3   |Utilizador   |Ativo |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
 |4   |Predefinição|Inválido|10.1.0.0/16         |VNet peering           |                   |              |
 |5   |Predefinição|Inválido|10.2.0.0/16         |VNet peering           |                   |              |
-|6   |Utilizador   |Ativa |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
-|7   |Utilizador   |Ativa |10.2.0.0/16         |Nenhum                   |                   |ToVNet2-2-Drop|
+|6   |Utilizador   |Ativo |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
+|7   |Utilizador   |Ativo |10.2.0.0/16         |Nenhum                   |                   |ToVNet2-2-Drop|
 |8   |Predefinição|Inválido|10.10.0.0/16        |Gateway de rede virtual|[X.X.X.X]          |              |
-|9   |Utilizador   |Ativa |10.10.0.0/16        |Aplicação virtual      |10.0.100.4         |To-On-Prem    |
+|9   |Utilizador   |Ativo |10.10.0.0/16        |Aplicação virtual      |10.0.100.4         |To-On-Prem    |
 |10  |Predefinição|Ativo |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |Predefinição|Inválido|0.0.0.0/0           |Internet               |                   |              |
-|12  |Utilizador   |Ativa |0.0.0.0/0           |Aplicação virtual      |10.0.100.4         |Default-NVA   |
+|12  |Utilizador   |Ativo |0.0.0.0/0           |Aplicação virtual      |10.0.100.4         |Default-NVA   |
 
 Segue-se uma explicação de cada ID de rota:
 
@@ -252,7 +252,7 @@ A tabela de rotas de *Subnet2* na imagem contém as rotas seguintes:
 |Predefinição |Ativo |100.64.0.0/10       |Nenhum                      |                   |
 |Predefinição |Ativo |192.168.0.0/16      |Nenhum                      |                   |
 
-A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pelo Azure e as rotas opcionais de peering de VNet e de gateway de rede virtual. O Azure adicionou as rotas opcionais a todas as sub-redes na rede virtual quando o gateway e o peering foram adicionados à rede virtual. A Azure removeu as rotas para os prefixos de endereço 10.0.0.0/8, 192.168.0.0/16 e 100.64.0.0/10 prefixos da tabela de rotas *Subnet1* quando a *Subnet1*rota definida pelo utilizador para o pré-fixo de 0,0.0.0/0.  
+A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pelo Azure e as rotas opcionais de peering de VNet e de gateway de rede virtual. O Azure adicionou as rotas opcionais a todas as sub-redes na rede virtual quando o gateway e o peering foram adicionados à rede virtual. A Azure removeu as rotas para os prefixos de endereço 10.0.0.0/8, 192.168.0.0/16 e 100.64.0.0/10 prefixos da tabela de rotas *Subnet1* quando a *Subnet1* rota definida pelo utilizador para o pré-fixo de 0,0.0.0/0.  
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93235884"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999459"
 ---
-A funcionalidade é fácil de configurar, mas isso não significa que a sua experiência seja livre de problemas. Se encontrar problemas no acesso ao seu ponto final pretendido, existem alguns utilitários que pode utilizar para testar a conectividade a partir da consola da aplicação. Há duas consolas que podes usar. Uma é a consola Kudu, e a outra é a consola no portal Azure. Para chegar à consola Kudu a partir da sua aplicação, vá ao **Tools**  >  **Kudu** . Também pode alcançar a consola Kudo em [sitename].scm.azurewebsites.net. Depois de carregar o site, vá ao separador **de consola Debug.** Para chegar à consola azure a partir da sua aplicação, vá ao **Consola de Ferramentas.**  >  **Console**
+A funcionalidade é fácil de configurar, mas isso não significa que a sua experiência seja livre de problemas. Se encontrar problemas no acesso ao seu ponto final pretendido, existem alguns utilitários que pode utilizar para testar a conectividade a partir da consola da aplicação. Há duas consolas que podes usar. Uma é a consola Kudu, e a outra é a consola no portal Azure. Para chegar à consola Kudu a partir da sua aplicação, vá ao **Tools**  >  **Kudu**. Também pode alcançar a consola Kudo em [sitename].scm.azurewebsites.net. Depois de carregar o site, vá ao separador **de consola Debug.** Para chegar à consola azure a partir da sua aplicação, vá ao **Consola de Ferramentas.**  >  **Console**
 
 #### <a name="tools"></a>Ferramentas
-Nas aplicações nativas do Windows, as ferramentas **ping** , **nslookup** , e **tracert** não funcionam através da consola devido a restrições de segurança (funcionam em [recipientes windows personalizados).](../articles/app-service/quickstart-custom-container.md) Para preencher o vazio, são adicionadas duas ferramentas separadas. Para testar a funcionalidade DNS, adicionámos uma ferramenta chamada **nameresolver.exe** . A sintaxe é:
+Nas aplicações nativas do Windows, as ferramentas **ping**, **nslookup**, e **tracert** não funcionam através da consola devido a restrições de segurança (funcionam em [recipientes windows personalizados).](../articles/app-service/quickstart-custom-container.md) Para preencher o vazio, são adicionadas duas ferramentas separadas. Para testar a funcionalidade DNS, adicionámos uma ferramenta chamada **nameresolver.exe**. A sintaxe é:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
@@ -51,7 +51,7 @@ Se esses itens não responderem aos seus problemas, procure primeiro coisas como
 **Integração VNet exigida pelo Gateway**
 * É o intervalo de endereços ponto-a-local nas gamas RFC 1918 (10.0.0-10.255.255.255 /172.16.00.0-172.31.255.255 / 192.168.0.0-192.168.255.255)?
 * O portal mostra-se como estando no portal? Se o seu portal está em baixo, então traga-o de volta.
-* Os certificados mostram estar sincronizados ou suspeita que a configuração da rede foi alterada?  Se os seus certificados estiverem dessincronizados ou suspeitar que foi feita uma alteração na sua configuração de rede virtual que não foi sincronizada com os seus ASPs, selecione **Sync Network** .
+* Os certificados mostram estar sincronizados ou suspeita que a configuração da rede foi alterada?  Se os seus certificados estiverem dessincronizados ou suspeitar que foi feita uma alteração na sua configuração de rede virtual que não foi sincronizada com os seus ASPs, selecione **Sync Network**.
 * Se vai atravessar uma VPN, o portal no local está configurado para encaminhar o tráfego de volta para Azure? Se conseguir chegar aos pontos finais da sua rede virtual, mas não no local, verifique as suas rotas.
 * Está a tentar usar uma porta de entrada de coexistência que suporta tanto o ponto para o site como o ExpressRoute? As portas de coexistência não são suportadas com a Integração VNet.
 
@@ -74,7 +74,7 @@ Os passos adicionais de depurg incluem:
 test-netconnection hostname [optional: -Port]
 ```
 
-* Apresentar uma aplicação num VM e testar o acesso a esse anfitrião e porta a partir da consola a partir da sua aplicação, utilizando **tcpping** .
+* Apresentar uma aplicação num VM e testar o acesso a esse anfitrião e porta a partir da consola a partir da sua aplicação, utilizando **tcpping**.
 
 #### <a name="on-premises-resources"></a>Recursos no local ####
 

@@ -8,11 +8,11 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322432"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000356"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Processamento de exceções e registo de erros das aplicações lógicas
 
@@ -396,7 +396,7 @@ A nossa solução adicionou capacidades com [a Azure Cosmos DB](https://azure.mi
 
 ### <a name="error-management-portal"></a>Portal de gestão de erros
 
-Para visualizar os erros, pode criar uma aplicação web MVC para exibir os registos de erro da Cosmos DB. As operações **List**, **Details**, **Edit**e **Delete** estão incluídas na versão atual.
+Para visualizar os erros, pode criar uma aplicação web MVC para exibir os registos de erro da Cosmos DB. As operações **List**, **Details**, **Edit** e **Delete** estão incluídas na versão atual.
 
 > [!NOTE]
 > Edição: Cosmos DB substitui todo o documento. Os registos mostrados na **Lista** e **nos pontos de** vista são apenas amostras. Não são registos de consulta de pacientes.

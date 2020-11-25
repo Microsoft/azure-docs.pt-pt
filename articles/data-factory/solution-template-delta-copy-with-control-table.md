@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442008"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000832"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Cópia delta de uma base de dados com uma tabela de controlo
 
@@ -110,15 +110,15 @@ O modelo define os seguintes parâmetros:
   
     ![Reveja o oleoduto](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-9. Selecione **Procedimento armazenado**. Para **nome de procedimento armazenado,** escolha **[dbo].[ update_watermark]**. . Selecione **o parâmetro Import**e, em seguida, selecione Adicionar conteúdo **dinâmico**.  
+9. Selecione **Procedimento armazenado**. Para **nome de procedimento armazenado,** escolha **[dbo].[ update_watermark]**. . Selecione **o parâmetro Import** e, em seguida, selecione Adicionar conteúdo **dinâmico**.  
 
     ![Definir a atividade de procedimento armazenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
-10. Escreva o conteúdo ** \@ {activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** e, em seguida, **selecione Finish**.  
+10. Escreva o conteúdo **\@ {activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** e, em seguida, **selecione Finish**.  
 
     ![Escreva o conteúdo para os parâmetros do procedimento armazenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
-11. Selecione **Debug,** introduza os **parâmetros**e, em seguida, selecione **Terminar**.
+11. Selecione **Debug,** introduza os **parâmetros** e, em seguida, selecione **Terminar**.
 
     ![Selecione **Debug**](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
@@ -136,7 +136,7 @@ O modelo define os seguintes parâmetros:
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
 
-14. Para voltar a executar o gasoduto, selecione **Debug,** introduza os **Parâmetros**e, em seguida, selecione **Terminar**.
+14. Para voltar a executar o gasoduto, selecione **Debug,** introduza os **Parâmetros** e, em seguida, selecione **Terminar**.
 
     Verá que apenas novas filas foram copiadas para o destino.
 

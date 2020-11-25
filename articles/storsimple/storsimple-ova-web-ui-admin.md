@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 6bea9c9b7807ffb32b6071c968d3186965477009
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513043"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000934"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Utilize o UI Web para administrar o seu StorSimple Virtual Array
 ![fluxo de processo de configuração](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -40,8 +40,8 @@ Uma chave de encriptação de dados de serviço é gerada quando regista o seu p
 Se tiver perdido a chave de encriptação de dados de serviço e precisar de a recuperar, execute os seguintes passos na UI web local do dispositivo registado no seu serviço.
 
 #### <a name="to-get-the-service-data-encryption-key"></a>Para obter a chave de encriptação de dados de serviço
-1. Ligue-se à UI web local. Aceda **Configuration**às  >  **definições de nuvem de**configuração .
-2. Na parte inferior da página, clique em Obter a **chave de encriptação de dados**de serviço . Aparecerá uma chave. Copie e guarde esta chave.
+1. Ligue-se à UI web local. Aceda **Configuration** às  >  **definições de nuvem de** configuração .
+2. Na parte inferior da página, clique em Obter a **chave de encriptação de dados** de serviço . Aparecerá uma chave. Copie e guarde esta chave.
    
     ![obter chave de encriptação de dados de serviço 1](./media/storsimple-ova-web-ui-admin/image27.png)
 
@@ -71,16 +71,16 @@ Um pacote de registo é composto por todos os registos relevantes que podem ajud
     Será notificado após a criação do pacote com sucesso, e a página será atualizada para indicar a hora e a data em que o pacote foi criado.
    
     ![gerar pacote de log 3](./media/storsimple-ova-web-ui-admin/image33.png)
-3. Clique **em Baixar o pacote de registos**de descarregamento . Um pacote com fecho será descarregado no seu sistema.
+3. Clique **em Baixar o pacote de registos** de descarregamento . Um pacote com fecho será descarregado no seu sistema.
    
     ![gerar pacote de log 4](./media/storsimple-ova-web-ui-admin/image34.png)
 4. Pode desapertar o pacote de registos descarregado e visualizar os ficheiros de registo do sistema.
 
 ## <a name="shut-down-and-restart-your-device"></a>Desligue e reinicie o seu dispositivo
-Pode desligar ou reiniciar o seu dispositivo virtual utilizando a UI web local. Recomendamos que antes de reiniciar, leve os volumes ou ações offline no anfitrião e, em seguida, o dispositivo. Isto minimizará qualquer possibilidade de corrupção de dados. 
+Pode encerrar ou reiniciar o dispositivo virtual com a IU da Web local. Recomendamos que antes de reiniciar, leve os volumes ou ações offline no anfitrião e, em seguida, o dispositivo. Isto minimizará qualquer possibilidade de corrupção de dados. 
 
 #### <a name="to-shut-down-your-virtual-device"></a>Para desligar o seu dispositivo virtual
-1. Na UI web local, **Maintenance**aceda às  >  **definições de Manutenção de Energia**.
+1. Na UI web local, **Maintenance** aceda às  >  **definições de Manutenção de Energia**.
 2. Na parte inferior da página, clique **em Desligar**.
    
     ![encerramento do dispositivo 1](./media/storsimple-ova-web-ui-admin/image36.png)
@@ -95,7 +95,7 @@ Pode desligar ou reiniciar o seu dispositivo virtual utilizando a UI web local. 
     O dispositivo irá agora desligar-se. Se quiser iniciar o seu dispositivo, terá de o fazer através do Hyper-V Manager.
 
 #### <a name="to-restart-your-virtual-device"></a>Para reiniciar o seu dispositivo virtual
-1. Na UI web local, **Maintenance**aceda às  >  **definições de Manutenção de Energia**.
+1. Na UI web local, **Maintenance** aceda às  >  **definições de Manutenção de Energia**.
 2. Na parte inferior da página, clique em **Reiniciar**.
    
     ![reiniciar dispositivo](./media/storsimple-ova-web-ui-admin/image36.png)

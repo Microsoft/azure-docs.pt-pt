@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 48a9856c58a815eabcc0b105efcd548e66ddd552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4f2b07edc6c290fa030621a4dc400ab50890bba
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80874216"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001198"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar recipientes de estiva de linguagem 
 
@@ -29,7 +29,7 @@ Este recipiente tem as seguintes definições de configuração:
 |Necessário|Definição|Objetivo|
 |--|--|--|
 |Sim|[ApiKey](#apikey-setting)|Usado para rastrear informação de faturação.|
-|Não|[ApplicationInsights](#applicationinsights-setting)|Permite-lhe adicionar suporte de telemetria [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) ao seu recipiente.|
+|Não|[ApplicationInsights](#applicationinsights-setting)|Permite-lhe adicionar suporte de telemetria [Azure Application Insights](/azure/application-insights) ao seu recipiente.|
 |Sim|[Faturação](#billing-setting)|Especifica o ponto final URI do recurso de serviço no Azure.|
 |Sim|[Eula](#eula-setting)| Indica que aceitou a licença para o contentor.|
 |Não|[Fluente](#fluentd-settings)|Escreva log e, opcionalmente, dados métricos para um servidor Fluentd.|

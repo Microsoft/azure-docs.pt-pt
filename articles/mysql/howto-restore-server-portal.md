@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: 9bc31cf8fee2669634ff366caac77cb090baf075
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539146"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000305"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor na Base de Dados Azure para o MySQL utilizando o portal Azure
 
@@ -62,10 +62,10 @@ Os seguintes passos restauram o servidor da amostra num ponto no tempo:
 3. Preencha o formulário Restaurar com as informações necessárias:
 
    :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL - Restaurar informações":::
-   - **Ponto de restauro** : Selecione o ponto a tempo a que pretende restabelecer.
-   - **Servidor-alvo** : Forneça um nome para o novo servidor.
-   - **Localização** : Não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
-   - **Nível de preços** : Não é possível alterar estes parâmetros ao fazer uma restauração pontual. É igual ao servidor de origem. 
+   - **Ponto de restauro**: Selecione o ponto a tempo a que pretende restabelecer.
+   - **Servidor-alvo**: Forneça um nome para o novo servidor.
+   - **Localização**: Não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
+   - **Nível de preços**: Não é possível alterar estes parâmetros ao fazer uma restauração pontual. É igual ao servidor de origem. 
 
 4. Clique **em OK** para restaurar o servidor para restaurar a um ponto no tempo. 
 
@@ -106,7 +106,7 @@ Se configurar o servidor para cópias de segurança geograficamente redundantes,
    
    :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Selecione backup.":::
 
-6. O servidor irá predefinir para valores para o número de **vCores** , Período de **Retenção de Cópia** de Segurança , **Opção de Redundância de Backup,** **Versão do Motor** e **credenciais de administração**. Selecione **Continuar**. 
+6. O servidor irá predefinir para valores para o número de **vCores**, Período de **Retenção de Cópia** de Segurança , **Opção de Redundância de Backup,** **Versão do Motor** e **credenciais de administração**. Selecione **Continuar**. 
    
    :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continue com reforços.":::
 

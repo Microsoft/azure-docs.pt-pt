@@ -5,11 +5,11 @@ services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 5fcc0f820983da388d808cadf8ce64a555e8ef0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87532888"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000186"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas de Retransmissão Azure em Monitor Azure 
 As métricas Azure Relay dão-lhe o estado dos recursos na sua assinatura Azure. Com um rico conjunto de dados de métricas, você pode avaliar a saúde geral dos seus recursos De Retransmissor, não só ao nível do espaço de nome, mas também ao nível da entidade. Estas estatísticas podem ser importantes, uma vez que o ajudam a monitorizar o estado de Azure Relay. As métricas também podem ajudar a resolver problemas de causa de raiz sem precisar de contactar o suporte do Azure.

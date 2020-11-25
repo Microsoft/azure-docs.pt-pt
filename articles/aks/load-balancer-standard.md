@@ -8,11 +8,11 @@ ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684207"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000866"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um balanceador de carga padrão público no serviço Azure Kubernetes (AKS)
 
@@ -381,7 +381,7 @@ Aplicam-se as seguintes limitações quando cria e gere clusters AKS que suporta
 * *Padrão* Os balançadores de carga SKU suportam apenas endereços IP *Standard* SKU.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os serviços da Kubernetes na documentação dos [serviços kubernetes.][kubernetes-services]
 

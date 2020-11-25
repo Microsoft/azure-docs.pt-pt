@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cbfe2ee96aa1848e019890697aec4b1eca687824
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 944a3304146cf0b4ddc7f36f3c3b9f29528b52b2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542954"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999948"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-curl"></a>Quickstart: Extrair texto impresso (OCR) utilizando a API e o CURL da Visão Computacional
 

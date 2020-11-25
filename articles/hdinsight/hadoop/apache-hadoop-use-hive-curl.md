@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 956406ec5ac99be5973f1928bbb89db10e68b339
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533772"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000505"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas de Colmeia Apache com Apache Hadoop em HDInsight usando REST
 
@@ -120,7 +120,7 @@ $clusterName
     {"module":"hive","version":"1.2.1000.2.6.5.3008-11"}
     ```
 
-1. Utilize o seguinte para criar uma tabela chamada **log4jLogs** :
+1. Utilize o seguinte para criar uma tabela chamada **log4jLogs**:
 
     ```bash
     jobid=$(curl -s -u admin:$password -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$clusterName.azurehdinsight.net/templeton/v1/hive | jq -r .id)
@@ -156,7 +156,7 @@ $clusterName
 
    * `ROW FORMAT` - Como os dados são formatados. Os campos em cada tronco são separados por um espaço.
    * `STORED AS TEXTFILE LOCATION` - Onde os dados são armazenados (o diretório de exemplo/dados) e que são armazenados como texto.
-   * `SELECT` - Selecione uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]** . Esta declaração devolve um valor de **3,** uma vez que existem três linhas que contêm este valor.
+   * `SELECT` - Selecione uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta declaração devolve um valor de **3,** uma vez que existem três linhas que contêm este valor.
 
      > [!NOTE]  
      > Note que os espaços entre as declarações de HiveQL são substituídos pelo `+` personagem quando usados com Curl. Valores citados que contenham um espaço, como o delimiter, não devem ser substituídos por `+` .

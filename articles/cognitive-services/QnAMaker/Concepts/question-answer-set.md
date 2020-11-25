@@ -6,11 +6,11 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: c21c82b5fd024598da30f4ac7b1ed01e64561e3b
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576194"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000118"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Conceitos de pares de perguntas e respostas
 
@@ -28,7 +28,7 @@ Cada par é representado por um **ID**.
 As definições **opcionais** para um par incluem:
 
 * **Formas alternativas da pergunta** - isto ajuda a QnA Maker a devolver a resposta correta para uma maior variedade de frases de perguntas
-* **Metadados** : Os metadados são tags associadas a um par QnA e são representados como pares de valor-chave. As tags de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência de consulta é realizada.
+* **Metadados**: Os metadados são tags associadas a um par QnA e são representados como pares de valor-chave. As tags de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência de consulta é realizada.
 * **Pedidos multi-turn, usados** para continuar uma conversa multi-volta
 
 ![Bases de conhecimento do QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)

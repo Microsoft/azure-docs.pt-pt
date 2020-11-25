@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
 ms.openlocfilehash: f4cad2b658547d56d00efdd5e1496110f8e4a5e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284018"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999587"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorizar e gerir ficheiros FTP com o Azure Logic Apps
 
@@ -73,7 +73,7 @@ Quando um gatilho encontra um novo ficheiro, o gatilho verifica se o novo fichei
 
    -ou-
 
-   Para aplicações lógicas existentes, sob o último passo onde pretende adicionar uma ação, selecione **Novo passo**e, em seguida, selecione Adicione **uma ação**. Na caixa de pesquisa, introduza `ftp` como filtro. Na lista **de Ações,** selecione a ação que pretende.
+   Para aplicações lógicas existentes, sob o último passo onde pretende adicionar uma ação, selecione **Novo passo** e, em seguida, selecione Adicione **uma ação**. Na caixa de pesquisa, introduza `ftp` como filtro. Na lista **de Ações,** selecione a ação que pretende.
 
    Para adicionar uma ação entre os degraus, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal de mais **+** () que aparece e, em seguida, selecione **Adicione uma ação**.
 
@@ -133,7 +133,7 @@ A ação **obter metadados de ficheiros** obtém as propriedades de um ficheiro 
 
    ![Criar ligação ao servidor FTP](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
 
-1. Depois da ação **de metadados de ficheiro** sair, clique dentro da caixa de **Ficheiros** para que a lista de conteúdos dinâmicos apareça. Agora pode selecionar propriedades para as saídas dos passos anteriores. Na lista de conteúdos dinâmicos, em **Obter metadados**de ficheiros, selecione a **propriedade List of Files Id,** que faz referência à recolha onde o ficheiro foi adicionado ou atualizado.
+1. Depois da ação **de metadados de ficheiro** sair, clique dentro da caixa de **Ficheiros** para que a lista de conteúdos dinâmicos apareça. Agora pode selecionar propriedades para as saídas dos passos anteriores. Na lista de conteúdos dinâmicos, em **Obter metadados** de ficheiros, selecione a **propriedade List of Files Id,** que faz referência à recolha onde o ficheiro foi adicionado ou atualizado.
 
    ![Localizar e selecionar a propriedade "Lista de Ficheiros Id"](./media/connectors-create-api-ftp/select-list-of-files-id-output.png)
 
@@ -167,7 +167,7 @@ Para verificar se o seu fluxo de trabalho devolve o conteúdo que espera, adicio
 
    ![Fornecer informações sobre ação de e-mail](./media/connectors-create-api-ftp/selected-send-email-action.png)
 
-1. Guarde a sua aplicação lógica. Para executar e desencadear a aplicação lógica, na barra de ferramentas, selecione **Executar**e, em seguida, adicione um ficheiro à pasta FTP que a sua aplicação lógica agora monitoriza.
+1. Guarde a sua aplicação lógica. Para executar e desencadear a aplicação lógica, na barra de ferramentas, selecione **Executar** e, em seguida, adicione um ficheiro à pasta FTP que a sua aplicação lógica agora monitoriza.
 
 ## <a name="connector-reference"></a>Referência do conector
 

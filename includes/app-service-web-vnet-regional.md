@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 1a9f468b8e2f9fff20b9b26b8890d485e426b691
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 963f0698b921caa413c61059ad69284c41b4f265
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94523919"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999457"
 ---
 A utilização da Integração VNet regional permite que a sua aplicação aceda:
 
@@ -23,8 +23,8 @@ A utilização da Integração VNet regional permite que a sua aplicação aceda
 
 Quando utilizar a Integração VNet com VNets na mesma região, pode utilizar as seguintes funcionalidades de networking Azure:
 
-* **Grupos de segurança de rede (NSGs)** : Pode bloquear o tráfego de saída com um NSG colocado na sua sub-rede de integração. As regras de entrada não se aplicam porque não pode usar a Integração VNet para fornecer acesso à sua aplicação.
-* **Tabelas de rotas (UDRs)** : Pode colocar uma tabela de rota na sub-rede de integração para enviar o tráfego de saída onde quiser.
+* **Grupos de segurança de rede (NSGs)**: Pode bloquear o tráfego de saída com um NSG colocado na sua sub-rede de integração. As regras de entrada não se aplicam porque não pode usar a Integração VNet para fornecer acesso à sua aplicação.
+* **Tabelas de rotas (UDRs)**: Pode colocar uma tabela de rota na sub-rede de integração para enviar o tráfego de saída onde quiser.
 
 Por padrão, a sua aplicação apenas encaminha o tráfego RFC1918 para o seu VNet. Se quiser encaminhar todo o tráfego de saída para o seu VNet, aplique a definição da aplicação WEBSITE_VNET_ROUTE_ALL para a sua aplicação. Para configurar a definição da aplicação:
 
@@ -110,5 +110,5 @@ Se quiser fazer chamadas para [Private Endpoints,][privateendpoints]então tem d
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
-[VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
-[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+[VNETnsg]: /azure/virtual-network/security-overview/
+[privateendpoints]: ../articles/app-service/networking/private-endpoint.md

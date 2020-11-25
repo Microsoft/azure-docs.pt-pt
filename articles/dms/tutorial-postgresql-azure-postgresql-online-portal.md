@@ -13,11 +13,11 @@ ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
 ms.openlocfilehash: 6b9822e16a9c5604371bd4c8c1e136ce78f29820
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955162"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000781"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Tutorial: Migrar PostgreSQL para Azure DB para PostgreSQL on-line usando DMS através do portal Azure
 

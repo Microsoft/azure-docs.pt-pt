@@ -12,11 +12,11 @@ ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
 ms.openlocfilehash: c6b9dc95e1d50481ac5353460910032ca1711ab1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532822"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000458"
 ---
 # <a name="collect-data-from-models-in-production"></a>Recolher dados de modelos em produção
 

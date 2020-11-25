@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2f1c703f2bd2e90e15c566b7e04e8a878c16f6de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772826"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001274"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks numa Função de Trabalho de Runbook Híbrida
 
@@ -86,7 +86,7 @@ Utilize o seguinte procedimento para especificar uma conta Run As para um grupo 
 
 1. Criar um [ativo credencial](./shared-resources/credentials.md) com acesso a recursos locais.
 2. Abra a conta Automation no portal Azure.
-3. Selecione **Grupos operários híbridos**e, em seguida, selecione o grupo específico.
+3. Selecione **Grupos operários híbridos** e, em seguida, selecione o grupo específico.
 4. Selecione **Todas as definições**, seguidas de **configurações do grupo de trabalhadores híbridos**.
 5. Alterar o valor de **Run As** from **Predefinição** para **Personalizado**.
 6. Selecione a credencial e clique em **Guardar**.
@@ -299,7 +299,7 @@ Depois de configurar a validação da assinatura, utilize o seguinte comando GPG
 gpg –-clear-sign <runbook name>
 ```
 
-O livro assinado chama-se ** <runbook name> .asc**.
+O livro assinado chama-se **<runbook name> .asc**.
 
 Pode agora fazer o upload do livro de formulários assinado para a Azure Automation e executá-lo como um runbook regular.
 

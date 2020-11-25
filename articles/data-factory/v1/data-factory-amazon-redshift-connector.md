@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89443029"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999302"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados da Amazon Redshift usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -70,7 +70,7 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) A **estrutura,** **disponibilidade**e secções **de política** são semelhantes para todos os tipos de conjuntos de dados. Exemplos de tipos de conjuntos de dados incluem Azure SQL, armazenamento Azure Blob e armazenamento de mesa Azure.
+Para obter uma lista das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) A **estrutura,** **disponibilidade** e secções **de política** são semelhantes para todos os tipos de conjuntos de dados. Exemplos de tipos de conjuntos de dados incluem Azure SQL, armazenamento Azure Blob e armazenamento de mesa Azure.
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja. A secção **typeProperties** para um conjunto de dados do tipo **RelationalTable,** que inclui o conjunto de dados Redshift da Amazon, tem as seguintes propriedades:
 
@@ -335,12 +335,12 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | DECIMAL |Decimal |
 | REAL |Único |
 | DUPLA PRECISÃO |Double (Duplo) |
-| BOOLEANA |Cadeia |
-| CHAR |Cadeia |
-| RIO VARCHAR |Cadeia |
+| BOOLEANA |String |
+| CHAR |String |
+| RIO VARCHAR |String |
 | DATE |DateTime |
 | TIMETAMP |DateTime |
-| TEXT |Cadeia |
+| TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para aprender a mapear colunas no conjunto de dados de origem para colunas no conjunto de dados da pia, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284069"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999608"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Encontre resultados em Bing Search utilizando aplicações Azure Logic
 
@@ -55,7 +55,7 @@ Ou, se a sua ligação já existe, forneça as informações necessárias para o
    | Consulta de pesquisa | Sim | <*palavras de pesquisa*> | Introduza as palavras-chave de pesquisa que pretende utilizar. |
    | Mercado | Sim | <*local*> | O local de busca. O padrão é "en-US", mas pode selecionar outro valor. |
    | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível do filtro para excluir o conteúdo adulto. O padrão é "Moderado", mas seleciona outro nível. |
-   | Contagem | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
+   | de palavras | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
    | Desvio | Não | <*valor de salto*> | O número de resultados a saltar antes de devolver os resultados |
    |||||
 
@@ -77,7 +77,7 @@ Nas Azure Logic Apps, uma [ação](../logic-apps/logic-apps-overview.md#logic-ap
 
 1. No portal Azure ou Visual Studio, abra a sua aplicação lógica no Logic App Designer. Este exemplo utiliza o portal Azure.
 
-2. Sob o gatilho ou ação, selecione **Novo passo**Adicione  >  **uma ação**.
+2. Sob o gatilho ou ação, selecione **Novo passo** Adicione  >  **uma ação**.
 
    Este exemplo utiliza este gatilho:
 
@@ -106,7 +106,7 @@ Na lista de ações, selecione a ação desejada.
    | Consulta de pesquisa | Sim | <*expressão de pesquisa*> | Introduza uma expressão para consulta dos resultados do gatilho. Pode selecionar a partir dos campos na lista de conteúdos dinâmicos ou criar uma expressão com o construtor de expressão. |
    | Mercado | Sim | <*local*> | O local de busca. O padrão é "en-US", mas pode selecionar outro valor. |
    | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível do filtro para excluir o conteúdo adulto. O padrão é "Moderado", mas seleciona outro nível. |
-   | Contagem | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
+   | de palavras | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
    | Desvio | Não | <*valor de salto*> | O número de resultados a saltar antes de devolver os resultados |
    |||||
 

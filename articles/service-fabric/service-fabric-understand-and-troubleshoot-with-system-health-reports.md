@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260183"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000662"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilizar relatórios de estado de funcionamento do sistema para resolver problemas
 Os componentes do Azure Service Fabric fornecem relatórios de saúde do sistema sobre todas as entidades do cluster fora da caixa. A [loja de saúde](service-fabric-health-introduction.md#health-store) cria e elimina entidades com base nos relatórios do sistema. Também os organiza numa hierarquia que capta interações de entidades.
@@ -116,7 +116,7 @@ HealthEvents          :
 
 
 ### <a name="certificate-expiration"></a>Expiração do certificado
-**System.FabricNode** reporta um aviso quando os certificados utilizados pelo nó estão perto de expirar. Existem três certificados por nó: **Certificate_cluster,** **Certificate_server**e **Certificate_default_client.** Quando a expiração for de pelo menos duas semanas, o estado de saúde do relatório está ok. Quando a expiração é dentro de duas semanas, o tipo de relatório é um aviso. TTL destes eventos é infinito, e são removidos quando um nó sai do aglomerado.
+**System.FabricNode** reporta um aviso quando os certificados utilizados pelo nó estão perto de expirar. Existem três certificados por nó: **Certificate_cluster,** **Certificate_server** e **Certificate_default_client.** Quando a expiração for de pelo menos duas semanas, o estado de saúde do relatório está ok. Quando a expiração é dentro de duas semanas, o tipo de relatório é um aviso. TTL destes eventos é infinito, e são removidos quando um nó sai do aglomerado.
 
 * **SourceId**: System.FabricNode
 * **Propriedade**: Começa com **Certificado** e contém mais informações sobre o tipo de certificado.
@@ -425,7 +425,7 @@ Esta propriedade é usada para indicar avisos ou falhas ao tentar abrir uma rép
 Estes avisos sanitários são levantados após voltar a tentar a ação localmente algumas vezes (dependendo da política). O Tecido de Serviço retritiva a ação até um limiar máximo. Após a atingido o limiar máximo, poderá tentar agir para corrigir a situação. Esta tentativa pode fazer com que estes avisos fiquem esclarecidos à medida que desiste da ação neste nó. Por exemplo, se uma réplica não estiver a abrir num nó, o Service Fabric levanta um aviso sanitário. Se a réplica continuar a não abrir, o Service Fabric atua para se autorreparar. Esta ação pode envolver tentar a mesma operação noutro nó. Esta tentativa faz com que o aviso levantado para que esta réplica seja limpa. 
 
 * **SourceId**: System.RA
-* **Propriedade**: **ReplicaOpenStatus,** **ReplicaCloseStatus**e **ReplicaChangeRoleStatus**.
+* **Propriedade**: **ReplicaOpenStatus,** **ReplicaCloseStatus** e **ReplicaChangeRoleStatus**.
 * **Seguintes etapas**: Investigue o código de serviço ou os depósitos de colisão para identificar por que a operação está a falhar.
 
 O exemplo a seguir mostra a saúde de uma réplica que está a `TargetInvocationException` lançar do seu método aberto. A descrição contém o ponto de falha, **IStatefulServiceReplica.Open,** o tipo de exceção **TargetInvocationException**, e o traço de pilha.
@@ -651,7 +651,7 @@ Outras chamadas da API que podem ficar presas estão na interface **IReplicator.
 
 - **IReplicator.CatchupReplicaSet**: Este aviso indica uma de duas coisas. Não há réplicas suficientes. Para ver se é esse o caso, veja o estado de replicação das réplicas na partição ou o relatório de saúde System.FM para uma reconfiguração. Ou as réplicas não estão a reconhecer operações. O cmdlet PowerShell `Get-ServiceFabricDeployedReplicaDetail` pode ser usado para determinar o progresso de todas as réplicas. O problema reside nas réplicas cujo `LastAppliedReplicationSequenceNumber` valor está por detrás do valor `CommittedSequenceNumber` primário.
 
-- **IReplicator.BuildReplica: \<Remote ReplicaId> **Este aviso indica um problema no processo de construção. Para mais informações, consulte [o ciclo de vida da Réplica.](service-fabric-concepts-replica-lifecycle.md) Pode ser devido a uma configuração errada do endereço do replicador. Para obter mais informações, consulte [Configure Stateful Reliable Services](service-fabric-reliable-services-configuration.md) e [Especifique recursos num manifesto de serviço.](service-fabric-service-manifest-resources.md) Também pode ser um problema no nó remoto.
+- **IReplicator.BuildReplica: \<Remote ReplicaId>** Este aviso indica um problema no processo de construção. Para mais informações, consulte [o ciclo de vida da Réplica.](service-fabric-concepts-replica-lifecycle.md) Pode ser devido a uma configuração errada do endereço do replicador. Para obter mais informações, consulte [Configure Stateful Reliable Services](service-fabric-reliable-services-configuration.md) e [Especifique recursos num manifesto de serviço.](service-fabric-service-manifest-resources.md) Também pode ser um problema no nó remoto.
 
 ### <a name="replicator-system-health-reports"></a>Relatórios de saúde do sistema de replicadores
 **Fila de replicação cheia:** 
@@ -791,7 +791,7 @@ System.Hosting informa como OK se a ativação do pacote de serviço no nó for 
 * **Passos seguintes**: Investigar por que a ativação falhou.
 
 ### <a name="code-package-activation"></a>Ativação do pacote de código
-System.Hosting reporta como OK para cada pacote de código se a ativação for bem sucedida. Se a ativação falhar, reporta um aviso como configurado. Se **o CodePackage** não ativar ou terminar com um erro maior do que o **CodePackageHealthErrorThreshold**configurado, o alojamento reporta um erro. Se um pacote de serviço contiver vários pacotes de código, é gerado um relatório de ativação para cada um.
+System.Hosting reporta como OK para cada pacote de código se a ativação for bem sucedida. Se a ativação falhar, reporta um aviso como configurado. Se **o CodePackage** não ativar ou terminar com um erro maior do que o **CodePackageHealthErrorThreshold** configurado, o alojamento reporta um erro. Se um pacote de serviço contiver vários pacotes de código, é gerado um relatório de ativação para cada um.
 
 * **SourceId**: System.Hosting
 * **Propriedade**: Utiliza o prefixo **CodePackageActivation** e contém o nome do pacote de código e o ponto de entrada como *CodePackageActivation:CodePackageName:SetupEntryPoint/EntryPoint*. Por exemplo, **CodePackageActivation:Code:SetupEntryPoint**.

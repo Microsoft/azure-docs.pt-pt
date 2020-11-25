@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e6b03a2f9dd0089b1112000804e46f3d214cd3c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131297"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000764"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configurar o assistente de análise de registo
 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure um espaço de trabalho de análise de registo para a sua auditoria e registos de login
@@ -70,7 +70,7 @@ Configurar um espaço de trabalho de análise de log é composto por dois passos
 
     ![Serviços de recursos de pesquisa e docs](./media/tutorial-log-analytics-wizard/search-services.png)
 
-3. Na página de espaços de trabalho de analítica de registo, clique em **Adicionar** .
+3. Na página de espaços de trabalho de analítica de registo, clique em **Adicionar**.
 
     ![A screenshot mostra o botão Adicionar na página de espaços de trabalho de analítica de registo.](./media/tutorial-log-analytics-wizard/add.png)
 
@@ -86,7 +86,7 @@ Configurar um espaço de trabalho de análise de log é composto por dois passos
 
     4. Selecione a sua região.
 
-5. Clique em **Rever + Criar** .
+5. Clique em **Rever + Criar**.
 
     ![Rever e criar](./media/tutorial-log-analytics-wizard/review-create.png)
 
@@ -94,15 +94,15 @@ Configurar um espaço de trabalho de análise de log é composto por dois passos
 
     ![Criar](./media/tutorial-log-analytics-wizard/create-workspace.png)
 
-7. Procure **Azure Active Directory** .
+7. Procure **Azure Active Directory**.
 
     ![A screenshot mostra Azure Ative Directory em pesquisa Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
-8. Na secção **de Monitorização,** clique na **definição de Diagnóstico** .
+8. Na secção **de Monitorização,** clique na **definição de Diagnóstico**.
 
     ![A screenshot mostra as definições de diagnóstico selecionadas a partir da Monitorização.](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
 
-9. Na página de **definições de Diagnóstico,** clique **na definição de diagnóstico de adicionar** .
+9. Na página de **definições de Diagnóstico,** clique **na definição de diagnóstico de adicionar**.
 
     ![Adicionar definição de diagnóstico](./media/tutorial-log-analytics-wizard/add-diagnostic-setting.png)
 
@@ -110,15 +110,15 @@ Configurar um espaço de trabalho de análise de log é composto por dois passos
 
     ![Selecione definições de diagnóstico](./media/tutorial-log-analytics-wizard/select-diagnostics-settings.png)
 
-    1. Em **detalhes de categoria** , selecione **AuditLogs** e **SigninLogs** .
+    1. Em **detalhes de categoria**, selecione **AuditLogs** e **SigninLogs**.
 
-    2. Em **Detalhes do Destino** , selecione Enviar para Registar **Analytics** e, em seguida, selecione o seu novo espaço de trabalho de analítica de registo. 
+    2. Em **Detalhes do Destino**, selecione Enviar para Registar **Analytics** e, em seguida, selecione o seu novo espaço de trabalho de analítica de registo. 
    
-    3. Clique em **Guardar** . 
+    3. Clique em **Guardar**. 
 
 ## <a name="run-queries"></a>Executar consultas  
 
-Este procedimento mostra como executar consultas utilizando a **língua de consulta de Kusto (KQL)** .
+Este procedimento mostra como executar consultas utilizando a **língua de consulta de Kusto (KQL)**.
 
 
 **Para fazer uma consulta:**
@@ -126,7 +126,7 @@ Este procedimento mostra como executar consultas utilizando a **língua de consu
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) como administrador global.
 
-2. Procure **Azure Active Directory** .
+2. Procure **Azure Active Directory**.
 
     ![A screenshot mostra Azure Ative Directory em pesquisa Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
@@ -134,7 +134,7 @@ Este procedimento mostra como executar consultas utilizando a **língua de consu
 
 4. Na página **'Logs',** clique em **'Começar'.**
 
-5. Na caixa de texto * *Pesquisar,* digite a sua consulta.
+5. Na caixa de texto **Pesquisar,* digite a sua consulta.
 
 6. Clique em **Run** (Executar).  
 
@@ -208,7 +208,7 @@ Este procedimento mostra como enviar alertas quando a conta breakglass é utiliz
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) como administrador global.
 
-2. Procure **Azure Active Directory** .
+2. Procure **Azure Active Directory**.
 
     ![A screenshot mostra Azure Ative Directory em pesquisa Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
@@ -220,7 +220,7 @@ Este procedimento mostra como enviar alertas quando a conta breakglass é utiliz
 
 6. Clique em **Run** (Executar).  
 
-7. Na barra de ferramentas, clique em **Nova regra de alerta** .
+7. Na barra de ferramentas, clique em **Nova regra de alerta**.
 
     ![Nova regra de alerta](./media/tutorial-log-analytics-wizard/new-alert-rule.png)
 
@@ -234,27 +234,27 @@ Este procedimento mostra como enviar alertas quando a conta breakglass é utiliz
 
     ![Lógica de alerta](./media/tutorial-log-analytics-wizard/alert-logic.png)
 
-    1. Como **baseado em** , selecione Número de **resultados** .
+    1. Como **baseado em**, selecione Número de **resultados**.
 
-    2. Como **Operador,** selecione **Maior que** .
+    2. Como **Operador,** selecione **Maior que**.
 
-    3. Como **valor limiar,** selecione **0** . 
+    3. Como **valor limiar,** selecione **0**. 
 
 11. Na página lógica de **sinal de configuração,** na secção **Avaliada com base na** secção, execute os seguintes passos:
 
     ![Avaliado com base em](./media/tutorial-log-analytics-wizard/evaluated-based-on.png)
 
-    1. Como **Período (em minutos)** , selecione **5** .
+    1. Como **Período (em minutos)**, selecione **5**.
 
-    2. Como **Frequência (em minutos)** , selecione **5** .
+    2. Como **Frequência (em minutos)**, selecione **5**.
 
-    3. Clique em **Done** (Concluído). 
+    3. Clique em **Concluído**. 
 
-12. No **grupo Action** , clique em Select action **group** . 
+12. No **grupo Action**, clique em Select action **group**. 
 
     ![Grupo de ações](./media/tutorial-log-analytics-wizard/action-group.png)
 
-13. No **Select um grupo de ação para anexar a esta regra de alerta,** clique em **Criar grupo de ação** . 
+13. No **Select um grupo de ação para anexar a esta regra de alerta,** clique em **Criar grupo de ação**. 
 
     ![Criar grupo de ações](./media/tutorial-log-analytics-wizard/create-action-group.png)
 
@@ -262,20 +262,20 @@ Este procedimento mostra como enviar alertas quando a conta breakglass é utiliz
 
     ![Detalhes da instância](./media/tutorial-log-analytics-wizard/instance-details.png)
 
-    1. Na caixa de texto **do nome do grupo Action,** **digite O meu grupo de ação** .
+    1. Na caixa de texto **do nome do grupo Action,** **digite O meu grupo de ação**.
 
-    2. Na caixa de texto **do nome do Visor,** **digite a minha ação** .
+    2. Na caixa de texto **do nome do Visor,** **digite a minha ação**.
 
-    3. Clique em **Rever + criar** . 
+    3. Clique em **Rever + criar**. 
 
-    4. Clique em **Criar** .
+    4. Clique em **Criar**.
 
 
 15. Em **ação personalizada,** execute os seguintes passos:
 
     ![Personalizar ações](./media/tutorial-log-analytics-wizard/customize-actions.png)
 
-    1. Selecione **e-mail assunto** .
+    1. Selecione **e-mail assunto**.
 
     2. Na caixa de texto da **linha de assunto,** escreva: `Breakglass account has been used`
 
@@ -287,7 +287,7 @@ Este procedimento mostra como enviar alertas quando a conta breakglass é utiliz
 
     2. Na caixa de texto **Descrição,** escreva: `Your emergency access account has been used`
 
-17. Clique em **Criar regra de alerta** .   
+17. Clique em **Criar regra de alerta**.   
 
 
 ## <a name="create-a-custom-workbook"></a>Criar um livro personalizado
@@ -299,7 +299,7 @@ Este procedimento mostra como criar um novo livro utilizando o modelo de arranqu
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) como administrador global.
 
-2. Procure **Azure Active Directory** .
+2. Procure **Azure Active Directory**.
 
     ![A screenshot mostra Azure Ative Directory em pesquisa Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
@@ -307,24 +307,24 @@ Este procedimento mostra como criar um novo livro utilizando o modelo de arranqu
 
     ![Screenshot mostra monitorização no menu do portal Azure com livros de trabalho selecionados.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
-4. Na secção **Quickstart,** clique em **Empty** .
+4. Na secção **Quickstart,** clique em **Empty**.
 
     ![Início rápido](./media/tutorial-log-analytics-wizard/quick-start.png)
 
-5. Clique em **Adicionar** .
+5. Clique em **Adicionar**.
 
     ![Adicionar livro](./media/tutorial-log-analytics-wizard/add-workbook.png)
 
-6. Clique **em Adicionar texto** .
+6. Clique **em Adicionar texto**.
 
     ![Adicionar texto](./media/tutorial-log-analytics-wizard/add-text.png)
 
 
-7. Na caixa de texto, escreva: `# Client apps used in the past week` e, em seguida, clique em **Edição De Feito** .
+7. Na caixa de texto, escreva: `# Client apps used in the past week` e, em seguida, clique em **Edição De Feito**.
 
     ![Texto do livro](./media/tutorial-log-analytics-wizard/workbook-text.png)
 
-8. No novo livro, clique em **Adicionar** e, em seguida, clique em **Adicionar consulta** .
+8. No novo livro, clique em **Adicionar** e, em seguida, clique em **Adicionar consulta**.
 
     ![Adicionar consulta](./media/tutorial-log-analytics-wizard/add-query.png)
 
@@ -334,7 +334,7 @@ Este procedimento mostra como criar um novo livro utilizando o modelo de arranqu
 
     ![A screenshot mostra o botão de consulta de execução.](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
 
-11. Na barra de ferramentas, em **Visualização,** clique na **tabela Pie** .
+11. Na barra de ferramentas, em **Visualização,** clique na **tabela Pie**.
 
     ![Gráfico circular](./media/tutorial-log-analytics-wizard/pie-chart.png)
 
@@ -351,7 +351,7 @@ Este procedimento mostra como adicionar uma consulta a um modelo de livro existe
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) como administrador global.
 
-2. Procure **Azure Active Directory** .
+2. Procure **Azure Active Directory**.
 
     ![A screenshot mostra Azure Ative Directory em pesquisa Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
@@ -359,7 +359,7 @@ Este procedimento mostra como adicionar uma consulta a um modelo de livro existe
 
     ![A screenshot mostra monitorização no menu com livros de trabalho selecionados.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
-4. Na secção de **acesso condicional,** clique em **Insights de Acesso Condicional e Relatórios** .
+4. Na secção de **acesso condicional,** clique em **Insights de Acesso Condicional e Relatórios**.
 
     ![A screenshot mostra a opção De Acesso Condicional e a opção De Relatório.](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
 
@@ -367,7 +367,7 @@ Este procedimento mostra como adicionar uma consulta a um modelo de livro existe
 
     ![A imagem mostra o botão Editar.](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
 
-6. Na barra de ferramentas, clique nos três pontos, em seguida, **Adicione** , e, em seguida, **Adicione consulta** .
+6. Na barra de ferramentas, clique nos três pontos, em seguida, **Adicione**, e, em seguida, **Adicione consulta**.
 
     ![Adicionar consulta de livro](./media/tutorial-log-analytics-wizard/add-custom-workbook-query.png)
 
@@ -377,11 +377,11 @@ Este procedimento mostra como adicionar uma consulta a um modelo de livro existe
 
     ![A screenshot mostra o botão ''Fazer's para executar esta consulta.](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
 
-9. Clique **no intervalo de tempo** e, em seguida, selecione Definir em **consulta** .
+9. Clique **no intervalo de tempo** e, em seguida, selecione Definir em **consulta**.
 
-10. Clique **em Visualização** e, em seguida, selecione **gráfico de Barras** . 
+10. Clique **em Visualização** e, em seguida, selecione **gráfico de Barras**. 
 
-11. Clique em **Definições Avançadas** , como título de gráfico, escreva `Conditional Access status over the last 20 days` e, em seguida, clique em **Edição Feita** . 
+11. Clique em **Definições Avançadas**, como título de gráfico, escreva `Conditional Access status over the last 20 days` e, em seguida, clique em **Edição Feita**. 
 
     ![Conjunto de título de gráfico](./media/tutorial-log-analytics-wizard/set-chart-title.png)
 

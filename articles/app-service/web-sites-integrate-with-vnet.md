@@ -8,11 +8,11 @@ ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 764e0262c8a26511c55740aa1797b5ec9b59cc8e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150139"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999460"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a aplicação numa rede virtual do Azure
 
@@ -118,11 +118,11 @@ Se utilizar a Integração VNet exigida por gateways com o seu espremia, tem de 
 
 1. Adicione uma ligação de espreitar no VNet a que a sua aplicação se conecta. Ao adicionar a ligação de pares, ative **o acesso à rede virtual** e selecione Deixe o tráfego **reencaminhado** e **permita o trânsito de gateway**.
 1. Adicione uma ligação de observação no VNet que está a ser espreitada para o VNet a que está ligado. Quando adicionar a ligação de espreitamento no destino VNet, ative **o acesso à rede virtual** e selecione Deixe o tráfego **reencaminhado** e **permita gateways remotos**.
-1. Aceda ao **plano de Serviço**de  >  **Aplicações networking**  >  **VNet Integration** UI no portal. Selecione o VNet a que a sua aplicação se conecta. Na secção de encaminhamento, adicione o intervalo de endereços do VNet que está espreguiçadado com o VNet a que a sua aplicação está ligada.
+1. Aceda ao **plano de Serviço** de  >  **Aplicações networking**  >  **VNet Integration** UI no portal. Selecione o VNet a que a sua aplicação se conecta. Na secção de encaminhamento, adicione o intervalo de endereços do VNet que está espreguiçadado com o VNet a que a sua aplicação está ligada.
 
-## <a name="manage-vnet-integration"></a>Gerir a integração vNet
+## <a name="manage-vnet-integration"></a>Gerir a Integração da VNet
 
-A ligação e desconexão com um VNet encontra-se ao nível da aplicação. As operações que podem afetar a integração do VNet em várias aplicações estão ao nível do plano do Serviço de Aplicações. A partir da aplicação > portal **de**  >  **Integração VNet** em rede, pode obter detalhes sobre o seu VNet. Pode ver informações semelhantes ao nível do plano do Serviço de Aplicações no portal de Integração VNet do **plano**de serviço de  >  **Networking**  >  **VNet Integration** aplicações.
+A ligação e desconexão com um VNet encontra-se ao nível da aplicação. As operações que podem afetar a integração do VNet em várias aplicações estão ao nível do plano do Serviço de Aplicações. A partir da aplicação > portal **de**  >  **Integração VNet** em rede, pode obter detalhes sobre o seu VNet. Pode ver informações semelhantes ao nível do plano do Serviço de Aplicações no portal de Integração VNet do **plano** de serviço de  >  **Networking**  >  **VNet Integration** aplicações.
 
 A única operação que pode ter na visão da aplicação da sua instância de Integração VNet é desligar a sua aplicação do VNet a que está atualmente ligada. Para desligar a sua aplicação de um VNet, **selecione Disconnect**. A sua aplicação é reiniciada quando desliga de um VNet. Desligar não muda o seu VNet. A sub-rede ou gateway não é removida. Se quiser então eliminar o seu VNet, desligue primeiro a sua aplicação do VNet e elimine os recursos nele, como os gateways.
 
@@ -145,7 +145,7 @@ A funcionalidade regional de Integração VNet não tem qualquer custo adicional
 Três encargos estão relacionados com a utilização da funcionalidade de Integração VNet exigida por gateway:
 
 * **Taxas de preços do plano app**: As suas aplicações precisam de estar num plano standard, premium, premiumV2 ou premiumV3 app Service. Para obter mais informações sobre estes custos, consulte [os preços do Serviço de Aplicações.][ASPricing]
-* **Custos de transferência**de dados : Há um custo para a saída de dados, mesmo que o VNet esteja no mesmo centro de dados. Estes encargos são descritos em [detalhes de preços de transferência de dados.][DataPricing]
+* **Custos de transferência** de dados : Há um custo para a saída de dados, mesmo que o VNet esteja no mesmo centro de dados. Estes encargos são descritos em [detalhes de preços de transferência de dados.][DataPricing]
 * **Custos de gateway VPN**: Há um custo para o gateway de rede virtual que é necessário para a VPN ponto-a-local. Para obter mais informações, consulte [os preços da porta de entrada VPN.][VNETPricing]
 
 ## <a name="troubleshooting"></a>Resolução de problemas

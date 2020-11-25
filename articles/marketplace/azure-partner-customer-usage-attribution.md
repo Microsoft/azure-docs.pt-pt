@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 2c2b7de65e7ac22ebe648ce98633d5ae88818324
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 3728fdd07172f2402ddb1dc7434ddb1993b984b1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628395"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95999880"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro de mercado comercial e atribuição de uso do cliente
 
@@ -251,11 +251,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Relatório
 
-Pode encontrar o relatório para a atribuição de utilização do cliente no painel de instrumentos do Partner Center [https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure) (). Para ver o relatório, tem de usar as credenciais do Centro de Parceiros para iniciar sinsumento. Se encontrar algum problema com relatório ou inscrição, crie um pedido de apoio seguindo a instrução na secção de suporte Get.
-
-Escolha o Modelo Rastreado na lista de dropdown do Tipo de Associação de Parceiros para ver o relatório.
-
-![Relatório para atribuição de utilização do cliente](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+Pode encontrar o relatório para a atribuição de utilização do cliente no painel de instrumentos do Partner Center [https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview) (). Para ver o relatório, tem de usar as credenciais do Centro de Parceiros para iniciar sinsumento. Se encontrar algum problema com relatório ou inscrição, crie um pedido de [apoio](#get-support).
 
 ## <a name="notify-your-customers"></a>Notifique os seus clientes
 

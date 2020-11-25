@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: f230445ecdb046c2b631e89567df71e1d09c3234
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369952"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999234"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analisar o relatório do Planeador de Implementações do Azure Site Recovery
 Este artigo aborda as folhas do relatório do Excel que o Planeador de Implementações do Azure Site Recovery gera para um cenário de Hyper-V para o Azure.
@@ -207,7 +207,7 @@ Por exemplo, se as características de carga de trabalho de um disco o colocarem
 
 **Cores (Núcleos)**: o número de núcleos de CPU na VM.
 
-**Memory (MB) **: a RAM na VM.
+**Memory (MB)**: a RAM na VM.
 
 **NICs**: o número de NICs na VM.
 
@@ -262,7 +262,7 @@ O relatório do Excel gerado pelo Planeador de Implementações do Site Recovery
 
 **Cores (Núcleos)**: o número de núcleos de CPU na VM.
 
-**Memory (MB) (Memória [MB]) **: a quantidade de RAM na VM.
+**Memory (MB) (Memória [MB])**: a quantidade de RAM na VM.
 
 **NICs**: o número de NICs na VM.
 
@@ -298,7 +298,7 @@ A folha de cálculo fornece o requisito de espaço livre de armazenamento total 
 
 **Hyper-V host (Anfitrião Hyper-V)**: a lista de servidores Hyper-V com perfis criados. Se um servidor fizer parte de um cluster Hyper-V, todos os nós do cluster são agrupados em conjunto.
 
-**Volume (VHD path) [Volume (caminho VHD)] **: cada volume de um anfitrião Hyper-V, onde existem VHDs/VHDXs. 
+**Volume (VHD path) [Volume (caminho VHD)]**: cada volume de um anfitrião Hyper-V, onde existem VHDs/VHDXs. 
 
 **Free space available (GB) [Espaço livre disponível (GB)]**: o espaço livre disponível no volume.
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629738"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000339"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Ligue ou desencadeie aplicativos lógicos utilizando Azure Functions e Azure Service Bus
 

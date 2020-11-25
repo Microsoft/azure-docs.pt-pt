@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 157922cf597ff110b8d66ddaa44917bf2cb76029
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514950"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000798"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Tutorial: Integração do Azure Ative Directory com o SmartLPA
 
@@ -155,7 +155,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso ao SmartLPA.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **SmartLPA**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **SmartLPA**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/30/2020
 ms.openlocfilehash: dcf3db33818448116da53d8a01d0c62aca7bc1af
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280169"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000084"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carregue os dados no Azure Synapse Analytics utilizando a Azure Data Factory
 
@@ -29,9 +29,9 @@ Começar com a Azure Synapse Analytics é agora mais fácil do que nunca quando 
 A Azure Data Factory oferece os seguintes benefícios para o carregamento de dados no Azure Synapse Analytics:
 
 * **Fácil de configurar:** Um assistente intuitivo de 5 passos sem necessidade de scripts.
-* Suporte rico em lojas de **dados** : Suporte incorporado para um conjunto rico de lojas de dados no local e lojas de dados baseadas em nuvem. Para obter uma lista detalhada, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
+* Suporte rico em lojas de **dados**: Suporte incorporado para um conjunto rico de lojas de dados no local e lojas de dados baseadas em nuvem. Para obter uma lista detalhada, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 * **Seguro e em conformidade:** Os dados são transferidos sobre HTTPS ou ExpressRoute. A presença global de serviços garante que os seus dados nunca saiam da fronteira geográfica.
-* **Desempenho incomparável utilizando a PolyBase** : A polibase é a forma mais eficiente de mover dados para a Azure Synapse Analytics. Utilize a função de blob de preparação para obter altas velocidades de carga de todos os tipos de lojas de dados, incluindo o armazenamento de Azure Blob e a Data Lake Store. (A Polybase suporta o armazenamento Azure Blob e a Azure Data Lake Store por padrão.) Para mais detalhes, consulte [o desempenho da atividade da Copy](copy-activity-performance.md).
+* **Desempenho incomparável utilizando a PolyBase**: A polibase é a forma mais eficiente de mover dados para a Azure Synapse Analytics. Utilize a função de blob de preparação para obter altas velocidades de carga de todos os tipos de lojas de dados, incluindo o armazenamento de Azure Blob e a Data Lake Store. (A Polybase suporta o armazenamento Azure Blob e a Azure Data Lake Store por padrão.) Para mais detalhes, consulte [o desempenho da atividade da Copy](copy-activity-performance.md).
 
 Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data factory para _carregar dados da Base de Dados Azure SQL em Azure Synapse Analytics_. Pode seguir passos semelhantes para copiar dados de outros tipos de lojas de dados.
 
@@ -47,15 +47,15 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu esquerdo, **selecione Criar um recurso** Data +  >  **Analytics**  >  **Data Factory** :
+1. No menu esquerdo, **selecione Criar um recurso** Data +  >  **Analytics**  >  **Data Factory**:
 
 2. Na nova página de **fábrica de dados,** forneça valores para os seguintes itens:
 
-    * **Nome** : Introduza *loadSQLDWDemo* para o nome. O nome da sua fábrica de dados deve ser *globalmente único. Se receber o erro "O nome da fábrica de dados 'LoadSQLDWDemo' não está disponível", insira um nome diferente para a fábrica de dados. Por exemplo, pode utilizar o nome _**do seu nome**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados de novo. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
-    * **Subscrição** : Selecione a sua subscrição Azure na qual criar a fábrica de dados. 
-    * **Grupo de Recursos** : Selecione um grupo de recursos existente da lista de drop-down, ou selecione a nova opção **Criar** e insira o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
-    * **Versão** : selecione **V2**.
-    * **Localização** : Selecione a localização para a fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. As lojas de dados que são utilizadas pela fábrica de dados podem estar noutros locais e regiões. Estas lojas de dados incluem Azure Data Lake Store, Azure Storage, Azure SQL Database, e assim por diante.
+    * **Nome**: Introduza *loadSQLDWDemo* para o nome. O nome da sua fábrica de dados deve ser *globalmente único. Se receber o erro "O nome da fábrica de dados 'LoadSQLDWDemo' não está disponível", insira um nome diferente para a fábrica de dados. Por exemplo, pode utilizar o nome _**do seu nome**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados de novo. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Subscrição**: Selecione a sua subscrição Azure na qual criar a fábrica de dados. 
+    * **Grupo de Recursos**: Selecione um grupo de recursos existente da lista de drop-down, ou selecione a nova opção **Criar** e insira o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
+    * **Versão**: selecione **V2**.
+    * **Localização**: Selecione a localização para a fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. As lojas de dados que são utilizadas pela fábrica de dados podem estar noutros locais e regiões. Estas lojas de dados incluem Azure Data Lake Store, Azure Storage, Azure SQL Database, e assim por diante.
 
 3. Selecione **Criar**.
 4. Depois de a criação estar completa, vá à sua fábrica de dados. Veja a página inicial da **Data Factory** como mostrado na seguinte imagem:
@@ -66,7 +66,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
 
 ## <a name="load-data-into-azure-synapse-analytics"></a>Carregar dados para o Azure Synapse Analytics
 
-1. Na página **Introdução** , selecione o mosaico **Copiar Dados** para iniciar a ferramenta Copiar Dados.
+1. Na página **Introdução**, selecione o mosaico **Copiar Dados** para iniciar a ferramenta Copiar Dados.
 
 2. Na página **Propriedades,** especifique **copyFromSQLToSQLDW** para o campo **de nome de tarefa** e selecione **Seguinte**.
 
@@ -74,7 +74,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
 
 3. Na página **'Source data store',** complete os seguintes passos:
     >[!TIP]
-    >Neste tutorial, utiliza *a autenticação SQL* como tipo de autenticação para a sua loja de dados de origem, mas pode escolher outros métodos de autenticação suportados: *Principal de Serviço* e Identidade *Gerida,* se necessário. Consulte as secções correspondentes [neste artigo](./connector-azure-sql-database.md#linked-service-properties) para obter mais detalhes.
+    >Neste tutorial, utiliza *a autenticação SQL* como tipo de autenticação para a sua loja de dados de origem, mas pode escolher outros métodos de autenticação suportados:*Principal de Serviço* e Identidade *Gerida,* se necessário. Consulte as secções correspondentes [neste artigo](./connector-azure-sql-database.md#linked-service-properties) para obter mais detalhes.
     >Para armazenar segredos para lojas de dados de forma segura, também é recomendado usar um Cofre de Chaves Azure. Consulte [este artigo](./store-credentials-in-key-vault.md) para obter ilustrações detalhadas.
 
     a. clique **+ Criar nova ligação**.
@@ -97,7 +97,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
 
 6. Na página da **loja de dados destino,** complete os seguintes passos:
     >[!TIP]
-    >Neste tutorial, utiliza *a autenticação SQL* como tipo de autenticação para a sua loja de dados de destino, mas pode escolher outros métodos de autenticação suportados: *Principal de Serviço* e Identidade *Gerida,* se necessário. Consulte as secções correspondentes [neste artigo](./connector-azure-sql-data-warehouse.md#linked-service-properties) para obter mais detalhes.
+    >Neste tutorial, utiliza *a autenticação SQL* como tipo de autenticação para a sua loja de dados de destino, mas pode escolher outros métodos de autenticação suportados:*Principal de Serviço* e Identidade *Gerida,* se necessário. Consulte as secções correspondentes [neste artigo](./connector-azure-sql-data-warehouse.md#linked-service-properties) para obter mais detalhes.
     >Para armazenar segredos para lojas de dados de forma segura, também é recomendado usar um Cofre de Chaves Azure. Consulte [este artigo](./store-credentials-in-key-vault.md) para obter ilustrações detalhadas.
 
     a. Clique em **+ Criar nova ligação** para adicionar uma ligação
@@ -134,7 +134,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Data copy data da data fa
 
     ![Página de resumo](./media/load-azure-sql-data-warehouse/summary-page.png)
 
-11. Na **Página de implementação** , selecione **Monitorizar** para monitorizar o pipeline (tarefa). 
+11. Na **Página de implementação**, selecione **Monitorizar** para monitorizar o pipeline (tarefa). 
  
 12. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente. Quando o curso do gasoduto estiver concluído com sucesso, selecione a ligação **CopyFromSQLToSQLDW** sob a coluna **PIPELINE NAME** para ver os detalhes da atividade ou para refazer o pipeline.
 

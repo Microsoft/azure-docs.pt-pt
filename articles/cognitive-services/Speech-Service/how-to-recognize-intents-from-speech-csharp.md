@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1138a970bf7c52182f13d0fd14d0178a2d0cfeba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93a3adf00203e317be912e3e72de7a3f7ca666c6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918796"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001111"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Como reconhecer as intenções da fala usando o Discurso SDK para C #
 
@@ -55,7 +55,7 @@ LUIS usa três tipos de chaves:
 | Inicial   | Permite testar a sua aplicação LUIS apenas com texto   |
 | Ponto final  | Autoriza o acesso a uma determinada aplicação LUIS            |
 
-Para este guia, precisa do tipo de chave de ponta. Este guia utiliza o exemplo da aplicação Home Automation LUIS, que pode criar seguindo o quickstart da [app De domótica pré-construída.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) Se criou uma aplicação PRÓPRIA LUIS, pode usá-la em vez disso.
+Para este guia, precisa do tipo de chave de ponta. Este guia utiliza o exemplo da aplicação Home Automation LUIS, que pode criar seguindo o quickstart da [app De domótica pré-construída.](../luis/luis-get-started-create-app.md) Se criou uma aplicação PRÓPRIA LUIS, pode usá-la em vez disso.
 
 Quando cria uma aplicação LUIS, o LUIS gera automaticamente uma chave de arranque para que possa testar a aplicação utilizando consultas de texto. Esta chave não permite a integração do serviço de discurso e não funcionará com este guia. Crie um recurso LUIS no painel Azure e atribua-o à app LUIS. Pode utilizar o nível de subscrição gratuito para este guia.
 
@@ -201,4 +201,4 @@ Procure o código deste artigo na pasta **samples/csharp/sharedcontent/console.*
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Reconhecer a fala a partir de um microfone](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Quickstart: Reconhecer a fala a partir de um microfone](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore)

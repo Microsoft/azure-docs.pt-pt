@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74931794"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001070"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 utilizando a atividade de cópia da fábrica de dados Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -316,7 +316,7 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
-| Date |Data e Hora |
+| Data |Data e Hora |
 | Hora |TimeSpan |
 | Timestamp |DateTime |
 | Xml |Byte[] |
@@ -331,7 +331,7 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | VarGraphic |String |
 | LongVarGraphic |String |
 | Clob |String |
-| Blob |Byte[] |
+| Blobs |Byte[] |
 | DbClob |String |
 | PequenoInt |Int16 |
 | Número inteiro |Int32 |
@@ -342,7 +342,7 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
-| Date |Data e Hora |
+| Data |Data e Hora |
 | Hora |TimeSpan |
 | Timestamp |DateTime |
 | Xml |Byte[] |

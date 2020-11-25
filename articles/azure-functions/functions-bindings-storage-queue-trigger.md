@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491448"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001240"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento da fila Azure para funções Azure
 
@@ -97,6 +97,22 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 A secção [de utilização](#usage) `myQueueItem` explica, que é nomeada pela `name` propriedade em function.js.  A [secção de metadados](#message-metadata) de mensagem explica todas as outras variáveis mostradas.
 
+# <a name="java"></a>[Java](#tab/java)
+
+O exemplo de Java que se segue mostra uma função de gatilho da fila de armazenamento, que regista a mensagem ativada colocada na fila `myqueuename` .
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma ligação do gatilho de fila numa *function.jsno* ficheiro e numa [função JavaScript](functions-reference-node.md) que utiliza a ligação. A função sonda a `myqueue-items` fila e escreve um registo cada vez que um item de fila é processado.
@@ -142,6 +158,42 @@ module.exports = async function (context, message) {
 
 A secção [de utilização](#usage) `myQueueItem` explica, que é nomeada pela `name` propriedade em function.js.  A [secção de metadados](#message-metadata) de mensagem explica todas as outras variáveis mostradas.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+O exemplo a seguir demonstra como ler uma mensagem de fila passada para uma função através de um gatilho.
+
+Um gatilho de fila de armazenamento é definido em *function.jsno* ficheiro onde está definido `type` para `queueTrigger` .
+
+```json
+{
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+O código no ficheiro *Run.ps1* declara um parâmetro como `$QueueItem` , o que lhe permite ler a mensagem de fila na sua função.
+
+```powershell
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
+
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 O exemplo a seguir demonstra como ler uma mensagem de fila passada para uma função através de um gatilho.
@@ -163,7 +215,7 @@ Um gatilho de fila de armazenamento é definido em *function.jsno* local onde *o
 }
 ```
 
-O código *_\_ init_ \_ .py* declara um parâmetro como `func.QueueMessage` , que permite ler a mensagem de fila na sua função.
+O código *_\_ .py_ \_* declara um parâmetro como `func.QueueMessage` , que lhe permite ler a mensagem de fila na sua função.
 
 ```python
 import logging
@@ -189,22 +241,6 @@ def main(msg: func.QueueMessage):
 
     logging.info(result)
 ```
-
-# <a name="java"></a>[Java](#tab/java)
-
-O exemplo de Java que se segue mostra uma função de gatilho da fila de armazenamento, que regista a mensagem ativada colocada na fila `myqueuename` .
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
  ---
 
@@ -270,14 +306,6 @@ A conta de armazenamento a utilizar é determinada na seguinte ordem:
 
 Os atributos não são suportados pelo Script C#.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Os atributos não são suportados pelo JavaScript.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Os atributos não são suportados pela Python.
-
 # <a name="java"></a>[Java](#tab/java)
 
 A `QueueTrigger` anotação dá-lhe acesso à fila que desencadeia a função. O exemplo a seguir torna a mensagem de fila disponível para a função através do `message` parâmetro.
@@ -305,13 +333,25 @@ public class QueueTriggerDemo {
 |`queueName`  | Declara o nome da fila na conta de armazenamento. |
 |`connection` | Aponta para o fio de ligação da conta de armazenamento. |
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Os atributos não são suportados pelo JavaScript.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Os atributos não são suportados pela PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Os atributos não são suportados pela Python.
+
 ---
 
 ## <a name="configuration"></a>Configuração
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `QueueTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a| Deve ser definido para `queueTrigger` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção**| n/a | Nofunction.jsapenas *arquivado.* Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -327,7 +367,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 Aceda aos dados da mensagem utilizando um parâmetro de método como `string paramName` . Pode ligar-se a qualquer um dos seguintes tipos:
 
-* Objeto - O tempo de execução das funções deserializa uma carga útil JSON num caso de uma classe arbitrária definida no seu código. 
+* Objeto - O tempo de execução das funções deserializa uma carga útil JSON num caso de uma classe arbitrária definida no seu código.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -345,17 +385,21 @@ Aceda aos dados da mensagem utilizando um parâmetro de método como `string par
 
 Se tentar ligar-se `CloudQueueMessage` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+# <a name="java"></a>[Java](#tab/java)
+
+A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) dá-lhe acesso à mensagem de fila que desencadeou a função.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 A carga útil do item da fila está disponível através `context.bindings.<NAME>` do qual corresponde ao nome definido emfunction.js`<NAME>` *em*. Se a carga útil for JSON, o valor é deseralizado num objeto.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Aceda à mensagem de fila através do parâmetro de cadeia que corresponda ao nome designado pelo parâmetro de ligação `name` no *function.jsno* ficheiro.
+
 # <a name="python"></a>[Python](#tab/python)
 
-Aceda à mensagem de fila através do parâmetro dactilografado como [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
-
-# <a name="java"></a>[Java](#tab/java)
-
-A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) dá-lhe acesso à mensagem de fila que desencadeou a função.
+Aceda à mensagem de fila através do parâmetro dactilografado como [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true).
 
 ---
 
@@ -363,7 +407,7 @@ A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.q
 
 O gatilho da fila fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. As propriedades são membros da classe [CloudQueueMessage.](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage)
 
-|Propriedade|Tipo|Description|
+|Propriedade|Tipo|Descrição|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Carga útil da fila (se uma corda válida). Se a carga útil da mensagem de fila for uma cadeia, `QueueTrigger` tem o mesmo valor que a variável nomeada pela propriedade emfunction.js`name` *em*.|
 |`DequeueCount`|`int`|O número de vezes que esta mensagem foi descoduada.|
