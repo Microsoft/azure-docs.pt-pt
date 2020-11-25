@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4cdef227c786b12790903037fdc02649592e3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91377414"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95990889"
 ---
 ## <a name="use-custom-page-content"></a>Use conteúdo de página personalizado
 
@@ -52,11 +52,11 @@ A tabela que se segue lista o conteúdo da página predefinida fornecido pelo Az
 | [selfasserted.htm](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Página auto-assertada.** Utilize este ficheiro como conteúdo de página personalizada para uma página de inscrição de conta social, uma página de inscrição de conta local, uma página de inscrição de conta local, redefinição de senha e muito mais. O formulário pode conter vários controlos de entrada, tais como: uma caixa de entrada de texto, uma caixa de entrada de senha, um botão de rádio, caixas de entrega de uma única seleção e caixas de verificação multi-selecionadas. | *api.localaccountsignin,* *api.localaccountsignup,* *api.localaccountpasswordreset,* *api.selfasserted* |
 | [multifactor-1.0.0.htm](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Página de autenticação multi-factor**. Nesta página, os utilizadores podem verificar os seus números de telefone (utilizando texto ou voz) durante a inscrição ou a inscrição. | *api.phonefactor* |
 | [updateprofile.htm](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de atualização de perfis**. Esta página contém um formulário que os utilizadores podem aceder para atualizar o seu perfil. Esta página é semelhante à página de inscrição de conta social, exceto para os campos de entrada de senha. | *api.selfasserted.profileupdate* |
-| [unified.htm](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Página de inscrição ou inscrição**unificada . Esta página trata do processo de inscrição e inscrição do utilizador. Os utilizadores podem usar fornecedores de identidade empresarial, fornecedores de identidade social, como facebook ou Google+, ou contas locais. | *api.signuporsignin* |
+| [unified.htm](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Página de inscrição ou inscrição** unificada . Esta página trata do processo de inscrição e inscrição do utilizador. Os utilizadores podem usar fornecedores de identidade empresarial, fornecedores de identidade social, como facebook ou Google+, ou contas locais. | *api.signuporsignin* |
 
 ## <a name="hosting-the-page-content"></a>Hospedar o conteúdo da página
 
-Ao utilizar os seus próprios ficheiros HTML e CSS para personalizar o UI, hospede o seu conteúdo de UI em qualquer ponto final HTTPS disponível publicamente que suporte o CORS. Por exemplo, [armazenamento Azure Blob](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services,](/azure/app-service/)servidores web, CDNs, AWS S3 ou sistemas de partilha de ficheiros.
+Ao utilizar os seus próprios ficheiros HTML e CSS para personalizar o UI, hospede o seu conteúdo de UI em qualquer ponto final HTTPS disponível publicamente que suporte o CORS. Por exemplo, [armazenamento Azure Blob](../articles/storage/blobs/storage-blobs-introduction.md), [Azure App Services,](../articles/app-service/index.yml)servidores web, CDNs, AWS S3 ou sistemas de partilha de ficheiros.
 
 ## <a name="guidelines-for-using-custom-page-content"></a>Diretrizes para a utilização de conteúdo de página personalizado
 
@@ -115,7 +115,7 @@ Neste artigo, utilizamos o armazenamento Azure Blob para hospedar o nosso conte�
 Para hospedar o seu conteúdo HTML no armazenamento Blob, execute os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. No menu **Hub,** selecione **Nova**conta de Armazenamento de  >  **Storage**  >  **Armazenamento.**
+1. No menu **Hub,** selecione **Nova** conta de Armazenamento de  >  **Storage**  >  **Armazenamento.**
 1. Selecione uma **Subscrição** para a sua conta de armazenamento.
 1. Crie um **grupo de Recursos** ou selecione um existente.
 1. Insira um **Nome** único para a sua conta de armazenamento.
@@ -145,7 +145,7 @@ Para criar um recipiente público no armazenamento blob, execute os seguintes pa
 1. Navegue e selecione **customize-ui.html**, que criou anteriormente na secção de personalização da Página UI.
 1. Se pretender fazer o upload para uma sub-dobragem, expanda **o Advanced** e introduza um nome de pasta no Upload para **a pasta**.
 1. Selecione **Carregar**.
-1. Selecione a ** bolha decustomize-ui.html** que fez o upload.
+1. Selecione a **bolha decustomize-ui.html** que fez o upload.
 1. À direita da caixa de texto **URL,** selecione o ícone **copy to clipboard** para copiar o URL para a sua área de transferência.
 1. No navegador web, navegue para o URL que copiou para verificar se a bolha que carregou está acessível. Se for inacessível, por exemplo, se encontrar um `ResourceNotFound` erro, certifique-se de que o tipo de acesso ao recipiente está definido para **borbulhar**.
 
