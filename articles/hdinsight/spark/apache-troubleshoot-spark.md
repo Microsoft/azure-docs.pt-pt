@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545638"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022256"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o Apache Spark com o Azure HDInsight
 
@@ -29,27 +29,27 @@ Os valores de configuração da faísca podem ser afinados ajuda a evitar uma ex
 
     ![Selecione o separador Configs](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. Na lista de configurações, selecione e expanda **as padrão personalizados-spark2** .
+1. Na lista de configurações, selecione e expanda **as padrão personalizados-spark2**.
 
-1. Procure a definição de valor que precisa de ajustar, como **spark.executor.memory** . Neste caso, o valor de **9728m** é muito elevado.
+1. Procure a definição de valor que precisa de ajustar, como **spark.executor.memory**. Neste caso, o valor de **9728m** é muito elevado.
 
     ![Selecione personalizado-spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Defina o valor para a definição recomendada. O valor **de 2048m** é recomendado para esta definição.
 
-1. Guarde o valor e, em seguida, guarde a configuração. Selecione **Guardar** .
+1. Guarde o valor e, em seguida, guarde a configuração. Selecione **Guardar**.
 
     ![Alterar valor para 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
-    Escreva uma nota sobre as alterações de configuração e, em seguida, **selecione Guardar** .
+    Escreva uma nota sobre as alterações de configuração e, em seguida, **selecione Guardar**.
 
     ![Insira uma nota sobre as alterações que fez](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
-    É notificado se alguma configuração precisar de atenção. Note os itens e, em seguida, **selecione Proceder de qualquer forma** .
+    É notificado se alguma configuração precisar de atenção. Note os itens e, em seguida, **selecione Proceder de qualquer forma**.
 
     ![Selecione Proceder De qualquer forma](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
-1. Sempre que uma configuração é guardada, é-lhe pedido que reinicie o serviço. **Selecione Reiniciar** .
+1. Sempre que uma configuração é guardada, é-lhe pedido que reinicie o serviço. **Selecione Reiniciar**.
 
     ![Selecione reiniciar](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
@@ -61,13 +61,13 @@ Os valores de configuração da faísca podem ser afinados ajuda a evitar uma ex
 
     ![Rever processos de execução](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
-1. Pode adicionar configurações. Na lista de configurações, selecione **Custom-spark2-defaults** e, em seguida, **selecione Add Property** .
+1. Pode adicionar configurações. Na lista de configurações, selecione **Custom-spark2-defaults** e, em seguida, **selecione Add Property**.
 
     ![Selecione adicionar propriedade](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Defina uma nova propriedade. Pode definir uma única propriedade utilizando uma caixa de diálogo para configurações específicas, como o tipo de dados. Ou, pode definir várias propriedades usando uma definição por linha.
 
-    Neste exemplo, a propriedade **spark.driver.memory** é definida com um valor de **4g** .
+    Neste exemplo, a propriedade **spark.driver.memory** é definida com um valor de **4g**.
 
     ![Definir novo imóvel](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 

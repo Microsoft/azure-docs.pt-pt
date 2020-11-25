@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 07/17/2019
 ms.author: inhenkel
 ms.openlocfilehash: a3b32110a7236d47946c3a1f901aaedf51b47775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89253986"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022222"
 ---
 # <a name="playback-with-azure-media-player"></a>Reprodução com Azure Media Player
 

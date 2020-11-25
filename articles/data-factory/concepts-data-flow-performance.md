@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 08/12/2020
-ms.openlocfilehash: 055cdf7b6cec12eb8c3e7fde891d155b831a6523
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/24/2020
+ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637875"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022365"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeamento de dados flui desempenho e guia de afinação
 
@@ -87,6 +87,12 @@ Se tiver uma boa compreensão da cardinalidade dos seus dados, a divisão chave 
 > [!TIP]
 > A definição manual do esquema de partição remodela os dados e pode compensar os benefícios do optimizador Spark. Uma boa prática é não definir manualmente a partição a menos que seja necessário.
 
+## <a name="logging-level"></a>Nível de registo
+
+Se não necessitar de todas as execuções do pipeline das suas atividades de fluxo de dados para registar totalmente todos os registos de telemetria verbose, pode configurar opcionalmente o seu nível de registo para "Básico" ou "Nenhum". Ao executar os fluxos de dados no modo "Verbose" (padrão), está a solicitar à ADF que faça login totalmente a cada nível de partição durante a transformação dos dados. Esta pode ser uma operação dispendiosa, por isso apenas permitir verbose quando a resolução de problemas pode melhorar o seu fluxo global de dados e desempenho do pipeline. O modo "Básico" só registará durações de transformação enquanto "Nenhum" fornecerá apenas um resumo das durações.
+
+![Nível de registo](media/data-flow/logging.png "Definir nível de registo")
+
 ## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Otimização do tempo de funcionamento da integração do Azure
 
 Os fluxos de dados são executados em clusters Spark que são girados no tempo de execução. A configuração para o cluster utilizado é definida no tempo de integração (IR) da atividade. Existem três considerações de desempenho a tomar ao definir o tempo de execução da sua integração: tipo de cluster, tamanho do cluster e tempo para viver.
@@ -155,7 +161,7 @@ A Azure SQL Database tem uma opção de partição única chamada partição 'So
 
 #### <a name="isolation-level"></a>Nível de isolamento
 
-O nível de isolamento da leitura num sistema de origem Azure SQL tem um impacto no desempenho. A escolha de 'Ler não comprometido' proporcionará o desempenho mais rápido e evitará quaisquer bloqueios de bases de dados. Para saber mais sobre os níveis de isolamento do SQL, consulte [os níveis de isolamento da Compreensão.](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15)
+O nível de isolamento da leitura num sistema de origem Azure SQL tem um impacto no desempenho. A escolha de 'Ler não comprometido' proporcionará o desempenho mais rápido e evitará quaisquer bloqueios de bases de dados. Para saber mais sobre os níveis de isolamento do SQL, consulte [os níveis de isolamento da Compreensão.](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels)
 
 #### <a name="read-using-query"></a>Ler usando consulta
 
@@ -163,7 +169,7 @@ Pode ler na Base de Dados Azure SQL utilizando uma tabela ou uma consulta SQL. S
 
 ### <a name="azure-synapse-analytics-sources"></a>Fontes azure Synapse Analytics
 
-Ao utilizar o Azure Synapse Analytics, existe uma definição chamada **Enable staging** nas opções de origem. Isto permite que a ADF leia a partir de Synapse usando [polyBase,](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15)o que melhora consideravelmente o desempenho da leitura. Ativar a PolyBase requer que especifique um Azure Blob Storage ou Azure Data Lake Storage gen2 localização de localização nas definições de atividade de fluxo de dados.
+Ao utilizar o Azure Synapse Analytics, existe uma definição chamada **Enable staging** nas opções de origem. Isto permite que a ADF leia a partir de Synapse ```Polybase``` usando, o que melhora consideravelmente o desempenho da leitura. Ativar ```Polybase``` requer que especifique um Azure Blob Storage ou Azure Data Lake Storage gen2 localização de localização nas definições de atividade de fluxo de dados.
 
 ![Ativar o teste](media/data-flow/enable-staging.png "Ativar o teste")
 
@@ -183,6 +189,10 @@ Quando os fluxos de dados escrevem para afundar, qualquer divisória personaliza
 
 Com a Base de Dados Azure SQL, a partição padrão deve funcionar na maioria dos casos. Existe a possibilidade de a sua pia ter demasiadas divisórias para a sua base de dados SQL manusear. Se estiver a escamar isto, reduza o número de divisórias outputadas pelo seu lavatório SQL Database.
 
+#### <a name="impact-of-error-row-handling-to-performance"></a>Impacto do manuseamento da linha de erro para o desempenho
+
+Quando ativar o manuseamento de linhas de erro ("continue em erro") na transformação do lavatório, a ADF dará um passo adicional antes de escrever as linhas compatíveis para a sua tabela de destino. Este passo adicional terá uma pequena penalidade de desempenho que pode estar no intervalo de 5% adicionado para este passo com um pequeno golpe de desempenho adicional também adicionado se você definir a opção também com as linhas incompatíveis para um arquivo de log.
+
 #### <a name="disabling-indexes-using-a-sql-script"></a>Desativar índices usando um Script SQL
 
 Desativar índices antes de uma carga numa base de dados SQL pode melhorar consideravelmente o desempenho da escrita para a tabela. Executar o comando abaixo antes de escrever para a pia SQL.
@@ -198,7 +208,7 @@ Ambos podem ser feitos de forma nativa utilizando scripts Pré e Post-SQL dentro
 ![Índices de desativação](media/data-flow/disable-indexes-sql.png "Índices de desativação")
 
 > [!WARNING]
-> Ao desativar os índices, o fluxo de dados está efetivamente a assumir o controlo de uma base de dados e é pouco provável que as consultas sejam bem sucedidas neste momento. Como resultado, muitos postos de trabalho da ETL são desencadeados a meio da noite para evitar este conflito. Para mais informações, saiba sobre os [constrangimentos dos índices incapacitantes](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
+> Ao desativar os índices, o fluxo de dados está efetivamente a assumir o controlo de uma base de dados e é pouco provável que as consultas sejam bem sucedidas neste momento. Como resultado, muitos postos de trabalho da ETL são desencadeados a meio da noite para evitar este conflito. Para mais informações, saiba sobre os [constrangimentos dos índices incapacitantes](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints)
 
 #### <a name="scaling-up-your-database"></a>Escalonar a sua base de dados
 
@@ -226,7 +236,7 @@ Selecionar a opção **Predefinição** escreverá o mais rápido. Cada divisór
 
 A definição de um **Padrão** de nomeação mudará o nome de cada ficheiro de partição para um nome mais fácil de utilizar. Esta operação acontece após a escrita e é ligeiramente mais lenta do que escolher o padrão. Por partição permite nomear cada partição manualmente.
 
-Se uma coluna corresponder à forma como deseja descodionar os dados, pode selecionar **como dados na coluna** . Isto remodela os dados e pode impactar o desempenho se as colunas não forem distribuídas uniformemente.
+Se uma coluna corresponder à forma como deseja descodionar os dados, pode selecionar **como dados na coluna**. Isto remodela os dados e pode impactar o desempenho se as colunas não forem distribuídas uniformemente.
 
 **A saída para um único ficheiro** combina todos os dados numa única partição. Isto leva a longos tempos de escrita, especialmente para grandes conjuntos de dados. A equipa da Azure Data Factory recomenda vivamente **não** escolher esta opção a menos que exista uma razão explícita para o fazer.
 
@@ -239,7 +249,6 @@ Ao escrever para o CosmosDB, alterar o tamanho da produção e do lote durante a
 **Produção:** Defina aqui uma definição de produção mais alta para permitir que os documentos escrevam mais rapidamente para o CosmosDB. Tenha em mente os custos ru mais elevados com base numa elevada definição de produção.
 
 **Escrever Orçamento de Produção:** Utilize um valor inferior ao total de RUs por minuto. Se tiver um fluxo de dados com um elevado número de divisórias Spark, definir uma produção orçamental permitirá um maior equilíbrio entre essas divisórias.
-
 
 ## <a name="optimizing-transformations"></a>Otimização de transformações
 
