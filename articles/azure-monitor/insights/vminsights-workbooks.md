@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996379"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95985548"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos do Azure Monitor para VMs com livros
 
@@ -26,7 +26,7 @@ Os livros de trabalho são úteis para cenários como:
 
 A tabela que se segue resume os livros que o Azure Monitor para VMs inclui para começar.
 
-| Livro | Description | Âmbito |
+| Livro | Descrição | Âmbito |
 |----------|-------------|-------|
 | Desempenho | Fornece uma versão personalizável da nossa visão top N List e Charts num único livro que aproveita todos os contadores de desempenho do Log Analytics que ativou.| Em escala |
 | Contadores de desempenho | Uma vista de gráfico top N através de um vasto conjunto de contadores de desempenho. | Em escala |
@@ -64,7 +64,7 @@ Um livro é composto por secções compostas por gráficos, tabelas, texto e con
 
 ## <a name="editing-workbook-sections"></a>Editar secções do livro
 
-Os livros de trabalho têm dois modos: **modo de edição**e **modo de leitura**. Quando um novo livro é lançado pela primeira vez, abre-se no **modo de edição**. Mostra todo o conteúdo do livro, incluindo quaisquer passos e parâmetros que sejam escondidos de outra forma. **O modo de leitura** apresenta uma visão simplificada do estilo de relatório. O modo de leitura permite-lhe abstrair a complexidade que foi criar um relatório, ao mesmo tempo que ainda tem a mecânica subjacente a apenas alguns cliques de distância quando necessário para modificação.
+Os livros de trabalho têm dois modos: **modo de edição** e **modo de leitura**. Quando um novo livro é lançado pela primeira vez, abre-se no **modo de edição**. Mostra todo o conteúdo do livro, incluindo quaisquer passos e parâmetros que sejam escondidos de outra forma. **O modo de leitura** apresenta uma visão simplificada do estilo de relatório. O modo de leitura permite-lhe abstrair a complexidade que foi criar um relatório, ao mesmo tempo que ainda tem a mecânica subjacente a apenas alguns cliques de distância quando necessário para modificação.
 
 ![Screenshot da secção de workbook das máquinas virtuais no Azure Monitor mostrando um novo livro no modo de edição com os controlos de edição em destaque.](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
