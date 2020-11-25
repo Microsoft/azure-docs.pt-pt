@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
 ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448149"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008978"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Ligue o Gestor de Configuração ao Monitor Azure
 Pode ligar o ambiente do Microsoft Endpoint Configuration Manager ao Azure Monitor para sincronizar os dados de recolha de dispositivos e fazer referência a estas coleções no Azure Monitor e na Azure Automation.  
@@ -81,7 +81,7 @@ Reveja o artigo [Conecte os computadores Windows ao Azure Monitor em Azure](agen
 
     1. Especifique um **nome** para o objeto no Gestor de Configuração.
     2. Especifique uma **descrição** opcional para ajudá-lo a identificar o serviço.
-    3. Selecione o **conector OMS**do serviço Azure .
+    3. Selecione o **conector OMS** do serviço Azure .
 
     >[!NOTE]
     >O OMS é agora referido como Log Analytics, que é uma característica do Azure Monitor.
@@ -98,7 +98,7 @@ Reveja o artigo [Conecte os computadores Windows ao Azure Monitor em Azure](agen
 
     3. Especificar para **nome de candidatura** o nome da aplicação.
 
-    4. Especificar para **o ID**do Cliente, o ID de aplicação da aplicação AD criada criada anteriormente.
+    4. Especificar para **o ID** do Cliente, o ID de aplicação da aplicação AD criada criada anteriormente.
 
     5. Especificar para **chave Secreta,** a chave secreta do Cliente da aplicação AD criada.
 
@@ -108,7 +108,7 @@ Reveja o artigo [Conecte os computadores Windows ao Azure Monitor em Azure](agen
 
     8. **Selecione Verificar** e à direita os resultados devem **apresentar-se com sucesso verificados!**
 
-8. Na página **configuração,** reveja as informações para verificar as **subscrições do Azure**, **grupo de recursos Azure**e os campos **de espaço de trabalho da Suite de Gestão** de Operações são pré-povoados indicando que a aplicação AD AD AZure tem permissões suficientes no grupo de recursos. Se os campos estiverem vazios, indica que a sua aplicação não tem os direitos exigidos. Selecione as coleções do dispositivo para recolher e encaminhar para o espaço de trabalho e, em seguida, **selecione Adicionar**.
+8. Na página **configuração,** reveja as informações para verificar as **subscrições do Azure**, **grupo de recursos Azure** e os campos **de espaço de trabalho da Suite de Gestão** de Operações são pré-povoados indicando que a aplicação AD AD AZure tem permissões suficientes no grupo de recursos. Se os campos estiverem vazios, indica que a sua aplicação não tem os direitos exigidos. Selecione as coleções do dispositivo para recolher e encaminhar para o espaço de trabalho e, em seguida, **selecione Adicionar**.
 
 9. Reveja as opções na página **Confirmar as definições** e selecione **Seguinte** para começar a criar e configurar a ligação.
 

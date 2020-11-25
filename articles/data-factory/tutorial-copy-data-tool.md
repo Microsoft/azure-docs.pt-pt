@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
 ms.openlocfilehash: de01a8a8522f93684ed428fd4ef19963b1af2059
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564315"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008349"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copie os dados do armazenamento do Azure Blob para uma Base de Dados SQL utilizando a ferramenta Dados de Cópia
 
@@ -40,9 +40,9 @@ Neste tutorial, vai executar os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure** : se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de Armazenamento Azure** : Utilize o armazenamento blob como loja de dados _de origem._ Se não tiver uma conta de Armazenamento Azure, consulte as instruções na [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
-* **Base de Dados Azure SQL** : Utilize uma Base de Dados SQL como loja de dados da _pia._ Se não tiver uma Base de Dados SQL, consulte as instruções na [Create a SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de Armazenamento Azure**: Utilize o armazenamento blob como loja de dados _de origem._ Se não tiver uma conta de Armazenamento Azure, consulte as instruções na [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
+* **Base de Dados Azure SQL**: Utilize uma Base de Dados SQL como loja de dados da _pia._ Se não tiver uma Base de Dados SQL, consulte as instruções na [Create a SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 
@@ -80,10 +80,10 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial reali
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu esquerdo, **selecione Criar uma** Fábrica de  >  Dados de **Integração de** Recursos  >  **Data Factory** :
+1. No menu esquerdo, **selecione Criar uma** Fábrica de  >  Dados de **Integração de** Recursos  >  **Data Factory**:
 
     ![Criação de nova fábrica de dados](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. Na página **Nova fábrica de dados** , em **Nome** , introduza **ADFTutorialDataFactory**.
+1. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
 
     O nome da fábrica de dados tem de ser _globalmente exclusivo_. Poderá receber a seguinte mensagem de erro:
 
@@ -91,7 +91,7 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial reali
 
     Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_**ADFTutorialDataFactory**. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 1. Selecione a **subscrição** do Azure na qual quer criar a nova fábrica de dados.
-1. Em **Grupo de Recursos** , efetue um destes passos:
+1. Em **Grupo de Recursos**, efetue um destes passos:
 
     a. Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
 
@@ -99,7 +99,7 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial reali
     
     Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).
 
-1. Em **Versão** , selecione **V2** para indicar a versão.
+1. Em **Versão**, selecione **V2** para indicar a versão.
 1. No **local,** selecione a localização para a fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados (por exemplo, o Armazenamento do Azure e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) utilizados pela fábrica de dados podem estar noutras localizações e regiões.
 1. Selecione **Criar**.
 
@@ -110,13 +110,13 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial reali
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Utilizar a ferramenta Copiar Dados para criar um pipeline
 
-1. Na página **Vamos começar** , selecione o mosaico **Copiar Dados** para iniciar a ferramenta Copiar Dados.
+1. Na página **Vamos começar**, selecione o mosaico **Copiar Dados** para iniciar a ferramenta Copiar Dados.
 
     ![Mosaico ferramenta Copiar Dados](./media/doc-common-process/get-started-page.png)
-1. Na página **Propriedades** , em **Nome da tarefa** , introduza **CopyFromBlobToSqlPipeline**. Em seguida, selecione **Seguinte**. A IU do Data Factory cria um pipeline com o nome de tarefa especificado.
+1. Na página **Propriedades**, em **Nome da tarefa**, introduza **CopyFromBlobToSqlPipeline**. Em seguida, selecione **Seguinte**. A IU do Data Factory cria um pipeline com o nome de tarefa especificado.
     ![Criar um pipeline](./media/tutorial-copy-data-tool/create-pipeline.png)
 
-1. Na página **Arquivo de dados de origem** , conclua os seguintes passos:
+1. Na página **Arquivo de dados de origem**, conclua os seguintes passos:
 
     a. Clique em **+ Criar nova ligação** para adicionar uma ligação
 
@@ -128,16 +128,16 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial reali
 
     ![Selecionar serviço ligado de origem](./media/tutorial-copy-data-tool/select-source-linked-service.png)
 
-1. Na página **Escolher o ficheiro ou pasta de entrada** , complete os seguintes passos:
+1. Na página **Escolher o ficheiro ou pasta de entrada**, complete os seguintes passos:
 
-    a. Clique em **Navegar** para navegar para a pasta **adfv2tutorial/input** , selecione o ficheiro **inputEmp.txt** e clique em **Escolher**.
+    a. Clique em **Navegar** para navegar para a pasta **adfv2tutorial/input**, selecione o ficheiro **inputEmp.txt** e clique em **Escolher**.
 
     b. Clique em **Seguinte** para mover para o passo seguinte.
 
 1. Na página de definições do **formato 'Ficheiro',** ativar a caixa de verificação para *primeira linha como cabeçalho*. Note que a ferramenta deteta automaticamente os delimiters da coluna e da linha. Selecione **Seguinte**. Também pode visualizar dados e ver o esquema dos dados de entrada nesta página.
 
     ![Definições do formato do ficheiro](./media/tutorial-copy-data-tool/file-format-settings-page.png)
-1. Na página **Arquivo de dados de destino** , conclua os seguintes passos:
+1. Na página **Arquivo de dados de destino**, conclua os seguintes passos:
 
     a. Clique em **+ Criar nova ligação** para adicionar uma ligação
 
@@ -149,17 +149,17 @@ Prepare o seu armazenamento Blob e a sua Base de Dados SQL para o tutorial reali
 
     d. Selecione o serviço ligado criado recentemente como sink e, em seguida, clique em **Seguinte**.
 
-1. Na página **Mapeamento da tabela** , selecione a tabela **[dbo].[emp]** e, em seguida, selecione **Seguinte**.
+1. Na página **Mapeamento da tabela**, selecione a tabela **[dbo].[emp]** e, em seguida, selecione **Seguinte**.
 
 1. Na página **de mapeamento** da Coluna, note que a segunda e a terceira colunas no ficheiro de entrada estão mapeadas para as colunas **FirstName** e **LastName** da tabela **emp.** Ajuste o mapeamento para se certificar de que não há erros e, em seguida, selecione **Next**.
 
     ![Página de mapeamento de coluna](./media/tutorial-copy-data-tool/column-mapping.png)
 
-1. Na página **Definições** , selecione **Seguinte**.
+1. Na página **Definições**, selecione **Seguinte**.
 
-1. Na página **Resumo** , reveja as definições e depois selecione **Seguinte**.
+1. Na página **Resumo**, reveja as definições e depois selecione **Seguinte**.
 
-1. Na **Página de implementação** , selecione **Monitorizar** para monitorizar o pipeline (tarefa).
+1. Na **Página de implementação**, selecione **Monitorizar** para monitorizar o pipeline (tarefa).
 
     ![Monitorizar o pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
     

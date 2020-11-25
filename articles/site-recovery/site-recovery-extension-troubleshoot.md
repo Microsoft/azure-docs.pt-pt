@@ -6,11 +6,11 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184623"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009709"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Resolver problemas da extensão da VM do Azure
 
@@ -45,7 +45,7 @@ Código de erro: "151099"
 
 Este erro pode acontecer se o agente convidado Azure na máquina virtual não estiver no estado de preparação.
 
-Pode verificar o estado do agente convidado da Azure no [portal Azure](https://portal.azure.com/). Vá à máquina virtual que está a tentar **VM**proteger e verifique o estado do agente de propriedades  >  **de definições**VM  >  **Properties**  >  **Agent status**. Na maior parte do tempo, o estado do agente está pronto depois de reiniciar a máquina virtual. No entanto, se não conseguir reiniciar ou ainda estiver de frente para o problema, então complete os seguintes passos de resolução de problemas:
+Pode verificar o estado do agente convidado da Azure no [portal Azure](https://portal.azure.com/). Vá à máquina virtual que está a tentar **VM** proteger e verifique o estado do agente de propriedades  >  **de definições** VM  >  **Properties**  >  **Agent status**. Na maior parte do tempo, o estado do agente está pronto depois de reiniciar a máquina virtual. No entanto, se não conseguir reiniciar ou ainda estiver de frente para o problema, então complete os seguintes passos de resolução de problemas:
 
 - [O agente está instalado no VM, mas não responde (para VMs windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 - [O agente instalado no VM está desatualizado (para Os VMs Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
@@ -67,7 +67,7 @@ O agente VM pode ter sido corrompido, ou o serviço pode ter sido parado. Reinst
 
 1. Determine se o serviço de Agente Convidado Windows Azure está em execução nos serviços VM (services.msc). Reinicie o serviço de Agente Convidado Windows Azure.    
 1. Se o serviço de Agente Convidado Windows Azure não estiver visível nos serviços, abra o Painel de Controlo. Vá a **Programas e Funcionalidades** para ver se o serviço de Agente Convidado do Windows está instalado.
-1. Se o Windows Azure Guest Agent aparecer em **Programas e Funcionalidades, desinstale**o Windows Azure Guest Agent.
+1. Se o Windows Azure Guest Agent aparecer em **Programas e Funcionalidades, desinstale** o Windows Azure Guest Agent.
 1. Descarregue e instale a [versão mais recente do agente MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Precisa de direitos de administrador para completar a instalação.
 1. Verifique se o serviço de Agente Convidado Do Windows Azure aparece nos serviços.
 1. Reinicie o trabalho de proteção.

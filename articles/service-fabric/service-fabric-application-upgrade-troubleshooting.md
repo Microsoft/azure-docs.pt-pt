@@ -4,11 +4,11 @@ description: Este artigo aborda algumas questões comuns em torno da atualizaç�
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75377927"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009352"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Resolver problemas da atualização da aplicação
 
@@ -80,7 +80,7 @@ O comando **Get-ServiceFabricNode** pode ser utilizado para verificar se estes d
 
 Uma *Fase de Upgrade* do *Pré-UpgradeSafetyCheck* significa que houve problemas a preparar o domínio de atualização antes de ser realizado. As questões mais comuns neste caso são erros de serviço na proximidade ou despromoção das vias de código primário.
 
-O **atual UpgradeState** é *RollingBackCompleted*, pelo que a atualização original deve ter sido realizada com uma **Falha de Reversão**, que revirou automaticamente a atualização após falha. Se a atualização original foi realizada com uma **Falha**manual, então a atualização estaria em estado suspenso para permitir a depuração ao vivo da aplicação.
+O **atual UpgradeState** é *RollingBackCompleted*, pelo que a atualização original deve ter sido realizada com uma **Falha de Reversão**, que revirou automaticamente a atualização após falha. Se a atualização original foi realizada com uma **Falha** manual, então a atualização estaria em estado suspenso para permitir a depuração ao vivo da aplicação.
 
 Em casos raros, o campo **UpgradeDomainProgressAtFailure** pode estar vazio se o tempo de atualização geral for necessário, assim como o sistema completa todo o trabalho para o domínio de upgrade atual. Se isso acontecer, tente aumentar os valores dos parâmetros de upgrade **do UpgradeTimeout** e **do UpgradeDomainTimeout** e re-tente a atualização.
 
@@ -148,7 +148,7 @@ A atualização foi suspensa após a falha, especificando uma Falha de **Funcion
 
 ### <a name="recover-from-a-suspended-upgrade"></a>Recuperar de uma atualização suspensa
 
-Com uma **Falha de Reversão,** não é necessária recuperação, uma vez que a atualização volta automaticamente a falhar. Com uma **Falha manual, existem**várias opções de recuperação:
+Com uma **Falha de Reversão,** não é necessária recuperação, uma vez que a atualização volta automaticamente a falhar. Com uma **Falha manual, existem** várias opções de recuperação:
 
 1.  desencadear um rollback
 2. Proceda através do restante da atualização manualmente

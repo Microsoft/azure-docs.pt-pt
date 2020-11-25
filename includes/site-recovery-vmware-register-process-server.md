@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
 ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67534707"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008492"
 ---
 1. Estabelecer uma ligação de ambiente de trabalho remoto à máquina que executa o servidor de processo. 
 2. Executar cspsconfigtool.exe para iniciar a ferramenta de configuração do Servidor de Recuperação do Processo de Recuperação do Local Azure.
@@ -19,7 +19,7 @@ ms.locfileid: "67534707"
 3. No **servidor de configuração FQDN ou IP**, especifique o nome ou endereço IP do servidor de configuração com o qual registar o servidor de processo.
 4. Na **porta do servidor de configuração,** certifique-se de que o 443 está especificado. Esta é a porta na qual o servidor de configuração ouve pedidos.
 5. Em **Conexão Passphrase**, especifique a frase de passagem que especificou quando configurar o servidor de configuração. Para encontrar a frase de passagem:
-    -  No servidor de configuração, navegue para a pasta de instalação de recuperação do local **\home\svssystems\bin \* *:
+    -  No servidor de configuração, navegue para a pasta de instalação de recuperação do local **\home\svssystems\bin \**:
     ```
     cd %ProgramData%\ASR\home\svsystems\bin
     ```

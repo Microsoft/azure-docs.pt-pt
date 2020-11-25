@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ms.openlocfilehash: dd0617536147787f436e5817f3f2367a19ba6aa4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696188"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009284"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Upgrade Azure Public Load Balancer
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um rico conjunto de funcionalidades e alta disponibilidade através da redundância de zona. Para saber mais sobre o Balancer de Carga SKU, consulte [a tabela de comparação](./skus.md#skus).
@@ -103,7 +103,7 @@ Aqui estão alguns cenários de como adicionar VMs para apoiar piscinas do recé
    
     1. Selecione o pool de backend que corresponde ao pool de backend do Balanceador de Carga Básica, selecione o seguinte valor: 
       - **Máquina Virtual**: Desça e selecione os VMs do pool de backend correspondente do Balanceador de Carga Básica.
-    1. Selecione **Save** (Guardar).
+    1. Selecione **Guardar**.
     >[!NOTE]
     >Para VMs que tenham IPs públicos, você precisará criar endereços IP standard primeiro onde o mesmo endereço IP não é garantido. Desassociar os VMs dos IPs básicos e associá-los aos endereços IP standard recém-criados. Em seguida, poderá seguir as instruções para adicionar VMs no pool backend do Balancer de Carga Padrão. 
 

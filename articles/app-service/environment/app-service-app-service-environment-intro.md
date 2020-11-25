@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 878cef39ade0487c03dba83c9e3631fe3c72088f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962388"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008634"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introdução ao Ambiente de Serviço de Aplicações v1
 
@@ -60,7 +60,7 @@ Para obter mais informações sobre os tamanhos de recursos de computação disp
 
 ## <a name="virtual-network-support"></a>Suporte virtual à rede
 
-Um Ambiente de Serviço de Aplicações pode ser criado **numa** rede virtual Azure Resource Manager **ou** numa rede virtual de modelos de implementação clássica[(mais informações em redes virtuais).][MoreInfoOnVirtualNetworks]  Uma vez que existe sempre um Ambiente de Serviço de Aplicações numa rede virtual e, mais precisamente, dentro de uma sub-rede de uma rede virtual, pode aproveitar as funcionalidades de segurança das redes virtuais para controlar as comunicações de rede de entrada e saída.  
+Um Ambiente de Serviço de Aplicações pode ser criado **numa** rede virtual Azure Resource Manager **ou** numa rede virtual de modelos de implementação clássica [(mais informações em redes virtuais).][MoreInfoOnVirtualNetworks]  Uma vez que existe sempre um Ambiente de Serviço de Aplicações numa rede virtual e, mais precisamente, dentro de uma sub-rede de uma rede virtual, pode aproveitar as funcionalidades de segurança das redes virtuais para controlar as comunicações de rede de entrada e saída.  
 
 Um Ambiente de Serviço de Aplicações pode ser virado para a Internet com um endereço IP público, ou virado para o interior apenas com um endereço Azure Internal Load Balancer (ILB).
 

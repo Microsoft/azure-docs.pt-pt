@@ -7,15 +7,15 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
 ms.openlocfilehash: 4070f373175f3497156ced011a57e2ed7bd6e770
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364263"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009777"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: Automatizar a implementação para apps Azure Logic utilizando modelos de Gestor de Recursos Azure
 
-Quando estiver pronto para automatizar a criação e implementação da sua aplicação lógica, pode expandir a definição subjacente do fluxo de trabalho da sua aplicação lógica para um [modelo de Gestor de Recursos Azure.](../azure-resource-manager/management/overview.md) Este modelo define a infraestrutura, recursos, parâmetros e outras informações para o fornecimento e implementação da sua aplicação lógica. Ao definir parâmetros para valores que variam na implementação, também conhecido como *parametrizante* , é possível implementar repetidamente e de forma consistente aplicações lógicas com base em diferentes necessidades de implementação.
+Quando estiver pronto para automatizar a criação e implementação da sua aplicação lógica, pode expandir a definição subjacente do fluxo de trabalho da sua aplicação lógica para um [modelo de Gestor de Recursos Azure.](../azure-resource-manager/management/overview.md) Este modelo define a infraestrutura, recursos, parâmetros e outras informações para o fornecimento e implementação da sua aplicação lógica. Ao definir parâmetros para valores que variam na implementação, também conhecido como *parametrizante*, é possível implementar repetidamente e de forma consistente aplicações lógicas com base em diferentes necessidades de implementação.
 
 Por exemplo, se se implantar em ambientes para desenvolvimento, teste e produção, provavelmente utiliza diferentes cadeias de ligação para cada ambiente. Pode declarar parâmetros de modelo que aceitam diferentes cadeias de ligação e, em seguida, armazenar essas cordas num [ficheiro de parâmetros](../azure-resource-manager/templates/parameter-files.md)separados . Desta forma, pode alterar esses valores sem ter de atualizar e recolocar o modelo. Para cenários em que tenha valores de parâmetros sensíveis ou seguros, tais como palavras-passe e segredos, pode armazenar esses valores no [Cofre da Chave Azure](../azure-resource-manager/templates/key-vault-parameter.md) e ter os seus parâmetros a recuperar esses valores. No entanto, nestes cenários, seria reenviado para recuperar os valores atuais.
 
@@ -71,7 +71,7 @@ Para um modelo de aplicação lógica, você trabalha principalmente com estes o
 
 O seu modelo de aplicativo lógica utiliza este formato de nome de ficheiro:
 
-**<*lógica-app-nome* >.jsem**
+**<*lógica-app-nome*>.jsem**
 
 > [!IMPORTANT]
 > A sintaxe do modelo é sensível ao caso, por isso certifique-se de que utiliza um invólucro consistente. 
@@ -187,8 +187,8 @@ Para obter mais boas práticas do modelo, consulte [as melhores práticas para o
 
 Para fornecer os valores dos parâmetros do modelo, guarde esses valores num [ficheiro de parâmetros](../azure-resource-manager/templates/parameter-files.md). Desta forma, pode utilizar diferentes ficheiros de parâmetros com base nas suas necessidades de implantação. Aqui está o formato de nome de ficheiro para usar:
 
-* Nome do ficheiro do modelo de aplicativo lógica: **< *logic-app-name* >.json**
-* Nome do ficheiro de parâmetros: **< *logic-app-name* >.parameters.json**
+* Nome do ficheiro do modelo de aplicativo lógica: **< *logic-app-name*>.json**
+* Nome do ficheiro de parâmetros: **< *logic-app-name*>.parameters.json**
 
 Aqui está a estrutura dentro do arquivo de parâmetros, que inclui uma referência de cofre chave para [passar um valor de parâmetro seguro com Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
 
@@ -331,11 +331,11 @@ Aqui estão os atributos específicos da definição de recursos de aplicação 
 | Atributo | Necessário | Tipo | Descrição |
 |-----------|----------|------|-------------|
 | `state` | Sim | String | O estado da sua aplicação lógica em implementação onde `Enabled` significa que a sua aplicação lógica está ao vivo e significa que a sua `Disabled` aplicação lógica está inativa. Por exemplo, se não estiver pronto para a sua aplicação lógica entrar em direto mas quiser implementar uma versão de projeto, pode usar a `Disabled` opção. |
-| `integrationAccount` | No | Objeto | Se a sua aplicação lógica utilizar uma conta de integração, que armazena artefactos para cenários business-to-business (B2B), este objeto inclui o `id` atributo, que especifica o ID para a conta de integração. |
-| `definition` | Yes | Objeto | A definição subjacente do fluxo de trabalho da sua aplicação lógica, que é o mesmo objeto que aparece na visão de código e está totalmente descrito na referência de Schema para o tópico [de Linguagem de Definição de Fluxo de Trabalho.](../logic-apps/logic-apps-workflow-definition-language.md) Nesta definição de fluxo de trabalho, o `parameters` objeto declara parâmetros para os valores a utilizar no tempo de execução da aplicação lógica. Para obter mais informações, consulte [a definição e os parâmetros do Fluxo de Trabalho.](#workflow-definition-parameters) <p><p>Para ver os atributos na definição de fluxo de trabalho da sua aplicação lógica, mude de "design view" para "code view" no portal Azure ou Visual Studio, ou utilizando uma ferramenta como [o Azure Resource Explorer](https://resources.azure.com). |
-| `parameters` | No | Objeto | Os [valores do parâmetro de definição de fluxo de trabalho](#workflow-definition-parameters) para usar no tempo de execução da aplicação lógica. As definições de parâmetros para estes valores aparecem dentro [do objeto de parâmetros da definição de fluxo de trabalho.](#workflow-definition-parameters) Além disso, se a sua aplicação lógica utilizar [conectores geridos](../connectors/apis-list.md) para aceder a outros serviços e sistemas, este objeto inclui um `$connections` objeto que define os valores de ligação a utilizar no tempo de execução. |
-| `accessControl` | No | Objeto | Para especificar atributos de segurança para a sua aplicação lógica, como restringir o acesso IP a gatilhos de pedido ou executar entradas e saídas de histórico. Para obter mais informações, consulte [acesso seguro a aplicações lógicas.](../logic-apps/logic-apps-securing-a-logic-app.md) |
-| `runtimeConfiguration` | No | Objeto | Para especificar quaisquer `operationOptions` propriedades que controlem a forma como a sua aplicação lógica se comporta no tempo de execução. Por exemplo, pode executar a sua aplicação lógica em [modo de produção elevado](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode). |
+| `integrationAccount` | Não | Objeto | Se a sua aplicação lógica utilizar uma conta de integração, que armazena artefactos para cenários business-to-business (B2B), este objeto inclui o `id` atributo, que especifica o ID para a conta de integração. |
+| `definition` | Sim | Objeto | A definição subjacente do fluxo de trabalho da sua aplicação lógica, que é o mesmo objeto que aparece na visão de código e está totalmente descrito na referência de Schema para o tópico [de Linguagem de Definição de Fluxo de Trabalho.](../logic-apps/logic-apps-workflow-definition-language.md) Nesta definição de fluxo de trabalho, o `parameters` objeto declara parâmetros para os valores a utilizar no tempo de execução da aplicação lógica. Para obter mais informações, consulte [a definição e os parâmetros do Fluxo de Trabalho.](#workflow-definition-parameters) <p><p>Para ver os atributos na definição de fluxo de trabalho da sua aplicação lógica, mude de "design view" para "code view" no portal Azure ou Visual Studio, ou utilizando uma ferramenta como [o Azure Resource Explorer](https://resources.azure.com). |
+| `parameters` | Não | Objeto | Os [valores do parâmetro de definição de fluxo de trabalho](#workflow-definition-parameters) para usar no tempo de execução da aplicação lógica. As definições de parâmetros para estes valores aparecem dentro [do objeto de parâmetros da definição de fluxo de trabalho.](#workflow-definition-parameters) Além disso, se a sua aplicação lógica utilizar [conectores geridos](../connectors/apis-list.md) para aceder a outros serviços e sistemas, este objeto inclui um `$connections` objeto que define os valores de ligação a utilizar no tempo de execução. |
+| `accessControl` | Não | Objeto | Para especificar atributos de segurança para a sua aplicação lógica, como restringir o acesso IP a gatilhos de pedido ou executar entradas e saídas de histórico. Para obter mais informações, consulte [acesso seguro a aplicações lógicas.](../logic-apps/logic-apps-securing-a-logic-app.md) |
+| `runtimeConfiguration` | Não | Objeto | Para especificar quaisquer `operationOptions` propriedades que controlem a forma como a sua aplicação lógica se comporta no tempo de execução. Por exemplo, pode executar a sua aplicação lógica em [modo de produção elevado](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode). |
 |||||
 
 Para obter mais informações sobre definições de recursos para estes objetos de Aplicações Lógicas, consulte [os tipos de recursos microsoft.logic](/azure/templates/microsoft.logic/allversions):

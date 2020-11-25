@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: ecb066c7269217af3f8cc84e0f59ab29b4b39a9e
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 45ebd793d96ed8cf0edf88d5631353fb6cd6a982
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331617"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96008774"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorizar visualmente o Azure Data Factory
 
@@ -62,7 +62,7 @@ Para obter uma visão detalhada das operações individuais de uma corrida espec
 
 A visualização da lista mostra que as operações correspondem a cada corrida de gasodutos. Hover sobre a atividade específica executada para obter informações específicas de execução, tais como a entrada JSON, saída JSON, e experiências de monitorização detalhadas específicas da atividade.
 
-![A vista da lista para monitorização da atividade corre](media/monitor-visually/activity-runs.png)
+![Existe informação sobre salesAnalyticsMLPipeline, seguida de uma lista de atividades.](media/monitor-visually/activity-runs.png)
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
@@ -79,7 +79,7 @@ A visualização da lista mostra que as operações correspondem a cada corrida 
 
 Se uma atividade falhar, pode ver a mensagem de erro detalhada clicando no ícone na coluna de erro. 
 
-![A vista da lista para monitorização da atividade corre](media/monitor-visually/activity-run-error.png)
+![Uma notificação aparece com detalhes de erro, incluindo código de erro, tipo de falha e detalhes de erro.](media/monitor-visually/activity-run-error.png)
 
 ### <a name="promote-user-properties-to-monitor"></a>Promover propriedades de utilizadores para monitorizar
 

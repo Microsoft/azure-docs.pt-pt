@@ -4,17 +4,17 @@ description: Controlo do mapeamento da amostra de planta SWIFT CSP-CSCF v2020. C
 ms.date: 08/18/2020
 ms.topic: sample
 ms.openlocfilehash: 5aa4ee556c4ec7348566f45592b5e9fbf00eaf20
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932197"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009403"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Mapeamento de controlo da amostra de planta SWIFT CSP-CSCF v2020
 
 O seguinte artigo detalha como o Azure Blueprints SWIFT CSP-CSCF v2020 mapeia a amostra de amostra para os controlos SWIFT CSP-CSCF v2020. Para obter mais informações sobre os controlos, consulte [SWIFT CSP-CSCF v2020](https://www.swift.com/myswift/customer-security-programme-csp).
 
-Os seguintes mapeamentos são para os **controlos SWIFT CSP-CSCF v2020.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione o ** \[ Preview : Audit SWIFT \] CSP-CSCF v2020 controla e implementa extensões VM específicas para apoiar os requisitos** de auditoria integrados na iniciativa política.
+Os seguintes mapeamentos são para os **controlos SWIFT CSP-CSCF v2020.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione o **\[ Preview : Audit SWIFT \] CSP-CSCF v2020 controla e implementa extensões VM específicas para apoiar os requisitos** de auditoria integrados na iniciativa política.
 
 > [!IMPORTANT]
 > Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/swift-2020/control-mapping.md).

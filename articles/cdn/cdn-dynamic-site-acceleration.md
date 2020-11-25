@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
 ms.openlocfilehash: 5387fdc224cd77ee5273767df5033a51dc27608c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778868"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008366"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração dinâmica do site via Azure CDN
 
@@ -32,7 +32,7 @@ A capacidade padrão da rede de entrega de conteúdos (CDN) inclui a capacidade 
 > [!Important]
 > Para **o Azure CDN a partir de** perfis Akamai, é permitido alterar a otimização de um ponto final cdn após a sua criação.
 >   
-> Para os perfis de **CDN do Azure da Verizon** , não pode alterar a otimização de um ponto final de CDN após ter sido criado.
+> Para os perfis de **CDN do Azure da Verizon**, não pode alterar a otimização de um ponto final de CDN após ter sido criado.
 
 ## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Configuração do ponto final cdN para acelerar a entrega de ficheiros dinâmicos
 
@@ -40,13 +40,13 @@ Para configurar um ponto final do CDN para otimizar a entrega de ficheiros dinâ
 
 **Para configurar um ponto final cdn para otimização de DSA utilizando o portal Azure:**
 
-1. Na página de perfil do **CDN,** selecione **Endpoint** .
+1. Na página de perfil do **CDN,** selecione **Endpoint**.
 
    ![Adicione um novo ponto final cdn](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
 
    O painel **Adicionar um ponto final** aparece.
 
-2. Sob **otimizado para** , selecione **Dynamic site acceleration** .
+2. Sob **otimizado para**, selecione **Dynamic site acceleration**.
 
     ![Criar um novo ponto final cdn com a DSA](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
@@ -54,7 +54,7 @@ Para configurar um ponto final do CDN para otimizar a entrega de ficheiros dinâ
 
     O caminho da sonda é uma característica específica da DSA, e é necessário um caminho válido para a criação. A DSA utiliza um pequeno ficheiro *de caminho* sonda colocado no servidor de origem para otimizar as configurações de encaminhamento de rede para o CDN. Para o ficheiro caminho da sonda, pode descarregar e carregar o ficheiro de amostra para o seu site, ou utilizar um ativo existente na sua origem com cerca de 10 KB de tamanho.
 
-4. Introduza as outras opções de ponto final necessários (para obter mais informações, consulte [Criar um novo ponto final CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), em seguida, selecione **Adicionar** .
+4. Introduza as outras opções de ponto final necessários (para obter mais informações, consulte [Criar um novo ponto final CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), em seguida, selecione **Adicionar**.
 
    Após a criação do ponto final cdn, aplica as otimizações DSA para todos os ficheiros que correspondam a determinados critérios. 
 
@@ -67,7 +67,7 @@ Para configurar um ponto final do CDN para otimizar a entrega de ficheiros dinâ
 
    A página **de Otimização** aparece.
 
-3. Em **Otimizado para** , selecione **A aceleração do site Dynamic,** em seguida, selecione **Guardar** .
+3. Em **Otimizado para**, selecione **A aceleração do site Dynamic,** em seguida, selecione **Guardar**.
 
 > [!Note]
 > A DSA incorre em acusações extras. Para obter mais informações, consulte [os preços da Rede de Entrega de Conteúdos.](https://azure.microsoft.com/pricing/details/cdn/)
@@ -157,7 +157,7 @@ Para **o Azure CDN Standard de Verizon** e **Azure CDN Standard a partir de** pe
 
 Para aceder às regras de caching:
 
-1. A partir da página de perfil do **CDN,** em definições, selecione **as regras de Caching** .  
+1. A partir da página de perfil do **CDN,** em definições, selecione **as regras de Caching**.  
     
     ![Botão Regras de colocação em cache da CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -169,13 +169,13 @@ Para **o Azure CDN Premium** apenas a partir de perfis Verizon, liga-se o cachin
 
 Para aceder ao motor de regras:
     
-1. Na página de perfil do **CDN,** **selecione Gerir** .  
+1. Na página de perfil do **CDN,** **selecione Gerir**.  
     
     ![Botão de gestão de perfil CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     O portal de gestão cdn abre.
 
-2. A partir do portal de gestão CDN, selecione **ADN** e, em seguida, selecione **Rules Engine** . 
+2. A partir do portal de gestão CDN, selecione **ADN** e, em seguida, selecione **Rules Engine**. 
 
     ![Motor de regras para a DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
 

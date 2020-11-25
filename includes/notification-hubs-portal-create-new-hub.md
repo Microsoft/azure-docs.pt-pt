@@ -9,11 +9,11 @@ ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
 ms.openlocfilehash: 2ec602f056b339a1b1dcb78d6b8d7583aeaf0434
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375888"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009126"
 ---
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 

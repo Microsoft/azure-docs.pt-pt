@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: daafea59b96cc8da6b78f0733c9f54e0e4d3a8c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779734"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009907"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Criar um recurso de Análise de Texto de Serviços Cognitivos
 
@@ -32,7 +32,7 @@ ms.locfileid: "91779734"
     |Escalão de preço| Introduza **S**, o escalão de preço standard.|
     |Grupo de recursos|Selecione um grupo de recursos disponível.|
 
-1. Selecione **Criar**e aguarde que o recurso seja criado. O seu browser redireciona automaticamente para a página de recursos recém-criada.
+1. Selecione **Criar** e aguarde que o recurso seja criado. O seu browser redireciona automaticamente para a página de recursos recém-criada.
 1. Recolha a chave API configurada `endpoint` e a API:
 
     |Separador de recursos no portal|Definição|Valor|

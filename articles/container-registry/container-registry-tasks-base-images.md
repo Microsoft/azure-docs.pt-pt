@@ -4,11 +4,11 @@ description: Saiba mais sobre as imagens base para imagens de contentores de apl
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: 74e5fb81e3ef6f75b5ee2872ee44b99aae096fd8
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025770"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009828"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Sobre atualizações de imagem base para tarefas ACR
 
@@ -16,7 +16,7 @@ Este artigo fornece informações de fundo sobre atualizações à imagem base d
 
 ## <a name="what-are-base-images"></a>O que são imagens base?
 
-Os ficheiros de estivadores que definem a maioria das imagens do contentor especificam uma imagem-mãe a partir da qual a imagem é baseada, muitas vezes referida como a sua *imagem base* . As imagens de base, normalmente, contêm o sistema operativo, por exemplo [Alpine Linux][base-alpine] ou [Windows Nano Server][base-windows], no qual são aplicadas as restantes camadas do contentor. As imagens de base também podem incluir estruturas de aplicações, tais como [Node.js][base-node] ou [.NET Core][base-dotnet]. Estas imagens base são elas próprias tipicamente baseadas em imagens a montante do público. Várias das suas imagens de aplicação podem partilhar uma imagem base comum.
+Os ficheiros de estivadores que definem a maioria das imagens do contentor especificam uma imagem-mãe a partir da qual a imagem é baseada, muitas vezes referida como a sua *imagem base*. As imagens de base, normalmente, contêm o sistema operativo, por exemplo [Alpine Linux][base-alpine] ou [Windows Nano Server][base-windows], no qual são aplicadas as restantes camadas do contentor. As imagens de base também podem incluir estruturas de aplicações, tais como [Node.js][base-node] ou [.NET Core][base-dotnet]. Estas imagens base são elas próprias tipicamente baseadas em imagens a montante do público. Várias das suas imagens de aplicação podem partilhar uma imagem base comum.
 
 Frequentemente, uma imagem de base é atualizada pelo responsável pela manutenção da imagem para incluir as novas funcionalidades ou os melhoramentos no SO ou na estrutura. Os patches de segurança são outra causa comum para a atualização da imagem de base. Quando estas atualizações a montante ocorrerem, também deve atualizar as suas imagens base para incluir a correção crítica. Cada imagem de aplicação também deve ser reconstruída para incluir estas correções a montante agora incluídas na sua imagem base.
 
@@ -60,7 +60,7 @@ O tempo entre o momento em que uma imagem base é atualizada e quando a tarefa d
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False
   ```
 
-* **Gatilho para rastrear as dependências** - Para permitir que uma tarefa de ACR determine e rastreie as dependências de uma imagem de um recipiente -- que incluem a sua imagem base - primeiro deve desencadear a tarefa de construir a imagem **pelo menos uma vez** . Por exemplo, desacione a tarefa manualmente utilizando o comando de execução de [tarefas az acr.][az-acr-task-run]
+* **Gatilho para rastrear as dependências** - Para permitir que uma tarefa de ACR determine e rastreie as dependências de uma imagem de um recipiente -- que incluem a sua imagem base - primeiro deve desencadear a tarefa de construir a imagem **pelo menos uma vez**. Por exemplo, desacione a tarefa manualmente utilizando o comando de execução de [tarefas az acr.][az-acr-task-run]
 
 * **Etiqueta estável para a imagem base** - Para desencadear uma tarefa na atualização da imagem base, a imagem base deve ter uma etiqueta *estável,* tal como `node:9-alpine` . Esta marcação é típica de uma imagem base que é atualizada com os patches de SISTEMA e estrutura para uma versão estável mais recente. Se a imagem base for atualizada com uma nova etiqueta de versão, não desencadeia uma tarefa. Para obter mais informações sobre a marcação de imagens, consulte as [melhores práticas de orientação.](container-registry-image-tag-version.md) 
 

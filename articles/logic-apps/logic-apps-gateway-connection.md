@@ -7,11 +7,11 @@ ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
 ms.date: 08/18/2020
 ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661202"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009263"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ligar a origens de dados no local a partir do Azure Logic Apps
 
@@ -128,7 +128,7 @@ A sua ligação gateway está agora pronta para a sua aplicação lógica para u
 
 Para atualizar as definições de uma ligação gateway, pode editar a sua ligação.
 
-1. Para encontrar todas as ligações API apenas para a sua aplicação lógica, no menu da sua aplicação lógica, em **Ferramentas**de Desenvolvimento, selecione **ligações API**.
+1. Para encontrar todas as ligações API apenas para a sua aplicação lógica, no menu da sua aplicação lógica, em **Ferramentas** de Desenvolvimento, selecione **ligações API**.
 
    ![No menu de aplicativos logic, selecione "Conexões API"](./media/logic-apps-gateway-connection/logic-app-api-connections.png)
 

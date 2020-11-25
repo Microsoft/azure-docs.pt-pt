@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mikhegn
 ms.openlocfilehash: 1db6cea0af229664b07e88463e279b2a64d7e267
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256055"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008519"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configure a atualização de uma aplicação de Tecido de Serviço no Estúdio Visual
 As ferramentas visual Studio para Azure Service Fabric fornecem suporte de upgrade para publicação em clusters locais ou remotos. Existem três cenários em que pretende atualizar a sua aplicação para uma versão mais recente em vez de substituir a aplicação durante os testes e depurações:
@@ -22,7 +22,7 @@ As ferramentas visual Studio para Azure Service Fabric fornecem suporte de upgra
 ## <a name="parameters-needed-to-upgrade"></a>Parâmetros necessários para atualizar
 Pode escolher entre dois tipos de implementação: regular ou upgrade. Uma implantação regular apaga quaisquer informações e dados de implantação anteriores no cluster, enquanto uma implementação de upgrade o preserva. Ao atualizar uma aplicação de Tecido de Serviço no Estúdio Visual, precisa de fornecer parâmetros de atualização de aplicações e políticas de verificação de saúde. Os parâmetros de atualização da aplicação ajudam a controlar a atualização, enquanto as políticas de verificação de saúde determinam se a atualização foi bem sucedida. Consulte [a atualização da aplicação Do Tecido de Serviço: atualizar os parâmetros](service-fabric-application-upgrade-parameters.md) para mais detalhes.
 
-Existem três modos de atualização: *Monitorado,* *UnmonitoredAuto*e *UnmonitoredManual*.
+Existem três modos de atualização: *Monitorado,* *UnmonitoredAuto* e *UnmonitoredManual*.
 
 * Uma atualização monitorizada automatiza o exame de saúde de upgrade e aplicação.
 * Uma atualização UnmonitoredAuto automatiza a atualização, mas ignora o exame de saúde da aplicação.

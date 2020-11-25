@@ -12,11 +12,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b83a8bfbc79af344c4d158ee65134034db714e9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783968"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008910"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Managing Concurrency in Microsoft Azure Storage (Gerir a Simultaneidade no Armazenamento do Microsoft Azure)
 
@@ -85,7 +85,7 @@ catch (StorageException ex)
 }
 ```
 
-O Azure Storage também inclui suporte para cabeçalhos condicional, tais como **Se-Modificado-Desde** , **Se-Não Modificado-Since** , **If-None-Match** , e combinações desses cabeçalhos. Para obter mais informações, consulte [especificar cabeçalhos condicional para operações de serviço de bolhas](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
+O Azure Storage também inclui suporte para cabeçalhos condicional, tais como **Se-Modificado-Desde**, **Se-Não Modificado-Since**, **If-None-Match**, e combinações desses cabeçalhos. Para obter mais informações, consulte [especificar cabeçalhos condicional para operações de serviço de bolhas](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
 
 A tabela seguinte resume as operações do contentor que aceitam cabeçalhos condicional, como **o If-Match** no pedido e que devolvem um valor ETag na resposta.
 
@@ -184,7 +184,7 @@ As seguintes operações blob podem utilizar contratos de arrendamento para geri
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Concordância pessimista para contentores
 
-As locações em contentores permitem que as mesmas estratégias de sincronização sejam suportadas como nas bolhas *(leitura exclusiva/escrita* partilhada, *leitura exclusiva/escrita/leitura exclusiva* , e *leitura/leitura exclusiva partilhada* ), no entanto, ao contrário de blobs, o serviço de armazenamento apenas impõe exclusividade nas operações de eliminação. Para eliminar um recipiente com um arrendamento ativo, um cliente deve incluir o ID de locação ativa com o pedido de eliminação. Todas as outras operações de contentores são bem sucedidas num contentor alugado sem incluir a identificação do arrendamento, caso em que são operações partilhadas. Se for necessária exclusividade de atualização (colocação ou conjunto) ou operações de leitura, os desenvolvedores devem garantir que todos os clientes utilizem um ID de locação e que apenas um cliente de cada vez tenha um ID de locação válido.
+As locações em contentores permitem que as mesmas estratégias de sincronização sejam suportadas como nas bolhas *(leitura exclusiva/escrita* partilhada, *leitura exclusiva/escrita/leitura exclusiva*, e *leitura/leitura exclusiva partilhada*), no entanto, ao contrário de blobs, o serviço de armazenamento apenas impõe exclusividade nas operações de eliminação. Para eliminar um recipiente com um arrendamento ativo, um cliente deve incluir o ID de locação ativa com o pedido de eliminação. Todas as outras operações de contentores são bem sucedidas num contentor alugado sem incluir a identificação do arrendamento, caso em que são operações partilhadas. Se for necessária exclusividade de atualização (colocação ou conjunto) ou operações de leitura, os desenvolvedores devem garantir que todos os clientes utilizem um ID de locação e que apenas um cliente de cada vez tenha um ID de locação válido.
 
 As seguintes operações de contentores podem utilizar locações para gerir a concordância pessimista:
 
@@ -196,7 +196,7 @@ As seguintes operações de contentores podem utilizar locações para gerir a c
 * Conjunto de recipiente ACL
 * Recipiente de Arrendamento
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Specifying Conditional Headers for Blob Service Operations](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations) (Especificar Cabeçalhos Condicionais para Operações do Serviço Blob)
 * [Recipiente de Arrendamento](/rest/api/storageservices/Lease-Container)
@@ -257,7 +257,7 @@ Note que **insira ou substitua** as operações da Entidade **e da Entidade de I
 
 Em geral, os desenvolvedores que usam tabelas devem confiar na concordância otimista. Se precisar de bloqueio pessimista ao aceder às Tabelas, atribua uma bolha escolhida para cada mesa e tente arrendar a bolha antes de operar na mesa. Esta abordagem requer a aplicação para garantir que todas as vias de acesso aos dados obtenham o arrendamento antes de operar em cima da mesa. Deve também ter em conta que o tempo mínimo de arrendamento é de 15 segundos, o que requer uma cuidadosa consideração pela escalabilidade.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Operações em Entidades](/rest/api/storageservices/Operations-on-Entities)
 
@@ -267,7 +267,7 @@ Um dos cenários em que a concordância é uma preocupação no serviço de fila
 
 O serviço de fila não tem suporte para uma concordância otimista ou pessimista e, por isso, os clientes que processam mensagens recuperadas de uma fila devem garantir que as mensagens são processadas de forma idempotente. Um último escritor ganha estratégia é usado para operações de atualização como SetQueueServiceProperties, SetQueueMetaData, SetQueueACL e UpdateMessage.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [API REST de Serviço de Filas](/rest/api/storageservices/Queue-Service-REST-API)
 * [Receber mensagens](/rest/api/storageservices/Get-Messages)
@@ -278,7 +278,7 @@ O serviço de ficheiros pode ser acedido utilizando dois pontos finais de protoc
 
 Quando um cliente SMB abre um ficheiro para apagar, marca o ficheiro como pendente de exclusão até que todos os outros clientes SMB abram as pegas desse ficheiro. Enquanto um ficheiro estiver marcado como eliminação pendente, qualquer operação REST nesse ficheiro devolverá o código de estado 409 (Conflito) com o código de erro SMBDeletePending. O código de estado 404 (Não Encontrado) não é devolvido, uma vez que é possível ao cliente SMB remover a bandeira de eliminação pendente antes de fechar o ficheiro. Por outras palavras, o código de estado 404 (Não Encontrado) só é esperado quando o ficheiro tiver sido removido. Note que enquanto um ficheiro estiver num estado de exclusão pendente de SMB, este não será incluído nos resultados dos Ficheiros de Lista. Além disso, note que as operações DE EXCLUIR FICHEIRO e REST Delete Diretório são comprometidas atomicamente e não resultam num estado de exclusão pendente.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Gestão de fechaduras de ficheiros](/rest/api/storageservices/Managing-File-Locks)
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 8c4e600e012268337a5e6c63d5b3ce4f532ccec0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aaf614846618f3781559ad7f9ce31cb47dd11b63
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970933"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009573"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Quickstart: Treine um modelo de reconhecimento de formulário e extraia dados de formulário utilizando a API REST com Python
 
@@ -27,7 +27,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para completar este arranque rápido, você deve ter:
 - [Python](https://www.python.org/downloads/) instalado (se quiser executar a amostra localmente).
-- Um conjunto de pelo menos cinco formas do mesmo tipo. Utilizará estes dados para treinar o modelo. Os seus formulários podem ser de diferentes tipos de ficheiros, mas devem ser o mesmo tipo de documento. Pode utilizar um [conjunto de dados de amostra](https://go.microsoft.com/fwlink/?linkid=2090451) (descarregar e extrair *sample_data.zip) *para este arranque rápido. Faça o upload dos ficheiros de treino para a raiz de um recipiente de armazenamento de bolhas numa conta de armazenamento Azure de nível de desempenho padrão.
+- Um conjunto de pelo menos cinco formas do mesmo tipo. Utilizará estes dados para treinar o modelo. Os seus formulários podem ser de diferentes tipos de ficheiros, mas devem ser o mesmo tipo de documento. Pode utilizar um [conjunto de dados de amostra](https://go.microsoft.com/fwlink/?linkid=2090451) (descarregar e extrair *sample_data.zip)* para este arranque rápido. Faça o upload dos ficheiros de treino para a raiz de um recipiente de armazenamento de bolhas numa conta de armazenamento Azure de nível de desempenho padrão.
 
 > [!NOTE]
 > Este quickstart utiliza documentos remotos acedidos por URL. Para utilizar ficheiros locais, consulte a [documentação de referência.](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)
@@ -50,6 +50,7 @@ Para treinar um modelo de Reconhecimento de Formulário com os documentos no seu
 1. `<subscription key>`Substitua-a pela chave de subscrição que copiou do passo anterior.
 1. `<endpoint>`Substitua-o pelo URL do ponto final para o seu recurso 'Reconhecimento de Formulário'.
 1. `<Blob folder name>`Substitua-a pelo caminho da pasta no armazenamento de bolhas onde os formulários estão localizados. Se os seus formulários estiverem na raiz do seu recipiente, deixe esta corda vazia.
+1. Substitua opcionalmente `<your model name>` pelo nome amigável que gostaria de dar ao seu modelo.
 
     # <a name="v20"></a>[v2.0](#tab/v2-0)
     ```python
@@ -78,6 +79,7 @@ Para treinar um modelo de Reconhecimento de Formulário com os documentos no seu
             "prefix": prefix,
             "includeSubFolders": includeSubFolders
         },
+        "modelName":"<your model name>",
         "useLabelFile": useLabelFile
     }
     
@@ -101,7 +103,7 @@ Para treinar um modelo de Reconhecimento de Formulário com os documentos no seu
     
     # Endpoint URL
     endpoint = r"<endpoint>"
-    post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+    post_url = endpoint + r"/formrecognizer/v2.1-preview.2/custom/models"
     source = r"<SAS URL>"
     prefix = "<Blob folder name>"
     includeSubFolders = False

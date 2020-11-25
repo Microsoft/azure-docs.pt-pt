@@ -11,11 +11,11 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 3dc6fb64f6e8695d84e292322293998e2f4cb0a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324782"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009233"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Criar uma identidade comum numa máquina virtual de ciência de dados
 
@@ -39,7 +39,7 @@ O Azure AD DS torna simples gerir as suas identidades, fornecendo um serviço to
     
    1. Selecione **Azure Active Directory** e, em seguida, **Utilizadores e grupos**.
     
-   1. Em **Utilizadores e grupos** , selecione **Todos os utilizadores** e, em seguida, selecione Novo **utilizador**.
+   1. Em **Utilizadores e grupos**, selecione **Todos os utilizadores** e, em seguida, selecione Novo **utilizador**.
    
         O painel do **utilizador** abre:
       
@@ -49,9 +49,9 @@ O Azure AD DS torna simples gerir as suas identidades, fornecendo um serviço to
     
    1. Copie ou, caso contrário, tenha em atenção à palavra-passe de utilizador gerada, para que possa dá-la ao utilizador, após a conclusão deste processo.
     
-   1. Opcionalmente, pode abrir e preencher as informações em **Perfil** , **Grupos** ou **Função de diretório** para o utilizador. 
+   1. Opcionalmente, pode abrir e preencher as informações em **Perfil**, **Grupos** ou **Função de diretório** para o utilizador. 
     
-   1. No **Utilizador** , selecione **Criar**.
+   1. No **Utilizador**, selecione **Criar**.
     
    1. Distribua a palavra-passe gerada ao novo utilizador para que possa iniciar sedu.
 

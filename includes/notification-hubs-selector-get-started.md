@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: 142cd876faafd47b870faa8f3146f359707a621c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95558307"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009117"
 ---
 > [!div class="op_single_selector"]
 > * [Android](../articles/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)

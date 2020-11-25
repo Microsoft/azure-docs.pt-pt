@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459111"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009165"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory integração única (SSO) com F5
 
@@ -180,7 +180,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a F5.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **F5**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -211,7 +211,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Terá de importar o Certificado de Metadados para o F5 que será utilizado mais tarde no processo de configuração.
 
-1. Navegue para **a Gestão de Certificados > Sistema > Gestão de Certificados de Tráfego > Lista de Certificados SSL**. **Selecione Importar** do canto direito. Especifique um **Nome de Certificado** (será referenciado mais tarde no config). Na **Fonte**de Certificado , selecione Upload File especificar o certificado descarregado do Azure enquanto configura o Sinal Único DE SAML. Clique **em Importar.**
+1. Navegue para **a Gestão de Certificados > Sistema > Gestão de Certificados de Tráfego > Lista de Certificados SSL**. **Selecione Importar** do canto direito. Especifique um **Nome de Certificado** (será referenciado mais tarde no config). Na **Fonte** de Certificado , selecione Upload File especificar o certificado descarregado do Azure enquanto configura o Sinal Único DE SAML. Clique **em Importar.**
 
     ![Screenshot que mostra a página "S S L Certificate/Key Source" com o "Certificate Name" realçado, "Upload File" e o botão "Import" selecionado.](./media/kerbf5-tutorial/configure01.png) 
 
@@ -232,7 +232,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Screenshot que mostra as "Propriedades do Fornecedor de Serviço" com caixas de texto "Nome de anfitrião" e "Descrição" realçadas e o botão "Save & Next" selecionado.](./media/kerbf5-tutorial/configure05.png) 
 
-1. Neste exemplo estamos a criar um novo Servidor Virtual como 192.168.30.200 com a porta 443. Especifique o endereço IP do Servidor Virtual no **Endereço destino**. Selecione o **Perfil SSL do**Cliente, selecione Criar novo. Especifique o certificado de inscrição previamente carregado (o certificado wild card neste exemplo) e a chave associada, e, em seguida, clique em **Guardar & Next**.
+1. Neste exemplo estamos a criar um novo Servidor Virtual como 192.168.30.200 com a porta 443. Especifique o endereço IP do Servidor Virtual no **Endereço destino**. Selecione o **Perfil SSL do** Cliente, selecione Criar novo. Especifique o certificado de inscrição previamente carregado (o certificado wild card neste exemplo) e a chave associada, e, em seguida, clique em **Guardar & Next**.
 
     >[!NOTE]
     >neste exemplo, o nosso webserver Interno está a funcionar na porta 80 e queremos publicá-lo com 443.
@@ -356,7 +356,7 @@ Configura um servidor AAA do Diretório Ativo no Access Policy Manager (APM) par
 
      ![Screenshot que mostra o botão "Bind/Unbind I d P Connectors" selecionado.](./media/kerbf5-tutorial/configure27.png)
 
-     c. Clique em **Adicionar Nova Linha** e selecione o **conector IdP externo** criado no passo anterior, clique em **Update**e, em seguida, clique em **OK**.
+     c. Clique em **Adicionar Nova Linha** e selecione o **conector IdP externo** criado no passo anterior, clique em **Update** e, em seguida, clique em **OK**.
 
      ![Screenshot que mostra o "Editar S A M L I d Ps que usa esta janela S P" com o botão "Adicionar Nova Fila" selecionado.](./media/kerbf5-tutorial/configure28.png)
 

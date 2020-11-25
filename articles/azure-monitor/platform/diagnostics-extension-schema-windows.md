@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: d2b1afea746410e966b43bef01a039a8471d4ae7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87007933"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008825"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
 A extensão Azure Diagnostics é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho dos recursos de computação Azure. Este artigo detalha o esquema utilizado para a configuração da extensão de diagnóstico em máquinas virtuais do Windows e outros recursos computacional.
@@ -189,7 +189,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Permite-lhe gerar uma tabela de contadores de desempenho que é otimizada para consultas rápidas. Cada contador de desempenho definido no elemento **PerformanceCounters** é armazenado na tabela Métricas, além da tabela 'Contador de Desempenho'.  
 
- O atributo **resourceId** é necessário.  O ID de recursos da Máquina Virtual ou do Conjunto de Escala de Máquina Virtual para o que está a implementar Azure Diagnostics. Obtenha os **recursosID** do [portal Azure.](https://portal.azure.com) **Selecione**  ->  **Grupos de Recursos de**  ->  ** Navegação<Nome \> **. Clique no azulejo **propriedades** e copie o valor do campo **ID.**  Esta propriedade de recursosID é usada tanto para o envio de métricas personalizadas como para adicionar uma propriedade de RECURSOSID aos dados enviados para Os Centros de Eventos. Note que precisa adicionar a propriedade *resourceId* sob o elemento *Metrics* se quiser que os eventos enviados para Os Centros de Eventos tenham um ID de recursos.
+ O atributo **resourceId** é necessário.  O ID de recursos da Máquina Virtual ou do Conjunto de Escala de Máquina Virtual para o que está a implementar Azure Diagnostics. Obtenha os **recursosID** do [portal Azure.](https://portal.azure.com) **Selecione**  ->  **Grupos de Recursos de**  ->  **Navegação<Nome \>**. Clique no azulejo **propriedades** e copie o valor do campo **ID.**  Esta propriedade de recursosID é usada tanto para o envio de métricas personalizadas como para adicionar uma propriedade de RECURSOSID aos dados enviados para Os Centros de Eventos. Note que precisa adicionar a propriedade *resourceId* sob o elemento *Metrics* se quiser que os eventos enviados para Os Centros de Eventos tenham um ID de recursos.
 
 |Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
@@ -237,9 +237,9 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**Não assinadoInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de ficheiros disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
-|**ProgramadoTransferLogLevelFilter**|**cadeia**|Opcional. Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor **predefinido é Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maioria das informações menores) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico**.|  
+|**ProgramadoTransferLogLevelFilter**|**string**|Opcional. Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor **predefinido é Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maioria das informações menores) são **Verbose,** **Informação,** **Aviso,** **Erro** e **Crítico**.|  
 |**programadoTransferPeriod**|**duração**|Opcional. Especifica o intervalo entre transferências programadas de dados, arredondadas até ao minuto mais próximo.<br /><br /> O padrão é PT0S.|  
-|**pias** |**cadeia**| Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Event Hubs. Note que precisa adicionar a propriedade *resourceId* sob o elemento *Metrics* se quiser que os eventos enviados para Os Centros de Eventos tenham um ID de recursos.|  
+|**pias** |**string**| Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Event Hubs. Note que precisa adicionar a propriedade *resourceId* sob o elemento *Metrics* se quiser que os eventos enviados para Os Centros de Eventos tenham um ID de recursos.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Árvore: Raiz - Confirmação de Diagnóstico - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -295,8 +295,8 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Atributos|Tipo|Descrição|  
 |----------------|----------|-----------------|  
-|**logLevel**|**cadeia**|Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor **predefinido é Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maioria das informações menores) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico**.|  
-|**nome**|**cadeia**|Um nome único do canal a que se refere|  
+|**logLevel**|**string**|Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor **predefinido é Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maioria das informações menores) são **Verbose,** **Informação,** **Aviso,** **Erro** e **Crítico**.|  
+|**nome**|**string**|Um nome único do canal a que se refere|  
 
 
 ## <a name="privateconfig-element"></a>ElementoConfig Privado
@@ -310,7 +310,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
-|**StorageAccount**|A conta de armazenamento a utilizar. São necessários os seguintes atributos<br /><br /> - **nome** - O nome da conta de armazenamento.<br /><br /> - **chave** - A chave da conta de armazenamento.<br /><br /> - **ponto final** - O ponto final para aceder à conta de armazenamento. <br /><br /> -**sasToken** (adicionado 1.8.1)- Pode especificar um token SAS em vez de uma chave de conta de armazenamento no config privado. Se for fornecida, a chave da conta de armazenamento é ignorada. <br />Requisitos para o Token SAS: <br />- Suporta apenas o token sas da conta SAS <br />- *b*são necessários tipos de serviço *t.* <br /> - *a*, *c,* *u,* *w* permissões são necessárias. <br /> - *c*, *o* tipos de recursos são necessários. <br /> - Suporta apenas o protocolo HTTPS <br /> - O tempo de início e validade deve ser válido.|  
+|**StorageAccount**|A conta de armazenamento a utilizar. São necessários os seguintes atributos<br /><br /> - **nome** - O nome da conta de armazenamento.<br /><br /> - **chave** - A chave da conta de armazenamento.<br /><br /> - **ponto final** - O ponto final para aceder à conta de armazenamento. <br /><br /> -**sasToken** (adicionado 1.8.1)- Pode especificar um token SAS em vez de uma chave de conta de armazenamento no config privado. Se for fornecida, a chave da conta de armazenamento é ignorada. <br />Requisitos para o Token SAS: <br />- Suporta apenas o token sas da conta SAS <br />- *b* são necessários tipos de serviço *t.* <br /> - *a*, *c,* *u,* *w* permissões são necessárias. <br /> - *c*, *o* tipos de recursos são necessários. <br /> - Suporta apenas o protocolo HTTPS <br /> - O tempo de início e validade deve ser válido.|  
 
 
 ## <a name="isenabled-element"></a>Elemento IsEnabled  
@@ -642,8 +642,8 @@ O *PublicConfig* e *o PrivateConfig* são separados porque na maioria dos casos 
 
   </WadCfg>  
 
-  <StorageAccount>diagstorageaccount</StorageAccount>
-  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
+  <StorageAccount>diagstorageaccount</StorageAccount>
+  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
   </PublicConfig>  
 
   <PrivateConfig>  <!-- Added in 1.3 -->  

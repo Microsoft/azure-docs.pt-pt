@@ -4,11 +4,11 @@ description: Controlo do mapeamento das amostras de plantas do NHS do Reino Unid
 ms.date: 11/05/2020
 ms.topic: sample
 ms.openlocfilehash: 352ba30a21c638c68401e2f8e471096a777fbde9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420262"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009386"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Controlo do mapeamento das amostras de plantas do NHS oficial do Reino Unido e do Reino Unido
 

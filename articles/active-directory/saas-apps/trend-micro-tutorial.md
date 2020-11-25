@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.openlocfilehash: b76c41787d7a35fb3024fa18c0122bc966243bbc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514542"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008400"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Trend Micro Web Security (TMWS)
 
@@ -112,25 +112,25 @@ Complete estes passos para permitir o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste chamado B.Simon no portal Azure.
 
-1. No painel esquerdo do portal Azure, selecione **Azure Ative Directory**. Selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. No painel esquerdo do portal Azure, selecione **Azure Ative Directory**. Selecione **Utilizadores** e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. Na caixa **Nome,** insira `B.Simon` .  
-   1. Na caixa de **nome de utilizador,** insira **_username_ @ nome de*utilizador dodomínio da empresa *.* extensão***. Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione **Mostrar a palavra-passe**e, em seguida, anotar o valor que é apresentado na caixa **palavra-passe.**
+   1. Na caixa de **nome de utilizador,** insira **_username_ @ nome de* utilizador dodomínio da empresa *.* extensão***. Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione **Mostrar a palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa **palavra-passe.**
    1. Selecione **Criar**.
 
 ### <a name="grant-the-azure-ad-test-user-access-to-tmws"></a>Conceder ao utilizador de teste Azure AD acesso ao TMWS
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a TMWS.
 
-1. No portal Azure, selecione **aplicações Enterprise**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **aplicações Enterprise** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Trend Micro Web Security (TMWS)**.
 1. Na página geral da aplicação, na secção **Gerir,** selecione **Utilizadores e grupos**:
 
    ![Selecionar Utilizadores e grupos](common/users-groups-blade.png)
 
-1. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
+1. **Selecione Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 
     ![Selecione Adicionar utilizador](common/add-assign-user.png)
 
@@ -142,7 +142,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No painel esquerdo, selecione **Azure Active Directory**.
 
-1. Em **Manage**, selecione **registos de Aplicações**e, em seguida, selecione a sua nova aplicação de empresa em **Todas as aplicações**.
+1. Em **Manage**, selecione **registos de Aplicações** e, em seguida, selecione a sua nova aplicação de empresa em **Todas as aplicações**.
 
 1. Em **Manage**, selecione **Certificados & segredos**.
 
@@ -175,7 +175,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 Complete estes passos para configurar o SSO TMWS no lado da aplicação.
 
-1. Inscreva-se na consola de gestão TMWS e vá aos UTILIZADORES **da Administração**  >  & Serviços de**Diretório de Autenticação.**  >  **Directory Services**
+1. Inscreva-se na consola de gestão TMWS e vá aos UTILIZADORES **da Administração**  >  & Serviços de **Diretório de Autenticação.**  >  **Directory Services**
 
 1. Selecione **aqui** na área superior do ecrã.
 
@@ -216,7 +216,7 @@ Complete estes passos para configurar o SSO TMWS no lado da aplicação.
 Depois de configurar o serviço AZure AD e especificar a Azure AD como o método de autenticação do utilizador, pode iniciar sação no servidor de procuração TMWS para verificar a sua configuração. Depois de o Azure AD iniciar a sua conta, pode visitar a internet.
 
 > [!NOTE]
-> A TMWS não suporta o teste de um único sismo a partir do portal AD Azure, sob **visão geral**  >  **Único sinal de**  >  **inscrição única com**teste SAML  >  **Test** da sua nova aplicação da empresa.
+> A TMWS não suporta o teste de um único sismo a partir do portal AD Azure, sob **visão geral**  >  **Único sinal de**  >  **inscrição única com** teste SAML  >  **Test** da sua nova aplicação da empresa.
 
 1. Limpe o navegador de todos os cookies e, em seguida, reinicie o navegador. 
 
@@ -224,7 +224,7 @@ Depois de configurar o serviço AZure AD e especificar a Azure AD como o método
 
 1. Visite qualquer site da Internet. A TMWS irá direcioná-lo para o portal cativo TMWS.
 
-1. Especifique uma conta *domain*de Diretório Ativo (formato: \\ *domínio sAMAccountName* ou *domínio sAMAccountName),* endereço de @ *domain*e-mail ou UPN, e, em seguida, selecione **Iniciar Sessão**. A TMWS envia-o para a janela de inscrição AD Azure.
+1. Especifique uma conta *domain* de Diretório Ativo (formato: \\ *domínio sAMAccountName* ou *domínio sAMAccountName),* endereço de @ *domain* e-mail ou UPN, e, em seguida, selecione **Iniciar Sessão**. A TMWS envia-o para a janela de inscrição AD Azure.
 
 1. Na janela de entrada AD Azure, insira as credenciais da sua conta Azure AD. Deve agora ser inscrito na TMWS.
 

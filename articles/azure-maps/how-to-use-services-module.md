@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-js
 ms.openlocfilehash: 2e07b614e87ed5dad94cf9bc5994e78071187839
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895431"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008604"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Utilize o módulo de serviços Azure Maps
 

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
-ms.openlocfilehash: 5a85086ea8d969dc70f4cd24b25a00765da285eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b77474d63cb47b561f9913ff06be5718aba4152
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89425811"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96009653"
 ---
 # <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Desdobre o recipiente de serviço de fala para instâncias de contentores Azure
 
-Saiba como implantar o recipiente de [serviço de fala](speech-container-howto.md) de serviços cognitivos para [instâncias de contentores Azure](https://docs.microsoft.com/azure/container-instances/). Este procedimento demonstra a criação de um recurso de serviço de discurso Azure. Depois discutimos a retirada da imagem do contentor associado. Finalmente, destacamos a capacidade de exercer a orquestração dos dois a partir de um browser. A utilização de contentores pode desviar a atenção dos desenvolvedores da gestão das infraestruturas para, em vez disso, concentrarem-se no desenvolvimento de aplicações.
+Saiba como implantar o recipiente de [serviço de fala](speech-container-howto.md) de serviços cognitivos para [instâncias de contentores Azure](../../container-instances/index.yml). Este procedimento demonstra a criação de um recurso de serviço de discurso Azure. Depois discutimos a retirada da imagem do contentor associado. Finalmente, destacamos a capacidade de exercer a orquestração dos dois a partir de um browser. A utilização de contentores pode desviar a atenção dos desenvolvedores da gestão das infraestruturas para, em vez disso, concentrarem-se no desenvolvimento de aplicações.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 

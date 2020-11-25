@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
 ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74083957"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008494"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor de processos no Azure para reativação pós-falha
 
@@ -28,14 +28,14 @@ Saiba mais sobre o processo [de reproteção](vmware-azure-reprotect.md) e [falh
 
 ## <a name="deploy-a-process-server-in-azure"></a>Implementar um servidor de processo em Azure
 
-1. No cofre > servidores de configuração **de gestão de infraestruturas** >  **de**  >  **recuperação do**local, selecione o servidor de configuração.
+1. No cofre > servidores de configuração **de gestão de infraestruturas** >  **de**  >  **recuperação do** local, selecione o servidor de configuração.
 2. Na página do servidor, clique **+ Processar servidor**
 3. Na página **do servidor de processo de adicionar** e selecione para implementar o servidor de processo no Azure.
 4. Especificar as definições de Azure, incluindo a subscrição utilizada para failover, um grupo de recursos, a região Azure utilizada para o failover, e a rede virtual em que estão localizados os VMs Azure. Se utilizar várias redes Azure, precisa de um servidor de processo em cada uma delas.
 
    ![Adicionar item de galeria de servidor de processo](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
-4. Em **nome do Servidor**, nome de **utilizador**e **palavra-passe**, especifique um nome para o servidor de processo e credenciais que serão atribuídas permissões de Administração no servidor.
+4. Em **nome do Servidor**, nome de **utilizador** e **palavra-passe**, especifique um nome para o servidor de processo e credenciais que serão atribuídas permissões de Administração no servidor.
 5. Especifique uma conta de armazenamento a ser utilizada para os discos VM do servidor, a sub-rede na qual o servidor de processo VM será localizado e o endereço IP do servidor que será atribuído quando o VM começar.
 6. Clique no botão **OK** para começar a implantar o VM do servidor de processo. O servidor de processo será implantado no Standard_A8_v2 SKU. Certifique-se de que este VM SKU está disponível para a sua subscrição.
 

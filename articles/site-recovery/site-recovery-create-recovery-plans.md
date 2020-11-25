@@ -4,11 +4,11 @@ description: Saiba como criar e personalizar planos de recuperação para recupe
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84485327"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009726"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Criar e personalizar planos de recuperação
 
@@ -46,7 +46,7 @@ Cria grupos adicionais e adiciona máquinas a diferentes grupos para que possa e
 
 1. Em **Planos de Recuperação,** clique à direita no plano > **Personalizar.** Por predefinição, depois de criar um plano, todas as máquinas que adicionou ao mesmo estão localizadas no Grupo 1 predefinido.
 2. Clique **em +Grupo**. Por predefinição, um novo grupo é numerado na ordem em que é adicionado. Pode ter até sete grupos.
-3. Selecione a máquina que pretende mover-se para o novo grupo, clique em **Alterar grupo**e, em seguida, selecione o novo grupo. Em alternativa, clique com o nome do grupo > **Produto Protegido**e adicione máquinas ao grupo. Uma máquina ou grupo de replicação só pode pertencer a um grupo num plano de recuperação.
+3. Selecione a máquina que pretende mover-se para o novo grupo, clique em **Alterar grupo** e, em seguida, selecione o novo grupo. Em alternativa, clique com o nome do grupo > **Produto Protegido** e adicione máquinas ao grupo. Uma máquina ou grupo de replicação só pode pertencer a um grupo num plano de recuperação.
 
 
 ## <a name="add-a-script-or-manual-action"></a>Adicione um script ou ação manual
@@ -76,8 +76,8 @@ Pode personalizar um plano de recuperação adicionando um script ou ação manu
     1. Digite um nome para a ação e escreva instruções de ação. A pessoa que executa o failover verá estas instruções.
     1. Especificar se pretende adicionar a ação manual para todos os tipos de failover (Teste, Failover, Failover, Failover (se relevante)). Em seguida, clique em **OK**.
 4. Se quiser adicionar um script, faça o seguinte:
-    1. Se adicionar um script VMM, selecione **Failover para O script VMM**e no **Script Path** digite o caminho relativo para a partilha. Por exemplo, se a partilha estiver localizada em \\ \<VMMServerName> \MSSCVMMLibrary\RPScripts, especifique o caminho: \RPScripts\RPScript.PS1.
-    1. Se adicionar um livro de funcionamento da automatização Azure, especifique a **Conta de Automação Azure** em que o livro de execução está localizado e selecione o **Roteiro do Runbook Azure**apropriado .
+    1. Se adicionar um script VMM, selecione **Failover para O script VMM** e no **Script Path** digite o caminho relativo para a partilha. Por exemplo, se a partilha estiver localizada em \\ \<VMMServerName> \MSSCVMMLibrary\RPScripts, especifique o caminho: \RPScripts\RPScript.PS1.
+    1. Se adicionar um livro de funcionamento da automatização Azure, especifique a **Conta de Automação Azure** em que o livro de execução está localizado e selecione o **Roteiro do Runbook Azure** apropriado .
 5. Executar um teste de falha do plano de recuperação para garantir que o script funciona como esperado.
 
 ## <a name="watch-a-video"></a>Veja um vídeo

@@ -10,11 +10,11 @@ ms.date: 07/14/2017
 ms.author: cynthn
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 779a09532790ea272d8c95ac28f8c152216efc5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002968"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008655"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implemente uma máquina virtual Azure usando C# e um modelo de gestor de recursos
 
@@ -36,7 +36,7 @@ Neste passo, certifique-se de que o Visual Studio está instalado e cria uma apl
 
 Os pacotes NuGet são a forma mais fácil de instalar as bibliotecas que precisa para terminar estes passos. Para obter as bibliotecas que você precisa no Estúdio Visual, faça estes passos:
 
-1. Clique em **Tools**  >  **Nuget Package Manager**e, em seguida, clique na Consola de Gestor de **Pacotes**.
+1. Clique em **Tools**  >  **Nuget Package Manager** e, em seguida, clique na Consola de Gestor de **Pacotes**.
 2. Digite estes comandos na consola:
 
     ```powershell
@@ -48,9 +48,9 @@ Os pacotes NuGet são a forma mais fácil de instalar as bibliotecas que precisa
 
 Neste passo, você cria um ficheiro de modelo que implementa os recursos e um ficheiro de parâmetros que fornece valores de parâmetros para o modelo. Também cria um ficheiro de autorização que é utilizado para executar operações do Azure Resource Manager.
 
-### <a name="create-the-template-file"></a>Crie o ficheiro de modelo
+### <a name="create-the-template-file"></a>Criar o ficheiro de modelo
 
-1. No Solution Explorer, clique com o botão direito *myDotnetProject*  >  **Add**  >  **New Item**e, em seguida, selecione Ficheiro de **Texto** em *Itens Visuais C#*. Nomeie o ficheiro *CreateVMTemplate.jsligado*e, em seguida, clique em **Adicionar**.
+1. No Solution Explorer, clique com o botão direito *myDotnetProject*  >  **Add**  >  **New Item** e, em seguida, selecione Ficheiro de **Texto** em *Itens Visuais C#*. Nomeie o ficheiro *CreateVMTemplate.jsligado* e, em seguida, clique em **Adicionar**.
 2. Adicione este código JSON ao ficheiro que criou:
 
     ```json
@@ -162,7 +162,7 @@ Neste passo, você cria um ficheiro de modelo que implementa os recursos e um fi
 
 Para especificar valores para os parâmetros de recurso no modelo, cria um ficheiro de parâmetros que contém os valores.
 
-1. No Solution Explorer, clique com o botão direito *myDotnetProject*  >  **Add**  >  **New Item**e, em seguida, selecione Ficheiro de **Texto** em *Itens Visuais C#*. Nomeie o ficheiro *Parameters.jsligado*e, em seguida, clique em **Adicionar**.
+1. No Solution Explorer, clique com o botão direito *myDotnetProject*  >  **Add**  >  **New Item** e, em seguida, selecione Ficheiro de **Texto** em *Itens Visuais C#*. Nomeie o ficheiro *Parameters.jsligado* e, em seguida, clique em **Adicionar**.
 2. Adicione este código JSON ao ficheiro que criou:
 
     ```json
@@ -182,7 +182,7 @@ Para especificar valores para os parâmetros de recurso no modelo, cria um fiche
 
 Antes de poder implementar um modelo, certifique-se de que tem acesso a um [diretor de serviço de Diretório Ativo.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) A partir do diretor de serviço, você adquire um símbolo para autenticação de pedidos para Azure Resource Manager. Deve também registar o ID do pedido, a chave de autenticação e a identificação do inquilino que precisa no ficheiro de autorização.
 
-1. No Solution Explorer, clique com o botão direito *myDotnetProject*  >  **Add**  >  **New Item**e, em seguida, selecione Ficheiro de **Texto** em *Itens Visuais C#*. Nomeie o ficheiro *azureauth.properties*e, em seguida, clique em **Adicionar**.
+1. No Solution Explorer, clique com o botão direito *myDotnetProject*  >  **Add**  >  **New Item** e, em seguida, selecione Ficheiro de **Texto** em *Itens Visuais C#*. Nomeie o ficheiro *azureauth.properties* e, em seguida, clique em **Adicionar**.
 2. Adicione estas propriedades de autorização:
 
     ```
@@ -196,7 +196,7 @@ Antes de poder implementar um modelo, certifique-se de que tem acesso a um [dire
     graphURL=https://graph.microsoft.com/
     ```
 
-    Substitua o ** &lt; &gt; id de subscrição** pelo seu identificador de subscrição, ** &lt; id &gt; de aplicação** pelo identificador de aplicação ative, ** &lt; chave &gt; de autenticação** com a chave de aplicação e ** &lt; id &gt; do inquilino** pelo identificador do inquilino.
+    Substitua o **&lt; &gt; id de subscrição** pelo seu identificador de subscrição, **&lt; id &gt; de aplicação** pelo identificador de aplicação ative, **&lt; chave &gt; de autenticação** com a chave de aplicação e **&lt; id &gt; do inquilino** pelo identificador do inquilino.
 
 3. Guarde o ficheiro azureauth.properties.
 4. Desaprove uma variável ambiental no Windows denominada AZURE_AUTH_LOCATION com o caminho completo para o ficheiro de autorização que criou, por exemplo, pode utilizar o seguinte comando PowerShell:

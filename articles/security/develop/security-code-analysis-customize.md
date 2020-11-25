@@ -14,11 +14,11 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517211"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008689"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de construção
 
@@ -54,7 +54,7 @@ Os detalhes da configuração da tarefa são apresentados na imagem e lista a se
 
 ![Configurar a tarefa de construção binSkim](./media/security-tools/7-binskim-task-details.png)
 
-- Descreva a configuração de construção para Debug de modo a que os ficheiros de depuro .pdb sejam produzidos. BinSkim usa estes ficheiros para mapear problemas nos binários de saída de volta ao código fonte.
+- Desave a configuração de construção para Debug de modo a que sejam produzidos ficheiros de depurar .pdb. BinSkim usa estes ficheiros para mapear problemas nos binários de saída de volta ao código fonte.
 - Para evitar pesquisar e criar a sua própria linha de comando:
      - Na lista **'Tipo',** selecione **Basic**.
      - Na lista **'Função',** selecione **Analisar**.
@@ -95,20 +95,20 @@ Os detalhes da configuração da tarefa são apresentados na imagem e lista a se
 ![Configurar a tarefa de construção do Scanner Credencial](./media/security-tools/3-taskdetails.png)
 
 As opções disponíveis incluem:
-  - **Nome do visor** : Nome da tarefa Azure DevOps. O valor predefinido é Executar Scanner Credencial
-  - **Versão Principal da Ferramenta** : Os valores disponíveis incluem **CredScan V2,** **CredScan V1**. Recomendamos que os clientes utilizem a versão **CredScan V2.**
-  - **Formato de saída** : Os valores disponíveis incluem **TSV,** **CSV,** **SARIF** e **PREfast**.
-  - **Versão da ferramenta** : Recomendamos que selecione **mais recentemente**.
+  - **Nome do visor**: Nome da tarefa Azure DevOps. O valor predefinido é Executar Scanner Credencial
+  - **Versão Principal da Ferramenta**: Os valores disponíveis incluem **CredScan V2,** **CredScan V1**. Recomendamos que os clientes utilizem a versão **CredScan V2.**
+  - **Formato de saída**: Os valores disponíveis incluem **TSV,** **CSV,** **SARIF** e **PREfast**.
+  - **Versão da ferramenta**: Recomendamos que selecione **mais recentemente**.
   - **Digitalizar :** A pasta do repositório a digitalizar.
-  - **Tipo de ficheiro dos pesquisadores** : As opções para localizar o ficheiro dos pesquisadores que é utilizado para digitalização.
-  - **Supressões Ficheiro** : Um ficheiro [JSON](https://json.org/) pode suprimir problemas no registo de saída. Para obter mais informações sobre cenários de supressão, consulte a secção faq deste artigo.
-  - **Saída verbosa** : Autoexplicativo.
-  - **Tamanho do lote** : O número de fios simultâneos utilizados para executar o Scanner Credencial. O valor predefinido é de 20. Os valores possíveis variam entre 1 e 2.147.483.647.
-  - **Match Timeout** : A quantidade de tempo em segundos para gastar a tentar uma partida de pesquisador antes de abandonar o cheque.
-  - **Scan De arquivo Leia o tamanho do tampão** : O tamanho dos bytes do tampão utilizado durante a leitura do conteúdo. O valor predefinido é de 524.288.  
-  - **Scan Máximo Leia Bytes** : O número máximo de bytes a ler a partir de um ficheiro durante a análise do conteúdo. O valor predefinido é de 104.857.600.
-  - Opções de **Controlo**  >  **Executar esta tarefa** : Especifica quando a tarefa será executada. Selecione **condições personalizadas** para especificar condições mais complexas.
-  - **Versão** : A versão de tarefa de construção dentro de Azure DevOps. Esta opção não é frequentemente usada.
+  - **Tipo de ficheiro dos pesquisadores**: As opções para localizar o ficheiro dos pesquisadores que é utilizado para digitalização.
+  - **Supressões Ficheiro**: Um ficheiro [JSON](https://json.org/) pode suprimir problemas no registo de saída. Para obter mais informações sobre cenários de supressão, consulte a secção faq deste artigo.
+  - **Saída verbosa**: Autoexplicativo.
+  - **Tamanho do lote**: O número de fios simultâneos utilizados para executar o Scanner Credencial. O valor predefinido é de 20. Os valores possíveis variam entre 1 e 2.147.483.647.
+  - **Match Timeout**: A quantidade de tempo em segundos para gastar a tentar uma partida de pesquisador antes de abandonar o cheque.
+  - **Scan De arquivo Leia o tamanho do tampão**: O tamanho dos bytes do tampão utilizado durante a leitura do conteúdo. O valor predefinido é de 524.288.  
+  - **Scan Máximo Leia Bytes**: O número máximo de bytes a ler a partir de um ficheiro durante a análise do conteúdo. O valor predefinido é de 104.857.600.
+  - Opções de **Controlo**  >  **Executar esta tarefa**: Especifica quando a tarefa será executada. Selecione **condições personalizadas** para especificar condições mais complexas.
+  - **Versão**: A versão de tarefa de construção dentro de Azure DevOps. Esta opção não é frequentemente usada.
 
 Para obter informações sobre a configuração YAML para esta tarefa, consulte as [nossas opções de TiML do Scanner Credencial](yaml-configuration.md#credential-scanner-task)
 
@@ -124,10 +124,10 @@ Os detalhes da configuração da tarefa são apresentados na lista seguinte e no
 
 As opções disponíveis incluem:
 
-- **Regras** : Os valores são **SDL Required,** **SDL Recommended,** ou o seu próprio conjunto de regras personalizadas.
-- **Versão dos Analisadores** : Recomendamos que selecione **o mais recente**.
-- **Ficheiro de supressões de avisos do compilador** : um ficheiro de texto com uma lista de IDs de avisos que são suprimidos.
-- Opções de **Controlo**  >  **Executar esta tarefa** : Especifica quando a tarefa será executada. Escolha **condições personalizadas** para especificar condições mais complexas.
+- **Regras**: Os valores são **SDL Required,** **SDL Recommended,** ou o seu próprio conjunto de regras personalizadas.
+- **Versão dos Analisadores**: Recomendamos que selecione **o mais recente**.
+- **Ficheiro de supressões de avisos do compilador**: um ficheiro de texto com uma lista de IDs de avisos que são suprimidos.
+- Opções de **Controlo**  >  **Executar esta tarefa**: Especifica quando a tarefa será executada. Escolha **condições personalizadas** para especificar condições mais complexas.
 
 > [!NOTE]
 >
@@ -164,9 +164,9 @@ Os detalhes da configuração da tarefa são apresentados na imagem e lista a se
 
 ![Configurar a tarefa de construção de registos de análise de segurança de publicação](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
-- **Nome do artefacto** : Qualquer identificador de cordas.
-- **Tipo artefacto** : Dependendo da sua seleção, pode publicar registos no seu Azure DevOps Server ou num ficheiro partilhado acessível ao agente de construção.
-- **Ferramentas** : Pode optar por preservar registos para ferramentas específicas, ou pode selecionar **Todas as Ferramentas** para preservar todos os registos.
+- **Nome do artefacto**: Qualquer identificador de cordas.
+- **Tipo artefacto**: Dependendo da sua seleção, pode publicar registos no seu Azure DevOps Server ou num ficheiro partilhado acessível ao agente de construção.
+- **Ferramentas**: Pode optar por preservar registos para ferramentas específicas, ou pode selecionar **Todas as Ferramentas** para preservar todos os registos.
 
 Para obter informações sobre a configuração YAML para esta tarefa, consulte as [nossas opções de IOSML de Registos de Segurança de Publicação](yaml-configuration.md#publish-security-analysis-logs-task)
 
@@ -176,10 +176,10 @@ Os detalhes da configuração do Relatório de Segurança são apresentados na s
 
 ![Configurar a tarefa de construção do Relatório de Segurança](./media/security-tools/4-createsecurityanalysisreport600.png)
 
-- **Relatórios** : Selecione qualquer uma das **consolas de pipeline,** **ficheiro TSV** e formatos **de ficheiro html.** Um ficheiro de relatório é criado para cada formato selecionado.
-- **Ferramentas** : Selecione as ferramentas na definição de construção para as quais pretende um resumo dos problemas detetados. Para cada ferramenta selecionada, pode haver uma opção para selecionar se vê apenas erros ou vê erros e avisos no relatório resumo.
-- **Opções Avançadas** : Se não houver registos para uma das ferramentas selecionadas, pode optar por registar um aviso ou um erro. Se registar um erro, a tarefa falha.
-- **Pasta de registos base** : Pode personalizar a pasta de registos base onde os registos são encontrados. Mas esta opção normalmente não é usada.
+- **Relatórios**: Selecione qualquer uma das **consolas de pipeline,** **ficheiro TSV** e formatos **de ficheiro html.** Um ficheiro de relatório é criado para cada formato selecionado.
+- **Ferramentas**: Selecione as ferramentas na definição de construção para as quais pretende um resumo dos problemas detetados. Para cada ferramenta selecionada, pode haver uma opção para selecionar se vê apenas erros ou vê erros e avisos no relatório resumo.
+- **Opções Avançadas**: Se não houver registos para uma das ferramentas selecionadas, pode optar por registar um aviso ou um erro. Se registar um erro, a tarefa falha.
+- **Pasta de registos base**: Pode personalizar a pasta de registos base onde os registos são encontrados. Mas esta opção normalmente não é usada.
 
 Para obter informações sobre a configuração YAML para esta tarefa, consulte as opções do nosso [relatório de segurança YAML](yaml-configuration.md#security-report-task)
 
@@ -189,9 +189,9 @@ Os detalhes da configuração da tarefa são apresentados na imagem e lista a se
 
 ![Configurar a tarefa de construção pós-análise](./media/security-tools/a-post-analysis600.png)
 
-- **Ferramentas** : Selecione as ferramentas na definição de construção para as quais pretende injetar uma rutura de construção condicional. Para cada ferramenta selecionada, pode haver uma opção para selecionar se deseja quebrar apenas erros ou em erros e avisos.
-- **Relatório** : Pode escrever opcionalmente os resultados que estão a causar a quebra de construção. Os resultados são escritos na janela da consola E registo do Azure DevOps.
-- **Opções Avançadas** : Se não houver registos para uma das ferramentas selecionadas, pode optar por registar um aviso ou um erro. Se registar um erro, a tarefa falha.
+- **Ferramentas**: Selecione as ferramentas na definição de construção para as quais pretende injetar uma rutura de construção condicional. Para cada ferramenta selecionada, pode haver uma opção para selecionar se deseja quebrar apenas erros ou em erros e avisos.
+- **Relatório**: Pode escrever opcionalmente os resultados que estão a causar a quebra de construção. Os resultados são escritos na janela da consola E registo do Azure DevOps.
+- **Opções Avançadas**: Se não houver registos para uma das ferramentas selecionadas, pode optar por registar um aviso ou um erro. Se registar um erro, a tarefa falha.
 
 Para obter informações sobre a configuração YAML para esta tarefa, consulte as nossas [opções DE PÓS-Análise YAML](yaml-configuration.md#post-analysis-task)
 

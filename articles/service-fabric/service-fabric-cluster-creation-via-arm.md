@@ -4,11 +4,11 @@ description: Saiba como configurar um cluster de tecido de serviço seguro em Az
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: fd2c472d24f305e42f1706e5fc49168ccde2a580
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258762"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008672"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Criar um cluster de tecido de serviço usando O Gestor de Recursos Azure 
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Utilize o seguinte comando para criar rapidamente um cluster, especificando os p
 
 O modelo que é usado está disponível nas amostras de modelo de tecido de [serviço Azure : modelo de janelas](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e [modelo Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-O seguinte comando pode criar clusters Windows ou Linux, precisa especificar o SISTEMA em conformidade. Os comandos PowerShell/CLI também desemprezam o certificado no *Certificado CertificadoOutputFolder*especificado; no entanto, certifique-se de que a pasta de certificado já foi criada. O comando também acolhe outros parâmetros, como o VM SKU.
+O seguinte comando pode criar clusters Windows ou Linux, precisa especificar o SISTEMA em conformidade. Os comandos PowerShell/CLI também desemprezam o certificado no *Certificado CertificadoOutputFolder* especificado; no entanto, certifique-se de que a pasta de certificado já foi criada. O comando também acolhe outros parâmetros, como o VM SKU.
 
 > [!NOTE]
 > O seguinte comando PowerShell funciona apenas com o módulo Azure `Az` PowerShell. Para verificar a versão atual da versão PowerShell do Gestor de Recursos Azure, execute o seguinte comando PowerShell "Get-Module Az". Siga [este link](/powershell/azure/install-Az-ps) para atualizar a sua versão PowerShell do Gestor de Recursos Azure. 

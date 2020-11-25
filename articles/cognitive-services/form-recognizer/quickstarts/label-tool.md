@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360875"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009335"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
 
@@ -42,8 +42,17 @@ Para completar este arranque rápido, você deve ter:
 
 Para experimentar online a Ferramenta de Rotulagem da Amostra do Reconhecimento de Formulários, aceda ao site da [FOTT](https://fott-preview.azurewebsites.net/).
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Ferramenta de rotulagem de amostra de reconhecimento de formulários](https://fott-preview.azurewebsites.net/)
+> [Experimente modelos pré-construídos](https://fott.azurewebsites.net/)
+
+# <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
+> [!div class="nextstepaction"]
+> [Experimente modelos pré-construídos](https://fott-preview.azurewebsites.net/)
+
+---
+
+Você precisará de uma subscrição Azure[(crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e um ponto final de [recurso do Reconhecimento de Formulários](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) e chave para experimentar o serviço Deseclarador de Formulários. 
 
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem da amostra
@@ -68,8 +77,6 @@ Vai usar o motor Docker para executar a ferramenta de rotulagem da amostra. Siga
 
 
 
-
-
 1. Obtenha o recipiente da ferramenta de rotulagem da amostra com o `docker pull` comando.
 
     # <a name="v20"></a>[v2.0](#tab/v2-0)    
@@ -78,7 +85,7 @@ Vai usar o motor Docker para executar a ferramenta de rotulagem da amostra. Siga
     ```
     # <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)    
     ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
     ```
 
     ---
@@ -91,7 +98,7 @@ Vai usar o motor Docker para executar a ferramenta de rotulagem da amostra. Siga
     ```
     # <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)    
     ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
     ```
 
     --- 
@@ -193,7 +200,7 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las aos elementos de texto que
    1. Clique **+** para criar uma nova etiqueta.
    1. Insira o nome da etiqueta.
    1. Pressione Insira para guardar a etiqueta.
-1. No editor principal, clique para selecionar palavras dos elementos de texto realçados. Na _pré-visualização v2.1_ também pode clicar para selecionar _Marcas de Seleção_ como botões de rádio e caixas de verificação como pares de valor chave. O Reconhecimento de Formulários identificará se a marca de seleção é "selecionada" ou "não selecionada" como o valor.
+1. No editor principal, clique para selecionar palavras dos elementos de texto realçados. Na _pré-visualização v2.1.2_ também pode clicar para selecionar _Marcas de Seleção_ como botões de rádio e caixas de verificação como pares de valor chave. O Reconhecimento de Formulários identificará se a marca de seleção é "selecionada" ou "não selecionada" como o valor.
 1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas numeradas são atribuídas como hotkeys para as primeiras 10 tags. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel de editores de etiquetas.
     > [!Tip]
     > Tenha em mente as seguintes dicas quando estiver a rotular os formulários.
@@ -314,7 +321,7 @@ Quando pretende retomar o seu projeto, primeiro tem de criar uma ligação ao me
 
 Por fim, vá à página principal (ícone da casa) e clique no Open Cloud Project. Em seguida, selecione a ligação de armazenamento de bolhas e selecione o ficheiro *.fott* do seu projeto. A aplicação irá carregar todas as configurações do projeto porque tem o token de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a usar a ferramenta de rotulagem da amostra do Form Recogniser para treinar um modelo com dados etiquetados manualmente. Se quiser construir a sua própria utilidade para rotular dados de treino, use as APIs REST que lidam com a formação de dados rotulados.
 

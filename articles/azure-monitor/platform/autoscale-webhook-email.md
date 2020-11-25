@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505524"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009012"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilize ações de autoescalação para enviar notificações de alerta de email e webhook no Azure Monitor
 Este artigo mostra-lhe como configurar os gatilhos para que possa ligar para URLs web específicos ou enviar e-mails com base em ações de autoescala em Azure.  
@@ -58,13 +58,13 @@ Ao utilizar o modelo REST API ou Resource Manager, inclua o elemento de notifica
 
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
-| operation |sim |valor deve ser "Escala" |
-| sendToSubscriptionAdministrator |sim |valor deve ser "verdadeiro" ou "falso" |
-| sendToSubscriptionCoAdministrators |sim |valor deve ser "verdadeiro" ou "falso" |
-| personalEmails |sim |valor pode ser nulo [] ou cadeia de e-mails |
-| webhooks |sim |valor pode ser nula ou válido Uri |
-| serviceUri |sim |um https uri válido |
-| propriedades |sim |valor deve estar vazio {} ou pode conter pares de valor-chave |
+| operation |yes |valor deve ser "Escala" |
+| sendToSubscriptionAdministrator |yes |valor deve ser "verdadeiro" ou "falso" |
+| sendToSubscriptionCoAdministrators |yes |valor deve ser "verdadeiro" ou "falso" |
+| personalEmails |yes |valor pode ser nulo [] ou cadeia de e-mails |
+| webhooks |yes |valor pode ser nula ou válido Uri |
+| serviceUri |yes |um https uri válido |
+| propriedades |yes |valor deve estar vazio {} ou pode conter pares de valor-chave |
 
 ## <a name="authentication-in-webhooks"></a>Autenticação em webhooks
 O webhook pode autenticar usando a autenticação baseada em fichas, onde você guarda o webhook URI com um ID simbólico como parâmetro de consulta. Por exemplo, https: \/ /mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
@@ -101,10 +101,10 @@ Quando a notificação de escala automática é gerada, os seguintes metadados s
 
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
-| status |sim |O estado que indica que uma ação de autoescala foi gerada |
-| operation |sim |Para um aumento de casos, será "Scale out" e, para uma diminuição de casos, será "Scale In" |
-| contexto |sim |O contexto de ação de autoescala |
-| carimbo de data/hora |sim |Carimbo de tempo quando a ação de autoescala foi desencadeada |
+| status |yes |O estado que indica que uma ação de autoescala foi gerada |
+| operation |yes |Para um aumento de casos, será "Scale out" e, para uma diminuição de casos, será "Scale In" |
+| contexto |yes |O contexto de ação de autoescala |
+| carimbo de data/hora |yes |Carimbo de tempo quando a ação de autoescala foi desencadeada |
 | ID |Sim |ID do gestor de recursos da definição de autoescala |
 | name |Sim |O nome da definição de autoescala |
 | detalhes |Sim |Explicação da ação que o serviço de autoescala tomou e a alteração na contagem de exemplos |

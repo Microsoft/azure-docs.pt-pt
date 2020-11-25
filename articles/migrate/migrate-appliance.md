@@ -4,11 +4,11 @@ description: Fornece um resumo do suporte para o aparelho Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450050"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008706"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -43,7 +43,7 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 **Requisito** | **VMware** 
 --- | ---
 **Permissões** | Para aceder à aplicação web do aparelho local ou remotamente, é necessário ser administrador de domínio ou administrador local na máquina do aparelho.
-**Componentes do aparelho** | O aparelho tem os seguintes componentes:<br/><br/> - **Aplicação de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Agente de**descoberta: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de recolha**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).<br/>- **Agente DRA**: Orquestra a replicação VM e coordena a comunicação entre máquinas replicadas e Azure. Utilizado apenas na replicação de VMware VMs para Azure usando migração sem agente.<br/>- **Gateway**: Envia dados replicados para Azure. Utilizado apenas na replicação de VMware VMs para Azure usando migração sem agente.
+**Componentes do aparelho** | O aparelho tem os seguintes componentes:<br/><br/> - **Aplicação de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Agente de** descoberta: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de recolha**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).<br/>- **Agente DRA**: Orquestra a replicação VM e coordena a comunicação entre máquinas replicadas e Azure. Utilizado apenas na replicação de VMware VMs para Azure usando migração sem agente.<br/>- **Gateway**: Envia dados replicados para Azure. Utilizado apenas na replicação de VMware VMs para Azure usando migração sem agente.
 **Implantação suportada** | Implemente como VMware VM utilizando o modelo OVA.<br/><br/> Implemente como VMware VM ou máquina física utilizando o script de instalação PowerShell.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 10.000 VMware VMs num servidor vCenter.<br/> Um aparelho pode ligar-se a um único servidor vCenter.
@@ -63,14 +63,14 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 **Requisito** | **Hyper-V** 
 --- | ---
 **Permissões** | Para aceder à aplicação web do aparelho local ou remotamente, é necessário ser administrador de domínio ou administrador local na máquina do aparelho.
-**Componentes do aparelho** | O aparelho tem os seguintes componentes:<br/><br/>- **Aplicação de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Agente de**descoberta: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de recolha**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
+**Componentes do aparelho** | O aparelho tem os seguintes componentes:<br/><br/>- **Aplicação de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Agente de** descoberta: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de recolha**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
 **Implantação suportada** | Implemente como Hyper-V VM utilizando um modelo VHD.<br/><br/> Implemente como um VM Hiper-V ou uma máquina física utilizando um script de instalação PowerShell.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 5000 Hiper-VMs.<br/> Um aparelho pode ligar até 300 anfitriões Hiper-V.
 **Modelo VHD** | Pasta com fecho, incluindo VHD. Descarregue a partir do portal ou a partir [daqui.](https://go.microsoft.com/fwlink/?linkid=2140422)<br/><br/> O tamanho do download é de 8.91 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo de expirar, recomendamos que descarregue e implemente um novo aparelho, ou que ative a licença do sistema operativo do aparelho VM.
 **Script do PowerShell** | Consulte este [artigo.](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)<br/><br/> 
-**Software/hardware***   |  O aparelho deve funcionar em máquina com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho como Um VM Hiper-V, precisa de recursos suficientes no hospedeiro Hyper-V para alocar os requisitos de hardware.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware. 
-**Requisitos de hiper-V** | Se colocar o aparelho com o modelo VHD, o aparelho VM fornecido pela Azure Migrate é a versão 5.0 do Hiper-VM.<br/><br/> O anfitrião Hyper-V deve estar a executar o Windows Server 2012 R2 ou mais tarde. 
+**Software/hardware** _   |  O aparelho deve funcionar em máquina com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho como Um VM Hiper-V, precisa de recursos suficientes no hospedeiro Hyper-V para alocar os requisitos de hardware.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware. 
+_ *Requisitos de Hiper-V** | Se colocar o aparelho com o modelo VHD, o aparelho VM fornecido pela Azure Migrate é a versão 5.0 do Hiper-VM.<br/><br/> O anfitrião Hyper-V deve estar a executar o Windows Server 2012 R2 ou mais tarde. 
 **Valor de haxixe VHD** | [Verificar](tutorial-discover-hyper-v.md#verify-security) Valores de hash do modelo VHD.
 **Roteiro hash value-PowerShell** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores do hash do script PowerShell.
 
@@ -80,7 +80,7 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 **Requisito** | **Físico** 
 --- | ---
 **Permissões** | Para aceder à aplicação web do aparelho local ou remotamente, é necessário ser administrador de domínio ou administrador local na máquina do aparelho.
-**Componentes do aparelho** | O aparelho tem os seguintes componentes: <br/><br/> - **Aplicação de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Agente de**descoberta: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de recolha**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
+**Componentes do aparelho** | O aparelho tem os seguintes componentes: <br/><br/> - **Aplicação de gestão**: Esta é uma aplicação web para a entrada do utilizador durante a implementação do aparelho. Usado na avaliação de máquinas para migração para Azure.<br/> - **Agente de** descoberta: O agente recolhe dados de configuração da máquina. Usado na avaliação de máquinas para migração para Azure.<br/>- **Agente de recolha**: O agente recolhe dados de desempenho. Usado na avaliação de máquinas para migração para Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
 **Implantação suportada** | Implemente como uma máquina física dedicada, ou um VM, utilizando um script de instalação PowerShell. O script está disponível para download a partir do portal.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 1000 servidores físicos.
@@ -152,8 +152,8 @@ ID da VM | vm.Config. InstânciaUida
 o nome da VM | vm.Config. Nome
 VCenter Server ID | VMwareClient.Instance.Uuid
 Descrição do VM | vm.Summary.Config. Anotação
-Nome do produto da licença | vm. Cliente.ServiceContent.About.LicenseProductName
-Tipo de sistema operativo | vm. ResumoConfig.GuestFullName
+Nome do produto da licença | vm.Client.ServiceContent.About.LicenseProductName
+Tipo de sistema operativo | vm.SummaryConfig.GuestFullName
 Tipo de bota | vm.Config. Firmware
 Número de núcleos | vm.Config. Hardware.NumCPU
 Memória (MB) | vm.Config. Hardware.MemoryMB
@@ -175,8 +175,8 @@ Produção de escrita (MB por segundo) | virtualDisk.write.average
 **Detalhes de NIC** | 
 Nome do adaptador de rede | nic. Chave
 Endereço MAC | (VirtualEthernetCard)nic). MacAddress
-Endereços IPv4 | vm. Guest.Net
-Endereços IPv6 | vm. Guest.Net
+Endereços IPv4 | vm.Guest.Net
+Endereços IPv6 | vm.Guest.Net
 Ler a produção (MB por segundo) | net.received.average
 Produção de escrita (MB por segundo) | net.transmitted.average
 **Detalhes do caminho do inventário** | 
@@ -454,7 +454,7 @@ O aparelho é atualizado à medida que os agentes Azure Migrate que estão a tra
 ### <a name="turn-off-auto-update"></a>Desativar a atualização automática
 
 1. Na máquina que funciona o aparelho, abra o Editor de Registos.
-2. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance. **
+2. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.**
 3. Para desativar a atualização automática, crie uma chave de registo **AutoUpdate** com valor DWORD de 0.
 
     ![Definir chave de registo](./media/migrate-appliance/registry-key.png)
@@ -470,7 +470,7 @@ Pode ligar a atualização automática utilizando qualquer um destes métodos:
 Para eliminar a chave de registo:
 
 1. Na máquina que funciona o aparelho, abra o Editor de Registos.
-2. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance. **
+2. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.**
 3. Elimine a chave de registo **AutoUpdate,** que foi previamente criada para desligar a atualização automática.
 
 Para ligar a partir do Gestor de Configuração do Aparelho, após a descoberta estar concluída:
@@ -496,7 +496,7 @@ Para verificar no gestor de configuração do aparelho:
 
 Para verificar no Painel de Controlo:
 
-1. No aparelho, clique em **Iniciar**Programas e  >  **Control Panel**  >  **Funcionalidades** do Painel de Controlo
+1. No aparelho, clique em **Iniciar** Programas e  >  **Control Panel**  >  **Funcionalidades** do Painel de Controlo
 2. Verifique as versões de serviços do aparelho na lista.
 
     ![Ver versão no Painel de Controlo](./media/migrate-appliance/programs-features.png)
@@ -518,7 +518,7 @@ Se estiver a executar uma versão mais antiga para qualquer um dos componentes, 
 
 5. Verifique se a saída do comando corresponde à entrada de valor hash para o serviço no ficheiro (por exemplo, o valor do hash MD5 acima).
 6. Agora, executar o MSI para instalar o serviço. É uma instalação silenciosa, e a janela de instalação fecha depois de ter terminado.
-7. Após a instalação estar concluída, **Control panel**verifique a versão do serviço em  >  **Programas e Funcionalidades**do Painel de Controlo . A versão de serviço deve agora ser atualizada para as mais recentes mostradas no ficheiro JSON.
+7. Após a instalação estar concluída, **Control panel** verifique a versão do serviço em  >  **Programas e Funcionalidades** do Painel de Controlo . A versão de serviço deve agora ser atualizada para as mais recentes mostradas no ficheiro JSON.
 
 
 

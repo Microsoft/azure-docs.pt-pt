@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: b97ae5d4ba4295ebbb51c960e4cbb76c53dc88a8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148066"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009688"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>How to use the Azure WebJobs SDK for event-driven background processing (Como utilizar o SDK de WebJobs do Azure para processamento em segundo plano condicionado por eventos)
 
@@ -24,7 +24,7 @@ Estas são as principais diferenças entre a versão 3. *x* e versão 2. *x* do 
 
 * Versão 3. *x* adiciona suporte para .NET Core.
 * Na versão 3. *x*, você precisa instalar explicitamente a extensão de ligação de armazenamento exigida pelo WebJobs SDK. Na versão 2. *x*, as ligações de armazenamento foram incluídas no SDK.
-* Ferramentas de Estúdio Visual para .NET Core (3.* x*) os projetos diferem da ferramenta para .NET Framework (2.* x*) projetos. Para saber mais, consulte [Desenvolver e implementar WebJobs utilizando o Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
+* Ferramentas de Estúdio Visual para .NET Core (3.*x*) os projetos diferem da ferramenta para .NET Framework (2.*x*) projetos. Para saber mais, consulte [Desenvolver e implementar WebJobs utilizando o Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 Quando possível, são fornecidos exemplos para ambas as versões 3. *x* e versão 2. *x*.
 
@@ -120,7 +120,7 @@ static void Main()
 }
 ```
 
-### <a name="managing-concurrent-connections-version-2x"></a><a name="jobhost-servicepointmanager-settings"></a>Gestão de ligações simultâneas (versão 2.* x*)
+### <a name="managing-concurrent-connections-version-2x"></a><a name="jobhost-servicepointmanager-settings"></a>Gestão de ligações simultâneas (versão 2.*x*)
 
 Na versão 3. *x*, o limite de ligação predefinido às ligações infinitas. Se por alguma razão precisar de alterar este limite, pode utilizar a [`MaxConnectionsPerServer`](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) propriedade da [`WinHttpHandler`](/dotnet/api/system.net.http.winhttphandler) classe.
 
@@ -369,7 +369,7 @@ Pode configurar as seguintes ligações:
 * [Ligação SendGrid](#sendgrid-binding-configuration-version-3x)
 * [Gatilho do ônibus de serviço](#service-bus-trigger-configuration-version-3x)
 
-### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Configuração do gatilho Azure CosmosDB (versão 3).* x*)
+### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Configuração do gatilho Azure CosmosDB (versão 3).*x*)
 
 Este exemplo mostra como configurar o gatilho Azure Cosmos DB:
 
@@ -398,7 +398,7 @@ static async Task Main()
 
 Para mais detalhes, consulte o artigo [de vindca Azure CosmosDB.](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings)
 
-### <a name="event-hubs-trigger-configuration-version-3x"></a>Configuração do gatilho do Event Hubs (versão 3).* x*)
+### <a name="event-hubs-trigger-configuration-version-3x"></a>Configuração do gatilho do Event Hubs (versão 3).*x*)
 
 Este exemplo mostra como configurar o gatilho do Event Hubs:
 
@@ -473,7 +473,7 @@ static void Main(string[] args)
 
 Para mais detalhes, consulte a [host.jsna referência v1.x](../azure-functions/functions-host-json-v1.md#queues).
 
-### <a name="sendgrid-binding-configuration-version-3x"></a>Configuração de ligação SendGrid (versão 3.* x*)
+### <a name="sendgrid-binding-configuration-version-3x"></a>Configuração de ligação SendGrid (versão 3.*x*)
 
 Este exemplo mostra como configurar a ligação de saída SendGrid:
 
@@ -500,7 +500,7 @@ static async Task Main()
 
 Para mais detalhes, consulte o artigo [de ligação enviar a Golh.](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings)
 
-### <a name="service-bus-trigger-configuration-version-3x"></a>Configuração do gatilho do autocarro de serviço (versão 3.* x*)
+### <a name="service-bus-trigger-configuration-version-3x"></a>Configuração do gatilho do autocarro de serviço (versão 3.*x*)
 
 Este exemplo mostra como configurar o gatilho do Service Bus:
 
@@ -847,7 +847,7 @@ Versão 3. *x* do SDK depende da filtragem incorporada em .NET Core. A `LogCateg
 using Microsoft.Azure.WebJobs.Logging; 
 ```
 
-O exemplo a seguir constrói um filtro que, por defeito, filtra todos os registos ao `Warning` nível. As `Function` `results` categorias e categorias (equivalente à `Host.Results` versão 2.* x*) são filtrados ao `Error` nível. O filtro compara a categoria atual a todos os níveis registados no `LogCategories` caso e escolhe a correspondência mais longa. Isto significa que o `Debug` nível registado para `Host.Triggers` fósforos `Host.Triggers.Queue` ou `Host.Triggers.Blob` . Isto permite-lhe controlar categorias mais amplas sem precisar de adicionar cada uma delas.
+O exemplo a seguir constrói um filtro que, por defeito, filtra todos os registos ao `Warning` nível. As `Function` `results` categorias e categorias (equivalente à `Host.Results` versão 2.*x*) são filtrados ao `Error` nível. O filtro compara a categoria atual a todos os níveis registados no `LogCategories` caso e escolhe a correspondência mais longa. Isto significa que o `Debug` nível registado para `Host.Triggers` fósforos `Host.Triggers.Queue` ou `Host.Triggers.Blob` . Isto permite-lhe controlar categorias mais amplas sem precisar de adicionar cada uma delas.
 
 ```cs
 static async Task Main(string[] args)
@@ -878,7 +878,7 @@ static async Task Main(string[] args)
 
 Na versão 2. *x* do SDK, usa-se a `LogCategoryFilter` classe para controlar a filtragem. A `LogCategoryFilter` propriedade tem um valor inicial de , o que significa que `Default` `Information` quaisquer mensagens no `Information` , , ou `Warning` `Error` `Critical` níveis são registados, mas quaisquer mensagens nos `Debug` níveis ou `Trace` níveis são filtradas.
 
-Como `LogCategories` na versão 3.* x*, a `CategoryLevels` propriedade permite especificar níveis de registo para categorias específicas para que possa afinar a saída de registo. Se não for encontrada correspondência dentro do `CategoryLevels` dicionário, o filtro volta ao valor ao `Default` decidir se filtra a mensagem.
+Como `LogCategories` na versão 3.*x*, a `CategoryLevels` propriedade permite especificar níveis de registo para categorias específicas para que possa afinar a saída de registo. Se não for encontrada correspondência dentro do `CategoryLevels` dicionário, o filtro volta ao valor ao `Default` decidir se filtra a mensagem.
 
 O exemplo a seguir constrói um filtro que por predefinição filtra todos os registos ao `Warning` nível. As  `Function` `Host.Results` categorias e categorias são filtradas ao `Error` nível. `LogCategoryFilter`O compara a categoria atual a todos os `CategoryLevels` inscritos e escolhe o jogo mais longo. Assim, o `Debug` nível registado `Host.Triggers` para irá corresponder `Host.Triggers.Queue` ou `Host.Triggers.Blob` . Isto permite-lhe controlar categorias mais amplas sem precisar de adicionar cada uma delas.
 

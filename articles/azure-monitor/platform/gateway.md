@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: dc4d1b852b0a498de0834731b2b1cd1225b9748b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107781"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008859"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor
 
@@ -123,7 +123,7 @@ ou
 
 Para instalar um gateway utilizando o assistente de configuração, siga estes passos. 
 
-1. A partir da pasta de destino, clique duas vezes **em gateway.mside Log Analytics **.
+1. A partir da pasta de destino, clique duas vezes **em gateway.mside Log Analytics**.
 1. Na página **Bem-vindo**, selecione **Seguinte**.
 
    ![Screenshot da página de boas-vindas no assistente de configuração gateway](./media/gateway/gateway-wizard01.png)
@@ -192,7 +192,7 @@ Pode configurar o gateway para uma elevada disponibilidade utilizando o equilíb
 Para aprender a desenhar e implementar um cluster de equilíbrio de carga de rede do Windows Server 2016, consulte [o equilíbrio da carga da Rede](/windows-server/networking/technologies/network-load-balancing). Os seguintes passos descrevem como configurar um cluster de equilíbrio de carga de rede da Microsoft.  
 
 1. Inscreva-se no servidor windows que é um membro do cluster NLB com uma conta administrativa.  
-2. Abra o Gestor de Equilíbrio de Carga de Rede no Gestor do Servidor, clique em **Ferramentas**e, em seguida, clique em **Network Load Balance Manager**.
+2. Abra o Gestor de Equilíbrio de Carga de Rede no Gestor do Servidor, clique em **Ferramentas** e, em seguida, clique em **Network Load Balance Manager**.
 3. Para ligar um servidor de gateway do Log Analytics com o Agente de Monitorização da Microsoft instalado, clique com o botão direito no endereço IP do cluster e, em seguida, clique em **Adicionar Anfitrião ao Cluster**. 
 
     ![Gestor de equilíbrio de carga de rede – adicione anfitrião ao cluster](./media/gateway/nlb02.png)
@@ -262,7 +262,7 @@ Para configurar a integração, atualize a configuração do sistema proxy utili
 
 Depois de concluir a integração com o Log Analytics, remova a alteração executando `netsh winhttp reset proxy` . Em seguida, na consola Operações, utilize a opção **de servidor de procuração Configure** para especificar o servidor de gateway 'Log Analytics'. 
 
-1. Na consola Gerente de Operações, no **Conjunto de Gestão de Operações,** selecione **Connection**e, em seguida, selecione **Configure Proxy Server**.
+1. Na consola Gerente de Operações, no **Conjunto de Gestão de Operações,** selecione **Connection** e, em seguida, selecione **Configure Proxy Server**.
 
    ![Screenshot do Gestor de Operações, mostrando a seleção Configure Proxy Server](./media/gateway/scom01.png)
 
@@ -370,7 +370,7 @@ A tabela seguinte mostra os IDs do evento e descrições para eventos de registo
 
 A tabela seguinte mostra os contadores de desempenho disponíveis para o gateway Log Analytics. Utilize o Monitor de Desempenho para adicionar os contadores.
 
-| **Nome** | **Descrição** |
+| **Name** | **Descrição** |
 | --- | --- |
 | Log Analytics Gateway/Ative Client Connection |Número de ligações ativas da rede de clientes (TCP) |
 | Log Analytics Gateway/Contagem de erros |Número de erros |
@@ -382,7 +382,7 @@ A tabela seguinte mostra os contadores de desempenho disponíveis para o gateway
 ## <a name="assistance"></a>Assistência
 
 Quando estiver inscrito no portal Azure, poderá obter ajuda com o gateway Log Analytics ou qualquer outro serviço ou funcionalidade Azure.
-Para obter ajuda, selecione o ícone de ponto de interrogação no canto superior direito do portal e selecione **Novo pedido**de suporte . Em seguida, preencha o novo formulário de pedido de apoio.
+Para obter ajuda, selecione o ícone de ponto de interrogação no canto superior direito do portal e selecione **Novo pedido** de suporte . Em seguida, preencha o novo formulário de pedido de apoio.
 
 ![Screenshot de um novo pedido de suporte](./media/gateway/support.png)
 

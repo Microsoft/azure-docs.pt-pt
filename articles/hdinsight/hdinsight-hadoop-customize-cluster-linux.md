@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli
 ms.date: 09/02/2020
 ms.openlocfilehash: 35c3901e9a48523a10c1a6aacbc52e6c165e278f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748706"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009794"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalize os clusters Azure HDInsight utilizando ações de script
 
@@ -25,8 +25,8 @@ As ações de script também podem ser publicadas no Azure Marketplace como uma 
 
 Para um cluster HDInsight ligado a domínio, existem duas permissões Apache Ambari que são necessárias quando utiliza ações de script com o cluster:
 
-* **O AMBARI. EXECUTAR \_ \_ COMANDO PERSONALIZADO** . A função administradora de Ambari tem esta permissão por defeito.
-* **CLUSTER. EXECUTAR \_ \_ COMANDO PERSONALIZADO** . Tanto o Administrador de Cluster HDInsight como o Administrador Ambari têm esta permissão por padrão.
+* **O AMBARI. EXECUTAR \_ \_ COMANDO PERSONALIZADO**. A função administradora de Ambari tem esta permissão por defeito.
+* **CLUSTER. EXECUTAR \_ \_ COMANDO PERSONALIZADO**. Tanto o Administrador de Cluster HDInsight como o Administrador Ambari têm esta permissão por padrão.
 
 Para obter mais informações sobre o trabalho com permissões com HDInsight ligado ao domínio, consulte [Gerir clusters HDInsight com Pacote de Segurança Empresarial.](./domain-joined/apache-domain-joined-manage.md)
 
@@ -110,7 +110,7 @@ Uma falha de script num cluster já em execução não faz com que o cluster mud
 
 As ações dos scripts são executadas com privilégios de raiz. Certifique-se de que entende o que um script faz antes de aplicá-lo ao seu cluster.
 
-Quando se aplica um script a um cluster, o estado de cluster muda de **Running** to **Accepted** . Em seguida, muda para a **configuração HDInsight** e, finalmente, de volta a **Running** para scripts bem sucedidos. O estado do script está registado no histórico de ação do script. Esta informação diz-lhe se o script foi bem sucedido ou falhou. Por exemplo, o `Get-AzHDInsightScriptActionHistory` cmdlet PowerShell mostra o estado de um script. Devolve informações semelhantes ao seguinte texto:
+Quando se aplica um script a um cluster, o estado de cluster muda de **Running** to **Accepted**. Em seguida, muda para a **configuração HDInsight** e, finalmente, de volta a **Running** para scripts bem sucedidos. O estado do script está registado no histórico de ação do script. Esta informação diz-lhe se o script foi bem sucedido ou falhou. Por exemplo, o `Get-AzHDInsightScriptActionHistory` cmdlet PowerShell mostra o estado de um script. Devolve informações semelhantes ao seguinte texto:
 
 ```output
 ScriptExecutionId : 635918532516474303
@@ -145,11 +145,11 @@ Esta secção explica as diferentes formas de utilizar as ações de script quan
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Use uma ação de script durante a criação do cluster a partir do portal Azure
 
-1. Comece a criar um cluster como descrito em [criar clusters baseados em Linux em HDInsight utilizando o portal Azure](hdinsight-hadoop-create-linux-clusters-portal.md). A partir do **separador Configuração + preços,** selecione **+ Adicione ação de script** .
+1. Comece a criar um cluster como descrito em [criar clusters baseados em Linux em HDInsight utilizando o portal Azure](hdinsight-hadoop-create-linux-clusters-portal.md). A partir do **separador Configuração + preços,** selecione **+ Adicione ação de script**.
 
     ![Ação de script de cluster de portal Azure](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-configuration-scriptaction.png)
 
-1. Utilize __a__ entrada do script Select para selecionar um script pré-feito. Para utilizar um script personalizado, selecione __Custom__ . Em __seguida,__ forneça o script __URI do nome__ e da bash para o seu script.
+1. Utilize __a__ entrada do script Select para selecionar um script pré-feito. Para utilizar um script personalizado, selecione __Custom__. Em __seguida,__ forneça o script __URI do nome__ e da bash para o seu script.
 
     ![Adicione um script no formulário de script selecionado](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
@@ -157,10 +157,10 @@ Esta secção explica as diferentes formas de utilizar as ações de script quan
 
     | Propriedade | Valor |
     | --- | --- |
-    | Selecione um script | Para utilizar o seu próprio script, selecione __Custom__ . Caso contrário, selecione um dos scripts fornecidos. |
+    | Selecione um script | Para utilizar o seu próprio script, selecione __Custom__. Caso contrário, selecione um dos scripts fornecidos. |
     | Nome |Especifique um nome para a ação do script. |
     | URI de guião de bash |Especifique o URI do script. |
-    | Cabeça/Trabalhador/ZooKeeper |Especificar os nós em que o script é executado: **Head,** **Worker** , ou **ZooKeeper** . |
+    | Cabeça/Trabalhador/ZooKeeper |Especificar os nós em que o script é executado: **Head,** **Worker**, ou **ZooKeeper**. |
     | Parâmetros |Especifique os parâmetros, se necessário pelo script. |
 
     Utilize a entrada __de ação do script Persist para__ se certificar de que o script é aplicado durante as operações de escala.
@@ -217,13 +217,13 @@ Esta secção explica como aplicar as ações de script a um cluster de execuç�
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e localize o seu cluster.
 
-1. A partir da vista padrão, em **Definições** , selecione **ações de Script** .
+1. A partir da vista padrão, em **Definições**, selecione **ações de Script**.
 
-1. A partir do topo da página de ações do **Script,** selecione **+ Submeta novo** .
+1. A partir do topo da página de ações do **Script,** selecione **+ Submeta novo**.
 
     ![Adicione um script a um cluster de execução](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
-1. Utilize __a__ entrada do script Select para selecionar um script pré-feito. Para utilizar um script personalizado, selecione __Custom__ . Em __seguida,__ forneça o script __URI do nome__ e da bash para o seu script.
+1. Utilize __a__ entrada do script Select para selecionar um script pré-feito. Para utilizar um script personalizado, selecione __Custom__. Em __seguida,__ forneça o script __URI do nome__ e da bash para o seu script.
 
     ![Adicione um script no formulário de script selecionado](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
@@ -234,7 +234,7 @@ Esta secção explica como aplicar as ações de script a um cluster de execuç�
     | Selecione um script | Para utilizar o seu próprio script, selecione __personalizado.__ Caso contrário, selecione um script fornecido. |
     | Nome |Especifique um nome para a ação do script. |
     | URI de guião de bash |Especifique o URI do script. |
-    | Cabeça/Trabalhador/Zookeeper |Especificar os nós em que o script é executado: **Head,** **Worker** , ou **ZooKeeper** . |
+    | Cabeça/Trabalhador/Zookeeper |Especificar os nós em que o script é executado: **Head,** **Worker**, ou **ZooKeeper**. |
     | Parâmetros |Especifique os parâmetros, se necessário pelo script. |
 
     Utilize a entrada __de ação do script Persist para__ se certificar de que o script é aplicado durante as operações de escala.
@@ -292,7 +292,7 @@ Para um exemplo de utilização do .NET SDK para aplicar scripts num cluster, co
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e localize o seu cluster.
 
-1. A partir da vista padrão, em **Definições** , selecione **ações de Script** .
+1. A partir da vista padrão, em **Definições**, selecione **ações de Script**.
 
 1. Uma história de scripts para este cluster apresenta na secção de ações do script. Esta informação inclui uma lista de scripts persistidos. A imagem que se segue mostra que o script Solr foi executado neste cluster. A imagem não mostra nenhum script persistido.
 

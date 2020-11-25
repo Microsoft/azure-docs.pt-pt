@@ -8,11 +8,11 @@ ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503526"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009556"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e utilizar um Ambiente de Serviço de Aplicação do Balanceador interno 
 
@@ -48,7 +48,7 @@ Existem algumas coisas que não é possível fazer quando utiliza um ASE de ILB:
 
 Para criar um ASE de ILB:
 
-1. No portal Azure, selecione **Criar um ambiente de**serviço de  >  **Web**  >  **aplicações**web de recurso.
+1. No portal Azure, selecione **Criar um ambiente de** serviço de  >  **Web**  >  **aplicações** web de recurso.
 
 2. Selecione a sua subscrição.
 
@@ -78,7 +78,7 @@ Para criar um ASE de ILB:
 
 Uma aplicação num ASE de ILB é criada da mesma forma que cria uma aplicação num ASE normalmente.
 
-1. No portal Azure, selecione **Criar uma**Web App  >  **Web**  >  **de**recursos.
+1. No portal Azure, selecione **Criar uma** Web App  >  **Web**  >  **de** recursos.
 
 1. Introduza o nome da aplicação.
 
@@ -123,13 +123,13 @@ A zona chamada . &lt; asename &gt; .appserviceenvironment.net é globalmente ún
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicar com um ASE de ILB
 
-Para cada aplicação criada, existem dois pontos finais. Num ILB ASE, tem * &lt; o nome da &gt; aplicação. &lt; ILB ASE &gt; Domain* e * &lt; nome de aplicação &gt; .scm. &lt; Domínio &gt; ILB ASE*. 
+Para cada aplicação criada, existem dois pontos finais. Num ILB ASE, tem *&lt; o nome da &gt; aplicação. &lt; ILB ASE &gt; Domain* e *&lt; nome de aplicação &gt; .scm. &lt; Domínio &gt; ILB ASE*. 
 
 O nome do site SCM leva-o para a consola Kudu, denominada **Portal avançado**, no portal do Azure. A consola Kudu permite-lhe ver as variáveis de ambiente, explorar o disco, utilizar uma consola e muito mais. Para obter mais informações, veja [Consola Kudu para o Serviço de Aplicações do Azure][Kudu]. 
 
 Os sistemas CI baseados na Internet, como o GitHub e o Azure DevOps, continuarão a funcionar com um ASE de ILB se o agente de compilação for acessível pela Internet e estiver na mesma rede que o ASE de ILB. Por isso, no caso do Azure DevOps, se o agente de compilação for criado na mesma VNET que o ASE de ILB (pode ser outra sub-rede), conseguirá obter o código do git do Azure DevOps e implementar no ASE de ILB. Se não quiser criar o seu próprio agente de compilação, terá de utilizar um sistema CI que utilize um modelo de extração, como o Dropbox.
 
-Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Este domínio aparece no perfil de publicação da aplicação e na lâmina do portal da aplicação **(Overview**  >  **Essentials** e também **Properties).** Se tiver um ILB ASE com o sufixo de domínio * &lt; ASE &gt; .appserviceenvironment.net*, e uma aplicação chamada *mytest*, use *o meutest. &lt; Nome ASE &gt; .appserviceenvironment.net* para FTP e *mytest.scm.contoso.net* para implantação web.
+Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Este domínio aparece no perfil de publicação da aplicação e na lâmina do portal da aplicação **(Overview**  >  **Essentials** e também **Properties).** Se tiver um ILB ASE com o sufixo de domínio *&lt; ASE &gt; .appserviceenvironment.net*, e uma aplicação chamada *mytest*, use *o meutest. &lt; Nome ASE &gt; .appserviceenvironment.net* para FTP e *mytest.scm.contoso.net* para implantação web.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Configure um ILB ASE com um dispositivo WAF ##
 
