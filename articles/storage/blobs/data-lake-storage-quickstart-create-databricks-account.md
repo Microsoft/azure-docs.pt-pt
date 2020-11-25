@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 5bdf1cd510ed0d997e5e59c6492117a4d567c43e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e289bea6b1a23f1622ced62656164d9865303298
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024607"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912829"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Quickstart: Analisar dados com Databricks
 
@@ -183,7 +183,7 @@ Realize as seguintes tarefas para executar uma tarefa SQL do Spark nos dados.
 
      ![Personalizar gráfico de barras](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sql-query-output-bar-chart.png "Personalizar gráfico de barras")
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Assim que terminar este artigo, pode terminar o agrupamento. Na área de trabalho do Azure Databricks, selecione **Clusters** e localize o cluster que pretende terminar. Paire o cursor do rato sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
 
@@ -191,14 +191,14 @@ Assim que terminar este artigo, pode terminar o agrupamento. Na área de trabalh
 
 Se não encerrar manualmente o cluster para automaticamente, desde que tenha selecionado a caixa de verificação **Terminate after minutes of \_ \_ inactivity** enquanto cria o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou um cluster do Spark no Azure Databricks e executou uma tarefa do Spark com dados numa conta de armazenamento com o Data Lake Storage Gen2 ativado.
 
 Avance para o artigo seguinte para saber como executar uma operação de ETL (extração, transformação e carregamento de dados) com o Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Extrair, transformar e carregar dados utilizando dados Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md).
+>[Extrair, transformar e carregar dados utilizando dados Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse).
 
 - Para saber como importar dados de outras fontes de dados para a Azure Databricks, consulte [fontes de dados da Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
 

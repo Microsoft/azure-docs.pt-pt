@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e9d638a7ed17d08b585c71b1dac4a0177f4a2939
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b95d37e1725940799750dbd3c29174d9855390d6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88030525"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912931"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Desempenho da sintonização: MapReduce, HDInsight & Azure Data Lake Storage Gen2
 
@@ -22,9 +22,9 @@ Compreenda os fatores que deve considerar ao sintonizar o desempenho dos trabalh
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta Azure Data Lake Storage Gen2**. Para obter instruções sobre como criar um, consulte [Quickstart: Crie uma conta de armazenamento Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
-* **Cluster Azure HDInsight** com acesso a uma conta Gen2 de armazenamento de data lake. Ver [Utilizar Azure Data Lake Storage Gen2 com clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
-* **Utilização do MapReduce no HDInsight**.  Para obter mais informações, consulte [Use MapReduce in Hadoop on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
+* **Uma conta Azure Data Lake Storage Gen2**. Para obter instruções sobre como criar um, consulte [Quickstart: Crie uma conta de armazenamento Azure Data Lake Storage Gen2](../common/storage-account-create.md).
+* **Cluster Azure HDInsight** com acesso a uma conta Gen2 de armazenamento de data lake. Ver [Utilizar Azure Data Lake Storage Gen2 com clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* **Utilização do MapReduce no HDInsight**.  Para obter mais informações, consulte [Use MapReduce in Hadoop on HDInsight](../../hdinsight/hadoop/hdinsight-use-mapreduce.md)
 * **Diretrizes de afinação de desempenho sobre data lake storage gen2**.  Para conceitos de desempenho geral, consulte [data lake storage Gen2 Performance Afinação de Afinação](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parâmetros

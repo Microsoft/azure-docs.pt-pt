@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7640b7a6053532360da4c908089aecfe163bd3de
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045302"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912659"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados utilizando a Azure HDInsight
 
 Neste tutorial, realiza-se uma operação ETL: extrair, transformar e carregar dados. Pega-se num ficheiro de dados CSV bruto, importa-se num cluster Azure HDInsight, transforma-o com a Hive Apache e coloca-o na Base de Dados Azure SQL com o Apache Sqoop.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Extrair e carregar os dados para um cluster HDInsight.
@@ -32,15 +32,15 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 * **Uma conta de armazenamento Azure Data Lake Storage Gen2 que está configurada para HDInsight**
 
-    Consulte [a Utilização Azure Data Lake Storage Gen2 com clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
+    Consulte [a Utilização Azure Data Lake Storage Gen2 com clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 * **Um cluster Hadoop baseado em Linux em HDInsight**
 
-    Ver [Quickstart: Começar com Apache Hadoop e Apache Hive em Azure HDInsight usando o portal Azure](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
+    Ver [Quickstart: Começar com Apache Hadoop e Apache Hive em Azure HDInsight usando o portal Azure](../../hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
 
-* **Base de Dados Azure SQL**: Utiliza a Base de Dados Azure SQL como uma loja de dados de destino. Se não tiver uma base de dados na Base de Dados SQL, consulte [criar uma base de dados na Base de Dados Azure SQL no portal Azure](../../sql-database/sql-database-get-started.md).
+* **Base de Dados Azure SQL**: Utiliza a Base de Dados Azure SQL como uma loja de dados de destino. Se não tiver uma base de dados na Base de Dados SQL, consulte [criar uma base de dados na Base de Dados Azure SQL no portal Azure](../../azure-sql/database/single-database-create-quickstart.md).
 
-* **Azure CLI**: Se ainda não instalou o Azure CLI, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* **Azure CLI**: Se ainda não instalou o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 * **Um cliente Secure Shell (SSH):** Para obter mais informações, consulte [Connect to HDInsight (Hadoop) utilizando sSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -120,7 +120,7 @@ Nesta secção, você irá enviar dados para o seu cluster HDInsight e, em segui
 
 Nesta secção, você usa Beeline para dirigir um trabalho de Apache Hive.
 
-Como parte do trabalho da Apache Hive, você importa os dados do ficheiro .csv para uma tabela apache colmeia chamada **atrasos**.
+Como parte do trabalho da Apache Hive, importa os dados do ficheiro .csv para uma tabela apache hive chamada **atrasos.**
 
 1. A partir do pedido SSH que já tem para o cluster HDInsight, use o seguinte comando para criar e editar um novo ficheiro chamado     **flightdelays.hql**:
 
@@ -344,4 +344,4 @@ Todos os recursos utilizados neste tutorial são pré-existentes. Não é necess
 Para aprender mais formas de trabalhar com os dados em HDInsight, consulte o seguinte artigo:
 
 > [!div class="nextstepaction"]
-> [Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

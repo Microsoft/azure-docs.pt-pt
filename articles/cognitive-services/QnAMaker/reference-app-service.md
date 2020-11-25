@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: d2095919d6f6be482390250fd8d0ee20e9015237
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 1dfe14d96efd37e3dec7faeae1dfff21122958bc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444865"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95894206"
 ---
 # <a name="service-configuration"></a>Configuração do serviço
 
@@ -47,7 +47,7 @@ As personalizações do Serviço de Aplicações não se aplicam à gerida (pré
 
 O serviço QnA Maker fornece configuração para os seguintes utilizadores colaborarem num único serviço QnA Maker e em todas as suas bases de conhecimento.
 
-Saiba [como adicionar colaboradores](./how-to/collaborate-knowledge-base.md) ao seu serviço.
+Saiba [como adicionar colaboradores](./reference-role-based-access-control.md) ao seu serviço.
 
 ## <a name="change-azure-cognitive-search"></a>Alterar a pesquisa cognitiva do Azure
 

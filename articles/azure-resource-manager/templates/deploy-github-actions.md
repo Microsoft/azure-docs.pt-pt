@@ -4,12 +4,12 @@ description: Descreve como implementar modelos de Gestor de Recursos Azure utili
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: adb0b9d9a7da19c45904a5d222573e1880915b12
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841687"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905264"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implemente modelos de gestor de recursos Azure usando ações do GitHub
 
@@ -112,7 +112,7 @@ O ficheiro de fluxo de trabalho deve ser armazenado na pasta **.github/workflows
         steps:
 
           # Checkout code
-        - uses: actions/checkout@master
+        - uses: actions/checkout@main
 
           # Log into Azure
         - uses: azure/login@v1
@@ -152,7 +152,6 @@ Uma vez que o fluxo de trabalho está configurado para ser acionado pelo ficheir
 1. Selecione **executar a implementação** DO ARM a partir do menu para verificar a implementação.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
-
 Quando o seu grupo de recursos e repositório já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos e o seu repositório GitHub. 
 
 ## <a name="next-steps"></a>Passos seguintes

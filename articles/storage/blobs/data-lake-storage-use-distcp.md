@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 734ad2d45dbb27894e5da4fbeb11c0e8b60df8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e69a97a86a357fb36dde572f292b5cac7963d14a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035676"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912489"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Utilize o DistCp para copiar dados entre as bolhas de armazenamento Azure e a Azure Data Lake Storage Gen2
 
@@ -27,7 +27,7 @@ O DistCp fornece uma variedade de parâmetros de linha de comando e encorajamo-l
 * Uma conta de armazenamento Azure existente sem capacidades de Armazenamento de Data Lake Gen2 (espaço hierárquico) ativada.
 * Uma conta de armazenamento Azure com capacidades de armazenamento de dados Gen2 (espaço hierárquico) ativada. Para obter instruções sobre como criar uma, consulte [Criar uma conta de Armazenamento Azure](../common/storage-account-create.md)
 * Um recipiente que foi criado na conta de armazenamento com espaço hierárquico habilitado.
-* Um cluster Azure HDInsight com acesso a uma conta de armazenamento com a funcionalidade hierárquica do espaço de identificação ativada. Consulte [a Utilização Azure Data Lake Storage Gen2 com clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
+* Um cluster Azure HDInsight com acesso a uma conta de armazenamento com a funcionalidade hierárquica do espaço de identificação ativada. Consulte [a Utilização Azure Data Lake Storage Gen2 com clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Use DistCp de um cluster HDInsight Linux
 

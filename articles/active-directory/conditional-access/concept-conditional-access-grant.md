@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a779fee89d52442207358cf90c8cf87e7ef221c2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5ef2d233024ab3e9cd086e8285e681dc9f42f3f7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837656"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904023"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Concessão
 
@@ -70,7 +70,7 @@ Ao utilizar o [fluxo OAuth do código do dispositivo,](../develop/v2-oauth2-devi
 
 As organizações podem exigir que uma tentativa de acesso às aplicações de nuvem selecionadas tenha de ser feita a partir de uma aplicação de cliente aprovada. Estas aplicações de clientes aprovadas suportam políticas de proteção de [aplicações Intune](/intune/app-protection-policy) independentes de qualquer solução de gestão de dispositivos móveis (MDM).
 
-Para alavancar este controlo de subvenção, o Conditional Access exige que o dispositivo seja registado no Azure Ative Directory, o que requer a utilização de uma aplicação de corretor. A aplicação de corretor pode ser o Microsoft Authenticator para iOS, ou o portal Microsoft Authenticator ou Microsoft Company para dispositivos Android. Se uma aplicação de corretor não for instalada no dispositivo quando o utilizador tentar autenticar, o utilizador é redirecionado para a app/play store apropriada para instalar a aplicação de corretagem necessária.
+Para alavancar este controlo de subvenção, o Conditional Access exige que o dispositivo seja registado no Azure Ative Directory, o que requer a utilização de uma aplicação de corretor. A aplicação de corretor pode ser o Microsoft Authenticator para iOS, ou o portal Microsoft Authenticator ou Microsoft Company para dispositivos Android. Se uma aplicação de corretor não for instalada no dispositivo quando o utilizador tentar autenticar, o utilizador é redirecionado para a loja de aplicações apropriada para instalar a aplicação de corretagem necessária.
 
 Esta definição aplica-se às seguintes aplicações iOS e Android:
 

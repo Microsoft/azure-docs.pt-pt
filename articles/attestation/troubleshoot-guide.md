@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 46e3521a54f6bfdfbfb25634a09b8c8e0cfdcac0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: fe347983e2143c7a4bdf00ca0207356c881c66ac
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93343235"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95891287"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guia de resolução de problemas do Microsoft Azure Attestation
 
@@ -45,7 +45,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
   ```
 
-**Passos de resolução de problemas**
+**Etapas de resolução de problemas**
 
 Para visualizar políticas de atestado/signatários de políticas, um utilizador AZure AD requer a permissão para "Ações":
 - Microsoft.Attestation/attestationProviders/attestation/read
@@ -64,7 +64,7 @@ Para verificar as funções no PowerShell, corra abaixo:
 
 a. Lançar PowerShell e iniciar sessão no Azure através do cmdlet "Connect-AzAccount"
 
-b. Verifique as definições de atribuição de funções rbac
+b. Verifique as definições de atribuição de funções Azure
 
 
   ```powershell
@@ -134,7 +134,7 @@ Ver [exemplos de política de atestado](/azure/attestation/policy-examples)
 - A cotação especificada foi inválida porque o dispositivo em que a cotação foi gerada não satisfaz os requisitos de base Azure
 - A cotação especificada foi inválida porque o TCBInfo ou QEID fornecido pelo Serviço de Cache PCK foi inválido
 
-**Passos de resolução de problemas**
+**Etapas de resolução de problemas**
 
 O Microsoft Azure Attestation suporta a atestada de cotações SGX geradas pela Intel SDK e pela Open Enclave SDK.
 

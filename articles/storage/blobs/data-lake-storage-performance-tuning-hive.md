@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: fb908fe94f940073753ea8e1cde3da2b2a0c4b6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b1e5dd3c72122ade2fd4d4092bb18a7acf215f5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034775"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912948"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Desempenho de sintonização: Hive, HDInsight & Azure Data Lake Storage Gen2
 
@@ -22,9 +22,9 @@ As definições predefinição foram definidas para proporcionar um bom desempen
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta Gen2 de armazenamento de data lake.** Para obter instruções sobre como criar um, consulte [Quickstart: Crie uma conta de armazenamento Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
-* **Cluster Azure HDInsight** com acesso a uma conta Gen2 de armazenamento de data lake. Ver [Utilizar Azure Data Lake Storage Gen2 com clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
-* **A executar colmeia em HDInsight**.  Para aprender sobre como gerir os trabalhos de Colmeia em HDInsight, consulte [Use Hive on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Uma conta Gen2 de armazenamento de data lake.** Para obter instruções sobre como criar um, consulte [Quickstart: Crie uma conta de armazenamento Azure Data Lake Storage Gen2](../common/storage-account-create.md)
+* **Cluster Azure HDInsight** com acesso a uma conta Gen2 de armazenamento de data lake. Ver [Utilizar Azure Data Lake Storage Gen2 com clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* **A executar colmeia em HDInsight**.  Para aprender sobre como gerir os trabalhos de Colmeia em HDInsight, consulte [Use Hive on HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md)
 * **Diretrizes de afinação de desempenho sobre data lake storage gen2**.  Para conceitos de desempenho geral, consulte [data lake storage Gen2 Performance Afinação de Afinação](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parâmetros
@@ -51,7 +51,7 @@ Aqui estão as configurações mais importantes para sintonizar para melhorar o 
 
 **Desaprova hive.exec.reducer.bytes.per.reducer** – O valor predefinido funciona bem quando os dados não são reprimidos.  Para os dados que são comprimidos, deve reduzir o tamanho do redutor.  
 
-**Definir hive.tez.container.size** - Em cada nó, a memória é especificada por yarn.nodemanager.resource.memory-mb e deve ser corretamente definida no cluster HDI por predefinição.  Para obter informações adicionais sobre a definição da memória apropriada em YARN, consulte este [post](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Definir hive.tez.container.size** - Em cada nó, a memória é especificada por yarn.nodemanager.resource.memory-mb e deve ser corretamente definida no cluster HDI por predefinição.  Para obter informações adicionais sobre a definição da memória apropriada em YARN, consulte este [post](../../hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom.md).
 
 As cargas de trabalho intensivas de I/O podem beneficiar de um maior paralelismo diminuindo o tamanho do recipiente Tez. Isto dá ao utilizador mais recipientes que aumentam a concordância.  No entanto, algumas consultas de Colmeia requerem uma quantidade significativa de memória (por exemplo, MapJoin).  Se a tarefa não tiver memória suficiente, obterá uma exceção da memória durante o tempo de funcionação.  Se receber exceções de memória, então deve aumentar a memória.   
 
@@ -73,6 +73,6 @@ Digamos que tem um aglomerado de 8 nó D14.
 ## <a name="further-information-on-hive-tuning"></a>Mais informações sobre a afinação da Colmeia
 
 Aqui estão alguns blogs que ajudarão a afinar as suas consultas de Hive:
-* [Otimizar consultas de Colmeia para Hadoop em HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Optimize Apache Hive queries in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query) (Otimizar as consultas do Apache Hive no Azure HDInsight)
+* [Otimizar consultas de Colmeia para Hadoop em HDInsight](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md)
+* [Optimize Apache Hive queries in Azure HDInsight](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md) (Otimizar as consultas do Apache Hive no Azure HDInsight)
 * [Ignite talk on otimize Hive on HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

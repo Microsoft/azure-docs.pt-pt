@@ -3,14 +3,14 @@ title: Ativar a gestão da atualização da automação Azure a partir de runboo
 description: Este artigo diz como ativar a Gestão de Atualização a partir de um livro de bordo.
 services: automation
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/24/2020
 ms.custom: mvc
-ms.openlocfilehash: ec102015355e3312f5dc15fa526fa543da75e0de
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5a9f12a823a22bfb48ccb4482d3402464aa77fea
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222666"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908370"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Ativar a Gestão de Atualizações a partir de um runbook
 
@@ -34,7 +34,7 @@ Este método utiliza dois livros de execução:
     * *LASolutionSubscriptionId*: ID de assinatura de onde está localizado o espaço de trabalho Log Analytics.
     * *LASolutionWorkspaceId*: ID do espaço de trabalho do Log Analytics ligado à sua conta Automation.
 
-    Estas variáveis são usadas para configurar o espaço de trabalho do VM a bordo. Se estes não forem especificados, o script procura pela primeira vez qualquer VM a bordo da Gestão de Atualização na sua subscrição, seguido da subscrição em que a conta Automation está, seguida de todas as outras subscrições a que a sua conta de utilizador tem acesso. Se não estiver corretamente configurado, isto pode resultar em que as suas máquinas sejam a bordo de algum espaço de trabalho aleatório do Log Analytics.
+    Estas variáveis são usadas para configurar o espaço de trabalho do VM a bordo, e você precisa criá-las manualmente. Se estes não forem especificados, o script procura pela primeira vez qualquer VM a bordo da Gestão de Atualização na sua subscrição, seguido da subscrição em que a conta Automation está, seguida de todas as outras subscrições a que a sua conta de utilizador tem acesso. Se não estiver corretamente configurado, isto pode resultar em que as suas máquinas sejam a bordo de algum espaço de trabalho aleatório do Log Analytics.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -52,7 +52,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="install-and-update-modules"></a>Instalar e atualizar módulos
 
-É necessário atualizar os módulos Azure mais recentes e importar o módulo [Az.OperationalInsights](/powershell/module/az.operationalinsights) para ativar com sucesso a Gestão de Atualização para os seus VMs com o livro de aplicação.
+É necessário atualizar os módulos Azure mais recentes e importar o módulo [AzureRM.OperationalInsights](/powershell/module/azurerm.operationalinsights) para permitir com sucesso a Gestão de Atualização para os seus VMs com o runbook.
 
 1. Na sua conta Demômes, selecione Módulos em **Recursos Partilhados.** **Modules**
 
@@ -66,9 +66,9 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 5. Selecione **A galeria Browse** para abrir a galeria do módulo.
 
-6. Procure `Az.OperationalInsights` e importe este módulo na sua conta Demôm automação.
+6. Procure `AzureRM.OperationalInsights` e importe este módulo na sua conta Demôm automação.
 
-    ![Importar o módulo OperationalInsights](media/enable-from-runbook/import-operational-insights-module.png)
+    ![Importar o módulo OperationalInsights](media/enable-from-runbook/import-operational-insights-module-azurerm.png)
 
 ## <a name="select-azure-vm-to-manage"></a>Selecione Azure VM para gerir
 

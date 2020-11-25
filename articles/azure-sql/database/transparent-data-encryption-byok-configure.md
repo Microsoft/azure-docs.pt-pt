@@ -12,17 +12,20 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 38be8b97b3255e4e63301e693d2a5f295e8d801b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8881dc3f67ac1c9f699bd2bf7bcf1dbbcd5e9c0c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779973"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905332"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e o Azure CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente a partir do Cofre da Chave Azure
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Este artigo percorre como usar uma chave do Cofre de Chaves Azure para encriptação de dados transparentes (TDE) na Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para saber mais sobre o TDE com a integração do Azure Key Vault - Bring Your Own Key (BYOK) Support, visite [o TDE com chaves geridas pelo cliente no Cofre da Chave Azure](transparent-data-encryption-byok-overview.md).
+
+> [!NOTE] 
+> O Azure SQL suporta agora a utilização de uma chave RSA armazenada num HSM gerido como Protetor TDE. Esta funcionalidade está em **pré-visualização pública.** Azure Key Vault Managed HSM é um serviço de nuvem totalmente gerido, altamente disponível, de inquilino único, que permite proteger chaves criptográficas para as suas aplicações em nuvem, utilizando HSMs validados FIPS 140-2 Nível 3. Saiba mais sobre [HSMs geridos.](../../key-vault/managed-hsm/index.yml)
 
 ## <a name="prerequisites-for-powershell"></a>Pré-requisitos para PowerShell
 
@@ -37,6 +40,7 @@ Este artigo percorre como usar uma chave do Cofre de Chaves Azure para encripta�
   - Sem data de validade
   - Não incapacitado
   - Capaz de executar *obter,* *embrulhar a chave,* *desembrulhar* as operações-chave
+- **(Em Pré-visualização)** Para utilizar uma chave HSM gerida, siga as instruções para [criar e ativar um HSM gerido utilizando o CLI Azure](../../key-vault/managed-hsm/quick-create-cli.md)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -70,6 +74,8 @@ Utilize o [cmdlet Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
+Para adicionar permissões ao seu servidor num HSM gerido, adicione ao servidor o papel de RBAC local 'Managed HSM Crypto Service Encryption'. Isto permitirá ao servidor executar obter, embrulhar a tecla, desembrulhar as operações das chaves no HSM Gerido.
+[Instruções para o fornecimento de acesso ao servidor no HSM gerido](../../key-vault/managed-hsm/role-management.md)
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Adicione a chave do cofre ao servidor e desaprote o Protetor TDE
 
@@ -79,10 +85,15 @@ Utilize o [cmdlet Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set
 - Utilize o [cmdlet Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) para confirmar que o protetor TDE foi configurado como pretendido.
 
 > [!NOTE]
+> **(Em Pré-visualização)** Para as teclas HSM geridas, utilize a versão Az.Sql 2.11.1 do PowerShell.
+
+> [!NOTE]
 > O comprimento combinado para o nome do cofre e nome chave não pode exceder 94 caracteres.
 
 > [!TIP]
-> Um exemplo KeyId do Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+> Um exemplo KeyId do Key Vault:<br/>https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
+>
+> Um exemplo KeyId da Managed HSM:<br/>https://contosoMHSM.managedhsm.azure.net/keys/myrsakey
 
 ```powershell
 # add the key from Key Vault to the server
@@ -239,7 +250,7 @@ Verifique se ocorre um problema:
 
 - Se a nova chave não puder ser adicionada ao servidor, ou se a nova chave não puder ser atualizada como protetor TDE, verifique o seguinte:
    - A chave não deve ter uma data de validade
-   - A chave deve ter a *chave get* , *wrap key* , e *desembrulhar* as operações das chaves ativadas.
+   - A chave deve ter a *chave get*, *wrap key*, e *desembrulhar* as operações das chaves ativadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

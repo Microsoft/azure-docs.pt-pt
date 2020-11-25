@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: 394e735be5da65ffa75e10200589a4adb4e7cad2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5fce5871b4bd6c3e2353f7df04018e88b86ec4c7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313933"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912523"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
@@ -35,20 +35,20 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
   Consulte [Criar uma conta de armazenamento para utilizar com a Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
-* Certifique-se de que a sua conta de utilizador tem a [função de Contribuinte de Dados de Armazenamento Blob](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) que lhe é atribuída.
+* Certifique-se de que a sua conta de utilizador tem a [função de Contribuinte de Dados de Armazenamento Blob](../common/storage-auth-aad-rbac-portal.md) que lhe é atribuída.
 
-* Instale a AzCopy v10. Ver [dados de transferência com AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* Instale a AzCopy v10. Ver [dados de transferência com AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-* Criar um diretor de serviço. Ver [Como: Utilizar o portal para criar uma aplicação AD Azure e um responsável de serviço que possa aceder aos recursos.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+* Criar um diretor de serviço. Ver [Como: Utilizar o portal para criar uma aplicação AD Azure e um responsável de serviço que possa aceder aos recursos.](../../active-directory/develop/howto-create-service-principal-portal.md)
 
   Há algumas coisas específicas que terás de fazer enquanto executas os passos nesse artigo.
 
-  :heavy_check_mark: Ao executar os passos na [atribuição da aplicação a uma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) secção de função do artigo, certifique-se de atribuir a função de Contribuinte de **Dados de Armazenamento** ao titular do serviço.
+  :heavy_check_mark: Ao executar os passos na [atribuição da aplicação a uma](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) secção de função do artigo, certifique-se de atribuir a função de Contribuinte de **Dados de Armazenamento** ao titular do serviço.
 
   > [!IMPORTANT]
   > Certifique-se de atribuir a função no âmbito da conta de armazenamento do Data Lake Gen2. Pode atribuir uma função ao grupo de recursos-mãe ou subscrição, mas receberá erros relacionados com permissões até que essas atribuições de funções se propaguem na conta de armazenamento.
 
-  :heavy_check_mark: Ao executar os passos nos [valores get para a assinatura na](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, cole o ID do inquilino, o ID da aplicação e os valores secretos do cliente num ficheiro de texto. Vai precisar disso em breve.
+  :heavy_check_mark: Ao executar os passos nos [valores get para a assinatura na](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) secção do artigo, cole o ID do inquilino, o ID da aplicação e os valores secretos do cliente num ficheiro de texto. Vai precisar disso em breve.
 
 ### <a name="download-the-flight-data"></a>Transferir os dados de voos
 
@@ -94,7 +94,7 @@ Nesta secção, cria-se um serviço Azure Databricks utilizando o portal Azure.
 
     ![Databricks em Azure](./media/data-lake-storage-use-databricks-spark/databricks-on-azure.png "Databricks em Azure")
 
-3. Na página **Novo cluster** , indique os valores para criar um cluster.
+3. Na página **Novo cluster**, indique os valores para criar um cluster.
 
     ![Criar conjunto de faíscas de dados no Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Criar conjunto de faíscas de dados no Azure")
 
@@ -110,7 +110,7 @@ Nesta secção, cria-se um serviço Azure Databricks utilizando o portal Azure.
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Copiar dados de origem para a conta de armazenamento
 
-Utilize o AzCopy para copiar dados do seu ficheiro *.csv* na sua conta Desaquise de Armazenamento de Dados Gen2.
+Utilize o AzCopy para copiar dados do seu ficheiro *.csv* na sua conta Gen2 de armazenamento de dados.
 
 1. Abra uma janela de pedido de comando e insira o seguinte comando para iniciar sessão na sua conta de armazenamento.
 
@@ -138,11 +138,11 @@ Nesta secção, irá criar um recipiente e uma pasta na sua conta de armazenamen
 
 1. No [portal Azure,](https://portal.azure.com)vá ao serviço Azure Databricks que criou e selecione **Launch Workspace**.
 
-2. À esquerda, selecione **Workspace**. No menu pendente **Área de Trabalho** , selecione **Criar** > **Bloco de Notas**.
+2. À esquerda, selecione **Workspace**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
 
     ![Criar um caderno em Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Criar caderno em Databricks")
 
-3. Na caixa de diálogo **Criar Bloco de Notas** , introduza um nome para o bloco de notas. Selecione **Python** como o idioma e, em seguida, selecione o cluster Spark que criou anteriormente.
+3. Na caixa de diálogo **Criar Bloco de Notas**, introduza um nome para o bloco de notas. Selecione **Python** como o idioma e, em seguida, selecione o cluster Spark que criou anteriormente.
 
 4. Selecione **Criar**.
 
@@ -195,7 +195,7 @@ from pyspark.sql import SQLContext
 display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
-Para criar um novo ficheiro e listar os ficheiros na pasta *parquet/flights* , execute este script:
+Para criar um novo ficheiro e listar os ficheiros na pasta *parquet/flights*, execute este script:
 
 ```python
 dbutils.fs.put("/mnt/flightdata/1.txt", "Hello, World!", True)

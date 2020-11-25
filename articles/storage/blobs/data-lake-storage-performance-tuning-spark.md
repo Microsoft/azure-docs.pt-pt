@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 8ae9f96b42c0eb36a9380589780d141711c7ae4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c99d57ddd86ecff71c35ad6c0f2c2561e279b4b0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034738"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912812"
 ---
 # <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>Desempenho da sintonização: Spark, HDInsight & Azure Data Lake Storage Gen2
 
@@ -23,9 +23,9 @@ Ao sintonizar o desempenho no Spark, é necessário considerar o número de apli
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta Azure Data Lake Storage Gen2**. Para obter instruções sobre como criar um, consulte [Quickstart: Crie uma conta de armazenamento Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
-* **Cluster Azure HDInsight** com acesso a uma conta Gen2 de armazenamento de data lake. Consulte [a Utilização Azure Data Lake Storage Gen2 com clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
-* **Executando o cluster Spark na Data Lake Storage Gen2.**  Para obter mais informações, consulte [o cluster HDInsight Spark para analisar dados na Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
+* **Uma conta Azure Data Lake Storage Gen2**. Para obter instruções sobre como criar um, consulte [Quickstart: Crie uma conta de armazenamento Azure Data Lake Storage Gen2](../common/storage-account-create.md).
+* **Cluster Azure HDInsight** com acesso a uma conta Gen2 de armazenamento de data lake. Consulte [a Utilização Azure Data Lake Storage Gen2 com clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
+* **Executando o cluster Spark na Data Lake Storage Gen2.**  Para obter mais informações, consulte [o cluster HDInsight Spark para analisar dados na Data Lake Storage Gen2](../../hdinsight/spark/apache-spark-use-with-data-lake-store.md)
 * **Diretrizes de afinação de desempenho sobre data lake storage gen2**.  Para conceitos de desempenho geral, consulte [data lake storage Gen2 Performance Afinação de Afinação](data-lake-storage-performance-tuning-guidance.md) 
 
 ## <a name="parameters"></a>Parâmetros
@@ -124,4 +124,3 @@ executor-núcleos = 4
 - executores num = Min (restrição de memória, restrição de CPU)
 - executores num = Min (16, 16)
 - num-executores = 16
-

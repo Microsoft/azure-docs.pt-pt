@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 26dd255e6edff7c339ab9766bb71889cf4e2deaa
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8f184de8953e8e8bfe982d2502ca476fb54a66c9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577648"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95903717"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinco passos para integrar todas as suas apps com Azure AD
 
@@ -46,7 +46,7 @@ Finalmente, também pode integrar as aplicações que desenvolve internamente. I
 
 Em seguida, descubra as aplicações que os colaboradores estão a usar frequentemente, e priorize o seu trabalho para integrá-las com Azure AD.
 
-Pode começar por utilizar o Microsoft Cloud App Security&#39;[ferramentas](/cloud-app-security/tutorial-shadow-it) de descoberta em nuvem para descobrir e gerir &quot; it sombra na sua rede &quot; (isto é, aplicações não geridas pelo departamento de TI). Pode [utilizar o Microsoft Defender Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) para simplificar e alargar o processo de descoberta.
+Pode começar por utilizar [as ferramentas](/cloud-app-security/tutorial-shadow-it) de descoberta em nuvem do Microsoft Cloud App Security para descobrir e gerir ti "sombra" na sua rede (isto é, aplicações não geridas pelo departamento de TI). Pode [utilizar o Microsoft Defender Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) para simplificar e alargar o processo de descoberta.
 
 Além disso, pode utilizar o [relatório de atividade da aplicação AD FS](../manage-apps/migrate-adfs-application-activity.md) no portal Azure para descobrir todas as aplicações AD FS na sua organização, o número de utilizadores únicos que se inscreveram neles, e compatibilidade para integrá-las com Azure AD.
 
@@ -66,7 +66,7 @@ Durante o seu processo de descoberta, pode ter encontrado aplicações que não 
 - Poupe-lhe dinheiro eliminando a necessidade de fornecimento e autenticação de utilizadores no local, bem como taxas de licenciamento pagas a outros fornecedores de identidade em nuvem para o mesmo serviço.
 - Reduza as despesas administrativas e permita uma segurança mais apertada com menos despedimentos no seu processo de gestão de identidade e acesso.
 - Permitir que os colaboradores obtenham acesso único de acesso a TODAS as aplicações de que necessitam através do [portal MyApps.](../manage-apps/access-panel-collections.md)
-- Melhorar a inteligência do Azure AD&#39;serviços relacionados com [a proteção](../identity-protection/overview-identity-protection.md) de identidade, como o acesso condicional, aumentando a quantidade de dados que obtém do uso da sua aplicação, e alargando os seus benefícios às aplicações recém-adicionadas.
+- Melhorar a inteligência dos serviços relacionados com [a proteção](../identity-protection/overview-identity-protection.md) de identidade da Azure AD, como o acesso condicional, aumentando a quantidade de dados que obtém do uso da sua aplicação, e alargar os seus benefícios às aplicações recém-adicionadas.
 
 Publicámos orientações para a gestão do processo de negócio de integração de apps com Azure AD, incluindo um [cartaz](https://aka.ms/AppOnePager) e [apresentação](https://aka.ms/AppGuideline) que pode usar para sensibilizar e interessar os proprietários de empresas e aplicações. Pode modificar essas amostras com a sua própria marca e publicá-las na sua organização através do portal da sua empresa, newsletter ou outro meio à medida que for terminando este processo.
 
@@ -103,10 +103,10 @@ Além disso, pode integrar controladores de entrega de aplicações como F5 Big-
 
 Para aplicações que são construídas dentro da sua empresa, os seus desenvolvedores podem usar a [plataforma de identidade](../develop/index.yml) da Microsoft para implementar a autenticação e autorização. As aplicações integradas na plataforma com ser [registadas no Azure AD](../develop/quickstart-register-app.md) e geridas como qualquer outra app no seu portfólio.
 
-Os desenvolvedores podem usar a plataforma tanto para aplicações de uso interno como para aplicações viradas para o cliente, e existem outros benefícios que vêm com a utilização da plataforma. [As Bibliotecas de Autenticação da Microsoft (MSAL),](../develop/msal-overview.md)que fazem parte da plataforma, permitem aos programadores permitir experiências modernas como a autenticação de vários fatores e o uso de chaves de segurança para aceder às suas apps sem precisarem de a implementar por si próprios. Além disso, as aplicações integradas com a plataforma de identidade da Microsoft podem aceder ao [Microsoft Graph](../develop/microsoft-graph-intro.md) - um ponto final unificado da API que fornece os dados da Microsoft 365 que descrevem os padrões de produtividade, identidade e segurança numa organização. Os desenvolvedores podem usar esta informação para implementar funcionalidades que aumentam a produtividade para os seus utilizadores. Por exemplo, ao identificar as pessoas com quem o utilizador tem vindo a interagir recentemente e a superá-las na aplicação&#39;uI.
+Os desenvolvedores podem usar a plataforma tanto para aplicações de uso interno como para aplicações viradas para o cliente, e existem outros benefícios que vêm com a utilização da plataforma. [As Bibliotecas de Autenticação da Microsoft (MSAL),](../develop/msal-overview.md)que fazem parte da plataforma, permitem aos programadores permitir experiências modernas como a autenticação de vários fatores e o uso de chaves de segurança para aceder às suas apps sem precisarem de a implementar por si próprios. Além disso, as aplicações integradas com a plataforma de identidade da Microsoft podem aceder ao [Microsoft Graph](../develop/microsoft-graph-intro.md) - um ponto final unificado da API que fornece os dados da Microsoft 365 que descrevem os padrões de produtividade, identidade e segurança numa organização. Os desenvolvedores podem usar esta informação para implementar funcionalidades que aumentam a produtividade para os seus utilizadores. Por exemplo, ao identificar as pessoas com quem o utilizador tem vindo a interagir recentemente e a superá-las na UI da aplicação.
 
 Temos uma [série de vídeos](https://www.youtube.com/watch?v=zjezqZPPOfc&amp;list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX) que fornece uma introdução abrangente à plataforma, bem como [muitas amostras](../develop/sample-v2-code.md) de código em idiomas e plataformas apoiadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Recursos para aplicações migratórias para o Azure Ative Directory](../manage-apps/migration-resources.md)
+- [Recursos para migrar aplicações para o AAD](../manage-apps/migration-resources.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 909d64d3d32e8b9a314f7afb06b9c0121f624cec
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 32f8ab3f7e222108bec4ec81b14c113705370096
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358488"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913067"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com Azure Data Lake Storage Gen2
 
@@ -41,21 +41,21 @@ As APIs blob e as APIs de armazenamento de dados podem operar nos mesmos dados.
 
 Esta secção descreve problemas e limitações com a utilização de APIs blob e APIs de armazenamento de dados para operar nos mesmos dados.
 
-* Não é possível utilizar APIs de armazenamento de API blob e data lake para escrever para a mesma instância de um ficheiro. Se escrever para um ficheiro usando APIs de Armazenamento de Dados Lake Gen2, então os blocos desse ficheiro não serão visíveis para chamadas para a API [blob da Lista de Blocos de Obter.](https://docs.microsoft.com/rest/api/storageservices/get-block-list) A única exceção é quando se usa em excesso. Pode substituir um ficheiro/bolha utilizando a API.
+* Não é possível utilizar APIs de armazenamento de API blob e data lake para escrever para a mesma instância de um ficheiro. Se escrever para um ficheiro usando APIs de Armazenamento de Dados Lake Gen2, então os blocos desse ficheiro não serão visíveis para chamadas para a API [blob da Lista de Blocos de Obter.](/rest/api/storageservices/get-block-list) A única exceção é quando se usa em excesso. Pode substituir um ficheiro/bolha utilizando a API.
 
-* Quando utilizar a operação [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) sem especificar um delimiter, os resultados incluirão tanto diretórios como blobs. Se optar por utilizar um delimiter, utilize apenas um corte para a frente `/` (). Este é o único delimiter apoiado.
+* Quando utilizar a operação [List Blobs](/rest/api/storageservices/list-blobs) sem especificar um delimiter, os resultados incluirão tanto diretórios como blobs. Se optar por utilizar um delimiter, utilize apenas um corte para a frente `/` (). Este é o único delimiter apoiado.
 
-* Se utilizar a API [delete Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) para apagar um diretório, esse diretório só será apagado se estiver vazio. Isto significa que não pode usar os diretórios de exclusão da API blob novamente.
+* Se utilizar a API [delete Blob](/rest/api/storageservices/delete-blob) para apagar um diretório, esse diretório só será apagado se estiver vazio. Isto significa que não pode usar os diretórios de exclusão da API blob novamente.
 
 Estas APIs Blob REST não são suportadas:
 
-* [Coloque Blob (Página)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Colocar página](https://docs.microsoft.com/rest/api/storageservices/put-page)
-* [Obter Gamas de Páginas](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
-* [Bolha de cópia incremental](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
-* [Colocar página de URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Bloco de Apêndice](https://docs.microsoft.com/rest/api/storageservices/append-block)
-* [Bloco de Apêndice de URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+* [Coloque Blob (Página)](/rest/api/storageservices/put-blob)
+* [Colocar página](/rest/api/storageservices/put-page)
+* [Obter Gamas de Páginas](/rest/api/storageservices/get-page-ranges)
+* [Bolha de cópia incremental](/rest/api/storageservices/incremental-copy-blob)
+* [Colocar página de URL](/rest/api/storageservices/put-page-from-url)
+* [Bloco de Apêndice](/rest/api/storageservices/append-block)
+* [Bloco de Apêndice de URL](/rest/api/storageservices/append-block-from-url)
 
 
 Os discos VM não geridos não são suportados em contas que tenham um espaço hierárquico de nomes. Se pretender ativar um espaço hierárquico numa conta de armazenamento, coloque discos VM não geridos numa conta de armazenamento que não tenha a funcionalidade de espaço hierárquico ativada.
@@ -70,7 +70,7 @@ A capacidade de aplicar alterações ACL recorrentemente do diretório dos pais 
 
 ## <a name="azcopy"></a>AzCopy
 
-Utilize apenas a versão mais recente do AzCopy[(AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Versões anteriores de AzCopy, como AzCopy v8.1, não são suportadas.
+Utilize apenas a versão mais recente do AzCopy[(AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Versões anteriores de AzCopy, como AzCopy v8.1, não são suportadas.
 
 <a id="storage-explorer"></a>
 
@@ -92,7 +92,7 @@ As aplicações de terceiros que usam APIs REST para trabalhar continuarão a fu
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Listas de controlo de acesso (ACL) e acesso de leitura anónimo
 
-Se o [acesso de leitura anónima](storage-manage-access-to-resources.md) tiver sido concedido a um recipiente, então os ACLs não têm qualquer efeito nesse recipiente ou nos ficheiros desse contentor.
+Se o [acesso de leitura anónima](./anonymous-read-access-configure.md) tiver sido concedido a um recipiente, então os ACLs não têm qualquer efeito nesse recipiente ou nos ficheiros desse contentor.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
 

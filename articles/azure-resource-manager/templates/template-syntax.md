@@ -2,13 +2,13 @@
 title: Estrutura do modelo e sintaxe
 description: Descreve a estrutura e propriedades dos modelos do Gestor de Recursos Azure usando a sintaxe declarativa JSON.
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: ae2c5a5fe1440c3adbae475cd4c7652a3b01c285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: b7cf30741cfd2b85046f64fddf01c414676a97e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86116544"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911503"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Understand the structure and syntax of ARM templates (Compreender a estrutura e a sintaxe dos modelos do Resource Manager)
 
@@ -45,6 +45,62 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 | [saídas](#outputs) |Não |Valores que são devolvidos após a implantação. |
 
 Cada elemento tem propriedades que pode definir. Este artigo descreve as secções do modelo com maior detalhe.
+
+## <a name="data-types"></a>Tipos de dados
+
+Dentro de um modelo ARM, pode utilizar estes tipos de dados:
+
+* string
+* securestring
+* int
+* bool
+* objeto
+* secureObject
+* matriz
+
+O modelo a seguir mostra o formato para os tipos de dados. Cada tipo tem um valor predefinido no formato correto.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringParameter": {
+      "type": "string",
+      "defaultValue": "option 1"
+    },
+    "intParameter": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "boolParameter": {
+        "type": "bool",
+        "defaultValue": true
+    },
+    "objectParameter": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b"
+      }
+    },
+    "arrayParameter": {
+      "type": "array",
+      "defaultValue": [ 1, 2, 3 ]
+    }
+  },
+  "resources": [],
+  "outputs": {}
+}
+```
+
+A cadeia segura utiliza o mesmo formato que o string, e o objeto seguro utiliza o mesmo formato que o objeto. Quando se define um parâmetro para uma cadeia segura ou objeto seguro, o valor do parâmetro não é guardado para o histórico de implementação e não está registado. No entanto, se definir esse valor seguro para uma propriedade que não está à espera de um valor seguro, o valor não está protegido. Por exemplo, se definir uma cadeia segura numa etiqueta, esse valor é armazenado como texto simples. Use cordas seguras para senhas e segredos.
+
+Para os inteiros passados como parâmetros inline, a gama de valores pode ser limitada pela ferramenta SDK ou linha de comando que utiliza para implantação. Por exemplo, quando se utiliza o PowerShell para implantar um modelo, os tipos inteiros podem variar entre -2147483648 e 2147483647. Para evitar esta limitação, especifique grandes valores inteiros num [ficheiro de parâmetros](parameter-files.md). Os tipos de recursos aplicam os seus próprios limites para propriedades inteiros.
+
+Ao especificar valores booleanos e inteiros no seu modelo, não rodeie o valor com aspas. Valores de cadeia de início e fim com marcas duplas de aspas.
+
+Os objetos começam com uma cinta esquerda e terminam com uma cinta direita. As matrizes começam com um suporte esquerdo e terminam com um suporte direito.
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -83,21 +139,9 @@ As propriedades disponíveis para um parâmetro são:
 
 Para exemplos de como utilizar parâmetros, consulte [parâmetros nos modelos do Gestor de Recursos Azure](template-parameters.md).
 
-### <a name="data-types"></a>Tipos de dados
-
-Para os inteiros passados como parâmetros inline, a gama de valores pode ser limitada pela ferramenta SDK ou linha de comando que utiliza para implantação. Por exemplo, quando se utiliza o PowerShell para implantar um modelo, os tipos inteiros podem variar entre -2147483648 e 2147483647. Para evitar esta limitação, especifique grandes valores inteiros num [ficheiro de parâmetros](parameter-files.md). Os tipos de recursos aplicam os seus próprios limites para propriedades inteiros.
-
-Ao especificar valores booleanos e inteiros no seu modelo, não rodeie o valor com aspas. Valores de cadeia de início e fim com marcas duplas de aspas.
-
-Os objetos começam com uma cinta esquerda e terminam com uma cinta direita. As matrizes começam com um suporte esquerdo e terminam com um suporte direito.
-
-Quando se define um parâmetro para uma cadeia segura ou objeto seguro, o valor do parâmetro não é guardado para o histórico de implementação e não está registado. No entanto, se definir esse valor seguro para uma propriedade que não está à espera de um valor seguro, o valor não está protegido. Por exemplo, se definir uma cadeia segura numa etiqueta, esse valor é armazenado como texto simples. Use cordas seguras para senhas e segredos.
-
-Para amostras de tipos de dados de formatação, consulte [os formatos do tipo parâmetro](parameter-files.md#parameter-type-formats).
-
 ## <a name="variables"></a>Variáveis
 
-Na secção de variáveis, constrói valores que podem ser usados em todo o seu modelo. Não é preciso definir variáveis, mas muitas vezes simplificam o seu modelo reduzindo expressões complexas.
+Na secção de variáveis, constrói valores que podem ser usados em todo o seu modelo. Não é preciso definir variáveis, mas muitas vezes simplificam o seu modelo reduzindo expressões complexas. O formato de cada variável corresponde a um dos tipos de [dados.](#data-types)
 
 O exemplo a seguir mostra as opções disponíveis para a definição de uma variável:
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fba2610b3343744c448e390bc2d713b38da481d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 25c6ccb4661fde1efb088cd8535bf2759f2057b3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839476"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95902765"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Ativar o acesso da chave de segurança sem palavras-passe aos dispositivos windows 10 com o Azure Ative Directory (pré-visualização)
 
@@ -134,7 +134,7 @@ Para **dispositivos híbridos Azure AD,** as organizações podem configurar a s
 - A definição desta política para **Ativado** permite que os utilizadores entrem com as teclas de segurança.
 - A definição desta política para **desativar** ou **não configurar** impede que os utilizadores entrem com teclas de segurança.
 
-Esta definição de Política de Grupo requer uma versão atualizada do modelo de Política de `credentialprovider.admx` Grupo. Este novo modelo está disponível com a próxima versão do Windows Server e com o Windows 10 20H1. Esta definição pode ser gerida com um dispositivo que executa uma destas versões mais recentes do Windows ou centralmente seguindo as orientações no tópico de suporte, [Como criar e gerir a Loja Central para Modelos Administrativos de Política de Grupo no Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+Esta definição de Política de Grupo requer uma versão atualizada do modelo de Política de `CredentialProviders.admx` Grupo. Este novo modelo está disponível com a próxima versão do Windows Server e com o Windows 10 20H1. Esta definição pode ser gerida com um dispositivo que executa uma destas versões mais recentes do Windows ou centralmente seguindo as orientações no tópico de suporte, [Como criar e gerir a Loja Central para Modelos Administrativos de Política de Grupo no Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="sign-in-with-fido2-security-key"></a>Inscreva-se com chave de segurança FIDO2
 

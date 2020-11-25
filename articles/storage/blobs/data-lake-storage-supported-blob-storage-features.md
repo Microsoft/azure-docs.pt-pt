@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b670ec3cee2ebd1cc98ea2e04fb2b0dfd90e4e1a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 900021e258bb96c0d0c83ef182262515449ad5df
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594220"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912591"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
 
@@ -31,7 +31,7 @@ A tabela seguinte mostra como cada recurso de armazenamento Blob é suportado co
 |Camada de armazenamento esporádico|Disponível em Geral|Não suportado|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
 |Eventos|Disponível em Geral|Disponível em Geral|[Reagir aos eventos de armazenamento de Blobs](storage-blob-event-overview.md)|
 |Métricas (Clássico)|Disponível em Geral|Disponível em Geral|[Métricas de análise de armazenamento Azure (Clássico)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Métricas no Azure Monitor|Disponível em Geral|Pré-visualizar|[Métricas do Armazenamento do Azure no Azure Monitor](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Métricas no Azure Monitor|Disponível em Geral|Pré-visualizar|[Métricas do Armazenamento do Azure no Azure Monitor](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Comandos PowerShell de armazenamento de blob|Disponível em Geral|Disponível em Geral|[Quickstart: Upload, download e list blobs com PowerShell](storage-quickstart-blobs-powershell.md)|
 |Blob armazenamento Comandos Azure CLI|Disponível em Geral|Disponível em Geral|[Quickstart: Criar, transferir e listar bolhas com Azure CLI](storage-quickstart-blobs-cli.md)|
 |APIs de armazenamento de blob|Disponível em Geral|Disponível em Geral|[Início Rápido: biblioteca de cliente do armazenamento de blobs do Azure v12 para .NET](storage-quickstart-blobs-dotnet.md)<br>[Quickstart: Gerir bolhas com Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Quickstart: Gerir bolhas com Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Quickstart: Gerir bolhas com JavaScript v12 SDK em Node.js](storage-quickstart-blobs-nodejs.md)|
@@ -39,12 +39,12 @@ A tabela seguinte mostra como cada recurso de armazenamento Blob é suportado co
 |Nível de acesso ao arquivo|Disponível em Geral|Não suportado|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
 |Políticas de gestão do ciclo de vida (tiering)|Disponível em Geral|Ainda não suportado|[Gerir o ciclo de vida do Armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md)|
 |Políticas de gestão do ciclo de vida (eliminar bolha)|Disponível em Geral|Disponível em Geral|[Gerir o ciclo de vida do Armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md)|
-|Início de sessão no Monitor Azure|Pré-visualizar |Pré-visualizar|[Monitorização do Armazenamento Azure](../common/monitor-storage.md)|
+|Início de sessão no Monitor Azure|Pré-visualizar |Pré-visualizar|[Monitorização do Armazenamento Azure](./monitor-blob-storage.md)|
 |Instantâneos|Pré-visualizar|Pré-visualizar|[Snapshots blob](snapshots-overview.md)|
 |Web sites estáticos|Pré-visualizar|Pré-visualizar|[Static website hosting in Azure Storage](storage-blob-static-website.md) (Alojamento de sites estáticos no Armazenamento do Microsoft Azure)|
 |Armazenamento imutável|Pré-visualizar|Pré-visualizar|[Armazenar dados de blob críticos de negócio com armazenamento imutável](storage-blob-immutable-storage.md)|
 |Eliminação macia do recipiente|Pré-visualizar|Pré-visualizar|[Excluir suave para recipientes (pré-visualização)](soft-delete-container-overview.md)|
-|Blob soft delete|Ainda não suportado|Ainda não suportado|[Eliminação recuperável para blobs](storage-blob-soft-delete.md)|
+|Blob soft delete|Ainda não suportado|Ainda não suportado|[Eliminação recuperável para blobs](./soft-delete-blob-overview.md)|
 |Rio Blobfuse|Disponível em Geral|Disponível em Geral|[Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse](storage-how-to-mount-container-linux.md)|
 |Falha na conta|Ainda não suportado|Ainda não suportado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Recipiente blob ACL|Não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Consulte a nota relacionada abaixo desta tabela.|

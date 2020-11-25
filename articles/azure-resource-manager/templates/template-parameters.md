@@ -2,19 +2,21 @@
 title: Parâmetros em modelos
 description: Descreve como definir parâmetros num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 89c6984c587e8dae59c1825a99d4f8da1c06dafb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8cdc95037967a32c2d8464f4dc39b1e7369102bb
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76122428"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911418"
 ---
 # <a name="parameters-in-azure-resource-manager-templates"></a>Parameters in Azure Resource Manager templates (Parâmetros nos modelos do Azure Resource Manager)
 
 Este artigo descreve como definir e usar parâmetros no seu modelo de Gestor de Recursos Azure. Ao fornecer diferentes valores para parâmetros, pode reutilizar um modelo para diferentes ambientes.
 
 O Gestor de Recursos resolve os valores dos parâmetros antes de iniciar as operações de implantação. Onde quer que o parâmetro seja utilizado no modelo, o Gestor de Recursos substitui-o pelo valor resolvido.
+
+Cada parâmetro deve ser definido para um dos tipos de [dados](template-syntax.md#data-types).
 
 ## <a name="define-parameter"></a>Definir parâmetro
 

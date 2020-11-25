@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 10a2ae71d8c26d82a4a730bab3ba16e7c62d1243
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461571"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911741"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Colete registos personalizados com o agente Log Analytics no Azure Monitor
 
@@ -30,6 +30,7 @@ Os ficheiros de registo a recolher devem corresponder aos seguintes critérios.
 
 - O ficheiro de registo não deve permitir a rotação circular de registo ou registo, onde o ficheiro é substituído com novas entradas.
 - O ficheiro de registo deve utilizar a codificação ASCII ou UTF-8.  Outros formatos como UTF-16 não são suportados.
+- Para o Linux, a conversão do fuso horário não é suportada para carimbos de tempo nos registos.
 
 >[!NOTE]
 > Se houver entradas duplicadas no ficheiro de registo, o Azure Monitor irá recolhê-las. No entanto, os resultados da consulta serão inconsistentes quando os resultados do filtro mostrarem mais eventos do que a contagem de resultados. Será importante que valide o registo para determinar se a aplicação que a cria está a causar este comportamento e endereçá-la se possível antes de criar a definição de recolha de registos personalizado.  
@@ -53,7 +54,7 @@ Utilize o seguinte procedimento para definir um ficheiro de registo personalizad
 O Assistente de Registo Personalizado funciona no portal Azure e permite definir um novo registo personalizado para recolher.
 
 1. No portal Azure, selecione **Log Analytics >** espaço de trabalho > **Definições Avançadas**.
-2. Clique **Data**em  >  **registos personalizados de dados.**
+2. Clique **Data** em  >  **registos personalizados de dados.**
 3. Por predefinição, todas as alterações de configuração são automaticamente empurradas para todos os agentes. Para os agentes Linux, é enviado um ficheiro de configuração para o coletor de dados Fluentd.
 4. Clique **em Add+** para abrir o Assistente de Registo Personalizado.
 
@@ -73,16 +74,16 @@ Se for utilizado um delimiter de tempo, então a propriedade TimeGenerated de ca
 ### <a name="step-3-add-log-collection-paths"></a>Passo 3. Adicionar caminhos de recolha de registos
 Tem de definir um ou mais caminhos no agente onde pode localizar o registo personalizado.  Pode fornecer um caminho e nome específicos para o ficheiro de registo, ou pode especificar um caminho com um wildcard para o nome. Isto suporta aplicações que criam um novo ficheiro todos os dias ou quando um ficheiro atinge um determinado tamanho. Também pode fornecer vários caminhos para um único ficheiro de registo.
 
-Por exemplo, uma aplicação pode criar um ficheiro de registo todos os dias com a data incluída no nome como em log20100316.txt. Um padrão para tal log pode ser *log \* .txt* que se aplicaria a qualquer ficheiro de registo após o esquema de nomeação da aplicação.
+Por exemplo, uma aplicação pode criar um ficheiro de registo todos os dias com a data incluída no nome como em log20100316.txt. Um padrão para tal log pode ser *registar \* .txt* que se aplicaria a qualquer ficheiro de registo após o esquema de nomeação da aplicação.
 
 A tabela seguinte fornece exemplos de padrões válidos para especificar diferentes ficheiros de registo.
 
 | Descrição | Caminho |
 |:--- |:--- |
-| Todos os ficheiros em *C:\Logs* com extensão .txt no agente Windows |C:\Logs \\ \* .txt |
-| Todos os ficheiros em *C:\Logs* com um nome a começar com log e uma extensão .txt no agente Windows |C:\Logs\log \* .txt |
-| Todos os ficheiros em */var/log/auditoria* com extensão .txt no agente Linux |/var/log/audit/*.txt |
-| Todos os ficheiros em */var/log/auditoria* com um nome começando com log e uma extensão .txt no agente Linux |/var/log/audit/log \* .txt |
+| Todos os ficheiros em *C:\Logs* com extensão .txt no agente windows |C:\Registos \\ \* .txt |
+| Todos os ficheiros em *C:\Logs* com um nome a começar com log e uma extensão de .txt no agente do Windows |C:\Logs\log \* .txt |
+| Todos os ficheiros em */var/log/auditoria* com .txt extensão do agente Linux |/var/log/audit/*.txt |
+| Todos os ficheiros em */var/log/auditoria* com um nome começando com log e uma extensão de .txt no agente Linux |/var/log/audit/log \* .txt |
 
 1. Selecione Windows ou Linux para especificar qual o formato de caminho que está a adicionar.
 2. Digite o caminho e clique no **+** botão.
@@ -91,8 +92,8 @@ A tabela seguinte fornece exemplos de padrões válidos para especificar diferen
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passo 4: Fornecer um nome e descrição para o log
 O nome que especificar será utilizado para o tipo de registo, conforme descrito acima.  Terminará sempre com _CL para distingui-lo como um registo personalizado.
 
-1. Digite um nome para o diário de bordo.  O sufixo ** \_ CL** é fornecido automaticamente.
-2. Adicione uma **descrição**opcional .
+1. Digite um nome para o diário de bordo.  O sufixo **\_ CL** é fornecido automaticamente.
+2. Adicione uma **descrição** opcional .
 3. Clique **em Seguinte** para guardar a definição de registo personalizado.
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Passo 5. Validar que os registos personalizados estão a ser recolhidos
@@ -145,7 +146,7 @@ Fornecemos um dos ficheiros de registo e podemos ver os eventos que irá recolhe
 ![Faça upload e analise um registo de amostra](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>Adicionar caminhos de recolha de registos
-Os ficheiros de registo serão localizados em *C:\MyApp\Logs*.  Um novo ficheiro será criado todos os dias com um nome que inclui a data no padrão *appYYYYMMDD.log*.  Um padrão suficiente para este registo seria *C:\MyApp\Logs.log \\ \* *.
+Os ficheiros de registo serão localizados em *C:\MyApp\Logs*.  Um novo ficheiro será criado todos os dias com um nome que inclui a data na *app padrãoYYYYMMDD.log*.  Um padrão suficiente para este registo seria *C:\MyApp\Logs \\ \* .log*.
 
 ![Caminho de recolha de registos](media/data-sources-custom-logs/collection-path.png)
 

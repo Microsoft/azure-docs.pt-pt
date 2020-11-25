@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/04/2019
-ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.openlocfilehash: 5aa379f6601bc324bd08c53f251b2097141eec69
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319801"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911639"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics segurança de dados
 Este documento destina-se a fornecer informações específicas ao Log Analytics, que é uma característica do Azure Monitor, para complementar a informação no [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -26,6 +26,12 @@ O serviço Log Analytics gere os seus dados baseados na nuvem de forma segura, u
 * Gestão de Incidentes
 * Conformidade
 * Certificações de normas de segurança
+
+Também pode utilizar funcionalidades de segurança adicionais incorporadas no Azure Monitor e no Log Analytics. Estas funcionalidades requerem mais gestão de administradores. 
+* Chaves geridas pelo cliente (segurança)
+* Armazenamento Privado Azure
+* Rede do Private Link 
+* Limites de acesso de suporte Azure definidos por Azure Lockbox
 
 Contacte-nos com quaisquer questões, sugestões ou questões sobre qualquer uma das seguintes informações, incluindo as nossas políticas de segurança nas [opções de suporte da Azure.](https://azure.microsoft.com/support/options/)
 
@@ -170,6 +176,15 @@ O período de retenção dos dados recolhidos armazenados na base de dados depen
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utilize o Log Analytics para aceder aos dados
 Para aceder ao seu espaço de trabalho Log Analytics, inscreva-se no portal Azure utilizando a conta organizacional ou a conta microsoft que criou anteriormente. Todo o tráfego entre o portal e o serviço Log Analytics é enviado através de um canal HTTPS seguro. Ao utilizar o portal, é gerado um ID de sessão no cliente utilizador (navegador web) e os dados são armazenados numa cache local até que a sessão seja terminada. Quando terminada, a cache é apagada. Os cookies do lado do cliente, que não contêm informações pessoalmente identificáveis, não são removidos automaticamente. Os cookies de sessão estão marcados HTTPOnly e estão seguros. Após um período de inatividade pré-determinado, a sessão do portal Azure é encerrada.
+
+
+## <a name="additional-security-features"></a>Recursos adicionais de segurança
+Pode utilizar estas funcionalidades de segurança adicionais para proteger ainda mais o ambiente Azure Monitor/Log Analytics. Estas funcionalidades requerem mais gestão de administradores. 
+- [Teclas (segurança) geridas pelo cliente](customer-managed-keys.md) - Pode utilizar as chaves geridas pelo cliente para encriptar os dados enviados para os seus espaços de trabalho do Log Analytics. Requer o uso do Cofre da Chave Azure. 
+- [Armazenamento privado / gerido pelo cliente](private-storage.md) - Gerencie a sua conta de armazenamento encriptada pessoalmente e diga ao Log Analytics para a utilizar para armazenar dados de monitorização 
+- [Private Link networking](private-link-security.md) - Azure Private Link permite-lhe ligar de forma segura os serviços Azure PaaS (incluindo O Azure Monitor) à sua rede virtual utilizando pontos finais privados. 
+- [Lockbox do cliente Azure](/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview) - O Bloqueio do Cliente para o Microsoft Azure fornece uma interface para os clientes reverem e aprovarem ou rejeitarem os pedidos de acesso aos dados dos clientes. É utilizado nos casos em que um engenheiro da Microsoft precisa de aceder aos dados do cliente durante um pedido de suporte.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba como recolher dados com o Log Analytics para os seus VMs Azure seguindo o [quickstart Azure VM](../learn/quick-collect-azurevm.md).  

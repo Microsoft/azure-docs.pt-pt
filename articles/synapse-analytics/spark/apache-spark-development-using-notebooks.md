@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: dcf34d896deafad77d16619f3883ddd103fc55d4
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: c35ee7bcdefa5091d9c887430182638f066cb9fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95790731"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900912"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter cadernos do Synapse Studio (pré-visualização) em Azure Synapse Analytics
 
@@ -399,68 +399,6 @@ Pode aceder diretamente aos dados na conta de armazenamento primário. Não há 
 
 ![dados para célula](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
-## <a name="visualize-data-in-a-notebook"></a>Visualizar dados num caderno
-
-### <a name="produce-rendered-table-view"></a>Produzir vista de mesa renderizada
-
-Uma vista de resultados tabulares é fornecida com a opção de criar um gráfico de barras, gráfico de linha, gráfico de tortas, gráfico de dispersão e gráfico de área. Pode visualizar os seus dados sem ter de escrever código. Os gráficos podem ser personalizados nas **Opções de Gráfico.** 
-
-A saída de comandos mágicos **%%sql** aparece na vista de mesa renderizada por padrão. Pode recorrer <code>display(df)</code> à função Spark DataFrames, Pandas DataFrames, List ou Resilient Distributed Datasets (RDD) para produzir a vista de tabela renderizada.
-
-   [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
-
-### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Visualizar gráficos incorporados a partir de conjuntos de dados em larga escala 
-
-Por predefinição, a <code>display(df)</code> função só levará as primeiras 1000 linhas dos dados para render as tabelas. Verifique a **agregação sobre todos os resultados** e selecione **Aplicar** o botão, aplicará a geração de gráficos a partir de todo o conjunto de dados. Uma faísca será ativada quando a definição do gráfico mudar, demora um pouco a concluir o cálculo e a renderizar o gráfico. 
-    [![builtin-charts-agregação-todos](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
-
-
-
-### <a name="visualize-data-statistic-information"></a>Visualizar informações estatísticas de dados
-Pode utilizar <code>display(df, summary = True)</code> para verificar o resumo estatístico de um dado DataFrame de faísca que inclua o nome da coluna, tipo de coluna, valores únicos e valores em falta para cada coluna. Também pode selecionar em coluna específica para ver o seu valor mínimo, valor máximo, valor médio e desvio padrão.
-    [![builtin-charts-resumo ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
-
-### <a name="render-html-or-interactive-libraries"></a>Renderização DE HTML ou bibliotecas interativas
-
-Pode renderizar o código HTML, incluindo JavaScript, CSS, D3 ou bibliotecas interativas, como **bokeh,** utilizando o **displayHTML()**.
-
-A imagem a seguir é um exemplo de conspiração de glifos sobre um mapa usando **bokeh**.
-
-   ![bokeh-exemplo](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
-   
-
-Executar o seguinte código de amostra para desenhar a imagem acima.
-
-```python
-from bokeh.plotting import figure, output_file
-from bokeh.tile_providers import get_provider, Vendors
-from bokeh.embed import file_html
-from bokeh.resources import CDN
-from bokeh.models import ColumnDataSource
-
-tile_provider = get_provider(Vendors.CARTODBPOSITRON)
-
-# range bounds supplied in web mercator coordinates
-p = figure(x_range=(-9000000,-8000000), y_range=(4000000,5000000),
-           x_axis_type="mercator", y_axis_type="mercator")
-p.add_tile(tile_provider)
-
-# plot datapoints on the map
-source = ColumnDataSource(
-    data=dict(x=[ -8800000, -8500000 , -8800000],
-              y=[4200000, 4500000, 4900000])
-)
-
-p.circle(x="x", y="y", size=15, fill_color="blue", fill_alpha=0.8, source=source)
-
-# create an html document that embeds the Bokeh plot
-html = file_html(p, CDN, "my plot1")
-
-# display this html
-displayHTML(html)
-
-```
-
 ## <a name="save-notebooks"></a>Guardar cadernos
 
 Pode guardar um único caderno ou todos os cadernos no seu espaço de trabalho.
@@ -539,11 +477,11 @@ Semelhante aos Cadernos Jupyter, os portáteis do Azure Synapse Studio têm uma 
 
 1. Uma célula está no modo de comando quando não há cursor de texto que lhe ordene a escrever. Quando uma célula está no modo Comando, pode editar o caderno como um todo, mas não digitar em células individuais. Introduza o modo de comando premindo `ESC` ou utilizando o rato para selecionar fora da área de editor de uma célula.
 
-   ![modo de comando](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
+   ![modo de comando](./media/apache-spark-development-using-notebooks/synapse-command-mode-2.png)
 
 2. O modo de edição é indicado por um cursor de texto que o leva a escrever na área do editor. Quando uma célula está em modo de edição, pode digitar na célula. Introduza o modo de edição premindo `Enter` ou utilizando o rato para selecionar na área de editor de uma célula.
    
-   ![modo-de-edição](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
+   ![modo-de-edição](./media/apache-spark-development-using-notebooks/synapse-edit-mode-2.png)
 
 ### <a name="shortcut-keys-under-command-mode"></a>Teclas de atalho no modo de comando
 

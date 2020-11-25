@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 11/18/2020
 ms.author: procha
 ms.reviewer: jrasnick
-ms.openlocfilehash: 27f6f0b1ece7cd1f890d76e912b5e304af46b0cd
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 861b963922d64926266b42a23f85e9dc30fda7a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95819301"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95903989"
 ---
 # <a name="compatibility-issues-with-third-party-applications-and-azure-synapse-analytics"></a>Problemas de compatibilidade com aplicações de terceiros e Azure Synapse Analytics
 
@@ -43,7 +43,6 @@ Os clientes que vêem este problema em particular ao utilizarem o Tableau ligado
 O exemplo abaixo mostra um ficheiro Tableau TDC que passa o parâmetro FMTONLY=SIM para a cadeia de ligação SQL:
 
 ```json
-
 <connection-customization class='azure_sql_dw' enabled='true' version='18.1'>
     <vendor name='azure_sql_dw' />
     <driver name='azure_sql_dw' />

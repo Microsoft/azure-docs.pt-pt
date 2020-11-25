@@ -8,18 +8,18 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 4cf7d6fdc02affc425fd02eba794d573a59d2a45
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 5f2f3cfc5ccbdd6a3d3d3ede5bb39a3f6f548b19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579373"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913101"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 é um conjunto de capacidades dedicadas à análise de big data, construídas no [armazenamento Azure Blob.](storage-blobs-introduction.md) 
 
-Data Lake Storage Gen2 converge as capacidades do [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index) com o armazenamento Azure Blob. Por exemplo, a Data Lake Storage Gen2 fornece semântica do sistema de ficheiros, segurança ao nível do ficheiro e escala. Como estas capacidades são construídas no armazenamento Blob, você também receberá armazenamento de baixo custo, tiered, com alta disponibilidade/capacidade de recuperação de desastres.
+Data Lake Storage Gen2 converge as capacidades do [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) com o armazenamento Azure Blob. Por exemplo, a Data Lake Storage Gen2 fornece semântica do sistema de ficheiros, segurança ao nível do ficheiro e escala. Como estas capacidades são construídas no armazenamento Blob, você também receberá armazenamento de baixo custo, tiered, com alta disponibilidade/capacidade de recuperação de desastres.
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Projetado para analítica de big data da empresa
 
@@ -39,13 +39,13 @@ Além disso, o Data Lake Storage Gen2 é muito rentável porque é construído e
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Principais características do Data Lake Storage Gen2
 
--   **Acesso compatível com Hadoop** : Data Lake Storage Gen2 permite-lhe gerir e aceder a dados tal como faria com um [Sistema de Ficheiros Distribuídos Hadoop (HDFS).](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) O novo [controlador ABFS](data-lake-storage-abfs-driver.md) (usado para aceder aos dados) está disponível em todos os ambientes apache Hadoop. Estes ambientes incluem [Azure HDInsight,](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks,](https://docs.microsoft.com/azure/azure-databricks/index)e [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics).
+-   **Acesso compatível com Hadoop**: Data Lake Storage Gen2 permite-lhe gerir e aceder a dados tal como faria com um [Sistema de Ficheiros Distribuídos Hadoop (HDFS).](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) O novo [controlador ABFS](data-lake-storage-abfs-driver.md) (usado para aceder aos dados) está disponível em todos os ambientes apache Hadoop. Estes ambientes incluem [Azure HDInsight,](../../hdinsight/index.yml)*,* [Azure Databricks,](/azure/databricks/)e [Azure Synapse Analytics](/azure/synapse-analytics).
 
--   **Um superconjunto de permissões POSIX** : O modelo de segurança para Data Lake Gen2 suporta permissões ACL e POSIX juntamente com alguma granularidade extra específica para data lake storage gen2. As definições podem ser configuradas através do Storage Explorer ou através de estruturas como a Colmeia e a Spark.
+-   **Um superconjunto de permissões POSIX**: O modelo de segurança para Data Lake Gen2 suporta permissões ACL e POSIX juntamente com alguma granularidade extra específica para data lake storage gen2. As definições podem ser configuradas através do Storage Explorer ou através de estruturas como a Colmeia e a Spark.
 
--   **Custo efetivo** : Data Lake Storage Gen2 oferece capacidade de armazenamento de baixo custo e transações. Características como [o ciclo de vida de armazenamento Azure Blob](storage-lifecycle-management-concepts.md) otimizam os custos à medida que os dados transitam através do seu ciclo de vida.
+-   **Custo efetivo**: Data Lake Storage Gen2 oferece capacidade de armazenamento de baixo custo e transações. Características como [o ciclo de vida de armazenamento Azure Blob](storage-lifecycle-management-concepts.md) otimizam os custos à medida que os dados transitam através do seu ciclo de vida.
 
--   **Condutor otimizado** : O condutor da ABFS está [otimizado especificamente](data-lake-storage-abfs-driver.md) para análise de big data. As APIs de REST correspondentes são emergidas através do ponto `dfs.core.windows.net` final.
+-   **Condutor otimizado**: O condutor da ABFS está [otimizado especificamente](data-lake-storage-abfs-driver.md) para análise de big data. As APIs de REST correspondentes são emergidas através do ponto `dfs.core.windows.net` final.
 
 ### <a name="scalability"></a>Escalabilidade
 
@@ -65,7 +65,7 @@ Seguem-se as entidades equivalentes, conforme descrito por diferentes conceitos.
 
 | Conceito                                | Organização de Alto Nível | Organização de nível inferior                                            | Contentor de Dados |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
-| Blobs - Armazenamento de objetos de finalidade geral | Contentor              | Diretório virtual (apenas SDK – não fornece manipulação atómica) | Blob           |
+| Blobs - Armazenamento de objetos de finalidade geral | Contentor              | Diretório virtual (apenas SDK – não fornece manipulação atómica) | Blobs           |
 | Azure Data Lake Storage Gen2 – Analytics Storage          | Contentor            | Diretório                                                           | Ficheiro           |
 
 ## <a name="supported-blob-storage-features"></a>Funcionalidades suportadas do Armazenamento de Blobs
@@ -86,5 +86,3 @@ Várias plataformas de código aberto suportam data lake storage gen2. Para obte
 
 - [Problemas conhecidos com Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Acesso multi-protocolo no Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
-
-

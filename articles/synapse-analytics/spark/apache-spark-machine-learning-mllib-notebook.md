@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: d7c5bd2d1918ecebe2d2aabc213de43e7cdb1fef
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 595b3a57594401df6b61db1fcf8ee16be98ef364
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306972"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900431"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutorial: Construa uma app de machine learning com Apache Spark MLlib e Azure Synapse Analytics
 
 Neste artigo, você vai aprender a usar Apache Spark [MLlib](https://spark.apache.org/mllib/) para criar uma aplicação de machine learning que faz uma simples análise preditiva num conjunto de dados aberto azure. A faísca fornece bibliotecas de aprendizagem automática embuti.. Este exemplo utiliza *a classificação* através da regressão logística.
 
-MLlib é uma biblioteca core Spark que fornece muitos utilitários que são úteis para tarefas de machine learning, incluindo utilitários que são adequados para:
+SparkML e MLlib são bibliotecas core Spark que fornecem muitos utilitários que são úteis para tarefas de machine learning, incluindo utilitários que são adequados para:
 
 - Classificação
 - Regressão
@@ -31,7 +31,7 @@ MLlib é uma biblioteca core Spark que fornece muitos utilitários que são úte
 
 ## <a name="understand-classification-and-logistic-regression"></a>Compreender classificação e regressão logística
 
-*Classificação* , uma tarefa popular de aprendizagem automática, é o processo de triagem de dados de entrada em categorias. É função de um algoritmo de classificação descobrir como atribuir etiquetas aos *dados* de entrada que fornece. Por exemplo, pode pensar num algoritmo de machine learning que aceita informações de stock como entrada e divide o stock em duas categorias: ações que deve vender e ações que deve manter.
+*Classificação*, uma tarefa popular de aprendizagem automática, é o processo de triagem de dados de entrada em categorias. É função de um algoritmo de classificação descobrir como atribuir etiquetas aos *dados* de entrada que fornece. Por exemplo, pode pensar num algoritmo de machine learning que aceita informações de stock como entrada e divide o stock em duas categorias: ações que deve vender e ações que deve manter.
 
 *A regressão logística* é um algoritmo que pode usar para a classificação. A API de regressão logística da Spark é útil para *a classificação binária,* ou para classificar dados de entrada em um de dois grupos. Para obter mais informações sobre regressões logísticas, consulte [a Wikipédia.](https://en.wikipedia.org/wiki/Logistic_regression)
 
@@ -46,10 +46,10 @@ Neste exemplo, você usa Spark para realizar algumas análises preditivas em dad
 
 Nos passos seguintes, desenvolve-se um modelo para prever se uma determinada viagem inclui uma dica ou não.
 
-## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Crie uma app de aprendizagem automática Apache Spark MLlib
+## <a name="create-an-apache-spark--machine-learning-model"></a>Crie um modelo de aprendizagem automática Apache Spark
 
 1. Crie um caderno utilizando o núcleo PySpark. Para obter as instruções, consulte [Criar um caderno](../quickstart-apache-spark-notebook.md#create-a-notebook).
-2. Importe os tipos necessários para este pedido. Copie e cole o seguinte código numa célula vazia e, em seguida, prima **SHIFT + ENTER** , ou executar a célula utilizando o ícone de reprodução azul à esquerda do código.
+2. Importe os tipos necessários para este pedido. Copie e cole o seguinte código numa célula vazia e, em seguida, prima **SHIFT + ENTER**, ou executar a célula utilizando o ícone de reprodução azul à esquerda do código.
 
     ```python
     import matplotlib.pyplot as plt
@@ -110,44 +110,6 @@ A criação de uma tabela ou visualização temporária fornece diferentes camin
 sampled_taxi_df.createOrReplaceTempView("nytaxi")
 ```
 
-## <a name="understand-the-data"></a>Compreender os dados
-
-Normalmente, passaria por uma fase de *análise de dados exploratórios* (EDA) neste momento para desenvolver uma compreensão dos dados. O código que se segue mostra três visualizações diferentes dos dados relacionados com dicas que levam a conclusões sobre o estado e a qualidade dos dados.
-
-```python
-# The charting package needs a Pandas dataframe or numpy array do the conversion
-sampled_taxi_pd_df = sampled_taxi_df.toPandas()
-
-# Look at tips by amount count histogram
-ax1 = sampled_taxi_pd_df['tipAmount'].plot(kind='hist', bins=25, facecolor='lightblue')
-ax1.set_title('Tip amount distribution')
-ax1.set_xlabel('Tip Amount ($)')
-ax1.set_ylabel('Counts')
-plt.suptitle('')
-plt.show()
-
-# How many passengers tipped by various amounts
-ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
-ax2.set_title('Tip amount by Passenger count')
-ax2.set_xlabel('Passenger count')
-ax2.set_ylabel('Tip Amount ($)')
-plt.suptitle('')
-plt.show()
-
-# Look at the relationship between fare and tip amounts
-ax = sampled_taxi_pd_df.plot(kind='scatter', x= 'fareAmount', y = 'tipAmount', c='blue', alpha = 0.10, s=2.5*(sampled_taxi_pd_df['passengerCount']))
-ax.set_title('Tip amount by Fare amount')
-ax.set_xlabel('Fare Amount ($)')
-ax.set_ylabel('Tip Amount ($)')
-plt.axis([-2, 80, -2, 20])
-plt.suptitle('')
-plt.show()
-```
-
-![Lote ](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
- ![ de dispersão de lote de whisker de caixa de ](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
- ![ histograma](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
-
 ## <a name="prepare-the-data"></a>Preparar os dados
 
 Os dados na sua forma bruta não são frequentemente adequados para passar diretamente para um modelo. Uma série de ações deve ser realizada nos dados para levá-lo para um estado onde o modelo pode consumi-lo.
@@ -193,7 +155,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Criar um modelo de regressão logística
 
-A tarefa final é converter os dados rotulados num formato que possa ser analisado por regressão logística. A entrada para um algoritmo de regressão logística precisa ser um conjunto de pares de *vetores de características de etiqueta,* onde o *vetor* de recurso é um vetor de números que representam o ponto de entrada. Então, precisamos converter as colunas categóricas em números. As `trafficTimeBins` `weekdayString` colunas e as colunas precisam de ser convertidas em representações inteiros. Existem múltiplas abordagens para realizar a conversão, no entanto a abordagem adotada neste exemplo é *OneHotEncoding* , uma abordagem comum.
+A tarefa final é converter os dados rotulados num formato que possa ser analisado por regressão logística. A entrada para um algoritmo de regressão logística precisa ser um conjunto de pares de *vetores de características de etiqueta,* onde o *vetor* de recurso é um vetor de números que representam o ponto de entrada. Então, precisamos converter as colunas categóricas em números. As `trafficTimeBins` `weekdayString` colunas e as colunas precisam de ser convertidas em representações inteiros. Existem múltiplas abordagens para realizar a conversão, no entanto a abordagem adotada neste exemplo é *OneHotEncoding*, uma abordagem comum.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
@@ -272,7 +234,7 @@ plt.ylabel('True Positive Rate')
 plt.show()
 ```
 
-![Curva ROC para modelo de ponta de regressão logística](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-nyctaxi-roc.png "Curva ROC para modelo de ponta de regressão logística")
+![Curva ROC para modelo de ponta de regressão logística](./media/apache-spark-machine-learning-mllib-notebook/nyc-taxi-roc.png)
 
 ## <a name="shut-down-the-spark-instance"></a>Desligue o exemplo da Faísca
 

@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7419e8667f07eec03e860634c7b3fddcac0e186b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816104"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95901558"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Armazenamento do Monte Blob utilizando o protocolo Sistema de Ficheiros de Rede (NFS) 3.0 (pré-visualização)
 
@@ -71,7 +71,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumH
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>Passo 3: Criar uma rede virtual Azure (VNet)
 
-A sua conta de armazenamento deve estar contida num VNet. Um VNet permite que os clientes se conectem de forma segura à sua conta de armazenamento. Para saber mais sobre o VNet e como criar um, consulte a [documentação da Rede Virtual.](https://docs.microsoft.com/azure/virtual-network/)
+A sua conta de armazenamento deve estar contida num VNet. Um VNet permite que os clientes se conectem de forma segura à sua conta de armazenamento. Para saber mais sobre o VNet e como criar um, consulte a [documentação da Rede Virtual.](../../virtual-network/index.yml)
 
 > [!NOTE]
 > Os clientes do mesmo VNet podem montar contentores na sua conta. Também pode montar um contentor a partir de um cliente que funciona numa rede no local, mas terá primeiro de ligar a sua rede no local ao seu VNet. Consulte [as ligações de rede suportadas](network-file-system-protocol-support.md#supported-network-connections).
@@ -113,7 +113,7 @@ Crie um recipiente na sua conta de armazenamento utilizando qualquer uma destas 
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[CLI do Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+||[REST](/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Passo 7: Montar o recipiente
 
@@ -144,7 +144,7 @@ Crie um diretório no seu sistema Windows ou Linux e, em seguida, monte um recip
 
    ![Recurso do Sistema de Ficheiros de Rede do Cliente](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-2. Monte um recipiente utilizando o comando [de montagem.](https://docs.microsoft.com/windows-server/administration/windows-commands/mount)
+2. Monte um recipiente utilizando o comando [de montagem.](/windows-server/administration/windows-commands/mount)
 
    ```
    mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
@@ -172,13 +172,6 @@ Crie um diretório no seu sistema Windows ou Linux e, em seguida, monte um recip
 |`Access denied by server while mounting`|Confirme que o cliente está a ser executado numa sub-rede suportada. Consulte as localizações da [rede suportada.](network-file-system-protocol-support.md#supported-network-connections)|
 |`No such file or directory`| Confirme que o contentor que está a montar foi criado depois de verificar que a funcionalidade estava registada. Ver [Passo 2: Verifique se a função está registada](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando de montagem e os seus parâmetros diretamente para o terminal. Se copiar e colar qualquer parte deste comando no terminal a partir de outra aplicação, os carateres ocultos nas informações coladas poderão ser a causa deste erro.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Suporte ao protocolo do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento do Azure Blob (pré-visualização)](network-file-system-protocol-support.md)
-
-
-
-
-
-
-

@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/24/2020
 ms.author: jgao
-ms.openlocfilehash: a04377289b78c23a83fc696ebebb9b5808e904c9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: dcc968353edf0e9cf3d63408d02baf94c6cabd9f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321642"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95902458"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -107,7 +107,7 @@ O seguinte json é um exemplo.  O esquema de modelo mais recente pode ser encont
       "storageAccountName": "myStorageAccount",
       "storageAccountKey": "myKey"
     },
-    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
+    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80",
     "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
@@ -135,12 +135,12 @@ O seguinte json é um exemplo.  O esquema de modelo mais recente pode ser encont
 
 Detalhes do valor da propriedade:
 
-- **Identidade** : O serviço de scripts de implementação utiliza uma identidade gerida atribuída pelo utilizador para executar os scripts. Atualmente, apenas a identidade gerida atribuída pelo utilizador é suportada.
-- **tipo** : Especificar o tipo de script. Atualmente, os scripts Azure PowerShell e Azure CLI são suporte. Os valores são **AzurePowerShell** e **AzureCLI**.
-- **forceUpdateTag** : Alterar este valor entre as implementações do modelo força o script de implantação a ser re-executado. Utilize a função newGuid() ou utcNow() que precisa de ser definida como o padrãoValue de um parâmetro. Para saber mais, consulte [o roteiro run mais de uma vez](#run-script-more-than-once).
-- **configurações de contentores** : Especifique as definições para personalizar a instância do recipiente Azure.  **containerGroupName** destina-se a especificar o nome do grupo do contentor.  Se não for especificado, o nome do grupo é gerado automaticamente.
-- **armazenamentoCotascos** : Especifique as definições para utilizar uma conta de armazenamento existente. Se não for especificada, uma conta de armazenamento é criada automaticamente. Ver [Utilizar uma conta de armazenamento existente.](#use-existing-storage-account)
-- **azPowerShellVersion** / **azCliVersion** : Especifique a versão do módulo a utilizar. Para obter uma lista de versões PowerShell e CLI suportadas, consulte [Pré-requisitos](#prerequisites).
+- **Identidade**: O serviço de scripts de implementação utiliza uma identidade gerida atribuída pelo utilizador para executar os scripts. Atualmente, apenas a identidade gerida atribuída pelo utilizador é suportada.
+- **tipo**: Especificar o tipo de script. Atualmente, os scripts Azure PowerShell e Azure CLI são suportados. Os valores são **AzurePowerShell** e **AzureCLI**.
+- **forceUpdateTag**: Alterar este valor entre as implementações do modelo força o script de implantação a ser re-executado. Se utilizar a função newGuid() ou a função utcNow() ambas as funções só podem ser utilizadas no valor predefinido para um parâmetro. Para saber mais, consulte [o roteiro run mais de uma vez](#run-script-more-than-once).
+- **configurações de contentores**: Especifique as definições para personalizar a instância do recipiente Azure.  **containerGroupName** destina-se a especificar o nome do grupo do contentor.  Se não for especificado, o nome do grupo é gerado automaticamente.
+- **armazenamentoCotascos**: Especifique as definições para utilizar uma conta de armazenamento existente. Se não for especificada, uma conta de armazenamento é criada automaticamente. Ver [Utilizar uma conta de armazenamento existente.](#use-existing-storage-account)
+- **azPowerShellVersion** / **azCliVersion**: Especifique a versão do módulo a utilizar. Para obter uma lista de versões PowerShell e CLI suportadas, consulte [Pré-requisitos](#prerequisites).
 - argumentos : Especificar os **valores** dos parâmetros. Os valores são separados por espaços.
 
     Os Scripts de Implementação dividem os argumentos numa série de cordas invocando a chamada do sistema [CommandLineToArgvW.](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) Isto é necessário porque os argumentos são passados como uma propriedade de [comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) para Azure Container Instance, e a propriedade de comando é uma matriz de cordas.
@@ -155,13 +155,13 @@ Detalhes do valor da propriedade:
 
     Para ver um modelo de amostra, selecione [aqui.](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json)
 
-- **ambienteVariables** : Especifique as variáveis ambientais para passar para o script. Para obter mais informações, consulte [Desenvolver scripts de implementação.](#develop-deployment-scripts)
-- **scriptContent** : Especifique o conteúdo do script. Para executar um script externo, use `primaryScriptUri` em vez disso. Por exemplo, consulte [o script inline](#use-inline-scripts) e [use script externo](#use-external-scripts).
-- **PrimaryScriptUri** : Especifique um Url acessível ao público para o script de implementação primária com extensões de ficheiros suportadas.
-- **suportandoScriptUris** : Especifique uma matriz de Urls acessíveis ao público para suportar ficheiros que são chamados em `ScriptContent` ambos ou `PrimaryScriptUri` .
-- **tempo limite** : Especifique o tempo máximo de execução do script permitido especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor predefinido é **P1D.**
-- **limpezaPreferência**. Especifique a preferência de limpar os recursos de implantação quando a execução do script chegar a um estado terminal. A definição predefinida é **sempre** , o que significa eliminar os recursos apesar do estado terminal (Bem sucedido, Falhado, Cancelado). Para saber mais, consulte [Limpar os recursos do script de implementação](#clean-up-deployment-script-resources).
-- **retençãoInterval** : Especifique o intervalo para o qual o serviço mantém os recursos de script de implantação após a execução do script de implantação atingir um estado terminal. Os recursos do script de implantação serão eliminados quando esta duração expirar. A duração baseia-se no [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O intervalo de retenção é entre 1 e 26 horas (PT26H). Esta propriedade é usada quando a limpezaPreferência é definida para *OnExpiration*. A propriedade *OnExpiration* não está ativada atualmente. Para saber mais, consulte [Limpar os recursos do script de implementação](#clean-up-deployment-script-resources).
+- **ambienteVariables**: Especifique as variáveis ambientais para passar para o script. Para obter mais informações, consulte [Desenvolver scripts de implementação.](#develop-deployment-scripts)
+- **scriptContent**: Especifique o conteúdo do script. Para executar um script externo, use `primaryScriptUri` em vez disso. Por exemplo, consulte [o script inline](#use-inline-scripts) e [use script externo](#use-external-scripts).
+- **PrimaryScriptUri**: Especifique um Url acessível ao público para o script de implementação primária com extensões de ficheiros suportadas.
+- **suportandoScriptUris**: Especifique uma matriz de Urls acessíveis ao público para suportar ficheiros que são chamados em `ScriptContent` ambos ou `PrimaryScriptUri` .
+- **tempo limite**: Especifique o tempo máximo de execução do script permitido especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor predefinido é **P1D.**
+- **limpezaPreferência**. Especifique a preferência de limpar os recursos de implantação quando a execução do script chegar a um estado terminal. A definição predefinida é **sempre**, o que significa eliminar os recursos apesar do estado terminal (Bem sucedido, Falhado, Cancelado). Para saber mais, consulte [Limpar os recursos do script de implementação](#clean-up-deployment-script-resources).
+- **retençãoInterval**: Especifique o intervalo para o qual o serviço mantém os recursos de script de implantação após a execução do script de implantação atingir um estado terminal. Os recursos do script de implantação serão eliminados quando esta duração expirar. A duração baseia-se no [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O intervalo de retenção é entre 1 e 26 horas (PT26H). Esta propriedade é usada quando a limpezaPreferência é definida para *OnExpiration*. A propriedade *OnExpiration* não está ativada atualmente. Para saber mais, consulte [Limpar os recursos do script de implementação](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Amostras adicionais
 
@@ -241,7 +241,7 @@ O modelo a seguir mostra como passar valores entre dois recursos de implementaç
 
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-84" highlight="39-40,66":::
 
-No primeiro recurso, define-se uma variável chamada **$DeploymentScriptOutputs** , e utiliza-a para armazenar os valores de saída. Para aceder ao valor de saída a partir de outro recurso dentro do modelo, utilize:
+No primeiro recurso, define-se uma variável chamada **$DeploymentScriptOutputs**, e utiliza-a para armazenar os valores de saída. Para aceder ao valor de saída a partir de outro recurso dentro do modelo, utilize:
 
 ```json
 reference('<ResourceName>').output.text
@@ -288,7 +288,7 @@ Para especificar uma conta de armazenamento existente, adicione o seguinte json 
 ```
 
 - **armazenamentoApoma:** especifique o nome da conta de armazenamento.
-- **armazenamentoCocountKey"** : especifique uma das chaves da conta de armazenamento. Pode utilizar a [`listKeys()`](./template-functions-resource.md#listkeys) função para recuperar a chave. Por exemplo:
+- **armazenamentoCocountKey"**: especifique uma das chaves da conta de armazenamento. Pode utilizar a [`listKeys()`](./template-functions-resource.md#listkeys) função para recuperar a chave. Por exemplo:
 
     ```json
     "storageAccountSettings": {
@@ -519,7 +519,7 @@ A API do seguinte REST devolve o registo:
 
 Só funciona antes de os recursos do script de implantação serem eliminados.
 
-Para ver o recurso de implementaçãoDiss no portal, selecione **Mostrar os tipos ocultos** :
+Para ver o recurso de implementaçãoDiss no portal, selecione **Mostrar os tipos ocultos**:
 
 ![Script de implementação do modelo do gestor de recursos, mostrar tipos ocultos, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
@@ -529,13 +529,13 @@ Uma conta de armazenamento e uma instância de contentor são necessárias para 
 
 O ciclo de vida destes recursos é controlado pelas seguintes propriedades no modelo:
 
-- **limpezaPreferência** : Limpar a preferência quando a execução do script chegar a um estado terminal. Os valores suportados são:
+- **limpezaPreferência**: Limpar a preferência quando a execução do script chegar a um estado terminal. Os valores suportados são:
 
   - **Sempre:** Elimine os recursos automaticamente criados assim que a execução do script chegar a um estado terminal. Se for utilizada uma conta de armazenamento existente, o serviço de scripts elimina a parte de ficheiro criada na conta de armazenamento. Como o recurso de implementaçãoScripts ainda pode estar presente após a limpeza dos recursos, o serviço de scripts persiste nos resultados da execução do script, por exemplo, stdout, saídas, valor de retorno, etc. antes de os recursos serem eliminados.
-  - **OnSuccess** : Elimine os recursos criados automaticamente apenas quando a execução do script for bem sucedida. Se for utilizada uma conta de armazenamento existente, o serviço de scripts remove a partilha de ficheiros apenas quando a execução do script for bem sucedida. Você ainda pode aceder aos recursos para encontrar a informação de depurar.
-  - **OnExpiration** : Elimine os recursos criados automaticamente apenas quando a **definição de retençãoInterval** estiver expirada. Se for utilizada uma conta de armazenamento existente, o serviço de scripts remove a parte do ficheiro, mas conserva a conta de armazenamento.
+  - **OnSuccess**: Elimine os recursos criados automaticamente apenas quando a execução do script for bem sucedida. Se for utilizada uma conta de armazenamento existente, o serviço de scripts remove a partilha de ficheiros apenas quando a execução do script for bem sucedida. Você ainda pode aceder aos recursos para encontrar a informação de depurar.
+  - **OnExpiration**: Elimine os recursos criados automaticamente apenas quando a **definição de retençãoInterval** estiver expirada. Se for utilizada uma conta de armazenamento existente, o serviço de scripts remove a parte do ficheiro, mas conserva a conta de armazenamento.
 
-- **retençãoInterval** : Especifique o intervalo de tempo de que um recurso de script será mantido e após o qual será expirado e eliminado.
+- **retençãoInterval**: Especifique o intervalo de tempo de que um recurso de script será mantido e após o qual será expirado e eliminado.
 
 > [!NOTE]
 > Não é aconselhável utilizar a conta de armazenamento e a instância do recipiente que são geradas pelo serviço de scripts para outros fins. Os dois recursos podem ser removidos dependendo do ciclo de vida do script.
@@ -562,7 +562,7 @@ Depois de o script ser testado com sucesso, pode usá-lo como um script de imple
 
 ## <a name="deployment-script-error-codes"></a>Códigos de erro de script de implementação
 
-| Código de erro | Description |
+| Código de erro | Descrição |
 |------------|-------------|
 | ImplementaçãoScriptInvalidOperação | A definição de recursos de script de implementação no modelo contém nomes de propriedade inválidos. |
 | ImplementaçãoScriptResourceConflict | Não é possível eliminar um recurso de script de implantação que esteja em estado não terminal e a execução não tenha excedido 1 hora. Ou não pode re-executar o mesmo script de implementação com o mesmo identificador de recursos (mesma subscrição, nome de grupo de recursos e nome de recurso), mas diferentes conteúdos corporais de script ao mesmo tempo. |

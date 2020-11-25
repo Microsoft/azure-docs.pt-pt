@@ -3,14 +3,14 @@ title: Implementar um trabalhador de runbook híbrido do Windows na Azure Automa
 description: Este artigo diz como implementar um Trabalhador De Runbook Híbrido que pode usar para executar livros em máquinas baseadas no Windows no seu datacenter local ou ambiente em nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb501b954897beb73ae05bfdc7b5ded2221dc114
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 31bb0fac302a81c2523a2d2855ca1930cb266ac4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95493932"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95906624"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um trabalhador de runbook híbrido windows
 
@@ -50,7 +50,7 @@ A funcionalidade Hybrid Runbook Worker suporta os seguintes sistemas operativos:
 
 Os requisitos mínimos para um sistema Windows e para o utilizador Hybrid Runbook Worker são:
 
-* Windows PowerShell 5.1 ou posteriormente[(baixar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))
+* Windows PowerShell 5.1 ([descarregue WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)). PowerShell Core não é suportado.
 * .NET Framework 4.6.2 ou posterior
 * Dois núcleos
 * 4 GB de RAM

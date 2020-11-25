@@ -11,19 +11,19 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e029de19e6bdb635dfc4797367de29dfb87e32ce
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: da6387c55200bad3458705cf570f60ca40db1be0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325400"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900618"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Parceiros de gestão de dados Azure Synapse Analytics
 
 Este artigo destaca as empresas parceiras da Microsoft com ferramentas e soluções de gestão de dados que suportam o Azure Synapse.
 
 ## <a name="data-management-partners"></a>Parceiros de gestão de dados
-| Parceiro | Description | Link do site/produto |
+| Parceiro | Descrição | Link do site/produto |
 | ------- | ----------- | -------------------- |
 | ![Aginidade](./media/sql-data-warehouse-partner-data-management/aginity-logo.png) |**Aginidade**<br>A Aginity é uma ferramenta de desenvolvimento de análise, que coloca toda a potência da plataforma Synapse da Microsoft nas mãos de analistas e engenheiros. O rico e intuitivo ambiente de desenvolvimento do SQL permite que os membros da equipa se conectem a mais de uma dezena de plataformas de análise líderes da indústria, ingir dados em vários formatos e construam rapidamente um complexo cálculo de negócios para servir os resultados em casos de business intelligence e machine learning. Toda a aplicação é construída em torno de um catálogo central que torna a colaboração em toda a equipa de análise uma realidade, e as sofisticadas capacidades de gestão e segurança de grãos finos fazem da governação uma brisa. |[Página do produto](https://www.aginity.com/databases/microsoft/)<br> |
 | ![Altação](./media/sql-data-warehouse-partner-data-management/alation-logo.png) |**Altação**<br>O catálogo de dados da Alation melhora drasticamente a produtividade, aumenta a precisão e impulsiona a tomada de decisão baseada em dados confiantes para os analistas. O catálogo de dados da Alation capacita todos na sua organização para encontrar, entender e governar dados. |[Página do produto](https://www.alation.com/product/data-catalog/)<br> |
@@ -34,6 +34,7 @@ Este artigo destaca as empresas parceiras da Microsoft com ferramentas e soluç�
 | ![Redpoint Global](./media/sql-data-warehouse-partner-data-management/redpoint-global-logo.png) |**Gestão de dados do RedPoint**<br>A RedPoint Data Management permite que os marketers apliquem todos os seus dados para impulsionar o envolvimento do cliente transversal enquanto fazem uma gestão de dados estruturada e não estruturada. Com o RedPoint, pode maximizar o valor dos seus dados estruturados e não estruturados para fornecer as interações hiper-personalizadas e contextuais necessárias para envolver o cliente omnicanal de hoje. A interface arrastar e largar facilita a conceção e execução de processos de gestão de dados. |[Página do produto](https://www.redpointglobal.com/customer-data-management)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redpoint-global.redpoint-rpdm)<br> |
 | ![Sentinela Um](./media/sql-data-warehouse-partner-data-management/sql-sentry-logo.png) |**SentryOne (DW Sentry)**<br>Com o painel inteligente de movimentos de dados e o calendário de eventos, sabe sempre o que está a afetar a sua carga de trabalho. Projetado para lhe dar visibilidade nas suas consultas e empregos que correm para carregar, fazer backup ou restaurar os seus dados, nunca se preocupe em aproveitar ao máximo os seus recursos Azure. |[Página do produto](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br>[Azure Marketplace](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br> |
 | ![SqlDBM](./media/sql-data-warehouse-partner-data-management/sqldbm-logo.png) |**SqlDBM**<br>SqlDBM é uma Ferramenta de Modelação de Dados baseada na Nuvem que lhe oferece uma maneira fácil e conveniente de desenvolver a sua base de dados em qualquer lugar em qualquer navegador. Tudo ao mesmo tempo que incorpora quaisquer regras e objetos de base de dados necessários, tais como chaves de base de dados, esquemas, índices, restrições de colunas e relacionamentos. |[Página do produto](http://sqldbm.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sqldbm1583438206845.sqldbm-data-modeling-tool?tab=Overview)<br>|
+| ![Tamr](./media/sql-data-warehouse-partner-data-management/tamr-logo.png) |**Tamr**<br>Com a Tamr, as organizações podem fornecer dados dominados ao Azure Synapse, permitindo-lhes obter a maioria das capacidades analíticas da Azure Synapse. As soluções de domínio de dados nativos da nuvem da Tamr usam machine learning para fazer o levantamento pesado para combinar, limpar e categorizar dados, com fluxos de trabalho de feedback humano intuitivos para colmatar o fosso entre dados e resultados de negócio. A Tamr integra-se com os serviços de dados da Azure, incluindo a Azure Synapse Analytics, Azure Databricks, Azure HDInsight, Azure Data Catalog, Azure Data Lake Storage e Azure Data Factory. Permite dominar os dados em escala com um menor custo total de propriedade, tirando partido da flexibilidade e escala do Azure. |[Página do produto](https://www.tamr.com/tamr-partners/microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tamrinc.unify_v_2019?tab=Overview) |
 | ![Teleran](./media/sql-data-warehouse-partner-data-management/teleran-logo.jpg) |**Teleran**<br>O Controlo de Consultas da Teleran impede que consultas inadequadas e mal formadas cheguem à Sinapse e desperdiçem recursos computatéricos. Envia mensagens inteligentes aos utilizadores de análise que os orientam para uma maior eficiência interagem com os dados. O objetivo é garantir bons resultados de negócio sem aumentar desnecessariamente os custos da Azure. A Teleran Usage Analysis fornece uma análise da atividade de utilizador, aplicação, consulta e utilização de dados. Permite-te ter sempre a imagem completa do que se está a passar. Permite-lhe melhorar o serviço, aumentar a produtividade do negócio e otimizar os custos de consumo da Sinapse. |[Página do produto](https://teleran.com/azure-synapse-optimization-cost-control/)<br>|
 
 ## <a name="next-steps"></a>Passos seguintes

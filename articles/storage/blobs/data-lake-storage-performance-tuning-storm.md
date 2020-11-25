@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 85499839992f872896153e360507d7d1ba7fea38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4db85357ee970d13d6b4fcce195cae66932bed18
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037206"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912795"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Desempenho da sintonização: Storm, HDInsight & Azure Data Lake Storage Gen2
 
@@ -22,9 +22,9 @@ Compreenda os fatores que devem ser considerados quando sintoniza o desempenho d
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta Azure Data Lake Storage Gen2**. Para obter instruções sobre como criar um, consulte [Quickstart: Crie uma conta de armazenamento para analíticos](data-lake-storage-quickstart-create-account.md).
-* **Cluster Azure HDInsight** com acesso a uma conta Gen2 de armazenamento de data lake. Consulte [a Utilização Azure Data Lake Storage Gen2 com clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
-* **Executando um cluster storm em Data Lake Storage Gen2**. Para obter mais informações, consulte [Storm on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Uma conta Azure Data Lake Storage Gen2**. Para obter instruções sobre como criar um, consulte [Quickstart: Crie uma conta de armazenamento para analíticos](../common/storage-account-create.md).
+* **Cluster Azure HDInsight** com acesso a uma conta Gen2 de armazenamento de data lake. Consulte [a Utilização Azure Data Lake Storage Gen2 com clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
+* **Executando um cluster storm em Data Lake Storage Gen2**. Para obter mais informações, consulte [Storm on HDInsight](../../hdinsight/storm/apache-storm-overview.md).
 * **Diretrizes de afinação de desempenho sobre data lake storage gen2**.  Para obter conceitos gerais de desempenho, consulte [data lake storage Gen2 Performance Afinação de afinação.](data-lake-storage-performance-tuning-guidance.md)   
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Sintonize o paralelismo da topologia
@@ -76,7 +76,7 @@ Pode modificar as seguintes definições para sintonizar o bico.
 
 - **Memória máxima por processo de trabalhador: trabalhador.childopts**. Esta definição permite especificar parâmetros adicionais de linha de comando para os trabalhadores java. A definição mais usada aqui é XmX, que determina a memória máxima atribuída à pilha de um JVM.
 
-- **Bico máximo pendente: topology.max.spout.pendente**. Esta definição determina o número de tuples que podem ser voo (ainda não reconhecidos em todos os nós na topologia) por linha de bico em qualquer momento.
+- **Bico máximo pendente: topologia.max.bico.pendente**. Esta definição determina o número de tuples que podem ser voo (ainda não reconhecidos em todos os nós na topologia) por linha de bico em qualquer momento.
 
   Um bom cálculo a fazer é estimar o tamanho de cada uma das suas tuples. Então descubra a quantidade de memória que um fio de bico tem. A memória total atribuída a um fio, dividido por este valor, deve dar-lhe o limite superior para o parâmetro pendente do bico máximo.
 
@@ -110,10 +110,10 @@ Se atingir os limites de largura de banda fornecidos pela Data Lake Storage Gen2
 
 Para verificar se está a ser estrangulado, ative o registo de depurar do lado do cliente:
 
-1. Em **Ambari**  >  **Storm**  >  **Config**Advanced  >  **storm-worker-log4j**, change root ** &lt; level="info" &gt; ** to root ** &lt; level="debug". &gt; ** Reinicie todos os nós/serviço para que a configuração entre em vigor.
+1. Em **Ambari**  >  **Storm**  >  **Config** Advanced  >  **storm-worker-log4j**, change root **&lt; level="info" &gt;** to root **&lt; level="debug". &gt;** Reinicie todos os nós/serviço para que a configuração entre em vigor.
 2. Monitorize os registos de topologia da tempestade nos nós dos trabalhadores (em /var/log/storm/worker-artifacts/ &lt; TopologyName &gt; / &lt; port &gt; /worker.log) para as exceções de estrangulamento da Gen2 de armazenamento de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
-A afinação adicional de desempenho para Storm pode ser referenciada [neste blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
+A afinação adicional de desempenho para Storm pode ser referenciada [neste blog](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
 Para um exemplo adicional a correr, veja [este no GitHub.](https://github.com/hdinsight/storm-performance-automation)

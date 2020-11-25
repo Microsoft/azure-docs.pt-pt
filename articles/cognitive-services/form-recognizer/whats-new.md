@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ed6d3b927254d44863b7fd0a597528813be791cf
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736616"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893985"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -40,11 +40,14 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 - **Nova linguagem suportada: Japonês** - As seguintes novas línguas são agora apoiadas: para `AnalyzeLayout` e : `AnalyzeCustomForm` japonês ( `ja` ). [Suporte de idiomas](language-support.md)
 - **Indicação de estilo de linha de texto (manuscrito/outro) (apenas línguas latinas)** - O Reconhecedor de Formulários agora produz um `appearance` objeto classificando se cada linha de texto é ou não estilo manuscrito, juntamente com uma pontuação de confiança. Esta funcionalidade é suportada apenas para línguas latinas.
 - **Melhorias de qualidade** - Melhorias de extração, incluindo melhorias na extração de um dígito.
-- **Nova funcionalidade de try-it-out na Ferramenta de Rotulagem da Amostra do Reconhecimento de Formulários** - Capacidade de experimentar modelos pré-construídos de fatura, recibo e cartão de visita e a API de layout utilizando a ferramenta de rotulagem da amostra do reconhecimento de formulários. Veja como os seus dados serão extraídos sem escrever nenhum código.
+- **Nova funcionalidade de try-it-out na ferramenta de amostra e rotulagem do Reconhecimento de Formulários** - Capacidade de experimentar modelos pré-construídos de fatura, recibo e cartão de visita e a API de layout utilizando a ferramenta de rotulagem da amostra do reconhecimento de formulários. Veja como os seus dados serão extraídos sem escrever nenhum código.
 
   > [Experimente a ferramenta de amostra do reconhecimento de formulários](https://fott-preview.azurewebsites.net/)
 
   ![Exemplo FOTT](./media/ui-preview.jpg)
+  
+- **Loop de feedback** - Ao analisar ficheiros através da ferramenta de rotulagem da amostra, pode agora também adicioná-lo ao conjunto de treino e adujs os lables se necessário e treinar para melhorar o modelo.
+- **Auto Label Documets** - Automitcally rotula documentos adicionais com base em documentos anteriores rotulados no projeto. 
 
 ## <a name="august-2020"></a>Agosto de 2020
 

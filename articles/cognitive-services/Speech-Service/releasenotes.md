@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 29f7e8bbf9a1b8d48940287a4845c2b55804b247
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 18d228af5c162159d52b5583613d4449d1195af2
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015380"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95894240"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
@@ -45,8 +45,8 @@ ms.locfileid: "95015380"
 - **JavaScript**: Suporte adicional para a `ConversationTranscriber` API. Leia a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript) 
 - **C++/C#**: Adicione novo `AudioDataStream FromWavFileInput` método (para ler . Ficheiros WAV) [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) e [aqui (C#)](
 https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
--  **C++/C#/Java/Python/Objective-C/Swift**: Adicionei um `stopSpeakingAsync()` método para parar a síntese de texto-a-fala. Leia aqui a documentação de referência [(C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [aqui (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [aqui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [aqui (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)e [aqui (Objectivo-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
-- **C#, C++, Java**: Adicione uma `FromDialogServiceConnector()` função à classe que pode ser usada para monitorizar eventos de `Connection` ligação e desconexão para `DialogServiceConnector` . Leia a documentação de referência [aqui (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), e [aqui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
+-  **C++/C#/Java/Python/Objective-C/Swift**: Adicionei um `stopSpeakingAsync()` método para parar a síntese de texto-a-fala. Leia aqui a documentação de referência [(C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [aqui (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [aqui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech), [aqui (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)e [aqui (Objectivo-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+- **C#, C++, Java**: Adicione uma `FromDialogServiceConnector()` função à classe que pode ser usada para monitorizar eventos de `Connection` ligação e desconexão para `DialogServiceConnector` . Leia a documentação de referência [aqui (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), e [aqui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection).
 <!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
 
 **Mudança de rutura**
@@ -154,7 +154,7 @@ Leia o [anúncio completo das atualizações do TTS para Ignite 2020](https://te
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>Novas localidades de discurso a texto: Lançamento 2020-agosto
 Discurso-a-texto divulgou 26 novos locais em agosto: 2 línguas europeias `cs-CZ` e `hu-HU` , 5 locais ingleses e 19 locais espanhóis que cobrem a maioria dos países da América do Sul. Abaixo está uma lista dos novos locais. Consulte aqui a lista completa de [línguas.](./language-support.md)
 
-| Região  | Idioma                          |
+| Região  | Linguagem                          |
 |---------|-----------------------------------|
 | `cs-CZ` | Checo (República Checa)            | 
 | `en-HK` | Inglês (Hong Kong)               | 
@@ -249,7 +249,7 @@ Mantenha-se saudável!
 
 * Melhor precisão da pronúncia ao nível da palavra em cinco línguas.
 
-    | Idioma | Redução do erro de pronúncia |
+    | Linguagem | Redução do erro de pronúncia |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -262,7 +262,7 @@ Mantenha-se saudável!
 * Leitura cambial
     * Corrigiu a questão com a leitura da moeda para `es-ES` e `es-MX`
      
-    | Idioma | Entrada | Leitura após melhoria |
+    | Linguagem | Entrada | Leitura após melhoria |
     |---|---|---|
     | `es-MX` | $1,58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1,58 | un dólar cincuenta y ocho centavos |

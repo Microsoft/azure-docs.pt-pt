@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 8eb4fd4cf0645248804ca31e310933167ba9a39b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 30d1fb62b661d898ba06548e5e3a2c7d31b97794
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987835"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95906488"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade e localizações de peering do ExpressRoute
 
@@ -105,7 +105,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **du datamena** |Suportado |Suportado | Dubai2 |
 | **eir** |Suportado |Suportado |Dublin|
 | **[Comunicações Globais Epsilon](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Suportado |Suportado |Singapura, Singapura2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Amesterdão, Atlanta, Berlim, Chicago, Dallas, Dublin, Frankfurt, Genebra, Hong Kong SAR, Londres, Londres2, Los Angeles, Los Angeles2, Melbourne, Miami, Milão, Nova Iorque, Osaka, Paris, São Paulo, Seattle, Silicon Valley, Singapura, Estocolmo, Sydney, Tóquio, Toronto, Washington DC, Zurique |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Amesterdão, Atlanta, Berlim, Camberra2, Chicago, Dallas, Dubai2, Dublin, Frankfurt, Genebra, Hong Kong SAR, Londres, Londres2, Los Angeles, Los Angeles2, Melbourne, Miami, Milão, Nova Iorque, Osaka, Paris, São Paulo, Seattle, Seul, Silicon Valley, Singapura, Estocolmo, Sydney, Tóquio, Toronto, Washington DC, Zurique |
 | **Emirados Árabes Unidos** |Suportado |Suportado |Rio Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Suportado |Suportado |Amsterdão, Amesterdão2, Dublin, Frankfurt, Londres |
 | **FarEasTone** |Suportado |Suportado |Taipé|
@@ -366,7 +366,7 @@ A ativação da conectividade privada para atender as suas necessidades pode ser
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | América do Sul |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Austrália |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para obter mais informações sobre o ExpressRoute, consulte as [FAQ ExpressRoute.](expressroute-faqs.md)
 * Confirme que todos os pré-requisitos são cumpridos. Veja os [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 

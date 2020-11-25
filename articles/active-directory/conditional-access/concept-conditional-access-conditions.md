@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96d1eaff4d1b93ad3bb489f177020c351fe4d13d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818344"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904040"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: Condições
 
@@ -180,7 +180,7 @@ Esta definição tem impacto nas tentativas de acesso feitas a partir das seguin
 
 Se o controlo de acesso atribuído à apólice utilizar **requerer a aplicação de cliente aprovada,** o utilizador é direcionado para instalar e utilizar o cliente móvel do Outlook. No caso de ser necessária **a autenticação multi-factor,** os utilizadores afetados estão bloqueados, porque a autenticação básica não suporta a autenticação de vários fatores.
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 - [Bloquear autenticação do legado com Acesso Condicional](block-legacy-authentication.md)
 - [Exigir aplicações de clientes aprovadas com Acesso Condicional](app-based-conditional-access.md)
@@ -194,7 +194,7 @@ Ao selecionar **Outros clientes,** pode especificar uma condição que afete as 
 A condição do estado do dispositivo pode ser usada para excluir dispositivos que sejam híbridos Azure AD unidos e/ou dispositivos marcados como conformes com uma política de conformidade microsoft Intune a partir das políticas de acesso condicional de uma organização.
 
 Por exemplo, *todos os utilizadores* que acedam à aplicação cloud *da Microsoft Azure Management,* incluindo **todos os dispositivos,** excluindo a **adada híbrida híbrida** do dispositivo, e dispositivo marcado como **conforme** e para *controlos de acesso*, **Bloco**. 
-   - Este exemplo criaria uma política que apenas permite o acesso à Microsoft Azure Management a partir de dispositivos que são híbridos Azure AD unidos e/ou dispositivos marcados como conformes.
+   - Este exemplo criaria uma política que apenas permite o acesso à Microsoft Azure Management a partir de dispositivos que sejam híbridos Azure AD ou dispositivos marcados como conformes.
 
 ## <a name="next-steps"></a>Passos seguintes
 
