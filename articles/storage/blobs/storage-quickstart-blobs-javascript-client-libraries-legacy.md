@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 134408704d54479fbbe0dfb5094f2920fa2e74be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d212029936bcd257ef5a78eeedc98c2d6e1df514
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336195"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96012787"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -35,7 +35,7 @@ Neste arranque rápido, aprende-se a gerir as bolhas utilizando o código JavaSc
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configurar regras de CORS da conta de armazenamento
 
-Antes de a sua aplicação web poder aceder a um armazenamento de bolhas do cliente, tem de configurar a sua conta para permitir a [partilha de recursos de origem cruzada,](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)ou CORS.
+Antes de a sua aplicação web poder aceder a um armazenamento de bolhas do cliente, tem de configurar a sua conta para permitir a [partilha de recursos de origem cruzada,](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)ou CORS.
 
 Regresse ao portal do Azure e selecione a sua conta de armazenamento. Para definir uma nova regra CORS, navegue na secção **Definições** e clique no link **CORS.** Em seguida, clique no botão **Adicionar** para abrir a janela **Adicionar regra de CORS**. Neste início rápido, vai criar uma regra CORS aberta:
 
@@ -183,9 +183,9 @@ Em seguida, cole o html seguinte em *index.html* após a etiqueta `</body>` de f
 </script>
 ```
 
-Este código adiciona uma referência ao ficheiro de script e fornece um lugar para o seu próprio código JavaScript. Para efeitos deste arranque rápido, estamos * a * usar oazure-storage-blob.jsficheiro de scripts para que possas abri-lo no Código VS, ler o seu conteúdo e definir pontos de rutura. Na produção, deve utilizar o ficheiro * deazure-storage.blob.min.js* mais compacto que também é fornecido no ficheiro zip.
+Este código adiciona uma referência ao ficheiro de script e fornece um lugar para o seu próprio código JavaScript. Para efeitos deste arranque rápido, estamos *a* usar oazure-storage-blob.jsficheiro de scripts para que possas abri-lo no Código VS, ler o seu conteúdo e definir pontos de rutura. Na produção, deve utilizar o ficheiro *deazure-storage.blob.min.js* mais compacto que também é fornecido no ficheiro zip.
 
-Pode saber mais sobre cada função de armazenamento de bolhas na [documentação de referência.](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index) Note que algumas das funções no SDK só estão disponíveis em Node.js ou apenas disponíveis no navegador.
+Pode saber mais sobre cada função de armazenamento de bolhas na [documentação de referência.](/javascript/api/%40azure/storage-blob/index) Note que algumas das funções no SDK só estão disponíveis em Node.js ou apenas disponíveis no navegador.
 
 O código em *azure-storage-blob.js* exporta uma variável global chamada `azblob` , que você usará no seu código JavaScript para aceder às APIs de armazenamento de bolhas.
 
@@ -226,7 +226,7 @@ const containerURL = new azblob.ContainerURL(
     azblob.StorageURL.newPipeline(new azblob.AnonymousCredential));
 ```
 
-Este código utiliza a informação da sua conta e SAS para criar uma instância [ContainerURL,](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) que é útil para criar e manipular um recipiente de armazenamento.
+Este código utiliza a informação da sua conta e SAS para criar uma instância [ContainerURL,](/javascript/api/@azure/storage-blob/ContainerURL) que é útil para criar e manipular um recipiente de armazenamento.
 
 ### <a name="create-and-delete-a-storage-container"></a>Criar e apagar um recipiente de armazenamento
 
@@ -257,7 +257,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-Este código chama o ContainerURL [de criar](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) e [eliminar](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) funções sem utilizar uma instância [aborter.](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) Para manter as coisas simples para este arranque rápido, este código pressupõe que a sua conta de armazenamento foi criada e está ativada. No código de produção, utilize uma instância Aborter para adicionar funcionalidade de timeout.
+Este código chama o ContainerURL [de criar](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) e [eliminar](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) funções sem utilizar uma instância [aborter.](/javascript/api/@azure/storage-blob/aborter) Para manter as coisas simples para este arranque rápido, este código pressupõe que a sua conta de armazenamento foi criada e está ativada. No código de produção, utilize uma instância Aborter para adicionar funcionalidade de timeout.
 
 ### <a name="list-blobs"></a>Listar blobs
 
@@ -293,7 +293,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-Este código chama a função [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) num loop para garantir que todos os segmentos são recuperados. Para cada segmento, ele dá a volta à lista de itens blob que contém e atualiza a lista **de Ficheiros.**
+Este código chama a função [ContainerURL.listBlobFlatSegment](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) num loop para garantir que todos os segmentos são recuperados. Para cada segmento, ele dá a volta à lista de itens blob que contém e atualiza a lista **de Ficheiros.**
 
 ### <a name="upload-blobs"></a>Carregar bolhas
 
@@ -321,7 +321,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-Este código liga o botão **'Selecionar' e carregar ficheiros** ao `file-input` elemento oculto. Desta forma, o evento do botão `click` aciona o evento de entrada de `click` ficheiros e exibe o selecionador de ficheiros. Depois de selecionar ficheiros e fechar a caixa de diálogo, o `input` evento ocorre e a `uploadFiles` função é chamada. Esta função chama a [função de uploadBrowserDataToBlockBlob apenas](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) para cada ficheiro selecionado. Cada chamada devolve uma Promessa, que é adicionada a uma lista para que todos possam ser aguardados de uma só vez, fazendo com que os ficheiros sejam carregados em paralelo.
+Este código liga o botão **'Selecionar' e carregar ficheiros** ao `file-input` elemento oculto. Desta forma, o evento do botão `click` aciona o evento de entrada de `click` ficheiros e exibe o selecionador de ficheiros. Depois de selecionar ficheiros e fechar a caixa de diálogo, o `input` evento ocorre e a `uploadFiles` função é chamada. Esta função chama a [função de uploadBrowserDataToBlockBlob apenas](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) para cada ficheiro selecionado. Cada chamada devolve uma Promessa, que é adicionada a uma lista para que todos possam ser aguardados de uma só vez, fazendo com que os ficheiros sejam carregados em paralelo.
 
 ### <a name="delete-blobs"></a>Eliminar blobs
 
@@ -349,13 +349,13 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-Este código chama a função [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) para remover cada ficheiro selecionado na lista. Em seguida, chama a `listFiles` função mostrada anteriormente para refrescar o conteúdo da lista **de Ficheiros.**
+Este código chama a função [BlobURL.delete](/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) para remover cada ficheiro selecionado na lista. Em seguida, chama a `listFiles` função mostrada anteriormente para refrescar o conteúdo da lista **de Ficheiros.**
 
 ### <a name="run-and-test-the-web-application"></a>Executar e testar a aplicação web
 
 Neste ponto, você pode lançar a página e experimentar para obter uma sensação de como o armazenamento de bolhas funciona. Se ocorrerem erros (por exemplo, quando tentar listar ficheiros antes de criar o recipiente), o painel **de estado** mostrará a mensagem de erro recebida. Também pode definir pontos de rutura no código JavaScript para examinar os valores devolvidos pelas APIs de armazenamento.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados durante este arranque rápido, vá ao [portal Azure](https://portal.azure.com) e elimine o grupo de recursos que criou na secção Pré-Requisitos.
 
@@ -364,4 +364,4 @@ Para limpar os recursos criados durante este arranque rápido, vá ao [portal Az
 Neste quickstart, criou um site simples que acede ao armazenamento de blob a partir do JavaScript baseado no navegador. Para saber como pode hospedar um website em armazenamento de bolhas, continue até ao seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Hospedar um site estático no Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)
+> [Hospedar um site estático no Blob Storage](./storage-blob-static-website-host.md)

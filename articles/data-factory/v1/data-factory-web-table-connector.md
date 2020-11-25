@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689763"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012855"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma fonte de tabela Web usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -55,7 +55,7 @@ Para utilizar este conector de mesa Web, é necessário configurar um Tempo de E
 Pode criar um pipeline com uma atividade de cópia que move dados de uma loja de dados cassandra no local, utilizando diferentes ferramentas/APIs. 
 
 - A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy. 
-- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia. 
+- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia. 
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -101,7 +101,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo |tipo do conjunto de dados. deve ser definido para **WebTable** |Sim |
-| caminho |Um URL relativo ao recurso que contém a tabela. |N.º Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligada. |
+| caminho |Um URL relativo ao recurso que contém a tabela. |Não. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligada. |
 | índice |O índice da tabela no recurso. Consulte [o índice de uma tabela numa](#get-index-of-a-table-in-an-html-page) secção de página HTML para obter o índice de uma tabela numa página HTML. |Sim |
 
 **Exemplo:**
@@ -293,7 +293,7 @@ Consulte as propriedades do tipo WebSource para a lista de propriedades suportad
     ![Do diálogo web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
     URL utilizado neste exemplo: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
-4. Se vir a caixa de diálogo **de conteúdo do Access Web,** selecione o **URL**certo, **a autenticação**e clique em **Connect**.
+4. Se vir a caixa de diálogo **de conteúdo do Access Web,** selecione o **URL** certo, **a autenticação** e clique em **Connect**.
 
    ![Aceder caixa de diálogo de conteúdo web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
 5. Clique num item de **tabela** na vista da árvore para ver o conteúdo da tabela e, em seguida, clique em **Editar** o botão Na parte inferior.  

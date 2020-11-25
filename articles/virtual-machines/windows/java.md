@@ -10,11 +10,11 @@ ms.date: 07/17/2017
 ms.custom: devx-track-java
 ms.author: cynthn
 ms.openlocfilehash: f571dc5f4f3aee2405d4968b050bd2dd92a709db
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973670"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012753"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerir VMs do Windows em Azure utilizando a Java
 
@@ -128,7 +128,7 @@ Antes de iniciar este passo, certifique-se de que tem acesso a um [diretor de se
     graphURL=https://graph.microsoft.com/
     ```
 
-    Substitua o ** &lt; &gt; id de subscrição** pelo seu identificador de subscrição, ** &lt; id &gt; de aplicação** pelo identificador de aplicação ative, ** &lt; chave &gt; de autenticação** com a chave de aplicação e ** &lt; id &gt; do inquilino** pelo identificador do inquilino.
+    Substitua o **&lt; &gt; id de subscrição** pelo seu identificador de subscrição, **&lt; id &gt; de aplicação** pelo identificador de aplicação ative, **&lt; chave &gt; de autenticação** com a chave de aplicação e **&lt; id &gt; do inquilino** pelo identificador do inquilino.
 
 2. Guarde o ficheiro.
 3. Desaprove uma variável ambiental denominada AZURE_AUTH_LOCATION na sua concha com o caminho completo para o ficheiro de autenticação.
@@ -450,7 +450,7 @@ Por ser cobrado pelos recursos utilizados no Azure, é sempre uma boa prática a
     azure.resourceGroups().deleteByName("myResourceGroup");
     ```
 
-2. Guarde o ficheiro App.java.
+2. Guarde o ficheiro .java App.
 
 ## <a name="run-the-application"></a>Executar a aplicação
 

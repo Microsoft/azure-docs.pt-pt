@@ -6,11 +6,11 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.reviewer: azfuncdf, antchu
 ms.openlocfilehash: 5d624027259212d804ced26a6daaffb853984a98
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91294880"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012634"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Crie a sua primeira função durável em Python
 
@@ -116,7 +116,7 @@ Utilize um modelo para criar o código de função durável no seu projeto.
     | Selecione um modelo para a sua função | Orquestrador de Funções Duráveis | Criar uma orquestração de funções duradouras |
     | Fornecer um nome de função | OláOrchestrator | Nome da sua função durável |
 
-Adicionou um orquestrador para coordenar as funções de atividade. *Abra o HelloOrchestrator/ \_ \_ init__.py* para ver a função do orquestrador. Cada chamada para `context.call_activity` invocar uma função de atividade chamada `Hello` .
+Adicionou um orquestrador para coordenar as funções de atividade. *Abra o HelloOrchestrator/init__.py \_ \_* para ver a função do orquestrador. Cada chamada para `context.call_activity` invocar uma função de atividade chamada `Hello` .
 
 Em seguida, irá adicionar a função de `Hello` atividade referenciada.
 
@@ -131,7 +131,7 @@ Em seguida, irá adicionar a função de `Hello` atividade referenciada.
     | Selecione um modelo para a sua função | Atividade de Funções Duradouras | Criar uma função de atividade |
     | Fornecer um nome de função | Hello | Nome da sua função de atividade |
 
-Acrescentou a `Hello` função de atividade que é invocada pelo orquestrador. Abra *a Hello/ \_ \_ init__.py* para ver se leva um nome como entrada e devolve uma saudação. Uma função de atividade é onde você executará ações como fazer uma chamada de base de dados ou realizar um cálculo.
+Acrescentou a `Hello` função de atividade que é invocada pelo orquestrador. Abra *a Hello/ \_ \_ init__.py* para ver se tem um nome como entrada e devolve uma saudação. Uma função de atividade é onde você executará ações como fazer uma chamada de base de dados ou realizar um cálculo.
 
 Finalmente, irá adicionar uma função http desencadeada que inicia a orquestração.
 
@@ -147,7 +147,7 @@ Finalmente, irá adicionar uma função http desencadeada que inicia a orquestra
     | Fornecer um nome de função | DurableFunctionsHttpStart | Nome da sua função de atividade |
     | Nível de autorização | Anónimo | Para fins de demonstração, permita que a função seja chamada sem autenticação |
 
-Adicionou uma função detonada HTTP que inicia uma orquestração. Open *DurableFunctionsHttpStart/ \_ \_ init__.py* para ver se ele usa `client.start_new` para iniciar uma nova orquestração. Em seguida, `client.create_check_status_response` utiliza-se para devolver uma resposta HTTP contendo URLs que podem ser usados para monitorizar e gerir a nova orquestração.
+Adicionou uma função detonada HTTP que inicia uma orquestração. Open *DurableFunctionsHttpStart/init__.py \_ \_* para ver se ele usa `client.start_new` para iniciar uma nova orquestração. Em seguida, `client.create_check_status_response` utiliza-se para devolver uma resposta HTTP contendo URLs que podem ser usados para monitorizar e gerir a nova orquestração.
 
 Tem agora uma aplicação Durable Functions que pode ser executada localmente e implantada no Azure.
 
@@ -155,7 +155,7 @@ Tem agora uma aplicação Durable Functions que pode ser executada localmente e 
 
 As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projeto de funções do Azure no seu computador de programação local. Se não o tiver instalado, é-lhe pedido que instale estas ferramentas na primeira vez que iniciar uma função a partir do Código do Estúdio Visual.
 
-1. Para testar a sua função, desaponte um ponto de rutura no código de função de `Hello` atividade *(Olá/ \_ \_ init__.py).* Prima F5 ou selecione `Debug: Start Debugging` a partir da paleta de comando para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**.
+1. Para testar a sua função, desaponte um ponto de rutura no `Hello` código de função de atividade *(Olá/ \_ \_ init__.py*). Prima F5 ou selecione `Debug: Start Debugging` a partir da paleta de comando para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**.
 
     > [!NOTE]
     > Consulte os [Diagnósticos de Funções Duradouras](durable-functions-diagnostics.md#debugging) para obter mais informações sobre a depuração.
