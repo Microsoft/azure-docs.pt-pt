@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b7bc8be89068f0d3cf6722c36ae7fd5cc560736
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87927243"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96012123"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Quickstart: Criar um serviço de ligação privada utilizando o portal Azure
 
@@ -50,7 +50,7 @@ Nesta secção, deverá substituir os seguintes parâmetros nas etapas com as in
 
 Utilize o portal para criar um balanceador interno padrão. O nome e o endereço IP que especifique são configurados automaticamente como a extremidade frontal do balançador de carga.
 
-1. No lado superior esquerdo do portal, **selecione Criar um**  >  equilibrador de carga de**rede de**recursos  >  **Load Balancer**.
+1. No lado superior esquerdo do portal, **selecione Criar um**  >  equilibrador de carga de **rede de** recursos  >  **Load Balancer**.
 
 1. No separador Básicos da página **'Criar balanceador'** insira ou selecione as **seguintes** informações:
 
@@ -58,7 +58,7 @@ Utilize o portal para criar um balanceador interno padrão. O nome e o endereço
     | ---                     | ---                                                |
     | **Subscrição**               | Selecione a sua subscrição.    |
     | **Grupo de recursos**         | Selecione **myResourceGroupLB** da caixa.|
-    | **Nome**                   | Insira **o myLoadBalancer**.                                   |
+    | **Name**                   | Insira **o myLoadBalancer**.                                   |
     | **Região**         | Selecione **E.U.A. Leste 2**.                                        |
     | **Tipo**          | Selecione **Interno**.                                        |
     | **SKU**           | Selecione **Standard**.                          |
@@ -79,7 +79,7 @@ Nesta secção, irá configurar as definições de balanceador de carga de um co
 Um conjunto de endereços back-end contém os endereços IP dos NICs virtuais ligados ao equilibficador de carga. Esta piscina permite-lhe distribuir tráfego pelos seus recursos. Crie o pool de endereços back-end chamado **myBackendPool** para incluir recursos que carregam o tráfego de equilíbrio.
 
 1. Selecione **Todos os Serviços** do menu mais à esquerda.
-1. Selecione **Todos os recursos**e, em seguida, selecione **myLoadBalancer** da lista de recursos.
+1. Selecione **Todos os recursos** e, em seguida, selecione **myLoadBalancer** da lista de recursos.
 1. Em **Definições**, selecione **Conjuntos de back-end** e, em seguida, selecione **Adicionar**.
 1. Na página **de piscina de backend,** insira **o myBackendPool** como o nome da sua piscina traseira e, em seguida, selecione **Add**.
 
@@ -135,11 +135,11 @@ Para criar uma regra do balançador de carga:
 
 Nesta secção, irá criar um serviço de Ligação Privada por trás de um balanceador de carga padrão.
 
-1. Na parte superior esquerda da página no portal Azure, **selecione Criar um**Centro de Ligação Privada de Rede de Recursos  >  **Networking**  >  **(Pré-visualização)**. Também pode utilizar a caixa de pesquisa do portal para procurar o Private Link.
+1. Na parte superior esquerda da página no portal Azure, **selecione Criar um** Centro de Ligação Privada de Rede de Recursos  >  **Networking**  >  **(Pré-visualização)**. Também pode utilizar a caixa de pesquisa do portal para procurar o Private Link.
 
 1. In **Private Link Center - Overview**  >  **Expondo o seu próprio serviço para que outros possam ligar,** selecione **Start**.
 
-1. Ao **criar um serviço de ligação privada - Básicos, insira**ou selecione estas informações:
+1. Ao **criar um serviço de ligação privada - Básicos, insira** ou selecione estas informações:
 
     | Definição           | Valor                                                                        |
     |-------------------|------------------------------------------------------------------------------|
@@ -147,7 +147,7 @@ Nesta secção, irá criar um serviço de Ligação Privada por trás de um bala
     | **Subscrição**      | Selecione a sua subscrição.                                                     |
     | **Grupo de Recursos**    | Selecione **myResourceGroupLB**.                                                    |
     | Detalhes da instância: |                                                                              |
-    | **Nome**              | Insira **o myPrivateLinkService**. |
+    | **Name**              | Insira **o myPrivateLinkService**. |
     | **Região**            | Selecione **E.U.A. Leste 2**.                                                        |
 
 1. Selecione **Seguinte: Definições de saída**.
@@ -165,13 +165,13 @@ Nesta secção, irá criar um serviço de Ligação Privada por trás de um bala
 
 1. Selecione **Seguinte: Segurança de acesso**.
 
-1. No âmbito **da Criação de um serviço de ligação privada - Aceder à segurança,** selecionar **visibilidade**e, em seguida, escolher **apenas o controlo de acesso baseado em funções**.
+1. No âmbito **da Criação de um serviço de ligação privada - Aceder à segurança,** selecionar **visibilidade** e, em seguida, escolher **apenas o controlo de acesso baseado em funções**.
   
 1. **Selecione Seguinte: Tags**  >  **Review + create** or choose the Review + **create** a tab no topo da página.
 
 1. Reveja as suas informações e **selecione Criar**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar de utilizar o serviço Private Link, elimine o grupo de recursos para limpar os recursos utilizados neste arranque rápido.
 
@@ -182,4 +182,4 @@ Quando terminar de utilizar o serviço Private Link, elimine o grupo de recursos
 
 ## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, criou um equilibrador de carga Azure interno e um serviço Private Link. Também pode aprender a [criar um ponto final privado utilizando o portal Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+Neste arranque rápido, criou um equilibrador de carga Azure interno e um serviço Private Link. Também pode aprender a [criar um ponto final privado utilizando o portal Azure](./create-private-endpoint-portal.md).

@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
 ms.openlocfilehash: f56cc5b028f07964236fc42a1ca468aa28aae440
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358084"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011285"
 ---
 Para trabalhar com a Azure Digital Twins neste artigo, primeiro precisa de configurar uma instância Azure Digital Twins e as permissões necessárias para a sua utilização. Se já tem uma instância Azure Digital Twins configurada a partir de trabalhos anteriores, pode usar esse caso.
 

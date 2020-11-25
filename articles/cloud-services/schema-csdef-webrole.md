@@ -14,11 +14,11 @@ caps.latest.revision: 60
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: 4368bb38a280461fdd77348de60a0e5793ee9582
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79535685"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011324"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure Cloud Services Definição Webrole Schema
 O papel web Azure é um papel que é personalizado para programação de aplicações web como suportado pelo IIS 7, como ASP.NET, PHP, Windows Communication Foundation e FastCGI.
@@ -363,7 +363,7 @@ A tabela seguinte descreve os atributos do `NetFxEntryPoint` elemento.
 
 | Atributo | Tipo | Descrição |  
 | --------- | ---- | ----------- |  
-|conjuntoName|string|Obrigatório. O caminho e o nome do ficheiro do conjunto que contém o ponto de entrada. O caminho é relativo à pasta ** \\ %ROLEROOT%\Approot** (não especifique ** \\ %ROLEROOT%\Approot** `commandLine` in, assume-se). **%ROLEROOT%** é uma variável ambiental mantida pelo Azure e representa a localização da pasta raiz para o seu papel. A pasta ** \\ %ROLEROOT%\Approot** representa a pasta de aplicação para o seu papel.<br /><br /> Para as funções de HWC, o caminho é sempre relativo à pasta ** \\ %ROLEROOT%\Approot\bin.**<br /><br /> Para as funções web completas do IIS e do IIS Express, se o conjunto não puder ser encontrado em relação à pasta ** \\ %ROLEROOT%\Approot,** é pesquisada a ** \\ %ROLEROOT%\Approot\bin.**<br /><br /> Este comportamento de recuo para iIS completo não é uma recomendação de boas práticas e talvez removido em futuras versões.|  
+|conjuntoName|string|Obrigatório. O caminho e o nome do ficheiro do conjunto que contém o ponto de entrada. O caminho é relativo à pasta **\\ %ROLEROOT%\Approot** (não especifique **\\ %ROLEROOT%\Approot** `commandLine` in, assume-se). **%ROLEROOT%** é uma variável ambiental mantida pelo Azure e representa a localização da pasta raiz para o seu papel. A pasta **\\ %ROLEROOT%\Approot** representa a pasta de aplicação para o seu papel.<br /><br /> Para as funções de HWC, o caminho é sempre relativo à pasta **\\ %ROLEROOT%\Approot\bin.**<br /><br /> Para as funções web completas do IIS e do IIS Express, se o conjunto não puder ser encontrado em relação à pasta **\\ %ROLEROOT%\Approot,** é pesquisada a **\\ %ROLEROOT%\Approot\bin.**<br /><br /> Este comportamento de recuo para iIS completo não é uma recomendação de boas práticas e talvez removido em futuras versões.|  
 |targetFrameworkVersion|string|Obrigatório. A versão do quadro .NET em que foi construído o conjunto. Por exemplo, `targetFrameworkVersion="v4.0"`.|  
 
 ##  <a name="sites"></a><a name="Sites"></a> Sites  

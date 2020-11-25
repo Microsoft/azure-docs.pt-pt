@@ -8,11 +8,11 @@ ms.date: 06/16/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743647"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012225"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Construa uma aplicação Node.js e MongoDB em Azure
 
@@ -124,7 +124,7 @@ Para o MongoDB, este tutorial utiliza o [Azure Cosmos DB](/azure/documentdb/). O
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
-### <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB
+### <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB
 
 > [!NOTE]
 > A criação das bases de dados do Azure Cosmos DB na sua própria subscrição do Azure neste tutorial não acarreta custos. Para utilizar uma conta gratuita do Azure Cosmos DB durante sete dias, pode utilizar a experiência [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/). Basta clicar no botão **Criar** no mosaico MongoDB para criar uma base de dados do MongoDB gratuita no Azure. Após a criação da base de dados, navegue para a **cadeia de ligação** no portal e obtenha a cadeia de ligação do Azure Cosmos DB para utilizar mais à frente no tutorial.
@@ -186,7 +186,7 @@ Copie o valor de `primaryMasterKey`. Estas informações são necessárias no pa
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configurar a cadeia de ligação na aplicação Node.js
 
-No seu repositório do MEAN.js local, na pasta _config/env/_ , crie um ficheiro denominado _local-production.js_ . _.gitignore_ já está configurado para manter este ficheiro fora do repositório. 
+No seu repositório do MEAN.js local, na pasta _config/env/_, crie um ficheiro denominado _local-production.js_. _.gitignore_ já está configurado para manter este ficheiro fora do repositório. 
 
 Copie o código seguinte para o mesmo. Certifique-se de substituir os dois *\<cosmosdb-name>* espaços reservados pelo nome da base de dados Cosmos DB e substitua o *\<primary-master-key>* espaço reservado pela chave que copiou no passo anterior.
 
@@ -210,7 +210,7 @@ Numa janela do terminal local, execute o seguinte comando para minimizar e agrup
 gulp prod
 ```
 
-Numa janela do terminal local, execute o seguinte comando para utilizar a cadeia de ligação configurada em _config/env/local-production.js_ . Ignore o erro de certificado e o aviso config.domain.
+Numa janela do terminal local, execute o seguinte comando para utilizar a cadeia de ligação configurada em _config/env/local-production.js_. Ignore o erro de certificado e o aviso config.domain.
 
 ```bash
 # Bash
@@ -287,7 +287,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 Em Node.js código, [aceda a esta configuração da aplicação](configure-language-nodejs.md#access-environment-variables) com `process.env.MONGODB_URI` , tal como acederia a qualquer variável ambiental. 
 
-No seu repositório do MEAN.js local, abra _config/env/production.js_ (não _config/env/local-production.js_ ), que tem uma configuração específica de ambiente de produção. A aplicação do MEAN.js predefinida já está configurada para utilizar a variável de ambiente `MONGODB_URI` que criou.
+No seu repositório do MEAN.js local, abra _config/env/production.js_ (não _config/env/local-production.js_), que tem uma configuração específica de ambiente de produção. A aplicação do MEAN.js predefinida já está configurada para utilizar a variável de ambiente `MONGODB_URI` que criou.
 
 ```javascript
 db: {
@@ -351,7 +351,7 @@ Neste passo, altera o modelo de dados `article` e publica a sua alteração no A
 
 ### <a name="update-the-data-model"></a>Atualizar o modelo de dados
 
-No repositório MEAN.js local, abra _módules/artigos/servidor/modelos/article.server.model.js_ .
+No repositório MEAN.js local, abra _módules/artigos/servidor/modelos/article.server.model.js_.
 
 No `ArticleSchema`, adicione um tipo `String` denominado `comment`. Quando tiver terminado, o código de esquema deverá este aspeto:
 
@@ -376,7 +376,7 @@ Atualize o resto do seu código `articles` para utilizar `comment`.
 
 Existem cinco ficheiros que tem de modificar: o controlador de servidor e as vistas de quatro clientes. 
 
-Abra _módulos/artigos/servidor/controladores/articles.server.controller.js_ .
+Abra _módulos/artigos/servidor/controladores/articles.server.controller.js_.
 
 Na função `update`, adicione uma atribuição de `article.comment`. O código seguinte mostra a função `update` concluída:
 
@@ -392,7 +392,7 @@ exports.update = function (req, res) {
 };
 ```
 
-Abra _modules/artigos/cliente/vistas/view-article.client.view.html_ .
+Abra _modules/artigos/cliente/vistas/view-article.client.view.html_.
 
 Exatamente acima da etiqueta de fecho `</section>`, adicione a seguinte linha para apresentar `comment` juntamente com o resto dos dados do artigo:
 
@@ -400,7 +400,7 @@ Exatamente acima da etiqueta de fecho `</section>`, adicione a seguinte linha pa
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-Abra _modules/artigos/cliente/vistas/list-articles.client.view.html_ .
+Abra _modules/artigos/cliente/vistas/list-articles.client.view.html_.
 
 Exatamente acima da etiqueta de fecho `</a>`, adicione a seguinte linha para apresentar `comment` juntamente com o resto dos dados do artigo:
 
@@ -408,7 +408,7 @@ Exatamente acima da etiqueta de fecho `</a>`, adicione a seguinte linha para apr
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-Abra _módulos/artigos/cliente/vistas/administrador/list-articles.client.view.html_ .
+Abra _módulos/artigos/cliente/vistas/administrador/list-articles.client.view.html_.
 
 No interior do elemento `comment` e imediatamente acima da etiqueta de fecho `<div class="list-group">`, adicione a seguinte linha para apresentar `</a>` juntamente com o resto dos dados do artigo:
 
@@ -416,7 +416,7 @@ No interior do elemento `comment` e imediatamente acima da etiqueta de fecho `<d
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-Abra _módulos/artigos/cliente/vistas/administrador/form-article.client.view.html_ .
+Abra _módulos/artigos/cliente/vistas/administrador/form-article.client.view.html_.
 
 Encontre o elemento `<div class="form-group">` que contém o botão para submeter, semelhante ao seguinte:
 
@@ -454,7 +454,7 @@ node server.js
 
 Navegue para `http://localhost:8443` num browser e certifique-se de que tem sessão iniciada.
 
-Selecione **Administrador > Gerir Artigos** e adicione um artigo ao selecionar o botão **+** .
+Selecione **Administrador > Gerir Artigos** e adicione um artigo ao selecionar o botão **+**.
 
 Pode ver a nova caixa de texto `Comment` agora.
 

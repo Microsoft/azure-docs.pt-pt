@@ -4,11 +4,11 @@ description: Este artigo descreve como configurar o acesso a partir de pontos fi
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.openlocfilehash: 9503fc26c22d7dbff13c5754288f577b7bb3242f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331316"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011001"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Segurança de rede para hubs de eventos Azure 
 Este artigo descreve como usar as seguintes funcionalidades de segurança com os Azure Event Hubs: 

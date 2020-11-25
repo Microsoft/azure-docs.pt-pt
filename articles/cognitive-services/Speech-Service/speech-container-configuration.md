@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90900291"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012174"
 ---
 # <a name="configure-speech-service-containers"></a>Configurar recipientes de serviço de fala
 
@@ -80,8 +80,8 @@ A sintaxe exata da localização do suporte do hospedeiro varia consoante o sist
 
 | Opcional | Nome | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
-| Não permitido | `Input` | Cadeia | Os recipientes de fala padrão não usam isto. Os recipientes de fala personalizados utilizam [suportes de volume](#volume-mount-settings).                                                                                    |
-| Opcional | `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
+| Não permitido | `Input` | String | Os recipientes de fala padrão não usam isto. Os recipientes de fala personalizados utilizam [suportes de volume](#volume-mount-settings).                                                                                    |
+| Opcional | `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Configurações de montagem de volume
 

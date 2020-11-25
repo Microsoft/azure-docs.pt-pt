@@ -13,11 +13,11 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
 ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617645"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012460"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Determinar o tamanho da sub-rede necessária & gama para Azure SQL Gestded Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,18 +48,18 @@ Dimensione a sua sub-rede de acordo com as necessidades futuras de implantação
 - Cada instância gerida usa o número de endereços que depende do nível de preços e da geração de hardware
 
 > [!IMPORTANT]
-> Não é possível alterar o intervalo de endereços da sub-rede se existir algum recurso na sub-rede. Também não é possível mover casos geridos de uma sub-rede para outra. Sempre que possível, considere usar sub-redes maiores em vez de menores para evitar problemas no futuro.
+> Se existir algum recurso na sub-rede, não será possível alterar o intervalo de endereços da sub-rede. Também não é possível mover instâncias geridas de uma sub-rede para outra. Sempre que possível, considere usar sub-redes maiores em vez de menores para evitar problemas no futuro.
 
 GP = propósito geral; BC = crítica de negócios; VC = cluster virtual
 
-| **Género de hardware** | **Escalão de preço** | **Utilização do Azure** | **Utilização de VC** | **Utilização de exemplos** | **Total*** |
+| **Género de hardware** | **Escalão de preço** | **Utilização do Azure** | **Utilização de VC** | **Utilização de exemplos** | **Total** _ |
 | --- | --- | --- | --- | --- | --- |
 | Gen4 | GP | 5 | 1 | 5 | 11 |
 | Gen4 | BC | 5 | 1 | 5 | 11 |
 | Gen5 | GP | 5 | 6 | 3 | 14 |
 | Gen5 | BC | 5 | 6 | 5 | 16 |
 
-  \* O total da coluna exibe o número de endereços que seriam tomados quando uma instância é implantada na sub-rede. Cada instância adicional na sub-rede adiciona o número de endereços representados com coluna de utilização de exemplos. Os endereços representados com a coluna de utilização Azure são partilhados em vários clusters virtuais, enquanto os endereços representados com coluna de utilização de VC são partilhados em todos os casos colocados nesse cluster virtual.
+  \_ O total da coluna exibe o número de endereços que seriam tomados quando uma instância é implantada na sub-rede. Cada instância adicional na sub-rede adiciona o número de endereços representados com coluna de utilização de exemplos. Os endereços representados com a coluna de utilização Azure são partilhados em vários clusters virtuais, enquanto os endereços representados com coluna de utilização de VC são partilhados em todos os casos colocados nesse cluster virtual.
 
 A operação de atualização normalmente requer redimensionar o cluster virtual. Em algumas circunstâncias, a operação de atualização exigirá a criação de clusters virtuais (para mais detalhes, verifique [o artigo de gestão de operações).](sql-managed-instance-paas-overview.md#management-operations) Em caso de criação de cluster virtual, o número de endereços adicionais necessários é igual ao número de endereços representados pela coluna de utilização VC resumida com endereços necessários para os casos colocados nesse cluster virtual (coluna de utilização de exemplo).
 
@@ -74,12 +74,12 @@ Como mencionado acima, em algumas circunstâncias, a operação de atualização
 
 Durante a escala de casos de operação requerem temporariamente capacidade ip adicional que depende do nível de preços e geração de hardware
 
-| **Género de hardware** | **Escalão de preço** | **Cenário** | **Endereços adicionais*** |
+| **Género de hardware** | **Escalão de preço** | **Cenário** | **Endereços adicionais** _ |
 | --- | --- | --- | --- |
 | Gen4 | GP ou BC | Escala vCores | 5 |
 | Gen4 | GP ou BC | Armazenamento de escalonamento | 5 |
 | Gen4 | GP ou BC | Passando de GP para BC ou BC para GP | 5 |
-| Gen4 | GP | Mudar para Gen5* | 9 |
+| Gen4 | GP | Mudar para Gen5_ | 9 |
 | Gen4 | BC | Mudar para Gen5* | 11 |
 | Gen5 | GP | Escala vCores | 3 |
 | Gen5 | GP | Armazenamento de escalonamento | 0 |

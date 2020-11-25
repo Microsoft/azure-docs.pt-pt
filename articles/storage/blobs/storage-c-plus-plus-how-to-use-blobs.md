@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 332d6da35af0eaae9d9d15258a152734f0a9eba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64069292ea0059216d06bfc41316c2aed7484dd0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033636"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011103"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Como utilizar o armazenamento Blob a partir de C++
 
@@ -51,7 +51,7 @@ Adicione as seguintes declarações ao topo do ficheiro C++ onde pretende utiliz
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Configurar uma cadeia de ligação de armazenamento Azure
-Os clientes do Armazenamento do Azure utilizam uma cadeia de ligação de armazenamento para armazenar pontos finais e credenciais para aceder a serviços de gestão de dados. Ao executar uma aplicação de cliente, deve fornecer a cadeia de ligação de armazenamento no seguinte formato, utilizando o nome da sua conta de armazenamento e a chave de acesso ao armazenamento para a conta de armazenamento listada no [portal Azure](https://portal.azure.com) para os valores *DeName* e *AccountKey.* Para obter informações sobre contas de armazenamento e chaves de acesso, consulte [contas de armazenamento Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Este exemplo mostra como pode declarar um campo estático para conter a cadeia de ligação:
+Os clientes do Armazenamento do Azure utilizam uma cadeia de ligação de armazenamento para armazenar pontos finais e credenciais para aceder a serviços de gestão de dados. Ao executar uma aplicação de cliente, deve fornecer a cadeia de ligação de armazenamento no seguinte formato, utilizando o nome da sua conta de armazenamento e a chave de acesso ao armazenamento para a conta de armazenamento listada no [portal Azure](https://portal.azure.com) para os valores *DeName* e *AccountKey.* Para obter informações sobre contas de armazenamento e chaves de acesso, consulte [contas de armazenamento Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Este exemplo mostra como pode declarar um campo estático para conter a cadeia de ligação:
 
 ```cpp
 // Define the connection-string with your values.
@@ -157,7 +157,7 @@ blob3.upload_text(U("other text"));
 Em alternativa, pode utilizar o método **upload_from_file** para enviar um ficheiro para uma bolha de bloco.
 
 ## <a name="how-to-list-the-blobs-in-a-container"></a>Como: Listar as bolhas num recipiente
-Para listar os blobs num contentor, obtenha primeiro uma referência de contentor. Em seguida, pode utilizar o método **de list_blobs** do recipiente para recuperar as bolhas e/ou diretórios dentro dele. Para aceder ao rico conjunto de propriedades e métodos para um **list_blob_item**devolvido, deve ligar para o método **list_blob_item.as_blob** para obter um objeto  **cloud_blob,** ou o método **list_blob.as_directy** para obter um objeto cloud_blob_directory. O seguinte código demonstra como recuperar e desaudam o URI de cada item no recipiente **do meu contentor de amostras:**
+Para listar os blobs num contentor, obtenha primeiro uma referência de contentor. Em seguida, pode utilizar o método **de list_blobs** do recipiente para recuperar as bolhas e/ou diretórios dentro dele. Para aceder ao rico conjunto de propriedades e métodos para um **list_blob_item** devolvido, deve ligar para o método **list_blob_item.as_blob** para obter um objeto  **cloud_blob,** ou o método **list_blob.as_directy** para obter um objeto cloud_blob_directory. O seguinte código demonstra como recuperar e desaudam o URI de cada item no recipiente **do meu contentor de amostras:**
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -184,7 +184,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 }
 ```
 
-Para obter mais informações sobre as operações de listagem, consulte [a Lista Azure Storage Resources em C++](../storage-c-plus-plus-enumeration.md).
+Para obter mais informações sobre as operações de listagem, consulte [a Lista Azure Storage Resources em C++](../common/storage-c-plus-plus-enumeration.md).
 
 ## <a name="how-to-download-blobs"></a>Como: Descarregar bolhas
 Para descarregar bolhas, primeiro recupere uma referência blob e, em seguida, ligue para o método **download_to_stream.** O exemplo a seguir utiliza o método **download_to_stream** para transferir o conteúdo do blob para um objeto de fluxo que pode então persistir num ficheiro local.
@@ -257,10 +257,9 @@ blockBlob.delete_blob();
 ## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu o básico do armazenamento de bolhas, siga estes links para saber mais sobre o Azure Storage.
 
-- [Como utilizar o Armazenamento de Filas a partir do C++](../storage-c-plus-plus-how-to-use-queues.md)
+- [Como utilizar o Armazenamento de Filas a partir do C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 - [Como utilizar o Armazenamento de Mesa a partir de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-- [Listar recursos de armazenamento Azure em C++](../storage-c-plus-plus-enumeration.md)
+- [Listar recursos de armazenamento Azure em C++](../common/storage-c-plus-plus-enumeration.md)
 - [Biblioteca do Cliente de Armazenamento para Referência C++](https://azure.github.io/azure-storage-cpp)
 - [Documentação de armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/)
-- [Transferir dados com o utilitário de linha de comando AzCopy](../storage-use-azcopy.md)
-
+- [Transferir dados com o utilitário de linha de comando AzCopy](../common/storage-use-azcopy-v10.md)

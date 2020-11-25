@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: d222234cd6ff3d910e6dbc51a394695ce467edce
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793301"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011864"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>Gerir o esquema numa aplicação SaaS que utiliza bases de dados de vários inquilinos com oncimado
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -105,11 +105,11 @@ Para criar um novo emprego, utiliza-se o conjunto de procedimentos de armazenaç
 
 3. Consultar a tabela *VenueTypes* para confirmar que *o Clube de Motociclismo* e *Natação* ainda não está na lista de resultados.
 
-4. Ligue-se ao servidor de catálogo, que é *o utilizador do catálogo-mt-database.windows.net &lt; &gt;* .
+4. Ligue-se ao servidor de catálogo, que é *o utilizador do catálogo-mt-database.windows.net &lt; &gt;*.
 
 5. Ligue-se à base _de dados jobagent_ no servidor do catálogo.
 
-6. Na SSMS, abra o *ficheiro... \\ Módulos de Aprendizagem \\ Schema Management \\ DeployReferenceData.sql* .
+6. Na SSMS, abra o *ficheiro... \\ Módulos de Aprendizagem \\ Schema Management \\ ImplementarReferenceData.sql*.
 
 7. Modifique a declaração: set @User = &lt; utilizador e &gt; substitua o valor do Utilizador utilizado quando implementou a aplicação Wingtip Tickets SaaS Multi-tenant Database.
 
@@ -117,9 +117,9 @@ Para criar um novo emprego, utiliza-se o conjunto de procedimentos de armazenaç
 
 #### <a name="observe"></a>Observar
 
-Observe os seguintes itens no script *DeployReferenceData.sql:*
+Observe os seguintes itens no *script .sql ImplementarReferenceData:*
 
-- **sp \_ add target \_ \_ group** cria o nome de grupo alvo *DemoServerGroup* , e adiciona membros-alvo ao grupo.
+- **sp \_ add target \_ \_ group** cria o nome de grupo alvo *DemoServerGroup*, e adiciona membros-alvo ao grupo.
 
 - **sp \_ adicionar membro \_ \_ \_ do grupo alvo** adiciona os seguintes itens:
     - Um tipo de membro alvo do *servidor.*
@@ -128,7 +128,7 @@ Observe os seguintes itens no script *DeployReferenceData.sql:*
     - Um tipo de membro alvo *de base de dados* para a base de dados de modelos *(basetenantdb)* que reside no servidor *do &lt; utilizador &gt; do catálogo-mt,*
     - Um tipo de membro alvo *de base de dados* para incluir a base de dados *de adhocreporting* que é usada num tutorial posterior.
 
-- **sp \_ add \_ job** cria um trabalho chamado *Reference Data Deployment* .
+- **sp \_ add \_ job** cria um trabalho chamado *Reference Data Deployment*.
 
 - **sp \_ add \_ jobstep** cria o passo de trabalho contendo texto de comando T-SQL para atualizar a tabela de referência, VenueTypes.
 
@@ -142,15 +142,15 @@ Este exercício cria um trabalho para reconstruir o índice na chave primária d
 
 1. No SSMS, ligue-se à base _de dados jobagent_ no servidor *catalog-mt-User &lt; &gt; .database.windows.net.*
 
-2. Em SSMS, *aberto... \\ Módulos de Aprendizagem \\ Schema Management \\ OnlineReindex.sql* .
+2. Em SSMS, *aberto... \\ Módulos de Aprendizagem \\ Schema Management \\ OnlineReindex.sql*.
 
 3. Prima **F5** para executar o script.
 
 #### <a name="observe"></a>Observar
 
-Observe os seguintes itens no script *OnlineReindex.sql:*
+Observe os seguintes itens no script *.sql OnlineReindex:*
 
-* **sp \_ add \_ job** cria um novo emprego chamado *Online Reindex PK \_ \_ VenueTyp \_ \_ 265E44FD7FD4C885* .
+* **sp \_ add \_ job** cria um novo emprego chamado *Online Reindex PK \_ \_ VenueTyp \_ \_ 265E44FD7FD4C885*.
 
 * **sp \_ add \_ jobstep** cria o passo de trabalho contendo texto de comando T-SQL para atualizar o índice.
 

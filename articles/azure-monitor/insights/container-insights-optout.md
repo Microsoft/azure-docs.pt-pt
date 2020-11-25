@@ -4,12 +4,12 @@ description: Este artigo descreve como pode descontinuar a monitorização do se
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af5f49dfe5e668f39f105a62ad20858e273b34cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15ec102632258870745f510a98773f70242118be
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489491"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96011647"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como parar a monitorização do Azure Kubernetes Service (AKS) com o Azure Monitor para contentores
 
@@ -35,7 +35,7 @@ Se não está familiarizado com o conceito de implantação de recursos usando u
 * [Implementar recursos com modelos de Gestor de Recursos e o CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 >[!NOTE]
->O modelo precisa de ser implantado no mesmo grupo de recursos do cluster. Se omitir quaisquer outras propriedades ou addons ao utilizar este modelo, pode resultar na sua remoção do cluster. Por exemplo, *ativar as* políticas de RBAC implementadas no seu cluster, ou *aksResourceTagValues* se as tags forem especificadas para o cluster AKS.  
+>O modelo precisa de ser implantado no mesmo grupo de recursos do cluster. Se omitir quaisquer outras propriedades ou addons ao utilizar este modelo, pode resultar na sua remoção do cluster. Por exemplo, ativar as políticas *DECCC* de Kubernetes implementadas no seu cluster, ou *aksResourceTagValues* se as tags forem especificadas para o cluster AKS.  
 >
 
 Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.27 ou posterior. Para identificar a sua versão, corra `az --version` . Se necessitar de instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
@@ -90,7 +90,7 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
     }
     ```
 
-2. Guarde este ficheiro à medida ** queOptOutTemplate.jsnuma** pasta local.
+2. Guarde este ficheiro à medida **queOptOutTemplate.jsnuma** pasta local.
 
 3. Cole a seguinte sintaxe JSON no seu ficheiro:
 
@@ -124,7 +124,7 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
 
     Editar os **valores para aksResourceTagValues** para corresponder aos valores de etiqueta existentes especificados para o cluster AKS.
 
-5. Guarde este ficheiro à medida ** queOptOutParam.jsnuma** pasta local.
+5. Guarde este ficheiro à medida **queOptOutParam.jsnuma** pasta local.
 
 6. Está pronto para implementar este modelo.
 

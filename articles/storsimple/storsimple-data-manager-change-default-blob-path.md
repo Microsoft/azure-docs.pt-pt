@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743578"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011443"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Mudar o caminho de um blob do caminho predefinido
 
@@ -37,7 +37,7 @@ Para criar uma função Azure, execute os seguintes passos:
 
 4. Na lâmina de configuração da **Aplicação de Função,** execute os seguintes passos:
 
-    1. Forneça um nome de **aplicação**único.
+    1. Forneça um nome de **aplicação** único.
     2. A partir da lista de abandono, selecione a **Subscrição**. Esta subscrição deve ser a mesma que está associada ao seu serviço StorSimple Data Manager.
     3. **Selecione Criar novo** grupo de recursos.
     4. Para a lista de abandono **do Plano de Hospedagem,** selecione **Plano de Consumo**.
@@ -193,7 +193,7 @@ Para criar uma função Azure, execute os seguintes passos:
         
         ![Adicionar novo ficheiro de adicionar função](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. Digite **project.jse, em**seguida, prima **Enter**. Na **project.jsem** arquivo, cole o seguinte código:
+    3. Digite **project.jse, em** seguida, prima **Enter**. Na **project.jsem** arquivo, cole o seguinte código:
 
         ```
         {

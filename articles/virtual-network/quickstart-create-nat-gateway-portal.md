@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
 ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711413"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012085"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Tutorial: Criar uma porta de entrada NAT utilizando o portal Azure
 
@@ -60,10 +60,10 @@ Vamos agora criar um VM para usar o serviço NAT. Este VM tem um IP público par
    - **Detalhes da**  >  instância **Nome da máquina virtual**: **Digite myVM**.
    - **Detalhes da**  >  instância **Região** > selecione **East US 2**.
    - Conta de **administrador**  >  **Tipo de autenticação**: Selecione **Palavra-passe**.
-   - **Conta de administrador** > Introduza o **nome de utilizador,** **palavra-passe**e confirme as informações **de senha.**
+   - **Conta de administrador** > Introduza o **nome de utilizador,** **palavra-passe** e confirme as informações **de senha.**
    - **Regras portuárias**  >  de entrada **Portas de entrada pública**: Selecione **Deixe as portas selecionadas.**
    - **Regras portuárias**  >  de entrada **Selecione portas de entrada**: Selecione **SSH (22)**
-   - Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos**e, em seguida, **seguinte: Networking**.
+   - Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos** e, em seguida, **seguinte: Networking**.
 
 3. No **separador Networking** certifique-se de que estão selecionados:
    - **Rede virtual**: **myVnet**
@@ -89,7 +89,7 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
 
 ### <a name="create-a-public-ip-address"></a>Crie um endereço IP público
 
-1. No lado superior esquerdo do portal, selecione **Criar um**endereço IP público em rede de recursos ou procurar endereço  >  **Networking**  >  **Public IP address** **IP público** na pesquisa do Marketplace.
+1. No lado superior esquerdo do portal, selecione **Criar um** endereço IP público em rede de recursos ou procurar endereço  >  **Networking**  >  **Public IP address** **IP público** na pesquisa do Marketplace.
 
 2. Para **criar o endereço IP público,** insira ou selecione estas informações:
 
@@ -106,7 +106,7 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
 
 ### <a name="create-a-public-ip-prefix"></a>Criar um prefixo IP público
 
-1. No lado superior esquerdo do portal, selecione **Criar um**  >  prefixo IP público em rede**de**recursos ou  >  **Public IP prefix**procurar **prefixo IP público** na pesquisa do Marketplace. 
+1. No lado superior esquerdo do portal, selecione **Criar um**  >  prefixo IP público em rede **de** recursos ou  >  **Public IP prefix** procurar **prefixo IP público** na pesquisa do Marketplace. 
 
 2. Na **Criação de um prefixo IP público,** escreva ou selecione os seguintes valores no separador **Básicos:**
    - **Assinatura**  >  **Grupo de Recursos**: Selecione **myResourceGroupNAT**>
@@ -121,7 +121,7 @@ Esta secção detalha como pode criar e configurar os seguintes componentes do s
 
 ### <a name="create-a-nat-gateway-resource"></a>Criar um recurso de gateway NAT
 
-1. No lado superior esquerdo do portal, selecione **Criar um**gateway NAT  >  **de rede de**  >  **NAT gateway**recursos, ou procurar por **gateway NAT** na pesquisa do Marketplace.
+1. No lado superior esquerdo do portal, selecione **Criar um** gateway NAT  >  **de rede de**  >  **NAT gateway** recursos, ou procurar por **gateway NAT** na pesquisa do Marketplace.
 
 2. No **Portal de Tradução de Endereços de Rede (NAT),** escreva ou selecione os seguintes valores no **separador Básicos:**
    - **Assinatura**  >  **Grupo de Recursos**: Selecione **myResourceGroupNAT**.

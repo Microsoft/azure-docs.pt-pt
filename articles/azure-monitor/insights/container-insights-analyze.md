@@ -4,11 +4,11 @@ description: Este artigo descreve como pode ver e analisar o desempenho de um cl
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92368762"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011086"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorize o desempenho do cluster Kubernetes com o Azure Monitor para contentores
 
@@ -88,7 +88,7 @@ A partir da lista de clusters, pode perfurar até à página **cluster** selecio
 
 ## <a name="view-performance-directly-from-a-cluster"></a>Ver desempenho diretamente de um cluster
 
-O acesso ao Azure Monitor para contentores está disponível diretamente a partir de um cluster AKS **selecionando**  >  Insights**Cluster** a partir do painel esquerdo, ou quando selecionou um cluster a partir da vista multi-cluster. A informação sobre o seu cluster é organizada em quatro perspetivas:
+O acesso ao Azure Monitor para contentores está disponível diretamente a partir de um cluster AKS **selecionando**  >  Insights **Cluster** a partir do painel esquerdo, ou quando selecionou um cluster a partir da vista multi-cluster. A informação sobre o seu cluster é organizada em quatro perspetivas:
 
 - Cluster
 - Nós
@@ -104,8 +104,8 @@ A página predefinida abre e apresenta quatro gráficos de desempenho de linha q
 
 Os gráficos de desempenho apresentam quatro métricas de desempenho:
 
-- **Utilização &nbsp; % do CPU do nó:** Uma perspetiva agregada da utilização do CPU para todo o cluster. Para filtrar os resultados do intervalo de tempo, selecione **Avg**, **Min**, **50th**, **90th**, **95th**ou **Max** no seletor de percenteis acima da tabela. Os filtros podem ser utilizados individualmente ou combinados.
-- **Utilização da &nbsp; % memória do nó:** Uma perspetiva agregada da utilização da memória para todo o cluster. Para filtrar os resultados do intervalo de tempo, selecione **Avg**, **Min**, **50th**, **90th**, **95th**ou **Max** no seletor de percenteis acima da tabela. Os filtros podem ser utilizados individualmente ou combinados.
+- **Utilização &nbsp; % do CPU do nó:** Uma perspetiva agregada da utilização do CPU para todo o cluster. Para filtrar os resultados do intervalo de tempo, selecione **Avg**, **Min**, **50th**, **90th**, **95th** ou **Max** no seletor de percenteis acima da tabela. Os filtros podem ser utilizados individualmente ou combinados.
+- **Utilização da &nbsp; % memória do nó:** Uma perspetiva agregada da utilização da memória para todo o cluster. Para filtrar os resultados do intervalo de tempo, selecione **Avg**, **Min**, **50th**, **90th**, **95th** ou **Max** no seletor de percenteis acima da tabela. Os filtros podem ser utilizados individualmente ou combinados.
 - **Contagem de nó:** Contagem de nó e estado de Kubernetes. Os estados dos nós de cluster representados são Total, Pronto e Não Prontos. Podem ser filtrados individualmente ou combinados no seletor acima da tabela.
 - **Contagem de pods ativa:** Uma contagem de pod e estado de Kubernetes. Os estados das cápsulas representadas são total, pendente, execução, desconhecido, bem sucedido ou falhado. Podem ser filtrados individualmente ou combinados no seletor acima da tabela.
 
@@ -117,7 +117,7 @@ O Azure Monitor para contentores também suporta [o explorador de métricas](../
 
 No explorador de métricas, pode ver métricas de utilização de nó agregados e pod do Monitor Azure para recipientes. A tabela seguinte resume os detalhes para ajudá-lo a entender como usar as tabelas métricas para visualizar as métricas do recipiente.
 
-|Espaço de Nomes | Métrica | Descrição |
+|Espaço de Nomes | Metric | Descrição |
 |----------|--------|-------------|
 | insights.container/nós | |
 | | cpuUsageMillicores | Medição agregada da utilização do CPU em todo o cluster. É um núcleo de CPU dividido em 1000 unidades (milli = 1000). Usado para determinar o uso de núcleos em um recipiente onde muitas aplicações podem estar usando um núcleo.|
@@ -139,11 +139,11 @@ Pode [dividir](../platform/metrics-charts.md#apply-splitting-to-a-chart) uma mé
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analisar os nódes, os controladores e a saúde dos contentores
 
-Quando muda para os **separadores De Nós,** **Controladores**e **Contentores,** um painel de propriedade aparece automaticamente no lado direito da página. Mostra as propriedades do item selecionado, que inclui as etiquetas que definiu para organizar objetos Kubernetes. Quando um nó Linux é selecionado, a secção **de capacidade do disco local** também mostra o espaço do disco disponível e a percentagem utilizada para cada disco apresentado no nó. Selecione o **>>** link no painel para visualizar ou esconder o painel.
+Quando muda para os **separadores De Nós,** **Controladores** e **Contentores,** um painel de propriedade aparece automaticamente no lado direito da página. Mostra as propriedades do item selecionado, que inclui as etiquetas que definiu para organizar objetos Kubernetes. Quando um nó Linux é selecionado, a secção **de capacidade do disco local** também mostra o espaço do disco disponível e a percentagem utilizada para cada disco apresentado no nó. Selecione o **>>** link no painel para visualizar ou esconder o painel.
 
 À medida que expande os objetos na hierarquia, as propriedades desossem atualizações com base no objeto selecionado. A partir do painel, também pode ver os registos de contentores de Kubernetes (stdout/stderror), eventos e métricas de pod selecionando a ligação **de dados ao vivo (pré-visualização)** no topo do painel. Para obter mais informações sobre a configuração necessária para conceder e controlar o acesso para visualizar estes dados, consulte [Configurar os Dados Ao Vivo (pré-visualização)](container-insights-livedata-setup.md). Ao rever os recursos de cluster, pode ver estes dados do recipiente em tempo real. Para obter mais informações sobre esta funcionalidade, consulte [como visualizar registos, eventos e métricas de casulos de Kubernetes em tempo real.](container-insights-livedata-overview.md) Para visualizar os dados de registo de Kubernetes armazenados no seu espaço de trabalho com base em pesquisas de registo pré-definidas, selecione **Ver registos** de contentores da lista de drop-down **analíticos.** Para obter informações adicionais sobre este tópico, consulte [registos de pesquisa para analisar dados.](container-insights-log-search.md#search-logs-to-analyze-data)
 
-Utilize a opção **+ Adicionar Filtro** no topo da página para filtrar os resultados da vista por **Serviço,** **Node,** **Namespace**ou **Node Pool**. Depois de selecionar o âmbito do filtro, selecione um dos valores indicados **no(s) valor(s) do campo Desemis.** Após a configuração do filtro, é aplicado globalmente enquanto visualiza qualquer perspetiva do cluster AKS. A fórmula só suporta o sinal de igualdade. Pode adicionar filtros adicionais em cima do primeiro para reduzir ainda mais os seus resultados. Por exemplo, se especificar um filtro por **Nó,** só pode selecionar **Serviço** ou **Espaço name para** o segundo filtro.
+Utilize a opção **+ Adicionar Filtro** no topo da página para filtrar os resultados da vista por **Serviço,** **Node,** **Namespace** ou **Node Pool**. Depois de selecionar o âmbito do filtro, selecione um dos valores indicados **no(s) valor(s) do campo Desemis.** Após a configuração do filtro, é aplicado globalmente enquanto visualiza qualquer perspetiva do cluster AKS. A fórmula só suporta o sinal de igualdade. Pode adicionar filtros adicionais em cima do primeiro para reduzir ainda mais os seus resultados. Por exemplo, se especificar um filtro por **Nó,** só pode selecionar **Serviço** ou **Espaço name para** o segundo filtro.
 
 Especificar um filtro num separador continua a ser aplicado quando seleciona outro. É apagado depois de selecionar o símbolo **x** ao lado do filtro especificado.
 
@@ -163,7 +163,7 @@ A partir de um nó expandido, pode perfurar a partir da cápsula ou do recipient
 
 ![A screenshot mostra a perfuração do nó para o controlador na vista de desempenho](./media/container-insights-analyze/drill-down-node-controller.png)
 
-Selecione controladores ou recipientes no topo da página para rever o estado e a utilização do recurso para esses objetos. Para rever a utilização da memória, na lista **de recuos métricos,** selecione **Memory RSS** ou **Memory working set**. **O Memory RSS** é suportado apenas para a versão 1.8 de Kubernetes e posterior. Caso contrário, você vê valores para ** &nbsp; % Min** como *NaN &nbsp; % *, que é um valor de tipo de dados numérico que representa um valor indefinido ou não representativo.
+Selecione controladores ou recipientes no topo da página para rever o estado e a utilização do recurso para esses objetos. Para rever a utilização da memória, na lista **de recuos métricos,** selecione **Memory RSS** ou **Memory working set**. **O Memory RSS** é suportado apenas para a versão 1.8 de Kubernetes e posterior. Caso contrário, você vê valores para **&nbsp; % Min** como *NaN &nbsp; %*, que é um valor de tipo de dados numérico que representa um valor indefinido ou não representativo.
 
 ![Vista de desempenho dos nódoas de contentores](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -173,7 +173,7 @@ Selecione controladores ou recipientes no topo da página para rever o estado e 
 
 - A memória virtual é reservada ao espaço de disco rígido (cache) utilizado pelo sistema operativo para trocar dados da memória para o disco quando sob pressão de memória e, em seguida, reco buscá-lo de volta à memória quando necessário.
 
-Por predefinição, os dados de desempenho baseiam-se nas últimas seis horas, mas pode alterar a janela utilizando a opção **TimeRange** no canto superior esquerdo. Também pode filtrar os resultados dentro do intervalo de tempo selecionando **Min**, **Avg**, **50º**, **90º**, **95º**e **Max** no seletor de percentil.
+Por predefinição, os dados de desempenho baseiam-se nas últimas seis horas, mas pode alterar a janela utilizando a opção **TimeRange** no canto superior esquerdo. Também pode filtrar os resultados dentro do intervalo de tempo selecionando **Min**, **Avg**, **50º**, **90º**, **95º** e **Max** no seletor de percentil.
 
 ![Seleção de percentil para filtragem de dados](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
@@ -235,7 +235,7 @@ As informações apresentadas quando visualizam os controladores são descritas 
 | Coluna | Descrição |
 |--------|-------------|
 | Nome | O nome do controlador.|
-| Estado | O estado de rollup dos contentores depois de ter terminado a funcionar com o estado *ok,* *terminado,* *falhado,* *parado*ou *pausado*. Se o contentor estiver em funcionamento, mas o estado não foi devidamente visualizado ou não foi recolhido pelo agente e não respondeu há mais de 30 minutos, o estado é *desconhecido.* Detalhes adicionais do ícone de estado são fornecidos na tabela seguinte.|
+| Estado | O estado de rollup dos contentores depois de ter terminado a funcionar com o estado *ok,* *terminado,* *falhado,* *parado* ou *pausado*. Se o contentor estiver em funcionamento, mas o estado não foi devidamente visualizado ou não foi recolhido pelo agente e não respondeu há mais de 30 minutos, o estado é *desconhecido.* Detalhes adicionais do ícone de estado são fornecidos na tabela seguinte.|
 | Min &nbsp; %, Avg &nbsp; %, 50º &nbsp; %, 90º &nbsp; %, 95º &nbsp; %, Máx&nbsp;%| Rollup média da percentagem média de cada entidade para a métrica e percentil selecionados. |
 | Min, Avg, 50º, 90º, 95º, Max  | Rollup do miliére cpu médio ou desempenho de memória do recipiente para o percentil selecionado. O valor médio é medido a partir do limite cpu/memória definido para uma vagem. |
 | Contentores | Número total de contentores para o controlador ou vagem. |

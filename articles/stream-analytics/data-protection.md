@@ -7,11 +7,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.openlocfilehash: 72566987068729efef4310ce145c30584c4895b0
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980512"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011409"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados em Azure Stream Analytics 
 

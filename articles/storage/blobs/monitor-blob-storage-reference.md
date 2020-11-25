@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 8caa39bea2d0d835a94bc95a747f1f870bae3b12
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d33c368c271c4d1809834e2eeac8c4b5c0ba0441
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357543"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011144"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Referência de dados de monitorização de armazenamento Azure Blob
 
@@ -36,9 +36,9 @@ O Azure Storage fornece as seguintes métricas de capacidade no Monitor Azure.
 
 #### <a name="blob-storage"></a>Armazenamento de blobs
 
-Esta tabela mostra [métricas de armazenamento Blob](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
+Esta tabela mostra [métricas de armazenamento Blob](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | ------------------- | ----------------- |
 | Capacidade blob | O total do armazenamento blob usado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType,** e **BlobTier** [(Definição)](#metrics-dimensions) |
 | BlobCount    | O número de objetos blob armazenados na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType,** e **BlobTier** [(Definição)](#metrics-dimensions) |
@@ -64,10 +64,10 @@ O Azure Storage suporta as seguintes dimensões para métricas no Azure Monitor.
 
 ### <a name="dimensions-specific-to-blob-storage"></a>Dimensões específicas do armazenamento blob
 
-| Nome da dimensão | Description |
+| Nome da dimensão | Descrição |
 | ------------------- | ----------------- |
 | **BlobType** | O tipo de bolha apenas para métricas Blob. Os valores suportados são **BlockBlob,** **PageBlob** e **Azure Data Lake Storage**. As bolhas de apêndice estão incluídas no **BlockBlob.** |
-| **BlobTier** | O armazenamento Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objetos blob da forma mais rentável. Veja mais na [camada de blob de armazenamento Azure](../blobs/storage-blob-storage-tiers.md). Os valores suportados incluem: <br/> <li>**Quente** : Nível quente</li> <li>**Cool** : Cool tier</li> <li>**Arquivo** : Nível de arquivo</li> <li>**Premium** : Nível premium para bolha de bloco</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60** : Tipos de nível para bolha de página premium</li> <li>**Standard** : Tipo de nível para página padrão Blob</li> <li>**Untiered** : Tipo de nível para fins gerais conta de armazenamento v1</li> |
+| **BlobTier** | O armazenamento Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objetos blob da forma mais rentável. Veja mais na [camada de blob de armazenamento Azure](../blobs/storage-blob-storage-tiers.md). Os valores suportados incluem: <br/> <li>**Quente**: Nível quente</li> <li>**Cool**: Cool tier</li> <li>**Arquivo**: Nível de arquivo</li> <li>**Premium**: Nível premium para bolha de bloco</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipos de nível para bolha de página premium</li> <li>**Standard**: Tipo de nível para página padrão Blob</li> <li>**Untiered**: Tipo de nível para fins gerais conta de armazenamento v1</li> |
 
 Para as dimensões de suporte das métricas, é necessário especificar o valor da dimensão para ver os valores das métricas correspondentes. Por exemplo, se olharmos para o valor  **de Transações** para respostas bem sucedidas, precisa filtrar a dimensão **ResponseType** com **Sucesso**. Se olhar para o valor **BlobCount** para Block Blob, tem de filtrar a dimensão **BlobType** com **BlockBlob**.
 

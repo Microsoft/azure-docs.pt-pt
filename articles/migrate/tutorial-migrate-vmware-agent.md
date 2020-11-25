@@ -5,18 +5,18 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
 ms.openlocfilehash: ffdbdba0aeae33b04195c5a6bf6aeaff5658424b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314710"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012242"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMware VMs para Azure (baseado em agente)
 
 Este artigo mostra-lhe como migrar vMware VMs para Azure, utilizando a ferramenta [Azure Migrate:Server Migration,](migrate-services-overview.md#azure-migrate-server-migration-tool) com migração baseada em agentes.  Também pode migrar VMware VMs usando migração baseada em agentes. [Compare](server-migrate-overview.md#compare-migration-methods) os métodos.
 
 
- Neste tutorial, ficará a saber como:
+ Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Prepare o Azure para trabalhar com a Azure Migrate.
 > * Preparem-se para a migração baseada em agentes. Crie uma conta VMware para que a Azure Migrate possa descobrir máquinas para migração. Crie uma conta para que o agente de serviço de Mobilidade possa instalar nas máquinas que pretende migrar e preparar uma máquina para funcionar como o aparelho de replicação.
@@ -109,7 +109,7 @@ Prepare a conta da seguinte forma:
 O aparelho é utilizado para replicar máquinas para Azure. O aparelho é único, altamente disponível, no local VMware VM que acolhe estes componentes:
 
 - **Servidor de configuração**: O servidor de configuração coordena as comunicações entre as instalações e o Azure e gere a replicação de dados.
-- **Servidor de**processo : O servidor de processo funciona como um gateway de replicação. Recebe dados de replicação; otimiza-o com caching, compressão e encriptação, e envia-o para uma conta de armazenamento de cache em Azure. O servidor de processo também instala o agente do Serviço de Mobilidade em VMs que pretende replicar, e executa a descoberta automática de VMware VMware no local.
+- **Servidor de** processo : O servidor de processo funciona como um gateway de replicação. Recebe dados de replicação; otimiza-o com caching, compressão e encriptação, e envia-o para uma conta de armazenamento de cache em Azure. O servidor de processo também instala o agente do Serviço de Mobilidade em VMs que pretende replicar, e executa a descoberta automática de VMware VMware no local.
 
 Prepare-se para o aparelho da seguinte forma:
 
@@ -162,7 +162,7 @@ Se tiver um projeto, adicione a ferramenta da seguinte forma:
 4. Em **Selecionar ferramenta de avaliação**, selecione **Ignorar a adição de uma ferramenta de avaliação por enquanto** > **Seguinte**.
 5. Em **Selecionar ferramenta de migração**, selecione **Azure Migrate: Migração de Servidores** > **Seguinte**.
 6. Em **Analisar + adicionar ferramentas**, analise as definições e clique em **Adicionar ferramentas**
-7. Depois de adicionar a ferramenta, aparece no projeto Azure **Servers**Migrate >  >  **ferramentas de migração**de servidores .
+7. Depois de adicionar a ferramenta, aparece no projeto Azure **Servers** Migrate >  >  **ferramentas de migração** de servidores .
 
 ## <a name="set-up-the-replication-appliance"></a>Configurar o aparelho de replicação
 
@@ -196,11 +196,11 @@ Descarregue o modelo da seguinte forma:
 Depois de descarregar o modelo OVF, importa-o em VMware para criar a aplicação de replicação num VMware VM que executa o Windows Server 2016.
 
 1. Inscreva-se no servidor VMware vCenter ou no vSphere ESXi com o VMware vSphere Client.
-2. No menu **'Ficheiro',** selecione **implementar o modelo OVF** para iniciar o **Assistente de Modelo de OVF**de implementação . 
+2. No menu **'Ficheiro',** selecione **implementar o modelo OVF** para iniciar o **Assistente de Modelo de OVF** de implementação . 
 3. In **Select source**, insira a localização do OVF descarregado.
 4. Em **detalhes de revisão**, selecione **Next**.
 5. No **Nome e na pasta Select** e na **configuração Select,** aceite as definições predefinidos.
-6. Em **Select storage**Select virtual disk  >  **format**, para melhor desempenho selecione Thick Provision Eager **Zeroed**.
+6. Em **Select storage** Select virtual disk  >  **format**, para melhor desempenho selecione Thick Provision Eager **Zeroed**.
 7. Nas restantes páginas do assistente, aceite as predefinições.
 8. Pronto **para completar,** para configurar o VM com as definições predefinidos, selecione **Ligar a ligar após a colocação**  >  **Terminar**.
 
@@ -238,7 +238,7 @@ Termine de configurar e registar o aparelho de replicação.
 12. Selecione **Finalizar configuração** para concluir o registo.
 
 
-Após a inscrição do aparelho de replicação, a Avaliação do Servidor Azure Migrate liga-se aos servidores VMware utilizando as definições especificadas e descobre VMs. Pode ver VMs **Manage**descobertos em  >  **itens Geridos**gestão, no separador **Outro.**
+Após a inscrição do aparelho de replicação, a Avaliação do Servidor Azure Migrate liga-se aos servidores VMware utilizando as definições especificadas e descobre VMs. Pode ver VMs **Manage** descobertos em  >  **itens Geridos** gestão, no separador **Outro.**
 
 
 
@@ -290,7 +290,7 @@ Selecione VMs para migração.
     - **Zona de Disponibilidade**: Especifique a Zona de Disponibilidade a utilizar.
     - **Conjunto de disponibilidade**: Especifique o Conjunto de Disponibilidade a utilizar.
 
-15. Em Discos , **especifique**se os discos VM devem ser replicados para Azure e selecione o tipo de disco (discos geridos padrão SSD/HDD ou discos geridos premium) em Azure. Em seguida, clique em **Seguinte**.
+15. Em Discos , **especifique** se os discos VM devem ser replicados para Azure e selecione o tipo de disco (discos geridos padrão SSD/HDD ou discos geridos premium) em Azure. Em seguida, clique em **Seguinte**.
     - Pode excluir discos da replicação.
     - Se excluir discos, estes não estarão presentes na VM do Azure após a migração. 
 

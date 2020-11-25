@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290727"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011205"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalize como a solução De Fábrica Conectada exibe dados dos seus servidores OPC UA
 
@@ -74,9 +74,9 @@ Para obter mais informações sobre o mapeamento e agregação dos dados para sa
 
 ## <a name="deploy-the-changes"></a>Implementar as alterações
 
-Quando terminar de efetuar alterações ** naContosoTopologyDescription.jsno** ficheiro, tem de recolocar a solução De Fábrica Conectada na sua conta Azure.
+Quando terminar de efetuar alterações **naContosoTopologyDescription.jsno** ficheiro, tem de recolocar a solução De Fábrica Conectada na sua conta Azure.
 
-O repositório **de fábrica ligado a azul-iot** inclui um script ** powerShellbuild.ps1** que pode usar para reconstruir e implementar a solução.
+O repositório **de fábrica ligado a azul-iot** inclui um script **powerShellbuild.ps1** que pode usar para reconstruir e implementar a solução.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

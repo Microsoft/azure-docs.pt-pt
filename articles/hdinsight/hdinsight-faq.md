@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: 0240510a2232bd12a94d5cdd59672270289e5e8f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547525"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011834"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Frequently asked questions (Autenticação Pass-through: Perguntas mais frequentes)
 
@@ -178,7 +178,7 @@ Para juntar VMs a um domínio, tem de ter um controlador de domínio. Azure AD D
 
 ### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>Posso usar um certificado auto-assinado numa configuração LDAP segura da AAD-DS e providenciar um cluster ESP?
 
-Recomenda-se a utilização de um certificado emitido por uma autoridade de certificados. Mas a utilização de um certificado auto-assinado também é apoiada em ESP. Para obter mais informações, consulte:
+Recomenda-se a utilização de um certificado emitido por uma autoridade de certificados. Mas a utilização de um certificado auto-assinado também é apoiada em ESP. Para obter mais informações, veja:
 
 - [Ativar o Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
@@ -255,7 +255,7 @@ done
 
 Atualmente, não existe nenhum plugin Ranger para armazenamento de bolhas e Azure Data Lake Storage Gen1 ou Gen2. Para clusters ESP, você deve usar Azure Data Lake Storage. Pode pelo menos definir permissões de grãos finos manualmente ao nível do sistema de ficheiros utilizando ferramentas HDFS. Além disso, ao utilizar o Azure Data Lake Storage, os clusters ESP farão parte do controlo de acesso ao sistema de ficheiros utilizando o Azure Ative Directory ao nível do cluster. 
 
-Pode atribuir políticas de acesso a dados aos grupos de segurança dos seus utilizadores utilizando o Azure Storage Explorer. Para obter mais informações, consulte:
+Pode atribuir políticas de acesso a dados aos grupos de segurança dos seus utilizadores utilizando o Azure Storage Explorer. Para obter mais informações, veja:
 
 - [Como posso definir permissões para os utilizadores de Azure AD consultarem dados na Data Lake Storage Gen2 utilizando a Hive ou outros serviços?](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
 - [Definir permissões de arquivo e nível de diretório usando Azure Storage Explorer com Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-explorer.md)
@@ -272,7 +272,7 @@ Ver [Utilizar nós de borda vazia nos aglomerados Apache Hadoop em HDInsight](hd
 
 ### <a name="how-can-i-connect-to-an-edge-node"></a>Como posso ligar-me a um nó de borda?
 
-Depois de criar um nó de borda, pode ligar-se a ele utilizando o SSH na porta 22. Pode encontrar o nome do nó de borda do portal de cluster. Os nomes geralmente terminam com *-ed* .
+Depois de criar um nó de borda, pode ligar-se a ele utilizando o SSH na porta 22. Pode encontrar o nome do nó de borda do portal de cluster. Os nomes geralmente terminam com *-ed*.
 
 ### <a name="why-are-persisted-scripts-not-running-automatically-on-newly-created-edge-nodes"></a>Porque é que os scripts persistidos não são funcionando automaticamente em nós de borda recém-criados?
 

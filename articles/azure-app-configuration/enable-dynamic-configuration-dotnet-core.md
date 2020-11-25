@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
 ms.openlocfilehash: aebe7772c673162d60f35d6a81725ba1452d16a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88207076"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012361"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: Use configuração dinâmica numa aplicação .NET Core
 
@@ -32,7 +32,7 @@ Este tutorial mostra como pode implementar atualizações dinâmicas de configur
 
 Você pode usar qualquer editor de código para fazer os passos neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie a sua aplicação .NET Core para atualizar a sua configuração em resposta a alterações numa loja de Configuração de Aplicações.
@@ -99,7 +99,7 @@ O `ConfigureRefresh` método é utilizado para especificar as definições utili
 
 ## <a name="build-and-run-the-app-locally"></a>Construa e execute a app localmente
 
-1. Desaprote uma variável ambiental chamada **ConnectionString**e desaprote-a na chave de acesso à sua loja de Configuração de Aplicações. Se utilizar o pedido de comando do Windows, executar o seguinte comando e reiniciar a solicitação de comando para permitir que a alteração entre em vigor:
+1. Desaprote uma variável ambiental chamada **ConnectionString** e desaprote-a na chave de acesso à sua loja de Configuração de Aplicações. Se utilizar o pedido de comando do Windows, executar o seguinte comando e reiniciar a solicitação de comando para permitir que a alteração entre em vigor:
 
     ```console
      setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -131,9 +131,9 @@ O `ConfigureRefresh` método é utilizado para especificar as definições utili
 
     ![Quickstart app lançar local](./media/quickstarts/dotnet-core-app-run.png)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos** e selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
 
-1. Selecione **Configuration Explorer**e atualize os valores das seguintes teclas:
+1. Selecione **Configuration Explorer** e atualize os valores das seguintes teclas:
 
     | Chave | Valor |
     |---|---|

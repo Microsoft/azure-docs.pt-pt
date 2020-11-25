@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
 ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314735"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011800"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança em Azure Cognitive Search - visão geral
 
@@ -40,7 +40,7 @@ Na Pesquisa Cognitiva do Azure, a encriptação começa com ligações e transmi
 
 Para os dados tratados internamente pelo serviço de pesquisa, a tabela seguinte descreve os [modelos de encriptação](../security/fundamentals/encryption-models.md)de dados . Algumas funcionalidades, tais como a loja de conhecimento, o enriquecimento incremental e a indexação baseada em indexantes, lêem ou escrevem para estruturas de dados em outros Serviços Azure. Esses serviços têm os seus próprios níveis de suporte de encriptação separados da Azure Cognitive Search.
 
-| Modelo | Chaves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requisitos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
+| Modelação | Chaves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requisitos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
 |------------------|-------|-------------|--------------|------------|
 | encriptação do lado do servidor | Chaves geridas pela Microsoft | Nenhum (incorporado) | Nenhum, disponível em todos os escalões, em todas as regiões, para conteúdos criados após 24 de janeiro de 2018. | Conteúdo (índices e mapas de sinónimo) e definições (indexantes, fontes de dados, skillsets) |
 | encriptação do lado do servidor | chaves geridas pelo cliente | Azure Key Vault | Disponível em níveis faturantes, em todas as regiões, para conteúdos criados após janeiro de 2019. | Conteúdo (índices e mapas de sinónimo) em discos de dados |
@@ -94,7 +94,7 @@ A autenticação é necessária em cada pedido, quando cada pedido é composto p
 
 Para controlar ainda mais o acesso ao seu serviço de pesquisa, pode criar regras de firewall de entrada que permitam o acesso a endereços IP específicos ou a uma série de endereços IP. Todas as ligações com o cliente devem ser feitas através de um endereço IP permitido, ou a ligação é negada.
 
-:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="diagrama que retrata diferentes tipos de segurança em cada nível de envolvimento de serviço":::
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="diagrama de arquitetura amostra para acesso restrito ip":::
 
 Pode utilizar o portal para [configurar](service-configure-firewall.md)o acesso à entrada .
 
@@ -106,7 +106,7 @@ Um [ponto final privado](../private-link/private-endpoint-overview.md) para a Az
 
 O ponto final privado utiliza um endereço IP a partir do espaço de endereço de rede virtual para ligações ao seu serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública. Um VNET permite uma comunicação segura entre os recursos, com a sua rede no local, bem como a Internet.
 
-:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="diagrama que retrata diferentes tipos de segurança em cada nível de envolvimento de serviço":::
+:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="diagrama de arquitetura amostra para acesso privado de ponto final":::
 
 Embora esta solução seja a mais segura, usar serviços adicionais é um custo adicional, por isso certifique-se de ter uma compreensão clara dos benefícios antes de mergulhar. ou mais informações sobre os custos, consulte [a página de preços.](https://azure.microsoft.com/pricing/details/private-link/) Para obter mais informações sobre como estes componentes funcionam em conjunto, veja o vídeo no topo deste artigo. A cobertura da opção de ponto final privado começa às 5:48 no vídeo. Para obter instruções sobre como configurar o ponto final, consulte [Criar um ponto de terminação privado para a pesquisa cognitiva do Azure](service-create-private-endpoint.md).
 
@@ -142,7 +142,7 @@ Em contrapartida, os direitos de administração sobre os conteúdos alojados no
 
 ## <a name="certifications-and-compliance"></a>Certificações e conformidade
 
-A Azure Cognitive Search foi certificada em conformidade com vários padrões globais, regionais e específicos da indústria tanto para a nuvem pública como para o Governo de Azure. Para a lista completa, descarregue o papel branco [ **microsoft Azure Compliance Offers** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) da página oficial dos relatórios da Auditoria.
+A Azure Cognitive Search foi certificada em conformidade com vários padrões globais, regionais e específicos da indústria tanto para a nuvem pública como para o Governo de Azure. Para a lista completa, descarregue o papel branco [ **microsoft Azure Compliance Offers**](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) da página oficial dos relatórios da Auditoria.
 
 Para o cumprimento, pode utilizar [a Azure Policy](../governance/policy/overview.md) para implementar as melhores práticas de alta segurança do [Azure Security Benchmark](../security/benchmarks/introduction.md). A Azure Security Benchmark é uma coleção de recomendações de segurança, codificadas em controlos de segurança que mapeiam para ações-chave que deve tomar para mitigar ameaças a serviços e dados. Existem atualmente 11 controlos de segurança, incluindo [Segurança de Rede,](../security/benchmarks/security-control-network-security.md) [Registo e Monitorização,](../security/benchmarks/security-control-logging-monitoring.md)e Proteção de [Dados](../security/benchmarks/security-control-data-protection.md) para citar alguns.
 
@@ -150,7 +150,7 @@ A Azure Policy é uma capacidade incorporada no Azure que o ajuda a gerir o cump
 
 Para a pesquisa cognitiva Azure, existe atualmente uma definição incorporada. É para registo de diagnóstico. Com este incorporado, você pode atribuir uma política que identifique qualquer serviço de pesquisa que esteja faltando registo de diagnóstico, e depois liga-o. Para obter mais informações, consulte [os controlos de conformidade regulamentar da Política Azure para a pesquisa cognitiva Azure](security-controls-policy.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Noções básicas da segurança do Azure](../security/fundamentals/index.yml)
 + [Segurança Azure](https://azure.microsoft.com/overview/security)

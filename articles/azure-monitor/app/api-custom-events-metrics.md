@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264138"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011354"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -690,7 +690,7 @@ Se a sua aplicação agru tiver em conta os utilizadores, também pode passar um
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-No [Metrics Explorer,](../platform/metrics-charts.md)pode criar um gráfico que conta os **Utilizadores, autenticados**e **as contas do Utilizador.**
+No [Metrics Explorer,](../platform/metrics-charts.md)pode criar um gráfico que conta os **Utilizadores, autenticados** e **as contas do Utilizador.**
 
 Também pode [pesquisar](./diagnostic-search.md) pontos de dados do cliente com nomes de utilizadores e contas específicos.
 
@@ -920,7 +920,7 @@ As chamadas individuais de telemetria podem sobrepor-se aos valores predefinidos
 
 *Para clientes web JavaScript,* utilize os inicializadores de telemetria JavaScript.
 
-*Para adicionar propriedades a toda a telemetria,* incluindo os dados dos módulos de recolha padrão, [implemente `ITelemetryInitializer` ](./api-filtering-sampling.md#add-properties).
+*Para adicionar propriedades a toda a telemetria,* incluindo os dados dos módulos de recolha padrão, [implemente `ITelemetryInitializer`](./api-filtering-sampling.md#add-properties).
 
 ## <a name="sampling-filtering-and-processing-telemetry"></a>Amostragem, filtragem e processamento da telemetria
 

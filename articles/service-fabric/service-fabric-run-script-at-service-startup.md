@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75464281"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012532"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Executar um script de arranque do serviço como uma conta de utilizador local ou conta de sistema
 Antes de um serviço de tecido de serviço ser executado, pode ser necessário executar algum trabalho de configuração ou configuração.  Por exemplo, configurar variáveis ambientais. Pode especificar um script a ser executado antes do serviço executável começar no manifesto de serviço para o serviço. Ao configurar uma política RunAs para o ponto de entrada de configuração de serviço, pode alterar qual a conta que a configuração executa.  Um ponto de entrada de configuração separado permite-lhe executar uma configuração privilegiada por um curto período de tempo para que o anfitrião de serviço não precise de correr com privilégios elevados por longos períodos de tempo.
@@ -168,7 +168,7 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ```
 
 ## <a name="run-powershell-commands-from-a-setup-entry-point"></a>Executar comandos PowerShell a partir de um ponto de entrada de configuração
-Para executar o PowerShell a partir do ponto **SetupEntryPoint,** pode ** executáPowerShell.exe** num ficheiro de lote que aponta para um ficheiro PowerShell. Em primeiro lugar, adicione um ficheiro PowerShell ao projeto de serviço -- por exemplo, **MySetup.ps1**. Lembre-se de definir a Cópia se a propriedade *mais recente* para que o ficheiro também esteja incluído no pacote de serviço. O exemplo a seguir mostra um ficheiro de lote de amostra que inicia um ficheiro PowerShell chamado MySetup.ps1, que define uma variável ambiente do sistema chamada **TestVariable**.
+Para executar o PowerShell a partir do ponto **SetupEntryPoint,** pode **executáPowerShell.exe** num ficheiro de lote que aponta para um ficheiro PowerShell. Em primeiro lugar, adicione um ficheiro PowerShell ao projeto de serviço -- por exemplo, **MySetup.ps1**. Lembre-se de definir a Cópia se a propriedade *mais recente* para que o ficheiro também esteja incluído no pacote de serviço. O exemplo a seguir mostra um ficheiro de lote de amostra que inicia um ficheiro PowerShell chamado MySetup.ps1, que define uma variável ambiente do sistema chamada **TestVariable**.
 
 MySetup.bat iniciar um ficheiro PowerShell:
 

@@ -10,11 +10,11 @@ ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
 ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965838"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012276"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -94,7 +94,7 @@ Saiba mais sobre [a rotulagem de segmentação de casos de imagem.](how-to-label
     + Suporte de etiquetas de clientes ambientais. O utilizador pode rotular Ambientes e faz referência por etiqueta.
   + **azureml-dataprep**
     + Melhor mensagem de erro quando utilizar a spark não suportada atualmente com o Scala 2.12.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + O pacote azureml-explain-model é oficialmente depreciado
   + **azureml-mlflow**
     + Resolveu um bug em mlflow.projects.run contra o backend azureml onde o estado finalizador não foi tratado corretamente.
@@ -162,7 +162,7 @@ Saiba mais sobre [a rotulagem de segmentação de casos de imagem.](how-to-label
     + Run.cancel atualizado para permitir o cancelamento de uma execução local de outra máquina.
   + **azureml-dataprep**
     +  Problemas de tempo de montagem de conjunto de dados fixos.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + corrigir descrições de pacotes de pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
   + **azureml-interpret**
     + painel de visualização removido do pacote de interpretação de azureml-contrib, cliente explicativo mudou-se para pacote de interpretação de azureml e precotado em pacote de interpretação de azureml-contrib-interpret e cadernos atualizados para refletir a API melhorada
@@ -673,7 +673,7 @@ Saiba mais sobre [a rotulagem de segmentação de casos de imagem.](how-to-label
       + Conjuntos de dados como PipelineParameter
       + Novo run_max_retry de parâmetro
       + Nome de ficheiro de saída de saída append_row configurável
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     + Atualize registar a mensagem de exceção e rastrear.
   + **azureml-train-automl-client**
     + Registo melhorado em AutoML
@@ -1125,7 +1125,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     + Depreifed método de get_token existente no AksWebservice à medida que o novo método devolve toda a informação que este método devolve.
     + Saída modificada do serviço az ml obter acesso-token comando. Rebatizado token to accessToken and refreshBy to refreshAfter. Propriedades de expiração e tokenType adicionadas.
     + get_ative_runs fixo
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + shap atualizado para 0.33.0 e interpretação-comunidade para 0.4.*
   + **azureml-interpret**
     + shap atualizado para 0.33.0 e interpretação-comunidade para 0.4.*
@@ -1174,7 +1174,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     + ContainerImage.run fixo,, que não estava a configurar corretamente a porta HTTP do contentor Docker.
     + Tornar `azureml-dataprep` opcional para o comando `az ml dataset register` CLI
     + Corrigiu um erro onde `TabularDataset.to_pandas_dataframe` voltaria incorretamente a um leitor alternativo e imprimisse um aviso.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + deferir a dependência shap para interpretar-comunidade de azureml-interpret
   + **azureml-pipeline-core**
     + Acrescentou um novo passo de `NotebookRunnerStep` oleoduto, para executar um caderno local como um passo em pipeline.
@@ -1488,7 +1488,7 @@ O Azure Machine Learning é agora um fornecedor de recursos para a Grade de Even
       + Por entrada específica start_time e/ou end_time, apenas serão devolvidos os resultados das execuções programadas;
       + O parâmetro "daily_latest_only" é precotado.
     + Suporte a recuperar as saídas dataset-based Data Drift.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + Renomea pacote de modelo de explicação AzureML para AzureML-interpret, mantendo o pacote antigo para retrocompatibilidade por enquanto
     + bug fixo `automl` com explicações brutas definidas para tarefa de classificação em vez de regressão por padrão no download de ExplanationClient
     + Adicionar suporte `ScoringExplainer` para ser criado diretamente usando `MimicWrapper`
@@ -1527,7 +1527,7 @@ O Azure Machine Learning é agora um fornecedor de recursos para a Grade de Even
       + Por entrada específica start_time e/ou end_time, apenas serão devolvidos os resultados das execuções programadas;
       + O parâmetro "daily_latest_only" é precotado.
     + Suporte a recuperar as saídas dataset-based Data Drift.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + Adicione suporte para [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py&preserve-view=true) a ser criado diretamente usando MimicWrapper
   + **[azureml-pipeline-core](/python/api/azureml-pipeline-core)**
     + Melhor desempenho para a criação de grandes gasodutos.
@@ -1594,7 +1594,7 @@ O separador Experiment no novo portal do [espaço de trabalho](https://ml.azure.
     + Adicionados campos de tamanho VM adicionais (DISCO DE SO, número de GPUs) à função supported_vmsizes ()
     + Acrescentou campos adicionais à função list_nodes () para mostrar a execução, o IP privado e público, a porta, etc.
     + Capacidade de especificar um novo campo durante o fornecimento de clusters -- remotelogin_port_public_access que pode ser configurado para ativar ou desativar dependendo se você gostaria de deixar a porta SSH aberta ou fechada no momento da criação do cluster. Se não o especificar, o serviço abrirá ou fechará inteligentemente a porta dependendo se está a implantar o cluster dentro de um VNet.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
   + **[azureml-core](/python/api/azureml-core/azureml.core)**
     + Capacidade adicional de recuperar o URL SAS para modelar no armazenamento através do objeto do modelo. Ex: modelo. [get_sas_url()](/python/api/azureml-core/azureml.core.model.model#get-sas-urls--)
     + Introduza a corrida. [get_details](/python/api/azureml-core/azureml.core.run%28class%29#get-details--)['datasets'] para obter conjuntos de dados associados à execução submetida
@@ -1602,7 +1602,7 @@ O separador Experiment no novo portal do [espaço de trabalho](https://ml.azure.
     + Adicionados campos de tamanho VM adicionais (DISCO DEV, número de GPUs) à função [supported_vmsizes()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
     + Acrescentou campos adicionais à função [list_nodes()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#list-nodes--) para mostrar a execução, o privado, e o IP público, a porta, etc.
     + Capacidade de especificar um novo campo durante [o provisionamento do](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--)  cluster que pode ser definido para ativar ou desativar dependendo se você gostaria de deixar a porta SSH aberta ou fechada no momento de criar o cluster. Se não o especificar, o serviço abrirá ou fechará inteligentemente a porta dependendo se está a implantar o cluster dentro de um VNet.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + Melhor documentação para as saídas de explicação no cenário de classificação.
     + Acrescentou a capacidade de carregar os valores y previstos na explicação para os exemplos de avaliação. Desbloqueia visualizações mais úteis.
     + Propriedade explicadora adicionada à MimicWrapper para permitir obter o MimicExplainer subjacente.
@@ -1653,7 +1653,7 @@ O separador Experiment no novo portal do [espaço de trabalho](https://ml.azure.
     + A exceção será descartada quando quer o grão grosso quer a coluna de tempos de grão fino é largada com indicação para o utilizador de que a queda pode ser feita após a exclusão da coluna de tempotamp na lista de queda ou chamada with_time_stamp com nenhum valor para libertar colunas de tempotamp
     + A exceção será desativada quando não estiver incluída na lista de colunas de colunas de retenção de colunas com indicação para o utilizador de que a manutenção pode ser feita após incluir a coluna de tempotamp na lista de colunas de manutenção ou a chamada with_time_stamp com nenhum valor para libertar colunas de tempotamp.
     + Registos adicionais para o tamanho de um modelo registado.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + Aviso fixo impresso para consola quando não estiver instalado o pacote python "packaging": "Utilizando a versão mais antiga do que suportada de lightgbm, por favor atualize para a versão superior a 2.2.1"
     + Explicação de modelo de descarregamento fixo com fragmento para explicações globais com muitas funcionalidades
     + Explicador de imitação fixa em falta exemplos de inicialização na explicação da saída
@@ -1743,7 +1743,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Esta versão melhora o desempenho de execução de machine learning funcionando localmente.
     + Os utilizadores podem consultar métricas do histórico executado pelo nome.
     + Melhorou o registo utilizando exceções personalizadas em vez de genéricas nas tarefas de previsão.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + Adicionado feature_maps parâmetro ao novo MimicWrapper, permitindo que os utilizadores obtenham explicações de funcionalidades cruas.
     + Os uploads do conjunto de dados estão agora desligados por padrão para upload de explicações, e podem ser re-activados com upload_datasets=Verdadeiro
     + Adicione parâmetros de filtragem "is_law" à lista de explicações e funções de descarregamento.
@@ -1805,7 +1805,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Depreceu o método Workspace.setup(). A mensagem de aviso mostrada aos utilizadores sugere a utilização de criar() ou obter()/from_config() em vez disso.
     + Adicionado Environment.add_private_pip_wheel(), que permite carregar pacotes de pitões personalizados privados `whl` para o espaço de trabalho e usá-los de forma segura para construir/materializar o ambiente.
     + Agora pode atualizar o certificado TLS/SSL para o ponto final de pontuação implantado no cluster AKS tanto para o certificado gerado pela Microsoft como para o certificado de cliente.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + Parâmetro adicionado para adicionar um ID do modelo às explicações no upload.
     + Adicionou `is_raw` marcação às explicações na memória e upload.
     + Suporte de pytorch adicionado e testes para pacote modelo azureml-explain.
@@ -1814,7 +1814,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Mais classes para obter população dos EUA por concelho e zip.
   + **azureml-pipeline-core**
     + Adicionou propriedade de etiqueta às definições de porta de entrada e saída.
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     + Corrigiu uma configuração de telemetria incorreta.
   + **azureml-train-automl**
     + Corrigiu o bug onde, na falha de configuração, o erro não estava a ser registado no campo "erros" para a execução da configuração e, por isso, não foi armazenado em "erros" de execução dos pais.
@@ -1875,7 +1875,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Adicionados save_to_directory e load_from_directory métodos azureml.core.environment.Environment.
     + Acrescentou o "download do ambiente az ml" e "az ml environment register" ao CLI.
     + Método Environment.add_private_pip_wheel adicionado.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + Rastreio de conjunto de dados adicionado às explicações utilizando o serviço Dataset (pré-visualização).
     + Diminuição do tamanho do lote padrão ao transmitir explicações globais de 10k a 100.
     + Adicionado model_task bandeira aos explicadores para permitir que o utilizador substitua a lógica de inferência automática predefinido para o tipo de modelo.
@@ -1952,7 +1952,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + A descrição do modelo pode agora ser corretamente atualizada após o registo
     + A eliminação de modelos e imagem agora fornece mais informações sobre objetos a montante que dependem deles, o que faz com que a eliminação falhe
     + Melhorar a utilização de recursos de execuções remotas utilizando azureml.mlflow.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + Argumento de transformações fixas para explicador lime para a importância bruta de recurso no pacote azureml-contrib-explain-model
     + adicionar suporte scipy sparse para LimeExplainer
     + invólucro de explicador linear de forma adicionada, bem como outro nível para explicador tabular para explicar modelos lineares
@@ -1977,7 +1977,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + A DBFS Datastore está agora suportada para entradas e saídas em DatabricksStep.
     + Documentação atualizada para o Azure Batch Step no que diz respeito a entradas/saídas.
     + Em AzureBatchStep, alterou *delete_batch_job_after_finish* valor padrão para *verdadeiro*.
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     +  Mova os conjuntos de dados azureml-contrib-open para conjuntos de dados abertos azureml.
     + Permitir que as aulas de conjunto de dados abertas sejam registadas no espaço de trabalho Azure Machine Learning e aproveite perfeitamente as capacidades do Conjunto de Dados AML.
     + Melhore o desempenho noaaIsdWeather enriquece significativamente o desempenho na versão não-SPARK.
@@ -2026,7 +2026,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Moveu osdatas azureml-contrib-open para conjuntos de dados abertos azureml.
     + Permitiu que as aulas de conjunto de dados abertas fossem registadas no espaço de trabalho Azure Machine Learning e alavancar as capacidades do Conjunto de Dados AML de forma perfeita.
     + Melhorada NoaaIsdWeather enriquece significativamente o desempenho na versão não-SPARK.
-  + **azureml-explain-modelo**
+  + **azureml-explain-model**
     + Documentação on-line atualizada para objetos de interpretação.
     + Adicionado `batch_size` ao explicador de imitação quando `include_local=False` , para streaming de explicações globais em lotes para melhorar o tempo de execução de DecisionTreeExpicinableModel para biblioteca de explicações de modelos.
     + Corrigiu a questão `explanation.expected_values` onde, por vezes, devolveva um carro alegórico em vez de uma lista com um carro alegórico.

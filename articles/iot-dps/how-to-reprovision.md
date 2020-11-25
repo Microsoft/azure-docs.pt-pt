@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839797"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010950"
 ---
 # <a name="how-to-reprovision-devices"></a>Como reprovisionar dispositivos
 
@@ -37,7 +37,7 @@ As seguintes medidas configuram a política de atribuição da inscrição de um
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue para a sua instância de Serviço de Provisionamento de Dispositivos.
 
-2. Clique **em Gerir as inscrições**e clique no grupo de inscrição ou na inscrição individual que pretende configurar para reprovisionar. 
+2. Clique **em Gerir as inscrições** e clique no grupo de inscrição ou na inscrição individual que pretende configurar para reprovisionar. 
 
 3. Em **Selecione como pretende atribuir dispositivos aos hubs,** selecione uma das seguintes políticas de atribuição:
 
@@ -65,7 +65,7 @@ As seguintes medidas configuram a política de atribuição da inscrição de um
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue para a sua instância de Serviço de Provisionamento de Dispositivos.
 
-2. Clique **em Gerir as inscrições**e clique no grupo de inscrição ou na inscrição individual que pretende configurar para reprovisionar.
+2. Clique **em Gerir as inscrições** e clique no grupo de inscrição ou na inscrição individual que pretende configurar para reprovisionar.
 
 3. Em **Selecione como pretende que os dados do dispositivo sejam tratados na re-provisão para um centro IoT diferente,** escolha uma das seguintes políticas de reprovisionamento:
 

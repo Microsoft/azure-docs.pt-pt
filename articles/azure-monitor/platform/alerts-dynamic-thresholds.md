@@ -6,11 +6,11 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340092"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012344"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas métricos com limiares dinâmicos no Monitor Azure
 
@@ -127,9 +127,9 @@ Os seguintes itens são as melhores práticas sobre como configurar alertas em a
 
 8. O gráfico métrico apresentará os limiares calculados com base em dados recentes.
 
-9. Clique em **Done** (Concluído).
+9. Clique em **Concluído**.
 
-10. Preencha **detalhes de alerta** como Nome da Regra de **Alerta,** **Descrição**e **Gravidade**.
+10. Preencha **detalhes de alerta** como Nome da Regra de **Alerta,** **Descrição** e **Gravidade**.
 
 11. Adicione um grupo de ação ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 
@@ -162,9 +162,9 @@ Os seguintes itens são as melhores práticas sobre como configurar alertas em a
 
 8. O gráfico métrico apresentará os limiares calculados com base em dados recentes.
 
-9. Clique em **Done** (Concluído).
+9. Clique em **Concluído**.
 
-10. Preencha **detalhes de alerta** como Nome da Regra de **Alerta,** **Descrição**e **Gravidade**.
+10. Preencha **detalhes de alerta** como Nome da Regra de **Alerta,** **Descrição** e **Gravidade**.
 
 11. Adicione um grupo de ação ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 

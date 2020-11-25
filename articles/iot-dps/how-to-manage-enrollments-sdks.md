@@ -9,11 +9,11 @@ ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
 ms.openlocfilehash: 45a2b7a64006ab6963290be3ac86a3a5d1e4916d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959888"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010984"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerir as inscrições de dispositivos com SDKs de serviço de fornecimento de dispositivos Azure
 Uma *inscrição de dispositivo* cria um registo de um único dispositivo ou de um grupo de dispositivos que podem em algum momento registar-se com o Serviço de Provisionamento de Dispositivos. O registo de inscrição contém a configuração inicial desejada para o(s) dispositivo(s) como parte dessa inscrição, incluindo o hub IoT desejado. Este artigo mostra-lhe como gerir as inscrições do dispositivo para o seu serviço de fornecimento programáticamente usando os SDKs do Serviço de Provisionamento Azure IoT.  Os SDKs estão disponíveis no GitHub no mesmo repositório que os SDKs Azure IoT.

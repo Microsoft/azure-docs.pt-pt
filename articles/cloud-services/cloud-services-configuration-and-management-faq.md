@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144686"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011031"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão para Azure Cloud Services: Perguntas frequentes (PERGUNTAS Frequentes)
 
@@ -103,7 +103,7 @@ Select-AzureSubscription -Current -SubscriptionName <your subscription name>
 Get-AzurePublishSettingsFile
 ```
 
-O **Get-AzurePublishSettingsFile** criará um **Subscription**novo certificado de gestão em  >  **Certificados de Gestão de Assinaturas** no portal Azure. O nome do novo certificado parece "YourSubscriptionNam]-[CurrentDate]-credenciais".
+O **Get-AzurePublishSettingsFile** criará um **Subscription** novo certificado de gestão em  >  **Certificados de Gestão de Assinaturas** no portal Azure. O nome do novo certificado parece "YourSubscriptionNam]-[CurrentDate]-credenciais".
 
 ### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>Como automatizar a instalação do certificado TLS/SSL principal (.pfx) e certificado intermédio (.p7b)?
 
@@ -198,7 +198,7 @@ O Windows 10 e o Windows Server 2016 vêm com suporte para HTTP/2 no lado do cli
 5. Reinicie o servidor.
 6. Vá ao Seu **Web Site padrão** e em **Encadernações,** crie uma nova ligação TLS com o certificado auto-assinado acaba de ser criado. 
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2)
 - [Vídeo: HTTP/2 no Windows 10: Browser, Apps e Web Server](https://channel9.msdn.com/Events/Build/2015/3-88)

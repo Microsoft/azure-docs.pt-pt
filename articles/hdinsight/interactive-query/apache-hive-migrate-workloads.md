@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534690"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011511"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar Azure HDInsight 3.6 Cargas de trabalho de colmeia para HDInsight 4.0
 
@@ -117,7 +117,7 @@ Os clusters HDInsight 3.6 e 4.0 devem utilizar a mesma Conta de Armazenamento.
 
 1. Ligue-se ao cluster HDInsight 3.6 utilizando um [cliente Secure Shell (SSH).](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
-1. A partir da sessão SSH aberta, descarregue o seguinte ficheiro script para gerar um ficheiro chamado **Alltables.hql** .
+1. A partir da sessão SSH aberta, descarregue o seguinte ficheiro script para gerar um ficheiro chamado **Alltables.hql**.
 
     ```bash
     wget https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/exporthive_hdi_3_6.sh

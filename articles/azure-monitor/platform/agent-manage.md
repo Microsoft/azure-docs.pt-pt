@@ -6,11 +6,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871903"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011885"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Managing and maintaining the Log Analytics agent for Windows and Linux (Gerir e manter o agente do Log Analytics para Windows e Linux)
 
@@ -28,7 +28,7 @@ O agente Log Analytics para Windows e Linux pode ser atualizado para a versão m
 
 ### <a name="upgrade-windows-agent"></a>Atualizar o agente windows 
 
-Para atualizar o agente num VM do Windows para a versão mais recente não instalada utilizando a extensão VM do Log Analytics, ou corre a partir do Pedido de Comando, script ou outra solução de automação, ou utilizando o MMASetup- \<platform\> .msi Setup Wizard.  
+Para atualizar o agente num VM do Windows para a versão mais recente não instalada utilizando a extensão VM do Log Analytics, ou corre a partir do Pedido de Comando, script ou outra solução de automação, ou utilizando o Assistente de \<platform\> Configuração .msi MMASetup.  
 
 Pode baixar a versão mais recente do agente Windows a partir do seu espaço de trabalho Log Analytics, executando os seguintes passos.
 
@@ -38,7 +38,7 @@ Pode baixar a versão mais recente do agente Windows a partir do seu espaço de 
 
 3. Na sua lista de espaços de trabalho Log Analytics, selecione o espaço de trabalho.
 
-4. No seu espaço de trabalho Log Analytics, selecione **Definições Avançadas**e, em seguida, selecione **'Fontes Conectadas'** e, finalmente, **Servidores do Windows**.
+4. No seu espaço de trabalho Log Analytics, selecione **Definições Avançadas** e, em seguida, selecione **'Fontes Conectadas'** e, finalmente, **Servidores do Windows**.
 
 5. A partir da página **do Windows Servers,** selecione a versão adequada **do Download Windows Agent** para descarregar dependendo da arquitetura do processador do sistema operativo Windows.
 
@@ -50,7 +50,7 @@ Pode baixar a versão mais recente do agente Windows a partir do seu espaço de 
 
 1. Inscreva-se no computador com uma conta que tenha direitos administrativos.
 
-2. Execute **MMASetup- \<platform\> .exe** para iniciar o Assistente de Configuração.
+2. Execute **o MMASetup-.exe \<platform\>** para iniciar o Assistente de Configuração.
 
 3. Na primeira página do Assistente de Configuração, clique em **Seguinte**.
 
@@ -233,7 +233,7 @@ Utilize um dos seguintes procedimentos para desinstalar o windows ou o agente Li
 
 2. No **Painel de Controlo,** clique em **Programas e Funcionalidades**.
 
-3. Em **Programas e Funcionalidades**, clique no **Agente de Monitorização do Microsoft,** clique em **Desinstalar**e, em seguida, clique em **Sim**.
+3. Em **Programas e Funcionalidades**, clique no **Agente de Monitorização do Microsoft,** clique em **Desinstalar** e, em seguida, clique em **Sim**.
 
 >[!NOTE]
 >O Assistente de Configuração do Agente também pode ser executado clicando duas vezes **no MMASetup- \<platform\> .exe,** que está disponível para download a partir de um espaço de trabalho no portal Azure.

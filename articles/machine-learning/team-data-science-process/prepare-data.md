@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: caedcf313ab809e9607907545f26ca1b62bbeca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720049"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012412"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tarefas para preparar dados para machine learning otimizado
 Os dados de pré-processamento e limpeza são tarefas importantes que devem ser conduzidas antes de um conjunto de dados poder ser utilizado para a formação de modelos. Os dados brutos são muitas vezes barulhentos e pouco fiáveis, e podem estar a faltar valores. A utilização destes dados para modelação pode produzir resultados enganadores. Estas tarefas fazem parte do Processo de Ciência de Dados de Equipa (TDSP) e seguem tipicamente uma exploração inicial de um conjunto de dados utilizado para descobrir e planear o pré-processamento necessário. Para obter instruções mais detalhadas sobre o processo TDSP, consulte os passos descritos no [Processo de Ciência de Dados da Equipa.](overview.md)
@@ -55,7 +55,7 @@ Quando encontra problemas com dados, são necessárias etapas de **processamento
 
 ## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Quais são algumas das principais tarefas no pré-processamento de dados?
 * **Limpeza de dados**: Preencha os valores em falta, detete e remova dados ruidosos e outliers.
-* **Transformação de**dados : Normalizar os dados para reduzir dimensões e ruído.
+* **Transformação de** dados : Normalizar os dados para reduzir dimensões e ruído.
 * **Redução de dados**: Registos de dados de amostra ou atributos para facilitar o tratamento de dados.
 * **Discretização de dados**: Converta atributos contínuos em atributos categóricos para facilitar a utilização com certos métodos de aprendizagem automática.
 * **Limpeza de texto**: remova caracteres incorporados que possam causar desalinhamento de dados, por exemplo, separados de separados num ficheiro de dados separados por separados por separados, embutidas em novas linhas que possam quebrar registos, por exemplo.
@@ -87,7 +87,7 @@ Os dados podem ser discretizados convertendo valores contínuos em atributos ou 
 ## <a name="how-to-reduce-data"></a>Como reduzir os dados?
 Existem vários métodos para reduzir o tamanho dos dados para facilitar o tratamento dos dados. Dependendo do tamanho dos dados e do domínio, podem ser aplicados os seguintes métodos:
 
-* **Amostragem de**registo : Prove os registos de dados e escolha apenas o subconjunto representativo a partir dos dados.
+* **Amostragem de** registo : Prove os registos de dados e escolha apenas o subconjunto representativo a partir dos dados.
 * **Amostragem do atributo**: Selecione apenas um subconjunto dos atributos mais importantes a partir dos dados.  
 * **Agregação**: Divida os dados em grupos e guarde os números para cada grupo. Por exemplo, o número diário de receitas de uma cadeia de restaurantes ao longo dos últimos 20 anos pode ser agregado a receitas mensais para reduzir a dimensão dos dados.  
 

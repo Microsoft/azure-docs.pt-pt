@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f8bd47a8fde700382f9789ab1c77ff35e9b1f4f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999535"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96010899"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total da faturação de um recipiente de bolhas
 
@@ -31,7 +31,7 @@ Este script calcula o tamanho de um recipiente no armazenamento da Azure Blob co
 
 O tamanho total do recipiente blob inclui o tamanho do próprio recipiente e o tamanho de todas as bolhas debaixo do recipiente.
 
-As seguintes secções descrevem como a capacidade de armazenamento é calculada para recipientes e bolhas.Na secção seguinte, Len(X) o número de caracteres na cadeia.
+As seguintes secções descrevem como a capacidade de armazenamento é calculada para recipientes e bolhas. Na secção seguinte, Len(X) o número de caracteres na cadeia.
 
 ### <a name="blob-containers"></a>Contentores de blobs
 
@@ -120,6 +120,6 @@ Segue-se a avaria:
 
 - Para obter mais informações sobre a faturação do Armazenamento Azure, consulte [a Conta de Armazenamento do Windows Azure](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- Para obter mais informações sobre o módulo Azure PowerShell, consulte [a documentação da Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+- Para obter mais informações sobre o módulo Azure PowerShell, consulte [a documentação da Azure PowerShell](/powershell/azure/).
 
 - Pode encontrar amostras adicionais de script PowerShell em [amostras powerShell para armazenamento Azure](../blobs/storage-samples-blobs-powershell.md).

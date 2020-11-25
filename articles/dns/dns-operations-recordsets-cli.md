@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: rohink
 ms.openlocfilehash: 2d3989b3c477a35d602f1ccf3e45d6f597f5d78d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737388"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011575"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Gerir registos e registos DNS em Azure DNS usando o Azure CLI
 
@@ -46,7 +46,7 @@ Se o conjunto de registos ainda não existir, este comando cria-o por si. Se o c
 
 Se for criado um novo conjunto de registos, é utilizado um TTL (time-to-live) predefinido de 3600. Para obter instruções sobre como utilizar diferentes TTLs, consulte [Criar um conjunto de registos DNS](#create-a-dns-record-set).
 
-O exemplo seguinte cria um registo A denominado *www* na zona *contoso.com* do grupo de recursos *MyResourceGroup* . O endereço IP do registo A é *1.2.3.4* .
+O exemplo seguinte cria um registo A denominado *www* na zona *contoso.com* do grupo de recursos *MyResourceGroup*. O endereço IP do registo A é *1.2.3.4*.
 
 ```azurecli
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
@@ -60,7 +60,7 @@ az network dns record-set a add-record --resource-group myresourcegroup --zone-n
 
 ## <a name="create-a-dns-record-set"></a>Crie um conjunto de registos DNS
 
-Nos exemplos acima, o registo de DNS foi adicionado a um recorde existente, ou o recorde foi criado *implicitamente* . Também pode criar o conjunto de *registos explicitamente* antes de lhe adicionar registos. O Azure DNS suporta conjuntos de registos 'vazios', que podem funcionar como um espaço reservado para reservar um nome DNS antes de criar registos DNS. Os conjuntos de registos vazios são visíveis no plano de controlo Azure DNS, mas não aparecem nos servidores de nomes Azure DNS.
+Nos exemplos acima, o registo de DNS foi adicionado a um recorde existente, ou o recorde foi criado *implicitamente*. Também pode criar o conjunto de *registos explicitamente* antes de lhe adicionar registos. O Azure DNS suporta conjuntos de registos 'vazios', que podem funcionar como um espaço reservado para reservar um nome DNS antes de criar registos DNS. Os conjuntos de registos vazios são visíveis no plano de controlo Azure DNS, mas não aparecem nos servidores de nomes Azure DNS.
 
 Os conjuntos de discos são criados usando o `az network dns record-set <record-type> create` comando. Para obter ajuda, consulte `az network dns record-set <record-type> create --help`.
 
@@ -193,7 +193,7 @@ Este comando elimina um registo DNS de um conjunto de registos. Se o último rec
 
 É necessário especificar o registo a eliminar e a zona da qual deve ser eliminado, utilizando os mesmos parâmetros que ao criar um registo utilizando `az network dns record-set <record-type> add-record` . Estes parâmetros são descritos em [Criar um registo DNS](#create-a-dns-record) e [criar registos de outros tipos](#create-records-of-other-types) acima.
 
-O exemplo a seguir elimina o registo A com o valor '1.2.3.4' do conjunto de discos denominado *www na* zona *contoso.com* , no grupo de recursos *MyResourceGroup* .
+O exemplo a seguir elimina o registo A com o valor '1.2.3.4' do conjunto de discos denominado *www na* zona *contoso.com*, no grupo de recursos *MyResourceGroup*.
 
 ```azurecli
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "www" --ipv4-address 1.2.3.4
@@ -222,7 +222,7 @@ Ao contrário da maioria dos outros tipos de discos, um conjunto de discos CNAME
 
 Em vez disso, para modificar um registo CNAME, utilize `az network dns record-set cname set-record` . Para obter ajuda, consulte `az network dns record-set cname set-record --help`
 
-O exemplo modifica o recorde CNAME *estabelecido* www na zona *contoso.com* , no grupo de recursos *MyResourceGroup* , para apontar para "www.fabrikam.net" em vez do seu valor existente:
+O exemplo modifica o recorde CNAME *estabelecido* www na zona *contoso.com*, no grupo de recursos *MyResourceGroup*, para apontar para "www.fabrikam.net" em vez do seu valor existente:
 
 ```azurecli
 az network dns record-set cname set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.fabrikam.net
@@ -234,7 +234,7 @@ Ao contrário da maioria dos outros tipos de discos, um conjunto de discos CNAME
 
 Em vez disso, para modificar o registo SOA, use `az network dns record-set soa update` . Para obter ajuda, consulte `az network dns record-set soa update --help`.
 
-O exemplo a seguir mostra como definir a propriedade 'email' do registo SOA para a zona *contoso.com* no grupo de recursos *MyResourceGroup* :
+O exemplo a seguir mostra como definir a propriedade 'email' do registo SOA para a zona *contoso.com* no grupo de recursos *MyResourceGroup*:
 
 ```azurecli
 az network dns record-set soa update --resource-group myresourcegroup --zone-name contoso.com --email admin.contoso.com
@@ -281,7 +281,7 @@ Os conjuntos de registos podem ser eliminados utilizando o `az network dns recor
 > [!NOTE]
 > Não é possível eliminar os conjuntos de registos SOA e NS no ápice da zona `--name "@"` ().  Estes são criados automaticamente quando a zona foi criada, e são eliminados automaticamente quando a zona é eliminada.
 
-O exemplo a seguir elimina o conjunto de registos denominado *www do* tipo A da zona *contoso.com* no grupo de recursos *MyResourceGroup* :
+O exemplo a seguir elimina o conjunto de registos denominado *www do* tipo A da zona *contoso.com* no grupo de recursos *MyResourceGroup*:
 
 ```azurecli
 az network dns record-set a delete --resource-group myresourcegroup --zone-name contoso.com --name www
