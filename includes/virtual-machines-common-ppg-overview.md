@@ -9,11 +9,11 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: daed8dc62fdfd86ecf785a0bfd83b2b6c0b4cc03
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95559802"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025646"
 ---
 A colocação de VMs numa única região reduz a distância física entre os casos. Colocá-los dentro de uma única zona de disponibilidade também os aproximará fisicamente. No entanto, à medida que a pegada Azure cresce, uma única zona de disponibilidade pode abranger vários centros de dados físicos, o que pode resultar numa latência de rede com impacto na sua aplicação. 
 

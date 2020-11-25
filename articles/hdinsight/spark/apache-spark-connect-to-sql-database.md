@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: d979a68f4e3aa0071fb7654647610af1fbf95e90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86078821"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023981"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Utilize o cluster HDInsight Spark para ler e escrever dados para a Base de Dados Azure SQL
 
@@ -45,7 +45,7 @@ Comece por criar um Caderno Jupyter associado ao cluster Spark. Usa este caderno
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-1. No caderno Jupyter, a partir do canto superior direito, clique em **New**e, em seguida, clique em **Spark** para criar um caderno Scala. Os cadernos Jupyter no cluster HDInsight Spark também fornecem o kernel **PySpark** para aplicações Python2, e o kernel **PySpark3** para aplicações Python3. Para este artigo, criamos um caderno Scala.
+1. No caderno Jupyter, a partir do canto superior direito, clique em **New** e, em seguida, clique em **Spark** para criar um caderno Scala. Os cadernos Jupyter no cluster HDInsight Spark também fornecem o kernel **PySpark** para aplicações Python2, e o kernel **PySpark3** para aplicações Python3. Para este artigo, criamos um caderno Scala.
 
     ![Kernels para o caderno jupyter em Spark](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Kernels para o caderno jupyter em Spark")
 
@@ -119,7 +119,7 @@ Nesta secção, você lê dados de uma tabela (por exemplo, **SalesLT.Address)**
 
 ## <a name="write-data-into-azure-sql-database"></a>Escreva dados na Base de Dados Azure SQL
 
-Nesta secção, utilizamos um ficheiro CSV de amostra disponível no cluster para criar uma tabela na sua base de dados e povoá-la com dados. O ficheiro CSV da amostra** (HVAC.csv) **está disponível em todos os clusters HDInsight em `HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv` .
+Nesta secção, utilizamos um ficheiro CSV de amostra disponível no cluster para criar uma tabela na sua base de dados e povoá-la com dados. O ficheiro CSV da amostra **(HVAC.csv)** está disponível em todos os clusters HDInsight em `HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv` .
 
 1. Num novo caderno Jupyter, numa célula de código, cole o seguinte corte e substitua os valores do espaço reservado pelos valores da sua base de dados.
 

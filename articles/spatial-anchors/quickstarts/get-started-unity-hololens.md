@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Criar uma app HoloLens com Unidade'
 description: Neste quickstart, você aprende a construir uma aplicação HoloLens com Unidade usando Âncoras Espaciais.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 09/29/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 143bc89518ff1811ad6789f71fcf7a9267e99f73
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 11d8e8d918b408881f211605ce6c713615f0aa93
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097444"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022637"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Quickstart: Criar uma app Unity HoloLens que usa âncoras espaciais Azure
 
@@ -34,9 +34,9 @@ Vai aprender a:
 Para concluir este guia de início rápido:
 
 - Precisa de um computador Windows com <a href="https://unity3d.com/get-unity/download" target="_blank">Unidade 2019.4 (LTS)</a> e <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> ou mais tarde são instalados. A instalação do Seu Estúdio Visual deve incluir a carga de trabalho **de desenvolvimento da Plataforma Universal Windows** e o componente Windows **10 SDK (10.0.18362.0 ou mais recente).** Também tem de instalar <a href="https://git-scm.com/download/win" target="_blank">o Git para Windows</a> e Git <a href="https://git-lfs.github.com/">LFS</a>.
-- Precisa de um dispositivo HoloLens em que [modo de desenvolvimento](/windows/mixed-reality/using-visual-studio) está ativado. [A atualização do Windows 10 May 2020](/windows/mixed-reality/whats-new/release-notes-may-2020) deve ser instalada no dispositivo. Para atualizar a versão mais recente do HoloLens, abra a aplicação **Definições,** vá a **Update & Security**e, em seguida, selecione Check for **updates**.
-- Na sua aplicação, precisa de ativar a capacidade **de Perceção Espacial.** Esta definição está em **Configurações de Definições**do leitor de  >  **definições**  >  **de**  >  **definições de configurações de configurações .**
-- Na sua aplicação, precisa de ativar a **realidade virtual suportada** com **o Windows Mixed Reality SDK.** Esta definição está em Definições do leitor **de definições**de definições de  >  **definições**  >  **de definições de definições de definições XR**.
+- Precisa de um dispositivo HoloLens em que [modo de desenvolvimento](/windows/mixed-reality/using-visual-studio) está ativado. [A atualização do Windows 10 May 2020](/windows/mixed-reality/whats-new/release-notes-may-2020) deve ser instalada no dispositivo. Para atualizar a versão mais recente do HoloLens, abra a aplicação **Definições,** vá a **Update & Security** e, em seguida, selecione Check for **updates**.
+- Na sua aplicação, precisa de ativar a capacidade **de Perceção Espacial.** Esta definição está em **Configurações de Definições** do leitor de  >  **definições**  >  **de**  >  **definições de configurações de configurações .**
+- Na sua aplicação, precisa de ativar a **realidade virtual suportada** com **o Windows Mixed Reality SDK.** Esta definição está em Definições do leitor **de definições** de definições de  >  **definições**  >  **de definições de definições de definições XR**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -68,9 +68,9 @@ Quando a exportação estiver concluída, aparecerá uma pasta contendo o projet
 
 ## <a name="deploy-the-hololens-application"></a>Implementar a aplicação HoloLens
 
-Na pasta, clique duas vezes em **HelloAR U3D.sln** para abrir o projeto no Visual Studio.
+Na pasta, clique duas vezes **em HelloAR U3D.sln** para abrir o projeto no Visual Studio.
 
-Alterar a Configuração de **Solução** para **Desbloquear,** alterar a **Plataforma de Solução** para **x86**e selecionar **o Dispositivo** a partir das opções-alvo de implementação.
+Alterar a Configuração de **Solução** para **Desbloquear,** alterar a **Plataforma de Solução** para **x86** e selecionar **o Dispositivo** a partir das opções-alvo de implementação.
 
 Se utilizar hololens 2, utilize **o ARM64** como **Plataforma de Solução,** em vez de **x86**.
 

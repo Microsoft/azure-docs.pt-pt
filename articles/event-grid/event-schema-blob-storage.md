@@ -4,19 +4,19 @@ description: Descreve as propriedades que são fornecidas para eventos de armaze
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: a914edbb6f624617766c77b277d7ee8e6ad08bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87458948"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023964"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Armazenamento Azure Blob como fonte de grade de eventos
 
-Este artigo fornece as propriedades e esquema para eventos de armazenamento de bolhas.Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md). Também lhe dá uma lista de partidas rápidas e tutoriais para usar o Azure Blob Storage como fonte de evento.
+Este artigo fornece as propriedades e esquema para eventos de armazenamento de bolhas. Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md). Também lhe dá uma lista de partidas rápidas e tutoriais para usar o Azure Blob Storage como fonte de evento.
 
 
 >[!NOTE]
-> Apenas contas de armazenamento do tipo **StorageV2 (finalidade geral v2),** **BlockBlobStorage**e integração de eventos de suporte **BlobStorage.** **O armazenamento (propósito geral v1)** *não* suporta a integração com a Grade de Eventos.
+> Apenas contas de armazenamento do tipo **StorageV2 (finalidade geral v2),** **BlockBlobStorage** e integração de eventos de suporte **BlobStorage.** **O armazenamento (propósito geral v1)** *não* suporta a integração com a Grade de Eventos.
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
@@ -316,7 +316,7 @@ O objeto de dados tem as seguintes propriedades:
 | conjunto de conteúdos | número | A compensação em bytes de uma operação de escrita realizada no ponto em que a aplicação de desencadeamento de eventos completou a escrita para o ficheiro. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes.|
 | destinationUrl |string | A url do ficheiro que existirá após a conclusão da operação. Por exemplo, se um ficheiro for renomeado, a `destinationUrl` propriedade contém o url do nome do novo ficheiro. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes.|
 | fonteUrl |string | A url do ficheiro que existe antes da operação. Por exemplo, se um ficheiro for renomeado, `sourceUrl` contém o url do nome original do ficheiro antes da operação do rebatizador. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes. |
-| url | string | O caminho para a bolha. <br>Se o cliente utilizar uma API Blob REST, então o url tem esta estrutura: * \<storage-account-name\> .blob.core.windows.net/ \<container-name\> / \<file-name\> *. <br>Se o cliente utilizar uma API de Armazenamento de Data Lake, então o url tem esta estrutura: * \<storage-account-name\> .dfs.core.windows.net/ \<file-system-name\> / \<file-name\> *. |
+| url | string | O caminho para a bolha. <br>Se o cliente utilizar uma API Blob REST, então o url tem esta estrutura: *\<storage-account-name\> .blob.core.windows.net/ \<container-name\> / \<file-name\>*. <br>Se o cliente utilizar uma API de Armazenamento de Data Lake, então o url tem esta estrutura: *\<storage-account-name\> .dfs.core.windows.net/ \<file-system-name\> / \<file-name\>*. |
 | recursivo | string | `True` realizar a operação em todas as diretórios infantis; caso `False` contrário. <br>Aparece apenas para eventos desencadeados em contas de armazenamento blob que têm um espaço hierárquico de nomes. |
 | sequenciador | string | Um valor de corda opaco que representa a sequência lógica de eventos para qualquer nome de bolha em particular.  Os utilizadores podem usar a comparação de cordas padrão para entender a sequência relativa de dois eventos no mesmo nome blob. |
 | armazenamentoDiagnósticos | objeto | Dados de diagnóstico ocasionalmente incluídos pelo serviço de Armazenamento Azure. Quando presente, deve ser ignorado pelos consumidores de eventos. |

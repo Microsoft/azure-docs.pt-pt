@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 70da1e9c70bf80737065362c68781652dd9ab6e5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537514"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023640"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para MariaDB usando o ALI ELI e REST API
 
@@ -42,7 +42,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 
 O `az mariadb server replica create` comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Description  |
+| Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos para onde o servidor de réplica será criado.  |
 | name | mydemoreplicaserver | O nome do novo servidor de réplica que é criado. |
@@ -72,7 +72,7 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 O `az mariadb server replica list` comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Description  |
+| Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos para onde o servidor de réplica será criado.  |
 | server-name | mydemoserver | O nome ou identificação do servidor de origem. |
@@ -90,7 +90,7 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 O `az mariadb server replica stop` comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Description  |
+| Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos onde existe o servidor de réplica.  |
 | name | mydemoreplicaserver | O nome do servidor de réplica para parar a replicação. |

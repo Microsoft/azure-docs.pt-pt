@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710206"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023555"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Reter endereços IP durante a ativação pós-falha
 
@@ -46,7 +46,7 @@ Aqui está a arquitetura antes do fracasso.
             - **Sub-rede 2**: 10.1.2.0/24
             - **Sub-rede 3**: 10.1.3.0/24
     - Região secundária (alvo) é Azure Southeast Asia
-        - O Sudeste Asiático tem um VNet de**recuperação (Recovery VNet)** idêntico ao **Source VNet**.
+        - O Sudeste Asiático tem um VNet de **recuperação (Recovery VNet)** idêntico ao **Source VNet**.
         - O Sudeste Asiático tem um VNet adicional **(Azure VNet)** com espaço de endereço 10.2.0.0/16.
         - **O Azure VNet** contém uma sub-rede **(Subnet 4**) com o espaço de endereço 10.2.4.0/24.
         - Os nós de réplica para SQL Server Always On, o controlador de domínio, etc. estão localizados na **Sub-rede 4**.
@@ -89,7 +89,7 @@ Antes do fracasso, a arquitetura é a seguinte:
     - **App2** Os VMs estão localizados no VNet **Source VNet 2:** 10.2.0.0/16.
     - **Fonte VNet 1** tem duas sub-redes.
     - **Fonte VNet 2** tem duas sub-redes.
-- A região secundária (alvo) é a Azure Southeast Asia - O Sudeste Asiático tem uma recuperação VNet**1** e **Recovery VNet 2**) que são idênticas à **Fonte VNet 1** e **Source VNet 2**.
+- A região secundária (alvo) é a Azure Southeast Asia - O Sudeste Asiático tem uma recuperação VNet **1** e **Recovery VNet 2**) que são idênticas à **Fonte VNet 1** e **Source VNet 2**.
         - **Recovery VNet 1** e **Recovery VNet 2** cada um tem duas sub-redes que combinam com as sub-redes na **Fonte VNet 1** e **Source VNet 2** - Sudeste Asiático tem um VNet adicional **(Azure VNet**) com espaço de endereço 10.3.0.0/16.
         - **O Azure VNet** contém uma sub-rede **(Subnet 4**) com o espaço de endereço 10.3.4.0/24.
         - Os nós de réplica para SQL Server Always On, o controlador de domínio, etc. estão localizados na **Sub-rede 4**.
@@ -134,7 +134,7 @@ Aqui está como é a arquitetura da rede antes do fracasso.
     - **Sub-rede 2**: 10.1.2.0/24
     - **Sub-rede 3**: 10.1.3.0/24, utilizando uma rede virtual Azure com o espaço de endereço 10.1.0.0/16. Esta rede virtual chama-se **Source VNet**
       - A região secundária (alvo) é a Azure Southeast Asia:
-  - O Sudeste Asiático tem um VNet de**recuperação (Recovery VNet)** idêntico ao **Source VNet**.
+  - O Sudeste Asiático tem um VNet de **recuperação (Recovery VNet)** idêntico ao **Source VNet**.
 - Os VMs na Ásia Oriental estão ligados a um datacenter no local com a Azure ExpressRoute ou VPN site-to-site.
 - Para reduzir o RTO, a Empresa B prevê portais de entrada no Recovery VNet no Sudeste Asiático antes de falhar.
 - A Empresa B atribui/verifica endereços IP alvo para VMs replicados. O endereço IP alvo é o mesmo que o endereço IP de origem para cada VM.

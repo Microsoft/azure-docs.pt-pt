@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: 89549ac3233557d1991e7f728e5051432c2c29fd
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95558440"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025595"
 ---
 Normalmente, as notificações push são enviadas num serviço de back-end como Mobile Apps ou ASP.NET com uma biblioteca compatível. Se uma biblioteca não estiver disponível para a sua parte de trás, também pode utilizar a API REST diretamente para enviar mensagens de notificação.
 

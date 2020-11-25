@@ -9,11 +9,11 @@ ms.date: 04/06/2018
 ms.author: mimig
 ms.custom: include file
 ms.openlocfilehash: 3a227ac60ed1b3f96cf8bf59c05e5af0955d06a3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95555824"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025450"
 ---
 A forma mais fácil de criar uma conta de armazenamento Azure é utilizando o [portal Azure](https://portal.azure.com). Para saber mais, veja [Criar uma conta de armazenamento](../articles/storage/common/storage-account-create.md).
 

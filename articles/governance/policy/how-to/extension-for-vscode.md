@@ -4,11 +4,11 @@ description: Saiba como usar a extensão da Política Azure para o Código do Es
 ms.date: 10/20/2020
 ms.topic: how-to
 ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317617"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022433"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use a extensão da política Azure para código de estúdio visual
 
@@ -64,13 +64,13 @@ Para avaliar recursos e procurar pseudónimos, tem de se ligar à sua conta Azur
 
      A partir da extensão da Política Azure, **selecione Iniciar súm em Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot de selecionar a nação Azure cloud iniciar súmite para Código de Estúdio Visual." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot do Código do Estúdio Visual e o ícone para a extensão da Política Azure." border="false":::
 
    - Paleta de comando
 
      A partir da barra de menu, vá à **Paleta de**  >  **Comando,** e introduza **Azure: Iniciar Sedura**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot de selecionar a nação Azure cloud iniciar súmite para Código de Estúdio Visual." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot do sinal de nuvem Azure em opções para Código de Estúdio Visual a partir da Paleta de Comando." border="false":::
 
 1. Siga o sinal em instruções para iniciar seduca. Depois de conectado, o nome da sua conta Azure é mostrado na barra de estado na parte inferior da janela Visual Studio Code.
 
@@ -86,7 +86,7 @@ Quando iniciar a sua primeira sação, apenas os recursos e políticas de subscr
 
    - Rodapé da janela
 
-     No rodapé da janela na parte inferior do ecrã, selecione o segmento que corresponde **a Azure: \<your account\> **.
+     No rodapé da janela na parte inferior do ecrã, selecione o segmento que corresponde **a Azure: \<your account\>**.
 
 1. Utilize a caixa de filtro para encontrar rapidamente as subscrições pelo nome. Em seguida, verifique ou remova o cheque de cada subscrição para definir as subscrições mostradas pela extensão da Política Azure. Quando terminar de adicionar ou remover subscrições para exibir, selecione **OK**.
 
@@ -99,7 +99,7 @@ A extensão da Política Azure lista os recursos nas subscrições selecionadas 
 - **Grupos de Recursos**
   - Todos os recursos do grupo de recursos em que estão
 
-Por predefinição, a extensão filtra a parte do "Fornecedor de Recursos" através de recursos e recursos existentes que possuem pseudónimos políticos. Altere este comportamento na **Política**de  >  **Azure de Definições para**ver todos os  >  **Azure Policy** Fornecedores de Recursos sem filtragem.
+Por predefinição, a extensão filtra a parte do "Fornecedor de Recursos" através de recursos e recursos existentes que possuem pseudónimos políticos. Altere este comportamento na **Política** de  >  **Azure de Definições para** ver todos os  >  **Azure Policy** Fornecedores de Recursos sem filtragem.
 
 Os clientes com centenas ou milhares de recursos numa única subscrição podem preferir uma forma pes pes pes pesquisada de localizar os seus recursos. A extensão da Política Azure permite procurar um recurso específico com as seguintes etapas:
 
@@ -125,7 +125,7 @@ Quando um recurso é selecionado, seja através da interface de pesquisa ou sele
 
 Uma vez que um recurso esteja aberto, pairando sobre o nome ou valor da propriedade do Gestor de Recursos exibe o pseudónimo da Política Azure se existir. Neste exemplo, o recurso é um `Microsoft.Compute/virtualMachines` tipo de recurso e as **propriedades.storageProfile.imageReference.offer** propriedade está sobreda. Pairar mostra os pseudónimos correspondentes.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot de selecionar a nação Azure cloud iniciar súmite para Código de Estúdio Visual." border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot da extensão da Política Azure para Visual Studio Code pairando sobre uma propriedade para exibir os nomes de pseudónimos." border="false":::
 
 > [!NOTE]
 > A extensão do Código VS expõe apenas as propriedades do modo Gestor de Recursos e não apresenta nenhumas propriedades [do modo Fornecedor de Recursos.](../concepts/definition-structure.md#mode)
@@ -199,7 +199,7 @@ Os resultados da avaliação fornecem informações sobre a definição de polí
 
 ## <a name="sign-out"></a>Terminar sessão
 
-A partir da barra de menu, vá à **Paleta de**Comando  >  **Ver,** e depois insira **Azure: Assine**.
+A partir da barra de menu, vá à **Paleta de** Comando  >  **Ver,** e depois insira **Azure: Assine**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

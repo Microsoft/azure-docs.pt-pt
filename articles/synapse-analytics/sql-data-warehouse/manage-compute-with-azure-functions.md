@@ -12,11 +12,11 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517891"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022484"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Utilize funções Azure para gerir recursos computativos na piscina SQL Azure Synapse Analytics
 
@@ -48,7 +48,7 @@ Uma vez implementado o modelo, deverá encontrar três novos recursos: um Plano 
 
    ![Funções que são implementadas com o modelo](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger* , dependendo se quer alterar a hora de aumento ou redução vertical. No menu suspenso, selecione Integrate.
+2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger*, dependendo se quer alterar a hora de aumento ou redução vertical. No menu suspenso, selecione Integrate.
 
    ![Selecionar Integrate para a função](./media/manage-compute-with-azure-functions/select-integrate.png)
 
@@ -70,7 +70,7 @@ Uma vez implementado o modelo, deverá encontrar três novos recursos: um Plano 
 
 1. Navegue para o serviço Function App. Se tiver implementado o modelo com os valores predefinidos, este serviço deverá chamar-se *DWOperations*. Assim que Function App estiver aberto, deverá ver cinco funções implementadas no seu serviço do Function App.
 
-2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger* , dependendo se quer alterar o valor de computação de aumento ou redução vertical. Após selecionar as funções, o painel deve mostrar o ficheiro *index.js*.
+2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger*, dependendo se quer alterar o valor de computação de aumento ou redução vertical. Após selecionar as funções, o painel deve mostrar o ficheiro *index.js*.
 
    ![Alterar o nível de computação do acionador de função](././media/manage-compute-with-azure-functions/index-js.png)
 

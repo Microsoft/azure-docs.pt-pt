@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535404"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022773"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Clusters Azure HDInsight
 
@@ -130,7 +130,7 @@ Para ver uma lista de empregos pendentes e em execução, pode utilizar o **UI d
 1. A partir do [portal Azure,](https://portal.azure.com/)selecione o seu cluster.  O cluster é aberto numa nova página do portal.
 2. A partir da vista principal, navegue até cluster **dashboards**  >  **Ambari casa.** Insira as suas credenciais de agrupamento.
 3. A partir da UI Ambari, selecione **YARN** na lista de serviços no menu à esquerda.  
-4. Na página YARN, selecione **Links Rápidos** e paire sobre o nó de cabeça ativo e, em seguida, selecione **Resource Manager UI** .
+4. Na página YARN, selecione **Links Rápidos** e paire sobre o nó de cabeça ativo e, em seguida, selecione **Resource Manager UI**.
 
     ![Apache Ambari liga rapidamente Resource Manager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 

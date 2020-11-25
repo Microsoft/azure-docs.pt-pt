@@ -7,11 +7,11 @@ ms.date: 10/02/2017
 ms.author: sumukhs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cda0a9f988afae58a60bff051885a5eec8afe434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021974"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023589"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configure serviços fidedigcos estatais
 Existem dois conjuntos de configurações para serviços fiáveis. Um conjunto é global para todos os serviços fiáveis no cluster, enquanto o outro conjunto é específico de um serviço de confiança particular.

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 70b6231829173059ffee675105bacbe1bd1532f2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967113"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023896"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Use o Gestor de Dispositivos StorSimple para gerir credenciais de conta de armazenamento para StorSimple Virtual Array
 

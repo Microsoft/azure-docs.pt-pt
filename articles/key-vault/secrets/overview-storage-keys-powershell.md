@@ -9,14 +9,17 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 50fbaf5092e793369daaa71fc7364dfd406e03b3
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 3bced101516e91259ea9018fe3c4aa44f867cbe6
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444899"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96023113"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerir chaves de conta de armazenamento com Key Vault e Azure PowerShell
+> [!IMPORTANT]
+> Recomendamos a utilização da integração do Azure Storage com o Azure Ative Directory (Azure AD), o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. A integração AD AD está disponível para [bolhas e filas Azure,](../../storage/common/storage-auth-aad.md)e fornece acesso baseado em símbolos OAuth2 ao Azure Storage (tal como o Azure Key Vault).
+> O Azure AD permite-lhe autenticar a sua aplicação de cliente utilizando uma aplicação ou identidade de utilizador, em vez de credenciais de conta de armazenamento. Você pode usar uma [identidade gerida Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) quando você correr em Azure. Identidades geridas removem a necessidade de autenticação do cliente e armazenam credenciais dentro ou com a sua aplicação. Utilize a solução abaixo apenas quando a autenticação AZure AD não for possível.
 
 Uma conta de armazenamento Azure utiliza credenciais que incluem um nome de conta e uma chave. A chave é autogerada e serve como senha, em vez de uma chave criptográfica. Key Vault gere as chaves da conta de armazenamento regenerando-as periodicamente na conta de armazenamento e fornece fichas de assinatura de acesso partilhado para acesso delegado a recursos na sua conta de armazenamento.
 
@@ -28,12 +31,6 @@ Quando utilizar a função chave da conta de armazenamento gerida, considere os 
 - Só o Key Vault deve gerir as chaves da sua conta de armazenamento. Não maneie as chaves sozinho e evite interferir com os processos do Key Vault.
 - Apenas um único objeto do Key Vault deve gerir as chaves da conta de armazenamento. Não permita a gestão de chaves a partir de vários objetos.
 - Regenerar as chaves usando apenas o Cofre de Chaves. Não regenerar manualmente as chaves da conta de armazenamento.
-
-Recomendamos a utilização da integração do Azure Storage com o Azure Ative Directory (Azure AD), o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. A integração AD AD está disponível para [bolhas e filas Azure,](../../storage/common/storage-auth-aad.md)e fornece acesso baseado em símbolos OAuth2 ao Azure Storage (tal como o Azure Key Vault).
-
-O Azure AD permite-lhe autenticar a sua aplicação de cliente utilizando uma aplicação ou identidade de utilizador, em vez de credenciais de conta de armazenamento. Você pode usar uma [identidade gerida Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) quando você correr em Azure. Identidades geridas removem a necessidade de autenticação do cliente e armazenam credenciais dentro ou com a sua aplicação.
-
-A Azure AD usa o controlo de acesso baseado em funções Azure (Azure RBAC) para gerir a autorização, que também é suportada pela Key Vault.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -256,14 +253,20 @@ Content Type : application/vnd.ms-sastoken-storage
 Tags         :
 ```
 
-Agora pode usar o [cmdlet Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) e a propriedade secreta `Name` para ver o conteúdo desse segredo.
+Agora pode utilizar o [cmdlet Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) com os `VaultName` parâmetros e `Name` parâmetros para visualizar o conteúdo desse segredo.
 
 ```azurepowershell-interactive
-Write-Host (Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>).SecretValue | ConvertFrom-SecureString -AsPlainText
+$secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+Write-Output $secretValueText
 ```
 
 A saída deste comando mostrará a sua cadeia de definição SAS.
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

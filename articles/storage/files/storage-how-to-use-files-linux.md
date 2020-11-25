@@ -8,11 +8,11 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626746"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022569"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As ações de ficheiros Azure podem ser montadas nas distribuições linux utilizando o [cliente kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas formas de montar uma partilha de ficheiros Azure: a pedido com o `mount` comando e no arranque, criando uma entrada em `/etc/fstab` .
@@ -47,7 +47,7 @@ uname -r
     sudo apt install cifs-utils
     ```
 
-    No **Fedora,** **Red Hat Enterprise Linux 8+** e **CentOS 8 +** , utilize o gestor do `dnf` pacote:
+    No **Fedora,** **Red Hat Enterprise Linux 8+** e **CentOS 8 +**, utilize o gestor do `dnf` pacote:
 
     ```bash
     sudo dnf install cifs-utils
@@ -69,7 +69,7 @@ uname -r
 
 * **A versão mais recente da Interface da Linha de Comando Azure (CLI).** Para obter mais informações sobre como instalar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) e selecione o seu sistema operativo. Se preferir utilizar o módulo Azure PowerShell no PowerShell 6+, pode, no entanto, as instruções abaixo são apresentadas para o Azure CLI.
 
-* **Certifique-se de que a porta 445 está aberta** : SMB comunica através da porta TCP 445 - verifique se a sua firewall não está a bloquear as portas TCP 445 da máquina do cliente.  Substitua `<your-resource-group>` `<your-storage-account>` e, em seguida, execute o seguinte script:
+* **Certifique-se de que a porta 445 está aberta**: SMB comunica através da porta TCP 445 - verifique se a sua firewall não está a bloquear as portas TCP 445 da máquina do cliente.  Substitua `<your-resource-group>` `<your-storage-account>` e, em seguida, execute o seguinte script:
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -99,7 +99,7 @@ Para utilizar uma partilha de ficheiros Azure com a sua distribuição Linux, te
 Pode montar a mesma partilha de ficheiros Azure em vários pontos de montagem, se desejar.
 
 ### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Monte o arquivo Azure partilhar a pedido com `mount`
-1. **Crie uma pasta para o ponto de montagem** : Substitua, e com as `<your-resource-group>` `<your-storage-account>` `<your-file-share>` informações adequadas para o seu ambiente:
+1. **Crie uma pasta para o ponto de montagem**: Substitua, e com as `<your-resource-group>` `<your-storage-account>` `<your-file-share>` informações adequadas para o seu ambiente:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -135,7 +135,7 @@ Pode montar a mesma partilha de ficheiros Azure em vários pontos de montagem, s
 Quando terminar de usar a partilha de ficheiros Azure, poderá utilizar `sudo umount $mntPath` para desmontar a partilha.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Crie um ponto de montagem persistente para a partilha de ficheiros Azure com `/etc/fstab`
-1. **Criar uma pasta para o ponto de montagem** : Uma pasta para um ponto de montagem pode ser criada em qualquer lugar do sistema de ficheiros, mas é comum criar isto em /mnt. Por exemplo, o seguinte comando cria um novo diretório, `<your-resource-group>` substitui, `<your-storage-account>` e com as `<your-file-share>` informações apropriadas para o seu ambiente:
+1. **Criar uma pasta para o ponto de montagem**: Uma pasta para um ponto de montagem pode ser criada em qualquer lugar do sistema de ficheiros, mas é comum criar isto em /mnt. Por exemplo, o seguinte comando cria um novo diretório, `<your-resource-group>` substitui, `<your-storage-account>` e com as `<your-file-share>` informações apropriadas para o seu ambiente:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -207,7 +207,7 @@ Quando terminar de usar a partilha de ficheiros Azure, poderá utilizar `sudo um
     sudo apt update
     sudo apt install autofs
     ```
-    No **Fedora,** **Red Hat Enterprise Linux 8+** e **CentOS 8 +** , utilize o gestor do `dnf` pacote:
+    No **Fedora,** **Red Hat Enterprise Linux 8+** e **CentOS 8 +**, utilize o gestor do `dnf` pacote:
     ```bash
     sudo dnf install autofs
     ```
@@ -250,22 +250,22 @@ Começando pelo kernel Linux 4.18, o módulo de kernel SMB, chamado `cifs` por r
 
 | Distribuição | Pode desativar o SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | No |
-| Ubuntu 18.04 | Yes |
-| Ubuntu 19.04+ | Yes |
-| Debian 8-9 | No |
-| Debian 10+ | Yes |
-| Fedora 29+ | Yes |
-| CentOS 7 | No | 
-| CentOS 8+ | Yes |
-| Red Hat Enterprise Linux 6.x-7.x | No |
-| Red Hat Enterprise Linux 8+ | Yes |
-| openSUSE Leap 15.0 | No |
-| openSUSE Leap 15.1+ | Yes |
-| openSUSE Tumbleweed | Yes |
-| SUSE Linux Enterprise 11.x-12.x | No |
-| Empresa SUSE Linux 15 | No |
-| Empresa SUSE Linux 15.1 | No |
+| Ubuntu 14.04-16.04 | Não |
+| Ubuntu 18.04 | Sim |
+| Ubuntu 19.04+ | Sim |
+| Debian 8-9 | Não |
+| Debian 10+ | Sim |
+| Fedora 29+ | Sim |
+| CentOS 7 | Não | 
+| CentOS 8+ | Sim |
+| Red Hat Enterprise Linux 6.x-7.x | Não |
+| Red Hat Enterprise Linux 8+ | Sim |
+| openSUSE Leap 15.0 | Não |
+| openSUSE Leap 15.1+ | Sim |
+| openSUSE Tumbleweed | Sim |
+| SUSE Linux Enterprise 11.x-12.x | Não |
+| Empresa SUSE Linux 15 | Não |
+| Empresa SUSE Linux 15.1 | Não |
 
 Pode verificar se a sua distribuição Linux suporta o parâmetro do `disable_legacy_dialects` módulo através do seguinte comando.
 

@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: 008493c6eb8840752be3815d30a5df5bad42aff2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129223"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023862"
 ---
 # <a name="azure-stream-analytics-job-states"></a>Azure Stream Analytics afirma
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 75693c57a8d120aad53a15d03ae4054bac8262af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269306"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023062"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chamar as funções do Azure a partir do Azure Logic Apps
 
@@ -132,7 +132,7 @@ No entanto, antes de poder criar qualquer função Azure, já deve ter uma aplic
 
    ![Defina a sua função](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-   No código do modelo, o * `context` objeto* refere-se à mensagem que a sua aplicação lógica envia através do campo **'Corpo pedido'** num passo posterior. Para aceder às propriedades do objeto a `context` partir de dentro da sua função, utilize esta sintaxe:
+   No código do modelo, o *`context` objeto* refere-se à mensagem que a sua aplicação lógica envia através do campo **'Corpo pedido'** num passo posterior. Para aceder às propriedades do objeto a `context` partir de dentro da sua função, utilize esta sintaxe:
 
    `context.body.<property-name>`
 
@@ -195,7 +195,7 @@ Para chamar as funções Azure existentes a partir das suas aplicações lógica
 
 ## <a name="call-logic-apps-from-azure-functions"></a>Chame aplicativos de lógica de funções Azure
 
-Quando pretende acionar uma aplicação lógica a partir de uma função Azure, a aplicação lógica deve começar com um gatilho que forneça um ponto final chamado. Por exemplo, pode iniciar a aplicação lógica com o **http**, **Request**, **Azure Queues**ou **Detonador de Grelha de Eventos.** Dentro da sua função, envie um pedido HTTP POST para o URL do gatilho e inclua a carga útil que pretende que a aplicação lógica processe. Para obter mais informações, consulte [aplicações lógicas Call, Trigger ou Nest.](../logic-apps/logic-apps-http-endpoint.md)
+Quando pretende acionar uma aplicação lógica a partir de uma função Azure, a aplicação lógica deve começar com um gatilho que forneça um ponto final chamado. Por exemplo, pode iniciar a aplicação lógica com o **http**, **Request**, **Azure Queues** ou **Detonador de Grelha de Eventos.** Dentro da sua função, envie um pedido HTTP POST para o URL do gatilho e inclua a carga útil que pretende que a aplicação lógica processe. Para obter mais informações, consulte [aplicações lógicas Call, Trigger ou Nest.](../logic-apps/logic-apps-http-endpoint.md)
 
 <a name="enable-authentication-functions"></a>
 

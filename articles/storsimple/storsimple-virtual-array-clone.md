@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: b6cc89cb082cd0ed32abd88e3a6683c60a27ba90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742184"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023045"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clone a partir de uma cópia de segurança do seu StorSimple Virtual Array
 
@@ -33,12 +33,12 @@ Este artigo descreve passo a passo como clonar um conjunto de backup das suas a�
 
 #### <a name="to-clone-a-share"></a>Para clonar uma parte
 
-1. Navegue pela lâmina **dos dispositivos.** Selecione e clique no seu dispositivo e, em seguida, clique em **Partilhars**. Selecione a partilha que pretende clonar, clique com o botão direito para invocar o menu de contexto. Selecione **Clone**.
+1. Navegue pela lâmina **dos dispositivos.** Selecione e clique no seu dispositivo e, em seguida, clique em **Partilhars**. Selecione a partilha que pretende clonar, clique com o botão direito para invocar o menu de contexto. Selecione **Clonar**.
    
    ![Clone um backup](./media/storsimple-virtual-array-clone/cloneshare1.png)
 2. Na lâmina **Clone,** clique **em Cópia de Segurança > Selecione** e, em seguida, faça o seguinte: 
    
-   a.    Filtre uma cópia de segurança deste dispositivo com base no intervalo de tempo. Pode escolher entre **os últimos 7 dias,** **os últimos 30 dias**e o ano **passado.**
+   a.    Filtre uma cópia de segurança deste dispositivo com base no intervalo de tempo. Pode escolher entre **os últimos 7 dias,** **os últimos 30 dias** e o ano **passado.**
    
    b.    Na lista de cópias de segurança filtradas apresentadas, selecione uma cópia de segurança para clonar.
    
@@ -73,12 +73,12 @@ Para clonar a partir de uma cópia de segurança, no portal Azure, você tem que
 
 #### <a name="to-clone-a-volume"></a>Para clonar um volume
 
-1. Navegue pela lâmina **dos dispositivos.** Selecione e clique no seu dispositivo e, em seguida, clique em **Volumes**. Selecione o volume que pretende clonar, clique com o botão direito para invocar o menu de contexto. Selecione **Clone**.
+1. Navegue pela lâmina **dos dispositivos.** Selecione e clique no seu dispositivo e, em seguida, clique em **Volumes**. Selecione o volume que pretende clonar, clique com o botão direito para invocar o menu de contexto. Selecione **Clonar**.
    
    ![Clonar um volume](./media/storsimple-virtual-array-clone/clonevolume1.png)
 2. Na lâmina **Clone,** clique **em Backup** e, em seguida, faça o seguinte: 
    
-   a.    Filtre uma cópia de segurança deste dispositivo com base no intervalo de tempo. Pode escolher entre **os últimos 7 dias,** **os últimos 30 dias**e o ano **passado.** 
+   a.    Filtre uma cópia de segurança deste dispositivo com base no intervalo de tempo. Pode escolher entre **os últimos 7 dias,** **os últimos 30 dias** e o ano **passado.** 
    
    b.    Na lista de cópias de segurança filtradas apresentadas, selecione uma cópia de segurança para clonar.
    

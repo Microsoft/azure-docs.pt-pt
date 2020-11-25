@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
 ms.openlocfilehash: e99d68d31f1da4dcb3ef1086a2bbd90f0ab30410
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489001"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023130"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Use funções definidas pelo utilizador C# com Apache Hive e Apache Pig em Apache Hadoop em HDInsight
 
@@ -30,7 +30,7 @@ Tanto a Hive como a Pig podem passar dados para aplicações externas para proce
 
     Use o IDE que quiser. Recomendamos [o Visual Studio](https://www.visualstudio.com/vs) ou Visual Studio [Code](https://code.visualstudio.com/). Os passos deste documento utilizam o Visual Studio 2019.
 
-* Uma forma de enviar ficheiros .exe para o cluster e executar trabalhos de Pig e Hive. Recomendamos [ferramentas do Lago de Dados para Estúdio Visual,](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md) [Azure PowerShell](/powershell/azure)e [Azure CLI](/cli/azure/install-azure-cli). Os passos deste documento utilizam as Ferramentas do Lago de Dados para o Estúdio Visual para carregar os ficheiros e executar o exemplo consulta Hive.
+* Uma forma de enviar ficheiros .exe para o cluster e executar trabalhos de Pig and Hive. Recomendamos [ferramentas do Lago de Dados para Estúdio Visual,](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md) [Azure PowerShell](/powershell/azure)e [Azure CLI](/cli/azure/install-azure-cli). Os passos deste documento utilizam as Ferramentas do Lago de Dados para o Estúdio Visual para carregar os ficheiros e executar o exemplo consulta Hive.
 
     Para obter informações sobre outras formas de executar consultas de Hive, veja [o que é Apache Hive e HiveQL em Azure HDInsight?](hdinsight-use-hive.md). . .
 
@@ -38,7 +38,7 @@ Tanto a Hive como a Pig podem passar dados para aplicações externas para proce
 
 ## <a name="net-on-hdinsight"></a>.NET em HDInsight
 
-Os clusters *HDInsight baseados em Linux* utilizam [Mono (para https://mono-project.com) ](https://mono-project.com) executar aplicações .NET. A versão mono 4.2.1 está incluída na versão HDInsight 3.6.
+Os clusters *HDInsight baseados em Linux* utilizam [Mono (para https://mono-project.com)](https://mono-project.com) executar aplicações .NET. A versão mono 4.2.1 está incluída na versão HDInsight 3.6.
 
 Para obter mais informações sobre a compatibilidade do Mono com as versões .NET Framework, consulte [Mono compatibilidade](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -168,9 +168,9 @@ Para criar um projeto C# para um Apache Hive UDF:
 
 Em seguida, faça o upload das aplicações Hive e Pig UDF para armazenamento num cluster HDInsight.
 
-1. No Estúdio Visual, navegue para **ver o**Explorador  >  **do Servidor**.
+1. No Estúdio Visual, navegue para **ver o** Explorador  >  **do Servidor**.
 
-1. A partir do **Server Explorer,** clique à direita **Azure**, selecione **Connect to Microsoft Azure Subscription**e complete o processo de iniciar súpido.
+1. A partir do **Server Explorer,** clique à direita **Azure**, selecione **Connect to Microsoft Azure Subscription** e complete o processo de iniciar súpido.
 
 1. Expanda o cluster HDInsight para o que pretende implementar esta aplicação. Uma entrada com o texto **(Conta de Armazenamento Padrão)** é listada.
 
@@ -196,7 +196,7 @@ Em seguida, faça o upload das aplicações Hive e Pig UDF para armazenamento nu
 
 Agora você pode executar uma consulta hive que usa a sua aplicação Hive UDF.
 
-1. No Estúdio Visual, navegue para **ver o**Explorador  >  **do Servidor**.
+1. No Estúdio Visual, navegue para **ver o** Explorador  >  **do Servidor**.
 
 2. Expanda **Azure** e, em seguida, expanda **HDInsight**.
 
@@ -224,7 +224,7 @@ Agora você pode executar uma consulta hive que usa a sua aplicação Hive UDF.
 
     Esta consulta seleciona o `clientid` , e campos de , e depois passa os campos para a `devicemake` `devicemodel` `hivesampletable` *aplicaçãoHiveCSharp.exe.* A consulta espera que a aplicação devolva três campos, que são armazenados como `clientid` `phoneLabel` , e `phoneHash` . A consulta também espera encontrar *HiveCSharp.exe* na raiz do recipiente de armazenamento padrão.
 
-5. Mude o **Interactive** padrão para **Lote**e, em seguida, Selecione **Submeter** para submeter o trabalho ao cluster HDInsight. A janela **do Resumo do Trabalho da Colmeia** abre-se.
+5. Mude o **Interactive** padrão para **Lote** e, em seguida, Selecione **Submeter** para submeter o trabalho ao cluster HDInsight. A janela **do Resumo do Trabalho da Colmeia** abre-se.
 
 6. Selecione **Refresh** para atualizar o resumo até que **o Estado do Trabalho** mude para **Concluído**. Para visualizar a saída de trabalho, selecione **Job Output**.
 
@@ -252,7 +252,7 @@ Você também pode executar um trabalho de porco que usa a sua aplicação Pig U
     DUMP DETAILS;
     ```
 
-    A `DEFINE` declaração cria um pseudónimo para a `streamer` aplicação *PigUDF.exe, * e `CACHE` carrega-a do armazenamento padrão para o cluster. Posteriormente, `streamer` é utilizado com o operador para processar as `STREAM` linhas únicas contidas `LOG` e devolver os dados como uma série de colunas.
+    A `DEFINE` declaração cria um pseudónimo para a `streamer` aplicação *PigUDF.exe,* e `CACHE` carrega-a do armazenamento padrão para o cluster. Posteriormente, `streamer` é utilizado com o operador para processar as `STREAM` linhas únicas contidas `LOG` e devolver os dados como uma série de colunas.
 
     > [!NOTE]
     > O nome da aplicação utilizado para o streaming deve ser rodeado pelo \` carácter (retrosetro) quando aliased, e pelo carácter ' (citação única) quando usado com `SHIP` .

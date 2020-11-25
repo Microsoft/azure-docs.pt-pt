@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d3f6a48815519499ddc39dcc12cafe0fe95e70e0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320228"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023810"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -60,7 +60,7 @@ O Apache Spark é uma arquitetura de processamento paralelo open source que supo
 
 Quando cria um cluster do Spark no HDInsight, está a criar recursos de computação do Azure com o Spark instalado e configurado. Leva cerca de 10 minutos para criar um cluster Spark em HDInsight. Guarde os dados a serem processados no armazenamento da Azure Blob. Para obter informações sobre a utilização do Azure Blob Storage com um cluster, consulte [use o armazenamento Azure Blob compatível com HDFS com Hadoop em HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-A equipa da TDSP da Microsoft publicou duas pesquisas de ponta a ponta sobre como usar clusters de faíscas Azure HDInsight para construir soluções de ciência de dados, uma usando Python e a outra Scala. Para obter mais informações sobre Azure HDInsight **Spark Clusters** , consulte [visão geral: Apache Spark em HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para aprender a construir uma solução de ciência de dados usando **Python** em um Azure HDInsight Spark Cluster, consulte [a visão geral da Ciência dos Dados usando Spark on Azure HDInsight](spark-overview.md). Para aprender a construir uma solução de ciência de dados usando **Scala** num Cluster de Faíscas Azure HDInsight, consulte [Data Science usando Scala e Spark on Azure](scala-walkthrough.md). 
+A equipa da TDSP da Microsoft publicou duas pesquisas de ponta a ponta sobre como usar clusters de faíscas Azure HDInsight para construir soluções de ciência de dados, uma usando Python e a outra Scala. Para obter mais informações sobre Azure HDInsight **Spark Clusters**, consulte [visão geral: Apache Spark em HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para aprender a construir uma solução de ciência de dados usando **Python** em um Azure HDInsight Spark Cluster, consulte [a visão geral da Ciência dos Dados usando Spark on Azure HDInsight](spark-overview.md). Para aprender a construir uma solução de ciência de dados usando **Scala** num Cluster de Faíscas Azure HDInsight, consulte [Data Science usando Scala e Spark on Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
@@ -101,7 +101,7 @@ Os serviços R (Base de dados) fornecem uma plataforma para desenvolver e implem
 
 Os serviços R (base de dados in- database) suportam a linguagem R de código aberto com um conjunto abrangente de ferramentas e tecnologias do SQL Server. Oferecem desempenho superior, segurança, fiabilidade e gestão. Pode implementar soluções R utilizando ferramentas convenientes e familiares. As suas aplicações de produção podem ligar para o tempo de execução R e recuperar previsões e visuais utilizando o Transact-SQL. Também utiliza as bibliotecas ScaleR para melhorar a escala e o desempenho das suas soluções R. Para mais informações, consulte [os Serviços R do SQL Server](/sql/advanced-analytics/r/sql-server-r-services).
 
-A equipa da TDSP da Microsoft publicou duas pesquisas de ponta a ponta que mostram como construir soluções de ciência de dados nos Serviços R do SQL Server 2016: uma para programadores R e outra para desenvolvedores DE SQL. Para **programadores R** , consulte [data science end-to-end walkthrough](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para **desenvolvedores SQL** , consulte [In-Database Advanced Analytics for SQL Developers (Tutorial)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
+A equipa da TDSP da Microsoft publicou duas pesquisas de ponta a ponta que mostram como construir soluções de ciência de dados nos Serviços R do SQL Server 2016: uma para programadores R e outra para desenvolvedores DE SQL. Para **programadores R**, consulte [data science end-to-end walkthrough](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para **desenvolvedores SQL**, consulte [In-Database Advanced Analytics for SQL Developers (Tutorial)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
 ## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Apêndice: Ferramentas para criar projetos de ciência de dados

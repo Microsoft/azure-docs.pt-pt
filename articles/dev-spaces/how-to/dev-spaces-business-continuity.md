@@ -9,11 +9,11 @@ description: Aprenda a utilizar a Azure Dev Spaces e a Azure Kubernetes Services
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
 manager: gwallace
 ms.openlocfilehash: 824eb1e65e7da5736080e47509aa163a868d8ec9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973143"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023334"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuidade do negócio e recuperação de desastres em Espaços Azure Dev
 

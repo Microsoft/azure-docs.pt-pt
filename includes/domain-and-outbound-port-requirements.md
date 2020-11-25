@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: abnarain
 ms.openlocfilehash: f7b11f813232f593be3598a87b6f1ad7a57054b0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95561988"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023364"
 ---
 | Nomes de domínio                  | Portas de saída | Descrição                              |
 | ----------------------------- | -------------- | ---------------------------------------- |

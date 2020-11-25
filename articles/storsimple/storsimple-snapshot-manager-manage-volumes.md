@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
 ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964971"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022943"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Use StorSimple Snapshot Manager para visualizar e gerir volumes
 ## <a name="overview"></a>Descrição geral

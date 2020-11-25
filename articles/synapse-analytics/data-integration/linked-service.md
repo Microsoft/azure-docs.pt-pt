@@ -10,11 +10,11 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359974"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022926"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Garantir um serviço ligado com links privados
 
@@ -22,8 +22,8 @@ Neste artigo, você aprenderá a garantir um serviço ligado em Synapse com um p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição Azure** : Se não tiver uma subscrição do Azure, crie uma [conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta Azure Storage** : Utiliza o Azure Data Lake Gen 2 como uma loja de dados *de origem.* Se não tiver uma conta de armazenamento, consulte [criar uma conta de Armazenamento Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para obter passos para criar uma. Certifique-se de que a Conta de Armazenamento tem a filtragem IP do Estúdio Synapse para aceder à sua aceder e que só permite que **as redes Selecionadas acedam** à conta de Armazenamento. A definição sob as **firewalls** da lâmina e as redes virtuais devem parecer a imagem abaixo.
+* **Subscrição Azure**: Se não tiver uma subscrição do Azure, crie uma [conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta Azure Storage**: Utiliza o Azure Data Lake Gen 2 como uma loja de dados *de origem.* Se não tiver uma conta de armazenamento, consulte [criar uma conta de Armazenamento Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para obter passos para criar uma. Certifique-se de que a Conta de Armazenamento tem a filtragem IP do Estúdio Synapse para aceder à sua aceder e que só permite que **as redes Selecionadas acedam** à conta de Armazenamento. A definição sob as **firewalls** da lâmina e as redes virtuais devem parecer a imagem abaixo.
 
 ![Conta de Armazenamento Segura](./media/secure-storage-account.png)
 
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá a garantir um serviço ligado em Synapse com um p
 No Azure Synapse Analytics, um serviço ligado é onde define as suas informações de ligação a outros serviços. Nesta secção, você adicionará Azure Synapse Analytics e Azure Data Lake Gen 2 como serviços ligados.
 
 1. Abra o Azure Synapse Studio e vá ao **separador Gerir.**
-1. Em **ligações externas** , selecione **serviços Linked**.
+1. Em **ligações externas**, selecione **serviços Linked**.
 1. Para adicionar um serviço ligado, selecione **New**.
 1. Selecione o azulejo Azure Data Lake Storage Gen2 da lista e selecione **Continue**.
 1. Certifique-se de que ativa **a Autoria Interativa.** Pode levar cerca de 1 minuto para ser ativado. 
@@ -66,7 +66,7 @@ Se não selecionou para a hiperligação ao testar a ligação acima, siga o seg
 
 Estabeleceu agora uma ligação segura e privada entre a Synapse e o seu serviço ligado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 
 Para desenvolver uma maior compreensão do ponto final privado gerido no Synapse Analytics, consulte [os pontos finais privados geridos.](../security/synapse-workspace-managed-private-endpoints.md)

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: d45f5d5d1d61372ed959334519aa865c22d70748
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fa048473f0f285b793dad88c7defdb6189ca1ccd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832522"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023011"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do sumidouro no fluxo de dados de mapeamento
 
@@ -107,6 +107,10 @@ Por predefinição, os dados são escritos a vários lavatórios numa ordem não
 ## <a name="error-row-handling"></a>Processamento da linha de erro
 
 Ao escrever para bases de dados, certas linhas de dados podem falhar devido a restrições definidas pelo destino. Por predefinição, um fluxo de dados falhará no primeiro erro que obtém. Em certos conectores, pode optar por Continuar por **erro** que permite que o fluxo de dados seja concluído mesmo que as linhas individuais tenham erros. Atualmente, esta capacidade só está disponível na Base de Dados Azure SQL. Para obter mais informações, consulte [o manuseamento de linhas de erro no Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
+
+Abaixo está um tutorial de vídeo sobre como usar o manuseamento de linha de erro de base de dados automaticamente na sua transformação de pia.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
 
 ## <a name="data-preview-in-sink"></a>Pré-visualização de dados na pia
 

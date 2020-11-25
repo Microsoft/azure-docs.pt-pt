@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb90c5776e67c1ba8fecdbf394a8098e96ca0652
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230114"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96022382"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminação recuperável para blobs
 
 A eliminação suave das bolhas protege os seus dados de serem modificados ou eliminados acidentalmente ou erroneamente. Quando a eliminação suave para bolhas estiver ativada para uma conta de armazenamento, as versões blob, blob e instantâneos nessa conta de armazenamento podem ser recuperadas após a sua eliminação, num período de retenção que especifique.
 
-Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se apague suavemente. Para obter mais informações sobre a ativação da eliminação suave, consulte [Ativar e gerir a eliminação suave para bolhas](soft-delete-enable.md).
+Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se apague suavemente. Para obter mais informações sobre a ativação da eliminação suave, consulte [Ativar e gerir a eliminação suave para bolhas](./soft-delete-blob-enable.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -149,7 +149,7 @@ Consulte a secção [etapas seguintes](#next-steps) para obter um ponteiro para 
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
-Todos os dados eliminados suaves são faturados à mesma taxa que os dados ativos. Não será cobrado por dados que sejam permanentemente eliminados após o período de retenção configurado. Para um mergulho mais profundo em instantâneos e como acumulam encargos, consulte [compreender como os instantâneos acumulam encargos](storage-blob-snapshots.md).
+Todos os dados eliminados suaves são faturados à mesma taxa que os dados ativos. Não será cobrado por dados que sejam permanentemente eliminados após o período de retenção configurado. Para um mergulho mais profundo em instantâneos e como acumulam encargos, consulte [compreender como os instantâneos acumulam encargos](./snapshots-overview.md).
 
 Não será cobrado para as transações relacionadas com a geração automática de instantâneos. Será cobrado para transações **da Undelete Blob** à taxa para operações de escrita.
 
@@ -183,7 +183,7 @@ Sim, mas primeiro tens de ligar ao Undelete.
 
 ### <a name="is-soft-delete-available-for-virtual-machine-disks"></a>A exclusão suave está disponível para discos de máquinas virtuais?  
 
-A eliminação suave está disponível tanto para discos premium como não geridos padrão, que são bolhas de página sob as capas. A eliminação suave só o ajudará a recuperar os dados eliminados por **Delete Blob,** **Put Blob,** **Put Block List**e **Copy Blob** operações. Os dados substituídos por uma chamada para **Put Page** não são recuperáveis.
+A eliminação suave está disponível tanto para discos premium como não geridos padrão, que são bolhas de página sob as capas. A eliminação suave só o ajudará a recuperar os dados eliminados por **Delete Blob,** **Put Blob,** **Put Block List** e **Copy Blob** operações. Os dados substituídos por uma chamada para **Put Page** não são recuperáveis.
 
 Uma máquina virtual Azure escreve para um disco não gerido usando chamadas para **Put Page**, por isso usar exclusão suave para desfazer escreve para um disco não gerido a partir de um Azure VM não é um cenário suportado.
 
@@ -193,5 +193,5 @@ Uma máquina virtual Azure escreve para um disco não gerido usando chamadas par
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar a eliminação recuperável para blobs](soft-delete-enable.md)
+- [Ativar a eliminação recuperável para blobs](./soft-delete-blob-enable.md)
 - [Versão blob](versioning-overview.md)

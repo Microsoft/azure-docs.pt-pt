@@ -9,11 +9,11 @@ ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
 ms.openlocfilehash: b8da0b5c55b291af42d9a30db23d6f55f7c0bf2d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965311"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022790"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação de desastres para uma base de dados Oracle Database 12c em ambiente Azure
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 08/21/2020
 ms.author: tamram
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 3aa21fb99ac5ab24674bf5d4b62fd3fca98de632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45df30f4f1444b6148af9f3c7d47b94909ccef3d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88853672"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025714"
 ---
 ## <a name="what-is-queue-storage"></a>O que é o armazenamento da fila?
 
@@ -23,7 +23,7 @@ O serviço Azure Queue contém os seguintes componentes:
 ![Componentes de serviço da Fila Azure](./media/storage-queue-concepts-include/azure-queue-service-components.png)
 
 * **Conta de Armazenamento:** todos os acessos ao Storage do Azure são efetuados através de uma conta de armazenamento. Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de Armazenamento.](../articles/storage/common/storage-account-overview.md)
-* **Fila:** uma fila contém um conjunto de mensagens. Todas as mensagens têm de estar numa fila. Tenha em atenção que o nome da fila tem de estar todo em minúsculas. Para obter informações sobre a nomenclatura de filas, veja [Nomenclatura de Filas e Metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+* **Fila:** uma fila contém um conjunto de mensagens. Todas as mensagens têm de estar numa fila. Tenha em atenção que o nome da fila tem de estar todo em minúsculas. Para obter informações sobre a nomenclatura de filas, veja [Nomenclatura de Filas e Metadados](/rest/api/storageservices/Naming-Queues-and-Metadata).
 * **Mensagem:** uma mensagem, em qualquer formato, até 64 KB. O tempo máximo que uma mensagem pode permanecer na fila de espera é de 7 dias. Para a versão 2017-07-29 ou posterior, o tempo máximo de vida pode ser qualquer número positivo, ou -1 indicando que a mensagem não expira. Se este parâmetro for omitido, o tempo de vida padrão é de sete dias.
 * **Formato URL:** As filas são endereçais utilizando o seguinte formato URL: http:// `<storage account>` .queue.core.windows.net/`<queue>`
 

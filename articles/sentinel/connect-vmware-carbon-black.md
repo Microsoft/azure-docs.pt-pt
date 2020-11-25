@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: e13b251c9bd95a5b52d63d8ea1bbf265c9c46fd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87098437"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023879"
 ---
 # <a name="connect-your-vmware-carbon-black-cloud-endpoint-standard-to-azure-sentinel-with-azure-function"></a>Ligue o seu VMware Carbon Black Cloud Endpoint Standard ao Azure Sentinel com a função Azure
 
 > [!IMPORTANT]
 > O conector de dados VMware Carbon Black Cloud Endpoint Standard em Azure Sentinel está atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O conector VMware Carbon Black Cloud Endpoint Standard permite-lhe ligar facilmente todos os registos de solução de segurança [VMware Carbon Black Endpoint Standard](https://www.carbonblack.com/products/endpoint-standard/) com o Azure Sentinel, para visualizar dashboards, criar alertas personalizados e melhorar a investigação. A integração entre vMware Carbon Black e Azure Sentinel faz uso de Funções Azure para retirar dados de registo usando a API REST.
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: 8a39c2b06ca8a0f852891acb60ba199fc2c6db5c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142655"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024134"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Melhores práticas para a configuração do dispositivo dentro de uma solução IoT
 
@@ -78,7 +78,7 @@ Seguem-se as melhores práticas para os operadores de soluções IoT que utiliza
 
 * **Organizar dispositivos para gestão:** A solução IoT deve definir ou permitir a criação de anéis de qualidade ou outros conjuntos de dispositivos baseados em várias estratégias de implantação, como o canário. Os conjuntos de dispositivos serão utilizados para lançar alterações de configuração e para executar outras operações de gestão de dispositivos à escala.
 
-* **Executar alterações de configuração utilizando um roll out faseado:**  Um roll-out faseado é um processo global pelo qual um operador implementa alterações para um conjunto alargado de dispositivos IoT. O objetivo é fazer mudanças gradualmente para reduzir o risco de fazer mudanças de quebra em larga escala.O operador deve utilizar a interface da solução para criar uma [configuração automática](./iot-hub-automatic-device-management.md) do dispositivo e a condição de destino deve visar um conjunto inicial de dispositivos (como um grupo canário). O operador deve então validar a alteração de configuração no conjunto inicial de dispositivos.
+* **Executar alterações de configuração utilizando um roll out faseado:**  Um roll-out faseado é um processo global pelo qual um operador implementa alterações para um conjunto alargado de dispositivos IoT. O objetivo é fazer mudanças gradualmente para reduzir o risco de fazer mudanças de quebra em larga escala.  O operador deve utilizar a interface da solução para criar uma [configuração automática](./iot-hub-automatic-device-management.md) do dispositivo e a condição de destino deve visar um conjunto inicial de dispositivos (como um grupo canário). O operador deve então validar a alteração de configuração no conjunto inicial de dispositivos.
 
    Uma vez concluída a validação, o operador atualizará a configuração automática do dispositivo para incluir um conjunto maior de dispositivos. O operador deve também definir a prioridade para que a configuração seja superior às outras configurações atualmente direcionadas para esses dispositivos. O roll out pode ser monitorizado utilizando as métricas comunicadas pela configuração automática do dispositivo.
 

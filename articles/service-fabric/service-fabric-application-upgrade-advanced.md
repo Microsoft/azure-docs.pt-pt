@@ -4,11 +4,11 @@ description: Este artigo abrange alguns tópicos avançados relativos à atualiz
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86248089"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022994"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Atualização da aplicação do Tecido de Serviço: Tópicos avançados
 
@@ -112,7 +112,7 @@ A duração do atraso ultrapassado aplica-se apenas à instância de atualizaç�
 >
 >
 
-No modo *Monitorado,* o Service Fabric aplica políticas de saúde para garantir que a aplicação é saudável à medida que a atualização progride. Se as políticas de saúde forem violadas, a atualização é suspensa ou revoada automaticamente dependendo da Falha de *Produção*especificada .
+No modo *Monitorado,* o Service Fabric aplica políticas de saúde para garantir que a aplicação é saudável à medida que a atualização progride. Se as políticas de saúde forem violadas, a atualização é suspensa ou revoada automaticamente dependendo da Falha de *Produção* especificada .
 
 No modo *Não monitorizadoManual,* o administrador da aplicação tem controlo total sobre a progressão da atualização. Este modo é útil quando se aplicam políticas de avaliação de saúde personalizadas ou se realizam atualizações não convencionais para contornar completamente a monitorização da saúde (por exemplo, a aplicação já está em perda de dados). Uma atualização em execução neste modo suspender-se-á após completar cada UD e deve ser explicitamente retomada utilizando [o Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Quando uma atualização for suspensa e pronta a ser retomada pelo utilizador, o seu estado de atualização mostrará *RollforwardPending* (ver [Estado de Atualização).](/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)
 

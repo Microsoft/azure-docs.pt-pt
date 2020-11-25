@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 80c837e640ef0d1739c329fb463e173e6c40be31
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/25/2020
+ms.openlocfilehash: 22155083a71a9cbf615293a4f86a179aaefce2a9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331721"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96023363"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Create and configure a self-hosted integration runtime (Criar e configurar um runtime de integração autoalojado)
 
@@ -150,7 +150,7 @@ Aqui está um resumo de alto nível dos passos de fluxo de dados para copiar com
 - Utilize um tempo de integração auto-hospedado para suportar a integração de dados dentro de uma rede virtual Azure.
 - Trate a sua fonte de dados como uma fonte de dados no local que está por trás de uma firewall, mesmo quando utiliza o Azure ExpressRoute. Utilize o tempo de funcionação da integração auto-hospedada para ligar o serviço à fonte de dados.
 - Utilize o tempo de integração auto-hospedado mesmo que a loja de dados esteja na nuvem de uma infraestrutura Azure como máquina virtual de Serviço (IaaS).
-- As tarefas podem falhar num tempo de integração auto-hospedado que instalou num servidor Windows para o qual a encriptação compatível com FIPS está ativada. Para resolver este problema, tem duas opções: armazenar credenciais/valores secretos num Cofre de Chaves Azure ou desativar a encriptação compatível com FIPS no servidor. Para desativar a encriptação compatível com o FIPS, altere o valor do sub-chave do registo seguinte de 1 (ativado) para 0 (desativado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` .
+- As tarefas podem falhar num tempo de integração auto-hospedado que instalou num servidor Windows para o qual a encriptação compatível com FIPS está ativada. Para resolver este problema, tem duas opções: armazenar credenciais/valores secretos num Cofre de Chaves Azure ou desativar a encriptação compatível com FIPS no servidor. Para desativar a encriptação compatível com o FIPS, altere o valor do sub-chave do registo seguinte de 1 (ativado) para 0 (desativado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` . Se utilizar o [tempo de integração auto-hospedado como proxy para o tempo de execução da integração SSIS,](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)a encriptação compatível com FIPS pode ser ativada e será usada ao mover dados de instalações para Azure Blob Storage como uma área de preparação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -185,7 +185,7 @@ Pode instalar o tempo de integração auto-hospedado descarregando um pacote de 
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Instale e registe um IR auto-hospedado do Microsoft Download Center
 
 1. Aceda à página de [descarregamento de tempo de execução](https://www.microsoft.com/download/details.aspx?id=39717)da integração da Microsoft.
-1. Selecione **Download** , selecione a versão de 64 bits e selecione **Next**. A versão de 32 bits não é suportada.
+1. Selecione **Download**, selecione a versão de 64 bits e selecione **Next**. A versão de 32 bits não é suportada.
 1. Executar o ficheiro Identidade Gerida diretamente, ou guarde-o para o seu disco rígido e execute-o.
 1. Na janela **Welcome,** selecione um idioma e selecione **Seguinte**.
 1. Aceite os Termos de Licença de Software da Microsoft e selecione **Seguinte**.
@@ -264,8 +264,8 @@ Para ver uma introdução e demonstração desta funcionalidade, veja o vídeo s
 
 ### <a name="terminology"></a>Terminologia
 
-- **IR compartilhado** : Um IR original auto-hospedado que funciona em uma infraestrutura física.  
-- **Linked IR** : Um IR que faz referência a outro IR partilhado. O IR ligado é um IR lógico e utiliza a infraestrutura de outro IR partilhado auto-hospedado.
+- **IR compartilhado**: Um IR original auto-hospedado que funciona em uma infraestrutura física.  
+- **Linked IR**: Um IR que faz referência a outro IR partilhado. O IR ligado é um IR lógico e utiliza a infraestrutura de outro IR partilhado auto-hospedado.
 
 ### <a name="methods-to-share-a-self-hosted-integration-runtime"></a>Métodos para partilhar um tempo de integração auto-hospedado
 
@@ -351,9 +351,9 @@ Quando configurado, o tempo de integração auto-hospedado utiliza o servidor pr
 
 Existem três opções de configuração:
 
-- **Não utilize proxy** : O tempo de integração auto-hospedado não utiliza explicitamente qualquer procuração para se ligar a serviços na nuvem.
-- **Utilização do sistema proxy** : O tempo de execução de integração auto-hospedado utiliza a definição de procuração configurada em diahost.exe.config e diawp.exe.config. Se estes ficheiros especificarem nenhuma configuração de procuração, o tempo de execução de integração auto-hospedado liga-se diretamente ao serviço de nuvem sem passar por um representante.
-- **Utilize o proxy personalizado** : Configure a definição de procuração HTTP para utilizar para o tempo de execução de integração auto-hospedado, em vez de utilizar configurações em diahost.exe.config e diawp.exe.config. **São** necessários valores de endereço e **porta.** **Os** valores do Nome de Utilizador e da **Palavra-Passe** são opcionais, dependendo da definição de autenticação do seu representante. Todas as definições são encriptadas com O DPAPI do Windows no tempo de funcionação de integração auto-hospedado e armazenadas localmente na máquina.
+- **Não utilize proxy**: O tempo de integração auto-hospedado não utiliza explicitamente qualquer procuração para se ligar a serviços na nuvem.
+- **Utilização do sistema proxy**: O tempo de execução de integração auto-hospedado utiliza a definição de procuração configurada em diahost.exe.config e diawp.exe.config. Se estes ficheiros especificarem nenhuma configuração de procuração, o tempo de execução de integração auto-hospedado liga-se diretamente ao serviço de nuvem sem passar por um representante.
+- **Utilize o proxy personalizado**: Configure a definição de procuração HTTP para utilizar para o tempo de execução de integração auto-hospedado, em vez de utilizar configurações em diahost.exe.config e diawp.exe.config. **São** necessários valores de endereço e **porta.** **Os** valores do Nome de Utilizador e da **Palavra-Passe** são opcionais, dependendo da definição de autenticação do seu representante. Todas as definições são encriptadas com O DPAPI do Windows no tempo de funcionação de integração auto-hospedado e armazenadas localmente na máquina.
 
 O serviço de anfitrião de execução de integração reinicia automaticamente depois de guardar as definições de procuração atualizadas.
 
@@ -361,7 +361,7 @@ Depois de registar o tempo de execução de integração auto-hospedado, se pret
 
 1. Abra **o Gestor de Configuração de Tempo de Execução da Integração da Microsoft**.
 1. Selecione o separador **Settings** (Definições).
-1. Em **HTTP Proxy** , selecione o link **'Alterar'** para abrir a caixa de diálogo **'set HTTP Proxy'.**
+1. Em **HTTP Proxy**, selecione o link **'Alterar'** para abrir a caixa de diálogo **'set HTTP Proxy'.**
 1. Selecione **Seguinte**. Em seguida, vê um aviso que pede a sua permissão para salvar a definição de procuração e reiniciar o serviço de anfitrião de tempo de integração.
 
 Pode utilizar a ferramenta do gestor de configuração para visualizar e atualizar o proxy HTTP.
@@ -416,7 +416,7 @@ Também precisa de se certificar de que o Microsoft Azure está na lista de auto
 Se vir mensagens de erro como as seguintes, a razão provável é a configuração imprópria da firewall ou servidor de procuração. Esta configuração impede que o tempo de integração auto-hospedado se conecte à Data Factory para se autenticar. Para garantir que a sua firewall e o servidor proxy estão corretamente configurados, consulte a secção anterior.
 
 * Quando tenta registar o tempo de integração auto-hospedado, recebe a seguinte mensagem de erro: "Falhou no registo deste nó de tempo de execução de integração! Confirme que a chave autenticação é válida e que o serviço de assistência de integração está a funcionar nesta máquina."
-* Quando abre o Gestor de Configuração de Tempo de Execução de Integração, vê um estado de **Desconectado** ou **De Ligação**. Quando visualiza os registos de eventos do Windows, em **Aplicação** e Serviços do Espectador de  >  **Eventos,** o  >  **Microsoft Integration Runtime** , vê mensagens de erro como esta:
+* Quando abre o Gestor de Configuração de Tempo de Execução de Integração, vê um estado de **Desconectado** ou **De Ligação**. Quando visualiza os registos de eventos do Windows, em **Aplicação** e Serviços do Espectador de  >  **Eventos,** o  >  **Microsoft Integration Runtime**, vê mensagens de erro como esta:
 
     ```
     Unable to connect to the remote server

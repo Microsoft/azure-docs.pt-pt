@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054777"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022960"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Use storSimple Snapshot Manager para criar e gerir grupos de volume
 ## <a name="overview"></a>Descrição geral
@@ -46,7 +46,7 @@ Este tutorial explica como pode utilizar o StorSimple Snapshot Manager para:
 Todas estas ações estão também disponíveis no painel **de Ações.**
 
 ## <a name="view-volume-groups"></a>Ver grupos de volume
-Se clicar no nó **Grupos de Volume,** o painel **de resultados** mostra as seguintes informações sobre cada grupo de volume, dependendo das seleções de colunas que escoda. (As colunas no painel **de resultados** são configuráveis. Clique com o botão direito no nó **volumes,** selecione **Ver**e, em seguida, selecione **Adicionar/Remover Colunas**.)
+Se clicar no nó **Grupos de Volume,** o painel **de resultados** mostra as seguintes informações sobre cada grupo de volume, dependendo das seleções de colunas que escoda. (As colunas no painel **de resultados** são configuráveis. Clique com o botão direito no nó **volumes,** selecione **Ver** e, em seguida, selecione **Adicionar/Remover Colunas**.)
 
 | Coluna de resultados | Descrição |
 |:--- |:--- |
@@ -65,7 +65,7 @@ Utilize o seguinte procedimento para criar um grupo de volume.
 
 #### <a name="to-create-a-volume-group"></a>Criar um grupo de volume
 1. Clique no ícone do ambiente de trabalho para iniciar o StorSimple Snapshot Manager.
-2. No painel **Scope,** clique à direita **em Grupos de Volume**e, em seguida, clique em Criar Grupo de **Volume**.
+2. No painel **Scope,** clique à direita **em Grupos de Volume** e, em seguida, clique em Criar Grupo de **Volume**.
    
     ![Criar grupo de volume](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
    
@@ -95,7 +95,7 @@ Utilize o seguinte procedimento para fazer o reforço de um grupo de volume.
 2. No painel **Scope,** expanda o nó grupos de **volume,** clique com o botão direito num nome de grupo de volume e, em seguida, clique em **Take Backup**.
    
     ![Apoiar grupo de volume imediatamente](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
-3. Na caixa de diálogo **De backup,** selecione **Snapshot Local** ou **Cloud Snapshot**e, em seguida, clique em **Criar**.
+3. Na caixa de diálogo **De backup,** selecione **Snapshot Local** ou **Cloud Snapshot** e, em seguida, clique em **Criar**.
    
     ![Faça o diálogo de backup](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png)
 4. Para confirmar que a cópia de segurança está em execução, expanda o nó **Jobs** e, em seguida, clique em **Executar**. O reforço deve estar na lista.
@@ -107,7 +107,7 @@ Utilize o seguinte procedimento para editar um grupo de volume.
 #### <a name="to-edit-a-volume-group"></a>Para editar um grupo de volume
 1. Clique no ícone do ambiente de trabalho para iniciar o StorSimple Snapshot Manager.
 2. No painel **Scope,** expanda o nó **grupos de volume,** clique com o botão direito num nome de grupo de volume e, em seguida, clique em **Editar**.
-3. Aparece a caixa de diálogo **Create a volume **. Pode alterar as entradas **Nome,** **Aplicações**e **Volumes.**
+3. Aparece a caixa de diálogo **Create a volume **. Pode alterar as entradas **Nome,** **Aplicações** e **Volumes.**
 4. Clique em **OK** para guardar as alterações.
 
 ## <a name="delete-a-volume-group"></a>Excluir um grupo de volume

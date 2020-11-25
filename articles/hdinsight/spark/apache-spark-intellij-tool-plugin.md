@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
 ms.openlocfilehash: b70de1915e6c068bd658dff60776085075412789
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539790"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024015"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Use o Azure Toolkit para IntelliJ para criar aplicações Apache Spark para cluster HDInsight
 
@@ -71,7 +71,7 @@ Passos para instalar o plugin Scala:
 
      ![IntelliJ IDEA Nova caixa de diálogo do projeto](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-5. Selecione **Seguinte** .
+5. Selecione **Seguinte**.
 
 6. Na janela **New Project,** forneça as seguintes informações:  
 
@@ -80,15 +80,15 @@ Passos para instalar o plugin Scala:
     |Nome do projeto| Insira um nome.  Este artigo `myApp` utiliza.|  
     |&nbsp;Localização do projeto| Entre no local para salvar o seu projeto.|
     |Projeto SDK| Este campo pode estar em branco no seu primeiro uso do IDEA.  Selecione **New...** e navegue para o seu JDK.|
-    |Versão Spark|O assistente de criação integra a versão adequada para Spark SDK e Scala SDK. Se a versão do cluster do Spark for anterior à 2.0, selecione **Spark 1.x** . Caso contrário, selecione **Spark2.x** . Este exemplo utiliza **a Faísca 2.3.0 (Scala 2.11.8)** .|
+    |Versão Spark|O assistente de criação integra a versão adequada para Spark SDK e Scala SDK. Se a versão do cluster do Spark for anterior à 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark2.x**. Este exemplo utiliza **a Faísca 2.3.0 (Scala 2.11.8)**.|
 
     ![Selecionando o Apache Spark SDK](./media/apache-spark-intellij-tool-plugin/intellij-new-project.png)
 
-7. Selecione **Concluir** .  Pode levar alguns minutos até que o projeto fique disponível.
+7. Selecione **Concluir**.  Pode levar alguns minutos até que o projeto fique disponível.
 
 8. O projeto Spark cria automaticamente um artefacto para si. Para ver o artefacto, faça os seguintes passos:
 
-   a. Da barra de menu, navegue para a Estrutura do Projeto **de**  >  **Arquivo...** .
+   a. Da barra de menu, navegue para a Estrutura do Projeto **de**  >  **Arquivo...**.
 
    b. A partir da janela Estrutura do **Projeto,** selecione **Artefactos.**  
 
@@ -100,11 +100,11 @@ Passos para instalar o plugin Scala:
 
     a. Do Project, navegue até ao **myApp**  >  **src**  >  **main**  >  **scala.**  
 
-    b. Scala **scala** com clique à direita e, em seguida, navegue para a Classe **New**  >  **Scala** .
+    b. Scala **scala** com clique à direita e, em seguida, navegue para a Classe **New**  >  **Scala**.
 
    ![Comandos para a criação de uma classe Scala do Projeto](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
 
-   c. Na caixa de diálogo **'Criar Nova Classe Scala',** forneça um nome, selecione **Object** na lista drop-down **Kind** e, em seguida, selecione **OK** .
+   c. Na caixa de diálogo **'Criar Nova Classe Scala',** forneça um nome, selecione **Object** na lista drop-down **Kind** e, em seguida, selecione **OK**.
 
      ![Criar caixa de diálogo classe Scala nova](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
@@ -138,7 +138,7 @@ O utilizador pode [iniciar seducação na subscrição do Azure,](#sign-in-to-yo
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Inscreva-se na sua assinatura Azure
 
-1. A partir da barra de menu, navegue para **ver o Tool**  >  **Windows**  >  **Azure Explorer** .
+1. A partir da barra de menu, navegue para **ver o Tool**  >  **Windows**  >  **Azure Explorer**.
 
    ![IntelliJ IDEA mostra explorador azul](./media/apache-spark-intellij-tool-plugin/show-azure-explorer1.png)
 
@@ -150,11 +150,11 @@ O utilizador pode [iniciar seducação na subscrição do Azure,](#sign-in-to-yo
 
     !['IntelliJ IDEA azure login do dispositivo de entrada'](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer2.png)
 
-4. Na caixa de diálogo de início de **sessão do Dispositivo Azure,** clique em **Copiar&Abrir** .
+4. Na caixa de diálogo de início de **sessão do Dispositivo Azure,** clique em **Copiar&Abrir**.
 
    !['IntelliJ IDEA azure device login'](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer5.png)
 
-5. Na interface do navegador, cole o código e, em seguida, clique em **Seguinte** .
+5. Na interface do navegador, cole o código e, em seguida, clique em **Seguinte**.
 
    !['Microsoft insira o diálogo de código para HDI'](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer6.png)
 
@@ -178,13 +178,13 @@ O utilizador pode [iniciar seducação na subscrição do Azure,](#sign-in-to-yo
 
 Pode ligar um cluster HDInsight utilizando o nome de utilizador gerido por Apache Ambari. Da mesma forma, para um cluster HDInsight ligado a domínio, pode ligar-se utilizando o domínio e o nome de utilizador, tais como `user1@contoso.com` . Também pode ligar o cluster livy Service.
 
-1. A partir da barra de menu, navegue para **ver o Tool**  >  **Windows**  >  **Azure Explorer** .
+1. A partir da barra de menu, navegue para **ver o Tool**  >  **Windows**  >  **Azure Explorer**.
 
-1. A partir do Azure Explorer, clique com o nó **HDInsight** e, em seguida, selecione **Link A Cluster** .
+1. A partir do Azure Explorer, clique com o nó **HDInsight** e, em seguida, selecione **Link A Cluster**.
 
    ![Menu de contexto de cluster de ligação Azure Explorer](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-1. As opções disponíveis na janela **Do Cluster Link A** variarão consoante o valor que selecionar na lista de down-down do Tipo de Recurso de **Ligação.**  Introduza os seus valores e, em seguida, selecione **OK** .
+1. As opções disponíveis na janela **Do Cluster Link A** variarão consoante o valor que selecionar na lista de down-down do Tipo de Recurso de **Ligação.**  Introduza os seus valores e, em seguida, selecione **OK**.
 
     * **HDInsight Cluster**  
   
@@ -224,19 +224,19 @@ Pode ligar um cluster HDInsight utilizando o nome de utilizador gerido por Apach
 
 Depois de criar uma aplicação Scala, pode submetê-la ao cluster.
 
-1. Do Project, navegue para **o myApp**  >  **src**  >  **main**  >  **scala**  >  **myApp** .  Clique com o botão direito **no myApp** e selecione **'Enviar a Aplicação de Faíscas'** (provavelmente estará localizado na parte inferior da lista).
+1. Do Project, navegue para **o myApp**  >  **src**  >  **main**  >  **scala**  >  **myApp**.  Clique com o botão direito **no myApp** e selecione **'Enviar a Aplicação de Faíscas'** (provavelmente estará localizado na parte inferior da lista).
 
       ![A Aplicação de Faísca submeter ao comando HDInsight](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
-2. Na janela de diálogo **de inscrição** de faíscas, selecione **1. Faísca em HDInsight** .
+2. Na janela de diálogo **de inscrição** de faíscas, selecione **1. Faísca em HDInsight**.
 
-3. Na janela de **configuração editar,** forneça os seguintes valores e, em seguida, selecione **OK** :
+3. Na janela de **configuração editar,** forneça os seguintes valores e, em seguida, selecione **OK**:
 
     |Propriedade |Valor |
     |----|----|
     |Aglomerados de faíscas (apenas Linux)|Selecione o cluster HDInsight Spark no qual pretende executar a sua aplicação.|
     |Selecione um artefacto para submeter|Deixe a definição predefinida.|
-    |Nome da classe principal|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse. **...**  e escolher outra classe.|
+    |Nome da classe principal|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse.**...**  e escolher outra classe.|
     |Configurações de trabalho|Pode alterar as teclas predefinidos e, ou valores. Para mais informações, consulte [a Apache Livy REST API.](https://livy.incubator.apache.org/docs/latest/rest-api.html)|
     |Argumentos de linha de comando|Pode introduzir argumentos separados por espaço para a classe principal, se necessário.|
     |Frascos referenciados e ficheiros referenciados|Pode introduzir os caminhos para os frascos e ficheiros referenciados, se houver. Também pode navegar em ficheiros no sistema de ficheiros virtuais Azure, que atualmente apenas suporta o cluster ADLS Gen 2. Para mais informações: [Configuração de faíscas Apache](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Ver também, [Como carregar recursos para cluster.](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md)|
@@ -258,11 +258,11 @@ Recomendamos também outra forma de submeter o pedido spark ao cluster. Pode faz
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Aceda e gere clusters HDInsight Spark utilizando o Azure Toolkit para IntelliJ
 
-Pode fazer várias operações utilizando o Azure Toolkit para IntelliJ.  A maioria das operações são iniciadas a partir do **Azure Explorer.**  A partir da barra de menu, navegue para **ver o Tool**  >  **Windows**  >  **Azure Explorer** .
+Pode fazer várias operações utilizando o Azure Toolkit para IntelliJ.  A maioria das operações são iniciadas a partir do **Azure Explorer.**  A partir da barra de menu, navegue para **ver o Tool**  >  **Windows**  >  **Azure Explorer**.
 
 ### <a name="access-the-job-view"></a>Aceda à vista de emprego
 
-1. Do Azure Explorer, navegue até **HDInsight**  >  \<Your Cluster>  >  **Jobs** .
+1. Do Azure Explorer, navegue até **HDInsight**  >  \<Your Cluster>  >  **Jobs**.
 
     ![Nó de vista de intelliJ Azure Explorer Job](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
 
@@ -282,14 +282,14 @@ Pode fazer várias operações utilizando o Azure Toolkit para IntelliJ.  A maio
 
 ### <a name="access-the-spark-history-server"></a>Aceda ao servidor histórico Spark
 
-1. A partir do Azure Explorer, expanda **o HDInsight,** clique com o botão direito do seu nome de cluster Spark e, em seguida, selecione **Open Spark History UI** .  
+1. A partir do Azure Explorer, expanda **o HDInsight,** clique com o botão direito do seu nome de cluster Spark e, em seguida, selecione **Open Spark History UI**.  
 2. Quando for solicitado, insira as credenciais de administração do cluster, que especificou quando configurar o cluster.
 
 3. No painel de instrumentos do servidor Spark History, pode utilizar o nome da aplicação para procurar a aplicação que acabou de terminar de executar. No código anterior, define o nome da aplicação utilizando `val conf = new SparkConf().setAppName("myApp")` . O nome da sua aplicação Spark é **myApp.**
 
 ### <a name="start-the-ambari-portal"></a>Inicie o portal Ambari
 
-1. A partir do Azure Explorer, expanda **o HDInsight,** clique com o botão direito do seu nome de cluster Spark e, em seguida, selecione **Open Cluster Management Portal (Ambari)** .  
+1. A partir do Azure Explorer, expanda **o HDInsight,** clique com o botão direito do seu nome de cluster Spark e, em seguida, selecione **Open Cluster Management Portal (Ambari)**.  
 
 2. Quando for solicitado, insira as credenciais de administração para o cluster. Especificou estas credenciais durante o processo de configuração do cluster.
 
@@ -297,9 +297,9 @@ Pode fazer várias operações utilizando o Azure Toolkit para IntelliJ.  A maio
 
 Por padrão, o Azure Toolkit para IntelliJ lista os clusters Spark de todas as suas subscrições Azure. Se necessário, pode especificar as subscrições a que pretende aceder.  
 
-1. A partir do Azure Explorer, clique com o nó de raiz **Azure** e, em seguida, **selecione Select Subscrições** .  
+1. A partir do Azure Explorer, clique com o nó de raiz **Azure** e, em seguida, **selecione Select Subscrições**.  
 
-2. A partir da janela **'Selecionar assinaturas',** limpe as caixas de verificação ao lado das subscrições a que não pretende aceder e, em seguida, selecione **Fechar** .
+2. A partir da janela **'Selecionar assinaturas',** limpe as caixas de verificação ao lado das subscrições a que não pretende aceder e, em seguida, selecione **Fechar**.
 
 ## <a name="spark-console"></a>Consola spark
 
@@ -309,27 +309,27 @@ Pode executar a Consola Local Spark (Scala) ou executar a Consola De Sessão Int
 
 Certifique-se de ter satisfeito o pré-requisito WINUTILS.EXE.
 
-1. A partir da barra **Run** de menu, navegue para  >  **configurações de edição de execução...** .
+1. A partir da barra **Run** de menu, navegue para  >  **configurações de edição de execução...**.
 
-2. A partir da janela **configurações Run/Debug,** no painel esquerdo, navegue até **Apache Spark em HDInsight**  >  **[Spark on HDInsight] myApp** .
+2. A partir da janela **configurações Run/Debug,** no painel esquerdo, navegue até **Apache Spark em HDInsight**  >  **[Spark on HDInsight] myApp**.
 
 3. A partir da janela principal, selecione o **`Locally Run`** separador.
 
-4. Forneça os seguintes valores e, em seguida, selecione **OK** :
+4. Forneça os seguintes valores e, em seguida, selecione **OK**:
 
     |Propriedade |Valor |
     |----|----|
-    |Classe principal de emprego|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse. **...**  e escolher outra classe.|
+    |Classe principal de emprego|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse.**...**  e escolher outra classe.|
     |Variáveis de ambiente|Certifique-se de que o valor para HADOOP_HOME está correto.|
     |WINUTILS.exe localização|Certifique-se de que o caminho está correto.|
 
     ![Configuração local do conjunto de consolas](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
 
-5. Do Project, navegue para **o myApp**  >  **src**  >  **main**  >  **scala**  >  **myApp** .  
+5. Do Project, navegue para **o myApp**  >  **src**  >  **main**  >  **scala**  >  **myApp**.  
 
-6. A partir da barra de menu, navegue para **ferramentas**  >  **Spark Console** Run Spark Local Console  >  **(Scala)** .
+6. A partir da barra de menu, navegue para **ferramentas**  >  **Spark Console** Run Spark Local Console  >  **(Scala)**.
 
-7. Em seguida, podem ser apresentados dois diálogos para lhe perguntar se pretende corrigir automaticamente as dependências. Em caso afirmativo, selecione **Auto Fix** .
+7. Em seguida, podem ser apresentados dois diálogos para lhe perguntar se pretende corrigir automaticamente as dependências. Em caso afirmativo, selecione **Auto Fix**.
 
     ![IntelliJ IDEA Spark Auto Fix diálogo1](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix1.png)
 
@@ -341,24 +341,24 @@ Certifique-se de ter satisfeito o pré-requisito WINUTILS.EXE.
 
 ### <a name="spark-livy-interactive-session-consolescala"></a>Consola de sessão interativa Spark Livy (Scala)
 
-1. A partir da barra **Run** de menu, navegue para  >  **configurações de edição de execução...** .
+1. A partir da barra **Run** de menu, navegue para  >  **configurações de edição de execução...**.
 
-2. A partir da janela **configurações Run/Debug,** no painel esquerdo, navegue até **Apache Spark em HDInsight**  >  **[Spark on HDInsight] myApp** .
+2. A partir da janela **configurações Run/Debug,** no painel esquerdo, navegue até **Apache Spark em HDInsight**  >  **[Spark on HDInsight] myApp**.
 
 3. A partir da janela principal, selecione o **`Remotely Run in Cluster`** separador.
 
-4. Forneça os seguintes valores e, em seguida, selecione **OK** :
+4. Forneça os seguintes valores e, em seguida, selecione **OK**:
 
     |Propriedade |Valor |
     |----|----|
     |Aglomerados de faíscas (apenas Linux)|Selecione o cluster HDInsight Spark no qual pretende executar a sua aplicação.|
-    |Nome da classe principal|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse. **...**  e escolher outra classe.|
+    |Nome da classe principal|O valor predefinido é a classe principal do ficheiro selecionado. Pode alterar a classe selecionando a elipse.**...**  e escolher outra classe.|
 
     ![Configuração do conjunto de consolas interativas](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
 
-5. Do Project, navegue para **o myApp**  >  **src**  >  **main**  >  **scala**  >  **myApp** .  
+5. Do Project, navegue para **o myApp**  >  **src**  >  **main**  >  **scala**  >  **myApp**.  
 
-6. A partir da barra de menu, navegue para **ferramentas**  >  **Spark Console** Run Spark  >  **Livy Interactive Session Console Console(Scala)** .
+6. A partir da barra de menu, navegue para **ferramentas**  >  **Spark Console** Run Spark  >  **Livy Interactive Session Console Console(Scala)**.
 
 7. A consola deve ser semelhante à imagem abaixo. No tipo de janela da consola `sc.appName` , e, em seguida, prima ctrl+Enter.  O resultado será mostrado. Pode terminar a consola local clicando no botão vermelho.
 
@@ -422,9 +422,9 @@ Quando os utilizadores submetem trabalho a um cluster com permissão de função
 
 ### <a name="link-cluster-from-rundebug-configurations-window"></a>Cluster de ligação a partir da janela configurações Run/Debug
 
-1. Crie uma configuração HDInsight. Em seguida, selecione **Remotely Run in Cluster** .
+1. Crie uma configuração HDInsight. Em seguida, selecione **Remotely Run in Cluster**.
 
-2. Selecione um cluster, que tem permissão de função apenas para leitores para **clusters Spark (apenas Linux)** . A mensagem de aviso aparece. Pode clicar **em Ligar este cluster** para ligar o cluster.
+2. Selecione um cluster, que tem permissão de função apenas para leitores para **clusters Spark (apenas Linux)**. A mensagem de aviso aparece. Pode clicar **em Ligar este cluster** para ligar o cluster.
 
    ![IntelliJ IDEA executar/depurar configuração criar](./media/apache-spark-intellij-tool-plugin/create-configuration.png)
 
@@ -460,7 +460,7 @@ Pode converter as aplicações Spark Scala existentes que criou no IntelliJ IDEA
     <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
     ```
 
-3. Guarde as alterações. A sua aplicação deve agora ser compatível com o Azure Toolkit para IntelliJ. Pode testá-lo clicando no nome do projeto no Project. O menu pop-up tem agora a opção **Submeter a Aplicação de Faísca a HDInsight** .
+3. Guarde as alterações. A sua aplicação deve agora ser compatível com o Azure Toolkit para IntelliJ. Pode testá-lo clicando no nome do projeto no Project. O menu pop-up tem agora a opção **Submeter a Aplicação de Faísca a HDInsight**.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -468,13 +468,13 @@ Se não continuar a utilizar esta aplicação, elimine o cluster que criou com o
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Na caixa **de pesquisa** no topo, escreva **HDInsight** .
+1. Na caixa **de pesquisa** no topo, escreva **HDInsight**.
 
-1. Selecione **clusters HDInsight** em **Serviços** .
+1. Selecione **clusters HDInsight** em **Serviços**.
 
 1. Na lista de clusters HDInsight que aparecem, selecione o **...** ao lado do cluster que criou para este artigo.
 
-1. Selecione **Eliminar** . Selecione **Sim** .
+1. Selecione **Eliminar**. Selecione **Yes** (Sim).
 
 ![Portal Azure elimina cluster HDInsight](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Excluir o cluster HDInsight")
 

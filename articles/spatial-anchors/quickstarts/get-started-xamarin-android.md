@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Criar uma aplicação Xamarin Android'
 description: Neste quickstart, você aprende a construir uma aplicação Android com Xamarin usando Âncoras Espaciais.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 07/22/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ab414b877bd2d098c6e340267ff579fb58aec9d9
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 1626dfa739df6b7cf971aa570f14d36ac6c532e7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097325"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96022620"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Quickstart: Criar uma aplicação Xamarin Android com Âncoras Espaciais Azure
 
@@ -69,7 +69,7 @@ Localize o `SpatialAnchorsAccountDomain` campo e `Set me` substitua-o pelo domí
 
 Ligue o dispositivo Android, inscreva-se e conecte-o ao computador utilizando um cabo USB.
 
-Defina o projeto de arranque para **SampleXamarin.Android,** altere a **Configuração de Solução** para **Ser Lançada**e selecione o dispositivo para o quais pretende implementar no seletor do dispositivo.
+Defina o projeto de arranque para **SampleXamarin.Android,** altere a **Configuração de Solução** para **Ser Lançada** e selecione o dispositivo para o quais pretende implementar no seletor do dispositivo.
 
 # <a name="windows"></a>[Windows](#tab/deploy-windows)
 

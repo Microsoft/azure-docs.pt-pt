@@ -9,11 +9,11 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 2ed5cbc8c855d2f81986964c93009d75ed28fb8e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95554872"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025880"
 ---
 **Volume e retenção de recolha de dados** 
 
@@ -62,7 +62,7 @@ ms.locfileid: "95554872"
 |:---|:---|:---|
 | Colunas máximas numa tabela         | 500 | |
 | Caracteres máximos para nome de coluna | 500 | |
-| Exportar dados | Não disponível atualmente | Utilize a Azure Function ou a Logic App para agregar e exportar dados. | 
+| Exportação de dados | Não disponível atualmente | Utilize a Azure Function ou a Logic App para agregar e exportar dados. | 
 
 **<a name="data-ingestion-volume-rate">Taxa de volume de ingestão de dados</a>**
 

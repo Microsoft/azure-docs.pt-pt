@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: da2535a9764c909af3a491402311fe263dbb48fb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c476fe2af1fb4bddff4799609b164aab14f57b00
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331135"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023499"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN está na AG?
 
@@ -273,3 +273,7 @@ Consulte a secção [de limites DE WAN Virtual](../articles/azure-resource-manag
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quais são as diferenças entre os tipos de WAN Virtual (Básico e Standard)?
 
 Ver [WANs Virtuais Básicos e Padrão.](../articles/virtual-wan/virtual-wan-about.md#basicstandard) Para obter preços, consulte a página [de preços.](https://azure.microsoft.com/pricing/details/virtual-wan/)
+
+### <a name="does-virtual-wan-store-customer-data"></a>A VIRTUAL WAN armazena os dados do cliente? 
+
+Não. A WAN virtual não armazena quaisquer dados do cliente.

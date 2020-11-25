@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85563645"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023691"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Tutorial: Proteja a sua rede virtual do hub utilizando o Azure Firewall Manager
 
@@ -30,7 +30,7 @@ Para este tutorial, cria três redes virtuais:
 
 ![Rede híbrida](media/tutorial-hybrid-portal/hybrid-network-firewall.png)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma política de firewall
@@ -195,7 +195,7 @@ Agora crie a porta de entrada VPN para a rede virtual do hub. As configurações
 
 1. A partir da página inicial do portal Azure, **selecione Criar um recurso**.
 2. Na caixa de texto de pesquisa, digite **gateway de rede virtual** e prima **Enter**.
-3. Selecione **o gateway de rede virtual**e selecione **Criar**.
+3. Selecione **o gateway de rede virtual** e selecione **Criar**.
 4. Para **nome,** tipo **GW-hub**.
 5. Para **a Região**, selecione **(EUA) Leste DOS EUA.**
 6. Para **o tipo Gateway**, selecione **VPN**.
@@ -212,14 +212,14 @@ Agora crie a porta de entrada VPN para a rede virtual no local. As configuraçõ
 
 1. A partir da página inicial do portal Azure, **selecione Criar um recurso**.
 2. Na caixa de texto de pesquisa, digite **gateway de rede virtual** e prima **Enter**.
-3. Selecione **o gateway de rede virtual**e selecione **Criar**.
+3. Selecione **o gateway de rede virtual** e selecione **Criar**.
 4. Para **nome**, tipo **GW-Onprem**.
 5. Para **a Região**, selecione **(EUA) Leste DOS EUA.**
 6. Para **o tipo Gateway**, selecione **VPN**.
 7. Para **o tipo VPN**, selecione **Route-based**.
 8. Para **SKU**, selecione **Basic**.
 9. Para **rede virtual**, selecione **VNet-Onprem**.
-10. Para **o endereço IP público**, selecione * Utilize*o* **VNet-Onprem-GW-pip** para o nome.
+10. Para **o endereço IP público**, selecione * Utilize *o* **VNet-Onprem-GW-pip** para o nome.
 11. Aceite os predefinidos restantes e, em seguida, **selecione Review + create**.
 12. Reveja a configuração e, em seguida, **selecione Criar**.
 
@@ -360,7 +360,7 @@ Crie uma máquina virtual na rede virtual falada, executando o IIS, sem endereç
 5. Aceite as predefinições e selecione **Seguinte: Networking**.
 6. Selecione **VNet-Spoke** para a rede virtual e a sub-rede é **SN-Workload**.
 7. Para **IP público**, selecione **Nenhum**.
-8. Para **portas de entrada pública**, selecione Deixe as portas **selecionadas**e, em seguida, selecione HTTP **(80)** e **RDP (3389)**
+8. Para **portas de entrada pública**, selecione Deixe as portas **selecionadas** e, em seguida, selecione HTTP **(80)** e **RDP (3389)**
 9. Selecione **Seguinte:Gestão**.
 10. Para **diagnósticos de arranque**, Selecione **Off**.
 11. Selecione **Review+Create**, reveja as definições na página do resumo e, em seguida, **selecione Criar**.
@@ -398,7 +398,7 @@ Esta é uma máquina virtual que utiliza para ligar utilizando o Ambiente de Tra
 4. Selecione **Seguinte:Discos**.
 5. Aceite as predefinições e selecione **Seguinte:Networking**.
 6. Selecione **VNet-Onprem** para rede virtual e verifique se a sub-rede é **SN-Corp**.
-7. Para **portas de entrada pública**, selecione Deixe as portas **selecionadas**e, em seguida, selecione **RDP (3389)**
+7. Para **portas de entrada pública**, selecione Deixe as portas **selecionadas** e, em seguida, selecione **RDP (3389)**
 8. Selecione **Seguinte:Gestão**.
 9. Para **diagnósticos de arranque**, selecione **Off**.
 10. Selecione **Review+Create**, reveja as definições na página do resumo e, em seguida, **selecione Criar**.

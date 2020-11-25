@@ -1,18 +1,18 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78b93c05621754ae499e4ae8ca6b66c5bbfaad1b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87133896"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025755"
 ---
 Os Serviços Cognitivos fornecem dois serviços naturais de processamento de linguagem, [Compreensão linguística](../luis/what-is-luis.md) e [QnA Maker,](../qnamaker/overview/overview.md)cada um com um propósito diferente. Entenda quando usar cada serviço e como se elogiam mutuamente.
 
@@ -33,7 +33,7 @@ Se o seu chat bot receber o `How do I get to the Human Resources building on the
 |Serviço|A aplicação do cliente determina|
 |--|--|
 |LUIS|**Determina a intenção do utilizador** de enviar texto - o serviço não devolve a resposta à pergunta. Por exemplo, este texto é classificado como correspondendo à `FindLocation` intenção.<br>|
-|QnA Maker|**Devolve a resposta à pergunta a** partir de uma base de conhecimento personalizado. Por exemplo, este texto é determinado como uma pergunta com a resposta estática de texto de  `Get on the #9 bus and get off at Franklin street` .|
+|Criador de FAQ|**Devolve a resposta à pergunta a** partir de uma base de conhecimento personalizado. Por exemplo, este texto é determinado como uma pergunta com a resposta estática de texto de  `Get on the #9 bus and get off at Franklin street` .|
 |||
 
 > [!div class="mx-imgBorder"]
@@ -71,7 +71,7 @@ Pode apresentar esta resposta de terceiros ao utilizador para validação. Uma v
 
 Se o seu chat bot precisar de mais informações do que qualquer um dos serviços fornece, para continuar através de uma árvore de decisão, use ambos os serviços e processe ambas as respostas na aplicação do cliente.
 
-Utilize a ferramenta **[CoLI de despacho de](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** despacho de bot para ajudar a construir um processo para trabalhar com ambos os serviços. Esta ferramenta constrói uma app de intenções LUIS de topo que despacha entre a LUIS e a QnA Maker como aplicações infantis. [Saiba mais](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) sobre a integração com a estrutura LUIS, QnA Maker e Bot.
+Utilize a ferramenta **[CoLI de despacho de](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** despacho de bot para ajudar a construir um processo para trabalhar com ambos os serviços. Esta ferramenta constrói uma app de intenções LUIS de topo que despacha entre a LUIS e a QnA Maker como aplicações infantis. [Saiba mais](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0) sobre a integração com a estrutura LUIS, QnA Maker e Bot.
 
 Utilize a amostra de construtor bot, **NLP com despacho,** em [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) ou [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), para implementar este tipo de chat bot.
 
@@ -82,12 +82,12 @@ Implementar as melhores práticas para cada serviço:
 * [Boas](../luis/luis-concept-best-practices.md) práticas do LUIS
 * [QnA Maker](../qnamaker/concepts/best-practices.md) as melhores práticas
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Compreensão de Idiomas (LUIS)](../luis/what-is-luis.md)
 * [Criador de FAQ](../qnamaker/overview/overview.md)
 * [Despacho CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Amostras de estrutura de bot](https://github.com/Microsoft/BotBuilder-Samples)
-* [Serviço de bots Azure](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
+* [Serviço de bots Azure](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
 * [Emulador de bots Azure](https://github.com/Microsoft/BotFramework-Emulator)
 * [Chat web de estrutura de bot](https://github.com/microsoft/BotFramework-WebChat)

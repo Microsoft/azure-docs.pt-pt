@@ -6,11 +6,11 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
 ms.openlocfilehash: 8313243bf680ea1a1d63f2719b647149a04935a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893104"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024049"
 ---
 # <a name="material-mapping-for-model-formats"></a>Mapeamento de materiais para formatos de modelos
 
@@ -47,7 +47,7 @@ Cada textura no glTF pode ter um `texCoord` valor, que também é suportado nos 
 
 ### <a name="embedded-textures"></a>Texturas embutidas
 
-As texturas incorporadas em * \* ficheiros .bin* ou * \* .glb* são suportadas.
+As texturas incorporadas em *\* .bin* ou ficheiros *\* .glb* são suportadas.
 
 ### <a name="supported-gltf-extension"></a>Extensão de glTF suportada
 
@@ -101,7 +101,7 @@ O mapeamento acima é a parte mais complexa da conversão do material, devido a 
 Algumas definições utilizadas abaixo:
 
 * `Specular` =  `SpecularColor` * `SpecularFactor`
-* `SpecularIntensity` = `Specular`. ∗ vermelho 0.2125 +  `Specular` . ∗ verde 0,7154 + `Specular` . ∗ Azul 0.0721
+* `SpecularIntensity` = `Specular`.Red ∗ 0.2125 +  `Specular` . ∗ verde 0,7154 + `Specular` . ∗ Azul 0.0721
 * `DiffuseBrightness` = 0,299 * `Diffuse` . Vermelho<sup>2</sup> + 0,587 * `Diffuse` . Verde<sup>2</sup> + 0,114 * `Diffuse` . Azul<sup>2</sup>
 * `SpecularBrightness` = 0,299 * `Specular` . Vermelho<sup>2</sup> + 0,587 * `Specular` . Verde<sup>2</sup> + 0,114 * `Specular` . Azul<sup>2</sup>
 * `SpecularStrength` = `Specular` máx. Vermelho, `Specular` . Verde, `Specular` . Azul)

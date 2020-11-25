@@ -3,12 +3,12 @@ title: Filas de autocarros de serviço e tópicos como manipuladores de eventos 
 description: Descreve como pode usar filas e tópicos de Service Bus como manipuladores de eventos para eventos Azure Event Grid.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: ab219f0dc6009dc01d5915995fc04094e72a88cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b18009f8fb31f1a5f057c7395781f63f182847f
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629510"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96024219"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Filas de autocarros de serviço e tópicos como manipuladores de eventos para eventos Azure Event Grid
 Um manipulador de eventos é o local onde o evento é enviado. O manipulador toma mais algumas medidas para processar o evento. Vários serviços da Azure são automaticamente configurados para lidar com eventos e **a Azure Service Bus** é um deles. 
@@ -50,18 +50,8 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-## <a name="message-properties"></a>Propriedades de mensagens
-Se utilizar um **tópico de ônibus de serviço ou fila** como manipulador de eventos para eventos a partir da Grade de Eventos, estas são as propriedades que recebe nos cabeçalhos de mensagens: 
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
-| Nome da propriedade | Descrição |
-| ------------- | ----------- | 
-| nome de subscrição aeg | Nome da subscrição do evento. |
-| aeg-entrega-contagem | <p>Número de tentativas feitas para o evento.</p> <p>Exemplo: "1"</p> |
-| aeg-event-type | <p>Tipo de evento.</p><p> Exemplo: "Microsoft.Storage.blobCriated"</p> | 
-| versão aeg-metadados | <p>Versão metadados do evento.</p> <p>Exemplo: "1".</p><p> Para **o esquema de eventos Grid,** esta propriedade representa a versão metadados e para o esquema de **eventos em nuvem,** representa a **versão spec**. </p>|
-| versão aeg-data | <p>Versão de dados do evento.</p><p>Exemplo: "1".</p><p>Para **o esquema de eventos Grid,** esta propriedade representa a versão de dados e para o esquema de **eventos em nuvem,** não se aplica.</p> |
-
-## <a name="message-headers"></a>Cabeçalhos de mensagem
 Ao enviar um evento para uma fila de Autocarro de Serviço ou tópico como uma mensagem intermediada, `messageid` a mensagem intermediada é um ID do sistema interno.
 
 O ID do sistema interno para a mensagem será mantido em toda a reentrega do evento para que possa evitar entregas duplicadas, ligando a **deteção duplicada** na entidade de autocarros de serviço. Recomendamos que permita que a duração da deteção duplicada na entidade Service Bus seja o tempo de vida (TTL) do evento ou a duração máxima da relistência, o que for mais longo.

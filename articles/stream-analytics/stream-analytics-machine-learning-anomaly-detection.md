@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.openlocfilehash: c57a3920dac3e18e248109fafdf61fdfa871c54d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123715"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023402"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Deteção de anomalias em Azure Stream Analytics
 
@@ -152,7 +152,7 @@ O código de amostra para executar as configurações não partitioned acima est
 > Para uma estimativa mais precisa, personalize as amostras para se adaptar ao seu cenário.
 
 ### <a name="identifying-bottlenecks"></a>Identificar estrangulamentos
-Utilize o painel métrica no seu trabalho Azure Stream Analytics para identificar estrangulamentos no seu oleoduto. **Reveja os eventos de entrada/saída** para produção e ["Atraso de marca de água"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **eventos retrospados** para ver se o trabalho está a acompanhar a taxa de entrada. Para as métricas do Event Hub, procure **pedidos de aceleração** e ajuste as Unidades limiares em conformidade. Para as métricas da Cosmos DB, reveja **max consumiu RU/s por intervalo de chaves de partição** sob a produção para garantir que as suas gamas de chaves de partição são consumidas uniformemente. Para Azure SQL DB, monitorize **Log IO** e **CPU** .
+Utilize o painel métrica no seu trabalho Azure Stream Analytics para identificar estrangulamentos no seu oleoduto. **Reveja os eventos de entrada/saída** para produção e ["Atraso de marca de água"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **eventos retrospados** para ver se o trabalho está a acompanhar a taxa de entrada. Para as métricas do Event Hub, procure **pedidos de aceleração** e ajuste as Unidades limiares em conformidade. Para as métricas da Cosmos DB, reveja **max consumiu RU/s por intervalo de chaves de partição** sob a produção para garantir que as suas gamas de chaves de partição são consumidas uniformemente. Para Azure SQL DB, monitorize **Log IO** e **CPU**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

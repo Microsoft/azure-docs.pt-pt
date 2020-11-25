@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
 ms.openlocfilehash: 0179fd10e75af0ced55b4bb41f9525dc26b3efe5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540385"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023079"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Use funções definidas do utilizador Python (UDF) com a Colmeia Apache e o Porco Apache em HDInsight
 
@@ -27,8 +27,8 @@ HDInsight também inclui Jython, que é uma implementação python escrita em Ja
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster Hadoop em HDInsight** . Ver [Começar com HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md).
-* **Um cliente SSH** . Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cluster Hadoop em HDInsight**. Ver [Começar com HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **Um cliente SSH**. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * O [esquema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário dos seus clusters. Isto seria `wasb://` para o Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 ou adl:// para Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Azure Storage, o URI será wasbs://.  Consulte também, [transferência segura.](../../storage/common/storage-require-secure-transfer.md)
 * **Possível alteração para a configuração de armazenamento.**  Consulte [a configuração de armazenamento](#storage-configuration) se utilizar o tipo de conta de armazenamento `BlobStorage` .
 * Opcional.  Se planeia utilizar o PowerShell, necessitará do [módulo AZ](/powershell/azure/new-azureps-module-az) instalado.

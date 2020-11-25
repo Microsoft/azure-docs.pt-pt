@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288974"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022671"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Resolver Problemas do YARN do Apache Hadoop com o Azure HDInsight
 
@@ -24,7 +24,7 @@ Conheça as principais questões e suas resoluções ao trabalhar com apache Had
 
 Use os seguintes passos em Ambari para criar uma nova fila de YARN e, em seguida, equilibrar a alocação de capacidade entre todas as filas.
 
-Neste exemplo, duas filas existentes ( **padrão** e **thriftsvr** ) são alteradas de 50% de capacidade para 25%, o que dá à nova fila (faísca) capacidade de 50%.
+Neste exemplo, duas filas existentes (**padrão** e **thriftsvr**) são alteradas de 50% de capacidade para 25%, o que dá à nova fila (faísca) capacidade de 50%.
 
 | Fila | Capacidade | Capacidade máxima |
 | --- | --- | --- |

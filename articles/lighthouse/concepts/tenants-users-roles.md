@@ -4,11 +4,11 @@ description: Compreenda os conceitos de inquilinos, utilizadores e funções do 
 ms.date: 10/29/2020
 ms.topic: conceptual
 ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043044"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023947"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Inquilinos, utilizadores e papéis em cenários do Farol de Azure
 
@@ -30,7 +30,7 @@ Ao criar as suas autorizações, recomendamos as seguintes boas práticas:
 - Certifique-se de que qualquer utilizador que precise de ver a [página dos meus clientes no portal Azure](../how-to/view-manage-customers.md) tem a função [Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclui o acesso ao Reader).
 
 > [!IMPORTANT]
-> Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser definido como **Segurança** . Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser definido como **Segurança**. Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="role-support-for-azure-lighthouse"></a>Apoio de função para o Farol de Azure
 

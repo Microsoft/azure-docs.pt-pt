@@ -12,11 +12,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: effa0d3ba9f7098b691605bfbd76bff9ea3d5e66
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593761"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023436"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um tempo de integração Azure-SSIS na Azure Data Factory
 
@@ -112,21 +112,21 @@ Na página geral de **configurações** do painel de configuração do tempo de 
 
    ![Definições gerais](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
 
-   1. Em **Nome** , introduza o nome do seu runtime de integração.
+   1. Em **Nome**, introduza o nome do seu runtime de integração.
 
-   2. Em **Descrição** , introduza a descrição do seu runtime de integração.
+   2. Em **Descrição**, introduza a descrição do seu runtime de integração.
 
-   3. Em **Localização** , selecione a localização do seu runtime de integração. Apenas são apresentadas as localizações suportadas. Recomendamos que selecione a mesma localização do seu servidor de base de dados para alojar a SSISDB.
+   3. Em **Localização**, selecione a localização do seu runtime de integração. Apenas são apresentadas as localizações suportadas. Recomendamos que selecione a mesma localização do seu servidor de base de dados para alojar a SSISDB.
 
    4. Para **o tamanho do nó,** selecione o tamanho do nó no seu cluster de tempo de execução de integração. Apenas são apresentados os tamanhos de nó suportados. Selecione um grande tamanho de nó (escala para cima) se quiser executar muitos pacotes intensivos de computação ou intensivos de memória.
    > [!NOTE]
    > Se necessitar de [isolamento computacional,](../azure-government/azure-secure-isolation-guidance.md#compute-isolation)selecione o tamanho do nó **Standard_E64i_v3.** Este tamanho do nó representa máquinas virtuais isoladas que consomem todo o seu hospedeiro físico e fornecem o nível de isolamento necessário por certas cargas de trabalho, tais como as cargas de trabalho do Nível de Impacto 5 (IL5) do Departamento de Defesa dos EUA.
    
-   5. Em **Numero de Nós** , selecione o número de nós do cluster do runtime de integração. Apenas são apresentados os números de nó suportados. Selecione um grande cluster com muitos nós (escala para fora) se quiser executar muitos pacotes em paralelo.
+   5. Em **Numero de Nós**, selecione o número de nós do cluster do runtime de integração. Apenas são apresentados os números de nó suportados. Selecione um grande cluster com muitos nós (escala para fora) se quiser executar muitos pacotes em paralelo.
 
    6. Para **edição/licença,** selecione a edição sql Server para o seu tempo de integração: Standard ou Enterprise. Selecione Enterprise se quiser utilizar funcionalidades avançadas no seu tempo de execução de integração.
 
-   7. Para **economizar dinheiro** , selecione a opção Azure Hybrid Benefit para o seu tempo de integração: **Sim** ou **Não**. Selecione **Sim** se quiser trazer a sua própria licença SQL Server com Software Assurance para beneficiar de economias de custos com uso híbrido.
+   7. Para **economizar dinheiro**, selecione a opção Azure Hybrid Benefit para o seu tempo de integração: **Sim** ou **Não**. Selecione **Sim** se quiser trazer a sua própria licença SQL Server com Software Assurance para beneficiar de economias de custos com uso híbrido.
 
    8. Selecione **Seguinte**.
 
@@ -144,11 +144,11 @@ Se selecionar a caixa de verificação, preencha os seguintes passos para trazer
 
    ![Definições de implementação para SSISDB](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
    
-   1. Em **Subscrição** , selecione a subscrição do Azure que tem o servidor da base de dados para alojar a SSISDB. 
+   1. Em **Subscrição**, selecione a subscrição do Azure que tem o servidor da base de dados para alojar a SSISDB. 
 
-   1. Em **Localização** , selecione a mesma localização do seu servidor de base de dados para alojar a SSISDB. Recomendamos que selecione a mesma localização do seu runtime de integração.
+   1. Em **Localização**, selecione a mesma localização do seu servidor de base de dados para alojar a SSISDB. Recomendamos que selecione a mesma localização do seu runtime de integração.
 
-   1. Em **Ponto Final do Servidor de Base de Dados do Catálogo** , selecione o ponto final do seu servidor de base de dados para alojar a SSISDB. 
+   1. Em **Ponto Final do Servidor de Base de Dados do Catálogo**, selecione o ponto final do seu servidor de base de dados para alojar a SSISDB. 
    
       Com base no servidor de base de dados selecionado, a instância SSISDB pode ser criada em seu nome como uma única base de dados, como parte de uma piscina elástica, ou em um caso gerido. Pode ser acessível numa rede pública ou através da adesão a uma rede virtual. Para obter orientações na escolha do tipo de servidor de base de dados para hospedar o SSISDB, consulte [Compare SQL Database e SQL Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).   
 
@@ -162,7 +162,7 @@ Se selecionar a caixa de verificação, preencha os seguintes passos para trazer
 
    1. Para **a Palavra-passe de Admin,** introduza a palavra-passe de autenticação SQL para o seu servidor de base de dados para hospedar o SSISDB. 
 
-   1. Para **o Catálogo Database Service Tier** , selecione o nível de serviço para o seu servidor de base de dados para hospedar o SSISDB. Selecione o nível Básico, Standard ou Premium ou selecione um nome elástico da piscina.
+   1. Para **o Catálogo Database Service Tier**, selecione o nível de serviço para o seu servidor de base de dados para hospedar o SSISDB. Selecione o nível Básico, Standard ou Premium ou selecione um nome elástico da piscina.
 
 Selecione **a ligação de teste** quando aplicável e se for bem sucedida, selecione **Seguinte**.
 
@@ -183,7 +183,7 @@ No painel de **embalagem Add,** complete os seguintes passos.
    
    1. Para **o nome da loja pacote,** insira o nome da sua loja de pacotes. 
 
-   1. Para **o serviço ligado à loja pacote** , selecione o seu serviço ligado existente que armazena as informações de acesso para sistema de ficheiros/Azure Files/Azure SQL Managed Instance onde os seus pacotes são implantados ou criar um novo selecionando **New**. No novo painel **de serviço ligado,** complete os seguintes passos.
+   1. Para **o serviço ligado à loja pacote**, selecione o seu serviço ligado existente que armazena as informações de acesso para sistema de ficheiros/Azure Files/Azure SQL Managed Instance onde os seus pacotes são implantados ou criar um novo selecionando **New**. No novo painel **de serviço ligado,** complete os seguintes passos.
    
       > [!NOTE]
       > Pode utilizar serviços ligados ao **Azure File Storage** ou **ao Sistema de Ficheiros** para aceder a Ficheiros Azure. Se utilizar o serviço de armazenamento de **ficheiros Azure,** a loja de pacotes Azure-SSIS IR suporta apenas o método de autenticação **Basic** **(não's account** nem **SAS URI)** por enquanto. Para utilizar a autenticação **básica** no serviço ligado ao **Armazenamento de Ficheiros Azure,** pode anexar `?feature.upgradeAzureFileStorage=false` o URL do portal ADF no seu navegador. Em alternativa, pode utilizar o serviço ligado ao **Sistema de Ficheiros** para aceder a Ficheiros Azure. 
@@ -194,17 +194,17 @@ No painel de **embalagem Add,** complete os seguintes passos.
          
       1. Para **descrição,** insira a descrição do seu serviço ligado. 
          
-      1. Para **o tipo** , selecione **Azure File Storage** , **Azure SQL Managed Instance** , ou File **System**.
+      1. Para **o tipo**, selecione **Azure File Storage**, **Azure SQL Managed Instance**, ou File **System**.
 
       1. Pode ignorar **o Connect via tempo de integração,** uma vez que utilizamos sempre o seu Azure-SSIS IR para obter as informações de acesso para lojas de pacotes.
 
       1. Se selecionar **o Armazenamento de Ficheiros Azure,** preencha os seguintes passos. 
 
-         1. Para **o método de seleção de conta** , selecione **Azure por subscrição** ou **introduza manualmente**.
+         1. Para **o método de seleção de conta**, selecione **Azure por subscrição** ou **introduza manualmente**.
          
          1. Se selecionar **A subscrição do Azure,** selecione a subscrição relevante do **Azure,** **o nome da conta de armazenamento** e a partilha de **ficheiros**.
             
-         1. Se selecionar **Entrar manualmente,** introduza `\\<storage account name>.file.core.windows.net\<file share name>` para o nome de **utilizador** , para o nome `Azure\<storage account name>` de **utilizador** e para `<storage account key>` a **palavra-passe** ou selecione o cofre da **chave Azure** onde é armazenado como secreto.
+         1. Se selecionar **Entrar manualmente,** introduza `\\<storage account name>.file.core.windows.net\<file share name>` para o nome de **utilizador**, para o nome `Azure\<storage account name>` de **utilizador** e para `<storage account key>` a **palavra-passe** ou selecione o cofre da **chave Azure** onde é armazenado como secreto.
 
       1. Se selecionar **Azure SQL Managed Instance,** complete os seguintes passos. 
 
@@ -216,7 +216,7 @@ No painel de **embalagem Add,** complete os seguintes passos.
 
             1. Para **o nome da base de dados,** insira `msdb` .
                
-            1. Para **tipo de autenticação** , selecione **A autenticação SQL,** **Identidade Gerida,** ou **Principal de Serviço.**
+            1. Para **tipo de autenticação**, selecione **A autenticação SQL,** **Identidade Gerida,** ou **Principal de Serviço.**
 
             1. Se selecionar **a autenticação SQL,** insira o nome de **utilizador** e **palavra-passe** relevantes ou selecione o cofre da **chave Azure** onde é armazenado como secreto.
 
@@ -248,7 +248,7 @@ Na página **de configurações avançadas** do painel de configuração do temp
    
       1. Para **o recipiente de configuração personalizado SAS URI,** introduza o SAS URI do seu recipiente onde armazena scripts e ficheiros associados para configurações personalizadas padrão.
 
-      1. Para **configuração personalizada express** , selecione **Novo** para abrir o painel **de configuração personalizado Add Express** e, em seguida, selecione quaisquer tipos no menu de **dropdown do tipo de configuração personalizada Express,** por exemplo, **Executar comando cmdkey** , Adicionar **variável ambiente,** **instalar componente licenciado,** etc.
+      1. Para **configuração personalizada express**, selecione **Novo** para abrir o painel **de configuração personalizado Add Express** e, em seguida, selecione quaisquer tipos no menu de **dropdown do tipo de configuração personalizada Express,** por exemplo, **Executar comando cmdkey**, Adicionar **variável ambiente,** **instalar componente licenciado,** etc.
 
          Se selecionar o tipo **de componente licenciado instalar,** pode selecionar quaisquer componentes integrados dos nossos parceiros ISV no menu de dropdown **de nome componente** e, se necessário, introduzir a chave de licença do produto/carregar o ficheiro de licença do produto que adquiriu na caixa de **License key** / **ficheiros da chave licença.**
   
@@ -262,7 +262,7 @@ Na página **de configurações avançadas** do painel de configuração do temp
 
       ![Definições avançadas com uma rede virtual](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
 
-      1. Para **Subscrição** , selecione a subscrição Azure que tem a sua rede virtual.
+      1. Para **Subscrição**, selecione a subscrição Azure que tem a sua rede virtual.
 
       1. Para **a localização,** é selecionado o mesmo local do seu tempo de execução de integração.
 
@@ -276,9 +276,9 @@ Na página **de configurações avançadas** do painel de configuração do temp
 
          Se selecionar a caixa de verificação, complete os seguintes passos.
 
-         1. Para **o primeiro endereço IP público estático** , selecione o primeiro endereço IP público estático que satisfaz os requisitos para o seu Azure-SSIS IR. Se não tiver nenhum, clique em **Criar uma nova** ligação para criar endereços IP públicos estáticos no portal Azure e, em seguida, clique no botão de atualização aqui, para que possa selecioná-los.
+         1. Para **o primeiro endereço IP público estático**, selecione o primeiro endereço IP público estático que satisfaz os requisitos para o seu Azure-SSIS IR. Se não tiver nenhum, clique em **Criar uma nova** ligação para criar endereços IP públicos estáticos no portal Azure e, em seguida, clique no botão de atualização aqui, para que possa selecioná-los.
       
-         1. Para **o segundo endereço IP público estático** , selecione o segundo endereço IP público estático que satisfaz os requisitos para o seu Azure-SSIS IR. Se não tiver nenhum, clique em **Criar uma nova** ligação para criar endereços IP públicos estáticos no portal Azure e, em seguida, clique no botão de atualização aqui, para que possa selecioná-los.
+         1. Para **o segundo endereço IP público estático**, selecione o segundo endereço IP público estático que satisfaz os requisitos para o seu Azure-SSIS IR. Se não tiver nenhum, clique em **Criar uma nova** ligação para criar endereços IP públicos estáticos no portal Azure e, em seguida, clique no botão de atualização aqui, para que possa selecioná-los.
 
    1. Selecione o **Prazo de Execução de Integração Self-Hosted como um proxy para a sua caixa de verificação de runtime de integração Azure-SSIS** para escolher se pretende configurar um IR auto-hospedado como proxy para o seu Azure-SSIS IR. Para obter mais informações, consulte [Configurar um IR auto-hospedado como procuração](./self-hosted-integration-runtime-proxy-ssis.md). 
 
@@ -288,9 +288,9 @@ Na página **de configurações avançadas** do painel de configuração do temp
 
       1. Para **o tempo de execução de integração auto-hospedado,** selecione o seu IR auto-hospedado existente como um proxy para Azure-SSIS IR.
 
-      1. Para **o Serviço de Ligação ao Armazenamento de Fases** , selecione o serviço de armazenamento Azure Blob existente ou crie um novo para a encenação.
+      1. Para **o Serviço de Ligação ao Armazenamento de Fases**, selecione o serviço de armazenamento Azure Blob existente ou crie um novo para a encenação.
 
-      1. Para **o Caminho de Preparação** , especifique um recipiente de bolhas na sua conta de armazenamento Azure Blob selecionada ou deixe-o vazio para utilizar um padrão para a encenação.
+      1. Para **o Caminho de Preparação**, especifique um recipiente de bolhas na sua conta de armazenamento Azure Blob selecionada ou deixe-o vazio para utilizar um padrão para a encenação.
 
    1. Selecione **VNet Validation**  >  **Continue**. 
 

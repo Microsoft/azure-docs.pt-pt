@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792910"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023232"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Data transfer for small datasets with low to moderate network bandwidth (Transferência de dados para conjuntos de dados pequenos com pouca largura de banda de rede ou com largura de banda moderada)
  
@@ -23,10 +23,10 @@ Para compreender uma visão geral de todas as opções de transferência de dado
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Pequenos conjuntos de dados referem-se a tamanhos de dados na ordem dos GBs a algumas TBs. A largura de banda de rede baixa a moderada implica 45 Mbps (ligação T3 no datacenter) a 1 Gbps.
+Os conjuntos de dados pequenos referem-se a tamanhos de dados que variam entre alguns GBs e alguns TBs. A largura de banda de rede baixa a moderada implica 45 Mbps (ligação T3 no datacenter) a 1 Gbps.
 
 - Se estiver a transferir apenas um punhado de ficheiros e não precisar de automatizar a transferência de dados, considere as ferramentas com uma interface gráfica.
-- Se estiver confortável com a administração do sistema, considere a linha de comando ou ferramentas programáticas/scripting.
+- Se estiver familiarizado com a administração do sistema, considere utilizar ferramentas de linha de comandos ou programáticas/de scripting.
 
 ## <a name="recommended-options"></a>Opções recomendadas
 
@@ -34,12 +34,12 @@ As opções recomendadas neste cenário são:
 
 - **Ferramentas de interface gráficas** como O Explorador de Armazenamento Azure e Azure Storage no portal Azure. Estes fornecem uma maneira fácil de visualizar os seus dados e transferir rapidamente alguns ficheiros.
 
-    - **Azure Storage Explorer** - Esta ferramenta de plataforma cruzada permite-lhe gerir o conteúdo das suas contas de armazenamento Azure. Permite-lhe fazer upload, download e gerir blobs, ficheiros, filas, mesas e entidades DB do Azure Cosmos. Utilize-o com armazenamento Blob para gerir bolhas e pastas, bem como carregar e descarregar bolhas entre o seu sistema de ficheiros local e o armazenamento Blob, ou entre contas de armazenamento.
-    - **Portal Azure** - O Azure Storage no portal Azure fornece uma interface baseada na Web para explorar ficheiros e carregar novos ficheiros um de cada vez. Esta é uma boa opção se não quiser instalar ferramentas ou emitir comandos para explorar rapidamente os seus ficheiros, ou simplesmente carregar um punhado de novos.
+    - **Azure Storage Explorer** - Esta ferramenta de plataforma cruzada permite-lhe gerir o conteúdo das suas contas de armazenamento Azure. Possibilita o carregamento, a transferência e a gestão de blobs, ficheiros, filas, tabelas e entidades do Azure Cosmos DB. Utilize-a com o Armazenamento de blobs para gerir blobs e pastas, assim como carregar e transferir blobs entre o sistema de ficheiros local e o Armazenamento de blobs ou entre contas de armazenamento.
+    - **Portal Azure** - O Azure Storage no portal Azure fornece uma interface baseada na Web para explorar ficheiros e carregar novos ficheiros um de cada vez. É uma boa opção se não quiser instalar ferramentas nem emitir comandos para explorar rapidamente os seus ficheiros ou apenas carregar alguns novos.
 
 - **Ferramentas de script/programática** como AzCopy/PowerShell/Azure CLI e Azure Storage REST APIs.
 
-    - **AzCopy** - Utilize esta ferramenta de linha de comando para copiar facilmente dados de e para Azure Blobs, Ficheiros e Armazenamento de Mesa com o melhor desempenho. A AzCopy suporta a concordância e o paralelismo, e a capacidade de retomar as operações de cópia quando interrompidas.
+    - **AzCopy** - Utilize esta ferramenta de linha de comando para copiar facilmente dados de e para Azure Blobs, Ficheiros e Armazenamento de Mesa com o melhor desempenho. O AzCopy suporta simultaneidade e paralelismo, além da capacidade de retomar operações de cópia interrompidas.
     - **Azure PowerShell** - Para utilizadores confortáveis com a administração do sistema, utilize o módulo de armazenamento Azure em Azure PowerShell para transferir dados.
     - **Azure CLI** - Utilize esta ferramenta de plataforma cruzada para gerir os serviços Azure e fazer upload de dados para o Azure Storage.
     - **Azure Storage REST APIs/SDKs** – Ao construir uma aplicação, pode desenvolver a aplicação contra APIs/SDKs de armazenamento Azure e utilizar as bibliotecas de clientes Azure oferecidas em várias línguas.
@@ -47,9 +47,9 @@ As opções recomendadas neste cenário são:
 
 ## <a name="comparison-of-key-capabilities"></a>Comparação das capacidades-chave
 
-A tabela seguinte resume as diferenças nas capacidades-chave.
+A tabela seguinte resume as diferenças entre as principais capacidades.
 
-| Funcionalidade | Explorador de Armazenamento do Azure | Portal do Azure | AzCopy<br>Azure PowerShell<br>CLI do Azure | Azure Storage REST APIs ou SDKs |
+| Funcionalidade | Explorador do Storage do Azure | Portal do Azure | AzCopy<br>Azure PowerShell<br>CLI do Azure | Azure Storage REST APIs ou SDKs |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Disponibilidade | Transferir e instalar <br>Ferramenta autónoma | Ferramentas de exploração baseadas na Web no portal Azure | Ferramenta de linha de comando |Interfaces programáveis em .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
 | Interface gráfica | Sim | Sim | Não | Não |

@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535098"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022705"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Resolver problemas de um trabalho lento ou com falhas num cluster HDInsight
 
@@ -138,8 +138,8 @@ Um Gateway HDInsight times out respostas que demoram mais de dois minutos, volta
 Neste caso, reveja os seguintes registos no `/var/log/webhcat` diretório:
 
 * **webhcat.log** é o log4j log para o qual o servidor escreve registos
-* **webhcat-consola.log** é o stdout do servidor quando iniciado
-* **webhcat-console-error.log** é o stderr do processo do servidor
+* **webhcat-consola.log** é o stdout do servidor quando começou
+* **webhcat-console-erro.log** é o stderr do processo do servidor
 
 > [!NOTE]  
 > Cada um `webhcat.log` é enrolado diariamente, gerando ficheiros chamados `webhcat.log.YYYY-MM-DD` . Selecione o ficheiro apropriado para o intervalo de tempo que está a investigar.
@@ -172,7 +172,7 @@ Ao nível do YARN, existem dois tipos de intervalos:
 
     Se abrir o `/var/log/webhcat/webhcat.log` ficheiro de registo e procurar "trabalho na fila", poderá ver várias entradas em que o tempo de execução é excessivamente longo (>2000 ms), com as entradas a mostrarem um aumento dos tempos de espera.
 
-    O tempo para os postos de trabalho em fila continua a aumentar, porque a taxa a que são apresentados novos postos de trabalho é superior à taxa a que os antigos postos de trabalho estão concluídos. Uma vez que a memória YARN é 100% utilizada, a *fila do joblauncher* já não pode pedir capacidade emprestada da *fila predefinida* . Por conseguinte, não podem ser aceites mais novos postos de trabalho na fila do emprego. Este comportamento pode fazer com que o tempo de espera se torne cada vez mais longo, causando um erro de tempo limite que é geralmente seguido por muitos outros.
+    O tempo para os postos de trabalho em fila continua a aumentar, porque a taxa a que são apresentados novos postos de trabalho é superior à taxa a que os antigos postos de trabalho estão concluídos. Uma vez que a memória YARN é 100% utilizada, a *fila do joblauncher* já não pode pedir capacidade emprestada da *fila predefinida*. Por conseguinte, não podem ser aceites mais novos postos de trabalho na fila do emprego. Este comportamento pode fazer com que o tempo de espera se torne cada vez mais longo, causando um erro de tempo limite que é geralmente seguido por muitos outros.
 
     A imagem a seguir mostra a fila de joblauncher em 714,4% sobreuso. Isto é aceitável desde que ainda haja capacidade livre na fila padrão para pedir emprestado. No entanto, quando o cluster é totalmente utilizado e a memória yarn está a 100% da capacidade, novos empregos devem esperar, o que eventualmente causa intervalos de tempo.
 
@@ -206,7 +206,7 @@ Para diagnosticar estas questões:
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Passo 4: Rever a pilha de ambiente e versões
 
-A página Ambari UI **Stack and Version** fornece informações sobre a configuração dos serviços de cluster e o histórico da versão de serviço.  As versões incorretas da biblioteca de serviços Hadoop podem ser uma causa de falha do cluster.  Na UI Ambari, selecione o menu **Admin** e, em seguida,  **Stacks e Versões** .  Selecione o separador **Versões** na página para ver as informações da versão de serviço:
+A página Ambari UI **Stack and Version** fornece informações sobre a configuração dos serviços de cluster e o histórico da versão de serviço.  As versões incorretas da biblioteca de serviços Hadoop podem ser uma causa de falha do cluster.  Na UI Ambari, selecione o menu **Admin** e, em seguida,  **Stacks e Versões**.  Selecione o separador **Versões** na página para ver as informações da versão de serviço:
 
 ![Pilha e versões Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 

@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 8/7/2020
 ms.author: baanders
 ms.openlocfilehash: 58ae9c187f50bb7eb3f1ccc2a618275885121267
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95564377"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025487"
 ---
 > [!TIP]
 > Depois de criar um modelo, é recomendável validar os seus modelos offline antes de os enviar para a sua instância Azure Digital Twins.

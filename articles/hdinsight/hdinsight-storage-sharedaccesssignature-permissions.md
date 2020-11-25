@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
 ms.openlocfilehash: eb8201ea888b98250d452e0b0e1c48f30cbb1efc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742062"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022739"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Use Azure Blob armazenamento Assinaturas de acesso compartilhados para restringir o acesso a dados em HDInsight
 
@@ -27,7 +27,7 @@ O HDInsight tem acesso total aos dados nas contas de armazenamento Azure Blob as
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Um recipiente de [armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md)existente.  
 
@@ -86,7 +86,7 @@ Salve o token SAS que é produzido no final de cada método. O token será semel
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
 ```
 
-### <a name="using-powershell"></a>Com o PowerShell
+### <a name="using-powershell"></a>Utilizar o PowerShell
 
 `RESOURCEGROUP` `STORAGEACCOUNT` Substitua, e pelos `STORAGECONTAINER` valores adequados para o seu recipiente de armazenamento existente. Altere o diretório para `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` ou reveja o `-File` parâmetro para conter o caminho absoluto para `Set-AzStorageblobcontent` . Introduza o seguinte comando PowerShell:
 
@@ -207,7 +207,7 @@ Poderá ter de ser executado `pip install --upgrade azure-storage` se receber a 
 
 1. Abra a solução no Visual Studio.
 
-2. No Solution Explorer, clique com o botão direito no projeto **SASExample** e selecione **Propriedades** .
+2. No Solution Explorer, clique com o botão direito no projeto **SASExample** e selecione **Propriedades**.
 
 3. Selecione **Definições** e adicione valores para as seguintes entradas:
 
@@ -355,25 +355,25 @@ Se tiver um cluster existente, pode adicionar o SAS à configuração do **núcl
 
 1. Navegue para **o núcleo** avançado de  >  **hdfs Configs.**  >  **Advanced**  >  **Custom core-site**
 
-1. Expandir a secção **de núcleo personalizado,** deslocar até ao fim e, em seguida, selecionar **Adicionar propriedade...** . Utilize os seguintes valores para **Chave** e **Valor:**
+1. Expandir a secção **de núcleo personalizado,** deslocar até ao fim e, em seguida, selecionar **Adicionar propriedade...**. Utilize os seguintes valores para **Chave** e **Valor:**
 
     * **Chave:**`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **Valor** : O SAS devolvido por um dos métodos anteriormente executados.
+    * **Valor**: O SAS devolvido por um dos métodos anteriormente executados.
 
     `CONTAINERNAME`Substitua-o pelo nome do recipiente que utilizou pela aplicação C# ou SAS. `STORAGEACCOUNTNAME`Substitua-o pelo nome da conta de armazenamento que utilizou.
 
     **Selecione Adicionar** para guardar esta chave e valor
 
-1. Selecione o botão **Guardar** para guardar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionar acesso ao armazenamento SAS" por exemplo) e, em seguida, **selecione Save** .
+1. Selecione o botão **Guardar** para guardar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionar acesso ao armazenamento SAS" por exemplo) e, em seguida, **selecione Save**.
 
     Selecione **OK** quando as alterações estiverem concluídas.
 
    > [!IMPORTANT]  
    > Deve reiniciar vários serviços antes que a alteração entre em vigor.
 
-1. Aparecerá uma lista de recuos do **Restart.** Selecione **Reiniciar todos os afetados** da lista de drop-down e, em seguida, __confirmar Recomeça tudo__ .
+1. Aparecerá uma lista de recuos do **Restart.** Selecione **Reiniciar todos os afetados** da lista de drop-down e, em seguida, __confirmar Recomeça tudo__.
 
-    Repita este processo para **MapReduce2** e **YARN** .
+    Repita este processo para **MapReduce2** e **YARN**.
 
 1. Uma vez reiniciado os serviços, selecione cada um deles e desative o modo de manutenção das Ações de **Serviço.**
 
@@ -411,7 +411,7 @@ Utilize os seguintes passos para verificar se só pode ler e listar itens na con
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Este comando descarrega o ficheiro para um ficheiro local chamado **testfile.txt** .
+    Este comando descarrega o ficheiro para um ficheiro local chamado **testfile.txt**.
 
 5. Utilize o seguinte comando para enviar o ficheiro local para um novo ficheiro nomeado **testupload.txt** no armazenamento SAS:
 

@@ -2,14 +2,14 @@
 title: Receba eventos da Azure Event Grid para um ponto final HTTP
 description: Descreve como validar um ponto final HTTP, em seguida, receber e desseializar eventos da Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/19/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 42cf237f0c2fbe091307625fde70613ab9173b0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75c80fb85d39298f1130537971bc700897c039d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326478"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96023732"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Receber eventos para um ponto final HTTP
 
@@ -140,9 +140,11 @@ Testar a função de resposta de validação colando o evento da amostra no camp
 }]
 ```
 
-Quando clicar em Executar, a saída deve ser de 200 OK e `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` no corpo:
+Quando clicar em Executar, a saída deve ser de 200 OK e `{"validationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` no corpo:
 
-![resposta de validação](./media/receive-events/validation-response.png)
+:::image type="content" source="./media/receive-events/validation-request.png" alt-text="Pedido de validação":::
+
+:::image type="content" source="./media/receive-events/validation-output.png" alt-text="Saída de validação":::
 
 ## <a name="handle-blob-storage-events"></a>Lidar com eventos de armazenamento Blob
 
@@ -394,6 +396,8 @@ Finalmente, teste que a sua função pode agora lidar com o seu tipo de evento p
 ```
 
 Também pode testar esta funcionalidade ao vivo [enviando um evento personalizado com CURL a partir do Portal](./custom-event-quickstart-portal.md) ou [publicando para um tópico personalizado](./post-to-custom-topic.md) usando qualquer serviço ou aplicação que possa POSTar para um ponto final como o [Carteiro.](https://www.getpostman.com/) Crie um tópico personalizado e uma subscrição de eventos com o set de ponto final como URL de função.
+
+[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

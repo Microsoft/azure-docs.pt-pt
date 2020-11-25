@@ -7,11 +7,11 @@ ms.date: 07/10/2019
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f775608c6c349c93a43ef4aef26ad50707cd39b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743765"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023623"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Começar com atores fiáveis
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ O projeto criado mostra a seguinte estrutura:
 
 A solução contém três projetos:
 
-* **O projeto de aplicação (MyApplication)**. Este projeto embala todos os serviços em conjunto para implantação. Contém os * scriptsApplicationManifest.xml* e PowerShell para gerir a aplicação.
+* **O projeto de aplicação (MyApplication)**. Este projeto embala todos os serviços em conjunto para implantação. Contém os *scriptsApplicationManifest.xml* e PowerShell para gerir a aplicação.
 
 * **O projeto de interface (HelloWorld.Interfaces)**. Este projeto contém a definição de interface para o ator. As interfaces dos atores podem ser definidas em qualquer projeto com qualquer nome.  A interface define o contrato de ator que é partilhado pela implementação do ator e pelos clientes que chamam o ator.  Como os projetos de clientes podem depender disso, normalmente faz sentido defini-lo numa assembléia que é separada da implementação do ator.
 
@@ -100,7 +100,7 @@ Crie uma aplicação de consola simples para ligar para o serviço de ator.
     
     ![Construir propriedades][8]
 
-4. O projeto do cliente requer o pacote de atores confiáveis NuGet.  Clique em **Ferramentas**  >  **NuGet Package Manager**Package Manager  >  **Consola**.  Na Consola Gestor de Pacotes, insira o seguinte comando:
+4. O projeto do cliente requer o pacote de atores confiáveis NuGet.  Clique em **Ferramentas**  >  **NuGet Package Manager** Package Manager  >  **Consola**.  Na Consola Gestor de Pacotes, insira o seguinte comando:
     
     ```powershell
     Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient

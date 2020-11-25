@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 8d727bc8bdc8f015504baa57f9596b3bacac9712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651638"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022875"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Resolver problemas de erros de eliminação de recursos de armazenamento
 
