@@ -7,11 +7,11 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 11/12/2020
 ms.openlocfilehash: a225989f0670e9b62b00a35bac719c9357c8a130
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659612"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017054"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados com o Azure Data Share  
 
@@ -310,7 +310,7 @@ Este passo aplica-se apenas à partilha baseada em instantâneos. Para ver o his
 
 Quando o recurso já não for necessário, vá à página de Visão Geral do **Conjunto de Partilha de Dados** e selecione **Eliminar** para o remover.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a aceitar e receber uma Partilha de Dados Azure. Para saber mais sobre os conceitos Azure Data Share, continue a Azure Data Share Terminology.
 
 > [!div class="nextstepaction"]

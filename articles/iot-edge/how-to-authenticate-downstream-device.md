@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151387"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017003"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo a jusante no Hub IoT do Azure
 
@@ -144,13 +144,13 @@ Esta secção baseia-se nas instruções detalhadas no artigo do IoT Hub [Config
 
 2. Siga as instruções nos [certificados De registo X.509 CA para a sua](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) secção de hub IoT de *Configurar a segurança X.509 no seu hub Azure IoT*. Nessa secção, executa os seguintes passos:
 
-   1. Faça upload de um certificado de CA raiz. Se estiver a utilizar os certificados de demonstração, a raiz CA é ** \<path> /certs/azure-iot-test-only.root.ca.cert.pem**.
+   1. Faça upload de um certificado de CA raiz. Se estiver a utilizar os certificados de demonstração, a raiz CA é **\<path> /certs/azure-iot-test-only.root.ca.cert.pem**.
 
    2. Verifique se é dono do certificado de CA raiz.
 
 3. Siga as instruções no [dispositivo Criar um dispositivo X.509 para a sua](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) secção de hub IoT de *Configurar a segurança X.509 no seu hub Azure IoT*. Nessa secção, executa os seguintes passos:
 
-   1. Adicione um novo dispositivo. Forneça um nome minúsculo para **identificação**do dispositivo e escolha o tipo de autenticação **X.509 CA Assinado**.
+   1. Adicione um novo dispositivo. Forneça um nome minúsculo para **identificação** do dispositivo e escolha o tipo de autenticação **X.509 CA Assinado**.
 
    2. Desementa um dispositivo dos pais. Selecione **Definir um dispositivo-mãe** e escolha o dispositivo de gateway IoT Edge que fornecerá a ligação ao Hub IoT.
 

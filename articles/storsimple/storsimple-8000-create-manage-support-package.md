@@ -7,15 +7,15 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973874"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017173"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerir um pacote de suporte para a série StorSimple 8000
 
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição geral
 
 Um pacote de suporte StorSimple é um mecanismo de fácil utilização que recolhe todos os registos relevantes para ajudar o Microsoft Support a resolver problemas em quaisquer problemas do dispositivo StorSimple. Os registos recolhidos são encriptados e comprimidos.
 
@@ -67,7 +67,7 @@ Pode utilizar os seguintes parâmetros com o Export-HcsSupportPackage cmdlet.
 | Parâmetro | Obrigatório/Opcional | Descrição |
 | --- | --- | --- |
 | `-Path` |Obrigatório |Utilize para fornecer a localização da pasta partilhada na rede na qual o pacote de suporte é colocado. |
-| `-EncryptionPassphrase` |Obrigatório |Utilize para fornecer uma palavra-passe para ajudar a encriptar o pacote de suporte. |
+| `-EncryptionPassphrase` |Necessário |Utilize para fornecer uma palavra-passe para ajudar a encriptar o pacote de suporte. |
 | `-Credential` |Opcional |Utilize para fornecer credenciais de acesso para a pasta partilhada na rede. |
 | `-Force` |Opcional |Utilize para saltar o passo de confirmação da palavra-passe de encriptação. |
 | `-PackageTag` |Opcional |Utilize para especificar um diretório em *caminho* no qual o pacote de suporte é colocado. O padrão é [nome do dispositivo]-[data e hora corrente:yyyy-MM-dd-HH-mm-ss]. |

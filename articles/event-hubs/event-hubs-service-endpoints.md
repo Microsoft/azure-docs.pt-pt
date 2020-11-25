@@ -4,11 +4,11 @@ description: Este artigo fornece informações sobre como adicionar um ponto fin
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427209"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015588"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir o acesso aos espaços de nome do Azure Event Hubs a partir de redes virtuais específicas 
 
@@ -55,7 +55,7 @@ Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final 
 
     ![Firewall - Todas as opções de redes selecionadas](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Para restringir o acesso a redes específicas, selecione a opção **Redes Selecionadas** no topo da página se ainda não estiver selecionada.
-2. Na secção **Rede Virtual** da página, selecione **+Adicionar a rede virtual existente** _. Selecione _ *+ Criar uma nova rede virtual* * se quiser criar um novo VNet. 
+2. Na secção **Rede Virtual** da página, selecione **+Adicionar a rede virtual existente** _. Selecione _ *+ Criar uma nova rede virtual** se quiser criar um novo VNet. 
 
     ![adicionar rede virtual existente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
 3. Selecione a rede virtual a partir da lista de redes virtuais e, em seguida, escolha a **sub-rede**. Tem de ativar o ponto final de serviço antes de adicionar a rede virtual à lista. Se o ponto final de serviço não estiver ativado, o portal irá solicitar-lhe para o ativar.

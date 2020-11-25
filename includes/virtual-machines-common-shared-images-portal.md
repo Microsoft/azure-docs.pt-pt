@@ -9,11 +9,11 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 1af80f208c72af9434d596f2c1219c08c0e3f719
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95556687"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016012"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens
 

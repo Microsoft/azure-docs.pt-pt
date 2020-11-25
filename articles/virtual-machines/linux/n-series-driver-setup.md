@@ -9,11 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
 ms.openlocfilehash: b80a09c82b1e932fb93b4c85ee250773aa7d3c38
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539758"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016153"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instale os controladores da NVIDIA GPU em VMs da série N que executam o Linux
 

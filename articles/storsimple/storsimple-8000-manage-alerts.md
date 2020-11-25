@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 36ed87a75d590a8647e5347b3e90e6f5159dc6b5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961838"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016850"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utilize o serviço StorSimple Device Manager para visualizar e gerir alertas StorSimple
 
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição geral
 
 A lâmina **alerts** no serviço StorSimple Device Manager fornece uma forma de rever e limpar alertas relacionados com dispositivos StorSimple em tempo real. A partir desta lâmina, pode monitorizar centralmente os problemas de saúde dos seus dispositivos StorSimple e a solução geral microsoft Azure StorSimple.
 

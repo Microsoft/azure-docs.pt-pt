@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 782abee06c5ab0f985e8bd90dbbecae18b1dfe02
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2df401f7871d631ba317fb670783cad086b9a351
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442332"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96017564"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnosticar e resolver problemas Azure Cosmos DB não encontrou exceções
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,6 +25,11 @@ Existem muitos cenários válidos onde uma aplicação espera um código 404 e l
 
 ## <a name="a-not-found-exception-was-returned-for-an-item-that-should-exist-or-does-exist"></a>Uma exceção não encontrada foi devolvida para um item que deveria existir ou existe
 Aqui estão as possíveis razões para que um código de estado 404 seja devolvido se o item deve existir ou existir.
+
+### <a name="the-read-session-is-not-available-for-the-input-session-token"></a>A sessão de leitura não está disponível para o token de sessão de entrada
+
+#### <a name="solution"></a>Solução:
+1. Atualize o seu SDK atual para a versão mais recente disponível. As causas mais comuns para este erro em particular foram corrigidas nas versões SDK mais recentes.
 
 ### <a name="race-condition"></a>Condição race
 Existem vários casos de clientes SDK e a leitura aconteceu antes da escrita.

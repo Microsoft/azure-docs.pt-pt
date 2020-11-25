@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 2dc3df81a62e9a844db2d951b9146b08bdae5ed9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4753f7c0b8b5e515d33da3f9df48a2cdd9d921cc
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360807"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96017581"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Problemas de resolução de problemas quando utiliza Azure Cosmos DB Java SDK v4 com contas API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -120,9 +120,9 @@ Esta falha é uma falha do lado do servidor. Indica que consumiu o seu rendiment
 
     Durante os testes de desempenho, deve aumentar a carga até que uma pequena taxa de pedidos seja acelerada. Se for acelerada, a aplicação do cliente deve recuar para o intervalo de repetição especificado pelo servidor. Respeitar o recuo garante que passa o mínimo de tempo à espera entre as retrações.
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha na ligação ao emulador Azure Cosmos DB
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha na ligação ao Emulador Azure Cosmos DB
 
-O certificado https do emulador Azure Cosmos DB é auto-assinado. Para que o SDK trabalhe com o emulador, importe o certificado de emulador para uma Loja Java TrustStore. Para mais informações, consulte [os certificados emuladores Export Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
+O certificado HTTPS do Azure Cosmos DB é auto-assinado. Para que o SDK trabalhe com o emulador, importe o certificado de emulador para uma Loja Java TrustStore. Para mais informações, consulte [os certificados emuladores Export Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
 
 ### <a name="dependency-conflict-issues"></a>Questões de Conflito de Dependência
 

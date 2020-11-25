@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 04/10/2018
 ms.author: cynthn
 ms.openlocfilehash: 5b28226cfe6bc51a2619c4dd63e666ddd51dad2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87268514"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016204"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Como encontrar e eliminar cartões de interface de rede não ligados (NICs) para VMs Azure
 Quando elimina uma máquina virtual (VM) no Azure, os cartões de interface de rede (NICs) não são eliminados por predefinição. Se criar e eliminar vários VMs, os NICs não utilizados continuam a utilizar as locações internas de endereço IP. À medida que cria outros NICs VM, podem não conseguir obter um arrendamento IP no espaço de endereço da sub-rede. Este artigo mostra-lhe como encontrar e eliminar NICs não ligados.

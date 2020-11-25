@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cbd6f821326c86983ceb3ae5b90969e522c187fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bdeef537556db94338ed50fcfa6e9d88431f25a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82204672"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96016267"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -29,9 +29,9 @@ No Windows, o seguinte comando irá instalar ou atualizar a instalação existen
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
-No Linux, a instalação CLI variará consoante a versão do sistema operativo.  Consulte [a Instalação do CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para a sua versão Linux em particular.
+No Linux, a instalação CLI variará consoante a versão do sistema operativo.  Consulte [a Instalação do CLI Azure](/cli/azure/install-azure-cli) para a sua versão Linux em particular.
 
-Para criar um instantâneo incremental, use [az snapshot criar](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) com o `--incremental` parâmetro.
+Para criar um instantâneo incremental, use [az snapshot criar](/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) com o `--incremental` parâmetro.
 
 O exemplo a seguir cria um instantâneo incremental, `<yourDesiredSnapShotNameHere>` substitua, , , e pelos seus `<yourResourceGroupNameHere>` `<exampleDiskName>` `<exampleLocation>` próprios valores, e depois executar o exemplo:
 

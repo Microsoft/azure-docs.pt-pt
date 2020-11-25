@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
@@ -9,11 +9,11 @@ ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 86f687bd4fd8be93efbf77c883c723046c2c96d8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997890"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016148"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuições e controladores suportados
 

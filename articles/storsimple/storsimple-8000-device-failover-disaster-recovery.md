@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: dffa059b18e159d04b5e3bb8555dabf801ede692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85511802"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017122"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover and disaster recovery for your StorSimple 8000 series devices (Ativação pós-falha e recuperação após desastre para dispositivos da série StorSimple 8000)
 

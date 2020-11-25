@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
 ms.openlocfilehash: e46f7f3d51d2841a2287c86f9e8dddd7460b1a5d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951490"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016442"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gerir utilizadores administrativos, SSH e verificar ou reparar discos em VMs Linux utilizando a Extensão VMAccess com o CLI Azure
 ## <a name="overview"></a>Descrição geral

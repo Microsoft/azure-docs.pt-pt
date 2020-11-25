@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60931722"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015434"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Como enviar e-mail usando SendGrid a partir de Node.js
 
-Este guia demonstra como executar tarefas de programação comuns com o serviço de e-mail SendGrid em Azure. As amostras são escritas com a API Node.js. Os cenários abrangidos incluem **a construção de e-mails,** **envio de e-mail,** **adição de anexos,** **utilização de filtros**e **atualização de propriedades.** Para mais informações sobre SendGrid e envio de e-mail, consulte a secção [Etapas Seguintes.](#next-steps)
+Este guia demonstra como executar tarefas de programação comuns com o serviço de e-mail SendGrid em Azure. As amostras são escritas com a API Node.js. Os cenários abrangidos incluem **a construção de e-mails,** **envio de e-mail,** **adição de anexos,** **utilização de filtros** e **atualização de propriedades.** Para mais informações sobre SendGrid e envio de e-mail, consulte a secção [Etapas Seguintes.](#next-steps)
 
 ## <a name="what-is-the-sendgrid-email-service"></a>O que é o Serviço de E-mail SendGrid?
 

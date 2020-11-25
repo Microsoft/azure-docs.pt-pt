@@ -8,11 +8,11 @@ ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 0c3e8bb2ff6f3313e851a4253a95a5ad923a8f70
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913947"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016221"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Localizar e apagar discos geridos e não geridos pelo Azure utilizando o Azure CLI
 Quando elimina uma máquina virtual (VM) em Azure, por padrão, quaisquer discos que estejam ligados ao VM não são eliminados. Esta funcionalidade ajuda a prevenir a perda de dados devido à eliminação não intencional de VMs. Depois de eliminado um VM, continuará a pagar por discos não ligados. Este artigo mostra-lhe como encontrar e eliminar quaisquer discos não ligados e reduzir custos desnecessários. 
@@ -50,7 +50,7 @@ done
 
 ## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Discos não geridos: Encontrar e apagar discos não ligados 
 
-Os discos não geridos são ficheiros VHD que são armazenados como [bolhas de página](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) nas contas de armazenamento [Azure](../../storage/common/storage-account-overview.md). O seguinte script procura discos não geridos (bolhas de página) examinando o valor da propriedade **LeaseStatus.** Quando um disco não gerido é ligado a um VM, a propriedade **LeaseStatus** está definida para **Bloqueado** . Quando um disco não gerido não é ligado, a propriedade **LeaseStatus** está definida para **Desbloqueado** . O script examina todos os discos não geridos em todas as contas de armazenamento Azure numa subscrição do Azure. Quando o script localiza um disco não gerido com uma propriedade **LeaseStatus** definida para **Desbloqueado,** o script determina que o disco está desapegado.
+Os discos não geridos são ficheiros VHD que são armazenados como [bolhas de página](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) nas contas de armazenamento [Azure](../../storage/common/storage-account-overview.md). O seguinte script procura discos não geridos (bolhas de página) examinando o valor da propriedade **LeaseStatus.** Quando um disco não gerido é ligado a um VM, a propriedade **LeaseStatus** está definida para **Bloqueado**. Quando um disco não gerido não é ligado, a propriedade **LeaseStatus** está definida para **Desbloqueado**. O script examina todos os discos não geridos em todas as contas de armazenamento Azure numa subscrição do Azure. Quando o script localiza um disco não gerido com uma propriedade **LeaseStatus** definida para **Desbloqueado,** o script determina que o disco está desapegado.
 
 >[!IMPORTANT]
 >Em primeiro lugar, executar o script definindo a variável **deleteUnattachedVHDs** para 0. Esta ação permite-lhe encontrar e ver todos os VHDs não geridos desapegados.

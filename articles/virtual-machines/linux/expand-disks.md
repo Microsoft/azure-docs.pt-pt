@@ -8,11 +8,11 @@ ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: bbb959b6b1d71c81f7b920b3962f693716041e16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181753"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016238"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandir discos rígidos virtuais num Linux VM com o Azure CLI
 

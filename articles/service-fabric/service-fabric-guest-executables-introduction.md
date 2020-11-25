@@ -4,11 +4,11 @@ description: Aprenda sobre a embalagem de uma aplicação existente como um hós
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247392"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017751"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implementar um executável existente para o tecido de serviço
 Pode executar qualquer tipo de código, como Node.js, Java ou C++ em Azure Service Fabric como um serviço. O Service Fabric refere-se a este tipo de serviços como executáveis de hóspedes.
@@ -19,7 +19,7 @@ Os executáveis de hóspedes são tratados pela Service Fabric como serviços ap
 Existem várias vantagens em executar um hóspede executável num cluster de Tecido de Serviço:
 
 * Elevada disponibilidade. As aplicações que funcionam em Service Fabric são altamente disponibilizadas. A Service Fabric garante que os casos de uma aplicação estão em execução.
-* Monitorização de saúde. A monitorização de saúde do Tecido de Serviço deteta se uma aplicação está em execução e fornece informações de diagnóstico em caso de falha.   
+* Monitorização do estado de funcionamento. A monitorização de saúde do Tecido de Serviço deteta se uma aplicação está em execução e fornece informações de diagnóstico em caso de falha.   
 * Gestão do ciclo de vida da aplicação. Além de fornecer upgrades sem tempo de inatividade, o Service Fabric fornece retorno automático para a versão anterior se houver um mau evento de saúde relatado durante uma atualização.    
 * A densidade. Pode executar várias aplicações num cluster, o que elimina a necessidade de cada aplicação funcionar no seu próprio hardware.
 * Descoberta: Utilizar o REST pode ligar para o serviço de nomeação de tecido de serviço para encontrar outros serviços no cluster. 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707859"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015949"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configure um endereço IP privado para um VM utilizando o portal Azure
 
@@ -46,10 +46,10 @@ Para criar um VM chamado *DNS01* na sub-rede *FrontEnd* de uma rede virtual cham
 1. A partir do menu [do portal Azure,](https://portal.azure.com) selecione **Criar um recurso**.
 
     ![Criar um recurso, portal Azure](./media/virtual-networks-static-ip-arm-pportal/create-a-resource.png)
-2. **Selecione máquina**virtual  >  **compute**.
+2. **Selecione máquina** virtual  >  **compute**.
 
     ![Criar VM, portal Azure](./media/virtual-networks-static-ip-arm-pportal/compute-virtual-machine.png)
-3. Em **Basics**, especifique os valores dos itens descritos no quadro seguinte. Em seguida, selecione **Seguinte &nbsp; : &nbsp; Discos** e, em ** &nbsp; seguida, seguinte : &nbsp; Networking**.
+3. Em **Basics**, especifique os valores dos itens descritos no quadro seguinte. Em seguida, selecione **Seguinte &nbsp; : &nbsp; Discos** e, em **&nbsp; seguida, seguinte : &nbsp; Networking**.
 
     | Item | Valor |
     | --- | --- |
@@ -94,11 +94,11 @@ Para ver as informações privadas do endereço IP para o seu novo VM:
 
     ![Lista de máquinas virtuais, portal Azure](./media/virtual-networks-static-ip-arm-pportal/virtual-machine-list.png)
 
-3. Escolha **o Networking**e selecione a única interface de rede listada.
+3. Escolha **o Networking** e selecione a única interface de rede listada.
 
     ![Interface de rede, networking, máquina virtual, portal Azure](./media/virtual-networks-static-ip-arm-pportal/networking-network-interface.png)
 
-4. Escolha **as configurações IP**e selecione a configuração IP listada na tabela.
+4. Escolha **as configurações IP** e selecione a configuração IP listada na tabela.
 
     ![Configuração IP, Interface de rede, networking, máquina virtual, portal Azure](./media/virtual-networks-static-ip-arm-pportal/network-interface-ip-configurations.png)
 
@@ -110,7 +110,7 @@ Para ver as informações privadas do endereço IP para o seu novo VM:
 Para adicionar um endereço IP estático privado ao seu novo VM:
 
 1. Na página de configuração IP, desaponsee a atribuição do seu endereço IP privado para **Estática**.
-2. Mude o **seu endereço IP** privado para *192.168.1.101*e, em seguida, selecione **Guardar**.
+2. Mude o **seu endereço IP** privado para *192.168.1.101* e, em seguida, selecione **Guardar**.
    
     ![Atribuição dinâmica ou estática, novas definições de endereços IP privados, configuração IP, interface de rede, rede, máquina virtual, portal Azure](./media/virtual-networks-static-ip-arm-pportal/private-ip-address-settings-new.png)
 
@@ -120,7 +120,7 @@ Para adicionar um endereço IP estático privado ao seu novo VM:
 ## <a name="remove-a-static-private-ip-address-from-a-vm"></a>Remova um endereço IP estático privado de um VM
 Para remover o endereço IP privado estático do seu VM:
 
-Na página de configuração IP, desacione a atribuição do seu endereço IP privado para **Dynamic**e, em seguida, selecione **Guardar**.
+Na página de configuração IP, desacione a atribuição do seu endereço IP privado para **Dynamic** e, em seguida, selecione **Guardar**.
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>Definir endereços IP dentro do sistema operativo
 

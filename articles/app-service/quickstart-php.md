@@ -6,11 +6,11 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 152a000939f74b1852073742e501ac66246389a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961458"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015886"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Criar uma aplicação web PHP no Azure App Service
 
@@ -116,7 +116,7 @@ Criou uma nova aplicação web vazia, com implementação de git ativada.
 > O URL do Git remoto é apresentado na propriedade `deploymentLocalGitUrl`, com o formato `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Guarde este URL, uma vez que vai precisar dele mais tarde.
 >
 
-Navegue para a sua aplicação Web recentemente criada. Substitua _ &lt; o nome da aplicação>_ pelo nome de aplicação único criado no passo anterior.
+Navegue para a sua aplicação Web recentemente criada. Substitua _&lt; o nome da aplicação>_ pelo nome de aplicação único criado no passo anterior.
 
 ```bash
 http://<app-name>.azurewebsites.net
@@ -196,7 +196,7 @@ Depois de concluída a implementação, volte para a janela do browser aberta du
 
     ![Navegação do portal para a aplicação do Azure](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 
-    A **página** geral da sua aplicação web será exibida. Aqui, pode executar tarefas básicas de gestão como **Browse,** **Stop,** **Restart**e **Delete**.
+    A **página** geral da sua aplicação web será exibida. Aqui, pode executar tarefas básicas de gestão como **Browse,** **Stop,** **Restart** e **Delete**.
 
     ![Página Serviço de Aplicações no portal do Azure](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 

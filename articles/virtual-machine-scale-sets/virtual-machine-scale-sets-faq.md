@@ -10,11 +10,11 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080476"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016714"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ dos conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -129,7 +129,7 @@ Para configurar automaticamente uma escala de máquina virtual definida utilizan
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Se eu tiver parado (deallocated) um VM, será que a VM começou como parte de uma operação de autoescalação?
 
-N.º Se as regras de autoescala requerem instâncias VM adicionais como parte de um conjunto de escala, é criada uma nova instância VM. As instâncias VM que são interrompidas (deallocated) não são iniciadas como parte de um evento de autoescala. No entanto, os VMs parados (deallocated) podem ser eliminados como parte de um evento de escala automática que escala no número de casos, da mesma forma que qualquer instância VM pode ser eliminada com base na ordem de identificação de instância VM.
+Não. Se as regras de autoescala requerem instâncias VM adicionais como parte de um conjunto de escala, é criada uma nova instância VM. As instâncias VM que são interrompidas (deallocated) não são iniciadas como parte de um evento de autoescala. No entanto, os VMs parados (deallocated) podem ser eliminados como parte de um evento de escala automática que escala no número de casos, da mesma forma que qualquer instância VM pode ser eliminada com base na ordem de identificação de instância VM.
 
 
 
@@ -300,9 +300,9 @@ O objetivo do cofre-chave de especificar a versão do certificado é deixar clar
 
 Se criar um VM e atualizar o seu segredo no cofre de chaves, o novo certificado não será descarregado para os seus VMs. Mas os seus VMs parecem fazê-lo referência, e os novos VMs recebem o novo segredo. Para evitar isto, é obrigado a fazer referência a uma versão secreta.
 
-### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-for-deploying-these-certificates-to-a-virtual-machine-scale-set"></a>A minha equipa trabalha com vários certificados que nos são distribuídos como chaves públicas.cer. Qual é a abordagem recomendada para a implantação destes certificados num conjunto de escala de máquina virtual?
+### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-for-deploying-these-certificates-to-a-virtual-machine-scale-set"></a>A minha equipa trabalha com vários certificados que nos são distribuídos como .cer chaves públicas. Qual é a abordagem recomendada para a implantação destes certificados num conjunto de escala de máquina virtual?
 
-Para implementar teclas públicas .cer para um conjunto de escala de máquina virtual, pode gerar um ficheiro .pfx que contém apenas ficheiros .cer. Para isso, `X509ContentType = Pfx` use. Por exemplo, carregue o ficheiro .cer como um objeto x509Certificate2 em C# ou PowerShell e, em seguida, ligue para o método.
+Para implementar .cer chaves públicas num conjunto de escala de máquina virtual, pode gerar um ficheiro .pfx que contém apenas ficheiros .cer. Para isso, `X509ContentType = Pfx` use. Por exemplo, carregue o ficheiro .cer como um objeto x509Certificate2 em C# ou PowerShell e, em seguida, ligue para o método.
 
 Para obter mais informações, consulte [X509Certificate.Export Method (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
 
@@ -320,7 +320,7 @@ Em conjuntos de balanças de máquinas virtuais e VMs, os certificados devem ser
 
 Também apoiamos a aplicação do tipo de conteúdo/x-pkcs12.
 
-Atualmente, não suportamos ficheiros .cer. Para utilizar ficheiros .cer, exporte-os para recipientes .pfx.
+Atualmente, não suportamos ficheiros .cer. Para utilizar .cer ficheiros, exporte-os para recipientes .pfx.
 
 
 
@@ -465,7 +465,7 @@ Existem duas formas principais de alterar a palavra-passe para VMs em conjuntos 
     Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
     ```
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>É possível atribuir um Grupo de Segurança de Rede (NSG) a um conjunto de escala, de modo a que se aplique a todos os NICs VM no conjunto?
 

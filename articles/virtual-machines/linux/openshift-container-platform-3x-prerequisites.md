@@ -10,11 +10,11 @@ ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
 ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87368188"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016034"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para a implantação da Plataforma de Contentores OpenShift 3.11 em Azure
 
@@ -138,7 +138,7 @@ Para obter mais informações sobre os principais serviços, consulte [Criar um 
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Pré-requisitos aplicáveis apenas ao modelo de Gestor de Recursos
 
-Os segredos terão de ser criados para a chave privada**SSH (sshPrivateKey),** Azure AD cliente secret **(aadClientSecret),** palavra-passe de administração OpenShift **(palavra de aberturaPassword)** e palavra-passe ou chave de ativação do Red Hat Subscription Manager **(rhsmPasswordOrActivationKey).**  Além disso, se forem utilizados certificados TLS/SSL personalizados, terão de ser criados seis segredos adicionais - **ficheiro de encaminhamento,** **ficheiro de encaminhamento,** **ficheiro de encaminhamento,** **mastercafile,** **mastercerte**e **masterkeyfile**.  Estes parâmetros serão explicados mais detalhadamente.
+Os segredos terão de ser criados para a chave privada **SSH (sshPrivateKey),** Azure AD cliente secret **(aadClientSecret),** palavra-passe de administração OpenShift **(palavra de aberturaPassword)** e palavra-passe ou chave de ativação do Red Hat Subscription Manager **(rhsmPasswordOrActivationKey).**  Além disso, se forem utilizados certificados TLS/SSL personalizados, terão de ser criados seis segredos adicionais - **ficheiro de encaminhamento,** **ficheiro de encaminhamento,** **ficheiro de encaminhamento,** **mastercafile,** **mastercerte** e **masterkeyfile**.  Estes parâmetros serão explicados mais detalhadamente.
 
 O modelo refere nomes secretos específicos, pelo que **deve** utilizar os nomes arrojados listados acima (sensíveis a casos).
 

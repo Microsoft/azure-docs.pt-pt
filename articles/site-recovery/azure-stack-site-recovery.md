@@ -4,11 +4,11 @@ description: Saiba como configurar a recuperação de desastres para Azure Stack
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370530"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016914"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar as VMs do Azure Stack para o Azure
 
@@ -101,7 +101,7 @@ Todos os VM que pretende replicar devem ter o serviço de Mobilidade instalado. 
         - Defina o valor para 1.
         - Para o fazer na indicação de comando, digite o seguinte: **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**.
 - Na Firewall do Windows no VM pretende replicar, permitir a partilha de ficheiros e impressoras e o WMI.
-    - Para isso, corra **wf.msc** para abrir a consola Windows Firewall. Clique à direita **Nas Regras de Entrada**Nova  >  **Regra**. Selecione **Predefined**, e escolha **a partilha de Ficheiros e Impressoras** da lista. Preencha o assistente, selecione para permitir a ligação > **Terminar**.
+    - Para isso, corra **wf.msc** para abrir a consola Windows Firewall. Clique à direita **Nas Regras de Entrada** Nova  >  **Regra**. Selecione **Predefined**, e escolha **a partilha de Ficheiros e Impressoras** da lista. Preencha o assistente, selecione para permitir a ligação > **Terminar**.
     - Para computadores de domínio, pode utilizar um GPO para o fazer.
 
 
@@ -137,7 +137,7 @@ Para cada máquina que pretende replicar, encontre o endereço IP:
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Passo 2: Criar um cofre e selecionar um objetivo de replicação
 
-1. No portal Azure, selecione **Criar uma**cópia de segurança das  >  **ferramentas de gestão**de recursos  >  **e recuperação do local.**
+1. No portal Azure, selecione **Criar uma** cópia de segurança das  >  **ferramentas de gestão** de recursos  >  **e recuperação do local.**
 2. Em **Nome**, introduza um nome amigável para identificar o cofre.
 3. No **grupo De recursos,** crie ou selecione um grupo de recursos. Estamos a usar **contosoRG.**
 4. Em **Localização,** entre na região de Azure. estamos a utilizar **Europa Ocidental**.
@@ -145,7 +145,7 @@ Para cada máquina que pretende replicar, encontre o endereço IP:
 
    ![Criar um novo cofre](./media/azure-stack-site-recovery/new-vault-settings.png)
 
-   O novo cofre aparece no **Dashboard**  >  **Todos os recursos**e na página principal dos **cofres dos Serviços de Recuperação.**
+   O novo cofre aparece no **Dashboard**  >  **Todos os recursos** e na página principal dos **cofres dos Serviços de Recuperação.**
 
 ### <a name="select-a-replication-goal"></a>Selecionar um objetivo de replicação
 
@@ -238,7 +238,7 @@ Certifique-se de que completou todas as tarefas no [Passo 1: Prepare a máquina]
     - Se especificar o endereço IP público, a replicação pode não funcionar como esperado.
 
 10. Nas propriedades **de Configuração de**  >  **Propriedades**, selecione a conta que o servidor de processo utilizará para instalar automaticamente o Serviço de Mobilidade na máquina.
-11. Nas **definições de replicação,**  >  **certifique-se de que**a política de replicação correta está selecionada.
+11. Nas **definições de replicação,**  >  **certifique-se de que** a política de replicação correta está selecionada.
 12. Clique **em Ativar a replicação.**
 13. Acompanhe o progresso do trabalho de **Proteção de Ativação** em **Definições**  >  **de**  >  **Empregos Locais De Recuperação de Locais**. Depois de a tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
 
@@ -286,7 +286,7 @@ Executar um teste de failover para um VM da seguinte forma:
 2. Para esta passagem, vamos selecionar para usar o último ponto de recuperação **processado.**
 3. Em **Test Failover**, selecione a rede Target Azure.
 4. Clique em **OK** para iniciar a ativação pós-falha.
-5. Acompanhe o progresso clicando no VM para abrir as suas propriedades. Ou, clique no teste **de failover** job em *nome de cofre*  >  **Definições Empregos**  >  **Jobs**  > **Empregos Trabalhos de Recuperação**do Local .
+5. Acompanhe o progresso clicando no VM para abrir as suas propriedades. Ou, clique no teste **de failover** job em *nome de cofre*  >  **Definições Empregos**  >  **Jobs**  > **Empregos Trabalhos de Recuperação** do Local .
 6. Após a conclusão da ativação pós-falha, a VM do Azure de réplica é apresentada no portal do Azure > **Máquinas Virtuais**. Verifique se o VM tem o tamanho adequado, ligado à rede certa e em funcionamento.
 7. Deverá conseguir ligar-se à VM replicada no Azure agora. [Saiba mais](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 8. Para eliminar as VMs do Azure criadas durante a ativação pós-falha de teste, clique em **Limpar ativação pós-falha de teste** na VM. Em **Notas**, guarde quaisquer observações associadas à falha do teste.

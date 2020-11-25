@@ -7,11 +7,11 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 6a9f2c62d8e7f17f6ea8377982c79fef3dfbb97c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002810"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016833"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Criar um contentor de perfil com ficheiros Azure NetApp e DS AD
 
@@ -123,7 +123,7 @@ Depois disso, tens de te juntar a uma ligação ao Ative Directory.
 
 Em seguida, terá de criar um novo volume.
 
-1. Selecione **Volumes**e, em seguida, **selecione Adicionar volume**.
+1. Selecione **Volumes** e, em seguida, **selecione Adicionar volume**.
 
 2. Quando o separador **De volume** abrir, insira os seguintes valores:
 
@@ -133,7 +133,7 @@ Em seguida, terá de criar um novo volume.
     - Para **a rede Virtual**, selecione uma rede virtual existente que tenha conectividade com o controlador de domínio a partir do menu suspenso.
     - Na **sub-rede,** selecione **Criar novo**. Tenha em mente que esta sub-rede será delegada nos Ficheiros Azure NetApp.
 
-3.  Selecione **Seguinte: Protocolo \> \> ** para abrir o separador Protocolo e configurar os parâmetros de acesso ao volume.
+3.  Selecione **Seguinte: Protocolo \> \>** para abrir o separador Protocolo e configurar os parâmetros de acesso ao volume.
 
 ## <a name="configure-volume-access-parameters"></a>Configurar parâmetros de acesso ao volume
 
@@ -156,7 +156,7 @@ Depois de criar o volume, configuure os parâmetros de acesso ao volume.
 
 Esta secção baseia-se na [Criação de um recipiente de perfil para uma piscina hospedeira utilizando uma partilha de ficheiros](create-host-pools-user-profile.md).
 
-1. [Descarregue o ficheiro FSLogix agent .zip](https://go.microsoft.com/fwlink/?linkid=2084562&clcid=0x409) enquanto ainda estiver afastado no VM do anfitrião da sessão.
+1. [Descarregue o ficheiro .zip do agente FSLogix](https://go.microsoft.com/fwlink/?linkid=2084562&clcid=0x409) enquanto ainda estiver afastado no VM do anfitrião da sessão.
 
 2. Desaperte o ficheiro descarregado.
 
@@ -166,7 +166,7 @@ Esta secção baseia-se na [Criação de um recipiente de perfil para uma piscin
 
 5. Selecione a caixa de verificação ao lado **de que concordo com os termos e condições da licença**.
 
-6. Selecione **Instalar**.
+6. Selecione **Install** (Instalar).
 
 7. Navegue para **C: \\ Ficheiros de programa \\ FSLogix \\ Apps** para confirmar o agente instalado.
 

@@ -17,14 +17,14 @@ ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.custom: devx-track-java
 ms.openlocfilehash: 9ff006b74b6202b02a2767aee4d853b1206ce60d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87304484"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015456"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Como enviar e-mail usando SendGrid de Java
-Este guia demonstra como executar tarefas de programação comuns com o serviço de e-mail SendGrid em Azure. As amostras estão escritas em Java. Os cenários abrangidos incluem **a construção de e-mails,** **envio de e-mail,** **adição de anexos,** **utilização de filtros**e **atualização de propriedades.** Para obter mais informações sobre SendGrid e enviar e-mail, consulte a secção [etapas seguintes.](#next-steps)
+Este guia demonstra como executar tarefas de programação comuns com o serviço de e-mail SendGrid em Azure. As amostras estão escritas em Java. Os cenários abrangidos incluem **a construção de e-mails,** **envio de e-mail,** **adição de anexos,** **utilização de filtros** e **atualização de propriedades.** Para obter mais informações sobre SendGrid e enviar e-mail, consulte a secção [etapas seguintes.](#next-steps)
 
 ## <a name="what-is-the-sendgrid-email-service"></a>O que é o Serviço de E-mail SendGrid?
 SendGrid é um [serviço de e-mail baseado na nuvem] que fornece entrega de [e-mail transacional]fiável, escalabilidade e análise em tempo real, juntamente com APIs flexíveis que facilitam a integração personalizada. Os cenários comuns de utilização da SendGrid incluem:

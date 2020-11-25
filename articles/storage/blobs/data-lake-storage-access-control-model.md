@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: 3ddcbe57112251a428e11d6c164cdb1224553f98
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 65d1ef76ffae113a4b526eec75301abbfea751e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959208"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017717"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modelo de controlo de acesso em Azure Data Lake Storage Gen2
 
@@ -33,17 +33,17 @@ Este artigo centra-se no Azure RBAC e ACLs, e como o sistema os avalia em conjun
 
 ## <a name="role-based-access-control-azure-rbac"></a>Controlo de acesso baseado em funções (Azure RBAC)
 
-A Azure RBAC utiliza atribuições de funções para aplicar conjuntos de permissões aos [princípios de segurança.](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) Um principal de segurança é um objeto que representa um utilizador, grupo, diretor de serviço ou identidade gerida que é definido no Azure Ative Directy (AD). Um conjunto de permissões pode dar a um diretor de segurança um nível de acesso "grosso",, como ler ou escrever acesso a **todos os** dados numa conta de armazenamento ou a **todos os** dados num recipiente. 
+A Azure RBAC utiliza atribuições de funções para aplicar conjuntos de permissões aos [princípios de segurança.](../../role-based-access-control/overview.md#security-principal) Um principal de segurança é um objeto que representa um utilizador, grupo, diretor de serviço ou identidade gerida que é definido no Azure Ative Directy (AD). Um conjunto de permissões pode dar a um diretor de segurança um nível de acesso "grosso",, como ler ou escrever acesso a **todos os** dados numa conta de armazenamento ou a **todos os** dados num recipiente. 
 
 As seguintes funções permitem a um diretor de segurança aceder aos dados numa conta de armazenamento. 
 
 |Função|Descrição|
 |--|--|
-| [Proprietário dos Dados do Armazenamento de Blobs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Acesso total a recipientes e dados de armazenamento Blob. Este acesso permite ao titular de segurança definir um item ao proprietário e modificar os ACLs de todos os itens. |
-| [Contribuinte de Dados do Armazenamento de Blobs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Leia, escreva e elimine o acesso a recipientes de armazenamento Blob e bolhas. Este acesso não permite ao diretor de segurança definir a propriedade de um item, mas pode modificar a ACL de itens que são propriedade do responsável pela segurança. |
-| [Leitor de Dados do Armazenamento de Blobs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Leia e enuncie os recipientes de armazenamento Blob e as bolhas. |
+| [Proprietário dos Dados do Armazenamento de Blobs](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Acesso total a recipientes e dados de armazenamento Blob. Este acesso permite ao titular de segurança definir um item ao proprietário e modificar os ACLs de todos os itens. |
+| [Contribuinte de Dados do Armazenamento de Blobs](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Leia, escreva e elimine o acesso a recipientes de armazenamento Blob e bolhas. Este acesso não permite ao diretor de segurança definir a propriedade de um item, mas pode modificar a ACL de itens que são propriedade do responsável pela segurança. |
+| [Leitor de Dados do Armazenamento de Blobs](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) | Leia e enuncie os recipientes de armazenamento Blob e as bolhas. |
 
-Funções como [Proprietário,](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) [Contribuinte,](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) [Leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)e [Contribuinte de Conta de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) permitem a um responsável de segurança gerir uma conta de armazenamento, mas não fornecem acesso aos dados dentro dessa conta. No entanto, estas funções (excluindo o **Leitor)** podem obter acesso às chaves de armazenamento, que podem ser usadas em várias ferramentas do cliente para aceder aos dados.
+Funções como [Proprietário,](../../role-based-access-control/built-in-roles.md#owner) [Contribuinte,](../../role-based-access-control/built-in-roles.md#contributor) [Leitor](../../role-based-access-control/built-in-roles.md#reader)e [Contribuinte de Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) permitem a um responsável de segurança gerir uma conta de armazenamento, mas não fornecem acesso aos dados dentro dessa conta. No entanto, estas funções (excluindo o **Leitor)** podem obter acesso às chaves de armazenamento, que podem ser usadas em várias ferramentas do cliente para aceder aos dados.
 
 ## <a name="access-control-lists-acls"></a>Listas de controlo de acesso (ACL)
 
@@ -73,7 +73,7 @@ O diagrama a seguir mostra o fluxo de permissão para três operações comuns: 
 
 A tabela que se segue mostra-lhe como combinar funções Azure e entradas ACL para que um diretor de segurança possa executar as operações listadas na coluna **Operação.** Esta tabela mostra uma coluna que representa cada nível de uma hierarquia fictícia do diretório. Há uma coluna para o diretório de raiz do contentor , `/` um subdiretório chamado **Oregon**, um subdiretório do diretório do Oregon chamado **Portland,** e um ficheiro de texto no diretório de Portland chamado **Data.txt**. Aparecendo nessas colunas são representações de [forma curta](data-lake-storage-access-control.md#short-forms-for-permissions) da entrada ACL necessárias para conceder permissões. **N/A** (_Não aplicável_) aparece na coluna se não for necessária uma entrada ACL para realizar a operação.
 
-|    Operação             | Papel RBAC atribuído               |    /        | Oregon/     | Portland/ | Data.txt |             
+|    Operação             | Papel Azure atribuído               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
 | Leia Data.txt            |   Proprietário dos Dados do Armazenamento de Blobs        | N/D      | N/D      | N/D       | N/D    |  
 |                          |   Contribuinte de Dados do Armazenamento de Blobs  | N/D      | N/D      | N/D       | N/D    |
@@ -106,7 +106,7 @@ A tabela que se segue mostra-lhe como combinar funções Azure e entradas ACL pa
 
 
 > [!NOTE] 
-> Para visualizar o conteúdo de um contentor no Azure Storage Explorer, os princípios de segurança devem [inscrever-se no Storage Explorer utilizando a Azure AD](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#add-a-resource-via-azure-ad), e (no mínimo) ler o acesso (R--) à pasta raiz ( `\` ) de um recipiente. Este nível de permissão dá-lhes a capacidade de listar o conteúdo da pasta raiz. Se não quiser que o conteúdo da pasta raiz seja visível, pode atribuir-lhes o papel [de Leitor.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) Com esse papel, poderão listar os contentores na conta, mas não o conteúdo do contentor. Em seguida, pode conceder acesso a diretórios e ficheiros específicos utilizando ACLs.   
+> Para visualizar o conteúdo de um contentor no Azure Storage Explorer, os princípios de segurança devem [inscrever-se no Storage Explorer utilizando a Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#add-a-resource-via-azure-ad), e (no mínimo) ler o acesso (R--) à pasta raiz ( `\` ) de um recipiente. Este nível de permissão dá-lhes a capacidade de listar o conteúdo da pasta raiz. Se não quiser que o conteúdo da pasta raiz seja visível, pode atribuir-lhes o papel [de Leitor.](../../role-based-access-control/built-in-roles.md#reader) Com esse papel, poderão listar os contentores na conta, mas não o conteúdo do contentor. Em seguida, pode conceder acesso a diretórios e ficheiros específicos utilizando ACLs.   
 
 ## <a name="security-groups"></a>Grupos de segurança
 
@@ -120,7 +120,7 @@ Ao utilizar grupos, é menos provável que exceda o número máximo de atribuiç
 
 ## <a name="shared-key-and-shared-access-signature-sas-authorization"></a>Autorização de Assinatura de Chave Partilhada e Assinatura de Acesso Partilhado (SAS)
 
-A Azure Data Lake Storage Gen2 também suporta métodos [de chave partilhada](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) e [SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview?toc=/azure/storage/blobs/toc.json) para a autenticação. Uma característica destes métodos de autenticação é que nenhuma identidade está associada ao chamador e, portanto, a autorização baseada na autorização principal de segurança não pode ser realizada.
+A Azure Data Lake Storage Gen2 também suporta métodos [de chave partilhada](/rest/api/storageservices/authorize-with-shared-key) e [SAS](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para a autenticação. Uma característica destes métodos de autenticação é que nenhuma identidade está associada ao chamador e, portanto, a autorização baseada na autorização principal de segurança não pode ser realizada.
 
 No caso da Chave Partilhada, o chamador obtém efetivamente acesso a 'super-utilizador', o que significa acesso total a todas as operações em todos os recursos, incluindo dados, definição do proprietário e alteração de ACLs.
 
@@ -129,4 +129,3 @@ Os tokens SAS incluem permissões permitidas como parte do token. As permissões
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as listas de controlo de acesso, consulte  [as listas de controlo de acesso (ACLs) em Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-

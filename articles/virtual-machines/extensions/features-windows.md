@@ -17,11 +17,11 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 565f98126cea8cc03874bb4f83ecdc2c65f8d5fb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966059"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016459"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões e funcionalidades de máquinas virtuais para Windows
 

@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 964d2b5d89fd91aca68e9b47b0049529fe284848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829004"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016408"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Criar uma máquina virtual Linux em zona de disponibilidade com o Azure CLI
 

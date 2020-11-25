@@ -11,11 +11,11 @@ ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d1b1c27fe0136220d5a1851af4a5c24102a37da1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288627"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015558"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar firewalls de cofre de chaves Azure e redes virtuais
 
@@ -83,7 +83,7 @@ Eis como configurar firewalls key vault e redes virtuais utilizando o portal Azu
 3. Ao **Permitir o acesso a redes** **selecionadas.**
 4. Para adicionar redes virtuais existentes a firewalls e regras de rede virtuais, selecione **+ Adicione as redes virtuais existentes**.
 5. Na nova lâmina que abre, selecione a subscrição, redes virtuais e sub-redes que pretende permitir o acesso a este cofre de chaves. Se as redes virtuais e sub-redes selecionadas não tiverem pontos finais de serviço ativados, confirme que pretende ativar os pontos finais do serviço e selecione **Enable**. Pode levar até 15 minutos para fazer efeito.
-6. Nas **redes IP** , adicione intervalos de endereços IPv4 digitando gamas de endereços IPv4 na [notação CIDR (Encaminhamento inter-domínio sem classe)](https://tools.ietf.org/html/rfc4632) ou endereços IP individuais.
+6. Nas **redes IP**, adicione intervalos de endereços IPv4 digitando gamas de endereços IPv4 na [notação CIDR (Encaminhamento inter-domínio sem classe)](https://tools.ietf.org/html/rfc4632) ou endereços IP individuais.
 7. Se pretender permitir que o Microsoft Trusted Services ignore a Firewall do Cofre de Chaves, selecione 'Sim'. Para obter uma lista completa dos atuais Serviços Fidedignos do Cofre de Chaves, consulte o seguinte link. [Azure Key Vault Serviços fidedignos](./overview-vnet-service-endpoints.md#trusted-services)
 7. Selecione **Guardar**.
 

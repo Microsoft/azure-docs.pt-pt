@@ -10,11 +10,11 @@ ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745830"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016680"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -354,7 +354,7 @@ Algumas propriedades podem ser alteradas, com exceções dependendo do valor atu
 ### <a name="properties-that-require-deallocation-to-change"></a>Imóveis que exigem a mudança de negociação
 Algumas propriedades só podem ser alteradas para determinados valores se os VMs na escala definida forem transabilitados. Estas propriedades incluem:
 
-- **Nome SKU** - Se o novo VM SKU não for suportado no hardware em que o conjunto de escala está atualmente ligado, tem de transferir os VMs na escala definida antes de modificar o nome SKU. Para mais informações, [consulte como redimensionar um VM Azure](../virtual-machines/windows/resize-vm.md).
+- **Nome SKU**- Se o novo VM SKU não for suportado no hardware em que o conjunto de escala está atualmente ligado, tem de transferir os VMs na escala definida antes de modificar o nome SKU. Para mais informações, [consulte como redimensionar um VM Azure](../virtual-machines/windows/resize-vm.md).
 
 
 ## <a name="vm-specific-updates"></a>Atualizações específicas do VM
@@ -379,7 +379,7 @@ Se utilizar imagens personalizadas, pode atualizar a imagem atualizando o *ID* d
 ## <a name="examples"></a>Exemplos
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Atualize a imagem de SO para o seu conjunto de escala
-Pode ter um conjunto de escala que executa uma versão antiga de Ubuntu LTS 16.04. Pretende atualizar para uma versão mais recente do Ubuntu LTS 16.04, como a versão *16.04.201801090* . A propriedade da versão de referência de imagem não faz parte de uma lista, pelo que pode modificar diretamente estas propriedades com um dos seguintes comandos:
+Pode ter um conjunto de escala que executa uma versão antiga de Ubuntu LTS 16.04. Pretende atualizar para uma versão mais recente do Ubuntu LTS 16.04, como a versão *16.04.201801090*. A propriedade da versão de referência de imagem não faz parte de uma lista, pelo que pode modificar diretamente estas propriedades com um dos seguintes comandos:
 
 - Azure PowerShell com [Update-AzVmss](/powershell/module/az.compute/update-azvmss) da seguinte forma:
 
@@ -447,7 +447,7 @@ Digamos que tem uma balança definida com um Balançador de Carga Azure, e prete
     ```
 
 >[!NOTE]
-> Estes comandos assumem que existe apenas uma configuração IP e um balançador de carga no conjunto de escala. Se houver vários, poderá ter de utilizar um índice de lista que não *seja 0* .
+> Estes comandos assumem que existe apenas uma configuração IP e um balançador de carga no conjunto de escala. Se houver vários, poderá ter de utilizar um índice de lista que não *seja 0*.
 
 
 ## <a name="next-steps"></a>Passos seguintes

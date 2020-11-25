@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
 ms.openlocfilehash: 2994f68e4159c7c4aa7d82bef7a5891deb5055a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292827"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017428"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Falha e falha servidores físicos replicados no Azure
 
@@ -34,7 +34,7 @@ Este tutorial descreve como falhar em servidores físicos que estão a replicar-
 
 Verifique as propriedades do servidor e certifique-se de que cumpre os [requisitos do Azure](vmware-physical-azure-support-matrix.md#replicated-machines) para os VMs Azure.
 
-1. Em **Itens Protegidos,** clique em **Itens Replicados**e selecione a máquina.
+1. Em **Itens Protegidos,** clique em **Itens Replicados** e selecione a máquina.
 2. No painel de **artigos replicado,** há um resumo da informação da máquina, estado de saúde e os últimos pontos de recuperação disponíveis. Clique em **Propriedades** para ver mais detalhes.
 3. No **Compute and Network,** pode modificar o nome Azure, grupo de recursos, tamanho alvo, [conjunto de disponibilidades](../virtual-machines/windows/tutorial-availability-sets.md)e definições de disco gerido
 4. Pode ver e modificar as definições de rede, incluindo a rede/sub-rede na qual a VM do Azure será localizada após a ativação pós-falha e o endereço IP que será atribuído à mesma.

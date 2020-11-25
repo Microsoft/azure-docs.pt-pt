@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: b-juche
 ms.openlocfilehash: 7eac6a40476cffe875a03de49c9c9311ffbf4d39
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016047"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017071"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Níveis de serviços do Azure NetApp Files
 Os níveis de serviço são um atributo de um pool de capacidade. Os níveis de serviço são definidos e diferenciados pela produção máxima permitida para um volume no pool de capacidade com base no contingente atribuído ao volume.
 
 ## <a name="supported-service-levels"></a>Níveis de serviço suportados
 
-O Azure NetApp Files suporta três níveis de serviço: *Ultra,* *Premium*e *Standard*. 
+O Azure NetApp Files suporta três níveis de serviço: *Ultra,* *Premium* e *Standard*. 
 
 * <a name="Ultra"></a>Armazenamento ultra
 

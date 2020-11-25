@@ -15,11 +15,11 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 167c666c536ee33531fd069dbd1edb530331a9f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302194"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016960"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push a utilizadores específicos usando hubs de notificação do Azure
 
@@ -56,7 +56,7 @@ Se pretender utilizar as Aplicações Móveis como serviço de backend, consulte
 
     ![Editar storyboard no construtor de interface Xcode][1]
 
-   * **Nome de utilizador**: Um UITextField com texto reservado, *Insira*o nome de utilizador, imediatamente abaixo da etiqueta de resultados de envio e limitado às margens esquerda e direita e abaixo da etiqueta de resultados de envio.
+   * **Nome de utilizador**: Um UITextField com texto reservado, *Insira* o nome de utilizador, imediatamente abaixo da etiqueta de resultados de envio e limitado às margens esquerda e direita e abaixo da etiqueta de resultados de envio.
    * **Palavra-passe**: Um UITextField com texto reservado, *Introduza a Palavra-passe,* imediatamente por baixo do campo de texto do nome de utilizador e limitado às margens esquerda e direita e abaixo do campo de texto do nome de utilizador. Consulte a opção **de entrada de texto seguro** no Inspetor de Atributos, na *Tecla Devolução*.
    * **Iniciar sessão :** Um UIButton rotulado imediatamente por baixo do campo de texto de palavra-passe e desmarque a opção **Ativada** no Inspetor atributos, em *Conteúdo de Controlo*
    * **WNS**: Etiquetar e mudar para permitir o envio do Serviço de Notificação do Windows se tiver sido criado no hub. Consulte o tutorial [windows getting start.](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
@@ -299,7 +299,7 @@ Se pretender utilizar as Aplicações Móveis como serviço de backend, consulte
     @property (strong, nonatomic) RegisterClient* registerClient;
     ```
 
-9. Em ViewController.m, adicione uma declaração de método privado na `@interface` secção:
+9. No ViewController.m, adicione uma declaração de método privado na `@interface` secção:
 
     ```objc
     @interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
@@ -343,7 +343,7 @@ Se pretender utilizar as Aplicações Móveis como serviço de backend, consulte
 
     Note como a definição do token do dispositivo permite o botão **Iniciar sessão.** É porque, como parte da ação de login, o controlador de visualização regista-se para notificações push com o backend da app. Não pretende que o **Log em** ação esteja acessível até que o token do dispositivo tenha sido corretamente configurado. Pode dissociar o login do registo push desde que o primeiro aconteça antes deste último.
 
-11. Em ViewController.m, utilize os seguintes cortes para implementar o método de ação para o seu botão **Iniciar sessão** e um método para enviar a mensagem de notificação utilizando o backend ASP.NET.
+11. No ViewController.m, utilize os seguintes cortes para implementar o método de ação para o seu botão **Iniciar Sessão** e um método para enviar a mensagem de notificação utilizando o backend ASP.NET.
 
     ```objc
     - (IBAction)LogInAction:(id)sender {
@@ -487,7 +487,7 @@ Se pretender utilizar as Aplicações Móveis como serviço de backend, consulte
 
     ![Notificação de teste iOS apresentada][3]
 
-4. No campo de texto*de identificação de utilizador * Destinatário,* introduza a etiqueta de nome de utilizador utilizada com o registo de outro dispositivo.
+4. No campo de texto *de identificação de utilizador * Destinatário,* introduza a etiqueta de nome de utilizador utilizada com o registo de outro dispositivo.
 5. Introduza uma mensagem de notificação e clique em **Enviar Notificação**. Apenas os dispositivos que têm registo com a etiqueta do nome do utilizador destinatário recebem a mensagem de notificação. Só é enviado para esses utilizadores.
 
     ![Notificação marcada por teste do iOS][4]

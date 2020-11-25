@@ -8,11 +8,11 @@ ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
 ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999025"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015524"
 ---
 # <a name="monitoring-scheduled-events"></a>Monitorização de Eventos Agendados
 
@@ -56,7 +56,7 @@ New-AzVm `
 ```
  
 
-Descarregue a instalação .zip file do projeto a partir do [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
+Descarregue a instalação .zip ficheiro do projeto do [GitHub.](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip)
 
 Ligue-se ao **myCollectorVM** e copie o ficheiro .zip à máquina virtual e extraia todos os ficheiros. No seu VM, abra um pedido powerShell. Mova a sua solicitação para a pasta `SchService.ps1` contendo, por `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>` exemplo, e instale o serviço.
 
@@ -122,7 +122,7 @@ Isto instalará o [agente microsoft monitor na](../extensions/oms-windows.md) su
 
     ![Selecione configurações avançadas](./media/notifications/advanced.png)
 
-1. Deixar **ERRO**, **AVISO**e **INFORMAÇÃO** selecionados e, em seguida, **selecionar Guardar** para guardar as definições.
+1. Deixar **ERRO**, **AVISO** e **INFORMAÇÃO** selecionados e, em seguida, **selecionar Guardar** para guardar as definições.
 
 
 > [!NOTE]
@@ -156,7 +156,7 @@ Uma vez que os eventos são empurrados para Log Analytics, você pode executar a
 
 1. Selecione **Nova regra de alerta**. 
 1. Na página **'Criar' regras,** deixe `collectorworkspace` como **recurso**.
-1. Em **Condição**, selecione a entrada *Sempre que a pesquisa de registo do cliente estiver <login undefined> *. A página **lógica de sinal de configuração** abrir-se-á.
+1. Em **Condição**, selecione a entrada *Sempre que a pesquisa de registo do cliente estiver <login undefined>*. A página **lógica de sinal de configuração** abrir-se-á.
 1. No **valor limiar**, insira *0* e, em seguida, selecione **Fazer**.
 1. Em **Ações**, **selecione Criar grupo de ação**. A página **do grupo de ação Add** será aberta.
 1. Em **Nome do grupo Action**, digite *myActionGroup*.
@@ -165,7 +165,7 @@ Uma vez que os eventos são empurrados para Log Analytics, você pode executar a
 1. Em Ações, em **ACTION NAME** tipo **Email**, e, em seguida, selecione **Email/SMS/Push/Voice**. A página **email/SMS/Push/Voice** abrirá.
 1. Selecione **Email**, escreva no seu endereço de e-mail e, em seguida, selecione **OK**.
 1. Na página do **grupo de ação Add,** selecione **OK**. 
-1. Na página **'Criar' regra,** em **DETALHES ALERTA,** digite *myAlert* para o **nome da regra de alerta**e, em seguida, escreva a regra de alerta de *e-mail* para a **Descrição**.
+1. Na página **'Criar' regra,** em **DETALHES ALERTA,** digite *myAlert* para o **nome da regra de alerta** e, em seguida, escreva a regra de alerta de *e-mail* para a **Descrição**.
 1. Quando terminar, selecione **Criar a regra de alerta**.
 1. Reinicie um dos VMs no conjunto de disponibilidade. Dentro de alguns minutos, deve receber um e-mail de que o alerta foi desencadeado.
 

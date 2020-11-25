@@ -10,11 +10,11 @@ ms.date: 05/18/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
 ms.openlocfilehash: 68f311a949d6c7663c5602c444d1b7b9af09dcad
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517500"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016731"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
@@ -55,7 +55,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Definir um perfil de dimensionamento automático
 
-Para ativar o dimensionamento automático num conjunto de dimensionamente, tem primeiro que definir um perfil de dimensionamento automático. Este perfil define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento. Estes limites permitem controlar os custos não criando continuamente instâncias VM, e equilibrar o desempenho aceitável com um número mínimo de casos que permanecem em um evento de escala. Criar um perfil de dimensionamento automático com [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). O exemplo seguinte define a capacidade predefinida e mínima de *2* instâncias de VM e um máximo de *10* :
+Para ativar o dimensionamento automático num conjunto de dimensionamente, tem primeiro que definir um perfil de dimensionamento automático. Este perfil define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento. Estes limites permitem controlar os custos não criando continuamente instâncias VM, e equilibrar o desempenho aceitável com um número mínimo de casos que permanecem em um evento de escala. Criar um perfil de dimensionamento automático com [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). O exemplo seguinte define a capacidade predefinida e mínima de *2* instâncias de VM e um máximo de *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -131,9 +131,9 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Quando o **stress** mostrar um resultado semelhante a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , prima a tecla *Enter* para regressar à linha de comandos.
+Quando o **stress** mostrar um resultado semelhante a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, prima a tecla *Enter* para regressar à linha de comandos.
 
-Para confirmar que o **stress** gera carga de CPU, examine a carga de sistema ativa com o utilitário **top** :
+Para confirmar que o **stress** gera carga de CPU, examine a carga de sistema ativa com o utilitário **top**:
 
 ```console
 top
@@ -159,7 +159,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Novamente, quando o **stress** mostrar um resultado semelhante a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , prima a tecla *Enter* para regressar à linha de comandos.
+Novamente, quando o **stress** mostrar um resultado semelhante a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, prima a tecla *Enter* para regressar à linha de comandos.
 
 Feche a ligação à segunda instância de VM. O **stress** continua a ser executado na instância de VM.
 
@@ -200,7 +200,7 @@ Assim que o **stress** para nas instâncias de VM iniciais, a carga de CPU médi
 
 Saia de *watch* com `Ctrl-c`. O conjunto de dimensionamento continua a reduzir horizontalmente a cada 5 minutos e remove uma instância de VM até ser atingida uma contagem mínima de duas instâncias.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover o seu conjunto de dimensionamento e recursos adicionais, elimine o grupo de recursos e todos os respetivos recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
 

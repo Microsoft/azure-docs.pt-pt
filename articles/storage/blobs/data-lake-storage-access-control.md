@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 03117b9f0c3cbaea22f36703f689264549b851e8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 485b23d9b7ebac4f7d183239d035fbd53b09f4ee
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959140"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017690"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listas de controlo de acesso (ACLs) em Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ A Azure Data Lake Storage Gen2 implementa um modelo de controlo de acesso que su
 
 ## <a name="about-acls"></a>Sobre ACLs
 
-Pode associar um [diretor de segurança](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) a um nível de acesso para ficheiros e diretórios. Estas associações são capturadas numa *lista de controlo de acesso (ACL)*. Cada ficheiro e diretório na sua conta de armazenamento tem uma lista de controlo de acesso. Quando um principal de segurança tenta uma operação num ficheiro ou diretório, uma verificação da ACL determina se esse principal de segurança (utilizador, grupo, principal de serviço ou identidade gerida) tem o nível de permissão correto para realizar a operação.
+Pode associar um [diretor de segurança](../../role-based-access-control/overview.md#security-principal) a um nível de acesso para ficheiros e diretórios. Estas associações são capturadas numa *lista de controlo de acesso (ACL)*. Cada ficheiro e diretório na sua conta de armazenamento tem uma lista de controlo de acesso. Quando um principal de segurança tenta uma operação num ficheiro ou diretório, uma verificação da ACL determina se esse principal de segurança (utilizador, grupo, principal de serviço ou identidade gerida) tem o nível de permissão correto para realizar a operação.
 
 > [!NOTE]
 > Os ACLs aplicam-se apenas aos princípios de segurança do mesmo inquilino, e não se aplicam aos utilizadores que utilizem a Chave Partilhada ou a autenticação de assinatura de acesso partilhado (SAS). Isto porque nenhuma identidade está associada ao chamador e, portanto, a autorização baseada na autorização principal de segurança não pode ser realizada.  
@@ -34,13 +34,13 @@ Para definir permissões de nível de arquivo e diretório, consulte qualquer um
 
 | Ambiente | Artigo |
 |--------|-----------|
-|Explorador de Armazenamento do Azure |[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access) (Utilizar o Explorador de Armazenamento do Azure para gerir diretórios, ficheiros e ACLs no Azure Data Lake Storage Gen2)|
+|Explorador do Storage do Azure |[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access) (Utilizar o Explorador de Armazenamento do Azure para gerir diretórios, ficheiros e ACLs no Azure Data Lake Storage Gen2)|
 |.NET |[Utilize .NET para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
 |Java|[Use a Java para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
 |Python|[Use python para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
 |PowerShell|[Use o PowerShell para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
 |CLI do Azure|[Use o Azure CLI para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
-|API REST |[Caminho - Atualização](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|API REST |[Caminho - Atualização](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Se o diretor de segurança for um principal de *serviço,* é importante usar o ID do objeto do principal do serviço e não o ID do objeto do registo de aplicações relacionados. Para obter a identificação do objeto do principal de serviço abra o CLI Azure e, em seguida, use este comando: `az ad sp show --id <Your App ID> --query objectId` . certifique-se de substituir o `<Your App ID>` espaço reservado pelo ID da aplicação do seu registo de aplicações.
@@ -92,7 +92,8 @@ A tabela que se segue mostra-lhe as entradas ACL necessárias para permitir que 
 
 Esta tabela mostra uma coluna que representa cada nível de uma hierarquia fictícia do diretório. Há uma coluna para o diretório de raiz do contentor , `\` um subdiretório chamado **Oregon**, um subdiretório do diretório do Oregon chamado **Portland,** e um ficheiro de texto no diretório de Portland chamado **Data.txt**. 
 
-> [! IMPORANT] Esta tabela pressupõe que está a utilizar **apenas** ACLs sem atribuições de funções Azure. Para ver uma tabela semelhante que combina Azure RBAC juntamente com ACLs, consulte [tabela permissões: Combinando Azure RBAC e ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> [!IMPORTANT]
+> Esta tabela pressupõe que está a utilizar **apenas** ACLs sem quaisquer atribuições de funções Azure. Para ver uma tabela semelhante que combina Azure RBAC juntamente com ACLs, consulte [tabela permissões: Combinando Azure RBAC e ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
 
 |    Operação             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -203,7 +204,7 @@ Para um novo recipiente De armazenamento de dados Gen2, a máscara para o acesso
 |--|--|--|
 |Utilizador proprietário|`rwx`|`r-w`|
 |Grupo proprietário|`r-x`|`r--`|
-|Outros|`---`|`---`|
+|Outro|`---`|`---`|
 
 Os ficheiros não recebem o bit X, uma vez que é irrelevante para os ficheiros de um sistema apenas de loja. 
 
@@ -330,7 +331,7 @@ Quando tiver o OID correto para o principal do serviço, vá à página de **Ace
 
 Não. Um recipiente não tem um ACL. No entanto, pode definir o ACL do diretório de raiz do recipiente. Cada contentor tem um diretório de raiz, e tem o mesmo nome que o contentor. Por exemplo, se o recipiente for `my-container` nomeado, o diretório de raiz é nomeado `myContainer/` . 
 
-A AZure Storage REST API contém uma operação denominada [set Container ACL,](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)mas essa operação não pode ser utilizada para definir o ACL de um recipiente ou o diretório de raiz de um recipiente. Em vez disso, esta operação é utilizada para indicar se as bolhas num recipiente [podem ser acedidas publicamente](anonymous-read-access-configure.md). 
+A AZure Storage REST API contém uma operação denominada [set Container ACL,](/rest/api/storageservices/set-container-acl)mas essa operação não pode ser utilizada para definir o ACL de um recipiente ou o diretório de raiz de um recipiente. Em vez disso, esta operação é utilizada para indicar se as bolhas num recipiente [podem ser acedidas publicamente](anonymous-read-access-configure.md). 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Onde posso obter mais informações sobre o modelo de controlo de acesso POSIX?
 

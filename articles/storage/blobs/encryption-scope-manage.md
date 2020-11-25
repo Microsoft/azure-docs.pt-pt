@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9210c54305427c82d5666d68573fd3af41e8cef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972187"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017411"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Criar e gerir os âmbitos de encriptação (pré-visualização)
 
@@ -179,7 +179,7 @@ Para aprender a configurar a encriptação do Armazenamento Azure com chaves ger
 
 Para ver os âmbitos de encriptação de uma conta de armazenamento no portal Azure, navegue para a definição **de Âmbitos de Encriptação** para a conta de armazenamento. A partir deste painel, pode ativar ou desativar um âmbito de encriptação ou alterar a chave para um âmbito de encriptação.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Screenshot mostrando como criar o âmbito de encriptação no portal Azure":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Screenshot mostrando lista de âmbitos de encriptação no portal Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -223,7 +223,7 @@ Para criar um recipiente com um âmbito de encriptação padrão no portal Azure
 1. No desvio do âmbito de **encriptação,** selecione o âmbito de encriptação padrão para o recipiente.
 1. Para exigir que todas as bolhas do recipiente utilizem o âmbito de encriptação predefinido, selecione a caixa de **verificação para Utilizar este âmbito de encriptação para todas as bolhas no recipiente**. Se esta caixa de verificação for selecionada, então uma bolha individual no recipiente não pode sobrepor-se ao âmbito de encriptação predefinido.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Screenshot mostrando como criar o âmbito de encriptação no portal Azure":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Screenshot mostrando recipiente com âmbito de encriptação padrão":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -247,7 +247,7 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
 
 Para criar um recipiente com um âmbito de encriptação padrão com O Azure CLI, ligue para o [recipiente de armazenamento az criar](/cli/azure/storage/container#az-storage-container-create) comando, especificando o âmbito para o `--default-encryption-scope` parâmetro. Para forçar todas as bolhas num recipiente a utilizar o âmbito padrão do recipiente, deite o `--prevent-encryption-scope-override` parâmetro para `true` .
 
-O exemplo a seguir utiliza a sua conta Azure AD para autorizar a operação de criação do recipiente. Também pode utilizar a chave de acesso à conta. Para obter mais informações, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md).
+O exemplo a seguir utiliza a sua conta Azure AD para autorizar a operação de criação do recipiente. Também pode utilizar a chave de acesso à conta. Para obter mais informações, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](./authorize-data-operations-cli.md).
 
 ```azurecli-interactive
 az storage container create \
@@ -275,9 +275,9 @@ Para carregar uma bolha com um âmbito de encriptação especificado no portal A
 1. Selecione o botão **Upload** e localize a bolha para carregar.
 1. Expanda as definições **Avançadas** no **painel de bolhas de upload.**
 1. Localize a secção de redução do alcance da **encriptação.** Por predefinição, a bolha é criada com o âmbito de encriptação padrão para o recipiente, se um tiver sido especificado. Se o recipiente exigir que as bolhas utilizem o âmbito de encriptação predefinido, esta secção é desativada.
-1. Para especificar um âmbito diferente para a bolha que está a carregar, **selecione Escolha um âmbito existente**e, em seguida, selecione o âmbito pretendido a partir do drop-down.
+1. Para especificar um âmbito diferente para a bolha que está a carregar, **selecione Escolha um âmbito existente** e, em seguida, selecione o âmbito pretendido a partir do drop-down.
 
-    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Screenshot mostrando como criar o âmbito de encriptação no portal Azure":::
+    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Screenshot mostrando como carregar uma bolha com um âmbito de encriptação":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

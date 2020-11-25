@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 5427077a4b07917c8852d0a63c815195e776b9de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085196"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017037"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerir recursos para o cluster Apache Spark em Azure HDInsight
 
@@ -34,7 +34,7 @@ Pode utilizar o UI YARN para monitorizar as aplicações que estão atualmente e
     ![Lançamento YARN UI](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
 
    > [!TIP]  
-   > Em alternativa, também pode lançar o UI YARN a partir da UI Ambari. A partir do Ambari UI, navegue para **YARN**  >  **Quick Links**  >  **Ative**Resource  >  **Manager UI**.
+   > Em alternativa, também pode lançar o UI YARN a partir da UI Ambari. A partir do Ambari UI, navegue para **YARN**  >  **Quick Links**  >  **Ative** Resource  >  **Manager UI**.
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Otimizar clusters para aplicações Spark
 
@@ -146,7 +146,7 @@ Lance a UI yarn como mostrado no início do artigo. Na tabela Métricas de Clust
 
     ![Kill App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Kill App2")
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Controlar e depurar tarefas em execução num cluster do Apache Spark do HDInsight](apache-spark-job-debugging.md)
 

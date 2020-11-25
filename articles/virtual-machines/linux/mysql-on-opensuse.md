@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
 ms.openlocfilehash: eee32dc7edd4256dd2bd120609504042d7ab78ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836891"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016085"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instale o MySQL numa máquina virtual em execução OpenSUSE Linux em Azure
 
@@ -98,7 +98,7 @@ sudo reboot
 
 ## <a name="mysql-password"></a>Senha MySQL
 
-Após a instalação, a palavra-passe de raiz MySQL está vazia por defeito. Executar o script de ** \_ \_ instalação mysql seguro** para proteger o MySQL. O script solicita-lhe que altere a palavra-passe de raiz do MySQL, remova contas de utilizador anónimas, desative o registo remoto da raiz, remova bases de dados de teste e recarregue a tabela de privilégios. 
+Após a instalação, a palavra-passe de raiz MySQL está vazia por defeito. Executar o script de **\_ \_ instalação mysql seguro** para proteger o MySQL. O script solicita-lhe que altere a palavra-passe de raiz do MySQL, remova contas de utilizador anónimas, desative o registo remoto da raiz, remova bases de dados de teste e recarregue a tabela de privilégios. 
 
 Assim que o servidor reiniciar, volte a ser o VM.
 

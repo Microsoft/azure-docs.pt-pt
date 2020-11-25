@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: c288f59b1cb9a85ed4bc978d1c3fba18ba30b572
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968762"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017207"
 ---
 # <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
 

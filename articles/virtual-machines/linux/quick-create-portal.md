@@ -9,11 +9,11 @@ ms.date: 06/25/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 405cb107711845a6699e09bc09a1d2d9f3005cd6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87499981"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016051"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
 
@@ -42,11 +42,11 @@ Inscreva-se no [portal Azure](https://portal.azure.com) se ainda não o fez.
 
 1. No **nome de utilizador,** *escreva azureuser*.
 
-1. Para **a fonte de chave pública SSH,** deixe o padrão de Gerar novo par de **chaves**e, em seguida, digite *myKey* para o **nome do par chave**.
+1. Para **a fonte de chave pública SSH,** deixe o padrão de Gerar novo par de **chaves** e, em seguida, digite *myKey* para o **nome do par chave**.
 
     ![Screenshot da secção de conta do Administrador onde seleciona um tipo de autenticação e fornece as credenciais do administrador](./media/quick-create-portal/administrator-account.png)
 
-1. Sob **as regras portuárias de entrada**Públicas portas de entrada , escolha Permitir portas  >  **selecionadas** e,**em**seguida, selecione **SSH (22)** e **HTTP (80)** a partir do drop-down. 
+1. Sob **as regras portuárias de entrada** Públicas portas de entrada , escolha Permitir portas  >  **selecionadas** e,**em** seguida, selecione **SSH (22)** e **HTTP (80)** a partir do drop-down. 
 
     ![Screenshot da secção de regras da porta de entrada onde seleciona quais as ligações de entrada das portas permitidas](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -96,7 +96,7 @@ Utilize um browser à sua escolha para ver a página predefinida de boas-vindas 
 
 ![Screenshot mostrando o site padrão NGINX em um navegador](./media/quick-create-portal/nginx.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual, selecione **Eliminar** e confirme o nome do grupo de recursos a eliminar.
 

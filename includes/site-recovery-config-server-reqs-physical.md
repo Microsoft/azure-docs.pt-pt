@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a8a7be6f437687a4de31ce8e0ac62588f64e2eb
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184485"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96016913"
 ---
 **Requisitos do servidor de configuração/processo para replicação do servidor físico**
 
@@ -31,8 +31,8 @@ Espaço livre em disco (disco de retenção) | 600 GB
 Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
 Região do sistema operativo | Inglês (en-us)
 Funções do Windows Server | Não ative estes papéis: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V 
-Políticas de grupo | Não ative estas políticas de grupo: <br> - Impedir o acesso à ordem de comando. <br> - Impedir o acesso a ferramentas de edição de registo. <br> - Lógica de confiança para anexos de ficheiros. <br> - Ligue a execução do guião. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - Nenhum website preexisting preexisting preexisting <br> - Sem pré-existente website/aplicação escutando na porta 443 <br>- Ativar a  [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Ativar a regulação [fastCGI.](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
+Políticas de grupo | Não ative estas políticas de grupo: <br> - Impedir o acesso à ordem de comando. <br> - Impedir o acesso a ferramentas de edição de registo. <br> - Lógica de confiança para anexos de ficheiros. <br> - Ligue a execução do guião. <br> [Saiba mais](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
+IIS | - Nenhum website preexisting preexisting preexisting <br> - Sem pré-existente website/aplicação escutando na porta 443 <br>- Ativar a  [autenticação anónima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Ativar a regulação [fastCGI.](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))
 Tipo de endereço IP | Estático 
 | 
 **DEFINIÇÕES DE ACESSO** | 
@@ -49,4 +49,3 @@ Portas | Permitir 443 (Orquestração do canal de controlo)<br/><br/> Permitir 9
 8 vCPUs<br/><br/> 2 tomadas * 4 núcleos \@ 2,5 GHz | 16GB | 300 GB | 500 GB ou menos | < 100 máquinas
 12 vCPUs<br/><br/> 2 meias * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 a 150 máquinas
 16 vCPUs<br/><br/> 2 meias * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 máquinas
-

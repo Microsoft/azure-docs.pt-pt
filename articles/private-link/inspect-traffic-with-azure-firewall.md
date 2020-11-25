@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89236760"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96017241"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Utilize a Firewall Azure para inspecionar o tráfego destinado a um ponto final privado
 
@@ -55,7 +55,7 @@ Para obter mais informações sobre os encargos relacionados com ligações com 
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Cenário 2: Hub e arquitetura falada - Rede virtual partilhada para pontos finais privados e máquinas virtuais
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Rede Virtual Dedicada para Pontos Finais Privados" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Pontos finais privados e máquinas virtuais na mesma Rede Virtual" border="true":::
 
 Este cenário é implementado quando:
 
@@ -78,7 +78,7 @@ Para obter mais informações sobre os encargos relacionados com ligações com 
 
 ## <a name="scenario-3-single-virtual-network"></a>Cenário 3: Rede virtual única
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rede Virtual Dedicada para Pontos Finais Privados" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rede virtual única" border="true":::
 
 Há algumas limitações à implementação: uma migração para um centro e arquitetura falada não é possível. Aplicam-se as mesmas considerações que no cenário 2. Neste cenário, os encargos de observação da rede virtual não se aplicam.
 
@@ -87,7 +87,7 @@ Há algumas limitações à implementação: uma migração para um centro e arq
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Cenário 4: Tráfego no local para pontos finais privados
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Rede Virtual Dedicada para Pontos Finais Privados" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Tráfego no local para pontos finais privados" border="true":::
 
 Esta arquitetura pode ser implementada se tiver conectividade configurada com a sua rede no local usando: 
 
@@ -106,7 +106,7 @@ Aplicam-se as mesmas considerações que no cenário 2 suplímos. Neste cenário
 * Uma subscrição do Azure.
 * Uma área de trabalho do Log Analytics.  
 
-Consulte, [Crie um espaço de trabalho log Analytics no portal Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) para criar um espaço de trabalho se não tiver um na sua subscrição.
+Consulte, [Crie um espaço de trabalho log Analytics no portal Azure](../azure-monitor/learn/quick-create-workspace.md) para criar um espaço de trabalho se não tiver um na sua subscrição.
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -163,9 +163,9 @@ Substitua os seguintes parâmetros nos passos com as informações abaixo:
 
 ### <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma**máquina Virtual  >  **Compute de**recurso  >  **Virtual machine**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina Virtual  >  **Compute de** recurso  >  **Virtual machine**.
 
-2. Na **Criar uma máquina virtual - Básicos, insira**ou selecione esta informação:
+2. Na **Criar uma máquina virtual - Básicos, insira** ou selecione esta informação:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -246,7 +246,7 @@ Nesta secção, ativar os registos na firewall.
 
 4. **Selecione + Adicione a definição de diagnóstico** nas definições de Diagnóstico.
 
-5. Na **definição de Diagnóstico, insira**ou selecione estas informações:
+5. Na **definição de Diagnóstico, insira** ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -263,9 +263,9 @@ Nesta secção, ativar os registos na firewall.
 
 Nesta secção, cria-se uma Base de Dados SQL privada.
 
-1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma**base de dados de recursos  >  **Databases**  >  **SQL Databases**.
+1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma** base de dados de recursos  >  **Databases**  >  **SQL Databases**.
 
-2. Na **Create SQL Database - Básicos, insira**ou selecione estas informações:
+2. Na **Create SQL Database - Básicos, insira** ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -274,13 +274,13 @@ Nesta secção, cria-se uma Base de Dados SQL privada.
     | Grupo de recursos | Selecione **myResourceGroup**. Criou este grupo de recursos na secção anterior.|
     | **Detalhes da base de dados** |  |
     | Nome da base de dados  | Insira **a minha base de dados.**  |
-    | Servidor | Selecione **Criar novo** e introduza as informações abaixo.    |
+    | Server | Selecione **Criar novo** e introduza as informações abaixo.    |
     | Nome do servidor | **Insira o mydbserver**. Se este nome for tomado, insira um nome único.   |
     | Início de sessão de administrador do servidor | Insira o nome da sua escolha. |
     | Palavra-passe    |    Introduza uma palavra-passe à sua escolha.    |
     | Confirmar Palavra-passe | Reintroduza a palavra-passe    |
     | Localização    | Selecione **(EUA) South Central US**.    |
-    | Quer usar a piscina elástica SQL    | Deixe o **nº**padrão . |
+    | Quer usar a piscina elástica SQL    | Deixe o **nº** padrão . |
     | Computação e armazenamento | Deixe o padrão **De propósito geral Gen5, 2 vCores, 32 GB de armazenamento**. |
     |||
 
@@ -329,13 +329,13 @@ Nesta secção, cria-se um ponto final privado para a base de dados Azure SQL na
 
     | Definição | Valor |
     | ------- | ----- |
-    | **Redes** | |
+    | **Rede** | |
     | Rede virtual | Selecione **myPEVnet**. |
     | Sub-rede | Selecione **PrivateEndpointSubnet**. |
     | **Integração privada de DNS** | |
-    | Integrar com zona DNS privada | Selecione **Sim**. |
+    | Integrar com zona DNS privada | Selecione **Yes** (Sim). |
     | Subscrição | Selecione a sua subscrição. |
-    | Zonas DNS Privadas | Deixe o **privatelink.database.windows.net**padrão . |
+    | Zonas DNS Privadas | Deixe o **privatelink.database.windows.net** padrão . |
 
 10. Selecione o separador **'Rever +' criar** ou selecionar **'Rever +' criar** na parte inferior da página.
 
@@ -361,7 +361,7 @@ Nesta secção, vamos ligar as redes virtuais **myVMVNet** e **myPEVNet** ao **m
     | ------- | ----- |
     | Nome do espreitamento do myAzFwVNet para rede virtual remota | Insira **o meuAzFwVNet-to-myVMVNet**. |
     | **Detalhes dos pares** |  |
-    | Modelo de implementação de rede virtual  | Deixe o **Gestor de Recursos**predefinido .  |
+    | Modelo de implementação de rede virtual  | Deixe o **Gestor de Recursos** predefinido .  |
     | Eu sei o meu iD de recursos | deixe esta opção desselecionada.    |
     | Subscrição | Selecione a sua subscrição.    |
     | Rede virtual | Selecione **myVMVNet**. |
@@ -387,7 +387,7 @@ Nesta secção, vamos ligar as redes virtuais **myVMVNet** e **myPEVNet** ao **m
     | ------- | ----- |
     | Nome do espreitamento do myAzFwVNet para rede virtual remota | Insira **o meuAzFwVNet-to-myPEVNet**. |
     | **Detalhes dos pares** |  |
-    | Modelo de implementação de rede virtual  | Deixe o **Gestor de Recursos**predefinido .  |
+    | Modelo de implementação de rede virtual  | Deixe o **Gestor de Recursos** predefinido .  |
     | Eu sei o meu iD de recursos | deixe esta opção desselecionada.    |
     | Subscrição | Selecione a sua subscrição.    |
     | Rede virtual | Selecione **myPEVNet**. |
@@ -438,7 +438,7 @@ A ligação é necessária para que o VM e firewall resolvam o FQDN da base de d
 
 ## <a name="configure-an-application-rule-with-sql-fqdn-in-azure-firewall"></a>Configure uma regra de aplicação com SQL FQDN em Azure Firewall
 
-Nesta secção, configurar uma regra de aplicação para permitir a comunicação entre **o myVM** e o ponto final privado para **o SQL**Server mydbserver.database.windows.net . 
+Nesta secção, configurar uma regra de aplicação para permitir a comunicação entre **o myVM** e o ponto final privado para **o SQL** Server mydbserver.database.windows.net . 
 
 Esta regra permite a comunicação através da firewall que criamos nos passos anteriores.
 
@@ -462,12 +462,12 @@ Esta regra permite a comunicação através da firewall que criamos nos passos a
     | **Regras** |  |
     | **Etiquetas FQDN** | |
     | Nome  | Deixe em branco.  |
-    | Tipo de origem | Deixe o **endereço IP**predefinido .    |
+    | Tipo de origem | Deixe o **endereço IP** predefinido .    |
     | Origem | Deixe em branco. |
     | Etiquetas FQDN | Deixe o **padrão 0 selecionado**. |
     | **FQDNs alvo** | |
     | Nome | Insira **o SQLPrivateEndpoint**.    |
-    | Tipo de origem | Deixe o **endereço IP**predefinido . |
+    | Tipo de origem | Deixe o **endereço IP** predefinido . |
     | Origem | Insira **10.1.0.0/16**. |
     | Protocolo: Porto | Insira **mssql:1433**. |
     | FQDNs alvo | Introduza **mydbserver.database.windows.net.** |
@@ -575,7 +575,7 @@ Nesta secção, você ligará em privado à Base de Dados SQL usando o ponto fin
     Address: 10.2.0.4
     ```
 
-2. Instale [ferramentas de linha de comando SQL Server](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Instale [ferramentas de linha de comando SQL Server](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
 
 3. Executar o seguinte comando para ligar ao SQL Server. Utilize o administrador do servidor e a palavra-passe que definiu quando criou o SQL Server nos passos anteriores.
 

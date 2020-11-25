@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 6ab4694159c6269f2f72d3d591147d43aef34a0a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961600"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017377"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Utilize o serviço StorSimple Device Manager para gerir o seu catálogo de backup
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição geral
 A lâmina **do catálogo de backup** do catálogo do StorSimple Device Manager exibe todos os conjuntos de backup que são criados quando são recolhidas cópias de segurança manual ou programadas. Pode utilizar esta página para listar todas as cópias de segurança para uma política de backup ou volume, selecionar ou eliminar backups, ou utilizar uma cópia de segurança para restaurar ou clonar um volume.
 
 Este tutorial explica como listar, selecionar e eliminar um conjunto de backup. Para aprender a restaurar o seu dispositivo a partir de cópias de segurança, vá [para restaurar o seu dispositivo a partir de um conjunto de backup](storsimple-8000-restore-from-backup-set-u2.md). Para aprender a clonar um volume, vá ao [Clone a StorSimple volume](storsimple-8000-clone-volume-u2.md).
