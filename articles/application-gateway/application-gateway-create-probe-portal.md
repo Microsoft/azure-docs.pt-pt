@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397880"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975960"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Crie uma sonda personalizada para o Application Gateway utilizando o portal
 
@@ -24,7 +24,7 @@ ms.locfileid: "93397880"
 
 Neste artigo, você adiciona uma sonda de saúde personalizada a uma porta de entrada de aplicação existente através do portal Azure. Utilizando as sondas de saúde, o Azure Application Gateway monitoriza a saúde dos recursos na piscina traseira.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Se ainda não tiver um gateway de aplicações, visite [Criar um Gateway de Aplicação](./quick-create-portal.md) para criar uma porta de aplicação para trabalhar.
 

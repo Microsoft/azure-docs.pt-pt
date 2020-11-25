@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
 ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318356"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975582"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connect Operations Manager ao Azure Monitor
 
@@ -136,7 +136,7 @@ Depois de configurar a integração com o seu espaço de trabalho Log Analytics,
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
 1. Expanda o nó Operations Management Suite e clique em **Ligação**.
 1. Clique na ligação **Adicionar um Computador/Grupo** sob o cabeçalho Ações, no lado direito do painel.
-1. Na caixa de diálogo **Pesquisa no Computador**, pode procurar os computadores ou os grupos monitorizados pelo Operations Manager. Selecione computadores ou grupos, incluindo o Servidor de Gestão de Gestores de Operações a bordo do Azure Monitor, clique em **Adicionar**e, em seguida, clique em **OK**.
+1. Na caixa de diálogo **Pesquisa no Computador**, pode procurar os computadores ou os grupos monitorizados pelo Operations Manager. Selecione computadores ou grupos, incluindo o Servidor de Gestão de Gestores de Operações a bordo do Azure Monitor, clique em **Adicionar** e, em seguida, clique em **OK**.
 
 Pode ver os computadores e os grupos configurados para recolher dados a partir do nó Computadores Geridos no Operations Management Suite na área de trabalho **Administração** da Consola de operações. Aqui, pode adicionar ou remover computadores e grupos, conforme necessário.
 

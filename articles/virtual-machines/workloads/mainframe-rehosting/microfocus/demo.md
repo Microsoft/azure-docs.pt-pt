@@ -7,11 +7,11 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86508054"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95976198"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar Micro Focus CICS BankDemo para Micro Focus Enterprise Developer 4.0 em Azure
 
@@ -42,7 +42,7 @@ Depois de instalar o Enterprise Developer 4.0 no VM, tem de configurar a instân
 
 2. Clique no ícone **'Procurar'** ao lado do botão **Iniciar** e digite **as funcionalidades do Windows**. O gestor do servidor adiciona funções e o assistente de funcionalidades abre.
 
-3. Selecione **o Web Server (IIS) Função**e, em seguida, verifique as seguintes opções:
+3. Selecione **o Web Server (IIS) Função** e, em seguida, verifique as seguintes opções:
 
     - Ferramentas de Gestão Web
     - IIS 6 Compatibilidade de Gestão (selecione todas as funcionalidades disponíveis)
@@ -50,7 +50,7 @@ Depois de instalar o Enterprise Developer 4.0 no VM, tem de configurar a instân
     - Scripts e ferramentas de gestão do IIS
     - Serviço de Gestão IIS
 
-4. Selecione **World Wide Web Services**e verifique as seguintes opções:
+4. Selecione **World Wide Web Services** e verifique as seguintes opções:
 
      Características de desenvolvimento de aplicações:
     - Extensibilidade .NET
@@ -78,7 +78,7 @@ Depois de instalar o Enterprise Developer 4.0 no VM, tem de configurar a instân
 
 8. Quando tiver selecionado todas as opções, clique em **Seguinte** para instalar.
 
-9. Depois das funcionalidades do Windows, aceda ao **Sistema de Controlo e \> \> Ferramentas Administrativas de Segurança**e selecione **Serviços**. Desloque-se para baixo e certifique-se de que os seguintes serviços estão em execução e definidos para **Automático:**
+9. Depois das funcionalidades do Windows, aceda ao **Sistema de Controlo e \> \> Ferramentas Administrativas de Segurança** e selecione **Serviços**. Desloque-se para baixo e certifique-se de que os seguintes serviços estão em execução e definidos para **Automático:**
 
     - **NetTcpPortSharing**
     - **Adaptador de ouvintes net.pipe**
@@ -108,7 +108,7 @@ Alguns processos do Enterprise Server precisam de ser capazes de assinar no SQL 
 
 1. Abra **o Windows Explorer** e navegue para **C: \\ Documentos Públicos dos Utilizadores \\ Micro Focus Enterprise Developer Samples \\ \\ \\ \\ \\ Mainframe \\ CICS \\ DotNet \\ BankDemo \\ SQL**.
 
-2. Copie o conteúdo do ficheiro **BankDemoCreateAll.SQL** na sua área de transferência.
+2. Copie o conteúdo do **ficheiro .SQL BankDemoCreateAll** na sua área de transferência.
 
 3. **SSMS abertos**. À direita, clique em **Server** e selecione **Nova Consulta**.
 
@@ -118,7 +118,7 @@ Alguns processos do Enterprise Server precisam de ser capazes de assinar no SQL 
 
 A consulta deve ser executada sem erros. Quando estiver concluída, tem a base de dados de amostras para a aplicação BankDemo.
 
-![Saída SQLQuery1.sql](media/03-demo-query.png)
+![Produção .sql SQLQuery1](media/03-demo-query.png)
 
 ## <a name="verify-that-the-database-tables-and-objects-have-been-created"></a>Verifique se as tabelas e objetos da base de dados foram criados
 
@@ -177,11 +177,11 @@ A consulta deve ser executada sem erros. Quando estiver concluída, tem a base d
 
 4. Selecione **a Região De Defini** para criar uma nova Região CICS chamada **BANKDEMO,** hospedada na base de dados (local).
 
-5. Forneça a instância do servidor de base de dados, clique em **Seguinte**e, em seguida, insira o nome da região **BANKDEMO**.
+5. Forneça a instância do servidor de base de dados, clique em **Seguinte** e, em seguida, insira o nome da região **BANKDEMO**.
 
      ![Definir caixa de diálogo da região](media/07-demo-cics.png)
 
-6. Para selecionar o ficheiro de definição da região para a base de dados cross-region, localize **adb.configbancária da região \_ \_ ** em **C: \\ Documentos Públicos utilizadores \\ Micro Focus Enterprise Developer Samples \\ \\ \\ \\ \\ Mainframe \\ CICS \\ DotNet \\ BankDemo**.
+6. Para selecionar o ficheiro de definição da região para a base de dados cross-region, localize **adb.configbancária da região \_ \_** em **C: \\ Documentos Públicos utilizadores \\ Micro Focus Enterprise Developer Samples \\ \\ \\ \\ \\ Mainframe \\ CICS \\ DotNet \\ BankDemo**.
 
      ![Defini região - Nome da região: BANKDEMO](media/08-demo-cics.png)
 
@@ -189,7 +189,7 @@ A consulta deve ser executada sem erros. Quando estiver concluída, tem a base d
 
 ## <a name="create-xa-resource-definitions"></a>Criar Definições de Recursos XA
 
-1. No painel esquerdo do **Enterprise Server para .NET Administration** UI, expanda o **Sistema**e, em seguida, **as Definições de Recursos XA**. Esta definição define como a Região interopera com o Enterprise Server e as bases de dados de aplicações.
+1. No painel esquerdo do **Enterprise Server para .NET Administration** UI, expanda o **Sistema** e, em seguida, **as Definições de Recursos XA**. Esta definição define como a Região interopera com o Enterprise Server e as bases de dados de aplicações.
 
 2. Clique com o botão direito nas **definições de recursos XA** e selecione **Add Server Instance**.
 

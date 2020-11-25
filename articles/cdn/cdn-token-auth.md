@@ -15,11 +15,11 @@ ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
 ms.openlocfilehash: 21ef06f37e6840df08b1477f9c0ff24f6e15d1a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778022"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95978047"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Assegurar os ativos da Azure CDN com autenticação simbólica
 
@@ -64,7 +64,7 @@ O seguinte fluxograma descreve como a Azure CDN valida um pedido do cliente quan
 
     ![Botão de gestão de perfil CDN](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Passe por **HTTP Large** , em seguida, selecione **Token Auth** no flyout. Em seguida, pode configurar a chave de encriptação e os parâmetros de encriptação da seguinte forma:
+2. Passe por **HTTP Large**, em seguida, selecione **Token Auth** no flyout. Em seguida, pode configurar a chave de encriptação e os parâmetros de encriptação da seguinte forma:
 
    1. Crie uma ou mais chaves de encriptação. Uma chave de encriptação é sensível a maiússãos e pode conter qualquer combinação de caracteres alfanuméricos. Não são permitidos outros tipos de caracteres, incluindo espaços. O comprimento máximo é de 250 caracteres. Para garantir que as suas chaves de encriptação são aleatórias, recomenda-se que as crie utilizando a [ferramenta OpenSSL](https://www.openssl.org/). 
 
@@ -80,9 +80,9 @@ O seguinte fluxograma descreve como a Azure CDN valida um pedido do cliente quan
     
    2. Introduza uma chave de encriptação única na caixa **chave primária** e introduza opcionalmente uma chave de backup na caixa de chave de cópia **de segurança.**
 
-   3. Selecione a versão de encriptação mínima para cada chave a partir da sua lista **de versão de encriptação mínima** e, em seguida, selecione **Update** :
-      - **V2** : Indica que a chave pode ser utilizada para gerar tokens das versões 2.0 e 3.0. Utilize esta opção apenas se estiver a transitar de uma chave de encriptação da versão 2.0 para uma tecla versão 3.0.
-      - **V3** : (Recomendado) Indica que a chave só pode ser utilizada para gerar tokens da versão 3.0.
+   3. Selecione a versão de encriptação mínima para cada chave a partir da sua lista **de versão de encriptação mínima** e, em seguida, selecione **Update**:
+      - **V2**: Indica que a chave pode ser utilizada para gerar tokens das versões 2.0 e 3.0. Utilize esta opção apenas se estiver a transitar de uma chave de encriptação da versão 2.0 para uma tecla versão 3.0.
+      - **V3**: (Recomendado) Indica que a chave só pode ser utilizada para gerar tokens da versão 3.0.
 
       ![Chave de configuração de auth token CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
@@ -164,26 +164,26 @@ O seguinte fluxograma descreve como a Azure CDN valida um pedido do cliente quan
 
       Depois de gerado o token, é exibido na caixa **Token Gerada.** Para utilizar o token, apencha-o como uma cadeia de consulta até ao fim do ficheiro no seu caminho URL. Por exemplo, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-   8. Opcionalmente, teste o seu token com a ferramenta desencriptação para que possa ver os parâmetros do seu token. Cole o valor simbólico na caixa **token para desencriptar.** Selecione a chave de encriptação para usar na lista **de chave para desencriptar** e, em seguida, selecione **Desencript** .
+   8. Opcionalmente, teste o seu token com a ferramenta desencriptação para que possa ver os parâmetros do seu token. Cole o valor simbólico na caixa **token para desencriptar.** Selecione a chave de encriptação para usar na lista **de chave para desencriptar** e, em seguida, selecione **Desencript**.
 
       Após a desencriptar o token, os seus parâmetros são apresentados na caixa **de Parâmetros Originais.**
 
-   9. Opcionalmente, personalize o tipo de código de resposta que é devolvido quando um pedido é negado. Selecione **Ativado** e, em seguida, selecione o código de resposta da lista **de Código de Resposta.** **O nome do cabeçalho** é automaticamente definido para **localização** . **Selecione Guardar** para implementar o novo código de resposta. Para certos códigos de resposta, também deve introduzir o URL da sua página de erro na caixa **Valore do Cabeçalho.** O código de resposta **403** (Proibido) é selecionado por predefinição. 
+   9. Opcionalmente, personalize o tipo de código de resposta que é devolvido quando um pedido é negado. Selecione **Ativado** e, em seguida, selecione o código de resposta da lista **de Código de Resposta.** **O nome do cabeçalho** é automaticamente definido para **localização**. **Selecione Guardar** para implementar o novo código de resposta. Para certos códigos de resposta, também deve introduzir o URL da sua página de erro na caixa **Valore do Cabeçalho.** O código de resposta **403** (Proibido) é selecionado por predefinição. 
 
-3. Em **HTTP Large** , selecione Rules **Engine** . Utiliza o motor de regras para definir caminhos para aplicar a funcionalidade, ativar a função de autenticação simbólica e ativar capacidades adicionais relacionadas com a autenticação token. Para obter mais informações, consulte [a referência do motor regras.](./cdn-verizon-premium-rules-engine-reference.md)
+3. Em **HTTP Large**, selecione Rules **Engine**. Utiliza o motor de regras para definir caminhos para aplicar a funcionalidade, ativar a função de autenticação simbólica e ativar capacidades adicionais relacionadas com a autenticação token. Para obter mais informações, consulte [a referência do motor regras.](./cdn-verizon-premium-rules-engine-reference.md)
 
    1. Selecione uma regra existente ou crie uma nova regra para definir o ativo ou caminho para o qual pretende aplicar a autenticação simbólica. 
-   2. Para ativar a autenticação simbólica numa regra, selecione **[Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** da lista **de funcionalidades** e, em seguida, selecione **Ativado** . Selecione **Update** se estiver a atualizar uma regra ou **adicionar** se estiver a criar uma regra.
+   2. Para ativar a autenticação simbólica numa regra, selecione **[Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** da lista **de funcionalidades** e, em seguida, selecione **Ativado**. Selecione **Update** se estiver a atualizar uma regra ou **adicionar** se estiver a criar uma regra.
         
       ![CdN regras de autenticação simbólica do motor permitem exemplo](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. No motor de regras, também pode ativar funcionalidades adicionais relacionadas com a autenticação token. Para ativar qualquer uma das seguintes funcionalidades, selecione-a na lista **de Funcionalidades** e, em seguida, selecione **Ativado** .
+4. No motor de regras, também pode ativar funcionalidades adicionais relacionadas com a autenticação token. Para ativar qualquer uma das seguintes funcionalidades, selecione-a na lista **de Funcionalidades** e, em seguida, selecione **Ativado**.
     
-   - **[Token Auth Denial Code](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm)** : Determina o tipo de resposta que é devolvida a um utilizador quando um pedido é negado. As regras aqui estabelecidas substituem o código de resposta definido na secção **de Tratamento de Negação Personalizada** na página de autenticação baseada em fichas.
+   - **[Token Auth Denial Code](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm)**: Determina o tipo de resposta que é devolvida a um utilizador quando um pedido é negado. As regras aqui estabelecidas substituem o código de resposta definido na secção **de Tratamento de Negação Personalizada** na página de autenticação baseada em fichas.
 
-   - **[Token Auth Ignore CASO URL](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm)** : Determina se o URL utilizado para validar o token é sensível a casos.
+   - **[Token Auth Ignore CASO URL](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm)**: Determina se o URL utilizado para validar o token é sensível a casos.
 
-   - **[Parâmetro Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm)** : Rebatiza o parâmetro de cadeia de consulta de auth simbólico que aparece no URL solicitado. 
+   - **[Parâmetro Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm)**: Rebatiza o parâmetro de cadeia de consulta de auth simbólico que aparece no URL solicitado. 
         
      ![CDN regras de autenticação de símbolos de símbolos de design](./media/cdn-token-auth/cdn-rules-engine2.png)
 

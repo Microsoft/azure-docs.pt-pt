@@ -9,11 +9,11 @@ ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
 ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397795"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95975654"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre Gateway de Aplicação
 
@@ -434,9 +434,9 @@ Não, o add-on AGIC é um serviço gerido, o que significa que a Microsoft irá 
 
 O Application Gateway fornece três registos: 
 
-* **ApplicationGatewayAccessLog** : O registo de acesso contém cada pedido submetido ao frontend do gateway de aplicação. Os dados incluem o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Contém um registo por porta de aplicação.
-* **ApplicationGatewayPerformanceLog** : O registo de desempenho capta informações de desempenho para cada porta de aplicação. A informação inclui o produção em bytes, o total de pedidos servidos, a contagem de pedidos falhadas e a contagem de casos de backend saudável e pouco saudável.
-* **ApplicationGatewayFirewallLog** : Para os gateways de aplicações que configura com WAF, o registo de firewall contém pedidos que são registados através do modo de deteção ou do modo de prevenção.
+* **ApplicationGatewayAccessLog**: O registo de acesso contém cada pedido submetido ao frontend do gateway de aplicação. Os dados incluem o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Contém um registo por porta de aplicação.
+* **ApplicationGatewayPerformanceLog**: O registo de desempenho capta informações de desempenho para cada porta de aplicação. A informação inclui o produção em bytes, o total de pedidos servidos, a contagem de pedidos falhadas e a contagem de casos de backend saudável e pouco saudável.
+* **ApplicationGatewayFirewallLog**: Para os gateways de aplicações que configura com WAF, o registo de firewall contém pedidos que são registados através do modo de deteção ou do modo de prevenção.
 
 Todos os registos são recolhidos a cada 60 segundos. Para obter mais informações, consulte [a saúde backend, registos de diagnóstico e métricas para o Gateway de Aplicações.](application-gateway-diagnostics.md)
 
