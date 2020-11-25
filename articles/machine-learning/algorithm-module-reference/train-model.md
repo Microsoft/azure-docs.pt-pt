@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: e3080836e8b9ed38e99c691c66e71a4620829c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: f9a7623fd27178e8b9c213a1759bb09863d16c72
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890212"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030701"
 ---
 # <a name="train-model-module"></a>Módulo modelo de trem
 
@@ -40,16 +40,14 @@ No Azure Machine Learning, criar e utilizar um modelo de aprendizagem automátic
 3. Após o treino concluído, utilize o modelo treinado com um dos [módulos de pontuação,](./score-model.md)para fazer previsões sobre novos dados.
 
 ## <a name="how-to-use-train-model"></a>Como usar o modelo de comboio 
-  
-1.  No Azure Machine Learning, configuure um modelo de classificação ou modelo de regressão.
     
-2. Adicione o módulo **Modelo de Comboio** ao gasoduto.  Pode encontrar este módulo na categoria **Machine Learning.** Expanda **o Comboio**e, em seguida, arraste o módulo **Train Model** para o seu oleoduto.
+1. Adicione o módulo **Modelo de Comboio** ao gasoduto.  Pode encontrar este módulo na categoria **Machine Learning.** Expanda **o Comboio** e, em seguida, arraste o módulo **Train Model** para o seu oleoduto.
   
-3.  Na entrada esquerda, fixe o modo destreinado. Anexar o conjunto de dados de treino à entrada direita do **Modelo de Comboio**.
+1.  Na entrada esquerda, fixe o modo destreinado. Anexar o conjunto de dados de treino à entrada direita do **Modelo de Comboio**.
 
     O conjunto de dados de formação deve conter uma coluna de etiqueta. Quaisquer filas sem etiquetas são ignoradas.
   
-4.  Para **a coluna Label**, clique em **Editar** a coluna no painel direito do módulo e escolha uma única coluna que contenha resultados que o modelo possa utilizar para o treino.
+1.  Para **a coluna Label**, clique em **Editar** a coluna no painel direito do módulo e escolha uma única coluna que contenha resultados que o modelo possa utilizar para o treino.
   
     - Para problemas de classificação, a coluna de etiqueta deve conter valores **categóricos** ou valores **discretos.** Alguns exemplos podem ser uma classificação sim/não, um código de classificação da doença ou nome, ou um grupo de rendimentos.  Se escolher uma coluna não-categórica, o módulo retornará um erro durante o treino.
   
@@ -62,9 +60,12 @@ No Azure Machine Learning, criar e utilizar um modelo de aprendizagem automátic
     > [!TIP] 
     > Se tiver problemas em utilizar o Seletor de Colunas, consulte o artigo [Selecione colunas no conjunto de dados](./select-columns-in-dataset.md) para obter dicas. Descreve alguns cenários e dicas comuns para a utilização das opções **COM REGRAS** e **POR NOME.**
   
-5.  Envie o oleoduto. Se tiver muitos dados, isto pode demorar um pouco.
+1.  Envie o oleoduto. Se tiver muitos dados, isto pode demorar um pouco.
 
-## <a name="results"></a>Results
+    > [!IMPORTANT] 
+    > Se tiver uma coluna de ID que é o ID de cada linha, o **Modelo de Comboio** pode atingir um erro como "Número de valores únicos na coluna: "{column_name}" é maior do que o permitido." Isto porque a coluna ID atingiu o limiar de valores únicos, e pode causar fora da memória. Normalmente, a coluna de identificação não tem sentido durante o treino. Pode utilizar [Os Metadados de Edição](edit-metadata.md) para marcar essa coluna como **funcionalidade Clear** e não será utilizada no treino. Consulte [o código de erro do Designer](././designer-error-codes.md) para obter mais detalhes de erro.
+
+## <a name="results"></a>Resultados
 
 Depois de o modelo ser treinado:
 
