@@ -9,11 +9,11 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570765"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006528"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens EDIFACT para a integração empresarial B2B no Azure Logic Apps com o Enterprise Integration Pack
 
@@ -57,7 +57,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
-6. Em **Adicionar,** insira um **Nome** para o seu acordo. Para **o tipo de acordo**, selecione **EDIFACT**. Selecione o **Host Partner,** **Host Identity,** **Guest Partner**e **Guest Identity** para o seu contrato.
+6. Em **Adicionar,** insira um **Nome** para o seu acordo. Para **o tipo de acordo**, selecione **EDIFACT**. Selecione o **Host Partner,** **Host Identity,** **Guest Partner** e **Guest Identity** para o seu contrato.
 
    ![Fornecer detalhes do acordo](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
@@ -245,7 +245,7 @@ Quando se completa cada linha de validação, outra é automaticamente adicionad
 
     O seu novo acordo agora adicionado aparece na sua lista **de Acordos.**
 
-2.  Também pode ver os seus acordos na sua conta de integração. No menu da sua conta de integração, escolha **o Resumo**e, em seguida, selecione o azulejo **dos Contratos.** 
+2.  Também pode ver os seus acordos na sua conta de integração. No menu da sua conta de integração, escolha **o Resumo** e, em seguida, selecione o azulejo **dos Contratos.** 
 
     ![Screenshot que mostra o azulejo dos Acordos.](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 5094bd4aa5ac68c24f284cfb74e410fbdf089af7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677187"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96006882"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configure Ler recipientes OCR Docker
 
@@ -31,7 +31,7 @@ Configurar o ambiente de funcionamento do recipiente OCR da Visão de Computador
 
 O contentor também tem as seguintes definições de configuração específicas do contentor:
 
-|Obrigatório|Definição|Objetivo|
+|Necessário|Definição|Objetivo|
 |--|--|--|
 |Não|ReadEngineConfig:ResultadoExpirationPeriod| apenas contentores v2.0. Prazo de expiração do resultado em horas. O padrão é de 48 horas. A definição especifica quando o sistema deve limpar os resultados do reconhecimento. Por exemplo, se `resultExpirationPeriod=1` , o sistema limpar o resultado do reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpar o resultado do reconhecimento após a recuperação do resultado.|
 |Não|Cache:Redis| apenas contentores v2.0. Permite o armazenamento redis para armazenar resultados. É *necessária* uma cache se vários recipientes de leitura forem colocados atrás de um equilibrador de carga.|
@@ -62,7 +62,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 Lembre-se de adicionar o `vision/v1.0` encaminhamento ao ponto final URI, como indicado na tabela seguinte. 
 
-|Obrigatório| Nome | Tipo de dados | Descrição |
+|Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI de ponto final de faturação<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -99,10 +99,10 @@ A sintaxe exata da localização do suporte do hospedeiro varia consoante o sist
 
 Os exemplos a seguir utilizam as definições de configuração para ilustrar como escrever e utilizar `docker run` comandos.  Uma vez em funcionamento, o recipiente continua a funcionar até o [parar.](computer-vision-how-to-install-containers.md#stop-the-container)
 
-* **Carácter de continuação da linha** : Os comandos do Docker nas seguintes secções usam o corte `\` traseiro, como um personagem de continuação de linha. Substitua ou remova isto com base nos requisitos do seu sistema operativo anfitrião. 
-* **Ordem de argumento** : Não altere a ordem dos argumentos a menos que esteja muito familiarizado com os recipientes docker.
+* **Carácter de continuação da linha**: Os comandos do Docker nas seguintes secções usam o corte `\` traseiro, como um personagem de continuação de linha. Substitua ou remova isto com base nos requisitos do seu sistema operativo anfitrião. 
+* **Ordem de argumento**: Não altere a ordem dos argumentos a menos que esteja muito familiarizado com os recipientes docker.
 
-Substitua { _argument_name_ } com os seus próprios valores:
+Substitua {_argument_name_} com os seus próprios valores:
 
 | Marcador de posição | Valor | Formato ou exemplo |
 |-------------|-------|---|
@@ -120,13 +120,13 @@ Substitua { _argument_name_ } com os seus próprios valores:
 Os seguintes exemplos do Docker são para o recipiente Ler.
 
 
-# <a name="version-31-preview"></a>[Versão 3.1-pré-visualização](#tab/version-3-1)
+# <a name="version-32-preview"></a>[Versão 3.2-pré-visualização](#tab/version-3-2)
 
 ### <a name="basic-example"></a>Exemplo básico
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -137,7 +137,7 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

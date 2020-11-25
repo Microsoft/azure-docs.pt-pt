@@ -9,11 +9,11 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132726"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005984"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Orientações para a implementação responsável do Personaler
 
@@ -73,7 +73,7 @@ Personalizar o conteúdo depende de ter informações úteis sobre o conteúdo e
 
 Considere o efeito destas características:
 
-* Demografia do utilizador : **Características relativas**ao sexo, sexo, idade, raça, religião: Estas características podem não ser permitidas em determinadas aplicações por razões regulamentares, e pode não ser ético personalizar à sua volta porque a personalização propagaria generalizações e enviesamentos. Um exemplo desta propagação de enviesamento é um trabalho de trabalho para a engenharia não sendo mostrado a públicos idosos ou baseados no sexo.
+* Demografia do utilizador : **Características relativas** ao sexo, sexo, idade, raça, religião: Estas características podem não ser permitidas em determinadas aplicações por razões regulamentares, e pode não ser ético personalizar à sua volta porque a personalização propagaria generalizações e enviesamentos. Um exemplo desta propagação de enviesamento é um trabalho de trabalho para a engenharia não sendo mostrado a públicos idosos ou baseados no sexo.
 * **Informações locais**: Em muitos lugares do mundo, a informação de localização (como um código postal, código postal ou nome de bairro) pode ser altamente correlacionada com rendimento, raça e religião.
 * **Perceção do utilizador da equidade**: Mesmo nos casos em que a sua aplicação está a tomar decisões sãs, considere o efeito dos utilizadores perceberem que o conteúdo exibido na sua aplicação muda de forma a parecer estar correlacionado com funcionalidades que seriam discriminatórias.
 * **Preconceito não intencional em características**: Existem tipos de preconceitos que podem ser introduzidos usando características que apenas afetam um subconjunto da população. Isto requer uma atenção extra se as funcionalidades estiverem a ser geradas de forma algorítmica, como por exemplo, quando se utilizam a análise de imagem para extrair itens numa imagem ou análise de texto para descobrir entidades em texto. Tenha em conta as características dos serviços que utiliza para criar estas funcionalidades.

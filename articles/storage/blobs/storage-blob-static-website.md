@@ -9,16 +9,16 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 952d0acb00a25fe7d84738825cbad017e5b18029
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: b9eb65311951706863c3b18c5fc91bae8c41c7dc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892698"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007346"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Static website hosting in Azure Storage (Alojamento de sites estáticos no Armazenamento do Microsoft Azure)
 
-Pode servir conteúdo estático (HTML, CSS, JavaScript e ficheiros de imagem) diretamente a partir de um recipiente de armazenamento denominado *$web*. Hospedar o seu conteúdo no Azure Storage permite-lhe utilizar arquiteturas sem servidor que incluam [Funções Azure](/azure/azure-functions/functions-overview) e outras plataformas como serviços (PaaS). O alojamento estático do website Azure Storage é uma ótima opção nos casos em que não é necessário um servidor web para renderizar conteúdo.
+Pode servir conteúdo estático (HTML, CSS, JavaScript e ficheiros de imagem) diretamente a partir de um recipiente de armazenamento denominado *$web*. Hospedar o seu conteúdo no Azure Storage permite-lhe utilizar arquiteturas sem servidor que incluam [Funções Azure](../../azure-functions/functions-overview.md) e outras plataformas como serviços (PaaS). O alojamento estático do website Azure Storage é uma ótima opção nos casos em que não é necessário um servidor web para renderizar conteúdo.
 
 [App Service Static Web Apps](https://azure.microsoft.com/services/app-service/static/) é uma ótima alternativa para hospedar websites estáticos Azure Storage e também é apropriado em casos em que você não precisa de um servidor web para renderizar conteúdo. As Aplicações Web Estáticas do Serviço de Aplicações fornecem-lhe um fluxo de trabalho de integração contínua e entrega contínua (CI/CD) totalmente gerido da fonte do GitHub para a implementação global.
 
@@ -60,7 +60,7 @@ Os utilizadores podem ver o conteúdo do site a partir de um navegador usando o 
 Se o servidor retornar um erro 404 e não tiver especificado um documento de erro quando ativou o website, então uma página 404 predefinida é devolvida ao utilizador.
 
 > [!NOTE]
-> [O suporte de partilha de recursos de origem cruzada (CORS) para armazenamento de Azure](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) não é suportado com website estático.
+> [O suporte de partilha de recursos de origem cruzada (CORS) para armazenamento de Azure](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) não é suportado com website estático.
 
 ### <a name="regional-codes"></a>Códigos regionais
 
@@ -103,13 +103,13 @@ Se a conta de armazenamento estiver configurada para [exigir transferência segu
 
 ## <a name="adding-http-headers"></a>Adicionar cabeçalhos HTTP
 
-Não há como configurar cabeçalhos como parte da funcionalidade estática do site. No entanto, pode utilizar o Azure CDN para adicionar cabeçalhos e valores de cabeçalho (ou substituição). Consulte [a referência do motor standard para Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
+Não há como configurar cabeçalhos como parte da funcionalidade estática do site. No entanto, pode utilizar o Azure CDN para adicionar cabeçalhos e valores de cabeçalho (ou substituição). Consulte [a referência do motor standard para Azure CDN](../../cdn/cdn-standard-rules-engine-reference.md).
 
-Se pretender utilizar cabeçalhos para controlar o caching, consulte [o comportamento do caching do Control Azure CDN com regras de caching](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+Se pretender utilizar cabeçalhos para controlar o caching, consulte [o comportamento do caching do Control Azure CDN com regras de caching](../../cdn/cdn-caching-rules.md).
 
 ## <a name="multi-region-website-hosting"></a>Hospedagem de websites multi-regiões
 
-Se planeia hospedar um website em várias geografias, recomendamos que utilize uma [Rede de Entrega de Conteúdos](https://docs.microsoft.com/azure/cdn/) para caching regional. Utilize [a Porta frontal Azure](https://docs.microsoft.com/azure/frontdoor/) se quiser servir conteúdos diferentes em cada região. Também fornece capacidades de failover. [O Gestor de Tráfego Azure](https://docs.microsoft.com/azure/traffic-manager/) não é recomendado se pretender utilizar um domínio personalizado. Os problemas podem surgir devido à forma como o Azure Storage verifica nomes de domínio personalizados.
+Se planeia hospedar um website em várias geografias, recomendamos que utilize uma [Rede de Entrega de Conteúdos](../../cdn/index.yml) para caching regional. Utilize [a Porta frontal Azure](../../frontdoor/index.yml) se quiser servir conteúdos diferentes em cada região. Também fornece capacidades de failover. [O Gestor de Tráfego Azure](../../traffic-manager/index.yml) não é recomendado se pretender utilizar um domínio personalizado. Os problemas podem surgir devido à forma como o Azure Storage verifica nomes de domínio personalizados.
 
 
 ## <a name="pricing"></a>Preços
@@ -126,7 +126,7 @@ Para ativar métricas nas páginas estáticas do site, consulte [Ativar as métr
 
 * [Hospedar um site estático no Azure Storage](storage-blob-static-website-how-to.md)
 * [Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md)
-* [Funções do Azure](/azure/azure-functions/functions-overview)
-* [Serviço de Aplicações do Azure](/azure/app-service/overview)
-* [Construa o seu primeiro aplicativo web sem servidor](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
+* [Funções do Azure](../../azure-functions/functions-overview.md)
+* [Serviço de Aplicações do Azure](../../app-service/overview.md)
+* [Construa o seu primeiro aplicativo web sem servidor](/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Tutorial: Alojar o seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)

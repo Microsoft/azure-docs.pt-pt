@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
-ms.openlocfilehash: b0bc51fcd3a56af2f836377da736af3a1976463e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 7100a28479e6c9b5e36a36e6400622793e4cd13b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135995"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006981"
 ---
 Ativar uma identidade gerida atribuída pelo sistema é uma experiência de um clique. Pode ative-lo durante a criação de um VM ou nas propriedades de um VM existente.
 
@@ -24,4 +24,4 @@ Ativar uma identidade gerida atribuída pelo sistema é uma experiência de um c
 
 1. [Inscreva-se no portal Azure](https://portal.azure.com)
 
-2. [Criar uma máquina virtual com identidade atribuída ao sistema](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
+2. [Criar uma máquina virtual com identidade atribuída ao sistema](../articles/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)

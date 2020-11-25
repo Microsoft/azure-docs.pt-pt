@@ -15,23 +15,23 @@ ms.topic: how-to
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: e5e0c43aa8c4fbf0db89065e0fab93ee174a4ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006598"
 ---
 # <a name="create-a-netapp-account"></a>Criar uma conta NetApp
 Criar uma conta NetApp permite-lhe configurar um conjunto de capacidade e, em seguida, criar um volume. Pode utilizar o painel do Azure NetApp Files para criar uma nova conta NetApp.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 Deve ter recebido um e-mail da equipa do Azure NetApp Files confirmando que lhe foi concedido acesso ao serviço. Ver [Enviar um pedido de lista de espera para aceder ao serviço](azure-netapp-files-register.md#waitlist).
 
 Também deve ter registado a sua subscrição para utilizar o Fornecedor de Recursos NetApp. Consulte [registar o Fornecedor de Recursos NetApp.](azure-netapp-files-register.md#resource-provider)
 
 ## <a name="steps"></a>Passos 
 
-1. Inicie sessão no Portal do Azure. 
+1. Inicie sessão no portal do Azure. 
 2. Aceda ao painel do Azure NetApp Files através de um dos seguintes métodos:  
    * Procure **Azure NetApp Files** na caixa de pesquisa do portal do Azure.  
    * Clique em **Todos os serviços** na navegação e, em seguida, filtre para Azure NetApp Files.  

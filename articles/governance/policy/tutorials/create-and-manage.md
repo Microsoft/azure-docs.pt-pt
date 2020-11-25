@@ -4,11 +4,11 @@ description: Neste tutorial, você usa políticas para impor padrões, controlar
 ms.date: 10/05/2020
 ms.topic: tutorial
 ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876390"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005440"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Criar e gerir políticas para impor o cumprimento
 
@@ -36,11 +36,11 @@ O primeiro passo para impor a conformidade com o Azure Policy consiste em atribu
 
 1. Selecione **Atribuições** no lado esquerdo da página Azure Policy. Uma atribuição é uma política que foi atribuída para ter lugar num âmbito específico.
 
-   :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="Screenshot de procurar a Política na barra de pesquisa." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="Screenshot de selecionar o nó de Atribuições a partir da página 'Visão Geral da Política'." border="false":::
 
 1. Selecione **Atribuir Política** na parte superior da página **Política - Atribuições**.
 
-   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Screenshot de procurar a Política na barra de pesquisa." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Screenshot de selecionar o botão &quot;Atribuir a política&quot; na página Atribuições." border="false":::
 
 1. No separador **'Política de Atribuição'** e **"Básicos",** selecione o **Âmbito** selecionando a elipse e selecionando um grupo de gestão ou subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina quais os recursos ou agrupamento de recursos em que a atribuição de política será imposta.
    Em seguida, **selecione Selecione** na parte inferior da página **'Âmbito'.**
@@ -54,7 +54,7 @@ O primeiro passo para impor a conformidade com o Azure Policy consiste em atribu
 1. **Selecione Herdar uma etiqueta do grupo de recursos se faltar**. Se não conseguir encontrá-lo imediatamente, **escreva uma etiqueta** na caixa de pesquisa e, em seguida, prima ENTER ou selecione para fora da caixa de pesquisa.
    **Selecione Selecione** na parte inferior da página **Definições disponíveis** uma vez que tenha encontrado e selecionado a definição de política.
 
-   :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Screenshot de procurar a Política na barra de pesquisa.":::
+   :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Screenshot do filtro de pesquisa enquanto seleciona uma definição de política.":::
 
 1. O **Nome da atribuição** é automaticamente preenchido com o nome da política que selecionou, mas pode alterá-lo. Para este exemplo, deixe _herdar uma etiqueta do grupo de recursos se faltar_. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre esta atribuição de política.
 
@@ -82,7 +82,7 @@ Agora que atribuiu uma definição de política incorporada, pode fazer mais com
 
 1. Selecione **Definições** em **Autoria** no lado esquerdo da página Política Azure.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Screenshot de procurar a Política na barra de pesquisa." border="false":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Screenshot da página Definições no grupo de autoria." border="false":::
 
 1. Selecione **+ Definição de política** na parte superior da página. Este botão abre para a página **de definição de Política.**
 
@@ -342,11 +342,11 @@ Com uma definição de iniciativa, pode agrupar várias definições de polític
 
 1. Selecione **Definições** em **Autoria** no lado esquerdo da página Política Azure.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Screenshot de procurar a Política na barra de pesquisa.":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Screenshot da página Definições no grupo de autoria.":::
 
 1. Selecione **+ Definição** de Iniciativa no topo da página para abrir o assistente **de definição iniciativa.**
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="Screenshot de procurar a Política na barra de pesquisa.":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="Screenshot da página de definição de iniciativa e propriedades a definir.":::
 
 1. Utilize a elipse de **localização da Iniciativa** para selecionar um grupo de gestão ou subscrição para armazenar a definição. Se a página anterior foi traçada para um único grupo de gestão ou subscrição, **a localização da Iniciativa** é automaticamente povoada.
 
@@ -373,9 +373,9 @@ Com uma definição de iniciativa, pode agrupar várias definições de polític
    - Adicione ou substitua uma etiqueta nos recursos (adicione esta definição de política duas vezes)
 
    Depois de selecionar cada definição de política da lista, **selecione Adicionar** na parte inferior da lista.
-   Uma vez que é adicionado duas vezes, o _Add ou substituir uma etiqueta nas_ definições de política de recursos cada um obtém um _ID de referência_diferente .
+   Uma vez que é adicionado duas vezes, o _Add ou substituir uma etiqueta nas_ definições de política de recursos cada um obtém um _ID de referência_ diferente .
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Screenshot de procurar a Política na barra de pesquisa.":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Screenshot das definições de política selecionadas com o seu id de referência e grupo na página de definição de iniciativa.":::
 
    > [!NOTE]
    > As definições de política selecionadas podem ser adicionadas aos grupos selecionando uma ou mais definições adicionadas e selecionando **adicionar políticas selecionadas a um grupo**. O grupo deve existir primeiro e pode ser criado no **separador Grupos** do assistente.
@@ -391,14 +391,14 @@ Com uma definição de iniciativa, pode agrupar várias definições de polític
 
 1. A definição de política adicionada à iniciativa que tem parâmetros é exibida numa grelha. O _tipo de valor_ pode ser 'Valor predefinido', 'Valor definido', ou 'Parâmetro de Iniciativa de Utilização'. Se for selecionado o 'Valor Definido', o valor relacionado é introduzido no _valor(s) valor(s)_. Se o parâmetro na definição de política tiver uma lista de valores permitidos, a caixa de entrada é um seletor de queda. Se for selecionado o 'Use Initiative Parameter', é fornecido um selete de drop-down com os nomes dos parâmetros de iniciativa criados no separador parâmetros da **Iniciativa.**
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Screenshot de procurar a Política na barra de pesquisa.":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Screenshot das opções para valores permitidos para o parâmetro de definição de locais permitidos no separador parâmetros de política da página de definição de iniciativa.":::
 
    > [!NOTE]
    > No caso de alguns parâmetros `strongType`, a lista de valores não pode ser determinada automaticamente. Nestes casos, um botão de reticências será apresentado à direita da linha do parâmetro. Selecioná-lo abre a página 'Parâmetro scope &lt; (nome do &gt; parâmetro)». Nesta página, selecione a subscrição a utilizar para fornecer as opções de valor. Este âmbito de parâmetro só é utilizado durante a criação da definição de iniciativa e não tem qualquer impacto na avaliação de políticas nem no âmbito da iniciativa quando atribuído.
 
    Desa estale o _valor_ 'Locais Permitidos' para 'Definir valor' e selecione 'East US 2' a partir do drop-down. Para os dois casos do _Add ou substitua uma etiqueta nas_ definições de política de recursos, desaprote os parâmetros **'Nome de Etiqueta'** e 'CostCenter' e os parâmetros **de Valor de Etiqueta** para 'Teste' e 'Lab', como mostrado abaixo. Deixe os outros como "Valor Padrão". Utilizando a mesma definição duas vezes na iniciativa, mas com parâmetros diferentes, esta configuração adiciona ou substitui uma etiqueta 'Env' pelo valor 'Test' e uma etiqueta 'CostCenter' com o valor de 'Lab' nos recursos no âmbito da atribuição.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-4.png" alt-text="Screenshot de procurar a Política na barra de pesquisa.":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition-4.png" alt-text="Screenshot das opções inseridas para valores permitidos para o parâmetro de definição de locais permitidos e valores para ambos os parâmetros de marcação no separador parâmetros de política da página de definição de iniciativa.":::
 
 1. Selecione **Review + crie** na parte inferior da página ou na parte superior do assistente.
 
@@ -451,11 +451,11 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Localize a definição de iniciativa **Proteger-se** que criou anteriormente e selecione-a. Selecione **Atribuir** na parte superior da página para abrir a página **Proteger-se: Atribuir iniciativa**.
 
-   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Screenshot de procurar a Política na barra de pesquisa." border="false":::
+   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Screenshot do botão 'Atribuir' na página de definição de iniciativa." border="false":::
 
    Também pode clicar à direita na linha selecionada ou selecionar a elipse no final da linha para um menu contextual. Em seguida, **selecione Atribuir**.
 
-   :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Screenshot de procurar a Política na barra de pesquisa." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Screenshot do menu de contexto para uma iniciativa para selecionar a funcionalidade Atribuir." border="false":::
 
 1. Preencha a página **Proteger-se: Atribuir Iniciativa**, introduzindo as seguintes informações de exemplo. Pode utilizar as suas próprias informações.
 
@@ -482,11 +482,11 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 1. Localize a iniciativa **Get Secure.** Provavelmente ainda está no estado de _conformidade_ de **não ter começado.**
    Selecione a iniciativa para obter todos os detalhes da atribuição.
 
-   :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="Screenshot de procurar a Política na barra de pesquisa." border="false":::
+   :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="Screenshot da página de conformidade da Iniciativa mostrando avaliações de atribuição em um estado não iniciado." border="false":::
 
 1. Depois de concluir a atribuição da iniciativa, a página de conformidade é atualizada com o _Estado de conformidade_ de **Conforme**.
 
-   :::image type="content" source="../media/create-and-manage/compliance-status-compliant.png" alt-text="Screenshot de procurar a Política na barra de pesquisa." border="false":::
+   :::image type="content" source="../media/create-and-manage/compliance-status-compliant.png" alt-text="Screenshot da página de conformidade da Iniciativa mostrando avaliações de atribuição completas e em estado compatível." border="false":::
 
 1. Selecionar qualquer política na página de conformidade da iniciativa abre a página de detalhes de conformidade para essa política. Esta página apresenta os detalhes de conformidade ao nível dos recursos.
 
@@ -499,11 +499,11 @@ Após a atribuição de uma iniciativa política para exigir uma localização e
 
 As implementações impedidas por uma política ou iniciativa atribuída podem ser vistas no grupo de recursos visado pela implementação: Selecione **Implementações** no lado esquerdo da página e, em seguida, selecione o Nome de **Implantação** da implementação falhada. O recurso que foi negado é apresentado com o estado _Proibido_. Para determinar a política ou iniciativa e atribuição que negou o recurso, selecione **Failed. Clique aqui para obter mais informações sobre >** na página 'Vista Geral' de Implementação. É apresentada uma janela no lado direito da página com as informações de erro. Em **Detalhes de Erro** estão os GUIDs dos objetos de política relacionados.
 
-:::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="Screenshot de procurar a Política na barra de pesquisa." border="false":::
+:::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="Screenshot de uma implantação falhada que foi negada por uma atribuição de política." border="false":::
 
 Na página Política Azure: Selecione **Conformidade** no lado esquerdo da página e selecione a iniciativa **política Get Secure.** Nesta página, há um aumento na contagem **de Deny** para recursos bloqueados. No separador **Eventos** estão detalhes sobre quem tentou criar ou implementar o recurso que foi negado pela definição de política.
 
-:::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="Screenshot de procurar a Política na barra de pesquisa." border="false":::
+:::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="Screenshot do separador Eventos e detalhes do evento de política na página de conformidade da Iniciativa." border="false":::
 
 Neste exemplo, Trent Baker, um dos especialistas em Virtualização sénior de Contoso, estava a fazer o trabalho necessário. Temos de dar ao Trent um espaço para uma exceção. Criei um novo grupo de recursos, **o LocationsExcluded,** e em seguida concede-lhe uma exceção a esta atribuição de políticas.
 
@@ -515,7 +515,7 @@ Neste exemplo, Trent Baker, um dos especialistas em Virtualização sénior de C
 
 1. Desaprova a **Exclusão** selecionando a elipse e selecionando o grupo de recursos para excluir, _localizaçõesExcluded_ neste exemplo. **Selecione Adicionar ao Âmbito Selecionado** e, em seguida, selecione **Guardar**.
 
-   :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="Screenshot de procurar a Política na barra de pesquisa." border="false":::
+   :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="Screenshot da opção Exclusões na página de Atribuição de Iniciativa para adicionar um grupo de recursos excluído à atribuição de políticas." border="false":::
 
    > [!NOTE]
    > Em função da definição de política e do seu efeito, a exclusão poderia também ser concedida a recursos específicos dentro de um grupo de recursos no âmbito da atribuição. Como um efeito **Deny** foi usado neste tutorial, não faria sentido definir a exclusão em um recurso específico que já existe.

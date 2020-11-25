@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: b8b6383c7808fd6c298d7776fc10572631bc6ddc
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359566"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006222"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler One para fornecimento automático de utilizadores
 
@@ -80,7 +80,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para zscaler one em Azure AD
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Zscaler One**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Zscaler One**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -116,7 +116,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de notificação Zscaler One](./media/zscaler-one-provisioning-tutorial/notification.png)
 
-9. Selecione **Save** (Guardar).
+9. Selecione **Guardar**.
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Zscaler One**.
 

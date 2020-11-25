@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75644635"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006052"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Como parametrizar ficheiros de configuração em Tecido de Serviço
 
@@ -20,7 +20,7 @@ Este artigo mostra-lhe como parametrizar um ficheiro de configuração no Tecido
 
 Neste exemplo, substitui-se um valor de configuração utilizando parâmetros na implementação da sua aplicação.
 
-1. Abra o ficheiro * \<MyService>\PackageRoot\Config\Settings.xml* no seu projeto de serviço.
+1. Abra o ficheiro *\<MyService>\PackageRoot\Config\Settings.xml* no seu projeto de serviço.
 1. Desa ajuste o nome e o valor do parâmetro de configuração, por exemplo, tamanho da cache igual a 25, adicionando o seguinte XML:
 
    ```xml
@@ -30,7 +30,7 @@ Neste exemplo, substitui-se um valor de configuração utilizando parâmetros na
    ```
 
 1. Guarde e feche o ficheiro.
-1. Abra o ficheiro * \<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml.*
+1. Abra o ficheiro *\<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml.*
 1. No ficheiro ApplicationManifest.xml, declare um parâmetro e valor predefinido no `Parameters` elemento.  Recomenda-se que o nome do parâmetro contenha o nome do serviço (por exemplo, "MyService").
 
    ```xml

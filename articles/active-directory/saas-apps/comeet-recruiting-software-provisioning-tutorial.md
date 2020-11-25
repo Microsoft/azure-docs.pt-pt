@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 288d1e6cec8ddcf7d4afe5a35f28a022c2a7be10
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357067"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006717"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Configurar o Software de Recrutamento de Comeets para o provisionamento automático do utilizador
 
@@ -98,7 +98,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Sob a secção **de Credenciais de Administração,** insira o URL do **inquilino** e **o Token Secreto** da conta do seu Comeet Recruiting Software, conforme descrito no Passo 6.
 
-6. Na [consola de administração do Comeet Recruiting Software](https://app.comeet.co/), navegue para  **Comeet > Definições > Autenticação > Microsoft Azure** , e copie o **Token Secreto para** o valor da sua empresa para o campo Secret **Token** em Azure AD.
+6. Na [consola de administração do Comeet Recruiting Software](https://app.comeet.co/), navegue para  **Comeet > Definições > Autenticação > Microsoft Azure**, e copie o **Token Secreto para** o valor da sua empresa para o campo Secret **Token** em Azure AD.
 
     ![Fornecimento de software de recrutamento de comeet](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 

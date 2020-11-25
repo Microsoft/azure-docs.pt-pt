@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/28/2020
-ms.openlocfilehash: 8937cfa5a48903ab53f3015b056a4915240bc525
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/24/2020
+ms.openlocfilehash: 3eb43c98ae2697ece5ded8ae0df451a6cf5f272d
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633132"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007210"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copiar dados de e para a Azure Databricks Delta Lake usando a Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como utilizar a atividade copy na Azure Data Factory para copiar dados de e para Azure Databricks Delta Lake. Baseia-se na atividade Copy no artigo [da Azure Data Factory,](copy-activity-overview.md) que apresenta uma visão geral da atividade da cópia.
 
@@ -31,7 +31,7 @@ Este conector Azure Databricks Delta Lake é suportado para as seguintes ativida
 - [Atividade de cópia](copy-activity-overview.md) com uma tabela [de matriz de fonte/pia suportada](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 
-Em geral, a Azure Data Factory suporta o Delta Lake com as seguintes capacidades para satisfazer as suas várias necessidades.
+Em geral, a Azure Data Factory suporta o Delta Lake com as seguintes capacidades para atender às suas várias necessidades.
 
 - A atividade de cópia suporta o conector Azure Databricks Delta Lake para copiar dados de qualquer loja de dados de origem suportada para a tabela do lago delta Azure Databricks, e da tabela delta lake para qualquer loja de dados de pia suportada. Aproveita o seu cluster Databricks para realizar o movimento de dados, ver detalhes na [secção Pré-Requisitos](#prerequisites).
 - [Mapping Data Flow](concepts-data-flow-overview.md) suporta [o formato Delta](format-delta.md) genérico no Azure Storage como fonte e afundar para ler e escrever ficheiros Delta para ETL sem código, e executa em runtime gerido de integração Azure.
@@ -54,7 +54,7 @@ Durante a execução da atividade da cópia, se o cluster configurado tiver sido
 
 #### <a name="specify-the-cluster-configuration"></a>Especificar a configuração do cluster
 
-1. No **modo cluster** drop-down, selecione **Standard** .
+1. No **modo cluster** drop-down, selecione **Standard**.
 
 2. Na versão de runtime de **Databricks,** selecione uma versão de tempo de execução databricks.
 
@@ -81,7 +81,7 @@ As seguintes propriedades são suportadas para um serviço ligado ao Lago Delta 
 
 | Propriedade    | Descrição                                                  | Obrigatório |
 | :---------- | :----------------------------------------------------------- | :------- |
-| tipo        | A propriedade tipo deve ser definida para **AzureDatabricksDeltaLake** . | Sim      |
+| tipo        | A propriedade tipo deve ser definida para **AzureDatabricksDeltaLake**. | Sim      |
 | domínio      | Especificar o URL do espaço de trabalho Azure Databricks, por `https://adb-xxxxxxxxx.xx.azuredatabricks.net` exemplo. |          |
 | clusterId   | Especifique o ID do cluster de um cluster existente. Deve ser um Cluster Interativo já criado. <br>Pode encontrar o ID do Cluster de um Cluster Interativo no espaço de trabalho databricks -> Clusters - > Configuração de > Configuração ->. [Saiba mais](/azure/databricks/clusters/configure#cluster-tags). |          |
 | accessToken | O token de acesso é necessário para que a Data Factory autente para a Azure Databricks. O token de acesso precisa de ser gerado a partir do espaço de trabalho dos dados. Passos mais detalhados para encontrar o token de acesso podem ser encontrados [aqui.](/azure/databricks/dev-tools/api/latest/authentication#generate-token) |          |
@@ -114,7 +114,7 @@ As seguintes propriedades são suportadas para o conjunto de dados Azure Databri
 
 | Propriedade  | Descrição                                                  | Obrigatório                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **AzureDatabricksDeltaLakeDataset** . | Sim                         |
+| tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **AzureDatabricksDeltaLakeDataset**. | Sim                         |
 | base de dados | O nome da base de dados. |Não para a fonte, sim para a pia.  |
 | mesa | Nome da mesa delta. |Não para a fonte, sim para a pia.  |
 
@@ -148,7 +148,7 @@ Para copiar dados do Lago Delta da Azure Databricks, as seguintes propriedades s
 
 | Propriedade                     | Descrição                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| tipo                         | A propriedade tipo da fonte de atividade copy deve ser definida para **AzureDatabricksDeltaLakeSource** . | Sim      |
+| tipo                         | A propriedade tipo da fonte de atividade copy deve ser definida para **AzureDatabricksDeltaLakeSource**. | Sim      |
 | consulta          | Especifique a consulta SQL para ler dados. Para o controlo de viagem no tempo, siga o padrão abaixo:<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | Não       |
 | exportaçõesSettings | Configurações avançadas usadas para recuperar dados da tabela delta. | Não       |
 | ***Em: `exportSettings` _** |  |  |
@@ -162,14 +162,14 @@ Se a sua loja de dados e formato de sumidouro satisfaçam os critérios descrito
 
 - O **serviço ligado à pia** é o armazenamento [Azure Blob](connector-azure-blob-storage.md) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). A credencial de conta deve ser pré-configurada na configuração do cluster Azure Databricks, aprender mais com [pré-requisitos](#prerequisites).
 
-- O formato de **dados** da pia é de **Parquet** , **texto delimitado,** ou **Avro** com as seguintes configurações, e aponta para uma pasta em vez de ficheiro.
+- O formato de **dados** da pia é de **Parquet**, **texto delimitado,** ou **Avro** com as seguintes configurações, e aponta para uma pasta em vez de ficheiro.
 
-    - Para o formato **Parquet,** o codec de compressão não é **nenhum,** **snappy,** ou **gzip** .
+    - Para o formato **Parquet,** o codec de compressão não é **nenhum,** **snappy,** ou **gzip**.
     - Para formato **de texto delimitado:**
         - `rowDelimiter` é qualquer personagem.
-        - `compression` pode ser **nenhum,** **bzip2,** **gzip** .
+        - `compression` pode ser **nenhum,** **bzip2,** **gzip**.
         - `encodingName` UTF-7 não é apoiado.
-    - Para o formato **Avro,** o codec de compressão não é **nenhum,** **esvaziar** ou **snappy** .
+    - Para o formato **Avro,** o codec de compressão não é **nenhum,** **esvaziar** ou **snappy**.
 
 - Na fonte de atividade copy, `additionalColumns` não é especificado.
 - Se copiar dados para textolimitado, na atividade de cópia afundar, `fileExtension` deve ser ".csv".
@@ -262,7 +262,7 @@ Para copiar dados para a Azure Databricks Delta Lake, as seguintes propriedades 
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | :------------ | :----------------------------------------------------------- | :------- |
-| tipo          | A propriedade tipo do lavatório de atividade copy, definido para **AzureDatabricksDeltaLakeSink** . | Sim      |
+| tipo          | A propriedade tipo do lavatório de atividade copy, definido para **AzureDatabricksDeltaLakeSink**. | Sim      |
 | preCopyScript | Especifique uma consulta SQL para a atividade copy para executar antes de escrever dados na tabela delta databricks em cada execução. Pode utilizar esta propriedade para limpar os dados pré-carregados ou adicionar uma tabela truncada ou declaração de Vácuo. | Não       |
 | importaçõesS | Definições avançadas usadas para escrever dados na tabela delta. | Não |
 | **_Em: `importSettings` __* |                                                              |  |
@@ -276,14 +276,14 @@ Se a sua loja de dados de origem e formato satisfaçam os critérios descritos n
 
 - O **serviço ligado à fonte** é o armazenamento [Azure Blob](connector-azure-blob-storage.md) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md). A credencial de conta deve ser pré-configurada na configuração do cluster Azure Databricks, aprender mais com [pré-requisitos](#prerequisites).
 
-- O formato de dados de **origem** é de **Parquet** , **texto delimitado,** ou **Avro** com as seguintes configurações, e aponta para uma pasta em vez de ficheiro.
+- O formato de dados de **origem** é de **Parquet**, **texto delimitado,** ou **Avro** com as seguintes configurações, e aponta para uma pasta em vez de ficheiro.
 
-    - Para o formato **Parquet,** o codec de compressão não é **nenhum,** **snappy,** ou **gzip** .
+    - Para o formato **Parquet,** o codec de compressão não é **nenhum,** **snappy,** ou **gzip**.
     - Para formato **de texto delimitado:**
         - `rowDelimiter` é padrão, ou qualquer personagem único.
-        - `compression` pode ser **nenhum,** **bzip2,** **gzip** .
+        - `compression` pode ser **nenhum,** **bzip2,** **gzip**.
         - `encodingName` UTF-7 não é apoiado.
-    - Para o formato **Avro,** o codec de compressão não é **nenhum,** **esvaziar** ou **snappy** .
+    - Para o formato **Avro,** o codec de compressão não é **nenhum,** **esvaziar** ou **snappy**.
 
 - Na fonte de atividade copy: 
 

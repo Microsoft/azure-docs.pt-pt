@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 962bb7a4484f28d52ffd4f0cae985140ec2f0d28
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792927"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006035"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Data transfer for large datasets with moderate to high network bandwidth (Transferência de dados para conjuntos de dados grandes com largura de banda de rede moderada ou alta)
  
@@ -27,9 +27,9 @@ Grandes conjuntos de dados referem-se a tamanhos de dados na ordem das TBs a PBs
 
 ## <a name="recommended-options"></a>Opções recomendadas
 
-As opções recomendadas neste cenário dependem se você tem largura de banda de rede moderada ou largura de banda de alta rede.
+As opções recomendadas neste cenário dependem do facto de ter largura de banda de rede moderada ou alta.
 
-### <a name="moderate-network-bandwidth-100-mbps---1-gbps"></a>Largura de banda de rede moderada (100 Mbps - 1 Gbps)
+### <a name="moderate-network-bandwidth-100-mbps---1-gbps"></a>Largura de banda de rede moderada (100 Mbps - 1 Gbps)
 
 Com largura de banda de rede moderada, é necessário projetar o tempo para a transferência de dados pela rede.
 
@@ -39,20 +39,20 @@ Utilize a tabela seguinte para estimar o tempo e com base nisso, escolha entre u
 
 - Se se projetar que a transferência de rede seja demasiado lenta, deve utilizar um dispositivo físico. As opções recomendadas neste caso são os dispositivos de transferência offline da família Azure Data Box ou Azure Import/Export utilizando os seus próprios discos.
 
-    - **Família Azure Data Box para transferências offline** – Utilize dispositivos de dispositivos Data Box fornecidos pela Microsoft para mover grandes quantidades de dados para o Azure quando estiver limitado pelo tempo, disponibilidade da rede ou custos. Copie os dados no local utilizando ferramentas como robocopia. Dependendo do tamanho dos dados destinados à transferência, pode escolher entre o Disco caixa de dados, a caixa de dados ou a caixa de dados pesada.
-    - **Azure Import/Export** – Use o serviço Azure Import/Export enviando as suas próprias unidades de disco para importar de forma segura grandes quantidades de dados para o armazenamento e arquivos Azure Blob. Este serviço também pode ser usado para transferir dados do armazenamento Azure Blob para unidades de discos e enviar para os seus sites no local.
+    - **Família Azure Data Box para transferências offline** – Utilize dispositivos de dispositivos Data Box fornecidos pela Microsoft para mover grandes quantidades de dados para o Azure quando estiver limitado pelo tempo, disponibilidade da rede ou custos. Copie dados no local com ferramentas como o Robocopy. Conforme o tamanho dos dados que se pretende transferir, escolha entre Data Box Disk, Data Box ou Data Box Heavy.
+    - **Azure Import/Export** – Use o serviço Azure Import/Export enviando as suas próprias unidades de disco para importar de forma segura grandes quantidades de dados para o armazenamento e arquivos Azure Blob. Este serviço também pode ser utilizado para transferir dados do Armazenamento de blobs do Azure para unidades de disco rígido e enviar para os sites no local.
 
 - Se a transferência de rede for projetada como razoável, então pode utilizar qualquer uma das seguintes ferramentas detalhadas em [largura de banda de alta rede](#high-network-bandwidth).
 
 
-### <a name="high-network-bandwidth-1-gbps---100-gbps"></a>Largura de banda de alta rede (1 Gbps - 100 Gbps)
+### <a name="high-network-bandwidth-1-gbps---100-gbps"></a>Largura de banda de rede alta (1 Gbps - 100 Gbps)
 
 Se a largura de banda de rede disponível for elevada, utilize uma das seguintes ferramentas.
 
-- **AzCopy** - Utilize esta ferramenta de linha de comando para copiar facilmente dados de e para Azure Blobs, Ficheiros e Armazenamento de Mesa com o melhor desempenho. A AzCopy suporta a concordância e o paralelismo, e a capacidade de retomar as operações de cópia quando interrompidas.
+- **AzCopy** - Utilize esta ferramenta de linha de comando para copiar facilmente dados de e para Azure Blobs, Ficheiros e Armazenamento de Mesa com o melhor desempenho. O AzCopy suporta simultaneidade e paralelismo, além da capacidade de retomar operações de cópia interrompidas.
 - **Azure Storage REST APIs/SDKs** – Ao construir uma aplicação, pode desenvolver a aplicação contra ASPis de ARMAZENAMENTO Azure e utilizar os SDKs Azure oferecidos em vários idiomas.
-- **Família Azure Data Box para transferências on-line** – Data Box Edge e Data Box Gateway são dispositivos de rede online que podem mover dados para dentro e para fora do Azure. Utilize o dispositivo físico Data Box Edge quando houver uma necessidade simultânea de ingestão contínua e pré-processamento dos dados antes do upload. Data Box Gateway é uma versão virtual do dispositivo com as mesmas capacidades de transferência de dados. Em cada caso, a transferência de dados é gerida pelo dispositivo.
-- **Azure Data Factory** – Data Factory deve ser usada para escalar uma operação de transferência, e se houver necessidade de capacidades de orquestração e monitorização de nível empresarial. Utilize a Data Factory para transferir regularmente ficheiros entre vários serviços Azure, no local ou uma combinação dos dois. com a Data Factory, pode criar e agendar fluxos de trabalho orientados para dados (chamados oleodutos) que ingerem dados de lojas de dados diferentes e automatizam o movimento de dados e a transformação de dados.
+- **Família Azure Data Box para transferências on-line** – Data Box Edge e Data Box Gateway são dispositivos de rede online que podem mover dados para dentro e para fora do Azure. Utilize o dispositivo físico do Data Box Edge quando houver uma necessidade simultânea de ingestão de dados contínua e pré-processamento dos dados antes do carregamento. O Data Box Gateway é uma versão virtual do dispositivo com as mesmas capacidades de transferência de dados. Em ambos os casos, a transferência de dados é gerida pelo dispositivo.
+- **Azure Data Factory** – Data Factory deve ser usada para escalar uma operação de transferência, e se houver necessidade de capacidades de orquestração e monitorização de nível empresarial. Utilize o Data Factory para transferir regularmente ficheiros entre vários serviços do Azure, no local ou uma combinação dos dois. Com o Data Factory, pode criar e agendar fluxos de trabalho condicionados por dados (denominados pipelines) que ingerem dados a partir de diferentes arquivos de dados e automatizam o movimento e a transformação de dados.
 
 ## <a name="comparison-of-key-capabilities"></a>Comparação das capacidades-chave
 

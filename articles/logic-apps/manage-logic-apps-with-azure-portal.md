@@ -10,11 +10,11 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/20/2020
 ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078622"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006103"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gerir aplicativos lógicos no portal Azure
 
@@ -54,7 +54,7 @@ Para encontrar e abrir a sua aplicação lógica, siga estes passos:
 
 1. No painel **Propriedades,** pode ver e copiar as seguintes informações sobre a sua aplicação lógica:
 
-   * **Nome**
+   * **Name**
    * **ID de recursos**
    * **Grupo de recursos**
    * **Localização**
@@ -214,7 +214,7 @@ Pode utilizar o portal Azure para o controlo de versão das suas aplicações l�
 
    ![Screenshot do histórico da versão da logic app, mostrando botão para promover uma versão anterior.](./media/manage-logic-apps-with-azure-portal/promote-button.png)
 
-1. Na página **De Android Apps Designer** que abre, edite a versão que está a promover conforme necessário. Pode alternar entre os modos de visualização **de Design** e **Código.** Também pode atualizar **parâmetros,** **modelos**e **conectores**.
+1. Na página **De Android Apps Designer** que abre, edite a versão que está a promover conforme necessário. Pode alternar entre os modos de visualização **de Design** e **Código.** Também pode atualizar **parâmetros,** **modelos** e **conectores**.
 
    ![Screenshot do Logic Apps Designer, mostrando botão para promover uma versão anterior de uma aplicação lógica.](./media/manage-logic-apps-with-azure-portal/promote-page.png)
 

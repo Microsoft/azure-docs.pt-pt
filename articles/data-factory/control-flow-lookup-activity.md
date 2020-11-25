@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425697"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006832"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de procura na Fábrica de Dados Azure
 
@@ -85,7 +85,7 @@ O resultado da procura é devolvido na `output` secção do resultado da execuç
     }
     ```
 
-* **Quando `firstRowOnly` estiver `false` definido para **, o formato de saída é como mostrado no código seguinte. Um `count` campo indica quantos registos são devolvidos. Os valores detalhados são apresentados sob uma `value` matriz fixa. Neste caso, a atividade De Procura é seguida por uma [atividade forecível](control-flow-for-each-activity.md). Você passa a `value` matriz para o campo de atividades ForEach `items` usando o padrão de `@activity('MyLookupActivity').output.value` . Para aceder aos elementos da `value` matriz, utilize a seguinte sintaxe: `@{activity('lookupActivity').output.value[zero based index].propertyname}` . Um exemplo é `@{activity('lookupActivity').output.value[0].schema}`.
+* **Quando `firstRowOnly` estiver `false` definido para**, o formato de saída é como mostrado no código seguinte. Um `count` campo indica quantos registos são devolvidos. Os valores detalhados são apresentados sob uma `value` matriz fixa. Neste caso, a atividade De Procura é seguida por uma [atividade forecível](control-flow-for-each-activity.md). Você passa a `value` matriz para o campo de atividades ForEach `items` usando o padrão de `@activity('MyLookupActivity').output.value` . Para aceder aos elementos da `value` matriz, utilize a seguinte sintaxe: `@{activity('lookupActivity').output.value[zero based index].propertyname}` . Um exemplo é `@{activity('lookupActivity').output.value[0].schema}`.
 
     ```json
     {
@@ -244,7 +244,7 @@ Este exemplo demonstra a procura apenas para a primeira linha. Para procurar tod
 
 ### <a name="lookup-dataset"></a>Conjunto de dados de procura
 
-O conjunto de dados **de procura** é osourcetable.js**ficheiro na** pasta de procuração Azure Storage especificada pelo tipo **AzureBlobStorageLinkedService.** 
+O conjunto de dados **de procura** é osourcetable.js **ficheiro na** pasta de procuração Azure Storage especificada pelo tipo **AzureBlobStorageLinkedService.** 
 
 ```json
 {

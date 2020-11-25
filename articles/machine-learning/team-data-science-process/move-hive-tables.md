@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 5d61c0f5f26bc46b9c4a5bc4a793df1e10710004
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130872"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006734"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas de Colmeia e carregar dados a partir do armazenamento do Blob Azure
 
@@ -37,7 +37,7 @@ Assumimos que os dados das tabelas hive estão num formato tabular **não compri
 Se quiser praticar nos dados da viagem de táxi de **NYC,** tem de:
 
 * **descarregue** os 24 ficheiros [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) (12 ficheiros Trip e 12 Ficheiros Fare),
-* **desapertar** todos os ficheiros em ficheiros .csv e, em seguida,
+* **desapertar** todos os ficheiros em ficheiros .csv, e depois
 * **carregá-los** para o padrão (ou recipiente apropriado) da conta de Armazenamento Azure; opções para tal conta aparecem no [Use Azure Storage com o tópico de clusters Azure HDInsight.](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) O processo de envio dos ficheiros .csv para o recipiente predefinido na conta de armazenamento pode ser encontrado nesta [página](hive-walkthrough.md#upload).
 
 ## <a name="how-to-submit-hive-queries"></a><a name="submit"></a>Como submeter consultas de Colmeia
@@ -147,12 +147,12 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 
 Aqui estão as descrições dos campos que precisa de ligar e outras configurações:
 
-* **\<database name\>** : o nome da base de dados que pretende criar. Se apenas quiser utilizar a base de dados padrão, a consulta " *criar base de dados"* pode ser omitida.
-* **\<table name\>** : o nome da tabela que pretende criar na base de dados especificada. Se pretender utilizar a base de dados predefinida, a tabela pode ser diretamente encaminhada *\<table name\>* sem \<database name\> .
-* **\<field separator\>** : o separador que delimita campos no ficheiro de dados a ser enviado para a tabela Hive.
-* **\<line separator\>** : o separador que delimita linhas no ficheiro de dados.
-* **\<storage location\>** : o local de armazenamento Azure para guardar os dados das tabelas da Colmeia. Se não especificar *localização, \<storage location\>* a base de dados e as tabelas são armazenadas em *colmeia/armazém/diretório* no recipiente predefinido do cluster da Colmeia por padrão por padrão. Se pretender especificar o local de armazenamento, o local de armazenamento deve estar dentro do recipiente predefinido para a base de dados e tabelas. Esta localização deve ser referida como localização relativa ao recipiente predefinido do cluster no formato de *\<directory 1> "wasb:////"* ou *\<directory 1> / \<directory 2> "wasb:////'* , etc. Após a execução da consulta, os diretórios relativos são criados dentro do recipiente padrão.
-* **TBLPROPERTIES ("skip.header.line.count"="1")** : Se o ficheiro de dados tiver uma linha de cabeçalho, tem de adicionar esta propriedade **no final** da consulta de *tabela criar.* Caso contrário, a linha do cabeçalho é carregada como um registo para a mesa. Se o ficheiro de dados não tiver uma linha de cabeçalho, esta configuração pode ser omitida na consulta.
+* **\<database name\>**: o nome da base de dados que pretende criar. Se apenas quiser utilizar a base de dados padrão, a consulta "*criar base de dados"* pode ser omitida.
+* **\<table name\>**: o nome da tabela que pretende criar na base de dados especificada. Se pretender utilizar a base de dados predefinida, a tabela pode ser diretamente encaminhada *\<table name\>* sem \<database name\> .
+* **\<field separator\>**: o separador que delimita campos no ficheiro de dados a ser enviado para a tabela Hive.
+* **\<line separator\>**: o separador que delimita linhas no ficheiro de dados.
+* **\<storage location\>**: o local de armazenamento Azure para guardar os dados das tabelas da Colmeia. Se não especificar *localização, \<storage location\>* a base de dados e as tabelas são armazenadas em *colmeia/armazém/diretório* no recipiente predefinido do cluster da Colmeia por padrão por padrão. Se pretender especificar o local de armazenamento, o local de armazenamento deve estar dentro do recipiente predefinido para a base de dados e tabelas. Esta localização deve ser referida como localização relativa ao recipiente predefinido do cluster no formato de *\<directory 1> "wasb:////"* ou *\<directory 1> / \<directory 2> "wasb:////'*, etc. Após a execução da consulta, os diretórios relativos são criados dentro do recipiente padrão.
+* **TBLPROPERTIES ("skip.header.line.count"="1")**: Se o ficheiro de dados tiver uma linha de cabeçalho, tem de adicionar esta propriedade **no final** da consulta de *tabela criar.* Caso contrário, a linha do cabeçalho é carregada como um registo para a mesa. Se o ficheiro de dados não tiver uma linha de cabeçalho, esta configuração pode ser omitida na consulta.
 
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Carregar dados para as tabelas da Colmeia
 Aqui está a consulta da Colmeia que carrega dados numa tabela de Colmeias.
@@ -161,7 +161,7 @@ Aqui está a consulta da Colmeia que carrega dados numa tabela de Colmeias.
 LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 ```
 
-* **\<path to blob data\>** : Se o ficheiro blob a ser carregado para a tabela Hive estiver no recipiente predefinido do cluster HDInsight Hadoop, o *\<path to blob data\>* deve estar no formato *\<directory in this container> / \<blob file name> 'wasb://'* . O ficheiro blob também pode estar num recipiente adicional do cluster HDInsight Hadoop. Neste caso, *\<path to blob data\>* deve estar no formato *«wasb:// \<container name> @ \<storage account name> \<blob file name> .blob.core.windows.net/».*
+* **\<path to blob data\>**: Se o ficheiro blob a ser carregado para a tabela Hive estiver no recipiente predefinido do cluster HDInsight Hadoop, o *\<path to blob data\>* deve estar no formato *\<directory in this container> / \<blob file name> 'wasb://'*. O ficheiro blob também pode estar num recipiente adicional do cluster HDInsight Hadoop. Neste caso, *\<path to blob data\>* deve estar no formato *«wasb:// \<container name> @ \<storage account name> \<blob file name> .blob.core.windows.net/».*
 
   > [!NOTE]
   > Os dados blob a serem enviados para a tabela Hive devem estar na conta padrão ou adicional da conta de armazenamento do cluster Hadoop. Caso contrário, a consulta *DE DADOS DE CARGA* falha ao queixar-se de que não consegue aceder aos dados.

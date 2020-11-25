@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
 ms.openlocfilehash: 9481b6d2740d27b8c3d1309e205edda6017868fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213688"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005759"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Alojar uma API RESTful com CORS no Serviço de Aplicações do Azure
 
 O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Além disso, o Serviço de Aplicações tem suporte incorporado para [Partilha de Recursos de Várias Origens (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) para APIs RESTful. Este tutorial mostra como implementar uma aplicação API ASP.NET Core no Serviço de Aplicações com suporte para CORS. A aplicação é configurada com ferramentas de linha de comandos e implementada na aplicação através do Git. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar recursos do Serviço de Aplicações com a CLI do Azure
@@ -160,7 +160,7 @@ Na produção, a aplicação de browser teria um URL público em vez do URL de l
 
 ### <a name="enable-cors"></a>Ativar o CORS 
 
-Na Cloud Shell, ative o CORS para o URL do seu cliente utilizando o [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) comando. Substitua o _ &lt; nome de aplicação>_ espaço reservado.
+Na Cloud Shell, ative o CORS para o URL do seu cliente utilizando o [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) comando. Substitua o _&lt; nome de aplicação>_ espaço reservado.
 
 ```azurecli-interactive
 az webapp cors add --resource-group myResourceGroup --name <app-name> --allowed-origins 'http://localhost:5000'

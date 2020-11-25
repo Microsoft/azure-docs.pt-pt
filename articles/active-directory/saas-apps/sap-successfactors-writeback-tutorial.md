@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
 ms.openlocfilehash: d39e00a80ab167936a749c73867b4343e6ed9d76
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358818"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006443"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Configure atribui write-back de Azure AD a SAP SuccessFactors
 O objetivo deste tutorial é mostrar os passos para anular atributos de Azure AD a SAP SuccessFactors Employee Central. 
@@ -109,7 +109,7 @@ Trabalhe com a sua equipa de administradores successFactors ou parceiro de imple
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Atribuir papel de permissão ao Grupo de Permissão
 
-1. No SuccessFactors Admin Center, procure por *Manage Permission Roles* , em seguida, **selecione Gerir Funções** de Permisse a partir dos resultados da pesquisa.
+1. No SuccessFactors Admin Center, procure por *Manage Permission Roles*, em seguida, **selecione Gerir Funções** de Permisse a partir dos resultados da pesquisa.
 1. A partir da **Lista de Funções de Permisse,** selecione a função que criou para permissões de utilização da API.
 1. Sob **o Comando de Grant, este papel para...** clique em **Adicionar...** botão.
 1. Selecione **Grupo de Permissões...** a partir do menu suspenso, em seguida, clique em **Selecionar...** para abrir a janela Grupos para procurar e selecionar o grupo criado acima. 
@@ -139,7 +139,7 @@ No SAP SuccessFactors, uma *picklist* é um conjunto configurável de opções a
    > [!div class="mx-imgBorder"]
    > ![Gerir a configuração de negócios](./media/sap-successfactors-inbound-provisioning/manage-business-config.png)
 
-1. Nos **Elementos HRIS** , selecione **o emailInfo** e clique nos *Detalhes* para o campo do tipo **de e-mail.**
+1. Nos **Elementos HRIS**, selecione **o emailInfo** e clique nos *Detalhes* para o campo do tipo **de e-mail.**
 
    > [!div class="mx-imgBorder"]
    > ![Obtenha informações de e-mail](./media/sap-successfactors-inbound-provisioning/get-email-info.png)
@@ -149,7 +149,7 @@ No SAP SuccessFactors, uma *picklist* é um conjunto configurável de opções a
    > [!div class="mx-imgBorder"]
    > ![Identificar lista de e-mails](./media/sap-successfactors-inbound-provisioning/identify-email-picklist.png)
 
-1. Em **Elementos HRIS** , selecione **o telefoneInfo** e clique nos *Detalhes* para o campo do **tipo telefone.**
+1. Em **Elementos HRIS**, selecione **o telefoneInfo** e clique nos *Detalhes* para o campo do **tipo telefone.**
 
    > [!div class="mx-imgBorder"]
    > ![Obter informações de telefone](./media/sap-successfactors-inbound-provisioning/get-phone-info.png)
@@ -281,7 +281,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem de SuccessF
    | 2 | correio | e-mail | Mapa e-mail atributo fonte. Para efeitos de teste, pode mapear o nome do utilizadorPrincipal Para e-mail. |
    | 3 | 8448 | e-mailType | Este valor constante é o valor de ID Do SuccessFactors associado ao e-mail de negócios. Atualize este valor para corresponder ao ambiente SuccessFactors. Consulte a secção Recuperar valor [constante para emailType](#retrieve-constant-value-for-emailtype) para etapas para definir este valor. |
    | 4 | true | e-mailIsPrimary | Utilize este atributo para definir o email de negócios como principal nos SuccessFactors. Se o e-mail de negócios não for primário, coloque esta bandeira em falso. |
-   | 5 | userPrincipalName | [custom01 – custom15] | Utilizando **Add New Mapping** , pode escrever opcionalmente o userPrincipalName ou qualquer atributo AD Azure a um atributo personalizado disponível no objeto do Utilizador SuccessFactors.  |
+   | 5 | userPrincipalName | [custom01 – custom15] | Utilizando **Add New Mapping**, pode escrever opcionalmente o userPrincipalName ou qualquer atributo AD Azure a um atributo personalizado disponível no objeto do Utilizador SuccessFactors.  |
    | 6 | on-prem-samAccountName | nome de utilizador | Utilizando **o Add New Mapping,** pode mapear opcionalmente no local o nome de nome de utilizador DoFactcount Para o SuccessFactors. |
    | 7 | SSO | loginMethod | Se o inquilino SuccessFactors estiver configurado para [SSO parcial,](https://apps.support.sap.com/sap/support/knowledge/en/2320766)em seguida, usando Add New Mapping, pode configurar opcionalmente loginMethod para um valor constante de "SSO" ou "PWD". |
    | 8 | número de telefone | businessPhoneNumber | Utilize este mapeamento para fluir *o telefoneNumber* de Azure AD para SuccessFactors negócio /número de telefone de trabalho. |
@@ -308,7 +308,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem de SuccessF
    > Se a lista de atributos Editar para a opção **SuccessFactors** não aparecer no portal Azure, utilize o URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* para aceder à página. 
 
 1. A coluna **de expressão API** nesta vista mostra as expressões do Caminho JSON utilizadas pelo conector. 
-1. Atualize as expressões JSON Path para telefone comercial e telemóvel para utilizar o valor ID *(businessPhoneType* e *cellPhoneType* ) correspondente ao seu ambiente. 
+1. Atualize as expressões JSON Path para telefone comercial e telemóvel para utilizar o valor ID *(businessPhoneType* e *cellPhoneType*) correspondente ao seu ambiente. 
 
     >[!div class="mx-imgBorder"]
     >![Mudança de caminho do telefone JSON](./media/sap-successfactors-inbound-provisioning/phone-json-path-change.png)
@@ -325,8 +325,8 @@ Uma vez concluídas as configurações de aplicações do SuccessFactors, pode l
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
 1. Selecione **Âmbito**. Pode selecionar a partir de uma das seguintes opções: 
-   * **Sincronize todos os utilizadores e grupos** : Selecione esta opção se pretender escrever atributos mapeados de todos os utilizadores, desde Azure AD a SuccessFactors, sujeitos às regras de deteção definidas no Âmbito do Objeto fonte **de Mapeamentos.**  ->  **Source Object Scope** 
-   * **Sincronizar apenas utilizadores e grupos atribuídos** : Selecione esta opção se pretender rescrever atributos mapeados de apenas utilizadores que atribuiu a esta aplicação na opção de menu De gestão de **aplicações**  ->  **Manage**  ->  **e grupos.** Estes utilizadores também estão sujeitos às regras de deteção definidas no âmbito do objeto de **origem de mapeamentos.**  ->  **Source Object Scope**
+   * **Sincronize todos os utilizadores e grupos**: Selecione esta opção se pretender escrever atributos mapeados de todos os utilizadores, desde Azure AD a SuccessFactors, sujeitos às regras de deteção definidas no Âmbito do Objeto fonte **de Mapeamentos.**  ->  **Source Object Scope** 
+   * **Sincronizar apenas utilizadores e grupos atribuídos**: Selecione esta opção se pretender rescrever atributos mapeados de apenas utilizadores que atribuiu a esta aplicação na opção de menu De gestão de **aplicações**  ->  **Manage**  ->  **e grupos.** Estes utilizadores também estão sujeitos às regras de deteção definidas no âmbito do objeto de **origem de mapeamentos.**  ->  **Source Object Scope**
 
    > [!div class="mx-imgBorder"]
    > ![Selecione o âmbito de writeback](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)

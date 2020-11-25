@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75465563"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007125"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Cenários de testabilidade do tecido de serviço: comunicação de serviço
 Microserviços e estilos arquitetônicos orientados para o serviço surgem naturalmente no Azure Service Fabric. Neste tipo de arquiteturas distribuídas, as aplicações de microserviços componentes são normalmente compostas por múltiplos serviços que precisam de falar entre si. Mesmo nos casos mais simples, você geralmente tem pelo menos um serviço web apátrida e um serviço de armazenamento de dados imponente que precisa de comunicar.

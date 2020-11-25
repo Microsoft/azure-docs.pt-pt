@@ -4,11 +4,11 @@ description: Este padrão de Política Azure fornece um exemplo de como usar o o
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: 1339dff7f8bc92a8e38ec5635690cc2069dd8df4
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076407"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005423"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Padrão de política Azure: o operador de contagem
 
@@ -24,8 +24,8 @@ Esta definição de política [audita grupos](../concepts/effects.md#audit) de s
 
 Os componentes centrais do operador da **contagem** são _o campo,_ _onde,_ e a condição. Cada um é destacado no corte abaixo.
 
-- _campo_ diz a contagem de quais pseudónimos para avaliar [membros](../concepts/definition-structure.md#aliases) de. Aqui, estamos a olhar para o _conjunto_ de **seguranças \[ \* \] ** do grupo de segurança da rede.
-- _onde_ utiliza a linguagem política para definir quais os membros _da matriz_ que satisfazem os critérios. Neste exemplo, um **operador lógico** agrulia três avaliações de condições diferentes de propriedades de _matriz_ de pseudónimos: _direção,_ _acesso_e _destinoPortRange._
+- _campo_ diz a contagem de quais pseudónimos para avaliar [membros](../concepts/definition-structure.md#aliases) de. Aqui, estamos a olhar para o _conjunto_ de **seguranças \[ \* \]** do grupo de segurança da rede.
+- _onde_ utiliza a linguagem política para definir quais os membros _da matriz_ que satisfazem os critérios. Neste exemplo, um **operador lógico** agrulia três avaliações de condições diferentes de propriedades de _matriz_ de pseudónimos: _direção,_ _acesso_ e _destinoPortRange._
 - A condição de contagem neste exemplo é **maior.** O Conde avalia como verdadeiro quando um ou mais membros da _matriz_ de pseudónimos correspondem à cláusula _de onde._
 
 :::code language="json" source="~/policy-templates/patterns/pattern-count-operator.json" range="12-32" highlight="3,4,20":::

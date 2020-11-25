@@ -9,11 +9,11 @@ ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 302c5d6e8e523a11b8773f10bb6089e3bea09bdd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101566"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006853"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Criar um recipiente em Azure Cosmos DB SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,13 +31,13 @@ Este artigo explica as diferentes formas de criar um recipiente na Azure Cosmos 
 
 1. [Crie uma nova conta Azure Cosmos,](create-sql-api-dotnet.md#create-account)ou selecione uma conta existente.
 
-1. Abra o painel **do Explorador de Dados** e selecione **Novo Recipiente** . Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **do Explorador de Dados** e selecione **Novo Recipiente**. Em seguida, forneça os seguintes detalhes:
 
    * Indique se está a criar uma nova base de dados ou a utilizar uma existente.
    * Introduza a identificação do contentor.
    * Introduza uma chave de partição.
    * Introduza uma produção a ser a provisionada (por exemplo, 1000 RUs).
-   * Selecione **OK** .
+   * Selecione **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Screenshot do painel do Data Explorer, com novo recipiente em destaque":::
 

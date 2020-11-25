@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 601e5cf15c47b16c53ff9ca81a56cb613bcfc3f5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127153"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006564"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Tutorial: Utilize o serviço de cópia de dados para copiar dados em Azure Data Box Heavy (pré-visualização)
 
@@ -62,7 +62,7 @@ Para copiar dados utilizando o serviço de cópia de dados, é necessário criar
     |**Nome de Utilizador**                       |Nome de utilizador em `\\<DomainName><UserName>` formato para aceder à fonte de dados. Se um administrador local estiver a ligar-se, precisarão de permissões explícitas de segurança. Clique com o botão direito na pasta, selecione **Propriedades** e, em seguida, selecione **Security**. Isto deve adicionar o administrador local no separador **Segurança.**       |
     |**Palavra-passe**                       |Senha para aceder à fonte de dados.           |
     |**Conta de armazenamento de destino**    |Selecione a conta de armazenamento alvo para carregar os dados para a lista.         |
-    |**Tipo de destino**       |Selecione o tipo de armazenamento alvo da lista: **Block Blob**, **Page Blob**ou **Azure Files**.        |
+    |**Tipo de destino**       |Selecione o tipo de armazenamento alvo da lista: **Block Blob**, **Page Blob** ou **Azure Files**.        |
     |**Contentor/partilha de destino**    |Insira o nome do recipiente ou partilhe para o mesmo que pretende enviar dados na sua conta de armazenamento de destino. O nome pode ser um nome de partilha ou um nome de recipiente. Por exemplo, utilize `myshare` ou `mycontainer`. Também pode introduzir o nome no formato `sharename\directory_name` ou `containername\virtual_directory_name` .        |
     |**Padrão de correspondência de ficheiros de cópia**    | Pode introduzir o padrão de correspondência do nome do ficheiro de duas maneiras:<ul><li>**Utilize expressões wildcard:** Apenas `*` e `?` são apoiados em expressões wildcard. Por exemplo, a expressão `*.vhd` corresponde a todos os ficheiros que têm a `.vhd` extensão. Da mesma forma, `*.dl?` corresponde a todos os ficheiros com a extensão ou com , tal como `.dl` `.dl` `.dll` . Da mesma forma, `*foo` corresponde a todos os ficheiros cujos nomes terminam com `foo` .<br>Pode introduzir diretamente a expressão wildcard no campo. Por predefinição, o valor que introduz no campo é tratado como uma expressão wildcard.</li><li>**Utilize expressões regulares:** As expressões regulares baseadas em POSIX são suportadas. Por exemplo, a expressão regular `.*\.vhd` corresponderá a todos os ficheiros que tenham a `.vhd` extensão. Para expressões regulares, forneça `<pattern>` o seguinte diretamente como `regex(<pattern>)` . Para obter mais informações sobre expressões regulares, aceda à [linguagem de expressão regular - uma referência rápida](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Otimização de ficheiros**              |Quando esta funcionalidade está ativada, os ficheiros inferiores a 1 MB são embalados durante a ingestão. Esta embalagem acelera a cópia de dados para ficheiros pequenos. Também poupa uma quantidade significativa de tempo quando o número de ficheiros excede em muito o número de diretórios.        |

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/29/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b571b2b8e0d334a02631e3f443ec54398117ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd1fb7f33c56aefe76bc55181ae92ca3d149754
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006979"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema numa VM do Windows, para aceder ao Azure Cosmos DB
 
@@ -29,7 +29,7 @@ ms.locfileid: "91532674"
 Este tutorial mostra-lhe como utilizar a identidade gerida atribuída pelo sistema para uma máquina virtual (VM) do Windows para aceder ao Cosmos DB. Saiba como:
 
 > [!div class="checklist"]
-> * Criar uma conta do Cosmos DB
+> * Criar uma conta do Cosmos DB
 > * Conceder acesso da identidade gerida atribuída pelo sistema de uma VM do Windows às chaves de acesso da conta do Cosmos DB
 > * Obter um token de acesso com a identidade gerida atribuída pelo sistema da VM do Windows para chamar o Azure Resource Manager
 > * Obter chaves de acesso do Azure Resource Manager para fazer chamadas do Cosmos DB
@@ -50,7 +50,7 @@ Este tutorial mostra-lhe como utilizar a identidade gerida atribuída pelo siste
 ## <a name="grant-access"></a>Conceder acesso
 
 
-### <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB 
+### <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB 
 
 Se ainda não tiver uma, crie uma conta do Cosmos DB. Pode ignorar este passo e utilizar uma conta do Cosmos DB existente. 
 
@@ -82,7 +82,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 
 >[!NOTE]
-> Tenha em mente que, se não conseguir realizar uma operação, poderá não ter as permissões certas. Se quiser escrever acesso a teclas, tem de utilizar uma função RBAC, como o Colaborador de Conta DocumentDB ou criar uma função personalizada. Para mais informações, revisão [do controlo de acesso baseado em funções em Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
+> Tenha em mente que, se não conseguir realizar uma operação, poderá não ter as permissões certas. Se quiser escrever acesso às teclas, tem de utilizar uma função Azure, como o Colaborador de Conta DocumentDB ou criar uma função personalizada. Para mais informações, [reveja o controlo de acesso baseado em funções da Azure Em Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
 
 ## <a name="access-data"></a>Aceder a dados
 

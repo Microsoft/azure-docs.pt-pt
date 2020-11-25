@@ -4,11 +4,11 @@ description: 'Quickstart: Use o portal Azure Event Grid e Azure para criar a con
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 46cd88558334239a1a9971c63b8b2608def3c4d3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87421608"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005695"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Quickstart: Route Blob storage events to web endpoint with the Azure portal
 
@@ -131,7 +131,7 @@ Aciona um evento para o armazenamento de Blobs ao carregar um ficheiro. O fichei
 
    ![Blob criou evento](./media/blob-event-quickstart-portal/blob-created-event.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser continuar a trabalhar com este evento, não limpe os recursos criados neste artigo. Caso contrário, elimine os recursos que criou neste artigo.
 

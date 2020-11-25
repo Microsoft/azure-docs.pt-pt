@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: ca84cb6cdd6b47976eadbc5298701a46fe677426
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547831"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007142"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar uma aplicação HDInsight no Azure Marketplace
 Pode instalar uma aplicação Azure HDInsight num cluster HDInsight baseado em Linux. Neste artigo, aprenda a publicar uma aplicação HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [publicar uma oferta no Azure Marketplace](../marketplace/overview.md).
@@ -63,7 +63,7 @@ Quando uma aplicação é instalada num cluster (seja num cluster existente, ou 
   > * Um hífen, para a legibilidade.
   > * Uma função de corda única, com o nome da aplicação como parâmetro.
   > 
-  > Na lista de ação do script persistido, o exemplo anterior é apresentado como **hue-install-v0-4wkahss5hlas** . Consulte uma [amostra da carga útil do JSON.](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json)
+  > Na lista de ação do script persistido, o exemplo anterior é apresentado como **hue-install-v0-4wkahss5hlas**. Consulte uma [amostra da carga útil do JSON.](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json)
   > 
 
 O roteiro de instalação deve ter as seguintes características:
@@ -74,7 +74,7 @@ O roteiro de instalação deve ter as seguintes características:
 * Se o seu script iniciar serviços nos nós, os serviços são monitorizados e configurados para iniciar automaticamente se ocorrer um reboot de nó.
 
 ## <a name="package-the-application"></a>Embale a aplicação
-Crie um ficheiro .zip que contenha todos os ficheiros necessários para instalar a sua aplicação HDInsight. Utilize o ficheiro .zip para publicar a aplicação. O ficheiro .zip inclui os seguintes ficheiros:
+Crie um ficheiro .zip que contenha todos os ficheiros necessários para instalar a sua aplicação HDInsight. Usa o ficheiro .zip para publicar o pedido. O ficheiro .zip inclui os seguintes ficheiros:
 
 * createUiDefinition.jsem
 * mainTemplate.js(Para uma amostra, consulte [instalar aplicações HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).)
@@ -87,10 +87,10 @@ Crie um ficheiro .zip que contenha todos os ficheiros necessários para instalar
 Para publicar uma aplicação HDInsight:
 
 1. Inscreva-se na [Azure Publishing](https://publish.windowsazure.com/).
-2. No menu esquerdo, **selecione Modelos de solução** .
-3. Introduza um título e, em seguida, **selecione Criar um novo modelo de solução** .
+2. No menu esquerdo, **selecione Modelos de solução**.
+3. Introduza um título e, em seguida, **selecione Criar um novo modelo de solução**.
 4. Se ainda não registou a sua organização, selecione **a conta Create Dev Center e junte-se ao programa Azure.**  Para obter mais informações, consulte [Criar uma conta microsoft developer](../marketplace/overview.md).
-5. Selecione **Definir algumas Topologias para começar** . Um modelo de solução é um "pai" para todas as suas topologias. Pode definir várias topologias num modelo de oferta ou solução. Quando uma oferta é empurrada para a encenação, é empurrada com todas as suas topologias. 
+5. Selecione **Definir algumas Topologias para começar**. Um modelo de solução é um "pai" para todas as suas topologias. Pode definir várias topologias num modelo de oferta ou solução. Quando uma oferta é empurrada para a encenação, é empurrada com todas as suas topologias. 
 6. Introduza um nome de topologia e, em seguida, selecione **+** .
 7. Introduza uma nova versão e, em seguida, selecione **+** .
 8. Faça o upload do ficheiro .zip que criou quando embalou a aplicação.  

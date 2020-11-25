@@ -11,11 +11,11 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784359"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005555"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -76,7 +76,7 @@ Nenhum.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -199,7 +199,7 @@ Para criar uma conta de armazenamento v2 de uso geral com uma opção de replica
 
 # <a name="template"></a>[Modelo](#tab/template)
 
-Pode utilizar o Azure PowerShell ou o Azure CLI para implementar um modelo de Gestor de Recursos para criar uma conta de armazenamento. O modelo utilizado neste artigo é de modelos de arranque rápido do [Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para executar os scripts, selecione **Experimente-o** para abrir a Azure Cloud Shell. Para colar o script, clique com o botão direito da casca e, em seguida, **selecione Pasta** .
+Pode utilizar o Azure PowerShell ou o Azure CLI para implementar um modelo de Gestor de Recursos para criar uma conta de armazenamento. O modelo utilizado neste artigo é de modelos de arranque rápido do [Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para executar os scripts, selecione **Experimente-o** para abrir a Azure Cloud Shell. Para colar o script, clique com o botão direito da casca e, em seguida, **selecione Pasta**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -236,7 +236,7 @@ A eliminação de uma conta de armazenamento elimina toda a conta, incluindo tod
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navegue para a conta de armazenamento no [portal Azure](https://portal.azure.com).
-1. Clique em **Eliminar** .
+1. Clique em **Eliminar**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

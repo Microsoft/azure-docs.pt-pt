@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: 5ad261064adf34945a600983296cb3e0ceaa5247
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90901067"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006666"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure
 
@@ -30,7 +30,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados de entrada.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Selecione **Criar um recurso**Internet of  >  **Things**  >  **IoT Hub**.
+2. Selecione **Criar um recurso** Internet of  >  **Things**  >  **IoT Hub**.
 
 3. No painel **IoT Hub,** insira as seguintes informações:
    
@@ -61,7 +61,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados de entrada.
 
 ## <a name="create-blob-storage"></a>Criar armazenamento de bolhas
 
-1. A partir do canto superior esquerdo do portal Azure, selecione **Criar uma**conta de  >  **armazenamento**  >  **de**recursos .
+1. A partir do canto superior esquerdo do portal Azure, selecione **Criar uma** conta de  >  **armazenamento**  >  **de** recursos .
 
 2. No painel de **conta de armazenamento Criar,** insira um nome de conta de armazenamento, localização e grupo de recursos. Escolha o mesmo grupo de localização e recursos que o Hub IoT que criou. Em seguida, clique em **Rever + criar** para criar a conta.
 
@@ -77,7 +77,7 @@ Antes de definir o trabalho stream Analytics, deve preparar os dados de entrada.
 
 ## <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.  
 
@@ -176,7 +176,7 @@ Nesta secção, irá configurar uma entrada de dispositivo IoT Hub para o trabal
 
    ![Saída transformada](./media/stream-analytics-quick-create-portal/check-asa-results.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, o trabalho stream Analytics e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar a tarefa no futuro, pode pará-la e reiniciá-la mais tarde, quando for necessário. Se não quiser continuar a utilizar esta tarefa, elimine todos os recursos criados por este início rápido ao utilizar os seguintes passos:
 

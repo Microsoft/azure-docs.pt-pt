@@ -5,11 +5,11 @@ services: container-service
 ms.topic: article
 ms.date: 04/08/2020
 ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900081"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006938"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerir múltiplos conjuntos de nós para um cluster no Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ No Serviço Azure Kubernetes (AKS), os nós da mesma configuração são agrupad
 
 Este artigo mostra-lhe como criar e gerir várias piscinas de nó num cluster AKS.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Precisa da versão Azure CLI 2.2.0 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
@@ -37,7 +37,7 @@ Aplicam-se as seguintes limitações quando cria e gere clusters AKS que suporta
 * Todas as piscinas de nódis devem residir na mesma rede virtual.
 * Ao criar várias piscinas de nó no cluster criar tempo, todas as versões Kubernetes utilizadas por piscinas de nó devem corresponder ao conjunto de versão definida para o plano de controlo. Isto pode ser atualizado depois de o cluster ter sido a provisionado utilizando operações de piscina por nó.
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 > [!Important]
 > Se executar uma única piscina de nó de sistema para o seu cluster AKS em ambiente de produção, recomendamos que use pelo menos três nós para a piscina de nós.
@@ -93,7 +93,7 @@ Para ver o estado das suas piscinas de nó, use o comando [da lista de números 
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-A saída de exemplo a seguir mostra que *a mynodepool* foi criada com sucesso com três nós na piscina de nós. Quando o cluster AKS foi criado no passo anterior, um *nodepool1* padrão foi criado com uma contagem de nó de *2* .
+A saída de exemplo a seguir mostra que *a mynodepool* foi criada com sucesso com três nós na piscina de nós. Quando o cluster AKS foi criado no passo anterior, um *nodepool1* padrão foi criado com uma contagem de nó de *2*.
 
 ```output
 [
@@ -214,7 +214,7 @@ Como uma boa prática, você deve atualizar todas as piscinas de nós em um clus
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Atualize um plano de controlo de cluster com várias piscinas de nó
 
 > [!NOTE]
-> Kubernetes usa o esquema padrão de versão [semântica.](https://semver.org/) O número da versão é expresso em *x.y.z* , onde *x* é a versão principal, *y* é a versão menor, e *z* é a versão patch. Por exemplo, na versão *1.12.6* , 1 é a versão principal, 12 é a versão menor, e 6 é a versão patch. A versão Kubernetes do plano de controlo e a piscina inicial do nó são definidas durante a criação do cluster. Todas as piscinas de nó adicionais têm a sua versão Kubernetes definida quando são adicionadas ao cluster. As versões Kubernetes podem diferir entre piscinas de nós, bem como entre uma piscina de nó e o plano de controlo.
+> Kubernetes usa o esquema padrão de versão [semântica.](https://semver.org/) O número da versão é expresso em *x.y.z*, onde *x* é a versão principal, *y* é a versão menor, e *z* é a versão patch. Por exemplo, na versão *1.12.6*, 1 é a versão principal, 12 é a versão menor, e 6 é a versão patch. A versão Kubernetes do plano de controlo e a piscina inicial do nó são definidas durante a criação do cluster. Todas as piscinas de nó adicionais têm a sua versão Kubernetes definida quando são adicionadas ao cluster. As versões Kubernetes podem diferir entre piscinas de nós, bem como entre uma piscina de nó e o plano de controlo.
 
 Um cluster AKS tem dois objetos de recursos de cluster com versões Kubernetes associadas.
 
@@ -249,7 +249,7 @@ Como a carga de trabalho da sua aplicação exige alterações, poderá ter de e
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Para escalar o número de nós numa piscina de nó, utilize o comando [de balança de balança de node az aks.][az-aks-nodepool-scale] O exemplo a seguir escala o número de nós na *mynodepool* para *5* :
+Para escalar o número de nós numa piscina de nó, utilize o comando [de balança de balança de node az aks.][az-aks-nodepool-scale] O exemplo a seguir escala o número de nós na *mynodepool* para *5*:
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -355,7 +355,7 @@ Nos exemplos anteriores para criar uma piscina de nó, foi utilizado um tamanho 
 
 No exemplo seguinte, crie uma piscina de nó à base de GPU que utilize o *tamanho Standard_NC6* VM. Estes VMs são alimentados pelo cartão NVIDIA Tesla K80. Para obter informações sobre os tamanhos VM disponíveis, consulte [tamanhos para máquinas virtuais Linux em Azure][vm-sizes].
 
-Crie uma piscina de nó usando o [número az aks node adicionar][az-aks-nodepool-add] comando novamente. Desta vez, especifique o nome *gpunodepool* , e use o `--node-vm-size` parâmetro para especificar o tamanho *Standard_NC6:*
+Crie uma piscina de nó usando o [número az aks node adicionar][az-aks-nodepool-add] comando novamente. Desta vez, especifique o nome *gpunodepool*, e use o `--node-vm-size` parâmetro para especificar o tamanho *Standard_NC6:*
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -425,7 +425,7 @@ az aks nodepool add \
 > [!NOTE]
 > Uma mancha só pode ser definida para piscinas de nó durante a criação da piscina de nó.
 
-A saída de exemplo a seguir do comando da [lista de nodepool az aks][az-aks-nodepool-list] mostra que *taintnp* está *criando* nódes com os *nóns especificados* :
+A saída de exemplo a seguir do comando da [lista de nodepool az aks][az-aks-nodepool-list] mostra que *taintnp* está *criando* nódes com os *nóns especificados*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -510,7 +510,7 @@ Events:
   Normal  Started    4m40s  kubelet             Started container
 ```
 
-Apenas as cápsulas que têm esta tolerância aplicada podem ser programadas em nós em *taintnp* . Qualquer outra cápsula seria agendada na piscina de *nóndes1.* Se criar piscinas de nó adicionais, pode usar manchas adicionais e tolerâncias para limitar que cápsulas podem ser programadas nesses recursos de nó.
+Apenas as cápsulas que têm esta tolerância aplicada podem ser programadas em nós em *taintnp*. Qualquer outra cápsula seria agendada na piscina de *nóndes1.* Se criar piscinas de nó adicionais, pode usar manchas adicionais e tolerâncias para limitar que cápsulas podem ser programadas nesses recursos de nó.
 
 ### <a name="setting-nodepool-labels"></a>Definição de etiquetas de nodepool
 
@@ -577,7 +577,7 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> Também pode utilizar o parâmetro quando utilizar o `--tags` comando [de atualização az aks nodepool,][az-aks-nodepool-update] bem como durante a criação do cluster. Durante a criação do cluster, o `--tags` parâmetro aplica a etiqueta à piscina inicial do nó criado com o cluster. Todos os nomes de identificação devem aderir às limitações nas [etiquetas de utilização para organizar os seus recursos Azure.][tag-limitation] A atualização de um conjunto de nós com o `--tags` parâmetro atualiza quaisquer valores de etiqueta existentes e anexa quaisquer novas etiquetas. Por exemplo, se o seu node pool tivesse *dept=IT* e *costcenter=9999* para tags e o atualizasse com *team=dev* e *costcenter=111* para tags, você nodepool teria *dept=IT,* *costcenter=111* , e *team=dev* para tags.
+> Também pode utilizar o parâmetro quando utilizar o `--tags` comando [de atualização az aks nodepool,][az-aks-nodepool-update] bem como durante a criação do cluster. Durante a criação do cluster, o `--tags` parâmetro aplica a etiqueta à piscina inicial do nó criado com o cluster. Todos os nomes de identificação devem aderir às limitações nas [etiquetas de utilização para organizar os seus recursos Azure.][tag-limitation] A atualização de um conjunto de nós com o `--tags` parâmetro atualiza quaisquer valores de etiqueta existentes e anexa quaisquer novas etiquetas. Por exemplo, se o seu node pool tivesse *dept=IT* e *costcenter=9999* para tags e o atualizasse com *team=dev* e *costcenter=111* para tags, você nodepool teria *dept=IT,* *costcenter=111*, e *team=dev* para tags.
 
 A saída de exemplo a partir do comando da [lista de nodepool az aks][az-aks-nodepool-list] mostra que *o tagnodepool* está *a criar* nosdes com a *etiqueta* especificada:
 
@@ -614,7 +614,7 @@ Crie um modelo como `aks-agentpools.json` e cole o manifesto de exemplo a seguir
 
 * Atualiza a piscina de nóleiros *Linux* chamada *myagentpool* para executar três nós.
 * Define os nós na piscina de nós para executar a versão *1.15.7* de Kubernetes .
-* Define o tamanho do nó como *Standard_DS2_v2* .
+* Define o tamanho do nó como *Standard_DS2_v2*.
 
 Edite estes valores conforme necessário para atualizar, adicionar ou eliminar piscinas de nó, se necessário:
 
@@ -776,7 +776,7 @@ az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Neste artigo, criou um cluster AKS que inclui nós baseados em GPU. Para reduzir custos desnecessários, pode querer eliminar o *gpunodepool* , ou todo o cluster AKS.
+Neste artigo, criou um cluster AKS que inclui nós baseados em GPU. Para reduzir custos desnecessários, pode querer eliminar o *gpunodepool*, ou todo o cluster AKS.
 
 Para eliminar o conjunto de nó baseado em GPU, utilize o comando [de exclusão de nodepool az aks,][az-aks-nodepool-delete] como mostrado no exemplo seguinte:
 
@@ -796,7 +796,7 @@ Também pode eliminar o cluster adicional que criou para o cenário de piscinas 
 az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [piscinas de nó de sistema.][use-system-pool]
 

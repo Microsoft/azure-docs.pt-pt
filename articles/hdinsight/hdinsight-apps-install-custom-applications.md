@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/29/2019
 ms.openlocfilehash: d110f4ee0248b6ea069c6033dd69840eec1a18f3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741606"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96007159"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instale aplicações personalizadas da Apache Hadoop no Azure HDInsight
 
@@ -49,9 +49,9 @@ Ficheiros necessários para implementar esta aplicação (Hue):
 
 1. Insira o nome do cluster onde pretende instalar a aplicação. Este cluster tem de ser um cluster existente.
 
-1. Selecione a caixa de verificação pois **concordo com os termos e condições acima indicados** .
+1. Selecione a caixa de verificação pois **concordo com os termos e condições acima indicados**.
 
-1. Selecione **Comprar** .
+1. Selecione **Comprar**.
 
 Pode ver o estado da instalação no mosaico afixado ao dashboard do portal e a notificação do portal (clique no ícone de sino na parte superior do portal).  A instalação da aplicação demora cerca de 10 minutos.
 
@@ -77,9 +77,9 @@ Para **Hue,** pode utilizar os seguintes passos:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o cluster onde instalou a aplicação.
-1. A partir do menu **Definições,** selecione **Aplicações** .
+1. A partir do menu **Definições,** selecione **Aplicações**.
 1. Selecione **a tonalidade** da lista para ver as propriedades.  
 1. Selecione o link da página web para validar o site.
 
@@ -125,10 +125,10 @@ Se uma instalação de aplicação falhar, pode ver as mensagens de erro e depur
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o cluster onde instalou a aplicação.
-1. A partir do menu **Definições,** selecione **Aplicações** .
-1. Clique com o botão direito na aplicação que pretende remover e, em seguida, **selecione Delete** .
+1. A partir do menu **Definições,** selecione **Aplicações**.
+1. Clique com o botão direito na aplicação que pretende remover e, em seguida, **selecione Delete**.
 1. Selecione **Sim** para confirmar.
 
 ### <a name="azure-cli"></a>CLI do Azure

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
 ms.openlocfilehash: f8e0d49c2a35a1e97c79e6d4b8c867a4a8ab88b3
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491533"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006683"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Compreender a monitorização do trabalho do Stream Analytics e como monitorizar consultas
 
@@ -27,7 +27,7 @@ A janela aparecerá como mostrado:
 ![Painel de monitorização de trabalho stream Analytics](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>Métricas disponíveis para Stream Analytics
-| Métrica                 | Definição                               |
+| Metric                 | Definição                               |
 | ---------------------- | ---------------------------------------- |
 | Eventos de entrada recuados       | Número de eventos de entrada que são retrospados. Um valor não-zero para esta métrica implica que o seu trabalho não é capaz de acompanhar o número de eventos que chegam. Se este valor estiver a aumentar lentamente ou consistentemente não zero, deverá escalonar o seu trabalho. Pode aprender mais visitando [Compreender e ajustar Unidades de Streaming.](stream-analytics-streaming-unit-consumption.md) |
 | Erros de Conversão de Dados | Número de eventos de saída que não puderam ser convertidos para o esquema de saída esperado. A política de erros pode ser alterada para 'Drop' para deixar cair eventos que encontrem este cenário. |

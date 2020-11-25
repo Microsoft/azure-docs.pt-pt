@@ -15,11 +15,11 @@ ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bf9fd361dea43b1cfa6ae45710a3a7bbf4e4de03
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006290"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA (Grandes Instâncias) arquitetura de rede
 

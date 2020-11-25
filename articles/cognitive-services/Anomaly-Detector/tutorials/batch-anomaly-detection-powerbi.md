@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368649"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006205"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando deteção de lotes e Power BI
 
@@ -42,13 +42,13 @@ Neste tutorial, irá aprender a:
 Para começar, abra o Power BI Desktop e carregue os dados da série de tempo que descarregou a partir dos pré-requisitos. Este ficheiro excel contém uma série de relógios e pares de valor do tempo universal coordenado (UTC).  
 
 > [!NOTE]
-> O Power BI pode utilizar dados de uma grande variedade de fontes, tais como ficheiros .csv, bases de dados SQL, armazenamento de blob Azure e muito mais.  
+> O Power BI pode usar dados de uma grande variedade de fontes, tais como ficheiros .csv, bases de dados SQL, armazenamento de blob Azure e muito mais.  
 
 Na janela principal do Ambiente de Trabalho Power BI, clique na fita **Home.** No grupo de **dados externos** da fita, abra o menu **Get Data** drop-down e clique no **Excel**.
 
 ![Uma imagem do botão "Obter Dados" no Power BI](../media/tutorials/power-bi-get-data-button.png)
 
-Depois do diálogo aparecer, navegue para a pasta onde descarregou o ficheiro exemplo .xlsx e selecione-o. Depois do diálogo **Do Navegador** aparecer, clique em **Sheet1** e, em seguida, **Edite**.
+Depois do diálogo aparecer, navegue para a pasta onde descarregou o exemplo .xlsx ficheiro e selecione-o. Depois do diálogo **Do Navegador** aparecer, clique em **Sheet1** e, em seguida, **Edite**.
 
 ![Uma imagem do ecrã "Navigator" da fonte de dados no Power BI](../media/tutorials/navigator-dialog-box.png)
 
@@ -112,7 +112,7 @@ Dentro do Editor Avançado, utilize o seguinte corte de power query M para extra
  in results
 ```
 
-Invoque a consulta na sua ficha de dados selecionando `Sheet1` abaixo **Enter Parâmetro** , e clique em **Invocar**.
+Invoque a consulta na sua ficha de dados selecionando `Sheet1` abaixo **Enter Parâmetro**, e clique em **Invocar**.
 
 ![Uma imagem da função invocada](../media/tutorials/invoke-function-screenshot.png)
 
@@ -125,7 +125,7 @@ Pode receber uma mensagem de aviso quando tentar executar a consulta, uma vez qu
 
 ![Uma imagem mostrando um aviso criado por Power BI](../media/tutorials/blocked-function.png)
 
-Para corrigir isto, clique em **'Ficheiro'** e **Opções e definições**. Em seguida, clique em **Opções**. Abaixo **do Ficheiro Atual** , selecione **Privacidade** e ignore **os Níveis de Privacidade e potencialmente melhore o desempenho**.
+Para corrigir isto, clique em **'Ficheiro'** e **Opções e definições**. Em seguida, clique em **Opções**. Abaixo **do Ficheiro Atual**, selecione **Privacidade** e ignore **os Níveis de Privacidade e potencialmente melhore o desempenho**.
 
 Além disso, pode receber uma mensagem a pedir-lhe que especifique como pretende ligar-se à API.
 

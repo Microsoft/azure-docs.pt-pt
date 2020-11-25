@@ -15,11 +15,11 @@ ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a1430b32c0e74be7a0e50fa4c5c183018b2b55e0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967776"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006307"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (Grandes Instâncias) em Azure
 
@@ -125,7 +125,7 @@ Para o SAP HANA on Azure (Grandes Instâncias), a sincronização temporal que �
 Como resultado, deve configurar um servidor de tempo separado que possa ser utilizado por servidores de aplicações SAP que estão a ser executadas em VMs Azure e pelas instâncias da base de dados SAP HANA que estão a ser executadas em HANA Large Instances. A infraestrutura de armazenamento em selos de Grande Instância é sincronizada com servidores NTP.
 
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 Assumimos que seguiu as recomendações na conceção das suas redes virtuais Azure e na ligação dessas redes virtuais às Grandes Instâncias HANA, conforme descrito nos seguintes documentos:
 
 - [Visão geral e arquitetura em Azure](./hana-overview-architecture.md)

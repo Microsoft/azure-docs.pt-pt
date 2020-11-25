@@ -18,11 +18,11 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8e0baeb7eddb1d74a8d7708b04391134d2e188b2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951966"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005678"
 ---
 # <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>Máquinas virtuais Azure de alta disponibilidade para SAP NetWeaver
 

@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: 21d84bea808ba5832b81d415001a3fc25a7e1630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323962"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006768"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrar dados SIM na solução de Monitorização Remota
 
@@ -21,7 +21,7 @@ Os dispositivos IoT ligam-se frequentemente à nuvem usando um cartão SIM que l
 
 A Remote Monitoring proporciona a integração fora da caixa com a Conectividade Telefónica IoT, permitindo que os clientes que utilizam a sua Plataforma de Conectividade IoT sincronizem os dados de conectividade do seu dispositivo SIMs às suas soluções. Esta solução pode ser alargada para apoiar outros fornecedores de conectividade IoT através do [repositório](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)GitHub.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 * Integrar dados da Telefónica IoT SIM na solução de Monitorização Remota
 * Ver telemetria em tempo real

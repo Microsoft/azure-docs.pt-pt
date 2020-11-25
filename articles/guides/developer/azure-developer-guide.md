@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372213"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005389"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -164,7 +164,7 @@ O Azure fornece várias formas de utilizar recipientes nas suas aplicações.
 
 - **Azure Ative Directory (Azure AD)**: O serviço multitenante da Microsoft, baseado na identidade e na gestão de acessos. Pode adicionar um único sinal nas suas aplicações integrando-se com Azure AD. Pode aceder diretamente às propriedades do diretório Azure AD ou à API do Gráfico Microsoft. Pode integrar-se com o suporte Azure AD para o quadro de autorização OAuth2.0 e Open ID Connect utilizando pontos finais http/REST nativos e as bibliotecas de autenticação Azure AD multiplataforma.
 
-  > **Quando pretender**fornecer uma experiência SSO, trabalhe com dados baseados em gráficos ou autente utilizadores baseados em domínios.
+  > **Quando pretender** fornecer uma experiência SSO, trabalhe com dados baseados em gráficos ou autente utilizadores baseados em domínios.
   >
   > **Começar**: Para saber mais, consulte o [guia do programador do Azure Ative Directory](../../active-directory/develop/v2-overview.md).
 
@@ -303,7 +303,7 @@ Quando permite o acesso aos recursos do Azure, é sempre uma boa prática propor
   >
   > **Começar**: Para saber mais, consulte [Adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
 
-- **Objetos principais do**serviço : Além de fornecer acesso a principais utilizadores e grupos, pode conceder o mesmo acesso a um diretor de serviço.
+- **Objetos principais do** serviço : Além de fornecer acesso a principais utilizadores e grupos, pode conceder o mesmo acesso a um diretor de serviço.
 
   > **Quando utilizar:** Quando estiver a gerir programáticamente os recursos da Azure ou a conceder acesso a aplicações. Para mais informações, consulte [a aplicação de Diretório Ativo e o principal do serviço.](../../active-directory/develop/howto-create-service-principal-portal.md)
 

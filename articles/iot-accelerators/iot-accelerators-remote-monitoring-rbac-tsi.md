@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "65827228"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005967"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Configure os controlos de acesso para o explorador de telemetria Time Series Insights
 
@@ -31,7 +31,7 @@ Siga estas medidas para conceder acesso aos dados a um utilizadores principal:
 
 3. Selecione o seu ambiente do Time Series Insights na lista.
 
-4. Selecione **Políticas de Acesso a Dados**e, em seguida, selecione + **Adicionar**.
+4. Selecione **Políticas de Acesso a Dados** e, em seguida, selecione + **Adicionar**.
     ![Gerir a origem do Time Series Insights - ambiente](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access1.png)
 
 5. **Selecione Selecione utilizador**.  Procure o nome de utilizador ou o endereço de e-mail para localizar o utilizador que pretende adicionar. Clique **em Selecionar** para confirmar a seleção. 

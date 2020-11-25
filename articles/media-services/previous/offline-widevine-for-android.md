@@ -16,11 +16,11 @@ ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.openlocfilehash: 4b3b2b8c39b5b2552b5ce9f508bacd1ea86b2638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269595"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006371"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Transmissão offline em fluxo de Widevine para Android
 
@@ -116,14 +116,14 @@ A versão ExoPlayer 2.6 e superior inclui muitas classes que suportam a reprodu�
 
 A seguinte lista de classes facilita o modo offline no ExoPlayer SDK para Android:
 
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
 - biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
-- biblioteca/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
+- biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
 - biblioteca/núcleo/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
 - biblioteca/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
 
@@ -131,7 +131,7 @@ Os desenvolvedores devem fazer referência ao [Guia de Desenvolvimento do ExoPla
 
 ### <a name="working-with-older-android-devices"></a>Trabalhar com dispositivos Android mais antigos
 
-Para alguns dispositivos Android mais antigos, deve definir valores para as seguintes propriedades **policy_overrides** (definidas no [modelo de licença Widevine](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**e **license_duration_seconds**. Em alternativa, pode defini-los a zero, o que significa duração infinita/ilimitada.  
+Para alguns dispositivos Android mais antigos, deve definir valores para as seguintes propriedades **policy_overrides** (definidas no [modelo de licença Widevine](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds** e **license_duration_seconds**. Em alternativa, pode defini-los a zero, o que significa duração infinita/ilimitada.  
 
 Os valores devem ser definidos para evitar que um inseto inteiro transborde. Para mais explicações sobre o assunto, consulte https://github.com/google/ExoPlayer/issues/3150 https://github.com/google/ExoPlayer/issues/3112 e. <br/>Se não definir explicitamente os valores para  **PlaybackDurationRemaining** e **LicenseDurationRemaining** será atribuído, (por exemplo, 9223372036854775807, que é o valor máximo positivo para um número inteiro de 64 bits). Como resultado, a licença Widevine aparece caducada e, portanto, a desencriptação não vai acontecer. 
 

@@ -16,11 +16,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956828"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005933"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementar StorSimple Virtual Array - Configurar como servidor de ficheiros através do portal Azure
 ![Diagrama mostrando os passos necessários para implantar uma matriz virtual. A primeira parte do terceiro passo é rotulada Configurar como servidor de ficheiros e é realçada.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -118,7 +118,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
     ![Screenshot da página de todos os recursos do portal Azure. Destaca-se um serviço de Gestor de Dispositivos.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. Na lista filtrada, selecione o seu serviço StorSimple Device Manager e, em seguida, navegue para **Dispositivos de Gestão >**. Na lâmina **dispositivos,** verifique se o dispositivo se ligou com sucesso ao serviço e tem o estado **pronto a configurar**.
     
-    ![Implementação](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
+    ![Implementar](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
 ## <a name="step-2-configure-the-device-as-file-server"></a>Passo 2: Configurar o dispositivo como servidor de ficheiros
 Execute os seguintes passos no [portal Azure](https://portal.azure.com/) para completar a configuração do dispositivo necessária.

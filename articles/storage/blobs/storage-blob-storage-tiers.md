@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 771b48c36a409654a1d1586590811c81e5c2340a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 87106cce018a2b2663de2a9abbb43b31ab58c125
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086759"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96007329"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Níveis de acesso para Azure Blob Storage - quente, fresco e arquivo
 
@@ -55,7 +55,7 @@ A camada de acesso esporádico tem custos de armazenamento inferiores e custos d
 
 - Conjuntos de dados de cópia de segurança e recuperação após desastre de curto prazo.
 - Conteúdo de multimédia mais antigo que já não é visualizado com frequência, mas que deverá estar disponível de imediato quando acedido.
-- Grandes conjuntos de dados que devem ser armazenados de forma económica enquanto são recolhidos mais dados para processamento futuro. ( *Por exemplo,* , armazenamento a longo prazo de dados científicos, dados de telemetria não processados de uma instalação de fabrico)
+- Grandes conjuntos de dados que devem ser armazenados de forma económica enquanto são recolhidos mais dados para processamento futuro. (*Por exemplo,*, armazenamento a longo prazo de dados científicos, dados de telemetria não processados de uma instalação de fabrico)
 
 ## <a name="archive-access-tier"></a>Camada de armazenamento de arquivo
 
@@ -74,7 +74,7 @@ Os cenários de utilização de exemplo para o nível de acesso ao arquivo inclu
 
 ## <a name="account-level-tiering"></a>Tiering de nível de conta
 
-As bolhas nos três níveis de acesso podem coexistir na mesma conta. Qualquer bolha que não tenha um nível explicitamente atribuído infere o nível a partir da definição do nível de acesso à conta. Se o nível de acesso vier da conta, vê a propriedade blob **inferred de acesso** definida como "verdadeira", e a propriedade **blob Access Tier** corresponde ao nível da conta. No portal Azure, a propriedade _inferida do nível de acesso_ é exibida com o nível de acesso blob como **Hot (inferido)** ou **Cool (inferido)** .
+As bolhas nos três níveis de acesso podem coexistir na mesma conta. Qualquer bolha que não tenha um nível explicitamente atribuído infere o nível a partir da definição do nível de acesso à conta. Se o nível de acesso vier da conta, vê a propriedade blob **inferred de acesso** definida como "verdadeira", e a propriedade **blob Access Tier** corresponde ao nível da conta. No portal Azure, a propriedade _inferida do nível de acesso_ é exibida com o nível de acesso blob como **Hot (inferido)** ou **Cool (inferido)**.
 
 A alteração do nível de acesso à conta aplica-se a todos os objetos _inferidos_ de nível de acesso armazenados na conta que não têm um conjunto de nível explícito. Se alternar o nível da conta de quente para fresco, será cobrado para operações de escrita (por 10.000) para todas as bolhas sem um nível definido apenas nas contas GPv2. Não há nenhum custo para esta mudança nas contas blob storage. Será cobrado tanto para operações de leitura (por 10.000) como para a recuperação de dados (por GB) se alternar de fresco para quente em Blob Storage ou contas GPv2.
 
@@ -112,7 +112,7 @@ Quando uma bolha é movida para um nível mais quente (>fresco, >de arquivo quen
 
 Qualquer bolha que seja movida para o nível cool (apenas contas GPv2) está sujeita a um período de eliminação precoce de 30 dias. Qualquer bolha que seja movida para o nível de arquivo está sujeita a um período de eliminação precoce de 180 dias. Estes custos são rateados. Por exemplo, se uma bolha for movida para arquivar e depois apagada ou movida para o nível quente após 45 dias, será cobrada uma taxa de eliminação antecipada equivalente a 135 (180 menos 45) dias de armazenamento dessa bolha no arquivo.
 
-Pode calcular a eliminação precoce utilizando a propriedade blob, **Última Modificada,** se não houver alterações no nível de acesso. Caso contrário, pode utilizar quando o nível de acesso foi modificado pela última vez para arrefecer ou arquivar, visualizando a propriedade blob: **tempo de mudança de nível de acesso** . Para obter mais informações sobre propriedades blob, consulte [Get Blob Properties](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
+Pode calcular a eliminação precoce utilizando a propriedade blob, **Última Modificada,** se não houver alterações no nível de acesso. Caso contrário, pode utilizar quando o nível de acesso foi modificado pela última vez para arrefecer ou arquivar, visualizando a propriedade blob: **tempo de mudança de nível de acesso**. Para obter mais informações sobre propriedades blob, consulte [Get Blob Properties](/rest/api/storageservices/get-blob-properties).
 
 ## <a name="comparing-block-blob-storage-options"></a>Comparar opções de armazenamento de blob de bloco
 
@@ -150,9 +150,9 @@ Nesta secção, os seguintes cenários são demonstrados utilizando o portal Azu
 
 1. Selecione a sua conta de armazenamento.
 
-1. Em **Definições** , selecione **Configuração** para visualizar e alterar a configuração da conta.
+1. Em **Definições**, selecione **Configuração** para visualizar e alterar a configuração da conta.
 
-1. Selecione o nível de acesso certo para as suas necessidades: Desa estale o **nível de acesso** para **Cool** ou **Hot** .
+1. Selecione o nível de acesso certo para as suas necessidades: Desa estale o **nível de acesso** para **Cool** ou **Hot**.
 
 1. Clique em **Guardar** na parte superior.
 
@@ -180,9 +180,9 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. Selecione o seu recipiente e, em seguida, selecione a sua bolha.
 
-1. Nas **propriedades Blob** , selecione **Alterar o nível** .
+1. Nas **propriedades Blob**, selecione **Alterar o nível**.
 
-1. Selecione o nível de acesso **Hot,** **Cool** ou **Archive.** Se a sua bolha estiver atualmente arquivada e pretender reidratar para um nível online, também pode selecionar uma Prioridade Rehidrata de **Standard** ou **Alta** .
+1. Selecione o nível de acesso **Hot,** **Cool** ou **Archive.** Se a sua bolha estiver atualmente arquivada e pretender reidratar para um nível online, também pode selecionar uma Prioridade Rehidrata de **Standard** ou **Alta**.
 
 1. **Selecione Guarde** na parte inferior.
 
@@ -213,12 +213,12 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 
 Todas as contas de armazenamento utilizam um modelo de preços para armazenamento de blob block com base no nível de cada bolha. Tenha em mente as seguintes considerações de faturação:
 
-- **Custos de armazenamento** : para além da quantidade de dados armazenados, o custo do armazenamento de dados varia consoante a camada de acesso. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
-- **Custos de acesso a dados** : os custos de acesso a dados aumenta conforme a camada se torna mais esporádica. Para obter dados no nível de acesso cool e archive, é-lhe cobrada uma taxa de acesso a dados por gigabyte para leituras.
-- **Custos de transação** : Há uma taxa por transação para todos os níveis que aumenta à medida que o nível fica mais frio.
-- **Custos de transferência de dados de georreplicação** : este custo aplica-se apenas às contas que têm a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
-- **Custos de transferência de dados de saída** : as transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) estão sujeitas a uma cobrança pela utilização de largura de banda por gigabyte, tal como as contas do Storage para fins gerais.
-- **Alteração do nível de acesso** : A alteração do nível de acesso à conta resultará em taxas de alteração de nível de nível para bolhas _inferidas_ de nível de acesso armazenadas na conta que não têm um conjunto de nível explícito. Para obter informações sobre a alteração do nível de acesso para uma única bolha, consulte a [faturação de nível blob](#blob-level-tiering-billing).
+- **Custos de armazenamento**: para além da quantidade de dados armazenados, o custo do armazenamento de dados varia consoante a camada de acesso. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
+- **Custos de acesso a dados**: os custos de acesso a dados aumenta conforme a camada se torna mais esporádica. Para obter dados no nível de acesso cool e archive, é-lhe cobrada uma taxa de acesso a dados por gigabyte para leituras.
+- **Custos de transação**: Há uma taxa por transação para todos os níveis que aumenta à medida que o nível fica mais frio.
+- **Custos de transferência de dados de georreplicação**: este custo aplica-se apenas às contas que têm a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
+- **Custos de transferência de dados de saída**: as transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) estão sujeitas a uma cobrança pela utilização de largura de banda por gigabyte, tal como as contas do Storage para fins gerais.
+- **Alteração do nível de acesso**: A alteração do nível de acesso à conta resultará em taxas de alteração de nível de nível para bolhas _inferidas_ de nível de acesso armazenadas na conta que não têm um conjunto de nível explícito. Para obter informações sobre a alteração do nível de acesso para uma única bolha, consulte a [faturação de nível blob](#blob-level-tiering-billing).
 
     Alterar o nível de acesso para uma bolha quando a versão está ativada, ou se a bolha tiver instantâneos, pode resultar em custos adicionais. Para obter mais informações sobre como é faturado quando a versão blob está ativada e você muda explicitamente o nível de uma bolha, consulte [preços e faturação](versioning-overview.md#pricing-and-billing) na documentação para a versão blob. Para obter mais informações sobre como você é cobrado quando uma bolha tem instantâneos e você muda explicitamente o nível da bolha, consulte [preços e faturação](snapshots-overview.md#pricing-and-billing) na documentação para instantâneos blob.
 
@@ -239,11 +239,11 @@ Sim. O atributo **Access Tier** definido ao nível da conta é o nível de conta
 
 **Posso alterar o nível de acesso predefinido da minha conta de armazenamento Blob ou GPv2?**
 
-Sim, pode alterar o nível de conta predefinido definindo o atributo **de nível De acesso** na conta de armazenamento. A alteração do nível de conta aplica-se a todos os objetos armazenados na conta que não tenham um conjunto de nível explícito (por exemplo, **Hot (inferido)** ou **Cool (inferido)** ). O toggling do nível da conta de operações de escrita quentes a frio incorre (por 10.000) para todas as bolhas sem um nível definido apenas nas contas GPv2 e toggling de cool para quente incorre tanto operações de leitura (por 10.000) como taxas de recuperação de dados (por GB) para todos os blobs em Blob Storage e contas GPv2.
+Sim, pode alterar o nível de conta predefinido definindo o atributo **de nível De acesso** na conta de armazenamento. A alteração do nível de conta aplica-se a todos os objetos armazenados na conta que não tenham um conjunto de nível explícito (por exemplo, **Hot (inferido)** ou **Cool (inferido)**). O toggling do nível da conta de operações de escrita quentes a frio incorre (por 10.000) para todas as bolhas sem um nível definido apenas nas contas GPv2 e toggling de cool para quente incorre tanto operações de leitura (por 10.000) como taxas de recuperação de dados (por GB) para todos os blobs em Blob Storage e contas GPv2.
 
 **Posso definir a camada de acesso de conta predefinida como arquivo?**
 
-N.º Apenas os níveis de acesso quente e fresco podem ser definidos como o nível de acesso da conta predefinido. A camada de arquivo só pode ser definida ao nível do objeto. No upload do blob, especifica o nível de acesso à sua escolha para ser quente, fresco ou arquivado, independentemente do nível de conta predefinido. Esta funcionalidade permite-lhe escrever dados diretamente no nível de arquivo para perceber economias de custos a partir do momento em que cria dados no armazenamento de bolhas.
+Não. Apenas os níveis de acesso quente e fresco podem ser definidos como o nível de acesso da conta predefinido. A camada de arquivo só pode ser definida ao nível do objeto. No upload do blob, especifica o nível de acesso à sua escolha para ser quente, fresco ou arquivado, independentemente do nível de conta predefinido. Esta funcionalidade permite-lhe escrever dados diretamente no nível de arquivo para perceber economias de custos a partir do momento em que cria dados no armazenamento de bolhas.
 
 **Em que regiões estão disponíveis os níveis de acesso quente, fresco e arquivado?**
 
@@ -291,6 +291,6 @@ Avalie o calor, o frio e o arquivo nas contas de Armazenamento de GPv2 e Blob
 - [Gerir o ciclo de vida do Armazenamento Azure Blob](storage-lifecycle-management-concepts.md)
 - [Saiba mais sobre a reidratação de dados blob a partir do nível de arquivo](storage-blob-rehydration.md)
 - [Determine se o desempenho premium beneficiaria a sua app](storage-blob-performance-tiers.md)
-- [Avaliar a utilização das suas contas do Storage atuais ao ativar as métricas do Storage do Azure](../common/storage-enable-and-view-metrics.md)
+- [Avaliar a utilização das suas contas do Storage atuais ao ativar as métricas do Storage do Azure](./monitor-blob-storage.md)
 - [Verificar os preços das camadas de armazenamento frequente, esporádica e de arquivo nas contas de Armazenamento de Blobs e GPv2 por região](https://azure.microsoft.com/pricing/details/storage/)
 - [Verificar os preços das transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/)

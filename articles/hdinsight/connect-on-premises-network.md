@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 71ef902e909e552ade5174196f291630bc242ca0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543241"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005372"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
 
@@ -44,7 +44,7 @@ No diagrama seguinte, as linhas verdes são pedidos de recursos que terminam no 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, veja [Ligar ao HDInsight (Apache Hadoop) através de SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 * Se utilizar o PowerShell, necessitará do [Módulo AZ](/powershell/azure/).
 * Se quiser utilizar o Azure CLI e ainda não o instalou, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
@@ -52,7 +52,7 @@ No diagrama seguinte, as linhas verdes são pedidos de recursos que terminam no 
 
 Utilize os seguintes documentos para aprender a criar uma Rede Virtual Azure que esteja ligada à sua rede no local:
 
-* [Usando o portal Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Com o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Utilizar o Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Utilizar a CLI do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
@@ -77,13 +77,13 @@ Estes passos utilizam o [portal Azure](https://portal.azure.com) para criar uma 
     | --- | --- |
     |Subscrição |Selecione a sua subscrição apropriada.|
     |Grupo de recursos |Selecione o grupo de recursos que contém a rede virtual criada anteriormente.|
-    |Nome da máquina virtual | Introduza um nome amigável que identifique esta máquina virtual. Este exemplo utiliza **DNSProxy** .|
-    |Região | Selecione a mesma região que a rede virtual criada anteriormente.  Nem todos os tamanhos de VM estão disponíveis em todas as regiões.  |
+    |Nome da máquina virtual | Introduza um nome amigável que identifique esta máquina virtual. Este exemplo utiliza **DNSProxy**.|
+    |Region | Selecione a mesma região que a rede virtual criada anteriormente.  Nem todos os tamanhos de VM estão disponíveis em todas as regiões.  |
     |Opções de disponibilidade |  Selecione o nível de disponibilidade desejado.  O Azure oferece um leque de opções para gerir a disponibilidade e a resiliência das suas aplicações.  Architecte a sua solução para utilizar VMs replicados em Zonas de Disponibilidade ou Conjuntos de Disponibilidade para proteger as suas apps e dados contra interrupções de datacenter e eventos de manutenção. Este exemplo utiliza **não é necessário um despedimento de infraestruturas.** |
-    |Imagem | Deixe no **Ubuntu Server 18.04 LTS** . |
-    |Tipo de autenticação | __Senha__ ou __chave pública SSH__ : O método de autenticação para a conta SSH. Recomendamos usar chaves públicas, já que são mais seguras. Este exemplo utiliza **a Palavra-passe.**  Para obter mais informações, consulte as [teclas Criar e utilizar as teclas SSH para o documento Linux VMs.](../virtual-machines/linux/mac-create-ssh-keys.md)|
-    |Nome de utilizador |Introduza o nome de utilizador do administrador para o VM.  Este exemplo usa **sshuser** .|
-    |Senha ou chave pública SSH | O campo disponível é determinado pela sua escolha para **tipo de autenticação** .  Insira o valor apropriado.|
+    |Imagem | Deixe no **Ubuntu Server 18.04 LTS**. |
+    |Tipo de autenticação | __Senha__ ou __chave pública SSH__: O método de autenticação para a conta SSH. Recomendamos usar chaves públicas, já que são mais seguras. Este exemplo utiliza **a Palavra-passe.**  Para obter mais informações, consulte as [teclas Criar e utilizar as teclas SSH para o documento Linux VMs.](../virtual-machines/linux/mac-create-ssh-keys.md)|
+    |Nome de utilizador |Introduza o nome de utilizador do administrador para o VM.  Este exemplo usa **sshuser**.|
+    |Senha ou chave pública SSH | O campo disponível é determinado pela sua escolha para **tipo de autenticação**.  Insira o valor apropriado.|
     |Portas de entrada públicas|Selecione **Deixe as portas selecionadas.** Em seguida, selecione **SSH (22)** da lista de descida das portas de **entrada Select.**|
 
     ![Configuração básica da máquina virtual](./media/connect-on-premises-network/virtual-machine-basics.png)
@@ -100,7 +100,7 @@ Estes passos utilizam o [portal Azure](https://portal.azure.com) para criar uma 
 
     ![Definições de rede virtual HDInsight](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    Deixe outras entradas nos valores predefinidos e, em seguida, selecione o **Review + create** .
+    Deixe outras entradas nos valores predefinidos e, em seguida, selecione o **Review + create**.
 
 5. A partir do separador **'Rever + criar',** selecione **Criar** para criar a máquina virtual.
 
@@ -108,7 +108,7 @@ Estes passos utilizam o [portal Azure](https://portal.azure.com) para criar uma 
 
 Uma vez criada a máquina virtual, receberá uma notificação **conseguida da Implementação** com um botão **de recurso Go para recurso.**  Selecione **Vá para o recurso** para ir para a sua nova máquina virtual.  A partir da vista padrão para a sua nova máquina virtual, siga estes passos para identificar os endereços IP associados:
 
-1. A partir **de Definições,** selecione **Propriedades** .
+1. A partir **de Definições,** selecione **Propriedades**.
 
 2. Note os valores **para ENDEREÇO IP PÚBLICO/ETIQUETA DE DNS** E **ENDEREÇO IP PRIVADO** para utilização posterior.
 
@@ -168,7 +168,7 @@ Uma vez criada a máquina virtual, receberá uma notificação **conseguida da I
     sudo nano /etc/bind/named.conf.options
     ```
 
-    Para guardar o ficheiro, utilize __Ctrl+X,__ __Y__ , e, em seguida, __Insira__ .
+    Para guardar o ficheiro, utilize __Ctrl+X,__ __Y__, e, em seguida, __Insira__.
 
 4. A partir da sessão SSH, utilize o seguinte comando:
 
@@ -203,7 +203,7 @@ Uma vez criada a máquina virtual, receberá uma notificação **conseguida da I
     sudo nano /etc/bind/named.conf.local
     ```
 
-    Para guardar o ficheiro, utilize __Ctrl+X,__ __Y__ , e, em seguida, __Insira__ .
+    Para guardar o ficheiro, utilize __Ctrl+X,__ __Y__, e, em seguida, __Insira__.
 
 6. Para iniciar o Bind, utilize o seguinte comando:
 
@@ -242,11 +242,11 @@ Para configurar a rede virtual para utilizar o servidor DNS personalizado em vez
 
 2. Selecione a sua rede virtual a partir da lista, que abrirá a vista padrão para a sua rede virtual.  
 
-3. A partir da vista padrão, em **Definições** , selecione **servidores DNS** .  
+3. A partir da vista padrão, em **Definições**, selecione **servidores DNS**.  
 
-4. Selecione __Custom__ , e insira o **ENDEREÇO IP PRIVADO** do servidor DNS personalizado.
+4. Selecione __Custom__, e insira o **ENDEREÇO IP PRIVADO** do servidor DNS personalizado.
 
-5. Selecione __Guardar__ .  <br />  
+5. Selecione __Guardar__.  <br />  
 
     ![Desa esta medida o servidor DNS personalizado para a rede](./media/connect-on-premises-network/configure-custom-dns.png)
 
@@ -254,7 +254,7 @@ Para configurar a rede virtual para utilizar o servidor DNS personalizado em vez
 
 Na secção anterior, configura o servidor DNS personalizado para encaminhar pedidos para o servidor DNS no local. Em seguida, tem de configurar o servidor DNS no local para encaminhar pedidos para o servidor DNS personalizado.
 
-Para obter etapas específicas sobre como configurar o seu servidor DNS, consulte a documentação do seu software de servidor DNS. Procure os passos sobre como configurar um __reencaminhador condicional__ .
+Para obter etapas específicas sobre como configurar o seu servidor DNS, consulte a documentação do seu software de servidor DNS. Procure os passos sobre como configurar um __reencaminhador condicional__.
 
 Um avançado condicional apenas remete os pedidos para um sufixo de DNS específico. Neste caso, deve configurar um reencaminhador para o sufixo DNS da rede virtual. Os pedidos deste sufixo devem ser reencaminhados para o endereço IP do servidor DNS personalizado. 
 

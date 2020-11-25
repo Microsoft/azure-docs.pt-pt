@@ -4,16 +4,16 @@ description: Este artigo fornece informações sobre como configurar a sua próp
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 9f073c42373e75fc1cb34d1c752350f9d2c61872
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843218"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006137"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
 O Azure Event Hubs fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O Event Hubs conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados que são armazenados com o Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 O Azure Event Hubs suporta agora a opção de encriptar dados em repouso com as teclas geridas pela Microsoft ou com teclas geridas pelo cliente (Bring Your Own Key – BYOK). Esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às teclas geridas pelo cliente que são utilizadas para encriptar os dados do Azure Event Hubs em repouso.
 
 Ativar a função BYOK é um processo de configuração de uma única vez no seu espaço de nome.

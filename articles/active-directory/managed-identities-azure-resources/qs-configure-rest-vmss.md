@@ -16,11 +16,11 @@ ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c79942aad2ce450bc22aa0a0cfc32e67a667bd48
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895958"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006239"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configure identidades geridas para recursos Azure em uma escala de máquina virtual definida usando chamadas REST API
 
@@ -95,7 +95,7 @@ Para criar um conjunto de escala de máquina virtual com identidade gerida atrib
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -170,7 +170,7 @@ Para ativar a identidade gerida atribuída pelo sistema num conjunto de escala d
    az account get-access-token
    ```
 
-2. Utilize o seguinte comando CURL para ligar para o ponto final do Azure Resource Manager REST para permitir a identidade gerida atribuída pelo sistema no seu conjunto de escala de máquina virtual, tal como identificado no corpo de pedido pelo valor `{"identity":{"type":"SystemAssigned"}` de um conjunto de escala de máquina virtual denominado *myVMSS* .  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
+2. Utilize o seguinte comando CURL para ligar para o ponto final do Azure Resource Manager REST para permitir a identidade gerida atribuída pelo sistema no seu conjunto de escala de máquina virtual, tal como identificado no corpo de pedido pelo valor `{"identity":{"type":"SystemAssigned"}` de um conjunto de escala de máquina virtual denominado *myVMSS*.  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
    
    > [!IMPORTANT]
    > Para garantir que não elimina quaisquer identidades geridas atribuídas ao utilizador que sejam atribuídas ao conjunto de escalas de máquinas virtuais, é necessário listar as identidades geridas atribuídas pelo utilizador utilizando este comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Se tiver alguma identidade gerida atribuída ao utilizador atribuída à escala de máquina virtual identificada como identificada no valor da `identity` resposta, salte para o passo 3 que lhe mostre como reter identidades geridas atribuídas pelo utilizador, permitindo a identidade gerida atribuída pelo sistema no seu conjunto de escala de máquina virtual.
@@ -190,7 +190,7 @@ Para ativar a identidade gerida atribuída pelo sistema num conjunto de escala d
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -223,7 +223,7 @@ Para ativar a identidade gerida atribuída pelo sistema num conjunto de escala d
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. |
  
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -257,7 +257,7 @@ Para ativar a identidade gerida atribuída pelo sistema num conjunto de escala d
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -281,7 +281,7 @@ Para desativar uma identidade atribuída ao sistema num conjunto de escala de m�
    az account get-access-token
    ```
 
-2. Atualize o conjunto de escala de máquina virtual utilizando o CURL para chamar o ponto final do Azure Resource Manager REST para desativar a identidade gerida atribuída pelo sistema.  O exemplo a seguir desativa a identidade gerida atribuída pelo sistema, identificada no organismo de pedido pelo valor `{"identity":{"type":"None"}}` de um conjunto de escala de máquina virtual denominado *myVMSS* .  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
+2. Atualize o conjunto de escala de máquina virtual utilizando o CURL para chamar o ponto final do Azure Resource Manager REST para desativar a identidade gerida atribuída pelo sistema.  O exemplo a seguir desativa a identidade gerida atribuída pelo sistema, identificada no organismo de pedido pelo valor `{"identity":{"type":"None"}}` de um conjunto de escala de máquina virtual denominado *myVMSS*.  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
 
    > [!IMPORTANT]
    > Para garantir que não elimina quaisquer identidades geridas atribuídas ao utilizador que sejam atribuídas ao conjunto de escalas de máquinas virtuais, é necessário listar as identidades geridas atribuídas pelo utilizador utilizando este comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Se tiver alguma identidade gerida atribuída ao utilizador atribuído à balança de máquinas virtual, salte para o passo 3 que lhe mostre como reter as identidades geridas atribuídas pelo utilizador, ao mesmo tempo que remove a identidade gerida atribuída pelo sistema do seu conjunto de escala de máquina virtual.
@@ -301,7 +301,7 @@ Para desativar uma identidade atribuída ao sistema num conjunto de escala de m�
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -311,7 +311,7 @@ Para desativar uma identidade atribuída ao sistema num conjunto de escala de m�
     }
    ```
 
-   Para remover a identidade gerida atribuída pelo sistema a partir de um conjunto de escala de máquina virtual que tenha identidades geridas atribuídas ao utilizador, remova `SystemAssigned` do `{"identity":{"type:" "}}` valor mantendo o valor e os `UserAssigned` valores do dicionário se estiver a `userAssignedIdentities` utilizar a versão **API 2018-06-01** . Se estiver a utilizar **a versão API 2017-12-01** ou mais cedo, mantenha a `identityIds` matriz.
+   Para remover a identidade gerida atribuída pelo sistema a partir de um conjunto de escala de máquina virtual que tenha identidades geridas atribuídas ao utilizador, remova `SystemAssigned` do `{"identity":{"type:" "}}` valor mantendo o valor e os `UserAssigned` valores do dicionário se estiver a `userAssignedIdentities` utilizar a versão **API 2018-06-01**. Se estiver a utilizar **a versão API 2017-12-01** ou mais cedo, mantenha a `identityIds` matriz.
 
 ## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
 
@@ -358,7 +358,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -445,7 +445,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. |
  
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -542,7 +542,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
 
 4. Se não tiver identidades geridas atribuídas ao utilizador ou sistema atribuído ao seu conjunto de escala de máquina virtual, utilize o seguinte comando CURL para ligar para o ponto final do Azure Resource Manager REST para atribuir a primeira identidade gerida atribuída ao conjunto de escala de máquina virtual.  Se tiver uma identidade gerida atribuída ao utilizador ou ao sistema atribuído à escala de máquina virtual, salte para o passo 5 que lhe mostre como adicionar várias identidades geridas atribuídas ao utilizador a um conjunto de escala de máquina virtual, mantendo também a identidade gerida atribuída pelo sistema.
 
-   O exemplo a seguir atribui uma identidade gerida atribuída ao utilizador a `ID1` um conjunto de escala de máquina virtual denominado *myVMSS* no grupo de recursos *myResourceGroup* .  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
+   O exemplo a seguir atribui uma identidade gerida atribuída ao utilizador a `ID1` um conjunto de escala de máquina virtual denominado *myVMSS* no grupo de recursos *myResourceGroup*.  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
 
    **VERSÃO API 2018-06-01**
 
@@ -561,7 +561,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -593,7 +593,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -629,7 +629,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -668,7 +668,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -729,7 +729,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -761,7 +761,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-   **Corpo de pedido**
+   **Corpo do pedido**
 
    ```JSON
     {
@@ -791,7 +791,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
 |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-**Corpo de pedido**
+**Corpo do pedido**
 
 ```JSON
 {
@@ -818,7 +818,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
 |*Autorização*     | Obrigatório. Definir para um `Bearer` token de acesso válido. | 
 
-**Corpo de pedido**
+**Corpo do pedido**
 
 ```JSON
 {
