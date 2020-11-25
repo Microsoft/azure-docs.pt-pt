@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
 ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393073"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021695"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilizar serviços de balanceamento de carga no Azure
 
@@ -80,7 +80,7 @@ O seguinte diagrama mostra a arquitetura deste cenário:
 
 ### <a name="step-2-create-the-application-gateways"></a>Passo 2: Criar os gateways de aplicação
 
-1. No portal Azure, no painel esquerdo, clique em **Criar um Gateway**  >  **de aplicação de rede de**recursos  >  **Application Gateway**.
+1. No portal Azure, no painel esquerdo, clique em **Criar um Gateway**  >  **de aplicação de rede de** recursos  >  **Application Gateway**.
 2. Introduza as seguintes informações básicas sobre o gateway de aplicação:
 
    * **Nome**: O nome do gateway de aplicação.
@@ -101,12 +101,12 @@ Quando você escolhe uma piscina de back-end, um gateway de aplicação configur
 ![Diagrama de nível web do Gateway de aplicação](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
 1. Do seu grupo de recursos, vá ao caso do gateway de aplicação que criou na secção anterior.
-2. Em **Definições**, selecione **pools backend**e, em seguida, selecione **Adicionar** para adicionar os VMs que pretende associar com as piscinas traseiras de nível web.
+2. Em **Definições**, selecione **pools backend** e, em seguida, selecione **Adicionar** para adicionar os VMs que pretende associar com as piscinas traseiras de nível web.
 3. Insira o nome da piscina traseira e todos os endereços IP das máquinas que residem na piscina. Neste cenário, estamos a ligar duas piscinas de servidores de back-end de máquinas virtuais.
 
    ![Gateway de aplicação "Adicionar piscina de backend"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
-4. Em **Definições** do gateway de aplicações, selecione **Regras**e, em seguida, clique no botão **'Path' para** adicionar uma regra.
+4. Em **Definições** do gateway de aplicações, selecione **Regras** e, em seguida, clique no botão **'Path' para** adicionar uma regra.
 
    ![Botão "Path based" das Regras do Gateway de Aplicação](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
@@ -136,7 +136,7 @@ Quando você escolhe uma piscina de back-end, um gateway de aplicação configur
 Neste cenário, o Traffic Manager está ligado aos gateways de aplicações (configurados nas etapas anteriores) que residem em diferentes regiões. Agora que os gateways de aplicação estão configurados, o próximo passo é ligá-los ao seu perfil de Gestor de Tráfego.
 
 1. Abra o seu perfil de Gestor de Tráfego. Para tal, procure no seu grupo de recursos ou procure o nome do perfil de Gestor de Tráfego de **Todos os Recursos.**
-2. No painel esquerdo, selecione **Endpoints**e, em seguida, clique **em Adicionar** para adicionar um ponto final.
+2. No painel esquerdo, selecione **Endpoints** e, em seguida, clique **em Adicionar** para adicionar um ponto final.
 
    ![Botão de ponto final "Adicionar" do Gestor de Tráfego](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
@@ -158,7 +158,7 @@ Se o seu cluster de base de dados de alta disponibilidade estiver a utilizar o S
 
 Para obter mais informações sobre a configuração de um equilibrador de carga interno, consulte [Criar um equilibrador de carga interno no portal Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. No portal Azure, no painel esquerdo, clique em **Criar um equilibrador**  >  **de carga de rede de**recursos  >  **Load balancer**.
+1. No portal Azure, no painel esquerdo, clique em **Criar um equilibrador**  >  **de carga de rede de** recursos  >  **Load balancer**.
 2. Escolha um nome para o seu equilibrador de carga.
 3. Desabrague o **Tipo** para **Interno**, e escolha a rede virtual adequada e a sub-rede para o equilibrador de carga residir.
 4. Na **atribuição de endereços IP**, selecione **Dynamic** ou **Static**.
@@ -169,7 +169,7 @@ Para obter mais informações sobre a configuração de um equilibrador de carga
 #### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>Ligue um nível de base de dados de back-end ao equilibrador de carga
 
 1. Do seu grupo de recursos, encontre o equilibrador de carga que foi criado nos passos anteriores.
-2. Em **Definições,** clique em **pools backend**e, em seguida, clique **em Adicionar** para adicionar uma piscina traseira.
+2. Em **Definições,** clique em **pools backend** e, em seguida, clique **em Adicionar** para adicionar uma piscina traseira.
 
    ![Balanceador de Carga "Adicionar piscina de backend"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
@@ -178,7 +178,7 @@ Para obter mais informações sobre a configuração de um equilibrador de carga
 
 #### <a name="configure-a-probe"></a>Configure uma sonda
 
-1. No seu equilibrador de carga, em **Definições,** selecione **Sondas**e, em seguida, clique em **Adicionar** uma sonda.
+1. No seu equilibrador de carga, em **Definições,** selecione **Sondas** e, em seguida, clique em **Adicionar** uma sonda.
 
    ![Balanceador de Carga "Adicionar sonda"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
@@ -191,13 +191,13 @@ Para obter mais informações sobre a configuração de um equilibrador de carga
 
 #### <a name="configure-the-load-balancing-rules"></a>Configure as regras de equilíbrio de carga
 
-1. Em **Definições** do seu equilibrador de carga, selecione **regras de equilíbrio de carga**e, em seguida, clique em **Adicionar** para criar uma regra.
+1. Em **Definições** do seu equilibrador de carga, selecione **regras de equilíbrio de carga** e, em seguida, clique em **Adicionar** para criar uma regra.
 2. Introduza o **Nome** para a regra de equilíbrio de carga.
-3. Escolha o **endereço IP frontend** do esquilibrador de carga, **protocolo**e **porta**.
+3. Escolha o **endereço IP frontend** do esquilibrador de carga, **protocolo** e **porta**.
 4. No **porto backend**, especifique a porta a utilizar na piscina traseira.
 5. Selecione o **pool Backend** e o **Sonda** que foram criados nos passos anteriores para aplicar a regra.
 6. Em **'Under Session persistência'**, escolha como quer que as sessões persistam.
-7. Nos **intervalos de tempo inativos, especifique**o número de minutos antes de um intervalo de tempo inativo.
+7. Nos **intervalos de tempo inativos, especifique** o número de minutos antes de um intervalo de tempo inativo.
 8. Em **IP flutuante**, selecione **desativado** ou **ativado**.
 9. Clique em **OK** para criar a regra.
 

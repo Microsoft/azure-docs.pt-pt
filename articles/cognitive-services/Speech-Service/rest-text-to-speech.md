@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a8321ba8bac0ecaf577bce6c3c05d10508128e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534986"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96020165"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz
 
@@ -34,7 +34,7 @@ Antes de utilizar esta API, compreenda:
 * A API DE REPOUSO text-to-speech requer um cabeçalho de autorização. Isto significa que você precisa completar uma troca simbólica para aceder ao serviço. Para obter mais informações, veja [Autenticação](#authentication).
 
 > [!TIP]
-> Consulte a [documentação](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) do governo Azure para os pontos finais da nuvem governamental (FairFax).
+> Consulte a [documentação](../../azure-government/compare-azure-government-global-azure.md) do governo Azure para os pontos finais da nuvem governamental (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -147,7 +147,7 @@ Esta resposta foi truncada para ilustrar a estrutura de uma resposta.
 
 O código de estado HTTP para cada resposta indica sucesso ou erros comuns.
 
-| Código de estado de HTTP | Descrição | Razão possível |
+| Código de estado de HTTP | Descrição | Motivo possível |
 |------------------|-------------|-----------------|
 | 200 | OK | O pedido foi bem sucedido. |
 | 400 | Pedido Incorreto | Falta um parâmetro necessário, vazio ou nulo. Ou, o valor passado para um parâmetro necessário ou opcional é inválido. Uma questão comum é um cabeçalho que é demasiado longo. |
@@ -222,15 +222,15 @@ Authorization: Bearer [Base64 access_token]
 
 Consulte os nossos quickstarts para exemplos específicos da linguagem:
 
-* [.NET Core, C #](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.js](quickstart-nodejs-text-to-speech.md)
+* [.NET Core, C #](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [Python](./get-started-text-to-speech.md?pivots=programming-language-python)
+* [Node.js](./get-started-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>Códigos de estado HTTP
 
 O código de estado HTTP para cada resposta indica sucesso ou erros comuns.
 
-| Código de estado de HTTP | Descrição | Razão possível |
+| Código de estado de HTTP | Descrição | Motivo possível |
 |------------------|-------------|-----------------|
 | 200 | OK | O pedido foi bem sucedido; o corpo de resposta é um ficheiro áudio. |
 | 400 | Pedido Incorreto | Falta um parâmetro necessário, vazio ou nulo. Ou, o valor passado para um parâmetro necessário ou opcional é inválido. Uma questão comum é um cabeçalho que é demasiado longo. |
@@ -245,5 +245,5 @@ Se o estado HTTP `200 OK` for, o corpo da resposta contém um ficheiro áudio no
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
-- [Síntese assíncronea para áudio de forma longa](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Síntese assíncronea para áudio de forma longa](./long-audio-api.md)
 - [Introdução à Voz Personalizada](how-to-custom-voice.md)

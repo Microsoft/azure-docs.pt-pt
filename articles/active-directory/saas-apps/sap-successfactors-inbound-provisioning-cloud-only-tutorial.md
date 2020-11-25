@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.openlocfilehash: a62943c1a808424ded1a5e46ed115cda332bf7d5
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358733"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020760"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Tutorial: Configurar os sap successFactors para o fornecimento de utilizadores Azure AD
 O objetivo deste tutorial é mostrar os passos necessários para a disponibilização de dados dos trabalhadores da SuccessFactors Employee Central para o Azure Ative Directory, com a inscrição opcional do endereço de e-mail para o SuccessFactors. 
@@ -126,7 +126,7 @@ Trabalhe com a sua equipa de administradores successFactors ou parceiro de imple
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Atribuir papel de permissão ao Grupo de Permissão
 
-* No SuccessFactors Admin Center, procure por *Manage Permission Roles* , em seguida, **selecione Gerir Funções** de Permisse a partir dos resultados da pesquisa.
+* No SuccessFactors Admin Center, procure por *Manage Permission Roles*, em seguida, **selecione Gerir Funções** de Permisse a partir dos resultados da pesquisa.
 * A partir da **Lista de Funções de Permisse,** selecione a função que criou para permissões de utilização da API.
 * Sob **o Comando de Grant, este papel para...** clique em **Adicionar...** botão.
 * Selecione **Grupo de Permissões...** a partir do menu suspenso, em seguida, clique em **Selecionar...** para abrir a janela Grupos para procurar e selecionar o grupo criado acima. 
@@ -157,7 +157,7 @@ Esta secção fornece passos para o fornecimento de conta de utilizador de Succe
 
 4. **Selecione Adicione uma aplicação** e selecione a categoria **'Todos'.**
 
-5. Procure por **SuccessFactors para Azure Ative Directory User Provisioning** , e adicione essa aplicação na galeria.
+5. Procure por **SuccessFactors para Azure Ative Directory User Provisioning**, e adicione essa aplicação na galeria.
 
 6. Depois de adicionar a app e o ecrã de detalhes da aplicação ser mostrado, selecione **Provisioning**
 

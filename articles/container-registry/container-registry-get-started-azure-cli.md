@@ -4,12 +4,12 @@ description: Aprenda rapidamente a criar um registo do contentor do Docker com a
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc, devx-track-azurecli
-ms.openlocfilehash: f4e69616d30c6a7b853c5cc854adee147ebde206
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 226e50aec8f7c76a1b4c81d1a07d57583059ef0e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87486549"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020080"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Quickstart: Criar um registo privado de contentores utilizando o CLI Azure
 
@@ -69,10 +69,16 @@ Tome nota `loginServer` da saída, que é o nome de registo totalmente qualifica
 
 ## <a name="log-in-to-registry"></a>Iniciar sessão no registo
 
-Antes de empurrar e puxar imagens do contentor, tem de iniciar sessão no registo. Para tal, utilize o comando [az acr login][az-acr-login].
+Antes de empurrar e puxar imagens do contentor, tem de iniciar sessão no registo. Para tal, utilize o comando [az acr login][az-acr-login]. Especifique apenas o nome do registo ao iniciar sessão com o Azure CLI. Não utilize o nome do servidor de login, que inclui um sufixo de domínio como `azurecr.io` . 
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+Exemplo:
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 O comando devolve uma mensagem de `Login Succeeded` depois de estar concluído.
@@ -111,7 +117,7 @@ v1
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar o comando de exclusão do [grupo az][az-group-delete] para remover o grupo de recursos, o registo do contentor e as imagens do contentor aí armazenadas.
 

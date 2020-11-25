@@ -4,11 +4,11 @@ description: Ativar automaticamente a insuflada num espaço de nome para aumenta
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1be564472011622b71b3066495748dfdbe6cc791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537246"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020811"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de produção de Hubs de Eventos Azure
 O Azure Event Hubs é uma plataforma de streaming de dados altamente escalável. Como tal, o uso do Event Hubs aumenta frequentemente depois de começar a usar o serviço. Tal utilização requer o aumento das unidades de [produção](event-hubs-scalability.md#throughput-units) pré-determinadas para escalar os Centros de Eventos e lidar com taxas de transferência maiores. A função **de insuflação automática** dos Centros de Eventos aumenta automaticamente aumentando o número de unidades de produção, para satisfazer as necessidades de utilização. O aumento das unidades de produção impede cenários de estrangulamento, nos quais:

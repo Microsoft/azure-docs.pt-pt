@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 85ad78eeb095b427b1a6334f57c351e926022dff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217818"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021882"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Tutorial: Adicione os nóns de cluster a um cluster Azure FXT Edge Filer
 
@@ -69,11 +69,11 @@ A coluna **Ações** tem botões que permitem adicionar o nó ao cluster ou atua
 
 Todos os nós de um cluster devem usar a mesma versão do SO, mas não precisa de atualizar o software antes de adicionar um nó. Depois de clicar no botão **Permitir juntar-se,** o processo de ligação do cluster verifica automaticamente e instala o software OS que corresponde à versão do cluster.
 
-Para saber mais sobre as opções desta página, leia [ **os**nós de Cluster  >  **FXT** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) no Guia de Configuração do Cluster.
+Para saber mais sobre as opções desta página, leia [ **os** nós de Cluster  >  **FXT**](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) no Guia de Configuração do Cluster.
 
 ## <a name="3-click-the-allow-to-join-button"></a>3. Clique no botão "Permitir aderir"
 
-Clique no botão **Permitir A Junção*** na coluna **Ações** para o nó que pretende adicionar.
+Clique no botão **Permitir Juntar_A** seguinte coluna _ *Actions** para o nó que pretende adicionar.
 
 Depois de clicar no botão, o estado do nó pode mudar à medida que o seu software é atualizado para adicioná-lo ao cluster.
 

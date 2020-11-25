@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 16c1dec9e52be98e5b4e0103a583bdc219bc2417
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6a16106495e584c9acbc02d380242df665f35ce5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88031824"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020019"
 ---
 ## <a name="push-image-to-registry"></a>Enviar imagem para o registo
 
@@ -23,7 +23,7 @@ Para enviar uma imagem para um registo do Azure Container, primeiro tem de ter u
 docker pull hello-world
 ```
 
-Antes de poder empurrar uma imagem para o seu registo, tem de a marcar com o nome totalmente qualificado do seu servidor de login de registo. O nome do servidor de login está no formato * \<registry-name\> .azurecr.io* (todos minúsculos), por exemplo, *mycontainerregistry.azurecr.io*.
+Antes de poder empurrar uma imagem para o seu registo, tem de a marcar com o nome totalmente qualificado do seu servidor de login de registo. O nome do servidor de login está no formato *\<registry-name\> .azurecr.io* (deve ser todos minúsculos), por exemplo, *mycontainerregistry.azurecr.io*.
 
 Crie uma etiqueta para a imagem com o comando [etiqueta do docker][docker-tag]. Substitua `<login-server>` pelo nome do servidor de início de sessão da sua instância do ACR.
 

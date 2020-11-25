@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
 ms.openlocfilehash: c05db2d9ba184da89665a236994c851355cc2644
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127438"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019859"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Utilize o pacote Azure Stream Analytics CI/CD NuGet para integração e desenvolvimento 
 Este artigo descreve como utilizar o pacote Azure Stream Analytics CI/CD NuGet para configurar um processo de integração e implementação contínua.
@@ -60,7 +60,7 @@ Para utilizar a Identidade Gerida para a Azure Data Lake Store Gen1 como pia de 
 ## <a name="command-line-tool"></a>Ferramenta de linha de comando
 
 ### <a name="build-the-project"></a>Compilar o projeto
-O pacote NuGet tem uma ferramenta de linha de comando chamada **SA.exe** . Suporta a construção de projetos e testes locais numa máquina arbitrária, que pode utilizar no seu processo de integração contínua e entrega contínua. 
+O pacote NuGet tem uma ferramenta de linha de comando chamada **SA.exe**. Suporta a construção de projetos e testes locais numa máquina arbitrária, que pode utilizar no seu processo de integração contínua e entrega contínua. 
 
 Os ficheiros de implantação são colocados por defeito no diretório atual. Pode especificar o caminho de saída utilizando o seguinte parâmetro -OutputPath:
 

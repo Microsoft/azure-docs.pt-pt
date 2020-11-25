@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: 8fc5ba2280b5ad68a40f4992adc170408e80e5a6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540368"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021797"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação do cluster Apache HBase em redes virtuais Azure
 
@@ -105,9 +105,9 @@ Na última secção, o modelo cria uma máquina virtual Ubuntu em cada uma das d
 Para instalar o Bind, o yon precisa de encontrar o endereço IP público das duas máquinas virtuais DNS.
 
 1. Abra o [portal do Azure](https://portal.azure.com).
-2. Abra a máquina virtual DNS selecionando **grupos de Recursos > [nome do grupo de recursos] > [vnet1DNS]** .  O nome do grupo de recursos é o que se cria no último procedimento. Os nomes de máquinas virtuais DNS predefinidos são *vnet1DNS* e *vnet2NDS* .
+2. Abra a máquina virtual DNS selecionando **grupos de Recursos > [nome do grupo de recursos] > [vnet1DNS]**.  O nome do grupo de recursos é o que se cria no último procedimento. Os nomes de máquinas virtuais DNS predefinidos são *vnet1DNS* e *vnet2NDS*.
 3. Selecione **Propriedades** para abrir a página de propriedades da rede virtual.
-4. Anota o **endereço IP público** e verifique também o endereço IP **privado** .  O endereço IP privado deve ser **10.1.0.4** para vnet1DNS e **10.2.0.4** para vnet2DNS.  
+4. Anota o **endereço IP público** e verifique também o endereço IP **privado**.  O endereço IP privado deve ser **10.1.0.4** para vnet1DNS e **10.2.0.4** para vnet2DNS.  
 5. Altere os Servidores DNS para que ambas as redes virtuais utilizem servidores DNS predefinidos (fornecido por Azure) para permitir o acesso de entrada e saída a pacotes de descarregamento para instalar o Bind nos seguintes passos.
 
 Para instalar o Bind, utilize o seguinte procedimento:
@@ -170,7 +170,7 @@ Para instalar o Bind, utilize o seguinte procedimento:
     sudo nano /etc/bind/named.conf.options
     ```
 
-    Para guardar o ficheiro, utilize __Ctrl+X,__ __Y__ , e, em seguida, __Insira__ .
+    Para guardar o ficheiro, utilize __Ctrl+X,__ __Y__, e, em seguida, __Insira__.
 
 4. A partir da sessão SSH, utilize o seguinte comando:
 
@@ -207,7 +207,7 @@ Para instalar o Bind, utilize o seguinte procedimento:
     sudo nano /etc/bind/named.conf.local
     ```
 
-    Para guardar o ficheiro, utilize __Ctrl+X,__ __Y__ , e, em seguida, __Insira__ .
+    Para guardar o ficheiro, utilize __Ctrl+X,__ __Y__, e, em seguida, __Insira__.
 
 6. Para iniciar o Bind, utilize o seguinte comando:
 
@@ -244,11 +244,11 @@ Para instalar o Bind, utilize o seguinte procedimento:
 
 Para configurar a rede virtual para utilizar o servidor DNS personalizado em vez do Azure recursive resolver, utilize os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com), selecione a rede virtual e, em seguida, selecione __Servidores DNS__ .
+1. No [portal Azure](https://portal.azure.com), selecione a rede virtual e, em seguida, selecione __Servidores DNS__.
 
-2. Selecione __Custom__ e insira o __endereço IP interno__ do servidor DNS personalizado. Por fim, __selecione Save__ .
+2. Selecione __Custom__ e insira o __endereço IP interno__ do servidor DNS personalizado. Por fim, __selecione Save__.
 
-6. Abra a máquina virtual do servidor DNS em vnet1 e clique em **Reiniciar** .  Tem de reiniciar todas as máquinas virtuais da rede virtual para que a configuração do DNS produza efeitos.
+6. Abra a máquina virtual do servidor DNS em vnet1 e clique em **Reiniciar**.  Tem de reiniciar todas as máquinas virtuais da rede virtual para que a configuração do DNS produza efeitos.
 7. Repita os passos configurar o servidor DNS personalizado para vnet2.
 
 Para testar a configuração de DNS, pode ligar-se às duas máquinas virtuais DNS utilizando O SSH e pingar o servidor DNS da outra rede virtual utilizando o seu nome de anfitrião. Se não funcionar, utilize o seguinte comando para verificar o estado do DNS:
@@ -262,12 +262,12 @@ sudo service bind9 status
 Criar um cluster [Apache HBase](https://hbase.apache.org/) em cada uma das duas redes virtuais com a seguinte configuração:
 
 - **Nome do grupo de** recursos : use o mesmo nome de grupo de recursos que criou as redes virtuais.
-- **Tipo de cluster** : HBase
-- **Versão** : HBase 1.1.2 (HDI 3.6)
-- **Localização** : Utilize a mesma localização que a rede virtual.  Por defeito, vnet1 é *Oeste dos EUA,* e vnet2 é *Leste dos EUA.*
-- **Armazenamento** : Criar uma nova conta de armazenamento para o cluster.
+- **Tipo de cluster**: HBase
+- **Versão**: HBase 1.1.2 (HDI 3.6)
+- **Localização**: Utilize a mesma localização que a rede virtual.  Por defeito, vnet1 é *Oeste dos EUA,* e vnet2 é *Leste dos EUA.*
+- **Armazenamento**: Criar uma nova conta de armazenamento para o cluster.
 - **Rede virtual** (a partir de definições avançadas no portal): Selecione vnet1 que criou no último procedimento.
-- **Sub-rede** : O nome predefinido utilizado no modelo é **sub-rede1** .
+- **Sub-rede**: O nome predefinido utilizado no modelo é **sub-rede1**.
 
 Para garantir que o ambiente está configurado corretamente, deve ser capaz de pingar o FQDN do headnode entre os dois clusters.
 
@@ -289,14 +289,14 @@ Os seguintes passos descrevem como chamar o script de ação do script do portal
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o cluster HBase de fonte.
-3. No menu de cluster, selecione **Script Actions** .
-4. No topo da página, **selecione Submeter Novo** .
+3. No menu de cluster, selecione **Script Actions**.
+4. No topo da página, **selecione Submeter Novo**.
 5. Selecione ou introduza as seguintes informações:
 
-   1. **Nome** : **Insira Ativar a replicação** .
-   2. **URL do Roteiro de Bash** : Insira **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
-   3. **Cabeça** : Certifique-se de que esta está selecionada. Limpe os outros tipos de nós.
-   4. **Parâmetros** : Os seguintes parâmetros da amostra permitem a replicação de todas as tabelas existentes e, em seguida, copiam todos os dados do cluster de origem para o cluster de destino:
+   1. **Nome**: **Insira Ativar a replicação**.
+   2. **URL do Roteiro de Bash**: Insira **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
+   3. **Cabeça**: Certifique-se de que esta está selecionada. Limpe os outros tipos de nós.
+   4. **Parâmetros**: Os seguintes parâmetros da amostra permitem a replicação de todas as tabelas existentes e, em seguida, copiam todos os dados do cluster de origem para o cluster de destino:
 
     `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata`
     
@@ -305,7 +305,7 @@ Os seguintes passos descrevem como chamar o script de ação do script do portal
       >
       > Este walkthrough assume hn1 como headnode ativo. Verifique o seu cluster para identificar o nó de cabeça ativo.
 
-6. Selecione **Criar** . O script pode demorar algum tempo a ser executado, especialmente quando se utiliza o argumento **de dados de cópia.**
+6. Selecione **Criar**. O script pode demorar algum tempo a ser executado, especialmente quando se utiliza o argumento **de dados de cópia.**
 
 Argumentos necessários:
 
@@ -344,7 +344,7 @@ A lista a seguir mostra-lhe alguns casos gerais de utilização e as definiçõe
 
   `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"`
 
-- **Ativar a replicação em tabelas específicas e copiar os dados existentes** . Para permitir a replicação no quadro1, no quadro2 e no quadro3, utilize os seguintes parâmetros:
+- **Ativar a replicação em tabelas específicas e copiar os dados existentes**. Para permitir a replicação no quadro1, no quadro2 e no quadro3, utilize os seguintes parâmetros:
 
   `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata`
 
@@ -368,7 +368,7 @@ A `print_usage()` secção do [guião](https://github.com/Azure/hbase-utils/blob
 
 ### <a name="scenarios"></a>Cenários
 
-- **Copiar tabelas específicas (test1, test2 e test3) para todas as linhas editadas até agora (carimbo de tempo atual)** :
+- **Copiar tabelas específicas (test1, test2 e test3) para todas as linhas editadas até agora (carimbo de tempo atual)**:
 
   `-m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow`
 
@@ -398,7 +398,7 @@ A `print_usage()` secção do [guião](https://raw.githubusercontent.com/Azure/h
 
   `--src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>`
 
-- **Desativar a replicação em tabelas especificadas (quadro1, quadro2 e quadro3)** :
+- **Desativar a replicação em tabelas especificadas (quadro1, quadro2 e quadro3)**:
 
   `-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"`
 

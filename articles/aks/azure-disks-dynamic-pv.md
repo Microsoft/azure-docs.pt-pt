@@ -6,22 +6,22 @@ services: container-service
 ms.topic: article
 ms.date: 09/21/2020
 ms.openlocfilehash: ad51bfdf8c494e763921de880926b839cdb7be62
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900759"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021644"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Criar e utilizar dinamicamente um volume persistente com discos Azure no Serviço Azure Kubernetes (AKS)
 
 Um volume persistente representa um pedaço de armazenamento que foi previsto para ser usado com cápsulas Kubernetes. Um volume persistente pode ser usado por uma ou muitas cápsulas, e pode ser dinamicamente ou estáticamente a provisionado. Este artigo mostra-lhe como criar dinamicamente volumes persistentes com discos Azure para uso por uma única cápsula num cluster Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Um disco Azure só pode ser montado com *o tipo de modo de acesso* *ReadWriteOnce* , que o coloca à disposição de um nó em AKS. Se precisar de partilhar um volume persistente em vários nós, utilize [ficheiros Azure][azure-files-pvc].
+> Um disco Azure só pode ser montado com *o tipo de modo de acesso* *ReadWriteOnce*, que o coloca à disposição de um nó em AKS. Se precisar de partilhar um volume persistente em vários nós, utilize [ficheiros Azure][azure-files-pvc].
 
 Para obter mais informações sobre volumes kubernetes, consulte [as opções de Armazenamento para aplicações em AKS][concepts-storage].
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -90,7 +90,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Use o volume persistente
 
-Uma vez criada a alegação de volume persistente e o disco for provisionado com sucesso, pode criar-se um pod com acesso ao disco. O manifesto a seguir cria uma cápsula NGINX básica que utiliza a reivindicação de volume persistente chamada disco gerido por *azure* para montar o disco Azure no caminho `/mnt/azure` . Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'* .
+Uma vez criada a alegação de volume persistente e o disco for provisionado com sucesso, pode criar-se um pod com acesso ao disco. O manifesto a seguir cria uma cápsula NGINX básica que utiliza a reivindicação de volume persistente chamada disco gerido por *azure* para montar o disco Azure no caminho `/mnt/azure` . Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'*.
 
 Crie um ficheiro nomeado `azure-pvc-disk.yaml` e copie no seguinte manifesto.
 
@@ -159,7 +159,7 @@ Para alavancar o disco ultra consulte [utilizar discos ultra no Serviço Azure K
 
 Para fazer o back up dos dados no seu volume persistente, tire uma foto do disco gerido para o volume. Em seguida, pode utilizar esta imagem para criar um disco restaurado e anexar às cápsulas como forma de restaurar os dados.
 
-Em primeiro lugar, obtenha o nome de volume com o `kubectl get pvc` comando, tal como para o PVC nomeado *azure-gerido-disk* :
+Em primeiro lugar, obtenha o nome de volume com o `kubectl get pvc` comando, tal como para o PVC nomeado *azure-gerido-disk*:
 
 ```console
 $ kubectl get pvc azure-managed-disk
@@ -189,7 +189,7 @@ Dependendo da quantidade de dados no seu disco, pode levar alguns minutos para c
 
 ## <a name="restore-and-use-a-snapshot"></a>Restaurar e usar um instantâneo
 
-Para restaurar o disco e usá-lo com uma cápsula Kubernetes, utilize o instantâneo como fonte quando criar um disco com [disco az criar][az-disk-create]. Esta operação preserva o recurso original se precisar de aceder à imagem original dos dados. O exemplo a seguir cria um disco chamado *pvcRestored* a partir do instantâneo chamado *pvcSnapshot* :
+Para restaurar o disco e usá-lo com uma cápsula Kubernetes, utilize o instantâneo como fonte quando criar um disco com [disco az criar][az-disk-create]. Esta operação preserva o recurso original se precisar de aceder à imagem original dos dados. O exemplo a seguir cria um disco chamado *pvcRestored* a partir do instantâneo chamado *pvcSnapshot*:
 
 ```azurecli-interactive
 az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot
@@ -201,7 +201,7 @@ Para utilizar o disco restaurado com uma vagem, especifique o ID do disco no man
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
 ```
 
-Crie um manifesto de pod nomeado `azure-restored.yaml` e especifique o disco URI obtido no passo anterior. O exemplo a seguir cria um servidor web NGINX básico, com o disco restaurado montado como um volume em */mnt/azure* :
+Crie um manifesto de pod nomeado `azure-restored.yaml` e especifique o disco URI obtido no passo anterior. O exemplo a seguir cria um servidor web NGINX básico, com o disco restaurado montado como um volume em */mnt/azure*:
 
 ```yaml
 kind: Pod
@@ -256,7 +256,7 @@ Volumes:
 [...]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para as melhores práticas associadas, consulte [as melhores práticas de armazenamento e backups em AKS][operator-best-practices-storage].
 

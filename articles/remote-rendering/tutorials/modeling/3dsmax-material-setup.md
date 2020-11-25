@@ -6,11 +6,11 @@ ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
 ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331816"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020284"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Tutorial: Configurar materiais de renderização fisicamente em 3ds Max
 
@@ -50,7 +50,7 @@ Para começar, vamos criar uma série de objetos de caixa, cada um dos quais rep
 
 A imagem que se segue mostra os passos para definir as unidades do sistema em 3ds Max. 
 
-1. No menu principal, aceda à **configuração de**  >  unidades de**configuração de**  >  **unidades de configuração de unidades.** Na **Escala de Unidade do Sistema**, selecione **Meters**: ![ Screenshot que mostra como definir unidades do sistema.](media/3dsmax/system-units.jpg)
+1. No menu principal, aceda à **configuração de**  >  unidades de **configuração de**  >  **unidades de configuração de unidades.** Na **Escala de Unidade do Sistema**, selecione **Meters**: ![ Screenshot que mostra como definir unidades do sistema.](media/3dsmax/system-units.jpg)
 
 1. Podemos agora começar a criar os modelos. Na cena da amostra, vamos criar vários objetos de caixa, cada um representando um tipo de material diferente. Por exemplo, metal, borracha e plástico. 
 
@@ -161,7 +161,7 @@ Esta ação cria uma instância do seu objeto que pode mover, rodar ou escalar i
 
 Uma última coisa a considerar antes de passarmos ao processo de exportação é como você pode querer embalar a sua cena/ativo para compartilhar. Idealmente, se passar o ativo para clientes ou membros da equipa, você vai querer que eles sejam capazes de abrir e ver o ativo como deve ser visto com um mínimo de alarido. Por isso, é importante manter os caminhos de textura do seu ativo em relação ao ficheiro da cena. Se os caminhos de textura do seu ativo apontarem para uma unidade local ou caminho/local absoluto, eles não carregarão na cena se forem abertos em um computador diferente, mesmo que o ficheiro .max esteja na mesma pasta que as texturas. Tornar os caminhos de textura relativos em 3ds Max resolve este problema e é bastante simples.
 
-1. Na barra de ferramentas **File**principal, aceda ao  >  **Reference**  >  **Toggle de Rastreio de Ativos**de Referência de Ficheiros . 
+1. Na barra de ferramentas **File** principal, aceda ao  >  **Reference**  >  **Toggle de Rastreio de Ativos** de Referência de Ficheiros . 
 
 1. Na janela de Rastreio de Ativos, você verá todas ou a maioria das texturas que você aplicou aos seus materiais PBR listados na coluna **Maps/Shaders.**
 
@@ -182,7 +182,7 @@ Pode notar que nem todas as suas texturas estão listadas na janela de rastreio 
     A janela de rastreio de ativos atualizar-se-á conforme mostrado na imagem a seguir. Esta atualização pode demorar algum tempo, dependendo de quantas texturas existem na sua cena e da sua grande quantidade de cena.
 ![Screensthot que mostra a janela de rastreio de ativos atualizada.](media/3dsmax/resolve-textures.jpg)
 
-Note que a coluna **Caminho Completo** está agora em branco. Isto significa que a cena já não está à procura das texturas relevantes num local específico (absoluto). Irá sempre encontrá-los enquanto o ficheiro .max ou o ficheiro FBX relacionado estiverem na mesma pasta que as texturas. 
+Note que a coluna **Caminho Completo** está agora em branco. Isto significa que a cena já não está à procura das texturas relevantes num local específico (absoluto). Irá sempre encontrá-los desde que o ficheiro .max ou o ficheiro FBX relacionado esteja na mesma pasta que as texturas. 
 
 >[!NOTE]
 >Você pode ter que repetir este processo algumas vezes para encontrar e resolver todas as texturas e caminhos. Isto não é nada com que se preocupar. Basta repetir o processo até que todos os ativos relevantes sejam contabilizados. Em alguns casos, alguns ficheiros não serão encontrados. Nesse caso, basta selecionar todos os ativos da lista e, em seguida, selecionar **Remover Caminhos Desaparecidos**. (Ver a imagem anterior.)
@@ -236,4 +236,4 @@ Em geral, este tipo de material parece mais realista porque é baseado na físic
 Agora sabe como configurar materiais com iluminação avançada para objetos numa cena. Também sabe exportar objetos para o formato FBX, que é suportado pela Azure Remote Rendering. O próximo passo é converter o ficheiro FBX e visualizá-lo em Renderização Remota Azure.
 
 >[!div class="nextstepaction"]
->[Quickstart: Converter um modelo para renderização](../../quickstarts\convert-model.md)
+>[Início Rápido: Converter um modelo para composição](../../quickstarts\convert-model.md)

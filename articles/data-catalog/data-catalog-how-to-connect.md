@@ -7,11 +7,11 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 5c8c545f01eb0df53ce9677b7db6f931b4d21af9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151902"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021933"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Como ligar a origens de dados
 ## <a name="introduction"></a>Introdução
@@ -59,5 +59,5 @@ Para facilitar a descoberta de uma fonte de dados por parte dos utilizadores, ma
 ## <a name="summary"></a>Resumo
 Registar uma fonte de dados com **o Azure Data Catalog** torna esses dados detetáveis copiando metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Uma vez registada uma fonte de dados, e descoberta, os utilizadores podem ligar-se à fonte de dados a partir do portal do Catálogo de **Dados Azure** "Open in...". menu ou usando as suas ferramentas de dados de eleição.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * Começar com o tutorial do Catálogo de [Dados Azure](data-catalog-get-started.md) para detalhes passo a passo sobre como ligar-se a fontes de dados.

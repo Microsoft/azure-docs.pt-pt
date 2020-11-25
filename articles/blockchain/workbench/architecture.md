@@ -5,11 +5,11 @@ ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
 ms.openlocfilehash: 1fff70ef2eeb1dc27d33769fd48fe5923f56717b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87049178"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021610"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Arquitetura do Azure Blockchain Workbench
 
@@ -78,7 +78,7 @@ O consumidor de armazenamento leva mensagens da Service Bus e empurra os dados p
 
 ## <a name="transaction-builder-and-signer"></a>Construtor de transações e signatário
 
-Se uma mensagem no corretor de mensagens de entrada precisar de ser escrita para a blockchain, será processada pelo consumidor DLT. O consumidor DLT é um serviço que recupera a mensagem que contém metadados para uma transação pretendda a executar e, em seguida, envia a informação para o *construtor de transações e para*o signatário . O *construtor de transações e o signatário* reúne uma transação blockchain com base nos dados e no destino blockchain pretendido. Uma vez montada, a transação é assinada. As chaves privadas estão guardadas no Cofre da Chave Azure.
+Se uma mensagem no corretor de mensagens de entrada precisar de ser escrita para a blockchain, será processada pelo consumidor DLT. O consumidor DLT é um serviço que recupera a mensagem que contém metadados para uma transação pretendda a executar e, em seguida, envia a informação para o *construtor de transações e para* o signatário . O *construtor de transações e o signatário* reúne uma transação blockchain com base nos dados e no destino blockchain pretendido. Uma vez montada, a transação é assinada. As chaves privadas estão guardadas no Cofre da Chave Azure.
 
  Blockchain Workbench recupera a chave privada apropriada do Key Vault e assina a transação fora do Key Vault. Uma vez assinada, a transação é enviada para routers de transações e livros de contabilidade.
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84343205"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020420"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN das características do motor de regras Verizon Premium
 
@@ -59,7 +59,7 @@ Estas funcionalidades são concebidas para personalizar quando e como o conteúd
 | [Aceleração da largura de banda](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Acelera a largura de banda para a resposta fornecida pelos nossos servidores de borda. |
 | [Bypass Cache](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | Determina se o pedido pode alavancar a nossa tecnologia de caching. |
 | [Tratamento do cabeçalho de controlo de cache](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Controla a geração de cabeçalhos Cache-Control pelo servidor de bordas quando a função external Max-Age está ativa. |
-| [Cadeia de consulta cache-key](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Determina se a **chave de cache*** incluirá ou excluirá parâmetros de cadeia de consulta associados a um pedido. <br> _* Um caminho relativo que identifica exclusivamente um ativo com o propósito de caching.  Os nossos servidores de borda usam este caminho relativo ao verificar se há conteúdo em cache.  Por predefinição, uma chave de cache não conterá parâmetros de cadeia de consulta._ |
+| [Cadeia de consulta cache-key](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Determina se a **chave de cache** _ incluirá ou excluirá parâmetros de cadeia de consulta associados a um pedido. <br> __ Um caminho relativo que identifica exclusivamente um ativo para o propósito de caching.  Os nossos servidores de borda usam este caminho relativo ao verificar se há conteúdo em cache.  Por predefinição, uma chave de cache não conterá a cadeia de consulta parameters._ |
 | [Reescrita de chave de cache](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | Reescreve a chave de cache associada a um pedido. |
 | [Preenchimento completo da cache](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | Determina o que acontece quando um pedido resulta numa falha parcial de cache num servidor de borda. |
 | [Tipos de ficheiros compressivos](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | Define os formatos de ficheiro que serão comprimidos no servidor. | 
@@ -161,7 +161,7 @@ Estas funcionalidades permitem que um pedido seja redirecionado ou reescrito par
 
 **[De volta ao topo](#top)**
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Firewall de aplicação web
+### <a name="web-application-firewall"></a><a name="waf"></a>Firewall de Aplicações Web
 
 A funcionalidade [De Firewall de Aplicação Web](https://docs.vdms.com/cdn/Content/HRE/F/Web_Application_Firewall.htm) determina se um pedido será exibido pela Web Application Firewall.
 

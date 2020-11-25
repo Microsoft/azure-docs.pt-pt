@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
 ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636474"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021007"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -180,8 +180,8 @@ Quando integra uma aplicação de função num plano Premium ou num plano de Ser
 ## <a name="automation"></a>Automatização
 As seguintes APIs permitem gerir programáticamente integrações de redes virtuais regionais:
 
-+ **Azure CLI** : Utilize os [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) comandos para adicionar, listar ou remover uma integração de rede virtual regional.  
-+ **Modelos ARM** : A integração regional da rede virtual pode ser ativada utilizando um modelo de Gestor de Recursos Azure. Para um exemplo completo, consulte [este modelo de arranque rápido de funções](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **Azure CLI**: Utilize os [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) comandos para adicionar, listar ou remover uma integração de rede virtual regional.  
++ **Modelos ARM**: A integração regional da rede virtual pode ser ativada utilizando um modelo de Gestor de Recursos Azure. Para um exemplo completo, consulte [este modelo de arranque rápido de funções](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

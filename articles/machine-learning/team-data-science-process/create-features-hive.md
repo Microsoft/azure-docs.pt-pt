@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 30c0a02c2cbc11002f8e0bf0295dab91de5d0365
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323681"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020590"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar funcionalidades para dados num cluster Hadoop usando consultas de Colmeia
 Este documento mostra como criar funcionalidades para dados armazenados num cluster Azure HDInsight Hadoop usando consultas de Hive. Estas consultas de Colmeia usam hive incorporado User-Defined Funções (UDFs), os scripts para os quais são fornecidos.
@@ -104,7 +104,7 @@ select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime f
 from <databasename>.<tablename>;
 ```
 
-Nesta consulta, se o *\<datetime field>* padrão como *03/26/2015 12:04:39* , o *\<pattern of the datetime field> '* deve ser `'MM/dd/yyyy HH:mm:ss'` . Para testá-lo, os utilizadores podem correr
+Nesta consulta, se o *\<datetime field>* padrão como *03/26/2015 12:04:39*, o *\<pattern of the datetime field> '* deve ser `'MM/dd/yyyy HH:mm:ss'` . Para testá-lo, os utilizadores podem correr
 
 ```hiveql
 select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
@@ -153,7 +153,7 @@ Uma lista completa de UDFs incorporados por Colmeia pode ser encontrada na secç
 ## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Tópicos avançados: Sintonizar os parâmetros da Colmeia para melhorar a velocidade da consulta
 As definições de parâmetros padrão do cluster hive podem não ser adequadas para as consultas de Colmeia e os dados que as consultas estão a processar. Esta secção discute alguns parâmetros que os utilizadores podem sintonizar para melhorar o desempenho das consultas de Hive. Os utilizadores precisam de adicionar as consultas de afinação de parâmetros antes das consultas de dados de processamento.
 
-1. **Java heap space** : Para consultas que envolvam a junção de grandes conjuntos de dados, ou o processamento de longos registos, **ficar sem espaço é** um dos erros comuns. Este erro pode ser evitado definindo parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* para valores desejados. Segue-se um exemplo:
+1. **Java heap space**: Para consultas que envolvam a junção de grandes conjuntos de dados, ou o processamento de longos registos, **ficar sem espaço é** um dos erros comuns. Este erro pode ser evitado definindo parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* para valores desejados. Segue-se um exemplo:
    
     ```hiveql
     set mapreduce.map.java.opts=-Xmx4096m;
@@ -162,20 +162,20 @@ As definições de parâmetros padrão do cluster hive podem não ser adequadas 
 
     Este parâmetro aloca a memória de 4 GB ao espaço de pilha de Java e também torna a triagem mais eficiente alocar mais memória para ele. É uma boa ideia brincar com estas dotações se houver algum erro de falha de emprego relacionado com o espaço de amontoados.
 
-1. **Tamanho do bloco DFS** : Este parâmetro define a menor unidade de dados que o sistema de ficheiros armazena. Como exemplo, se o tamanho do bloco DFS for de 128 MB, então quaisquer dados de tamanho inferior e até 128 MB são armazenados num único bloco. Os dados que são maiores que 128 MB são distribuídos blocos extra. 
+1. **Tamanho do bloco DFS**: Este parâmetro define a menor unidade de dados que o sistema de ficheiros armazena. Como exemplo, se o tamanho do bloco DFS for de 128 MB, então quaisquer dados de tamanho inferior e até 128 MB são armazenados num único bloco. Os dados que são maiores que 128 MB são distribuídos blocos extra. 
 2. Escolher um pequeno bloco de tamanho causa grandes sobrecargas em Hadoop, uma vez que o nó de nome tem que processar muitos mais pedidos para encontrar o bloco relevante relativo ao arquivo. Uma definição recomendada ao lidar com dados gigabytes (ou maiores) é:
 
     ```hiveql
     set dfs.block.size=128m;
     ```
 
-2. **Otimização da operação de junção na Colmeia** : Enquanto as operações de junção no quadro de mapa/redução ocorrem normalmente na fase de redução, por vezes, ganhos enormes podem ser alcançados através do agendamento de juntas na fase do mapa (também chamados "mapjojos"). Desa esta opção:
+2. **Otimização da operação de junção na Colmeia**: Enquanto as operações de junção no quadro de mapa/redução ocorrem normalmente na fase de redução, por vezes, ganhos enormes podem ser alcançados através do agendamento de juntas na fase do mapa (também chamados "mapjojos"). Desa esta opção:
    
     ```hiveql
     set hive.auto.convert.join=true;
     ```
 
-3. **Especificando o número de mappers para a Colmeia** : Enquanto hadoop permite ao utilizador definir o número de redutores, o número de mappers normalmente não é definido pelo utilizador. Um truque que permite algum grau de controlo neste número é escolher as variáveis Hadoop *mapred.min.split.size* e *mapred.max.split.size* como o tamanho de cada tarefa de mapa é determinado por:
+3. **Especificando o número de mappers para a Colmeia**: Enquanto hadoop permite ao utilizador definir o número de redutores, o número de mappers normalmente não é definido pelo utilizador. Um truque que permite algum grau de controlo neste número é escolher as variáveis Hadoop *mapred.min.split.size* e *mapred.max.split.size* como o tamanho de cada tarefa de mapa é determinado por:
    
     ```hiveql
     num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
@@ -184,7 +184,7 @@ As definições de parâmetros padrão do cluster hive podem não ser adequadas 
     Tipicamente, o valor padrão de:
     
    - *mapred.min.split.size* é 0, o de
-   - *mapred.max.split.size* é **Long.MAX** e o de 
+   - *mapred.max.split.size* é **longo.MAX** e o de 
    - *dfs.block.size* é 64 MB.
 
      Como podemos ver, dado o tamanho dos dados, afinação destes parâmetros ao "definição" permite-nos sintonizar o número de mappers utilizados.

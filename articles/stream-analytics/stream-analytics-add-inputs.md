@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.openlocfilehash: b344e9e24d15189b805f586227c7253395e8448e
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348989"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022069"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Compreenda as entradas para a Azure Stream Analytics
 
@@ -41,6 +41,6 @@ O Stream Analytics também suporta a entrada conhecida como *dados de referênci
 
 Para obter mais informações sobre entradas de dados de referência, consulte [utilizando dados de referência para pesquisas no Stream Analytics](stream-analytics-use-reference-data.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)

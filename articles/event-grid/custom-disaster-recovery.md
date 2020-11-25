@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e37cb6a0679ee2e249de4ed8fa31c40d5082ea4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324132"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020148"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Construa a sua própria recuperação de desastres para tópicos personalizados na Grade de Eventos
 A recuperação de desastres centra-se na recuperação de uma grave perda de funcionalidade de aplicação. Este tutorial irá acompanhá-lo como configurar a sua arquitetura de eventos para recuperar se o serviço de Grade de Eventos se tornar insalubre numa determinada região.

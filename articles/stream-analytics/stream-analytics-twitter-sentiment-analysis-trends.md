@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.openlocfilehash: 0941e3d5141b5b8841f5d37e3db0d0b1b1474547
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130277"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019825"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Azure Stream Analytics
 
@@ -48,19 +48,19 @@ A aplicação da amostra gera eventos e empurra-os para um centro de eventos Azu
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Crie um centro de eventos no espaço de nome e centro de eventos
 Nesta secção, você cria um espaço de nome de centro de eventos e adiciona um centro de eventos a esse espaço de nome. Os espaços de nome do centro de eventos são usados para grupos logicamente relacionados casos de ônibus de evento. 
 
-1. Faça login no portal Azure e selecione **Criar um recurso** . E depois. pesquisar por **Centros de Eventos** e selecione **Criar** .
+1. Faça login no portal Azure e selecione **Criar um recurso**. E depois. pesquisar por **Centros de Eventos** e selecione **Criar**.
 
 2. Na página **Create Namespace,** insira um nome de espaço de nome. Você pode usar qualquer nome para o espaço de nome, mas o nome deve ser válido para um URL, e deve ser único em Azure. 
     
-3. Selecione um nível de preços e subscrição e crie ou escolha um grupo de recursos. Em seguida, escolha um local e **selecione Criar** . 
+3. Selecione um nível de preços e subscrição e crie ou escolha um grupo de recursos. Em seguida, escolha um local e **selecione Criar**. 
  
 4. Quando o espaço de nome terminar de ser implementado, navegue para o seu grupo de recursos e encontre o espaço de nome do centro de eventos na sua lista de recursos Azure. 
 
-5. A partir do novo espaço de nome, selecione **+ &nbsp; Event Hub** . 
+5. A partir do novo espaço de nome, selecione **+ &nbsp; Event Hub**. 
 
-6. Nomeie o novo centro *de eventos socialtwitter-eh* . Pode utilizar um nome diferente. Se o fizer, tome nota, porque precisa do nome mais tarde. Não precisa definir outras opções para o centro de eventos.
+6. Nomeie o novo centro *de eventos socialtwitter-eh*. Pode utilizar um nome diferente. Se o fizer, tome nota, porque precisa do nome mais tarde. Não precisa definir outras opções para o centro de eventos.
  
-7. Selecione **Criar** .
+7. Selecione **Criar**.
 
 ### <a name="grant-access-to-the-event-hub"></a>Conceder acesso ao centro de eventos
 
@@ -68,14 +68,14 @@ Antes de um processo poder enviar dados para um centro de eventos, o centro de e
 
 1.  Na barra de navegação no lado esquerdo do espaço de nomes dos centros de eventos, selecione **Event Hubs,** que está localizado na secção **Entidades.** Em seguida, selecione o centro de eventos que acabou de criar.
 
-2.  Na barra de navegação do lado esquerdo, selecione **políticas de acesso partilhado** localizadas em **Definições** .
+2.  Na barra de navegação do lado esquerdo, selecione **políticas de acesso partilhado** localizadas em **Definições**.
 
     >[!NOTE]
     >Existe uma opção de políticas de acesso partilhado para o espaço de nome do centro de eventos e para o centro de eventos. Certifique-se de que está a trabalhar no contexto do seu centro de eventos, não no espaço de nomes de centros de eventos.
 
-3.  A partir da página de política de acesso, selecione **+ Adicionar** . Em *seguida, insira o acesso social-witter* para o **nome Da Política** e verifique a caixa de verificação **Manage.**
+3.  A partir da página de política de acesso, selecione **+ Adicionar**. Em *seguida, insira o acesso social-witter* para o **nome Da Política** e verifique a caixa de verificação **Manage.**
  
-4.  Selecione **Criar** .
+4.  Selecione **Criar**.
 
 5.  Depois de implementada a política, selecione a política da lista de políticas de acesso partilhado.
 
@@ -104,15 +104,15 @@ Se ainda não tiver uma aplicação do Twitter que possa utilizar para este guia
 > [!NOTE]
 > O processo exato no Twitter para criar uma aplicação e obter as chaves, segredos e fichas pode mudar. Se estas instruções não corresponderem ao que vê no site do Twitter, consulte a documentação do desenvolvedor do Twitter.
 
-1. A partir de um navegador web, vá ao [Twitter For Developers,](https://developer.twitter.com/en/apps)crie uma conta de desenvolvedor e selecione **Criar uma aplicação** . Pode ver uma mensagem a dizer que precisa de se candidatar a uma conta de desenvolvedor do Twitter. Sinta-se livre para fazê-lo, e depois de a sua candidatura ter sido aprovada, deverá ver um e-mail de confirmação. Pode levar vários dias para ser aprovado para uma conta de desenvolvedor.
+1. A partir de um navegador web, vá ao [Twitter For Developers,](https://developer.twitter.com/en/apps)crie uma conta de desenvolvedor e selecione **Criar uma aplicação**. Pode ver uma mensagem a dizer que precisa de se candidatar a uma conta de desenvolvedor do Twitter. Sinta-se livre para fazê-lo, e depois de a sua candidatura ter sido aprovada, deverá ver um e-mail de confirmação. Pode levar vários dias para ser aprovado para uma conta de desenvolvedor.
 
    ![A screenshot mostra o botão criar uma aplicação.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Detalhes da aplicação do Twitter")
 
-2. Na página **Criar uma aplicação** , forneça os detalhes da nova aplicação e, em seguida, selecione **Criar a sua aplicação do Twitter** .
+2. Na página **Criar uma aplicação**, forneça os detalhes da nova aplicação e, em seguida, selecione **Criar a sua aplicação do Twitter**.
 
    ![O screenshot mostra o painel de detalhes da App onde pode introduzir valores para a sua aplicação.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Detalhes da aplicação do Twitter")
 
-3. Na página de aplicação, selecione o separador **Chaves e Fichas** e copie os valores para **Chave API do Consumidor** e Chave Secreta **API do consumidor** . Além disso, **selecione Criar** em **Access Token e Access Token Secret** para gerar os tokens de acesso. Copie os valores de **Token de Acesso** e **Segredo de Token de Acesso** .
+3. Na página de aplicação, selecione o separador **Chaves e Fichas** e copie os valores para **Chave API do Consumidor** e Chave Secreta **API do consumidor**. Além disso, **selecione Criar** em **Access Token e Access Token Secret** para gerar os tokens de acesso. Copie os valores de **Token de Acesso** e **Segredo de Token de Acesso**.
 
    Guarde os valores que obteve da aplicação do Twitter. Precisa dos valores mais tarde.
 
@@ -142,19 +142,19 @@ Antes de a aplicação ser executado, requer certas informações suas, como as 
 
 Agora que os eventos de tweet estão a ser transmitidos em tempo real a partir do Twitter, podes criar um trabalho de Stream Analytics para analisar estes eventos em tempo real.
 
-1. No portal Azure, navegue para o seu grupo de recursos e selecione **+ Adicionar** . Em seguida, procure o **trabalho de Stream Analytics** e selecione **Criar** .
+1. No portal Azure, navegue para o seu grupo de recursos e selecione **+ Adicionar**. Em seguida, procure o **trabalho de Stream Analytics** e selecione **Criar**.
 
 2. Nomeie o trabalho `socialtwitter-sa-job` e especifique uma subscrição, grupo de recursos e localização.
 
     É uma boa ideia colocar o trabalho e o centro de eventos na mesma região para melhor desempenho e para que você não pague para transferir dados entre regiões.
 
-3. Selecione **Criar** . Em seguida, navegue para o seu trabalho quando o destacamento estiver terminado.
+3. Selecione **Criar**. Em seguida, navegue para o seu trabalho quando o destacamento estiver terminado.
 
 ## <a name="specify-the-job-input"></a>Especificar a entrada de trabalho
 
-1. No seu trabalho stream Analytics, selecione **Inputs** do menu esquerdo em **Job Topology** .
+1. No seu trabalho stream Analytics, selecione **Inputs** do menu esquerdo em **Job Topology**.
 
-2. Selecione Adicionar o Centro **+ &nbsp; de Eventos** de entrada de fluxo  >  **Event Hub** . Preencha o **novo formulário de entrada** com as seguintes informações:
+2. Selecione Adicionar o Centro **+ &nbsp; de Eventos** de entrada de fluxo  >  **Event Hub**. Preencha o **novo formulário de entrada** com as seguintes informações:
 
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
@@ -164,7 +164,7 @@ Agora que os eventos de tweet estão a ser transmitidos em tempo real a partir d
    |Nome do Hub de Eventos | *socialtwitter-eh* | Escolha *a utilização existente.* Em seguida, selecione o Centro de Eventos que criou.|
    |Tipo de compressão de eventos| GZip | O tipo de compressão de dados.|
 
-   Deixe os valores predefinidos restantes e **selecione Guardar** .
+   Deixe os valores predefinidos restantes e **selecione Guardar**.
 
 ## <a name="specify-the-job-query"></a>Especificar a consulta de trabalho
 
@@ -172,7 +172,7 @@ Stream Analytics suporta um modelo de consulta simples e declarativo que descrev
 
 Para comparar o número de menções entre tópicos, pode usar uma [janela de Tumbling](/stream-analytics-query/tumbling-window-azure-stream-analytics) para obter a contagem de menções por tópico a cada cinco segundos.
 
-1. No seu trabalho **Visão geral** , selecione **Editar consulta** perto da parte superior direita da caixa de consulta. O Azure lista as entradas e saídas configuradas para o trabalho e permite criar uma consulta para transformar o fluxo de entrada à medida que é enviado para a saída.
+1. No seu trabalho **Visão geral**, selecione **Editar consulta** perto da parte superior direita da caixa de consulta. O Azure lista as entradas e saídas configuradas para o trabalho e permite criar uma consulta para transformar o fluxo de entrada à medida que é enviado para a saída.
 
 2. Altere a consulta no editor de consulta para o seguinte:
 
@@ -181,7 +181,7 @@ Para comparar o número de menções entre tópicos, pode usar uma [janela de Tu
    FROM TwitterStream
    ```
 
-3. Os dados do evento a partir das mensagens devem aparecer na janela **de pré-visualização de Entrada** abaixo da sua consulta. Certifique-se de que a **vista** está definida para **JSON** . Se não vir nenhum dado, certifique-se de que o seu gerador de dados está a enviar eventos para o seu centro de eventos e que selecionou o **GZip** como o tipo de compressão para a entrada.
+3. Os dados do evento a partir das mensagens devem aparecer na janela **de pré-visualização de Entrada** abaixo da sua consulta. Certifique-se de que a **vista** está definida para **JSON**. Se não vir nenhum dado, certifique-se de que o seu gerador de dados está a enviar eventos para o seu centro de eventos e que selecionou o **GZip** como o tipo de compressão para a entrada.
 
 4. Selecione **a consulta do teste** e note os resultados na janela de **resultados** do Teste abaixo da sua consulta.
 
@@ -193,7 +193,7 @@ Para comparar o número de menções entre tópicos, pode usar uma [janela de Tu
    WHERE text LIKE '%Azure%'
    ```
 
-6. Esta consulta devolve todos os tweets que incluem a palavra-chave *Azure* .
+6. Esta consulta devolve todos os tweets que incluem a palavra-chave *Azure*.
 
 ## <a name="create-an-output-sink"></a>Criar um lavatório de saída
 
@@ -203,16 +203,16 @@ Neste guia de como guiar, você escreve os eventos de tweet agregados da consult
 
 ## <a name="specify-the-job-output"></a>Especificar a saída de trabalho
 
-1. Sob a secção **Job Topology** no menu de navegação à esquerda, selecione **Outputs** . 
+1. Sob a secção **Job Topology** no menu de navegação à esquerda, selecione **Outputs**. 
 
-2. Na página **Outputs,** clique em **+ &nbsp; Adicionar** e **Blob storage/Data Lake Storage Gen2** :
+2. Na página **Outputs,** clique em **+ &nbsp; Adicionar** e **Blob storage/Data Lake Storage Gen2**:
 
-   * **Pseudónimo de saída** : Use o nome `TwitterStream-Output` . 
-   * **Opções de importação** : **Selecione Selecione o armazenamento das suas subscrições.**
-   * **Conta de armazenamento** . Selecione a sua conta de armazenamento.
-   * **Recipiente** . **Selecione Criar novo** e insira `socialtwitter` .
+   * **Pseudónimo de saída**: Use o nome `TwitterStream-Output` . 
+   * **Opções de importação**: **Selecione Selecione o armazenamento das suas subscrições.**
+   * **Conta de armazenamento**. Selecione a sua conta de armazenamento.
+   * **Recipiente**. **Selecione Criar novo** e insira `socialtwitter` .
    
-4. Selecione **Guardar** .   
+4. Selecione **Guardar**.   
 
 ## <a name="start-the-job"></a>Iniciar a tarefa
 
@@ -220,9 +220,9 @@ Uma entrada de trabalho, consulta e saída são especificados. Está pronto para
 
 1. Certifique-se de que a aplicação TwitterClientCore está em execução. 
 
-2. Na visão geral do trabalho, selecione **Start** .
+2. Na visão geral do trabalho, selecione **Start**.
 
-3. Na página iniciar o **trabalho,** para **a hora de início da saída de Trabalho** , selecione De **agora** e, em seguida, selecione **Iniciar** .
+3. Na página iniciar o **trabalho,** para **a hora de início da saída de Trabalho**, selecione De **agora** e, em seguida, selecione **Iniciar**.
 
 ## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).

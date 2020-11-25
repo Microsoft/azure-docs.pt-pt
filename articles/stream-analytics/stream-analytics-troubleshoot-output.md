@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 6942fd68625fd8eac18ea899330fd99f31f771f7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346116"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019842"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Resolução de problemas Saídas Azure Stream Analytics
 
@@ -113,7 +113,7 @@ Ao utilizar o nível de compatibilidade original (1.0), o Azure Stream Analytics
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

@@ -4,11 +4,11 @@ description: Este artigo descreve como gerir e monitorizar bases de dados do SQL
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146526"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021508"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerir e monitorizar bases de dados do SQL Server guardadas em cópia de segurança
 
@@ -61,7 +61,7 @@ Para parar a proteção de uma base de dados:
 
 1. No painel de instrumentos do cofre, selecione **Itens de Reserva**.
 
-2. Sob **o Tipo de Gestão de Cópias**de Segurança , selecione **SQL em Azure VM**.
+2. Sob **o Tipo de Gestão de Cópias** de Segurança , selecione **SQL em Azure VM**.
 
     ![Selecione SQL em Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 

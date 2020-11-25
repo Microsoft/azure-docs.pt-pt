@@ -4,12 +4,12 @@ description: Aprenda rapidamente a criar um registo privado de contentores Azure
 ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: f4f16506a36acfe8845e85caf2d337f992f0f332
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 00ed6b4569d22739051198c5b0c60987f783a87f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746686"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020046"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Quickstart: Criar um registo de contentores Azure utilizando o portal Azure
 
@@ -29,23 +29,23 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="Navegue para o registo de contentores no portal":::
 
-No **separador Básicos,** introduza valores para **o grupo de Recursos** e nome do **registo.** O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. Para este início rápido, crie um novo grupo de recursos na localização `West US` com o nome `myResourceGroup`, e para o **SKU** , selecione "Básico".
+No **separador Básicos,** introduza valores para **o grupo de Recursos** e nome do **registo.** O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. Para este início rápido, crie um novo grupo de recursos na localização `West US` com o nome `myResourceGroup`, e para o **SKU**, selecione "Básico".
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Navegue para o registo de contentores no portal":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Criar registo de contentores no portal":::
 
-Aceite valores predefinidos para as definições restantes. Em seguida, **selecione Rever + criar** . Depois de rever as definições, selecione **Criar** .
+Aceite valores predefinidos para as definições restantes. Em seguida, **selecione Rever + criar**. Depois de rever as definições, selecione **Criar**.
 
 Neste quickstart você cria um registo *Básico,* que é uma opção otimizada para custos para desenvolvedores aprendendo sobre o Registo de Contentores Azure. Para obter mais informações sobre os níveis de serviço disponíveis (SKUs), consulte [os níveis de serviço de registo de contentores][container-registry-skus].
 
 Quando a mensagem **de implementação tiver sido bem sucedida,** selecione o registo do contentor no portal. 
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Navegue para o registo de contentores no portal":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Visão geral do registo de contentores no portal":::
 
-Tome nota do nome do registo e do valor do **servidor Login** . Usa estes valores nos seguintes passos quando empurra e puxa imagens com o Docker.
+Tome nota do nome do registo e do valor do **servidor Login**. Usa estes valores nos seguintes passos quando empurra e puxa imagens com o Docker.
 
 ## <a name="log-in-to-registry"></a>Iniciar sessão no registo
 
-Antes de empurrar e puxar imagens do contentor, deve iniciar sessão na instância de registo. [Inscreva-se no CLI Azure][get-started-with-azure-cli] na sua máquina local e, em seguida, faça o comando [de login az acr.][az-acr-login] (Especificar apenas o nome do registo ao iniciar sessão com o Azure CLI. Não inclua o sufixo de domínio 'azurecr.io'.
+Antes de empurrar e puxar imagens do contentor, deve iniciar sessão na instância de registo. [Inscreva-se no CLI Azure][get-started-with-azure-cli] na sua máquina local e, em seguida, faça o comando [de login az acr.][az-acr-login] Especifique apenas o nome do registo ao iniciar sessão com o Azure CLI. Não utilize o nome do servidor de login, que inclui um sufixo de domínio como `azurecr.io` .
 
 ```azurecli
 az acr login --name <registry-name>
@@ -65,9 +65,9 @@ O comando devolve `Login Succeeded` depois de estar concluído.
 
 Para listar as imagens no seu registo, navegue para o seu registo no portal e selecione **Repositórios,** selecione o repositório  **hello-world** com o que `docker push` criou.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Navegue para o registo de contentores no portal":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Listar imagens de contentores no portal":::
 
-Ao selecionar o repositório **hello-world,** você vê a `v1` imagem marcada em **Tags** .
+Ao selecionar o repositório **hello-world,** você vê a `v1` imagem marcada em **Tags**.
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
@@ -75,7 +75,7 @@ Ao selecionar o repositório **hello-world,** você vê a `v1` imagem marcada em
 
 Para limpar os seus recursos, navegue para o grupo de recursos **myResourceGroup** no portal. Assim que o grupo de recursos estiver carregado, clique no **grupo de recursos Delete** para remover o grupo de recursos, o registo do contentor e as imagens do contentor aí armazenadas.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Navegue para o registo de contentores no portal":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Eliminar grupo de recursos no portal":::
 
 
 ## <a name="next-steps"></a>Passos seguintes

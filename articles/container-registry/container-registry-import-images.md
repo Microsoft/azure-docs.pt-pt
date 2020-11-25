@@ -4,11 +4,11 @@ description: Importar imagens de contentores para um registo de contentores Azur
 ms.topic: article
 ms.date: 09/18/2020
 ms.openlocfilehash: 3950b9fb24b80db4d9654a615521c0eb82914499
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695610"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019978"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importar imagens de contentores para um registo de contentores
 

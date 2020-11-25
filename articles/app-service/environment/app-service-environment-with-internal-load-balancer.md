@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962558"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021525"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilização de um balançador de carga interna com um ambiente de serviço de aplicações
 
@@ -58,12 +58,12 @@ Criar um ILB ASE não é muito diferente de criar um ASE normalmente. Para uma d
 
 No painel de rede virtual, existe uma opção de configuração VNet que permite selecionar entre um VIP externo ou VIP interno. A predefinição é Externo. Se o tiver definido para External, o seu ASE utiliza um VIP acessível à Internet. Se selecionar Interno, o seu ASE está configurado com um ILB num endereço IP na sua VNet. 
 
-Depois de selecionar Internamente, a capacidade de adicionar mais endereços IP ao seu ASE é removida e, em vez disso, deve fornecer o subdomínio do ASE. Numa ASE com UM VIP Externo, o nome do ASE é usado no subdomínio para aplicações criadas naquela ASE. Se o seu ASE for nomeado ***contosotest*** e a sua app na qual a ASE for nomeada ***mytest,*** o subdomínio é do formato ***contosotest.p.azurewebsites.net*** e o URL para essa aplicação é ***mytest.contosotest.p.azurewebsites.net***. Se definir o Tipo VIP para Interno, o seu nome ASE não é utilizado no subdomínio para o ASE. Especificar explicitamente o subdomínio. Se o seu subdomínio for ***contoso.corp.net*** e tiver feito uma aplicação nesse ***relatório de tempo***nomeado pela ASE, o URL para essa aplicação é ***timereporting.contoso.corp.net***.
+Depois de selecionar Internamente, a capacidade de adicionar mais endereços IP ao seu ASE é removida e, em vez disso, deve fornecer o subdomínio do ASE. Numa ASE com UM VIP Externo, o nome do ASE é usado no subdomínio para aplicações criadas naquela ASE. Se o seu ASE for nomeado **_contosotest_* _ e a sua aplicação em que a ASE é nomeada _*_mytest,_*_ o subdomínio é do formato _*_contosotest.p.azurewebsites.net_*_ e o URL para essa aplicação é _*_mytest.contosotest.p.azurewebsites.net_*_. Se definir o Tipo VIP para Interno, o seu nome ASE não é utilizado no subdomínio para o ASE. Especificar explicitamente o subdomínio. Se o seu subdomínio for _*_contoso.corp.net_*_ e tiver feito uma aplicação nesse _*_relatório de tempo_*_ nomeado pela ASE, o URL para essa aplicação é _*_timereporting.contoso.corp.net_*_.
 
 ## <a name="apps-in-an-ilb-ase"></a>Aplicativos em um ILB ASE
 Criar uma aplicação num ILB ASE é o mesmo que criar uma app num ASE normalmente. 
 
-1. No portal Azure, selecione Criar uma aplicação **de > de recursos Web + Mobile -> Web** ou **Mobile** ou **API**.
+1. No portal Azure, selecione _ *Crie um recurso -> Web + Mobile -> Web** ou **Mobile** ou **App API**.
 2. Introduza o nome da aplicação.
 3. Selecione a sua subscrição.
 4. Selecione ou crie um grupo de recursos.
@@ -89,7 +89,7 @@ Se quiser experimentar o fluxo com os seus próprios certificados e testar o ace
 
 1. Aceda à ASE UI após a criação **da ASE -> Configurações -> Certificados ILB**.
 2. Desave o certificado ILB selecionando o ficheiro pfx do certificado e fornecendo senha. Este passo demora um pouco a processar e aparece a mensagem de que está em curso uma operação de escala.
-3. Obtenha o endereço ILB para o seu**ase (ASE -> Propriedades -> Endereço IP Virtual**).
+3. Obtenha o endereço ILB para o seu **ase (ASE -> Propriedades -> Endereço IP Virtual**).
 4. Crie uma aplicação web no ASE após a criação. 
 5. Crie um VM se não tiver um nesse VNET (Não na mesma sub-rede que o ASE ou as coisas se partirem).
 6. Deslo partilhe o DNS para o seu subdomínio. Pode utilizar um wildcard com o seu subdomínio no seu DNS ou se pretender fazer alguns testes simples, edite o ficheiro de anfitriões no seu VM para definir o nome da aplicação web para o endereço IP VIP. Se o seu ASE tivesse o nome de subdomínio .ilbase.com e fizesse o mytestapp da aplicação web para que fosse abordado em mytestapp.ilbase.com, despeça-o no ficheiro dos anfitriões. (No Windows, o ficheiro dos anfitriões está em C:\Windows\System32\drivers\etc\)

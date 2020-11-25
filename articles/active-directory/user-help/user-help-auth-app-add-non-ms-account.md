@@ -12,11 +12,11 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392582"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020097"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicionar contas não Microsoft à aplicação Microsoft Authenticator
 
@@ -44,7 +44,7 @@ Adicione a sua conta Google ligando a verificação de dois fatores e adicionand
 
 ### <a name="turn-on-two-factor-verification"></a>Ligue a verificação de dois fatores
 
-1. No seu computador, vá https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome para, **selecione Get Started** , e, em seguida, verifique a sua identidade.
+1. No seu computador, vá https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome para, **selecione Get Started**, e, em seguida, verifique a sua identidade.
 
 2. Siga os passos na página para ligar a verificação em duas etapas para a sua conta pessoal do Google.
 

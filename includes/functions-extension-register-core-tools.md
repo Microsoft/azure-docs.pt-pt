@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 08/07/2020
 ms.author: glenga
 ms.openlocfilehash: a4f03223b5067d18f5d6e747b3bb630a86031b8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88689571"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020372"
 ---
 Se não conseguir utilizar pacotes de extensões, pode utilizar as Ferramentas Principais do Azure Functions localmente para instalar os pacotes de extensão específicos exigidos pelo seu projeto.
 
 > [!IMPORTANT]
-> Não é possível instalar explicitamente extensões numa aplicação de função que está a usar pacotes de extensão. Retire a `extensionBundle` secçãohost.js* antes* de instalar explicitamente as extensões.
+> Não é possível instalar explicitamente extensões numa aplicação de função que está a usar pacotes de extensão. Retire a `extensionBundle` secçãohost.js *antes* de instalar explicitamente as extensões.
 
 Os seguintes itens descrevem algumas razões pelas quais poderá necessitar de instalar as extensões manualmente:
 

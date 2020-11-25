@@ -4,11 +4,11 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
 ms.openlocfilehash: bb090c0e40a8376aafb7b7eca479d16d73ce131d
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625277"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021338"
 ---
 Começa com a biblioteca de clientes Da Visão Personalizada para .NET. Siga estes passos para instalar o pacote e experimente o código de exemplo para a construção de um modelo de deteção de objetos. Você vai criar um projeto, adicionar tags, treinar o projeto em imagens de amostra, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
 
@@ -154,7 +154,7 @@ Depois, utilize este mapa de associações para carregar cada imagem de exemplo 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs?name=snippet_upload)]
 
-Neste ponto, você carregou todas as amostras imagens e marcou cada uma **(garfo** ou **tesoura** ) com um retângulo de pixel associado.
+Neste ponto, você carregou todas as amostras imagens e marcou cada uma **(garfo** ou **tesoura**) com um retângulo de pixel associado.
 
 ## <a name="train-the-project"></a>Treine o projeto
 

@@ -4,11 +4,11 @@ description: Este artigo mostra-lhe como mover um espaço de nome Azure Event Hu
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375198"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019927"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Mover um espaço de nomes Azure Event Hubs para outra região
 Este artigo mostra-lhe como exportar um modelo de Gestor de Recursos Azure para um espaço de nomes de Centros de Eventos existente e, em seguida, usar o modelo para criar um espaço de nome com as mesmas configurações em outra região. No entanto, este processo não move eventos que ainda não foram processados. Você precisa processar os eventos a partir do espaço de nome original antes de apagá-lo.
@@ -41,9 +41,9 @@ Implemente o modelo para criar um espaço de nomes de Centros de Eventos na regi
 
 
 1. No portal Azure, selecione **Criar um recurso**.
-2. Em **Search the Marketplace**, design de design de **modelos**e selecione **a implementação do modelo (implementar usando modelos personalizados)**.
+2. Em **Search the Marketplace**, design de design de **modelos** e selecione **a implementação do modelo (implementar usando modelos personalizados)**.
 5. Selecione **Construa o seu próprio modelo no editor.**
-6. Selecione **carregar o ficheiro**e, em seguida, siga as instruções para carregar otemplate.js** no** ficheiro que descarregou na última secção.
+6. Selecione **carregar o ficheiro** e, em seguida, siga as instruções para carregar otemplate.js **no** ficheiro que descarregou na última secção.
 1. Atualizar o valor do `location` imóvel para apontar para a nova região. Para obter códigos de localização, consulte [as localizações do Azure.](https://azure.microsoft.com/global-infrastructure/locations/) O código para uma região é o nome da região sem espaços, por exemplo, `West US` é igual a `westus` .
 1. **Selecione Guardar** para guardar o modelo. 
 1. Na página **de implementação personalizada,** siga estes passos: 
@@ -54,7 +54,7 @@ Implemente o modelo para criar um espaço de nomes de Centros de Eventos na regi
         1. Introduza o novo **nome de espaço de nome**. 
 
             ![Implementar o modelo do Gestor de Recursos](./media/move-across-regions/deploy-template.png)
-        2. Se o seu espaço de nome de origem estava num **cluster de Clusters de Eventos, insira**nomes do grupo de **recursos** e do cluster **Event Hubs** como parte do **ID externo.** 
+        2. Se o seu espaço de nome de origem estava num **cluster de Clusters de Eventos, insira** nomes do grupo de **recursos** e do cluster **Event Hubs** como parte do **ID externo.** 
 
               ```
               /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<CLUSTER'S RESOURCE GROUP>/providers/Microsoft.EventHub/clusters/<CLUSTER NAME>
@@ -68,7 +68,7 @@ Implemente o modelo para criar um espaço de nomes de Centros de Eventos na regi
     1. Na página **'Rever + criar',** rever as definições e, em seguida, selecionar **Criar**.   
 
 ## <a name="discard-or-clean-up"></a>Eliminar ou limpar
-Após a implementação, se quiser recomeçar, pode eliminar o **espaço de nomes target Event Hubs**e repetir os passos descritos nas secções [Preparar](#prepare) e [Mover](#move) deste artigo.
+Após a implementação, se quiser recomeçar, pode eliminar o **espaço de nomes target Event Hubs** e repetir os passos descritos nas secções [Preparar](#prepare) e [Mover](#move) deste artigo.
 
 Para comprometer as alterações e completar o movimento de um espaço de nomes de Event Hubs, elimine o **espaço de nomes do Event Hubs** na região original. Certifique-se de que processou todos os eventos no espaço de nomes antes de apagar o espaço de nomes. 
 
@@ -78,7 +78,7 @@ Para eliminar um espaço de nomes de Event Hubs (fonte ou alvo) utilizando o por
 2. Selecione o espaço de nome alvo para eliminar e **selecione Eliminar** a partir da barra de ferramentas. 
 
     ![Apagar espaço de nome - botão](./media/move-across-regions/delete-namespace-button.png)
-3. Na página **Delete Namespace,** confirme a eliminação digitando o **nome do espaço de nome**e, em seguida, selecione **Delete**. 
+3. Na página **Delete Namespace,** confirme a eliminação digitando o **nome do espaço de nome** e, em seguida, selecione **Delete**. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

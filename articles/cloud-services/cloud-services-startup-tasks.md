@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: f2417389de98f9998c189e7cbbbcdae77fbb8840
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075064"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020709"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de arranque para um serviço de cloud
 Pode utilizar tarefas de arranque para executar operações antes de começar uma função. As operações que poderá querer realizar incluem a instalação de um componente, o registo de componentes com COM, a definição de chaves de registo ou o início de um longo processo de funcionamento.
@@ -31,7 +31,7 @@ A sua tarefa de arranque pode registar informações e erros no diretório espec
 
 As tarefas de arranque também podem ser executadas várias vezes entre reinícios. Por exemplo, a tarefa de arranque será executada sempre que a função reciclar e a reciclagem da função pode não incluir sempre um reinício. As tarefas de arranque devem ser escritas de uma forma que lhes permita executar várias vezes sem problemas.
 
-As tarefas de arranque devem terminar com um **erro de nível** (ou código de saída) de zero para que o processo de arranque esteja concluído. Se uma tarefa de arranque terminar com um **nível**de erro não zero, a função não será iniciada.
+As tarefas de arranque devem terminar com um **erro de nível** (ou código de saída) de zero para que o processo de arranque esteja concluído. Se uma tarefa de arranque terminar com um **nível** de erro não zero, a função não será iniciada.
 
 ## <a name="role-startup-order"></a>Ordem de arranque de função
 As seguintes listas listam o procedimento de arranque de funções em Azure:
@@ -76,7 +76,7 @@ EXIT /B 0
 ```
 
 > [!NOTE]
-> No Visual Studio, a propriedade **Copy to Output Directory** para o seu ficheiro de lote de arranque deve ser definida para **Copy Always** para ter certeza de que o seu ficheiro de lote de arranque está devidamente implantado no seu projeto no Azure** \\ (approot bin** para funções Web, e **aproximadamente** para funções de trabalhador).
+> No Visual Studio, a propriedade **Copy to Output Directory** para o seu ficheiro de lote de arranque deve ser definida para **Copy Always** para ter certeza de que o seu ficheiro de lote de arranque está devidamente implantado no seu projeto no Azure **\\ (approot bin** para funções Web, e **aproximadamente** para funções de trabalhador).
 > 
 > 
 
@@ -86,7 +86,7 @@ O seguinte descreve os atributos do elemento **Tarefa** no ficheiro [ServiceDefi
 **commandLine** - Especifica a linha de comando para a tarefa de arranque:
 
 * O comando, com parâmetros de linha de comando opcionais, que inicia a tarefa de arranque.
-* Frequentemente este é o nome de ficheiro de um ficheiro .cmd ou .bat batch.
+* Frequentemente este é o nome de ficheiro de um ficheiro .cmd ou .bat lote.
 * A tarefa é relativa à pasta AppRoot \\ Bin para a implantação. As variáveis ambientais não são expandidas na determinação do caminho e do arquivo da tarefa. Se for necessária expansão ambiental, pode criar um pequeno script .cmd que chama a sua tarefa de arranque.
 * Pode ser uma aplicação de consola ou um ficheiro de lote que inicia um [script PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task).
 
@@ -108,7 +108,7 @@ O seguinte descreve os atributos do elemento **Tarefa** no ficheiro [ServiceDefi
   As tarefas são executadas sincronizadamente, uma de cada vez, na ordem especificada no ficheiro [ServiceDefinition.csdef.] Quando uma **simples** tarefa de arranque termina com um **erro** de zero, a próxima tarefa **simples** de arranque é executada. Se não houver mais tarefas **simples** de arranque para executar, então o papel em si será iniciado.   
   
   > [!NOTE]
-  > Se a **tarefa simples** terminar com um **nível**de erro não zero, a instância será bloqueada. As tarefas de arranque **simples** subsequentes, e o papel em si, não serão iniciados.
+  > Se a **tarefa simples** terminar com um **nível** de erro não zero, a instância será bloqueada. As tarefas de arranque **simples** subsequentes, e o papel em si, não serão iniciados.
   > 
   > 
   

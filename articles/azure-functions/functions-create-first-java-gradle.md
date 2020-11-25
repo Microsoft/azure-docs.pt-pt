@@ -7,11 +7,11 @@ ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.openlocfilehash: 48a732e3935d78bdbf8b81fe989b59be1fbe2203
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422812"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020437"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Use Java e Gradle para criar e publicar uma função para Azure
 
@@ -58,7 +58,7 @@ azurefunctions {
 }
 ```
 
-Abra o novo ficheiro Function.java a partir do caminho *src/main/java* num editor de texto e reveja o código gerado. Este código é uma função [desencadeada HTTP](functions-bindings-http-webhook.md) que ecoa o corpo do pedido. 
+Abra o novo ficheiro .java Função a partir do caminho *src/main/java* num editor de texto e reveja o código gerado. Este código é uma função [desencadeada HTTP](functions-bindings-http-webhook.md) que ecoa o corpo do pedido. 
 
 > [!div class="nextstepaction"]
 > [Dei conta de um problema.](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=generate-project)

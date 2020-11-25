@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e6eb0be4d9946907dc5bb2f22b27530a27a37aec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321247"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021457"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciência de dados escalável com lago de dados Azure: um walkthrough de ponta a ponta
 Este walkthrough mostra como usar o Azure Data Lake para fazer tarefas de exploração de dados e classificação binária numa amostra da viagem de táxi de NYC e conjunto de dados de tarifas para prever se uma gorjeta é ou não paga por uma tarifa. Percorre os passos do Processo de Ciência de Dados de [Equipa,](./index.yml)de ponta a ponta, desde a aquisição de dados até à formação de modelos, e depois à implantação de um serviço web que publica o modelo.
@@ -143,7 +143,7 @@ As tarefas de processamento de dados ilustradas nesta secção incluem ingerir, 
 
 Os scripts U-SQL são descritos aqui e fornecidos em um ficheiro separado. Você pode baixar os **scripts U-SQL completos** do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-Para executar U-SQL, Open Visual Studio, clique em **File --> New --> Project** , escolha **O Projeto U-SQL,** nome e guarde-o para uma pasta.
+Para executar U-SQL, Open Visual Studio, clique em **File --> New --> Project**, escolha **O Projeto U-SQL,** nome e guarde-o para uma pasta.
 
 ![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
 
@@ -156,7 +156,7 @@ Para executar U-SQL, Open Visual Studio, clique em **File --> New --> Project** 
 
 ### <a name="data-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Ingestão de Dados: Ler em dados da bolha pública
 
-A localização dos dados na bolha Azure é referida como **wasb://container conta de armazenamento de \_ blob de nome \@ \_ \_ \_ name.blob.core.windows.net/blob_name** e pode ser extraída através **Extractors.Csv()**. Substitua o nome do seu próprio contentor e o nome da conta de armazenamento em seguir scripts para o nome da conta de armazenamento do nome do recipiente \_ \@ no endereço do \_ \_ \_ wasb. Uma vez que os nomes dos ficheiros estão no mesmo formato, é possível utilizar **dados de viagem \_ \_ \{ \* \} .csv** para ler em todos os 12 ficheiros de viagem.
+A localização dos dados na bolha Azure é referida como **wasb://container conta de armazenamento de \_ blob de nome \@ \_ \_ \_ name.blob.core.windows.net/blob_name** e pode ser extraída através **Extractors.Csv()**. Substitua o nome do seu próprio contentor e o nome da conta de armazenamento em seguir scripts para o nome da conta de armazenamento do nome do recipiente \_ \@ no endereço do \_ \_ \_ wasb. Uma vez que os nomes dos ficheiros estão no mesmo formato, é possível utilizar **\_ dados \_ \{ \* \} de viagem .csv** para ler em todos os 12 ficheiros de viagem.
 
 ```sql
 ///Read in Trip data
@@ -671,7 +671,7 @@ Crie um Cluster HDInsight (Linux) a partir do [portal Azure](https://portal.azur
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>Criar tabela de Colmeia em HDInsight
-Agora cria tabelas de Colmeia para serem usadas no Azure Machine Learning Studio (clássico) no cluster HDInsight utilizando os dados armazenados no Azure Data Lake Storage no passo anterior. Vá para o cluster HDInsight criado. Clique **em Definições**  -->  **Propriedades** Cluster  -->  **AAD Identity**  -->  **ADLS Access** , certifique-se de que a sua conta de armazenamento de data lake azure é adicionada na lista com direitos de leitura, escrita e execução.
+Agora cria tabelas de Colmeia para serem usadas no Azure Machine Learning Studio (clássico) no cluster HDInsight utilizando os dados armazenados no Azure Data Lake Storage no passo anterior. Vá para o cluster HDInsight criado. Clique **em Definições**  -->  **Propriedades** Cluster  -->  **AAD Identity**  -->  **ADLS Access**, certifique-se de que a sua conta de armazenamento de data lake azure é adicionada na lista com direitos de leitura, escrita e execução.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 

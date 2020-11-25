@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
 ms.openlocfilehash: 3ce104e9340c3e93d64b68dcab6f5bd6d2f62493
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748729"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020637"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters Apache Hadoop usando a API Azure REST
 
@@ -274,7 +274,7 @@ Definir `$TENANTID` , e aos `$APPID` `$PASSWORD` valores obtidos ou utilizados a
 
 Se este pedido for bem sucedido, recebe uma resposta de 200 séries e o organismo de resposta contém um documento JSON.
 
-O documento JSON devolvido por este pedido contém um elemento nomeado **access_token** . O valor do **access_token** é utilizado para pedidos de autenticação à API REST.
+O documento JSON devolvido por este pedido contém um elemento nomeado **access_token**. O valor do **access_token** é utilizado para pedidos de autenticação à API REST.
 
 ```json
 {

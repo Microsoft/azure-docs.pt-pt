@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: f9c7a2df83e9d630ce2b4635a830fb941180c758
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965005"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021844"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série StorSimple 8000: uma solução híbrida de armazenamento em nuvem
 
@@ -210,15 +210,15 @@ Um resumo das cargas de trabalho StorSimple suportadas é tabulado abaixo.
 
 | Cenário | Carga de trabalho | Suportado | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Colaboração |Partilha de ficheiros |Yes | |Todas as versões |
-| Colaboração |Partilha de ficheiros distribuídos |Yes | |Todas as versões |
+| Colaboração |Partilha de ficheiros |Sim | |Todas as versões |
+| Colaboração |Partilha de ficheiros distribuídos |Sim | |Todas as versões |
 | Colaboração |SharePoint |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
-| Arquivo |Arquivo simples de ficheiros |Yes | |Todas as versões |
+| Arquivo |Arquivo simples de ficheiros |Sim | |Todas as versões |
 | Virtualização |Máquinas virtuais |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
 | Base de Dados |SQL |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
 | Videovigilância |Videovigilância |Sim* |Suportado quando o dispositivo StorSimple é dedicado apenas a esta carga de trabalho |Atualização 2 e mais tarde |
-| Backup |Backup do alvo primário |Sim* |Suportado quando o dispositivo StorSimple é dedicado apenas a esta carga de trabalho |Atualização 3 e mais tarde |
-| Backup |Backup de alvo secundário |Sim* |Suportado quando o dispositivo StorSimple é dedicado apenas a esta carga de trabalho |Atualização 3 e mais tarde |
+| Cópia de segurança |Backup do alvo primário |Sim* |Suportado quando o dispositivo StorSimple é dedicado apenas a esta carga de trabalho |Atualização 3 e mais tarde |
+| Cópia de segurança |Backup de alvo secundário |Sim* |Suportado quando o dispositivo StorSimple é dedicado apenas a esta carga de trabalho |Atualização 3 e mais tarde |
 
 *Sim&#42; - Devem ser aplicadas diretrizes e restrições de solução.*
 
@@ -237,7 +237,7 @@ Segue-se uma lista dos componentes de infraestrutura suportados StorSimple.
 
 | Cenário | Carga de trabalho | Suportado | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Geral |ExpressRoute |Yes | |Todas as versões |
+| Geral |ExpressRoute |Sim | |Todas as versões |
 | Geral |DataCore FC |Sim* |Suportado com DataCore SANsymphony |Todas as versões |
 | Geral |DFSR |Sim* |Suportado apenas com volumes fixados localmente |Todas as versões |
 | Geral |Indexação |Sim* |Para volumes hierárquicos, apenas a indexação de metadados é suportada (sem dados).<br>Para volumes fixados localmente, a indexação completa é suportada. |Todas as versões |

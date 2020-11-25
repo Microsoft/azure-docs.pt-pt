@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312681"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020607"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Testes de código de ciência de dados no Azure com o Processo de Ciência de Dados da Equipa e Serviços Azure DevOps
 Este artigo fornece orientações preliminares para testar código num fluxo de trabalho de ciência de dados. Estes testes conferem aos cientistas de dados uma forma sistemática e eficiente de verificar a qualidade e o resultado esperado do seu código. Utilizamos um projeto team data science process (TDSP) [que utiliza o conjunto de dados do Rendimento Adulto da UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicámos anteriormente para mostrar como os testes de código podem ser feitos. 
@@ -112,7 +112,7 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
 1. Configurar a construção automática e testar em Azure DevOps:
 
-    a. No repositório do projeto, selecione **Build and Release** , e, em seguida, selecione **+Novo** para criar um novo processo de construção.
+    a. No repositório do projeto, selecione **Build and Release**, e, em seguida, selecione **+Novo** para criar um novo processo de construção.
 
     ![Seleções para iniciar um novo processo de construção](./media/code-test/create_new_build.PNG)
 

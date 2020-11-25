@@ -4,11 +4,11 @@ description: Utilize o Servidor de Backup Azure para fazer backup do estado do s
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86538705"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021627"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Faça backup do estado do sistema e restaure para o metal nu, utilizando o Servidor de Backup Azure
 
@@ -23,21 +23,21 @@ O Azure Backup Server confirma o estado do sistema e fornece uma proteção de r
 
 A tabela que se segue resume o que pode recuar e recuperar. Para obter informações sobre as versões de aplicações que o estado do sistema e o BMR podem proteger, veja [o que o Azure Backup Server faz de volta?](backup-mabs-protection-matrix.md)
 
-|Backup|Problema|Recuperar do backup do Servidor de Backup do Azure|Recuperar a partir de uma cópia de segurança do estado do sistema|BMR|
+|Cópia de segurança|Problema|Recuperar do backup do Servidor de Backup do Azure|Recuperar a partir de uma cópia de segurança do estado do sistema|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
-|**Dados de ficheiros**<br /><br />Cópia de segurança de dados normal<br /><br />Cópia de segurança do estado do sistema/BMR|Dados de ficheiro perdidos|S|N|N|
-|**Dados de ficheiros**<br /><br />Backup Backup Backup backup de dados de ficheiros<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|S|
+|**Dados de ficheiros**<br /><br />Cópia de segurança de dados normal<br /><br />Cópia de segurança do estado do sistema/BMR|Dados de ficheiro perdidos|Y|N|N|
+|**Dados de ficheiros**<br /><br />Backup Backup Backup backup de dados de ficheiros<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|Y|
 |**Dados de ficheiros**<br /><br />Backup Backup Backup backup de dados de ficheiros<br /><br />Cópia de segurança do estado do sistema/BMR|Servidor perdido (volumes de dados intactos)|N|N|Y|
-|**Dados de ficheiros**<br /><br />Backup Backup Backup backup de dados de ficheiros<br /><br />Cópia de segurança do estado do sistema/BMR|Servidor perdido (volumes de dados perdidos)|S|N|Y<br /><br />BMR, seguido de recuperação regular de dados de ficheiros com apoio|
-|**Dados do SharePoint**<br /><br />Backup Backup backup do Azure Server de dados agrícolas<br /><br />Cópia de segurança do estado do sistema/BMR|Site perdido, listas, listas de itens, documentos|S|N|N|
-|**Dados do SharePoint**<br /><br />Backup Backup backup do Azure Server de dados agrícolas<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|S|
+|**Dados de ficheiros**<br /><br />Backup Backup Backup backup de dados de ficheiros<br /><br />Cópia de segurança do estado do sistema/BMR|Servidor perdido (volumes de dados perdidos)|Y|N|Y<br /><br />BMR, seguido de recuperação regular de dados de ficheiros com apoio|
+|**Dados do SharePoint**<br /><br />Backup Backup backup do Azure Server de dados agrícolas<br /><br />Cópia de segurança do estado do sistema/BMR|Site perdido, listas, listas de itens, documentos|Y|N|N|
+|**Dados do SharePoint**<br /><br />Backup Backup backup do Azure Server de dados agrícolas<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|Y|
 |**Dados do SharePoint**<br /><br />Backup Backup backup do Azure Server de dados agrícolas<br /><br />Cópia de segurança do estado do sistema/BMR|Recuperação após desastre|N|N|N|
-|Windows Server 2012 R2 Hyper-V<br /><br />Backup Backup Backup backup do anfitrião hiper-V ou convidado<br /><br />Cópia de segurança de anfitrião do estado do sistema/BMR|VM perdida|S|N|N|
-|Hyper-V<br /><br />Backup Backup Backup backup do anfitrião hiper-V ou convidado<br /><br />Cópia de segurança de anfitrião do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|S|
+|Windows Server 2012 R2 Hyper-V<br /><br />Backup Backup Backup backup do anfitrião hiper-V ou convidado<br /><br />Cópia de segurança de anfitrião do estado do sistema/BMR|VM perdida|Y|N|N|
+|Hyper-V<br /><br />Backup Backup Backup backup do anfitrião hiper-V ou convidado<br /><br />Cópia de segurança de anfitrião do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|Y|
 |Hyper-V<br /><br />Backup Backup Backup backup do anfitrião hiper-V ou convidado<br /><br />Cópia de segurança de anfitrião do estado do sistema/BMR|Anfitrião de Hyper-V perdido (VMs intactas)|N|N|Y|
 |Hyper-V<br /><br />Backup Backup Backup backup do anfitrião hiper-V ou convidado<br /><br />Cópia de segurança de anfitrião do estado do sistema/BMR|Anfitrião de Hyper-V perdido (VMs perdidas)|N|N|Y<br /><br />BMR, seguido da recuperação regular do Servidor de Backup do Azure|
-|SQL Server/Exchange<br /><br />Backup de aplicativo Azure Backup Server<br /><br />Cópia de segurança do estado do sistema/BMR|Dados da aplicação perdidos|S|N|N|
-|SQL Server/Exchange<br /><br />Backup de aplicativo Azure Backup Server<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|S|
+|SQL Server/Exchange<br /><br />Backup de aplicativo Azure Backup Server<br /><br />Cópia de segurança do estado do sistema/BMR|Dados da aplicação perdidos|Y|N|N|
+|SQL Server/Exchange<br /><br />Backup de aplicativo Azure Backup Server<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|Y|
 |SQL Server/Exchange<br /><br />Backup de aplicativo Azure Backup Server<br /><br />Cópia de segurança do estado do sistema/BMR|Servidor perdido (base de dados/registos de transações intactos)|N|N|Y|
 |SQL Server/Exchange<br /><br />Backup de aplicativo Azure Backup Server<br /><br />Cópia de segurança do estado do sistema/BMR|Servidor perdido (base de dados/registos de transações perdidos)|N|N|Y<br /><br />Recuperação de BMR, seguida de recuperação regular do Servidor de Backup do Azure|
 
@@ -95,9 +95,9 @@ Quando a cópia de segurança terminar, o ficheiro é transferido para o computa
 
     Se mudar de proteção BMR para proteção do estado do sistema, então precisa de espaço no computador protegido. Precisa do espaço porque a proteção do estado do sistema primeiro escreve a réplica para o computador local e depois transfere a réplica para o computador Backup Server.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
-1. **Implementar o servidor de backup Azure**. Verifique se o Servidor de Cópia de Segurança está corretamente implantado. Para obter mais informações, consulte:
+1. **Implementar o servidor de backup Azure**. Verifique se o Servidor de Cópia de Segurança está corretamente implantado. Para obter mais informações, veja:
     * [Requisitos do sistema para O Servidor de Backup Azure](/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matriz de proteção do servidor de backup](backup-mabs-protection-matrix.md)
 
@@ -109,9 +109,9 @@ Quando a cópia de segurança terminar, o ficheiro é transferido para o computa
 
 Para apoiar o estado do sistema e o metal nu:
 
-1. Para abrir o Assistente do Grupo de Proteção **Protection**Nova, na consola de administrador do servidor de backup, selecione  >  **Protection Actions**Create Protection  >  **Group**.
+1. Para abrir o Assistente do Grupo de Proteção **Protection** Nova, na consola de administrador do servidor de backup, selecione  >  **Protection Actions** Create Protection  >  **Group**.
 
-1. Na página **'Tipo de Grupo de Proteção de Protecção' selecione,** selecione **Servidores**e, em seguida, selecione **Seguinte**.
+1. Na página **'Tipo de Grupo de Proteção de Protecção' selecione,** selecione **Servidores** e, em seguida, selecione **Seguinte**.
 
 1. Na página **'Selecionar membros do grupo',** expandir o computador e, em seguida, selecionar o **BMR** ou **o estado do sistema**.
 
@@ -203,7 +203,7 @@ Para restaurar o sistema:
 
 1. Na página **Opções de Recuperação** do Sistema, selecione **Restaurar o computador utilizando uma imagem do sistema que criou anteriormente**.
 
-1. Na página de backup de imagem do **sistema selecione** **selecione uma imagem**do sistema Procura uma imagem  >  **avançada**  >  **na rede**. Se aparecer um aviso, selecione **Sim**. Vá para o caminho da partilha, introduza as credenciais e, em seguida, selecione o ponto de recuperação. O sistema procura cópias de segurança específicas que estão disponíveis nesse ponto de recuperação. Selecione o ponto de recuperação que pretende utilizar.
+1. Na página de backup de imagem do **sistema selecione** **selecione uma imagem** do sistema Procura uma imagem  >  **avançada**  >  **na rede**. Se aparecer um aviso, selecione **Sim**. Vá para o caminho da partilha, introduza as credenciais e, em seguida, selecione o ponto de recuperação. O sistema procura cópias de segurança específicas que estão disponíveis nesse ponto de recuperação. Selecione o ponto de recuperação que pretende utilizar.
 
 1. Na escolha como restaurar a página **de cópia de segurança,** selecione Formato e discos de **repartição**. Na página seguinte, verifique as definições.
 
@@ -233,7 +233,7 @@ Para executar a recuperação no Servidor de Backup:
 
 Para executar a cópia de segurança do Servidor do Windows:
 
-1. Selecione **Ações**  >  **Para recuperar**este  >  **servidor**  >  **em seguida**.
+1. Selecione **Ações**  >  **Para recuperar** este  >  **servidor**  >  **em seguida**.
 
 1. Selecione **Outro Servidor**, selecione a página **'Localizar',** e, em seguida, selecione **a pasta partilhada remotamente**. Introduza o caminho para a pasta que contém o ponto de recuperação.
 

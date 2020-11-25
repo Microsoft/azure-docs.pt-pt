@@ -16,11 +16,11 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b616b03698e83d256a7b81e4548edbf21dba058
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264645"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021134"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como construir uma aplicação de loja de Windows de streaming suave
 
@@ -66,7 +66,7 @@ Para obter mais informações sobre o desenvolvimento da aplicação Windows Sto
 ### <a name="to-create-a-windows-store-project"></a>Criar um projeto windows Store
 
 1. Executar Estúdio Visual; as versões 2012 a 2015 são suportadas.
-1. A partir do menu **FILE,** clique em **Novo**e, em seguida, clique em **Projeto**.
+1. A partir do menu **FILE,** clique em **Novo** e, em seguida, clique em **Projeto**.
 1. A partir do diálogo do Novo Projeto, escreva ou selecione os seguintes valores:
 
     | Nome | Valor |
@@ -82,7 +82,7 @@ Para obter mais informações sobre o desenvolvimento da aplicação Windows Sto
 
 ### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Para adicionar uma referência ao Cliente de Streaming Suave SDK
 
-1. A partir do Solution Explorer, clique à direita **no SSPlayer**e, em seguida, clique em **Adicionar Referência**.
+1. A partir do Solution Explorer, clique à direita **no SSPlayer** e, em seguida, clique em **Adicionar Referência**.
 1. Escreva ou selecione os seguintes valores:
 
     | Nome | Valor |
@@ -97,7 +97,7 @@ Depois de adicionar as referências, deve selecionar a plataforma específica (x
 ### <a name="to-design-the-player-user-interface"></a>Para desenhar a interface de utilizador do jogador
 
 1. A partir do Solution Explorer, clique duas **vezes no MainPage.xaml** para o abrir na vista de design.
-2. Localize a ** &lt; grelha &gt; ** e ** &lt; /grelha &gt; ** marca o ficheiro XAML e cole o seguinte código entre as duas tags:
+2. Localize a **&lt; grelha &gt;** e **&lt; /grelha &gt;** marca o ficheiro XAML e cole o seguinte código entre as duas tags:
 
    ```xml
          <Grid.RowDefinitions>
@@ -152,7 +152,7 @@ Neste ficheiro XAML, alguns manipuladores de eventos estão associados aos contr
 
 ### <a name="to-modify-the-code-behind-file"></a>Para modificar o código por trás do ficheiro
 
-1. A partir do Solution Explorer, clique à direita **no MainPage.xaml**e, em seguida, clique em **Ver Código**.
+1. A partir do Solution Explorer, clique à direita **no MainPage.xaml** e, em seguida, clique em **Ver Código**.
 2. Na parte superior do ficheiro, adicione a seguinte declaração utilizando:
 
     ```csharp
@@ -253,7 +253,7 @@ Esta lição contém os seguintes procedimentos:
 
 ### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Para registar o manipulador de fluxo de fluxo de fluxo de streaming smooth e passar o conjunto de propriedades
 
-1. A partir do Solution Explorer, clique no **mainPage.xaml**e, em seguida, clique em **Ver Código**.
+1. A partir do Solution Explorer, clique no **mainPage.xaml** e, em seguida, clique em **Ver Código**.
 2. No início do processo, adicione a seguinte declaração utilizando:
 
    ```csharp
@@ -298,7 +298,7 @@ Esta lição contém os seguintes procedimentos:
 
 ### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Para adicionar o manipulador de eventos de nível de gestor de fonte adaptativa
 
-1. A partir do Solution Explorer, clique no **mainPage.xaml**e, em seguida, clique em **Ver Código**.
+1. A partir do Solution Explorer, clique no **mainPage.xaml** e, em seguida, clique em **Ver Código**.
 2. Dentro da classe **MainPage,** adicione o seguinte membro de dados:
 
    ```csharp
@@ -326,7 +326,7 @@ Esta lição contém os seguintes procedimentos:
 
 ### <a name="to-add-adaptive-source-level-event-handlers"></a>Para adicionar manipuladores de eventos de nível de fonte adaptativo
 
-1. A partir do Solution Explorer, clique no **mainPage.xaml**e, em seguida, clique em **Ver Código**.
+1. A partir do Solution Explorer, clique no **mainPage.xaml** e, em seguida, clique em **Ver Código**.
 2. Dentro da classe **MainPage,** adicione o seguinte membro de dados:
 
    ```csharp
@@ -377,7 +377,7 @@ Os mesmos eventos também estão disponíveis no nível de manjedoura Adaptive S
 
 ### <a name="to-add-media-element-event-handlers"></a>Para adicionar manipuladores de eventos Media Element
 
-1. A partir do Solution Explorer, clique no **mainPage.xaml**e, em seguida, clique em **Ver Código**.
+1. A partir do Solution Explorer, clique no **mainPage.xaml** e, em seguida, clique em **Ver Código**.
 2. No final da aula **mainPage,** adicione os seguintes manipuladores de eventos:
 
    ```csharp
@@ -413,7 +413,7 @@ Os mesmos eventos também estão disponíveis no nível de manjedoura Adaptive S
 
 ### <a name="to-add-slider-bar-related-code"></a>Para adicionar código relacionado com a barra de slider
 
-1. A partir do Solution Explorer, clique no **mainPage.xaml**e, em seguida, clique em **Ver Código**.
+1. A partir do Solution Explorer, clique no **mainPage.xaml** e, em seguida, clique em **Ver Código**.
 2. No início do processo, adicione a seguinte declaração utilizando:
 
    ```csharp
@@ -563,7 +563,7 @@ O Smooth Streaming é capaz de transmitir conteúdo com múltiplas faixas de áu
 
 ### <a name="to-modify-the-xaml-file"></a>Para modificar o ficheiro XAML
 
-1. A partir do Solution Explorer, clique à direita **no MainPage.xaml**e, em seguida, clique em **Ver Design**.
+1. A partir do Solution Explorer, clique à direita **no MainPage.xaml** e, em seguida, clique em **Ver Design**.
 2. Localizar &lt; Grid.RowDefinitions &gt; e modificar as LinhaDefinitions para que pareçam:
 
    ```xml
@@ -606,7 +606,7 @@ O Smooth Streaming é capaz de transmitir conteúdo com múltiplas faixas de áu
 
 ### <a name="to-modify-the-code-behind-file"></a>Para modificar o código por trás do ficheiro
 
-1. A partir do Solution Explorer, clique à direita **no MainPage.xaml**e, em seguida, clique em **Ver Código**.
+1. A partir do Solution Explorer, clique à direita **no MainPage.xaml** e, em seguida, clique em **Ver Código**.
 2. Dentro do espaço de nomes SSPlayer, adicione uma nova classe:
 
    ```csharp
@@ -841,7 +841,7 @@ Uma apresentação de Streaming Suave pode conter vários ficheiros de vídeo co
 
 ### <a name="to-modify-the-xaml-file"></a>Para modificar o ficheiro XAML
 
-1. A partir do Solution Explorer, clique à direita **no MainPage.xaml**e, em seguida, clique em **Ver Design**.
+1. A partir do Solution Explorer, clique à direita **no MainPage.xaml** e, em seguida, clique em **Ver Design**.
 2. Localizar a &lt; etiqueta Grid com o nome &gt; **gridStreamAndBitrateSelection,** apelece o seguinte código na extremidade da etiqueta:
    ```xml
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
@@ -863,7 +863,7 @@ Uma apresentação de Streaming Suave pode conter vários ficheiros de vídeo co
 
 ### <a name="to-modify-the-code-behind-file"></a>Para modificar o código por trás do ficheiro
 
-1. A partir do Solution Explorer, clique à direita **no MainPage.xaml**e, em seguida, clique em **Ver Código**.
+1. A partir do Solution Explorer, clique à direita **no MainPage.xaml** e, em seguida, clique em **Ver Código**.
 2. Dentro do espaço de nomes SSPlayer, adicione uma nova classe:
    ```csharp
         #region class Track

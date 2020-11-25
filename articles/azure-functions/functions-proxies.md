@@ -4,11 +4,11 @@ description: Visão geral de como usar Proxies de Funções Azure
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385879"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96020403"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com proxies de funções Azure
 
@@ -111,7 +111,7 @@ Desative completamente os vestígios adicionando `"debug":false` a qualquer proc
 Os proxies que configura são armazenados num *proxies.jsem* ficheiro, que está localizado na raiz de um diretório de aplicações de funções. Pode editar manualmente este ficheiro e implantá-lo como parte da sua aplicação quando utilizar qualquer um dos métodos de [implementação](./functions-continuous-deployment.md) que o Functions suporta. 
 
 > [!TIP] 
-> Se não tiver configurado um dos métodos de implantação, também pode trabalhar com o *proxies.jsficheiro no* portal. Aceda à sua aplicação de função, selecione **funcionalidades da Plataforma**e, em seguida, selecione **App Service Editor**. Ao fazê-lo, pode visualizar toda a estrutura de ficheiros da sua aplicação de função e, em seguida, fazer alterações.
+> Se não tiver configurado um dos métodos de implantação, também pode trabalhar com o *proxies.jsficheiro no* portal. Aceda à sua aplicação de função, selecione **funcionalidades da Plataforma** e, em seguida, selecione **App Service Editor**. Ao fazê-lo, pode visualizar toda a estrutura de ficheiros da sua aplicação de função e, em seguida, fazer alterações.
 
 *Proxies.jsé* definido por um objeto proxies, que é composto por proxies nomeados e suas definições. Opcionalmente, se o seu editor o apoiar, pode fazer referência a um [esquema JSON](http://json.schemastore.org/proxies) para a conclusão do código. Um ficheiro de exemplo pode parecer o seguinte:
 
@@ -182,8 +182,8 @@ Os proxies lêem todas as cordas de um ficheiro JSON, utilizando \ como símbolo
 O objeto requestOverrides define as alterações feitas ao pedido quando o recurso back-end é chamado. O objeto é definido pelas seguintes propriedades:
 
 * **backend.request.method**: O método HTTP que é usado para chamar de back-end.
-* **backend.request.consulta. \<ParameterName\> **: Um parâmetro de cadeia de consulta que pode ser definido para a chamada para a extremidade traseira. *\<ParameterName\>* Substitua-o pelo nome do parâmetro que pretende definir. Note que se for fornecida uma corda vazia, o parâmetro ainda está incluído no pedido de back-end.
-* **backend.request.headers. \<HeaderName\> **: Um cabeçalho que pode ser definido para a chamada para a parte de trás. *\<HeaderName\>* Substitua-o pelo nome do cabeçalho que pretende definir. Note que se for fornecida uma corda vazia, o parâmetro ainda está incluído no pedido de back-end.
+* **backend.request.consulta. \<ParameterName\>**: Um parâmetro de cadeia de consulta que pode ser definido para a chamada para a extremidade traseira. *\<ParameterName\>* Substitua-o pelo nome do parâmetro que pretende definir. Note que se for fornecida uma corda vazia, o parâmetro ainda está incluído no pedido de back-end.
+* **backend.request.headers. \<HeaderName\>**: Um cabeçalho que pode ser definido para a chamada para a parte de trás. *\<HeaderName\>* Substitua-o pelo nome do cabeçalho que pretende definir. Note que se for fornecida uma corda vazia, o parâmetro ainda está incluído no pedido de back-end.
 
 Os valores podem referenciar as definições e parâmetros da aplicação original a partir do pedido original do cliente.
 
@@ -215,7 +215,7 @@ O objeto requestOverrides define as alterações que são feitas à resposta que
 * **resposta.statusCode**: O código de estado HTTP a ser devolvido ao cliente.
 * **response.statusReason**: A frase http reason to retorna ao cliente.
 * **resposta.corpo**: A representação da corda do corpo a ser devolvida ao cliente.
-* **resposta.cabeçalhos. \<HeaderName\> **: Um cabeçalho que pode ser definido para a resposta ao cliente. *\<HeaderName\>* Substitua-o pelo nome do cabeçalho que pretende definir. Se fornecer a corda vazia, o cabeçalho não está incluído na resposta.
+* **resposta.cabeçalhos. \<HeaderName\>**: Um cabeçalho que pode ser definido para a resposta ao cliente. *\<HeaderName\>* Substitua-o pelo nome do cabeçalho que pretende definir. Se fornecer a corda vazia, o cabeçalho não está incluído na resposta.
 
 Os valores podem referenciar as definições de aplicações, os parâmetros do pedido original do cliente e os parâmetros da resposta de back-end.
 

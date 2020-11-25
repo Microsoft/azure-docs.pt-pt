@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040763"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021593"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar o Azure Log Analytics Nozzle para monitorização do sistema Cloud Foundry
 
@@ -61,11 +61,11 @@ Pode criar manualmente o espaço de trabalho Log Analytics ou utilizando um mode
 1. No portal Azure, procure a lista de serviços no Azure Marketplace e, em seguida, selecione log analytics espaços de trabalho.
 2. Selecione **Criar** e, em seguida, selecione escolhas para os seguintes itens:
 
-   * **Log Analytics workspace** : Digite um nome para o seu espaço de trabalho.
-   * **Subscrição** : Se tiver várias subscrições, escolha a que é igual à sua implementação de CF.
-   * **Grupo de recursos** : Pode criar um novo grupo de recursos ou utilizar o mesmo com a sua implementação de CF.
-   * **Localização** : Insira o local.
-   * **Nível de preços** : Selecione **OK** para completar.
+   * **Log Analytics workspace**: Digite um nome para o seu espaço de trabalho.
+   * **Subscrição**: Se tiver várias subscrições, escolha a que é igual à sua implementação de CF.
+   * **Grupo de recursos**: Pode criar um novo grupo de recursos ou utilizar o mesmo com a sua implementação de CF.
+   * **Localização**: Insira o local.
+   * **Nível de preços**: Selecione **OK** para completar.
 
 Para obter mais informações, consulte [Começar com os registos do Azure Monitor](../azure-monitor/overview.md).
 
@@ -76,13 +76,13 @@ Para obter mais informações, consulte [Começar com os registos do Azure Monit
 1. Digite "Cloud Foundry" na janela de pesquisa, selecione "Cloud Foundry Monitoring Solution".
 1. A primeira página do modelo de solução de monitorização Cloud Foundry está carregada, clique em "Criar" para lançar a lâmina do modelo.
 1. Introduza os parâmetros necessários:
-    * **Subscrição** : Selecione uma subscrição Azure para o espaço de trabalho Log Analytics, normalmente o mesmo com a implementação de Cloud Foundry.
-    * **Grupo de recursos** : Selecione um grupo de recursos existente ou crie um novo para o espaço de trabalho Log Analytics.
-    * **Localização do Grupo de Recursos** : Selecione a localização do grupo de recursos.
-    * **OMS_Workspace_Name** : Introduza um nome de espaço de trabalho, se o espaço de trabalho não existir, o modelo criará um novo.
-    * **OMS_Workspace_Region** : Selecione a localização para o espaço de trabalho.
-    * **OMS_Workspace_Pricing_Tier** : Selecione o espaço de trabalho Log Analytics SKU. Consulte [a orientação de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
-    * **Termos legais** : Clique em termos legais e, em seguida, clique em "Criar" para aceitar o termo legal.
+    * **Subscrição**: Selecione uma subscrição Azure para o espaço de trabalho Log Analytics, normalmente o mesmo com a implementação de Cloud Foundry.
+    * **Grupo de recursos**: Selecione um grupo de recursos existente ou crie um novo para o espaço de trabalho Log Analytics.
+    * **Localização do Grupo de Recursos**: Selecione a localização do grupo de recursos.
+    * **OMS_Workspace_Name**: Introduza um nome de espaço de trabalho, se o espaço de trabalho não existir, o modelo criará um novo.
+    * **OMS_Workspace_Region**: Selecione a localização para o espaço de trabalho.
+    * **OMS_Workspace_Pricing_Tier**: Selecione o espaço de trabalho Log Analytics SKU. Consulte [a orientação de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
+    * **Termos legais**: Clique em termos legais e, em seguida, clique em "Criar" para aceitar o termo legal.
 1. Depois de especificados todos os parâmetros, clique em "Criar" para implementar o modelo. Quando a implementação estiver concluída, o estado aparecerá no separador de notificação.
 
 
@@ -183,7 +183,7 @@ Se criou manualmente o espaço de trabalho Log Analytics, siga os passos abaixo 
 
 ### <a name="1-import-the-oms-view"></a>1. Importar a vista OMS
 
-A partir do portal OMS, navegue para **Ver Designer**  >  **Import**  >  **Browse** , e selecione um dos ficheiros omsview. Por exemplo, selecione *Cloud Foundry.omsview* e guarde a vista. Agora é apresentado um azulejo na página **'Vista Geral'.** Selecione-o para ver métricas visualizadas.
+A partir do portal OMS, navegue para **Ver Designer**  >  **Import**  >  **Browse**, e selecione um dos ficheiros omsview. Por exemplo, selecione *Cloud Foundry.omsview* e guarde a vista. Agora é apresentado um azulejo na página **'Vista Geral'.** Selecione-o para ver métricas visualizadas.
 
 Pode personalizar estas vistas ou criar novas vistas através do **View Designer.**
 
@@ -193,7 +193,7 @@ O *"Cloud Foundry.omsview"* é uma versão de pré-visualização do modelo de v
 
 Pode [criar os alertas](../azure-monitor/platform/alerts-overview.md)e personalizar as consultas e valores limiares conforme necessário. São recomendados os seguintes alertas:
 
-| Consulta de pesquisa                                                                  | Gerar alerta com base em | Description                                                                       |
+| Consulta de pesquisa                                                                  | Gerar alerta com base em | Descrição                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Número de resultados < 1   | **bbs. Domain.cf-apps** indicam se o domínio das aplicações de cf está atualizado. Isto significa que os pedidos de aplicações CF do Cloud Controller são sincronizados para bbs. LRPsDesired (AIs desejado por Diego) para execução. Nenhum dado recebido significa que o domínio das aplicações de cf não está atualizado na janela de tempo especificada. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Número de resultados > 0   | Para as células Diego, 0 significa saudável, e 1 significa insalubre. Desafie o alerta se várias células Diego não saudáveis forem detetadas na janela de tempo especificada. |

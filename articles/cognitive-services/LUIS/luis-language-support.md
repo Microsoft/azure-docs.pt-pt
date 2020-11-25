@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da43d0ef208d61ced6c8ca8dbc7603e0ef51155
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541395"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96021576"
 ---
 # <a name="language-and-region-support-for-luis"></a>Apoio linguístico e regional ao LUIS
 
@@ -28,7 +28,7 @@ Se precisar de uma aplicação de clientes LUIS multi-idiomas, como um chatbot, 
 
 LUIS compreende expressões nas seguintes línguas:
 
-| Idioma |Região  |  Domínio pré-construído | Entidade pré-construída | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
+| Linguagem |Região  |  Domínio pré-construído | Entidade pré-construída | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês (Estados Unidos) |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (pré-visualização - árabe moderno padrão) |`ar-AR`|-|-|-|-|
@@ -69,7 +69,7 @@ O suporte linguístico varia para [entidades pré-construídas](luis-reference-p
 Consulte [línguas apoiadas por discurso](../speech-service/speech-to-text.md) para línguas do modo ditador da fala.
 
 ### <a name="bing-spell-check-supported-languages"></a>Bing Spell Check línguas suportadas
-Consulte [as línguas suportadas por](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) Bing Spell Check para obter uma lista de línguas e estado suportados.
+Consulte [as línguas suportadas por](../bing-spell-check/language-support.md) Bing Spell Check para obter uma lista de línguas e estado suportados.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Palavras raras ou estrangeiras numa aplicação
 Na `en-us` cultura, LUIS aprende a distinguir a maioria das palavras inglesas, incluindo a gíria. Na `zh-cn` cultura, LUIS aprende a distinguir a maioria dos caracteres chineses. Se utilizar uma palavra rara `en-us` ou personagem em `zh-cn` , e você vê que LUIS parece incapaz de distinguir essa palavra ou personagem, você pode adicionar essa palavra ou personagem a uma [característica de lista de frases](luis-how-to-add-features.md). Por exemplo, palavras fora da cultura da aplicação - isto é, palavras estrangeiras - devem ser adicionadas a uma característica de lista de frases.
@@ -82,7 +82,7 @@ As línguas híbridas combinam palavras de duas culturas como o inglês e o chin
 ## <a name="tokenization"></a>Tokenização
 Para realizar machine learning, LUIS quebra uma expressão em [fichas baseadas](luis-glossary.md#token) na cultura.
 
-|Idioma|  cada espaço ou caráter especial | nível de caráter|palavras compostas
+|Linguagem|  cada espaço ou caráter especial | nível de caráter|palavras compostas
 |--|:--:|:--:|:--:|
 |Árabe|✔|||
 |Chinês||✔||
