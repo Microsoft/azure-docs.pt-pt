@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: c0c428997cfba8871a29d9bfe0df0a6920a1d22f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357594"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998673"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutorial: Configurar 4me para o provisionamento automático do utilizador
 
@@ -53,7 +53,7 @@ Antes de configurar 4me para o fornecimento automático de utilizadores com Azur
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza **4me** , selecione **4me** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, introduza **4me**, selecione **4me** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![4me na lista de resultados](common/search-new-app.png)
 
@@ -156,7 +156,7 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* 4me tem DIFERENTES URLs de ponto final SCIM para ambientes de teste e produção. O primeiro termina com **.qa** enquanto este termina com **.com**
+* 4me tem DIFERENTES URLs de ponto final SCIM para ambientes de teste e produção. O primeiro termina com **.qa** enquanto o segundo termina com **.com**
 * 4me gerados Em Tokens Secretos têm uma data de validade de um mês de geração.
 * 4me não suporta operações **DELETE**
 

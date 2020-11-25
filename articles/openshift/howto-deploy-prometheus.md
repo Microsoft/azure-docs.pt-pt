@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometheus, aro, openshift, métricas, chapéu vermelho
 ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218617"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996853"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Implemente uma instância prometheus autónoma num cluster Azure Red Hat OpenShift
 
@@ -36,7 +36,7 @@ Vais preparar alguns ficheiros config prometeu localmente. Crie uma nova pasta p
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Inscreva-se no cluster utilizando a ferramenta OC
 
-1. Abra um navegador web e, em seguida, vá para a consola web do seu cluster https://openshift (.* id aleatório*. *região*.azmosa.io).
+1. Abra um navegador web e, em seguida, vá para a consola web do seu cluster https://openshift (.*id aleatório*. *região*.azmosa.io).
 2. Inicie sessão com as credenciais do Azure.
 3. Selecione o seu nome de utilizador no canto superior direito e, em seguida, selecione **Copy Login Command**.
 4. Cole o seu nome de utilizador no terminal que utilizará.
@@ -188,7 +188,7 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 
 ## <a name="optional-deploy-example-application"></a>Opcional: Implementar aplicação de exemplo
 
-Está tudo a funcionar, mas não há fontes de métricas. Vá ao URL prometheus ( https://prom-prometheus-project.apps .* id aleatório*. *região*.azmosa.io/). Pode encontrá-lo utilizando o seguinte comando:
+Está tudo a funcionar, mas não há fontes de métricas. Vá ao URL prometheus ( https://prom-prometheus-project.apps .*id aleatório*. *região*.azmosa.io/). Pode encontrá-lo utilizando o seguinte comando:
 
 ```
 oc get route prom -n prometheus-project
@@ -206,7 +206,7 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 As novas aplicações devem aparecer como alvos válidos na página De Descoberta de Serviços no prazo de 30 segundos após a implementação.
 
-Para mais detalhes, selecione **Status**  >  **Alvos de**Estado .
+Para mais detalhes, selecione **Status**  >  **Alvos de** Estado .
 
 > [!NOTE]
 > Para cada alvo riscado com sucesso, Prometheus adiciona um ponto de dados na métrica de cima. Selecione **Prometheus** no canto superior esquerdo, **introduza-se** como expressão e, em seguida, selecione **Executar**.

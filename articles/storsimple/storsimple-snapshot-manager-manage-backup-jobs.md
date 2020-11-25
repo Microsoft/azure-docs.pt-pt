@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 3c26a84e32a17cba83b5ca895f146e561072fa62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054964"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998197"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Use storSimple Snapshot Manager para visualizar e gerir trabalhos de backup
 
 ## <a name="overview"></a>Descrição geral
-O nó **jobs** in the **Scope** pane mostra as tarefas de backup **agendadas,** **últimas 24 horas**e **executando** tarefas de backup que iniciou interativamente ou por uma política configurada. 
+O nó **jobs** in the **Scope** pane mostra as tarefas de backup **agendadas,** **últimas 24 horas** e **executando** tarefas de backup que iniciou interativamente ou por uma política configurada. 
 
 Este tutorial explica como você pode usar o nó **Jobs** para exibir informações sobre trabalhos de backup agendados, recentes e atualmente em execução de trabalhos de backup. (A lista de postos de trabalho e informações correspondentes aparece no painel **de resultados.)** Além disso, pode clicar com o direito de um trabalho listado e ver um menu de contexto que lista as ações disponíveis.
 
@@ -63,7 +63,7 @@ Utilize o seguinte procedimento para visualizar o backup e restaurar os trabalho
      ![Empregos que correram nas últimas 24 horas](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
 3. Para realizar ações adicionais num trabalho específico, clique com o nome do trabalho no painel **de resultados** e selecione a partir das opções do menu.
    
-    ![Apagar um trabalho](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
+    ![Eliminar trabalhos](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
 
 ## <a name="view-currently-running-jobs"></a>Ver trabalhos atualmente em execução
 Utilize o seguinte procedimento para visualizar os postos de trabalho que estão atualmente em curso.

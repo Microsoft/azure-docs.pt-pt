@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 105978daeb93a2e5646222ff10055ba20a1dc481
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7174f7dd53387de9a569a5ddcadc08c32692c749
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172898"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997108"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Alterar suporte de alimentação no armazenamento de blob Azure
 
@@ -21,7 +21,7 @@ O objetivo do feed de alteração é fornecer registos de transações de todas 
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
-O feed de alteração é armazenado como [bolhas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) num recipiente especial na sua conta de armazenamento a [um](https://azure.microsoft.com/pricing/details/storage/blobs/) preço normal. Pode controlar o período de retenção destes ficheiros com base nas suas necessidades (Ver as [condições](#conditions) da libertação atual). Os eventos de alteração são anexados ao feed de mudança como registos na especificação do formato [Apache Avro:](https://avro.apache.org/docs/1.8.2/spec.html) um formato compacto, rápido e binário que fornece estruturas de dados ricas com esquema inline. Este formato é amplamente utilizado no ecossistema Hadoop, Stream Analytics e Azure Data Factory.
+O feed de alteração é armazenado como [bolhas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) num recipiente especial na sua conta de armazenamento a [um](https://azure.microsoft.com/pricing/details/storage/blobs/) preço normal. Pode controlar o período de retenção destes ficheiros com base nas suas necessidades (Ver as [condições](#conditions) da libertação atual). Os eventos de alteração são anexados ao feed de mudança como registos na especificação do formato [Apache Avro:](https://avro.apache.org/docs/1.8.2/spec.html) um formato compacto, rápido e binário que fornece estruturas de dados ricas com esquema inline. Este formato é amplamente utilizado no ecossistema Hadoop, Stream Analytics e Azure Data Factory.
 
 Pode processar estes registos assíncronos, incrementalmente ou em pleno. Qualquer número de aplicações de clientes podem ler independentemente o feed de mudança, em paralelo, e ao seu próprio ritmo. Aplicações analíticas como [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) ou [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) podem consumir registos diretamente como ficheiros Avro, que permitem processá-los a baixo custo, com largura de banda alta, e sem ter que escrever uma aplicação personalizada.
 
@@ -105,7 +105,7 @@ Utilize um modelo de Gestor de Recursos Azure para ativar alterar o feed da sua 
 
 1. No portal Azure, escolha **Criar um recurso.**
 
-2. Em **Search the Marketplace**, **digitar a implementação do modelo**e, em seguida, premir **ENTER**.
+2. Em **Search the Marketplace**, **digitar a implementação do modelo** e, em seguida, premir **ENTER**.
 
 3. Escolha **[Implementar um modelo personalizado](https://portal.azure.com/#create/Microsoft.Template)** e, em seguida, escolher Construir o seu próprio modelo no **editor**.
 
@@ -206,7 +206,7 @@ O ficheiro manifesto de segmento `meta.json` mostra o caminho dos ficheiros de f
 
 Os ficheiros de alteração contêm uma série de registos de eventos de alteração. Cada registo de evento de alteração corresponde a uma alteração a uma bolha individual. Os registos são serializados e escritos para o ficheiro utilizando a especificação do formato [Apache Avro.](https://avro.apache.org/docs/1.8.2/spec.html) Os registos podem ser lidos utilizando a especificação do formato de ficheiro Avro. Existem várias bibliotecas disponíveis para processar ficheiros nesse formato.
 
-Os ficheiros de alimentação de alteração são armazenados no `$blobchangefeed/log/` diretório virtual como [bolhas de apêndice](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). O primeiro ficheiro de alimentação de alteração em cada caminho terá `00000` no nome do ficheiro (por `00000.avro` exemplo). O nome de cada ficheiro de registo subsequente adicionado a esse caminho irá aumentar por 1 (Por exemplo: `00001.avro` ).
+Os ficheiros de alimentação de alteração são armazenados no `$blobchangefeed/log/` diretório virtual como [bolhas de apêndice](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). O primeiro ficheiro de alimentação de alteração em cada caminho terá `00000` no nome do ficheiro (por `00000.avro` exemplo). O nome de cada ficheiro de registo subsequente adicionado a esse caminho irá aumentar por 1 (Por exemplo: `00001.avro` ).
 
 Os seguintes tipos de eventos são capturados nos registos de feed change:
 - BlobCreated
@@ -243,7 +243,7 @@ Aqui está um exemplo de registo de evento de mudança de ficheiro de feed de al
 }
 ```
 
-Para obter uma descrição de cada propriedade, consulte [o esquema de eventos da Azure Event Grid para o Blob Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Os eventos BlobPropertiesUpdated e BlobSnapshotCreated são atualmente exclusivos para alterar feed e ainda não suportados para Eventos de Armazenamento Blob.
+Para obter uma descrição de cada propriedade, consulte [o esquema de eventos da Azure Event Grid para o Blob Storage](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Os eventos BlobPropertiesUpdated e BlobSnapshotCreated são atualmente exclusivos para alterar feed e ainda não suportados para Eventos de Armazenamento Blob.
 
 > [!NOTE]
 > Os ficheiros de feed de alteração de um segmento não aparecem imediatamente após a criação de um segmento. A duração do atraso encontra-se dentro do intervalo normal de publicação da latência do feed de alteração, que se encontra a poucos minutos da alteração.

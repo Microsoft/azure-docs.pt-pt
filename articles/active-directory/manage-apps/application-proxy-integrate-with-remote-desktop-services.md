@@ -12,11 +12,11 @@ ms.date: 07/22/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 03e89b0da25a915a00c70a9a87bd0f675b8e12d6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658082"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997533"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o Ambiente de Trabalho Remoto com o Proxy de Aplicações do Azure AD
 
@@ -39,7 +39,7 @@ Numa implementação RDS, o papel da RD Web e o papel RD Gateway funcionam em m�
 >[!TIP]
 >Se ainda não implementou RDS antes, ou quer mais informações antes de começar, aprenda a [implementar o RDS de forma perfeita com o Azure Resource Manager e o Azure Marketplace.](/windows-server/remote/remote-desktop-services/rds-in-azure)
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 - Tanto os pontos finais rd Web como RD Gateway devem estar localizados na mesma máquina e com uma raiz comum. RD Web e RD Gateway são publicados como uma única aplicação com Application Proxy para que possa ter uma única experiência de sign-on entre as duas aplicações.
 
@@ -140,7 +140,7 @@ Para utilizar a autenticação passthrough, existem apenas duas modificações n
 1. Em Publicar o ponto [final do anfitrião RD](#publish-the-rd-host-endpoint) passo 1, definir o método de pré-autorização para **Passthrough**.
 2. No [tráfego RDS direto para Application Proxy,](#direct-rds-traffic-to-application-proxy)salte completamente o passo 8.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Ativar o acesso remoto ao SharePoint com o Proxy de Aplicações do Azure AD](application-proxy-integrate-with-sharepoint-server.md)
 - [Considerações de segurança para aceder remotamente a apps através da utilização de Proxy de Aplicação AD AZure](application-proxy-security.md)
 - [Melhores práticas para a carga equilibrando vários servidores de aplicações](application-proxy-high-availability-load-balancing.md#best-practices-for-load-balancing-among-multiple-app-servers)

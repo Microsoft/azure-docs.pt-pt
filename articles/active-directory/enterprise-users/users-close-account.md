@@ -5,7 +5,6 @@ services: active-directory
 author: rolyon
 manager: daveba
 ms.service: active-directory
-ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/20/2020
@@ -13,12 +12,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 142143f96314539051ea44c00c6ff95cb2650566
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 17a5042df0c2ebe9f1216ded1354c7beba28c911
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650211"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95996785"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Feche o seu trabalho ou conta escolar numa organização não gerida da AD AZure
 
@@ -53,7 +52,7 @@ Para fechar uma conta de trabalho ou escola não gerido, siga estes passos:
 
     ![Meus pedidos de dados - Confirme o encerramento](./media/users-close-account/confirm-close.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é inscrição de self-service para o Azure Ative Directory?](directory-self-service-signup.md)
 - [Eliminar o utilizador de um Inquilino Não Gerido](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)

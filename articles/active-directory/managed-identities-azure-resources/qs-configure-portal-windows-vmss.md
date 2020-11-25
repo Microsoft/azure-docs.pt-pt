@@ -16,11 +16,11 @@ ms.date: 02/20/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 43b986b6bb25dff1227247b1d249ce565553877a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91329138"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997414"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configure identidades geridas para recursos Azure em uma escala de máquina virtual definida usando o portal Azure
 
@@ -86,7 +86,7 @@ Atualmente, o portal Azure não suporta a atribuição de uma identidade gerida 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-virtual-machine-scale-set"></a>Atribua uma identidade gerida atribuída ao utilizador a um conjunto de escala de máquina virtual existente
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta associada à subscrição Azure que contém o conjunto de escalas de máquina virtual.
-2. Navegue para o conjunto de escala de máquina virtual desejado e clique em **Identidade,** **Utilizador designado** e, em seguida, ** \+ Adicionar**.
+2. Navegue para o conjunto de escala de máquina virtual desejado e clique em **Identidade,** **Utilizador designado** e, em seguida, **\+ Adicionar**.
 
    ![Screenshot que mostra a página "Identidade" com "User assigned" selecionado e o botão "Adicionar" realçado.](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
 

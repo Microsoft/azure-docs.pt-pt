@@ -9,11 +9,11 @@ ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.openlocfilehash: ac3ee108fc63441b2a9381b9e7624631bdca4e5b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289831"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998111"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação de serviço-a-serviço para Azure Key Vault usando .NET
 
@@ -167,7 +167,7 @@ Existem três métodos primários de utilização de um Diretor de Serviço para
           CertificateStoreLocation={CertificateStore}
     ```
 
-    Substitua *{AppId}* , *{TenantId}* e *{Thumbprint}* por valores gerados no Passo 1. Substitua *{CertificateStore}* por *LocalMachine* ' ou *CurrentUser* , com base no seu plano de implantação.
+    Substitua *{AppId}*, *{TenantId}* e *{Thumbprint}* por valores gerados no Passo 1. Substitua *{CertificateStore}* por *LocalMachine*' ou *CurrentUser*, com base no seu plano de implantação.
 
 1. Execute a aplicação.
 
@@ -185,7 +185,7 @@ Existem três métodos primários de utilização de um Diretor de Serviço para
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}
     ```
 
-    Substitua _{AppId}_ , _{TenantId}_ e _{ClientSecret}_ por valores gerados no Passo 1.
+    Substitua _{AppId}_, _{TenantId}_ e _{ClientSecret}_ por valores gerados no Passo 1.
 
 1. Execute a aplicação.
 

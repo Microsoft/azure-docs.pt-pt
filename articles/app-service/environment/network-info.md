@@ -8,11 +8,11 @@ ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150238"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997346"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente de Serviço de Aplicações #
 
@@ -25,7 +25,7 @@ ms.locfileid: "92150238"
 
 Todas as ASEs, Externas e ILB, têm um VIP público que é utilizado para o tráfego de gestão de entrada e como o endereço ao fazer chamadas da ASE para a internet. As chamadas de um ASE que vai para a internet deixam o VNet através do VIP atribuído para o ASE. O IP público deste VIP é a fonte IP para todas as chamadas do ASE que vão para a internet. Se as aplicações no seu ASE fizerem chamadas para recursos no seu VNet ou através de uma VPN, o IP de origem é um dos IPs na sub-rede utilizada pelo seu ASE. Como o ASE está dentro do VNet, também pode aceder a recursos dentro do VNet sem qualquer configuração adicional. Se o VNet estiver ligado à sua rede no local, as aplicações no seu ASE também têm acesso a recursos lá sem configuração adicional.
 
-![ASE externo][1] 
+![ASE externo][1] 
 
 Se tiver um ASE Externo, o VIP público é também o ponto final a que as suas aplicações ASE resolvem:
 
@@ -180,9 +180,9 @@ Quando os requisitos de entrada e saída forem tomados em consideração, os NSG
 
 ![Regras de segurança de entrada][4]
 
-Uma regra predefinida permite que os IPs no VNet falem com a sub-rede ASE. Outra regra padrão permite ao equilibrador de carga, também conhecido como VIP público, comunicar com o ASE. Para ver as regras predefinitivas, selecione **regras predefinitivas** ao lado do ícone **Adicionar.** Se colocar uma regra de negar tudo o resto antes das regras padrão, evita o tráfego entre o VIP e o ASE. Para evitar que o tráfego venha de dentro do VNet, adicione a sua própria regra para permitir a entrada. Utilize uma fonte igual à AzureLoadBalancer com um destino de **Qualquer** e uma gama portuária de **\*** . Como a regra NSG é aplicada à sub-rede ASE, não precisa de ser específico no destino.
+Uma regra predefinida permite que os IPs no VNet falem com a sub-rede ASE. Outra regra padrão permite ao equilibrador de carga, também conhecido como VIP público, comunicar com o ASE. Para ver as regras predefinitivas, selecione **regras predefinitivas** ao lado do ícone **Adicionar.** Se colocar uma regra de negar tudo o resto antes das regras padrão, evita o tráfego entre o VIP e o ASE. Para evitar que o tráfego venha de dentro do VNet, adicione a sua própria regra para permitir a entrada. Utilize uma fonte igual à AzureLoadBalancer com um destino de **Qualquer** e uma gama portuária de * *\** _. Como a regra NSG é aplicada à sub-rede ASE, não precisa de ser específico no destino.
 
-Se atribuiu um endereço IP à sua aplicação, certifique-se de que mantém as portas abertas. Para ver as portas, selecione endereços IP **do Ambiente de Serviço de Aplicações**  >  **IP addresses**.  
+Se atribuiu um endereço IP à sua aplicação, certifique-se de que mantém as portas abertas. Para ver as portas, selecione _ *Ambiente de Serviço de Aplicações** > **endereços IP**.  
 
 São necessários todos os artigos indicados nas seguintes regras de saída, com exceção do último item. Permitem o acesso à rede às dependências da ASE que foram notadas anteriormente neste artigo. Se bloquear algum deles, o seu ASE deixa de funcionar. O último item da lista permite ao seu ASE comunicar com outros recursos no seu VNet.
 
@@ -197,7 +197,7 @@ O túnel forçado é quando define rotas no seu VNet para que o tráfego de saí
 Quando cria um ASE no portal também criamos um conjunto de tabelas de rotas na sub-rede que é criada com o ASE.  Essas rotas simplesmente dizem para enviar tráfego de saída diretamente para a internet.  
 Para criar as mesmas rotas manualmente, siga estes passos:
 
-1. Aceda ao portal do Azure. Selecione **tabelas de**rota de rede  >  **Route Tables**.
+1. Aceda ao portal do Azure. Selecione **tabelas de** rota de rede  >  **Route Tables**.
 
 2. Crie uma nova tabela de rotas na mesma região que o seu VNet.
 

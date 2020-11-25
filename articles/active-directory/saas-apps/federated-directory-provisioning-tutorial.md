@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
 ms.openlocfilehash: 8ca7654d930247f70d85cbc20fbbeb961223f05f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359804"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998367"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Tutorial: Configure Diretório Federado para fornecimento automático de utilizadores
 
@@ -98,7 +98,7 @@ Para configurar o Diretório Federado para o fornecimento automático de utiliza
 
     :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Screenshot de uma página no portal Azure que exibe informações sobre o Diretório Federado. O valor U R L está em destaque." border="false":::
 
-6. CLIQUE **EM REGISTAR** -
+6. CLIQUE **EM REGISTAR**-
 
     :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Screenshot do menu principal no site do Diretório Federado. O botão 'Iniciar sessão' está realçado." border="false":::
 

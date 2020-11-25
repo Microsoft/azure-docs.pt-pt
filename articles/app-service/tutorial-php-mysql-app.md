@@ -8,11 +8,11 @@ ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 1053eb9772650dce040570bda04addf93df49178
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743529"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998055"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Tutorial: Construa uma app PHP e MySQL no Azure App Service
 
@@ -30,7 +30,7 @@ ms.locfileid: "92743529"
 
 :::image type="content" source="./media/tutorial-php-mysql-app/complete-checkbox-published.png" alt-text="Screenshot de um exemplo de aplicação PHP intitulado Lista de Tarefas.":::
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma base de dados MySQL no Azure
@@ -107,7 +107,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>Configurar a ligação ao MySQL
 
-Na raiz do repositório, crie um ficheiro com o nome *.env* . Copie as variáveis seguintes para o ficheiro *.env* . Substitua o espaço reservado _&lt; root_password>_ pela palavra-passe do utilizador raiz MySQL.
+Na raiz do repositório, crie um ficheiro com o nome *.env*. Copie as variáveis seguintes para o ficheiro *.env*. Substitua o espaço reservado _&lt; root_password>_ pela palavra-passe do utilizador raiz MySQL.
 
 ```txt
 APP_ENV=local
@@ -121,7 +121,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Para obter informações sobre como o Laravel utiliza o ficheiro _.env_ , veja [Configuração do Ambiente do Laravel](https://laravel.com/docs/5.4/configuration#environment-configuration).
+Para obter informações sobre como o Laravel utiliza o ficheiro _.env_, veja [Configuração do Ambiente do Laravel](https://laravel.com/docs/5.4/configuration#environment-configuration).
 
 ### <a name="run-the-sample-locally"></a>Executar o exemplo localmente
 
@@ -205,7 +205,7 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql-ser
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Ligar ao servidor MySQL de produção localmente
 
-Na janela de terminal local, ligue ao servidor MySQL no Azure. Utilize o valor especificado anteriormente para _&lt;>de utilizador de administração_ e _&lt;>de nome do servidor mysql_ . Quando lhe for pedida uma palavra-passe, utilize a que especificou quando criou a base de dados no Azure.
+Na janela de terminal local, ligue ao servidor MySQL no Azure. Utilize o valor especificado anteriormente para _&lt;>de utilizador de administração_ e _&lt;>de nome do servidor mysql_. Quando lhe for pedida uma palavra-passe, utilize a que especificou quando criou a base de dados no Azure.
 
 ```bash
 mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
@@ -242,7 +242,7 @@ Neste passo, vai ligar a aplicação PHP à base de dados MySQL que criou na Bas
 
 ### <a name="configure-the-database-connection"></a>Configurar a ligação à base de dados
 
-Na raiz do repositório, crie um ficheiro _.env.production_ e copie as variáveis seguintes para o mesmo. Substitua o>_ &lt; de nome do placeholder_ mysql-servidor em *DB_HOST* e *DB_USERNAME* .
+Na raiz do repositório, crie um ficheiro _.env.production_ e copie as variáveis seguintes para o mesmo. Substitua o>_ &lt; de nome do placeholder_ mysql-servidor em *DB_HOST* e *DB_USERNAME*.
 
 ```
 APP_ENV=production
@@ -379,7 +379,7 @@ Neste passo, vai implementar a aplicação PHP ligada ao MySQL no Serviço de Ap
 
 No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set).
 
-O comando seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua o _&lt; nome de aplicativos dos_ espaços reservados>e _&lt; o nome do meu servidor mysql-server>_ .
+O comando seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua o _&lt; nome de aplicativos dos_ espaços reservados>e _&lt; o nome do meu servidor mysql-server>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql-server-name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
@@ -402,13 +402,13 @@ Pode utilizar o método [getenv](https://www.php.net/manual/en/function.getenv.p
 
 O Laravel precisa de uma chave de aplicação no Serviço de Aplicações. Pode configurá-la nas definições da aplicação.
 
-Na janela de terminal local, utilize `php artisan` para gerar uma chave de aplicação nova sem a guardar em _.env_ .
+Na janela de terminal local, utilize `php artisan` para gerar uma chave de aplicação nova sem a guardar em _.env_.
 
 ```bash
 php artisan key:generate --show
 ```
 
-Na Cloud Shell, desaprove a chave de aplicação na aplicação Do Serviço de Aplicações utilizando o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) comando. Substitua o nome de>de _&lt; aplicação_ dos espaços reservados e _&lt; a saídaofphpartisankey:gere>_ .
+Na Cloud Shell, desaprove a chave de aplicação na aplicação Do Serviço de Aplicações utilizando o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) comando. Substitua o nome de>de _&lt; aplicação_ dos espaços reservados e _&lt; a saídaofphpartisankey:gere>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -428,7 +428,7 @@ Na Cloud Shell, desacorda o caminho da aplicação virtual utilizando o [`az res
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
-Por predefinição, o Azure App Service aponta o caminho de aplicação virtual raiz _/_ () para o diretório de raiz dos ficheiros de aplicações implantados _(sites\wwwroot_ ).
+Por predefinição, o Azure App Service aponta o caminho de aplicação virtual raiz _/_ () para o diretório de raiz dos ficheiros de aplicações implantados _(sites\wwwroot_).
 
 ::: zone-end
 
@@ -498,7 +498,7 @@ remote: Running deployment command...
 
 Navegue para `http://<app-name>.azurewebsites.net` e adicione algumas tarefas à lista.
 
-:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="Screenshot de um exemplo de aplicação PHP intitulado Lista de Tarefas.":::
+:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="Screenshot da aplicação Azure exemplo intitulado Lista de Tarefas mostrando novas tarefas adicionadas.":::
 
 Parabéns! Está agora a executar uma Aplicação PHP condicionada por dados no Serviço de Aplicações do Azure.
 
@@ -550,11 +550,11 @@ Na janela de terminal local, execute migrações de bases de dados do Laravel pa
 php artisan migrate
 ```
 
-Com base na [convenção de nomenclatura do Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), o modelo `Task` (veja _app/Task.php_ ) mapeia para a tabela `tasks` por predefinição.
+Com base na [convenção de nomenclatura do Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), o modelo `Task` (veja _app/Task.php_) mapeia para a tabela `tasks` por predefinição.
 
 ### <a name="update-application-logic"></a>Atualizar a lógica da aplicação
 
-Abra o ficheiro *routes/web.php* . A aplicação define as respetivas rotas e a lógica de negócio aqui.
+Abra o ficheiro *routes/web.php*. A aplicação define as respetivas rotas e a lógica de negócio aqui.
 
 No fim do ficheiro, adicione uma rota com o código abaixo:
 
@@ -577,7 +577,7 @@ O código anterior faz uma simples atualização ao modelo de dados, ao alternar
 
 ### <a name="update-the-view"></a>Atualizar a vista
 
-Abra o ficheiro *resources/views/tasks.blade.php* . Localize o código de início `<tr>` e substitua-o por:
+Abra o ficheiro *resources/views/tasks.blade.php*. Localize o código de início `<tr>` e substitua-o por:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
@@ -669,7 +669,7 @@ Para parar a transmissão de registos em fluxo em qualquer altura, escreva `Ctrl
 ::: zone-end
 
 > [!TIP]
-> Uma aplicação PHP pode utilizar o padrão [error_log()](https://php.net/manual/function.error-log.php) como saída para a consola. A aplicação de exemplo utiliza esta abordagem em _app/Http/routes.php_ .
+> Uma aplicação PHP pode utilizar o padrão [error_log()](https://php.net/manual/function.error-log.php) como saída para a consola. A aplicação de exemplo utiliza esta abordagem em _app/Http/routes.php_.
 >
 > Como uma arquitetura Web [o Laravel utiliza o Monolog](https://laravel.com/docs/5.4/errors) como fornecedor de registo. Para ver como o Monolog envia mensagens para a consola, veja [PHP: como utilizar o Monolog para iniciar sessão na consola (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >

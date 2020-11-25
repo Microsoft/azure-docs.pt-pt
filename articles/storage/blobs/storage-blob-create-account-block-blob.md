@@ -9,18 +9,18 @@ ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 65a60425f09e9cd7a3e06ca1624621ed8b9fdcbd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9350f9aeff90b75a4e1362f6fa2fa1b0d07f20cf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842078"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95997091"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Criar uma conta BlockBlobStorage
 
 O tipo de conta BlockBlobStorage permite criar blobs de bloco com características de desempenho premium. Este tipo de conta de armazenamento é otimizado para cargas de trabalho com altas taxas de transações ou que requerem tempos de acesso muito rápidos. Este artigo mostra como criar uma conta BlockBlobStorage utilizando o portal Azure, o Azure CLI ou Azure PowerShell.
 
-Para obter mais informações sobre as contas blockBlobStorage, consulte [a visão geral da conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Para obter mais informações sobre as contas blockBlobStorage, consulte [a visão geral da conta de armazenamento Azure](../common/storage-account-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -194,6 +194,6 @@ Para criar uma conta blob de bloco utilizando o CLI Azure, tem primeiro de insta
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+- Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de armazenamento Azure](../common/storage-account-overview.md).
 
-- Para mais informações sobre grupos de recursos, veja [Descrição Geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+- Para mais informações sobre grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).

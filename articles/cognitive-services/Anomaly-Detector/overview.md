@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/23/2020
 ms.author: mbullwin
 keywords: deteção de anomalias, aprendizagem automática, algoritmos
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 9b540f2e04ae8533a00f79d05e220d99964d9a34
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1a13b962a000e6e3b2143dc23f94b63c122bd963
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016608"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95999110"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detetor de Anomalias?
 
@@ -59,7 +59,7 @@ Para executar o Caderno, complete os seguintes passos:
 1. Selecione um dos cadernos.
 1. Adicione a sua chave de subscrição de API do Detetor de Anomalias válida à `subscription_key` variável.
 1. Mude a `endpoint` variável para o seu ponto final. Por exemplo: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. Na barra de menu superior, clique em **Cell**e, em seguida, **Run All**.
+1. Na barra de menu superior, clique em **Cell** e, em seguida, **Run All**.
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -85,6 +85,10 @@ Pode ler o [serviço de deteção de anomalias de séries de tempo na Microsoft]
 
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="deploy-on-premises-using-docker-containers"></a>Implantar nas instalações utilizando contentores Docker
+
+[Utilize recipientes de detetores de anomalias](anomaly-detector-container-howto.md) para implantar funcionalidades de API no local. Os contentores docker permitem-lhe aproximar o serviço dos seus dados por razões de conformidade, segurança ou outras razões operacionais.
 
 ## <a name="join-the-anomaly-detector-community"></a>Juntar-se à comunidade do Detetor de Anomalias
 

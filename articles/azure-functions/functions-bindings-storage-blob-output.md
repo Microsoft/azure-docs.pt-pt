@@ -7,11 +7,11 @@ ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 56d8078347b5de775b30c8db2c9412598070046c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285371"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998890"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Ligação de saída de armazenamento Azure Blob para funções Azure
 
@@ -394,7 +394,7 @@ O `@BlobOutput` atributo dá-lhe acesso à bolha que desencadeou a função. Se 
 
 | Enlace |  Referência |
 |---|---|
-| Blob | [Códigos de erro blob](/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| Blobs | [Códigos de erro blob](/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Blob, Mesa, Fila |  [Códigos de erro de armazenamento](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, Mesa, Fila |  [Resolução de problemas](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

@@ -1,15 +1,15 @@
 ---
-author: ramonarguelles
+author: msftradford
 ms.service: spatial-anchors
 ms.topic: include
-ms.date: 1/30/2019
-ms.author: rgarcia
-ms.openlocfilehash: 0e6f68daf22659b880827ad027268d9757c60063
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/20/2020
+ms.author: parkerra
+ms.openlocfilehash: 80685dee7907b81832c94044d1feb8fcf2e41bde
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971430"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95998501"
 ---
 ### <a name="open-the-publish-wizard"></a>Abra o assistente de publicação
 
@@ -21,9 +21,9 @@ Selecione **App Service**  >  **Publish** para abrir o painel **de Serviço de A
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure.
+Inicie sessão no portal do Azure.
 
-No painel **'Criar Serviço de Aplicações',** selecione **Adicionar uma conta**e, em seguida, iniciar sessão na sua subscrição Azure. Se já fez a sua assinatura, selecione a conta que pretende da lista de entrega.
+No painel **'Criar Serviço de Aplicações',** selecione **Adicionar uma conta** e, em seguida, iniciar sessão na sua subscrição Azure. Se já fez a sua assinatura, selecione a conta que pretende da lista de entrega.
 
    > [!NOTE]
    > Se já tiver sessão iniciada, não selecione ainda **Criar**.
@@ -35,7 +35,7 @@ No painel **'Criar Serviço de Aplicações',** selecione **Adicionar uma conta*
 
 Junto a **Grupo de recursos**, selecione **Novo**.
 
-Nomeie o grupo de recursos **myResourceGroup**e, em seguida, selecione **OK**.
+Nomeie o grupo de recursos **myResourceGroup** e, em seguida, selecione **OK**.
 
 ### <a name="create-an-app-service-plan"></a>Crie um plano do Serviço de Aplicações
 

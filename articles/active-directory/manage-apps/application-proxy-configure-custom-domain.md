@@ -12,13 +12,13 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: bef120e754c84798b2d1b48f4f00fbb8f5fb3c1d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656382"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997618"
 ---
-# <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configure domínios personalizados com Proxy de aplicação AD Azure
+# <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurar domínios personalizados com o Proxy de Aplicações do AAD
 
 Ao publicar uma aplicação através do Azure Ative Directory Application Proxy, cria um URL externo para os seus utilizadores. Este URL obtém o domínio predefinido *yourtenant.msappproxy.net*. Por exemplo, se publicar uma aplicação denominada *Despesas* no seu inquilino chamada *Contoso,* o URL externo é *https: \/ /expenses-contoso.msappproxy.net*. Se quiser utilizar o seu próprio nome de domínio em vez de *msappproxy.net,* pode configurar um domínio personalizado para a sua aplicação. 
 
@@ -137,7 +137,7 @@ Uma vez que um certificado é carregado para uma aplicação, também será auto
 
 Quando um certificado expira, recebe um aviso a dizer-lhe para enviar outro certificado. Se o certificado for revogado, os seus utilizadores poderão ver um aviso de segurança ao aceder à aplicação. Para atualizar o certificado para uma aplicação, navegue na página **de procuração** de aplicação para a aplicação, selecione **Certificate** e faça upload de um novo certificado. Se o certificado antigo não estiver a ser usado por outras aplicações, é apagado automaticamente. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ative o único sign-on das](application-proxy-configure-single-sign-on-with-kcd.md) suas aplicações publicadas com autenticação AZure AD.
 * [Acesso condicional](../conditional-access/concept-conditional-access-cloud-apps.md) para as suas aplicações publicadas na nuvem.

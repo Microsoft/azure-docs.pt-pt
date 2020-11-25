@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: jeedes
 ms.openlocfilehash: 5a2169db47ca5a6adcddbcc9558161370b896a62
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92509561"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997074"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smart-global-governance"></a>Tutorial: Azure Ative Directory integração única (SSO) com Smart Global Governance
 
@@ -108,25 +108,25 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
 
 Nesta secção, irá criar um utilizador de teste chamado B.Simon no portal Azure.
 
-1. No painel esquerdo do portal Azure, selecione **Azure Ative Directory**. Selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. No painel esquerdo do portal Azure, selecione **Azure Ative Directory**. Selecione **Utilizadores** e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** complete estes passos:
    1. Na caixa **Nome,** insira **B.Simon**.  
    1. Na caixa **do nome do utilizador,** \<username> @ \<companydomain> introduza \<extension> . . Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione **Mostrar a palavra-passe**e, em seguida, anotar o valor que é apresentado na caixa **palavra-passe.**
+   1. Selecione **Mostrar a palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa **palavra-passe.**
    1. Selecione **Criar**.
 
 ### <a name="grant-access-to-the-test-user"></a>Conceder acesso ao utilizador de teste
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo a esse utilizador acesso a Smart Global Governance.
 
-1. No portal Azure, selecione **aplicações Enterprise**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **aplicações Enterprise** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Smart Global Governance**.
 1. Na página geral da aplicação, na secção **Gerir,** selecione **Utilizadores e grupos**:
 
    ![Selecionar Utilizadores e grupos](common/users-groups-blade.png)
 
-1. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **de atribuição de adicionar:**
+1. **Selecione Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **de atribuição de adicionar:**
 
     ![Selecione Adicionar utilizador](common/add-assign-user.png)
 

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 0df9e4722136dafe94d1bfc84a7767e1e0144d69
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458307"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutorial: Integração do Diretório Ativo Azure com M-Files
 
@@ -143,7 +143,7 @@ Para configurar o Azure AD com um único sign-on com ficheiros M, execute os seg
 
     a. Para **nome,** tipo `<tenant-name>.cloudvault.m-files.com` . 
  
-    b. Para **o número de**porta , tipo **4466**. 
+    b. Para **o número de** porta , tipo **4466**. 
 
     c. Para **protocolo**, selecione **HTTPS**. 
 
@@ -182,7 +182,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, permite que Britta Simon utilize o Azure como único sinal, permitindo o acesso aos Ficheiros M.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **M-Files**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **M-Files**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

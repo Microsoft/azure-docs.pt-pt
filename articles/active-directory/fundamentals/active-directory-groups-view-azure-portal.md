@@ -14,11 +14,11 @@ ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ddedd753eb98a8656006c9dddc412e44330e1a21
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87797496"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996734"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -109,7 +109,7 @@ Agora que encontrou o grupo, pode ver todos os membros atribuídos.
 
     ![Lista de membros atribuídos ao grupo Política MDM – Oeste](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Este grupo é utilizado em vários processos de procedimentos que estão disponíveis na secção **Manuais de instruções** desta documentação. No entanto, se preferir não utilizar este grupo, pode eliminá-lo e aos respetivos membros atribuídos com os seguintes passos:
 
 1. Na página **Grupos - Todos os grupos**, procure o grupo **Política MDM - Oeste**.

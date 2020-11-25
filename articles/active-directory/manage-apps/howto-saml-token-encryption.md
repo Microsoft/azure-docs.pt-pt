@@ -16,11 +16,11 @@ ms.author: kenwith
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 820e2cb0d422597f0e649e6934fd8bb11c1521db
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659034"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997482"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Como: Configurar Azure AD SAML encriptação simbólica
 
@@ -217,7 +217,7 @@ Quando configurar um keyCredential utilizando o Gráfico, o PowerShell ou no man
     }  
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Descubra [como a Azure AD utiliza o protocolo SAML](../develop/active-directory-saml-protocol-reference.md)
 * Aprenda o formato, as características de segurança e o conteúdo dos [tokens SAML em Azure AD](../develop/reference-saml-tokens.md)

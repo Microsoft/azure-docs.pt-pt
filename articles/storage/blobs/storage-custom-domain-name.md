@@ -9,12 +9,12 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 5e6289fb4e3b5bb695b79589d544d0ae475f9774
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: dcc6f3bca80cb5860679327226d3e034c3e9b14a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314660"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996870"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob
 
@@ -79,7 +79,7 @@ Crie um registo CNAME para apontar para o nome de anfitrião. Um registo CNAME �
 
 1. Inscreva-se no site do seu registo de domínio e, em seguida, vá à página para gerir a definição de DNS.
 
-   Pode encontrar a página numa secção chamada **Nome de Domínio**, **DNS**ou **Gestão do Servidor de Nomes**.
+   Pode encontrar a página numa secção chamada **Nome de Domínio**, **DNS** ou **Gestão do Servidor de Nomes**.
 
 2. Encontre a secção para gerir os registos da CNAME. 
 
@@ -163,7 +163,7 @@ Crie um registo CNAME temporário para apontar para o nome de anfitrião. Um reg
 
 1. Inscreva-se no site do seu registo de domínio e, em seguida, vá à página para gerir a definição de DNS.
 
-   Pode encontrar a página numa secção chamada **Nome de Domínio**, **DNS**ou **Gestão do Servidor de Nomes**.
+   Pode encontrar a página numa secção chamada **Nome de Domínio**, **DNS** ou **Gestão do Servidor de Nomes**.
 
 2. Encontre a secção para gerir os registos da CNAME. 
 
@@ -211,7 +211,7 @@ Crie um registo CNAME temporário para apontar para o nome de anfitrião.
 
 1. Inscreva-se no site do seu registo de domínio e, em seguida, vá à página para gerir a definição de DNS.
 
-   Pode encontrar a página numa secção chamada **Nome de Domínio**, **DNS**ou **Gestão do Servidor de Nomes**.
+   Pode encontrar a página numa secção chamada **Nome de Domínio**, **DNS** ou **Gestão do Servidor de Nomes**.
 
 2. Encontre a secção para gerir os registos da CNAME. 
 
@@ -250,7 +250,7 @@ Depois de o domínio personalizado ter sido removido com sucesso, verá uma noti
 
 #### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para remover um registo de domínio personalizado, utilize o comando CLI [da conta de armazenamento az](https://docs.microsoft.com/cli/azure/storage/account) e, em seguida, especifique uma cadeia vazia `""` () para o valor do `--custom-domain` argumento.
+Para remover um registo de domínio personalizado, utilize o comando CLI [da conta de armazenamento az](/cli/azure/storage/account) e, em seguida, especifique uma cadeia vazia `""` () para o valor do `--custom-domain` argumento.
 
 * Formato de comando:
 
@@ -320,11 +320,11 @@ Para mapear um domínio personalizado e permitir o acesso a HTTPS, faça o segui
 
 4. (Opcional) Reveja as seguintes orientações:
 
-   * [Fichas de assinatura de acesso partilhado (SAS) com CDN Azure](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#shared-access-signatures).
+   * [Fichas de assinatura de acesso partilhado (SAS) com CDN Azure](../../cdn/cdn-storage-custom-domain-https.md#shared-access-signatures).
 
-   * [Reorientação HTTP-to-HTTPS com Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [Reorientação HTTP-to-HTTPS com Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
-   * [Preços e faturação ao utilizar o Blob Storage com Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
+   * [Preços e faturação ao utilizar o Blob Storage com Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
 ## <a name="next-steps"></a>Passos seguintes
 

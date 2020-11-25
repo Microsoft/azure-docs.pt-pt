@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
 ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379420"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997053"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Tutorial: Monitor publicado APIs
 
 Com o Azure Monitor, pode visualizar, consultar, encaminhar, arquivar e tomar ações sobre as métricas ou registos provenientes do seu serviço de Gestão API Azure.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Ver métricas da API 
@@ -56,7 +56,7 @@ Para aceder a métricas:
 
 1. Na lista pendente, selecione as métricas que lhe interessam. Por exemplo, **Pedidos**. 
 1. O gráfico mostra o número total de chamadas à API.
-1. O gráfico pode ser filtrado utilizando as dimensões da métrica **Solicitações.** Por exemplo, **selecione Adicionar filtro** , selecione **Backend Response Code Category** , introduza 500 como valor. Agora, o gráfico mostra o número de pedidos que foram falhados no backend da API.   
+1. O gráfico pode ser filtrado utilizando as dimensões da métrica **Solicitações.** Por exemplo, **selecione Adicionar filtro**, selecione **Backend Response Code Category**, introduza 500 como valor. Agora, o gráfico mostra o número de pedidos que foram falhados no backend da API.   
 
 ## <a name="set-up-an-alert-rule"></a>Estabeleça uma regra de alerta 
 
@@ -77,10 +77,10 @@ Para configurar uma regra de alerta de exemplo com base numa métrica de pedido:
 1. Na janela **de regras de alerta Criar,** **selecione a condição**.
 1. Na janela lógica de **sinal de configuração:**
     1. No **tipo sinal,** selecione **Métricas**.
-    1. No **nome Signal** , selecione **Pedidos**.
+    1. No **nome Signal**, selecione **Pedidos**.
     1. Em **Divisão por dimensões,** em **nome Dimension,** selecione **Gateway Response Code Category**.
-    1. Em **Valores de Dimensão** , selecione **4xx,** para erros do cliente, tais como pedidos não autorizados ou inválidos.
-    1. Na **lógica de alerta** , especifique um limiar após o qual o alerta deve ser acionado e selecione **Feito**.
+    1. Em **Valores de Dimensão**, selecione **4xx,** para erros do cliente, tais como pedidos não autorizados ou inválidos.
+    1. Na **lógica de alerta**, especifique um limiar após o qual o alerta deve ser acionado e selecione **Feito**.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold.png" alt-text="Screenshot das janelas Configure Signal Logic":::
 

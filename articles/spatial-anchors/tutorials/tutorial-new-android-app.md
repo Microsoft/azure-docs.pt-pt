@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Criar uma nova aplicação Android'
 description: Neste tutorial, aprende-se a criar uma nova aplicação Android utilizando âncoras espaciais Azure.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 06/22/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3ef24e29e5dde90aa829c46d789256e6e5f3233b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0d01a20728d2332d4a8d71819f73baf68a65a4
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85296207"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95998396"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar uma nova aplicação Android usando âncoras espaciais Azure
 
@@ -30,11 +30,11 @@ Para concluir este tutorial, confirme que tem:
 
 Inicie o Android Studio. Na janela **Welcome to Android Studio,** clique **em Iniciar um novo projeto Android Studio**. Ou, se tiver um projeto já aberto, selecione **File** -> **New Project**.
 
-Na janela **Criar Novo Projeto,** na secção **Telefone e Tablet,** escolha **Atividade Vazia**e clique em **Seguinte**. Em seguida, ao **nível mínimo de API,** escolha `API 26: Android 8.0 (Oreo)` e certifique-se de que a **língua** está definida para `Java` . Pode querer alterar o Nome do Projeto & Localização e o nome do Pacote. Deixe as outras opções como estão. Clique em **Concluir**. O **Instalador de Componentes** funcionará. Uma vez feito, clique em **Terminar.** Depois de algum processamento, o Android Studio abrirá o IDE.
+Na janela **Criar Novo Projeto,** na secção **Telefone e Tablet,** escolha **Atividade Vazia** e clique em **Seguinte**. Em seguida, ao **nível mínimo de API,** escolha `API 26: Android 8.0 (Oreo)` e certifique-se de que a **língua** está definida para `Java` . Pode querer alterar o Nome do Projeto & Localização e o nome do Pacote. Deixe as outras opções como estão. Clique em **Concluir**. O **Instalador de Componentes** funcionará. Uma vez feito, clique em **Terminar.** Depois de algum processamento, o Android Studio abrirá o IDE.
 
 ## <a name="trying-it-out"></a>Experimentando
 
-Para testar a sua nova aplicação, ligue o seu dispositivo ativado pelo programador à sua máquina de desenvolvimento com um cabo USB. Clique **em Executar**executar -> **'app'.** Na janela **'Destino de implementação' Selecione,** selecione o seu dispositivo e clique em **OK**. O Android Studio instala a aplicação no seu dispositivo conectado e inicia-a. Devias ver "Olá Mundo!" exibida na aplicação em execução no seu dispositivo. Clique **em Executar** -> **'app' de 'run'.**
+Para testar a sua nova aplicação, ligue o seu dispositivo ativado pelo programador à sua máquina de desenvolvimento com um cabo USB. Clique **em Executar** executar -> **'app'.** Na janela **'Destino de implementação' Selecione,** selecione o seu dispositivo e clique em **OK**. O Android Studio instala a aplicação no seu dispositivo conectado e inicia-a. Devias ver "Olá Mundo!" exibida na aplicação em execução no seu dispositivo. Clique **em Executar** -> **'app' de 'run'.**
 
 ## <a name="integrating-_arcore_"></a>Integração _ARCore_
 
@@ -134,7 +134,7 @@ dependencies {
 }
 ```
 
-Clique à direita `app\java\<PackageName>` -> **na Classe Nova** -> **Java.** Definir **Nome** para _MyFirstApp_e **Superclass** para _android.app.Application_. Deixe as outras opções como estão. Clique em **OK**. Será criado um ficheiro `MyFirstApp.java` chamado. Adicione-lhe a seguinte importação:
+Clique à direita `app\java\<PackageName>` -> **na Classe Nova** -> **Java.** Definir **Nome** para _MyFirstApp_, e **Superclass** para _android.app.Application_. Deixe as outras opções como estão. Clique em **OK**. Será criado um ficheiro `MyFirstApp.java` chamado. Adicione-lhe a seguinte importação:
 
 ```java
 import com.microsoft.CloudServices;
@@ -227,6 +227,6 @@ Agora, vamos ligar o código que será invocado quando a âncora que estamos a p
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=initializeSession&highlight=34-53)]
 
-Já está. [Reimplantar](#trying-it-out) a sua app uma última vez para experimentar todo o cenário de ponta a ponta. Mova-se ao redor do seu dispositivo, e coloque a sua esfera negra. Em seguida, continue a mover o seu dispositivo para capturar as molduras das câmaras até que a esfera fique amarela. A tua âncora local será carregada, e a tua esfera ficará azul. Finalmente, toque no seu ecrã mais uma vez, para que a sua âncora local seja removida, e depois vamos consultar a sua contraparte na nuvem. Continue a mover o seu dispositivo até que a sua âncora espacial em nuvem esteja localizada. Uma esfera verde deve aparecer na localização correta, e pode enxaguar & repetir todo o cenário novamente.
+Já está! [Reimplantar](#trying-it-out) a sua app uma última vez para experimentar todo o cenário de ponta a ponta. Mova-se ao redor do seu dispositivo, e coloque a sua esfera negra. Em seguida, continue a mover o seu dispositivo para capturar as molduras das câmaras até que a esfera fique amarela. A tua âncora local será carregada, e a tua esfera ficará azul. Finalmente, toque no seu ecrã mais uma vez, para que a sua âncora local seja removida, e depois vamos consultar a sua contraparte na nuvem. Continue a mover o seu dispositivo até que a sua âncora espacial em nuvem esteja localizada. Uma esfera verde deve aparecer na localização correta, e pode enxaguar & repetir todo o cenário novamente.
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-new-android-app-finished.md)]

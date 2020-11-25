@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3365a58a0c667ca55b74a5120cdd7a78ad0abc79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299915"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997788"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect opções de inscrição do utilizador
 O Azure Ative Directory (Azure AD) Connect permite que os seus utilizadores entrem em súmia e recursos no local utilizando as mesmas palavras-passe. Este artigo descreve conceitos-chave para cada modelo de identidade para ajudá-lo a escolher a identidade que pretende usar para iniciar sessão no Azure AD.
@@ -68,7 +68,7 @@ A autenticação pass-through utiliza um agente simples numa máquina de domíni
 Além disso, também pode ativar um único sinal de inscrição para utilizadores em máquinas de domínio que estão na rede corporativa. Com um único s-on, os utilizadores ativados apenas precisam de introduzir um nome de utilizador para ajudá-los a aceder de forma segura aos recursos na nuvem.
 ![Autenticação pass-through](./media/plan-connect-user-signin/pta.png)
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 - [Autenticação pass-through](how-to-connect-pta.md)
 - [Início de sessão único](how-to-connect-sso.md)
 

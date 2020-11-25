@@ -4,11 +4,11 @@ description: ReliableConcurrentQueue é uma fila de alta produção que permite 
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.openlocfilehash: 423ef3d1898176d7c25c596ad186a9c000108aa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257453"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997125"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução à ReliableConcurrentQueue em Tecido de Serviço Azure
 A Fila Simultânea fiável é uma fila assíncronea, transacional e replicada que apresenta alta concordância para operações de enquecidismo e deques. É projetado para fornecer alta produção e baixa latência, relaxando a rigorosa encomenda FIFO fornecida pela [Fila Fiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) e, em vez disso, proporciona uma encomenda de melhor esforço.
@@ -33,7 +33,7 @@ Um caso de utilização de amostras para o ReliableConcurrentQueue é o cenário
 * A fila espera que os itens na fila tenham um período de retenção baixo. Ou seja, os artigos não ficariam na fila por muito tempo.
 * A fila não garante uma encomenda rigorosa do FIFO.
 * A fila não lê os seus próprios escritos. Se um item for enfeitado dentro de uma transação, não será visível para um dequeuer dentro da mesma transação.
-* Os deques não estão isolados um do outro. Se o item *A* for dequeu-se em *txnA*de transação, mesmo que a *txnA* não seja cometida, o ponto *A* não seria visível para uma transação simultânea *txnB*.  Se *o txnA* abortar, *A* tornar-se-á visível imediatamente para *txnB.*
+* Os deques não estão isolados um do outro. Se o item *A* for dequeu-se em *txnA* de transação, mesmo que a *txnA* não seja cometida, o ponto *A* não seria visível para uma transação simultânea *txnB*.  Se *o txnA* abortar, *A* tornar-se-á visível imediatamente para *txnB.*
 * O comportamento *do TryPeekAsync* pode ser implementado utilizando um *TryDequeueAsync* e, em seguida, abortar a transação. Um exemplo deste comportamento pode ser encontrado na secção Padrões de Programação.
 * O conde não é transacional. Pode ser usado para ter uma ideia do número de elementos na fila, mas representa um ponto no tempo e não pode ser confiado.
 * O processamento dispendioso dos itens desossetados não deve ser realizado enquanto a transação estiver ativa, para evitar transações de longa duração que possam ter um impacto de desempenho no sistema.
@@ -164,7 +164,7 @@ Quando abortarmos a transação, os itens seriam adicionados de volta à cabeça
 > 
 > 20, 10
 
-O mesmo acontece com todos os casos em que a transação não foi *comprometida*com sucesso.
+O mesmo acontece com todos os casos em que a transação não foi *comprometida* com sucesso.
 
 ## <a name="programming-patterns"></a>Padrões de programação
 Nesta secção, vejamos alguns padrões de programação que podem ser úteis na utilização do ReliableConcurrentQueue.

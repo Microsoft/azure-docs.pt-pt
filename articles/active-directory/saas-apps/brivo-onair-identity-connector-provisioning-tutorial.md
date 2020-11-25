@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
 ms.openlocfilehash: 4f230a70ae87c7c0ec9db347e7cf975c0252bb18
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357815"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998094"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>Tutorial: Configurar o Conector de Identidade Brivo Onair brivo para o fornecimento automático do utilizador
 
@@ -80,7 +80,7 @@ Antes de configurar o Conector de Identidade Brivo Onair para o fornecimento aut
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira o **Conector de Identidade Brivo Onair** , selecione **Brivo Onair Identity Connector** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira o **Conector de Identidade Brivo Onair**, selecione **Brivo Onair Identity Connector** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Conector de identidade Brivo Onair na lista de resultados](common/search-new-app.png)
 

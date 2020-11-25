@@ -14,11 +14,11 @@ ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f47ae9b087615a77f6bd4d3f14f1b0052037cba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321978"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996764"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Adicione as informações de privacidade da sua organização usando o Azure Ative Directory
 Este artigo explica como um administrador inquilino pode adicionar informações relacionadas com a privacidade ao inquilino Azure Ative Directory (Azure AD) de uma organização, através do portal Azure.
@@ -34,7 +34,7 @@ Você adiciona as informações de privacidade da sua organização na área **d
 
 1. Inscreva-se no portal Azure como administrador de inquilinos.
 
-2. Na navbar esquerda, selecione **Azure Ative Directory**e, em seguida, selecione **Propriedades**.
+2. Na navbar esquerda, selecione **Azure Ative Directory** e, em seguida, selecione **Propriedades**.
 
     A área **de Propriedades** aparece.
 
@@ -49,7 +49,7 @@ Você adiciona as informações de privacidade da sua organização na área **d
     - **URL de declaração de privacidade.** Digite o link para o documento da sua organização que descreve como a sua organização lida com a privacidade dos dados internos e externos dos hóspedes.
 
         >[!Important]
-        >Se não incluir nem a sua própria declaração de privacidade nem o seu contacto de privacidade, os seus hóspedes externos verão texto na caixa **de Permissões de Revisão** que diz que o ** < _seu nome org_> não forneceu links para os seus termos para que possa rever.** Por exemplo, um utilizador convidado verá esta mensagem quando receber um convite para aceder a uma organização através da colaboração B2B.
+        >Se não incluir nem a sua própria declaração de privacidade nem o seu contacto de privacidade, os seus hóspedes externos verão texto na caixa **de Permissões de Revisão** que diz que o **< _seu nome org_> não forneceu links para os seus termos para que possa rever.** Por exemplo, um utilizador convidado verá esta mensagem quando receber um convite para aceder a uma organização através da colaboração B2B.
 
         ![Caixa de permissões de revisão de colaboração B2B com mensagem](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 

@@ -13,11 +13,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1257c783ffeae68bf338b21a5d2f6bba72ea25b3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836432"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997771"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar da federação para a autenticação pass-through para o Azure Ative Directory
 
@@ -419,7 +419,7 @@ Depois de validar que todos os utilizadores e clientes estão a autenticar com s
 
 Se não utilizar FS AD para outros fins (isto é, para outros fidedignos), é seguro desativar a AD FS neste momento.
 
-### <a name="rollback"></a>Recuo
+### <a name="rollback"></a>Reversão
 
 Se descobrir um problema importante e não conseguir resolvê-lo rapidamente, pode optar por reverter a solução para a federação.
 

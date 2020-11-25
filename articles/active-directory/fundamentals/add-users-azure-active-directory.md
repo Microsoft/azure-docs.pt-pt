@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370819"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996700"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou eliminar utilizadores usando o Azure Ative Directory
 
@@ -34,7 +34,7 @@ Para adicionar um novo utilizador, siga estes passos:
 
 1. Procure e selecione *Azure Ative Directory* a partir de qualquer página.
 
-1. Selecione **Utilizadores**e, em seguida, selecione **Novo utilizador**.
+1. Selecione **Utilizadores** e, em seguida, selecione **Novo utilizador**.
 
     ![Adicionar um utilizador através dos Utilizadores - Todos os utilizadores em Azure AD](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
 
@@ -44,7 +44,7 @@ Para adicionar um novo utilizador, siga estes passos:
 
    - **Nome do utilizador**. Obrigatório. O nome de utilizador do novo utilizador. Por exemplo, `mary@contoso.com`.
 
-     A parte de domínio do nome de utilizador deve utilizar o nome de domínio inicial, * \<yourdomainname> .onmicrosoft.com*, ou um nome de domínio personalizado, como *contoso.com*. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [Adicionar o seu nome de domínio personalizado utilizando o portal Azure Ative Directory](add-custom-domain.md).
+     A parte de domínio do nome de utilizador deve utilizar o nome de domínio inicial, *\<yourdomainname> .onmicrosoft.com*, ou um nome de domínio personalizado, como *contoso.com*. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [Adicionar o seu nome de domínio personalizado utilizando o portal Azure Ative Directory](add-custom-domain.md).
 
    - **Grupos**. Opcionalmente, pode adicionar o utilizador a um ou mais grupos existentes. Também pode adicionar o utilizador a grupos mais tarde. Para obter mais informações sobre a adição de utilizadores a grupos, consulte [criar um grupo básico e adicionar membros usando o Azure Ative Directory](active-directory-groups-create-azure-portal.md).
 

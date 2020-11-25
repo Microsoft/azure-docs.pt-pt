@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: eca64411ccb61e5dcbac5e988f12096550eaaa2c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4ec2deaf3149e174cce201d0bbad8a55d156d30f
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101005"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95998345"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Problemas de resolução de problemas quando se utiliza o Azure Cosmos DB Async Java SDK v2 com contas API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -181,9 +181,9 @@ Ao `observeOn(customScheduler)` utilizar, desbloqueie a linha Netty IO e mude pa
 ### <a name="request-rate-too-large"></a>Taxa de pedido demasiado grande
 Esta falha é uma falha do lado do servidor. Indica que consumiu o seu rendimento. Tentar mais tarde. Se você receber esta falha com frequência, considere um aumento na produção de coleção.
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha na ligação ao emulador Azure Cosmos DB
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha na ligação ao Emulador Azure Cosmos DB
 
-O certificado https do emulador Azure Cosmos DB é auto-assinado. Para que o SDK trabalhe com o emulador, importe o certificado de emulador para uma Loja Java TrustStore. Para mais informações, consulte [os certificados emuladores Export Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
+O certificado HTTPS do Azure Cosmos DB é auto-assinado. Para que o SDK trabalhe com o emulador, importe o certificado de emulador para uma Loja Java TrustStore. Para mais informações, consulte [os certificados emuladores Export Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
 
 ### <a name="dependency-conflict-issues"></a>Questões de Conflito de Dependência
 
