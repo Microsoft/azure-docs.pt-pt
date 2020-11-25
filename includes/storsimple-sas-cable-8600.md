@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f08a6b3f7abfc79bff6baff2a339053905612535
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184293"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026034"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Para fixar os cabos SAS
 1. Identifique os recintos primários e ebod. Os dois recintos podem ser identificados olhando para os respetivos planos traseiros. Consulte a seguinte imagem para obter orientação. 
@@ -22,7 +22,7 @@ ms.locfileid: "67184293"
    |:--- |:--- |
    | 1 |Recinto primário |
    | 2 |Recinto EBOD |
-2. Localize os números de série nas caixas primárias e EBOD. O autocolante do número de série é afixado na orelha traseira de cada caixa. Os números de série devem ser idênticos em ambos os recintos. [Contacte](../articles/storsimple/storsimple-contact-microsoft-support.md) imediatamente o Microsoft Support se os números de série não corresponderem. Consulte a seguinte ilustração para localizar os números de série.
+2. Localize os números de série nas caixas primárias e EBOD. O autocolante do número de série é afixado na orelha traseira de cada caixa. Os números de série devem ser idênticos em ambos os recintos. [Contacte](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) imediatamente o Microsoft Support se os números de série não corresponderem. Consulte a seguinte ilustração para localizar os números de série.
    
     ![Vista traseira do recinto mostrando o número de série](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
    
@@ -51,4 +51,3 @@ ms.locfileid: "67184293"
       | 4 |Controlador EBOD 1 |
       | 5, 6 |Portas SAS no recinto primário (etiquetada EBOD) |
       | 7, 8 |Portas SAS no recinto EBOD (Porto A) |
-
