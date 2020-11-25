@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: bdafb4288bf818928aba43d09f15d4dd75092b24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85564234"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014844"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Substitua um controlador EBOD no seu dispositivo StorSimple
 
@@ -42,7 +42,7 @@ Antes de substituir o módulo de controlador EBOD falhado no seu dispositivo Sto
 
 #### <a name="to-remove-an-ebod-module"></a>Para remover um módulo EBOD
 1. Abra o portal do Azure.
-2. Vá ao seu dispositivo e navegue para **a saúde**do hardware de definições  >  **Hardware health**, e verifique se o estado do LED para o módulo controlador EBOD ativo é verde e o LED para o módulo controlador EBOD falhado é vermelho.
+2. Vá ao seu dispositivo e navegue para **a saúde** do hardware de definições  >  **Hardware health**, e verifique se o estado do LED para o módulo controlador EBOD ativo é verde e o LED para o módulo controlador EBOD falhado é vermelho.
 3. Localize o módulo de controlador EBOD falhado na parte de trás do dispositivo.
 4. Retire os cabos que ligam o módulo do controlador EBOD ao controlador antes de retirar o módulo EBOD do sistema.
 5. Tome nota da porta SAS exata do módulo controlador EBOD que foi ligado ao controlador. Será necessário restaurar o sistema a esta configuração depois de substituir o módulo EBOD.

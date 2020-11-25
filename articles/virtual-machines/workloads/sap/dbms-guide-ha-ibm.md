@@ -9,11 +9,11 @@ ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
 ms.openlocfilehash: 0cd1458c90970e219f2929e26423e455ba647a28
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951320"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015116"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidade de IBM Db2 LUW em VMs Azure no SUSE Linux Enterprise Server com Pacemaker
 
@@ -101,7 +101,7 @@ Complete o processo de planeamento antes de executar a implementação. O planea
 | Nome de anfitrião virtual e IP virtual para base de dados IBM Db2| O ip virtual ou o nome do anfitrião que é usado para a ligação de servidores de aplicações SAP. **db-virt-hostname,** **db-virt-ip**. |
 | Esgrima azul | Esgrima azul ou esgrima SBD (altamente recomendado). Método para evitar situações cerebrais divididas. |
 | SBD VM | Tamanho da máquina virtual SBD, armazenamento, rede. |
-| Balanceador de Carga do Azure | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
+| Azure Load Balancer | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
 | Resolução de nomes| Como funciona a resolução de nomes no ambiente. O serviço DNS é altamente recomendado. O ficheiro de anfitriões locais pode ser usado. |
     
 Para obter mais informações sobre o Pacemaker Linux em Azure, consulte [Configurar o Pacemaker no SUSE Linux Enterprise Server em Azure](./high-availability-guide-suse-pacemaker.md).
@@ -492,7 +492,7 @@ O arquivo de registos é realizado apenas pela base de dados primária. Se alter
 
 Recomendamos configurar uma partilha comum de NFS onde os registos são escritos de ambos os nós. A quota da NFS tem de estar altamente disponível. 
 
-Você pode usar ações NFS altamente disponíveis para transportes ou um diretório de perfil. Para obter mais informações, consulte:
+Você pode usar ações NFS altamente disponíveis para transportes ou um diretório de perfil. Para obter mais informações, veja:
 
 - [Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server][nfs-ha] 
 - [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](./high-availability-guide-suse-netapp-files.md)

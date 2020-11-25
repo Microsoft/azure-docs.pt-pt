@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
 ms.openlocfilehash: b89ae74a1f4ead568a5454c9494d4a82b0eeea3e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521344"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015184"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Tutorial: Integração do Azure Ative Directory com Mitel MiCloud Connect ou CloudLink Platform
 
@@ -51,7 +51,7 @@ Para configurar a integração do Mitel Connect no Azure AD, é necessário adic
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as Aplicações**.
+2. Selecione **Aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -178,7 +178,7 @@ Nesta secção, irá criar um utilizador de teste chamado Britta Simon no portal
 
 Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, concedendo acesso ao Mitel Connect.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -249,7 +249,7 @@ Para configurar a plataforma CloudLink com um único sign-on para Azure AD, reco
 
     1. Na secção **Integrações,** selecione **+ Adicionar novo**. Um ecrã pop-up exibe o painel **Integrações.**
 
-    1. Selecione o separador **3º da festa.** É apresentada uma lista de aplicações de terceiros apoiadas. Selecione o botão **Adicionar** associado ao **sinal único AD Ad Azure ligado**e selecione **Feito**.
+    1. Selecione o separador **3º da festa.** É apresentada uma lista de aplicações de terceiros apoiadas. Selecione o botão **Adicionar** associado ao **sinal único AD Ad Azure ligado** e selecione **Feito**.
 
        ![A screenshot mostra a página Integrações onde pode adicionar Azure A D Single Sign-On.](./media/mitel-connect-tutorial/mitel-cloudlink-integrations.png)
 
@@ -333,7 +333,7 @@ Nesta secção, irá criar um utilizador de teste chamado Britta Simon no portal
 
 Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, concedendo acesso ao Mitel Connect.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

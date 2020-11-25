@@ -6,11 +6,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/05/2016
 ms.openlocfilehash: d2764e5e3994eb7b80a8e7cf62fb7f437323c97e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219399"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015303"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analisar registos de sites com o Azure Data Lake Analytics
 Saiba como analisar os registos do site usando data lake analytics, especialmente ao descobrir quais os remetentes que se depararam com erros quando tentaram visitar o site.
@@ -35,7 +35,7 @@ Antes de poder construir e testar quaisquer scripts U-SQL, tem primeiro de ligar
 
 1. Abra o Visual Studio.
 2. Clique em **Opções e Configurações > do Lago de Dados**.
-3. Clique **em Iniciar sção**ou **Altere o Utilizador** se alguém tiver assinado e siga as instruções.
+3. Clique **em Iniciar sção** ou **Altere o Utilizador** se alguém tiver assinado e siga as instruções.
 4. Clique **em OK** para fechar o diálogo opções e definições.
 
 ### <a name="to-browse-your-data-lake-analytics-accounts"></a>Para navegar nas suas contas Data Lake Analytics
@@ -174,8 +174,8 @@ Pode adicionar adição de operadores definidos pelo utilizador à aplicação. 
 ### <a name="to-see-the-job-output"></a>Para ver o resultado da tarefa
 
 1. No **Explorador de Servidores**, expanda **Azure**, expanda **Data Lake Analytics**, expanda a sua conta do Data Lake Analytics, expanda **Contas de Armazenamento**, faça duplo clique na conta de Armazenamento do Data Lake predefinida e, em seguida, clique em **Explorador**.
-2. Clique **duas vezes** em amostras para abrir a pasta e, em seguida, clique **duas vezes**nas saídas .
-3. Clique duas **vezes em Serviços de Respostas.log**.
+2. Clique **duas vezes** em amostras para abrir a pasta e, em seguida, clique **duas vezes** nas saídas .
+3. Clique **duas vezes nas respostas sem sucesso.log**. .
 4. Também pode clicar duas vezes no ficheiro de saída dentro da vista de gráfico da função para navegar diretamente para a saída.
 
 ## <a name="next-steps"></a>Passos seguintes

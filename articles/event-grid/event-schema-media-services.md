@@ -4,11 +4,11 @@ description: Descreve as propriedades que são fornecidas para eventos de Servi�
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: c1c5953cae7364131eefcec97d3375404c85e963
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105936"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015218"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services como fonte de rede de eventos
 
@@ -660,7 +660,7 @@ Um evento tem os seguintes dados de alto nível:
 
 [Registe-se para eventos de mudança de estado de trabalho](../media-services/latest/job-state-events-cli-how-to.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [EventGrid .NET SDK que inclui eventos de Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições de eventos de Serviços de Mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)

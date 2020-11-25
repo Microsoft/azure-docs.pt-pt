@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/30/2020
+ms.date: 11/23/2020
 ms.author: aahi
-ms.openlocfilehash: 1e77b5ea2bbd5bae79295a5680fa6e143efa5e99
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: dce8893cac156ce2941652e32409357cb8ec3b1a
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131535"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96015320"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Use o recipiente de visão de computador com Kubernetes e Helm
 
@@ -30,7 +30,7 @@ Os seguintes pré-requisitos antes da utilização de recipientes de visão comp
 | Conta do Azure | Se não tiver uma subscrição do Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
 | Kubernetes CLI | O [CLI de Kubernetes][kubernetes-cli] é necessário para gerir as credenciais partilhadas do registo do contentor. Kubernetes também é necessário antes de Helm, que é o gestor de pacotes Kubernetes. |
 | Helm CLI | Instale o [Helm CLI,][helm-install]que é utilizado para instalar um cartão de leme (definição de embalagem de recipiente). |
-| Recurso de Visão Computacional |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure **Computer Vision** e a chave API associada o ponto final URI. Ambos os valores estão disponíveis nas páginas 'Visão Geral' e Chaves para o recurso e são obrigados a iniciar o contentor.<br><br>**{API_KEY}** : Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}** : O ponto final, conforme fornecido na página **'Vista Geral',**|
+| Recurso de Visão Computacional |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure **Computer Vision** e a chave API associada o ponto final URI. Ambos os valores estão disponíveis nas páginas 'Visão Geral' e Chaves para o recurso e são obrigados a iniciar o contentor.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final, conforme fornecido na página **'Vista Geral',**|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -48,7 +48,7 @@ Espera-se que o computador anfitrião tenha um cluster Kubernetes disponível. V
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configurar valores de gráfico de leme para implantação
 
-Comece por criar uma pasta chamada *leitura* . Em seguida, cole o seguinte conteúdo YAML num novo ficheiro chamado `chart.yaml` :
+Comece por criar uma pasta chamada *leitura*. Em seguida, cole o seguinte conteúdo YAML num novo ficheiro chamado `chart.yaml` :
 
 ```yaml
 apiVersion: v2
@@ -76,7 +76,7 @@ read:
     name: cognitive-services-read
     registry:  mcr.microsoft.com/
     repository: azure-cognitive-services/vision/read
-    tag: 3.1-preview
+    tag: 3.2-preview.1
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -105,7 +105,7 @@ read:
 > [!IMPORTANT]
 > - Se os `billing` valores e `apikey` valores não forem fornecidos, os serviços expiram após 15 minutos. Da mesma forma, a verificação falha porque os serviços não estão disponíveis.
 > 
-> - Se colocar vários recipientes De leitura atrás de um equilibrador de carga, por exemplo, sob Docker Compose ou Kubernetes, deve ter uma cache externa. Como o recipiente de processamento e o recipiente de pedido GET podem não ser os mesmos, uma cache externa armazena os resultados e partilha-os através de contentores. Para obter mais informações sobre as definições de cache, consulte [os recipientes Configure Computer Vision Docker](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+> - Se colocar vários recipientes De leitura atrás de um equilibrador de carga, por exemplo, sob Docker Compose ou Kubernetes, deve ter uma cache externa. Como o recipiente de processamento e o recipiente de pedido GET podem não ser os mesmos, uma cache externa armazena os resultados e partilha-os através de contentores. Para obter mais informações sobre as definições de cache, consulte [os recipientes Configure Computer Vision Docker](./computer-vision-resource-container-config.md).
 >
 
 Crie uma pasta *de modelos* sob o *diretório de leitura.* Copiar e colar o seguinte YAML num ficheiro denominado `deployment.yaml` . O `deployment.yaml` ficheiro servirá como modelo de leme.
@@ -243,6 +243,106 @@ deployment.apps/read   1/1     1            1           17s
 NAME                              DESIRED   CURRENT   READY   AGE
 replicaset.apps/read-57cb76bcf7   1         1         1       17s
 ```
+
+## <a name="deploy-multiple-v3-containers-on-the-kubernetes-cluster"></a>Implementar vários recipientes V3 no cluster Kubernetes
+
+A partir da v3 do recipiente, pode utilizar os recipientes em paralelo tanto a nível de tarefa como a nível de página.
+
+Por design, cada recipiente V3 tem um despachante e um trabalhador de reconhecimento. O despachante é responsável por dividir uma tarefa de várias páginas em várias sub-tarefas de página única. O trabalhador de reconhecimento está otimizado para reconhecer um documento de uma única página. Para alcançar o paralelismo de nível de página, coloque vários recipientes V3 atrás de um equilibrador de carga e deixe que os recipientes partilhem um armazenamento e fila universais. 
+
+> [!NOTE] 
+> Atualmente apenas o Azure Storage e a Azure Queue são suportados. 
+
+O recipiente que recebe o pedido pode dividir a tarefa em sub-tarefas de página única e adicioná-las à fila universal. Qualquer trabalhador de reconhecimento de um recipiente menos ocupado pode consumir sub-tarefas de página única a partir da fila, realizar reconhecimento e carregar o resultado para o armazenamento. A produção pode ser melhorada até ao `n` momento, dependendo do número de contentores que são implantados.
+
+Copiar e colar o seguinte YAML num ficheiro denominado `deployment.yaml` . Substitua os `# {ENDPOINT_URI}` comentários e os comentários pelos seus `# {API_KEY}` próprios valores. Substitua o `# {AZURE_STORAGE_CONNECTION_STRING}` comentário pela sua cadeia de ligação de armazenamento Azure. Configure `replicas` o número que deseja, que é definido no exemplo `3` seguinte.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: read
+  labels:
+    app: read-deployment
+spec:
+  selector:
+    matchLabels:
+      app: read-app
+  replicas: # {NUMBER_OF_READ_CONTAINERS}
+  template:
+    metadata:
+      labels:
+        app: read-app
+    spec:
+      containers:
+      - name: cognitive-services-read
+        image: mcr.microsoft.com/azure-cognitive-services/vision/read
+        ports:
+        - containerPort: 5000
+        env:
+        - name: EULA
+          value: accept
+        - name: billing
+          value: # {ENDPOINT_URI}
+        - name: apikey
+          value: # {API_KEY}
+        - name: Storage__ObjectStore__AzureBlob__ConnectionString
+          value: # {AZURE_STORAGE_CONNECTION_STRING}
+        - name: Queue__Azure__ConnectionString
+          value: # {AZURE_STORAGE_CONNECTION_STRING}
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-cognitive-service-read
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: read-app
+```
+
+Execute o seguinte comando. 
+
+```console
+kubectl apply -f deployment.yaml
+```
+
+Abaixo está uma saída de exemplo que pode ver a partir de uma execução de implementação bem sucedida:
+
+```console
+deployment.apps/read created
+service/azure-cognitive-service-read created
+```
+
+A implantação de Kubernetes pode demorar vários minutos a ser concluída. Para confirmar que ambas as cápsulas e serviços estão devidamente implantados e disponíveis, em seguida, execute o seguinte comando:
+
+```console
+kubectl get all
+```
+
+Deve ver a saída da consola semelhante à seguinte:
+
+```console
+kubectl get all
+NAME                       READY   STATUS    RESTARTS   AGE
+pod/read-6cbbb6678-58s9t   1/1     Running   0          3s
+pod/read-6cbbb6678-kz7v4   1/1     Running   0          3s
+pod/read-6cbbb6678-s2pct   1/1     Running   0          3s
+
+NAME                                   TYPE           CLUSTER-IP   EXTERNAL-IP    PORT(S)          AGE
+service/azure-cognitive-service-read   LoadBalancer   10.0.134.0   <none>         5000:30846/TCP   17h
+service/kubernetes                     ClusterIP      10.0.0.1     <none>         443/TCP          78d
+
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/read   3/3     3            3           3s
+
+NAME                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/read-6cbbb6678   3         3         3       3s
+```
+
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -257,7 +357,7 @@ Para mais detalhes sobre a instalação de aplicações com Helm in Azure Kubern
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm

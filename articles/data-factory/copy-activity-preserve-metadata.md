@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
 ms.openlocfilehash: a96b04df56dc7d5ea26463073d673275b8a4a8c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324302"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015082"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Preservar metadados e ACLs utilizando a atividade de cópia na Azure Data Factory
 
@@ -31,11 +31,11 @@ Quando migrar dados de um lago de dados para outro, incluindo [Amazon S3,](conne
 A atividade de cópia suporta a preservação dos seguintes atributos durante a cópia de dados:
 
 - **Todos os metadados especificados pelo cliente** 
-- E as **seguintes cinco propriedades do sistema de armazenamento de dados**incorporadas : `contentType` , `contentLanguage` (exceto o Amazon S3), `contentEncoding` , `contentDisposition` `cacheControl` .
+- E as **seguintes cinco propriedades do sistema de armazenamento de dados** incorporadas : `contentType` , `contentLanguage` (exceto o Amazon S3), `contentEncoding` , `contentDisposition` `cacheControl` .
 
 **Lidar com diferenças nos metadados:** O Amazon S3 e o Azure Storage permitem diferentes conjuntos de caracteres nas teclas dos metadados especificados pelo cliente. Quando opta por preservar metadados utilizando a atividade de cópia, a ADF substitui automaticamente os caracteres inválidos por '_'.
 
-Quando copia ficheiros como é do Amazon S3/Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage to Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage com formato binário, pode encontrar a opção **Preserve** no separador **Definições**de Atividade de Cópia  >  **Settings** para autoria de atividades ou na página Definições na Ferramenta de **Dados** de Cópia.
+Quando copia ficheiros como é do Amazon S3/Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage to Azure Data Lake Storage Gen2/Azure Blob/Azure File Storage com formato binário, pode encontrar a opção **Preserve** no separador **Definições** de Atividade de Cópia  >  **Settings** para autoria de atividades ou na página Definições na Ferramenta de **Dados** de Cópia.
 
 ![Copiar atividade preservar metadados](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 
@@ -98,7 +98,7 @@ Se especificar para copiar de uma pasta, a Data Factory replica os ACLs para ess
 >[!IMPORTANT]
 >Quando optar por preservar acLs, certifique-se de conceder permissões suficientemente elevadas para que a Data Factory opere contra a sua conta de Data Lake Storage Gen2. Por exemplo, utilize a autenticação da chave de conta ou atribua a função de Proprietário de Dados de Armazenamento ao titular do serviço ou identidade gerida.
 
-Quando configurar a fonte como Data Lake Storage Gen1/Gen2 com formato binário ou a opção de cópia binária, e afundar como Data Lake Storage Gen2 com formato binário ou a opção de cópia binária, pode encontrar a opção **Preserve** na página Definições na Ferramenta de **Dados** de Cópia ou no separador Definições de **Definições**de Cópia  >  para autoria de**atividades.**
+Quando configurar a fonte como Data Lake Storage Gen1/Gen2 com formato binário ou a opção de cópia binária, e afundar como Data Lake Storage Gen2 com formato binário ou a opção de cópia binária, pode encontrar a opção **Preserve** na página Definições na Ferramenta de **Dados** de Cópia ou no separador Definições de **Definições** de Cópia  >  para autoria de **atividades.**
 
 ![Data Lake Storage Gen1/Gen2 para Gen2 Preserve ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 
@@ -149,5 +149,5 @@ Aqui está um exemplo de configuração JSON de atividade de cópia `preserve` (
 
 Consulte os outros artigos de Atividade de Cópia:
 
-- [Descrição geral da atividade de cópia](copy-activity-overview.md)
+- [Visão geral da atividade da cópia](copy-activity-overview.md)
 - [Desempenho da atividade de cópia](copy-activity-performance.md)

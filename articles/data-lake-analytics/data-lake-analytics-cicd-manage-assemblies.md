@@ -7,11 +7,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 10/30/2018
 ms.openlocfilehash: e88616f45c69d33234aa35333e0d82ad8cc59bb6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219365"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015286"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Melhores práticas para a gestão de conjuntos U-SQL num gasoduto CI/CD
 
@@ -57,7 +57,7 @@ Siga estes passos para criar projetos e adicionar referências.
 
 1. Adicione **Dependências Geridas** e **Ficheiros Adicionais,** se houver. Quando adiciona ficheiros adicionais, a ferramenta utiliza o caminho relativo para se certificar de que pode encontrar os conjuntos na sua máquina local e na máquina de construção mais tarde.
 
-** \@ _DeployTempDirectory** na janela do editor na parte inferior é uma variável predefinida que aponta a ferramenta para a pasta de saída de construção. Sob a pasta de saída de construção, cada conjunto tem uma sub-dobragem nomeada com o nome de montagem. Todos os DLLs e ficheiros adicionais estão na subclasse.
+**\@ _DeployTempDirectory** na janela do editor na parte inferior é uma variável predefinida que aponta a ferramenta para a pasta de saída de construção. Sob a pasta de saída de construção, cada conjunto tem uma sub-dobragem nomeada com o nome de montagem. Todos os DLLs e ficheiros adicionais estão na subclasse.
 
 ## <a name="build-a-u-sql-database-project"></a>Construir um projeto de base de dados U-SQL
 

@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 706457a602e20dd37e64e5f389948b351ac8ebcf
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219246"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015252"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Utilize um projeto de base de dados U-SQL para desenvolver uma base de dados U-SQL para O Lago de Dados Azure
 
@@ -84,7 +84,7 @@ Pode implementar uma base de dados U-SQL através de um projeto de base de dados
 
 1. Abrir **o Explorador do Servidor**. Em seguida, expanda a **conta Azure Data Lake Analytics** para a qual pretende implementar a base de dados.
 
-1. Clique em direito nas **bases de dados do U-SQL**e, em seguida, escolha **'Implementar base de dados'.**
+1. Clique em direito nas **bases de dados do U-SQL** e, em seguida, escolha **'Implementar base de dados'.**
 
 1. Definir **Base de Dados Fonte** para o pacote de implementação de base de dados U-SQL (.usqldbpack file) caminho.
 
@@ -104,12 +104,12 @@ Pode implementar uma base de dados U-SQL através de um projeto de base de dados
 
 Um projeto U-SQL pode fazer referência a um projeto de base de dados U-SQL. A referência afeta duas cargas de trabalho:
 
-- *Construção de*projetos : Crie os ambientes de base de dados referenciados antes de construir os scripts U-SQL.
+- *Construção de* projetos : Crie os ambientes de base de dados referenciados antes de construir os scripts U-SQL.
 - *Execução local contra (um projeto local)* conta : Os ambientes de base de dados referenciados são implantados para (um projeto local) antes da execução do script U-SQL. [Saiba mais sobre as corridas locais e a diferença entre a conta local-máquina e (um projeto local) aqui.](data-lake-analytics-data-lake-tools-local-run.md)
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>Como adicionar uma referência de base de dados U-SQL
 
-1. Clique com o botão direito no projeto U-SQL no **Solution Explorer**e, em seguida, escolha Adicionar Referência de Base **de Dados U-SQL...**.
+1. Clique com o botão direito no projeto U-SQL no **Solution Explorer** e, em seguida, escolha Adicionar Referência de Base **de Dados U-SQL...**.
 
     ![Ferramentas do Lago de Dados para Estúdio Visual -- adicionar referência de projeto de base de dados](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-database-project-reference.png)
 

@@ -7,11 +7,11 @@ ms.author: lagayhar
 ms.date: 04/28/2020
 ms.reviewer: sdash
 ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318152"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015337"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
 
@@ -85,7 +85,7 @@ Se tiver o Application Insights configurado para a sua aplicação do lado do se
 
 ### <a name="can-i-call-code-from-my-web-test"></a>Posso chamar um código a partir do meu teste Web?
 
-N.º Os passos do teste devem estar no ficheiro .webtest. E não pode chamar outros testes Web nem utilizar ciclos. No entanto, existem vários plug-ins que poderão ser úteis.
+Não. Os passos do teste devem estar no ficheiro .webtest. E não pode chamar outros testes Web nem utilizar ciclos. No entanto, existem vários plug-ins que poderão ser úteis.
 
 
 ### <a name="is-there-a-difference-between-web-tests-and-availability-tests"></a>Existe uma diferença entre “testes Web” e “testes de disponibilidade”?

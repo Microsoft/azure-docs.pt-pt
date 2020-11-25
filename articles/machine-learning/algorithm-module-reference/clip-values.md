@@ -10,11 +10,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 99fb41542dff28997438881abad71da11e927a78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898805"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014895"
 ---
 # <a name="clip-values"></a>Valores de Clip
 
@@ -86,7 +86,7 @@ Se precisar de aplicar métodos de reprodução ou critérios diferentes em algu
   
 1.  Envie o oleoduto.  
   
-    Clique com o botão direito no módulo **Valores de Clipe** e selecione **Visualize** ou selecione o módulo e mude para o separador **Saídas** no painel direito, clique no ícone histograma nas saídas da Porta , para rever os **valores**e certifique-se de que a operação de clipping corresponde às suas expectativas.  
+    Clique com o botão direito no módulo **Valores de Clipe** e selecione **Visualize** ou selecione o módulo e mude para o separador **Saídas** no painel direito, clique no ícone histograma nas saídas da Porta , para rever os **valores** e certifique-se de que a operação de clipping corresponde às suas expectativas.  
  
 ### <a name="examples-for-clipping-using-percentiles"></a>Exemplos para recortes usando percentiles
 

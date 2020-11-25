@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para a Rede Virtual Azure
 description: Lista definições de políticas incorporadas para Azure Virtual Network. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 269749ae517c8207357ae3a073285fd0db026730
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 17a434b071a7aa4e48c511257a2fef93f33312e5
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734528"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "96014810"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-network"></a>Definições incorporadas da Política Azure para a Rede Virtual Azure
 

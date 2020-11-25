@@ -16,11 +16,11 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85564293"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014861"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substitua um componente de hardware no seu dispositivo da série StorSimple 8000
 
@@ -46,7 +46,7 @@ A tabela seguinte descreve os ícones de segurança utilizados nestes tutoriais.
 | ![Leia o ícone das instruções](./media/storsimple-hardware-component-replacement/ReadInstructions.png) |**Leia todas as instruções primeiro** | |
 | ![Ícone de perigo de ponta](./media/storsimple-hardware-component-replacement/TipHazard.png) |**Risco de ponta** | |
 
-### <a name="before-you-begin"></a>Antes de começar
+### <a name="before-you-begin"></a>Before you begin
 
 Familiarize-se com as informações de segurança sobre o seu dispositivo e ícones de segurança utilizados neste tutorial. Vá para [instalar com segurança e opere o seu dispositivo StorSimple](storsimple-8000-safety.md) para obter informações completas. Certifique-se de rever as [precauções de segurança](storsimple-8000-safety.md#handling-precautions) antes de manusear o seu dispositivo StorSimple.
 

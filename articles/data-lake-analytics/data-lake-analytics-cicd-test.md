@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/30/2019
 ms.openlocfilehash: 7310c67ef20a4134d4f613ea969c96802958bf62
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219212"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015235"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Teste o seu código Azure Data Lake Analytics
 
@@ -52,7 +52,7 @@ A `Run()` interface devolve um resultado de execução de emprego. *0* significa
 
 ### <a name="run-test-cases-in-visual-studio"></a>Executar casos de teste no Estúdio Visual
 
-Um projeto de teste de script U-SQL é construído em cima de uma estrutura de teste de unidade C#. Depois de construir o projeto, selecione **Test**  >  **Windows**  >  **Test Explorer**. Pode executar casos de teste a partir do **Test Explorer**. Em alternativa, clique com o botão direito no ficheiro .cs no teste da unidade e selecione **Testes de Execução**.
+Um projeto de teste de script U-SQL é construído em cima de uma estrutura de teste de unidade C#. Depois de construir o projeto, selecione **Test**  >  **Windows**  >  **Test Explorer**. Pode executar casos de teste a partir do **Test Explorer**. Em alternativa, clique com o botão direito no ficheiro .cs no teste da sua unidade e selecione **Testes de Execução**.
 
 ## <a name="test-c-udos"></a>Teste C# UDOs
 
@@ -105,7 +105,7 @@ Depois de ligar para as funções UDO, pode verificar os resultados através da 
 
 ### <a name="run-test-cases-in-visual-studio"></a>Executar casos de teste no Estúdio Visual
 
-Depois de construir o projeto, selecione **Test**  >  **Windows**  >  **Test Explorer**. Pode executar casos de teste a partir do **Test Explorer**. Em alternativa, clique com o botão direito no ficheiro .cs no teste da unidade e selecione **Testes de Execução**.
+Depois de construir o projeto, selecione **Test**  >  **Windows**  >  **Test Explorer**. Pode executar casos de teste a partir do **Test Explorer**. Em alternativa, clique com o botão direito no ficheiro .cs no teste da sua unidade e selecione **Testes de Execução**.
 
 ## <a name="run-test-cases-in-azure-pipelines"></a>Executar casos de teste em Gasodutos Azure<a name="run-test-cases-in-azure-devops"></a>
 
@@ -129,9 +129,9 @@ A forma mais comum de preparar a dependência do CPPSDK nos gasodutos Azure é a
 
 1. Feche a pasta que inclui as bibliotecas CPPSDK.
 
-1. Verifique o ficheiro .zip no seu sistema de controlo de origem. O ficheiro .zip garante que verifica todas as bibliotecas sob a pasta CPPSDK para que os ficheiros não sejam ignorados por causa de um `.gitignore` ficheiro.
+1. Verifique o ficheiro .zip no seu sistema de controlo de origem. O ficheiro .zip garante que faz o check-in em todas as bibliotecas sob a pasta CPPSDK para que os ficheiros não sejam ignorados por causa de um `.gitignore` ficheiro.
 
-1. Desaperte o ficheiro .zip no gasoduto de construção.
+1. Desaperte o ficheiro .zip no oleoduto de construção.
 
 1. `USqlScriptTestRunner`Aponte para esta pasta desapertado no computador de construção.
 

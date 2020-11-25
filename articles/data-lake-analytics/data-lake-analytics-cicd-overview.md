@@ -8,11 +8,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018
 ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219331"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015269"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline CI/CD para a Azure Data Lake Analytics  
 
@@ -79,11 +79,11 @@ A definição e os valores dos argumentos são os seguintes:
 - **USQLSDKPath= \<U-SQL Nuget package> \build\runtime**. Este parâmetro refere-se ao caminho de instalação do pacote NuGet para o serviço de linguagem U-SQL.
 - **USQLTargetType=Merge ou SyntaxCheck**:
 
-  - **Fusão.** O modo de fusão compila ficheiros por trás do código. Exemplos são **ficheiros .cs**, **.py**e **.r.** Inlineia a biblioteca de códigos definida pelo utilizador resultante no script U-SQL. Exemplos são um dll binary, Python, ou código R.
+  - **Fusão.** O modo de fusão compila ficheiros por trás do código. Exemplos são **.cs**, **.py** e **ficheiros .r.** Inlineia a biblioteca de códigos definida pelo utilizador resultante no script U-SQL. Exemplos são um dll binary, Python, ou código R.
 
   - **SintaxeCheck**. O modo SyntaxCheck funde primeiro ficheiros por trás do código no script U-SQL. Em seguida, compila o script U-SQL para validar o seu código.
 
-- **DataRoot= \<DataRoot path> **. DataRoot é necessário apenas para o modo SyntaxCheck. Quando constrói o script com o modo SyntaxCheck, o MSBuild verifica as referências a objetos de base de dados no script. Antes de construir, crie um ambiente local correspondente que contenha os objetos referenciados da base de dados U-SQL na pasta DataRoot da máquina de construção. Também pode gerir estas dependências de bases de dados [fazendo referência a um projeto de base de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). A MSBuild verifica apenas referências de objetos de base de dados, não ficheiros.
+- **DataRoot= \<DataRoot path>**. DataRoot é necessário apenas para o modo SyntaxCheck. Quando constrói o script com o modo SyntaxCheck, o MSBuild verifica as referências a objetos de base de dados no script. Antes de construir, crie um ambiente local correspondente que contenha os objetos referenciados da base de dados U-SQL na pasta DataRoot da máquina de construção. Também pode gerir estas dependências de bases de dados [fazendo referência a um projeto de base de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). A MSBuild verifica apenas referências de objetos de base de dados, não ficheiros.
 
 - **Ativar Deployment=verdadeiro** ou **falso**. ActivarDeployment indica se é permitido implementar bases de dados U-SQL referenciadas durante o processo de construção. Se você referenciar um projeto de base de dados U-SQL e consumir os objetos de base de dados no seu script U-SQL, desafaça este parâmetro como **verdadeiro**.
 
