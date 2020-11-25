@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/18/2020
 ms.author: glenga
-ms.openlocfilehash: c26ef5b857d7295b533079a70959f0f1ef1e8206
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 29a31948c5bfc9b5fd3a31f39144d186dbfe4885
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93425194"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026472"
 ---
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Crie recursos Azure de suporte para a sua função
 
@@ -55,7 +55,7 @@ Utilize os seguintes comandos para criar estes itens. Tanto o Azure CLI como o P
     New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location westeurope
     ```
 
-    O comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cria um grupo de recursos. Você geralmente cria o seu grupo de recursos e recursos em uma região próxima de você, usando uma região disponível devolvida do cmdlet [Get-AzLocation.](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation)
+    O comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cria um grupo de recursos. Você geralmente cria o seu grupo de recursos e recursos em uma região próxima de você, usando uma região disponível devolvida do cmdlet [Get-AzLocation.](/powershell/module/az.resources/get-azlocation)
 
     ---
 
@@ -80,6 +80,3 @@ Utilize os seguintes comandos para criar estes itens. Tanto o Azure CLI como o P
     ---
 
     No exemplo anterior, `<STORAGE_NAME>` substitua-o por um nome que lhe seja adequado e único no Azure Storage. Os nomes devem conter apenas três a 24 caracteres e letras minúsculas. `Standard_LRS` especifica uma conta de finalidade geral, que é [suportada por Funções](../articles/azure-functions/storage-considerations.md#storage-account-requirements).
-    
-
-

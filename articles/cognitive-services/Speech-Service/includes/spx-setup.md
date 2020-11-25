@@ -5,35 +5,39 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6f80d41001d11c52a00454ea2a593f3f1fce32db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470959"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026336"
 ---
 ## <a name="download-and-install"></a>Transferir e instalar
 
 #### <a name="windows-install"></a>[Instalação do Windows](#tab/windowsinstall)
 
-> [!NOTE]
-> No Windows, precisa do [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. A instalação deste deste facto pela primeira vez poderá exigir que reinicie o Windows.
-
 Siga estes passos para instalar o CLI do discurso no Windows:
 
-1. Descarregue o [arquivo zip](https://aka.ms/speech/spx-zips.zip)do Speech CLI e, em seguida, extraia-o.
-2. Vá ao diretório de raiz `spx-zips` que extraiu do download e extraa o subdiretor de que necessita ( `spx-net471` para .NET Framework 4.7, ou `spx-netcore-win-x64` para .NET Core 3.0 num CPU x64).
+1. No Windows, precisa do [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. A instalação desta situação pela primeira vez pode exigir um reinício.
+2. Descarregue o [arquivo zip](https://aka.ms/speech/spx-zips.zip)do Speech CLI e, em seguida, extraia-o.
+3. Vá ao diretório onde `spx-zips` extraiu. Esta pasta contém ficheiros de programas para o CLI do Discurso em várias plataformas. 
+4. Extrair os ficheiros para a sua plataforma `spx-net471` (para .NET Framework 4.7, ou `spx-netcore-win-x64` para .NET Core 3.0 num CPU x64). Lembre-se que vai fugir `spx` deste diretório.
 
-No pedido de comando, altere o diretório para este local e, em seguida, escreva `spx` para ver ajuda para o CLI do discurso.
+### <a name="run-the-speech-cli"></a>Executar o Discurso CLI
 
-> [!NOTE]
-> No Windows, o CLI do Discurso só pode mostrar os tipos de letra disponíveis para o pedido de comando no computador local.
-> [O Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) suporta todas as fontes produzidas interativamente pelo Speech CLI.
-> Se você des output para um ficheiro, um editor de texto como o Notepad ou um navegador web como o Microsoft Edge também pode mostrar todos os tipos de letra.
+1. Abra o pedido de comando ou PowerShell e, em seguida, navegue para o diretório onde extraiu o Discurso CLI.  
+2. Escreva `spx` para ver os comandos de ajuda para o CLI do discurso.
 
 > [!NOTE]
 > Powershell não verifica o diretório local quando procura um comando. Em Powershell, altere o diretório para a localização `spx` e ligue para a ferramenta entrando `.\spx` .
 > Se adicionar este diretório ao seu caminho, o pedido de comando Powershell e Windows encontrará `spx` a partir de qualquer diretório sem incluir o `.\` prefixo.
+
+### <a name="font-limitations"></a>Limitações de fontes
+
+No Windows, o CLI do Discurso só pode mostrar os tipos de letra disponíveis para o pedido de comando no computador local.
+[O Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) suporta todas as fontes produzidas interativamente pelo Speech CLI.
+
+Se você des output para um ficheiro, um editor de texto como o Notepad ou um navegador web como o Microsoft Edge também pode mostrar todos os tipos de letra.
 
 #### <a name="linux-install"></a>[Instalação Linux](#tab/linuxinstall)
 
