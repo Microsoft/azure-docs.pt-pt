@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 86803e1d7ef77467fd870221c0bc2c1c006ae479
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2d8b876f01f110a314734e596055831650a6c08b
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94816858"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95866220"
 ---
 > [!IMPORTANT]
 > O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade.
@@ -31,18 +31,6 @@ ms.locfileid: "94816858"
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configuração
-
-### <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
-
-#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
-
-Utilizando o Visual Studio, crie uma nova aplicação .NET Core. 
-
-### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente 
-
-Depois de criar um novo projeto, instale a biblioteca do cliente clicando corretamente na solução de projeto no **Solution Explorer** e selecione **Gerir pacotes NuGet**. No gestor de pacotes que abre **selecione Navegar,** verificar **Incluir pré-relançar,** e procurar `Azure.AI.FormRecognizer` . Selecione a versão `3.0.0` e, em seguida, **instale**. 
-
-#### <a name="cli"></a>[CLI](#tab/cli)
 
 Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `formrecognizer-quickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *program.cs*. 
 
@@ -70,8 +58,16 @@ Build succeeded.
 
 No diretório de aplicações, instale a biblioteca cliente Do Reconhecimento de Formulários para .NET com o seguinte comando:
 
+#### <a name="version-30"></a>[versão 3.0](#tab/ga)
+
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
+```
+
+#### <a name="version-31-preview"></a>[versão 3.1 pré-visualização](#tab/preview)
+
+```console
+dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 ```
 ---
 
@@ -91,9 +87,14 @@ Na classe **programo** da aplicação, crie variáveis para a chave e ponto fina
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_creds)]
 
-No método **principal** da aplicação, adicione uma chamada à tarefa assíncronea utilizada neste arranque rápido. Vai implementá-lo mais tarde.
+No método **principal** da aplicação, adicione uma chamada às tarefas assíncronos utilizadas neste arranque rápido. Vai implementá-los mais tarde.
 
+#### <a name="version-30"></a>[versão 3.0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
+#### <a name="version-31-preview"></a>[versão 3.1 pré-visualização](#tab/preview)
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
+
+---
 
 
 ## <a name="object-model"></a>Modelo de objeto 
@@ -126,6 +127,8 @@ Ver exemplos para [Treinar um Modelo](#train-a-custom-model) e Gerir [Modelos Pe
 
 Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a biblioteca do cliente do Reconhecimento de Formulários para .NET:
 
+#### <a name="version-30"></a>[versão 3.0](#tab/ga)
+
 * [Autenticar o cliente](#authenticate-the-client)
 * [Reconhecer o conteúdo da forma](#recognize-form-content)
 * [Reconhecer recibos](#recognize-receipts)
@@ -133,6 +136,18 @@ Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a bibl
 * [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerir os seus modelos personalizados](#manage-your-custom-models)
 
+#### <a name="version-31-preview"></a>[versão 3.1 pré-visualização](#tab/preview)
+
+* [Autenticar o cliente](#authenticate-the-client)
+* [Reconhecer o conteúdo da forma](#recognize-form-content)
+* [Reconhecer recibos](#recognize-receipts)
+* [Reconhecer cartões de visita](#recognize-business-cards)
+* [Reconhecer faturas](#recognize-invoices)
+* [Preparar um modelo personalizado](#train-a-custom-model)
+* [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
+* [Gerir os seus modelos personalizados](#manage-your-custom-models)
+
+---
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -155,9 +170,14 @@ Também terá de adicionar referências aos URLs para os seus dados de treino e 
 
 * Para recuperar o URL SAS para os seus dados de treino de modelo personalizados, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e **selecione Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Em seguida, use os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas.
-* Por último, guarde o URL da imagem de receção da amostra incluída nas amostras abaixo (também disponível no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms). 
+* Por último, guarde o URL da(s) imagem(s) da amostra incluída abaixo (também disponível no [GitHub).](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) 
 
+#### <a name="version-30"></a>[versão 3.0](#tab/ga)
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
+#### <a name="version-31-preview"></a>[versão 3.1 pré-visualização](#tab/preview)
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
+
+---
 
 
 ## <a name="recognize-form-content"></a>Reconhecer o conteúdo da forma
@@ -268,6 +288,43 @@ Item:
     Total Price: '99.99', with confidence 0.386
 Total: '1203.39', with confidence '0.774'
 ```
+
+#### <a name="version-30"></a>[versão 3.0](#tab/ga)
+
+#### <a name="version-31-preview"></a>[versão 3.1 pré-visualização](#tab/preview)
+
+## <a name="recognize-business-cards"></a>Reconhecer cartões de visita
+
+Esta secção demonstra como reconhecer e extrair campos comuns de cartões de visita ingleses, utilizando um modelo pré-treinado.
+
+Para reconhecer cartões de visita de um URL, utilize o `StartRecognizeBusinessCardsFromUriAsync` método. 
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
+
+> [!TIP]
+> Também pode reconhecer imagens de recibo local. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) tais como **StartRecognizeBusinessCards**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para cenários que envolvam imagens locais.
+
+O valor devolvido é uma coleção de `RecognizedForm` objetos: um para cada cartão no documento. O código seguinte processa o cartão de visita no dado URI e imprime os principais campos e valores para a consola.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
+
+## <a name="recognize-invoices"></a>Reconhecer faturas
+
+Esta secção demonstra como reconhecer e extrair campos comuns das faturas de venda, utilizando um modelo pré-treinado.
+
+Para reconhecer faturas de um URL, utilize o `StartRecognizeInvoicesFromUriAsync` método. 
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_call)]
+
+> [!TIP]
+> Também pode reconhecer imagens de fatura local. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) tais como **StartRecognizeInvoices**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para cenários que envolvam imagens locais.
+
+O valor devolvido é uma coleção de `RecognizedForm` objetos: um para cada fatura no documento submetido. O código seguinte processa a fatura no URI dado e imprime os principais campos e valores para a consola.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
+
+---
+
 
 ## <a name="train-a-custom-model"></a>Preparar um modelo personalizado
 
@@ -575,19 +632,12 @@ Também pode eliminar um modelo da sua conta fazendo referência ao seu ID. Este
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
-
-Executar a aplicação clicando no botão **Debug** na parte superior da janela IDE.
-
-#### <a name="cli"></a>[CLI](#tab/cli)
-
 Executar o pedido do seu diretório de candidaturas com o `dotnet run` comando.
 
 ```dotnet
 dotnet run
 ```
 
----
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

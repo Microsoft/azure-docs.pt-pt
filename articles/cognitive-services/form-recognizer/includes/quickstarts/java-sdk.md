@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: fa15b48cff73b567187aa078bec02aa82e41e665
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 48162609c27372937337be87d4b8f78af35a46d5
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92924972"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95866950"
 ---
 > [!IMPORTANT]
 > O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade.
@@ -27,10 +27,10 @@ ms.locfileid: "92924972"
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * A versão atual do Kit de [Desenvolvimento de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * A [ferramenta de construção Gradle,](https://gradle.org/install/)ou outro gestor de dependência.
-* Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso** .
+* Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API do Reconhecimento de Formulários. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
-* Uma bolha de armazenamento Azure que contém um conjunto de dados de treino. Consulte [Construir um conjunto de dados de treino para um modelo personalizado](../../build-training-data-set.md) para dicas e opções para reunir o seu conjunto de dados de treino. Para este arranque rápido, pode utilizar os ficheiros sob a pasta **Train** do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2090451) da amostra (descarregar e extrair *sample_data.zip* ).
+* Uma bolha de armazenamento Azure que contém um conjunto de dados de treino. Consulte [Construir um conjunto de dados de treino para um modelo personalizado](../../build-training-data-set.md) para dicas e opções para reunir o seu conjunto de dados de treino. Para este arranque rápido, pode utilizar os ficheiros sob a pasta **Train** do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2090451) da amostra (descarregar e extrair *sample_data.zip*).
 
 
 ## <a name="setting-up"></a>Configuração
@@ -49,7 +49,7 @@ Executar o comando do seu diretório de `gradle init` trabalho. Este comando cri
 gradle init --type basic
 ```
 
-Quando solicitado para escolher um **DSL,** selecione **Kotlin** .
+Quando solicitado para escolher um **DSL,** selecione **Kotlin**.
 
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente
@@ -58,6 +58,7 @@ Este quickstart usa o gestor de dependência gradle. Pode encontrar a biblioteca
 
 No ficheiro *build.gradle.kts* do seu projeto, inclua a biblioteca do cliente como `implementation` declaração, juntamente com os plugins e configurações necessários.
 
+#### <a name="version-30"></a>[versão 3.0](#tab/ga)
 ```kotlin
 plugins {
     java
@@ -73,6 +74,23 @@ dependencies {
     implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.0.0")
 }
 ```
+#### <a name="version-31-preview"></a>[versão 3.1 pré-visualização](#tab/preview)
+```kotlin
+plugins {
+    java
+    application
+}
+application {
+    mainClass.set("FormRecognizer")
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.1")
+}
+```
+---
 
 ### <a name="create-a-java-file"></a>Criar um ficheiro Java
 
@@ -83,7 +101,7 @@ Do seu diretório de trabalho, executar o seguinte comando:
 mkdir -p src/main/java
 ```
 
-Navegue para a nova pasta e crie um ficheiro chamado *FormRecognizer.java* . Abra-o no seu editor preferido ou IDE e adicione as `import` seguintes declarações:
+Navegue para a nova pasta e crie um ficheiro chamado *FormRecognizer.java*. Abra-o no seu editor preferido ou IDE e adicione as `import` seguintes declarações:
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_imports)]
 
@@ -96,19 +114,26 @@ Na classe **FormRecognizer** da aplicação, crie variáveis para a chave e pont
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Aceda ao portal do Azure. Se o recurso [nome do produto] que criou na secção **Pré-Requisitos** implementado com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes** . Pode encontrar a sua chave e ponto final na **página chave e ponto final** do recurso, sob **gestão de recursos.** 
+> Aceda ao portal do Azure. Se o recurso [nome do produto] que criou na secção **Pré-Requisitos** implementado com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes**. Pode encontrar a sua chave e ponto final na **página chave e ponto final** do recurso, sob **gestão de recursos.** 
 >
 > Lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Consulte o artigo [de segurança](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) dos Serviços Cognitivos para obter mais informações.
 
 No método **principal** da aplicação, adicione chamadas para os métodos utilizados neste arranque rápido. Vai definir isto mais tarde. Também terá de adicionar referências aos URLs para os seus dados de treino e teste.
 
-* Para recuperar o URL SAS para os seus dados de treino de modelo personalizados, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e **selecione Obter assinatura de acesso partilhado** . Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar** . Em seguida, copie o valor na secção **URL.** Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* Para recuperar o URL SAS para os seus dados de treino de modelo personalizados, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e **selecione Obter assinatura de acesso partilhado**. Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Para obter um URL de um formulário para testar, você pode usar os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas. Ou, pegue o URL de um documento localizado em outro lugar.
 * Utilize o método acima para obter o URL de uma imagem de recibo também.
 
+#### <a name="version-30"></a>[versão 3.0](#tab/ga)
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
+#### <a name="version-31-preview"></a>[versão 3.1 pré-visualização](#tab/preview)
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
+
+---
 
 
 
@@ -140,12 +165,24 @@ Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro,
 
 Estes fragmentos de código mostram-lhe como fazer as seguintes tarefas com a biblioteca de clientes Do Reconhecimento de Formulários para Java:
 
+#### <a name="version-30"></a>[versão 3.0](#tab/ga)
 * [Autenticar o cliente](#authenticate-the-client)
 * [Reconhecer o conteúdo da forma](#recognize-form-content)
 * [Reconhecer recibos](#recognize-receipts)
 * [Preparar um modelo personalizado](#train-a-custom-model)
 * [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerir os seus modelos personalizados](#manage-your-custom-models)
+#### <a name="version-31-preview"></a>[versão 3.1 pré-visualização](#tab/preview)
+* [Autenticar o cliente](#authenticate-the-client)
+* [Reconhecer o conteúdo da forma](#recognize-form-content)
+* [Reconhecer recibos](#recognize-receipts)
+* [Reconhecer cartões de visita](#recognize-business-cards)
+* [Reconhecer faturas](#recognize-invoices)
+* [Preparar um modelo personalizado](#train-a-custom-model)
+* [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
+* [Gerir os seus modelos personalizados](#manage-your-custom-models)
+
+---
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -162,12 +199,12 @@ Para reconhecer o conteúdo de um ficheiro num dado URL, utilize o método **sta
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_call)]
 
 > [!TIP]
-> Também pode obter conteúdo de um ficheiro local. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeContent** . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
+> Também pode obter conteúdo de um ficheiro local. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeContent**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
 
 O valor devolvido é uma coleção de objetos **FormPage:** um para cada página no documento submetido. O código seguinte itera através destes objetos e imprime os pares de chave/valor extraídos e os dados de tabela.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_print)]
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 Get form content...
@@ -195,7 +232,7 @@ Para reconhecer os recibos de um URI, utilize o método **startRecognizeReceipts
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
 > [!TIP]
-> Também pode obter imagens de recibo local. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeReceipts** . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
+> Também pode reconhecer imagens de recibo local. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeReceipts**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
 
 O valor devolvido é uma coleção de objetos **RecognizedReceipt:** um para cada página no documento submetido. O próximo bloco de códigos iteração através dos recibos e imprime os seus dados para a consola.
 
@@ -205,7 +242,7 @@ O próximo bloco de códigos iteração através dos itens individuais detetados
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print_items)]
 
-### <a name="output"></a>Resultado 
+### <a name="output"></a>Saída 
 
 ```console
 Analyze receipt...
@@ -221,6 +258,43 @@ Name: BACON & EGGS, confidence: 0.94s
 Quantity: null, confidence: 0.927s]
 Total Price: null, confidence: 0.93
 ```
+
+#### <a name="version-30"></a>[versão 3.0](#tab/ga)
+
+#### <a name="version-31-preview"></a>[versão 3.1 pré-visualização](#tab/preview)
+
+## <a name="recognize-business-cards"></a>Reconhecer cartões de visita
+
+Esta secção demonstra como reconhecer e extrair campos comuns de cartões de visita ingleses, utilizando um modelo pré-treinado.
+
+Para reconhecer cartões de visita de um URL, utilize o `beginRecognizeBusinessCardsFromUrl` método. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
+
+> [!TIP]
+> Também pode reconhecer imagens de cartões de visita locais. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeBusinessCards**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
+
+O valor devolvido é uma coleção de objetos **RecognizedForm:** um para cada cartão no documento. O código seguinte processa o cartão de visita no dado URI e imprime os principais campos e valores para a consola.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
+
+## <a name="recognize-invoices"></a>Reconhecer faturas
+
+Esta secção demonstra como reconhecer e extrair campos comuns das faturas de venda, utilizando um modelo pré-treinado.
+
+Para reconhecer cartões de visita de um URL, utilize o `beginRecognizeInvoicesFromUrl` método. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_call)]
+
+> [!TIP]
+> Também pode reconhecer faturas locais. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeInvoices**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
+
+O valor devolvido é uma coleção de objetos **RecognizedForm:** um para cada fatura no documento. O código seguinte processa o cartão de visita no dado URI e imprime os principais campos e valores para a consola.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
+
+---
+
 ## <a name="train-a-custom-model"></a>Preparar um modelo personalizado
 
 Esta secção demonstra como treinar um modelo com os seus próprios dados. Um modelo treinado pode obter dados estruturados de saída que incluam as relações chave/valor no documento original do formulário. Depois de treinar o modelo, pode testá-lo e reforçá-lo e eventualmente usá-lo para extrair dados de mais formas de acordo com as suas necessidades.
@@ -246,7 +320,7 @@ Finalmente, este método devolve o ID único do modelo.
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_return)]
 
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 Train Model with training data...
@@ -278,7 +352,7 @@ O **CustomFormModel** devolvido indica os campos que o modelo pode extrair, junt
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_print)]
 
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 Train Model with training data...
@@ -310,14 +384,14 @@ Utilizará o método **startRecognizeCustomFormsFromUrl.**
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_call)]
 
 > [!TIP]
-> Também pode analisar um ficheiro local. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeCustomForms** . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
+> Também pode analisar um ficheiro local. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) tais como **startRecognizeCustomForms**. Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) para cenários que envolvam imagens locais.
 
 O valor devolvido é uma coleção de objetos **RecognizedForm:** um para cada página no documento submetido. O código seguinte imprime os resultados da análise para a consola. Imprime cada campo reconhecido e valor correspondente, juntamente com uma pontuação de confiança.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_print)]
 
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Saída
 
 ```console
 Analyze PDF form...
@@ -347,7 +421,7 @@ O bloco de códigos que se segue verifica quantos modelos guardou na sua conta D
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
 
 
-#### <a name="output"></a>Resultado 
+#### <a name="output"></a>Saída 
 
 ```console
 The account has 12 custom models, and we can have at most 250 custom models
@@ -360,7 +434,7 @@ O bloco de códigos que se segue lista os modelos atuais na sua conta e imprime 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_list)]
 
 
-#### <a name="output"></a>Resultado 
+#### <a name="output"></a>Saída 
 
 Esta resposta foi truncada para a legibilidade.
 
@@ -402,7 +476,7 @@ Executar a aplicação com o `run` objetivo:
 gradle run
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
