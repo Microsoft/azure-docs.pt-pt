@@ -424,5 +424,9 @@
           href: sql-data-warehouse-partner-data-management.md
         - name: Machine learning e IA
           href: sql-data-warehouse-partner-machine-learning-ai.md
+        - name: Integração do sistema
+          href: sql-data-warehouse-partner-system-integration.md
         - name: Parceiros da Pré-visualização Pública
           href: sql-data-warehouse-partner-launch.md
+        - name: Problemas de compatibilidade com aplicações de terceiros
+          href: sql-data-warehouse-partner-compatibility-issues.md

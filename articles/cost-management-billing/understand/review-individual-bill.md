@@ -11,11 +11,11 @@ ms.date: 10/26/2020
 ms.author: banders
 ms.custom: contentperfq2
 ms.openlocfilehash: c4a9a981017becd0d9343d9c287a4fe9341d7c43
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678131"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006154"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Tutorial: Rever a fatura da subscrição do Azure individual
 
@@ -49,23 +49,23 @@ Passaram mais de 30 dias desde o dia em que subscreveu o Azure. O Azure cobra-o 
 
 O primeiro passo para comparar a utilização e os custos é transferir a fatura e os ficheiros de utilização. O ficheiro CSV de utilização detalhada mostra os custos por período de faturação e por utilização diária. Não inclui informações de impostos. Para transferir os ficheiros, tem de ser um administrador de conta ou ter a função de Proprietário.
 
-No portal do Azure, escreva *subscrições* na caixa de pesquisa e, em seguida, clique em **Subscrições** .
+No portal do Azure, escreva *subscrições* na caixa de pesquisa e, em seguida, clique em **Subscrições**.
 
 [![Navegar para as subscrições](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Na lista de subscrições, clique na subscrição.
 
-Em **Faturação** , clique em **Faturas** .
+Em **Faturação**, clique em **Faturas**.
 
 Na lista de faturas, procure a fatura que quer transferir e, em seguida, clique no símbolo de transferência. Pode ser necessário alterar o período de tempo para ver faturas mais antigas. Pode demorar alguns minutos a gerar a fatura e o ficheiro dos detalhes da utilização.
 
 ![Captura de ecrã que mostra os períodos de faturação, a opção de transferência e os custos totais de cada período de faturação](./media/review-individual-bill/download-invoice.png)
 
-Na janela Transferir Utilização + Custos, clique em **Transferir csv** e **Transferir fatura** .
+Na janela Transferir Utilização + Custos, clique em **Transferir csv** e **Transferir fatura**.
 
 ![Captura de ecrã que mostra a página Transferir fatura e utilização](./media/review-individual-bill/usageandinvoice.png)
 
-Se for apresentada a mensagem **Não disponível** , existem vários motivos pelos quais não vê os detalhes da utilização ou uma fatura:
+Se for apresentada a mensagem **Não disponível**, existem vários motivos pelos quais não vê os detalhes da utilização ou uma fatura:
 
 - Passaram menos de 30 dias desde o dia em que subscreveu o Azure.
 - Não existe utilização referente ao período de faturação.
@@ -77,7 +77,7 @@ Depois, analise os custos. A fatura mostra os valores dos impostos e os custos d
 
 ![Exemplo de Fatura do Azure](./media/review-individual-bill/invoice-usage-charge.png)
 
-Abra o ficheiro CSV de utilização que transferiu. No fim do ficheiro, some o valor de todos os itens na coluna *Custo* .
+Abra o ficheiro CSV de utilização que transferiu. No fim do ficheiro, some o valor de todos os itens na coluna *Custo*.
 
 ![Exemplo de ficheiro de utilização com o custo somado](./media/review-individual-bill/usage-file-usage-charges.png)
 
@@ -98,7 +98,7 @@ Os custos de utilização são apresentados ao nível do medidor. Os termos a se
 |Tarifa | EffectivePrice|
 | Valor | Custo |
 
-A secção **Custos de Utilização** da fatura mostra o valor total (custo) de cada medidor que foi consumido durante o período de faturação. Por exemplo, a imagem a seguir mostra os custos de utilização do serviço de Armazenamento do Microsoft Azure para o recurso de *Discos P10* .
+A secção **Custos de Utilização** da fatura mostra o valor total (custo) de cada medidor que foi consumido durante o período de faturação. Por exemplo, a imagem a seguir mostra os custos de utilização do serviço de Armazenamento do Microsoft Azure para o recurso de *Discos P10*.
 
 ![Custos de utilização da fatura](./media/review-individual-bill/invoice-usage-charges.png)
 
@@ -110,7 +110,7 @@ O valor somado do *Custo* deve corresponder exatamente ao valor dos *custos de u
 
 ## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>Comparar os custos faturados e a utilização na análise de custos
 
-A análise de custos no portal do Azure também pode ajudar a verificar os custos. Para obter uma descrição geral rápida da utilização e dos custos faturados, selecione a subscrição na página Subscrições no portal do Azure. Em seguida, clique em **Análise de custos** e, na lista de vistas, clique nos **Detalhes da fatura** .
+A análise de custos no portal do Azure também pode ajudar a verificar os custos. Para obter uma descrição geral rápida da utilização e dos custos faturados, selecione a subscrição na página Subscrições no portal do Azure. Em seguida, clique em **Análise de custos** e, na lista de vistas, clique nos **Detalhes da fatura**.
 
 ![Exemplo a mostrar a seleção dos Detalhes da fatura](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
 
@@ -157,7 +157,7 @@ Pode ver os medidores que foram utilizados para calcular a faturação no fichei
 
 <a name="payment"></a>
 
-Se configurar um cartão de crédito como o método de pagamento, o pagamento será cobrado automaticamente dentro de 10 dias após o fim do período de faturação. No extrator do cartão de crédito, o item de linha indicará **MSFT Azure** .
+Se configurar um cartão de crédito como o método de pagamento, o pagamento será cobrado automaticamente dentro de 10 dias após o fim do período de faturação. No extrator do cartão de crédito, o item de linha indicará **MSFT Azure**.
 
 Para alterar o cartão de crédito utilizado, veja [Adicionar, atualizar ou remover um cartão de crédito do Azure](../manage/change-credit-card.md).
 
