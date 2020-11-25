@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c58ee46a608ccdcbb01a082ee278d9e0f8a07f6e
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 8fd7562d1f8e38c79f739fdd2db7031e772874bc
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030684"
+ms.locfileid: "96122621"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia Azure Synapse Analytics
 
@@ -47,17 +47,11 @@ Há duas maneiras dentro da Sinapse de usar faísca:
 * **Os Cadernos Spark** para fazer dados Ciência e Engenharia usam Scala, PySpark, C#e SparkSQL
 * **Spark definições de trabalho** para executar trabalhos de spark de lote usando ficheiros de frascos.
 
-Suporte de versão:
-* Faísca 2.4
-* Python 3.6.1
-* Scala 2.11.12
-* .NET para Apache Spark 1.0
-* Delta Lake 0.3.  
-
 ## <a name="pipelines"></a>Pipelines
 
-* **Integração de Dados** - Dá a capacidade de ingerir dados entre várias fontes e orquestrar atividades que funcionam dentro de um espaço de trabalho ou fora de um espaço de trabalho.
-* **Data Flow** - Proporciona uma experiência totalmente visual sem codificação necessária para fazer a transformação de big data. Toda a otimização e execução são tratadas de forma sem servidor.
+Os oleodutos são como o Azure Synapse fornece integração de dados - permitindo-lhe mover dados entre serviços e atividades orquestradas.
+
+* **Os Data Flows** fornecem uma experiência sem codine para fazer a transformação de dados que utiliza a Synapse Spark sub-the-covers.
 * **Pipeline** - Agrupamento lógico de atividades que realizam uma tarefa em conjunto.
 * **Atividade** - Define ações para executar em dados como copiar dados, executar um Caderno ou um script SQL.
 * **Trigger** - Executa um oleoduto. Pode ser executado manualmente ou automaticamente (agendar, tropeçar na janela ou no evento)

@@ -4,21 +4,17 @@ description: Conheça as políticas de restrição de acesso disponíveis para u
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 711a973f13c8e292578703518df4c4302c31eb57
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 70be2000d3b01e55cd52d161072c3249870310b9
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071392"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122581"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso à Gestão de API
 
@@ -26,13 +22,13 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 ## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Políticas de restrição de acesso
 
--   [Ver cabeçalho HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) - Executa a existência e/ou o valor de um cabeçalho HTTP.
--   [Taxa de chamada limite por subscrição](api-management-access-restriction-policies.md#LimitCallRate) - Previne picos de utilização da API limitando a taxa de chamada, por subscrição.
+-   [Ver cabeçalho HTTP](#CheckHTTPHeader) - Executa a existência e/ou o valor de um cabeçalho HTTP.
+-   [Taxa de chamada limite por subscrição](#LimitCallRate) - Previne picos de utilização da API limitando a taxa de chamada, por subscrição.
 -   [Limitar a taxa de chamada por chave](#LimitCallRateByKey) - Previne picos de utilização da API limitando a taxa de chamada, por cada chave.
--   [Restringir os IPs do chamador](api-management-access-restriction-policies.md#RestrictCallerIPs) - Filtros (permite/nega) chamadas de endereços IP específicos e/ou intervalos de endereços.
--   [Definir quota de utilização por subscrição](api-management-access-restriction-policies.md#SetUsageQuota) - Permite-lhe impor um volume de chamada renovável ou vitalício e/ou quota de largura de banda, por subscrição.
+-   [Restringir os IPs do chamador](#RestrictCallerIPs) - Filtros (permite/nega) chamadas de endereços IP específicos e/ou intervalos de endereços.
+-   [Definir quota de utilização por subscrição](#SetUsageQuota) - Permite-lhe impor um volume de chamada renovável ou vitalício e/ou quota de largura de banda, por subscrição.
 -   [Definir quota de utilização por chave](#SetUsageQuotaByKey) - Permite-lhe impor um volume de chamada renovável ou vitalício e/ou quota de largura de banda, por chave.
--   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) - Impõe a existência e validade de um JWT extraído de um cabeçalho HTTP especificado ou de um parâmetro de consulta especificado.
+-   [Validar JWT](#ValidateJWT) - Impõe a existência e validade de um JWT extraído de um cabeçalho HTTP especificado ou de um parâmetro de consulta especificado.
 
 > [!TIP]
 > Pode utilizar políticas de restrição de acesso em diferentes âmbitos para diferentes finalidades. Por exemplo, pode proteger toda a API com autenticação AAD aplicando a `validate-jwt` política ao nível da API ou pode aplicá-la ao nível de operação da API e usá-la `claims` para um controlo mais granular.
@@ -384,12 +380,12 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 ## <a name="validate-jwt"></a><a name="ValidateJWT"></a> Validar JWT
 
-A `validate-jwt` política impõe a existência e a validade de um JWT extraído de um cabeçalho HTTP especificado ou de um parâmetro de consulta especificado.
+A `validate-jwt` política impõe a existência e a validade de um token web JSON (JWT) extraído de um cabeçalho HTTP especificado ou de um parâmetro de consulta especificado.
 
 > [!IMPORTANT]
 > A `validate-jwt` política exige que a `exp` reclamação registada esteja incluída no token JWT, a menos que o `require-expiration-time` atributo seja especificado e definido para `false` .
-> A `validate-jwt` política suporta algoritmos de assinatura HS256 e RS256. Para o HS256, a chave deve ser fornecida em linha dentro da política na forma codificada base64. Para o RS256, a chave tem de ser disponibilizada através de um ponto final de configuração Open ID.
-> A `validate-jwt` política suporta fichas encriptadas com chaves simétricas utilizando os seguintes algoritmos de encriptação A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+> A `validate-jwt` política suporta algoritmos de assinatura HS256 e RS256. Para o HS256, a chave deve ser fornecida em linha dentro da política na forma codificada base64. Para o RS256, a chave pode ser fornecida através de um ponto final de configuração open ID, ou fornecendo o ID de um certificado carregado que contenha a chave pública ou o par expoente modulus da chave pública.
+> A `validate-jwt` política suporta fichas encriptadas com chaves simétricas usando os seguintes algoritmos de encriptação: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -440,6 +436,22 @@ A `validate-jwt` política impõe a existência e a validade de um JWT extraído
 <validate-jwt header-name="Authorization" require-scheme="Bearer">
     <issuer-signing-keys>
         <key>{{jwt-signing-key}}</key>  <!-- signing key specified as a named value -->
+    </issuer-signing-keys>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
+    </audiences>
+    <issuers>
+        <issuer>http://contoso.com/</issuer>
+    </issuers>
+</validate-jwt>
+```
+
+#### <a name="token-validation-with-rsa-certificate"></a>Validação token com certificado RSA
+
+```xml
+<validate-jwt header-name="Authorization" require-scheme="Bearer">
+    <issuer-signing-keys>
+        <key certficate-id="my-rsa-cert" />  <!-- signing key specified as certificate ID, enclosed in double-quotes -->
     </issuer-signing-keys>
     <audiences>
         <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
@@ -519,8 +531,8 @@ Este exemplo mostra como utilizar a política [validada do JWT](api-management-a
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validar-jwt        | Elemento de raiz.                                                                                                                                                                                                                                                                                                                                         | Yes      |
 | públicos           | Contém uma lista de reclamações aceitáveis de audiência que podem estar presentes no token. Se estiverem presentes vários valores de audiência, cada valor é tentado até que todos estejam esgotados (caso em que a validação falha) ou até que um tenha sucesso. Pelo menos uma audiência deve ser especificada.                                                                     | No       |
-| emitentes-assinatura-chaves | Uma lista de chaves de segurança codificadas pela Base64 usadas para validar fichas assinadas. Se estiverem presentes várias teclas de segurança, cada tecla é tentada até que todas estejam esgotadas (caso em que a validação falha) ou até que uma delas tenha sucesso (útil para o capotamento do token). Os elementos-chave têm um atributo opcional `id` usado para corresponder à `kid` reclamação.               | No       |
-| desencriptação-chaves     | Uma lista de chaves codificadas da Base64 usadas para desencriptar os tokens. Se estiverem presentes várias teclas de segurança, cada tecla é experimenta até que todas as teclas estejam esgotadas (caso em que a validação falha) ou até que uma chave tenha sucesso. Os elementos-chave têm um atributo opcional `id` usado para corresponder à `kid` reclamação.                                                 | No       |
+| emitentes-assinatura-chaves | Uma lista de chaves de segurança codificadas pela Base64 usadas para validar fichas assinadas. Se estiverem presentes várias teclas de segurança, cada tecla é tentada até que todas estejam esgotadas (caso em que a validação falha) ou uma delas é bem sucedida (útil para o capotamento do token). Os elementos-chave têm um atributo opcional `id` usado para corresponder à `kid` reclamação. <br/><br/>Alternativamente, forneça uma chave de assinatura de emitente utilizando:<br/><br/> - `certificate-id` em formato `<key certificate-id="mycertificate" />` para especificar o identificador de uma entidade de [certificados enviado](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) para a API Management<br/>- Par de módulos e expoentes RSA `n` `e` em formato para `<key n="<modulus>" e="<exponent>" />` especificar os parâmetros RSA em formato codificado base64url               | No       |
+| desencriptação-chaves     | Uma lista de chaves codificadas da Base64 usadas para desencriptar os tokens. Se estiverem presentes várias teclas de segurança, cada tecla é experimenta até que todas as teclas estejam esgotadas (caso em que a validação falha) ou uma chave tenha sucesso. Os elementos-chave têm um atributo opcional `id` usado para corresponder à `kid` reclamação.<br/><br/>Alternativamente, forneça uma chave de desencriptação utilizando:<br/><br/> - `certificate-id` em formato `<key certificate-id="mycertificate" />` para especificar o identificador de uma entidade de [certificados enviado](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) para a API Management                                                 | No       |
 | emitentes             | Uma lista de princípios aceitáveis que emitiu o símbolo. Se estiverem presentes vários valores emitentes, cada valor é tentado até que todos estejam esgotados (caso em que a validação falha) ou até que um tenha sucesso.                                                                                                                                         | No       |
 | openid-config       | O elemento utilizado para especificar um ponto final de configuração open id compatível a partir do qual podem ser obtidas teclas de assinatura e emitente.                                                                                                                                                                                                                        | No       |
 | reivindicações necessárias     | Contém uma lista de reclamações que se espera estarem presentes no token para que seja considerada válida. Quando o `match` atributo for definido para cada valor de `all` reclamação na apólice deve estar presente no símbolo para que a validação tenha sucesso. Quando o `match` atributo for definido para pelo menos uma `any` reclamação deve estar presente no símbolo para validação ter sucesso. | No       |
@@ -558,4 +570,4 @@ Para obter mais informações sobre as políticas, consulte:
 -   [Políticas em Gestão de API](api-management-howto-policies.md)
 -   [Transformar APIs](transform-api.md)
 -   [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
--   [Amostras de política](./policy-reference.md)
+-   [Exemplos de Políticas](./policy-reference.md)

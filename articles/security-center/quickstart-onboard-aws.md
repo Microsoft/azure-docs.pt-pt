@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 7aa65cb8e37ce48a59c276fdf2631f75397d3236
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372783"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122516"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Ligue as suas contas AWS ao Azure Security Center
 
@@ -60,7 +60,7 @@ Na imagem abaixo pode ver as contas AWS apresentadas no painel de visão geral d
     1. Ativar [o centro de segurança AWS](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html).
     1. Verifique se há dados a fluir para o Centro de Segurança.
 
-        Quando ativa pela primeira vez o Security Hub, pode demorar várias horas para os dados estarem disponíveis.
+        Quando ativar o Security Hub pela primeira vez, pode demorar várias horas para os dados estarem disponíveis.
 
 ### <a name="step-2-set-up-authentication-for-security-center-in-aws"></a>Passo 2. Configurar a autenticação para o Centro de Segurança em AWS
 
@@ -70,14 +70,14 @@ Existem duas formas de permitir que o Centro de Segurança autentica a AWS:
 - **Utilizador AWS para Centro de Segurança** - Uma opção menos segura se não tiver o IAM ativado
 
 #### <a name="create-an-iam-role-for-security-center"></a>Criar um papel IAM para o Centro de Segurança
-1. A partir da sua consola Amazon Web Services, em **Segurança, Identidade & Compliance** , selecione **IAM**.
+1. A partir da sua consola Amazon Web Services, em **Segurança, Identidade & Compliance**, selecione **IAM**.
     :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Serviços AWS":::
 
 1. Selecione **Funções** e **Crie função.**
 1. Selecione **outra conta AWS**.
 1. Introduza os seguintes detalhes:
 
-    - **ID de conta** - insira o ID da Conta da Microsoft ( **158177204117** ) como mostrado na página de conector AWS no Security Center.
+    - **ID de conta** - insira o ID da Conta da Microsoft (**158177204117**) como mostrado na página de conector AWS no Security Center.
     - **Require External ID** - deve ser selecionado
     - **ID externo** - insira o ID de subscrição como mostrado na página do conector AWS no Centro de Segurança 
 
@@ -140,7 +140,7 @@ O AWS Systems Manager é necessário para automatizar tarefas através dos seus 
 
             OR
 
-        - Selecione **Credenciais** e cole a **chave** de acesso e **a chave secreta** do ficheiro .csv que guardou no Criar um utilizador [AWS para o Centro de Segurança.](#create-an-aws-user-for-security-center)
+        - Selecione **credenciais** e cole a **chave** de acesso e **a chave secreta** a partir do ficheiro .csv que guardou no Criar um utilizador [AWS para o Centro de Segurança.](#create-an-aws-user-for-security-center)
 1. Selecione **Seguinte**.
 1. Configure as opções no separador **Configuração Azure Arc:**
 

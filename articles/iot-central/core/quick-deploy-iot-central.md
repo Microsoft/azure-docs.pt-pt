@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: afe3e9812271f4b8e049fb2a53efd45fe746e514
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 313826e9e3fb5fd34d42dd735cf66259773084f7
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992816"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122346"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Quickstart - Criar uma aplicação Azure IoT Central
 
@@ -59,7 +59,7 @@ Para criar uma nova aplicação Azure IoT Central a partir do modelo de **aplica
 
     ![Aplicação Azure IoT Central](media/quick-deploy-iot-central/iotcentral-application.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, criou uma aplicação do IoT Central. Aqui está o próximo passo sugerido para continuar a aprender sobre a IoT Central:
 
@@ -68,4 +68,4 @@ Neste início rápido, criou uma aplicação do IoT Central. Aqui está o próxi
 
 Se você é um desenvolvedor de dispositivos e quer mergulhar em algum código, o próximo passo sugerido é:
 > [!div class="nextstepaction"]
-> [Crie e conecte uma aplicação de cliente à sua aplicação Azure IoT Central](./tutorial-connect-device-nodejs.md)
+> [Crie e conecte uma aplicação de cliente à sua aplicação Azure IoT Central](./tutorial-connect-device.md)

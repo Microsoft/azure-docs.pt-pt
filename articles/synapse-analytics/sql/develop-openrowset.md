@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2458b5f3f0c0091bb6ec24e62a1d5614e4e1ecd8
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 90a5afb19c9ba5061b9304c739914262bcdbee15
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888594"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122707"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Como utilizar o OPENROWSET utilizando a piscina SQL sem servidor (pré-visualização) no Azure Synapse Analytics
 
@@ -147,7 +147,7 @@ No exemplo abaixo, se o unstructured_data_path= `https://mystorageaccount.dfs.co
 
 A cláusula COM permite especificar colunas que pretende ler a partir de ficheiros.
 
-- Para os ficheiros de dados do CSV, para ler todas as colunas, forneça nomes de colunas e seus tipos de dados. Se pretender um subconjunto de colunas, utilize números ordinais para recolher as colunas dos ficheiros de dados originários por ordinal. As colunas ficarão vinculadas pela designação ordinal. 
+- Para os ficheiros de dados do CSV, para ler todas as colunas, forneça nomes de colunas e seus tipos de dados. Se pretender um subconjunto de colunas, utilize números ordinais para recolher as colunas dos ficheiros de dados originários por ordinal. As colunas ficarão vinculadas pela designação ordinal. Se HEADER_ROW = TRUE é utilizado, então a ligação da coluna é feita pelo nome da coluna em vez da posição ordinal.
     > [!TIP]
     > Também pode omitir a cláusula COM para ficheiros CSV. Os tipos de dados serão automaticamente inferidos a partir do conteúdo do ficheiro. Pode utilizar HEADER_ROW argumento para especificar a existência da linha do cabeçalho, caso em que os nomes das colunas serão lidos a partir da linha do cabeçalho. Para mais detalhes, verifique [a descoberta automática do esquema](#automatic-schema-discovery).
     
@@ -231,7 +231,7 @@ Detalhes da versão 2.0 do parser CSV:
 
 HEADER_ROW = { TRUE FALSO}
 
-Especifica se o ficheiro CSV contém linha de cabeçalho. O padrão é FALSO. Apoiado em PARSER_VERSION='2.0'. Se VERDADEIRO, os nomes das colunas serão lidos da primeira linha de acordo com o argumento FIRSTROW.
+Especifica se o ficheiro CSV contém linha de cabeçalho. O padrão é FALSO. Apoiado em PARSER_VERSION='2.0'. Se VERDADEIRO, os nomes das colunas serão lidos da primeira linha de acordo com o argumento FIRSTROW. Se TRUE e schema forem especificados usando COM, a ligação dos nomes das colunas será feita por nome de coluna, não posições ordinais.
 
 DATAFILETYPE = {'char' 'widechar' }
 
@@ -281,7 +281,7 @@ Os ficheiros parquet contêm descrições de tipo para cada coluna. A tabela a s
 | INT32 |INT(8, falso) |tinyint |
 | INT32 |INT(16, falso) |int |
 | INT32 |INT(32, falso) |bigint |
-| INT32 |DATE |data |
+| INT32 |DATE |date |
 | INT32 |DECIMAL |decimal |
 | INT32 |TEMPO (MILLIS)|hora |
 | INT64 |INT(64, verdade) |bigint |

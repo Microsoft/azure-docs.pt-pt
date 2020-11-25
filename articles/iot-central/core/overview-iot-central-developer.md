@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 82818c8db326889079948cd2b32b2ed0be6ab50d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e33f48c9496ffa3cca9d8b1aa71d524be9a311bb
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990759"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122257"
 ---
 # <a name="iot-central-device-development-overview"></a>Descrição geral do desenvolvimento de dispositivos do IoT Central
 
@@ -135,14 +135,14 @@ Utilize um dos [SDKs do dispositivo Azure IoT](#languages-and-sdks) para impleme
 
 Para obter mais informações sobre o papel dos modelos do dispositivo, consulte [quais são os modelos do dispositivo?](./concepts-device-templates.md)
 
-Para obter algum código de amostra, consulte [Criar e ligue uma aplicação Node.js ao cliente](./tutorial-connect-device-nodejs.md) ou crie e [conecte uma aplicação do cliente Python.](./tutorial-connect-device-python.md)
+Para obter algum código de amostra, consulte [Criar e ligue uma aplicação ao cliente.](./tutorial-connect-device.md)
 
 ### <a name="languages-and-sdks"></a>Línguas e SDKs
 
 Para obter mais informações sobre as línguas e SDKs suportados, consulte [Compreender e utilizar SDKs do dispositivo Azure IoT Hub](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Se é um desenvolvedor de dispositivos e quer mergulhar em algum código, o próximo passo sugerido é [criar e ligar uma aplicação do cliente à sua aplicação Azure IoT Central](./tutorial-connect-device-nodejs.md).
+Se é um desenvolvedor de dispositivos e quer mergulhar em algum código, o próximo passo sugerido é [criar e ligar uma aplicação do cliente à sua aplicação Azure IoT Central](./tutorial-connect-device.md).
 
 Se quiser saber mais sobre a utilização da IoT Central, os próximos passos sugeridos são experimentar os quickstarts, começando com [a configuração de uma aplicação Azure IoT Central](./quick-deploy-iot-central.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 24fbe347aeb0b47ffd1ba694f761d909ff2950f8
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989552"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96121755"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Payloads de comandos, propriedades e telemetria
 
@@ -36,7 +36,7 @@ Cada exemplo mostra um corte do modelo do dispositivo que define as cargas de ti
 
 O ficheiro JSON que define o modelo do dispositivo utiliza o [Digital Twin Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-Para o código do dispositivo de amostra que mostra algumas destas cargas em uso, consulte a [Create e ligue uma aplicação do cliente à sua aplicação Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md) e Crie e [conecte uma aplicação do cliente aos tutoriais da aplicação Azure IoT Central (Python).](tutorial-connect-device-python.md)
+Para o código do dispositivo de amostra que mostra algumas destas cargas em uso, consulte a Create e ligue uma aplicação do cliente ao seu tutorial de [aplicação Azure IoT Central.](tutorial-connect-device.md)
 
 ## <a name="view-raw-data"></a>Ver dados brutos
 
@@ -717,7 +717,7 @@ A IoT Central espera uma resposta do dispositivo para atualizações de propried
 
 `ac` é um campo numérico que utiliza os valores na tabela seguinte:
 
-| Valor | Etiqueta | Descrição |
+| Valor | Etiqueta | Description |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de mudança de propriedade foi concluída com sucesso. |
 | `'ac': 202`  ou `'ac': 201` | Pendente | A operação de mudança de propriedade está pendente ou em curso |
@@ -1000,6 +1000,6 @@ Quando o dispositivo tiver terminado de processar o pedido, deverá enviar um im
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Como desenvolvedor de dispositivos, agora que aprendeu sobre os modelos do dispositivo, um próximo passo sugerido é ler [Se conectar ao Azure IoT Central](./concepts-get-connected.md) para saber mais sobre como registar dispositivos com a IoT Central e como a IoT Central protege as ligações do dispositivo.

@@ -9,19 +9,19 @@ ms.subservice: ''
 ms.date: 11/24/2020
 ms.author: procha
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94872d3765a992fd025f30feaab95248ce6831ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 19941963b5200b3ffdb9f2360301d30fe9df4823
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920157"
+ms.locfileid: "96121853"
 ---
 # <a name="azure-synapse-analytics-system-integration-partners"></a>Parceiros de integração do sistema Azure Synapse Analytics
 
 Este artigo destaca as empresas parceiras de integração do sistema da Microsoft que couem soluções com a Azure Synapse.
 
-## <a name="our-public-preview-launch-partners"></a>Os nossos parceiros de lançamento de pré-visualização pública
-| Parceiro | Descrição | Link do site/produto |
+## <a name="system-integration-partners"></a>Parceiros de Integração de Sistemas
+| Parceiro | Description | Link do site/produto |
 | ------- | ----------- | -------------------- |
 | ![Accenture](./media/sql-data-warehouse-partner-public-preview/accenture-logo.png) |**Accenture**<br>Reunindo mais de 45.000 profissionais dedicados, o Accenture Microsoft Business Group - alimentado pela Avanade - ajuda as empresas a prosperar na era da disrupção digital.|[Página do parceiro](https://www.accenture.com/us-en/services/microsoft-index)<br>|
 | ![Rio Adatis](./media/sql-data-warehouse-partner-public-preview/adatis-logo.png) |**Rio Adatis**<br>A Adatis oferece serviços especializados em análise avançada de dados, desde estratégia de dados e consultoria, até prestação de serviços de classe mundial e geridos. |[Página do parceiro](https://adatis.co.uk/)<br> |

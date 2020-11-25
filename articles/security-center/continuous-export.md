@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 43b66a59062a230aa2fba6909172deb5f1740b28
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289240"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122299"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportar continuamente dados do Centro de Segurança
 
-O Centro de Segurança Azure gera alertas e recomendações de segurança detalhadas. Pode vê-los no portal ou através de ferramentas programáticas. Também pode precisar de exportar algumas ou todas estas informações para rastrear com outras ferramentas de monitorização no seu ambiente. 
+O Centro de Segurança Azure gera alertas e recomendações de segurança detalhadas. Pode vê-los no portal ou através de ferramentas programáticas. Também poderá ser necessário exportar algumas ou todas estas informações para rastrear outras ferramentas de monitorização no seu ambiente. 
 
 **A exportação contínua** permite-lhe personalizar totalmente *o que* será exportado e para *onde* irá. Por exemplo, pode configumentá-lo de modo a que:
 
@@ -61,7 +61,11 @@ Os passos abaixo são necessários quer esteja a configurar uma exportação con
 1. A partir da barra lateral do Security Center, **selecione definições de preços &**.
 1. Selecione a subscrição específica para a qual pretende configurar a exportação de dados.
 1. A partir da barra lateral da página de definições para essa subscrição, selecione **Exportação Contínua**.
-    [ ![ Opções de exportação no Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) Aqui você vê as opções de exportação. Há um separador para cada alvo de exportação disponível. 
+
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Opções de exportação no Centro de Segurança Azure":::
+
+    Aqui vê-se as opções de exportação. Há um separador para cada alvo de exportação disponível. 
+
 1. Selecione o tipo de dados que pretende exportar e escolha entre os filtros de cada tipo (por exemplo, exportar apenas alertas de alta gravidade).
 1. Opcionalmente, se a sua seleção incluir uma destas quatro recomendações, pode incluir os resultados da avaliação da vulnerabilidade juntamente com eles:
     - Os resultados da Avaliação de Vulnerabilidades nas suas bases de dados SQL devem ser remediados
@@ -163,7 +167,7 @@ Para ver os esquemas de eventos dos tipos de dados exportados, visite os [esquem
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Ver alertas e recomendações exportadas no Azure Monitor
 
-Em alguns casos, pode optar por visualizar os alertas de segurança exportados e/ou recomendações no [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
+Também pode optar por visualizar alertas de segurança exportados e/ou recomendações no [Azure Monitor.](../azure-monitor/platform/alerts-overview.md) 
 
 O Azure Monitor fornece uma experiência de alerta unificada para uma variedade de alertas Azure, incluindo Log de Diagnóstico, alertas métricos e alertas personalizados baseados em consultas de espaço de trabalho Log Analytics.
 
@@ -177,7 +181,7 @@ Para visualizar alertas e recomendações do Security Center no Azure Monitor, c
 
     * Para **obter recursos,** selecione o espaço de trabalho Log Analytics para o qual exportou alertas e recomendações de segurança.
 
-    * Para **obter a condição** , selecione Custom log **search**. Na página que aparece, configurar o período de consulta, de resguardo e de frequência. Na consulta de pesquisa, pode escrever *SecurityAlert* ou *SecurityRecommendation* para consultar os tipos de dados que o Security Center exporta continuamente para que permita a exportação Contínua para log analytics. 
+    * Para **obter a condição**, selecione Custom log **search**. Na página que aparece, configurar o período de consulta, de resguardo e de frequência. Na consulta de pesquisa, pode escrever *SecurityAlert* ou *SecurityRecommendation* para consultar os tipos de dados que o Security Center exporta continuamente para que permita a exportação Contínua para log analytics. 
     
     * Opcionalmente, configuure o [Grupo de Ação](../azure-monitor/platform/action-groups.md) que gostaria de desencadear. Os grupos de ação podem desencadear o envio de e-mails, bilhetes ITSM, WebHooks e muito mais.
     ![Regra de alerta do Monitor Azure](./media/continuous-export/azure-monitor-alert-rule.png)

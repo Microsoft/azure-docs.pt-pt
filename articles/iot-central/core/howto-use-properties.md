@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: aeb1e5ee00bd52ebb4bd93dec2f4a1eacb002fb9
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 992fb4422974dad7a48e5fea953ac4530bb52d5c
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986536"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122594"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Utilize propriedades numa solução Azure IoT Central
 
@@ -35,7 +35,7 @@ A tabela seguinte mostra as definições de configuração para uma capacidade d
 | Campo           | Descrição                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nome a apresentar    | O nome de exibição para o valor da propriedade usado em dashboards e formulários.                                                                                                                                                              |
-| Nome            | O nome da propriedade. O Azure IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo deve ser alfanumérico.                                                 |
+| Name            | O nome da propriedade. O Azure IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo deve ser alfanumérico.                                                 |
 | Tipo de capacidade | Propriedade.                                                                                                                                                                                                                          |
 | Semantic type (Tipo de semântica)   | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis.                                                                       |
 | Esquema          | O tipo de dados da propriedade, como duplo, string ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. Schema não está disponível para o evento e tipos semânticos do estado.                                               |
@@ -45,7 +45,7 @@ A tabela seguinte mostra as definições de configuração para uma capacidade d
 | Unidade            | Uma unidade para o valor da propriedade, como **mph,** **%** ou **&deg; C**.                                                                                                                                                              |
 | Unidade de exibição    | Uma unidade de visualização para utilização em painéis e formulários.                                                                                                                                                                                    |
 | Comentário         | Quaisquer comentários sobre a capacidade da propriedade.                                                                                                                                                                                        |
-| Descrição     | Uma descrição da capacidade da propriedade.                                                                                                                                                                                          |
+| Description     | Uma descrição da capacidade da propriedade.                                                                                                                                                                                          |
 
 As propriedades também podem ser definidas numa interface num modelo de dispositivo, como mostrado aqui:
 
@@ -160,11 +160,7 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-Este artigo usa Node.js para a simplicidade. Para obter informações completas sobre exemplos de aplicações do dispositivo, consulte os seguintes tutoriais:
-
-* [Crie e conecte uma aplicação do cliente à sua aplicação Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md)
-* [Crie e conecte uma aplicação de cliente à sua aplicação Azure IoT Central (Python)](tutorial-connect-device-python.md)
-* [Crie e conecte uma aplicação de cliente à sua aplicação Azure IoT Central (Java)](tutorial-connect-device-java.md)
+Este artigo usa Node.js para a simplicidade. Para obter informações completas sobre exemplos de aplicações do dispositivo, consulte o seguinte [Criar e conecte uma aplicação do cliente ao seu tutorial de aplicação Azure IoT Central.](tutorial-connect-device.md)
 
 A seguinte vista na aplicação Azure IoT Central mostra as propriedades que você pode ver. A vista torna automaticamente a propriedade do **modelo do dispositivo** uma propriedade _apenas de leitura_.
 
@@ -214,7 +210,7 @@ A mensagem de resposta deve incluir os `ac` campos e `av` campos. O campo `ad` �
 * `av` é o número de versão enviado para o dispositivo.
 * `ad` é uma descrição do string de opção.
 
-| Valor | Etiqueta | Descrição |
+| Valor | Etiqueta | Description |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de mudança de propriedade foi concluída com sucesso. |
 | `'ac': 202` ou `'ac': 201` | Pendente | A operação de mudança de propriedade está pendente ou em curso. |
@@ -231,9 +227,9 @@ A seguinte vista mostra as propriedades writable. Quando introduz o valor e sele
 
 ![Screenshot que mostra propriedade aceite.](./media/howto-use-properties/accepted.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a usar propriedades na sua aplicação Azure IoT Central, consulte:
 
 * [Cargas](concepts-telemetry-properties-commands.md)
-* [Crie e conecte uma aplicação do cliente à sua aplicação Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md)
+* [Crie e conecte uma aplicação de cliente à sua aplicação Azure IoT Central](tutorial-connect-device.md)

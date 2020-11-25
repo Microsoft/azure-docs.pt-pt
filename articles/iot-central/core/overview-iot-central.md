@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: b62a0da7074676787b7e1c0182ca7588b83cdbe0
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 41dba796327d7f5857098af6165be996bed226fb
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985047"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122705"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 
@@ -152,12 +152,12 @@ Cada subscrição do Azure tem quotas padrão que podem afetar o âmbito da sua 
 - Apenas o dispositivo C SDK e o Node.js dispositivo e serviço SDKs são suportados.
 - A IoT Central está atualmente disponível nos Estados Unidos, Europa, Ásia-Pacífico, Austrália, Reino Unido e Japão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma visão geral da IoT Central, aqui estão alguns passos sugeridos seguintes:
 
 - Compreenda as tecnologias e serviços disponíveis [da Azure para a criação de soluções IoT.](../../iot-fundamentals/iot-services-and-technologies.md)
-- Se é um desenvolvedor de dispositivos e quer mergulhar em algum código, o próximo passo sugerido é [criar e ligar uma aplicação do cliente à sua aplicação Azure IoT Central](./tutorial-connect-device-nodejs.md).
+- Se é um desenvolvedor de dispositivos e quer mergulhar em algum código, o próximo passo sugerido é [criar e ligar uma aplicação do cliente à sua aplicação Azure IoT Central](./tutorial-connect-device.md).
 - Familiarizar-se com a [IU do Azure IoT Central](overview-iot-central-tour.md).
 - Começar por [criar uma aplicação do Azure IoT Central](quick-deploy-iot-central.md).
 - Saiba como [ligar um dispositivo Azure IoT Edge](./tutorial-add-edge-as-leaf-device.md).

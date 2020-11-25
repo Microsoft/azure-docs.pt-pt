@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2ac4f41a36a2a18a65816be5ea74e88d0b364294
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bb0e073d5ccf73434d05c801b9a8727c1d19fa47
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789068"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122243"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure Defender para o Serviço de Aplicações
 
@@ -30,7 +30,7 @@ Ao usar a visibilidade que o Azure tem como fornecedor de nuvem, o Security Cent
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|[O Azure Defender for App Service](azure-defender.md) é faturado como mostrado na página de [preços](security-center-pricing.md)|
 |Planos de Serviço de Aplicações suportados:|![Sim ](./media/icons/yes-icon.png) Básico, Standard, Premium, Isolado ou Linux<br>![Sem ](./media/icons/no-icon.png) Consumo Gratuito, Partilhado ou Partilhado<br>[Saiba mais sobre Planos de Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="what-does-azure-defender-for-app-service-protect"></a>O que protege o Azure Defender para o Serviço de Aplicações?
@@ -50,7 +50,7 @@ Para proteger o seu plano de Serviço de Aplicações Azure com o Azure Defender
 O Security Center está nativamente integrado com o Serviço de Aplicações, eliminando a necessidade de implantação e embarque - a integração é transparente.
 
 >[!NOTE]
-> A página de preços e definições lista uma série de casos para a sua **Quantidade de Recursos** . Isto representa o número total de instâncias computacional, em todos os planos do Serviço de Aplicações nesta subscrição, em execução no momento em que abriu a página do nível de preços.
+> A página de preços e definições lista uma série de casos para a sua **Quantidade de Recursos**. Isto representa o número total de instâncias computacional, em todos os planos do Serviço de Aplicações nesta subscrição, em execução no momento em que abriu a página do nível de preços.
 >
 > O Azure App Service oferece uma variedade de planos. O seu plano de Serviço de Aplicações define o conjunto de recursos computacionares para uma aplicação web a executar. Estes são equivalentes a fazendas de servidores em hospedagem web convencional. Uma ou mais aplicações podem ser configuradas para funcionar nos mesmos recursos informáticos (ou no mesmo plano de Serviço de Aplicações).
 >

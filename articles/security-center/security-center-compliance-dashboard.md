@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2020
 ms.author: memildin
-ms.openlocfilehash: 3108dd32b9d7338e418a1d10684115ad7265702e
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 304604b649381daa887b4d313ffd0f773f015a0b
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951201"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96122221"
 ---
-# <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar a sua conformidade regulamentar
+# <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar a conformidade regulamentar
 
 O Azure Security Center ajuda a agilizar o processo de cumprimento dos requisitos de conformidade regulamentar, utilizando o **painel de conformidade regulamentar**. No painel de instrumentos, o Security Center fornece informações sobre a sua postura de conformidade com base em avaliações contínuas do seu ambiente Azure. O Security Center analisa fatores de risco no seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Estas avaliações são mapeadas para controlos de conformidade de um conjunto de normas apoiadas. No painel de conformidade regulamentar, pode ver o estado de todas as avaliações dentro do seu ambiente no contexto de uma determinada norma ou regulamento. À medida que age sobre as recomendações e reduz os fatores de risco no seu ambiente, a sua postura de conformidade melhora.
 
@@ -52,15 +52,15 @@ Na parte superior do ecrã, vê-se um dashboard com uma visão geral do seu esta
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Painel de conformidade regulamentar":::
 
-1. Selecione um separador para um padrão de conformidade que seja relevante para si (1). Verá em que subscrições o padrão é aplicado (2), e a lista de todos os controlos para esse padrão (3). Para os controlos aplicáveis, pode ver os detalhes das avaliações de passagem e falha associadas a esse controlo (4), bem como o número de recursos afetados (5). Alguns controlos estão acinzentados. Estes controlos não têm avaliações do Centro de Segurança associadas a eles. Verifique os requisitos para estes e avalie-os no seu ambiente por conta própria. Algumas delas podem estar relacionadas com processos e não técnicas.
+1. Selecione um separador para um padrão de conformidade que seja relevante para si (1). Verá em que subscrições o padrão é aplicado (2), e a lista de todos os controlos para esse padrão (3). Para os controlos aplicáveis, pode ver os detalhes das avaliações de passagem e falha associadas a esse controlo (4), bem como o número de recursos afetados (5). Alguns controlos estão acinzentados. Estes controlos não têm avaliações do Centro de Segurança associadas a eles. Verifique os requisitos para estes e avalie-os no seu ambiente por conta própria. Alguns destes podem estar relacionados com processos e não técnicos.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Painel de conformidade regulamentar":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Explorando os detalhes do cumprimento de uma norma específica":::
 
 1. Para gerar e descarregar um relatório PDF que ressoe o seu estado de conformidade atual para uma determinada norma, clique em **Baixar o relatório**.
 
-    O relatório fornece um resumo de alto nível do seu estado de conformidade para a norma selecionada com base nos dados de avaliação do Centro de Segurança, e é organizado de acordo com os controlos dessa norma específica. O relatório pode ser partilhado com as partes interessadas relevantes e pode servir para apresentar provas aos auditores internos e externos.
+    O relatório fornece um resumo de alto nível do seu estado de conformidade para a norma selecionada com base nos dados de avaliação do Centro de Segurança, e é organizado de acordo com os controlos dessa norma específica. O relatório pode ser partilhado com as partes interessadas relevantes e pode apresentar provas aos auditores internos e externos.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Painel de conformidade regulamentar":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Relatório de conformidade de descarregamento":::
 
 ## <a name="improve-your-compliance-posture"></a>Melhore a sua postura de conformidade
 
@@ -70,11 +70,11 @@ Tendo em conta as informações no painel de conformidade regulamentar, pode mel
 
 1.  Pode selecionar um recurso específico para visualizar mais detalhes e resolver a recomendação para esse recurso. <br>Por exemplo, na **norma Azure CIS 1.1.0 (Nova),** pode selecionar a recomendação **A encriptação do disco deve ser aplicada em máquinas virtuais**.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Painel de conformidade regulamentar":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Selecionar uma recomendação a partir de uma norma leva diretamente à página de detalhes da recomendação":::
 
 1. Neste exemplo, quando selecionar **Tome medidas** a partir da página de detalhes da recomendação, você chega às páginas Azure Virtual Machine do portal Azure, onde pode abrir o separador **Segurança** e ativar a encriptação:
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Painel de conformidade regulamentar":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Tome o botão de ação na página de detalhes da recomendação leva às opções de remediação":::
 
     Para obter mais informações sobre como aplicar recomendações, consulte [as recomendações de segurança de implementação no Centro de Segurança Azure.](security-center-recommendations.md)
 

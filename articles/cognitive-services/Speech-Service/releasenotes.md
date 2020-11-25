@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 18d228af5c162159d52b5583613d4449d1195af2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e786c4caae13ffaa541697d083158e17d42383fb
+ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95894240"
+ms.locfileid: "96122553"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
@@ -47,7 +47,7 @@ ms.locfileid: "95894240"
 https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
 -  **C++/C#/Java/Python/Objective-C/Swift**: Adicionei um `stopSpeakingAsync()` método para parar a síntese de texto-a-fala. Leia aqui a documentação de referência [(C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [aqui (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [aqui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech), [aqui (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)e [aqui (Objectivo-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
 - **C#, C++, Java**: Adicione uma `FromDialogServiceConnector()` função à classe que pode ser usada para monitorizar eventos de `Connection` ligação e desconexão para `DialogServiceConnector` . Leia a documentação de referência [aqui (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), e [aqui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection).
-<!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
+- **C++/C#/Java/Python/Objective-C/Swift**: Apoio adicional à Avaliação da Pronúncia, que avalia a pronúncia da fala e dá feedback aos falantes sobre a precisão e fluência do áudio falado. Leia a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment)
 
 **Mudança de rutura**
 - **JavaScript**: PullAudioOutputStream.read() tem uma alteração do tipo de retorno de uma Promessa Interna a uma Promessa JavaScript Nativa.
@@ -73,7 +73,7 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 **Amostras**
 - **Objetivo C**: Amostra adicionada para reconhecimento de palavras-chave [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/speech-samples).
 - **C#/JavaScript**: A added quickstart for conversation transcription [here (C#)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/conversation-transcription) and [here (JavaScript)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/conversation-transcription).
-<!-- - **C++/C#/Java/Python/Swift/ObjectiveC**: Added sample for pronunciation assessment [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples) -->
+- **C++/C#/Java/Python/Swift/ObjectiveC**: Amostra adicionada para avaliação da pronúncia [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples)
 - **Xamarin**: Iniciação rápida atualizada para o modelo mais recente do Estúdio Visual [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin).
 
 **Problema Conhecido**
