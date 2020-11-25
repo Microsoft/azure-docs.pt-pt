@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6a74f105525ec8ce28559b47ed4fc9624f518a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a74a3b7542a8d683e9bbf16f99c9b2646d95e00d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488342"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95986552"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapeie um nome DNS personalizado existente para o Azure App Service
 
@@ -20,7 +20,7 @@ O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojam
 
 ![Screenshot que mostra a navegação do portal Azure para uma aplicação Azure.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Mapear um subdomínio (por exemplo, `www.contoso.com` ) utilizando um registo CNAME.
@@ -100,7 +100,7 @@ Para adicionar um domínio personalizado à sua aplicação, tem de verificar a 
 ![Screenshot que mostra o ID na caixa de identificação de verificação de domínio personalizado.](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
 
 > [!WARNING]
-> Adicionar IDs de verificação de domínio ao seu domínio personalizado pode impedir entradas de DNS pendentes e ajudar a evitar aquisições de subdomínios. Para obter mais informações sobre esta ameaça comum de alta gravidade, consulte [a aquisição de Subdomínio.](../security/fundamentals/subdomain-takeover.md)
+> Adicionar IDs de verificação de domínio ao seu domínio personalizado pode impedir entradas de DNS pendentes e ajudar a evitar aquisições de subdomínios. Para domínios personalizados que previamente configurado sem este ID de verificação, deverá protegê-los do mesmo risco adicionando o ID de verificação ao seu registo DNS. Para obter mais informações sobre esta ameaça comum de alta gravidade, consulte [a aquisição de Subdomínio.](../security/fundamentals/subdomain-takeover.md)
 
 ## <a name="map-your-domain"></a>Mapear o seu domínio
 

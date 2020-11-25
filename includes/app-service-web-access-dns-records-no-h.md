@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 2f490a5b12484a91e963d068810b292d7761521a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484307"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95986561"
 ---
 > [!NOTE]
 > Pode utilizar o Azure DNS para configurar um nome DNS personalizado para o Azure App Service. Para obter mais informações, veja [Utilizar o DNS do Azure para oferecer definições de domínio personalizado para um serviço do Azure](../articles/dns/dns-custom-domain.md#app-service-web-apps).
@@ -20,7 +20,7 @@ ms.locfileid: "89484307"
 
 1. Localize a página para gerir os registos DNS. Cada fornecedor de domínio tem a sua própria interface de registos DNS, por isso, consulte a documentação do fornecedor. Procure áreas do site com os nomes **Nome de Domínio**, **DNS** ou **Gestão de Servidor de Nomes**.
 
-   Frequentemente, pode encontrar a página de registos DNS visualizando as informações da sua conta e, em seguida, procurando um link como **os meus domínios**. Vá a essa página e procure um link que tenha o nome de algo como **Zone file**, **DNS Records**ou **configuração Avançada**.
+   Frequentemente, pode encontrar a página de registos DNS visualizando as informações da sua conta e, em seguida, procurando um link como **os meus domínios**. Vá a essa página e procure um link que tenha o nome de algo como **Zone file**, **DNS Records** ou **configuração Avançada**.
 
    A captura de ecrã seguinte mostra um exemplo de uma página de registos DNS:
 
