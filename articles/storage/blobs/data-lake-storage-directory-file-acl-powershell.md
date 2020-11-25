@@ -10,24 +10,24 @@ ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e2138fc03fcdb614daef2051b7fc1a840e421658
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: eaa34da7dbdf8d315cf60d84cf15ef428f4c7900
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359736"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913356"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o PowerShell para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
 Este artigo mostra-lhe como usar o PowerShell para criar e gerir diretórios, ficheiros e permissões em contas de armazenamento que têm espaço hierárquico (HNS) ativado. 
 
-[Referência](https://docs.microsoft.com/powershell/module/Az.Storage/)  |  Mapeamento da [Gen1 para a Gen2](#gen1-gen2-map)  |  [Dar feedback](https://github.com/Azure/azure-powershell/issues)
+[Referência](/powershell/module/Az.Storage/)  |  Mapeamento da [Gen1 para a Gen2](#gen1-gen2-map)  |  [Dar feedback](https://github.com/Azure/azure-powershell/issues)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
 > * Uma subscrição do Azure. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Uma conta de armazenamento que tem espaço hierárquico de nome (HNS) ativado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
+> * Uma conta de armazenamento que tem espaço hierárquico de nome (HNS) ativado. Siga [estas](../common/storage-account-create.md) instruções para criar uma.
 > * .NET O quadro é 4.7.2 ou superior instalado. Consulte [o Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 > * Versão PowerShell `5.1` ou superior.
 
@@ -39,7 +39,7 @@ Este artigo mostra-lhe como usar o PowerShell para criar e gerir diretórios, fi
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Para atualizar a sua versão do PowerShell, consulte [a atualização do Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
+   Para atualizar a sua versão do PowerShell, consulte [a atualização do Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
     
 2. Instale o módulo **Az.Storage.**
 
@@ -47,7 +47,7 @@ Este artigo mostra-lhe como usar o PowerShell para criar e gerir diretórios, fi
    Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
-   Para obter mais informações sobre como instalar módulos PowerShell, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+   Para obter mais informações sobre como instalar módulos PowerShell, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="connect-to-the-account"></a>Ligar à conta
 
@@ -271,7 +271,7 @@ Pode utilizar o `-Force` parâmetro para remover o ficheiro sem uma solicitaçã
 Pode obter, definir e atualizar permissões de acesso de diretórios e ficheiros.
 
 > [!NOTE]
-> Se estiver a utilizar o Azure Ative Directory (Azure AD) para autorizar comandos, certifique-se de que o seu diretor de segurança foi atribuído à [função de Proprietário de Dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões da ACL são aplicadas e os efeitos da sua mudança, consulte o controlo de  [acesso na Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Se estiver a utilizar o Azure Ative Directory (Azure AD) para autorizar comandos, certifique-se de que o seu diretor de segurança foi atribuído à [função de Proprietário de Dados blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Para saber mais sobre como as permissões da ACL são aplicadas e os efeitos da sua mudança, consulte o controlo de  [acesso na Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="get-an-acl"></a>Obtenha um ACL
 
@@ -285,7 +285,7 @@ $filesystem = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName
 $filesystem.ACL
 ```
 
-Este exemplo obtém o ACL de um **diretório** , e depois imprime o ACL à consola.
+Este exemplo obtém o ACL de um **diretório**, e depois imprime o ACL à consola.
 
 ```powershell
 $filesystemName = "my-file-system"

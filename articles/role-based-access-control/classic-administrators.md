@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/22/2020
+ms.date: 11/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 935c0bf76e298ab1e2e4d25fab8685ac4ce617db
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657748"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95916170"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássicos do Azure
 
@@ -99,25 +99,25 @@ Para obter informações que comparem utilizadores de membros e utilizadores [co
 
 Apenas o Administrador de Conta pode alterar o Administrador de Serviço para uma subscrição. Por predefinição, quando se inscreve para uma subscrição do Azure, o Administrador de Serviço é o mesmo que o Administrador de Conta. O utilizador com a função Administrador de Conta não tem acesso ao portal Azure. O utilizador com a função Deduda de Serviço tem acesso total ao portal Azure. Se o Administrador de Conta e o Administrador de Serviço forem o mesmo utilizador e alterar o Administrador de Serviço para um utilizador diferente, então o Administrador de Conta perde acesso ao portal Azure. No entanto, o Administrador de Conta pode sempre utilizar o Centro de Contas para alterar o Administrador de Serviço de volta para si próprio.
 
-Siga estes passos para alterar o Administrador de Serviço no **Centro de Contas.**
-
-### <a name="account-center"></a>Centro de Contas
+Siga estes passos para alterar o Administrador de Serviço no portal Azure.
 
 1. Certifique-se de que o seu cenário é suportado verificando as [limitações para alterar o Administrador de Serviço](#limitations-for-changing-the-service-administrator).
 
-1. Inscreva-se no [Centro de Contas](https://account.windowsazure.com/subscriptions) como Administrador de Conta.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
 
-1. Clique numa subscrição.
+1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
-1. No lado direito, clique em **Editar detalhes de subscrição**.
+1. Na navegação à esquerda, clique em **Propriedades.**
 
-    ![Screenshot mostrando o botão de subscrição editar no Centro de Contas](./media/classic-administrators/editsub.png)
+1. Clique **em Administração de Serviço**.
 
-1. Na caixa **DE FUNÇÃO,** insira o endereço de e-mail do novo Administrador de Serviço.
+    ![Screenshot mostrando as propriedades de subscrição no portal Azure](./media/classic-administrators/service-admin.png)
 
-    ![Screenshot mostrando a caixa para alterar o e-mail de Administração de serviço](./media/classic-administrators/change-service-admin.png)
+1. Na página **de administração** do serviço Editar, insira o endereço de e-mail para o novo Administrador de Serviço.
 
-1. Clique na marca de verificação para guardar a alteração.
+    ![Screenshot mostrando a página de administração de serviço de edição](./media/classic-administrators/service-admin-edit.png)
+
+1. Clique em **OK** para guardar a alteração.
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>Limitações para alterar o Administrador de Serviço
 
@@ -142,13 +142,13 @@ Siga estes passos para ver o Administrador de Conta.
 
 1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
-1. Clique em **Propriedades**.
+1. Na navegação à esquerda, clique em **Propriedades.**
 
     O Administrador de Conta da subscrição é apresentado na caixa **de Administração** da Conta.
 
     ![Screenshot mostrando o administrador de conta](./media/classic-administrators/account-admin.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../role-based-access-control/role-assignments-portal.md)

@@ -10,16 +10,16 @@ ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ee461193be81297c6577ce4c264cabbf08e72417
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 42359eb8a2bfdad23589e0302b80e7806b388510
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359447"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913611"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o Azure CLI para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
-Este artigo mostra-lhe como usar a [Interface Command-Line (CLI)](https://docs.microsoft.com/cli/azure/) para criar e gerir diretórios, ficheiros e permissões em contas de armazenamento que têm um espaço hierárquico de nomes. 
+Este artigo mostra-lhe como usar a [Interface Command-Line (CLI)](/cli/azure/) para criar e gerir diretórios, ficheiros e permissões em contas de armazenamento que têm um espaço hierárquico de nomes. 
 
 [Amostras](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  [Dar feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -27,19 +27,19 @@ Este artigo mostra-lhe como usar a [Interface Command-Line (CLI)](https://docs.m
 
 > [!div class="checklist"]
 > * Uma subscrição do Azure. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Uma conta de armazenamento que tem espaço hierárquico de nome (HNS) ativado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
+> * Uma conta de armazenamento que tem espaço hierárquico de nome (HNS) ativado. Siga [estas](../common/storage-account-create.md) instruções para criar uma.
 > * Versão Azure CLI `2.6.0` ou superior.
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Certifique-se de que tem a versão correta do Azure CLI instalada
 
-1. Abra o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), ou se [instalou](https://docs.microsoft.com/cli/azure/install-azure-cli) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
+1. Abra o [Azure Cloud Shell](../../cloud-shell/overview.md), ou se [instalou](/cli/azure/install-azure-cli) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
 
 2. Verifique se a versão do Azure CLI que foi instalada é `2.6.0` ou superior utilizando o seguinte comando.
 
    ```azurecli
     az --version
    ```
-   Se a sua versão do Azure CLI for inferior `2.6.0` a , então instale uma versão posterior. Consulte [a Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   Se a sua versão do Azure CLI for inferior `2.6.0` a , então instale uma versão posterior. Consulte [a Instalação do Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="connect-to-the-account"></a>Ligar à conta
 
@@ -53,7 +53,7 @@ Este artigo mostra-lhe como usar a [Interface Command-Line (CLI)](https://docs.m
 
    Caso contrário, abra uma página do navegador [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e introduza o código de autorização exibido no seu terminal. Em seguida, inscreva-se com as credenciais da sua conta no navegador.
 
-   Para saber mais sobre diferentes métodos de autenticação, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md).
+   Para saber mais sobre diferentes métodos de autenticação, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](./authorize-data-operations-cli.md).
 
 2. Se a sua identidade estiver associada a mais de uma subscrição, então desa estalem a sua subscrição ativa para a subscrição da conta de armazenamento que irá hospedar o seu website estático.
 
@@ -64,7 +64,7 @@ Este artigo mostra-lhe como usar a [Interface Command-Line (CLI)](https://docs.m
    Substitua o `<subscription-id>` valor do espaço reservado pelo ID da sua subscrição.
 
 > [!NOTE]
-> O exemplo apresentado neste artigo mostra a autorização do Azure Ative Directory (AD). Para saber mais sobre os métodos de autorização, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md).
+> O exemplo apresentado neste artigo mostra a autorização do Azure Ative Directory (AD). Para saber mais sobre os métodos de autorização, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](./authorize-data-operations-cli.md).
 
 ## <a name="create-a-container"></a>Criar um contentor
 
@@ -221,7 +221,7 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 Pode obter, definir e atualizar permissões de acesso de diretórios e ficheiros.
 
 > [!NOTE]
-> Se estiver a utilizar o Azure Ative Directory (Azure AD) para autorizar comandos, certifique-se de que o seu diretor de segurança foi atribuído à [função de Proprietário de Dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para saber mais sobre como as permissões da ACL são aplicadas e os efeitos da sua mudança, consulte o controlo de  [acesso na Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Se estiver a utilizar o Azure Ative Directory (Azure AD) para autorizar comandos, certifique-se de que o seu diretor de segurança foi atribuído à [função de Proprietário de Dados blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Para saber mais sobre como as permissões da ACL são aplicadas e os efeitos da sua mudança, consulte o controlo de  [acesso na Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="get-an-acl"></a>Obtenha um ACL
 
@@ -319,5 +319,3 @@ Pode adicionar, atualizar e remover ACLs de forma recorrente nos itens infantis 
 * [Amostras](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 * [Enviar comentários](https://github.com/Azure/azure-cli-extensions/issues)
 * [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-
-

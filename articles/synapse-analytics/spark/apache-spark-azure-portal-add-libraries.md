@@ -6,20 +6,23 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: euang
+ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 6f777b605c5050b7fa4b3b9e3671f3638ad67372
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8d478b35b702e02f303358972526c091ceb3657e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016263"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95917130"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerir bibliotecas para Apache Spark em Azure Synapse Analytics
 
 As bibliotecas fornecem código reutilizável que poderá querer incluir nos seus programas ou projetos. Para disponibilizar códigos de terceiros ou construídos localmente para as suas aplicações, pode instalar uma biblioteca numa das suas Piscinas Apache Spark sem servidor (pré-visualização). Uma vez instalada uma biblioteca para uma piscina Spark, está disponível para todas as sessões usando a mesma piscina. 
 
+## <a name="before-you-begin"></a>Before you begin
+- Para instalar e atualizar bibliotecas, tem de ter as permissões **do Storage Blob Data Contributor** ou do Proprietário de **Dados blob de armazenamento** na conta primária de Armazenamento Gen2 que está ligada ao espaço de trabalho Azure Synapse Analytics.
+  
 ## <a name="default-installation"></a>Instalação predefinida
 Apache Spark in Azure Synapse Analytics tem uma instalação completa de Anacondas mais bibliotecas adicionais. A lista completa de bibliotecas pode ser encontrada no [suporte da versão Apache Spark.](apache-spark-version-support.md) 
 
@@ -35,6 +38,7 @@ Uma vez identificadas as bibliotecas que gostaria de utilizar para a sua aplica�
 > - Se a embalagem que está a instalar for grande ou demorar muito tempo a ser instalada, isto afeta o tempo de arranque da instância Spark.
 > - Os pacotes que requerem suporte do compilador no momento da instalação, como o CCG, não são suportados.
 > - Os pacotes não podem ser desclassificados, apenas adicionados ou atualizados.
+> - Para instalar bibliotecas, tem de ter permissões do Fornecedor de dados blob de armazenamento ou do proprietário de dados da blob de armazenamento na conta primária de Armazenamento Gen2 ligada ao espaço de trabalho synapse.
 
 ### <a name="requirements-format"></a>Formato de requisitos
 
@@ -131,5 +135,5 @@ abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<wo
 >[!IMPORTANT]
 >Os pacotes personalizados podem ser adicionados ou modificados entre as sessões. No entanto, terá de esperar pela piscina e pela sessão para reiniciar para ver o pacote atualizado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Ver as bibliotecas padrão: [Suporte à versão Apache Spark](apache-spark-version-support.md)

@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 791b50f1458ba7ee127d45ee374b5589ade588e0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 738ed3b819a62760408341184daca8a8ba555029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308204"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913679"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutorial: Implementar o padrão de captura do lago de dados para atualizar uma tabela Delta databricks
 
@@ -35,20 +35,20 @@ Vamos construir esta solução em ordem inversa, a começar pelo espaço de trab
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Crie uma conta de armazenamento que tenha um espaço hierárquico de nomes (Azure Data Lake Storage Gen2). Este tutorial usa uma conta de armazenamento chamada `contosoorders` . Certifique-se de que a sua conta de utilizador tem a [função de Contribuinte de Dados de Armazenamento Blob](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) que lhe é atribuída.
+* Crie uma conta de armazenamento que tenha um espaço hierárquico de nomes (Azure Data Lake Storage Gen2). Este tutorial usa uma conta de armazenamento chamada `contosoorders` . Certifique-se de que a sua conta de utilizador tem a [função de Contribuinte de Dados de Armazenamento Blob](../common/storage-auth-aad-rbac-portal.md) que lhe é atribuída.
 
    Consulte [Criar uma conta de armazenamento para utilizar com a Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
-* Criar um diretor de serviço. Ver [Como: Utilizar o portal para criar uma aplicação AD Azure e um responsável de serviço que possa aceder aos recursos.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+* Criar um diretor de serviço. Ver [Como: Utilizar o portal para criar uma aplicação AD Azure e um responsável de serviço que possa aceder aos recursos.](../../active-directory/develop/howto-create-service-principal-portal.md)
 
   Há algumas coisas específicas que terás de fazer enquanto executas os passos nesse artigo.
 
-  :heavy_check_mark: Ao executar os passos na [atribuição da aplicação a uma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) secção de função do artigo, certifique-se de atribuir a função de Contribuinte de **Dados de Armazenamento** ao titular do serviço.
+  :heavy_check_mark: Ao executar os passos na [atribuição da aplicação a uma](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) secção de função do artigo, certifique-se de atribuir a função de Contribuinte de **Dados de Armazenamento** ao titular do serviço.
 
   > [!IMPORTANT]
   > Certifique-se de atribuir a função no âmbito da conta de armazenamento do Data Lake Gen2. Pode atribuir uma função ao grupo de recursos-mãe ou subscrição, mas receberá erros relacionados com permissões até que essas atribuições de funções se propaguem na conta de armazenamento.
 
-  :heavy_check_mark: Ao executar os passos nos [valores get para a assinatura na](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, cole o ID do inquilino, iD da aplicação e valores de senha num ficheiro de texto. Vai precisar desses valores mais tarde.
+  :heavy_check_mark: Ao executar os passos nos [valores get para a assinatura na](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) secção do artigo, cole o ID do inquilino, iD da aplicação e valores de senha num ficheiro de texto. Vai precisar desses valores mais tarde.
 
 ## <a name="create-a-sales-order"></a>Criar uma ordem de venda
 
@@ -91,7 +91,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
     ![Databricks no portal Azure](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks no portal Azure")
 
-2. Em **Serviço Azure Databricks** , forneça os valores para criar uma área de trabalho do Databricks.
+2. Em **Serviço Azure Databricks**, forneça os valores para criar uma área de trabalho do Databricks.
 
     ![Criar uma área de trabalho do Azure Databricks](./media/data-lake-storage-events/new-databricks-service.png "Criar uma área de trabalho do Azure Databricks")
 
@@ -105,7 +105,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
     ![Databricks em Azure](./media/data-lake-storage-events/databricks-on-azure.png "Databricks em Azure")
 
-3. Na página **Novo cluster** , indique os valores para criar um cluster.
+3. Na página **Novo cluster**, indique os valores para criar um cluster.
 
     ![Criar conjunto de faíscas de dados no Azure](./media/data-lake-storage-events/create-databricks-spark-cluster.png "Criar conjunto de faíscas de dados no Azure")
 
@@ -120,11 +120,11 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
 
 ### <a name="create-a-notebook"></a>Criar um bloco de notas
 
-1. No painel esquerdo, selecione **Área de Trabalho**. No menu pendente **Área de Trabalho** , selecione **Criar** > **Bloco de Notas**.
+1. No painel esquerdo, selecione **Área de Trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
 
     ![Criar caderno em Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Criar caderno em Databricks")
 
-2. Na caixa de diálogo **Criar Bloco de Notas** , introduza um nome para o bloco de notas. Selecione **Python** como o idioma e, em seguida, selecione o cluster Spark que criou anteriormente.
+2. Na caixa de diálogo **Criar Bloco de Notas**, introduza um nome para o bloco de notas. Selecione **Python** como o idioma e, em seguida, selecione o cluster Spark que criou anteriormente.
 
     ![Screenshot que mostra a caixa de diálogo Create Notebook e onde selecionar Python como o idioma.](./media/data-lake-storage-events/new-databricks-notebook.png "Criar caderno em Databricks")
 
@@ -244,7 +244,7 @@ Crie um Jó que executa o caderno que criou anteriormente. Mais tarde, criará u
 
 3. Dê um nome ao trabalho e depois escolha o `upsert-order-data` livro.
 
-   ![Criar um trabalho](./media/data-lake-storage-events/create-spark-job.png "Criar um trabalho")
+   ![Criar uma tarefa](./media/data-lake-storage-events/create-spark-job.png "Criar uma tarefa")
 
 ## <a name="create-an-azure-function"></a>Criar uma Função do Azure
 

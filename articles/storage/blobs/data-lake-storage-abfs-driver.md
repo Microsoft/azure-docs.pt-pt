@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: e9c56f59d6dd64002632a5f74e9f39c51293caab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13228ec762db195d0c460e84871b75323f6b98e5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836365"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913713"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O controlador de files Azure Blob (ABFS): Um controlador dedicado de armazenamento Azure para Hadoop
 
@@ -25,7 +25,7 @@ O controlador windows Azure Storage Blob ou [o controlador WASB](https://hadoop.
 
 ## <a name="the-azure-blob-file-system-driver"></a>O controlador do sistema de ficheiros Azure Blob
 
-A [interface Azure Data Lake Storage REST](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2) foi concebida para suportar a semântica do sistema de ficheiros sobre o armazenamento de Azure Blob. Dado que o Hadoop FileSystem também foi concebido para suportar a mesma semântica, não existe qualquer requisito para um mapeamento complexo no controlador. Assim, o controlador do Sistema de Ficheiros Azure Blob (ou ABFS) é um mero shim cliente para a API REST.
+A [interface Azure Data Lake Storage REST](/rest/api/storageservices/data-lake-storage-gen2) foi concebida para suportar a semântica do sistema de ficheiros sobre o armazenamento de Azure Blob. Dado que o Hadoop FileSystem também foi concebido para suportar a mesma semântica, não existe qualquer requisito para um mapeamento complexo no controlador. Assim, o controlador do Sistema de Ficheiros Azure Blob (ou ABFS) é um mero shim cliente para a API REST.
 
 No entanto, existem algumas funções que o condutor ainda deve desempenhar:
 
@@ -44,7 +44,7 @@ Internamente, o controlador ABFS traduz os recursos especificados no URI para fi
 
 ### <a name="authentication"></a>Autenticação
 
-O condutor da ABFS suporta duas formas de autenticação para que a aplicação Hadoop possa aceder de forma segura aos recursos contidos numa conta de Data Lake Storage Gen2 capaz. Todos os detalhes dos esquemas de autenticação disponíveis são fornecidos no guia de [segurança do Azure Storage](security-recommendations.md). A saber:
+O condutor da ABFS suporta duas formas de autenticação para que a aplicação Hadoop possa aceder de forma segura aos recursos contidos numa conta de Data Lake Storage Gen2 capaz. Todos os detalhes dos esquemas de autenticação disponíveis são fornecidos no guia de [segurança do Azure Storage](security-recommendations.md). São:
 
 - **Chave partilhada:** Isto permite aos utilizadores aceder a TODOS os recursos na conta. A chave é encriptada e armazenada na configuração de Hadoop.
 

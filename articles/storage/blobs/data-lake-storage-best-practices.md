@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0efcdfd1b14479edf84dc1892e7e1d9afabd5a81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104882"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913560"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Melhores práticas para a utilização do Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ Neste artigo, você aprende sobre as melhores práticas e considerações para t
 
 ## <a name="security-considerations"></a>Considerações de segurança
 
-A Azure Data Lake Storage Gen2 oferece controlos de acesso POSIX para utilizadores, grupos e diretores de serviçoS Azure Ative(Azure AD). Estes controlos de acesso podem ser definidos para ficheiros e diretórios existentes. Os controlos de acesso também podem ser utilizados para criar permissões padrão que podem ser aplicadas automaticamente a novos ficheiros ou diretórios. Mais detalhes sobre data lake storage Gen2 ACLs estão disponíveis no [controle de acesso em Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
+A Azure Data Lake Storage Gen2 oferece controlos de acesso POSIX para utilizadores, grupos e diretores de serviçoS Azure Ative(Azure AD). Estes controlos de acesso podem ser definidos para ficheiros e diretórios existentes. Os controlos de acesso também podem ser utilizados para criar permissões padrão que podem ser aplicadas automaticamente a novos ficheiros ou diretórios. Mais detalhes sobre data lake storage Gen2 ACLs estão disponíveis no [controle de acesso em Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### <a name="use-security-groups-versus-individual-users"></a>Utilize grupos de segurança contra utilizadores individuais
 
@@ -31,7 +31,7 @@ Uma vez que um grupo de segurança é atribuído permissões, adicionar ou remov
 
 ### <a name="security-for-groups"></a>Segurança para grupos
 
-Quando você ou os seus utilizadores precisam de acesso a dados numa conta de armazenamento com espaço hierárquico habilitado, o melhor é usar grupos de segurança do Azure Ative Directory. Alguns grupos recomendados para começar podem ser **ReadOnlyUsers**, **WriteAccessUsers**e **FullAccessUsers** para a raiz do recipiente, e até mesmo separados para subdiretas chave. Se houver outros grupos de utilizadores antecipados que possam ser adicionados mais tarde, mas que ainda não foram identificados, poderá considerar a criação de grupos de segurança falsos que tenham acesso a determinadas pastas. A utilização do grupo de segurança garante que pode evitar longos tempos de processamento ao atribuir novas permissões a milhares de ficheiros.
+Quando você ou os seus utilizadores precisam de acesso a dados numa conta de armazenamento com espaço hierárquico habilitado, o melhor é usar grupos de segurança do Azure Ative Directory. Alguns grupos recomendados para começar podem ser **ReadOnlyUsers**, **WriteAccessUsers** e **FullAccessUsers** para a raiz do recipiente, e até mesmo separados para subdiretas chave. Se houver outros grupos de utilizadores antecipados que possam ser adicionados mais tarde, mas que ainda não foram identificados, poderá considerar a criação de grupos de segurança falsos que tenham acesso a determinadas pastas. A utilização do grupo de segurança garante que pode evitar longos tempos de processamento ao atribuir novas permissões a milhares de ficheiros.
 
 ### <a name="security-for-service-principals"></a>Segurança para os diretores de serviços
 
@@ -39,9 +39,9 @@ Os principais do serviço Azure Ative Directory são normalmente utilizados por 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Ativar a firewall gen2 de armazenamento de data lake com acesso ao serviço Azure
 
-Data Lake Storage Gen2 suporta a opção de ligar uma firewall e limitar o acesso apenas aos serviços Azure, que é recomendado para limitar o vetor de ataques externos. Firewall pode ser ativado numa conta de armazenamento no portal Azure através do **Firewall**  >  **Enable Firewall (ON)**  >  Permitir o acesso às opções de**serviços Azure.**
+Data Lake Storage Gen2 suporta a opção de ligar uma firewall e limitar o acesso apenas aos serviços Azure, que é recomendado para limitar o vetor de ataques externos. Firewall pode ser ativado numa conta de armazenamento no portal Azure através do **Firewall**  >  **Enable Firewall (ON)**  >  Permitir o acesso às opções de **serviços Azure.**
 
-Para aceder à sua conta de armazenamento a partir de Azure Databricks, insaça a Azure Databricks na sua rede virtual e, em seguida, adicione essa rede virtual à sua firewall. Consulte as firewalls de [armazenamento Configure Azure e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Para aceder à sua conta de armazenamento a partir de Azure Databricks, insaça a Azure Databricks na sua rede virtual e, em seguida, adicione essa rede virtual à sua firewall. Consulte as firewalls de [armazenamento Configure Azure e redes virtuais](../common/storage-network-security.md).
 
 ## <a name="resiliency-considerations"></a>Considerações de resiliência
 
