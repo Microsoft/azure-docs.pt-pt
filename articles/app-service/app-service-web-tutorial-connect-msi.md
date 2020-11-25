@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 633e3a6386b9e6098e167c7fdd542d98c16fae48
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7b6f762dd04244f430f08894cc06991796a11229
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737886"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004930"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 
@@ -75,9 +75,9 @@ Para obter mais informações sobre a adição de um administrador ative directo
 ## <a name="set-up-visual-studio"></a>Configurar o Visual Studio
 
 ### <a name="windows-client"></a>Cliente Windows
-O Visual Studio for Windows está integrado com a autenticação Azure AD. Para permitir o desenvolvimento e depuração no Estúdio Visual, adicione o seu **File** utilizador AD AZure no Estúdio Visual selecionando  >  **Definições** de Conta de Ficheiros a partir do menu e clique em **Adicionar uma conta** .
+O Visual Studio for Windows está integrado com a autenticação Azure AD. Para permitir o desenvolvimento e depuração no Estúdio Visual, adicione o seu **File** utilizador AD AZure no Estúdio Visual selecionando  >  **Definições** de Conta de Ficheiros a partir do menu e clique em **Adicionar uma conta**.
 
-Para definir o utilizador Azure AD para a autenticação do serviço Azure, selecione **Opções** de Ferramentas  >  **Options** no menu e, em seguida, selecione **Azure Service Authentication** Account  >  **Selection** . Selecione o utilizador AD Azure que adicionou e clique em **OK** .
+Para definir o utilizador Azure AD para a autenticação do serviço Azure, selecione **Opções** de Ferramentas  >  **Options** no menu e, em seguida, selecione **Azure Service Authentication** Account  >  **Selection**. Selecione o utilizador AD Azure que adicionou e clique em **OK**.
 
 Está agora pronto para desenvolver e depurar a sua aplicação com a Base de Dados SQL como a parte de trás, utilizando a autenticação AD AZure.
 
@@ -148,11 +148,11 @@ No [tutorial ASP.NET Core e SQL Database,](tutorial-dotnetcore-sqldb-app.md)a ca
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
 ```
 
-Em seguida, você fornece o contexto da base de dados Entity Framework com o token de acesso para a Base de Dados SQL. Em *Dados\MyDatabaseContext.cs,* adicione o seguinte código dentro dos aparelhos encaracolados do `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` construtor vazio:
+Em seguida, você fornece o contexto da base de dados Entity Framework com o token de acesso para a Base de Dados SQL. Em *Dados\MyDatabaseContext.cs*, adicione o seguinte código dentro dos aparelhos encaracolados do `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` construtor vazio:
 
 ```csharp
-var conn = (Microsoft.Data.SqlClient.SqlConnection)Database.GetDbConnection();
-conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
+var connection = (SqlConnection)Database.GetDbConnection();
+connection.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
 > [!NOTE]
@@ -239,11 +239,11 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 Agora, só falta publicar as alterações no Azure.
 
-**Se veio do [Tutorial: Construa uma aplicação ASP.NET em Azure com base de dados SQL,](app-service-web-tutorial-dotnet-sqldatabase.md)** publique as suas alterações no Visual Studio. No **Explorador de Soluções** , clique com o botão direito do rato no projeto **DotNetAppSqlDb** e selecione **Publicar** .
+**Se veio do [Tutorial: Construa uma aplicação ASP.NET em Azure com base de dados SQL,](app-service-web-tutorial-dotnet-sqldatabase.md)** publique as suas alterações no Visual Studio. No **Explorador de Soluções**, clique com o botão direito do rato no projeto **DotNetAppSqlDb** e selecione **Publicar**.
 
 ![Publicar a partir do Explorador de Soluções](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Na página de publicação, clique em **Publicar** . 
+Na página de publicação, clique em **Publicar**. 
 
 **Se veio do [Tutorial: Construa uma aplicação core e SQL Database ASP.NET no Azure App Service,](tutorial-dotnetcore-sqldb-app.md)** publique as suas alterações utilizando o Git, com os seguintes comandos:
 

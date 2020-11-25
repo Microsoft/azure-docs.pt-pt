@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 1b568687ffe646a91544c1bb75d26d552a23f49c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579316"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96005287"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Otimizar os custos automatizando os níveis de acesso ao armazenamento Azure Blob
 
@@ -39,7 +39,7 @@ Considere um cenário em que os dados tenham acesso frequente durante as fases i
 
 A funcionalidade de gestão do ciclo de vida está disponível em todas as regiões Azure para as contas de Fins Gerais v2 (GPv2), contas de armazenamento de bolhas, contas de armazenamento Premium Block Blob e contas Azure Data Lake Storage Gen2. No portal Azure, pode atualizar uma conta de Final geral (GPv1) existente para uma conta GPv2. Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de armazenamento Azure](../common/storage-account-overview.md).
 
-A função de gestão do ciclo de vida é gratuita. Os clientes são cobrados o custo regular de operação para as chamadas [API de Nível Blob.](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) A operação de eliminação é gratuita. Para obter mais informações sobre preços, consulte [os preços do Block Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
+A função de gestão do ciclo de vida é gratuita. Os clientes são cobrados o custo regular de operação para as chamadas [API de Nível Blob.](/rest/api/storageservices/set-blob-tier) A operação de eliminação é gratuita. Para obter mais informações sobre preços, consulte [os preços do Block Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="add-or-remove-a-policy"></a>Adicionar ou remover uma política
 
@@ -47,13 +47,13 @@ Pode adicionar, editar ou remover uma política utilizando qualquer um dos segui
 
 * [Portal do Azure](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* [APIs REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
+* [CLI do Azure](/cli/azure/install-azure-cli)
+* [APIs REST](/rest/api/storagerp/managementpolicies)
 
 Uma política pode ser lida ou escrita na íntegra. As atualizações parciais não são suportadas. 
 
 > [!NOTE]
-> Se ativar as regras de firewall para a sua conta de armazenamento, os pedidos de gestão do ciclo de vida podem ser bloqueados. Pode desbloquear estes pedidos fornecendo exceções para serviços de confiança da Microsoft. Para obter mais informações, consulte a secção Exceções em [firewalls Configure e redes virtuais.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+> Se ativar as regras de firewall para a sua conta de armazenamento, os pedidos de gestão do ciclo de vida podem ser bloqueados. Pode desbloquear estes pedidos fornecendo exceções para serviços de confiança da Microsoft. Para obter mais informações, consulte a secção Exceções em [firewalls Configure e redes virtuais.](../common/storage-network-security.md#exceptions)
 
 Este artigo mostra como gerir a política utilizando o portal e os métodos PowerShell.
 
@@ -245,7 +245,7 @@ Uma política é uma coleção de regras:
 
 Cada regra dentro da política tem vários parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Notas | Obrigatório |
+| Nome do parâmetro | Tipo de parâmetro | Notas | Necessário |
 |----------------|----------------|-------|----------|
 | `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra é sensível a casos. Deve ser único dentro de uma política. | Verdadeiro |
 | `enabled`      | Booleano | Um boolean opcional para permitir que uma regra seja temporariamente desativada. O valor predefinido é verdadeiro se não estiver definido. | Falso | 
@@ -317,7 +317,7 @@ Os filtros incluem:
 
 | Nome do filtro | Tipo de filtro | Notas | é necessário |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Uma matriz de valores de enum predefinidos. | O lançamento atual suporta `blockBlob` e `appendBlob` . Apenas a eliminação é suportada para `appendBlob` , o nível definido não é suportado. | Yes |
+| blobTypes   | Uma matriz de valores de enum predefinidos. | O lançamento atual suporta `blockBlob` e `appendBlob` . Apenas a eliminação é suportada para `appendBlob` , o nível definido não é suportado. | Sim |
 | prefixOSatch | Uma série de cordas para prefixos a combinar. Cada regra pode definir até 10 prefixos. Uma corda de prefixo deve começar com um nome de recipiente. Por exemplo, se quiser combinar todas as bolhas `https://myaccount.blob.core.windows.net/container1/foo/...` por uma regra, o prefixoMatch é `container1/foo` . | Se não definir prefixoSatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | Não |
 | blobIndexMatch | Uma matriz de valores dicionários que consistem na chave de etiqueta do Índice Blob e condições de valor a combinar. Cada regra pode definir até 10 condições de etiqueta de índice blob. Por exemplo, se quiser combinar todas as bolhas com `Project = Contoso` uma `https://myaccount.blob.core.windows.net/` regra, o blobIndexMatch é `{"name": "Project","op": "==","value": "Contoso"}` . | Se não definir blobIndexMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | Não |
 
@@ -450,7 +450,7 @@ Cada última atualização do tempo de acesso é considerada uma [outra operaç�
 Alguns dados permanecem inativos na nuvem e raramente, se é que alguma vez, são acedidos uma vez armazenados. A seguinte política de ciclo de vida é configurada para arquivar dados logo após a sua ingestão. Este exemplo transita bolhas de bloco na conta de armazenamento dentro do recipiente `archivecontainer` para um nível de arquivo. A transição é realizada agindo em bolhas 0 dias após o último tempo modificado:
 
 > [!NOTE] 
-> Recomenda-se o upload das suas bolhas diretamente no nível de arquivo para ser mais eficiente. Pode utilizar o cabeçalho x-ms-access-tier para [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) ou [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) com a versão REST 2018-11-09 e mais recentes ou as nossas mais recentes bibliotecas de clientes de armazenamento de bolhas. 
+> Recomenda-se o upload das suas bolhas diretamente no nível de arquivo para ser mais eficiente. Pode utilizar o cabeçalho x-ms-access-tier para [PutBlob](/rest/api/storageservices/put-blob) ou [PutBlockList](/rest/api/storageservices/put-block-list) com a versão REST 2018-11-09 e mais recentes ou as nossas mais recentes bibliotecas de clientes de armazenamento de bolhas. 
 
 ```json
 {
@@ -592,7 +592,7 @@ Quando uma bolha é movida de um nível de acesso para outro, o seu último temp
 
 Saiba como recuperar dados após a eliminação acidental:
 
-- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](../blobs/storage-blob-soft-delete.md)
+- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](./soft-delete-blob-overview.md)
 
 Saiba como gerir e encontrar dados com o Blob Index:
 

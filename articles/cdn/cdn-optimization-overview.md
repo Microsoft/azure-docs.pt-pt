@@ -15,11 +15,11 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
 ms.openlocfilehash: 7c7e4ff05307452da67c37b23bf492db8855e2ef
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778367"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004505"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Otimizar a Azure CDN para o tipo de entrega de conteúdos
 
@@ -70,7 +70,7 @@ Quando criar um ponto final cdn, selecione um tipo de otimização que melhor co
 
     ![Seleção de pontos finais](./media/cdn-optimization-overview/01_Akamai.png)
 
-2. Em DEFINIÇÕES, **selecione Otimização** . Em seguida, selecione um tipo da lista **otimizada para** o drop-down.
+2. Em DEFINIÇÕES, **selecione Otimização**. Em seguida, selecione um tipo da lista **otimizada para** o drop-down.
 
     ![Otimização e seleção de tipo](./media/cdn-optimization-overview/02_Select.png)
 
@@ -95,7 +95,7 @@ O streaming de mídia é sensível ao tempo, porque os pacotes que chegam atrasa
 
 Este cenário é comum para os clientes do serviço de comunicação da Azure. Quando utiliza os serviços de comunicação do Azure, obtém-se um único ponto final de streaming que pode ser utilizado tanto para o streaming ao vivo como para o streaming a pedido. Com este cenário, os clientes não precisam de mudar para outro ponto final quando mudam de live para on demand streaming. A otimização geral do streaming de meios de comunicação suporta este tipo de cenário.
 
-Para **o Azure CDN Standard da Microsoft** , **Azure CDN Standard da Verizon** , e **Azure CDN Premium da Verizon** , utilize o tipo geral de otimização de entrega web para fornecer conteúdo sonoro de streaming geral.
+Para **o Azure CDN Standard da Microsoft**, **Azure CDN Standard da Verizon**, e **Azure CDN Premium da Verizon**, utilize o tipo geral de otimização de entrega web para fornecer conteúdo sonoro de streaming geral.
 
 Para obter mais informações sobre a otimização do streaming de meios de [comunicação, consulte a otimização do streaming de mídia](cdn-media-streaming-optimization.md).
 
@@ -103,7 +103,7 @@ Para obter mais informações sobre a otimização do streaming de meios de [com
 
 A otimização de streaming de meios de vídeo-on-demand melhora o conteúdo de streaming de vídeo-on-demand. Se utilizar um ponto final para o streaming vídeo-on-demand, utilize esta opção.
 
-Para **o Azure CDN Standard da Microsoft** , **Azure CDN Standard da Verizon** , e **Azure CDN Premium a partir de** perfis Verizon, utilize o tipo geral de otimização de entrega web para fornecer conteúdo sonoro de streaming de vídeo a pedido.
+Para **o Azure CDN Standard da Microsoft**, **Azure CDN Standard da Verizon**, e **Azure CDN Premium a partir de** perfis Verizon, utilize o tipo geral de otimização de entrega web para fornecer conteúdo sonoro de streaming de vídeo a pedido.
 
 Para obter mais informações sobre a otimização do streaming de meios de [comunicação, consulte a otimização do streaming de mídia](cdn-media-streaming-optimization.md).
 
@@ -115,13 +115,13 @@ Para obter mais informações sobre a otimização do streaming de meios de [com
 
 Para **o Azure CDN Standard a partir de** perfis da Akamai, os downloads de ficheiros grandes são otimizados para conteúdos superiores a 10 MB. Se o seu tamanho médio de ficheiro for inferior a 10 MB, utilize a entrega geral da web. Se os tamanhos médios dos ficheiros forem consistentemente maiores do que 10 MB, pode ser mais eficiente criar um ponto final separado para ficheiros grandes. Por exemplo, as atualizações de firmware ou software normalmente são ficheiros grandes. Para entregar ficheiros superiores a 1,8 GB, é necessária a otimização do download de ficheiros grandes.
 
-Para **o Azure CDN Standard da Microsoft** , **Azure CDN Standard da Verizon** , e **Azure CDN Premium a partir de** perfis Verizon, utilize o tipo geral de otimização de entrega web para fornecer conteúdo de descarregamento de ficheiros grandes. Não existe qualquer limitação no tamanho do download de ficheiros.
+Para **o Azure CDN Standard da Microsoft**, **Azure CDN Standard da Verizon**, e **Azure CDN Premium a partir de** perfis Verizon, utilize o tipo geral de otimização de entrega web para fornecer conteúdo de descarregamento de ficheiros grandes. Não existe qualquer limitação no tamanho do download de ficheiros.
 
 Para obter mais informações sobre a otimização de ficheiros grandes, consulte [a otimização de ficheiros Large](cdn-large-file-optimization.md).
 
 ### <a name="dynamic-site-acceleration"></a>Aceleração de site dinâmico
 
- A aceleração dinâmica do site (DSA) está disponível para **Azure CDN Standard da Akamai** , **Azure CDN Standard de Verizon** , e **Azure CDN Premium a partir de** perfis Verizon. Esta otimização envolve uma taxa adicional a utilizar; para obter mais informações, consulte [os preços da Rede de Entrega de Conteúdos.](https://azure.microsoft.com/pricing/details/cdn/)
+ A aceleração dinâmica do site (DSA) está disponível para **Azure CDN Standard da Akamai**, **Azure CDN Standard de Verizon**, e **Azure CDN Premium a partir de** perfis Verizon. Esta otimização envolve uma taxa adicional a utilizar; para obter mais informações, consulte [os preços da Rede de Entrega de Conteúdos.](https://azure.microsoft.com/pricing/details/cdn/)
 
 > [!NOTE]
 > A aceleração dinâmica do site da Microsoft é oferecida através do [Azure Front Door Service,](../frontdoor/front-door-overview.md) que é um serviço global [de qualquercast](https://en.wikipedia.org/wiki/Anycast) que aproveita a rede global privada da Microsoft para fornecer cargas de trabalho da sua aplicação.

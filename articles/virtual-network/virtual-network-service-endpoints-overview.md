@@ -14,17 +14,17 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434474"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004947"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
 O ponto final de serviço da Rede Virtual (VNet) proporciona conectividade segura e direta aos serviços Azure durante uma rota otimizada sobre a rede de espinha dorsal Azure. Os pontos finais permitem-lhe obter os seus recursos críticos de serviço do Azure apenas para as suas redes virtuais. O Service Endpoints permite que os endereços IP privados no VNet cheguem ao ponto final de um serviço Azure sem precisar de um endereço IP público no VNet.
 
-Esta funcionalidade está disponível para os seguintes serviços e regiões Azure. O recurso *da Microsoft \* * está em parênteses. Ative este recurso a partir do lado da sub-rede enquanto configura os pontos finais de serviço para o seu serviço:
+Esta funcionalidade está disponível para os seguintes serviços e regiões Azure. O recurso *da Microsoft \** está em parênteses. Ative este recurso a partir do lado da sub-rede enquanto configura os pontos finais de serviço para o seu serviço:
 
 **Disponível em Geral**
 
@@ -77,7 +77,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 
   Por padrão, os recursos de serviço Azure protegidos para redes virtuais não são alcançáveis a partir de redes no local. Se pretender permitir o tráfego a partir do local, também deve permitir endereços IP públicos (tipicamente, NAT) a partir das suas instalações ou ExpressRoute. Pode adicionar estes endereços IP através da configuração de firewall IP para recursos de serviço Azure.
 
-  ExpressRoute: Se estiver a utilizar o [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para espreitar publicamente ou a Microsoft a espreitar das suas instalações, terá de identificar os endereços IP DO NAT que está a utilizar. Para espreitar publicamente, cada circuito ExpressRoute utiliza dois endereços NAT IP, por padrão, aplicados ao tráfego de serviço Azure quando o tráfego entra na espinha dorsal da rede Microsoft Azure. Para o estojo da Microsoft, os endereços NAT IP são fornecidos pelo cliente ou fornecidos pelo prestador de serviços.Para permitir o acesso aos recursos de serviço, tem de permitir estes endereços IP públicos na definição da firewall do IP dos recursos.Para localizar os endereços IP do circuito ExpressRoute de peering público, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure. Para obter mais informações sobre o NAT para o público ExpressRoute e o microsoft espreitar, consulte [os requisitos do ExpressRoute NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
+  ExpressRoute: Se estiver a utilizar o [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para espreitar publicamente ou a Microsoft a espreitar das suas instalações, terá de identificar os endereços IP DO NAT que está a utilizar. Para espreitar publicamente, cada circuito ExpressRoute utiliza dois endereços NAT IP, por padrão, aplicados ao tráfego de serviço Azure quando o tráfego entra na espinha dorsal da rede Microsoft Azure. Para o estojo da Microsoft, os endereços NAT IP são fornecidos pelo cliente ou fornecidos pelo prestador de serviços. Para permitir o acesso aos recursos de serviço, tem de permitir estes endereços IP públicos na definição da firewall do IP dos recursos. Para localizar os endereços IP do circuito ExpressRoute de peering público, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure. Para obter mais informações sobre o NAT para o público ExpressRoute e o microsoft espreitar, consulte [os requisitos do ExpressRoute NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
 
 ![Proteger serviços do Azure para redes virtuais](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 

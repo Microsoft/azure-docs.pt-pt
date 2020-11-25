@@ -14,11 +14,11 @@ caps.latest.revision: 55
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: 26225442c72fb209bb1ac4cd2bf4777fb39542fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534376"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005168"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure Cloud Services Definição TrabalhadorRole Schema
 O papel de trabalhador do Azure é um papel que é útil para o desenvolvimento generalizado, e pode executar o processamento de fundo para um papel web.
@@ -349,7 +349,7 @@ A tabela seguinte descreve os atributos do `NetFxEntryPoint` elemento.
 
 | Atributo | Tipo | Descrição |
 | --------- | ---- | ----------- |
-|conjuntoName|string|Obrigatório. O caminho e o nome do ficheiro do conjunto que contém o ponto de entrada. O caminho é relativo à pasta ** \\ %ROLEROOT%\Approot** (não especifique ** \\ %ROLEROOT%\Approot** `commandLine` in, assume-se). **%ROLEROOT%** é uma variável ambiental mantida pelo Azure e representa a localização da pasta raiz para o seu papel. A pasta ** \\ %ROLEROOT%\Approot** representa a pasta de aplicação para o seu papel.|
+|conjuntoName|string|Obrigatório. O caminho e o nome do ficheiro do conjunto que contém o ponto de entrada. O caminho é relativo à pasta **\\ %ROLEROOT%\Approot** (não especifique **\\ %ROLEROOT%\Approot** `commandLine` in, assume-se). **%ROLEROOT%** é uma variável ambiental mantida pelo Azure e representa a localização da pasta raiz para o seu papel. A pasta **\\ %ROLEROOT%\Approot** representa a pasta de aplicação para o seu papel.|
 |targetFrameworkVersion|string|Obrigatório. A versão do quadro .NET em que foi construído o conjunto. Por exemplo, `targetFrameworkVersion="v4.0"`.|
 
 ##  <a name="programentrypoint"></a><a name="ProgramEntryPoint"></a> Ponto ProgramEntry

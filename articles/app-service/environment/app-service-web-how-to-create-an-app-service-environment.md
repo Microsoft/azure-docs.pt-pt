@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 543050bc899c257c4ad5e0d0c399a1de6f0f58f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86220580"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005215"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Como criar um Ambiente de Serviço de Aplicações v1 
 
@@ -36,7 +36,7 @@ O App Service Environment (ASE) é uma opção de serviço Premium do Azure App 
 Ao escolher um VNet e especificar uma sub-rede, certifique-se de que é grande o suficiente para acomodar qualquer crescimento futuro. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Criação de um Ambiente de Serviço de Aplicações v1
-Para criar um App Service Environment v1, pode pesquisar o Azure Marketplace for ***App Service Environment v1,*** ou passar por **Create a resource**Web  ->  **+ Mobile**  ->  **App Service Environment**. Para criar um ASEv1:
+Para criar um App Service Environment v1, pode pesquisar o Azure Marketplace para ***App Service Environment v1** _, ou passar por _ *Criar um recurso** -> Web **+ Mobile** App  ->  **Service Environment**. Para criar um ASEv1:
 
 1. Forneça o nome do seu ASE. O nome que especificar para o ASE será utilizado para as aplicações criadas na ASE. Se o nome do ASE for appsvcenvdemo, o nome do subdomínio seria: *appsvcenvdemo.p.azurewebsites.net*. Se assim criasse uma aplicação chamada *mytestapp,* seria endereçada *a mytestapp.appsvcenvdemo.p.azurewebsites.net*. Não pode usar o espaço branco em nome do seu ASE. Se utilizar caracteres maiúsculas no nome, o nome de domínio será a versão maiúscula total desse nome. Se utilizar um ILB, o seu nome ASE não é utilizado no seu subdomínio, mas é explicitamente indicado durante a criação da ASE.
    

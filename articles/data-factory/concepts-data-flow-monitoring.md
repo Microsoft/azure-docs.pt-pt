@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/19/2020
-ms.openlocfilehash: a9636e7227671cd5a8ed31904e6bc27782d3bd6a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/22/2020
+ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025838"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004886"
 ---
 # <a name="monitor-data-flows"></a>Monitorize fluxos de dados
 
@@ -81,6 +81,16 @@ Também pode ver um timing detalhado para cada passo de transformação de parti
 
 Quando selecionar um ícone de transformação de pia no seu mapa, o painel de slide-in à direita mostrará um ponto de dados adicional chamado "tempo de processamento pós-processamento" na parte inferior. Esta é a quantidade de tempo gasto a executar o seu trabalho no cluster Spark *depois de* os seus dados terem sido carregados, transformados e escritos. Desta vez pode incluir o fecho de piscinas de ligação, paragem do condutor, eliminação de ficheiros, ficheiros de açagaçamento, etc. Quando executa ações no seu fluxo como "move ficheiros" e "saída para um único ficheiro", provavelmente verá um aumento no valor do tempo de processamento pós-processamento.
   
+## <a name="error-rows"></a>Linhas de erro
+
+Ativar o manuseamento de linhas de erro no seu lavatório de fluxo de dados será refletido na saída de monitorização. Quando se coloca a pia como "reporte o sucesso do erro", a saída de monitorização mostrará o número de linhas de sucesso e de falhas quando clicar no nó de monitorização da pia.
+
+![A imagem mostra linhas de erro.](media/data-flow/error-row-2.png "Sucesso de monitorização da linha de erro")
+
+Quando selecionar "reportar falha no erro", a mesma saída será mostrada apenas no texto de saída de monitorização da atividade. Isto porque a atividade de fluxo de dados devolverá a falha de execução e a visão de monitorização detalhada não estará disponível.
+
+![A screenshot mostra linhas de erro na atividade.](media/data-flow/error-rows-4.png "Falha de monitorização da linha de erro")
+
 ## <a name="monitor-icons"></a>Ícones do monitor
 
 Este ícone significa que os dados de transformação já estavam em cache no cluster, por isso os timings e o caminho de execução têm tido isso em conta:

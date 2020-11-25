@@ -5,20 +5,20 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8e440d9e1be8508908336a5e9f90394e310c8562
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2fca6e94f61ff4d21886bf81a56afa032c8773c1
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335182"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004454"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- Devolve uma expressão booleana indicando se o objeto GeoJSON (Point, Polygon ou LineString) especificado no primeiro argumento intersecta o GeoJSON (Point, Polygon ou LineString) no segundo argumento.  
+ Devolve uma expressão booleana indicando se o objeto GeoJSON (Point, Polygon, MultiPolygon ou LineString) especificado no primeiro argumento cruza o GeoJSON (Point, Polygon, MultiPolygon ou LineString) no segundo argumento.  
   
 ## <a name="syntax"></a>Sintaxe
   

@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: d0ac8e0cf187d1a6a329f2c7332c9ec37018d4cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962524"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005236"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar uma aplicação web num App Service Environment v1
 
@@ -52,7 +52,7 @@ Este tutorial pressupõe que criou um Ambiente de Serviço de Aplicações. Se a
     Se pretender utilizar um plano de Serviço de Aplicações que já exista no seu Ambiente de Serviço de Aplicações, selecione esse plano. Se pretender criar um novo plano de Serviço de Aplicações, consulte a seguinte secção deste tutorial, Crie um plano de Serviço de [Aplicações num Ambiente de Serviço de Aplicações.](#createplan)
 5. Introduza o nome para a sua aplicação web e, em seguida, clique em **Criar**. 
    
-    Se o seu ASE utilizar um VIP Externo, o URL de uma aplicação num ASE é: [*nome do site*]. [nome*do seu Ambiente de Serviço de Aplicações*].p.azurewebsites.net em vez de *[nome*do site ].azurewebsites.net
+    Se o seu ASE utilizar um VIP Externo, o URL de uma aplicação num ASE é: [*nome do site*]. [nome *do seu Ambiente de Serviço de Aplicações*].p.azurewebsites.net em vez de *[nome* do site ].azurewebsites.net
    
     Se o seu ASE utilizar um VIP Interno, então o URL de uma aplicação em que o ASE é: [*nome do site*]. *[subdomínio especificado durante a criação da ASE*]   
     Depois de selecionar o seu ASP durante a criação da ASE, verá a atualização do subdomínio abaixo **Nome**

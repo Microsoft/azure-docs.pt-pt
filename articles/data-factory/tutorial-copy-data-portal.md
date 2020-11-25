@@ -13,11 +13,11 @@ ms.custom: seo-lt-2019
 ms.date: 11/11/2020
 ms.author: jingwang
 ms.openlocfilehash: ef9ac29735289d5c7a60ff0fca3b9e9f360f6e08
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555401"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005134"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copie os dados do armazenamento do Azure Blob para uma base de dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 
@@ -82,21 +82,21 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para
 
 1. Abra **o Microsoft Edge** ou o Google **Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 2. No menu esquerdo, **selecione Criar uma** Fábrica de  >  Dados **de Integração de**  >  **Data Factory** Recursos.
-3. Na página **Nova fábrica de dados** , em **Nome** , introduza **ADFTutorialDataFactory**.
+3. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
 
    O nome da fábrica de dados Azure deve ser *globalmente único.* Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. (por exemplo, o seu nomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 
      ![Nova fábrica de dados](./media/doc-common-process/name-not-available-error.png)
 4. Selecione a **subscrição** do Azure na qual pretende criar a fábrica de dados.
-5. Em **Grupo de Recursos** , efetue um destes passos:
+5. Em **Grupo de Recursos**, efetue um destes passos:
 
     a. Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
 
     b. Selecione **Criar novo** e introduza o nome de um grupo de recursos. 
          
     Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md). 
-6. Em **Versão** , selecione **V2**.
-7. Em **Localização** , selecione uma localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (por exemplo, o Armazenamento do Azure e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) que a fábrica de dados utiliza podem estar noutras regiões.
+6. Em **Versão**, selecione **V2**.
+7. Em **Localização**, selecione uma localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (por exemplo, o Armazenamento do Azure e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) que a fábrica de dados utiliza podem estar noutras regiões.
 8. Selecione **Criar**.
 9. Depois de concluída a criação, vê o aviso no Centro de Notificações. Selecione **Ir para o recurso** para navegar para a página de fábrica de dados.
 10. Selecione **Criar e Monitorizar** para iniciar a IU do Data Factory num separador à parte.
@@ -111,11 +111,11 @@ Neste passo, vai criar um pipeline com uma atividade de cópia na fábrica de da
 
 Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar serviços ligados e conjuntos de dados quando forem necessários para configurar o pipeline.
 
-1. Na página **Vamos começar** , selecione **Criar pipeline**.
+1. Na página **Vamos começar**, selecione **Criar pipeline**.
 
    ![Criar pipeline](./media/doc-common-process/get-started-page.png)
 
-1. 1. No painel geral de **propriedades** , especifique **copyPipeline** para **nome**. Em seguida, desabar o painel clicando no ícone Propriedades no canto superior direito.
+1. 1. No painel geral de **propriedades**, especifique **copyPipeline** para **nome**. Em seguida, desabar o painel clicando no ícone Propriedades no canto superior direito.
 
 1. Na caixa de **ferramentas Atividades,** expanda a categoria **Move and Transform** e arraste e deixe cair a atividade de **Dados** de Cópia da caixa de ferramentas para a superfície do designer de gasodutos. Especifique **CopyFromBlobToSql** em **Nome**.
 
@@ -137,7 +137,7 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
 1. Na caixa de diálogo **New Linked Service (Azure Blob Storage),** insira **o AzureStorageLinkedService** como nome, selecione a sua conta de armazenamento na lista de nomes da **conta de armazenamento.** Ligação de teste, **selecione Criar** para implementar o serviço ligado.
 
-1. Após a criação do serviço ligado, é navegado de volta para a página **de propriedades set.** Junto a **Caminho do ficheiro** , selecione **Procurar**.
+1. Após a criação do serviço ligado, é navegado de volta para a página **de propriedades set.** Junto a **Caminho do ficheiro**, selecione **Procurar**.
 
 1. Navegue para a pasta **adftutorial/entrada,** selecione o ficheiro **emp.txt** e, em seguida, selecione **OK**.
 
@@ -158,15 +158,15 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
 1. Na caixa de diálogo **New Linked Service (Azure SQL Database),** tome os seguintes passos:
 
-    a. Em **Name** , introduza **AzureSqlDatabaseLinkedService**.
+    a. Em **Name**, introduza **AzureSqlDatabaseLinkedService**.
 
-    b. Em **Nome do servidor** , selecione a sua instância do SQL Server.
+    b. Em **Nome do servidor**, selecione a sua instância do SQL Server.
 
     c. No **nome da base de dados,** selecione a sua base de dados.
 
-    d. Em **Nome de utilizador** , introduza o nome do utilizador.
+    d. Em **Nome de utilizador**, introduza o nome do utilizador.
 
-    e. Em **Palavra-passe** , introduza a palavra-passe do utilizador.
+    e. Em **Palavra-passe**, introduza a palavra-passe do utilizador.
 
     f. Selecione **Testar ligação** para testar a ligação.
 
@@ -174,9 +174,9 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
     ![Guardar novo serviço ligado](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-1. Navega automaticamente para a caixa de diálogo **set Properties.** Em **Tabela** , selecione **[dbo].[emp]**. Em seguida, selecione **OK**.
+1. Navega automaticamente para a caixa de diálogo **set Properties.** Em **Tabela**, selecione **[dbo].[emp]**. Em seguida, selecione **OK**.
 
-1. Vá para o separador com o pipeline e, em **Conjunto de Dados Sink** , confirme que **OutputSqlDataset** está selecionado.
+1. Vá para o separador com o pipeline e, em **Conjunto de Dados Sink**, confirme que **OutputSqlDataset** está selecionado.
 
     ![Separador do pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
 
@@ -190,18 +190,18 @@ Pode ver o código JSON associado ao pipeline clicando em **Código** no canto s
 ## <a name="debug-and-publish-the-pipeline"></a>Depurar e publicar o pipeline
 Pode depurar um pipeline antes de publicar artefactos (serviços ligados, conjuntos de dados e pipeline) no Data Factory ou no seu próprio repositório Git do Azure.
 
-1. Para depurar o pipeline, selecione **Depurar** na barra de ferramentas. Verá o estado da execução do pipeline no separador **Saída** , na parte inferior da janela.
+1. Para depurar o pipeline, selecione **Depurar** na barra de ferramentas. Verá o estado da execução do pipeline no separador **Saída**, na parte inferior da janela.
 
 1. Uma vez que o gasoduto possa funcionar com sucesso, na barra de ferramentas superior, **selecione Publicar tudo**. Esta ação publica as entidades (conjuntos de dados e pipeline) que criou no Data Factory.
 
-1. Aguarde até ver a mensagem **Publicação com êxito**. Para ver mensagens de notificação, clique em **Mostrar Notificações** , no canto superior direito (botão do sino).
+1. Aguarde até ver a mensagem **Publicação com êxito**. Para ver mensagens de notificação, clique em **Mostrar Notificações**, no canto superior direito (botão do sino).
 
 ## <a name="trigger-the-pipeline-manually"></a>Acionar o pipeline manualmente
 Neste passo, vai acionar manualmente o pipeline que publicou no passo anterior.
 
 1. Selecione **Acionar** na barra de ferramentas e, em seguida, selecione **Acionar Agora**. Na página **Pipeline Run,** selecione **OK**.  
 
-1. Vá para o separador **Monitorizar** , no lado esquerdo. Verá uma execução de pipeline que é acionada por um acionador manual. Pode utilizar links sob a coluna **PIPELINE NAME** para visualizar detalhes da atividade e para refazer o pipeline.
+1. Vá para o separador **Monitorizar**, no lado esquerdo. Verá uma execução de pipeline que é acionada por um acionador manual. Pode utilizar links sob a coluna **PIPELINE NAME** para visualizar detalhes da atividade e para refazer o pipeline.
 
     [![O gasoduto de monitorização corre](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
 
@@ -214,15 +214,15 @@ Neste passo, vai acionar manualmente o pipeline que publicou no passo anterior.
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Acionar o pipeline com base numa agenda
 Nesta agenda, vai criar um acionador de agenda para o pipeline. O acionador executa o pipeline na agenda especificada, como hora a hora ou diariamente. Aqui define o gatilho para funcionar a cada minuto até à data de fim especificada.
 
-1. Vá para o separador **Criar** , no lado esquerdo acima do separador do monitor.
+1. Vá para o separador **Criar**, no lado esquerdo acima do separador do monitor.
 
 1. Aceda ao seu pipeline, clique em **Acionador** na barra de ferramentas e selecione **Novo/Editar**.
 
 1. Na caixa de diálogo **'Adicionar' 'Adicionar',** selecione **+ nova** área de gatilho para **escolher.**
 
-1. Na janela **Novo Acionador** , siga os passos seguintes:
+1. Na janela **Novo Acionador**, siga os passos seguintes:
 
-    a. Em **Nome** , introduza **RunEveryMinute**.
+    a. Em **Nome**, introduza **RunEveryMinute**.
 
     b. Atualize a **data de início** para o seu gatilho. Se a data for antes da data atual, o gatilho começará a entrar em vigor assim que a alteração for publicada. 
 
@@ -243,7 +243,7 @@ Nesta agenda, vai criar um acionador de agenda para o pipeline. O acionador exec
 
 1. Clique **em Publicar tudo** para publicar a alteração.
 
-1. Vá para o separador **Monitorizar** , do lado esquerdo, para ver as execuções do pipeline acionadas.
+1. Vá para o separador **Monitorizar**, do lado esquerdo, para ver as execuções do pipeline acionadas.
 
     [![Execuções de pipeline acionadas](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox)
 

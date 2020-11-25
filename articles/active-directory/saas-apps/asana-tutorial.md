@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.openlocfilehash: 05c89c8628b4d4ce10ca4ba12c720b410b72601f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457729"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005151"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutorial: Integração do Diretório Ativo Azure com a Asana
 
@@ -123,7 +123,7 @@ Para configurar o Azure AD com Asana, execute os seguintes passos:
 
 ### <a name="configure-asana-single-sign-on"></a>Configurar asana single Sign-On
 
-1. Numa janela de navegador diferente, inscreva-se na sua aplicação Asana. Para configurar o SSO em Asana, aceda às definições do espaço de trabalho clicando no nome do espaço de trabalho no canto superior direito do ecrã. Em seguida, clique em ** \<your workspace name\> Definições**.
+1. Numa janela de navegador diferente, inscreva-se na sua aplicação Asana. Para configurar o SSO em Asana, aceda às definições do espaço de trabalho clicando no nome do espaço de trabalho no canto superior direito do ecrã. Em seguida, clique em **\<your workspace name\> Definições**.
 
     ![Asana sso configurações](./media/asana-tutorial/tutorial_asana_09.png)
 
@@ -166,7 +166,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Asana.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Asana**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Asana**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

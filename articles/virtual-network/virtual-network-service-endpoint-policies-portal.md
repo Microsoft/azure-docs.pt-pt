@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: bdf0e87c92a55d0dbb5bbe34334a6de4580cb350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84708183"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004964"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Criar, alterar ou eliminar a política de ponto final de serviço utilizando o portal Azure
 
 As políticas de ponto final de serviço permitem filtrar o tráfego de rede virtual para recursos específicos do Azure, sobre os pontos finais do serviço. Se não está familiarizado com as políticas de ponto final de serviço, consulte a [visão geral das políticas de ponto final do serviço](virtual-network-service-endpoint-policies-overview.md) para saber mais.
 
- Neste tutorial, ficará a saber como:
+ Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma política de ponto final de serviço
@@ -99,7 +99,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 - Antes de poder associar uma apólice a uma sub-rede, tem de criar uma rede virtual e uma sub-rede. Consulte o artigo [Criar uma Rede Virtual](./quick-create-portal.md) para obter ajuda com isto.
 
-- Uma vez que tenha a rede virtual e a sub-rede configuradas, precisa configurar pontos finais de serviço de rede virtual para armazenamento Azure. Na lâmina de rede virtual, selecione **os pontos finais**de serviço , e no painel seguinte selecione **Microsoft.Storage** e em **Subnets** selecione o VNet ou Subnet desejado
+- Uma vez que tenha a rede virtual e a sub-rede configuradas, precisa configurar pontos finais de serviço de rede virtual para armazenamento Azure. Na lâmina de rede virtual, selecione **os pontos finais** de serviço , e no painel seguinte selecione **Microsoft.Storage** e em **Subnets** selecione o VNet ou Subnet desejado
 
 - Agora, pode optar por selecionar a Política de Ponto de Serviço da parte de down-down no painel acima referido se já criou as políticas de Ponto final de serviço antes de configurar o Ponto de Final de Serviço para a Sub-rede, como mostrado abaixo
 

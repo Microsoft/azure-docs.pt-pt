@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 434f112e78938c94d887423316fccea270059b6b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109022"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004743"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Quickstart: Azure Blob storage client library v12 com Xamarin
 
-Começa com a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin. O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. Siga as medidas para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
+Começa com a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin. O Armazenamento de blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. Siga as medidas para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
 
 Utilize a biblioteca de clientes de armazenamento Azure Blob v12 com Xamarin para:
 
@@ -39,8 +39,8 @@ Links de referência:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento Azure - [crie uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Estúdio Visual com [Desenvolvimento Móvel para carga de trabalho .NET](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows) instalada ou Estúdio Visual para [Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Conta de armazenamento Azure - [crie uma conta de armazenamento](../common/storage-account-create.md)
+* Estúdio Visual com [Desenvolvimento Móvel para carga de trabalho .NET](/xamarin/get-started/installation/?pivots=windows) instalada ou Estúdio Visual para [Mac](/visualstudio/mac/installation?view=vsmac-2019)
 
 ## <a name="setting-up"></a>Configuração
     

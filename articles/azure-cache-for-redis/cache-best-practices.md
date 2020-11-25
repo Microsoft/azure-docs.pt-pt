@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
 ms.openlocfilehash: 47c8096893742a25904f0f7e688af2fc641166d1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544499"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004318"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas da Cache do Azure para Redis 
 Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utilização rentável da sua Cache Azure para a instância Redis.
@@ -27,7 +27,7 @@ Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utiliza
 
  * **O Redis funciona melhor com valores mais pequenos,** por isso considere cortar dados maiores em várias teclas.  [Nesta discussão redis,](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/)algumas considerações estão listadas que deve considerar cuidadosamente.  Leia [este artigo](cache-troubleshoot-client.md#large-request-or-response-size) para um problema de exemplo que pode ser causado por grandes valores.
 
- * **Localize o seu cache e a sua aplicação na mesma região.**  Estabelecer ligação a uma cache numa região diferente pode aumentar significativamente a latência e reduzir a fiabilidade.  Embora possa ligar-se do exterior do Azure, não é recomendado *especialmente quando se utiliza o Redis como cache* .  Se estiver a usar o Redis como apenas uma loja chave/valor, a latência pode não ser a principal preocupação. 
+ * **Localize o seu cache e a sua aplicação na mesma região.**  Estabelecer ligação a uma cache numa região diferente pode aumentar significativamente a latência e reduzir a fiabilidade.  Embora possa ligar-se do exterior do Azure, não é recomendado *especialmente quando se utiliza o Redis como cache*.  Se estiver a usar o Redis como apenas uma loja chave/valor, a latência pode não ser a principal preocupação. 
 
  * **Reutilizar as ligações.**  Criar novas ligações é dispendioso e aumenta a latência, por isso reutilizar as ligações o máximo possível. Se optar por criar novas ligações, certifique-se de fechar as ligações antigas antes de as libertar (mesmo em idiomas de memória geridos como .NET ou Java).
 
@@ -76,16 +76,16 @@ Se quiser testar como o seu código funciona em condições de erro, considere u
  * **Ativar o VRSS** na máquina do cliente se estiver no Windows.  [Consulte aqui para mais detalhes.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11))  Exemplo de script do PowerShell:
      >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (Get-NetAdapter). Nome 
      
- * **Considere utilizar instâncias De nível Premium Redis** .  Estes tamanhos de cache terão melhor latência e produção de rede porque estão a executar hardware melhor tanto para CPU como para a Rede.
+ * **Considere utilizar instâncias De nível Premium Redis**.  Estes tamanhos de cache terão melhor latência e produção de rede porque estão a executar hardware melhor tanto para CPU como para a Rede.
  
      > [!NOTE]
      > Os nossos resultados de desempenho observados são [publicados aqui](cache-planning-faq.md#azure-cache-for-redis-performance) para a sua referência.   Além disso, esteja ciente de que o SSL/TLS adiciona algumas despesas gerais, para que possa obter latências e/ou produção diferentes se estiver a usar encriptação de transporte.
  
 ### <a name="redis-benchmark-examples"></a>Redis-Benchmark exemplos
-**Configuração pré-teste** : Prepare a instância de cache com os dados necessários para os comandos de teste de latência e de produção listados abaixo.
+**Configuração pré-teste**: Prepare a instância de cache com os dados necessários para os comandos de teste de latência e de produção listados abaixo.
 > redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 
 
-**Para testar a latência** : Teste os pedidos GET utilizando uma carga útil de 1k.
+**Para testar a latência**: Teste os pedidos GET utilizando uma carga útil de 1k.
 > redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 1024 -P 50 -c 4
 
 **Para testar a produção:** Solicitações PIPELINED GET com carga útil de 1k.

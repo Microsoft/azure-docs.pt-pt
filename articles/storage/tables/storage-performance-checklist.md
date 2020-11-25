@@ -10,11 +10,11 @@ ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316196"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004709"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de mesas
 
@@ -243,7 +243,7 @@ Esta secção descreve práticas comprovadas para consulta do serviço table.
 
 Existem várias formas de especificar o leque de entidades a consultar. A lista a seguir descreve cada opção para o âmbito de consulta.
 
-- **Consultas de ponto:** - Uma consulta de pontos recupera exatamente uma entidade especificando tanto a chave de partição como a chave de linha da entidade para recuperar. Estas consultas são eficientes, e você deve usá-las sempre que possível.
+- **Consultas de ponto:**- Uma consulta de pontos recupera exatamente uma entidade especificando tanto a chave de partição como a chave de linha da entidade para recuperar. Estas consultas são eficientes, e você deve usá-las sempre que possível.
 - **Consultas de partição:** Uma consulta de partição é uma consulta que recupera um conjunto de dados que partilha uma chave de partição comum. Tipicamente, a consulta especifica uma gama de valores-chave de linha ou uma gama de valores para alguma propriedade de entidade, além de uma chave de partição. Estas consultas são menos eficientes do que as consultas pontuais, e devem ser usadas com moderação.
 - **Consultas de tabela:** Uma consulta de mesa é uma consulta que recupera um conjunto de entidades que não partilham uma chave de partição comum. Estas consultas não são eficientes e deve evitá-las se possível.
 
@@ -275,8 +275,8 @@ As transações de lote são conhecidas como transações de grupos de entidades
 
 Utilize as operações **de Upsert** de tabela sempre que possível. Existem dois tipos de **Upsert,** ambos podem ser mais eficientes do que uma operação tradicional de **Inserção** e **Atualização:**  
 
-- **InserirOrMerge** : Utilize esta operação quando pretender carregar um subconjunto das propriedades da entidade, mas não tem a certeza se a entidade já existe. Se a entidade existir, esta chamada atualiza as propriedades incluídas na operação **Upsert,** e deixa todas as propriedades existentes como são, se a entidade não existir, insere a nova entidade. Isto é semelhante ao uso da projeção numa consulta, na medida em que só precisa de carregar as propriedades que estão a mudar.
-- **InserirOrReplace** : Utilize esta operação quando pretender carregar uma entidade inteiramente nova, mas não tem a certeza se já existe. Utilize esta operação quando souber que a entidade recém-carregada está inteiramente correta porque substitui completamente a antiga entidade. Por exemplo, pretende atualizar a entidade que armazena a localização atual de um utilizador, independentemente de a aplicação ter ou não armazenado dados de localização previamente armazenados para o utilizador; a nova entidade de localização está completa, e não precisa de nenhuma informação de nenhuma entidade anterior.
+- **InserirOrMerge**: Utilize esta operação quando pretender carregar um subconjunto das propriedades da entidade, mas não tem a certeza se a entidade já existe. Se a entidade existir, esta chamada atualiza as propriedades incluídas na operação **Upsert,** e deixa todas as propriedades existentes como são, se a entidade não existir, insere a nova entidade. Isto é semelhante ao uso da projeção numa consulta, na medida em que só precisa de carregar as propriedades que estão a mudar.
+- **InserirOrReplace**: Utilize esta operação quando pretender carregar uma entidade inteiramente nova, mas não tem a certeza se já existe. Utilize esta operação quando souber que a entidade recém-carregada está inteiramente correta porque substitui completamente a antiga entidade. Por exemplo, pretende atualizar a entidade que armazena a localização atual de um utilizador, independentemente de a aplicação ter ou não armazenado dados de localização previamente armazenados para o utilizador; a nova entidade de localização está completa, e não precisa de nenhuma informação de nenhuma entidade anterior.
 
 #### <a name="storing-data-series-in-a-single-entity"></a>Armazenar séries de dados numa única entidade
 

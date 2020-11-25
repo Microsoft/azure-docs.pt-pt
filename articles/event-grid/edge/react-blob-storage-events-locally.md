@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87462025"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005066"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: Reagir aos eventos de armazenamento blob em IoT Edge (Preview)
 Este artigo mostra-lhe como implementar o Azure Blob Storage no módulo IoT, que funcionaria como um editor de Grade de Eventos para enviar eventos sobre a criação blob e a eliminação de Blob para a Grade de Eventos.  
@@ -45,7 +45,7 @@ Existem várias formas de implantar módulos para um dispositivo IoT Edge e todo
 
 ### <a name="configure-a-deployment-manifest"></a>Configure um manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve quais os módulos a implementar, como os dados fluem entre os módulos e as propriedades desejadas dos gémeos módulos. O portal Azure tem um assistente que o acompanha através da criação de um manifesto de implantação, em vez de construir o documento JSON manualmente.  Tem três etapas: **Adicionar módulos,** **especificar rotas**e **revisão.**
+Um manifesto de implantação é um documento JSON que descreve quais os módulos a implementar, como os dados fluem entre os módulos e as propriedades desejadas dos gémeos módulos. O portal Azure tem um assistente que o acompanha através da criação de um manifesto de implantação, em vez de construir o documento JSON manualmente.  Tem três etapas: **Adicionar módulos,** **especificar rotas** e **revisão.**
 
 ### <a name="add-modules"></a>Adicionar módulos
 
@@ -75,7 +75,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
         }
     ```    
 
- 1. Clicar em **Guardar**
+ 1. Clique em **Guardar**
  1. Continue na secção seguinte para adicionar o módulo Azure Event Grid Subscriber antes de os colocar em conjunto.
 
     >[!IMPORTANT]
@@ -95,7 +95,7 @@ Esta secção mostra-lhe como implantar outro módulo IoT que funcionaria como u
    * **Nome**: assinante
    * **Imagem URI:**`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opções de criação de contentores:** Nenhuma
-1. Clicar em **Guardar**
+1. Clique em **Guardar**
 1. Continue até a secção seguinte para adicionar o módulo de armazenamento Azure Blob
 
 ## <a name="deploy-azure-blob-storage-module"></a>Implementar módulo de armazenamento Azure Blob
@@ -146,7 +146,7 @@ Esta secção mostra-lhe como implantar o módulo de armazenamento Azure Blob, q
      - Para recipientes Linux, **o meu volume:/blobroot**
      - Para recipientes Windows,**o meu volume:C:/BlobRoot**
 
-5. Clicar em **Guardar**
+5. Clique em **Guardar**
 6. Clique **ao lado** para continuar na secção de rotas
 
     > [!NOTE]
@@ -346,7 +346,7 @@ O objeto de dados tem as seguintes propriedades:
 | conteúdoType | string | O tipo de conteúdo especificado para a bolha. |
 | contentAver | número inteiro | O tamanho da bolha em bytes. |
 | BlobType | string | O tipo de bolha. Os valores válidos são "BlockBlob" ou "PageBlob". |
-| url | string | O caminho para a bolha. <br>Se o cliente utilizar uma API Blob REST, então o url tem esta estrutura: * \<storage-account-name\> .blob.core.windows.net/ \<container-name\> / \<file-name\> *. <br>Se o cliente utilizar uma API de Armazenamento de Data Lake, então o url tem esta estrutura: * \<storage-account-name\> .dfs.core.windows.net/ \<file-system-name\> / \<file-name\> *. |
+| url | string | O caminho para a bolha. <br>Se o cliente utilizar uma API Blob REST, então o url tem esta estrutura: *\<storage-account-name\> .blob.core.windows.net/ \<container-name\> / \<file-name\>*. <br>Se o cliente utilizar uma API de Armazenamento de Data Lake, então o url tem esta estrutura: *\<storage-account-name\> .dfs.core.windows.net/ \<file-system-name\> / \<file-name\>*. |
 
 
 ## <a name="next-steps"></a>Passos seguintes

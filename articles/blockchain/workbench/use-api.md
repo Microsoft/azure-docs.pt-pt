@@ -5,11 +5,11 @@ ms.date: 03/05/2020
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 696f1f2f96034f7a044f6a39182774c02804518f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87003071"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004845"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Utilizando a Azure Blockchain Workbench Preview REST API
 
@@ -23,8 +23,8 @@ As APIs blockchain Workbench são acedidas através de um ponto final para a sua
 1. No painel de navegação à esquerda, selecione **grupos de recursos**.
 1. Escolha o nome do grupo de recursos para a sua bancada blockchain implementada.
 1. Selecione o título da coluna **TYPE** para classificar a lista alfabeticamente por tipo.
-1. Existem dois recursos com o serviço **de aplicações**tipo. Selecione o recurso do serviço de **aplicações** tipo *com* o sufixo "-api".
-1. No Resumo do **Serviço**de Aplicações, copie o valor **URL,** que representa o URL de ponto final da API para a sua bancada blockchain implementada.
+1. Existem dois recursos com o serviço **de aplicações** tipo. Selecione o recurso do serviço de **aplicações** tipo *com* o sufixo "-api".
+1. No Resumo do **Serviço** de Aplicações, copie o valor **URL,** que representa o URL de ponto final da API para a sua bancada blockchain implementada.
 
     ![SERVIÇO DE APLICAÇÃO API ENDPOINT URL](media/use-api/app-service-api.png)
 
