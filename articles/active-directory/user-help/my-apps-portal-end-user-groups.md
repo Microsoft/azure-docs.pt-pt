@@ -13,11 +13,11 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124157"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004161"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Atualize as informações dos seus Grupos no portal My Apps
 
@@ -88,7 +88,7 @@ Se o seu administrador lhe der permissão para ver o **azulejo dos Grupos,** pod
 
     - **Política de grupo.** Escolha permitir que todos se juntem ao grupo ou apenas permitir que o proprietário do grupo adicione membros.
 
-3. Selecione **Criar** .
+3. Selecione **Criar**.
 
     O novo grupo é criado consigo como proprietário e aparece na sua lista **de grupos que tenho.** Porque tu és o dono, este grupo também aparece nos **grupos que estou na** lista.
 
@@ -100,7 +100,7 @@ Depois de criar um grupo, pode editar os seus dados, incluindo atualizar qualque
 
     A caixa **de detalhes de Edição** aparece e pode atualizar as informações que adicionou quando inicialmente criou o grupo.
 
-2. Faça todas as alterações e, em seguida, **selecione Update** .
+2. Faça todas as alterações e, em seguida, **selecione Update**.
 
 ## <a name="add-or-remove-a-member"></a>Adicionar ou remover um membro
 
@@ -110,7 +110,7 @@ Pode adicionar ou remover membros para quaisquer grupos que possua.
 
     ![Adicione um membro do grupo, com + sinal em destaque](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
-2. Procure o membro que pretende adicionar, a partir da caixa de **membros Adicionar** e, em seguida, selecione **Adicionar** .
+2. Procure o membro que pretende adicionar, a partir da caixa de **membros Adicionar** e, em seguida, selecione **Adicionar**.
 
     ![Adicione a caixa de membros, com novo membro para adicionar](media/my-apps-portal/my-apps-portal-add-member-page.png)
 
@@ -124,7 +124,7 @@ Pode adicionar ou remover membros para quaisquer grupos que possua.
 
 Se a sua organização o permitir, pode renovar um grupo office 365, prolongando a sua data de validade.
 
-1. Selecione o grupo Office 365 que pretende renovar e, em seguida, selecione **Renovar o grupo** .
+1. Selecione o grupo Office 365 que pretende renovar e, em seguida, selecione **Renovar o grupo**.
 
     ![Renovar um grupo office 365, prolongando a data de validade](media/my-apps-portal/my-apps-portal-renew-group-link.png)
 
@@ -154,11 +154,11 @@ Pode participar ou deixar um grupo já existente na página **Grupos.**
 
     ![Junte-se à página de grupos, com o botão de grupo de juntar-se em destaque](media/my-apps-portal/my-apps-portal-join-group-link.png)
 
-2. Na página **'Junte-se' aos grupos,** selecione o nome do grupo a que pretende aderir, veja os detalhes do grupo associados e, em seguida, se o grupo estiver disponível, selecione **Grupo de Apoio** .
+2. Na página **'Junte-se' aos grupos,** selecione o nome do grupo a que pretende aderir, veja os detalhes do grupo associados e, em seguida, se o grupo estiver disponível, selecione **Grupo de Apoio**.
 
-    Se o grupo exigir que o proprietário do grupo aprove a adesão, será solicitado que insira uma justificação de negócio para o motivo pelo qual precisa de se juntar ao grupo e, em seguida, selecione **Request** . Se o grupo não precisar de aprovação, é imediatamente adicionado como membro e o grupo aparece nos seus **grupos que estou na** lista.
+    Se o grupo exigir que o proprietário do grupo aprove a adesão, será solicitado que insira uma justificação de negócio para o motivo pelo qual precisa de se juntar ao grupo e, em seguida, selecione **Request**. Se o grupo não precisar de aprovação, é imediatamente adicionado como membro e o grupo aparece nos seus **grupos que estou na** lista.
 
-3. Se se juntou a um grupo por engano ou se já não precisa de fazer parte dele, pode selecionar o nome de grupo na página **'Grupos',** e selecionar **o grupo Leave** .
+3. Se se juntou a um grupo por engano ou se já não precisa de fazer parte dele, pode selecionar o nome de grupo na página **'Grupos',** e selecionar **o grupo Leave**.
 
     ![Junte-se à página de grupos, com o botão do grupo Leave em destaque](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 

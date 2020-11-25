@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 11/23/2020
 ms.author: alkohli
-ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442026"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96003350"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: Criar ordem de exportação para Azure Data Box (Pré-visualização)
 
@@ -80,7 +80,7 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
 
    ![Selecione a capacidade da Caixa de Dados](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
-6. Em **Ordem** , especifique os detalhes da encomenda **básica.** Introduza ou selecione as seguintes informações e selecione **Seguinte**.
+6. Em **Ordem**, especifique os detalhes da encomenda **básica.** Introduza ou selecione as seguintes informações.
 
     |Definição  |Valor  |
     |---------|---------|
@@ -88,21 +88,21 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
     |Grupo de recursos | O grupo de recursos que selecionou anteriormente. |
     |Nome da encomenda de exportação     |  Forneça um nome amigável para controlar a encomenda. <br> O nome pode ter entre 3 e 24 carateres que podem ser letras, números e hífenes. <br> O nome tem de começar e terminar com uma letra ou um número.      |
 
-    ![Fundamentos da ordem de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-order-storage-account-export-type.png)
+    ![Fundamentos da ordem de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-order-name.png)
 
     Selecione **Seguinte: Data Selection** para prosseguir.
 
-7. Na **Data Selection** , selecione Adicionar a conta de armazenamento e o tipo de **exportação**.
+7. Na **Data Selection**, selecione Adicionar a conta de armazenamento e o tipo de **exportação**.
 
-    ![Adicionar conta de armazenamento e tipo de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics.png)
+    ![Adicionar conta de armazenamento e tipo de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics-add-storage.png)
 
-8. Na **opção Select Export** , especifique os detalhes da opção de exportação. Introduza ou selecione as seguintes informações e **selecione Adicionar**.
+8. Na **opção Select Export**, especifique os detalhes da opção de exportação. Introduza ou selecione as seguintes informações e **selecione Adicionar**.
 
     |Definição  |Valor  |
     |---------|---------|
     |Conta de armazenamento     | A conta de Armazenamento Azure de onde pretende exportar dados. |
-    |Tipo de exportação     | Especifica o tipo de dados para exportar de **todos os objetos** e **utilizar o ficheiro XML**.<ul><li> **Todos os objetos** - Especifica que o trabalho exporta todos os dados dependendo da sua seleção para **opções de Transferência.**</li><li> **Utilize o ficheiro XML** – Especifica um ficheiro XML que contém um conjunto de caminhos e prefixos para bolhas e/ou ficheiros a serem exportados da conta de armazenamento. O ficheiro XML tem de estar no recipiente da conta de armazenamento selecionada e a seleção das ações de ficheiros não é suportada. O ficheiro tem de ser um ficheiro .xml não vazio.</li></ul>        |
-    |Opções de transferência     |  Especifica as opções de transferência de dados **de Selecione todos** , **Todas as bolhas** e **todos os ficheiros**. <ul><li> **Selecione All** - Especifica que todas as bolhas e ficheiros Azure são exportados. Se estiver a utilizar uma conta de armazenamento que suporta apenas bolhas (Conta de Armazenamento Blob), a opção **Todos os Ficheiros** não será selecionada.</li><li> **Todas as Bolhas** - Especifica que apenas blobs de bloco e página são exportados.</li><li> **Todos os ficheiros** - Especifica que todos os ficheiros são exportados, excluindo bolhas. O tipo de conta de armazenamento que tem (GPv1 e GPv2, armazenamento premium ou armazenamento de bolhas) determina os tipos de dados que pode exportar. Para obter mais informações, consulte [as contas de armazenamento suportadas para exportação.](../storage/common/storage-import-export-requirements.md#supported-storage-types)</li></ul>         |
+    |Tipo de exportação     | Especifica o tipo de dados para exportar de **todos os objetos** e **utilizar o ficheiro XML**.<ul><li> **Todos os objetos** - Especifica que o trabalho exporta todos os dados dependendo da sua seleção para **opções de Transferência.**</li><li> **Utilize o ficheiro XML** – Especifica um ficheiro XML que contém um conjunto de caminhos e prefixos para bolhas e/ou ficheiros a serem exportados da conta de armazenamento. O ficheiro XML tem de estar no recipiente da conta de armazenamento selecionada e a seleção das ações de ficheiros não é suportada. O ficheiro tem de ser um ficheiro de .xml não vazio.</li></ul>        |
+    |Opções de transferência     |  Especifica as opções de transferência de dados **de Selecione todos**, **Todas as bolhas** e **todos os ficheiros**. <ul><li> **Selecione All** - Especifica que todas as bolhas e ficheiros Azure são exportados. Se estiver a utilizar uma conta de armazenamento que suporta apenas bolhas (Conta de Armazenamento Blob), a opção **Todos os Ficheiros** não será selecionada.</li><li> **Todas as Bolhas** - Especifica que apenas blobs de bloco e página são exportados.</li><li> **Todos os ficheiros** - Especifica que todos os ficheiros são exportados, excluindo bolhas. O tipo de conta de armazenamento que tem (GPv1 e GPv2, armazenamento premium ou armazenamento de bolhas) determina os tipos de dados que pode exportar. Para obter mais informações, consulte [as contas de armazenamento suportadas para exportação.](../storage/common/storage-import-export-requirements.md#supported-storage-types)</li></ul>         |
     |Incluir log verbose     | Indica se deseja um ficheiro de registo verboso que contenha uma lista de todos os ficheiros que foram exportados com sucesso.        |
 
     > [!NOTE]
@@ -115,15 +115,88 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
 
    Para ver um exemplo da entrada xml, consulte a [entrada Sample XML](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. Na **seleção de Dados,** reveja as suas definições e selecione **Seguinte:>** de Segurança .
+9. Na **seleção de Dados,** reveja as suas definições e selecione **Seguinte:>** de segurança para continuar.
 
    ![Ordem de exportação, seleção de dados](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-selection.png)
 
-10. Em **Segurança** , se pretender ativar a dupla encriptação baseada em software, selecione **Ative double encryption para a encomenda**. 
+    O ecrã **de Segurança** permite-lhe usar a sua própria chave de encriptação e optar por utilizar a encriptação dupla.
+
+    Todas as definições no ecrã **de Segurança** são opcionais. Se não alterar quaisquer definições, aplicar-se-ão as definições predefinidas.
+
+    ![Tela de segurança do assistente de encomenda de importação de caixa de dados](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
+
+10. Se pretender utilizar a sua própria chave gerida pelo cliente para proteger a chave de desbloqueio para o seu novo recurso, expanda o **tipo de encriptação**.
+
+    Configurar uma chave gerida pelo cliente para a sua Caixa de Dados Azure é opcional. Por predefinição, a Data Box utiliza uma chave gerida pela Microsoft para proteger a chave de desbloqueio.
+
+    Uma chave gerida pelo cliente não afeta a forma como os dados do dispositivo são encriptados. A chave é usada apenas para encriptar a chave de desbloqueio do dispositivo.
+
+    Se não quiser utilizar uma chave gerida pelo cliente, salte para o passo 16.
+
+    ![Ecrã de segurança mostrando definições do tipo de encriptação](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
+
+11. Selecione **a chave gerida pelo Cliente** como o tipo chave. Em seguida, **selecione selecione um cofre e uma chave de teclas**.
+   
+    ![Ecrã de segurança, definições para uma chave gerida pelo cliente](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
+
+12. Na **tecla Select do ecrã Azure Key Vault,** a subscrição é automaticamente povoada.
+
+    - Para **o cofre key,** pode selecionar um cofre de chaves existente na lista de dropdown.
+
+      ![Selecione a chave do ecrã Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
+
+    - Também pode selecionar **Criar novo** para criar um novo cofre de chaves. No ecrã do **cofre da chave Create,** insira o grupo de recursos e um nome de cofre chave. Certifique-se de que a proteção **para eliminar** e **purgar** suavemente está ativada. Aceite todos os outros incumprimentos e selecione **Review + Create**.
+
+      ![Criar uma nova definição de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
+
+      Reveja as informações para o seu cofre chave e selecione **Criar**. Espere alguns minutos para a criação do cofre para completar.
+
+      ![Novo ecrã de revisão do Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
+
+13. Na **tecla Select a partir do ecrã Azure Key Vault,** pode selecionar uma chave existente no cofre de chaves.
+
+    ![Selecione a chave existente a partir do Cofre de Chaves Azure](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
+
+    Se pretender criar uma nova chave, **selecione Criar nova**. Tem de usar uma chave RSA. O tamanho pode ser 2048 ou maior. Introduza um nome para a sua nova tecla, aceite as outras predefinições e selecione **Criar**.
+
+      ![Criar uma nova opção chave](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
+
+      Será notificado quando a chave for criada no seu cofre.
+
+14. Selecione a **versão** da chave a utilizar e, em seguida, escolha **Selecione**.
+
+      ![Nova chave criada no cofre chave](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
+
+    Se pretender criar uma nova versão chave, selecione **Criar novo**.
+
+    ![Abra uma caixa de diálogo para criar uma nova versão chave](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
+
+    No novo ecrã **da chave,** escolha as definições para a nova versão chave e selecione **Criar**.
+
+    ![Criar uma nova versão chave](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
+
+    As definições **do tipo encriptação** no ecrã **de Segurança** mostram o cofre e a chave da chave.
+
+    ![Chave e cofre chave para uma chave gerida pelo cliente](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+
+15. Selecione uma identidade de utilizador que utilizará para gerir o acesso a este recurso. Escolha **Selecionar uma identidade de utilizador.** No painel à direita, selecione a subscrição e a identidade gerida para utilizar. Em seguida, escolha **Selecionar**.
+
+    Uma identidade gerida atribuída pelo utilizador é um recurso autónomo do Azure que pode ser usado para gerir múltiplos recursos. Para obter mais informações, consulte [os tipos de identidade geridos.](/azure/active-directory/managed-identities-azure-resources/overview)  
+
+    Se precisar de criar uma nova identidade gerida, siga as orientações em [Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    
+    ![Selecione uma identidade de utilizador](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
+
+    A identidade do utilizador é mostrada nas definições **do tipo encriptação.**
+
+    Pode entrar em colapso nas definições do **tipo encriptação** agora.
+
+    ![Uma identidade de utilizador selecionada mostrada nas definições do tipo de encriptação](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
+
+16. Se pretender ativar a dupla encriptação baseada em software, expanda a **encriptação dupla (para ambientes de alta segurança)** e selecione **Ative a dupla encriptação para a encomenda**. 
 
     A encriptação baseada em software é realizada para além da encriptação bit AES-256 dos dados na Caixa de Dados.
 
-   
     > [!NOTE]
     > Permitir esta opção poderia fazer com que o processamento de encomendas e a cópia de dados demorasse mais tempo. Não pode alterar esta opção depois de criar o seu pedido.
 
@@ -159,7 +232,7 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
 
 Se selecionar **O ficheiro Utilizar o ficheiro XML,** pode especificar recipientes e bolhas específicas (página e bloco) que pretende exportar. Terá de seguir as especificações da [tabela de ficheiros Sample XML](#sample-xml-file) para formatar o seu XML. Os passos abaixo mostram-lhe como utilizar um ficheiro XML para exportar os seus dados:
 
-1. Para **o tipo de exportação** , selecione Use **XML file**. Este é o seu ficheiro XML que especifica blobs específicos e ficheiros Azure que pretende exportar. Para adicionar o ficheiro XML, **selecione Clique aqui para selecionar um ficheiro XML**.
+1. Para **o tipo de exportação**, selecione Use **XML file**. Este é o seu ficheiro XML que especifica blobs específicos e ficheiros Azure que pretende exportar. Para adicionar o ficheiro XML, **selecione Clique aqui para selecionar um ficheiro XML**.
 
      ![Selecione A opção de exportação, XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-select-xml-option.png)
 
@@ -259,7 +332,7 @@ Alguns pontos importantes no que diz respeito aos ficheiros XML:
 
 A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
 
-   | Seletor | Caminho da Bolha | Description |
+   | Seletor | Caminho da Bolha | Descrição |
    | --- | --- | --- |
    | Starts with |/ |Exporta todas as bolhas na conta de armazenamento |
    | Starts with |/$root/ |Exporta todas as bolhas no recipiente raiz |

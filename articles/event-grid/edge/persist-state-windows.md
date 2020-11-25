@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: f38e23a3af1e2c81ee012a4f3c268cbff3fc1bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171470"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002822"
 ---
 # <a name="persist-state-in-windows"></a>Persistir estado no Windows
 
@@ -74,7 +74,7 @@ Este artigo fornece os passos necessários para implementar o módulo De Grelha 
     1. Selecione **Segurança**.
     1. Em *Nomes de grupo ou de utilizador, **selecione Editar**.
     1. **Selecione Adicionar,** `Users` insira, **selecione 'Verificar nomes'** e selecione **Ok**.
-    1. Sob *Permissões para Utilizadores*, selecione **Modificar**e selecione **Ok**.
+    1. Sob *Permissões para Utilizadores*, selecione **Modificar** e selecione **Ok**.
 1. Utilize **os Binds** para montar este volume e recolocar o módulo de Grelha de Eventos a partir do portal Azure
 
    Por exemplo,

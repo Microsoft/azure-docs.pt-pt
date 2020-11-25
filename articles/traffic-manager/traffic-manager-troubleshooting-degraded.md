@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: duau
 ms.openlocfilehash: 83dc432a1f88b443d500bf9a977abfed69211156
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401559"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003859"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Resolução de problemas do estado degradado no Gestor de Tráfego do Azure
 
@@ -35,7 +35,7 @@ Se a saúde do seu Gestor de Tráfego apresentar um estado **inativo,** então a
 * Uma resposta de redirecionamento de 30x é tratada como falha, a menos que tenha especificado isto como um código de resposta válido nas [gamas](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) de código de estado esperado do seu perfil de Gestor de Tráfego. O Gestor de Tráfego não sonda o alvo de reorientação.
 * Para as sondas HTTPs, os erros de certificado são ignorados.
 * O conteúdo real do caminho da sonda não importa, desde que um 200 seja devolvido. Sondar um URL para algum conteúdo estático como "/favicon.ico" é uma técnica comum. O conteúdo dinâmico, tal como as páginas ASP, nem sempre pode devolver 200, mesmo quando a aplicação é saudável.
-* Uma boa prática é definir o caminho da sonda para algo que tenha lógica suficiente para determinar que o site está para cima ou para baixo. No exemplo anterior, ao definir o caminho para "/favicon.ico", só está a testar que w3wp.exe está a responder. Esta sonda pode não indicar que a sua aplicação web é saudável. Uma melhor opção seria definir um caminho para algo como "/Probe.aspx" que tenha lógica para determinar a saúde do site. Por exemplo, pode utilizar contadores de desempenho para utilizar o CPU ou medir o número de pedidos falhados. Ou pode tentar aceder a recursos de base de dados ou estado de sessão para se certificar de que a aplicação web está a funcionar.
+* Uma boa prática é definir o caminho da sonda para algo que tenha lógica suficiente para determinar que o site está para cima ou para baixo. No exemplo anterior, ao definir o caminho para "/favicon.ico", só está a testar que w3wp.exe está a responder. Esta sonda pode não indicar que a sua aplicação web é saudável. Uma melhor opção seria definir um caminho para algo como "/Sonda.aspx" que tenha lógica para determinar a saúde do site. Por exemplo, pode utilizar contadores de desempenho para utilizar o CPU ou medir o número de pedidos falhados. Ou pode tentar aceder a recursos de base de dados ou estado de sessão para se certificar de que a aplicação web está a funcionar.
 * Se todos os pontos finais de um perfil estiverem degradados, então o Traffic Manager trata todos os pontos finais como saudáveis e encaminha o tráfego para todos os pontos finais. Este comportamento garante que os problemas com o mecanismo de sondagem não resultam numa interrupção completa do seu serviço.
 
 ## <a name="troubleshooting"></a>Resolução de problemas

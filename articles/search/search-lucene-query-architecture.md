@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329487"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002753"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Pesquisa de texto completo em Azure Cognitive Search
 
@@ -315,7 +315,7 @@ No geral, para a consulta em questão, os documentos que correspondem são 1, 2,
 
 ## <a name="stage-4-scoring"></a>Fase 4: Pontuação  
 
-Cada documento de um conjunto de resultados de pesquisa é atribuído uma pontuação de relevância. A função da pontuação de relevância é classificar mais alto os documentos que melhor respondam a uma pergunta do utilizador expressa pela consulta de pesquisa. A pontuação é calculada com base em propriedades estatísticas de termos que correspondam. No cerne da fórmula de pontuação está [TF/IDF (frequência de documento inverso de frequência de frequência)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). Em consultas que contenham termos raros e comuns, a TF/IDF promove resultados que contenham o termo raro. Por exemplo, num índice hipotético com todos os artigos da Wikipédia, a partir de documentos que correspondam à consulta *do presidente, os*documentos correspondentes ao *presidente* são considerados mais relevantes do que documentos correspondentes *no*.
+Cada documento de um conjunto de resultados de pesquisa é atribuído uma pontuação de relevância. A função da pontuação de relevância é classificar mais alto os documentos que melhor respondam a uma pergunta do utilizador expressa pela consulta de pesquisa. A pontuação é calculada com base em propriedades estatísticas de termos que correspondam. No cerne da fórmula de pontuação está [TF/IDF (frequência de documento inverso de frequência de frequência)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). Em consultas que contenham termos raros e comuns, a TF/IDF promove resultados que contenham o termo raro. Por exemplo, num índice hipotético com todos os artigos da Wikipédia, a partir de documentos que correspondam à consulta *do presidente, os* documentos correspondentes ao *presidente* são considerados mais relevantes do que documentos correspondentes *no*.
 
 
 ### <a name="scoring-example"></a>Exemplo de pontuação
@@ -393,13 +393,13 @@ Este artigo explorou a pesquisa completa de texto no contexto da Pesquisa Cognit
 
 + [Configure os analisadores personalizados](/rest/api/searchservice/custom-analyzers-in-azure-search) para o processamento mínimo ou para o processamento especializado em campos específicos.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Search Documents REST API](/rest/api/searchservice/search-documents) (Pesquisar Documentos com a API REST) 
 
 [Sintaxe de consulta simples](/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Sintaxe de consulta Lucene completo](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+[Sintaxe de consulta lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
 [Processar os resultados da pesquisa](./search-pagination-page-layout.md)
 

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
 ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077069"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002473"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Quickstart: Use Azure Cache para Redis em .NET Framework
 
@@ -30,7 +30,7 @@ Neste quickstart, incorpora o Azure Cache para Redis numa aplicação .NET Frame
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-No computador, crie um ficheiro denominado *CacheSecrets.config* e coloque-o numa localização onde não será registado com o código fonte da aplicação de exemplo. Para este início rápido, o ficheiro *CacheSecrets.config* está localizado aqui: *C:\AppSecrets\CacheSecrets.config* .
+No computador, crie um ficheiro denominado *CacheSecrets.config* e coloque-o numa localização onde não será registado com o código fonte da aplicação de exemplo. Para este início rápido, o ficheiro *CacheSecrets.config* está localizado aqui: *C:\AppSecrets\CacheSecrets.config*.
 
 Edite o ficheiro *CacheSecrets.config* e adicione os seguintes conteúdos:
 
@@ -47,7 +47,7 @@ Substitua `<access-key>` pela chave primária da sua cache.
 
 ## <a name="create-a-console-app"></a>Criar uma aplicação de consola
 
-No Estúdio Visual, clique em **File**  >  **New**  >  **Project** .
+No Estúdio Visual, clique em **File**  >  **New**  >  **Project**.
 
 Selecione **App de Consola (.NET Framework)** e **Next** to configure a sua aplicação. Digite um **nome de projeto** e clique em **Criar** para criar uma nova aplicação de consola.
 
@@ -68,7 +68,7 @@ Depois de concluída a instalação, o cliente de cache *StackExchange.Redis* es
 
 ## <a name="connect-to-the-cache"></a>Ligar à cache
 
-No Visual Studio, abra o seu ficheiro *App.config* e atualize-o para incluir um atributo `appSettings` `file` que referencia o ficheiro *CacheSecrets.config* .
+No Visual Studio, abra o seu ficheiro *App.config* e atualize-o para incluir um atributo `appSettings` `file` que referencia o ficheiro *CacheSecrets.config*.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -81,9 +81,9 @@ No Visual Studio, abra o seu ficheiro *App.config* e atualize-o para incluir um 
 </configuration>
 ```
 
-No Explorador de Soluções, clique com o botão direito do rato em **Referências** e clique em **Adicionar uma referência** . Adicione uma referência à assemblagem **System.Configuration** .
+No Explorador de Soluções, clique com o botão direito do rato em **Referências** e clique em **Adicionar uma referência**. Adicione uma referência à assemblagem **System.Configuration**.
 
-Adicione as seguintes declarações `using` ao *Program.cs* :
+Adicione as seguintes declarações `using` ao *Program.cs*:
 
 ```csharp
 using StackExchange.Redis;
@@ -94,7 +94,7 @@ A ligação à Cache Azure para Redis é gerida pela `ConnectionMultiplexer` cla
 
 Nunca guarde as credenciais no código fonte. Para simplificar este exemplo, estou a utilizar apenas um ficheiro de configuração de segredos externo. Uma melhor abordagem seria utilizar o [Azure Key Vault com certificados](/rest/api/keyvault/certificate-scenarios).
 
-Em *Program.cs* , adicione os seguintes membros à classe `Program` da aplicação de consola:
+Em *Program.cs*, adicione os seguintes membros à classe `Program` da aplicação de consola:
 
 ```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -192,13 +192,13 @@ No Estúdio Visual, clique em **Tools**  >  **NuGet Package Manager** Package Ma
 Install-Package Newtonsoft.Json
 ```
 
-Adicione a seguinte instrução `using` na parte superior do ficheiro *Program.cs* :
+Adicione a seguinte instrução `using` na parte superior do ficheiro *Program.cs*:
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Adicione a seguinte definição de classe `Employee` ao *Program.cs* :
+Adicione a seguinte definição de classe `Employee` ao *Program.cs*:
 
 ```csharp
 class Employee
@@ -237,7 +237,7 @@ Prima **Ctrl+F5** para compilar e executar a aplicação de consola para testar 
 ![Aplicação de consola concluída](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 
@@ -247,13 +247,13 @@ Caso contrário, se tiver concluído a aplicação de exemplo do início rápido
 > A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 >
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos** .
+Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources* . No seu grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos** .
+Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No seu grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
 
 ![Eliminar](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
-É-lhe pedido que confirme a eliminação do grupo de recursos. Escreva o nome do grupo de recursos para confirmar e clique em **Eliminar** .
+É-lhe pedido que confirme a eliminação do grupo de recursos. Escreva o nome do grupo de recursos para confirmar e clique em **Eliminar**.
 
 Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 

@@ -12,11 +12,11 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 96e679c0b284cc649dbde3fba1b640f4e09df05e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201655"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001852"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Quickstart: Fivetran com armazém de dados 
 
@@ -82,5 +82,5 @@ Para se ligar ao seu armazém de dados a partir da sua conta Fivetran, insira as
 * Anfitrião (nome do seu servidor).
 * Porto, porto.
 * Base de dados.
-* Utilizador (o nome de utilizador deve ser **server_name cincotran \@ _server_name_ ** onde *server_name* faz parte do seu Azure host URI: nome do ** _servidor \_ _.database.windows.net**).
+* Utilizador (o nome de utilizador deve ser **server_name cincotran \@ _server_name_** onde *server_name* faz parte do seu Azure host URI: nome do **_servidor \__.database.windows.net**).
 * A palavra-passe.

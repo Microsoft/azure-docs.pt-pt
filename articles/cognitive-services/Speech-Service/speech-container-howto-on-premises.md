@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: aahi
-ms.openlocfilehash: 277a3c1c53564d7c5dff6a87381680a7f41606de
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c3791a9049a3eab3ddd6fc70073629c38830dbc7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131603"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96002296"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Use recipientes de serviço de fala com Kubernetes e Helm
 
@@ -31,7 +31,7 @@ Os seguintes pré-requisitos antes da utilização dos recipientes de fala no lo
 | Acesso ao Registo de Contentores | Para que kubernetes puxe as imagens do estivador para o aglomerado, precisará de acesso ao registo do contentor. |
 | Kubernetes CLI | O [CLI de Kubernetes][kubernetes-cli] é necessário para gerir as credenciais partilhadas do registo do contentor. Kubernetes também é necessário antes de Helm, que é o gestor de pacotes Kubernetes. |
 | Helm CLI | Instale o [Helm CLI,][helm-install]que é utilizado para instalar um cartão de leme (definição de embalagem de recipiente). |
-|Recurso de fala |Para utilizar estes recipientes, deve ter:<br><br>Um recurso _Speech_ Azure para obter a chave de faturação associada e o ponto final de faturação URI. Ambos os valores estão disponíveis nas páginas **"Speech** Overview" e "Chaves" do portal Azure e são obrigados a iniciar o contentor.<br><br>**{API_KEY}** : chave de recursos<br><br>**{ENDPOINT_URI}** : o exemplo URI do ponto final é: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Recurso de fala |Para utilizar estes recipientes, deve ter:<br><br>Um recurso _Speech_ Azure para obter a chave de faturação associada e o ponto final de faturação URI. Ambos os valores estão disponíveis nas páginas **"Speech** Overview" e "Chaves" do portal Azure e são obrigados a iniciar o contentor.<br><br>**{API_KEY}**: chave de recursos<br><br>**{ENDPOINT_URI}**: o exemplo URI do ponto final é: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>A configuração recomendada do computador anfitrião
 
@@ -48,7 +48,7 @@ Espera-se que o computador anfitrião tenha um cluster Kubernetes disponível. V
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configurar valores de gráfico de leme para implantação
 
-Visite o [Microsoft Helm Hub][ms-helm-hub] para todos os gráficos de leme publicamente disponíveis oferecidos pela Microsoft. A partir do Microsoft Helm Hub, você encontrará o Gráfico de **Discurso de Serviços Cognitivos no Local** . O **Discurso dos Serviços Cognitivos nas Instalações** é o gráfico que vamos instalar, mas primeiro temos de criar um `config-values.yaml` ficheiro com configurações explícitas. Vamos começar por adicionar o repositório da Microsoft à nossa instância Helm.
+Visite o [Microsoft Helm Hub][ms-helm-hub] para todos os gráficos de leme publicamente disponíveis oferecidos pela Microsoft. A partir do Microsoft Helm Hub, você encontrará o Gráfico de **Discurso de Serviços Cognitivos no Local**. O **Discurso dos Serviços Cognitivos nas Instalações** é o gráfico que vamos instalar, mas primeiro temos de criar um `config-values.yaml` ficheiro com configurações explícitas. Vamos começar por adicionar o repositório da Microsoft à nossa instância Helm.
 
 ```console
 helm repo add microsoft https://microsoft.github.io/charts/repo
@@ -229,7 +229,7 @@ Para mais detalhes sobre a instalação de aplicações com Helm in Azure Kubern
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/intro/install/

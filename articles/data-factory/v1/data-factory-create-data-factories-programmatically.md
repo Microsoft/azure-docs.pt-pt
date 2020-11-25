@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c9dce90b0dc563fb0fa7ecaaa0882167eef444a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019900"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003638"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorizar e gerir fábricas de dados Azure utilizando a Azure Data Factory .NET SDK
 > [!NOTE]
@@ -51,7 +51,7 @@ Crie uma aplicação no Azure Active Directory, crie um principal de serviço pa
     ```powershell
     Get-AzSubscription
     ```
-4. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua ** &lt; a subscrição NameOfAzureSubscription** &gt; pelo nome da sua subscrição Azure.
+4. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **&lt; a subscrição NameOfAzureSubscription** &gt; pelo nome da sua subscrição Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -138,7 +138,7 @@ A Atividade de Cópia executa o movimento de dados no Azure Data Factory. A ativ
         </appSettings>
     </configuration>
     ```
-5. No ficheiro App.Config, atualizar os valores para ** &lt; ID &gt; de aplicação,** ** &lt; password, &gt; ** ** &lt; ID &gt; de assinatura**e ** &lt; ID &gt; do inquilino** com os seus próprios valores.
+5. No ficheiro App.Config, atualizar os valores para **&lt; ID &gt; de aplicação,** **&lt; password, &gt;** **&lt; ID &gt; de assinatura** e **&lt; ID &gt; do inquilino** com os seus próprios valores.
 6. Adicione as **seguintes declarações** ao ficheiro **Program.cs** no projeto.
 
     ```csharp
@@ -446,7 +446,7 @@ A Atividade de Cópia executa o movimento de dados no Azure Data Factory. A ativ
     }
     ```
 
-15. No Solution Explorer, expanda o projeto: **DataFactoryAPITestApp,** **referências**de clique à direita e clique em **Adicionar Referência**. Selecione a caixa de verificação para `System.Configuration` montagem e clique em **OK**.
+15. No Solution Explorer, expanda o projeto: **DataFactoryAPITestApp,** **referências** de clique à direita e clique em **Adicionar Referência**. Selecione a caixa de verificação para `System.Configuration` montagem e clique em **OK**.
 15. Crie a aplicação da consola. Clique em **Criar** no menu e clique em **Criar Solução**.
 16. Confirme se existe pelo menos um ficheiro no contentor adftutorial do seu armazenamento de blobs do Azure. Se não existir, crie um ficheiro Emp.txt no Bloco de Notas com o seguinte conteúdo e carregue-o para o contentor adftutorial.
 

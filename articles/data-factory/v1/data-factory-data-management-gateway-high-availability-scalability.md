@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896043"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003621"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - alta disponibilidade e escalabilidade (Pré-visualização)
 > [!NOTE]
@@ -29,7 +29,7 @@ Este artigo ajuda-o a configurar uma solução de alta disponibilidade e escalab
 > [!NOTE]
 > Este artigo assume que já está familiarizado com os fundamentos do Tempo de Execução de Integração (Gateway de Gestão de Dados anterior). Se não estiver, consulte o [Data Management Gateway](data-factory-data-management-gateway.md).
 > 
-> **Esta funcionalidade de pré-visualização é oficialmente suportada na versão 2.12.xxxx.x e acima** . Certifique-se de que está a utilizar a versão 2.12.xxxx.x ou acima. Descarregue [aqui](https://www.microsoft.com/download/details.aspx?id=39717)a versão mais recente do Data Management Gateway .
+> **Esta funcionalidade de pré-visualização é oficialmente suportada na versão 2.12.xxxx.x e acima**. Certifique-se de que está a utilizar a versão 2.12.xxxx.x ou acima. Descarregue [aqui](https://www.microsoft.com/download/details.aspx?id=39717)a versão mais recente do Data Management Gateway .
 
 ## <a name="overview"></a>Descrição geral
 Pode associar gateways de gestão de dados que são instalados em várias máquinas no local com um único portal lógico. Estas máquinas são chamadas **nós.** Pode ter até **quatro nós associados** a uma porta lógica. Os benefícios de ter múltiplos nós (máquinas no local com gateway instalado) para um gateway lógico são:  
@@ -88,7 +88,7 @@ Esta secção pressupõe que tenha passado pelos seguintes dois artigos ou famil
     3. Na página do **nó de novo gateway,** pode fornecer um **nome** personalizado ao nó de gateway. Por predefinição, o nome do nó é o mesmo que o nome da máquina.    
 
         ![Data Management Gateway - especificar nome](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
-    4. Na página seguinte, pode escolher se **permite a encriptação para comunicação nó-a-nó** . Clique **em Skip** para desativar a encriptação (predefinição).
+    4. Na página seguinte, pode escolher se **permite a encriptação para comunicação nó-a-nó**. Clique **em Skip** para desativar a encriptação (predefinição).
 
         ![Data Management Gateway - ativar a encriptação](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-node-encryption.png)  
     
@@ -99,14 +99,14 @@ Esta secção pressupõe que tenha passado pelos seguintes dois artigos ou famil
     5. Depois de o gateway ser instalado com sucesso, clique em Launch Configuration Manager:
     
         ![Configuração manual - gestor de configuração de lançamento](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)   
-    6. você vê data Management Gateway Configuration Manager no nó (no local máquina Windows), que mostra o estado de conectividade, **nome de porta de entrada** e nome do **nó** .  
+    6. você vê data Management Gateway Configuration Manager no nó (no local máquina Windows), que mostra o estado de conectividade, **nome de porta de entrada** e nome do **nó**.  
 
         ![Data Management Gateway - instalação bem sucedida](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
         > Se estiver a aprovisionar o gateway num Azure VM, pode utilizar [este modelo de Gestor de Recursos Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway). Este script cria um gateway lógico, configura VMs com o software Data Management Gateway instalado, e regista-os com o gateway lógico. 
 6. No portal Azure, lance a página **Gateway:** 
-    1. Na página inicial da fábrica de dados no portal, clique nos **Serviços Linked** .
+    1. Na página inicial da fábrica de dados no portal, clique nos **Serviços Linked**.
     
         ![Screenshot que destaca o azulejo dos serviços Linked.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
     2. selecione o **portal** para ver a página **Gateway:**
@@ -133,7 +133,7 @@ Esta secção pressupõe que tenha passado pelos seguintes dois artigos ou famil
 Pode atualizar uma porta de entrada existente para utilizar a funcionalidade de alta disponibilidade e escalabilidade. Esta funcionalidade funciona apenas com nós que têm a porta de entrada de gestão de dados da versão >= 2.12.xxxx. Pode ver a versão do gateway de gestão de dados instalada numa máquina no separador **Ajuda** do Gestor de Configuração gateway de gestão de dados. 
 
 1. Atualize o gateway na máquina no local para a versão mais recente, através do download e execução de um pacote de configuração MSI do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Consulte a secção [de instalação](data-factory-data-management-gateway.md#installation) para mais detalhes.  
-2. Navegue para o portal do Azure. Lance a **página data factory** para a sua fábrica de dados. Clique em azulejos de serviços ligados para lançar a **página de serviços ligados** . Selecione o portal para lançar a **página gateway** . Clique e ative **a funcionalidade de pré-visualização** como mostrado na seguinte imagem: 
+2. Navegue para o portal do Azure. Lance a **página data factory** para a sua fábrica de dados. Clique em azulejos de serviços ligados para lançar a **página de serviços ligados**. Selecione o portal para lançar a **página gateway**. Clique e ative **a funcionalidade de pré-visualização** como mostrado na seguinte imagem: 
 
     ![Data Management Gateway - ativar a funcionalidade de pré-visualização](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
 2. Uma vez ativada a funcionalidade de pré-visualização no portal, feche todas as páginas. Reabra a **página gateway** para ver a nova interface de utilizador de pré-visualização (UI).
@@ -144,7 +144,7 @@ Pode atualizar uma porta de entrada existente para utilizar a funcionalidade de 
 
     > [!NOTE]
     > Durante a atualização, o nome do primeiro nó é o nome da máquina. 
-3. Agora, adicione um nó. Na página **Gateway,** clique em **Adicionar Nó** .  
+3. Agora, adicione um nó. Na página **Gateway,** clique em **Adicionar Nó**.  
 
     ![Data Management Gateway - adicione menu de nó](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
 
@@ -164,8 +164,8 @@ Aqui estão os requisitos para o certificado TLS/SSL que é utilizado para asseg
 - Cada nó de execução de integração deve confiar neste certificado, bem como na máquina cliente que está executando a aplicação do gestor credencial. 
   > [!NOTE]
   > A aplicação de gestor credencial é utilizada enquanto se define de forma segura a credencial do Copy Wizard/Azure Portal. E isto pode ser disparado de qualquer máquina dentro da mesma rede que a loja de dados no local/ privada.
-- Os certificados wild card são suportados. Se o seu nome FQDN for **node1.domain.contoso.com,** pode utilizar * *_.domain.contoso.com_* como nome de assunto do certificado.
-- Os certificados SAN não são recomendados, uma vez que apenas o último item dos Nomes Alternativos Sujeitos será utilizado e todos os outros serão ignorados devido à limitação atual. Por exemplo, você tem um certificado SAN cuja SAN são **node1.domain.contoso.com** e **node2.domain.contoso.com,** você só pode usar este certificado em máquina cuja FQDN é **node2.domain.contoso.com** .
+- Os certificados wild card são suportados. Se o seu nome FQDN for **node1.domain.contoso.com,** pode utilizar **_.domain.contoso.com_* como nome de assunto do certificado.
+- Os certificados SAN não são recomendados, uma vez que apenas o último item dos Nomes Alternativos Sujeitos será utilizado e todos os outros serão ignorados devido à limitação atual. Por exemplo, você tem um certificado SAN cuja SAN são **node1.domain.contoso.com** e **node2.domain.contoso.com,** você só pode usar este certificado em máquina cuja FQDN é **node2.domain.contoso.com**.
 - Suporta qualquer tamanho de chave suportado pelo Windows Server 2012 R2 para certificados TLS/SSL.
 - O certificado que utiliza as teclas CNG não é suportado.
 
@@ -181,7 +181,7 @@ No portal Azure, pode visualizar imagens quase reais da utilização de recursos
 
 ![Data Management Gateway - monitorização de múltiplos nóns](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-Pode ativar **Definições Avançadas** na página **Gateway** para ver métricas avançadas como **Rede** (in/out), **Fun & Estado credencial** , que é útil na depurar problemas de gateway, e **Empregos Simultâneos** (Running/ Limit) que podem ser modificados/alterados em conformidade durante a afinação de desempenho. A tabela a seguir apresenta descrições de colunas na lista **de nóis gateway:**  
+Pode ativar **Definições Avançadas** na página **Gateway** para ver métricas avançadas como **Rede**(in/out), **Fun & Estado credencial**, que é útil na depurar problemas de gateway, e **Empregos Simultâneos** (Running/ Limit) que podem ser modificados/alterados em conformidade durante a afinação de desempenho. A tabela a seguir apresenta descrições de colunas na lista **de nóis gateway:**  
 
 Propriedade de Monitorização | Descrição
 :------------------ | :---------- 
@@ -209,7 +209,7 @@ Limitado | Devido a problemas de conectividade. Pode ser devido à emissão da p
 Inativa | O nó está numa configuração diferente da configuração de outros nós maioritários.<br/><br/> Um nó pode ser inativo quando não pode ligar-se a outros nós. 
 
 
-A tabela seguinte fornece possíveis estatutos de um **portal lógico** . O estado do gateway depende do estado dos nós de gateway. 
+A tabela seguinte fornece possíveis estatutos de um **portal lógico**. O estado do gateway depende do estado dos nós de gateway. 
 
 Estado | Comentários
 :----- | :-------

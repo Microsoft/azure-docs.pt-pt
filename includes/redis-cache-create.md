@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
-ms.openlocfilehash: 07a80fcd1ec62b051a660bdac696f89e3b7c42b7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: da36cb5c5d2db20b89f80d381f48632c7528c193
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93354120"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002472"
 ---
 1. Para criar uma cache, inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Criar um recurso.**
 
-    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="Selecione Azure Cache para Redis.":::
+    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="A criação de um recurso é realçada no painel de navegação esquerdo.":::
 
    
 1. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis**.
 
-    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="Selecione Azure Cache para Redis.":::
+    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="Em New, Databases é destacado, e Azure Cache para Redis é destacado.":::
    
 1. Na página **New Redis Cache,** configufique as definições para o seu novo cache.
    

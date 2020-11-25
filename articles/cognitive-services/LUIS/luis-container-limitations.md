@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 5c76e45f09a0f432d2775eb19d3dcaa668294e6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84672668"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002354"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitações do contentor de compreensão linguística (LUIS)
 
@@ -46,7 +46,7 @@ Configurações de aplicativos não suportados|Detalhes|
 
 Os recipientes LUIS suportam um subconjunto das [línguas suportadas](luis-language-support.md#languages-supported) pelo PRÓPRIO LUIS. Os recipientes LUIS são capazes de compreender as expressões nas seguintes línguas:
 
-| Idioma | Região | Domínio pré-construído | Entidade pré-construída | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
+| Linguagem | Região | Domínio pré-construído | Entidade pré-construída | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês (Estados Unidos) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Árabe (pré-visualização - árabe moderno padrão) |`ar-AR`|❌|❌|❌|❌|

@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 11/23/2020
 ms.author: tisande
-ms.openlocfilehash: 7c988f379e94bf2f69854c90d45af42fe2a7ec4f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f04590e78b5f1ea9d5e00c9f3d42c2fc32bebc5f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332785"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001784"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funções agregadas em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -20,6 +20,8 @@ ms.locfileid: "93332785"
 As funções agregadas realizam um cálculo sobre um conjunto de valores na `SELECT` cláusula e devolvem um único valor. Por exemplo, a seguinte consulta devolve a contagem de itens dentro do `Families` contentor:
 
 ## <a name="examples"></a>Exemplos
+
+Ao `COUNT()` utilizar, pode utilizar qualquer expressão de escala válida, `1` como, por exemplo, a entrada.
 
 ```sql
     SELECT COUNT(1)
@@ -67,7 +69,7 @@ A API SQL suporta as seguintes funções agregadas. `SUM` e `AVG` operar com val
 
 | Função | Descrição |
 |-------|-------------|
-| CONTAGEM | Devolve o número de itens na expressão. |
+| COUNT | Devolve o número de itens na expressão. |
 | SUM   | Devolve a soma de todos os valores da expressão. |
 | MIN   | Devolve o valor mínimo na expressão. |
 | MAX   | Devolve o valor máximo da expressão. |

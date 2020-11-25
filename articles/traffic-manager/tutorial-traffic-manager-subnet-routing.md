@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: duau
 ms.openlocfilehash: 348f1d779f8ea67860726b8f8b7739921e7ad54a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205953"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003808"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: Tráfego direto para pontos finais específicos baseados na sub-rede do utilizador utilizando o Gestor de Tráfego
 
@@ -60,7 +60,7 @@ Nesta secção, vai criar duas instâncias do site que fornecem os dois pontos f
 
 Nesta secção, você cria dois VMs *myIISVMEastUS* e *myIISVMWestEurope* nas regiões **Azure dos EUA** e Da Europa **Ocidental.**
 
-1. No canto superior esquerdo do portal Azure, selecione **Criar um**  >  **datacenter Compute**  >  **Windows Server 2019**de recurso .
+1. No canto superior esquerdo do portal Azure, selecione **Criar um**  >  **datacenter Compute**  >  **Windows Server 2019** de recurso .
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os seguintes valores no **separador Básicos:**
 
    - **Assinatura**  >  **Grupo de Recursos**: Selecione **Criar novo** e, em seguida, digitar **myResourceGroupTM1**.
@@ -71,7 +71,7 @@ Nesta secção, você cria dois VMs *myIISVMEastUS* e *myIISVMWestEurope* nas re
    - **Regras portuárias**  >  de entrada **Portas de entrada pública**: Selecione **Deixe as portas selecionadas.**
    - **Regras portuárias**  >  de entrada **Selecione portas de entrada**: Selecione **RDP** e **HTTP** na caixa pull down.
 
-3. Selecione o separador **Gestão** ou selecione **Seguinte: Discos,** em **seguida, seguinte: Networking**, em **seguida, Seguinte: Gestão**. Em **Monitorização**, desemisse os **diagnósticos** **da**Bota .
+3. Selecione o separador **Gestão** ou selecione **Seguinte: Discos,** em **seguida, seguinte: Networking**, em **seguida, Seguinte: Gestão**. Em **Monitorização**, desemisse os **diagnósticos** **da** Bota .
 4. Selecione **Rever + criar**.
 5. Reveja as definições e, em seguida, clique em **Criar**.  
 6. Siga os passos para criar um segundo VM chamado *myIISVMWestEurope,* com um nome de grupo de **recursos** do *myResourceGroupTM2*, uma **localização** da *Europa Ocidental*, e todas as outras configurações iguais às *myIISVMEastUS*.
@@ -86,7 +86,7 @@ Nesta secção, instale o servidor IIS nos dois VMs - *myIISVMEastUS*  &  *myIIS
 3. Abra o ficheiro rdp transferido. Se lhe for pedido, selecione **Ligar**. Introduza o nome de utilizador e a palavra-passe que especificou ao criar a VM. Poderá ter de selecionar **Mais opções** e **Utilizar uma conta diferente** para especificar as credenciais que introduziu quando criou a VM.
 4. Selecione **OK**.
 5. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber o aviso, selecione **Sim** ou **Continuar** para prosseguir com a ligação.
-6. No ambiente de trabalho do servidor, navegue para o Gestor do Servidor **de Ferramentas Administrativas**do Windows > **Server Manager**.
+6. No ambiente de trabalho do servidor, navegue para o Gestor do Servidor **de Ferramentas Administrativas** do Windows > **Server Manager**.
 7. Lançar o Windows PowerShell no VM *myIISVMEastUS*, e utilizar os seguintes comandos para instalar o servidor IIS e atualizar o ficheiro htm predefinido.
 
     ```powershell-interactive
@@ -128,7 +128,7 @@ O Gestor de Tráfego encaminha o tráfego do utilizador, baseando-se no nome DNS
 
 Nesta secção, você cria um VM (*myVMEastUS* e *myVMWestEurope*) em cada região de Azure **(Europa Oriental** e **Oeste).** Utilizará estes VMs para testar como o Gestor de Tráfego encaminha o tráfego do utilizador com base na sub-rede da consulta do utilizador.
 
-1. No canto superior esquerdo do portal Azure, selecione **Criar um**  >  **datacenter Compute**  >  **Windows Server 2019**de recurso .
+1. No canto superior esquerdo do portal Azure, selecione **Criar um**  >  **datacenter Compute**  >  **Windows Server 2019** de recurso .
 2. Na **Criação de uma máquina virtual,** escreva ou selecione os seguintes valores no **separador Básicos:**
 
    - **Assinatura**  >  **Grupo de Recursos**: Selecione **myResourceGroupTM1**.
@@ -139,7 +139,7 @@ Nesta secção, você cria um VM (*myVMEastUS* e *myVMWestEurope*) em cada regi�
    - **Regras portuárias**  >  de entrada **Portas de entrada pública**: Selecione **Deixe as portas selecionadas.**
    - **Regras portuárias**  >  de entrada **Selecione portas de entrada**: Selecione **RDP** na caixa pull down.
 
-3. Selecione o separador **Gestão** ou selecione **Seguinte: Discos,** em **seguida, seguinte: Networking**, em **seguida, Seguinte: Gestão**. Em **Monitorização**, desemisse os **diagnósticos** **da**Bota .
+3. Selecione o separador **Gestão** ou selecione **Seguinte: Discos,** em **seguida, seguinte: Networking**, em **seguida, Seguinte: Gestão**. Em **Monitorização**, desemisse os **diagnósticos** **da** Bota .
 4. Selecione **Rever + criar**.
 5. Reveja as definições e, em seguida, clique em **Criar**.  
 6. Siga os passos para criar um segundo VM chamado *myVMWestEurope,* com um nome de grupo de **recursos** do *myResourceGroupTM2*, uma **localização** da *Europa Ocidental*, e todas as outras configurações iguais às *myVMEastUS*.
@@ -168,13 +168,13 @@ Crie um perfil para o Gestor de Tráfego que lhe permita devolver determinados p
 Adicione os dois VMs que executam os servidores IIS - *myIISVMEastUS*  &  *myIISVMWestEurope* para encaminhar o tráfego do utilizador com base na sub-rede da consulta do utilizador.
 
 1. Na barra de pesquisa do portal, procure o nome do perfil do Gestor de Tráfego que criou na secção anterior e selecione-o nos resultados apresentados.
-2. Em **Perfil do Gestor de Tráfego **, na secção **Definições**, clique em **Pontos Finais** e em **Adicionar**.
+2. Em **Perfil do Gestor de Tráfego**, na secção **Definições**, clique em **Pontos Finais** e em **Adicionar**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK**:
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Ponto final do Azure                                   |
-    | Name           | myInternalWebSiteEndpoint                                        |
+    | Nome           | myInternalWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP Público                          |
     | Recurso de destino          | **Escolha um endereço IP público** para mostrar a lista de recursos com endereços IP públicos na mesma subscrição. Em **Recurso**, selecione o endereço IP público com o nome *myIISVMEastUS-ip*. Este é o endereço IP público da VM do servidor do IIS na região E.U.A. Leste.|
     |  Definições de encaminhamento de sub-rede    |   Adicione o endereço IP do VM de teste *myVMEastUS.* Qualquer consulta do utilizador originária deste VM será direcionada para o *myInternalWebSiteEndpoint*.    |
@@ -214,7 +214,7 @@ Nesta seção, pode ver o Gestor de Tráfego em ação.
 
 7. Em seguida, ligue-se ao *myVMWestEurope* VM localizado na **Europa Ocidental** utilizando os passos 1-5 e navegue pelo nome de domínio do gestor de tráfego a partir deste VM. Uma vez que o endereço IP *do myVMWestEurope* VM está associado ao ponto final *myProductionWebsiteEndpoint,* o navegador web lança o servidor do site test - *myIISVMWestEurope*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine os grupos de recursos (**ResourceGroupTM1** e **ResourceGroupTM2**). Para tal, selecione o grupo de recursos (**ResourceGroupTM1** ou **ResourceGroupTM2**) e, em seguida, selecione **Eliminar**.
 

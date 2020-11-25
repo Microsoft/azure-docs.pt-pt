@@ -11,11 +11,11 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912876"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002005"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Texto moderado da consola API
 
@@ -43,14 +43,14 @@ Para **a consola de testes API Aberta,** selecione a região que mais descreve a
 
 ### <a name="parameters"></a>Parâmetros
 
-Selecione os parâmetros de consulta que pretende utilizar no seu ecrã de texto. Para este exemplo, utilize o valor predefinido para **a linguagem** . Também pode deixá-lo em branco porque a operação irá detetar automaticamente o idioma provável como parte da sua execução.
+Selecione os parâmetros de consulta que pretende utilizar no seu ecrã de texto. Para este exemplo, utilize o valor predefinido para **a linguagem**. Também pode deixá-lo em branco porque a operação irá detetar automaticamente o idioma provável como parte da sua execução.
 
 > [!NOTE]
 > Para o parâmetro do **idioma,** `eng` atribua-o ou deixe-o vazio para ver a resposta de **classificação** assistida por máquina (função de pré-visualização). **Esta funcionalidade suporta apenas inglês.**
 >
 > Para deteção **de termos de profanação,** utilize o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) das línguas suportadas listadas neste artigo ou deixe-o vazio.
 
-Para **corrigir automaticamente,** **PII,** e **classificar (pré-visualização)** , selecione **true** . Deixe o campo **ListId** vazio.
+Para **corrigir automaticamente,** **PII,** e **classificar (pré-visualização)**, selecione **true**. Deixe o campo **ListId** vazio.
 
   ![Texto - Parâmetros de consulta da consola de ecrã](images/text-api-console-inputs.PNG)
 

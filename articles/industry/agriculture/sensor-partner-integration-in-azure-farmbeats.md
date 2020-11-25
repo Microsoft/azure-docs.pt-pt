@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674327"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001597"
 ---
 # <a name="sensor-partner-integration"></a>Integração de parceiros de sensores
 
@@ -126,10 +126,10 @@ JSON é um formato comum de dados independente da linguagem que fornece uma simp
 
 O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de dispositivos criar e gerir metadados de dispositivos ou sensores.
 
-- /**DeviceModel** : DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é um gateway ou nó.
-- /**Dispositivo** : O dispositivo corresponde a um dispositivo físico presente na exploração.
-- /**SensorModel** : SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medida do sensor, como a temperatura e a pressão ambiente.
-- /**Sensor** : O sensor corresponde a um sensor físico que regista valores. Um sensor é normalmente ligado a um dispositivo com um ID do dispositivo.
+- /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é um gateway ou nó.
+- /**Dispositivo**: O dispositivo corresponde a um dispositivo físico presente na exploração.
+- /**SensorModel**: SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medida do sensor, como a temperatura e a pressão ambiente.
+- /**Sensor**: O sensor corresponde a um sensor físico que regista valores. Um sensor é normalmente ligado a um dispositivo com um ID do dispositivo.
 
   DeviceModel | Descrição |
   --- | ---
@@ -324,7 +324,7 @@ Os parceiros de dispositivos podem permitir que os clientes editem as definiçõ
 
 ## <a name="view-the-last-telemetry-sent"></a>Ver a última telemetria enviada
 
-Os parceiros de dispositivos podem permitir que os clientes vejam o tempotagrama da última telemetria que foi enviada, que é encontrada no âmbito da **Telemetria Enviada** . Este é o momento em que a mais recente telemetria foi enviada com sucesso para a FarmBeats.
+Os parceiros de dispositivos podem permitir que os clientes vejam o tempotagrama da última telemetria que foi enviada, que é encontrada no âmbito da **Telemetria Enviada**. Este é o momento em que a mais recente telemetria foi enviada com sucesso para a FarmBeats.
 
 ## <a name="troubleshooting-and-error-management"></a>Resolução de problemas e gestão de erros
 

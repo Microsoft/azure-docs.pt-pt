@@ -14,11 +14,11 @@ ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 55a27dbb6c2ec3569bae9d6fb96fcd8087f08daf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637671"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001682"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de cópia da fábrica de dados Azure
 
@@ -63,7 +63,7 @@ A imagem que se segue mostra uma consulta SQL utilizando a `Text.Format` funçã
 ![Validar expressões](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtragem de dados numa pasta de bolhas Azure
-Pode utilizar variáveis no caminho da pasta para copiar dados de uma pasta que é determinada em tempo de execução com base em [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis suportadas são: **{year}** , **{month}** **{day}** **,{hour}** , **{minute}** , e **{custom}** . Por exemplo: inputfolder/{year}/{month}/{day}.
+Pode utilizar variáveis no caminho da pasta para copiar dados de uma pasta que é determinada em tempo de execução com base em [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis suportadas são: **{year}**, **{month}** **{day}** **,{hour}**, **{minute}**, e **{custom}**. Por exemplo: inputfolder/{year}/{month}/{day}.
 
 Suponha que tenha pastas de entrada no seguinte formato:
 
@@ -74,7 +74,7 @@ Suponha que tenha pastas de entrada no seguinte formato:
 ...
 ```
 
-Clique no botão **procurar** **ficheiro ou pasta,** navegue por uma destas pastas (por exemplo, 2016->03->01->02) e clique em **Escolher** . Devia ver `2016/03/01/02` na caixa de texto. Agora, substitua **2016** por **{ano}** , **03** por **{mês}** , **01** por **{day}** e **02** por **{hora}** , e prima a tecla **Separador.** Deve ver listas de drop-down para selecionar o formato destas quatro variáveis:
+Clique no botão **procurar** **ficheiro ou pasta,** navegue por uma destas pastas (por exemplo, 2016->03->01->02) e clique em **Escolher**. Devia ver `2016/03/01/02` na caixa de texto. Agora, substitua **2016** por **{ano}**, **03** por **{mês}**, **01** por **{day}** e **02** por **{hora}**, e prima a tecla **Separador.** Deve ver listas de drop-down para selecionar o formato destas quatro variáveis:
 
 ![Usando variáveis do sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
@@ -98,25 +98,25 @@ Esta secção explora métodos comuns de resolução de problemas para copy wiza
 
 ### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Código de erro: Incapaz de validar no Copy Wizard
 
-- **Sintomas** : No primeiro passo do Copy Wizard, encontra a mensagem de aviso de "Incapaz de Validar".
-- **Causas** : Isto pode acontecer quando todos os cookies de terceiros estiverem desativados.
+- **Sintomas**: No primeiro passo do Copy Wizard, encontra a mensagem de aviso de "Incapaz de Validar".
+- **Causas**: Isto pode acontecer quando todos os cookies de terceiros estiverem desativados.
 - **Resolução:** 
     - Utilize o internet Explorer ou o navegador Microsoft Edge.
-    - Se estiver a utilizar o navegador Chrome, siga as instruções abaixo para adicionar a exceção cookies para *microsoftonline.com* e *windows.net* .
+    - Se estiver a utilizar o navegador Chrome, siga as instruções abaixo para adicionar a exceção cookies para *microsoftonline.com* e *windows.net*.
         1.  Abra o navegador Chrome.
         2.  Clique na chave inglesa ou três linhas à direita (Personalize e controle o Google Chrome).
-        3.  Clique em **Definições** .
+        3.  Clique em **Definições**.
         4.  Pesse **cookies** ou vá para **a Privacidade** em Definições Avançadas.
-        5.  Selecione **Definições de conteúdo** .    
-        6.  Os cookies devem ser definidos para **permitir a fixação de dados locais (recomendado)** .
-        7.  Clique **Em Gerir exceções** . Sob **o padrão de nome hospedeiro** introduza o seguinte, e **certifique-se de que Allow** é o conjunto de comportamento.
+        5.  Selecione **Definições de conteúdo**.    
+        6.  Os cookies devem ser definidos para **permitir a fixação de dados locais (recomendado)**.
+        7.  Clique **Em Gerir exceções**. Sob **o padrão de nome hospedeiro** introduza o seguinte, e **certifique-se de que Allow** é o conjunto de comportamento.
             - login.microsoftonline.com
             - login.windows.net
         8.  Feche o navegador e relançe.
     - Se estiver a utilizar o navegador Firefox, siga as instruções abaixo para adicionar a exceção cookies.
         1. A partir do menu **Tools** Firefox, aceda às  >  **Opções de Ferramentas.**
-        2. Em **Privacy**  >  **Histórico de Privacidade,** pode ver que a definição atual é **Utilizar configurações personalizadas para o histórico** .
-        3. Em **Aceitar cookies de terceiros** , a sua configuração atual pode ser **Nunca** , então deve clicar em Exceções no direito de adicionar os **seguintes** sites.
+        2. Em **Privacy**  >  **Histórico de Privacidade,** pode ver que a definição atual é **Utilizar configurações personalizadas para o histórico**.
+        3. Em **Aceitar cookies de terceiros**, a sua configuração atual pode ser **Nunca**, então deve clicar em Exceções no direito de adicionar os **seguintes** sites.
             - https://login.microsoftonline.com
             - https://login.windows.net
         4.  Feche o navegador e relançe. 
@@ -124,8 +124,8 @@ Esta secção explora métodos comuns de resolução de problemas para copy wiza
 
 ### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>Código de erro: Não é possível abrir a página de login e introduzir senha
 
-- **Sintomas** : Copy Wizard redireciona-o para a página de login, mas a página de login não aparece com sucesso.
-- **Causas** : Este problema pode acontecer se alterar o ambiente de rede de escritórios para rede doméstica. Existem algumas caches nos navegadores. 
+- **Sintomas**: Copy Wizard redireciona-o para a página de login, mas a página de login não aparece com sucesso.
+- **Causas**: Este problema pode acontecer se alterar o ambiente de rede de escritórios para rede doméstica. Existem algumas caches nos navegadores. 
 - **Resolução:** 
     1.  Feche o navegador e tente novamente. Vá para o próximo passo se a questão ainda existir.   
     2.  Se estiver a utilizar o navegador Internet Explorer, tente abri-lo em modo privado (Prima "Ctrl" + "Shift" + "P"). Se estiver a utilizar o navegador Chrome, tente abri-lo em modo incógnito (Prima "Ctrl" + "shift" + "N"). Vá para o próximo passo se a questão ainda existir. 

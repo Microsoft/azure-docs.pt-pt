@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
 ms.openlocfilehash: e7d6a67f5322c5bb640430f66ccb0917f6faada1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339789"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003502"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligue-se ao Azure Cosmos DB utilizando ferramentas de análise de BI com o controlador ODBC
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -59,17 +59,17 @@ Vamos começar com o motorista da ODBC.
 1. Na janela de **configuração SDN do condutor da Azure Cosmos DB ODBC,** preencha as seguintes informações: 
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Janela de configuração DSN do condutor do Azure Cosmos DB ODBC":::
-    - **Data Source Name** : O seu próprio nome amigável para o DSN ODBC. Este nome é exclusivo da sua conta DB Azure Cosmos, por isso diga-lhe adequadamente se tiver várias contas.
-    - **Descrição** : Uma breve descrição da fonte de dados.
-    - **Anfitrião** : URI para a sua conta DB Azure Cosmos. Pode recuperá-lo a partir da página Azure Cosmos DB Keys no portal Azure, como mostra a imagem seguinte. 
-    - **Tecla de acesso** : A tecla primária ou secundária, de leitura ou de leitura apenas a partir da página Azure Cosmos DB Keys no portal Azure, como mostrado na imagem seguinte. Recomendamos que utilize a chave apenas de leitura se o DSN for utilizado para o processamento e reporte de dados apenas de leitura.
+    - **Data Source Name**: O seu próprio nome amigável para o DSN ODBC. Este nome é exclusivo da sua conta DB Azure Cosmos, por isso diga-lhe adequadamente se tiver várias contas.
+    - **Descrição**: Uma breve descrição da fonte de dados.
+    - **Anfitrião**: URI para a sua conta DB Azure Cosmos. Pode recuperá-lo a partir da página Azure Cosmos DB Keys no portal Azure, como mostra a imagem seguinte. 
+    - **Tecla de acesso**: A tecla primária ou secundária, de leitura ou de leitura apenas a partir da página Azure Cosmos DB Keys no portal Azure, como mostrado na imagem seguinte. Recomendamos que utilize a chave apenas de leitura se o DSN for utilizado para o processamento e reporte de dados apenas de leitura.
     :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Página de Chaves DB de Azure Cosmos":::
-    - **Chave de acesso encriptado para** : Selecione a melhor escolha com base nos utilizadores desta máquina. 
+    - **Chave de acesso encriptado para**: Selecione a melhor escolha com base nos utilizadores desta máquina. 
     
 1. Clique no botão **Teste** para se certificar de que pode ligar-se à sua conta DB Azure Cosmos. 
 
 1.  Clique **em Opções Avançadas** e desa estalidos os seguintes valores:
-    *  **REST Versão API** : Selecione a [versão REST API](/rest/api/cosmos-db/) para as suas operações. O padrão 2015-12-16. Se tiver recipientes com [chaves de partição grandes](large-partition-keys.md) e necessitar da versão REST API 2018-12-31:
+    *  **REST Versão API**: Selecione a [versão REST API](/rest/api/cosmos-db/) para as suas operações. O padrão 2015-12-16. Se tiver recipientes com [chaves de partição grandes](large-partition-keys.md) e necessitar da versão REST API 2018-12-31:
         - Digite em **2018-12-31** para a versão REST API
         - No menu **Iniciar,** escreva "regedit" para encontrar e abrir a aplicação **do Editor de Registo.**
         - No Editor de Registos, navegue para o caminho: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
@@ -79,9 +79,9 @@ Vamos começar com o motorista da ODBC.
             - Nome do valor: **IgnoreSessionToken**
             - Dados de valor: **1** 
              :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Configurações do Editor de Registo":::
-    - **Consistência de consulta** : Selecione o [nível de consistência](consistency-levels.md) para as suas operações. O padrão é Sessão.
-    - **Número de Retrírias** : Introduza o número de vezes para voltar a tentar uma operação se o pedido inicial não for concluído devido à limitação da taxa de serviço.
-    - **Ficheiro Schema** : Tem várias opções aqui.
+    - **Consistência de consulta**: Selecione o [nível de consistência](consistency-levels.md) para as suas operações. O padrão é Sessão.
+    - **Número de Retrírias**: Introduza o número de vezes para voltar a tentar uma operação se o pedido inicial não for concluído devido à limitação da taxa de serviço.
+    - **Ficheiro Schema**: Tem várias opções aqui.
         - Por predefinição, deixando esta entrada como está (em branco), o condutor digitaliza a primeira página de dados para todos os recipientes para determinar o esquema de cada recipiente. Isto é conhecido como Mapeamento de Contentores. Sem um ficheiro de esquema definido, o condutor tem de efetuar a verificação para cada sessão de condutor e pode resultar num tempo de arranque mais elevado de uma aplicação utilizando o DSN. Recomendamos que associe sempre um ficheiro de esquema para um DSN.
         - Se já tiver um ficheiro de esquema (possivelmente um que criou usando o Editor Schema), pode clicar em **Procurar,** navegar para o seu ficheiro, clicar em **Guardar** e clicar **em OK**.
         - Se quiser criar um novo esquema, clique em **OK** e, em seguida, clique em **Schema Editor** na janela principal. Em seguida, dirijam-se à informação do Editor Schema. Depois de criar o novo ficheiro de esquema, lembre-se de voltar à janela **Advanced Options** para incluir o ficheiro de esquema recém-criado.
@@ -109,7 +109,7 @@ Existem dois tipos de métodos de amostragem que pode utilizar: mapeamento de **
 
 1. Uma vez terminado de definir o esquema, clique em **'Guardar ficheiros',**  |  **Save** navegue no diretório para guardar o esquema e, em seguida, clique em **Guardar**.
 
-1. Para utilizar este esquema com um DSN, abra a **janela de configuração DSN do controlador DB ODBC do Azure Cosmos** (através do Administrador de Fonte de Dados ODBC), clique em **Opções Avançadas** , e, em seguida, na caixa **de ficheiros Schema,** navegue para o esquema guardado. Guardar um ficheiro de esquema para um DSN existente modifica a ligação DSN ao âmbito dos dados e estrutura definidos por esquema.
+1. Para utilizar este esquema com um DSN, abra a **janela de configuração DSN do controlador DB ODBC do Azure Cosmos** (através do Administrador de Fonte de Dados ODBC), clique em **Opções Avançadas**, e, em seguida, na caixa **de ficheiros Schema,** navegue para o esquema guardado. Guardar um ficheiro de esquema para um DSN existente modifica a ligação DSN ao âmbito dos dados e estrutura definidos por esquema.
 
 ## <a name="step-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a><a id="table-mapping"></a>Passo 4: Criar uma definição de esquema utilizando o método de mapeamento delimiters de mesa
 

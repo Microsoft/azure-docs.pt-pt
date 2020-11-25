@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 327e995a8fe2f66903548fba054804768d2538ab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534299"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001570"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação após desastre dos servidores físicos para Azure
 
@@ -39,16 +39,16 @@ A tabela seguinte lista os requisitos mínimos de hardware, software e rede para
 2. No menu **de recursos** do cofre, clique em **Iniciar o** Passo de  >  **Recuperação do Local**  >  **1: Prepare o** objetivo de  >  **proteção da** infraestrutura .
 
     ![Screenshot que mostra onde selecionar o objetivo de proteção.](./media/physical-azure-set-up-source/choose-goals.png)
-3. Na **meta proteção** , selecione **Para Azure** e **Não virtualizado/Outros** , e clique em **OK** .
+3. Na **meta proteção**, selecione **Para Azure** e **Não virtualizado/Outros**, e clique em **OK**.
 
     ![Selecione os objetivos](./media/physical-azure-set-up-source/physical-protection-goal.png)
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
-1. Na **fonte Preparar** , se não tiver um servidor de configuração, clique em **+Servidor de Configuração** para adicionar um.
+1. Na **fonte Preparar**, se não tiver um servidor de configuração, clique em **+Servidor de Configuração** para adicionar um.
 
    ![Screenshot que mostra como selecionar o servidor de configuração.](./media/physical-azure-set-up-source/plus-config-srv.png)
-2. Na lâmina **do Servidor de Adicionar,** verifique se o **Servidor de Configuração** aparece no **tipo servidor** .
+2. Na lâmina **do Servidor de Adicionar,** verifique se o **Servidor de Configuração** aparece no **tipo servidor**.
 4. Descarregue o ficheiro de instalação de configuração unificada de recuperação do site.
 5. Transfira a chave de registo do cofre. Precisa da chave de registo quando executar a Configuração Unificada. A chave é válida durante cinco dias depois de gerá-la.
 

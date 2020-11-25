@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -10,11 +10,11 @@ ms.date: 02/28/2019
 ms.author: mayg
 ms.custom: include file
 ms.openlocfilehash: f699ffe6d5a91e8ce3ae90c7e12249bbad0fff3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500436"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001571"
 ---
 1. Execute o ficheiro de instalação Configuração Unificada.
 2. Antes **de começar**, selecione **Instale o servidor de configuração e o servidor de processo**.
@@ -31,7 +31,7 @@ ms.locfileid: "87500436"
 
     - Se pretender ligar-se ao proxy que está atualmente configurado na máquina, selecione **Connect to Azure Site Recovery utilizando um servidor proxy**.
     - Se pretender que o Fornecedor se conecte diretamente, selecione **Connect diretamente para a Recuperação do Site Azure sem um servidor proxy**.
-    - Se o representante existente necessitar de autenticação, ou se pretender utilizar um representante personalizado para a ligação do Fornecedor, selecione **Connect com configurações de procuração personalizadas**e especifique o endereço, porta e credenciais.
+    - Se o representante existente necessitar de autenticação, ou se pretender utilizar um representante personalizado para a ligação do Fornecedor, selecione **Connect com configurações de procuração personalizadas** e especifique o endereço, porta e credenciais.
      ![Screenshot do ecrã de Definições de Internet na Configuração Unificada.](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. Em **Verificação de Pré-requisitos**, a Configuração executa uma verificação para se certificar de que a instalação pode ser executada. Se for apresentado um aviso sobre a **Verificação de sincronização de hora global**, certifique-se de que a hora no relógio do sistema (definições de **Data e Hora**) é a mesma que o fuso horário.
 

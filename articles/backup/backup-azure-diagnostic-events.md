@@ -4,11 +4,11 @@ description: Este artigo descreve como usar os antigos e novos eventos de diagn�
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: 3d10053bae5148f33dba6d1207a81bdb16c37577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182603"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002890"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Use definições de diagnóstico para cofres de serviços de recuperação
 
@@ -114,15 +114,15 @@ Pode optar por ter configurações de diagnóstico separadas para o AzureBackupR
 
 ## <a name="send-azure-site-recovery-events-to-log-analytics"></a>Enviar eventos de recuperação do site Azure para registar análises
 
-Os eventos de Backup e Azure Site Recovery são enviados a partir do mesmo cofre dos Serviços de Recuperação. A recuperação do site Azure não está atualmente disponível para tabelas específicas de recursos. Os utilizadores que pretendam enviar eventos de Recuperação do Site Azure para o Log Analytics são direcionados *apenas*para utilizar o modo de diagnóstico Azure , como mostra a imagem. *A escolha do modo específico de recursos para eventos de recuperação do local de Azure impedirá que os dados necessários sejam enviados para o espaço de trabalho Do Log Analytics*.
+Os eventos de Backup e Azure Site Recovery são enviados a partir do mesmo cofre dos Serviços de Recuperação. A recuperação do site Azure não está atualmente disponível para tabelas específicas de recursos. Os utilizadores que pretendam enviar eventos de Recuperação do Site Azure para o Log Analytics são direcionados *apenas* para utilizar o modo de diagnóstico Azure , como mostra a imagem. *A escolha do modo específico de recursos para eventos de recuperação do local de Azure impedirá que os dados necessários sejam enviados para o espaço de trabalho Do Log Analytics*.
 
 ![Eventos de recuperação do local](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
 
 Para resumir:
 
 * Se já tiver diagnósticos de Log Analytics configurados com Azure Diagnostics e tiver consultas personalizadas escritas em cima dele, mantenha essa definição *intacta* até migrar as suas consultas para utilizar dados dos novos eventos.
-* Se também quiser embarcar em novas tabelas, como recomendamos, crie uma **nova** definição de diagnóstico, selecione **Recursos específicos**e selecione os seis novos eventos.
-* Se está neste momento a enviar eventos de Recuperação do Site Azure para registar analytics, *não* escolha o modo específico de recursos para estes eventos. Caso contrário, os dados para estes eventos não fluirão para o seu espaço de trabalho Log Analytics. Em vez disso, crie uma definição de diagnóstico adicional, selecione **diagnósticos Azure**e selecione os eventos relevantes de Recuperação do Local de Azure.
+* Se também quiser embarcar em novas tabelas, como recomendamos, crie uma **nova** definição de diagnóstico, selecione **Recursos específicos** e selecione os seis novos eventos.
+* Se está neste momento a enviar eventos de Recuperação do Site Azure para registar analytics, *não* escolha o modo específico de recursos para estes eventos. Caso contrário, os dados para estes eventos não fluirão para o seu espaço de trabalho Log Analytics. Em vez disso, crie uma definição de diagnóstico adicional, selecione **diagnósticos Azure** e selecione os eventos relevantes de Recuperação do Local de Azure.
 
 A imagem a seguir mostra um exemplo de um utilizador que tem três configurações de diagnóstico para um cofre. A primeira definição, denominada **Setting1,** envia dados de um evento AzureBackupReport para um espaço de trabalho Log Analytics no modo de diagnóstico Azure. A segunda definição, denominada **Setting2,** envia dados dos seis novos eventos de Backup Azure para um espaço de trabalho Log Analytics no modo específico de recursos. A terceira definição, denominada **Setting3,** envia dados dos eventos de Recuperação do Local Azure para um espaço de trabalho Log Analytics no modo de diagnóstico Azure.
 

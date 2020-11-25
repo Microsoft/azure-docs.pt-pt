@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 524df7805207ce517c7ae805fb17de1b041a2248
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876044"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002120"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Ligações DB Azure Cosmos para Funções Azure 1.x
 
@@ -211,7 +211,7 @@ O gatilho requer uma segunda coleção que usa para armazenar _arrendamentos_ so
 
 O gatilho não indica se um documento foi atualizado ou inserido, apenas fornece o documento em si. Se precisar de lidar com atualizações e inserções de forma diferente, poderá fazê-lo implementando campos de tempotamp para inserção ou atualização.
 
-## <a name="input"></a>Input
+## <a name="input"></a>Entrada
 
 O enlace de entrada do Azure Cosmos DB utiliza a API do SQL para obter um ou mais documentos do Azure Cosmos DB e passa-os para o parâmetro de entrada da função. Os parâmetros de consulta ou o ID do documento podem ser determinados com base no acionador que invoca a função.
 

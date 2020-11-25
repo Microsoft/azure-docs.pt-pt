@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: 726cf362e62f0ef914dfaea090a08c224bd5d8d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82192506"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001954"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Aceder a registos de aplicações apache Hadoop YARN em HDInsight baseado em Linux
 
@@ -23,7 +23,7 @@ Saiba como aceder aos registos de aplicações [Apache Hadoop YARN](https://hado
 
 O YARN suporta vários modelos de programação (Apache Hadoop MapReduce é um deles) ao dissociar a gestão de recursos a partir do agendamento/monitorização de aplicações. O YARN utiliza um global *`ResourceManager`* (RM), *node node node* de trabalhador (NMs) e por aplicação *ApplicationMasters* (AMs). A AM por aplicação negoceia recursos (CPU, memória, disco, rede) para executar a sua aplicação com o RM. O RM trabalha com os NMs para conceder estes recursos, que são concedidos como *contentores.* A AM é responsável por acompanhar o progresso dos contentores que lhe foram atribuídos pela RM. Uma aplicação pode exigir muitos recipientes dependendo da natureza da aplicação.
 
-Cada aplicação pode consistir em *múltiplas tentativas*de aplicação . Se uma aplicação falhar, pode ser novamente julgada como uma nova tentativa. Cada tentativa corre num contentor. De certa forma, um recipiente fornece o contexto para a unidade básica de trabalho realizada por uma aplicação YARN. Todo o trabalho que é feito no contexto de um contentor é feito no nó de um único trabalhador no qual o contentor foi dado. Consulte [Hadoop: Writing YARN Applications](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html), ou [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) para mais referências.
+Cada aplicação pode consistir em *múltiplas tentativas* de aplicação . Se uma aplicação falhar, pode ser novamente julgada como uma nova tentativa. Cada tentativa corre num contentor. De certa forma, um recipiente fornece o contexto para a unidade básica de trabalho realizada por uma aplicação YARN. Todo o trabalho que é feito no contexto de um contentor é feito no nó de um único trabalhador no qual o contentor foi dado. Consulte [Hadoop: Writing YARN Applications](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html), ou [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) para mais referências.
 
 Para escalar o seu cluster para suportar uma maior produção de processamento, pode utilizar [autoescala](hdinsight-autoscale-clusters.md) ou [escalar os seus clusters manualmente utilizando algumas línguas diferentes.](hdinsight-scaling-best-practices.md#utilities-to-scale-clusters)
 

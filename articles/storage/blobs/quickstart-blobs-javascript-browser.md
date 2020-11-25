@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: eebfa61632bc49d5df35c17ba2d2faca0382001c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 998d49e91d38a1f2fdc2503165ee99635e153027
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336144"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001903"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -26,7 +26,7 @@ Recursos adicionais:
 * [Documentação de referência da API](/javascript/api/@azure/storage-blob)
 * [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Amostras](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +66,7 @@ Esta secção acompanha-o através da preparação de um projeto para trabalhar 
 
 ### <a name="create-a-cors-rule"></a>Criar uma regra CORS
 
-Antes de a sua aplicação web poder aceder ao armazenamento de blob do cliente, tem de configurar a sua conta para permitir a [partilha de recursos de origem cruzada,](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)ou CORS.
+Antes de a sua aplicação web poder aceder ao armazenamento de blob do cliente, tem de configurar a sua conta para permitir a [partilha de recursos de origem cruzada,](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)ou CORS.
 
 No portal Azure, selecione a sua conta de armazenamento. Para definir uma nova regra CORS, navegue na secção **Definições** e selecione **CORS**. Neste início rápido, vai criar uma regra CORS aberta:
 
@@ -76,10 +76,10 @@ A tabela seguinte descreve cada definição de CORS e explica os valores utiliza
 
 |Definição  |Valor  | Descrição |
 |---------|---------|---------|
-| **ORIGENS PERMITIDAS** | **\*** | Aceita uma lista delimitada por vírgulas de domínios definidos como origens aceitáveis. Definir o valor como `*` permite que todos os domínios acedam à conta de armazenamento. |
+| **ORIGENS PERMITIDAS** | **\** _ | Aceita uma lista delimitada por vírgulas de domínios definidos como origens aceitáveis. Definir o valor como `_` permite que todos os domínios acedam à conta de armazenamento. |
 | **MÉTODOS PERMITIDOS** | **EXCLUIR,** **GET,** **CABEÇA,** **FUSÃO,** **POST,** **OPÇÕES,** e **PUT** | Apresenta uma lista dos verbos HTTP que podem ser executados na conta de armazenamento. Para efeitos deste início rápido, selecione todas as opções disponíveis. |
-| **CABEÇALHOS PERMITIDOS** | **\*** | Define uma lista de cabeçalhos de pedidos (incluindo cabeçalhos com prefixo) que a conta de armazenamento permite. Definir o valor como `*` permite acesso a todos os cabeçalhos. |
-| **CABEÇALHOS EXPOSTOS** | **\*** | Apresenta uma lista dos cabeçalhos de resposta que a conta permite. Definir o valor como `*` permite à conta enviar qualquer cabeçalho. |
+| **CABEÇALHOS PERMITIDOS** | **\** _ | Define uma lista de cabeçalhos de pedidos (incluindo cabeçalhos com prefixo) que a conta de armazenamento permite. Definir o valor como `_` permite acesso a todos os cabeçalhos. |
+| **CABEÇALHOS EXPOSTOS** | **\** _ | Apresenta uma lista dos cabeçalhos de resposta que a conta permite. Definir o valor como `_` permite à conta enviar qualquer cabeçalho. |
 | **IDADE MÁXIMA** | **86400** | O tempo máximo de tempo que o navegador cache o pedido de OPÇÕES de pré-voo em segundos. Um valor de *86400* permite que a cache permaneça por um dia completo. |
 
 Depois de preencher os campos com os valores desta tabela, clique no botão **Guardar.**
@@ -237,7 +237,7 @@ Para executar o código dentro do depurador Visual Studio Code, configuure o *la
 Para configurar a extensão do depurgger no Código do Estúdio Visual:
 
 1. Selecione **executar > adicionar configuração**
-2. Selecione **Edge**, **Chrome**ou **Firefox**, dependendo da extensão instalada na secção [Pré-requisitos](#prerequisites) anteriormente.
+2. Selecione **Edge**, **Chrome** ou **Firefox**, dependendo da extensão instalada na secção [Pré-requisitos](#prerequisites) anteriormente.
 
 Adicionar uma nova configuração cria uma *launch.jsno* ficheiro e abre-a no editor. Modifique a *launch.jsno* ficheiro de modo a que o valor seja , como `url` mostrado `http://localhost:1234/index.html` aqui:
 
@@ -288,11 +288,11 @@ No [portal Azure,](https://portal.azure.com)pode verificar os resultados das cha
 #### <a name="step-4---delete-the-container"></a>Passo 4 - Apagar o recipiente
 
 1. Na aplicação web, selecione **Delete container**. O estado indica que o contentor foi apagado.
-2. No portal Azure, selecione o ** \<account-name\> / Os recipientes** ligam-se na parte superior esquerda do painel do portal.
+2. No portal Azure, selecione o **\<account-name\> / Os recipientes** ligam-se na parte superior esquerda do painel do portal.
 3. Selecione **Refresh**. O novo contentor desaparece.
 4. Feche a aplicação web.
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Clique na consola **Terminal** no Código do Estúdio Visual e prima CTRL+C para parar o servidor web.
 

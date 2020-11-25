@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: a70b6bb50b397429af1af41869bbe9ecf7e8bad9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92510848"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004182"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Azure Ative Directory com Silverback
 
@@ -118,7 +118,7 @@ Para configurar o Azure AD single sign-on com Silverback, execute os seguintes p
 
 1. Num navegador web diferente, faça login no seu Silverback Server como administrador.
 
-2. Navegue para **o**  >  **Fornecedor de Autenticação**Admin.
+2. Navegue para **o**  >  **Fornecedor de Autenticação** Admin.
 
 3. Na página **Definições do Fornecedor de Autenticação,** execute os seguintes passos:
 
@@ -171,7 +171,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Silverback.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Silverback**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Silverback**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

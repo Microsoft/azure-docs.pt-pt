@@ -7,11 +7,11 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.custom: mvc, seo-javascript-october2019, devx-track-azurecli
 ms.openlocfilehash: 606de7c07f2760ca678563ccf1900fc1bb915c1a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684887"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003723"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Quickstart: Implementar um cluster Azure Kubernetes Service (AKS) utilizando o portal Azure
 
@@ -260,7 +260,7 @@ Neste início rápido, imagens de contentores pré-criadas foram usadas para cri
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, implementou um cluster do Kubernetes e implementou uma aplicação de vários contentores no mesmo.
 

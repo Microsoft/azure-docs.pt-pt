@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444508"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96001886"
 ---
 # <a name="blob-versioning"></a>Versão blob
 
@@ -128,7 +128,7 @@ O diagrama seguinte mostra como modificar uma bolha após a versão é desativad
 
 ## <a name="blob-versioning-and-soft-delete"></a>Versões blob e eliminação suave
 
-A versão blob e o blob soft delete funcionam em conjunto para lhe proporcionar uma proteção de dados ótima. Quando ativar a eliminação suave, especifica quanto tempo o Azure Storage deve reter uma bolha apagada suave. Qualquer versão blob apagada escasseia no sistema e pode ser não desestada dentro do período de retenção de eliminação suave. Para obter mais informações sobre a eliminação suave da bolha, consulte [Soft delete para blobs de armazenamento Azure](storage-blob-soft-delete.md).
+A versão blob e o blob soft delete funcionam em conjunto para lhe proporcionar uma proteção de dados ótima. Quando ativar a eliminação suave, especifica quanto tempo o Azure Storage deve reter uma bolha apagada suave. Qualquer versão blob apagada escasseia no sistema e pode ser não desestada dentro do período de retenção de eliminação suave. Para obter mais informações sobre a eliminação suave da bolha, consulte [Soft delete para blobs de armazenamento Azure](./soft-delete-blob-overview.md).
 
 ### <a name="deleting-a-blob-or-version"></a>Apagar uma bolha ou versão
 
@@ -187,7 +187,7 @@ A versão blob foi concebida para proteger os seus dados de eliminação acident
 
 A tabela que se segue mostra quais as ações do Azure RBAC que suportam a eliminação de uma bolha ou uma versão blob.
 
-| Description | Operação de serviço blob | A ação de dados do RBAC Azure necessária | Suporte de função incorporado Azure |
+| Descrição | Operação de serviço blob | A ação de dados do RBAC Azure necessária | Suporte de função incorporado Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Apagar a versão atual da bolha | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/delete** | Contribuinte de Dados do Armazenamento de Blobs |
 | Apagar uma versão | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/deleteBlobVersion/action** | Proprietário dos Dados do Armazenamento de Blobs |
@@ -297,4 +297,4 @@ A tabela seguinte descreve o comportamento de faturação de uma bolha que é ap
 
 - [Ativar e gerir a versão blob](versioning-enable.md)
 - [Criando um instantâneo de uma bolha](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
-- [Excluir suave para bolhas de armazenamento Azure](storage-blob-soft-delete.md)
+- [Excluir suave para bolhas de armazenamento Azure](./soft-delete-blob-overview.md)

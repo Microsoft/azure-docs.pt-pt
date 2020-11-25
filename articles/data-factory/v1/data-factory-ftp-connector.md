@@ -13,11 +13,11 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: eeeb122d240d8c3eae4ebe1650f67cf0e4b9dac6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80992050"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001648"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Mover dados de um servidor FTP utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -44,7 +44,7 @@ Pode criar um pipeline com uma atividade de cópia que move dados de uma fonte F
 
 A forma mais fácil de criar um oleoduto é utilizar o Assistente de **Cópia da Fábrica de Dados.** Ver [Tutorial: Criar um oleoduto utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio,** **PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio,** **PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, execute os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -159,7 +159,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados. 
 | ficheiroFiltro |Especifique um filtro a utilizar para selecionar um subconjunto de ficheiros na **pastaPa**, em vez de todos os ficheiros.<br/><br/>Os valores permitidos são: `*` (múltiplos caracteres) e `?` (único carácter).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** é aplicável para um conjunto de dados de FileShare de entrada. Esta propriedade não é suportada com Hadoop Distributed File System (HDFS). |Não |
 | partitionedBy |Usado para especificar uma **pasta dinâmicaPath** e **data de arquivoName** para dados da série de tempo. Por exemplo, pode especificar uma **pastaPata** que é parametrizada para cada hora de dados. |Não |
 | formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte as secções [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender copiar ficheiros como estão entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e saída. |Não |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são **GZip,** **Deflate,** **BZip2**e **ZipDeflate,** e os níveis suportados são **ideais** e **mais rápidos.** Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são **GZip,** **Deflate,** **BZip2** e **ZipDeflate,** e os níveis suportados são **ideais** e **mais rápidos.** Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 | useTransfera |Especificar se deve utilizar o modo de transferência binário. Os valores são verdadeiros para o modo binário (este é o valor padrão) e falso para ASCII. Esta propriedade só pode ser utilizada quando o tipo de serviço associado é do tipo de serviço associado: FtpServer. |Não |
 
 > [!NOTE]

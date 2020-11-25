@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
 ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578778"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002405"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do programador Azure Functions C#
 

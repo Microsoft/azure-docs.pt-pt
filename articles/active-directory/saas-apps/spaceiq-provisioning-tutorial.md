@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 4e115de4f86baba9559730d94f45ab7b17cc4379
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357968"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002209"
 ---
 # <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>Tutorial: Configurar SpaceIQ para o fornecimento automático de utilizadores
 

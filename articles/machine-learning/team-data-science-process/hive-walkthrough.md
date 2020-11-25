@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 53f50e98bcec4b8ace342808f0bcfd96770834b0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312349"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002226"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O processo de ciência de dados da equipa em ação: Use clusters Azure HDInsight Hadoop
 Neste walkthrough, usamos o [Processo de Ciência de Dados de Equipa (TDSP)](overview.md) num cenário de ponta a ponta. Utilizamos um [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e criar dados de engenheiros de recursos a partir do conjunto de dados de [viagens de táxi](https://www.andresmh.com/nyctaxitrips/) de NYC publicamente disponíveis, e para desconstrução dos dados. Para lidar com a classificação binária e multiclasse e tarefas preditivas de regressão, construímos modelos dos dados com Azure Machine Learning. 
@@ -61,12 +61,12 @@ A chave única para juntar dados de viagem \_ e tarifa de viagem é composta pel
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Exemplos de tarefas de previsão
 Determine o tipo de previsões que pretende fazer com base na análise de dados para ajudar a esclarecer as tarefas de processo necessárias. Aqui estão três exemplos de problemas de previsão que abordamos nesta passagem, tudo com base na quantidade de *gorjeta: \_*
 
-- **Classificação binária** : Prever se foi paga ou não uma gorjeta por uma viagem. Ou seja, um *\_ valor de gorjeta* superior a $0 é um exemplo positivo, enquanto uma *\_ gorjeta* de $0 é um exemplo negativo.
+- **Classificação binária**: Prever se foi paga ou não uma gorjeta por uma viagem. Ou seja, um *\_ valor de gorjeta* superior a $0 é um exemplo positivo, enquanto uma *\_ gorjeta* de $0 é um exemplo negativo.
 
   - Classe 0: tip_amount = $0
   - Classe 1: tip_amount > $0
 
-- **Classificação multiclasse** : Prever a gama de valores de gorjeta pagos pela viagem. Dividimos o *\_ valor* da gorjeta em cinco classes:
+- **Classificação multiclasse**: Prever a gama de valores de gorjeta pagos pela viagem. Dividimos o *\_ valor* da gorjeta em cinco classes:
 
   - Classe 0: tip_amount = $0
   - Classe 1: tip_amount > $0 e tip_amount <= $5
@@ -74,7 +74,7 @@ Determine o tipo de previsões que pretende fazer com base na análise de dados 
   - Classe 3: tip_amount > $10 e tip_amount <= $20
   - Classe 4: tip_amount > $20
 
-- **Tarefa de regressão** : Prever o valor da gorjeta paga por uma viagem.  
+- **Tarefa de regressão**: Prever o valor da gorjeta paga por uma viagem.  
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-advanced-analytics"></a><a name="setup"></a>Crie um cluster HDInsight Hadoop para análise avançada
 > [!NOTE]
@@ -130,7 +130,7 @@ Este comando envia os dados da viagem para o _*_diretório nyctaxitripraw_*_ no 
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data__.csv
 ```
 
-Este comando envia os dados da tarifa para o * **nyctaxifareraw** _ diretório no contentor padrão do cluster Hadoop.
+Este comando envia os dados da tarifa para o ***nyctaxifareraw** _ diretório no contentor padrão do cluster Hadoop.
 
 ```console
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare__.csv
@@ -156,7 +156,7 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-Estes dois comandos descarregam todos os ficheiros '.hql' necessários neste walkthrough para o diretório local * **C:\temp&#92;** _ no nó da cabeça.
+Estes dois comandos descarregam todos os ficheiros '.hql' necessários neste walkthrough para o diretório local ***C:\temp&#92;** _ no nó da cabeça.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Criar base de dados de Colmeia e tabelas divididas por mês
 > [!NOTE]
@@ -182,7 +182,7 @@ A partir do diretório da Colmeia, executar o seguinte comando na linha de coman
 hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 ```
 
-Aqui está o conteúdo do _ *C:\temp\sample \_ hive \_ create \_ db \_ and \_ tables.hql* * que cria a base de dados da Hive **nyctaxidb,** e as tabelas **tropeçam** e **tarifa**.
+Aqui está o conteúdo do _ *C:\temp\sample \_ hive \_ create \_ db \_ and \_ tables.hql** que cria a base de dados da Hive **nyctaxidb,** e as tabelas **tropeçam** e **tarifa**.
 
 ```hiveql
 create database if not exists nyctaxidb;
@@ -491,7 +491,7 @@ hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.
 
 Ao explorar um conjunto de dados, queremos frequentemente examinar a distribuição de grupos de valores. Esta secção fornece um exemplo de como fazer esta análise para táxis e motoristas.
 
-A **\_ contagem de \_ amostras de viagem \_ por \_ \_ \_ medalhão.hql** agrupamentos de dados o conjunto de dados de tarifas no **medalhão** e **hack_license** , e devolve as contagens de cada combinação. Aqui está o seu conteúdo:
+A **\_ contagem de \_ amostras de viagem \_ por \_ \_ \_ medalhão.hql** agrupamentos de dados o conjunto de dados de tarifas no **medalhão** e **hack_license**, e devolve as contagens de cada combinação. Aqui está o seu conteúdo:
 
 ```hiveql
 SELECT medallion, hack_license, COUNT(*) as trip_count
@@ -639,7 +639,7 @@ hdfs dfs -mkdir wasb:///queryoutputdir
 hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 ```
 
-Os resultados da consulta são escritos a nove bolhas Azure **(consultaoutputdir/000000 \_ 0** a  **consultaoutputdir/000008 \_ 0** ), sob o recipiente padrão do cluster Hadoop.
+Os resultados da consulta são escritos a nove bolhas Azure **(consultaoutputdir/000000 \_ 0** a  **consultaoutputdir/000008 \_ 0**), sob o recipiente padrão do cluster Hadoop.
 
 Para ver o tamanho das bolhas individuais, executar o seguinte comando a partir do diretório hive:
 
@@ -820,24 +820,24 @@ Para emitir consultas de Hive no módulo de [Dados][import-data] de Importação
 
 Aqui estão alguns detalhes sobre o módulo [de Dados de Importação][import-data] e os parâmetros para inserir:
 
-**HCatalog servidor URI** : Se o nome do cluster for **abc123,** utilize: https: \/ /abc123.azurehdinsight.net.
+**HCatalog servidor URI**: Se o nome do cluster for **abc123,** utilize: https: \/ /abc123.azurehdinsight.net.
 
-**Nome da conta do utilizador Hadoop** : O nome de utilizador escolhido para o cluster (não o nome de utilizador de acesso remoto).
+**Nome da conta do utilizador Hadoop**: O nome de utilizador escolhido para o cluster (não o nome de utilizador de acesso remoto).
 
-**Palavra-passe da conta de utilizador Hadoop** : A palavra-passe escolhida para o cluster (não a palavra-passe de acesso remoto).
+**Palavra-passe da conta de utilizador Hadoop**: A palavra-passe escolhida para o cluster (não a palavra-passe de acesso remoto).
 
-**Localização dos dados de saída** : Escolhido para ser Azure.
+**Localização dos dados de saída**: Escolhido para ser Azure.
 
-**Nome da conta Azure Storage** : Nome da conta de armazenamento padrão associada ao cluster.
+**Nome da conta Azure Storage**: Nome da conta de armazenamento padrão associada ao cluster.
 
-**Nome do recipiente azul** : O nome do recipiente predefinido para o cluster, e é tipicamente o mesmo que o nome do cluster. Para um cluster chamado **abc123,** o nome é abc123.
+**Nome do recipiente azul**: O nome do recipiente predefinido para o cluster, e é tipicamente o mesmo que o nome do cluster. Para um cluster chamado **abc123,** o nome é abc123.
 
 > [!IMPORTANT]
 > Qualquer tabela que desejemos consultar utilizando o módulo [de dados de importação][import-data] em Machine Learning deve ser uma tabela interna.
 > 
 > 
 
-Aqui está como determinar se uma tabela **T** em uma base **de dados D.db** é uma tabela interna. A partir do diretório da Colmeia, executar o seguinte comando:
+Aqui está como determinar se uma tabela **T** numa base de **dados D.db** é uma tabela interna. A partir do diretório da Colmeia, executar o seguinte comando:
 
 ```hiveql
 hdfs dfs -ls wasb:///D.db/T
@@ -858,11 +858,11 @@ O conjunto de dados pode agora ser usado como ponto de partida para a construç�
 ### <a name="build-models-in-machine-learning"></a><a name="mlmodel"></a>Construir modelos em Machine Learning
 Pode agora avançar para a construção de modelos e implantação de modelos em [Machine Learning](https://studio.azureml.net). Os dados estão prontos para nós para resolver os problemas de previsão identificados anteriormente:
 
-- **Classificação binária** : Para prever se uma gorjeta foi ou não paga por uma viagem.
+- **Classificação binária**: Para prever se uma gorjeta foi ou não paga por uma viagem.
 
   **Aprendiz utilizado:** Regressão logística de duas classes
 
-  a. Para este problema, a etiqueta alvo (ou classe) é **inclinada**. O conjunto de dados original para baixo tem algumas colunas que são fugas de destino para esta experiência de classificação. Em particular, **\_ a classe de gorjeta** , o valor **\_ da gorjeta** e a **\_ quantidade total** revelam informações sobre a etiqueta-alvo que não estão disponíveis no momento do teste. Removemos estas colunas da consideração utilizando as [Colunas Selecionadas no módulo Dataset.][select-columns]
+  a. Para este problema, a etiqueta alvo (ou classe) é **inclinada**. O conjunto de dados original para baixo tem algumas colunas que são fugas de destino para esta experiência de classificação. Em particular, **\_ a classe de gorjeta**, o valor **\_ da gorjeta** e a **\_ quantidade total** revelam informações sobre a etiqueta-alvo que não estão disponíveis no momento do teste. Removemos estas colunas da consideração utilizando as [Colunas Selecionadas no módulo Dataset.][select-columns]
 
   O diagrama que se segue mostra a nossa experiência para prever se uma gorjeta foi ou não paga para uma determinada viagem:
 
@@ -878,11 +878,11 @@ Pode agora avançar para a construção de modelos e implantação de modelos em
 
   ![Gráfico do valor AUC](./media/hive-walkthrough/8JDT0F8.png)
 
-- **Classificação multiclasse** : Para prever a gama de valores de gorjeta pagos pela viagem, utilizando as classes previamente definidas.
+- **Classificação multiclasse**: Para prever a gama de valores de gorjeta pagos pela viagem, utilizando as classes previamente definidas.
 
   **Aprendiz utilizado:** Regressão logística multiclasse
 
-  a. Para este problema, a nossa etiqueta alvo (ou classe) é **\_ a classe ponta,** que pode levar um dos cinco valores (0,1,2,3,4). Como no caso da classificação binária, temos algumas colunas que são fugas de alvo para esta experiência. Em particular, o **\_ tiped** , o montante da gorjeta e o **\_ montante total** revelam informações sobre a etiqueta-alvo que não estão disponíveis no momento do teste. **tipped** Removemos estas colunas utilizando as [Colunas Selecionadas no módulo Dataset.][select-columns]
+  a. Para este problema, a nossa etiqueta alvo (ou classe) é **\_ a classe ponta,** que pode levar um dos cinco valores (0,1,2,3,4). Como no caso da classificação binária, temos algumas colunas que são fugas de alvo para esta experiência. Em particular, o **\_ tiped**, o montante da gorjeta e o **\_ montante total** revelam informações sobre a etiqueta-alvo que não estão disponíveis no momento do teste. **tipped** Removemos estas colunas utilizando as [Colunas Selecionadas no módulo Dataset.][select-columns]
 
   O diagrama seguinte mostra a experiência para prever em que caixote uma ponta é suscetível de cair. Os caixotes são: Classe 0: dica = $0, Classe 1: gorjeta > $0 e dica <= $5, Classe 2: dica > $5 e gorjeta <= $10, Classe 3: gorjeta > $10 e gorjeta <= $20, e Classe 4: gorjeta > $20.
 
@@ -898,7 +898,7 @@ Pode agora avançar para a construção de modelos e implantação de modelos em
 
   Embora as precisões de classe nas classes prevalentes sejam boas, o modelo não faz um bom trabalho de "aprendizagem" nas classes mais raras.
 
-- **Tarefa de regressão** : Prever o valor da gorjeta paga por uma viagem.
+- **Tarefa de regressão**: Prever o valor da gorjeta paga por uma viagem.
 
   **Aprendiz utilizado:** Árvore de decisão reforçada
 

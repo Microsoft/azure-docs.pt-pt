@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361352"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002668"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Como usar PerfInsights em Azure
 
@@ -123,10 +123,10 @@ São recolhidas informações sobre a configuração de conjuntos de discos ou p
 | Vestígio de Xperf                       |                            |                                    |                          |                      | Sim                  |
 | Vestígios de StorPort                    |                            |                                    |                          |                      | Sim                  |
 | Vestígios de rede                     |                            |                                    |                          | Sim                  | Sim                  |
-| Traço de referência de discos ***       |                            | Sim                                |                          |                      |                      |
+| Traço de referência de discos **_       |                            | Sim                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
-### <a name="performance-diagnostics-trace-"></a>Traço de diagnóstico de desempenho (*)
+### <a name="performance-diagnostics-trace-_"></a>Traço de diagnóstico de desempenho (_)
 
 Executa um motor baseado em regras em segundo plano para recolher dados e diagnosticar problemas de desempenho em curso. As seguintes regras são atualmente apoiadas:
 
@@ -154,7 +154,7 @@ Recolhe os seguintes contadores de desempenho:
 #### <a name="for-azure-files"></a>Para ficheiros Azure
 \SMB Ações do Cliente
 
-### <a name="diskspd-benchmark-trace-"></a>Traço de referência de discos (***)
+### <a name="diskspd-benchmark-trace-_"></a>Traço de referência de discos (**_)
 Diskspd Testes de carga de trabalho de I/O (DISCO DE OS [escrita] e unidades de piscina [ler/escrever])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Executar a ferramenta PerfInsights no seu VM
@@ -165,8 +165,7 @@ Diskspd Testes de carga de trabalho de I/O (DISCO DE OS [escrita] e unidades de 
 
 -  Esta ferramenta deve ser executada no VM que tem o problema de desempenho. 
 
--  São suportados os seguintes sistemas operativos:
-   * Windows Server 2019
+-  Os seguintes sistemas operativos são suportados: _ Windows Server 2019
    * Windows Server 2016
    * Windows Server 2012 R2
    * Windows Server 2012
@@ -198,7 +197,7 @@ Para executar a ferramenta PerfInsights, siga estes passos:
 
 1. Descarregue [PerfInsights.zip. ](https://aka.ms/perfinsightsdownload)
 
-2. Desbloqueie o ficheiro PerfInsights.zip. Para isso, clique com PerfInsights.zip e selecione **Propriedades**. No **separador Geral,** selecione **Desbloqueie**e, em seguida, selecione **OK**. Isto garante que a ferramenta funciona sem quaisquer indicações de segurança adicionais.  
+2. Desbloqueie o ficheiro PerfInsights.zip. Para isso, clique com PerfInsights.zip e selecione **Propriedades**. No **separador Geral,** selecione **Desbloqueie** e, em seguida, selecione **OK**. Isto garante que a ferramenta funciona sem quaisquer indicações de segurança adicionais.  
 
     ![Screenshot da PerfInsights Properties, com Desbloqueio em destaque](media/how-to-use-perfInsights/pi-unlock-file.png)
 
@@ -255,7 +254,7 @@ Quando os vestígios ou operações estiverem concluídos, um novo ficheiro apar
 
 ## <a name="review-the-diagnostics-report"></a>Reveja o relatório de diagnósticos
 
-Dentro do ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_hh-mm-ss-fff.zip, ** pode encontrar um relatório HTML que detalha as conclusões do PerfInsights. Para rever o relatório, expanda o ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_hh-mm-ss-fff.zipe,** em seguida, abra o ficheiro **PerfInsights Report.html.**
+Dentro do ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_hh-mm-ss-fff.zip,** pode encontrar um relatório HTML que detalha as conclusões do PerfInsights. Para rever o relatório, expanda o ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_hh-mm-ss-fff.zipe,** em seguida, abra o ficheiro **PerfInsights Report.html.**
 
 Selecione o **separador Resultados.**
 
@@ -320,4 +319,4 @@ A imagem que se segue mostra uma mensagem semelhante à que pode receber:
 
 Siga as instruções na mensagem para aceder ao espaço de trabalho de transferência de ficheiros. Para obter segurança adicional, tem de alterar a sua palavra-passe na primeira utilização.
 
-Depois de iniciar sôs, encontrará uma caixa de diálogo para carregar o ficheiro **performanceDiagnostics \_ yyyy-MM-d \_hh-mm-ss-fff.zipd ** que foi recolhido pela PerfInsights.
+Depois de iniciar sôs, encontrará uma caixa de diálogo para carregar o ficheiro **performanceDiagnostics \_ yyyy-MM-d \_hh-mm-ss-fff.zipd** que foi recolhido pela PerfInsights.

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 93aeb088f82cae6dde215792e399997b592a5c14
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658694"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96003978"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
@@ -60,7 +60,7 @@ A imagem abaixo destaca os diferentes passos deste ciclo de vida.
 
 Segue-se um guia para a criação de um lançamento da Azure Pipelines que automatiza a implantação de uma fábrica de dados em vários ambientes.
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 
 -   Uma subscrição Azure ligada ao Servidor da Fundação Visual Studio Team ou ao Azure Repos que utiliza o ponto final do [serviço Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
@@ -636,6 +636,14 @@ Se colocar uma fábrica para produção e perceber que há um bug que precisa de
 Veja o vídeo abaixo de um tutorial de vídeo aprofundado sobre como corrigir quentemente os seus ambientes. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
+## <a name="exposure-control-and-feature-flags"></a>Controlo de exposição e bandeiras de características
+
+Ao trabalhar numa equipa, há casos em que pode fundir mudanças, mas não quer que sejam geridas em ambientes elevados como o PROD e o QA. Para lidar com este cenário, a equipa da ADF recomenda [o conceito de DevOps de utilização de bandeiras de características.](https://docs.microsoft.com/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops) Em ADF, você pode combinar [parâmetros globais](author-global-parameters.md) e a [atividade se condicionar](control-flow-if-condition-activity.md) conjuntos de lógica com base nestas bandeiras ambientais.
+
+Para aprender a configurar uma bandeira de recurso, veja o tutorial de vídeo abaixo:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IxdW]
 
 ## <a name="best-practices-for-cicd"></a>Melhores práticas para CI/CD
 

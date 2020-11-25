@@ -12,11 +12,11 @@ ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: bc3352dd57a76cbb0b38455adfa11987ec93781a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654138"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003026"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilizar o Azure AD Application Proxy para publicar aplicações no local para utilizadores remotos
 
@@ -202,7 +202,7 @@ As organizações devem começar a aproveitar-se hoje da App Proxy para tirar pa
 * Atualizações automáticas para garantir que tem os mais recentes patches de segurança
 * Novas funcionalidades à medida que são lançadas; o mais recente suporte para a gestão única de saml e mais gestão granular de cookies de aplicação
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre planeamento, operação e gestão da aplicação Azure AD, consulte [Plan a Azure AD Application Proxy deployment](application-proxy-deployment-plan.md).
 * Para agendar uma demonstração ao vivo ou obter um teste gratuito de 90 dias para avaliação, consulte [Começar com a Mobilidade Empresarial + Segurança.](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial)

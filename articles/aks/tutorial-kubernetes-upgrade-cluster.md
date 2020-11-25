@@ -6,11 +6,11 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 2e9af5dcc00d8cadd0528d56ee73bc6aeba149d7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747725"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002039"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar o Kubernetes no Serviço Kubernetes do Azure (AKS)
 
@@ -23,7 +23,7 @@ Neste tutorial, parte sete de sete, é atualizado um cluster do Kubernetes. Saib
 > * Atualizar os nós do Kubernetes
 > * Validar uma atualização com êxito
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Em tutoriais anteriores, uma aplicação foi embalada numa imagem de contentor. Esta imagem foi enviada para o Registo de Contentores Azure, e você criou um cluster AKS. A aplicação foi então implantada no cluster AKS. Se não tiver feito estes passos, e gostaria de seguir em frente, comece com [Tutorial 1 – Crie imagens de contentores.][aks-tutorial-prepare-app]
 
@@ -37,7 +37,7 @@ Antes de atualizar um cluster, utilize o comando [az aks get-upgrades][] para ve
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-No exemplo seguinte, a versão atual é *1.15.11* , e as versões disponíveis são *mostradas* em atualizações .
+No exemplo seguinte, a versão atual é *1.15.11*, e as versões disponíveis são *mostradas* em atualizações .
 
 ```json
 {
@@ -80,9 +80,9 @@ az aks upgrade \
 ```
 
 > [!NOTE]
-> Pode atualizar apenas uma versão secundária de cada vez. Por exemplo, pode fazer upgrade de *1.14.x* para *1.15.x* , mas não pode fazer upgrade de *1.14.x* para *1.16.x* diretamente. Para atualizar de *1.14.x* para *1.16.x,* a primeira atualização de *1.14.x* para *1.15.x,* em seguida, executar outra atualização de *1,15.x* para *1,16.x* .
+> Pode atualizar apenas uma versão secundária de cada vez. Por exemplo, pode fazer upgrade de *1.14.x* para *1.15.x*, mas não pode fazer upgrade de *1.14.x* para *1.16.x* diretamente. Para atualizar de *1.14.x* para *1.16.x,* a primeira atualização de *1.14.x* para *1.15.x,* em seguida, executar outra atualização de *1,15.x* para *1,16.x*.
 
-A seguinte saída de exemplo condensada mostra o resultado da atualização para *1.16.8* . Note que a *kubernetesVersion* agora reporta *1.16.8* :
+A seguinte saída de exemplo condensada mostra o resultado da atualização para *1.16.8*. Note que a *kubernetesVersion* agora reporta *1.16.8*:
 
 ```json
 {
@@ -115,7 +115,7 @@ Confirme se a atualização foi concluída com êxito com o comando [az aks show
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-A saída de exemplo a seguir mostra que o cluster AKS executa *KubernetesVersion 1.16.8* :
+A saída de exemplo a seguir mostra que o cluster AKS executa *KubernetesVersion 1.16.8*:
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

@@ -7,11 +7,11 @@ ms.date: 2/28/2018
 ms.author: gwallace
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6df434610a8f595ecca7f16e31f8a302373b02f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012658"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001869"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios de saúde personalizados do Service Fabric
 A Azure Service Fabric introduz um [modelo de saúde](service-fabric-health-introduction.md) projetado para sinalizar condições de cluster e aplicação pouco saudáveis em entidades específicas. O modelo de saúde utiliza **repórteres de saúde** (componentes do sistema e cães de guarda). O objetivo é um diagnóstico e reparação fáceis e rápidos. Os escritores de serviços precisam pensar frontalmente sobre a saúde. Qualquer condição que possa ter impacto na saúde deve ser reportada, especialmente se puder ajudar a sinalizar problemas próximos da raiz. A informação de saúde pode economizar tempo e esforço na depuragem e investigação. A utilidade é especialmente clara uma vez que o serviço está em funcionamento em escala na nuvem (privada ou Azure).
@@ -207,7 +207,7 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Envie relatórios de saúde com **o Send-ServiceFabric*EntityType*HealthReport**.
+Envie relatórios de saúde com **o Send-ServiceFabric *EntityType* HealthReport**.
 
 O exemplo a seguir mostra relatórios periódicos sobre os valores da CPU num nó. Os relatórios devem ser enviados a cada 30 segundos, e eles têm um tempo para viver de dois minutos. Se expirarem, o repórter tem problemas, por isso o nó é avaliado por erro. Quando a CPU está acima de um limiar, o relatório tem um estado de alerta sanitário. Quando o CPU permanece acima de um limiar por mais do que o tempo configurado, é reportado como um erro. Caso contrário, o repórter envia um estado de saúde ok.
 

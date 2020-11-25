@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271146"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001529"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -47,7 +47,7 @@ Siga estes passos para adicionar um ficheiro principal da NAS:
 
 1. A partir do Painel de Controlo Avere, clique no **separador Definições** na parte superior.
 
-1. Clique **em Ficheiros Core**Gerir  >  **Ficheiros Principais** à esquerda.
+1. Clique **em Ficheiros Core** Gerir  >  **Ficheiros Principais** à esquerda.
 
 1. Clique em **Criar**.
 
@@ -119,7 +119,7 @@ Para adicionar o armazenamento Blob depois de criar o cluster, siga estes passos
 
    ![Portal Azure GUI para copiar a chave](media/avere-vfxt-copy-storage-key.png)
 
-1. Abra o Painel de Controlo avere para o seu cluster. Clique em **Definições**e, em seguida, abra as **Cluster**  >  **credenciais de nuvem** de cluster no painel de navegação à esquerda. Na página Cloud Credentials, clique **em Adicionar Credencial.**
+1. Abra o Painel de Controlo avere para o seu cluster. Clique em **Definições** e, em seguida, abra as **Cluster**  >  **credenciais de nuvem** de cluster no painel de navegação à esquerda. Na página Cloud Credentials, clique **em Adicionar Credencial.**
 
    ![Clique no botão Adicionar Credencial na página de configuração de Credenciais de Nuvem](media/avere-vfxt-new-credential-button.png)
 

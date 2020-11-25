@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438539"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001755"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiar dados de ou para a Azure Blob Storage usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -54,7 +54,7 @@ Pode criar um pipeline com uma atividade de cópia que move dados de/para um Azu
 
 A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Este artigo tem uma [passagem](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) para criar um pipeline para copiar dados de um local de armazenamento de blob Azure para outro local de armazenamento de Azure Blob. Para obter um tutorial sobre a criação de um pipeline para copiar dados de um Azure Blob Storage para Azure SQL Database, consulte [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -87,7 +87,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 | fileName |O nome da bolha. fileName é opcional e sensível a casos.<br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo Copy) funciona na Bolha específica.<br/><br/>Quando o data de ficheiroName não é especificado, copy inclui todas as Blobs na pastaPa para o conjunto de dados de entrada.<br/><br/>Quando **o fileName** não é especificado para um conjunto de dados de saída e **a preservaçãoHierarquia** não é especificado na pia de atividade, o nome do ficheiro gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy é uma propriedade opcional. Pode usá-lo para especificar uma pasta dinâmicaPath e nome de ficheiro para dados da série de tempo. Por exemplo, a pastaPath pode ser parametrizada para cada hora de dados. Consulte a [secção de propriedade 'Utilizar divisórias'](#using-partitionedby-property) para obter mais detalhes e exemplos. |Não |
 | formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |Não |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2** e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 ### <a name="using-partitionedby-property"></a>Usando propriedade partitionedBy
 Como mencionado na secção anterior, pode especificar uma pasta dinâmicaPath e nome de ficheiro para dados de séries de tempo com a propriedade **partitionedBy,** [funções de Data Factory e as variáveis do sistema](data-factory-functions-variables.md).
@@ -219,8 +219,8 @@ Vamos ver como copiar rapidamente dados de/para um armazenamento de bolhas Azure
     5. Clique em **Seguinte**.  
         ![Ferramenta Copiar – Especificar a conta de armazenamento de blobs do Azure](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
 5. Na página **Escolher o ficheiro ou pasta de entrada**:
-    1. **Adfblobcontainer**de duplo clique.
-    2. Selecione **a entrada**e clique em **Escolher**. Nesta passagem de passagem, selecione a pasta de entrada. Em vez disso, pode selecionar o ficheiro emp.txt na pasta.
+    1. **Adfblobcontainer** de duplo clique.
+    2. Selecione **a entrada** e clique em **Escolher**. Nesta passagem de passagem, selecione a pasta de entrada. Em vez disso, pode selecionar o ficheiro emp.txt na pasta.
         ![Ferramenta de cópia - Escolha o ficheiro de entrada ou a pasta 1](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
 6. Na página **Escolha o ficheiro de entrada ou a** página de pastas:
     1. Confirme se o **ficheiro ou a pasta** está definido para **adfblobconnector/entrada**. Se os ficheiros estiverem em sub-pastas, por exemplo, 2017/04/01, 2017/04/02, e assim por diante, insira adfblobconnector/entrada/{ano}/{mês}/{dia} para ficheiro ou pasta. Quando premir o TAB da caixa de texto, vê três listas de espera para selecionar formatos para o ano (yyyy), mês (MM) e dia (dd).

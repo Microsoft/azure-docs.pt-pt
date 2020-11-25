@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: no local, Docker, contentor
-ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 778fe388ae3db68d836384299a8a1c7c06e31f41
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460990"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001813"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Instale e execute os recipientes Docker para o LUIS
 
@@ -108,7 +108,7 @@ Coloque o ficheiro de embalagem num diretório e refira este diretório como o s
 
 ### <a name="package-types"></a>Tipos de pacotes
 
-O diretório de suporte de entrada pode conter simultaneamente os modelos **Production,** **Staging**e **Versioned** da aplicação. Todos os pacotes estão montados.
+O diretório de suporte de entrada pode conter simultaneamente os modelos **Production,** **Staging** e **Versioned** da aplicação. Todos os pacotes estão montados.
 
 |Tipo de pacote|Consulta Endpoint API|Disponibilidade de consulta|Formato de nome de ficheiro de pacote|
 |--|--|--|--|
@@ -281,7 +281,7 @@ Os parâmetros de consulta configuram como e o que é devolvido na resposta de c
 |`staging`|boolean|Devolve a consulta dos resultados do ambiente de encenação se definido como verdadeiro. |
 |`log`|boolean|Regista consultas, que podem ser usadas mais tarde para [a aprendizagem ativa.](luis-how-to-review-endpoint-utterances.md) A predefinição é verdadeiro.|
 
-***
+**_
 
 ### <a name="query-the-luis-app"></a>Consulta da app LUIS
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Para fazer consultas ao ambiente **de encenação,** substitua-se `production` no percurso `staging` com:
+Para fazer consultas ao ambiente _ *Staging** `production` substitua-se na rota `staging` com:
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 O nome da versão tem um máximo de 10 caracteres e contém apenas caracteres permitidos num URL.
 
-***
+**_
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importar os registos de ponto final para a aprendizagem ativa
 
@@ -346,11 +346,11 @@ A localização seguinte mostra a estrutura aninhada do diretório para os fiche
 /output/luis/{INSTANCE_ID}/
 ```
 
-A partir do portal LUIS, selecione a sua aplicação e, em seguida, selecione **registos de ponto final de Importação** para carregar estes registos.
+A partir do portal LUIS, selecione a sua aplicação e, em seguida, selecione _ *Import endpoint logs** para carregar estes registos.
 
 ![Arquivos de registo de contentores de importação para aprendizagem ativa](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-Depois do registo ser carregado, [reveja as](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) expressões do ponto final no portal LUIS.
+Depois do registo ser carregado, [reveja as](./luis-concept-review-endpoint-utterances.md) expressões do ponto final no portal LUIS.
 
 <!--  ## Validate container is running -->
 

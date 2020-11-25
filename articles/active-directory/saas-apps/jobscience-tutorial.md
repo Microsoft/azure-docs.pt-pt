@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355163"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002192"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integração do Diretório Ativo Azure com a Jobscience
 
@@ -55,7 +55,7 @@ Para configurar a integração da Jobscience no Azure AD, é necessário adicion
 
 **Para adicionar Jobscience da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.** 
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.** 
 
     ![Active Directory][1]
 
@@ -135,7 +135,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
    
    ![Meu Domínio](./media/jobscience-tutorial/ic767825.png "Meu Domínio")
 
-1. Para verificar se o seu domínio foi configurado corretamente, certifique-se de que está no " **Passo 4 Implantado para os Utilizadores** " e reveja as suas " **Definições de Domínio** ".
+1. Para verificar se o seu domínio foi configurado corretamente, certifique-se de que está no "**Passo 4 Implantado para os Utilizadores**" e reveja as suas "**Definições de Domínio**".
 
     ![Domínio implantado para utilizador](./media/jobscience-tutorial/ic784377.png "Domínio implantado para utilizador")
 
@@ -202,7 +202,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 **Para criar um utilizador de teste em Azure AD, execute os seguintes passos:**
 
-1. No **portal Azure** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **portal Azure**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![A screenshot mostra o ícone Azure A D no portal Azure.](./media/jobscience-tutorial/create_aaduser_01.png) 
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 1ef52d74f7ae6e7e0d8c58e3b1972a0a1227c6b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85962208"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001933"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Ativar depósitos de pilhas para serviços Apache Hadoop em HDInsight baseado em Linux
 
@@ -37,9 +37,9 @@ Também pode ativar depósitos de pilhas para o mapa e reduzir os processos perc
 
 Os depósitos de pilhas são ativados através de opções de passagem (por vezes conhecidas como opts, ou parâmetros) para o JVM quando um serviço é iniciado. Para a maioria dos serviços [apache Hadoop,](https://hadoop.apache.org/) você pode modificar o script de concha usado para iniciar o serviço para passar estas opções.
 
-Em cada script, há uma exportação para ** \* \_ OPTS,** que contém as opções passadas para o JVM. Por exemplo, no **hadoop-env.sh** script, a linha que começa com contém as `export HADOOP_NAMENODE_OPTS=` opções para o serviço NameNode.
+Em cada script, há uma exportação para **\* \_ OPTS,** que contém as opções passadas para o JVM. Por exemplo, no **hadoop-env.sh** script, a linha que começa com contém as `export HADOOP_NAMENODE_OPTS=` opções para o serviço NameNode.
 
-Mapear e reduzir os processos são ligeiramente diferentes, uma vez que estas operações são um processo infantil do serviço MapReduce. Cada mapa ou processo de redução é executado num recipiente para crianças, e existem duas entradas que contêm as opções JVM. Ambos contidos em **mapred-site.xml: **
+Mapear e reduzir os processos são ligeiramente diferentes, uma vez que estas operações são um processo infantil do serviço MapReduce. Cada mapa ou processo de redução é executado num recipiente para crianças, e existem duas entradas que contêm as opções JVM. Ambos contidos em **mapred-site.xml:**
 
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
@@ -91,7 +91,7 @@ Para modificar a configuração de um serviço, utilize os seguintes passos:
 
     ![Lista filtrada de Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. Encontre a entrada ** \* \_ OPTS** para o serviço para o qual pretende ativar depósitos de pilhas e adicione as opções que deseja ativar. Na seguinte imagem, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` à entrada **HADOOP \_ NAMENODE \_ OPTS:**
+4. Encontre a entrada **\* \_ OPTS** para o serviço para o qual pretende ativar depósitos de pilhas e adicione as opções que deseja ativar. Na seguinte imagem, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` à entrada **HADOOP \_ NAMENODE \_ OPTS:**
 
     ![Apache Ambari hadoop-namenode-opts](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 

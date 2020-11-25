@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 5f94564c5e769d3cf0e0abbe92a309a1ee2117a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055083"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003876"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implementar o snap-in StorSimple Snapshot Manager MMC
 
@@ -151,16 +151,16 @@ Siga estes passos se estiver a atualizar ou reinstalar o StorSimple Snapshot Man
 Utilize os seguintes passos para desinstalar o Gestor Snapshot StorSimple.
 
 #### <a name="to-uninstall-storsimple-snapshot-manager"></a>Para desinstalar o Gestor de Instantâneos StorSimple
-1. No computador anfitrião, abra o **Painel de Controlo,** clique em **Programas**e, em seguida, clique em Programas **e Funcionalidades**.
+1. No computador anfitrião, abra o **Painel de Controlo,** clique em **Programas** e, em seguida, clique em Programas **e Funcionalidades**.
 2. No painel esquerdo, clique em **Desinstalar ou alterar um programa**.
-3. Clique com o botão direito **StorSimple Snapshot Manager**e, em seguida, clique em **Desinstalar**.
-4. Isto inicia o programa StorSimple Snapshot Manager Setup. Clique **em Modificar Configuração**e, em seguida, clique em **Desinstalar**.
+3. Clique com o botão direito **StorSimple Snapshot Manager** e, em seguida, clique em **Desinstalar**.
+4. Isto inicia o programa StorSimple Snapshot Manager Setup. Clique **em Modificar Configuração** e, em seguida, clique em **Desinstalar**.
    
    > [!NOTE]
-   > Se houver algum processo MMC em segundo plano, como o StorSimple Snapshot Manager ou o Disk Management, a desinstalação falhará e receberá uma mensagem para fechar todas as instâncias de MMC antes de tentar desinstalar o programa. Selecione **automaticamente fechar as aplicações e tentar reiniciá-las após a configuração**estar concluída e, em seguida, clique em **OK**.
+   > Se houver algum processo MMC em segundo plano, como o StorSimple Snapshot Manager ou o Disk Management, a desinstalação falhará e receberá uma mensagem para fechar todas as instâncias de MMC antes de tentar desinstalar o programa. Selecione **automaticamente fechar as aplicações e tentar reiniciá-las após a configuração** estar concluída e, em seguida, clique em **OK**.
    > 
    > 
-5. Quando o processo de desinstalação estiver concluído, aparece uma mensagem **de sucesso de configuração.** Clique em **Close** (Fechar).
+5. Quando o processo de desinstalação estiver concluído, aparece uma mensagem **de sucesso de configuração.** Clique em **Fechar**.
 
 ### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>Passo 2: Ressarça a base de dados StorSimple Snapshot Manager
 Utilize os seguintes passos para criar e guardar uma cópia da base de dados StorSimple Snapshot Manager.

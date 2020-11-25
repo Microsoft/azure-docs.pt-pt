@@ -10,11 +10,11 @@ ms.author: rolyon
 ms.date: 11/18/2020
 ms.custom: generated
 ms.openlocfilehash: e18dc7e16eb0b114bd279d53b7dcc895bd62f338
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980867"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002736"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -688,7 +688,7 @@ Ver Máquinas Virtuais no portal e iniciar sessão como um utilizador regular. [
 }
 ```
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 
 ### <a name="cdn-endpoint-contributor"></a>Colaborador de Ponto Final cdn
@@ -5012,7 +5012,7 @@ Permite o acesso aos nóns de membro blockchain [Saiba mais](../blockchain/servi
 }
 ```
 
-## <a name="ai--machine-learning"></a>IA + aprendizagem automática
+## <a name="ai--machine-learning"></a>IA + machine learning
 
 
 ### <a name="cognitive-services-contributor"></a>Colaborador dos Serviços Cognitivos
@@ -9503,7 +9503,7 @@ Permite-lhe gerir etiquetas em entidades, sem fornecer acesso às próprias enti
 }
 ```
 
-## <a name="other"></a>Outros
+## <a name="other"></a>Outro
 
 
 ### <a name="azure-digital-twins-data-owner"></a>Proprietário de dados Azure Digital Twins

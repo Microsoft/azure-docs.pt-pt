@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: ef04bf9f6d9ca6ff5089d2826c05a5acfb759b04
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460500"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: Integração do Azure Ative Directory com IdeaScale
 
@@ -135,7 +135,7 @@ Para configurar o Azure AD com ideaScale, execute os seguintes passos:
 
     ![Configurações comunitárias](./media/ideascale-tutorial/ic790847.png "Configurações comunitárias")
 
-3. Aceda às ** \> definições de sinalização única de segurança**.
+3. Aceda às **\> definições de sinalização única de segurança**.
 
     ![A screenshot mostra definições de signon única selecionadas a partir do menu De segurança.](./media/ideascale-tutorial/ic790848.png "Definições de signon único")
 
@@ -184,7 +184,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao IdeaScale.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **IdeaScale**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **IdeaScale**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

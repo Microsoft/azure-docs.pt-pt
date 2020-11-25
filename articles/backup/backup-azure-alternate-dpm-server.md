@@ -4,11 +4,11 @@ description: Recupere os dados que protegeu para um cofre dos Serviços de Recup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 0cce45fbaaedad4cfcee0cda768aae2fa294312b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378071"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002975"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Azure Backup Server
 
@@ -51,7 +51,7 @@ Para recuperar dados de um Servidor de Backup Azure:
 7. Selecione **Recuperar para um local alternativo**. **Navegue para** o local correto para a recuperação.
 
     ![Localização alternativa de recuperação de DPM externa](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
-8. Escolha a opção relacionada com a **criação de cópia,** **Skip**ou **Overwrite**.
+8. Escolha a opção relacionada com a **criação de cópia,** **Skip** ou **Overwrite**.
 
    * **Create copy** - cria uma cópia do ficheiro se houver uma colisão de nomes.
    * **Skip** - se houver uma colisão de nomes, não recupera o ficheiro, o que deixa o ficheiro original.
@@ -78,7 +78,7 @@ Para recuperar dados de um Servidor de Backup Azure:
 
 ## <a name="troubleshooting-error-messages"></a>Mensagens de erro de resolução de problemas
 
-| N.º | Mensagem de Erro | Passos de resolução de problemas |
+| Não. | Mensagem de Erro | Passos de resolução de problemas |
 |:---:|:--- |:--- |
 | 1. |Este servidor não está registado no cofre especificado pela credencial do cofre. |**Causa:** Este erro aparece quando o ficheiro credencial de cofre selecionado não pertence ao cofre dos Serviços de Recuperação associado ao Azure Backup Server no qual a recuperação é tentada. <br> **Resolução:** Descarregue o ficheiro de credencial do cofre do cofre do cofre dos Serviços de Recuperação para o qual está registado o Azure Backup Server. |
 | 2. |Ou os dados recuperáveis não estão disponíveis ou o servidor selecionado não é um servidor DPM. |**Causa:** Não existem outros Servidores de Backup Azure registados no cofre dos Serviços de Recuperação, ou os servidores ainda não carregaram os metadados, ou o servidor selecionado não é um Servidor de Backup Azure (utilizando o Windows Server ou o Windows Client). <br> **Resolução:** Se existirem outros Servidores de Backup Azure registados no cofre dos Serviços de Recuperação, certifique-se de que o mais recente agente de backup do Azure está instalado. <br>Se existirem outros Servidores de Backup Azure registados no cofre dos Serviços de Recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. O trabalho noturno irá enviar os metadados para todas as cópias de segurança protegidas para cloud. Os dados estarão disponíveis para recuperação. |

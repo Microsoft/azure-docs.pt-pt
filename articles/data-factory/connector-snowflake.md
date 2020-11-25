@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: c0d0e3154360d787bfc2072c5ae1fe878fa1d138
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405178"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96003667"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copiar e transformar dados em Snowflake utilizando a Azure Data Factory
 
@@ -36,8 +36,6 @@ Para a atividade Copy, este conector Snowflake suporta as seguintes funções:
 
 - Copie dados do Snowflake que utiliza a COPY de Snowflake no comando [[local]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) para obter o melhor desempenho.
 - Copie os dados para Snowflake que tira partido da COPY de Snowflake no comando [[tabela]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) para obter o melhor desempenho. Apoia o Floco de Neve em Azure. 
-
-Floco de neve como pia não é suportado quando você usa espaço de trabalho Azure Synapse Analytics.
 
 ## <a name="get-started"></a>Introdução
 
@@ -113,7 +111,7 @@ As seguintes propriedades são suportadas para o conjunto de dados snowflake.
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **SnowflakeTable**. | Sim                         |
 | esquema | O nome do esquema. Note que o nome do esquema é sensível a maiíssimos em ADF. |Não para a fonte, sim para a pia.  |
-| table | Nome da mesa/vista. Note que o nome da tabela é sensível a maiôs na ADF. |Não para a fonte, sim para a pia.  |
+| mesa | Nome da mesa/vista. Note que o nome da tabela é sensível a maiôs na ADF. |Não para a fonte, sim para a pia.  |
 
 **Exemplo:**
 
@@ -152,8 +150,8 @@ Para copiar dados de Snowflake, as seguintes propriedades são suportadas na sec
 | tipo                         | A propriedade tipo da fonte de atividade copy deve ser definida para **SnowflakeSource**. | Sim      |
 | consulta          | Especifica a consulta SQL para ler dados de Snowflake. Se os nomes do esquema, da tabela e das colunas contiverem uma minúscula, cite o identificador de objetos em consulta, por `select * from "schema"."myTable"` exemplo.<br>A execução do procedimento armazenado não é suportada. | Não       |
 | exportaçõesSettings | Configurações avançadas usadas para recuperar dados de Snowflake. Pode configurar os suportados pelo COPY no comando que a Data Factory passará quando invocar a declaração. | Não       |
-| ***Em `exportSettings` :*** |  |  |
-| tipo | O tipo de comando de exportação, definido para **SnowflakeExportCopyCommand**. | Sim |
+| ***Em: `exportSettings` _** |  |  |
+| tipo | O tipo de comando de exportação, definido para _*SnowflakeExportCopyCommand**. | Sim |
 | opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: MAX_FILE_SIZE, OVERWRITE. Para obter mais informações, consulte [as Opções de Cópia snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Não |
 | opções adicionais | Opções adicionais de formato de ficheiro que são fornecidas ao comando COPY como um dicionário de pares de valor-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [as opções do tipo de formato snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Não |
 
@@ -283,8 +281,8 @@ Para copiar dados para Snowflake, as seguintes propriedades são suportadas na s
 | tipo              | A propriedade tipo da pia de atividade copy, definida para **SnowflakeSink**. | Sim                                           |
 | preCopyScript     | Especifique uma consulta SQL para a atividade copy para executar antes de escrever dados em Snowflake em cada corrida. Utilize esta propriedade para limpar os dados pré-carregados. | Não                                            |
 | importaçõesS | Definições avançadas usadas para escrever dados em Snowflake. Pode configurar os suportados pelo COPY no comando que a Data Factory passará quando invocar a declaração. | Não |
-| ***Em `importSettings` :*** |                                                              |  |
-| tipo | O tipo de comando de importação, definido para **SnowflakeImportCopyCommand**. | Sim |
+| **_Em: `importSettings` __* |                                                              |  |
+| tipo | O tipo de comando de importação, definido para _*SnowflakeImportCopyCommand**. | Sim |
 | opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Para obter mais informações, consulte [as Opções de Cópia snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Não |
 | opções adicionais | Opções adicionais de formato de ficheiro fornecidas ao comando COPY, fornecidas como um dicionário de pares de valores-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [as opções do tipo de formato snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Não |
 

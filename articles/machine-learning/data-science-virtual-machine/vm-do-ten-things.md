@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320942"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002770"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Ciência de dados com uma máquina virtual de ciência de dados do Windows
 
@@ -197,7 +197,7 @@ Depois de executar o comando AzCopy para copiar para uma bolha Azure, o seu fich
 Também pode fazer o upload de dados a partir do ficheiro local no seu VM utilizando o Azure Storage Explorer:
 
 * Para enviar dados para um recipiente, selecione o recipiente-alvo e selecione o botão **Upload.** ![ Screenshot do botão de upload no Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
-* Selecione a elipse **(...** ) para a direita da caixa **Ficheiros,** selecione um ou vários ficheiros para carregar a partir do sistema de ficheiros e selecione **upload** para começar a carregar os ficheiros. ![ Screenshot da caixa de diálogo de ficheiros upload](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Selecione a elipse **(...**) para a direita da caixa **Ficheiros,** selecione um ou vários ficheiros para carregar a partir do sistema de ficheiros e selecione **upload** para começar a carregar os ficheiros. ![ Screenshot da caixa de diálogo de ficheiros upload](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Leia os dados de uma bolha de Azure: Python ODBC
 

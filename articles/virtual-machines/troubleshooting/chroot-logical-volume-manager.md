@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167921"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002702"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Resolução de problemas de um Linux VM quando não há acesso à consola em série Azure e o layout do disco está a utilizar o LVM (Gestor de Volume Lógico)
 
@@ -65,9 +65,9 @@ Na maioria dos cenários, o disco instantâneo anexo será visto como **/dev/sdc
 
 ![Fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
-Indica **\*** uma partição de arranque, ambas as divisórias devem ser montadas.
+O * *\** _ indica uma partição de arranque, ambas as divisórias devem ser montadas.
 
-Executar o comando **lsblk** para ver os LVMs dos VM afetados
+Executar o comando _ *lsblk** para ver os LVMs do VM afetado
 
 `lsblk`
 
@@ -168,7 +168,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 *walkthrough*
 
-O comando **grep** lista os núcleos que **a comida.cfg** está ciente.
+O comando **grep** lista os núcleos que **.cfg** está ciente.
 ![A screenshot mostra uma janela da consola que mostra o resultado de uma busca de grãos.](./media/chroot-logical-volume-manager/kernels.png)
 
 **lista grub2-editenv** mostra quais o núcleo será carregado na próxima bota ![ Kernel padrão](./media/chroot-logical-volume-manager/kernel-default.png)
@@ -177,7 +177,7 @@ O comando **grep** lista os núcleos que **a comida.cfg** está ciente.
 
 **grub2-editenv** lista mostra quais o núcleo será carregado na próxima bota ![ Novo kernel](./media/chroot-logical-volume-manager/kernel-new.png)
 
-**grub2-mkconfig** reconstrói grub.cfg usando as versões necessárias ![ Grub2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
+**grub2-mkconfig** reconstrói a comida.cfg usando as versões necessárias ![ Grub2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
 
 
 
@@ -225,14 +225,14 @@ Um erro semelhante a este pode estar presente:
 Warning: /dev/VG/SwapVol does not exist
 ```
 
-A grub.cfg está configurada neste exemplo para carregar um LV com o nome de **rd.lvm.lv=VG/SwapVol** e o VM não consegue localizá-lo. Esta linha mostra como o núcleo está a ser carregado referindo-se ao LV SwapVol
+A .cfg de comida está configurada neste exemplo para carregar um LV com o nome de **rd.lvm.lv=VG/SwapVol** e o VM não consegue localizá-lo. Esta linha mostra como o núcleo está a ser carregado referindo-se ao LV SwapVol
 
 ```
 [    0.000000] Command line: BOOT_IMAGE=/vmlinuz-3.10.0-1062.4.1.el7.x86_64 root=/dev/mapper/VG-OSVol ro console=tty0 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0 biosdevname=0 crashkernel=256M rd.lvm.lv=VG/OSVol rd.lvm.lv=VG/SwapVol nodmraid rhgb quiet
 [    0.000000] e820: BIOS-provided physical RAM map:
 ```
 
- Retire o LV ofensivo da configuração /etc/default/grub e reconstrua grub2.cfg
+ Retire o LV ofensivo da configuração /etc/predefinição/larva e reconstrua a larva2.cfg
 
 
 ## <a name="exit-chroot-and-swap-the-os-disk"></a>Saia da croba e troque o disco DE
@@ -259,7 +259,7 @@ Guardar as alterações ![ Salvar desprendimento](./media/chroot-logical-volume-
 
 O disco ficará agora disponível permitindo a sua troca com o disco de oss original do VM afetado.
 
-Navegue no portal Azure para o VM em falha e selecione **Discos**  ->  **Swap OS Disk**Swap 
+Navegue no portal Azure para o VM em falha e selecione **Discos**  ->  **Swap OS Disk** Swap 
  ![ Disk](./media/chroot-logical-volume-manager/swap-disk.png) 
 
 Complete os campos que o **disco Choose** é o disco instantâneo que acaba de ser destacado no passo anterior. O nome VM do VM afetado também é necessário e, em seguida, selecione **OK**

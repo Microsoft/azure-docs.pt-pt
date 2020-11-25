@@ -3,12 +3,12 @@ title: Gerir e monitorizar backups Azure VM
 description: Aprenda a gerir e monitorizar as cópias de segurança Azure VM utilizando o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 2052d80428af89862b5348943b446f1b800ab36f
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174085"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "96002919"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure
 
@@ -131,7 +131,7 @@ Há duas maneiras de parar de proteger um VM:
 Para parar a proteção e reter dados de um VM:
 
 1. No [painel de instrumentos do número de abóbada,](#view-vms-on-the-dashboard)selecione **Stop backup**.
-2. Escolha **Reter dados de backup**e confirmar a sua seleção conforme necessário. Adicione um comentário se quiser. Se não tiver certeza do nome do artigo, sobre o ponto de exclamação para ver o nome.
+2. Escolha **Reter dados de backup** e confirmar a sua seleção conforme necessário. Adicione um comentário se quiser. Se não tiver certeza do nome do artigo, sobre o ponto de exclamação para ver o nome.
 
     ![Reter dados de backup](./media/backup-azure-manage-vms/retain-backup-data.png)
 
@@ -142,9 +142,9 @@ Uma notificação permite-lhe saber que os trabalhos de reserva foram interrompi
 Para parar a proteção e eliminar dados de um VM:
 
 1. No [painel de instrumentos do número de abóbada,](#view-vms-on-the-dashboard)selecione **Stop backup**.
-2. Escolha **eliminar dados de backup**e confirmar a sua seleção conforme necessário. Introduza o nome do item de cópia de segurança e adicione um comentário se quiser.
+2. Escolha **eliminar dados de backup** e confirmar a sua seleção conforme necessário. Introduza o nome do item de cópia de segurança e adicione um comentário se quiser.
 
-    ![Eliminar dados de cópia de segurança](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Eliminar dados de cópia de segurança](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 > [!NOTE]
 > Após completar a operação de eliminação, os dados de retenção de fundos serão conservados durante 14 dias no [estado de eliminação suave](./soft-delete-virtual-machines.md). <br>Além disso, também pode [ativar ou desativar a eliminação suave.](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete)
@@ -177,7 +177,7 @@ Existem duas formas de eliminar os dados de backup de um VM:
   * No [painel de instrumentos](#view-vms-on-the-dashboard)do cofre, selecione **Eliminar os dados de cópia de segurança**.
   * Digite o nome do item de cópia de segurança para confirmar que pretende eliminar os pontos de recuperação.
 
-    ![Eliminar dados de cópia de segurança](./media/backup-azure-manage-vms/delete-backup-data1.png)
+    ![Eliminar dados de cópia de segurança](./media/backup-azure-manage-vms/delete-backup-data.png)
 
   * Para eliminar os dados de cópia de segurança do item, selecione **Eliminar**. Uma mensagem de notificação permite-lhe saber que os dados de cópia de segurança foram eliminados.
 
@@ -190,7 +190,7 @@ Para proteger os seus dados, o Azure Backup inclui a função de exclusão suave
 
 * Se os VMs Azure configurados para Azure Backup forem eliminados ou movidos sem proteção, então tanto os trabalhos de backup programados como a pedido (ad-hoc) de backup falharão com o erro UserErrorVmNotFoundV2. O pré-check de backup só será crítico para trabalhos de backup a pedido falhados (não são apresentados empregos programados falhados).
 * Estes itens de backup permanecem ativos no sistema aderente à política de backup e retenção definida pelo utilizador. Os dados de back-up para estes VMs Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o ponto de recuperação mais recente) são limpos de acordo com o intervalo de retenção definido na política de backup.
-* Recomendamos eliminar os itens de backup em que a fonte de dados primário já não existe para evitar qualquer custo adicional, se o item de cópia de segurança/dados para os recursos de eliminação deixar de ser necessário, uma vez que o ponto de recuperação mais recente é mantido para sempre e o utilizador é cobrado de acordo com o preço de backup aplicável.
+* Para evitar qualquer custo adicional, recomendamos a eliminação dos itens de backup onde a fonte de dados primário já não existe. Isto está num cenário em que o item de backup/dados para os recursos eliminados já não é necessário, uma vez que o ponto de recuperação mais recente é mantido para sempre e você é cobrado de acordo com o preço de backup aplicável.
 
 ## <a name="next-steps"></a>Passos seguintes
 

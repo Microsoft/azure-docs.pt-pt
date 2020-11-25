@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 78836ca4e51875be4237267b3bb9256cc4541fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11ad3bdcaa40c479c9358fd623edf0e6fdafa0d6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81791706"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002085"
 ---
 Utilize a ligação de saída do Event Hubs para escrever eventos num stream de eventos. Para escrever eventos em um hub de eventos, é preciso ter permissão de envio para ele.
 
@@ -235,7 +235,7 @@ Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Na biblioteca de [funções Java,](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)utilize a anotação [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) em parâmetros cujo valor seria publicado no Event Hub. O parâmetro deve ser do tipo `OutputBinding<T>` , onde é um `T` POJO ou qualquer tipo nativo de Java.
+Na biblioteca de [funções Java,](/java/api/overview/azure/functions/runtime)utilize a anotação [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) em parâmetros cujo valor seria publicado no Event Hub. O parâmetro deve ser do tipo `OutputBinding<T>` , onde é um `T` POJO ou qualquer tipo nativo de Java.
 
 ---
 
@@ -258,15 +258,15 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Envie mensagens utilizando um parâmetro de método, como `out string paramName` . No script C# `paramName` é o valor especificado na propriedade defunction.js`name` * em*. Para escrever várias mensagens, pode utilizar `ICollector<string>` ou no lugar de `IAsyncCollector<string>` `out string` .
+Envie mensagens utilizando um parâmetro de método, como `out string paramName` . No script C# `paramName` é o valor especificado na propriedade defunction.js`name` *em*. Para escrever várias mensagens, pode utilizar `ICollector<string>` ou no lugar de `IAsyncCollector<string>` `out string` .
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Envie mensagens utilizando um parâmetro de método, como `out string paramName` . No script C# `paramName` é o valor especificado na propriedade defunction.js`name` * em*. Para escrever várias mensagens, pode utilizar `ICollector<string>` ou no lugar de `IAsyncCollector<string>` `out string` .
+Envie mensagens utilizando um parâmetro de método, como `out string paramName` . No script C# `paramName` é o valor especificado na propriedade defunction.js`name` *em*. Para escrever várias mensagens, pode utilizar `ICollector<string>` ou no lugar de `IAsyncCollector<string>` `out string` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aceda ao evento de saída utilizando `context.bindings.<name>` onde está o valor especificado na propriedade defunction.js`<name>` `name` * em*.
+Aceda ao evento de saída utilizando `context.bindings.<name>` onde está o valor especificado na propriedade defunction.js`<name>` `name` *em*.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -274,15 +274,15 @@ Existem duas opções para a saída de uma mensagem do Event Hub a partir de uma
 
 - **Valor de retorno**: Desa estafunction.js`name` o *imóvel.* `$return` Com esta configuração, o valor de retorno da função é persistido como uma mensagem Event Hub.
 
-- **Imperativo**: Passe um valor ao método [definido](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) O valor passado `set` é persistido como uma mensagem do Event Hub.
+- **Imperativo**: Passe um valor ao método [definido](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](/python/api/azure-functions/azure.functions.out?view=azure-python) O valor passado `set` é persistido como uma mensagem do Event Hub.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Existem duas opções para a saída de uma mensagem Do Event Hub a partir de uma função utilizando a anotação [EventHubOutput:](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput)
+Existem duas opções para a saída de uma mensagem Do Event Hub a partir de uma função utilizando a anotação [EventHubOutput:](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput)
 
 - **Valor de retorno**: Aplicando a anotação à função em si, o valor de retorno da função é persistido como uma mensagem Do Centro de Eventos.
 
-- **Imperativo**: Para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding) , onde se encontra um `T` POJO ou qualquer tipo de Java nativo. Com esta configuração, passar um valor para o `setValue` método persiste o valor como uma mensagem Event Hub.
+- **Imperativo**: Para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.OutputBinding) , onde se encontra um `T` POJO ou qualquer tipo de Java nativo. Com esta configuração, passar um valor para o `setValue` método persiste o valor como uma mensagem Event Hub.
 
 ---
 
@@ -290,4 +290,4 @@ Existem duas opções para a saída de uma mensagem Do Event Hub a partir de uma
 
 | Enlace | Referência |
 |---|---|
-| Hub de Eventos | [Guia de Operações](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
+| Hub de Eventos | [Guia de Operações](/rest/api/eventhub/publisher-policy-operations) |

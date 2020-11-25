@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 302f1a081ca44cf6436f2c318b03e227f6640489
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543088"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001971"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia spark & para código de estúdio visual
 
@@ -29,7 +29,7 @@ São necessários os seguintes itens para completar as etapas deste artigo:
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono.](https://www.mono-project.com/docs/getting-started/install/) Mono é necessário apenas para Linux e macOS.
 - [Um ambiente interativo PySpark para Código de Estúdio Visual.](set-up-pyspark-interactive-environment.md)
-- Um diretório local. Este artigo utiliza  **C:\HD\HDexample** .
+- Um diretório local. Este artigo utiliza  **C:\HD\HDexample**.
 
 ## <a name="install-spark--hive-tools"></a>Instalar ferramentas de colmeia & faísca
 
@@ -39,9 +39,9 @@ Depois de conhecer os pré-requisitos, pode instalar Spark & Hive Tools for Visu
 
 2. A partir da barra de menu, navegue para **ver**  >  **extensões.**
 
-3. Na caixa de pesquisa, **insira Spark & Hive** .
+3. Na caixa de pesquisa, **insira Spark & Hive**.
 
-4. Selecione **Spark & Hive Tools** a partir dos resultados da pesquisa e, em seguida, selecione **Instalar** :
+4. Selecione **Spark & Hive Tools** a partir dos resultados da pesquisa e, em seguida, selecione **Instalar**:
 
    ![Spark & Hive para instalação visual Studio Code Python](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
@@ -51,20 +51,20 @@ Depois de conhecer os pré-requisitos, pode instalar Spark & Hive Tools for Visu
 
 Para abrir uma pasta de trabalho e criar um ficheiro no Código do Estúdio Visual, siga estes passos:
 
-1. A partir da barra de menu, navegue para **a** pasta  >  **'Arquivo' ...**  >  **C:\HD\HDexample** , e, em seguida, selecione o botão **Select Folder.** A pasta aparece na vista **Explorer** à esquerda.
+1. A partir da barra de menu, navegue para **a** pasta  >  **'Arquivo' ...**  >  **C:\HD\HDexample**, e, em seguida, selecione o botão **Select Folder.** A pasta aparece na vista **Explorer** à esquerda.
 
 2. Na visualização **do Explorer,** selecione a pasta **HDexample** e, em seguida, selecione o ícone **Novo Ficheiro** ao lado da pasta de trabalho:
 
    ![ícone de arquivo novo código de estúdio visual](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
-3. Nomeie o novo ficheiro utilizando a extensão do `.hql` ficheiro (Hive consultas) ou a extensão do `.py` ficheiro (Script Spark). Este exemplo utiliza **HelloWorld.hql** .
+3. Nomeie o novo ficheiro utilizando a extensão do `.hql` ficheiro (Hive consultas) ou a extensão do `.py` ficheiro (Script Spark). Este exemplo utiliza **HelloWorld.hql**.
 
 ## <a name="set-the-azure-environment"></a>Definir o ambiente Azure
 
 Para um utilizador nacional de nuvem, siga estes passos para definir primeiro o ambiente Azure e, em seguida, use o **Azure: Iniciar sê-lo** no comando para iniciar sação no Azure:
 
-1. Navegar **para**  >  **definições de preferências**  >  **de ficheiros** .
-2. Pesse na seguinte cadeia: **Azure: Cloud** .
+1. Navegar **para**  >  **definições de preferências**  >  **de ficheiros**.
+2. Pesse na seguinte cadeia: **Azure: Cloud**.
 3. Selecione a nuvem nacional da lista:
 
    ![Definir configuração de entrada de login predefinido](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
@@ -73,7 +73,7 @@ Para um utilizador nacional de nuvem, siga estes passos para definir primeiro o 
 
 Antes de poder submeter scripts aos seus clusters a partir do Código do Estúdio Visual, o utilizador pode iniciar sposição na subscrição do Azure ou [ligar um cluster HDInsight](#link-a-cluster). Utilize o nome de utilizador/palavra-passe ambari ou a credencial de domínio para o cluster ESP ligar ao seu cluster HDInsight. Siga estes passos para ligar a Azure:
 
-1. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** e insira **Azure: Iniciar Sedura** :
+1. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** e insira **Azure: Iniciar Sedura**:
 
    ![Ferramentas de hive spark & para login visual studio code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -85,11 +85,11 @@ Antes de poder submeter scripts aos seus clusters a partir do Código do Estúdi
 
 Pode ligar um cluster normal utilizando um nome de utilizador gerido por [Apache Ambari,](https://ambari.apache.org/)ou pode ligar um cluster Hadoop seguro do Pacote de Segurança Empresarial utilizando um nome de utilizador de domínio (como: `user1@contoso.com` ).
 
-1. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** e insira **Faísca/ Colmeia: Link a Cluster** .
+1. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** e insira **Faísca/ Colmeia: Link a Cluster**.
 
    ![Comando de cluster de ligação de paleta de comando](./media/hdinsight-for-vscode/link-cluster-command.png)
 
-2. Selecione o tipo de cluster ligado **Azure HDInsight** .
+2. Selecione o tipo de cluster ligado **Azure HDInsight**.
 
 3. Introduza o URL do cluster HDInsight.
 
@@ -108,13 +108,13 @@ Pode ligar um cluster normal utilizando um nome de utilizador gerido por [Apache
 
 ### <a name="link-generic-livy-endpoint"></a>Link: Genérico Livy endpoint
 
-1. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** e insira **Faísca/ Colmeia: Link a Cluster** .
+1. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** e insira **Faísca/ Colmeia: Link a Cluster**.
 
-2. Selecione o tipo de cluster **ligado Genérico Livy Endpoint** .
+2. Selecione o tipo de cluster **ligado Genérico Livy Endpoint**.
 
 3. Insira o ponto final genérico da Livy. Por exemplo: http \: //10.172.41.42:18080.
 
-4. Selecione o tipo de autorização **Básico** ou **Nenhum** .  Se selecionar **Basic** :  
+4. Selecione o tipo de autorização **Básico** ou **Nenhum**.  Se selecionar **Basic**:  
    
    1. Insira o seu nome de utilizador Ambari; o padrão é **administrador.**  
 
@@ -124,7 +124,7 @@ Pode ligar um cluster normal utilizando um nome de utilizador gerido por [Apache
 
 ## <a name="list-clusters"></a>Agrupamentos de listas
 
-1. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** e insira **Faísca/ Colmeia: Cluster de Listas** .
+1. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** e insira **Faísca/ Colmeia: Cluster de Listas**.
 
 2. Selecione a subscrição que deseja.
 
@@ -138,7 +138,7 @@ Pode ligar um cluster normal utilizando um nome de utilizador gerido por [Apache
 
 2. Selecione o ficheiro **HelloWorld.hql** que foi criado [anteriormente](#open-a-work-folder). Abre no editor de guiões.
 
-3. Clique com o botão direito no editor de script e, em seguida, selecione **Spark / Hive: set Default Cluster** .  
+3. Clique com o botão direito no editor de script e, em seguida, selecione **Spark / Hive: set Default Cluster**.  
 
 4. [Ligue-se](#connect-to-an-azure-account) à sua conta Azure ou ligue um cluster se ainda não o fez.
 
@@ -203,7 +203,7 @@ Utilizando o comando interativo PySpark para submeter as consultas, siga estes p
 
    ![A screenshot mostra uma opção para saltar a instalação PySpark.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
-5. Se precisar de o instalar mais **File** tarde, pode navegar para  >  Definições **de Preferência**  >  de Ficheiros , em seguida, **desmarque** **a configuração HDInsight: Ative a instalação Skip Pyspark** nas definições. 
+5. Se precisar de o instalar mais **File** tarde, pode navegar para  >  Definições **de Preferência**  >  de Ficheiros , em seguida,**desmarque** **a configuração HDInsight: Ative a instalação Skip Pyspark** nas definições. 
     
     ![A screenshot mostra a opção de Ativar a Instalação Skip Pyspark.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
@@ -211,7 +211,7 @@ Utilizando o comando interativo PySpark para submeter as consultas, siga estes p
 
    ![pyspark instalado com sucesso](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Python: Selecione Intérprete para iniciar o Jupyter Server** .
+7. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Python: Selecione Intérprete para iniciar o Jupyter Server**.
 
    ![selecione intérprete para iniciar o servidor jupyter](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
@@ -219,7 +219,7 @@ Utilizando o comando interativo PySpark para submeter as consultas, siga estes p
 
    ![escolher a opção abaixo](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-9. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Developer: Reload Window** .
+9. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Developer: Reload Window**.
 
    ![janela de recarga](./media/hdinsight-for-vscode/reload-window.png)
 
@@ -229,7 +229,7 @@ Utilizando o comando interativo PySpark para submeter as consultas, siga estes p
 
     ![menu de contexto interativo pyspark](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-12. Selecione o cluster, se não tiver especificado um cluster predefinido. Após alguns momentos, os resultados da **Python Interactive** aparecem num novo separador. Clique no PySpark para mudar o núcleo para **PySpark / Synapse Pyspark** , e o código será executado com sucesso. Se quiser mudar para o kernel Synapse Pyspark, é encorajado a desativação das definições automáticas no portal Azure. Caso contrário, pode demorar muito tempo a acordar o cluster e a definir o núcleo de sinapse pela primeira vez. Se as ferramentas também permitirem submeter um bloco de código em vez de todo o ficheiro de script, utilizando o menu de contexto:
+12. Selecione o cluster, se não tiver especificado um cluster predefinido. Após alguns momentos, os resultados da **Python Interactive** aparecem num novo separador. Clique no PySpark para mudar o núcleo para **PySpark / Synapse Pyspark**, e o código será executado com sucesso. Se quiser mudar para o kernel Synapse Pyspark, é encorajado a desativação das definições automáticas no portal Azure. Caso contrário, pode demorar muito tempo a acordar o cluster e a definir o núcleo de sinapse pela primeira vez. Se as ferramentas também permitirem submeter um bloco de código em vez de todo o ficheiro de script, utilizando o menu de contexto:
 
     ![pyspark janela interativa python](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
@@ -248,7 +248,7 @@ A ferramenta também suporta a consulta **Spark SQL:**
 
    ![adicionar #%%](./media/hdinsight-for-vscode/run-cell.png)
 
-2. Clique em **Run Cell** . Após alguns momentos, os resultados da Python Interactive aparecem num novo separador. Clique no PySpark para mudar o núcleo para PySpark/Synapse PySpark, em seguida, clique novamente em **Run Cell** e o código será executado com sucesso.
+2. Clique em **Run Cell**. Após alguns momentos, os resultados da Python Interactive aparecem num novo separador. Clique no PySpark para mudar o núcleo para PySpark/Synapse PySpark, em seguida, clique novamente em **Run Cell** e o código será executado com sucesso.
 
    ![executar resultados celulares](./media/hdinsight-for-vscode/run-cell-get-results.png)
 
@@ -260,7 +260,7 @@ A ferramenta também suporta a consulta **Spark SQL:**
 
    ![definir a piscina de faísca padrão e recarregar](./media/hdinsight-for-vscode/set-the-default-spark-pool-and-reload.png)
 
-3. Clique no PySpark para mudar o kernel para **PySpark / Synapse Pyspark** , e, em seguida, clique em **Run Cell** , depois de um tempo, o resultado será exibido.
+3. Clique no PySpark para mudar o kernel para **PySpark / Synapse Pyspark**, e, em seguida, clique em **Run Cell**, depois de um tempo, o resultado será exibido.
 
    ![executar resultados ipynb](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
@@ -299,13 +299,13 @@ A ferramenta também suporta a consulta **Spark SQL:**
 
 4. [Ligue-se](#connect-to-an-azure-account) à sua conta Azure ou ligue um cluster se ainda não o fez.
 
-5. Clique com o botão direito no editor de scripts e, em seguida, selecione **Spark: PySpark Batch** , ou **Synapse: PySpark Batch** _.
+5. Clique com o botão direito no editor de scripts e, em seguida, selecione **Spark: PySpark Batch**, ou **Synapse: PySpark Batch** _.
 
 6. Selecione um cluster/piscina de faíscas para submeter o seu trabalho PySpark para:
 
    ![Submeter saída de resultado de trabalho python](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Depois de submeter um trabalho python, os registos de submissão aparecem na janela _ *OUTPUT* * no Código do Estúdio Visual. O URL spark UI e o URL de UI de fio também são mostrados. Se submeter o trabalho de lote a uma piscina Apache Spark, o URL UI da história da faísca e o URL UI da Aplicação de Emprego de Faísca também são mostrados. Pode abrir o URL num navegador web para rastrear o estado do trabalho.
+Depois de submeter um trabalho python, os registos de submissão aparecem na janela _ *OUTPUT** no Código do Estúdio Visual. O URL spark UI e o URL de UI de fio também são mostrados. Se submeter o trabalho de lote a uma piscina Apache Spark, o URL UI da história da faísca e o URL UI da Aplicação de Emprego de Faísca também são mostrados. Pode abrir o URL num navegador web para rastrear o estado do trabalho.
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integre-se com o HdInsight Identity Broker (HIB)
 
@@ -329,13 +329,13 @@ A configuração [Apache Livy](https://livy.incubator.apache.org/) é suportada.
 
 ### <a name="method-1"></a>Método 1  
 
-1. A partir da barra de menu, navegue para **definições**  >  **de preferências**  >  **de ficheiros** .
-2. Na caixa **de definições de pesquisa,** insira **HDInsight Job Submission: Livy Conf** .  
+1. A partir da barra de menu, navegue para **definições**  >  **de preferências**  >  **de ficheiros**.
+2. Na caixa **de definições de pesquisa,** insira **HDInsight Job Submission: Livy Conf**.  
 3. Selecione **Editar em settings.js** para obter o resultado de pesquisa relevante.
 
 ### <a name="method-2"></a>Método 2
 
-Envie um ficheiro e note que a `.vscode` pasta é automaticamente adicionada à pasta de trabalho. Pode ver a configuração Livy selecionando **.vscode\settings.jsem** .
+Envie um ficheiro e note que a `.vscode` pasta é automaticamente adicionada à pasta de trabalho. Pode ver a configuração Livy selecionando **.vscode\settings.jsem**.
 
 - As definições do projeto:
 
@@ -348,7 +348,7 @@ Envie um ficheiro e note que a `.vscode` pasta é automaticamente adicionada à 
 
   **POST /lotes**
   
-  **Corpo de pedido**
+  **Corpo do pedido**
 
   | name | descrição | tipo |
   | --- | --- | --- |
@@ -390,11 +390,11 @@ Pode visualizar a Tabela de Colmeia nos seus clusters diretamente através do ex
 
 2. Selecione o ícone **Azure** da coluna mais à esquerda.
 
-3. A partir do painel esquerdo, expanda **o AZURE: HDINSIGHT** . As subscrições e clusters disponíveis estão listados.
+3. A partir do painel esquerdo, expanda **o AZURE: HDINSIGHT**. As subscrições e clusters disponíveis estão listados.
 
 4. Expanda o cluster para ver a base de dados de metadados da Hive e o esquema de tabela.
 
-5. Clique à direita na mesa da Colmeia. Por exemplo: **hivesmpletable** . Selecione **Pré-visualização** .
+5. Clique à direita na mesa da Colmeia. Por exemplo: **hivesmpletable**. Selecione **Pré-visualização**.
 
    ![Spark & Colmeia para a mesa de pré-visualização do Código do Estúdio Visual](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
@@ -422,12 +422,12 @@ Pode visualizar a Tabela de Colmeia nos seus clusters diretamente através do ex
 
 Spark & Hive for Visual Studio Code também suporta as seguintes funcionalidades:
 
-- **IntelliSense autocomplete** . Surgem sugestões para palavras-chave, métodos, variáveis e outros elementos de programação. Diferentes ícones representam diferentes tipos de objetos:
+- **IntelliSense autocomplete**. Surgem sugestões para palavras-chave, métodos, variáveis e outros elementos de programação. Diferentes ícones representam diferentes tipos de objetos:
 
     ![Ferramentas de colmeia spark & para objetos do código do estúdio visual IntelliSense](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 
-- **Marcador de erro IntelliSense** . O serviço de idiomas sublinha erros de edição no script da Hive.     
-- **Destaques de sintaxe** . O serviço de idiomas utiliza cores diferentes para diferenciar variáveis, palavras-chave, tipo de dados, funções e outros elementos de programação:
+- **Marcador de erro IntelliSense**. O serviço de idiomas sublinha erros de edição no script da Hive.     
+- **Destaques de sintaxe**. O serviço de idiomas utiliza cores diferentes para diferenciar variáveis, palavras-chave, tipo de dados, funções e outros elementos de programação:
 
     ![Ferramentas de hive spark & para destaques de sintaxe do Código do Estúdio Visual](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
@@ -476,7 +476,7 @@ Submeta um trabalho a um cluster HDInsight usando data lake storage gen2. É-lhe
 
 ## <a name="unlink-cluster"></a>Desvincular o aglomerado
 
-1. A partir da barra de menu, vá à **Paleta de**  >  **Comando,** e depois **introduza Spark/ Hive: Desvincular um Cluster** .  
+1. A partir da barra de menu, vá à **Paleta de**  >  **Comando,** e depois **introduza Spark/ Hive: Desvincular um Cluster**.  
 
 2. Selecione um cluster para desvincular.  
 
@@ -484,7 +484,7 @@ Submeta um trabalho a um cluster HDInsight usando data lake storage gen2. É-lhe
 
 ## <a name="sign-out"></a>Terminar sessão  
 
-A partir da barra de menu, vá à **Paleta de** Comando  >  **Ver,** e depois insira **Azure: Assine** .
+A partir da barra de menu, vá à **Paleta de** Comando  >  **Ver,** e depois insira **Azure: Assine**.
 
 ## <a name="known-issues"></a>Problemas Conhecidos
 

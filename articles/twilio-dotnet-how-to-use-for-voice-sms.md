@@ -14,11 +14,11 @@ ms.date: 04/24/2015
 ms.author: gwallace
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 104f969f5e27ef36ad43eb10e19176a4bcfd6648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021141"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003769"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Como usar twilio para capacidades de voz e SMS do Azure
 Este guia demonstra como executar tarefas de programação comuns com o serviço Twilio API em Azure. Os cenários abrangidos incluem fazer uma chamada telefónica e enviar uma mensagem do Serviço de Mensagens Curtas (SMS). Para obter mais informações sobre Twilio e utilizando voz e SMS nas suas aplicações, consulte a secção [etapas seguintes.](#NextSteps)
@@ -39,7 +39,7 @@ A API Twilio é uma API RESTful que fornece funcionalidade de voz e SMS para apl
 Os principais aspetos da API de Twilio são os verbos Twilio e a Língua de Marcação Twilio (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Verbos twilio
-A API faz uso de verbos twilio; por exemplo, o verbo ** &lt; Say &gt; ** instrui Twilio a entregar uma mensagem audivelmente numa chamada.
+A API faz uso de verbos twilio; por exemplo, o verbo **&lt; Say &gt;** instrui Twilio a entregar uma mensagem audivelmente numa chamada.
 
 Segue-se uma lista de verbos de Twilio.  Saiba mais sobre os outros verbos e capacidades através da [documentação da linguagem Twilio Markup](https://www.twilio.com/docs/api/twiml).
 
@@ -108,7 +108,7 @@ Por padrão, o Microsoft Visual Studio 2010 instala a versão 1.2 do NuGet. A in
 
 ### <a name="to-add-the-twilio-libraries-to-your-visual-studio-project"></a><a id="use_nuget"></a>Para adicionar as bibliotecas Twilio ao seu projeto Visual Studio:
 1. Abra a sua solução no Visual Studio.
-2. **Referências**de clique à direita.
+2. **Referências** de clique à direita.
 3. Clique **em Gerir Pacotes NuGet...**
 4. Clique **em 'Online'.**
 5. Na caixa online de pesquisa, escreva *twilio.*
