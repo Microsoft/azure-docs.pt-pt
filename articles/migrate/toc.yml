@@ -208,6 +208,10 @@
       items:
         - name: Resolver problemas de replicação da migração de VMware sem agente
           href: troubleshoot-changed-block-tracking-replication.md
+- name: Referência
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.migrate/
 - name: Recursos
   items:
     - name: Migração na Estrutura de Adoção da Cloud

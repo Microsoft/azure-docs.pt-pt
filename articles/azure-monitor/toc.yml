@@ -251,6 +251,8 @@
               href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
             - name: Colunas padrão
               href: platform/log-standard-columns.md
+            - name: Auditar consultas
+              href: log-query/query-audit.md
             - name: Otimizar consultas
               href: log-query/query-optimization.md
             - name: Funções
