@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eca3b8f1cd8f27c193e8f8235887e21230f60611
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 611107ed02aeb4dc75302f519681c932980f612e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94838625"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174175"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introdução ao Servidor Multi-Factor Authentication do Azure
 
@@ -55,10 +55,10 @@ Quando um Servidor MFA do Azure principal fica offline, os servidores subordinad
 
 Verifique se o servidor que está a utilizar para o Multi-Factor Authentication do Azure cumpre os seguintes requisitos:
 
-| Requisitos do Servidor Multi-Factor Authentication do Azure | Descrição |
+| Requisitos do Servidor Multi-Factor Authentication do Azure | Description |
 |:--- |:--- |
 | Hardware |<li>200 MB de espaço no disco rígido</li><li>processador com capacidade de 32 ou 64 bits</li><li>1 GB de RAM ou superior</li> |
-| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 (apenas com [ESU)](https://docs.microsoft.com/lifecycle/faq/extended-security-updates)</li><li>Windows 10</li><li>Windows 8.1, todas as edições</li><li>Windows 8, todas as edições</li><li>Windows 7, todas as edições (apenas com [ESU)](https://docs.microsoft.com/lifecycle/faq/extended-security-updates)</li><li>Microsoft .NET 4.0 Framework</li><li>O IIS 7.0 ou superior, se estiver a instalar o portal de utilizador ou o SDK do serviço Web</li> |
+| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 (apenas com [ESU)](/lifecycle/faq/extended-security-updates)</li><li>Windows 10</li><li>Windows 8.1, todas as edições</li><li>Windows 8, todas as edições</li><li>Windows 7, todas as edições (apenas com [ESU)](/lifecycle/faq/extended-security-updates)</li><li>Microsoft .NET 4.0 Framework</li><li>O IIS 7.0 ou superior, se estiver a instalar o portal de utilizador ou o SDK do serviço Web</li> |
 | Permissões | Administrador de domínio ou conta de administrador empresarial para registar com Diretório Ativo |
 
 ### <a name="azure-mfa-server-components"></a>Componentes de Servidor MFA do Azure

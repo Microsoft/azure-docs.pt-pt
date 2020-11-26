@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 224ccaeace91288171db42d2b8b8cf8c21a352e0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 99da9b787bfe06bece8b8dafdafc257336dddf63
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652523"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176193"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas da Autenticação Pass-through do Azure Active Directory
 
@@ -72,7 +72,7 @@ Para confirmar que este é o problema, primeiro teste que o agente de autentica�
  ``` 
 4. Quando lhe for pedido que introduza credenciais, introduza o mesmo nome de utilizador e palavra-passe que são utilizados para iniciar seduções em ( https://login.microsoftonline.com) .
 
-Se obtém o mesmo erro de nome de utilizador/palavra-passe, isto significa que o agente de autenticação Pass-through está a funcionar corretamente e o problema pode ser que a UPN no local não seja encaminhável. Para saber mais, consulte [o ID de Login Alternativo Configurado.]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More)
+Se obtém o mesmo erro de nome de utilizador/palavra-passe, isto significa que o agente de autenticação Pass-through está a funcionar corretamente e o problema pode ser que a UPN no local não seja encaminhável. Para saber mais, consulte [o ID de Login Alternativo Configurado.](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 
 > [!IMPORTANT]
 > Se o servidor AZure AD Connect não estiver ligado ao domínio, ocorre um requisito mencionado no [Azure AD Connect: Pré-requisitos](./how-to-connect-install-prerequisites.md#installation-prerequisites), ocorre o número de nome de utilizador/palavra-passe inválido.

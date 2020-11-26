@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 5c8993bdf892ceb7d9886d0d2b97063dedec720c
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: db24fa4721e2e502c5098b415c4cf06da80f697d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635556"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175683"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função Java em Azure a partir da linha de comando
 
@@ -34,7 +34,7 @@ Antes de começar, deve ter o seguinte:
 
 + A versão 2.4 ou mais tarde do [Azure CLI.](/cli/azure/install-azure-cli)
 
-+ O [Kit de Desenvolvimento java,](https://aka.ms/azure-jdks)versão 8 ou 11. A `JAVA_HOME` variável ambiente deve ser definida para o local de instalação da versão correta do JDK.     
++ O [Kit de Desenvolvimento java,](/azure/developer/java/fundamentals/java-jdk-long-term-support)versão 8 ou 11. A `JAVA_HOME` variável ambiente deve ser definida para o local de instalação da versão correta do JDK.     
 
 + [Apache Maven,](https://maven.apache.org)versão 3.0 ou superior.
 
@@ -88,7 +88,7 @@ Em Funções Azure, um projeto de função é um recipiente para uma ou mais fun
 
 1. Digite `Y` ou prima Enter para confirmar.
 
-    A Maven cria os ficheiros do projeto numa nova pasta com o nome de _artifactId_ , que neste exemplo é `fabrikam-functions` . 
+    A Maven cria os ficheiros do projeto numa nova pasta com o nome de _artifactId_, que neste exemplo é `fabrikam-functions` . 
 
 1. Navegue na pasta do projeto:
 
@@ -200,7 +200,7 @@ Uma aplicação de função e recursos relacionados são criados em Azure quando
 
 [!INCLUDE [functions-streaming-logs-cli-qs](../../includes/functions-streaming-logs-cli-qs.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se continuar até ao [próximo passo](#next-steps) e adicionar uma bagagem de saída da fila Azure Storage, mantenha todos os seus recursos no lugar, pois irá basear-se no que já fez.
 

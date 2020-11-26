@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: b6eb571c7c37a628d11f07b4e1b207e38830250b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b593add9c9d7be446798eecdd03b396c3fe513a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88235405"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174735"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>O que é o fornecimento automatizado de utilizadores de aplicações SaaS em Azure AD?
 
-No Azure Ative Directory (Azure AD), o termo **provisionamento de aplicações** refere-se à criação automática de identidades e funções de utilizador nas aplicações da cloud[(SaaS)](https://azure.microsoft.com/overview/what-is-saas/)às que os utilizadores precisam de acesso. Além da criação de identidades de utilizador, o fornecimento automático inclui a manutenção e remoção das identidades dos utilizadores como alteração de estado ou de funções. Os cenários comuns incluem a disponibilização de um utilizador AZure AD em aplicações como [Dropbox,](../saas-apps/dropboxforbusiness-provisioning-tutorial.md) [Salesforce,](../saas-apps/salesforce-provisioning-tutorial.md) [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)e muito mais.
+No Azure Ative Directory (Azure AD), o termo **provisionamento de aplicações** refere-se à criação automática de identidades e funções de utilizador nas aplicações da cloud [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/)às que os utilizadores precisam de acesso. Além da criação de identidades de utilizador, o fornecimento automático inclui a manutenção e remoção das identidades dos utilizadores como alteração de estado ou de funções. Os cenários comuns incluem a disponibilização de um utilizador AZure AD em aplicações como [Dropbox,](../saas-apps/dropboxforbusiness-provisioning-tutorial.md) [Salesforce,](../saas-apps/salesforce-provisioning-tutorial.md) [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)e muito mais.
 
 ![Diagrama de visão geral de provisionamento](./media/user-provisioning/provisioning-overview.png)
 
@@ -59,7 +59,7 @@ A Azure AD apresenta suporte pré-integrado para muitas aplicações populares d
 
    ![Logotipo da Salesforce](./media/user-provisioning/gallery-app-logos.png)
 
-   Se pretender solicitar um novo pedido de provisionamento, pode [solicitar que a sua aplicação seja integrada na nossa galeria de aplicações.](../azuread-dev/howto-app-gallery-listing.md) Para um pedido de provisionamento do utilizador, exigimos que a aplicação tenha um ponto final compatível com SCIM. Por favor, solicite que o fornecedor de aplicações siga a norma SCIM para que possamos embarcar rapidamente na nossa plataforma.
+   Se pretender solicitar um novo pedido de provisionamento, pode [solicitar que a sua aplicação seja integrada na nossa galeria de aplicações.](../develop/v2-howto-app-gallery-listing.md) Para um pedido de provisionamento do utilizador, exigimos que a aplicação tenha um ponto final compatível com SCIM. Por favor, solicite que o fornecedor de aplicações siga a norma SCIM para que possamos embarcar rapidamente na nossa plataforma.
 
 * **Aplicações que suportam SCIM 2.0**. Para obter informações sobre como conectar genericamente aplicações que implementem APIs de gestão de utilizadores baseados em SCIM 2.0, consulte [Construir um ponto final SCIM e configurar o fornecimento do utilizador](use-scim-to-provision-users-and-groups.md).
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d681eba53aa85fe5df05f8404bcddb7c6877477
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 607df39833a5ae787e9acb8d3b4df3c52dd7709d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992798"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173690"
 ---
 # <a name="conditional-access-programmatic-access"></a>Acesso Condicional: Acesso programático
 
@@ -56,13 +56,13 @@ Este exemplo modela práticas de implementação mais seguras com fluxos de trab
 
 - [Promover políticas de acesso condicional a partir de ambientes de teste](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/02-test)
 
-## <a name="deploy"></a>Implementação
+## <a name="deploy"></a>Implementar
 
 Este exemplo fornece um mecanismo para executar uma implementação faseada políticas de acesso condicional gradualmente à população utilizadora, permitindo-lhe gerir precocemente problemas de impacto e spot de suporte.
 
 - [Implementar políticas de acesso condicional a ambientes de produção com fluxos de trabalho de aprovação](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/03-deploy)
 
-## <a name="monitor"></a>Monitorizar
+## <a name="monitor"></a>Monitor
 
 Este exemplo fornece um mecanismo para monitorizar as mudanças na política de acesso condicional ao longo do tempo e pode desencadear alertas quando as políticas-chave são alteradas.
 
@@ -78,7 +78,7 @@ Automatizar o backup e restauro das políticas de Acesso Condicional com aprova�
 
 ### <a name="emergency-access-accounts"></a>Contas de acesso de emergência
 
-Vários administradores podem criar políticas de Acesso Condicional e podem esquecer-se de adicionar as suas [contas de acesso de emergência](../users-groups-roles/directory-emergency-access.md) como uma exclusão a essas políticas. Este exemplo garante que todas as políticas são atualizadas para incluir as suas contas de acesso de emergência designadas.
+Vários administradores podem criar políticas de Acesso Condicional e podem esquecer-se de adicionar as suas [contas de acesso de emergência](../roles/security-emergency-access.md) como uma exclusão a essas políticas. Este exemplo garante que todas as políticas são atualizadas para incluir as suas contas de acesso de emergência designadas.
 
 - [Gerir a atribuição de contas de acesso de emergência às políticas de acesso condicional utilizando chamadas API do Microsoft Graph](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/02-emergency-access)
 

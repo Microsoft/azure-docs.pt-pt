@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: e0a77e1e4757c8951756c3e41479628c293dfd8f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919692"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174837"
 ---
 # <a name="known-issues-application-provisioning"></a>Questões conhecidas: Provisionamento de pedidos
 Questões conhecidas a ter em conta ao trabalhar com o provisionamento de aplicações. Pode fornecer feedback sobre o serviço de fornecimento de aplicações no UserVoice, ver [Azure AD Application Provision UserVoice](https://aka.ms/appprovisioningfeaturerequest). Assistimos atentamente ao UserVoice para que possamos melhorar o serviço. 
@@ -28,7 +28,7 @@ Questões conhecidas a ter em conta ao trabalhar com o provisionamento de aplica
 
 **Incapaz de guardar após teste de ligação bem sucedido**
 
-Se conseguir testar uma ligação com sucesso, mas não puder economizar, então excedeu o limite de armazenamento permitido para credenciais. Para saber mais, consulte [as credenciais de administrador de poupança de problemas](application-provisioning-config-problem-storage-limit.md).
+Se conseguir testar uma ligação com sucesso, mas não puder economizar, então excedeu o limite de armazenamento permitido para credenciais. Para saber mais, consulte [as credenciais de administrador de poupança de problemas](./user-provisioning.md).
 
 **Incapaz de salvar**
 

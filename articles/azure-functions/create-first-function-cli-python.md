@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 0aea0425123cab4da1939e85a2cfd6071f772737
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 5f8bf6fb6f464bcb74d34e2d99fac16c24b12615
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95795759"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175717"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Quickstart: Criar uma função Python em Azure a partir da linha de comando
 
@@ -203,7 +203,7 @@ Utilize os seguintes comandos para criar estes itens. Tanto o Azure CLI como o P
     New-AzResourceGroup -Name AzureFunctionsQuickstart-rg -Location westeurope
     ```
 
-    O comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cria um grupo de recursos. Você geralmente cria o seu grupo de recursos e recursos em uma região próxima de você, usando uma região disponível devolvida do cmdlet [Get-AzLocation.](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation)
+    O comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cria um grupo de recursos. Você geralmente cria o seu grupo de recursos e recursos em uma região próxima de você, usando uma região disponível devolvida do cmdlet [Get-AzLocation.](/powershell/module/az.resources/get-azlocation)
 
     ---
 

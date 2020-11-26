@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b4c06e53d3ddfb5f344a759e31d83cb22ce6d4d3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839578"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174141"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeie uma implementação de autenticação sem palavras-passe no Azure Ative Directory
 
@@ -78,11 +78,11 @@ As organizações devem cumprir os seguintes requisitos antes de iniciar uma imp
 
 Os pré-requisitos para o Windows Hello são altamente dependentes de estar a implementar numa configuração no local, híbrida ou apenas em nuvem. Para mais informações, consulte a [listagem completa de pré-requisitos para o Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### <a name="azure-ad-multi-factor-authentication"></a>Autenticação de vários fatores Azure Ad
+### <a name="azure-ad-multi-factor-authentication"></a>Multi-Factor Authentication do Azure AD
 
 Os utilizadores registam o seu método sem palavra-passe como parte do fluxo de registo de autenticação multi-factor Azure AD. A autenticação multi-factor com um nome de utilizador e palavra-passe juntamente com outro método registado pode ser usada como um recuo no caso de não poderem usar o seu telefone ou chave de segurança em alguns cenários.
 
-### <a name="licensing"></a>Licenciamento 
+### <a name="licensing"></a>Licensing 
 Não existe um custo adicional para a autenticação sem palavra-passe, embora alguns pré-requisitos possam exigir uma subscrição premium. Para informações detalhadas sobre funcionalidades e licenciamento na página de licenciamento do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 ## <a name="develop-a-plan"></a>Desenvolver um plano
@@ -93,7 +93,7 @@ Considere as necessidades do seu negócio e os casos de utilização para cada m
 
 O quadro seguinte descreve os casos de utilização a implementar durante este projeto.
 
-| Área | Descrição |
+| Área | Description |
 | --- | --- |
 | **Acesso** | O sing-in sem palavra-passe está disponível a partir de um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
 | **Auditoria** | Os dados de utilização estão disponíveis para os administradores auditar em tempo real. <br> Os dados de utilização são descarregados em sistemas corporativos pelo menos a cada 29 dias, ou a ferramenta SIEM é usada. |
@@ -126,7 +126,7 @@ Quando implementar a autenticação sem palavras-passe, deve primeiro ativar um 
 
 Os grupos podem ser sincronizados a partir de um diretório no local, ou a partir de Azure AD. Uma vez satisfeito com os resultados do seu piloto, pode ligar a autenticação sem palavras-passe para todos os utilizadores.
 
-Consulte [as melhores práticas para um piloto](https://aka.ms/deploymentplans) na página de planos de implantação.
+Consulte [as melhores práticas para um piloto](../fundamentals/active-directory-deployment-plans.md) na página de planos de implantação.
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planeie a autenticação sem palavras-passe com a aplicação Microsoft Authenticator
 
@@ -292,7 +292,7 @@ Siga os passos alinhados com o método escolhido abaixo.
 
 ### <a name="required-administrative-roles"></a>Funções administrativas necessárias
 
-| Papel de Azure AD | Descrição |
+| Papel de Azure AD | Description |
 | --- | --- |
 | Administrador Global|Papel menos privilegiado capaz de implementar experiência de registo combinado. |
 | Administrador de Autenticação | Papel menos privilegiado capaz de implementar e gerir métodos de autenticação. |

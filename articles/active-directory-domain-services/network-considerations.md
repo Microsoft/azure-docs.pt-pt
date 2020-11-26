@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 4ced7331daa116e237d9628d12d16a67687db5b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 43731f84066943b991b566ff5936e4288aa669eb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968094"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175224"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerações de design de rede virtual e opções de configuração para serviços de domínio de diretório ativo Azure
 
@@ -91,7 +91,7 @@ Pode ativar a resolução de nomes utilizando reencaminhadores DENS condicional 
 
 Um domínio gerido cria alguns recursos de networking durante a implantação. Estes recursos são necessários para o funcionamento e gestão bem sucedidos do domínio gerido, e não devem ser configurados manualmente.
 
-| Recurso do Azure                          | Descrição |
+| Recurso do Azure                          | Description |
 |:----------------------------------------|:---|
 | Cartão de interface de rede                  | O Azure AD DS acolhe o domínio gerido em dois controladores de domínio (DCs) que funcionam no Windows Server como VMs Azure. Cada VM tem uma interface de rede virtual que se conecta à sua sub-rede de rede virtual. |
 | Endereço IP público padrão dinâmico      | O Azure AD DS comunica com o serviço de sincronização e gestão utilizando um endereço IP público SKU padrão. Para obter mais informações sobre endereços IP públicos, consulte [os tipos de endereços IP e os métodos de atribuição em Azure](../virtual-network/public-ip-addresses.md). |
@@ -104,15 +104,15 @@ Um domínio gerido cria alguns recursos de networking durante a implantação. E
 
 ## <a name="network-security-groups-and-required-ports"></a>Grupos de segurança de rede e portas necessárias
 
-Um [grupo de segurança de rede (NSG)](../virtual-network/security-overview.md) contém uma lista de regras que permitem ou negam o tráfego de rede ao tráfego numa rede virtual Azure. Um grupo de segurança de rede é criado quando implementa um domínio gerido que contém um conjunto de regras que permitem que o serviço forneça funções de autenticação e gestão. Este grupo de segurança de rede padrão está associado à sub-rede de rede virtual em que o seu domínio gerido é implantado.
+Um [grupo de segurança de rede (NSG)](../virtual-network/network-security-groups-overview.md) contém uma lista de regras que permitem ou negam o tráfego de rede ao tráfego numa rede virtual Azure. Um grupo de segurança de rede é criado quando implementa um domínio gerido que contém um conjunto de regras que permitem que o serviço forneça funções de autenticação e gestão. Este grupo de segurança de rede padrão está associado à sub-rede de rede virtual em que o seu domínio gerido é implantado.
 
 São necessárias as seguintes regras do grupo de segurança da rede para que o domínio gerido forneça serviços de autenticação e gestão. Não edite ou elimine estas regras do grupo de segurança de rede para a sub-rede de rede virtual em que o seu domínio gerido é implantado.
 
-| Número da porta | Protocolo | Origem                             | Destino | Ação | Obrigatório | Objetivo |
+| Número da porta | Protocolo | Origem                             | Destino | Ação | Necessário | Objetivo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Sincronização com o seu inquilino AZure AD. |
-| 3389        | TCP      | Serra CorpNet                         | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Yes      | Sincronização com o seu inquilino AZure AD. |
+| 3389        | TCP      | Serra CorpNet                         | Qualquer         | Permitir  | Yes      | Gestão do seu domínio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Yes      | Gestão do seu domínio. |
 
 É criado um equilibrador de carga padrão Azure que exige que estas regras sejam postas em prática. Este grupo de segurança de rede assegura o Azure AD DS e é necessário para que o domínio gerido funcione corretamente. Não apague este grupo de segurança de rede. O equilibrador de carga não funcionará corretamente sem ele.
 
@@ -123,7 +123,7 @@ Se necessário, pode criar o grupo de segurança de [rede e as regras necessári
 >
 > Se utilizar LDAP seguro, pode adicionar a regra 636 da porta TCP necessária para permitir o tráfego externo, se necessário. Adicionar esta regra não coloca as regras do seu grupo de segurança de rede num estado não apoiado. Para mais informações, consulte [Lock Down Secure Acesso LDAP através da internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 >
-> Regras predefinidas para *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*e *DenyAllOutBound* também existem para o grupo de segurança da rede. Não edite nem elimine estas regras predefinições.
+> Regras predefinidas para *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound* e *DenyAllOutBound* também existem para o grupo de segurança da rede. Não edite nem elimine estas regras predefinições.
 >
 > O Azure SLA não se aplica a implementações em que tenha sido aplicado um grupo de segurança de rede e/ou tabelas de rotas definidas pelo utilizador que bloqueiam o Azure AD DS de atualizar e gerir o seu domínio.
 
@@ -176,4 +176,4 @@ Para obter mais informações sobre alguns dos recursos de rede e opções de co
 
 * [Observação da rede virtual Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Gateways de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
-* [Grupos de segurança de rede do Azure](../virtual-network/security-overview.md)
+* [Grupos de segurança de rede do Azure](../virtual-network/network-security-groups-overview.md)

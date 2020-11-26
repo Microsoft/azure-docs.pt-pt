@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: f65fb37a4cc6640bc998af1c56e7852cccaba234
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5f6e5de61c9f43d5958e68c545105c4373996f7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955527"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175071"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial - Personalize o fornecimento de produtos de fornecimento de utilizadores para aplicações SaaS no Azure Ative Directory
 
@@ -239,7 +239,7 @@ Utilize os passos abaixo para as funções de provisão para um utilizador à su
    }
    ]
    ```  
-O formato de pedido no PATCH e POST difere. Para garantir que o POST e o PATCH são enviados no mesmo formato, pode utilizar a bandeira de [características aqui](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility#flags-to-alter-the-scim-behavior)descrita. 
+O formato de pedido no PATCH e POST difere. Para garantir que o POST e o PATCH são enviados no mesmo formato, pode utilizar a bandeira de [características aqui](./application-provisioning-config-problem-scim-compatibility.md#flags-to-alter-the-scim-behavior)descrita. 
 
 - **AppRoleAssignmentsComplex** 
   - **Quando usar:** Utilize a expressão AppRoleAssignmentsComplex para obter múltiplas funções para um utilizador. 

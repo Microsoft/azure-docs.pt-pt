@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 5e2f323f705a891f06cee1d25779351d02a91572
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 19942e5400be63dfde48b9653282fb93bcb1ec42
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695270"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174820"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial - Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -154,7 +154,7 @@ Dentro da especificação do [protocolo SCIM 2.0,](http://www.simplecloud.info/#
 * Suporta consulta de utilizadores ou grupos, de acordo com a secção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os utilizadores são recuperados pelos seus `id` `username` `externalId` e, e os grupos são questionados por `displayName` .  
 * Suporta consulta do utilizador por ID e por gestor, de acordo com a secção 3.4.2 do protocolo SCIM.  
 * Suporta grupos de consulta por ID e por membro, de acordo com a secção 3.4.2 do protocolo SCIM.  
-* Suporta o filtro [excluídoAttributes=membros](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group) ao consultar o recurso de grupo, de acordo com a secção 3.4.2.5 do protocolo SCIM.
+* Suporta o filtro [excluídoAttributes=membros](#get-group) ao consultar o recurso de grupo, de acordo com a secção 3.4.2.5 do protocolo SCIM.
 * Aceita um único sinal de portador para autenticação e autorização da Azure AD para a sua aplicação.
 * Suporta a eliminação suave de um utilizador `active=false` e a restauração do utilizador `active=true` (o objeto do utilizador deve ser devolvido num pedido, quer o utilizador esteja ou não ativo). A única altura em que o utilizador não deve ser devolvido é quando é duramente eliminado da aplicação. 
 
@@ -1173,7 +1173,7 @@ Uma vez iniciado o ciclo inicial, pode **selecionar registos de provisionamento*
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Passo 5: Publique a sua candidatura na galeria de aplicações AZure AD
 
-Se estiver a construir uma aplicação que será usada por mais de um inquilino, pode disponibilizá-la na galeria de candidaturas Azure AD. Isto facilitará às organizações a descoberta da aplicação e a configuração do provisionamento. Publicar a sua aplicação na galeria Azure AD e disponibilizar o provisionamento a outros é fácil. Confira os passos [aqui.](../azuread-dev/howto-app-gallery-listing.md) A Microsoft trabalhará consigo para integrar a sua aplicação na nossa galeria, testar o seu ponto final e lançar [documentação](../saas-apps/tutorial-list.md) de bordo para os clientes utilizarem. 
+Se estiver a construir uma aplicação que será usada por mais de um inquilino, pode disponibilizá-la na galeria de candidaturas Azure AD. Isto facilitará às organizações a descoberta da aplicação e a configuração do provisionamento. Publicar a sua aplicação na galeria Azure AD e disponibilizar o provisionamento a outros é fácil. Confira os passos [aqui.](../develop/v2-howto-app-gallery-listing.md) A Microsoft trabalhará consigo para integrar a sua aplicação na nossa galeria, testar o seu ponto final e lançar [documentação](../saas-apps/tutorial-list.md) de bordo para os clientes utilizarem.
 
 ### <a name="gallery-onboarding-checklist"></a>Galeria de verificação de bordo
 Siga a lista de verificação abaixo para garantir que a sua aplicação está a bordo rapidamente e os clientes têm uma experiência de implementação suave. A informação será recolhida de si quando embarcar na galeria. 

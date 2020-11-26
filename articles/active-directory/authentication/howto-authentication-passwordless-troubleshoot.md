@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 690d4761657b8bf6e5ba63ddfbce7163584e64e2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964575"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174039"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Resolução de problemas para implantações híbridas de chaves de segurança FIDO2 em Azure AD (pré-visualização)
 
@@ -76,9 +76,9 @@ Para recolher dados que ajudem a resolver problemas com a inscrição no Windows
 
 1. Selecione a categoria *segurança e privacidade* e, em seguida, a subcategoria *FIDO.*
 1. Alternar a caixa de verificação para *Enviar ficheiros e diagnósticos anexados à Microsoft juntamente com o meu feedback*.
-1. Selecione *Recrie os meus problemas*e, em seguida, *inicie a captura*.
+1. Selecione *Recrie os meus problemas* e, em seguida, *inicie a captura*.
 1. Bloqueie e desbloqueie a máquina com a chave de segurança FIDO2. Se o problema ocorrer, tente desbloquear com outras credenciais.
-1. Devolva ao **Feedback Hub,** selecione **Stop capture**e envie o seu feedback.
+1. Devolva ao **Feedback Hub,** selecione **Stop capture** e envie o seu feedback.
 1. Vá à página *de Feedback* e depois ao *separador 'Feedback'.* Selecione o seu feedback recentemente submetido.
 1. Selecione o botão *Partilhar* no canto superior direito para obter um link para o feedback. Inclua este link quando abrir um caso de apoio ou responda ao engenheiro designado para um caso de suporte existente.
 

@@ -13,19 +13,19 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 378dab95d8fb3519bb2fc5c934a760e051a18d29
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b08b07ebcd6e45e95e23dff8686148889e9d4b39
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575888"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173924"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Orientação do programador para a funcionalidade de Acesso Condicional do Diretório Ativo Azure
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 > [!NOTE]
-> Para a versão da plataforma de identidade da Microsoft deste artigo, consulte a orientação do Desenvolvedor para acesso condicional ao [Azure Ative Directory](/azure/active-directory/develop/v2-conditional-access-dev-guide).
+> Para a versão da plataforma de identidade da Microsoft deste artigo, consulte a orientação do Desenvolvedor para acesso condicional ao [Azure Ative Directory](../develop/v2-conditional-access-dev-guide.md).
 
 A funcionalidade de Acesso Condicional no Azure Ative Directory (Azure AD) oferece uma das várias formas que pode usar para proteger a sua aplicação e proteger um serviço. O Acesso Condicional permite aos desenvolvedores e clientes empresariais proteger os serviços de várias formas, incluindo:
 

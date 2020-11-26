@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: joflore
-ms.openlocfilehash: a66268c0cd0c2382b412873ec7f78b87d3491594
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aae665b5982ab2b5c1163bb9297eda5f2e5d344a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968179"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175377"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrar serviços de domínio do diretório ativo do Azure do modelo de rede virtual clássico para o Gestor de Recursos
 
@@ -87,7 +87,7 @@ As etapas de alto nível envolvidas neste cenário de migração de exemplo incl
 1. Crie uma rede virtual que espreita entre a rede virtual Clássica e a nova rede virtual Do Gestor de Recursos.
 1. Mais tarde, [migrar os recursos adicionais][migrate-iaas] da rede virtual Clássica, conforme necessário.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 À medida que prepara e migra um domínio gerido, existem algumas considerações em torno da disponibilidade de serviços de autenticação e gestão. O domínio gerido não está disponível durante um período de tempo durante a migração. As aplicações e serviços que dependem do Azure AD DS experimentam tempo de inatividade durante a migração.
 
@@ -302,7 +302,7 @@ Se necessário, pode atualizar a política de palavra-passe de grãos finos para
 
 1. [Configure a política de senhas][password-policy] para menos restrições no domínio gerido e observe os eventos nos registos de auditoria.
 1. Se alguma conta de serviço estiver a utilizar senhas caducadas identificadas nos registos de auditoria, atualize essas contas com a senha correta.
-1. Se um VM estiver exposto à internet, reveja nomes genéricos de conta como *administrador,* *utilizador*ou *hóspede* com altas tentativas de inscrição. Sempre que possível, atualize esses VMs para utilizar contas com nomes menos genericamente nomeados.
+1. Se um VM estiver exposto à internet, reveja nomes genéricos de conta como *administrador,* *utilizador* ou *hóspede* com altas tentativas de inscrição. Sempre que possível, atualize esses VMs para utilizar contas com nomes menos genericamente nomeados.
 1. Utilize um vestígio de rede no VM para localizar a origem dos ataques e bloquear que esses endereços IP sejam capazes de tentar iniciar súpidos.
 1. Quando houver problemas mínimos de bloqueio, atualize a política de senha de grão fino para ser tão restritiva quanto necessário.
 
@@ -360,7 +360,7 @@ Com o seu domínio gerido migrado para o modelo de implementação do Gestor de 
 [notifications]: notifications.md
 [password-policy]: password-policy.md
 [secure-ldap]: tutorial-configure-ldaps.md
-[migrate-iaas]: ../virtual-machines/windows/migration-classic-resource-manager-overview.md
+[migrate-iaas]: ../virtual-machines/migration-classic-resource-manager-overview.md
 [join-windows]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [troubleshoot-domain-join]: troubleshoot-domain-join.md

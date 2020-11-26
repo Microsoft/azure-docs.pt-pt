@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994167"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173941"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de autosserviço do Azure Ative Directory
 
@@ -123,7 +123,7 @@ Considere as suas necessidades organizacionais enquanto determina a estratégia 
 
 ### <a name="engage-the-right-stakeholders"></a>Envolver as partes interessadas certas
 
-Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](https://aka.ms/deploymentplans) e que as partes interessadas no projeto são bem compreendidas documentando as partes interessadas e os seus contributos e contas do projeto.
+Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](../fundamentals/active-directory-deployment-plans.md) e que as partes interessadas no projeto são bem compreendidas documentando as partes interessadas e os seus contributos e contas do projeto.
 
 #### <a name="required-administrator-roles"></a>Funções de administrador exigidas
 
@@ -154,14 +154,14 @@ São necessárias as seguintes definições para ativar o SSPR juntamente com os
 | **Propriedades SSPR** | Redefinição da palavra-passe de autosserviço ativada | **Grupo selecionado** para piloto / **Todos** para produção |
 | **Métodos de autenticação** | Métodos de autenticação necessários para registar | Sempre 1 mais do que o necessário para reset |
 |   | Métodos de autenticação necessários para repor | Um ou dois |
-| **Inscrição** | Exigir que os utilizadores se registem ao iniciar sessão | Sim |
+| **Inscrição** | Exigir que os utilizadores se registem ao iniciar sessão | Yes |
 |   | Número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação | 90 - 180 dias |
-| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Sim |
-|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Sim |
-| **Personalização** | Personalizar link helpdesk | Sim |
+| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Yes |
+|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Yes |
+| **Personalização** | Personalizar link helpdesk | Yes |
 |   | E-mail de ajuda personalizada ou URL | Site de suporte ou endereço de e-mail |
-| **Integração no local** | Descreva palavras-passe para a AD no local | Sim |
-|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Sim |
+| **Integração no local** | Descreva palavras-passe para a AD no local | Yes |
+|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Yes |
 
 ### <a name="sspr-properties"></a>Propriedades SSPR
 
@@ -254,7 +254,7 @@ Embora a SSPR não crie normalmente problemas de utilização, é importante pre
 
 Para ativar o sucesso da sua equipa de suporte, pode criar um FAQ baseado em questões que recebe dos seus utilizadores. Eis alguns exemplos:
 
-| Cenários| Descrição |
+| Cenários| Description |
 | - | - |
 | O utilizador não dispõe de quaisquer métodos de autenticação registados| Um utilizador está a tentar redefinir a sua palavra-passe mas não dispõe de nenhum dos métodos de autenticação que registou disponíveis (Exemplo: deixaram o telemóvel em casa e não conseguem aceder ao e-mail) |
 | O utilizador não está a receber uma mensagem ou uma chamada no seu escritório ou telemóvel| Um utilizador está a tentar verificar a sua identidade por texto ou chamada, mas não está a receber um texto/chamada. |
@@ -325,7 +325,7 @@ Os registos de auditoria para o registo e o reset da palavra-passe estão dispon
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-* Consulte o [reset da palavra-passe de autosserviço de resolução de problemas](./active-directory-passwords-troubleshoot.md) 
+* Consulte o [reset da palavra-passe de autosserviço de resolução de problemas](./troubleshoot-sspr.md) 
 
 * Siga [a gestão de passwords com frequência](./active-directory-passwords-faq.md) 
 

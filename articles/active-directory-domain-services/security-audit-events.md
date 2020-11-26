@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: b9656b62e2c689d0993fb16c1f1d66b14d3430c6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b4fb5c1dcb2bb34b472c2a3eda88ca4c219303d0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967737"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175173"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Permitir auditorias de segurança para serviços de domínio de diretório ativo Azure
 
@@ -63,11 +63,11 @@ Para ativar eventos de auditoria de segurança Azure AD DS utilizando o portal A
     ![Permitir o destino e tipo de eventos de auditoria necessários para capturar](./media/security-audit-events/diagnostic-settings-page.png)
 
     * **Armazenamento azul**
-        * Selecione **Archive para uma conta de armazenamento**e, em seguida, escolha **Configurar**.
+        * Selecione **Archive para uma conta de armazenamento** e, em seguida, escolha **Configurar**.
         * Selecione a **Subscrição** e a **conta de Armazenamento** que pretende utilizar para arquivar eventos de auditoria de segurança.
         * Quando estiver pronto, escolha **OK**.
     * **Hubs de eventos Azure**
-        * Selecione **Stream para um centro de eventos**e, em seguida, escolha **Configurar**.
+        * Selecione **Stream para um centro de eventos** e, em seguida, escolha **Configurar**.
         * Selecione a **Subscrição** e o **espaço de nomes do centro do evento.** Se necessário, escolha também um **nome de hub de Evento** e, em seguida, nome de política do centro de **eventos**.
         * Quando estiver pronto, escolha **OK**.
     * **Espaços de trabalho Azure Log Analytic**
@@ -95,7 +95,7 @@ Para ativar eventos de auditoria de segurança Azure AD DS utilizando a Azure Po
 1. Crie o recurso-alvo para os eventos de auditoria de segurança.
 
     * **Armazenamento azul**  -  [Criar uma conta de armazenamento usando a Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
-    * **Hubs de eventos**  -  Azure [Crie um centro de eventos utilizando a Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Poderá também ser necessário utilizar o cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) para criar uma regra de autorização que conceda permissões de DS AD AD do evento para o *espaço de nome do*centro de eventos. A regra de autorização deve incluir os **direitos de Gestão,** **Escuta**e **Envio.**
+    * **Hubs de eventos**  -  Azure [Crie um centro de eventos utilizando a Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Poderá também ser necessário utilizar o cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) para criar uma regra de autorização que conceda permissões de DS AD AD do evento para o *espaço de nome do* centro de eventos. A regra de autorização deve incluir os **direitos de Gestão,** **Escuta** e **Envio.**
 
         > [!IMPORTANT]
         > Certifique-se de que define a regra de autorização no espaço de nome do centro de eventos e não no próprio centro de eventos.
@@ -141,7 +141,7 @@ Para ativar eventos de auditoria de segurança Azure AD DS utilizando a Azure Po
 Log Espaços de trabalho analíticos permite-lhe ver e analisar os eventos de auditoria de segurança usando o Azure Monitor e a linguagem de consulta Kusto. Esta linguagem de consulta é projetada para uso apenas de leitura que possui capacidades analíticas de poder com uma sintaxe fácil de ler. Para obter mais informações para começar com as línguas de consulta de Kusto, consulte os seguintes artigos:
 
 * [Documentação do Azure Monitor](../azure-monitor/index.yml)
-* [Começa com o Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Começa com o Log Analytics no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
 * [Introdução às consultas de registos no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Criar e partilhar dashboards dos dados do Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -159,7 +159,7 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Consulta de amostra 2
 
-Veja todos os eventos de bloqueio de conta *(4740*) entre 3 de junho de 2020 às 9 da manhã. e 10 de junho de 2020 meia-noite, classificado subindo pela data e hora:
+Veja todos os eventos de bloqueio de conta *(4740*) entre 3 de junho de 2020 às 9.m. e 10 de junho de 2020 meia-noite, classificado subindo pela data e hora:
 
 ```Kusto
 AADDomainServicesAccountManagement
@@ -217,7 +217,7 @@ As auditorias de segurança Azure AD DS alinham-se com a auditoria tradicional p
 
 Estão disponíveis as seguintes categorias de eventos de auditoria:
 
-| Nome da categoria de auditoria | Descrição |
+| Nome da categoria de auditoria | Description |
 |:---|:---|
 | Início de conta|As auditorias tentam autenticar dados de conta num controlador de domínio ou num Gestor de Contas de Segurança local (SAM).</p>As definições de políticas de logon e logoff rastreiam as tentativas de acesso a um determinado computador. As configurações e eventos desta categoria concentram-se na base de dados de conta que é utilizada. Esta categoria inclui as seguintes subcategorias:<ul><li>[Auditar validação de credenciais](/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Auditar serviço de autenticação do Kerberos](/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Auditar operações de permissão de serviço do Kerberos](/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[Auditoria Outros Eventos logon/Logoff](/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
 | Gestão de Contas|Auditorias alterações nas contas e grupos de utilizadores e computadores. Esta categoria inclui as seguintes subcategorias:<ul><li>[Auditar gestão de grupo de aplicações](/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[Auditar gestão de contas de computador](/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[Auditar gestão de grupo de distribuição](/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[Auditoria Outra Gestão de Contas](/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[Auditar gestão de grupos de segurança](/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[Auditar gestão de conta de utilizadores](/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|

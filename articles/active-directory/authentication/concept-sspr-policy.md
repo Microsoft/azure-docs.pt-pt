@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 695d47c839a9436f4fad9399f7995b3197e1c0eb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b1583307771dd58053128d71cb0ae5dd7e709f68
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965000"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174386"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições de conta no Azure Ative Directory
 
@@ -180,4 +180,4 @@ Depois de instalar o módulo, utilize os seguintes passos para completar cada ta
 
 Para começar com o SSPR, consulte [Tutorial: Ative os utilizadores para desbloquearem a sua conta ou redefinirem as palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory](tutorial-enable-sspr.md).
 
-Se você ou utilizadores tiverem problemas com SSPR, consulte [o reset da palavra-passe de autosserviço de resolução de problemas](active-directory-passwords-troubleshoot.md)
+Se você ou utilizadores tiverem problemas com SSPR, consulte [o reset da palavra-passe de autosserviço de resolução de problemas](./troubleshoot-sspr.md)

@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f462a78790e73f3e0f67f55b6417589c7826a75d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275758"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173673"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: personalizar reclamações emitidas no token SAML para aplicações empresariais
 
@@ -54,7 +54,7 @@ Se o pedido DE SAML não contiver um elemento para NameIDPolicy, então a plataf
 
 A partir do dropdown do **formato do identificador de nome Escolher,** pode selecionar uma das seguintes opções.
 
-| Formato NameID | Descrição |
+| Formato NameID | Description |
 |---------------|-------------|
 | **Predefinição** | A plataforma de identidade da Microsoft utilizará o formato de origem padrão. |
 | **Persistente** | A plataforma de identidade da Microsoft utilizará o Persistente como formato NameID. |
@@ -178,5 +178,5 @@ Em primeiro lugar, a plataforma de identidade da Microsoft verifica se o tipo de
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Gestão de aplicações em Azure AD](../manage-apps/what-is-application-management.md)
-* [Configurar aplicações únicas de inscrição que não constam da galeria de candidaturas Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Resolver problemas de início de sessão único baseado em SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Configurar aplicações únicas de inscrição que não constam da galeria de candidaturas Azure AD](../manage-apps/configure-saml-single-sign-on.md)
+* [Resolver problemas de início de sessão único baseado em SAML](../manage-apps/debug-saml-sso-issues.md)

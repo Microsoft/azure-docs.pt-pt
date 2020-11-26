@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: a487d984fe4b8f5d6313e181863872c4ea150059
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3355b502033451f58ac2289a81414e62823e459b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334544"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175955"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -63,7 +63,7 @@ Pode ligar a loja analítica num recipiente Azure Cosmos enquanto cria o recipie
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) ou no [explorador Azure Cosmos.](https://cosmos.azure.com/)
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) ou no [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Navegue na sua conta DB Azure Cosmos e abra o **separador Data Explorer.**
 
@@ -73,9 +73,9 @@ Pode ligar a loja analítica num recipiente Azure Cosmos enquanto cria o recipie
 
 1. Se não tiver ativado o Synapse Link nesta conta, irá pedir-lhe que o faça porque é um pré-requisito para criar um recipiente analítico habilitado para a loja. Se solicitado, selecione **Enable Synapse Link**. Este processo pode demorar 1 a 5 minutos a ser concluído.
 
-1. Selecione **OK** , para criar uma loja analítica ativada no recipiente Azure Cosmos.
+1. Selecione **OK**, para criar uma loja analítica ativada no recipiente Azure Cosmos.
 
-1. Após a criação do contentor, verifique se a loja analítica foi ativada clicando em **Definições** , logo abaixo documentos no Data Explorer, e verifique se a opção **Tempo de Loja Analítica para Viver** está ligada.
+1. Após a criação do contentor, verifique se a loja analítica foi ativada clicando em **Definições**, logo abaixo documentos no Data Explorer, e verifique se a opção **Tempo de Loja Analítica para Viver** está ligada.
 
 ### <a name="net-sdk"></a>SDK .NET
 
@@ -171,7 +171,7 @@ Após o arquivo analítico ser ativado com um valor de TTL em particular, pode a
 
 Se criou um recipiente analítico ativado através do portal Azure, contém uma TTL analítica predefinida de -1. Utilize os seguintes passos para atualizar este valor:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) ou no [explorador Azure Cosmos.](https://cosmos.azure.com/)
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) ou no [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
 1. Navegue na sua conta DB Azure Cosmos e abra o **separador Data Explorer.**
 

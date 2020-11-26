@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fae9872593b48355d4ad3711e8e5092481b16213
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994269"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174535"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reposição personalizada de palavra-passe do AAD
 
@@ -195,9 +195,9 @@ A AZure AD verifica a sua conectividade híbrida atual e fornece uma das seguint
 * O seu cliente no local está a funcionar.
 * O Azure AD está online e está ligado ao seu cliente de writeback no local. No entanto, parece que a versão instalada do Azure AD Connect está desatualizada. Considere [atualizar o Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para garantir que tem as mais recentes funcionalidades de conectividade e correções importantes de bugs.
 * Infelizmente, não podemos verificar o estado do seu cliente no local porque a versão instalada do Azure AD Connect está desatualizada. [Atualize o Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para poder verificar o estado da sua ligação.
-* Infelizmente, parece que não podemos ligar-nos ao seu cliente no local. [Resolução de problemas Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a ligação.
+* Infelizmente, parece que não podemos ligar-nos ao seu cliente no local. [Resolução de problemas Azure AD Connect](./troubleshoot-sspr-writeback.md) para restaurar a ligação.
 * Infelizmente, não podemos ligar-nos ao seu cliente de writeback no local porque a gravação de passwords não foi devidamente configurada. [Configurar a gravação da palavra-passe](./tutorial-enable-sspr-writeback.md) para restaurar a ligação.
-* Infelizmente, parece que não podemos ligar-nos ao seu cliente no local. Isto pode ser devido a problemas temporários do nosso lado. Se o problema persistir, [o Problema Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a ligação.
+* Infelizmente, parece que não podemos ligar-nos ao seu cliente no local. Isto pode ser devido a problemas temporários do nosso lado. Se o problema persistir, [o Problema Azure AD Connect](./troubleshoot-sspr-writeback.md) para restaurar a ligação.
 
 Para começar com a gravação da SSPR, complete o seguinte tutorial:
 

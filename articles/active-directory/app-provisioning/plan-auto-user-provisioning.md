@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e741bd6c87ea32b0d92b1dd53112a1bed3e4cd38
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041116"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174922"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
 
@@ -36,7 +36,7 @@ Os principais benefícios de permitir o fornecimento automático de utilizadores
 
 * **Aumento da produtividade.** Pode gerir as identidades dos utilizadores através das aplicações SaaS com uma única interface de gestão de fornecimento de utilizador. Esta interface tem um único conjunto de políticas de provisionamento.
 
-* **Gerir o risco** . Pode aumentar a segurança automatizando alterações com base no estado dos colaboradores ou membros do grupo que definem funções e/ou acesso.
+* **Gerir o risco**. Pode aumentar a segurança automatizando alterações com base no estado dos colaboradores ou membros do grupo que definem funções e/ou acesso.
 
 * **Abordar a conformidade e a governação.** A Azure AD suporta registos de auditoria nativos para cada pedido de provisionamento do utilizador. Os pedidos são executados tanto nos sistemas de origem como nos sistemas-alvo. Isto permite-lhe rastrear quem tem acesso a aplicações a partir de um único ecrã.
 
@@ -157,7 +157,7 @@ Os passos reais necessários para permitir e configurar o fornecimento automáti
 
 Caso contrário, siga os passos abaixo:
 
-1. [Crie um pedido](../azuread-dev/howto-app-gallery-listing.md) para um conector de provisionamento pré-integrado do utilizador. A nossa equipa trabalhará consigo e com o desenvolvedor de aplicações para embarcar na sua aplicação na nossa plataforma se apoiar o SCIM.
+1. [Crie um pedido](../develop/v2-howto-app-gallery-listing.md) para um conector de provisionamento pré-integrado do utilizador. A nossa equipa trabalhará consigo e com o desenvolvedor de aplicações para embarcar na sua aplicação na nossa plataforma se apoiar o SCIM.
 
 1. Utilize o suporte genérico de fornecimento de utilizadores [genéricos BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) para a aplicação. Este é um requisito para que a Azure AD provisa os utilizadores para a aplicação sem um conector de provisionamento pré-integrado.
 
@@ -300,11 +300,11 @@ Consulte os seguintes links para resolver problemas que possam surgir durante o 
 
 * [Sync um atributo do seu Ative Directy no local para Azure AD para provisionamento a uma aplicação](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
-* [Credenciais de administrador de poupança de problemas ao mesmo tempo que configura o fornecimento do utilizador a uma aplicação da Galeria do Diretório Ativo Azure](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
+* [Credenciais de administrador de poupança de problemas ao mesmo tempo que configura o fornecimento do utilizador a uma aplicação da Galeria do Diretório Ativo Azure](./user-provisioning.md)
 
 * [Nenhum utilizadores está a ser a provisionado para uma aplicação da Galeria AD Azure](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-* [O conjunto errado de utilizadores está a ser a provisionado para uma aplicação da Galeria AD Azure](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
+* [O conjunto errado de utilizadores está a ser a provisionado para uma aplicação da Galeria AD Azure](../manage-apps/add-application-portal-assign-users.md)
 
 ### <a name="helpful-documentation"></a>Documentação útil
 

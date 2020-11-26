@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 64418a727ecb9a300912a4766a9ea2066328ad31
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363662"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174905"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeie a aplicação de RH em nuvem para o provisionamento do utilizador do Azure Ative Directory
 
@@ -73,7 +73,7 @@ Esta capacidade de provisionamento de TI orientado por RH oferece os seguintes b
 - **Abordar a conformidade e a governação:** O Azure AD suporta registos de auditoria nativos para pedidos de provisionamento de utilizadores realizados por aplicações de sistemas de origem e alvo. Com a auditoria, é possível rastrear quem tem acesso às aplicações a partir de um único ecrã.
 - **Gerir o custo:** O provisionamento automático reduz os custos evitando ineficiências e erros humanos associados ao provisionamento manual. Reduz a necessidade de soluções de fornecimento de utilizadores desenvolvidas por medida construídas ao longo do tempo utilizando plataformas antigas e desatualizadas.
 
-### <a name="licensing"></a>Licenciamento
+### <a name="licensing"></a>Licensing
 
 Para configurar a aplicação de HR em nuvem para a integração de fornecimento de utilizadores Azure AD, você precisa de uma [licença Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) válida e uma licença para a aplicação de HR em nuvem, como Workday ou SuccessFactors.
 
@@ -404,9 +404,9 @@ Para resolver problemas que possam surgir durante o provisionamento, consulte os
 
 - [Problema de configuração do fornecimento de um utilizador a uma aplicação da Galeria AD Azure](application-provisioning-config-problem.md)
 - [Sync um atributo do seu Ative Directy no local para Azure AD para provisionamento a uma aplicação](user-provisioning-sync-attributes-for-mapping.md)
-- [Credenciais de administrador de poupança de problemas ao mesmo tempo que configura o fornecimento do utilizador a uma aplicação da Galeria do Diretório Ativo Azure](application-provisioning-config-problem-storage-limit.md)
+- [Credenciais de administrador de poupança de problemas ao mesmo tempo que configura o fornecimento do utilizador a uma aplicação da Galeria do Diretório Ativo Azure](./user-provisioning.md)
 - [Nenhum utilizadores está a ser a provisionado para uma aplicação da Galeria AD Azure](application-provisioning-config-problem-no-users-provisioned.md)
-- [O conjunto errado de utilizadores está a ser a provisionado para uma aplicação da Galeria AD Azure](application-provisioning-config-problem-wrong-users-provisioned.md)
+- [O conjunto errado de utilizadores está a ser a provisionado para uma aplicação da Galeria AD Azure](../manage-apps/add-application-portal-assign-users.md)
 - [Configuração do Visualizador de Eventos do Windows para resolução de problemas do agente](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
 - [Criação de registos de auditoria do portal Azure para resolução de problemas de serviço](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Compreender registos para conta de utilizador AD criar operações](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)

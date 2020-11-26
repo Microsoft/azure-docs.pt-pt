@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: f1a7ffc8225ea20b48df4e1d9a049655ca4776a4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: de74d7e3cf854f36d122be6a32c7fb4d449c5fe5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964665"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175921"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 
@@ -91,7 +91,6 @@ Dependendo das atuais configurações de R/S aprovisionadas e de recursos, cada 
 
 | Recurso | Limite |
 | --- | --- |
-| MÁXIMO RU/s por contentor | 5000 |
 | Roção máxima de RU/s por (lógica) | 5000 |
 | Armazenamento máximo em todos os itens por partição (lógica) | 20 GB |
 | Número máximo de chaves de partição distintas (lógicas) | Ilimitado |
@@ -265,7 +264,7 @@ A tabela que se segue lista os limites para as [contas de nível livre do Azure 
 | Número de contas de nível livre por subscrição do Azure | 1 |
 | Duração do desconto de nível livre | Vida inteira da conta. Deve optar durante a criação de conta. |
 | MÁXIMO RU/s grátis | 400 RU/s |
-| Armazenamento máximo gratuito | 5 GB |
+| Armazenamento máximo gratuito | 5 GB |
 | Número máximo de bases de dados de produção partilhadas | 5 |
 | Número máximo de contentores numa base de dados de produção partilhada | 25 <br>Nas contas de nível livre, o RU/s mínimo para uma base de dados de produção partilhada com até 25 contentores é de 400 RU/s. |
 

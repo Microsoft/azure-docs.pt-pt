@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bef201cbd14a4de0c785b5f86d534f27bfedb31
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e121a6a45ab20055591a3670152114b8d03529cf
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363713"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173999"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalize a experiência do utilizador para o reposição da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -57,7 +57,7 @@ Para saber mais sobre as diferentes funções de administrador e como atribuí-l
 Se a sua organização não quiser notificar os administradores sobre pedidos de reset de palavra-passe, podem ser utilizadas as seguintes opções de configuração:
 
 * Personalize o link helpdesk para fornecer um URL web ou mailto: endereço que os utilizadores podem usar para obter assistência. Esta opção está em **Password Reset**  >  **Customization**  >  **Customdesk email ou URL**.
-* Ativar a palavra-passe de autosserviço para todos os utilizadores. Esta opção **encontra-se**em Propriedades reset  >  **password.** Se não quiser que os utilizadores repuvam as suas próprias palavras-passe, pode aceder a um grupo vazio. *Não recomendamos esta opção.*
+* Ativar a palavra-passe de autosserviço para todos os utilizadores. Esta opção **encontra-se** em Propriedades reset  >  **password.** Se não quiser que os utilizadores repuvam as suas próprias palavras-passe, pode aceder a um grupo vazio. *Não recomendamos esta opção.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Personalize a página de inscrição e o painel de acesso
 
@@ -91,4 +91,4 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwor
 
 Para compreender a utilização da SSPR no seu ambiente, consulte [opções de Reporte para a gestão de passwords AD AZure.](howto-sspr-reporting.md)
 
-Se você ou utilizadores tiverem problemas com SSPR, consulte [o reset da palavra-passe de autosserviço de resolução de problemas](active-directory-passwords-troubleshoot.md)
+Se você ou utilizadores tiverem problemas com SSPR, consulte [o reset da palavra-passe de autosserviço de resolução de problemas](./troubleshoot-sspr.md)

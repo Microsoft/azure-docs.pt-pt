@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7caeefb741e6916d69894ede3a7c64eb2e8f623f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840105"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174501"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Redefinição de senha de autosserviço frequentemente feita perguntas
 
@@ -289,4 +289,4 @@ Esta FAQ é dividida nas seguintes secções:
 * [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](./tutorial-enable-sspr-writeback.md)
 * [Como posso comunicar a atividade da SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
-* [Acho que algo está partido. Como é que resolvo a SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo está partido. Como é que resolvo a SSPR?](./troubleshoot-sspr.md)

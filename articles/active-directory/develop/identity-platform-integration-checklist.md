@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94da22fbb2940bddaad1324bedc8759706eca37b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116806"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173571"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>As melhores práticas e recomendações da plataforma de identidade da Microsoft
 
@@ -32,7 +32,7 @@ Utilize a seguinte lista de verificação para garantir que a sua aplicação es
 
 ## <a name="basics"></a>Noções básicas
 
-![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) Leia e compreenda as Políticas da Plataforma [microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Certifique-se de que a sua aplicação adere aos termos delineados, uma vez que foram concebidos para proteger os utilizadores e a plataforma.
+![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) Leia e compreenda as Políticas da Plataforma [microsoft](/legal/microsoft-identity-platform/terms-of-use). Certifique-se de que a sua aplicação adere aos termos delineados, uma vez que foram concebidos para proteger os utilizadores e a plataforma.
 
 ## <a name="ownership"></a>Propriedade
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6aa31d0b8c68f38d2b4fc41a6bbaaeab8a3ffac
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3f2c5b37c713b69df56e938fdaa2a9134402d765
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363611"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173907"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opções para os relatórios da gestão de palavras-passe do Azure AD)
 
@@ -53,7 +53,7 @@ Na experiência do portal Azure, melhorámos a forma como pode ver a atividade d
 
 ### <a name="combined-registration"></a>Registo combinado
 
-Se tiver ativado o [registo combinado,](./concept-registration-mfa-sspr-combined.md)serão encontradas informações **Security**sobre a atividade do utilizador nos registos de auditoria nos  >  **Métodos de Autenticação de**Segurança .
+Se tiver ativado o [registo combinado,](./concept-registration-mfa-sspr-combined.md)serão encontradas informações **Security** sobre a atividade do utilizador nos registos de auditoria nos  >  **Métodos de Autenticação de** Segurança .
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas de relatório no portal Azure
 
@@ -181,7 +181,7 @@ A seguinte lista explica esta atividade em detalhe:
 * [Quais são as opções de política da SSPR?](concept-sspr-policy.md)
 * [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](./tutorial-enable-sspr-writeback.md)
 * [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
-* [Acho que algo está partido. Como é que resolvo a SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo está partido. Como é que resolvo a SSPR?](./troubleshoot-sspr.md)
 * [Tenho uma pergunta que ainda não foi abordada](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Exemplo de registos de auditoria de atividade sSPR em Azure AD"

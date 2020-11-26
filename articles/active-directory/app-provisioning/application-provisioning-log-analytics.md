@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 167ed7e5c00452db4ee77e10236fec3ff86f0439
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145580"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175105"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entenda como o provisionamento se integra com os registos do Azure Monitor
 
@@ -30,13 +30,13 @@ Uma vez configurado a monitorização do Azure, pode ativar registos para o prov
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Aceder às definições de diagnóstico" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Aceder às definições de diagnóstico" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Permitir registos de provisionamento de aplicações" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
 
 > [!NOTE]
 > Se recentemente a provisionou um espaço de trabalho, pode demorar algum tempo até poder enviar registos para o mesmo. Se receber um erro de que a subscrição não esteja registada para utilizar *o microsoft.insights,* verifique depois de alguns minutos.
  
 ## <a name="understanding-the-data"></a>Compreender os dados
-O fluxo de dados subjacente que o Provisioning envia aos espectadores de registo é quase idêntico. Os registos do Azure Monitor recebem quase o mesmo fluxo que o portal Azure UI e a AZure API. Existem apenas **algumas diferenças** nos campos de registo, tal como delineado na tabela seguinte. Para saber mais sobre estes campos, consulte [List provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true).
+O fluxo de dados subjacente que o Provisioning envia aos espectadores de registo é quase idêntico. Os registos do Azure Monitor recebem quase o mesmo fluxo que o portal Azure UI e a AZure API. Existem apenas **algumas diferenças** nos campos de registo, tal como delineado na tabela seguinte. Para saber mais sobre estes campos, consulte [List provisioningObjectSummary](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta).
 
 |Registos do Azure Monitor   |Azure portal UI   |Azure API |
 |----------|-----------|------------|
@@ -51,9 +51,9 @@ Os livros de trabalho do Azure Monitor fornecem uma tela flexível para análise
 
 O fornecimento de aplicações vem com um conjunto de livros pré-construídos. Pode encontrá-los na página de Livros de Trabalho. Para visualizar os dados, terá de garantir que todos os filtros (timeRange, jobID, appName) são preenchidos. Também terá de se certificar de que aprovisionou uma aplicação, caso contrário não haverá dados nos registos.
 
-:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Aceder às definições de diagnóstico" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="A provisionamento de livros de aplicação" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
 
-:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Aceder às definições de diagnóstico" lightbox="media/application-provisioning-log-analytics/report.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/report.png" alt-text="Painel de provisionamento de aplicações" lightbox="media/application-provisioning-log-analytics/report.png":::
 
 ## <a name="custom-queries"></a>Consultas personalizadas
 
@@ -100,15 +100,15 @@ Para saber mais sobre alertas, consulte [Responder a eventos com alertas do Moni
 
 Alerta quando há um pico de falhas. Substitua o trabalhoID pelo trabalhoID para a sua aplicação.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Aceder às definições de diagnóstico" lightbox="media/application-provisioning-log-analytics/alert1.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert1.png" alt-text="Alerta quando há um pico de falhas." lightbox="media/application-provisioning-log-analytics/alert1.png":::
 
 Pode haver um problema que fez com que o serviço de fornecimento deixasse de funcionar. Utilize o seguinte alerta para detetar quando não há eventos de provisionamento durante um determinado intervalo de tempo.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Aceder às definições de diagnóstico" lightbox="media/application-provisioning-log-analytics/alert2.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert2.png" alt-text="Pode haver um problema que fez com que o serviço de fornecimento deixasse de funcionar." lightbox="media/application-provisioning-log-analytics/alert2.png":::
 
 Alerta quando há um pico em desativações ou exclusões.
 
-:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Aceder às definições de diagnóstico" lightbox="media/application-provisioning-log-analytics/alert3.png":::
+:::image type="content" source="media/application-provisioning-log-analytics/alert3.png" alt-text="Alerta quando há um pico em desativações ou exclusões." lightbox="media/application-provisioning-log-analytics/alert3.png":::
 
 
 ## <a name="community-contributions"></a>Contribuições da comunidade
@@ -121,4 +121,4 @@ Estamos a tomar uma abordagem de código aberto e baseado na comunidade para apl
 - [Começar com consultas em registos do Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 - [Criar e gerir grupos de alerta no portal Azure](../../azure-monitor/platform/action-groups.md)
 - [Instale e utilize as vistas de análise de registo para o Azure Ative Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [Provisionamento de registos API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md&preserve-view=true)
+- [Provisionamento de registos API](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

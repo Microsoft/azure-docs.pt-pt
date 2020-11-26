@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: ba22745923f1b157c477dce0b5704c7e278e748e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987342"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96176006"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes proteção de identidade no Diretório Ativo Azure
 
@@ -38,7 +38,7 @@ Se for um cliente Azure AD Identity Protection, vá ao ponto de vista [dos utili
 ## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Porque é que a minha inscrição estava bloqueada, mas a Proteção de Identidade não gerou uma deteção de risco?
 As inscrições podem ser bloqueadas por várias razões. É importante notar que a Proteção de Identidade só gera deteções de risco quando são utilizadas credenciais corretas no pedido de autenticação. Se um utilizador utilizar credenciais incorretas, não será sinalizado pela Proteção de Identidade, uma vez que não existe risco de compromisso credencial, a menos que um mau ator utilize as credenciais corretas. Algumas razões pelas quais um utilizador pode ser impedido de assinar que não gerará uma deteção de Proteção de Identidade incluem:
 * O **IP pode ser bloqueado** devido a atividades maliciosas a partir do endereço IP. A mensagem bloqueada ip não diferencia se as credenciais estavam corretas ou não. Se o IP estiver bloqueado e não forem utilizadas credenciais corretas, não gerará uma deteção de Proteção de Identidade
-* **[Smart Lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** pode bloquear a inscrição da conta após várias tentativas falhadas
+* **[Smart Lockout](../authentication/howto-password-smart-lockout.md)** pode bloquear a inscrição da conta após várias tentativas falhadas
 * Uma **política de acesso condicional** pode ser aplicada que usa condições que não o nível de risco para bloquear um pedido de autenticação
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Como posso obter um relatório de deteções de um tipo específico?
@@ -93,6 +93,4 @@ Dado que o risco do utilizador é cumulativo de natureza e não expira, um utili
 
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Por que razão um sinal tem uma pontuação de "risco de entrada (agregado)" de High quando as deteções associadas a ele são de baixo ou médio risco?
 
-A pontuação de risco agregada elevada pode basear-se em outras características do sinal, ou no facto de mais de uma deteção ter disparado para esse sinal. E inversamente, um sinal pode ter um risco de inscrição (agregado) de Medium, mesmo que as deteções associadas à inscrição sejam de alto risco. 
-
-
+A pontuação de risco agregada elevada pode basear-se em outras características do sinal, ou no facto de mais de uma deteção ter disparado para esse sinal. E inversamente, um sinal pode ter um risco de inscrição (agregado) de Medium, mesmo que as deteções associadas à inscrição sejam de alto risco.

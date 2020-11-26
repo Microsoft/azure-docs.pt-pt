@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 96f1e3983f3c093cdf643e7674221b04631eeabd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ddff11caba9d83e9ed21748fd50a3480d866d8a9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965629"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174569"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introdução à autenticação baseada em certificado no Azure Active Directory
 
@@ -31,7 +31,7 @@ Configurar esta funcionalidade elimina a necessidade de introduzir um nome de ut
 Este tópico:
 
 - Fornece-lhe os passos para configurar e utilizar a autenticação baseada em certificados para utilizadores de inquilinos nos planos do Office 365 Enterprise, Business, Education e US Government. Esta funcionalidade está disponível em pré-visualização no Office 365 China, defesa do governo dos EUA e planos federais do governo dos EUA.
-- Assume que já tem uma [infraestrutura de chave pública (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) e [FS AD](../hybrid/how-to-connect-fed-whatis.md) configuradas.
+- Assume que já tem uma [infraestrutura de chave pública (PKI)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)) e [FS AD](../hybrid/how-to-connect-fed-whatis.md) configuradas.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -64,7 +64,7 @@ As informações relacionadas existem para as seguintes plataformas de dispositi
 
 Para configurar as autoridades de certificados no Diretório Ativo Azure, para cada autoridade de certificados, faça o upload:
 
-* A parte pública do certificado, em formato *.cer*
+* A parte pública do certificado, em *formato .cer*
 * Os URLs virados para a Internet onde residem as Listas de Revogação de Certificados (LLs)
 
 O esquema de uma autoridade de certificados é o seguinte:
@@ -154,7 +154,7 @@ Para modificar uma autoridade de certificados fidedigna, utilize o cmdlet de cer
 
 ## <a name="step-3-configure-revocation"></a>Passo 3: Revogação de configuração
 
-Para revogar um certificado de cliente, o Azure Ative Directory recolhe a lista de revogação do certificado (CRL) dos URLs carregados como parte da informação da autoridade de certificados e caches-lo. A última data de publicação (propriedade**Data Efetiva)** no CRL é utilizada para garantir que o CRL ainda é válido. O CRL é periodicamente referenciado para revogar o acesso a certificados que fazem parte da lista.
+Para revogar um certificado de cliente, o Azure Ative Directory recolhe a lista de revogação do certificado (CRL) dos URLs carregados como parte da informação da autoridade de certificados e caches-lo. A última data de publicação (propriedade **Data Efetiva)** no CRL é utilizada para garantir que o CRL ainda é válido. O CRL é periodicamente referenciado para revogar o acesso a certificados que fazem parte da lista.
 
 Se for necessária uma revogação mais instantânea (por exemplo, se um utilizador perder um dispositivo), o sinal de autorização do utilizador pode ser invalidado. Para invalidar o token de autorização, desloque o campo **StsRefreshTokenValidD** para este utilizador em particular utilizando o Windows PowerShell. Tem de atualizar o campo **StsRefreshTokenValidD para** cada utilizador para o quais pretende revogar o acesso.
 

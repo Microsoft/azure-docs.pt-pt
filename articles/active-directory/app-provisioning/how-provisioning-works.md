@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 31c9dcaf6c6f26d28d70e3d1664665c2dbc37ce6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 48188adfc3648db76f2ca362f59de6986c7c1339
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393086"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96174956"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
@@ -43,7 +43,7 @@ Para solicitar um conector automático de provisionamento Azure AD para uma apli
 
 ## <a name="authorization"></a>Autorização
 
-São necessárias credenciais para que a Azure AD se conecte à API de gestão de utilizadores da aplicação. Enquanto configurar o fornecimento automático do utilizador para uma aplicação, terá de introduzir credenciais válidas. Para aplicações de galeria, pode encontrar tipos e requisitos credenciais para a aplicação, referindo-se ao tutorial da aplicação. Para aplicações não-galeria, pode consultar a documentação do [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#authorization-for-provisioning-connectors-in-the-application-gallery) para compreender os tipos e requisitos credenciais. No portal Azure, poderá testar as credenciais, tendo a Azure AD tentado ligar-se à app de provisionamento da app utilizando as credenciais fornecidas.
+São necessárias credenciais para que a Azure AD se conecte à API de gestão de utilizadores da aplicação. Enquanto configurar o fornecimento automático do utilizador para uma aplicação, terá de introduzir credenciais válidas. Para aplicações de galeria, pode encontrar tipos e requisitos credenciais para a aplicação, referindo-se ao tutorial da aplicação. Para aplicações não-galeria, pode consultar a documentação do [SCIM](./use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery) para compreender os tipos e requisitos credenciais. No portal Azure, poderá testar as credenciais, tendo a Azure AD tentado ligar-se à app de provisionamento da app utilizando as credenciais fornecidas.
 
 ## <a name="mapping-attributes"></a>Atributos de mapeamento
 
@@ -51,7 +51,7 @@ Quando permite o provisionamento do utilizador para uma aplicação SaaS de terc
 
 Existe um conjunto pré-configurado de atributos e mapeamentos de atributos entre objetos de utilizador AZure AD e objetos de utilizador de cada aplicação SaaS. Algumas aplicações gerem outros tipos de objetos juntamente com os Utilizadores, como grupos.
 
-Ao configurar o provisionamento, é importante rever e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais as propriedades do utilizador (ou grupo) que fluem do Azure AD para a aplicação. Reveja e configuure a propriedade correspondente **(Match objects using this attribute** ) que é usada para identificar e combinar exclusivamente utilizadores/grupos entre os dois sistemas.
+Ao configurar o provisionamento, é importante rever e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais as propriedades do utilizador (ou grupo) que fluem do Azure AD para a aplicação. Reveja e configuure a propriedade correspondente **(Match objects using this attribute**) que é usada para identificar e combinar exclusivamente utilizadores/grupos entre os dois sistemas.
 
 Pode personalizar os mapeamentos de atributos padrão de acordo com as necessidades do seu negócio. Assim, pode alterar ou eliminar os mapeamentos de atributos existentes ou criar novos mapeamentos de atributos. Para mais informações, consulte [personalizar o fornecimento de mapeamentos de atributos para aplicações SaaS](./customize-application-attributes.md).
 

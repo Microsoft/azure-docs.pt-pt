@@ -10,11 +10,11 @@ ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553680"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175411"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utilize tabelas externas com Sinapse SQL
 
@@ -332,7 +332,7 @@ CRIAR TABELA EXTERNA suporta a capacidade de configurar o nome da coluna, o tipo
 
 Ao ler os ficheiros Parquet, pode especificar apenas as colunas que pretende ler e saltar as restantes.
 
-LOCALIZAÇÃO = ' *folder_or_filepath* '
+LOCALIZAÇÃO = '*folder_or_filepath*'
 
 Especifica a pasta ou o caminho do ficheiro e o nome do ficheiro para os dados reais no Azure Blob Storage. A localização começa a partir da pasta raiz. A pasta raiz é a localização de dados especificada na origem de dados externa.
 

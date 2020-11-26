@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: 02c4679016ea80a4ac8bb53b502292945cbe9d7b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5d19cddc82d9fb092887c5cdeba36b8ab7127f94
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967074"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96175139"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Rever eventos de auditoria de segurança em Azure Ative Directory Domain Services usando livros de trabalho do Azure Monitor
 
@@ -22,7 +22,7 @@ Para ajudá-lo a compreender o estado do seu domínio gerido Azure Ative Directo
 
 Este artigo mostra-lhe como usar os Livros de Trabalho do Monitor Azure para rever eventos de auditoria de segurança em Azure AD DS.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -122,5 +122,5 @@ Para problemas com os utilizadores, aprenda a resolver [problemas de sessão de 
 [password-policy]: password-policy.md
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
-[azure-monitor-queries]: ../azure-monitor/log-query/query-language.md
+[azure-monitor-queries]: /azure/data-explorer/kusto/query/
 [kusto-queries]: /azure/kusto/query/tutorial?pivots=azuredataexplorer
