@@ -9,12 +9,12 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7cde23372f6a3af0320e2d48c78a0d7fe69a2600
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3916855a62e506b12f72de713ccb56e89f846938
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045708"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171811"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Atualizar o daemon de segurança e o tempo de execução do IoT Edge
 
@@ -48,7 +48,7 @@ Obtenha a mais recente configuração de repositório da Microsoft:
    curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
-* **Estirpe raspbiana:**
+* **Estiramento de Framboesa Pi OS**:
 
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -115,7 +115,7 @@ Se pretender atualizar para uma versão específica do daemon de segurança, enc
 ```
 
 >[!NOTE]
->O `-OfflineInstallationPath` parâmetro procura um ficheiro chamado **Microsoft-Azure-IoTEdge.cab** no diretório fornecido. A partir da versão IoT Edge 1.0.9-rc4, existem dois ficheiros .cab disponíveis para usar, um para dispositivos AMD64 e outro para ARM32. Faça o download do ficheiro correto para o seu dispositivo e, em seguida, mude o nome do ficheiro para remover o sufixo de arquitetura.
+>O `-OfflineInstallationPath` parâmetro procura um ficheiro chamado **Microsoft-Azure-IoTEdge.cab** no diretório fornecido. A partir da versão IoT Edge 1.0.9-rc4, existem dois ficheiros .cab disponíveis para utilização, um para dispositivos AMD64 e outro para ARM32. Faça o download do ficheiro correto para o seu dispositivo e, em seguida, mude o nome do ficheiro para remover o sufixo de arquitetura.
 
 Para obter mais informações sobre opções de atualização, utilize o comando ou consulte o `Get-Help Update-IoTEdge -full` [script PowerShell para IoT Edge no Windows](reference-windows-scripts.md).
 
@@ -160,7 +160,7 @@ Se utilizar etiquetas específicas na sua implantação (por exemplo, mcr.micros
 
    ![Configurar configurações de tempo de execução](./media/how-to-update-iot-edge/configure-runtime.png)
 
-1. Em **Definições de tempo de**execução, atualize o valor de **imagem** para **Edge Hub** com a versão desejada. Não selecione **Save** ainda.
+1. Em **Definições de tempo de** execução, atualize o valor de **imagem** para **Edge Hub** com a versão desejada. Não selecione **Save** ainda.
 
    ![Atualizar versão Edge Hub Image](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
 
@@ -190,7 +190,7 @@ Dois componentes são utilizados para atualizar um dispositivo IoT Edge:
 
    Microsoft-Azure-IotEdge-arm32.cab também está disponível a partir de 1.0.9 apenas para fins de teste. O IoT Edge não é suportado atualmente em dispositivos Windows ARM32.
 
-   É importante utilizar o script PowerShell a partir da mesma versão que o ficheiro .cabin que utiliza porque a funcionalidade muda para suportar as funcionalidades em cada versão.
+   É importante utilizar o script PowerShell a partir da mesma versão que o ficheiro .cab que utiliza porque a funcionalidade muda para suportar as funcionalidades em cada versão.
 
 3. Se o ficheiro .cab que descarregou tiver um sufixo de arquitetura, mude o nome do ficheiro para apenas **Microsoft-Azure-IoTEdge.cab**.
 

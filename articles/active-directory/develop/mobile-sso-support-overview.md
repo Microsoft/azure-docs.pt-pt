@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 4a9282882d23ecbdc3c03ca158ea3de5566143e7
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 59924c1f876d08aa504f19c5d6c86dca32fbd1e2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634859"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173469"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Apoie políticas únicas de segurança de assinatura e aplicações em aplicações móveis que desenvolver
 
@@ -38,7 +38,7 @@ Recomendamos o seguinte para permitir que a sua aplicação aproveite o único s
 
 ### <a name="use-microsoft-authentication-library-msal"></a>Utilize a Microsoft Authentication Library (MSAL)
 
-A melhor escolha para implementar um único sinal de sing na sua aplicação é utilizar [a Microsoft Authentication Library (MSAL)](msal-overview.md). Ao utilizar o MSAL, pode adicionar autenticação à sua aplicação com o código mínimo e chamadas API, obter todas as funcionalidades da [plataforma de identidade da Microsoft](/azure/active-directory/develop/)– e deixar a Microsoft lidar com a manutenção de uma solução de autenticação segura. Por predefinição, a MSAL adiciona suporte SSO para a sua aplicação. Além disso, usar o MSAL é um requisito se também planeia implementar políticas de proteção de aplicações.
+A melhor escolha para implementar um único sinal de sing na sua aplicação é utilizar [a Microsoft Authentication Library (MSAL)](msal-overview.md). Ao utilizar o MSAL, pode adicionar autenticação à sua aplicação com o código mínimo e chamadas API, obter todas as funcionalidades da [plataforma de identidade da Microsoft](./index.yml)– e deixar a Microsoft lidar com a manutenção de uma solução de autenticação segura. Por predefinição, a MSAL adiciona suporte SSO para a sua aplicação. Além disso, usar o MSAL é um requisito se também planeia implementar políticas de proteção de aplicações.
 
 > [!NOTE]
 > É possível configurar a MSAL para utilizar uma vista web incorporada. Isto evitará uma única inscrição. Utilize o comportamento padrão (isto é, o navegador web do sistema) para garantir que o SSO funcionará.
@@ -64,7 +64,7 @@ A Apple tem orientação para o fazer em aplicações iOS: [Autenticar um Utiliz
 
 Para ativar as políticas de proteção de aplicações, utilize a [Biblioteca de Autenticação da Microsoft (MSAL)](msal-overview.md). A MSAL é a biblioteca de autenticação e autorização da plataforma de identidade da Microsoft e o Intune SDK é desenvolvido para trabalhar em conjunto com ela.
 
-Além disso, deve utilizar uma aplicação de corretor para autenticação. O corretor exige que a app forneça informações sobre aplicações e dispositivos para garantir o cumprimento da aplicação. Os utilizadores do iOS utilizarão a [aplicação Microsoft Authenticator](../user-help/user-help-auth-app-sign-in.md) e os utilizadores Android utilizarão a aplicação Microsoft Authenticator ou a [aplicação Portal da Empresa](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) para [autenticação intermediada.](brokered-auth.md) Por predefinição, a MSAL utiliza um corretor como primeira escolha para cumprir um pedido de autenticação, pelo que a utilização do corretor para autenticar será ativada automaticamente para a sua aplicação quando utilizar o MSAL fora da caixa.
+Além disso, deve utilizar uma aplicação de corretor para autenticação. O corretor exige que a app forneça informações sobre aplicações e dispositivos para garantir o cumprimento da aplicação. Os utilizadores do iOS utilizarão a [aplicação Microsoft Authenticator](../user-help/user-help-auth-app-sign-in.md) e os utilizadores Android utilizarão a aplicação Microsoft Authenticator ou a [aplicação Portal da Empresa](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) para [autenticação intermediada.](./msal-android-single-sign-on.md) Por predefinição, a MSAL utiliza um corretor como primeira escolha para cumprir um pedido de autenticação, pelo que a utilização do corretor para autenticar será ativada automaticamente para a sua aplicação quando utilizar o MSAL fora da caixa.
 
 Por fim, [adicione o Intune SDK](/mem/intune/developer/app-sdk-get-started) à sua app para ativar políticas de proteção de aplicações. O SDK segue, na sua maioria, um modelo de interceção e aplicará automaticamente políticas de proteção de aplicações para determinar se as ações que a aplicação está a tomar são permitidas ou não. Existem também APIs que pode ligar manualmente para dizer à aplicação se existem restrições em determinadas ações.
 
@@ -73,8 +73,8 @@ Por fim, [adicione o Intune SDK](/mem/intune/developer/app-sdk-get-started) à s
 - [Planeie uma implantação única de sinalização do Azure Ative Directory](../manage-apps/plan-sso-deployment.md)
 - [Como: Configurar SSO em macOS e iOS](single-sign-on-macos-ios.md)
 - [Microsoft Enterprise SSO plug-in para dispositivos Apple (Preview)](apple-sso-plugin.md)
-- [Autenticação intermediada no Android](brokered-auth.md)
-- [Agentes de autorização e como habilitá-los](authorization-agents.md)
+- [Autenticação intermediada no Android](./msal-android-single-sign-on.md)
+- [Agentes de autorização e como habilitá-los](./msal-android-single-sign-on.md)
 - [Introdução ao SDK da Aplicação do Microsoft Intune](/mem/intune/developer/app-sdk-get-started)
 - [Configurar as definições para o SDK da Aplicação do Intune](/mem/intune/developer/app-sdk-ios#configure-settings-for-the-intune-app-sdk)
 - [Aplicativos protegidos microsoft Intune](/mem/intune/apps/apps-supported-intune-apps)

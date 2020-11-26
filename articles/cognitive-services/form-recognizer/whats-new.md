@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 929aed28df2725ccde62c348a18ef7b41334e233
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95893985"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172134"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -37,6 +37,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
  
   > [Saiba mais sobre a extração de Layout](concept-layout.md)
 
+- **Atualização da biblioteca de** clientes - As [bibliotecas de clientes](quickstarts/client-library.md) para .NET, Python, Java e JavaScript entraram na Disponibilidade Geral.
 - **Nova linguagem suportada: Japonês** - As seguintes novas línguas são agora apoiadas: para `AnalyzeLayout` e : `AnalyzeCustomForm` japonês ( `ja` ). [Suporte de idiomas](language-support.md)
 - **Indicação de estilo de linha de texto (manuscrito/outro) (apenas línguas latinas)** - O Reconhecedor de Formulários agora produz um `appearance` objeto classificando se cada linha de texto é ou não estilo manuscrito, juntamente com uma pontuação de confiança. Esta funcionalidade é suportada apenas para línguas latinas.
 - **Melhorias de qualidade** - Melhorias de extração, incluindo melhorias na extração de um dígito.
@@ -46,8 +47,8 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 
   ![Exemplo FOTT](./media/ui-preview.jpg)
   
-- **Loop de feedback** - Ao analisar ficheiros através da ferramenta de rotulagem da amostra, pode agora também adicioná-lo ao conjunto de treino e adujs os lables se necessário e treinar para melhorar o modelo.
-- **Auto Label Documets** - Automitcally rotula documentos adicionais com base em documentos anteriores rotulados no projeto. 
+- **Loop de feedback** - Ao analisar ficheiros através da ferramenta de rotulagem da amostra, pode agora também adicioná-lo ao conjunto de treino e ajustar as etiquetas se necessário e treinar para melhorar o modelo.
+- **Documentos de etiquetagem** automática - Rotula automaticamente documentos adicionais com base em documentos com etiqueta anteriores no projeto.
 
 ## <a name="august-2020"></a>Agosto de 2020
 

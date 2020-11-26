@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 3df96f5576829694b5eb12fd1811de112279884d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5481dbfe1f7b185e87ee13f26f23ea563350b0fa
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963232"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171794"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Junte uma máquina virtual do Windows Server a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -62,7 +62,7 @@ Se já tem um VM que pretende juntar-se ao domínio, salte para a secção para 
 
     ![Opte por criar um VM do Datacenter 2016 do Windows Server no portal Azure](./media/join-windows-vm/select-vm-image.png)
 
-1. Na janela **Basics,** configufique as definições do núcleo para a máquina virtual. Deixe as predefinições para *opções de disponibilidade,* *imagem*e *tamanho*.
+1. Na janela **Basics,** configufique as definições do núcleo para a máquina virtual. Deixe as predefinições para *opções de disponibilidade,* *imagem* e *tamanho*.
 
     | Parâmetro            | Valor sugerido   |
     |----------------------|-------------------|
@@ -79,7 +79,7 @@ Se já tem um VM que pretende juntar-se ao domínio, salte para a secção para 
     Sob **portas públicas de entrada,** selecione *Nenhum*.
 
 1. Quando terminar, selecione **Seguinte: Discos**.
-1. A partir do menu suspenso para o **tipo de disco OS,** escolha *Standard SSD*e, em seguida, selecione **Seguinte: Networking**.
+1. A partir do menu suspenso para o **tipo de disco OS,** escolha *Standard SSD* e, em seguida, selecione **Seguinte: Networking**.
 1. O seu VM deve ligar-se a uma sub-rede virtual Azure que possa comunicar com a sub-rede onde o seu domínio gerido é implantado. Recomendamos que um domínio gerido seja implantado na sua própria sub-rede dedicada. Não coloque o seu VM na mesma sub-rede que o seu domínio gerido.
 
     Existem duas formas principais de implantar o seu VM e ligar-se a uma sub-rede de rede virtual apropriada:
@@ -102,7 +102,7 @@ Se já tem um VM que pretende juntar-se ao domínio, salte para a secção para 
 
     ![Adicione uma gama adicional de endereços IP de rede virtual no portal Azure](./media/join-windows-vm/add-vnet-address-range.png)
 
-1. Em seguida, no menu à esquerda da janela de rede virtual, selecione **Subnetas**e, em seguida, escolha **+ Subnet** para adicionar uma sub-rede.
+1. Em seguida, no menu à esquerda da janela de rede virtual, selecione **Subnetas** e, em seguida, escolha **+ Subnet** para adicionar uma sub-rede.
 
 1. Selecione **+ Sub-rede,** em seguida, insira um nome para a sub-rede, como *a gestão*. Fornecer uma **gama de endereços (bloco CIDR)**, como *10.0.5.0/24*. Certifique-se de que este intervalo de endereços IP não se sobrepõe a quaisquer outros intervalos de endereços Azure ou no local. Deixe as outras opções como valores predefinidos e, em seguida, selecione **OK**.
 
@@ -112,7 +112,7 @@ Se já tem um VM que pretende juntar-se ao domínio, salte para a secção para 
 1. De volta ao painel **de networking** para criar um VM, escolha a sub-rede que criou a partir do menu suspenso, como *a gestão*. Mais uma vez, certifique-se de que escolhe a sub-rede correta e não implanta o seu VM na mesma sub-rede que o seu domínio gerido.
 1. Para **IP público**, selecione *Nenhum* do menu suspenso. Ao utilizar o Azure Bastion neste tutorial para se ligar à gestão, não precisa de um endereço IP público atribuído ao VM.
 1. Deixe as outras opções como valores predefinidos e, em seguida, **selecione Gestão**.
-1. Desema **esta semana, desemarr os diagnósticos** *da*Bota . Deixe as outras opções como valores predefinidos e, em seguida, selecione **Review + create**.
+1. Desema **esta semana, desemarr os diagnósticos** *da* Bota . Deixe as outras opções como valores predefinidos e, em seguida, selecione **Review + create**.
 1. Reveja as definições de VM e, em seguida, **selecione Criar**.
 
 Leva alguns minutos para criar o VM. O portal Azure mostra o estado da implantação. Assim que o VM estiver pronto, selecione **Ir para o recurso**.
@@ -184,7 +184,7 @@ No próximo tutorial, utiliza este VM do Windows Server para instalar as ferrame
 
 ### <a name="unjoin-the-vm-from-the-managed-domain"></a>Unjoin the VM from the managed domain
 
-Para remover o VM do domínio gerido, siga novamente os passos para [juntar o VM a um domínio](#join-the-vm-to-the-managed-domain). Em vez de aderir ao domínio gerido, opte por se juntar a um grupo de trabalho, como o *GRUPO DE TRABALHO*predefinido . Depois de o VM ter sido reiniciado, o objeto do computador é removido do domínio gerido.
+Para remover o VM do domínio gerido, siga novamente os passos para [juntar o VM a um domínio](#join-the-vm-to-the-managed-domain). Em vez de aderir ao domínio gerido, opte por se juntar a um grupo de trabalho, como o *GRUPO DE TRABALHO* predefinido . Depois de o VM ter sido reiniciado, o objeto do computador é removido do domínio gerido.
 
 Se [eliminar o VM](#delete-the-vm) sem se juntar ao domínio, um objeto de computador órfão é deixado em Azure AD DS.
 
@@ -246,5 +246,5 @@ Para administrar o seu domínio gerido, configuure um VM de gestão utilizando o
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [password-sync]: ./tutorial-create-instance.md
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

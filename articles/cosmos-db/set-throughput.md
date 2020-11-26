@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: a02fa7d9f656ed3b6e61aab1f42e2a3ffca131a7
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 4fea027663b55e87822eae1fd0cdb2d67dbc630b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917261"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170833"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -137,7 +137,7 @@ Pode utilizar [as métricas do Azure Monitor](monitor-cosmos-db.md#view-operatio
 
 Tal como descrito na secção [de produção](#current-provisioned-throughput) atual acima, o rendimento mínimo que pode prever num contentor ou base de dados depende de uma série de fatores. Um deles é a quantidade de dados atualmente armazenados, uma vez que a Azure Cosmos DB impõe um rendimento mínimo de 10 RU/s por GB de armazenamento.
 
-Isto pode ser uma preocupação em situações em que você precisa armazenar grandes quantidades de dados, mas tem baixos requisitos de produção em comparação. Para melhor acomodar estes cenários, a Azure Cosmos DB introduziu um **programa de "alto armazenamento/baixo rendimento"** que diminui a restrição RU/s por GB de 10 para 1 em contas elegíveis.
+Isto pode ser uma preocupação em situações em que você precisa armazenar grandes quantidades de dados, mas tem baixos requisitos de produção em comparação. Para melhor acomodar estes cenários, a Azure Cosmos DB introduziu um **programa de "alto armazenamento/baixo rendimento"** que diminui a restrição RU/s por GB em contas elegíveis.
 
 Atualmente precisa de ter pelo menos 1 contentor ou base de dados de produção partilhada contendo mais de 1 TB de dados na sua conta para ser elegível. Para aderir a este programa e avaliar a sua plena elegibilidade, tudo o que tem de fazer é preencher [esta pesquisa.](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u) A equipa DB da Azure Cosmos irá então acompanhar e proceder com o seu embarque.
 

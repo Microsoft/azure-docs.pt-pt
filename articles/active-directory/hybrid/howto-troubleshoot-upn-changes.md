@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46ecc2cba96b07d9105020e69ae3198a3765be7c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319848"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172236"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Plano e resolução de problemas Alterações do Nome Principal do Utilizador no Diretório Ativo do Azure
 
@@ -174,7 +174,7 @@ A [aplicação Microsoft Authenticator](../user-help/user-help-auth-app-overview
 
 * Autenticação de vários fatores através de um código de notificação ou verificação de push
 
-* Atuar como corretor de autenticação em dispositivos iOS e Android para fornecer um único sinal para aplicações que usam [a autenticação intermediada](../develop/brokered-auth.md)
+* Atuar como corretor de autenticação em dispositivos iOS e Android para fornecer um único sinal para aplicações que usam [a autenticação intermediada](../develop/msal-android-single-sign-on.md)
 
 * Registo do dispositivo (também conhecido como Workplace Join) para Azure AD, que é um requisito para outras funcionalidades como Intune App Protection e Device Innd/Management,
 

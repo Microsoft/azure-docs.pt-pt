@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f92b95e38dea6555ca881d56ccf1cf2d68783e53
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 2825d3776f7b45f6726aaec05484900511ed1477
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896094"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172980"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Ative Directory B2B colaboração FAQs
 
@@ -30,7 +30,7 @@ Estas perguntas frequentes (FAQs) sobre a colaboração business-to-business (Az
 Sem dúvida! Consulte a nossa [publicação de blog sobre esta funcionalidade.](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/) Para obter mais informações sobre como personalizar a página de insusição da sua organização, consulte [a marca Add company para iniciar sing e as páginas do Painel de Acesso.](../fundamentals/customize-branding.md)
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Os utilizadores de colaboração B2B podem aceder ao SharePoint Online e ao OneDrive?
-Sim. No entanto, a capacidade de procurar utilizadores convidados existentes no SharePoint Online utilizando o picker de pessoas está **desligada** por padrão. Para ligar a opção de pesquisa de utilizadores convidados existentes, desempeciumos **o ShowPeoplePickerSuggestionsForGuestUsers** para **On** . Você pode ligar esta definição ao nível do inquilino ou ao nível de recolha do site. Pode alterar esta definição utilizando os Set-SPOTenant e Set-SPOSite cmdlets. Com estes cmdlets, os membros podem pesquisar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do inquilino não afetam os sites SharePoint Online que já foram a provisionados.
+Sim. No entanto, a capacidade de procurar utilizadores convidados existentes no SharePoint Online utilizando o picker de pessoas está **desligada** por padrão. Para ligar a opção de pesquisa de utilizadores convidados existentes, desempeciumos **o ShowPeoplePickerSuggestionsForGuestUsers** para **On**. Você pode ligar esta definição ao nível do inquilino ou ao nível de recolha do site. Pode alterar esta definição utilizando os Set-SPOTenant e Set-SPOSite cmdlets. Com estes cmdlets, os membros podem pesquisar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do inquilino não afetam os sites SharePoint Online que já foram a provisionados.
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>A funcionalidade de upload do CSV ainda está suportada?
 Sim. Para obter mais informações sobre a utilização da função de upload de ficheiros .csv, consulte [esta amostra PowerShell](code-samples.md).
@@ -64,16 +64,16 @@ A menos que um utilizador seja atribuído ao papel de administrador limitado, os
 Sim! Pode criar uma política de Acesso Condicional que impede todos os utilizadores convidados e externos de acederem ao portal Azure. Ao configurar esta política, tenha cuidado para evitar bloquear acidentalmente o acesso aos membros e administradores.
 
 1. Inscreva-se no seu [portal Azure](https://portal.azure.com/) como administrador de segurança ou administrador de acesso condicional.
-2. No portal Azure, selecione **Azure Ative Directory** . 
-3. Em **Gestão** , **selecione Security** .
-4. Em **Protect** , selecione **Acesso Condicional** . Selecione **Nova política** .
+2. No portal do Azure, selecione **Azure Active Directory**. 
+3. Em **Gestão**, **selecione Security**.
+4. Em **Protect**, selecione **Acesso Condicional**. Selecione **Nova política**.
 5. Na página **Nova,** na caixa de texto **Name,** insira um nome para a política (por exemplo, "Bloquear os hóspedes de acederem ao portal").
-6. Em **Atribuições** , selecione **Utilizadores e grupos** .
-7. No **separador Incluir,** escolha **utilizadores e grupos selete** e, em seguida, selecione **Todos os utilizadores convidados e externos (Preview)** .
-9. Selecione **Concluído** .
-10. Na página **Nova,** na secção **Atribuições,** selecione **aplicações cloud ou ações** .
-11. Na página de **aplicações ou ações** cloud, escolha **selecione apps** e, em seguida, escolha **Selecione** .
-12. Na página **Selecionar** , selecione **Microsoft Azure Management** e, em seguida, selecione **Selecionar** .
+6. Em **Atribuições**, selecione **Utilizadores e grupos**.
+7. No **separador Incluir,** escolha **utilizadores e grupos selete** e, em seguida, selecione **Todos os utilizadores convidados e externos (Preview)**.
+9. Selecione **Concluído**.
+10. Na página **Nova,** na secção **Atribuições,** selecione **aplicações cloud ou ações**.
+11. Na página de **aplicações ou ações** cloud, escolha **selecione apps** e, em seguida, escolha **Selecione**.
+12. Na página **Selecionar**, selecione **Microsoft Azure Management** e, em seguida, selecione **Selecionar**.
 13. Na página de **aplicações ou ações** cloud, selecione **'Feito'.**
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>A colaboração Azure AD B2B suporta a autenticação de vários fatores e as contas de e-mail do consumidor?
@@ -84,7 +84,7 @@ Se o seu inquilino Azure AD for o diretório de casa de um utilizador, pode [red
  
 * Os utilizadores convidados que iniciarem sômposições com uma conta Microsoft (por guestuser@live.com exemplo) podem redefinir as suas próprias palavras-passe utilizando o reset da palavra-passe de autosserviço da conta Microsoft (SSPR). Veja [como redefinir a sua palavra-passe da conta Microsoft.](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password)
 * Os utilizadores convidados que iniciarem sômposições com uma conta Google ou outro fornecedor de identidade externo podem redefinir as suas próprias palavras-passe utilizando o método SSPR do seu fornecedor de identidade. Por exemplo, um utilizador convidado com a conta Google pode redefinir a guestuser@gmail.com sua palavra-passe seguindo as instruções no [Alterar ou redefinir a sua palavra-passe.](https://support.google.com/accounts/answer/41078)
-* Se o inquilino de identidade for um inquilino just-in-time (JIT) ou "viral" (o que significa que é um inquilino Azure separado e não gerido), apenas o utilizador convidado pode redefinir a sua senha. Por vezes, uma organização [assume a gestão de inquilinos virais](../users-groups-roles/domains-admin-takeover.md) que são criados quando os funcionários usam os seus endereços de e-mail de trabalho para se inscreverem para serviços. Após a organização assumir um inquilino viral, apenas um administrador nessa organização pode redefinir a palavra-passe do utilizador ou ativar o SSPR. Se necessário, como organização convidativa, pode remover a conta de utilizador do seu diretório e reensuitar um convite.
+* Se o inquilino de identidade for um inquilino just-in-time (JIT) ou "viral" (o que significa que é um inquilino Azure separado e não gerido), apenas o utilizador convidado pode redefinir a sua senha. Por vezes, uma organização [assume a gestão de inquilinos virais](../enterprise-users/domains-admin-takeover.md) que são criados quando os funcionários usam os seus endereços de e-mail de trabalho para se inscreverem para serviços. Após a organização assumir um inquilino viral, apenas um administrador nessa organização pode redefinir a palavra-passe do utilizador ou ativar o SSPR. Se necessário, como organização convidativa, pode remover a conta de utilizador do seu diretório e reensuitar um convite.
 
 * Se o diretório de casa do utilizador convidado for o seu inquilino Azure AD, pode redefinir a senha do utilizador. Por exemplo, pode ter criado um utilizador ou sincronizado um utilizador a partir do seu Ative Directory no local e definir o Seu UserType para o Guest. Como este utilizador está aaprotendo o seu diretório, pode redefinir a sua palavra-passe a partir do portal Azure.
 

@@ -8,11 +8,11 @@ ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalização, personalizador Azure, machine learning
 ms.openlocfilehash: f843e7bfa014ad8391e20efff83a3c21a9de11b9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363906"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171964"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -29,7 +29,7 @@ Antes de começar, sinta-se à vontade para experimentar [personalizer com esta 
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>Como é que o Personalizer seleciona o melhor item de conteúdo?
 
-O personalização usa a **aprendizagem** de reforço para selecionar o melhor item _(ação_ ) com base no comportamento coletivo e pontuações de recompensa em todos os utilizadores. As ações são os itens de conteúdo, tais como artigos noticiosos, filmes específicos ou produtos.
+O personalização usa a **aprendizagem** de reforço para selecionar o melhor item _(ação_) com base no comportamento coletivo e pontuações de recompensa em todos os utilizadores. As ações são os itens de conteúdo, tais como artigos noticiosos, filmes específicos ou produtos.
 
 A chamada **Rank** leva o item de ação, juntamente com as características da ação, e as funcionalidades de contexto para selecionar o item de ação de topo:
 

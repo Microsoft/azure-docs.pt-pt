@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c340f973193f9c46735423c86112816003fecfcd
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 748f91b2fe77667969e9736f8084a9dd24018425
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578914"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172474"
 ---
 # <a name="directory-synchronization"></a>Sincronização de diretórios
 
@@ -42,20 +42,20 @@ Precisa de sincronizar os dados de identidade dos ambientes do Ative Directory p
 
 * **Utilizador:** Acede a uma aplicação utilizando a Azure AD.
 
-* **Web browser** : O componente com o que o utilizador interage para aceder ao URL externo da aplicação.
+* **Web browser**: O componente com o que o utilizador interage para aceder ao URL externo da aplicação.
 
-* **Aplicação** : Aplicação Web que se baseia na utilização do Azure AD para efeitos de autenticação e autorização.
+* **Aplicação**: Aplicação Web que se baseia na utilização do Azure AD para efeitos de autenticação e autorização.
 
-* **Azure AD** : Sincroniza a informação de identidade do diretório da organização através do Azure AD Connect. 
+* **Azure AD**: Sincroniza a informação de identidade do diretório da organização através do Azure AD Connect. 
 
-* **Azure AD Connect** : Uma ferramenta para ligar em infraestruturas de identidade do Microsoft Azure. O assistente e as experiências guiadas ajudam-no a implementar e a configurar os pré-requisitos e componentes necessários para a ligação, incluindo sincronização e inscrição de Ative Directies para Azure AD. 
+* **Azure AD Connect**: Uma ferramenta para ligar em infraestruturas de identidade do Microsoft Azure. O assistente e as experiências guiadas ajudam-no a implementar e a configurar os pré-requisitos e componentes necessários para a ligação, incluindo sincronização e inscrição de Ative Directies para Azure AD. 
 
-* **Ative Directory** : Ative Directory é um serviço de diretório incluído na maioria dos sistemas operativos Windows Server. Os servidores que executam serviços de domínio de diretório ativo (DS AD) são chamados controladores de domínio. Autenticam e autorizam todos os utilizadores e computadores do domínio.
+* **Ative Directory**: Ative Directory é um serviço de diretório incluído na maioria dos sistemas operativos Windows Server. Os servidores que executam serviços de domínio de diretório ativo (DS AD) são chamados controladores de domínio. Autenticam e autorizam todos os utilizadores e computadores do domínio.
 
 ## <a name="implement-directory-synchronization-with-azure-ad"></a>Implementar sincronização de diretórios com Azure AD
 
-* [O que é o aprovisionamento de identidades?](https://docs.microsoft.com/azure/active-directory/cloud-provisioning/what-is-provisioning) 
+* [O que é o aprovisionamento de identidades?](../cloud-provisioning/what-is-provisioning.md) 
 
-* [Ferramentas híbridas de integração de diretórios de identidade](https://docs.microsoft.com/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison) 
+* [Ferramentas híbridas de integração de diretórios de identidade](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 
-* [Roteiro de instalação Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap)
+* [Roteiro de instalação Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md)

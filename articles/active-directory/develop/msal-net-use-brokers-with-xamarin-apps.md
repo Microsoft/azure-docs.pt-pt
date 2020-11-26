@@ -13,11 +13,11 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 7fa13a328a55b0e9eaa546e70bf0711f4f011cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89068543"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173435"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utilize o Microsoft Authenticator ou o Portal da Empresa Intune em aplicações Xamarin
 
@@ -355,7 +355,7 @@ Aqui ficam algumas dicas para evitar problemas quando implementa a autenticaçã
   - Ver registos do Portal da Empresa Intune:
 
     1. Selecione o botão do menu no canto superior esquerdo da aplicação
-    1. Selecione **dados de**diagnóstico de  >  **definições**
+    1. Selecione **dados de** diagnóstico de  >  **definições**
     1. Selecione **Copy Logs** para copiar os registos do corretor no cartão SD do dispositivo.
     1. Ligue o dispositivo a um computador utilizando um cabo USB para visualizar os registos da sua máquina de desenvolvimento.
 

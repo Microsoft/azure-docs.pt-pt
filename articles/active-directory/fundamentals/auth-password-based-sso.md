@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74815976036abafc56f97e622351a1018fe30504
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 5bd6a5c8af117bf6cb39969a5f1b1f17ff08681c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576937"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172827"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Autenticação baseada em palavra-passe com Diretório Ativo Azure
 
@@ -37,18 +37,17 @@ Você precisa proteger com pré-autenticação e fornecer SSO através de abobad
 
 * **Utilizador:** Acessos formaram uma aplicação baseada nas minhas apps ou visitando diretamente o site. 
 
-* **Web browser** : O componente com o que o utilizador interage para aceder ao URL externo da aplicação. O utilizador acede à aplicação baseada em formulários através da extensão MyApps. 
+* **Web browser**: O componente com o que o utilizador interage para aceder ao URL externo da aplicação. O utilizador acede à aplicação baseada em formulários através da extensão MyApps. 
 
-* **Extensão MyApps** : Identifica a aplicação SSO configurada baseada em palavra-passe e fornece as credenciais ao sinal em forma. A extensão MyApps está instalada no navegador web. 
+* **Extensão MyApps**: Identifica a aplicação SSO configurada baseada em palavra-passe e fornece as credenciais ao sinal em forma. A extensão MyApps está instalada no navegador web. 
 
-* **Azure AD** : Autentica o utilizador.
+* **Azure AD**: Autentica o utilizador.
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>Implementar SSO baseado em palavra-passe com Azure AD
 
-* [O que é SSO baseado em palavra-passe](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) 
+* [O que é SSO baseado em palavra-passe](../manage-apps/what-is-single-sign-on.md) 
 
-* [Configurar sSO baseado em palavra-passe para aplicações em nuvem ](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications)
+* [Configurar sSO baseado em palavra-passe para aplicações em nuvem ](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-* [Configure SSO baseado em palavra-passe para aplicações no local com Proxy de aplicação](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting)
+* [Configure SSO baseado em palavra-passe para aplicações no local com Proxy de aplicação](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 
- 

@@ -40,6 +40,10 @@
       href: threat-intelligence-settings.md
     - name: FQDN nas regras de rede
       href: fqdn-filtering-network-rules.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Guias de procedimentos
   items:
     - name: Implementar fornecedores de parceiros de segurança

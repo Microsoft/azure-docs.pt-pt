@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dd6e760fe8052463491f249b54c3af3d2636d46d
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376889"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170927"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Tutorial para configurar a ferramenta de administração DoAccessHub com diretório ativo Azure B2C
 
@@ -38,13 +38,13 @@ Para começar, vai precisar de:
 
 - Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
 
-- Um [inquilino Azure AD B2C.](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) O inquilino deve estar ligado à sua assinatura Azure.
+- Um [inquilino Azure AD B2C.](./tutorial-create-tenant.md) O inquilino deve estar ligado à sua assinatura Azure.
 
 - Um ambiente de ferramentas admin Do TheAccessHub: Contacte [a Identidade N8](https://n8id.com/contact/) para providenciar um novo ambiente.
 
 - [Opcional] Informações de ligação e credenciais para quaisquer bases de dados ou Protocolos de Acesso ao Diretório Leve (LDAPs) de que pretende migrar os dados dos clientes.
 
-- [Opcional] Ambiente Azure AD B2C configurado para a utilização de [políticas personalizadas,](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started)se pretender integrar a Ferramenta de Administração DoAccessHub no seu fluxo de política de inscrição.
+- [Opcional] Ambiente Azure AD B2C configurado para a utilização de [políticas personalizadas,](./custom-policy-get-started.md)se pretender integrar a Ferramenta de Administração DoAccessHub no seu fluxo de política de inscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -52,7 +52,7 @@ A Ferramenta Admin TheAccessHub funciona como qualquer outra aplicação em Azur
 
 ![Imagem mostrando diagrama de arquitetura n8identity](./media/partner-n8identity/n8identity-architecture-diagram.png)
 
-|Passo | Descrição |
+|Passo | Description |
 |:-----| :-----------|
 | 1. | O utilizador chega a uma página de login. Os utilizadores selecionam o sesurá-se para criar uma nova conta e introduzir informações na página. Azure AD B2C recolhe os atributos do utilizador.
 | 2. | Azure AD B2C chama a Ferramenta de Administração TheAccessHub e passa nos atributos do utilizador
@@ -162,9 +162,9 @@ As permissões para gerir utilizadores de clientes e CSR/Helpdesk na Ferramenta 
 
 3. Selecione > **Adicionar Grupo**
 
-4. Introduza um **nome de grupo** , **descrição do grupo** e dono do **grupo**
+4. Introduza um **nome de grupo**, **descrição do grupo** e dono do **grupo**
 
-5. Procure e verifique as caixas nos colegas que pretende ser membros do grupo e, em seguida, selecione > **Adicionar**
+5. Procure e verifique as caixas nos colegas que pretende ser membros do grupo e, em seguida, selecione >**Adicionar**
 
 6. Na parte inferior da página, pode ver todos os membros do grupo.
 
@@ -222,7 +222,7 @@ Para personalizar a notificação:
 
 ## <a name="migrate-data-from-external-data-sources-to-azure-ad-b2c"></a>Migrar dados de fontes de dados externas para Azure AD B2C
 
-Utilizando a Ferramenta Admin TheAccessHub, pode importar dados de várias bases de dados, ficheiros LDAPs e CSV e, em seguida, empurrar esses dados para o seu inquilino Azure AD B2C. É feito carregando dados para o tipo de colega de utilizador Azure AD B2C dentro da Ferramenta Admin TheAccessHub.  Se a fonte de dados não for a própria Azure, os dados serão colocados tanto na Ferramenta Admin TheAccessHub como no Azure AD B2C. Se a origem dos seus dados externos não for um simples ficheiro .csv na sua máquina, crie uma fonte de dados antes de escovou a carga de dados. Os passos abaixo descrevem a criação de uma fonte de dados e a carga de dados.
+Utilizando a Ferramenta Admin TheAccessHub, pode importar dados de várias bases de dados, ficheiros LDAPs e CSV e, em seguida, empurrar esses dados para o seu inquilino Azure AD B2C. É feito carregando dados para o tipo de colega de utilizador Azure AD B2C dentro da Ferramenta Admin TheAccessHub.  Se a fonte de dados não for a própria Azure, os dados serão colocados tanto na Ferramenta Admin TheAccessHub como no Azure AD B2C. Se a origem dos seus dados externos não for um simples ficheiro .csv na sua máquina, crie uma fonte de dados antes de escoda a carga de dados. Os passos abaixo descrevem a criação de uma fonte de dados e a carga de dados.
 
 ### <a name="configure-a-new-data-source"></a>Configurar uma nova fonte de dados
 
@@ -296,7 +296,7 @@ Utilizando a Ferramenta Admin TheAccessHub, pode importar dados de várias bases
 
 4. Selecione o Utilizador Azure AD B2C **do Tipo Colega**
 
-5. Selecione **Source** , no diálogo pop-up, selecione a sua fonte de dados. Se criou uma fonte de dados OneDrive, selecione também o ficheiro.
+5. Selecione **Source**, no diálogo pop-up, selecione a sua fonte de dados. Se criou uma fonte de dados OneDrive, selecione também o ficheiro.
 
 6. Se não quiser criar novas contas de clientes com esta carga, então altere a primeira política: **SE colega não encontrado no TheAccessHub THEN** to Do **Nothing**
 
@@ -358,7 +358,7 @@ Para sincronizar os dados do Azure AD B2C na ferramenta Admin TheAccessHub:
 
 ## <a name="configure-azure-ad-b2c-policies"></a>Configure Azure AD B2C políticas
 
-Ocasionalmente, sincronizar a Ferramenta Admin DoAccessHub é limitada na sua capacidade de manter o seu estado atualizado com a Azure AD B2C. Podemos aproveitar as políticas de API e AZure AD B2C da AD AD AD para informar a Ferramenta de Administração DoAccessHub à medida que acontecem. Esta solução requer conhecimento técnico das [políticas personalizadas Azure AD B2C.](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20) Na secção seguinte, daremos um exemplo de passos de política e um certificado seguro para notificar a Ferramenta de Administração TheAccessHub de novas contas nas suas políticas personalizadas Sign-Up.
+Ocasionalmente, sincronizar a Ferramenta Admin DoAccessHub é limitada na sua capacidade de manter o seu estado atualizado com a Azure AD B2C. Podemos aproveitar as políticas de API e AZure AD B2C da AD AD AD para informar a Ferramenta de Administração DoAccessHub à medida que acontecem. Esta solução requer conhecimento técnico das [políticas personalizadas Azure AD B2C.](./custom-policy-get-started.md) Na secção seguinte, daremos um exemplo de passos de política e um certificado seguro para notificar a Ferramenta de Administração TheAccessHub de novas contas nas suas políticas personalizadas Sign-Up.
 
 ### <a name="create-a-secure-credential-to-invoke-theaccesshub-admin-tools-api"></a>Crie uma credencial segura para invocar a API da API da ADmin Tool do TheAccessHub
 
@@ -372,7 +372,7 @@ Ocasionalmente, sincronizar a Ferramenta Admin DoAccessHub é limitada na sua ca
 
 5. Selecione **Download** para obter o certificado de cliente.
 
-6. Siga este [tutorial](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#https-client-certificate-authentication ) para adicionar o certificado de cliente no Azure AD B2C.
+6. Siga este [tutorial](./secure-rest-api.md#https-client-certificate-authentication ) para adicionar o certificado de cliente no Azure AD B2C.
 
 ### <a name="retrieve-your-custom-policy-examples"></a>Recupere os seus exemplos de política personalizada
 
@@ -386,12 +386,12 @@ Ocasionalmente, sincronizar a Ferramenta Admin DoAccessHub é limitada na sua ca
 
 5. Selecione **Download** para obter um ficheiro zip com políticas básicas que adicionam clientes à Ferramenta Admin TheAccessHub à medida que os clientes se inscrevem.
 
-6. Siga este [tutorial](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) para começar com a conceção de políticas personalizadas em Azure AD B2C.
+6. Siga este [tutorial](./custom-policy-get-started.md) para começar com a conceção de políticas personalizadas em Azure AD B2C.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações adicionais, reveja os seguintes artigos:
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Começar com políticas personalizadas em Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Começar com políticas personalizadas em Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

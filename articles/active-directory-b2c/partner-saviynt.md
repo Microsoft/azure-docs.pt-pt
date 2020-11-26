@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 184616058cb2a86025eb75b4923e374ab42ebf05
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 99741a412ae02a2d30293e1aa254245f5ca7b662
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953564"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96171437"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Tutorial para configurar Saviynt com Azure Ative Directory B2C
 
@@ -54,7 +54,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![Imagem mostrando diagrama de arquitetura saviynt](./media/partner-saviynt/saviynt-architecture-diagram.png)
 
-|Passo | Descrição |
+|Passo | Description |
 |:-----| :-----------|
 | 1. | Um administrador delegado inicia uma operação de utilizador Azure AD B2C através da Saviynt.
 | 2. | A Saviynt verifica com o seu motor de autorização se o administrador delegado pode fazer a operação específica.
@@ -69,7 +69,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 1. Para criar uma conta Saviynt, contacte [a Saviynt](https://saviynt.com/contact-us/)
 
-2. Crie políticas de administração delegadas e atribua os utilizadores como [administradores delegados](../active-directory/users-groups-roles/roles-concept-delegation.md) com várias funções.
+2. Crie políticas de administração delegadas e atribua os utilizadores como [administradores delegados](../active-directory/roles/concept-delegation.md) com várias funções.
 
 ## <a name="configure-azure-ad-b2c-with-saviynt"></a>Configure Azure AD B2C com Saviynt
 

@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eccc0e71c73fb8bd2a5a50ebd0dda048d34dbea0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 032b1ca945cf729f8a6682cf71d26a716b1e8863
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488405"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172352"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para a Azure Ative Directory (Azure AD) Connect.
@@ -43,7 +43,7 @@ Antes de instalar o Azure AD Connect, há algumas coisas que precisa.
 ### <a name="on-premises-active-directory"></a>Active Directory no local
 * A versão de esquema de Ative Directory e o nível funcional da floresta devem ser o Windows Server 2003 ou mais tarde. Os controladores de domínio podem executar qualquer versão desde que a versão do esquema e os requisitos de nível florestal estejam cumpridos.
 * Se pretender utilizar a gravação da *palavra-passe* de recurso, os controladores de domínio devem estar no Windows Server 2012 ou posteriormente.
-* O controlador de domínio utilizado pela Azure AD deve ser writable. A utilização de um controlador de domínio apenas de leitura (RODC) *não é suportada* , e o Azure AD Connect não segue quaisquer redirecionamentos de escrita.
+* O controlador de domínio utilizado pela Azure AD deve ser writable. A utilização de um controlador de domínio apenas de leitura (RODC) *não é suportada*, e o Azure AD Connect não segue quaisquer redirecionamentos de escrita.
 * Utilizando florestas ou domínios no local utilizando "pontilhados" (o nome contém um período ".") Os nomes da NetBIOS *não são suportados.*
 * Recomendamos que [ative o caixote de reciclagem ative directory](how-to-connect-sync-recycle-bin.md).
 
@@ -52,7 +52,7 @@ O Azure Ative Directory Connect executa scripts PowerShell assinados como parte 
 
 A política de execução recomendada durante a instalação é "RemoteSigned".
 
-Para obter mais informações sobre a definição da política de execução powerShell, consulte [A Política de Execução de Conjuntos](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+Para obter mais informações sobre a definição da política de execução powerShell, consulte [A Política de Execução de Conjuntos](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
 
 
 ### <a name="azure-ad-connect-server"></a>Servidor Azure Ad Connect
@@ -82,7 +82,7 @@ Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfíc
 - Crie uma [conta dedicada para todo o pessoal com acesso privilegiado.](/windows-server/identity/securing-privileged-access/securing-privileged-access) Os administradores não devem estar a navegar na web, a verificar o seu email e a fazer tarefas de produtividade diárias com contas altamente privilegiadas.
 - Siga as orientações fornecidas na [Garantia de acesso privilegiado.](/windows-server/identity/securing-privileged-access/securing-privileged-access) 
 - Negar a utilização da autenticação NTLM com o servidor AADConnect. Eis algumas formas de o fazer: [Restringir o NTLM no Servidor AADConnect](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) e [restringir a NTLM num domínio](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
-- Certifique-se de que cada máquina tem uma senha de administrador local única. Para obter mais informações, consulte [a Solução de Senha do Administrador Local (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) pode configurar senhas aleatórias únicas em cada estação de trabalho e servidor armazená-las em Ative Directory protegida por um ACL. Apenas os utilizadores autorizados elegíveis podem ler ou solicitar o reset destas senhas de conta de administrador local. Pode obter o LAPS para utilização em estações de trabalho e servidores a partir do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Orientações adicionais para operar um ambiente com LAPS e postos de trabalho privilegiados de acesso (PAWs) podem ser encontrados em [normas operacionais baseadas no princípio da fonte limpa.](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle) 
+- Certifique-se de que cada máquina tem uma senha de administrador local única. Para obter mais informações, consulte [a Solução de Senha do Administrador Local (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) pode configurar senhas aleatórias únicas em cada estação de trabalho e servidor armazená-las em Ative Directory protegida por um ACL. Apenas os utilizadores autorizados elegíveis podem ler ou solicitar o reset destas senhas de conta de administrador local. Pode obter o LAPS para utilização em estações de trabalho e servidores a partir do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899). Orientações adicionais para operar um ambiente com LAPS e postos de trabalho privilegiados de acesso (PAWs) podem ser encontrados em [normas operacionais baseadas no princípio da fonte limpa.](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle) 
 - Implementar estações de [trabalho privilegiadas dedicadas](/windows-server/identity/securing-privileged-access/privileged-access-workstations) para todos os funcionários com acesso privilegiado aos sistemas de informação da sua organização. 
 - Siga estas [diretrizes adicionais](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) para reduzir a superfície de ataque do seu ambiente ative Directory.
 

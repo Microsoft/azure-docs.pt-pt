@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57466cccb71444d5711a9221c324a107757c5e82
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 4baaf2de6fbe4a56f64d449644b8594217dc432c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576800"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172742"
 ---
 # <a name="remote-desktop-gateway-services"></a>Serviços remotos de gateway de desktop
 
-Uma implementação padrão de Serviços de Ambiente de Trabalho Remoto (RDS) inclui vários [serviços de função de ambiente de trabalho remoto](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) em execução no Windows Server. A implementação rds com Azure Ative Directory (Azure AD) Application Proxy tem uma ligação de saída permanente a partir do servidor que executa o serviço de conector. Outras implementações deixam as ligações de entrada abertas através de um equilibrador de carga. Este padrão de autenticação permite-lhe oferecer mais tipos de aplicações publicando aplicações no local através de Serviços de Desktop Remoto. Também reduz a superfície de ataque da sua implantação utilizando o Proxy da Aplicação AD Azure.
+Uma implementação padrão de Serviços de Ambiente de Trabalho Remoto (RDS) inclui vários [serviços de função de ambiente de trabalho remoto](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) em execução no Windows Server. A implementação rds com Azure Ative Directory (Azure AD) Application Proxy tem uma ligação de saída permanente a partir do servidor que executa o serviço de conector. Outras implementações deixam as ligações de entrada abertas através de um equilibrador de carga. Este padrão de autenticação permite-lhe oferecer mais tipos de aplicações publicando aplicações no local através de Serviços de Desktop Remoto. Também reduz a superfície de ataque da sua implantação utilizando o Proxy da Aplicação AD Azure.
 
 ## <a name="use-when"></a>Utilizar quando
 
@@ -34,18 +34,17 @@ Tem de fornecer acesso remoto e proteger a sua implementação de Serviços de A
 
 * **Utilizador:** Acede RDS servido por Application Proxy.
 
-* **Web browser** : O componente com o que o utilizador interage para aceder ao URL externo da aplicação.
+* **Web browser**: O componente com o que o utilizador interage para aceder ao URL externo da aplicação.
 
-* **Azure AD** : Autentica o utilizador. 
+* **Azure AD**: Autentica o utilizador. 
 
-* **Serviço de procuração de aplicação** : Atua como procuração inversa para encaminhar o pedido do utilizador para RDS. O Application Proxy também pode impor quaisquer políticas de Acesso Condicional. 
+* **Serviço de procuração de aplicação**: Atua como procuração inversa para encaminhar o pedido do utilizador para RDS. O Application Proxy também pode impor quaisquer políticas de Acesso Condicional. 
 
-* **Serviços remotos de desktop** : Funciona como uma plataforma para aplicações virtualizadas individuais, fornecendo acesso seguro ao ambiente de trabalho móvel e remoto, e proporcionando aos utilizadores finais a capacidade de executar as suas aplicações e desktops a partir da nuvem. 
+* **Serviços remotos de desktop**: Funciona como uma plataforma para aplicações virtualizadas individuais, fornecendo acesso seguro ao ambiente de trabalho móvel e remoto, e proporcionando aos utilizadores finais a capacidade de executar as suas aplicações e desktops a partir da nuvem. 
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Implementar serviços remote desktop gateway com Azure AD
 
-* [Publique desktop remoto com Proxy de aplicação AD Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-integrate-with-remote-desktop-services) 
+* [Publique desktop remoto com Proxy de aplicação AD Azure](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md) 
 
-* [Adicione uma aplicação no local para acesso remoto através de Aplicação Proxy em Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+* [Adicione uma aplicação no local para acesso remoto através de Aplicação Proxy em Azure AD](../manage-apps/application-proxy-add-on-premises-application.md)
 
- 

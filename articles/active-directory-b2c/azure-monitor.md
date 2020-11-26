@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95992844"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96170621"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitor Azure AD B2C com Monitor Azure
 
@@ -100,7 +100,7 @@ Em seguida, irá criar um modelo de Gestor de Recursos Azure que concede acesso 
    | Campo   | Definição |
    |---------|------------|
    | Subscrição |  Selecione o diretório que contém a subscrição Azure onde foi criado o grupo de recursos *ad-b2c-monitor.* |
-   | Region| Selecione a região onde o recurso será implantado.  | 
+   | Região| Selecione a região onde o recurso será implantado.  | 
    | Nome da oferta de msp| Um nome descrevendo esta definição. Por exemplo, *Monitorização Azure AD B2C*.  |
    | Descrição da oferta de msp| Uma breve descrição da sua oferta. Por exemplo, *Ativa o Monitor Azure em Azure AD B2C*.|
    | Gerido por Id inquilino| O **ID** do Inquilino do seu inquilino Azure AD B2C (também conhecido como iD do diretório). |
@@ -140,9 +140,9 @@ Depois de ter implantado o modelo e de ter esperado alguns minutos para que a pr
 
 As definições de diagnóstico definem onde devem ser enviados registos e métricas de um recurso. Os destinos possíveis são:
 
-- [Conta de armazenamento Azure](../azure-monitor/platform/resource-logs-collect-storage.md)
-- [Soluções de centros](../azure-monitor/platform/resource-logs-stream-event-hubs.md) de eventos
-- [Log Analytics espaço de trabalho](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Conta de armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Soluções de centros](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) de eventos
+- [Log Analytics espaço de trabalho](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 Neste exemplo, usamos o espaço de trabalho Log Analytics para criar um dashboard.
 
@@ -180,7 +180,7 @@ Agora pode configurar o seu espaço de trabalho Log Analytics para visualizar os
 As consultas de registo ajudam-no a aproveitar totalmente o valor dos dados recolhidos nos Registos do Monitor Azure. Uma linguagem de consulta poderosa permite-lhe juntar dados de várias tabelas, agregar grandes conjuntos de dados e realizar operações complexas com código mínimo. Praticamente qualquer pergunta pode ser respondida e a análise realizada desde que os dados de suporte sejam recolhidos, e você entende como construir a consulta correta. Para obter mais informações, consulte [Começar com consultas de registo no Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 
 1. A partir do **espaço de trabalho do Log Analytics**, selecione **Logs**
-1. No editor de consulta, cole a seguinte consulta [de linguagem de consulta kusto.](https://docs.microsoft.com/azure/data-explorer/kusto/query/) Esta consulta mostra o uso da política por operação nos últimos x dias. A duração por defeito é definida para 90 dias (90d). Note que a consulta se centra apenas na operação em que um token/código é emitido por política.
+1. No editor de consulta, cole a seguinte consulta [de linguagem de consulta kusto.](/azure/data-explorer/kusto/query/) Esta consulta mostra o uso da política por operação nos últimos x dias. A duração por defeito é definida para 90 dias (90d). Note que a consulta se centra apenas na operação em que um token/código é emitido por política.
 
     ```kusto
     AuditLogs
@@ -205,7 +205,7 @@ As consultas de registo ajudam-no a aproveitar totalmente o valor dos dados reco
 
 1. Selecione **Guardar**.
 
-Também pode alterar a sua consulta para visualizar os dados utilizando o operador [de renderização.](https://docs.microsoft.com/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor)
+Também pode alterar a sua consulta para visualizar os dados utilizando o operador [de renderização.](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor)
 
 ```kusto
 AuditLogs

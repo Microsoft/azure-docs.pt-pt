@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb889298a09c30a629c69442ebf31bc735af31d1
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268541"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173129"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
 
@@ -77,7 +77,7 @@ Nos lançamentos de novembro de 2015 ou posteriores do Windows 10, o Enterprise 
 Quando várias contas AD da Azure de diferentes inquilinos da AD Azure estiverem no mesmo dispositivo, você deve atualizar o registo do dispositivo para comunicar com o serviço de Gestão de Direitos Azure para cada inquilino AZure AD.  
 
 1. Encontre o GUID para cada inquilino AZure AD. Abra o portal Azure e selecione um inquilino AZure AD. O GUID para o arrendatário está na página Propriedades para o inquilino selecionado https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) (, rotulada **ID do Diretório**. 
-2. Depois de ter o GUID, terá de adicionar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID> **.
+2. Depois de ter o GUID, terá de adicionar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
    A partir da chave **ID GUID** do inquilino, crie um novo valor multi-string (REG-MULTI-SZ) denominado **AllowedRMSServerUrls**. Para os seus dados, especifique os URLs do ponto de distribuição de licenciamento dos outros inquilinos da Azure a que o dispositivo acede.
 3. Pode encontrar os URLs do ponto de distribuição de licenciamento executando o cmdlet **Get-AadrmConfiguration** a partir do módulo AADRM. Se os valores para o **LicenciamentoIntranetDistributionPointUrl** e **LicensingExtranetDistributionPointUrl** forem diferentes, especifique ambos os valores. Se os valores forem os mesmos, especifique o valor apenas uma vez.
 
@@ -85,7 +85,7 @@ Quando várias contas AD da Azure de diferentes inquilinos da AD Azure estiverem
 
 Roaming só funciona para aplicações Universal Windows. Existem duas opções disponíveis para permitir o roaming numa aplicação de ambiente de trabalho do Windows existente:
 
-* A [Ponte desktop](https://aka.ms/desktopbridge) ajuda-o a trazer as suas aplicações de ambiente de trabalho windows existentes para a Plataforma Universal windows. A partir daqui, serão necessárias alterações mínimas de código para tirar partido dos dados da aplicação AD do Azure. O Desktop Bridge fornece às suas aplicações uma identidade de aplicação, que é necessária para permitir o roaming de dados de aplicações para aplicações de ambiente de trabalho existentes.
+* A [Ponte desktop](/windows/msix/desktop/source-code-overview) ajuda-o a trazer as suas aplicações de ambiente de trabalho windows existentes para a Plataforma Universal windows. A partir daqui, serão necessárias alterações mínimas de código para tirar partido dos dados da aplicação AD do Azure. O Desktop Bridge fornece às suas aplicações uma identidade de aplicação, que é necessária para permitir o roaming de dados de aplicações para aplicações de ambiente de trabalho existentes.
 * [A Virtualização da Experiência do Utilizador (UE-V) ajuda-o](/previous-versions//dn458947(v=vs.85)) a criar um modelo de definições personalizadas para aplicações de ambiente de trabalho do Windows existentes e a ativar o roaming para aplicações Win32. Esta opção não requer que o desenvolvedor de aplicações altere o código da aplicação. A UE-V está limitada ao roaming ativo do Ative Directory para clientes que tenham adquirido o Microsoft Desktop Optimization Pack.
 
 Os administradores podem configurar UE-V para alterar os dados das aplicações de ambiente de trabalho do Windows, alterando o roaming das definições do Windows OS e os dados das aplicações universais através das [políticas do grupo UE-V,](/microsoft-desktop-optimization-pack/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)incluindo:

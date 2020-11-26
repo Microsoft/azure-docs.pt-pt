@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ef6f6068bce7a676e55eca10ae9198b2238a143
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 640367d1b833f61e8a83fe9ce6b14d6d799cf9b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135429"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172457"
 ---
 # <a name="what-is-provisioning"></a>O que é o aprovisionamento?
 
@@ -59,7 +59,7 @@ Para obter mais informações, veja [o que é o fornecimento conduzido por RH?](
 
 ![fornecimento de aplicativos](media/what-is-provisioning/cloud-3b.png)
 
-No Azure AD, o termo **[provisionamento de aplicações](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** refere-se à criação automática de cópias das identidades dos utilizadores nas aplicações a que os utilizadores precisam de acesso, para aplicações que tenham a sua própria loja de dados, distintas da AZure AD ou Ative Directory. Além de criar identidades de utilizadores, o fornecimento de aplicações inclui a manutenção e remoção das identidades dos utilizadores dessas aplicações, à medida que o estado ou as funções do utilizador mudam. Os cenários comuns incluem a disponibilização de um utilizador Azure AD em aplicações como [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow,](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)uma vez que cada uma destas aplicações tem o seu próprio repositório de utilizadores distinto do AD Azure.
+No Azure AD, o termo **[provisionamento de aplicações](../app-provisioning/user-provisioning.md)** refere-se à criação automática de cópias das identidades dos utilizadores nas aplicações a que os utilizadores precisam de acesso, para aplicações que tenham a sua própria loja de dados, distintas da AZure AD ou Ative Directory. Além de criar identidades de utilizadores, o fornecimento de aplicações inclui a manutenção e remoção das identidades dos utilizadores dessas aplicações, à medida que o estado ou as funções do utilizador mudam. Os cenários comuns incluem a disponibilização de um utilizador Azure AD em aplicações como [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow,](../saas-apps/servicenow-provisioning-tutorial.md)uma vez que cada uma destas aplicações tem o seu próprio repositório de utilizadores distinto do AD Azure.
 
 Para obter mais informações, veja [o que é o fornecimento de aplicativos?](what-is-app-provisioning.md)
 
@@ -77,7 +77,7 @@ Para obter mais informações, veja [o que é o fornecimento de inter-directóri
 
  
 ## <a name="next-steps"></a>Passos seguintes 
-- [O que é a gestão do ciclo de vida da identidade?](what-is-identity-lifecycle-management.md)
+- [O que é a gestão do ciclo de vida de identidades?](what-is-identity-lifecycle-management.md)
 - [O que é o fornecimento conduzido pela HR?](what-is-hr-driven-provisioning.md)
-- [O que é o provisionamento de aplicativos?](what-is-app-provisioning.md)
-- [O que é o provisionamento inter-directório?](what-is-inter-directory-provisioning.md)
+- [O que é o aprovisionamento de aplicações?](what-is-app-provisioning.md)
+- [O que é o aprovisionamento entre diretórios?](what-is-inter-directory-provisioning.md)

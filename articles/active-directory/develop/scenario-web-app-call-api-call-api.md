@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 846c47017ba2887c287dd080c44c46b372660d0e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 016a2917c02deaecf35c526426cb2a6dbc89e338
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443607"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173197"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Uma aplicação web que chama APIs web: Ligue para uma API web
 
@@ -152,7 +152,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > Pode usar o mesmo princípio para chamar a API web.
 >
-> A maioria das APIs web Azure fornecem um SDK que simplifica a chamada de API como é o caso do Microsoft Graph. Consulte, por exemplo, [criar uma aplicação web que autorize o acesso ao armazenamento blob com Azure AD](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet) para um exemplo de uma aplicação web usando Microsoft.Identity.Web e usando o Azure Storage SDK.
+> A maioria das APIs web Azure fornecem um SDK que simplifica a chamada de API como é o caso do Microsoft Graph. Consulte, por exemplo, [criar uma aplicação web que autorize o acesso ao armazenamento blob com Azure AD](../../storage/common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para um exemplo de uma aplicação web usando Microsoft.Identity.Web e usando o Azure Storage SDK.
 
 # <a name="java"></a>[Java](#tab/java)
 

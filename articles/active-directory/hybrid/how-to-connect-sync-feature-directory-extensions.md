@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662490"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172372"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync: Extensões de diretório
 Pode utilizar extensões de diretório para estender o esquema no Azure Ative Directory (Azure AD) com os seus próprios atributos a partir do Ative Directory. Esta funcionalidade permite-lhe construir aplicações LOB consumindo atributos que continua a gerir no local. Estes atributos podem ser consumidos através [de extensões.](/graph/extensibility-overview
@@ -60,7 +60,7 @@ Durante a instalação do Azure AD Connect, está registada uma aplicação onde
 
 Certifique-se de que seleciona **Todas as aplicações** para ver esta aplicação.
 
-Os atributos são pré-fixados com **extensão \_ {ApplicationId} \_ **. O ApplicationId tem o mesmo valor para todos os atributos do seu inquilino AZure AD. Você precisará deste valor para todos os outros cenários neste tópico.
+Os atributos são pré-fixados com **extensão \_ {ApplicationId} \_**. O ApplicationId tem o mesmo valor para todos os atributos do seu inquilino AZure AD. Você precisará deste valor para todos os outros cenários neste tópico.
 
 ## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Atributos de visualização usando a API do Gráfico da Microsoft
 
@@ -70,6 +70,9 @@ Estes atributos estão agora disponíveis através da Microsoft Graph API, utili
 > Na API do Gráfico microsoft, é necessário pedir que os atributos sejam devolvidos. Selecione explicitamente os atributos como este: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division` .
 >
 > Para obter mais informações, consulte [o Gráfico do Microsoft: Utilize parâmetros de consulta](/graph/query-parameters#select-parameter).
+
+>[!NOTE]
+> Não é suportado para sincronizar valores de atributos do AADConnect para atributos de extensão que não são criados pelo AADConnect. Ao fazê-lo, pode produzir problemas de desempenho e resultados inesperados. Apenas os atributos de extensão que são criados como mostrado no acima são suportados para sincronização.
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Use os atributos em grupos dinâmicos
 

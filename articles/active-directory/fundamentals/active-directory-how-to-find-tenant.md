@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbf23a32fdf5515402e18f70fe032a1a589dbcbe
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 32526a31a9d52fbfac57f1d384b25e0939b5e297
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424467"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172878"
 ---
 # <a name="how-to-find-your-azure-active-directory-tenant-id"></a>Como encontrar o seu ID do seu inquilino Azure Ative Directory
 
@@ -51,7 +51,7 @@ Para obter mais informações, consulte esta referência de cmdlet Azure PowerSh
 ## <a name="find-tenant-id-with-cli"></a>Encontre iD do inquilino com CLI
 Se quiser utilizar uma interface de linha de comando para encontrar o ID do inquilino, pode fazê-lo com [Azure CLI](/cli/azure/install-azure-cli) ou [Microsoft 365 CLI](https://pnp.github.io/cli-microsoft365/). 
 
-Para o Azure CLI, utilize um dos comandos **az login** , **lista de conta az** , ou **lista de inquilinos de conta az** como mostrado no exemplo seguinte. Note a propriedade **inquilinaD** para cada uma das suas subscrições na saída de cada comando.
+Para o Azure CLI, utilize um dos comandos **az login**, **lista de conta az**, ou **lista de inquilinos de conta az** como mostrado no exemplo seguinte. Note a propriedade **inquilinaD** para cada uma das suas subscrições na saída de cada comando.
 
 ```azurecli-interactive
 az login
@@ -77,4 +77,4 @@ Para mais informações, consulte o [id do inquilino](https://pnp.github.io/cli-
 
 - Para aprender a associar ou adicionar uma subscrição a um inquilino, consulte [Associate ou adicione uma subscrição Azure ao seu inquilino Azure Ative Directory](active-directory-how-subscriptions-associated-directory.md).
 
-- Para aprender a encontrar o ID do objeto, consulte [encontre o ID do objeto do utilizador](https://docs.microsoft.com/partner-center/find-ids-and-domain-names#find-the-user-object-id).
+- Para aprender a encontrar o ID do objeto, consulte [encontre o ID do objeto do utilizador](/partner-center/find-ids-and-domain-names#find-the-user-object-id).
