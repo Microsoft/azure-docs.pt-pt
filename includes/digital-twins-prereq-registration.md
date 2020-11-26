@@ -5,13 +5,13 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
-ms.openlocfilehash: 0dd97e109ee907e8eec2d31c7d469e8fb1e70e7b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2ce534972cf6509cdc1ca026f4b29efd3df91afd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020313"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96231451"
 ---
-Para autenticar todos os recursos utilizados neste artigo, terá de configurar um registo de **aplicações** [Azure Ative (Azure AD).](../articles/active-directory/fundamentals/active-directory-whatis.md) Siga as instruções em [*Como-a: Crie um registo de aplicações*](../articles/digital-twins/how-to-create-app-registration.md) para configurar isto. 
+Para autenticar todos os recursos utilizados neste artigo, terá de configurar um registo de **aplicações [Azure Ative (Azure AD).](../articles/active-directory/fundamentals/active-directory-whatis.md)** Siga as instruções em [*Como-a: Crie um registo de aplicações*](../articles/digital-twins/how-to-create-app-registration.md) para configurar isto. 
 
 Uma vez que você tem um registro de aplicação, você precisará do ID de **_Aplicação (cliente)_** do registo e **_diretório (inquilino) ID (encontre_** [no portal Azure).](../articles/digital-twins/how-to-create-app-registration.md#collect-client-id-and-tenant-id) Tome nota destes valores para usá-los mais tarde para conceder acesso às APIs das Gémeas Digitais Azure.

@@ -1,5 +1,5 @@
 ---
-title: Métricas Monitor API quickstart
+title: Métricas Advisor REST API quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 416f28f51a3ebe00e7227503f189898406229c8a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 42ea166119d3cc405b3d73e184c44dbfd6708a97
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047471"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96231485"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +38,7 @@ Vai precisar de duas chaves para começar a utilizar a API REST:
 
 ## <a name="add-a-data-feed-from-a-sample-or-data-source"></a>Adicione um feed de dados a partir de uma amostra ou fonte de dados
 
-Para começar a monitorizar os dados da série de tempo, precisa de adicionar um feed de dados. Para adicionar um feed de dados, é necessário fornecer um esquema de dados de acordo com o tipo de fonte de dados e parâmetros. Guarde o corpo de pedido json abaixo para um ficheiro nomeado *body.js*ligado , e executar o comando cURL.
+Para começar a monitorizar os dados da série de tempo, precisa de adicionar um feed de dados. Para adicionar um feed de dados, é necessário fornecer um esquema de dados de acordo com o tipo de fonte de dados e parâmetros. Guarde o corpo de pedido json abaixo para um ficheiro nomeado *body.js* ligado , e executar o comando cURL.
 
 ```json
 {
@@ -197,7 +197,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/datafeeds/REPLACE-WI
 
 ## <a name="check-ingestion-status"></a>Verifique o estado da ingestão
 
-Depois de adicionar feed de dados, se quiser verificar o progresso de um trabalho de ingestão, pode verificar o seu estado. Guarde o corpo de pedido json abaixo para um ficheiro nomeado *body.js*ligado , e executar o comando cURL.
+Depois de adicionar feed de dados, se quiser verificar o progresso de um trabalho de ingestão, pode verificar o seu estado. Guarde o corpo de pedido json abaixo para um ficheiro nomeado *body.js* ligado , e executar o comando cURL.
 
 ```json
 {
@@ -246,7 +246,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/datafeeds/REPLACE-WI
 
 ##  <a name="configure-anomaly-detection-configuration"></a>Configuração de deteção de anomalias configurada
 
-Enquanto uma configuração predefinida é aplicada automaticamente a cada métrica, pode sintonizar os modos de deteção utilizados nos seus dados. Guarde o corpo de pedido json abaixo para um ficheiro nomeado *body.js*ligado , e executar o comando cURL.
+Enquanto uma configuração predefinida é aplicada automaticamente a cada métrica, pode sintonizar os modos de deteção utilizados nos seus dados. Guarde o corpo de pedido json abaixo para um ficheiro nomeado *body.js* ligado , e executar o comando cURL.
 
 ```json
 {
@@ -338,7 +338,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/enrichment/anomalyDe
 
 Antes de configurar o alerta, é necessário criar um gancho que será utilizado para notificar o alerta. Há duas maneiras de ser notificado se um alerta for desencadeado, que é webhook e e-mail. Pode especificar qualquer um deles na configuração do gancho como tipo gancho enquanto cria um gancho.
 
-Guarde o corpo de pedido json abaixo para um ficheiro nomeado *body.js*ligado , e executar o comando cURL.
+Guarde o corpo de pedido json abaixo para um ficheiro nomeado *body.js* ligado , e executar o comando cURL.
 
 ```json
 {
@@ -414,7 +414,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/hooks/REPLACE-WITH-Y
 }
 ```
 
-Ao configurar a configuração do alerta, pode especificar a condição de deteção que pode ser usada para desencadear o alerta. Guarde o corpo de pedido json abaixo para um ficheiro nomeado *body.js*ligado , e executar o comando cURL.
+Ao configurar a configuração do alerta, pode especificar a condição de deteção que pode ser usada para desencadear o alerta. Guarde o corpo de pedido json abaixo para um ficheiro nomeado *body.js* ligado , e executar o comando cURL.
 
 ```json
 {
