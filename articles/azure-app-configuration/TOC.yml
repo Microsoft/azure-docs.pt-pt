@@ -70,6 +70,8 @@
       items:
         - name: Emitir com o Azure Pipelines
           href: push-kv-devops-pipeline.md
+        - name: Solicitar com o Azure Pipelines
+          href: pull-key-value-devops-pipeline.md
         - name: Emitir com o GitHub Actions
           href: concept-github-action.md
         - name: Criar um projeto com a configuração exportada

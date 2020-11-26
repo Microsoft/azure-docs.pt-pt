@@ -105,6 +105,8 @@
       href: ../../devtest-labs/security-baseline.md
     - name: Linha de base de segurança do Azure Firewall
       href: ../../firewall/security-baseline.md
+    - name: Linha de base de segurança do Azure Firewall Manager
+      href: ../../firewall-manager/security-baseline.md
     - name: Linha de base de segurança do Azure Front Door
       href: ../../frontdoor/security-baseline.md
     - name: Linha de base de segurança das Funções do Azure
@@ -185,6 +187,8 @@
       href: ../../logic-apps/security-baseline.md
     - name: Linha de base de segurança do Observador de Rede
       href: ../../network-watcher/security-baseline.md
+    - name: Linha de base do Power BI
+      href: /power-bi/fundamentals/security-baseline
     - name: Linha de base do Centro de Segurança
       href: ../../security-center/security-baseline.md
     - name: Linha de base do Service Bus
@@ -207,5 +211,7 @@
       href: ../../virtual-network/security-baseline.md
     - name: Linha de base de segurança da NAT da Rede Virtual
       href: ../../virtual-network/nat-security-baseline.md
+    - name: Linha de base de segurança do WAN Virtual
+      href: ../../virtual-wan/security-baseline.md
     - name: Linha de base de segurança do Gateway de VPN
       href: ../../vpn-gateway/security-baseline.md
