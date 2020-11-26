@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 26a29524e0bf329a368b3cd2281dd9b070b42a14
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 369847810cdb7f7e93a13f5d410f226d3663080d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660819"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188586"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Início Rápido: Introdução ao Azure Sentinel
 
@@ -30,7 +30,7 @@ Para visualizar e analisar o que está a acontecer no seu ambiente, em primeiro 
 
 - No portal Azure, selecione Azure Sentinel e, em seguida, selecione o espaço de trabalho que pretende monitorizar.
 
-  ![Visão geral de Azure Sentinel](./media/qs-get-visibility/overview.png)
+  ![Descrição Geral do Azure Sentinel](./media/qs-get-visibility/overview.png)
 
 - A barra de ferramentas em toda a parte superior indica-lhe quantos eventos obteve ao longo do período de tempo selecionado, e compara-o com as 24 horas anteriores. A barra de ferramentas diz-lhe destes eventos, os alertas que foram desencadeados (o pequeno número representa mudança nas últimas 24 horas), e depois diz-lhe para esses eventos, quantos estão abertos, em andamento e fechados. Verifique se não há um aumento dramático ou uma queda no número de eventos. Se houver uma queda, pode ser que uma ligação parou de reportar ao Azure Sentinel. Se houver um aumento, algo suspeito pode ter acontecido. Verifique se tem novos alertas.
 
@@ -91,12 +91,11 @@ Pode criar um novo livro de raiz ou usar um livro embutido como base para o seu 
 A seguinte consulta de amostra permite-lhe comparar tendências de tráfego ao longo de semanas. Pode facilmente alternar qual o fornecedor de dispositivo e fonte de dados em que executou a consulta. Este exemplo utiliza SecurityEvent a partir do Windows, pode alterá-lo para funcionar no AzureActivity ou CommonSecurityLog em qualquer outra firewall.
 
 ```console
- |where DeviceVendor == "Palo Alto Networks":
-  // week over week query
-  SecurityEvent
-  | where TimeGenerated > ago(14d)
-  | summarize count() by bin(TimeGenerated, 1d)
-  | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
+// week over week query
+SecurityEvent
+| where TimeGenerated > ago(14d)
+| summarize count() by bin(TimeGenerated, 1d)
+| extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
 ```
 
 É melhor criar uma consulta que incorpore dados de múltiplas fontes. Pode criar uma consulta que analise os registos de auditoria do Azure Ative Directory para novos utilizadores que acabam de ser criados e, em seguida, verifique os seus registos Azure para ver se o utilizador começou a fazer alterações na atribuição de funções dentro de 24 horas após a criação. Aquela atividade suspeita apareceria neste painel de instrumentos:
@@ -125,7 +124,7 @@ Para ver todas as deteções fora da caixa, vá ao **Analytics** e, em seguida, 
 
 Para obter mais informações sobre a obtenção de deteções fora da caixa, consulte [Tutorial: Obter analíticos incorporados.](tutorial-detect-threats-built-in.md)
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste arranque rápido, aprendeu a começar a usar o Azure Sentinel. Continue ao tutorial para [detetar ameaças.](tutorial-detect-threats-built-in.md)
 > [!div class="nextstepaction"]
 > [Crie regras de deteção de ameaças personalizadas](tutorial-detect-threats-custom.md) para automatizar as suas respostas a ameaças.

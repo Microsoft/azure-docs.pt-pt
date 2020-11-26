@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f97d04ca40e69ba2516744adfc9f1f455cba97c0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896349"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187039"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Tutorial - Migrar o serviço web do Google Maps
 
@@ -132,7 +132,7 @@ A Azure Maps a axure Maps geocoding API tem algumas funcionalidades adicionais, 
 Os dados de pontos de interesse podem ser pesquisados no Google Maps utilizando a API de Pesquisa de Lugares. Esta API fornece três maneiras diferentes de procurar pontos de interesse:
 
 - **Encontre o lugar a partir do texto:** Procura um ponto de interesse com base no seu nome, endereço ou número de telefone.
-- **Pesquisa nas proximidades** : Procure pontos de interesse que estejam a uma certa distância de um local.
+- **Pesquisa nas proximidades**: Procure pontos de interesse que estejam a uma certa distância de um local.
 - **Pesquisa de texto:** Procure por locais que utilizem um texto de forma gratuita, que inclui informações de ponto de interesse e localização. Por exemplo, "pizza em Nova Iorque" ou "restaurantes perto da rua principal".
 
 A Azure Maps fornece várias APIs de pesquisa para pontos de interesse:
@@ -501,10 +501,10 @@ Saiba mais sobre os serviços Azure Maps REST:
 > [Melhores práticas para o encaminhamento](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
-> [Documentação de referência do Serviço API do Azure Maps REST](https://docs.microsoft.com/rest/api/maps/)
+> [Documentação de referência do Serviço API do Azure Maps REST](/rest/api/maps/)
 
 > [!div class="nextstepaction"]
-> [Amostras de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Amostras de código](/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
 > [Como utilizar o módulo de serviços (Web SDK)](how-to-use-best-practices-for-routing.md)

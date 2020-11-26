@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 7d96b03598f90b45b7ecf88027be7408d8f161ea
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 53130e395995b3533a45a96f897a0c6bcf1e4c71
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638772"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187192"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Agentes de fornecimento automático e extensões do Azure Security Center
 
@@ -197,7 +197,7 @@ Para instalar manualmente o agente Log Analytics:
 
     1. Ajuste o espaço de trabalho no qual está a instalar o agente. Certifique-se de que o espaço de trabalho está na mesma subscrição que utiliza no Centro de Segurança e que tem permissões de leitura/escrita para o espaço de trabalho.
 
-    1. Selecione **Azure Defender em** , e **Guarde**.
+    1. Selecione **Azure Defender em**, e **Guarde**.
 
        >[!NOTE]
        >Se o espaço de trabalho já tiver uma solução **SecurityCenterFree** ativada, o preço será definido automaticamente. **Security** 

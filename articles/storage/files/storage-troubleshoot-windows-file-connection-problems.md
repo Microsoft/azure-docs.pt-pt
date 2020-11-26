@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b684123068889e422080605fb9c50ef9aed0cb76
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e446ec08d63c44566b2f45c1427999536d0be703
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630163"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188722"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Problemas de resolução de ficheiros Azure no Windows (SMB)
 
@@ -176,7 +176,7 @@ Verifique se as regras de firewall ou de rede virtual estão configuradas corret
 Navegue na conta de armazenamento onde está localizada a partilha de ficheiros Azure, clique no **controlo de acesso (IAM)** e verifique se a sua conta de utilizador tem acesso à conta de armazenamento. Para saber mais, consulte [Como garantir a sua conta de armazenamento com o controlo de acesso baseado em funções Azure (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Não consigo eliminar um ficheiro ou um diretório numa partilha de ficheiros do Azure
+## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>Incapaz de modificar, mover/mudar de nome, ou apagar um ficheiro ou diretório
 Um dos principais propósitos de uma partilha de ficheiros é que vários utilizadores e aplicações podem simultaneamente interagir com ficheiros e diretórios na partilha. Para ajudar nesta interação, as ações de ficheiros fornecem várias formas de mediar o acesso a ficheiros e diretórios.
 
 Quando abre um ficheiro a partir de uma partilha de ficheiros Azure montada sobre a SMB, o seu sistema de aplicação/funcionamento solicita uma pega de ficheiro, que é uma referência ao ficheiro. Entre outras coisas, a sua aplicação especifica um modo de partilha de ficheiros quando solicita uma pega de ficheiro, que especifica o nível de exclusividade do seu acesso ao ficheiro aplicado pelos Ficheiros Azure: 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: b7248a3a66e0eeca4d86568f80af82bf2d89701f
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: a5cb5831090987f1b620593843ddba817d8e68d4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96031360"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188127"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controlo de fontes no Azure Synapse Studio
 
@@ -38,7 +38,7 @@ Na tela de autoria do Synapse Studio, selecione o menu de drop-down **Synapse Li
 
 ![Configurar as definições de repositório de código da autoria](media/configure-repo-1.png)
 
-### <a name="configuration-method-2-management-hub"></a>Método de configuração 2: Centro de gestão
+### <a name="configuration-method-2-manage-hub"></a>Método de configuração 2: Gerir o hub
 
 Vá ao centro de gestão do Synapse Studio. Selecione **a configuração de Git** na secção de controlo **'Fonte'.** Se não tiver nenhum repositório ligado, clique em **Configurar**.
 
@@ -197,7 +197,7 @@ Depois de remover a associação com o repo atual, pode configurar as suas defin
 -   Modo ao vivo da **sinapse**. Após a publicação no modo git, todas as alterações serão refletidas no modo ao vivo da Synapse. No modo ao vivo da Synapse, a publicação é desativada. E podes ver, executar artefactos em modo ao vivo se te for dada a permissão certa. 
 -   **Editar artefactos em Estúdio.** O estúdio Synapse é o único local onde pode ativar o controlo de fontes de espaço de trabalho e alterar automaticamente o git. Qualquer alteração via SDK, PowerShell, não será sincronizada para git. Recomendamos que edite sempre artefacto em Studio quando o git estiver ativado.
 
-## <a name="troubleshooting-git-integration"></a>Integração de Git de resolução de problemas
+## <a name="troubleshooting-git-integration"></a>Integração de git de resolução de problemas
 
 ### <a name="access-to-git-mode"></a>Acesso ao modo git 
 
@@ -217,6 +217,11 @@ Se a sucursal de publicação estiver dessincronizada com o ramo de colaboraçã
 
 1. Criar um pedido de puxar para fundir as alterações ao ramo de colaboração 
 
+## <a name="unsupported-features"></a>Funcionalidades não suportadas
+
+- O Synapse Studio não permite a recolha de cerejas de compromissos ou a publicação seletiva de recursos. 
+- O Synapse Studio não suporta personalizar a mensagem de compromisso.
+- Por design, apagar ação em Studio será comprometido a git diretamente
 
 ## <a name="next-steps"></a>Passos seguintes
 

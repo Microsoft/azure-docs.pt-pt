@@ -3,12 +3,12 @@ title: Exportação para Power BI a partir de Azure Application Insights / Micro
 description: As consultas analíticas podem ser exibidas no Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 804da7d3aaa2fd1b7973a686bc9ca5cb5ee973a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e88d60cd9a9d0e6267998237b33a361b12ffd84
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979165"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187005"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed Power BI a partir de Insights de Aplicações
 [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócio que o ajudam a analisar dados e partilhar insights. Os painéis de instrumentos ricos estão disponíveis em todos os dispositivos. Pode combinar dados de muitas fontes, incluindo consultas de Analytics da [Azure Application Insights](./app-insights-overview.md).
@@ -31,12 +31,12 @@ Para importar a sua consulta De Insights de Aplicação, utilize a versão para 
 Instale [o Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportar uma consulta analítica
-1. [Abra a Análise e escreva a sua consulta.](../log-query/get-started-portal.md)
+1. [Abra a Análise e escreva a sua consulta.](../log-query/log-analytics-tutorial.md)
 2. Teste e refine a consulta até ficar satisfeito com os resultados. Certifique-se de que a consulta funciona corretamente em Analytics antes de exportá-la.
 3. No menu **Exportação,** escolha **Power BI (M)**. Guarde o ficheiro de texto.
    
     ![Screenshot de Analytics, com menu Export em destaque](./media/export-power-bi/analytics-export-power-bi.png)
-4. No Power BI Desktop, **selecione Obter**Consulta em Branco de  >  **Dados**. Em seguida, no editor de consulta, em **View,** selecione **Advanced Editor**.
+4. No Power BI Desktop, **selecione Obter** Consulta em Branco de  >  **Dados**. Em seguida, no editor de consulta, em **View,** selecione **Advanced Editor**.
 
     Cole o guião M Language exportado para o Editor Avançado.
 
@@ -61,7 +61,7 @@ Instale [o Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Screenshot do botão Power BI](./media/export-power-bi/button.png)
 
-3. No Power BI Desktop, **selecione Obter**Consulta em Branco de  >  **Dados**. Em seguida, no editor de consulta, em **View,** selecione **Advanced Editor**.
+3. No Power BI Desktop, **selecione Obter** Consulta em Branco de  >  **Dados**. Em seguida, no editor de consulta, em **View,** selecione **Advanced Editor**.
 
    ![Screenshot do Power BI Desktop, com botão de consulta em branco em destaque](./media/export-power-bi/blankquery.png)
 
@@ -146,5 +146,4 @@ Após a importação inicial, o dashboard e os relatórios continuam a atualizar
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Power BI - Aprender](https://www.powerbi.com/learning/)
-* [Tutorial de analítica](../log-query/get-started-portal.md)
-
+* [Tutorial de analítica](../log-query/log-analytics-tutorial.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d203cb5ccef90fd09659ba64b7bcbc8b9be9e47a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358104"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187307"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -41,7 +41,7 @@ Você precisará de uma subscrição Azure para completar este arranque rápido.
 
 Também vai precisar de **Node.js** na sua máquina. Para obter a versão mais recente, consulte [Node.js](https://nodejs.org/).
 
-Por fim, também terá de descarregar a amostra para ser utilizada durante o arranque rápido. A aplicação da amostra é **ADT Explorer.** Esta amostra contém a aplicação que utiliza no arranque rápido para carregar e explorar um cenário Azure Digital Twins. Também contém os ficheiros do cenário da amostra. Para obter a amostra, vá ao [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selecione o botão **Baixar ZIP** para transferir um ficheiro .zip deste código de amostra para a sua máquina. Desaperte a pasta **Azure_Digital_Twins__ADT__explorer.zip** e extraa os ficheiros.
+Por fim, também terá de descarregar a amostra para ser utilizada durante o arranque rápido. A aplicação da amostra é **ADT Explorer.** Esta amostra contém a aplicação que utiliza no arranque rápido para carregar e explorar um cenário Azure Digital Twins. Também contém os ficheiros do cenário da amostra. Para obter a amostra, vá ao [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selecione o botão **Baixar ZIP** para descarregar um ficheiro .zip deste código de amostra para a sua máquina. Desaperte a pasta **Azure_Digital_Twins__ADT__explorer.zip** e extraa os ficheiros.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurar gémeos digitais Azure e ADT Explorer
 
@@ -66,6 +66,7 @@ Caso contrário, pode instalar o Azure CLI local com estes passos:
 1. Acompanhe o processo [neste link de instalação](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para concluir a instalação que corresponde ao seu SO.
 1. Abra uma janela de consola na sua máquina.
 1. Executar `az login` , e siga as instruções de autenticação para iniciar súm na sua conta Azure.
+1. Possível último passo: Se utilizar várias subscrições Azure nesta conta, deslo aproveite o contexto de autenticação para a subscrição Azure que contém a sua instância Azure Digital Twins executando `az account set --subscription "<your-subscription-name-or-ID>"` (o nome ou o valor de ID da subscrição funcionarão).
 
 Depois de iniciar sação, o ADT Explorer deve recolher automaticamente as suas credenciais Azure quando a executar na secção seguinte.
 
@@ -90,7 +91,7 @@ Abra uma janela da consola para a localização da pasta **Azure_Digital_Twins__
 
    :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer destacando o ícone Sign In perto do topo da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-1. Introduza o URL de exemplo de gémeos digitais Azure que recolheu anteriormente na secção [Pré-requisitos,](#prerequisites) no formato *https://{instance host name}*.
+1. Introduza o URL de exemplo de gémeos digitais Azure que recolheu anteriormente na secção Configurar uma secção [de exemplos Azure Digital Twins,](#set-up-an-azure-digital-twins-instance) no formato *https://{instance host name}*.
 
 >[!NOTE]
 > Pode revisitar ou editar estas informações a qualquer momento selecionando o mesmo ícone para abrir novamente a caixa **Sign In.** Vai manter os valores que passaste.

@@ -6,16 +6,16 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.openlocfilehash: aa2530f817bf20af40ab2913df9f16e7d1974ef3
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375473"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187141"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>Tutorial: Criar um bot FAQ com serviço Azure Bot
 Crie um BOT FAQ com o QnA Maker e o Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) sem código.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 <!-- green checkmark -->
 > [!div class="checklist"]

@@ -4,12 +4,12 @@ description: Alerta-o para alterações invulgares na taxa de pedidos falhados n
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 0f93c7b185b292f8d9792a11807b7c99ad846d37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 329f5bc6f5c3523bc76876f946474eaeb897cfe9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565842"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186971"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Deteção Inteligente - Anomalias de falha
 [O Application Insights](./app-insights-overview.md) alerta-o automaticamente em tempo real se a sua aplicação web experimentar um aumento anormal na taxa de pedidos falhados. Deteta um aumento invulgar na taxa de pedidos HTTP ou chamadas de dependência que são reportadas como falhadas. Para pedidos, os pedidos falhados geralmente têm códigos de resposta de 400 ou mais. Para o ajudar a triagem e diagnóstico do problema, é fornecida uma análise das características das falhas e dados de aplicações relacionados nos detalhes do alerta. Existem também ligações ao portal Application Insights para um diagnóstico mais aprofundado. A funcionalidade não necessita de configuração nem configuração, pois utiliza algoritmos de aprendizagem automática para prever a taxa normal de falha.
@@ -73,11 +73,11 @@ Esta regra de alerta é criada com um [Grupo de Ação](../platform/action-group
 
 Abra a página Alertas. As regras de alerta de anomalias de avaria estão incluídas juntamente com quaisquer alertas que tenha definido manualmente, e pode ver se está atualmente em estado de alerta.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Alerta de deteção inteligente de amostras mostrando análise de cluster em torno da falha." lightbox="./media/proactive-failure-diagnostics/021.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Na página de recursos 'Insights de Aplicação', clique em telha Alertas e, em seguida, Gerencie as regras de alerta." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Clique no alerta para o configurar.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Alerta de deteção inteligente de amostras mostrando análise de cluster em torno da falha." lightbox="./media/proactive-failure-diagnostics/032.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Ecrã de configuração de regras." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Note que pode desativar ou eliminar uma regra de alerta de Anomalias de Falha, mas não pode criar outra no mesmo recurso Application Insights.
 
@@ -299,7 +299,7 @@ Também pode abrir o [portal Azure,](https://portal.azure.com)navegar para o rec
 
 Clicar em 'Diagnosticar falhas' irá ajudá-lo a obter mais detalhes e resolver o problema.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Alerta de deteção inteligente de amostras mostrando análise de cluster em torno da falha." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Pesquisa de diagnóstico." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 A partir da percentagem de pedidos e número de utilizadores afetados, pode decidir a urgência da questão. No exemplo acima, a taxa de insucesso de 78,5% compara com uma taxa normal de 2,2%, indicando que algo de mau se está a passar. Por outro lado, apenas 46 utentes foram afetados. Se fosse a sua aplicação, seria capaz de avaliar a gravidade da situação.
 
@@ -307,13 +307,13 @@ Em muitos casos, você será capaz de diagnosticar o problema rapidamente a part
 
 Neste exemplo, houve uma exceção da Base de Dados SQL devido ao limite de pedidos atingido.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Alerta de deteção inteligente de amostras mostrando análise de cluster em torno da falha." lightbox="./media/proactive-failure-diagnostics/052.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Falhou nos detalhes do pedido." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Rever alertas recentes
 
 Clique em **Alertas** na página de recursos do Application Insights para chegar aos alertas de disparo mais recentes:
 
-:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Alerta de deteção inteligente de amostras mostrando análise de cluster em torno da falha." lightbox="./media/proactive-failure-diagnostics/070.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Alertas resumo." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>Qual é a diferença...
 A Deteção Inteligente de anomalias de falha complementa outras características similares, mas distintas, de Application Insights.
@@ -333,11 +333,11 @@ A Deteção Inteligente de anomalias de falha complementa outras característica
 
 *Então, estás a ver os dados da minha candidatura?*
 
-* N.º O serviço é totalmente automático. Só recebe as notificações. Os seus dados são [privados.](./data-retention-privacy.md)
+* Não. O serviço é totalmente automático. Só recebe as notificações. Os seus dados são [privados.](./data-retention-privacy.md)
 
 *Tenho de subscrever este alerta?*
 
-* N.º Cada aplicação que envia dados de pedido tem a regra de alerta de Deteção Inteligente.
+* Não. Cada aplicação que envia dados de pedido tem a regra de alerta de Deteção Inteligente.
 
 *Posso cancelar a subscrição ou enviar as notificações aos meus colegas?*
 
@@ -356,10 +356,9 @@ Estas ferramentas de diagnóstico ajudam-no a inspecionar os dados da sua aplica
 
 * [Explorador métrico](../platform/metrics-charts.md)
 * [Explorador de pesquisa](./diagnostic-search.md)
-* [Analytics - linguagem de consulta poderosa](../log-query/get-started-portal.md)
+* [Analytics - linguagem de consulta poderosa](../log-query/log-analytics-tutorial.md)
 
 As deteções inteligentes são automáticas. Mas talvez queira fazer mais alguns alertas?
 
 * [Alertas métricos configurados manualmente](../platform/alerts-log.md)
 * [Testes Web de disponibilidade](./monitor-web-app-availability.md)
-

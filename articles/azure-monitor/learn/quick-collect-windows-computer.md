@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 726caa0c4a7bbd6b8d0c17ffdfade5f9cc3c2a34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9cd92075c7e0c4450dbee750fd31efb394dd24f7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89020376"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186750"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Recolher dados de um computador Windows em ambiente híbrido com o Azure Monitor
 
@@ -38,7 +38,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
     ![Portal do Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
-2. Selecione **Criar**e, em seguida, selecione escolhas para os seguintes itens:
+2. Selecione **Criar** e, em seguida, selecione escolhas para os seguintes itens:
 
    * Indique um nome para a nova **Área de trabalho do Log Analytics**, como *DefaultLAWorkspace*.  
    * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
@@ -112,7 +112,7 @@ O Azure Monitor pode recolher eventos que especifique a partir dos registos de e
  
 3. Selecione **Dados** e, em seguida, selecione **Registos de Eventos do Windows**.  
 
-4. Adicione um registo de eventos introduzindo o nome do registo. Introduza **o Sistema**e, em seguida, selecione o sinal mais **+** ().  
+4. Adicione um registo de eventos introduzindo o nome do registo. Introduza **o Sistema** e, em seguida, selecione o sinal mais **+** ().  
 
 5. Na tabela, selecione as severidades **de Erro** e **Aviso.**
 
@@ -165,5 +165,4 @@ Agora que está a recolher dados operacionais e de desempenho do seu computador 
 Para aprender a ver e analisar os dados, continue ao tutorial:
 
 > [!div class="nextstepaction"]
-> [Ver ou analisar dados no Log Analytics](../log-query/get-started-portal.md)
-
+> [Ver ou analisar dados no Log Analytics](../log-query/log-analytics-tutorial.md)

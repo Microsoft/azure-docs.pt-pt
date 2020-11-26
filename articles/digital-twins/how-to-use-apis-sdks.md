@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d349d07a66b21766ea529661c2f27d0c76ea4d3b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: cac0d8cb8a910b735454c9270060364cab2db5fb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024726"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187243"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -20,7 +20,7 @@ A Azure Digital Twins vem equipado com **APIs de avião de controlo** e **APIs d
 * As APIs do plano de controlo são APIs [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) e abrangem operações de gestão de recursos como criar e eliminar o seu caso. 
 * As APIs do plano de dados são APIs Azure Digital Twins, e são usadas para operações de gestão de dados como a gestão de modelos, gémeos e o gráfico.
 
-Este artigo apresenta uma visão geral das APIs disponíveis e os métodos para interagir com elas. Pode utilizar as APIs REST diretamente com os seus Swaggers associados, ou através de um SDK.
+Este artigo apresenta uma visão geral das APIs disponíveis e os métodos para interagir com elas. Pode utilizar as APIs REST diretamente com os seus Swaggers associados (através de uma ferramenta como [o Carteiro),](how-to-use-postman.md)ou através de um SDK.
 
 ## <a name="overview-control-plane-apis"></a>Visão geral: APIs do plano de controlo
 
@@ -32,7 +32,7 @@ Para utilizar as APIs do plano de controlo:
 * Pode ligar diretamente para as APIs, referindo-se à mais recente swagger na [pasta do plano de controlo Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Este repo também inclui uma pasta de exemplos que mostram o uso.
 * Atualmente você pode aceder ADKs para controlar APIs em...
   - [**.NET (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) [(referência [auto-gerada]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)([fonte)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)
-  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) [(referência [autogerada]](/java/api/overview/azure/digitaltwins?view=azure-java-stable)) ([fonte)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31)
+  - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) [(referência [autogerada]](/java/api/overview/azure/digitaltwins?view=azure-java-stable&preserve-view=true)) ([fonte)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31)
   - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) [(fonte)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins)
   - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([fonte)](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins)
   - [**Ir**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([fonte)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins)
@@ -279,6 +279,7 @@ client.UpdateDigitalTwin("myTwin", updateTwinData);
 
 A lista a seguir fornece detalhes adicionais e orientações gerais para a utilização das APIs e dos SDKs.
 
+* Pode utilizar uma ferramenta de teste HTTP REST como o Carteiro para fazer chamadas diretas para as APIs de Gémeos Digitais Azure. Para obter mais informações sobre este processo, consulte [*Como fazer: Fazer pedidos com o Carteiro.*](how-to-use-postman.md)
 * Para usar o SDK, instantânea a `DigitalTwinsClient` aula. O construtor requer credenciais que podem ser obtidas com uma variedade de métodos de autenticação na `Azure.Identity` embalagem. Para mais `Azure.Identity` informações, consulte a [documentação do espaço de nome.](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet) 
 * Pode encontrar o útil durante o `InteractiveBrowserCredential` arranque, mas existem várias outras opções, incluindo credenciais para [identidade gerida](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet), que provavelmente utilizará para autenticar [funções Azure configuradas com MSI](../app-service/overview-managed-identity.md?tabs=dotnet) contra Azure Digital Twins. Para mais informações `InteractiveBrowserCredential` sobre , consulte a sua [documentação de classe.](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet)
 * Todas as chamadas de API de serviço são expostas como funções de membro na `DigitalTwinsClient` classe.
@@ -301,10 +302,10 @@ A partir da página inicial do portal, procure a sua instância Azure Digital Tw
 
 A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas personalizadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Veja como usar as APIs para configurar uma instância e autenticação de Gémeos Digitais Azure:
-* [*Como fazer: Configurar um caso e autenticação*](how-to-set-up-instance-cli.md)
+Veja como fazer pedidos diretos às APIs usando o Carteiro:
+* [*Como fazer: Fazer pedidos com o Carteiro*](how-to-use-postman.md)
 
-Ou, caminhe pelos degraus para criar uma aplicação de cliente como a usada neste como:
+Ou, pratique utilizando o .NET SDK criando uma aplicação para clientes com este tutorial:
 * [*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: fc89790c7d268bcfa0c08bd26249bc91979d7fca
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738106"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186903"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorização de máquinas virtuais Azure com Monitor Azure
 Este artigo descreve como usar o Azure Monitor para recolher e analisar dados de monitorização de máquinas virtuais Azure para manter a sua saúde. As máquinas virtuais podem ser monitorizadas para disponibilidade e desempenho com o Azure Monitor como qualquer [outro recurso Azure](monitor-azure-resource.md), mas são únicas a partir de outros recursos, uma vez que também é necessário monitorizar o funcionamento e o sistema de hóspedes e as cargas de trabalho que o operam. 
@@ -31,7 +31,7 @@ Este artigo descreve como usar o Azure Monitor para recolher e analisar dados de
 ## <a name="monitoring-data"></a>Monitorizar dados
 As máquinas virtuais em Azure geram [troncos](../platform/data-platform-logs.md) e [métricas](../platform/data-platform-metrics.md) como mostrado no diagrama seguinte.
 
-![Descrição Geral](media/monitor-vm-azure/logs-metrics.png)
+![Descrição geral](media/monitor-vm-azure/logs-metrics.png)
 
 
 ### <a name="virtual-machine-host"></a>Anfitrião de máquinas virtuais
@@ -58,13 +58,13 @@ Para ativar todas as funcionalidades do Azure Monitor para monitorizar uma máqu
 | Sem configuração | - Métricas de plataforma de anfitrião recolhidas em Métricas.<br>- Registo de atividade recolhido. | - Explorador de métricas para hospedeiro.<br>- Alertas de métricas para hospedeiro.<br>- Alertas de registo de atividade. |
 | [Ativar monitor Azure para VMs](#enable-azure-monitor-for-vms) | - Agente de registo de análise instalado.<br>- Agente de dependência instalado.<br>- Dados de desempenho dos hóspedes recolhidos nos Registos.<br>- Detalhes de processo e dependência recolhidos nos Registos. | - Gráficos de desempenho e livros de trabalho para dados de desempenho dos hóspedes.<br>- Registar consultas para os dados de desempenho dos hóspedes.<br>- Registar alertas para os dados de desempenho dos hóspedes.<br>- Mapa de dependência. |
 | [Instale a extensão de diagnóstico e o agente telegraf](#enable-diagnostics-extension-and-telegraf-agent) | - Dados de desempenho dos hóspedes recolhidos nas Métricas. | - Explorador de métricas para hóspede.<br>- Alertas de métricas para o hóspede.  |
-| [Configurar log analytics espaço de trabalho](#configure-log-analytics-workspace) | - Eventos recolhidos pelo hóspede. | - Registar consultas para eventos de hóspedes.<br>- Registar alertas para eventos de hóspedes. |
+| [Configurar a área de trabalho do Log Analytics](#configure-log-analytics-workspace) | - Eventos recolhidos pelo hóspede. | - Registar consultas para eventos de hóspedes.<br>- Registar alertas para eventos de hóspedes. |
 | [Criar definição de diagnóstico para máquina virtual](#collect-platform-metrics-and-activity-log) | - Métricas de plataforma recolhidas em Registos.<br>- Registo de atividade recolhido em Registos. | - Registar consultas para métricas de anfitrião.<br>- Registar alertas para as métricas do anfitrião.<br>- Registar consultas para registo de atividade.
 
 Cada um destes passos de configuração é descrito nas seguintes secções.
 
 ### <a name="enable-azure-monitor-for-vms"></a>Ativar monitor Azure para VMs
-[O Azure Monitor for VMs](vminsights-overview.md) é uma [visão](insights-overview.md) no Azure Monitor que é a principal ferramenta para monitorizar máquinas virtuais no Azure Monitor. Fornece o seguinte valor adicional sobre as funcionalidades padrão do Azure Monitor.
+[O Azure Monitor for VMs](vminsights-overview.md) é uma [visão](../monitor-reference.md) no Azure Monitor que é a principal ferramenta para monitorizar máquinas virtuais no Azure Monitor. Fornece o seguinte valor adicional sobre as funcionalidades padrão do Azure Monitor.
 
 - A bordo simplificada do agente log analytics e agente de dependência para permitir a monitorização de um sistema operativo de hóspedes de máquina virtual e cargas de trabalho. 
 - Gráficos de desempenho de tendência pré-definidos e livros de trabalho que permitem analisar métricas de desempenho do núcleo do sistema operativo de hóspedes da máquina virtual.
@@ -79,7 +79,7 @@ Ativar o Azure Monitor para VMs a partir da opção **Insights** no menu de máq
 
 ![Ativar monitor Azure para VMs](media/monitor-vm-azure/enable-vminsights.png)
 
-### <a name="configure-log-analytics-workspace"></a>Configurar log analytics espaço de trabalho
+### <a name="configure-log-analytics-workspace"></a>Configurar a área de trabalho do Log Analytics
 O agente Log Analytics utilizado pelo Azure Monitor para VMs envia dados para um [espaço de trabalho log analytics](../platform/data-platform-logs.md). Pode ativar a recolha de dados de desempenho adicionais, eventos e outros dados de monitorização do agente configurando o espaço de trabalho Log Analytics. Só precisa de ser configurado uma vez, uma vez que qualquer agente que se conecte ao espaço de trabalho descarrega automaticamente a configuração e começa imediatamente a recolher os dados definidos. 
 
 Pode aceder à configuração do espaço de trabalho diretamente a partir do Azure Monitor para VMs selecionando a **configuração** do Espaço de Trabalho a partir do **Get Started**. Clique no nome do espaço de trabalho para abrir o seu menu.
@@ -140,7 +140,7 @@ Uma vez configurada a recolha de dados de monitorização para uma máquina virt
 | Definições de diagnóstico | Ativar e configurar [a extensão de diagnóstico](../platform/diagnostics-extension-overview.md) para a máquina virtual atual. |
 | Recomendações do assistente | Recomendações para a atual máquina virtual do [Azure Advisor](../../advisor/index.yml). |
 | Registos | Abra [o Log Analytics](../log-query/log-analytics-overview.md) com o [âmbito](../log-query/scope.md) definido para a máquina virtual atual. |
-| Monitor de ligação | Monitor de [ligação do Observador de Rede](../../network-watcher/connection-monitor-preview.md) aberto para monitorizar as ligações entre a máquina virtual atual e outras máquinas virtuais. |
+| Monitor de ligação | Monitor de [ligação do Observador de Rede](../../network-watcher/connection-monitor-overview.md) aberto para monitorizar as ligações entre a máquina virtual atual e outras máquinas virtuais. |
 
 
 ## <a name="analyzing-metric-data"></a>Análise de dados métricos
@@ -242,4 +242,3 @@ Consulte [o Connect Operations Manager ao Azure Monitor](../platform/om-agents.m
 
 * [Saiba como analisar dados em registos do Azure Monitor utilizando consultas de registo.](../log-query/get-started-queries.md)
 * [Saiba mais sobre alertas utilizando métricas e registos no Azure Monitor.](../platform/alerts-overview.md)
-

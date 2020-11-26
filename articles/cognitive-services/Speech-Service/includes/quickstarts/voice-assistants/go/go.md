@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
 ms.openlocfilehash: c37637ba1cb5154bbd56f7fd22bbbca62b8c3438
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95095457"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187728"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -124,6 +124,6 @@ Está agora preparado para construir o seu projeto e testar o seu assistente de 
 > [!NOTE]
 > O SDK de discurso não reconhecerá a utilização do linguístico para a língua, consulte especificar a [língua de origem para falar para texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [footer](./footer.md)]

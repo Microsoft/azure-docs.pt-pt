@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d7ec1edb779ddaf53cef02dd6e83bb3e719d0b4e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b096b24acd5cf65f6ad3e9eabb1d536b3aae0168
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503560"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187073"
 ---
 # <a name="tutorial---migrate-an-android-app-from-google-maps"></a>Tutorial - Migrar uma aplicação Android do Google Maps
 
@@ -65,7 +65,7 @@ Para exibir um mapa utilizando o Google Maps SDK para Android, seriam dados os s
 
     `implementation 'com.google.android.gms:play-services-maps:17.0.0'`
 
-3. Adicione uma chave API do Google Maps dentro da secção de aplicações do google  ** \_ maps \_api.xml** ficheiro:
+3. Adicione uma chave API do Google Maps dentro da secção de aplicações do google  **\_ maps \_api.xml** ficheiro:
 
     ```xml
     <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR_GOOGLE_MAPS_KEY"/>
@@ -80,7 +80,7 @@ Para exibir um mapa utilizando o Google Maps SDK para Android, seriam dados os s
             android:layout_height="match_parent"/>
     ```
 
-5. No ficheiro **MainActivity.java,** terá de importar o Google Maps SDK. Encaminhar todos os métodos do ciclo de vida da atividade que contém a vista do mapa para os correspondentes na classe de mapas. Recupere um `MapView` exemplo do fragmento do mapa utilizando o `getMapAsync(OnMapReadyCallback)` método. `MapView`Iniciona-se automaticamente o sistema de mapas e a vista. Editar o ficheiro **MainActivity.java** da seguinte forma:
+5. No ficheiro **MainActivity.java,** terá de importar o Google Maps SDK. Encaminhar todos os métodos do ciclo de vida da atividade que contém a vista do mapa para os correspondentes na classe de mapas. Recupere um `MapView` exemplo do fragmento do mapa utilizando o `getMapAsync(OnMapReadyCallback)` método. `MapView`Iniciona-se automaticamente o sistema de mapas e a vista. Editar o ficheiro **.java MainActivity** da seguinte forma:
 
     ```java
     import com.google.android.gms.maps.GoogleMap;
@@ -214,7 +214,7 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
     </FrameLayout>
     ```
 
-4. No ficheiro **MainActivity.java** terá de:
+4. No ficheiro **MainActivity.java** que terá de:
 
     * Importa o Azure Maps SDK
     * Desconfie das suas informações de autenticação Azure Maps
@@ -233,7 +233,7 @@ Para exibir um mapa utilizando o Azure Maps SDK para Android, é necessário faz
     * `onSaveInstanceState(Bundle)` 
     * `onLowMemory()`
 
-    Editar o ficheiro **MainActivity.java** da seguinte forma:
+    Editar o ficheiro **.java MainActivity** da seguinte forma:
 
     ```java
     package com.example.myapplication;
@@ -769,7 +769,7 @@ Saiba mais sobre o Azure Maps Android SDK:
 > [Adicione uma camada de símbolo a um mapa Android](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Adicione formas a um mapa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Adicione formas a um mapa Android](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Alterar estilos de mapa em mapas Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Alterar estilos de mapa em mapas Android](./set-android-map-styles.md)

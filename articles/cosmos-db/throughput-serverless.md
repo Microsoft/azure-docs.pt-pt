@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: f6fbd963966dd1a5c433a97cb8d37ae22998be4c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 11/25/2020
+ms.openlocfilehash: 1943aae3a2b01490dca687bcdea99d76da238d51
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491193"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187260"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Como escolher entre produção provisão e sem servidor
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -25,35 +25,26 @@ A Azure Cosmos DB está disponível em dois modos de capacidade diferentes: [pro
 | Critérios | Débito aprovisionado | Sem servidor |
 | --- | --- | --- |
 | Estado | Disponível em Geral | Em pré-visualização |
-| Mais adequado para | Cargas de trabalho críticas à missão que requerem um desempenho previsível | Cargas de trabalho não críticas pequenas a médias com tráfego de luz |
+| Mais adequado para | Cargas de trabalho críticas à missão que requerem um desempenho previsível | Cargas de trabalho não críticas pequenas a médias com tráfego leve e intermitente |
 | Como funciona | Para cada um dos seus contentores, fornece alguma quantidade de produção expressa nas [Unidades de Pedido](request-units.md) por segundo. A cada segundo, este número de Unidades de Pedido está disponível para as suas operações de base de dados. A produção a provisionada pode ser atualizada manualmente ou ajustada automaticamente com [autoescala](provision-throughput-autoscale.md). | Execute as suas operações de base de dados contra os seus contentores sem ter de providenciar qualquer capacidade. |
-| Limitações por conta | Número máximo de regiões de Azure: ilimitadas | Número máximo de regiões de Azure: 1 |
-| Limitações por contentor | Produção máxima: ilimitada<br>Armazenamento máximo: ilimitado | Produção máxima: 5.000 RU/s<br>Armazenamento máximo: 50 GB |
+| Geo-distribuição | Disponível (número ilimitado de regiões de Azure) | Indisponível (as contas sem servidor só podem ser executadas em 1 região do Azure) |
+| Armazenamento máximo por contentor | Ilimitado | 50 GB |
 | Desempenho | 99,99% para 99,999% disponibilidade coberta pela SLA<br>< 10 ms latência para leituras e escritos cobertos por SLA<br>Produção garantida de 99,99% abrangida pelo SLA | Disponibilidade de 99,9% a 99,99% abrangida pela SLA<br>< 10 ms latência para leituras pontuais e < 30 ms para escritas cobertas pela SLO<br>95% de burstability coberto pela SLO |
 | Modelo de faturação | A faturação é feita por hora para o R/S a provisionado, independentemente do número de RUs consumidos. | A faturação é feita por hora pela quantidade de RUs consumidas pelas suas operações de base de dados. |
 
 > [!IMPORTANT]
 > Algumas das limitações sem servidor podem ser facilitadas ou removidas quando o servidor não está disponível e **o seu feedback** nos ajudará a decidir! Contacte-nos e conte-nos mais sobre a sua experiência sem servidor: [azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com) .
 
-## <a name="burstability-and-expected-consumption"></a>Burstability e consumo esperado
+## <a name="estimating-your-expected-consumption"></a>Estimando o seu consumo esperado
 
-Em algumas situações, pode não ser claro se o rendimento previsto ou sem servidor deve ser escolhido para uma determinada carga de trabalho. Para ajudar nesta decisão, pode estimar:
+Em algumas situações, pode não ser claro se o rendimento previsto ou sem servidor deve ser escolhido para uma determinada carga de trabalho. Para ajudar nesta decisão, pode estimar o seu consumo total **esperado,** que é o número total de RUs que pode consumir ao longo de um mês (pode estimar isso com a ajuda da tabela [aqui](plan-manage-costs.md#estimating-serverless-costs)mostrada)
 
-- O requisito de **burstability** da sua carga de trabalho, é essa a quantidade máxima de RUs que pode precisar para consumir num segundo
-- O seu **consumo total esperado,** é esse o número total de RUs que pode consumir ao longo de um mês (pode estimar isso com a ajuda da tabela [aqui](plan-manage-costs.md#estimating-serverless-costs)mostrada)
-
-Se a sua carga de trabalho necessitar de explodir acima de 5.000 RU por segundo, a produção a provisionada deve ser escolhida porque os recipientes sem servidor não podem rebentar acima deste limite. Caso contrário, pode comparar o custo de ambos os modos com base no seu consumo esperado.
-
-**Exemplo 1** : espera-se que uma carga de trabalho rebente até um máximo de 10.000 RU/s e consuma um total de 20.000.000 RUs durante um mês.
-
-- Apenas o modo de produção a provisionado pode entregar uma produção de 10.000 RU/s
-
-**Exemplo 2** : espera-se que uma carga de trabalho rebente até um máximo de 500 RU/s e consuma um total de 20.000.000 RUs durante um mês.
+**Exemplo 1**: espera-se que uma carga de trabalho rebente até um máximo de 500 RU/s e consuma um total de 20.000.000 RUs durante um mês.
 
 - No modo de produção a provisionado, você providenciaria um recipiente com 500 RU/s por um custo mensal de: $0.008 * 5 * 730 = **$29,20**
 - No modo sem servidor, pagaria pelas RUs consumidas: $0,25 * 20 = **$5,00**
 
-**Exemplo 3** : espera-se que uma carga de trabalho rebente até um máximo de 500 RU/s e consuma um total de 250.000.000 RUs durante um mês.
+**Exemplo 2**: espera-se que uma carga de trabalho rebente até um máximo de 500 RU/s e consuma um total de 250.000.000 RUs durante um mês.
 
 - No modo de produção a provisionado, você providenciaria um recipiente com 500 RU/s por um custo mensal de: $0.008 * 5 * 730 = **$29,20**
 - No modo sem servidor, pagaria pelos RUs consumidos: $0,25 * 250 = **$62,50**

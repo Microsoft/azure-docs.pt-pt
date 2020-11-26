@@ -9,11 +9,11 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/27/2020
 ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129580"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188756"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Como rever e publicar uma oferta ao mercado comercial
 
@@ -42,7 +42,7 @@ Quando estiver pronto para submeter uma oferta de publicação, selecione **'Rev
    - **Incompleto** – Falta informação necessária ou tem erros que precisam de ser corrigidos. Terá de voltar à página e atualizá-la.
    - **Completo** - A página está completa. Todos os dados necessários foram fornecidos e não há erros.
 
-Se alguma das páginas tiver um estado diferente do **Completo,** tem de corrigir o problema nessa página e, em seguida, voltar à página **de Revisão e publicar** para confirmar que o estado agora mostra como **Completo** . Alguns tipos de oferta requerem testes. Em caso afirmativo, verá um campo **de Notas para certificação** onde precisa de fornecer instruções de teste à equipa de certificação e quaisquer notas suplementares úteis para a compreensão da sua app.
+Se alguma das páginas tiver um estado diferente do **Completo,** tem de corrigir o problema nessa página e, em seguida, voltar à página **de Revisão e publicar** para confirmar que o estado agora mostra como **Completo**. Alguns tipos de oferta requerem testes. Em caso afirmativo, verá um campo **de Notas para certificação** onde precisa de fornecer instruções de teste à equipa de certificação e quaisquer notas suplementares úteis para a compreensão da sua app.
 
 Depois de todas as páginas estarem completas e tiver introduzido notas de teste aplicáveis, **selecione Publicar** para iniciar os processos de validação e publicação. As fases e a sequência geral podem variar dependendo do tipo de oferta que está a publicar. A tabela a seguir mostra um possível fluxo de publicação. Cada fase é explicada mais detalhadamente nas seguintes secções.
 
@@ -156,7 +156,7 @@ Na página **'Geral' da Oferta,** verá links de pré-visualização no botão *
 
 Depois de aprovar a sua pré-visualização, selecione **Go live** para publicar a sua oferta ao vivo no mercado comercial. 
 
-Se quiser fazer alterações após a pré-visualização da oferta, pode editar e reenviar o seu pedido de publicação. Se a sua oferta já estiver ao vivo e disponível para o público no mercado, quaisquer atualizações que faça não serão transmitidas ao vivo até que escolha * *Vá ao vivo* . Para mais informações, consulte [Atualizar uma oferta existente no mercado comercial](partner-center-portal/update-existing-offer.md)
+Se quiser fazer alterações após a pré-visualização da oferta, pode editar e reenviar o seu pedido de publicação. Se a sua oferta já estiver ao vivo e disponível para o público no mercado, quaisquer atualizações que faça não serão transmitidas ao vivo até que escolha **Vá ao vivo*. Para mais informações, consulte [Atualizar uma oferta existente no mercado comercial](partner-center-portal/update-existing-offer.md)
 
 ## <a name="publish-phase"></a>Fase de publicação
 
@@ -191,7 +191,7 @@ A página **História** no Partner Center mostra os eventos de publicação das 
 Para ver a história da sua oferta:
 
 1.    Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2.    No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
+2.    No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
 3.    Selecione a sua oferta.
 4.    Selecione o **separador Histórico** no menu de navegação à esquerda. A página fornece detalhes para os seguintes eventos, conforme aplicável à sua oferta:
 
@@ -225,7 +225,7 @@ Pode utilizar filtros para reduzir todo o histórico da sua oferta a eventos de 
 Há quatro filtros:
 * Eventos
 * Utilizadores
-* Date
+* Data
 * Páginas
 
 Ao escolher o filtro **Páginas,** pode selecionar qualquer uma das páginas do Centro parceiro que sejam aplicáveis ao seu tipo de oferta. Quando aplicado, o filtro **Páginas** mostra toda a **oferta submetida a eventos de pré-visualização** com alterações na página selecionada.

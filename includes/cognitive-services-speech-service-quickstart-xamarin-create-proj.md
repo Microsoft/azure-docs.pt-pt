@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: 6d20df031633df4642ce9fb5cbbc469fd7f0a5da
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097240"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188502"
 ---
 Para criar um projeto visual Studio para o desenvolvimento de aplicativos móveis cross-platform .NET com Xamarin, você precisa:
 - Configurar opções de desenvolvimento do Estúdio Visual.
@@ -54,7 +54,7 @@ Para começar, certifique-se de que está configurado corretamente no Visual Stu
 
 1. Selecione o modelo **Blank.**
 
-1. Na **Plataforma**, selecione as caixas para **Android,** **iOS**e **Windows (UWP)**.
+1. Na **Plataforma**, selecione as caixas para **Android,** **iOS** e **Windows (UWP)**.
 
 1. Selecione **OK**. Regressa ao Visual Studio IDE, com o novo projeto criado e visível no painel **Solution Explorer.**
 
@@ -81,9 +81,9 @@ Instale o [pacote Speech SDK NuGet](https://aka.ms/csspeech/nuget)e refira o SDK
    > [!NOTE] 
    > A biblioteca iOS dentro `Microsoft.CognitiveServices.Speech` do NuGet não tem bitcode ativado. Se precisar da biblioteca bitcode ativada para a sua aplicação, utilize `Microsoft.CognitiveServices.Speech.Xamarin.iOS` o NuGet especificamente para o projeto iOS.
 
-1. No painel de estado do pacote ao lado dos resultados da pesquisa, selecione todos os projetos: **helloworld,** **helloworld. Android**, **helloworld.iOS**e **helloworld. UWP**.
+1. No painel de estado do pacote ao lado dos resultados da pesquisa, selecione todos os projetos: **helloworld,** **helloworld. Android**, **helloworld.iOS** e **helloworld. UWP**.
 
-1. Selecione **Instalar**.
+1. Selecione **Install** (Instalar).
 
 1. Na caixa de diálogo **'Alterações de pré-visualização',** selecione **OK**.
 

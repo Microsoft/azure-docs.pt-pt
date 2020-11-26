@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 093d470052a639ad3d4e819d08fad7c34b547d44
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bf7e99f6e6201afefd316deafe37e38088fb9fae
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789510"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187124"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é a Base de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +26,7 @@ A Base de Dados SQL do Azure é um motor de base de dados totalmente gerido com 
 
 Com a Base de Dados SQL do Azure, pode criar uma camada de armazenamento altamente disponível e de elevado desempenho para as aplicações e soluções no Azure. A BASE de Dados SQL pode ser a escolha certa para uma variedade de aplicações em nuvem modernas porque permite processar dados relacionais e [estruturas não relacionais](../multi-model-features.md), tais como gráficos, JSON, espacial e XML.
 
-O Azure SQL Database baseia-se na versão mais recente estável do motor de base de dados do [Microsoft SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json). Pode utilizar funcionalidades de processamento de consultas avançadas, tais como [tecnologias de alto desempenho na memória](../in-memory-oltp-overview.md) e processamento inteligente de [consultas.](/sql/relational-databases/performance/intelligent-query-processing?toc=%252fazure%252fsql-database%252ftoc.json) Na verdade, as funcionalidades mais recentes do SQL Server são lançadas primeiro para a Base de Dados SQL e depois para o próprio SQL Server. Obtém as funcionalidades mais recentes do SQL Server, sem custos gerais para correções ou atualizações, que foram testadas em milhões de bases de dados. 
+O Azure SQL Database baseia-se na versão mais recente estável do motor de base de dados do [Microsoft SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=%2fazure%2fsql-database%2ftoc.json). Pode utilizar funcionalidades de processamento de consultas avançadas, tais como [tecnologias de alto desempenho na memória](../in-memory-oltp-overview.md) e processamento inteligente de [consultas.](/sql/relational-databases/performance/intelligent-query-processing?toc=%2fazure%2fsql-database%2ftoc.json) Na verdade, as funcionalidades mais recentes do SQL Server são lançadas primeiro para a Base de Dados SQL e depois para o próprio SQL Server. Obtém as funcionalidades mais recentes do SQL Server, sem custos gerais para correções ou atualizações, que foram testadas em milhões de bases de dados. 
 
 A SQL Database permite-lhe definir e escalar facilmente o desempenho dentro de dois modelos de compra diferentes: um [modelo de compra baseado em vCore](service-tiers-vcore.md) e um modelo de compra baseado em [DTU.](service-tiers-dtu.md) A Base de Dados SQL é um serviço totalmente gerido que tem uma elevada disponibilidade incorporada, cópias de segurança e outras operações de manutenção comuns. A Microsoft lida com todos os patchings e atualizações do SQL e do código do sistema operativo. Não tem de gerir a infraestrutura subjacente.
 
@@ -37,7 +37,7 @@ Se é novo na Base de Dados Azure SQL, consulte o vídeo da *Base de Dados Azure
 
 A Azure SQL Database fornece as seguintes opções de implantação para uma base de dados:
 
-- [Uma base de dados única](single-database-overview.md) representa uma base de dados totalmente gerida e isolada. Poderá utilizar esta opção se tiver aplicações em nuvem modernas e microserviços que necessitem de uma única fonte de dados fiável. Uma única base de dados é semelhante a uma [base de dados contida](/sql/relational-databases/databases/contained-databases?toc=%252fazure%252fsql-database%252ftoc.json) no motor de base de [dados SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json).
+- [Uma base de dados única](single-database-overview.md) representa uma base de dados totalmente gerida e isolada. Poderá utilizar esta opção se tiver aplicações em nuvem modernas e microserviços que necessitem de uma única fonte de dados fiável. Uma única base de dados é semelhante a uma [base de dados contida](/sql/relational-databases/databases/contained-databases?toc=%2fazure%2fsql-database%2ftoc.json) no motor de base de [dados SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=%2fazure%2fsql-database%2ftoc.json).
 - [A piscina elástica](elastic-pool-overview.md) é uma coleção de bases de [dados individuais](single-database-overview.md) com um conjunto partilhado de recursos, como CPU ou memória. Bases de dados individuais podem ser transferidas para dentro e para fora de uma piscina elástica.
 
 > [!IMPORTANT]
@@ -96,9 +96,9 @@ A Azure SQL Database fornece funcionalidades avançadas de monitorização e res
 
 O Azure fornece ferramentas de monitorização e [alerta](alerts-insights-configure-portal.md) [de desempenho incorporadas,](performance-guidance.md) combinadas com classificações de desempenho, que permitem monitorizar o estado de milhares de bases de dados. Utilizando estas ferramentas, pode avaliar rapidamente o impacto da escala para cima ou para baixo, com base nas suas necessidades de desempenho atuais ou projetadas. Além disso, a BASE de Dados SQL pode [emitir métricas e registos de recursos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
 
-- **Armazenamento Azure** : Para arquivar grandes quantidades de telemetria por um pequeno preço.
-- **Azure Event Hubs** : Para integrar a telemetria SQL Database com a sua solução de monitorização personalizada ou gasodutos quentes.
-- **Registos do Monitor Azure** : Para uma solução de monitorização incorporada com capacidades de reporte, alerta e mitigação.
+- **Armazenamento Azure**: Para arquivar grandes quantidades de telemetria por um pequeno preço.
+- **Azure Event Hubs**: Para integrar a telemetria SQL Database com a sua solução de monitorização personalizada ou gasodutos quentes.
+- **Registos do Monitor Azure**: Para uma solução de monitorização incorporada com capacidades de reporte, alerta e mitigação.
 
 ![Diagrama da arquitetura de monitorização de Azure](./media/sql-database-paas-overview/architecture.png)
 
@@ -114,7 +114,7 @@ As Zonas de Disponibilidade Azure tentam proteger-se contra a interrupção de u
 
 De facto, o acordo de nível de serviço [(SLA)](https://azure.microsoft.com/support/legal/sla/) da Azure, alimentado por uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação a funcionar 24 horas por dia. A plataforma Azure gere totalmente todas as bases de dados, e garante nenhuma perda de dados e uma elevada percentagem de disponibilidade de dados. O Azure lida automaticamente com patching, backups, replicação, deteção de falhas, potenciais falhas de hardware, software ou rede subjacentes, implementando correções de bugs, falhas, atualizações de bases de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. A disponibilidade premium é conseguida através da integração do computação e armazenamento num único nó para o desempenho e, em seguida, implementando tecnologia semelhante a Always On Availability Groups. Para uma discussão completa sobre as elevadas capacidades de disponibilidade da Base de Dados Azure SQL, consulte [a disponibilidade da Base de Dados SQL](high-availability-sla.md). 
 
-Além disso, a SQL Database fornece funcionalidades de continuidade de negócios incorporadas e de [escalabilidade global.](business-continuity-high-availability-disaster-recover-hadr-overview.md) Estes incluem:
+Além disso, a SQL Database fornece funcionalidades de continuidade de negócios incorporadas e de [escalabilidade global.](business-continuity-high-availability-disaster-recover-hadr-overview.md) Estas incluem:
 
 - [Backups automáticos:](automated-backups-overview.md)
 
@@ -149,8 +149,8 @@ Muitos dos nossos parceiros que gerem [aplicações multi-arrendatários SaaS](s
 
 Dois aspetos de afinação automática estão [disponíveis na Base de Dados SQL:](automatic-tuning-overview.md)
 
-- **Gestão de índices automática** : identifica os índices que devem ser adicionados à sua base de dados e os que devem ser removidos.
-- **Correção automática do plano** : Identifica planos problemáticos e corrige problemas de desempenho do plano SQL.
+- **Gestão de índices automática**: identifica os índices que devem ser adicionados à sua base de dados e os que devem ser removidos.
+- **Correção automática do plano**: Identifica planos problemáticos e corrige problemas de desempenho do plano SQL.
 
 ### <a name="adaptive-query-processing"></a>Processamento de consultas adaptável
 

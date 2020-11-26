@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: trbye
 ms.openlocfilehash: b84db9eee473b14f2ba078ed1be77f6165a5f3b9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81422370"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187762"
 ---
 ## <a name="additional-language-and-platform-support"></a>Suporte adicional de idiomas e plataformas
 

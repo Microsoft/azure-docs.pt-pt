@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
 ms.openlocfilehash: 457f7e07391c647d2ab0e7d78197086f6f5e2cf7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337444"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187787"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql"></a>Quickstart: Use Java e JDBC com Base de Dados Azure para MySQL
 
@@ -43,14 +43,14 @@ AZ_MYSQL_PASSWORD=<YOUR_MYSQL_PASSWORD>
 AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
-Substitua os espaços reservados pelos seguintes valores, que são utilizados ao longo deste artigo:
+Substitua os marcadores de posição pelos seguintes valores, que são utilizados ao longo deste artigo:
 
-- `<YOUR_DATABASE_NAME>`: O nome do seu servidor MySQL. Deve ser único em todo o Azure.
-- `<YOUR_AZURE_REGION>`: A região de Azure que você vai usar. Pode usar `eastus` por defeito, mas recomendamos que configuure uma região mais próxima do local onde vive. Pode ter a lista completa das regiões disponíveis através da `az account list-locations` entrada.
-- `<YOUR_MYSQL_PASSWORD>`: A palavra-passe do seu servidor de base de dados MySQL. Essa senha deve ter um mínimo de oito caracteres. Os caracteres devem ser de três das seguintes categorias: letras maiúsculas inglesas, letras minúsculas inglesas, números (0-9) e caracteres não alfanuméricos (!, $, #, %, e assim por diante).
+- `<YOUR_DATABASE_NAME>`: O nome do seu servidor MySQL. Deve ser um nome exclusivo no Azure.
+- `<YOUR_AZURE_REGION>`: A região de Azure que você vai usar. Pode utilizar a região `eastus` por predefinição, mas recomendamos que configure uma região mais próxima do local onde vive. Pode ter a lista completa das regiões disponíveis através da `az account list-locations` entrada.
+- `<YOUR_MYSQL_PASSWORD>`: A palavra-passe do seu servidor de base de dados MySQL. Essa palavra-passe deve ter pelo menos oito carateres. Os carateres devem enquadrar-se em três das seguintes categorias: letras maiúsculas, letras minúsculas, números (0 a 9) e carateres alfanuméricos (!, $, #, %, entre outros).
 - `<YOUR_LOCAL_IP_ADDRESS>`: O endereço IP do seu computador local, a partir do qual executará a sua aplicação Java. Uma maneira conveniente de encontrá-lo é apontar o seu navegador para [whatismyip.akamai.com.](http://whatismyip.akamai.com/)
 
-Em seguida, criar um grupo de recursos:
+Depois, crie um grupo de recursos:
 
 ```azurecli
 az group create \
@@ -60,15 +60,15 @@ az group create \
 ```
 
 > [!NOTE]
-> Utilizamos o `jq` utilitário, que é instalado por padrão no [Azure Cloud Shell](https://shell.azure.com/) para exibir dados JSON e torná-lo mais legível.
-> Se não gostares desse utilitário, podes remover com segurança a `| jq` parte de todos os comandos que usaremos.
+> Utilizamos o utilitário `jq`, que está instalado por predefinição no [Azure Cloud Shell](https://shell.azure.com/), para apresentar dados JSON e torná-los mais legíveis.
+> Se não quiser utilizar esse utilitário, pode remover sem problemas a parte `| jq` de todos os comandos que utilizamos.
 
-## <a name="create-an-azure-database-for-mysql-instance"></a>Criar uma base de dados Azure para o caso MySQL
+## <a name="create-an-azure-database-for-mysql-instance"></a>Criar uma instância da Base de Dados do Azure para MySQL
 
-A primeira coisa que vamos criar é um servidor MySQL gerido.
+Iremos começar por criar um servidor MySQL gerido.
 
 > [!NOTE]
-> Pode ler informações mais detalhadas sobre a criação de servidores MySQL na [Criação de uma Base de Dados Azure para servidor MySQL utilizando o portal Azure](./quickstart-create-mysql-server-database-using-azure-portal.md).
+> Pode ler informações mais detalhadas sobre a criação de servidores MySQL no artigo [Criar um servidor MySQL da Base de Dados do Azure para MySQL através do portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
 Em [Azure Cloud Shell](https://shell.azure.com/), executar o seguinte script:
 
@@ -86,9 +86,9 @@ az mysql server create \
 
 Este comando cria um pequeno servidor MySQL.
 
-### <a name="configure-a-firewall-rule-for-your-mysql-server"></a>Configure uma regra de firewall para o seu servidor MySQL
+### <a name="configure-a-firewall-rule-for-your-mysql-server"></a>Configurar uma regra de firewall para o servidor MySQL
 
-A base de dados Azure para casos MySQL são protegidos por padrão. Eles têm uma firewall que não permite qualquer ligação. Para poder utilizar a sua base de dados, é necessário adicionar uma regra de firewall que permita ao endereço IP local aceder ao servidor de base de dados.
+A base de dados Azure para casos MySQL são protegidos por padrão. O serviço tem uma firewall que não permite ligações de entrada. Para poder utilizar a sua base de dados, é necessário adicionar uma regra de firewall que permita ao endereço IP local aceder ao servidor de base de dados.
 
 Como configuraste o nosso endereço IP local no início deste artigo, podes abrir a firewall do servidor executando:
 
@@ -104,7 +104,7 @@ az mysql server firewall-rule create \
 
 ### <a name="configure-a-mysql-database"></a>Configurar uma base de dados MySQL
 
-O servidor MySQL que criou anteriormente está vazio. Não tem nenhuma base de dados que possa usar com a aplicação Java. Criar uma nova base de dados chamada `demo` :
+O servidor MySQL que criou anteriormente está vazio. Não tem nenhuma base de dados que possa usar com a aplicação Java. Crie uma nova base de dados chamada `demo`:
 
 ```azurecli
 az mysql db create \
@@ -163,7 +163,7 @@ password=$AZ_MYSQL_PASSWORD
 - Substitua a `$AZ_MYSQL_PASSWORD` variável pelo valor que configurado no início deste artigo.
 
 > [!NOTE]
-> Anexamos `?serverTimezone=UTC` à propriedade de `url` configuração, para dizer ao controlador JDBC para usar o formato de data UTC (ou Tempo Universal Coordenado) ao ligar à base de dados. Caso contrário, o nosso servidor Java não utilizaria o mesmo formato de data que a base de dados, o que resultaria num erro.
+> Acrescentámos `?serverTimezone=UTC` à propriedade de configuração `url` para indicar ao controlador JDBC que utilize o formato de data UTC (Hora Universal Coordenada) quando ligar à base de dados. Caso contrário, o nosso servidor Java não utilizaria o mesmo formato de data que a base de dados, o que resultaria num erro.
 
 ### <a name="create-an-sql-file-to-generate-the-database-schema"></a>Criar um ficheiro SQL para gerar o esquema da base de dados
 
@@ -174,13 +174,13 @@ DROP TABLE IF EXISTS todo;
 CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
 ```
 
-## <a name="code-the-application"></a>Código da aplicação
+## <a name="code-the-application"></a>Codificar a aplicação
 
 ### <a name="connect-to-the-database"></a>Ligue-se à base de dados
 
 Em seguida, adicione o código Java que utilizará JDBC para armazenar e recuperar dados do seu servidor MySQL.
 
-Crie um ficheiro *src/main/java/DemoApplication.java,* que contenha:
+Crie um ficheiro *src/main/java/DemoApplication.java* que contenha:
 
 ```java
 package com.example.demo;
@@ -232,7 +232,7 @@ public class DemoApplication {
 }
 ```
 
-Este código Java utilizará o *ficheiro.propriedades* e os ficheiros *schema.sql* que criámos anteriormente, de forma a ligar ao servidor MySQL e criar um esquema que armazenará os nossos dados.
+Este código Java utilizará o *ficheiro.propriedades* e o *esquema.sql* ficheiros que criámos anteriormente, de forma a ligar ao servidor MySQL e criar um esquema que armazenará os nossos dados.
 
 Neste ficheiro, pode ver que comentámos métodos para inserir, ler, atualizar e apagar dados: codificaremos esses métodos no resto deste artigo, e poderá descomprê-los um após o outro.
 
@@ -326,7 +326,7 @@ public class Todo {
 }
 ```
 
-Esta classe é um modelo de domínio mapeado na `todo` tabela que criou ao executar o script *schema.sql.*
+Esta classe é um modelo de domínio mapeado na `todo` tabela que criou ao executar o script .sql *esquema.*
 
 ### <a name="insert-data-into-azure-database-for-mysql"></a>Inserir dados na Base de Dados do Azure para o MySQL
 
@@ -493,7 +493,7 @@ A execução da classe principal deverá agora produzir a seguinte saída:
 [INFO   ] Closing database connection 
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Parabéns! Criou uma aplicação Java que utiliza o JDBC para armazenar e recuperar dados da Azure Database para o MySQL.
 

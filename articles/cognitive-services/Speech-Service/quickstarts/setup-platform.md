@@ -13,11 +13,11 @@ ms.author: trbye
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-speech-services-one-nomore
 ms.openlocfilehash: 53e29d3374f9b5d44c9f46a46bbacc3ed2e12f35
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096968"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188438"
 ---
 # <a name="quickstart-setup-development-environment"></a>Quickstart: Ambiente de desenvolvimento de configuração
 

@@ -6,11 +6,11 @@ ms.date: 04/04/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ea7ea08fc07a895bc038b27701d7038a5f76c26f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95096590"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187709"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -381,6 +381,6 @@ Agora está pronto para construir a sua aplicação e testar o seu assistente de
 
 1. **Selecione Fale com o seu bot** e fale uma frase ou frase em inglês no microfone do seu dispositivo. O seu discurso é transmitido para o canal Direct Line Speech e transcrito para texto, que aparece na janela.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [footer](./footer.md)]

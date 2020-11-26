@@ -11,15 +11,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 580459f3a5da8485bd92395f9b0b9745e28c023c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a0e9401842284cad29b297be5ce572fa53cfe774
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325253"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188093"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementar um modelo no Azure Container Instances
-
 
 Aprenda a usar a Azure Machine Learning para implementar um modelo como serviço web em Instâncias de Contentores Azure (ACI). Utilize instâncias do contentor Azure se uma das seguintes condições for verdadeira:
 
@@ -29,7 +28,7 @@ Aprenda a usar a Azure Machine Learning para implementar um modelo como serviço
 Para obter informações sobre a disponibilidade de quotas e de região para o ACI, consulte quotas e disponibilidade de região para o artigo [instâncias de contentores Azure.](../container-instances/container-instances-quotas.md)
 
 > [!IMPORTANT]
-> É altamente aconselhável depurar localmente antes de implementar no serviço web, para mais informações ver [Debug Localmente](./how-to-troubleshoot-deployment.md#debug-locally)
+> É altamente aconselhável depurar localmente antes de implementar no serviço web, para mais informações ver [Debug Localmente](./how-to-troubleshoot-deployment-local.md)
 >
 > Também pode consultar o Azure Machine Learning – [Implementar no Bloco de Notas Local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -60,7 +59,7 @@ Para obter mais informações, consulte Como garantir o [inferencing com redes v
 
 ## <a name="deploy-to-aci"></a>Implementar para ACI
 
-Para implementar um modelo para Azure Container Instances, crie uma __configuração de implementação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Também precisa de uma __configuração de inferência__ , que descreve o ambiente necessário para hospedar o modelo e o serviço web. Para obter mais informações sobre a criação da configuração de inferência, consulte [como e onde implementar modelos.](how-to-deploy-and-where.md)
+Para implementar um modelo para Azure Container Instances, crie uma __configuração de implementação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Também precisa de uma __configuração de inferência__, que descreve o ambiente necessário para hospedar o modelo e o serviço web. Para obter mais informações sobre a criação da configuração de inferência, consulte [como e onde implementar modelos.](how-to-deploy-and-where.md)
 
 > [!NOTE]
 > * O ACI é adequado apenas para pequenos modelos com menos de 1 GB de tamanho. 

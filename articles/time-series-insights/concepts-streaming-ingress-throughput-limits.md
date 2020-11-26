@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.custom: seodec18
 ms.openlocfilehash: c8be18049e6ae74a198f5885a46b70df581e0cd7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020832"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187464"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limites de produção de ingestão de streaming
 
@@ -96,6 +96,6 @@ Consulte os seguintes recursos para saber mais sobre a otimização da produçã
 * [Escala de hub de evento](../event-hubs/event-hubs-scalability.md#throughput-units)
 * [Partições do Hub de Eventos](../event-hubs/event-hubs-features.md#partitions)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Ler sobre [armazenamento de](./concepts-storage.md) dados

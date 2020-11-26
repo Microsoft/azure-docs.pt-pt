@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 11/25/2020
 ms.author: chrande
-ms.openlocfilehash: d0bd94037a75db8d69cfd44820a80ae8b403c9ea
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 56ed1e653547b3c0e3469f820eb33155aedb1bcb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357084"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187209"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introdução à API de Gremlin em Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -24,6 +24,9 @@ ms.locfileid: "93357084"
 Este artigo fornece uma visão geral da API AZure Cosmos DB Gremlin e explica como usá-los para armazenar gráficos maciços com biliões de vértices e bordas. Pode consultar os gráficos com latência milissegundo e evoluir facilmente a estrutura do gráfico. A API gremlin da Azure Cosmos DB é construída com base no [Apache TinkerPop,](https://tinkerpop.apache.org)uma estrutura de computação de gráficos. A API gremlin em Azure Cosmos DB usa a linguagem de consulta Gremlin.
 
 A API gremlin da Azure Cosmos DB combina o poder dos algoritmos de base de dados de gráficos com infraestruturas altamente escaláveis e geridas para fornecer uma solução única e flexível para os problemas de dados mais comuns associados à falta de flexibilidade e abordagens relacionais.
+
+> [!NOTE]
+> O [modo de capacidade sem servidor](serverless.md) está agora disponível na API Gremlin da Azure Cosmos DB.
 
 ## <a name="features-of-azure-cosmos-dbs-gremlin-api"></a>Características da API gremlin da Azure Cosmos DB
  
@@ -111,19 +114,19 @@ Vamos utilizar um gráfico de exemplo para compreender como as consultas podem s
 
 Este gráfico tem os seguintes tipos *de vértice* (estes também são chamados de "rótulo" em Gremlin):
 
-* **People** : O gráfico tem três pessoas, Robin, Thomas e Ben
-* **Interesses** : Os seus interesses, neste exemplo, o jogo de futebol
-* **Dispositivos** : Os dispositivos que as pessoas usam
-* **Sistemas operativos** : Os sistemas operativos em que os dispositivos funcionam
-* **Local** : Os locais a partir dos quais os dispositivos são acedidos
+* **People**: O gráfico tem três pessoas, Robin, Thomas e Ben
+* **Interesses**: Os seus interesses, neste exemplo, o jogo de futebol
+* **Dispositivos**: Os dispositivos que as pessoas usam
+* **Sistemas operativos**: Os sistemas operativos em que os dispositivos funcionam
+* **Local**: Os locais a partir dos quais os dispositivos são acedidos
 
 Representamos as relações entre estas entidades através dos seguintes tipos *de borda:*
 
 * **Sabe:** Por exemplo, "Thomas conhece Robin"
-* **Interessado** : Representar os interesses das pessoas no nosso gráfico, por exemplo, "Ben está interessado no futebol"
-* **RunsOS** : Laptop executa o Windows OS
+* **Interessado**: Representar os interesses das pessoas no nosso gráfico, por exemplo, "Ben está interessado no futebol"
+* **RunsOS**: Laptop executa o Windows OS
 * **Utilizações:** Para representar o dispositivo que uma pessoa utiliza. Por exemplo, a Robin utiliza um telemóvel Motorola com o número de série 77
-* **Local** : Para representar o local a partir do qual os dispositivos são acedidos
+* **Local**: Para representar o local a partir do qual os dispositivos são acedidos
 
 A Consola Gremlin é um terminal interativo oferecido pelo Apache TinkerPop e este terminal é usado para interagir com os dados do gráfico. Para saber mais, consulte o quickstart doc sobre [como usar a consola Gremlin](create-graph-gremlin-console.md). Também pode efetuar estas operações com os controladores do Gremlin na plataforma que preferir (Java, Node.js, Python ou .NET). Os exemplos a seguir mostram como executar consultas contra estes dados gráficos utilizando a Consola Gremlin.
 
@@ -151,7 +154,7 @@ Os gráficos são bastante úteis quando tem de responder a perguntas como "What
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o suporte de gráficos no Azure Cosmos DB, veja:
 

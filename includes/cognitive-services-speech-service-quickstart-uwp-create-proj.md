@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: df9dbdf61dbc7d83f1cf74871ddc864488ed9d47
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097223"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188344"
 ---
 Para criar um projeto de Estúdio Visual para o desenvolvimento da Universal Windows Platform (UWP), é necessário configurar opções de desenvolvimento do Visual Studio, criar o projeto, selecionar a arquitetura-alvo, configurar a captura de áudio e instalar o Speech SDK.
 
@@ -29,7 +29,7 @@ Para começar, certifique-se de que está configurado corretamente no Visual Stu
 
 1. No **separador Workloads,** no **Windows,** encontre a carga de trabalho **de desenvolvimento da Plataforma Universal Windows.** Se a caixa de verificação ao lado dessa carga de trabalho já estiver selecionada, feche a caixa de diálogo **modificante** e vá para o passo 6.
 
-1. Selecione a caixa **de verificação de desenvolvimento da Plataforma Universal do Windows,** selecione **Modificar**e, em seguida, na caixa de diálogo **Antes de começarmos** a iniciar, selecione **Continue** a instalar a carga de trabalho de desenvolvimento do UWP. A instalação da nova funcionalidade pode demorar algum tempo.
+1. Selecione a caixa **de verificação de desenvolvimento da Plataforma Universal do Windows,** selecione **Modificar** e, em seguida, na caixa de diálogo **Antes de começarmos** a iniciar, selecione **Continue** a instalar a carga de trabalho de desenvolvimento do UWP. A instalação da nova funcionalidade pode demorar algum tempo.
 
 1. Feche o instalador do estúdio visual.
 
@@ -100,7 +100,7 @@ Por fim, instale o [pacote Speech SDK NuGet](https://aka.ms/csspeech/nuget)e ref
 
 1. No painel de estado do pacote ao lado dos resultados da pesquisa, selecione o seu projeto **Helloworld.**
 
-1. Selecione **Instalar**.
+1. Selecione **Install** (Instalar).
 
 1. Na caixa de diálogo **'Alterações de pré-visualização',** selecione **OK**.
 

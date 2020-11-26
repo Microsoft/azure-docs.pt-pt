@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.openlocfilehash: 967861363d5056a5a466aa88840cda2aafbeb86b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097172"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188486"
 ---
 Para criar um projeto visual Studio para desenvolvimento de desktop C++, você precisa configurar opções de desenvolvimento do Visual Studio, criar o projeto, selecionar a arquitetura-alvo e instalar o Speech SDK.
 
@@ -73,7 +73,7 @@ Por fim, instale o [pacote Speech SDK NuGet](https://aka.ms/csspeech/nuget)e ref
 
 1. No painel de estado do pacote ao lado dos resultados da pesquisa, selecione o seu projeto **Helloworld.**
 
-1. Selecione **Instalar**.
+1. Selecione **Install** (Instalar).
 
 1. Na caixa de diálogo **'Alterações de pré-visualização',** selecione **OK**.
 

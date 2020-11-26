@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.openlocfilehash: 8ee14b94977b3152e0aab853fa3919a739d0dfdd
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95096173"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187751"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -440,6 +440,6 @@ Neste ponto, diga uma frase ou frase em inglês que o seu bot possa entender. O 
 
 ![Captura de ecrã da saída da consola após o reconhecimento bem-sucedido](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-08-console-output.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [footer](./footer.md)]

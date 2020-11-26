@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3a523421c128ea26503c0848ad8fcf7d74636a04
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: bd8c5c31579ac22cd6c77dffd31103680e393f69
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341334"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187175"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Quickstart: Criação do Centro de Segurança Azure
 
@@ -47,7 +47,7 @@ Para ativar o Azure Defender numa subscrição, deve ser-lhe atribuída a funç�
 
 Pode visualizar e filtrar a lista de subscrições selecionando o item do menu **de Assinaturas.** O Centro de Segurança ajustará o ecrã para refletir a postura de segurança das subscrições selecionadas. 
 
-Poucos minutos depois de iniciar o Centro de Segurança pela primeira vez, poderá ver:
+Poucos minutos depois de lançar o Security Center pela primeira vez, pode ver:
 
 - **Recomendações** para formas de melhorar a segurança dos seus recursos conectados.
 - Um inventário dos seus recursos que estão agora a ser avaliados pelo Security Center, juntamente com a postura de segurança de cada um.
@@ -63,7 +63,7 @@ Para efeitos do Início rápido e tutoriais do Centro de Segurança, deve ativar
 
 1. A partir da barra lateral do Security Center, **selecione Começar a trabalhar**.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Painel geral do Centro de Segurança"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Atualizar o separador da página de começar"::: 
 
     O separador **Upgrade** lista subscrições e espaços de trabalho elegíveis para embarque.
 
@@ -84,7 +84,7 @@ Para permitir o provisionamento automático do agente Log Analytics:
 1. Na página de **recolha de dados,** desa **essa adir** automático ao **On**.
 1. Selecione **Guardar**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Painel geral do Centro de Segurança":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Habilitação automática do agente Log Analytics":::
 
 >[!TIP]
 > Se um espaço de trabalho precisar de ser a provisionado, a instalação do agente pode demorar até 25 minutos.

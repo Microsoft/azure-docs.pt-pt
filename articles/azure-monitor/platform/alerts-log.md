@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 61aba3e5792d1cc20da16686d052de91744dab76
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018210"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186784"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo usando o Azure Monitor
 
 ## <a name="overview"></a>Descrição geral
 
-Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/get-started-portal.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](./action-groups.md) [Saiba mais sobre funcionalidade e terminologia de alertas de registo.](alerts-unified-log.md)
+Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](./action-groups.md) [Saiba mais sobre funcionalidade e terminologia de alertas de registo.](alerts-unified-log.md)
 
 Este artigo mostra-lhe como criar e gerir alertas de registo usando o Azure Monitor. As regras de alerta são definidas por três componentes:
 - Alvo: Um recurso Azure específico para monitorizar.
@@ -27,7 +27,7 @@ Este artigo mostra-lhe como criar e gerir alertas de registo usando o Azure Moni
 Também pode criar regras de alerta de registo utilizando modelos do Gestor de Recursos Azure, que são descritos [num artigo separado](alerts-log-create-templates.md).
 
 > [!NOTE]
-> Os dados de registo de um espaço de [trabalho log Analytics](../log-query/get-started-portal.md) podem ser enviados para a loja de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar. Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](alerts-metric-logs.md).
+> Os dados de registo de um espaço de [trabalho log Analytics](../log-query/log-analytics-tutorial.md) podem ser enviados para a loja de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar. Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](alerts-metric-logs.md).
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Criar uma regra de alerta de registo com o portal Azure
 
@@ -35,7 +35,7 @@ Aqui os passos para começar a escrever consultas para alertas:
 
 1. Vá ao recurso que gostaria de alertar.
 1. Em **Monitor**, selecione **Logs**.
-1. Consulte os dados de registo que podem indicar o problema. Pode utilizar o tópico de [exemplos de consulta de alerta](../log-query/saved-queries.md) para entender o que pode descobrir ou começar a escrever a sua própria [consulta.](../log-query/get-started-portal.md) Além disso, [saiba como criar consultas de alertas otimizadas](alerts-log-query.md).
+1. Consulte os dados de registo que podem indicar o problema. Pode utilizar o tópico de [exemplos de consulta de alerta](../log-query/example-queries.md) para entender o que pode descobrir ou começar a escrever a sua própria [consulta.](../log-query/log-analytics-tutorial.md) Além disso, [saiba como criar consultas de alertas otimizadas](alerts-log-query.md).
 1. Prima o botão '+ Nova Regra de Alerta' para iniciar o fluxo de criação de alerta.
 
     ![Log Analytics - Alerta de conjunto](media/alerts-log/AlertsAnalyticsCreate.png)
@@ -327,4 +327,3 @@ Sobre o sucesso da criação, 201 é devolvido. No sucesso para a atualização,
 * Crie alertas de registo utilizando [modelos de gestor de recursos Azure](./alerts-log-create-templates.md).
 * Compreenda [as ações do webhook para alertas de registo.](./alerts-log-webhook.md)
 * Saiba mais sobre [consultas de registo.](../log-query/log-query-overview.md)
-

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 12e5a6db7257678b3d4d14d7583a1a30da0d3a87
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b36f52fd97a9f7ff294f14ec394ff9a9f607b5b0
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967147"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187158"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorizar a identidade e o acesso
 

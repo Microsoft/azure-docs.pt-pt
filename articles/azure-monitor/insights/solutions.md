@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c38fa77951aaeb5559dc2030f1401a896d7c238d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f9ced3dfeccdbac5f0eb220cf0e104679f263aac
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841925"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186869"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização no Azure Monitor
 
@@ -29,7 +29,7 @@ Utilize as caixas de dropdown na parte superior do ecrã para alterar o espaço 
 
 [![O Screenshot mostra o menu do portal Azure com soluções selecionadas e soluções exibidas no painel soluções.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
-As soluções de monitorização podem conter vários tipos de recursos Azure, e você pode ver quaisquer recursos incluídos com uma solução como qualquer outro recurso. Por exemplo, quaisquer consultas de registo incluídas na solução estão listadas em **Consultas de Solução** no [explorador de consultas](../log-query/get-started-portal.md#load-queries) Pode utilizar essas consultas ao realizar análises ad hoc com consultas [de registo](../log-query/log-query-overview.md).
+As soluções de monitorização podem conter vários tipos de recursos Azure, e você pode ver quaisquer recursos incluídos com uma solução como qualquer outro recurso. Por exemplo, quaisquer consultas de registo incluídas na solução estão listadas em **Consultas de Solução** no [Explorador de Consultas.](../log-query/log-analytics-tutorial.md) Pode utilizar essas consultas ao realizar análises ad hoc com [consultas de registo](../log-query/log-query-overview.md).
 
 ## <a name="list-installed-monitoring-solutions"></a>Listar soluções de monitorização instaladas
 

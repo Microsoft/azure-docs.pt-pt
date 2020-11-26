@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 68daec6bb6682d2b488abacb2f79bdfadc4ae628
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bedf4dd2a955a8ffe648b47c1691e77ac1fdb8f5
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076577"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187804"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Funções de Serviço de Nuvem de Resolução de Problemas que não começam
 Eis alguns problemas e soluções comuns relacionados com as funções dos Azure Cloud Services que não começam.
@@ -27,11 +27,11 @@ Eis alguns problemas e soluções comuns relacionados com as funções dos Azure
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-dlls-or-dependencies"></a>DLLs em falta ou dependências
-Papéis e papéis sem resposta que estão a pedalar entre estados **de inicialização,** **ocupados**e **de paragem** podem ser causados pela falta de DLLs ou conjuntos.
+Papéis e papéis sem resposta que estão a pedalar entre estados **de inicialização,** **ocupados** e **de paragem** podem ser causados pela falta de DLLs ou conjuntos.
 
 Os sintomas de DLLs ou conjuntos em falta podem ser:
 
-* O seu exemplo de papel é andar de bicicleta através de Estados **de Inicialização,** **Ocupado**e **Paragem.**
+* O seu exemplo de papel é andar de bicicleta através de Estados **de Inicialização,** **Ocupado** e **Paragem.**
 * A sua instância de função mudou-se para **Ready** mas se navegar para a sua aplicação web, a página não aparece.
 
 Existem vários métodos recomendados para investigar estas questões.
@@ -82,7 +82,7 @@ Por exemplo:
 ![Erro explícito do servidor na aplicação '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
 ## <a name="diagnose-issues-by-using-the-compute-emulator"></a>Diagnosticar problemas usando o emulador computacional
-Pode utilizar o emulador de computação Microsoft Azure para diagnosticar e resolver problemas de dependências em falta e erros de web.config.
+Pode utilizar o Emulador Compute do Microsoft Azure para diagnosticar e resolver problemas de dependências em falta e erros de web.config.
 
 Para obter os melhores resultados na utilização deste método de diagnóstico, deve utilizar um computador ou máquina virtual que tenha uma instalação limpa do Windows. Para melhor simular o ambiente Azure, utilize o Windows Server 2008 R2 x64.
 

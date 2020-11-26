@@ -12,11 +12,11 @@ ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
 ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651450"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187277"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Dados de exportação da Azure IoT Central e visualizar insights no Power BI
 
@@ -57,7 +57,7 @@ Tem agora um grupo de recursos chamado **retail-store-analysis** na sua subscri�
 Antes de configurar o pedido de monitorização do retalho para exportar telemetria, precisa de criar um centro de eventos para receber os dados exportados. Os seguintes passos mostram-lhe como criar o seu centro de eventos:
 
 1. No portal Azure, **selecione Criar um recurso** na parte superior esquerda do ecrã.
-1. Em **Search the Marketplace**, insira Os Centros de _Eventos_e, em seguida, prima **Enter**.
+1. Em **Search the Marketplace**, insira Os Centros de _Eventos_ e, em seguida, prima **Enter**.
 1. Na página **'Centros de Eventos',** selecione **Criar**.
 1. Na página **Create Namespace,** tome os seguintes passos:
     * Insira um nome único para o espaço de nome, como _o seu nome-retail-store-analysis_. O sistema verifica se este nome está disponível.
@@ -100,11 +100,11 @@ A exportação de dados pode demorar alguns minutos a começar a enviar telemetr
 O seu painel Power BI apresentará dados da sua aplicação de monitorização de retalho. Nesta solução, utiliza conjuntos de dados de streaming Power BI como fonte de dados para o painel Power BI. Nesta secção, define-se o esquema dos conjuntos de dados de streaming para que a aplicação lógica possa encaminhar dados do centro de eventos. Os seguintes passos mostram como criar dois conjuntos de dados de streaming para os sensores ambientais e um conjunto de dados de streaming para o sensor de ocupação:
 
 1. Inicie sessão na sua conta do **Power BI**.
-1. Selecione **espaços de trabalho**e, em seguida, selecione Criar um espaço de **trabalho**.
+1. Selecione **espaços de trabalho** e, em seguida, selecione Criar um espaço de **trabalho**.
 1. Na página **Criar um espaço de trabalho,** _insira a análise na loja - check-out_ como o **nome workspace**.
 1. Percorra a parte inferior do **Welcome para a página de check-out - check-out workspace** e selecione **Skip**.
 1. Na página do espaço de trabalho, **selecione Criar > conjunto de dados de streaming**.
-1. Na nova página **de conjunto de dados de streaming,** escolha **API**e, em seguida, selecione **Seguinte**.
+1. Na nova página **de conjunto de dados de streaming,** escolha **API** e, em seguida, selecione **Seguinte**.
 1. Introduza _o sensor zona 1_ como **o nome dataset**.
 1. Introduza os três **Valores a partir do fluxo** na tabela seguinte:
 
@@ -127,7 +127,7 @@ Esta solução utiliza um conjunto de dados de streaming para cada sensor porque
 Também precisa de um conjunto de dados de streaming para a telemetria de ocupação:
 
 1. Na página do espaço de trabalho, **selecione Criar > conjunto de dados de streaming**.
-1. Na nova página **de conjunto de dados de streaming,** escolha **API**e, em seguida, selecione **Seguinte**.
+1. Na nova página **de conjunto de dados de streaming,** escolha **API** e, em seguida, selecione **Seguinte**.
 1. Introduza _o sensor de ocupação_ como o nome **dataset**.
 1. Introduza os cinco **Valores do stream** na tabela seguinte:
 
@@ -161,7 +161,7 @@ Antes de criar a aplicação lógica, precisa dos IDs do dispositivo dos dois se
 Os seguintes passos mostram-lhe como criar a aplicação lógica no portal Azure:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Criar um recurso** na parte superior esquerda do ecrã.
-1. Em **Search the Marketplace**, insira a Logic _App_e, em seguida, prima **Enter**.
+1. Em **Search the Marketplace**, insira a Logic _App_ e, em seguida, prima **Enter**.
 1. Na página **'Aplicação Lógica',** selecione **Criar**.
 1. Na página de criação da **Aplicação Lógica:**
     * Insira um nome único para a sua aplicação lógica, como _o seu nome-retail-store-analysis_.
@@ -171,9 +171,9 @@ Os seguintes passos mostram-lhe como criar a aplicação lógica no portal Azure
     * Selecione **Criar**. Talvez tenha de esperar alguns minutos para que o sistema ad proteja os recursos.
 1. No portal Azure, navegue para a sua nova aplicação lógica.
 1. Na página **de Design de Aplicações Lógicas,** desloque-se para baixo e selecione Blank Logic **App**.
-1. Em **Conectores e gatilhos**de pesquisa, insira _os Centros de Eventos_.
+1. Em **Conectores e gatilhos** de pesquisa, insira _os Centros de Eventos_.
 1. Em **Triggers**, selecione **Quando os eventos estiverem disponíveis no Event Hub**.
-1. Introduza _a telemetria da Loja_ como o nome De **Ligação**e selecione o **seu Espaço de Nomes de Centros de Eventos**.
+1. Introduza _a telemetria da Loja_ como o nome De **Ligação** e selecione o **seu Espaço de Nomes de Centros de Eventos**.
 1. Selecione a política **RootManageSharedAccess** e selecione **Criar**.
 1. No **When os eventos estão disponíveis na** ação Event Hub:
     * No **nome Event Hub**, selecione **loja-telemetria**.
@@ -372,52 +372,52 @@ Para adicionar a lógica ao design de aplicações lógicas, selecione **Code vi
 
     ![Design de aplicativos lógico](./media/tutorial-in-store-analytics-visualize-insights/logic-app.png)
 
-1. Selecione **Switch by DeviceID** para expandir a ação. Em seguida, selecione **ambiente zona 1**e selecione **Adicione uma ação**.
-1. Em **Pesquisar conectores e ações**, insira **Power BI**e, em seguida, prima **Enter**.
+1. Selecione **Switch by DeviceID** para expandir a ação. Em seguida, selecione **ambiente zona 1** e selecione **Adicione uma ação**.
+1. Em **Pesquisar conectores e ações**, insira **Power BI** e, em seguida, prima **Enter**.
 1. Selecione as **linhas Adicionar a uma ação de conjunto de dados (pré-visualização).**
 1. Selecione **Iniciar sôm e** siga as instruções para iniciar scontabilidade na sua conta Power BI.
 1. Após o processo de início de sposição estar concluído, nas **linhas Add a uma ação de conjunto de dados:**
     * Selecione **In-store analytics - check-out** como o espaço de trabalho.
     * Selecione **o sensor Zona 1** como conjunto de dados.
     * Selecione **RealTimeData** como tabela.
-    * **Selecione Adicione novo parâmetro** e, em seguida, selecione os campos **Timestamp,** **Humidade**e **Temperatura.**
+    * **Selecione Adicione novo parâmetro** e, em seguida, selecione os campos **Timestamp,** **Humidade** e **Temperatura.**
     * Selecione o campo **Timestamp** e, em seguida, **selecione x-opt-enqueuedtime** da lista de **conteúdos Dynamic.**
     * Selecione o campo **de humidade** e, em seguida, selecione **Ver mais** ao lado da **Parse Telemetria**. Em seguida, selecione **a humidade**.
     * Selecione o campo **Temperatura** e, em seguida, selecione **Ver mais** ao lado da **Telemetria Parse**. Em seguida, selecione **a temperatura**.
     * Selecione **Guardar** para guardar as alterações. A ação **ambiental da Zona 1** parece a seguinte imagem: ![ Ambiente zona 1](./media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png)
 1. Selecione a ação **ambiental zona 2** e selecione **Adicione uma ação**.
-1. Em **Pesquisar conectores e ações**, insira **Power BI**e, em seguida, prima **Enter**.
+1. Em **Pesquisar conectores e ações**, insira **Power BI** e, em seguida, prima **Enter**.
 1. Selecione as **linhas Adicionar a uma ação de conjunto de dados (pré-visualização).**
 1. Nas **linhas Adicionar a uma ação do conjunto de dados 2:**
     * Selecione **In-store analytics - check-out** como o espaço de trabalho.
     * Selecione **o sensor Zona 2** como conjunto de dados.
     * Selecione **RealTimeData** como tabela.
-    * **Selecione Adicione novo parâmetro** e, em seguida, selecione os campos **Timestamp,** **Humidade**e **Temperatura.**
+    * **Selecione Adicione novo parâmetro** e, em seguida, selecione os campos **Timestamp,** **Humidade** e **Temperatura.**
     * Selecione o campo **Timestamp** e, em seguida, **selecione x-opt-enqueuedtime** da lista de **conteúdos Dynamic.**
     * Selecione o campo **de humidade** e, em seguida, selecione **Ver mais** ao lado da **Parse Telemetria**. Em seguida, selecione **a humidade**.
     * Selecione o campo **Temperatura** e, em seguida, selecione **Ver mais** ao lado da **Telemetria Parse**. Em seguida, selecione **a temperatura**.
     Selecione **Guardar** para guardar as alterações.  A ação **ambiental da Zona 2** parece a seguinte imagem: ![ Ambiente zona 2](./media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png)
 1. Selecione a ação **de Ocupação** e, em seguida, selecione a ação **Switch by Interface ID.**
 1. Selecione a ação **da interface Dwell Time** e selecione Adicione uma **ação**.
-1. Em **Pesquisar conectores e ações**, insira **Power BI**e, em seguida, prima **Enter**.
+1. Em **Pesquisar conectores e ações**, insira **Power BI** e, em seguida, prima **Enter**.
 1. Selecione as **linhas Adicionar a uma ação de conjunto de dados (pré-visualização).**
 1. Nas **linhas Adicionar a uma ação de conjunto de dados:**
     * Selecione **In-store analytics - check-out** como o espaço de trabalho.
     * Selecione **o Sensor de Ocupação** como conjunto de dados.
     * Selecione **RealTimeData** como tabela.
-    * **Selecione Adicione novo parâmetro** e, em seguida, selecione os campos **Timestamp**, **Dwell Time 1**e **Dwell Time 2.**
+    * **Selecione Adicione novo parâmetro** e, em seguida, selecione os campos **Timestamp**, **Dwell Time 1** e **Dwell Time 2.**
     * Selecione o campo **Timestamp** e, em seguida, **selecione x-opt-enqueuedtime** da lista de **conteúdos Dynamic.**
     * Selecione o campo **Dwell Time 1** e, em seguida, selecione **Ver mais** ao lado **da Telemetria Parse**. Em seguida, selecione **DwellTime1**.
     * Selecione o campo **Dwell Time 2** e, em seguida, selecione **Ver mais** ao lado **da Telemetria Parse**. Em seguida, selecione **DwellTime2**.
     * Selecione **Guardar** para guardar as alterações. A ação **da interface Dwell Time** parece a seguinte imagem: Screenshot que mostra a ação ![ "Dwell Time interface".](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Selecione a ação **de interface People Count** e selecione Adicione uma **ação**.
-1. Em **Pesquisar conectores e ações**, insira **Power BI**e, em seguida, prima **Enter**.
+1. Em **Pesquisar conectores e ações**, insira **Power BI** e, em seguida, prima **Enter**.
 1. Selecione as **linhas Adicionar a uma ação de conjunto de dados (pré-visualização).**
 1. Nas **linhas Adicionar a uma ação de conjunto de dados:**
     * Selecione **In-store analytics - check-out** como o espaço de trabalho.
     * Selecione **o Sensor de Ocupação** como conjunto de dados.
     * Selecione **RealTimeData** como tabela.
-    * **Selecione Adicione novo parâmetro** e, em seguida, selecione os campos **Timestamp,** **Queue Length 1**e **Queue Length 2.**
+    * **Selecione Adicione novo parâmetro** e, em seguida, selecione os campos **Timestamp,** **Queue Length 1** e **Queue Length 2.**
     * Selecione o campo **Timestamp** e, em seguida, **selecione x-opt-enqueuedtime** da lista de **conteúdos Dynamic.**
     * Selecione o campo **Comprimento da Fila 1** e, em seguida, selecione **Ver mais** ao lado da **Telemetria Parse**. Em seguida, selecione **a contagem1**.
     * Selecione o campo **Comprimento da Fila 2** e, em seguida, selecione **Ver mais** ao lado **da Telemetria Parse**. Em seguida, selecione **count2**.
@@ -436,7 +436,7 @@ Agora tem telemetria fluindo da sua aplicação IoT Central através do seu cent
 
 ### <a name="add-line-charts"></a>Adicionar gráficos de linha
 
-Adicione quatro telhas de gráfico de linha para mostrar a temperatura e a humidade dos dois sensores ambientais. Utilize as informações na tabela seguinte para criar os azulejos. Para adicionar cada azulejo, comece por selecionar **... (Mais opções) > Adicionar Azulejo.** Selecione **dados de streaming personalizados**e, em seguida, selecione **Seguinte**:
+Adicione quatro telhas de gráfico de linha para mostrar a temperatura e a humidade dos dois sensores ambientais. Utilize as informações na tabela seguinte para criar os azulejos. Para adicionar cada azulejo, comece por selecionar **... (Mais opções) > Adicionar Azulejo.** Selecione **dados de streaming personalizados** e, em seguida, selecione **Seguinte**:
 
 | Definição | #1 gráfico | #2 gráfico | #3 gráfico | #4 gráfico |
 | ------- | -------- | -------- | -------- | -------- |
@@ -454,7 +454,7 @@ A imagem a seguir mostra as definições para o primeiro gráfico:
 
 ### <a name="add-cards-to-show-environmental-data"></a>Adicionar cartões para mostrar dados ambientais
 
-Adicione quatro telhas de cartão para mostrar os valores mais recentes de temperatura e humidade dos dois sensores ambientais. Utilize as informações na tabela seguinte para criar os azulejos. Para adicionar cada azulejo, comece por selecionar **... (Mais opções) > Adicionar Azulejo.** Selecione **dados de streaming personalizados**e, em seguida, selecione **Seguinte**:
+Adicione quatro telhas de cartão para mostrar os valores mais recentes de temperatura e humidade dos dois sensores ambientais. Utilize as informações na tabela seguinte para criar os azulejos. Para adicionar cada azulejo, comece por selecionar **... (Mais opções) > Adicionar Azulejo.** Selecione **dados de streaming personalizados** e, em seguida, selecione **Seguinte**:
 
 | Definição | #1 de cartão | #2 de cartões | #3 de cartões | #4 de cartões |
 | ------- | ------- | ------- | ------- | ------- |
@@ -470,7 +470,7 @@ A imagem que se segue mostra as definições da primeira carta:
 
 ### <a name="add-tiles-to-show-checkout-occupancy-data"></a>Adicione azulejos para mostrar dados de ocupação de check-out
 
-Adicione quatro telhas de cartão para mostrar o comprimento da fila e tempo de permanência para os dois checkouts na loja. Utilize as informações na tabela seguinte para criar os azulejos. Para adicionar cada azulejo, comece por selecionar **... (Mais opções) > Adicionar Azulejo.** Selecione **dados de streaming personalizados**e, em seguida, selecione **Seguinte**:
+Adicione quatro telhas de cartão para mostrar o comprimento da fila e tempo de permanência para os dois checkouts na loja. Utilize as informações na tabela seguinte para criar os azulejos. Para adicionar cada azulejo, comece por selecionar **... (Mais opções) > Adicionar Azulejo.** Selecione **dados de streaming personalizados** e, em seguida, selecione **Seguinte**:
 
 | Definição | #1 de cartão | #2 de cartões | #3 de cartões | #4 de cartões |
 | ------- | ------- | ------- | ------- | ------- |
@@ -490,7 +490,7 @@ Pode adicionar alguns recursos gráficos adicionais para personalizar ainda mais
 
 ![Dashboard do Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se terminou com a sua aplicação IoT Central, pode eliminá-la insinando-a na aplicação e navegando na página Definições de **Aplicação** na secção **Administração.**
 

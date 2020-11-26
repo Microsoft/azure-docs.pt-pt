@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: b309ce01595e2e62bea7f78ae728d83bc7d9b9be
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 803c9a98f0dc10ff8218ac7b7c20dcb117700034
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992170"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187107"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL e Azure SQL Gestão De Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -614,7 +614,7 @@ Os ataques de Negação de Serviço Distribuído (DDoS) são tentativas de um ut
 
 A proteção DDoS é ativada automaticamente como parte da Plataforma Azure. Inclui a monitorização do tráfego sempre on-on e a mitigação em tempo real dos ataques a nível da rede em pontos finais públicos.
 
-- Utilize [a Proteção DDoS Azure](../../virtual-network/ddos-protection-overview.md) para monitorizar endereços IP públicos associados a recursos implantados em redes virtuais.
+- Utilize [a Proteção DDoS Azure](../../ddos-protection/ddos-protection-overview.md) para monitorizar endereços IP públicos associados a recursos implantados em redes virtuais.
 
 - Utilize [proteção de ameaças avançadas para a base de dados Azure SQL](threat-detection-overview.md) para detetar ataques de Negação de Serviço (DoS) contra bases de dados.
 
@@ -800,6 +800,6 @@ A maioria das normas de segurança aborda a disponibilidade de dados em termos d
     - [Alta disponibilidade - Configuração redundante de zona para o nível de serviço de finalidade geral](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
     - [Visão geral da continuidade do negócio](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [uma visão geral das capacidades de segurança da Base de Dados Azure SQL](security-overview.md)

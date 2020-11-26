@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d12244bce117d6a631fdb67dc460af18bc77028c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f8edeb452f01af88f0305cd0a3e3a2332ec09e4e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995757"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186954"
 ---
 # <a name="application-insights-cohorts"></a>Coortes de Insights de Aplicação
 
@@ -107,7 +107,7 @@ As duas coortes anteriores foram definidas usando caixas de entrega. Mas também
      Na secção de consultas, [escreve-se uma consulta analítica.](/azure/kusto/query) A consulta seleciona o conjunto de linhas que descrevem a coorte que pretende definir. A ferramenta Cohorts adiciona então implicitamente um "/ resumir por cláusula user_Id" para a consulta. Estes dados são pré-visualizados abaixo da consulta numa tabela, para que possa certificar-se de que a sua consulta está a devolver os resultados.
 
      > [!NOTE]
-     > Se não vir a consulta, tente redimensionar a secção para torná-la mais alta e revelar a consulta. O .gif animado no início desta secção ilustra o comportamento de redimensionamento.
+     > Se não vir a consulta, tente redimensionar a secção para torná-la mais alta e revelar a consulta. A animação .gif no início desta secção ilustra o comportamento de redimensionamento.
 
 2. Copiar e colar o seguinte texto no editor de consulta:
 
@@ -131,7 +131,7 @@ Coortes e filtros são diferentes. Suponha que tem uma coorte de utilizadores do
 
 ## <a name="learn-more"></a>Saber mais
 
-* [Linguagem de consulta de análise](../log-query/get-started-portal.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+* [Linguagem de consulta de análise](../log-query/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Utilizadores, sessões, eventos](usage-segmentation.md)
-* [Fluxos de utilizadores](usage-flows.md)
+* [Fluxos do utilizador](usage-flows.md)
 * [Visão geral do uso](usage-overview.md)

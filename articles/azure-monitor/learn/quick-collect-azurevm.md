@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: fb7a32199117be76e411155910d558ef187398ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6cc9c6af4592956b6498e826ef65b556e5780f34
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91448259"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186835"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Recolher dados de uma máquina virtual Azure com o Azure Monitor
 
@@ -30,7 +30,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
     ![Portal do Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
-2. Selecione **Criar**e, em seguida, selecione escolhas para os seguintes itens:
+2. Selecione **Criar** e, em seguida, selecione escolhas para os seguintes itens:
 
    * Indique um nome para a nova **Área de trabalho do Log Analytics**, como *DefaultLAWorkspace*.  
    * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
@@ -141,4 +141,4 @@ Agora que está a recolher dados operacionais e de desempenho das máquinas virt
 Para saber como ver e analisar os dados, avance para o tutorial.
 
 > [!div class="nextstepaction"]
-> [Ver ou analisar dados no Log Analytics](../log-query/get-started-portal.md)
+> [Ver ou analisar dados no Log Analytics](../log-query/log-analytics-tutorial.md)

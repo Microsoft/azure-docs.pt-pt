@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.custom: seo-nov-2020
-ms.openlocfilehash: f698c1ac7ab3ad2dbd86710bea9a48d962603d86
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 23401885580a3883dc49eccc97c17bbedd9080ab
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334657"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187328"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Pedido no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,34 +31,34 @@ Para gerir e planear capacidade, o Azure Cosmos DB assegura que o número de RU
 
 O tipo de conta Azure Cosmos que está a usar determina a forma como as RUs consumidas são cobradas. Existem 3 modos nos quais pode criar uma conta:
 
-1. **Modo de produção previsto** : Neste modo, fornece o número de RUs para a sua aplicação por segundo em incrementos de 100 RUs por segundo. Para escalar a produção prevista para a sua aplicação, pode aumentar ou diminuir o número de RUs a qualquer momento em incrementos ou decrépitos de 100 RUs. Pode efetuar as suas alterações através de programação ou do portal do Azure. É cobrado de hora em hora pelo montante de RUs por segundo que a provisionou. Para saber mais, consulte o artigo [Produção.](set-throughput.md)
+1. **Modo de produção previsto**: Neste modo, fornece o número de RUs para a sua aplicação por segundo em incrementos de 100 RUs por segundo. Para escalar a produção prevista para a sua aplicação, pode aumentar ou diminuir o número de RUs a qualquer momento em incrementos ou decrépitos de 100 RUs. Pode efetuar as suas alterações através de programação ou do portal do Azure. É cobrado de hora em hora pelo montante de RUs por segundo que a provisionou. Para saber mais, consulte o artigo [Produção.](set-throughput.md)
 
    Pode provisões com duas granularidades distintas:
 
-   * **Recipientes** : Para obter mais informações, consulte [a produção de provisão num recipiente Azure Cosmos](how-to-provision-container-throughput.md).
-   * **Bases de dados** : Para obter mais informações, consulte [a produção de provisões numa base de dados da Azure Cosmos](how-to-provision-database-throughput.md).
+   * **Recipientes**: Para obter mais informações, consulte [a produção de provisão num recipiente Azure Cosmos](how-to-provision-container-throughput.md).
+   * **Bases de dados**: Para obter mais informações, consulte [a produção de provisões numa base de dados da Azure Cosmos](how-to-provision-database-throughput.md).
 
-2. **Modo serverless** : Neste modo, não é necessário prever qualquer produção na criação de recursos na sua conta Azure Cosmos. No final do seu período de faturação, é cobrado a quantidade de Unidades de Pedido que foi consumida pelas suas operações de base de dados. Para saber mais, consulte o artigo [de produção serverless.](serverless.md) 
+2. **Modo serverless**: Neste modo, não é necessário prever qualquer produção na criação de recursos na sua conta Azure Cosmos. No final do seu período de faturação, é cobrado a quantidade de Unidades de Pedido que foi consumida pelas suas operações de base de dados. Para saber mais, consulte o artigo [de produção serverless.](serverless.md) 
 
-3. **Modo de autoestamação** : Neste mais, pode escalar automaticamente e instantaneamente a produção (RU/s) da sua base de dados ou contentor com base na sua utilização, sem afetar a disponibilidade, latência, produção ou desempenho da carga de trabalho. Este modo é adequado para cargas de trabalho críticas de missão que têm padrões de tráfego variáveis ou imprevisíveis, e requerem SLAs em alto desempenho e escala. Para saber mais, consulte o artigo [de produção de escala automática.](provision-throughput-autoscale.md) 
+3. **Modo de autoestamação**: Neste modo, pode escalar automaticamente e instantaneamente a potência (RU/s) da sua base de dados ou contentor com base na sua utilização, sem afetar a disponibilidade, a latência, a produção ou o desempenho da carga de trabalho. Este modo é adequado para cargas de trabalho críticas de missão que têm padrões de tráfego variáveis ou imprevisíveis, e requerem SLAs em alto desempenho e escala. Para saber mais, consulte o artigo [de produção de escala automática.](provision-throughput-autoscale.md) 
 
 ## <a name="request-unit-considerations"></a>Considerações da Unidade de Pedido
 
 Embora calcule o número de RUs consumidos pela sua carga de trabalho, considere os seguintes fatores:
 
-* **Tamanho do item** : à medida que o tamanho de um item aumenta, o número de RUs consumidos para ler ou escrever o item também aumenta.
+* **Tamanho do item**: à medida que o tamanho de um item aumenta, o número de RUs consumidos para ler ou escrever o item também aumenta.
 
-* **Indexação do item** : por predefinição, cada item é automaticamente indexado. São consumidas menos RUs se optar por não indexar alguns dos seus itens num contentor.
+* **Indexação do item**: por predefinição, cada item é automaticamente indexado. São consumidas menos RUs se optar por não indexar alguns dos seus itens num contentor.
 
-* **Contagem de propriedades do item** : assumindo que a indexação predefinida existe em todas as propriedades, o número de RUs consumidas para escrever um item aumenta à medida que a contagem de propriedades do item aumenta.
+* **Contagem de propriedades do item**: assumindo que a indexação predefinida existe em todas as propriedades, o número de RUs consumidas para escrever um item aumenta à medida que a contagem de propriedades do item aumenta.
 
-* **Propriedades indexadas** : uma política de indexação em cada contentor determina as propriedades indexadas por predefinição. Para reduzir o consumo de RUs para operações de escrita, limite o número de propriedades indexadas.
+* **Propriedades indexadas**: uma política de indexação em cada contentor determina as propriedades indexadas por predefinição. Para reduzir o consumo de RUs para operações de escrita, limite o número de propriedades indexadas.
 
-* **Consistência dos dados** : Os níveis fortes e limitados de consistência da estagnação consomem aproximadamente duas vezes mais RUs enquanto realizam operações de leitura quando comparadas com as de outros níveis de consistência descontraídos.
+* **Consistência dos dados**: Os níveis fortes e limitados de consistência da estagnação consomem aproximadamente duas vezes mais RUs enquanto realizam operações de leitura quando comparadas com as de outros níveis de consistência descontraídos.
 
-* **Tipo de leituras** : As leituras de pontos custam significativamente menos RUs do que consultas.
+* **Tipo de leituras**: As leituras de pontos custam significativamente menos RUs do que consultas.
 
-* **Padrões de consulta** : a complexidade de uma consulta afeta a quantidade de RUs consumidas durante uma operação. Os fatores que afetam o custo das operações de consulta incluem: 
+* **Padrões de consulta**: a complexidade de uma consulta afeta a quantidade de RUs consumidas durante uma operação. Os fatores que afetam o custo das operações de consulta incluem: 
  
   * O número de resultados da consulta
   * O número de predicados
@@ -70,7 +70,7 @@ Embora calcule o número de RUs consumidos pela sua carga de trabalho, considere
 
   A mesma consulta sobre os mesmos dados custará sempre o mesmo número de RUs em execuções repetidas.
 
-* **Utilização do script** : Tal como acontece com consultas, os procedimentos armazenados e os gatilhos consomem RUs com base na complexidade das operações que são realizadas. À medida que desenvolve a sua aplicação, inspecione o [cabeçalho de encargos de pedidos](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request) para compreender melhor quanta capacidade de RUs é consumida pelas operações.
+* **Utilização do script**: Tal como acontece com consultas, os procedimentos armazenados e os gatilhos consomem RUs com base na complexidade das operações que são realizadas. À medida que desenvolve a sua aplicação, inspecione o [cabeçalho de encargos de pedidos](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request) para compreender melhor quanta capacidade de RUs é consumida pelas operações.
 
 ## <a name="request-units-and-multiple-regions"></a>Unidades de pedido e várias regiões
 
